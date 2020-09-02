@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -11,6 +13,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ha"/>
 	</identity>
 	<annotations>
+		<annotation cp="🏻">launin fata | nau’in 1–2</annotation>
+		<annotation cp="🏻" type="tts">launin fata mai haske</annotation>
+		<annotation cp="🏼">launin fata | nau’in 3</annotation>
+		<annotation cp="🏼" type="tts">launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🏽">launin fata | nau’in 4</annotation>
+		<annotation cp="🏽" type="tts">madaidaicin launin fata</annotation>
+		<annotation cp="🏾">launin fata | nau’in 5</annotation>
+		<annotation cp="🏾" type="tts">launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🏿">launin fata | nau’in 6</annotation>
+		<annotation cp="🏿" type="tts">launin fata mai duhu</annotation>
 		<annotation cp="‾">kan layi</annotation>
 		<annotation cp="‾" type="tts">kan layi</annotation>
 		<annotation cp="‽">introbang</annotation>
@@ -19,5 +31,2519 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‸" type="tts">kula</annotation>
 		<annotation cp="⁂">alada</annotation>
 		<annotation cp="⁂" type="tts">alada</annotation>
+		<annotation cp="😀">fuska | mai murmushi baki har kunne</annotation>
+		<annotation cp="😀" type="tts">fuska mai murmushin baki har kunne</annotation>
+		<annotation cp="😃">fuska | baki | a buɗe | murmushi</annotation>
+		<annotation cp="😃" type="tts">fuska mai murmushi tare da baki a buɗe</annotation>
+		<annotation cp="😄">ido | fuska | baki | a buɗe | murmushi</annotation>
+		<annotation cp="😄" type="tts">fuska mai murmushi tare da baki a buɗe &amp; idanu masu murmushi</annotation>
+		<annotation cp="😁">ido | fuska | murmushi na baki har kunne | murmushi</annotation>
+		<annotation cp="😁" type="tts">fuska mai murmushin baki har kunne tare da idanu masu murmushi</annotation>
+		<annotation cp="😆">fuska | dariya | baki | a buɗe | gamsu | murmushi</annotation>
+		<annotation cp="😆" type="tts">fuska mai murmushi tare da baki a buɗe &amp; idanu a rufe</annotation>
+		<annotation cp="😅">sanyi | fuska | a buɗe | murmushi | gumi</annotation>
+		<annotation cp="😅" type="tts">fuska mai murmushi tare da baki a buɗe &amp; gumi mai sanyi</annotation>
+		<annotation cp="🤣">daɓe | dariya | mirgina | fuska</annotation>
+		<annotation cp="🤣" type="tts">mirgina a daɓe da dariya</annotation>
+		<annotation cp="😂">fuska | murna | dariya | hawaye</annotation>
+		<annotation cp="😂" type="tts">fuska mai hawayen murna</annotation>
+		<annotation cp="🙂">fuska | murmushi</annotation>
+		<annotation cp="🙂" type="tts">fuska mai murmushi kaɗan</annotation>
+		<annotation cp="🙃">a birkice | fuska</annotation>
+		<annotation cp="🙃" type="tts">fuska a birkice</annotation>
+		<annotation cp="😉">fuska | yi ƙifta</annotation>
+		<annotation cp="😉" type="tts">fuska mai yin ƙifta</annotation>
+		<annotation cp="😊">ji kunya | ido | fuska | murmushi</annotation>
+		<annotation cp="😊" type="tts">fuska mai murmushi tare da idanu mai murmushi</annotation>
+		<annotation cp="😇">malaika | fuska | labarin aljana | tatsuniya | maras laifi | murmushi</annotation>
+		<annotation cp="😇" type="tts">fuska mai murmushi tare da da’irar haske</annotation>
+		<annotation cp="😍">ido | fuska | ƙauna | murmushi</annotation>
+		<annotation cp="😍" type="tts">fuska mai murmushi tare da idanun zuciya</annotation>
+		<annotation cp="🤩">yin dariya har kunne | fuska | tauraro | idanu</annotation>
+		<annotation cp="🤩" type="tts">cikin soyayya</annotation>
+		<annotation cp="😘">fuska | sumba</annotation>
+		<annotation cp="😘" type="tts">fuska mai ba da wani sumba</annotation>
+		<annotation cp="😗">fuska | sumba</annotation>
+		<annotation cp="😗" type="tts">Fuska mai yin sumba</annotation>
+		<annotation cp="☺">fuska | mai shaci | mai walwala | murmushi</annotation>
+		<annotation cp="☺" type="tts">fuska mai murmushi</annotation>
+		<annotation cp="😚">a rufe | ido | fuska | sumba</annotation>
+		<annotation cp="😚" type="tts">fuska mai yin sumba tare da rufaffen Idanu</annotation>
+		<annotation cp="😙">ido | fuska | sumba | murmushi</annotation>
+		<annotation cp="😙" type="tts">fuska mai yin sumba tare da idanu masu murmushi</annotation>
+		<annotation cp="😋">mai daɗi | fuska | ɗanɗano | murmushi | um | yum</annotation>
+		<annotation cp="😋" type="tts">fuska da take ɗanɗana abinci mai daɗi</annotation>
+		<annotation cp="😛">fuska | harshe</annotation>
+		<annotation cp="😛" type="tts">fuska tare da harshe a waje</annotation>
+		<annotation cp="😜">ido | fuska | abin dariya | harshe | ƙifta</annotation>
+		<annotation cp="😜" type="tts">fuska tare da harshe a waje da ido mai ƙifta</annotation>
+		<annotation cp="🤪">babba | ƙarami | ido</annotation>
+		<annotation cp="🤪" type="tts">fuska mai masifar so</annotation>
+		<annotation cp="😝">ido | fuska | maƙetaci | ɗanɗano | harshe</annotation>
+		<annotation cp="😝" type="tts">fuska tare da harshe a waje da rufaffun idanu</annotation>
+		<annotation cp="🤑">fuska | kuɗi | baki</annotation>
+		<annotation cp="🤑" type="tts">fuska mai bakin-kuɗi</annotation>
+		<annotation cp="🤗">fuska | runguma | mai runguma</annotation>
+		<annotation cp="🤗" type="tts">fuska mai runguma</annotation>
+		<annotation cp="🤭">nunin baƙin ciki</annotation>
+		<annotation cp="🤭" type="tts">fuska tare da hannu bisa baki</annotation>
+		<annotation cp="🤫">mai shiru | shiru</annotation>
+		<annotation cp="🤫" type="tts">fuska mai shiru</annotation>
+		<annotation cp="🤔">fuska | tunani</annotation>
+		<annotation cp="🤔" type="tts">fuska mai tunani</annotation>
+		<annotation cp="🤐">fuska | baki | zif</annotation>
+		<annotation cp="🤐" type="tts">fuskar baki mai zif</annotation>
+		<annotation cp="🤨">mai shakka | maras aminci</annotation>
+		<annotation cp="🤨" type="tts">fuska tare da ɗagaggiyar gira</annotation>
+		<annotation cp="😐">mara shige | fuska | mai tsaka-tsakanci</annotation>
+		<annotation cp="😐" type="tts">fuska mai tsaka-tsakanci</annotation>
+		<annotation cp="😑">mara shige | fuska | maras shige</annotation>
+		<annotation cp="😑" type="tts">fuska mara shige</annotation>
+		<annotation cp="😶">fuska | baki | mai shiru | shiru</annotation>
+		<annotation cp="😶" type="tts">fuska ban da baki</annotation>
+		<annotation cp="😏">fuska | murmushin wauta</annotation>
+		<annotation cp="😏" type="tts">fuska mai murmushin wauta</annotation>
+		<annotation cp="😒">fuska | mara sha’awa | baƙin ciki</annotation>
+		<annotation cp="😒" type="tts">fuska mara sha’awa</annotation>
+		<annotation cp="🙄">idanu | fuska | mai mirgina</annotation>
+		<annotation cp="🙄" type="tts">fuska tare da idanu masu mirgina</annotation>
+		<annotation cp="😬">fuska | ɗauren fuska</annotation>
+		<annotation cp="😬" type="tts">fuska na ɗauren fuska</annotation>
+		<annotation cp="🤥">fuska | ƙarya | pinocchio</annotation>
+		<annotation cp="🤥" type="tts">fuska mai yin ƙarya</annotation>
+		<annotation cp="😌">fuska | kwancin hankali</annotation>
+		<annotation cp="😌" type="tts">fuska mai kwancin hankali</annotation>
+		<annotation cp="😔">mai sanyin jiki | fuska | mai yin tunani</annotation>
+		<annotation cp="😔" type="tts">fuska mai yin tunani</annotation>
+		<annotation cp="😪">fuska | barci</annotation>
+		<annotation cp="😪" type="tts">fuska mai jin barci</annotation>
+		<annotation cp="🤤">nuna ɓacin rai | fuska</annotation>
+		<annotation cp="🤤" type="tts">fuska mai nuna ɓacin rai</annotation>
+		<annotation cp="😴">fuska | barci | zzz</annotation>
+		<annotation cp="😴" type="tts">fuska mai yin barci</annotation>
+		<annotation cp="😷">sanyi | likita | fuska | abin rufen fuska | magani | maras lafiya</annotation>
+		<annotation cp="😷" type="tts">fuska mai abin rufen fuska na aikin kula da lafiya</annotation>
+		<annotation cp="🤒">fuska | rashin lafiya | maras lafiya | tsinken awon zafin jiki</annotation>
+		<annotation cp="🤒" type="tts">fuska mai tsinken awon zafin jiki</annotation>
+		<annotation cp="🤕">bandeji | fuska | ciwo | rauni</annotation>
+		<annotation cp="🤕" type="tts">fuska mai bandejin-kai</annotation>
+		<annotation cp="🤢">fuska | mai tashin zuciya | amai</annotation>
+		<annotation cp="🤢" type="tts">fuska mai tashin zuciya</annotation>
+		<annotation cp="🤮">amai | maras lafiya</annotation>
+		<annotation cp="🤮" type="tts">fuska yin amai</annotation>
+		<annotation cp="🤧">fuska | geshundheit | atishawa</annotation>
+		<annotation cp="🤧" type="tts">fuska mai yin atishawa</annotation>
+		<annotation cp="😵">jiri | fuska</annotation>
+		<annotation cp="😵" type="tts">fuska mai jin jiri</annotation>
+		<annotation cp="🤯">firgitacce</annotation>
+		<annotation cp="🤯" type="tts">kai mai bashewa</annotation>
+		<annotation cp="🤠">kaboyi | fuska | hula | kaboyi na mace</annotation>
+		<annotation cp="🤠" type="tts">fuska mai hular kaboyi</annotation>
+		<annotation cp="😎">mai haske | mai ni’ima | ido | kayan ido | fuska | tabarau | murmushi | rana | tabarau rana</annotation>
+		<annotation cp="😎" type="tts">fuska mai murmushi tare da tabarau</annotation>
+		<annotation cp="🤓">fuska | mai azanci | mai daƙiƙi</annotation>
+		<annotation cp="🤓" type="tts">fuska mai daƙiƙi</annotation>
+		<annotation cp="🧐">mai cunkusa</annotation>
+		<annotation cp="🧐" type="tts">fuska tare da tabarau mai ido ɗaya</annotation>
+		<annotation cp="😕">rikitacce | fuska</annotation>
+		<annotation cp="😕" type="tts">rikitacciyar fuska</annotation>
+		<annotation cp="😟">fuska | mai damuwa</annotation>
+		<annotation cp="😟" type="tts">fuska mai damuwa</annotation>
+		<annotation cp="🙁">fuska | gama gira</annotation>
+		<annotation cp="🙁" type="tts">fuska mai gama gira kaɗan</annotation>
+		<annotation cp="☹">fuska | gama gira</annotation>
+		<annotation cp="☹" type="tts">fuska mai gama gira</annotation>
+		<annotation cp="😮">fuska | baki | a buɗe | tausayi</annotation>
+		<annotation cp="😮" type="tts">fuska tare da baki a buɗe</annotation>
+		<annotation cp="😯">fuska | nitsuwa | rikitacce | mai mamaki</annotation>
+		<annotation cp="😯" type="tts">fuska mai nitsuwa</annotation>
+		<annotation cp="😲">mai burgewa | fuska | mai mamaki | gaba ɗaya</annotation>
+		<annotation cp="😲" type="tts">fuska mai burgewa</annotation>
+		<annotation cp="😳">mamaki | fuska | mai murna</annotation>
+		<annotation cp="😳" type="tts">fuska mai murna</annotation>
+		<annotation cp="😦">fuska | gama gira | baki | a buɗe</annotation>
+		<annotation cp="😦" type="tts">fuska mai gama gira tare da baki a buɗe</annotation>
+		<annotation cp="😧">mai tagayyara | fuska</annotation>
+		<annotation cp="😧" type="tts">fuska mai tagayyara</annotation>
+		<annotation cp="😨">fuska | tsoro | jin tsoro | firgita</annotation>
+		<annotation cp="😨" type="tts">fuska mai jin tsoro</annotation>
+		<annotation cp="😰">shuɗi | sanyi | fuska | baki | a buɗe | gaggauta | gumi</annotation>
+		<annotation cp="😰" type="tts">fuska tare da baki a buɗe &amp; gumi mai sanyi</annotation>
+		<annotation cp="😥">ɓata wa rai | fuska | kwancin hankali | whew</annotation>
+		<annotation cp="😥" type="tts">fuska ɓata wa rai amma mai kwancin hankali</annotation>
+		<annotation cp="😢">kuka | fuska | baƙin ciki | hawaye</annotation>
+		<annotation cp="😢" type="tts">fuska mai kuka</annotation>
+		<annotation cp="😭">kuka | fuska | baƙin ciki | kuka da shassheƙa | hawaye</annotation>
+		<annotation cp="😭" type="tts">fuska mai kuka da ƙarfi</annotation>
+		<annotation cp="😱">fuska | tsoro | mai tsoro | ci abinci da sauri | jin tsoro | yi ƙara</annotation>
+		<annotation cp="😱" type="tts">fuska mai yin ƙara a cikin tsoro</annotation>
+		<annotation cp="😖">rikitarwa | fuska</annotation>
+		<annotation cp="😖" type="tts">fuska mai rikitarwa</annotation>
+		<annotation cp="😣">fuska | nacewa</annotation>
+		<annotation cp="😣" type="tts">fuska mai nacewa</annotation>
+		<annotation cp="😞">ɓacin rai | fuska</annotation>
+		<annotation cp="😞" type="tts">fuska mai ɓacin rai</annotation>
+		<annotation cp="😓">sanyi | fuska | gumi</annotation>
+		<annotation cp="😓" type="tts">fuska tare da gumi mai sanyi</annotation>
+		<annotation cp="😩">fuska | gajiya | gajiyayye</annotation>
+		<annotation cp="😩" type="tts">gajiyayyiyar fuska</annotation>
+		<annotation cp="😫">fuska | gajiya</annotation>
+		<annotation cp="😫" type="tts">fuska mai gajiya</annotation>
+		<annotation cp="😤">fuska | nasara | an yi nasara</annotation>
+		<annotation cp="😤" type="tts">fuska tare da tururi daga hanci</annotation>
+		<annotation cp="😡">fushi | fuska | haushi | ɓacin zuciya | hasala | ja</annotation>
+		<annotation cp="😡" type="tts">fuska mai nuna ɓacin zuciya</annotation>
+		<annotation cp="😠">fushi | fuska | haushi</annotation>
+		<annotation cp="😠" type="tts">fuska mai fushi</annotation>
+		<annotation cp="🤬">yin ashar</annotation>
+		<annotation cp="🤬" type="tts">fuska tare da alamomi bisa baki</annotation>
+		<annotation cp="😈">fuska | labarin aljana | tatsuniya | ƙahoni | murmushi</annotation>
+		<annotation cp="😈" type="tts">fuska mai murmushi tare da ƙahoni</annotation>
+		<annotation cp="👿">shaiɗan | iblis | aljanu | fuska | labarin aljana | tatsuniya</annotation>
+		<annotation cp="👿" type="tts">fuska mai fushi tare da ƙahoni</annotation>
+		<annotation cp="💀">mutuwa | fuska | labarin aljana | dodo</annotation>
+		<annotation cp="💀" type="tts">ƙoƙon kai</annotation>
+		<annotation cp="☠">haɗaɗɗun ƙashushuwa | mutuwa | fuska | dodo | ƙoƙon kai</annotation>
+		<annotation cp="☠" type="tts">ƙoƙon kai da haɗaɗɗun ƙashushuwa</annotation>
+		<annotation cp="💩">mai ban dariya | taroso | fuska | dodo | taki | kashi</annotation>
+		<annotation cp="💩" type="tts">tsibin kashi</annotation>
+		<annotation cp="🤡">cali-cali | fuska</annotation>
+		<annotation cp="🤡" type="tts">fuskar cali-cali</annotation>
+		<annotation cp="👹">halitta | fuska | labarin aljana | tatsuniya | dodo</annotation>
+		<annotation cp="👹" type="tts">dodo</annotation>
+		<annotation cp="👺">halitta | fuska | labarin aljana | tatsuniya | dodo</annotation>
+		<annotation cp="👺" type="tts">dodanni</annotation>
+		<annotation cp="👻">halitta | fuska | labarin aljana | tatsuniya | dodo</annotation>
+		<annotation cp="👻" type="tts">fatalwa</annotation>
+		<annotation cp="👽">halitta | halitta a waje da duniya | fuska | labarin aljana | tatsuniya | dodo | ufo</annotation>
+		<annotation cp="👽" type="tts">baƙon sararin sama</annotation>
+		<annotation cp="👾">baƙon sararin sama | halitta | halitta a waje da duniya | fuska | labarin aljana | tatsuniya | dodo | ufo</annotation>
+		<annotation cp="👾" type="tts">dodon baƙon sararin sama</annotation>
+		<annotation cp="🤖">fuska | dodo | robot</annotation>
+		<annotation cp="🤖" type="tts">fuskar Robot</annotation>
+		<annotation cp="😺">kyanwa | fuska | baki | a buɗe | murmushi</annotation>
+		<annotation cp="😺" type="tts">fuskar kyanwa mai murmushi tare da baki a buɗe</annotation>
+		<annotation cp="😸">kyanwa | ido | fuska | murmushi baki har kunne | murmushi</annotation>
+		<annotation cp="😸" type="tts">fuskar kyanwa mai murmushi baki har kunne tare da idanu masu murmushi</annotation>
+		<annotation cp="😹">kyanwa | fuska | murna | hawaye</annotation>
+		<annotation cp="😹" type="tts">fuskar kyanwa tare da hawayen murna</annotation>
+		<annotation cp="😻">kyanwa | ido | fuska | ƙauna | murmushi</annotation>
+		<annotation cp="😻" type="tts">fuskar kyanwa mai murmushi tare da idanun-zuciya</annotation>
+		<annotation cp="😼">kyanwa | fuska | hutsu | murmushi | ɓacin rai</annotation>
+		<annotation cp="😼" type="tts">fuskar kyanwa tare da murmushin ɓacin rai</annotation>
+		<annotation cp="😽">kyanwa | ido | fuska | sumba</annotation>
+		<annotation cp="😽" type="tts">fuskar kyanwa mai sumbata tare da rufaffun idanu</annotation>
+		<annotation cp="🙀">kyanwa | fuska | oho | jin mamaki | gajiya</annotation>
+		<annotation cp="🙀" type="tts">fuskar kyanwa mai gajiya</annotation>
+		<annotation cp="😿">kyanwa | kuka | fuska | baƙin ciki | hawaye</annotation>
+		<annotation cp="😿" type="tts">fuskar kyanwa mai kuka</annotation>
+		<annotation cp="😾">kyanwa | fuska | nuna ɓacin zuciya</annotation>
+		<annotation cp="😾" type="tts">fuskar kyanwa mai nuna ɓacin zuciya</annotation>
+		<annotation cp="🙈">mamuganci | fuska | haram | karimci | biri | a’a | babu | an hana | gani</annotation>
+		<annotation cp="🙈" type="tts">biri na kada a gan mamuganci</annotation>
+		<annotation cp="🙉">mamuganci | fuska | haram | karimci | ji | biri | a’a | babu | an hana</annotation>
+		<annotation cp="🙉" type="tts">biri na kada a jin mamuganci</annotation>
+		<annotation cp="🙊">mamuganci | fuska | haram | karimci | biri | a’a | babu | an hana | faɗa</annotation>
+		<annotation cp="🙊" type="tts">biri na kada a faɗi mamuganci</annotation>
+		<annotation cp="💋">sumba | leɓuna</annotation>
+		<annotation cp="💋" type="tts">alamar sumba</annotation>
+		<annotation cp="💌">zuciya | wasiƙa | soyayya | mel</annotation>
+		<annotation cp="💌" type="tts">wasiƙar soyayya</annotation>
+		<annotation cp="💘">kibiya | cupid</annotation>
+		<annotation cp="💘" type="tts">zuciya tare da kibiya</annotation>
+		<annotation cp="💝">ribon | valentine</annotation>
+		<annotation cp="💝" type="tts">zuciya tare da ribon</annotation>
+		<annotation cp="💖">tsima | mai ƙyalƙyali</annotation>
+		<annotation cp="💖" type="tts">zuciya mai ƙyalƙyali</annotation>
+		<annotation cp="💗">tsima | mai bunƙasawa | bugun jini | juyayi</annotation>
+		<annotation cp="💗" type="tts">zuciya mai bunƙasawa</annotation>
+		<annotation cp="💓">bugawa | bugawar zuciya</annotation>
+		<annotation cp="💓" type="tts">zuciya mai bugawa</annotation>
+		<annotation cp="💞">mai juyawa</annotation>
+		<annotation cp="💞" type="tts">zuciyoyi masu juyawa</annotation>
+		<annotation cp="💕">soyayye</annotation>
+		<annotation cp="💕" type="tts">zuciyoyi biyu</annotation>
+		<annotation cp="💟">zuciya</annotation>
+		<annotation cp="💟" type="tts">adon zuciya</annotation>
+		<annotation cp="❣">alamar motsin rai | alama | alamomin rubutu</annotation>
+		<annotation cp="❣" type="tts">alamar motsin rai na nauyin zuciya</annotation>
+		<annotation cp="💔">karye | karyeyye</annotation>
+		<annotation cp="💔" type="tts">karyayyiyar zuciya</annotation>
+		<annotation cp="❤">zuciya</annotation>
+		<annotation cp="❤" type="tts">jan zuciya</annotation>
+		<annotation cp="🧡">ruwan goro</annotation>
+		<annotation cp="🧡" type="tts">zuciyar na ruwan goro</annotation>
+		<annotation cp="💛">rawaya</annotation>
+		<annotation cp="💛" type="tts">rawayan zuciya</annotation>
+		<annotation cp="💚">kore</annotation>
+		<annotation cp="💚" type="tts">koren zuciya</annotation>
+		<annotation cp="💙">shuɗi</annotation>
+		<annotation cp="💙" type="tts">shuɗin zuciya</annotation>
+		<annotation cp="💜">algashi</annotation>
+		<annotation cp="💜" type="tts">algashin zuciya</annotation>
+		<annotation cp="🖤">baƙi | mugu | sharri</annotation>
+		<annotation cp="🖤" type="tts">baƙin zuciya</annotation>
+		<annotation cp="💯">100 | cikakke | ɗari | maki</annotation>
+		<annotation cp="💯" type="tts">makunan ɗari</annotation>
+		<annotation cp="💢">fushi | mai ban dariya | haushi</annotation>
+		<annotation cp="💢" type="tts">alamar fushi</annotation>
+		<annotation cp="💥">boom | mai ban dariya</annotation>
+		<annotation cp="💥" type="tts">karo</annotation>
+		<annotation cp="💫">mai ban dariya | tauraro</annotation>
+		<annotation cp="💫" type="tts">jiri</annotation>
+		<annotation cp="💦">mai ban dariya | fantsama | gumi</annotation>
+		<annotation cp="💦" type="tts">ɗige-ɗigen gumi</annotation>
+		<annotation cp="💨">mai ban dariya | gudu | yin gudu</annotation>
+		<annotation cp="💨" type="tts">gudu mai sauri</annotation>
+		<annotation cp="🕳">rami</annotation>
+		<annotation cp="🕳" type="tts">rami</annotation>
+		<annotation cp="💣">mai ban dariya</annotation>
+		<annotation cp="💣" type="tts">bam</annotation>
+		<annotation cp="💬">balan-balan | kumfa | mai ban dariya | zance | magana</annotation>
+		<annotation cp="💬" type="tts">balan-balan magana</annotation>
+		<annotation cp="👁‍🗨">ido | kumfan magana | mai shaida</annotation>
+		<annotation cp="👁‍🗨" type="tts">ido a cikin kumfan magana</annotation>
+		<annotation cp="🗨">zance | magana</annotation>
+		<annotation cp="🗨" type="tts">kumfan magana na hagu</annotation>
+		<annotation cp="🗯">fushi | balan-balan | kumfa | haushi</annotation>
+		<annotation cp="🗯" type="tts">kumfan fushi na dama</annotation>
+		<annotation cp="💭">balan-balan | kumfa | mai ban dariya | tunani</annotation>
+		<annotation cp="💭" type="tts">balan-balan tunani</annotation>
+		<annotation cp="💤">mai ban dariya | barci</annotation>
+		<annotation cp="💤" type="tts">zzz</annotation>
+		<annotation cp="👋">hannu | wurga | wurgawa</annotation>
+		<annotation cp="👋" type="tts">hannu mai wurgawa</annotation>
+		<annotation cp="🤚">bayan hannu | ɗagagge</annotation>
+		<annotation cp="🤚" type="tts">ɗagaggen bayan hannu</annotation>
+		<annotation cp="🖐">yatsa | hannu | faɗaɗa hannu</annotation>
+		<annotation cp="🖐" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe</annotation>
+		<annotation cp="✋">hannu</annotation>
+		<annotation cp="✋" type="tts">ɗagaggen hannu</annotation>
+		<annotation cp="🖖">yatsa | hannu | spock | vulcan</annotation>
+		<annotation cp="🖖" type="tts">gaisuwar vulcan</annotation>
+		<annotation cp="👌">hannu | TO</annotation>
+		<annotation cp="👌" type="tts">hannun TO</annotation>
+		<annotation cp="✌">hannu | v | nasara</annotation>
+		<annotation cp="✌" type="tts">hannun nasara</annotation>
+		<annotation cp="🤞">haɗa | yatsa | hannu | sa’a</annotation>
+		<annotation cp="🤞" type="tts">haɗaɗɗun yatsu</annotation>
+		<annotation cp="🤟">ILY | hannu</annotation>
+		<annotation cp="🤟" type="tts">nunin soyayya</annotation>
+		<annotation cp="🤘">yatsa | hannu | ƙahoni | moriya</annotation>
+		<annotation cp="🤘" type="tts">alamar ƙahoni</annotation>
+		<annotation cp="🤙">kira | hannu</annotation>
+		<annotation cp="🤙" type="tts">hannun kira ni</annotation>
+		<annotation cp="👈">bayan hannu | yatsa | hannu | ɗan ali | nuna</annotation>
+		<annotation cp="👈" type="tts">ɗan ali na baya mai nunawa hagu</annotation>
+		<annotation cp="👉">bayan hannu | yatsa | hannu | ɗan ali | nuna</annotation>
+		<annotation cp="👉" type="tts">ɗan ali na baya mai nunawa dama</annotation>
+		<annotation cp="👆">bayan hannu | yatsa | hannu | ɗan ali | nuna | sama</annotation>
+		<annotation cp="👆" type="tts">ɗan ali na baya mai nunawa sama</annotation>
+		<annotation cp="🖕">yatsa | hannu</annotation>
+		<annotation cp="🖕" type="tts">ɗan yatsan tsakiya</annotation>
+		<annotation cp="👇">bayan hannu | ƙasa | yatsa | hannu | ɗan ali | nuna</annotation>
+		<annotation cp="👇" type="tts">ɗan ali na baya mai nunawa ƙasa</annotation>
+		<annotation cp="☝">yatsa | hannu | ɗan ali | nuna | sama</annotation>
+		<annotation cp="☝" type="tts">ɗan ali mai nunawa sama</annotation>
+		<annotation cp="👍">+1 | hannu | babban yatsa | sama</annotation>
+		<annotation cp="👍" type="tts">da kyau</annotation>
+		<annotation cp="👎">-1 | ƙasa | hannu | babban yatsa</annotation>
+		<annotation cp="👎" type="tts">babu kyau</annotation>
+		<annotation cp="✊">dunƙulalle | dunƙulen hannu | hannu | naushi</annotation>
+		<annotation cp="✊" type="tts">ɗagaggen dunƙulen hannu</annotation>
+		<annotation cp="👊">dunƙulalle | dunƙulen hannu | hannu | naushi</annotation>
+		<annotation cp="👊" type="tts">dunƙulen hannu mai zuwa</annotation>
+		<annotation cp="🤛">dunƙulen hannu | ta hannun hagu</annotation>
+		<annotation cp="🤛" type="tts">dunƙulen hannu mai fuskanta hagu</annotation>
+		<annotation cp="🤜">dunƙulen hannu | ta hannun dama</annotation>
+		<annotation cp="🤜" type="tts">dunƙulen hannu mai fuskanta dama</annotation>
+		<annotation cp="👏">tafa | hannu</annotation>
+		<annotation cp="👏" type="tts">hannuwa mai tafawa</annotation>
+		<annotation cp="🙌">shagali | karimcin | hannu | murna | ɗagagge</annotation>
+		<annotation cp="🙌" type="tts">ɗagaggun hannuwa</annotation>
+		<annotation cp="👐">hannu | a buɗe</annotation>
+		<annotation cp="👐" type="tts">buɗaɗɗun hannuwa</annotation>
+		<annotation cp="🤲">addu’a</annotation>
+		<annotation cp="🤲" type="tts">tafunan hannu a sama tare</annotation>
+		<annotation cp="🤝">shan hannu | yarjejeniya | taro | sha | hannu</annotation>
+		<annotation cp="🤝" type="tts">shan hannu</annotation>
+		<annotation cp="🙏">roƙo | sunkuya | kalmasassu | karimcin | hannu | don Allah | addu’a | godiya</annotation>
+		<annotation cp="🙏" type="tts">kalmasassun hannuwa</annotation>
+		<annotation cp="✍">hannu | rubuta</annotation>
+		<annotation cp="✍" type="tts">hannu mai rubutawa</annotation>
+		<annotation cp="💅">kula | kayan shafawa | yankan farce | farce | mai</annotation>
+		<annotation cp="💅" type="tts">jan farce</annotation>
+		<annotation cp="🤳">hoton kanka | kyamara | waya</annotation>
+		<annotation cp="🤳" type="tts">hoton kanka</annotation>
+		<annotation cp="💪">ƙwanji | mai ban dariya | tanƙwara | tsoka</annotation>
+		<annotation cp="💪" type="tts">tanƙwararrun ƙwanji</annotation>
+		<annotation cp="👂">jiki</annotation>
+		<annotation cp="👂" type="tts">kunne</annotation>
+		<annotation cp="👃">jiki</annotation>
+		<annotation cp="👃" type="tts">hanci</annotation>
+		<annotation cp="🧠">mai azanci</annotation>
+		<annotation cp="🧠" type="tts">ƙwaƙwalwa</annotation>
+		<annotation cp="👀">ido | fuska</annotation>
+		<annotation cp="👀" type="tts">idanu</annotation>
+		<annotation cp="👁">jiki</annotation>
+		<annotation cp="👁" type="tts">ido</annotation>
+		<annotation cp="👅">jiki</annotation>
+		<annotation cp="👅" type="tts">harshe</annotation>
+		<annotation cp="👄">leɓuna</annotation>
+		<annotation cp="👄" type="tts">baki</annotation>
+		<annotation cp="👶">jariri | ƙarami</annotation>
+		<annotation cp="👶" type="tts">jariri</annotation>
+		<annotation cp="🧒">mara danganta ga jinsi | ƙarami</annotation>
+		<annotation cp="🧒" type="tts">ɗa</annotation>
+		<annotation cp="👦">yaro | ƙarami</annotation>
+		<annotation cp="👦" type="tts">yaro</annotation>
+		<annotation cp="👧">Virgo | ƙarami | zodiac | yarinya</annotation>
+		<annotation cp="👧" type="tts">yarinya</annotation>
+		<annotation cp="🧑">mara danganta ga jinsi</annotation>
+		<annotation cp="🧑" type="tts">babba</annotation>
+		<annotation cp="👱">mai farin gashi</annotation>
+		<annotation cp="👱" type="tts">mutum mai farin gashi</annotation>
+		<annotation cp="👨">namiji</annotation>
+		<annotation cp="👨" type="tts">namiji</annotation>
+		<annotation cp="🧔">gemu</annotation>
+		<annotation cp="🧔" type="tts">mutumi mai gemu</annotation>
+		<annotation cp="👱‍♂">mai farin gashi | mutum</annotation>
+		<annotation cp="👱‍♂" type="tts">namiji mai farin gashi</annotation>
+		<annotation cp="👩">mace</annotation>
+		<annotation cp="👩" type="tts">mace</annotation>
+		<annotation cp="👱‍♀">mai farin gashi | mace</annotation>
+		<annotation cp="👱‍♀" type="tts">mace mai farin gashi</annotation>
+		<annotation cp="🧓">mara danganta ga jinsi | tsoho</annotation>
+		<annotation cp="🧓" type="tts">babba mafi tsoho</annotation>
+		<annotation cp="👴">mutum | tsoho</annotation>
+		<annotation cp="👴" type="tts">dattijo</annotation>
+		<annotation cp="👵">tsoho | mace</annotation>
+		<annotation cp="👵" type="tts">dattijuwa</annotation>
+		<annotation cp="🙍">ɓacin rai | karimcin</annotation>
+		<annotation cp="🙍" type="tts">mutum mai ɓacin rai</annotation>
+		<annotation cp="🙍‍♂">ɓacin rai | karimcin | mutum</annotation>
+		<annotation cp="🙍‍♂" type="tts">namiji mai ɓacin rai</annotation>
+		<annotation cp="🙍‍♀">ɓacin rai | karimcin | mace</annotation>
+		<annotation cp="🙍‍♀" type="tts">mace mai ɓacin rai</annotation>
+		<annotation cp="🙎">karimci | ɓacin zuciya</annotation>
+		<annotation cp="🙎" type="tts">mutum mai nunawa ɓacin zuciya</annotation>
+		<annotation cp="🙎‍♂">karimcin | mutum | ɓacin zuciya</annotation>
+		<annotation cp="🙎‍♂" type="tts">mutum mai ɓacin zuciya</annotation>
+		<annotation cp="🙎‍♀">karimci | ɓacin zuciya | mace</annotation>
+		<annotation cp="🙎‍♀" type="tts">mace mai ɓacin zuciya</annotation>
+		<annotation cp="🙅">haram | karimcin | hannu | a’a | babu | an hana</annotation>
+		<annotation cp="🙅" type="tts">mutum mai nunawa A’A da hannu</annotation>
+		<annotation cp="🙅‍♂">haram | karimcin | hannu | mutum | a’a | an hana</annotation>
+		<annotation cp="🙅‍♂" type="tts">namiji mai nunawa A’A da hannu</annotation>
+		<annotation cp="🙅‍♀">haram | karimcin | hannu | a’a | an hana | mace</annotation>
+		<annotation cp="🙅‍♀" type="tts">mace mai nunawa A’A da hannu</annotation>
+		<annotation cp="🙆">karimcin | hannu | TO</annotation>
+		<annotation cp="🙆" type="tts">mutum mai nunawa TO da hannu</annotation>
+		<annotation cp="🙆‍♂">nunawa da hannu | mutum | TO</annotation>
+		<annotation cp="🙆‍♂" type="tts">namiji mai nunawa TO da hannu</annotation>
+		<annotation cp="🙆‍♀">karimcin | hannu | TO | mace</annotation>
+		<annotation cp="🙆‍♀" type="tts">mace mai nunawa TO da hannu</annotation>
+		<annotation cp="💁">hannu | bayar da ci-goro | taimako | bayani | ƙarfin zuciya</annotation>
+		<annotation cp="💁" type="tts">mutum hannu mai ba da ci-goro</annotation>
+		<annotation cp="💁‍♂">mutum | ƙarfin zuciya | hannu mai ba da ci-goro</annotation>
+		<annotation cp="💁‍♂" type="tts">namiji hannu mai ba da ci-goro</annotation>
+		<annotation cp="💁‍♀">ƙarfin zuciya | hannu mai ba da ci-goro | mace</annotation>
+		<annotation cp="💁‍♀" type="tts">mace hannu mai ba da ci-goro</annotation>
+		<annotation cp="🙋">karimcin | hannu | murna | ɗagagge</annotation>
+		<annotation cp="🙋" type="tts">mutum mai ɗagawa hannu</annotation>
+		<annotation cp="🙋‍♂">karimcin | mutum | ɗagawa hannu</annotation>
+		<annotation cp="🙋‍♂" type="tts">namiji mai ɗagawa hannu</annotation>
+		<annotation cp="🙋‍♀">karimcin | ɗagawa hannu | mace</annotation>
+		<annotation cp="🙋‍♀" type="tts">mace mai ɗagawa hannu</annotation>
+		<annotation cp="🙇">gafarta | sunkuya | karimcin | haƙuri</annotation>
+		<annotation cp="🙇" type="tts">mutum mai sunkuya</annotation>
+		<annotation cp="🙇‍♂">gafarta | alheri | yin sunkuya | karimcin | mutum | haƙuri</annotation>
+		<annotation cp="🙇‍♂" type="tts">namiji mai sunkuya</annotation>
+		<annotation cp="🙇‍♀">gafarta | alheri | yin sunkuya | karimcin | haƙuri | mace</annotation>
+		<annotation cp="🙇‍♀" type="tts">mace mai sunkuya</annotation>
+		<annotation cp="🤦">fuska | tafin hannu | rashin imani | fushi</annotation>
+		<annotation cp="🤦" type="tts">mutum nunawa kunya</annotation>
+		<annotation cp="🤦‍♂">rashin imani | fushi | tafin hannu na fuska | namiji</annotation>
+		<annotation cp="🤦‍♂" type="tts">namiji nunawa kunya</annotation>
+		<annotation cp="🤦‍♀">rashin imani | fushi | tafin hannu na fuska | mace</annotation>
+		<annotation cp="🤦‍♀" type="tts">mace nunawa kunya</annotation>
+		<annotation cp="🤷">ɗaga kafaɗa | shakka | rashin sani | halin kurum</annotation>
+		<annotation cp="🤷" type="tts">mutum ɗaga kafaɗa</annotation>
+		<annotation cp="🤷‍♂">shakka | rashin sani | halin kurum | mutum | ɗaga kafaɗa</annotation>
+		<annotation cp="🤷‍♂" type="tts">mutum ɗagawa kafaɗa</annotation>
+		<annotation cp="🤷‍♀">shakka | rashin sani | halin kurum | ɗaga kafaɗa | mace</annotation>
+		<annotation cp="🤷‍♀" type="tts">mace ɗagawa kafaɗa</annotation>
+		<annotation cp="👨‍⚕">mutum | kula da lafiya | likita | nas | mai ba da kula</annotation>
+		<annotation cp="👨‍⚕" type="tts">mutum ma’aikacin kula da lafiya</annotation>
+		<annotation cp="👩‍⚕">mace | kula da lafiya | likita | nas | mai ba da kula</annotation>
+		<annotation cp="👩‍⚕" type="tts">mace ma’aikacin kula da lafiya</annotation>
+		<annotation cp="👨‍🎓">mutum | ɗalibi | mai digiri</annotation>
+		<annotation cp="👨‍🎓" type="tts">mutum ɗalibi</annotation>
+		<annotation cp="👩‍🎓">mace | ɗalibi | mai digiri</annotation>
+		<annotation cp="👩‍🎓" type="tts">mace ɗalibi</annotation>
+		<annotation cp="👨‍🏫">mutum | frafesa | mai koyarwa | malami</annotation>
+		<annotation cp="👨‍🏫" type="tts">mutum malami</annotation>
+		<annotation cp="👩‍🏫">mace | frafesa | mai koyarwa | malami</annotation>
+		<annotation cp="👩‍🏫" type="tts">mace malami</annotation>
+		<annotation cp="👨‍⚖">shari’a | mutum | sikeloli</annotation>
+		<annotation cp="👨‍⚖" type="tts">mutum joji</annotation>
+		<annotation cp="👩‍⚖">joji | mace | sikeloli</annotation>
+		<annotation cp="👩‍⚖" type="tts">mace joji</annotation>
+		<annotation cp="👨‍🌾">mutum | manomi | mai kiwon shanu | gadina</annotation>
+		<annotation cp="👨‍🌾" type="tts">mutum manomi</annotation>
+		<annotation cp="👩‍🌾">mace | manomi | mai kiwon shanu | gadina</annotation>
+		<annotation cp="👩‍🌾" type="tts">mace manomi</annotation>
+		<annotation cp="👨‍🍳">mutum | kuku | mai girki</annotation>
+		<annotation cp="👨‍🍳" type="tts">mutum kuku</annotation>
+		<annotation cp="👩‍🍳">mace | kuku | mai girki</annotation>
+		<annotation cp="👩‍🍳" type="tts">mace kuku</annotation>
+		<annotation cp="👨‍🔧">mutum | ɗan kasuwa | makanika | mai gyaran famfo | mai aikin lantarki</annotation>
+		<annotation cp="👨‍🔧" type="tts">mutum makanika</annotation>
+		<annotation cp="👩‍🔧">mace | ‘yar kasuwa | makanika | mai gyaran famfo | mai aikin lantarki</annotation>
+		<annotation cp="👩‍🔧" type="tts">mace makanika</annotation>
+		<annotation cp="👨‍🏭">mutum | masana’antu | ma’aikatar harhaɗa | masana’anta | ma’aikaci</annotation>
+		<annotation cp="👨‍🏭" type="tts">mutum ma’aikacin masana’antu</annotation>
+		<annotation cp="👩‍🏭">mace | masana’antu | ma’aikatar harhaɗa | masana’anta | ma’aikaci</annotation>
+		<annotation cp="👩‍🏭" type="tts">mace ma’aikacin masana’antu</annotation>
+		<annotation cp="👨‍💼">mutum | ofis | kasuwanci | manaja | mai ilimin zane | aikin ofis</annotation>
+		<annotation cp="👨‍💼" type="tts">mutum ma’aikacin ofis</annotation>
+		<annotation cp="👩‍💼">mace | ofis | kasuwanci | manaja | mai ilimin zane | aikin ofis</annotation>
+		<annotation cp="👩‍💼" type="tts">mace ma’aikacin ofis</annotation>
+		<annotation cp="👨‍🔬">mutum | masanin kimiya | injiniya | mai ilimin lissafi | masanin ilimin fiziks | masanin ilimin halittu</annotation>
+		<annotation cp="👨‍🔬" type="tts">mutum masanin kimiya</annotation>
+		<annotation cp="👩‍🔬">mace | masanin kimiya | injiniya | mai ilimin lissafi | masanin ilimin fiziks | masanin ilimin halittu</annotation>
+		<annotation cp="👩‍🔬" type="tts">mace masanin kimiya</annotation>
+		<annotation cp="👨‍💻">mutum | mai fasaha | mai tsarin lambar sirri | sofwaya | mai ƙira | mai ƙirƙirowa</annotation>
+		<annotation cp="👨‍💻" type="tts">mutum mai fasaha</annotation>
+		<annotation cp="👩‍💻">mace | mai fasaha | mai tsarin lambar sirri | sofwaya | mai ƙira | mai ƙirƙirowa</annotation>
+		<annotation cp="👩‍💻" type="tts">mace mai fasaha</annotation>
+		<annotation cp="👨‍🎤">mutum | mawaƙi | mai shaƙatawa | waƙar rock | tauraro | ɗan wasa</annotation>
+		<annotation cp="👨‍🎤" type="tts">mutum mawaƙi</annotation>
+		<annotation cp="👩‍🎤">mace | mawaƙi | mai shaƙatawa | waƙar rock | tauraro | ɗan wasa</annotation>
+		<annotation cp="👩‍🎤" type="tts">mace mawaƙi</annotation>
+		<annotation cp="👨‍🎨">mai zane | mutum | allon zane</annotation>
+		<annotation cp="👨‍🎨" type="tts">mutum mai zane</annotation>
+		<annotation cp="👩‍🎨">mawaƙi | allon zane | mace</annotation>
+		<annotation cp="👩‍🎨" type="tts">mace mai zane</annotation>
+		<annotation cp="👨‍✈">mutum | mai tuƙin jirgin sama | jirgin sama</annotation>
+		<annotation cp="👨‍✈" type="tts">mutum mai tuƙin jirgin sama</annotation>
+		<annotation cp="👩‍✈">mai tuƙin jirgin sama | jirgin sama | mace</annotation>
+		<annotation cp="👩‍✈" type="tts">mace mai tuƙin jirgin sama</annotation>
+		<annotation cp="👨‍🚀">ɗan sama jannati | mutum | roka</annotation>
+		<annotation cp="👨‍🚀" type="tts">mutum ɗan sama jannati</annotation>
+		<annotation cp="👩‍🚀">ɗan sama jannati | roka | mace</annotation>
+		<annotation cp="👩‍🚀" type="tts">mace ‘yar sama jannati</annotation>
+		<annotation cp="👨‍🚒">ɗan kwana-kwana | mutum | motar kwana-kwana</annotation>
+		<annotation cp="👨‍🚒" type="tts">mutum ɗan kwana-kwana</annotation>
+		<annotation cp="👩‍🚒">ɗan kwana-kwana | motar kwana-kwana | mace</annotation>
+		<annotation cp="👩‍🚒" type="tts">mace ɗan kwana-kwana</annotation>
+		<annotation cp="👮">falis | ofisa | ɗan sanda</annotation>
+		<annotation cp="👮" type="tts">ɗan sanda</annotation>
+		<annotation cp="👮‍♂">falis | mutum | ofisa | ɗan sanda</annotation>
+		<annotation cp="👮‍♂" type="tts">mutum ɗan sanda</annotation>
+		<annotation cp="👮‍♀">falis | ofisa | ɗan sanda | mace</annotation>
+		<annotation cp="👮‍♀" type="tts">ɗan sanda na mace</annotation>
+		<annotation cp="🕵">ɗan sandan ciki | ɗan leƙan asiri | si’aidi</annotation>
+		<annotation cp="🕵" type="tts">si’aidi</annotation>
+		<annotation cp="🕵‍♂">mutum | ɗan sandan ciki | ɗan leƙan asiri | si’aidi</annotation>
+		<annotation cp="🕵‍♂" type="tts">mutum si’aidi</annotation>
+		<annotation cp="🕵‍♀">ɗan sandan ciki | ɗan leƙan asiri | mace | si’aidi</annotation>
+		<annotation cp="🕵‍♀" type="tts">mace si’aidi</annotation>
+		<annotation cp="💂">mai gadi</annotation>
+		<annotation cp="💂" type="tts">mai gadi</annotation>
+		<annotation cp="💂‍♂">gadi | mutum</annotation>
+		<annotation cp="💂‍♂" type="tts">gadi namiji</annotation>
+		<annotation cp="💂‍♀">gadi | mace</annotation>
+		<annotation cp="💂‍♀" type="tts">gadi na mace</annotation>
+		<annotation cp="👷">gini | hula | ma’aikaci</annotation>
+		<annotation cp="👷" type="tts">ma’aikacin gini</annotation>
+		<annotation cp="👷‍♂">gini | mutum | ma’aikaci</annotation>
+		<annotation cp="👷‍♂" type="tts">mutum ma’aikacin gini</annotation>
+		<annotation cp="👷‍♀">gini | mace | ma’aikaci</annotation>
+		<annotation cp="👷‍♀" type="tts">mace ma’aikacin gini</annotation>
+		<annotation cp="🤴">ɗan sarki</annotation>
+		<annotation cp="🤴" type="tts">ɗan sarki</annotation>
+		<annotation cp="👸">labarin aljana | tatsuniya</annotation>
+		<annotation cp="👸" type="tts">gimbiya</annotation>
+		<annotation cp="👳">rawani</annotation>
+		<annotation cp="👳" type="tts">mutum mai sakawa rawani</annotation>
+		<annotation cp="👳‍♂">mutum | rawani</annotation>
+		<annotation cp="👳‍♂" type="tts">namiji mai sakawa rawani</annotation>
+		<annotation cp="👳‍♀">rawani | mace</annotation>
+		<annotation cp="👳‍♀" type="tts">mace mai sakawa rawani</annotation>
+		<annotation cp="👲">gua pi mao | hula | mutum</annotation>
+		<annotation cp="👲" type="tts">mutum mai hulan ’yan Caina</annotation>
+		<annotation cp="🧕">ɗankwali | hijabi | ɗankwalin ‘yar Yahuda | mantilla</annotation>
+		<annotation cp="🧕" type="tts">mace da ta saka ɗankwali</annotation>
+		<annotation cp="🤵">miji | mutum | kwat</annotation>
+		<annotation cp="🤵" type="tts">mutum a cikin kwat</annotation>
+		<annotation cp="👰">amarya | hijabi | bikin aure</annotation>
+		<annotation cp="👰" type="tts">amarya mai hijabi</annotation>
+		<annotation cp="🤰">ciki | mace</annotation>
+		<annotation cp="🤰" type="tts">mace mai ciki</annotation>
+		<annotation cp="🤱">nono | jariri | jego</annotation>
+		<annotation cp="🤱" type="tts">shayarwa</annotation>
+		<annotation cp="👼">malaika | jariri | fuska | labarin aljana | tatsuniya</annotation>
+		<annotation cp="👼" type="tts">jaririn malaika</annotation>
+		<annotation cp="🎅">Kirsimati | shagali | uba | santa | claus</annotation>
+		<annotation cp="🎅" type="tts">Santa Claus</annotation>
+		<annotation cp="🤶">Kirsimati | shagalin biki | uwa | Matar | claus</annotation>
+		<annotation cp="🤶" type="tts">Matar Claus</annotation>
+		<annotation cp="🧙">maye | mayya</annotation>
+		<annotation cp="🧙" type="tts">mai dabo</annotation>
+		<annotation cp="🧙‍♂">maye</annotation>
+		<annotation cp="🧙‍♂" type="tts">mutum mai dabo</annotation>
+		<annotation cp="🧙‍♀">mayya</annotation>
+		<annotation cp="🧙‍♀" type="tts">mace mai dabo</annotation>
+		<annotation cp="🧚">Titania | Puck | Oberon</annotation>
+		<annotation cp="🧚" type="tts">aljana</annotation>
+		<annotation cp="🧚‍♂">Puck | Oberon</annotation>
+		<annotation cp="🧚‍♂" type="tts">mutum aljani</annotation>
+		<annotation cp="🧚‍♀">Titania</annotation>
+		<annotation cp="🧚‍♀" type="tts">mace aljana</annotation>
+		<annotation cp="🧛">Dracula | mara mutuwa</annotation>
+		<annotation cp="🧛" type="tts">mai shan jini</annotation>
+		<annotation cp="🧛‍♂">Dracula | mara mutuwa</annotation>
+		<annotation cp="🧛‍♂" type="tts">mutum mai shan jini</annotation>
+		<annotation cp="🧛‍♀">mara mutuwa</annotation>
+		<annotation cp="🧛‍♀" type="tts">mace mai shan jini</annotation>
+		<annotation cp="🧜">aljanar ruwa | aljanin ruwa | babbar aljanar ruwa</annotation>
+		<annotation cp="🧜" type="tts">aljanun ruwa</annotation>
+		<annotation cp="🧜‍♂">Triton</annotation>
+		<annotation cp="🧜‍♂" type="tts">aljanin ruwa</annotation>
+		<annotation cp="🧜‍♀">babbar aljanar ruwa</annotation>
+		<annotation cp="🧜‍♀" type="tts">aljanar ruwa</annotation>
+		<annotation cp="🧝">abin dabo</annotation>
+		<annotation cp="🧝" type="tts">jinsiri</annotation>
+		<annotation cp="🧝‍♂">abin dabo</annotation>
+		<annotation cp="🧝‍♂" type="tts">jinsiri namiji</annotation>
+		<annotation cp="🧝‍♀">abin dabo</annotation>
+		<annotation cp="🧝‍♀" type="tts">jinsiri na mace</annotation>
+		<annotation cp="🧞">aljani</annotation>
+		<annotation cp="🧞" type="tts">aljanin larabawa</annotation>
+		<annotation cp="🧞‍♂">aljani</annotation>
+		<annotation cp="🧞‍♂" type="tts">aljanin larabawa namiji</annotation>
+		<annotation cp="🧞‍♀">aljani</annotation>
+		<annotation cp="🧞‍♀" type="tts">aljanin larabawa na mace</annotation>
+		<annotation cp="🧟">mara mutuwa | gaya mai motsi</annotation>
+		<annotation cp="🧟" type="tts">gaya mai rai</annotation>
+		<annotation cp="🧟‍♂">mara mutuwa | gaya mai motsi</annotation>
+		<annotation cp="🧟‍♂" type="tts">gaya mai rai namiji</annotation>
+		<annotation cp="🧟‍♀">mara mutuwa | gaya mai motsi</annotation>
+		<annotation cp="🧟‍♀" type="tts">gaya mai rai na mace</annotation>
+		<annotation cp="💆">tausa | shagon gyara gashi | fuska</annotation>
+		<annotation cp="💆" type="tts">mutum mai samun tausa</annotation>
+		<annotation cp="💆‍♂">fuska | mutum | tausa</annotation>
+		<annotation cp="💆‍♂" type="tts">namiji mai samun tausa</annotation>
+		<annotation cp="💆‍♀">fuska | tausa | mace</annotation>
+		<annotation cp="💆‍♀" type="tts">mace mai samun tausa</annotation>
+		<annotation cp="💇">mai aski | kyakkyawa | shagon kyakkyawa | aski</annotation>
+		<annotation cp="💇" type="tts">mutum mai yin aski</annotation>
+		<annotation cp="💇‍♂">aski | mutum</annotation>
+		<annotation cp="💇‍♂" type="tts">namiji mai yin aski</annotation>
+		<annotation cp="💇‍♀">aski | mace</annotation>
+		<annotation cp="💇‍♀" type="tts">mace mai yin aski</annotation>
+		<annotation cp="🚶">tafiyar nishaɗi | tafiya ƙafa | yin tafiya ƙafa</annotation>
+		<annotation cp="🚶" type="tts">mutum mai yin tafiya ƙafa</annotation>
+		<annotation cp="🚶‍♂">tafiyar nishaɗi | mutum | tafiya ƙafa</annotation>
+		<annotation cp="🚶‍♂" type="tts">namiji mai yin tafiya ƙafa</annotation>
+		<annotation cp="🚶‍♀">tafiyar nishaɗi | tafiya ƙafa | mace</annotation>
+		<annotation cp="🚶‍♀" type="tts">mace mai yin tafiya ƙafa</annotation>
+		<annotation cp="🏃">gudun dogon zango | gudu</annotation>
+		<annotation cp="🏃" type="tts">mutum mai yin gudu</annotation>
+		<annotation cp="🏃‍♂">mutum | gudun dogon zango | gudu | tsere</annotation>
+		<annotation cp="🏃‍♂" type="tts">namiji mai yin gudu</annotation>
+		<annotation cp="🏃‍♀">gudun dogon zango | gudu | mace | tsere</annotation>
+		<annotation cp="🏃‍♀" type="tts">mace mai yin gudu</annotation>
+		<annotation cp="💃">mace | rawa</annotation>
+		<annotation cp="💃" type="tts">mace mai yin rawa</annotation>
+		<annotation cp="🕺">rawa | mutum</annotation>
+		<annotation cp="🕺" type="tts">mutum mai yin rawa</annotation>
+		<annotation cp="🕴">kasuwanci | mutum | kwat</annotation>
+		<annotation cp="🕴" type="tts">mutum a cikin kwat na kasuwanci mai jewa</annotation>
+		<annotation cp="👯">kunnen zomo | mai rawa | yin biki</annotation>
+		<annotation cp="👯" type="tts">mutane masu kunnuwan zomo yin biki</annotation>
+		<annotation cp="👯‍♂">kunnen zomo | mai rawa | maza | yin biki</annotation>
+		<annotation cp="👯‍♂" type="tts">maza masu kunnuwan zomo yin biki</annotation>
+		<annotation cp="👯‍♀">kunnen zomo | mai rawa | yin biki | mace</annotation>
+		<annotation cp="👯‍♀" type="tts">mata masu kunnuwan zomo yin biki</annotation>
+		<annotation cp="🧖">sauna | ɗakin surace</annotation>
+		<annotation cp="🧖" type="tts">mutum a cikin ɗakin surace</annotation>
+		<annotation cp="🧖‍♂">sauna | ɗakin surace</annotation>
+		<annotation cp="🧖‍♂" type="tts">namiji a cikin ɗakin surace</annotation>
+		<annotation cp="🧖‍♀">sauna | ɗakin surace</annotation>
+		<annotation cp="🧖‍♀" type="tts">mace a cikin ɗakin surace</annotation>
+		<annotation cp="🧗">mai hawa</annotation>
+		<annotation cp="🧗" type="tts">mutum mai hawa</annotation>
+		<annotation cp="🧗‍♂">mai hawa</annotation>
+		<annotation cp="🧗‍♂" type="tts">namiji mai hawa</annotation>
+		<annotation cp="🧗‍♀">mai hawa</annotation>
+		<annotation cp="🧗‍♀" type="tts">mace mai hawa</annotation>
+		<annotation cp="🤺">mai wasan zorro | wasan zorro | takobi</annotation>
+		<annotation cp="🤺" type="tts">mutum wasan zorro</annotation>
+		<annotation cp="🏇">doki | mahayi | sukuwa | tsere</annotation>
+		<annotation cp="🏇" type="tts">sukuwa</annotation>
+		<annotation cp="⛷">wasan ski | ƙanƙara</annotation>
+		<annotation cp="⛷" type="tts">ɗan wasan ski</annotation>
+		<annotation cp="🏂">ski | ƙanƙara | allon wasan ƙanƙara</annotation>
+		<annotation cp="🏂" type="tts">snowboarder</annotation>
+		<annotation cp="🏌">ƙwallo | wasan golf</annotation>
+		<annotation cp="🏌" type="tts">mutum mai buga wasan golf</annotation>
+		<annotation cp="🏌‍♂">wasan golf | mutum</annotation>
+		<annotation cp="🏌‍♂" type="tts">namiji mai buga wasan golf</annotation>
+		<annotation cp="🏌‍♀">wasan golf | mace</annotation>
+		<annotation cp="🏌‍♀" type="tts">mace mai buga wasan golf</annotation>
+		<annotation cp="🏄">wasa a kan teku</annotation>
+		<annotation cp="🏄" type="tts">mutum mai hawan allon wasa a kan teku</annotation>
+		<annotation cp="🏄‍♂">mutum | wasa a kan teku</annotation>
+		<annotation cp="🏄‍♂" type="tts">namiji mai hawan allon wasa a kan teku</annotation>
+		<annotation cp="🏄‍♀">hawan allo wasa a kan teku | mace</annotation>
+		<annotation cp="🏄‍♀" type="tts">mace mai hawan allon wasa a kan teku</annotation>
+		<annotation cp="🚣">jirgin ruwa na sauri | jirgin ruwa na tuƙi</annotation>
+		<annotation cp="🚣" type="tts">mutum mai tuƙa jirgin ruwa</annotation>
+		<annotation cp="🚣‍♂">jirgin ruwa na sauri | mutum | jirgin ruwa na tuƙi</annotation>
+		<annotation cp="🚣‍♂" type="tts">namiji mai tuƙa jirgin ruwa</annotation>
+		<annotation cp="🚣‍♀">jirgin ruwa na sauri | jirgin ruwa na tuƙi | mace</annotation>
+		<annotation cp="🚣‍♀" type="tts">mace mai tuƙa jirgin</annotation>
+		<annotation cp="🏊">ninƙaya</annotation>
+		<annotation cp="🏊" type="tts">mutum mai yin ninƙaya</annotation>
+		<annotation cp="🏊‍♂">mutum | ninƙaya</annotation>
+		<annotation cp="🏊‍♂" type="tts">namiji mai yin ninƙaya</annotation>
+		<annotation cp="🏊‍♀">ninƙaya | mace</annotation>
+		<annotation cp="🏊‍♀" type="tts">mace mai yin ninƙaya</annotation>
+		<annotation cp="⛹">ƙwallo</annotation>
+		<annotation cp="⛹" type="tts">mutum mai tambara ƙwallo</annotation>
+		<annotation cp="⛹‍♂">ƙwallo | mutum</annotation>
+		<annotation cp="⛹‍♂" type="tts">namiji mai tambara ƙwallo</annotation>
+		<annotation cp="⛹‍♀">ƙwallo | mace</annotation>
+		<annotation cp="⛹‍♀" type="tts">mace mai tambara ƙwallo</annotation>
+		<annotation cp="🏋">maɗauki | nauyi</annotation>
+		<annotation cp="🏋" type="tts">mutum mai ɗaukowa nauyi</annotation>
+		<annotation cp="🏋‍♂">mai ɗaukowa nauyi | mutum</annotation>
+		<annotation cp="🏋‍♂" type="tts">namiji mai ɗaukowa nauyi</annotation>
+		<annotation cp="🏋‍♀">mai ɗaukowa nauyi | mace</annotation>
+		<annotation cp="🏋‍♀" type="tts">mace mai ɗaukowa nauyi</annotation>
+		<annotation cp="🚴">keke | tuƙan babur | mai hawan keke</annotation>
+		<annotation cp="🚴" type="tts">mutum mai tuƙan babur</annotation>
+		<annotation cp="🚴‍♂">keke | hawan keke | mai hawan keke | mutum</annotation>
+		<annotation cp="🚴‍♂" type="tts">namiji mai tuƙan babur</annotation>
+		<annotation cp="🚴‍♀">keke | hawan keke | mai hawan keke | mace</annotation>
+		<annotation cp="🚴‍♀" type="tts">mace mai tuƙan babur</annotation>
+		<annotation cp="🚵">keke | mai hawan keke | babur | tsauni</annotation>
+		<annotation cp="🚵" type="tts">mutum tuƙan babur a kan tsauni</annotation>
+		<annotation cp="🚵‍♂">keke | mai hawan keke | babur | mutum | tsauni</annotation>
+		<annotation cp="🚵‍♂" type="tts">namiji tuƙan babur a kan tsauni</annotation>
+		<annotation cp="🚵‍♀">keke | mai hawan keke | babur | mai tuƙan babur | tsauni | mace</annotation>
+		<annotation cp="🚵‍♀" type="tts">mace tuƙan babur a kan tsauni</annotation>
+		<annotation cp="🤸">amalanke | ayyukan motsa jiki</annotation>
+		<annotation cp="🤸" type="tts">mutum tuƙan amalanke</annotation>
+		<annotation cp="🤸‍♂">amalanke | ayyukan motsa jiki | mutum</annotation>
+		<annotation cp="🤸‍♂" type="tts">namiji tuƙan amalanke</annotation>
+		<annotation cp="🤸‍♀">amalanke | ayyukan motsa jiki | mace</annotation>
+		<annotation cp="🤸‍♀" type="tts">mace tuƙan amalanke</annotation>
+		<annotation cp="🤼">mai kokawa | kokawa</annotation>
+		<annotation cp="🤼" type="tts">mutane kokawa</annotation>
+		<annotation cp="🤼‍♂">maza | kokawa</annotation>
+		<annotation cp="🤼‍♂" type="tts">maza masu kokawa</annotation>
+		<annotation cp="🤼‍♀">mata | kokawa</annotation>
+		<annotation cp="🤼‍♀" type="tts">mata masu kokawa</annotation>
+		<annotation cp="🤽">wasan holo</annotation>
+		<annotation cp="🤽" type="tts">mutum mai bugan wasan holo na ruwa</annotation>
+		<annotation cp="🤽‍♂">mutum | wasan holo na ruwa</annotation>
+		<annotation cp="🤽‍♂" type="tts">namiji mai bugan wasan holo na ruwa</annotation>
+		<annotation cp="🤽‍♀">wasan hoto na ruwa | mace</annotation>
+		<annotation cp="🤽‍♀" type="tts">mace mai bugan wasan holo na ruwa</annotation>
+		<annotation cp="🤾">ƙwallon hannu | ƙwallo</annotation>
+		<annotation cp="🤾" type="tts">mutum mai bugan ƙwallon hannu</annotation>
+		<annotation cp="🤾‍♂">ƙwallon hannu | mutum</annotation>
+		<annotation cp="🤾‍♂" type="tts">namiji mai bugan ƙwallon hannu</annotation>
+		<annotation cp="🤾‍♀">ƙwallon hannu | mace</annotation>
+		<annotation cp="🤾‍♀" type="tts">mace mai bugan ƙwallon hannu</annotation>
+		<annotation cp="🤹">juyawa abu a sama | yawan ayyuka | daidaita | iyawa</annotation>
+		<annotation cp="🤹" type="tts">mutum mai juyawa abu a sama</annotation>
+		<annotation cp="🤹‍♂">juyawa abu a sama | mutum | yawan ayyuka</annotation>
+		<annotation cp="🤹‍♂" type="tts">mutum juyawa abu</annotation>
+		<annotation cp="🤹‍♀">juyawa abu a sama | yawan ayyuka | mace</annotation>
+		<annotation cp="🤹‍♀" type="tts">mace mai juyawa abu a sama</annotation>
+		<annotation cp="🧘">yoga | tsokaci</annotation>
+		<annotation cp="🧘" type="tts">mutum a wurin furen lotus</annotation>
+		<annotation cp="🧘‍♂">yoga | tsokaci</annotation>
+		<annotation cp="🧘‍♂" type="tts">namiji a wurin furen lotus</annotation>
+		<annotation cp="🧘‍♀">yoga | tsokaci</annotation>
+		<annotation cp="🧘‍♀" type="tts">mace a wurin furen lotus</annotation>
+		<annotation cp="🛀">baho | wanka</annotation>
+		<annotation cp="🛀" type="tts">mutum mai yin wanka</annotation>
+		<annotation cp="🛌">hotal | barci</annotation>
+		<annotation cp="🛌" type="tts">mutum a kan gado</annotation>
+		<annotation cp="👭">miji da mata | hannu | riƙe | mace</annotation>
+		<annotation cp="👭" type="tts">mata biyu suna riƙewa hannuwa</annotation>
+		<annotation cp="👫">miji da mata | hannu | riƙe | mutum | mace</annotation>
+		<annotation cp="👫" type="tts">namiji da mata suna riƙewa hannuwa</annotation>
+		<annotation cp="👬">miji da mata | Gemini | hannu | riƙe | mutum | tagwai | zodiac</annotation>
+		<annotation cp="👬" type="tts">maza biyu suna riƙewa hannuwa</annotation>
+		<annotation cp="💏">miji da mata | sumba</annotation>
+		<annotation cp="💏" type="tts">sumba</annotation>
+		<annotation cp="💑">miji da mata | soyayya | miji da mata tare da zuciya</annotation>
+		<annotation cp="💑" type="tts">miji da mata tare da zuciya</annotation>
+		<annotation cp="👪">iyali</annotation>
+		<annotation cp="👪" type="tts">iyali</annotation>
+		<annotation cp="🗣">fuska | kai | daga kai | magana | yin magana</annotation>
+		<annotation cp="🗣" type="tts">kai mai yin magana</annotation>
+		<annotation cp="👤">ƙirji | daga kai</annotation>
+		<annotation cp="👤" type="tts">daga kai har ƙirji</annotation>
+		<annotation cp="👥">ƙirji | daga kai</annotation>
+		<annotation cp="👥" type="tts">daga kanu har ƙirji</annotation>
+		<annotation cp="👣">sutura | sawu | buga</annotation>
+		<annotation cp="👣" type="tts">sawaye</annotation>
+		<annotation cp="🐵">fuska | biri</annotation>
+		<annotation cp="🐵" type="tts">fuskar biri</annotation>
+		<annotation cp="🐒">biri</annotation>
+		<annotation cp="🐒" type="tts">biri</annotation>
+		<annotation cp="🦍">birin gorilla</annotation>
+		<annotation cp="🦍" type="tts">birin gorilla</annotation>
+		<annotation cp="🐶">kare | fuska | dabbar gida</annotation>
+		<annotation cp="🐶" type="tts">fuskar kare</annotation>
+		<annotation cp="🐕">dabbar gida</annotation>
+		<annotation cp="🐕" type="tts">kare</annotation>
+		<annotation cp="🐩">kare</annotation>
+		<annotation cp="🐩" type="tts">karen poodle</annotation>
+		<annotation cp="🐺">fuska | ƙyarkaci</annotation>
+		<annotation cp="🐺" type="tts">fuskar ƙyarkaci</annotation>
+		<annotation cp="🦊">fuska | yanyawa</annotation>
+		<annotation cp="🦊" type="tts">fuskar yanyawa</annotation>
+		<annotation cp="🐱">kyanwa | fuska | dabbar gida</annotation>
+		<annotation cp="🐱" type="tts">fuskar kyanwa</annotation>
+		<annotation cp="🐈">dabbar gida</annotation>
+		<annotation cp="🐈" type="tts">kyanwa</annotation>
+		<annotation cp="🦁">fuska | Leo | zaki | zodiac</annotation>
+		<annotation cp="🦁" type="tts">fuskar zaki</annotation>
+		<annotation cp="🐯">fuska | tega</annotation>
+		<annotation cp="🐯" type="tts">fuskar tega</annotation>
+		<annotation cp="🐅">dabbar tega</annotation>
+		<annotation cp="🐅" type="tts">dabbar tega</annotation>
+		<annotation cp="🐆">damisa</annotation>
+		<annotation cp="🐆" type="tts">damisa</annotation>
+		<annotation cp="🐴">fuska | doki</annotation>
+		<annotation cp="🐴" type="tts">fuskar doki</annotation>
+		<annotation cp="🐎">sukuwa | tsere | dawaki</annotation>
+		<annotation cp="🐎" type="tts">doki</annotation>
+		<annotation cp="🦄">fuska | dabbar unicorn</annotation>
+		<annotation cp="🦄" type="tts">fuskar dabbar unicorn</annotation>
+		<annotation cp="🦓">ratsi</annotation>
+		<annotation cp="🦓" type="tts">jakin dawa</annotation>
+		<annotation cp="🦌">barewa</annotation>
+		<annotation cp="🦌" type="tts">barewa</annotation>
+		<annotation cp="🐮">saniya | fuska</annotation>
+		<annotation cp="🐮" type="tts">fuskar saniya</annotation>
+		<annotation cp="🐂">bijimi | Taurus | zodiac</annotation>
+		<annotation cp="🐂" type="tts">takarkari</annotation>
+		<annotation cp="🐃">ɓauna | ruwa</annotation>
+		<annotation cp="🐃" type="tts">ɓaunan ruwa</annotation>
+		<annotation cp="🐄">saniya</annotation>
+		<annotation cp="🐄" type="tts">saniya</annotation>
+		<annotation cp="🐷">fuska | alade</annotation>
+		<annotation cp="🐷" type="tts">fuskar alade</annotation>
+		<annotation cp="🐖">ta-macen alade</annotation>
+		<annotation cp="🐖" type="tts">alade</annotation>
+		<annotation cp="🐗">alade</annotation>
+		<annotation cp="🐗" type="tts">gadu</annotation>
+		<annotation cp="🐽">fuska | hanci | alade</annotation>
+		<annotation cp="🐽" type="tts">hancin alade</annotation>
+		<annotation cp="🐏">Aries | tunkiya | zodiac | mutum</annotation>
+		<annotation cp="🐏" type="tts">rago</annotation>
+		<annotation cp="🐑">tunkiya | ta-mace</annotation>
+		<annotation cp="🐑" type="tts">tunkiya</annotation>
+		<annotation cp="🐐">Capricorn | zodiac</annotation>
+		<annotation cp="🐐" type="tts">akuya</annotation>
+		<annotation cp="🐪">raƙumi | tozo</annotation>
+		<annotation cp="🐪" type="tts">raƙumi</annotation>
+		<annotation cp="🐫">bactrian | raƙumi | tozo</annotation>
+		<annotation cp="🐫" type="tts">raƙumi mai tozon biyu</annotation>
+		<annotation cp="🦒">ɗige-ɗige</annotation>
+		<annotation cp="🦒" type="tts">raƙumin dawa</annotation>
+		<annotation cp="🐘">giwa</annotation>
+		<annotation cp="🐘" type="tts">giwa</annotation>
+		<annotation cp="🦏">karkanda</annotation>
+		<annotation cp="🦏" type="tts">karkanda</annotation>
+		<annotation cp="🐭">fuska | kusu</annotation>
+		<annotation cp="🐭" type="tts">fuskar kusu</annotation>
+		<annotation cp="🐁">kusu</annotation>
+		<annotation cp="🐁" type="tts">kusu</annotation>
+		<annotation cp="🐀">ɓera</annotation>
+		<annotation cp="🐀" type="tts">ɓera</annotation>
+		<annotation cp="🐹">fuska | dabbar hamster | dabbar gida</annotation>
+		<annotation cp="🐹" type="tts">fuskar dabbar hamster</annotation>
+		<annotation cp="🐰">zomo | fuska | dabbar gida</annotation>
+		<annotation cp="🐰" type="tts">fuskar zomo</annotation>
+		<annotation cp="🐇">zomo | dabbar gida</annotation>
+		<annotation cp="🐇" type="tts">zomo</annotation>
+		<annotation cp="🐿">chipmunk</annotation>
+		<annotation cp="🐿" type="tts">chipmunk</annotation>
+		<annotation cp="🦔">mai tsini</annotation>
+		<annotation cp="🦔" type="tts">dabbar hedgehog</annotation>
+		<annotation cp="🦇">jemage | mai shan jini</annotation>
+		<annotation cp="🦇" type="tts">jemage</annotation>
+		<annotation cp="🐻">dabbar bear | fuska</annotation>
+		<annotation cp="🐻" type="tts">fuskar dabbar bear</annotation>
+		<annotation cp="🐨">dabbar bear</annotation>
+		<annotation cp="🐨" type="tts">koala</annotation>
+		<annotation cp="🐼">fuska | dabbar panda</annotation>
+		<annotation cp="🐼" type="tts">fuskar dabbar panda</annotation>
+		<annotation cp="🐾">ƙafafu | dagi | zane</annotation>
+		<annotation cp="🐾" type="tts">zanen dagi</annotation>
+		<annotation cp="🦃">talo-talo | tsuntsu</annotation>
+		<annotation cp="🦃" type="tts">talo-talo</annotation>
+		<annotation cp="🐔">kaza | tsuntsu</annotation>
+		<annotation cp="🐔" type="tts">kaza</annotation>
+		<annotation cp="🐓">zakara | tsuntsu</annotation>
+		<annotation cp="🐓" type="tts">zakara</annotation>
+		<annotation cp="🐣">ɗan | tsako | ƙyanƙyashe | tsuntsu</annotation>
+		<annotation cp="🐣" type="tts">ɗan tsako mai ƙyanƙyashe</annotation>
+		<annotation cp="🐤">ɗan | tsako | tsuntsu</annotation>
+		<annotation cp="🐤" type="tts">ƙaramin ɗan tsako</annotation>
+		<annotation cp="🐥">ɗan | tsako | tsuntsu</annotation>
+		<annotation cp="🐥" type="tts">ƙaramin ɗan tsako mai dubawa-gaba</annotation>
+		<annotation cp="🐦">tsuntsu</annotation>
+		<annotation cp="🐦" type="tts">tsuntsu</annotation>
+		<annotation cp="🐧">tsuntsun penguin | tsuntsu</annotation>
+		<annotation cp="🐧" type="tts">tsuntsun Penguin</annotation>
+		<annotation cp="🕊">tsuntsu | tashi | zaman lafiya</annotation>
+		<annotation cp="🕊" type="tts">kurciya</annotation>
+		<annotation cp="🦅">mikiya | tsuntsu</annotation>
+		<annotation cp="🦅" type="tts">mikiya</annotation>
+		<annotation cp="🦆">agwagwa | tsuntsu</annotation>
+		<annotation cp="🦆" type="tts">agwagwa</annotation>
+		<annotation cp="🦉">mujiya | mai hikima | tsuntsu</annotation>
+		<annotation cp="🦉" type="tts">mujiya</annotation>
+		<annotation cp="🐸">fuska | kwaɗo</annotation>
+		<annotation cp="🐸" type="tts">fuskar kwaɗo</annotation>
+		<annotation cp="🐊">kada</annotation>
+		<annotation cp="🐊" type="tts">kada</annotation>
+		<annotation cp="🐢">kififfiya | kunkuru | kififfiyar kogi</annotation>
+		<annotation cp="🐢" type="tts">kififfiya</annotation>
+		<annotation cp="🦎">kadangare | ja jiki</annotation>
+		<annotation cp="🦎" type="tts">kadangare</annotation>
+		<annotation cp="🐍">maɗauki | Ophiuchus | maciji | zodiac</annotation>
+		<annotation cp="🐍" type="tts">maciji</annotation>
+		<annotation cp="🐲">dabbar daragon | fuska | labarin aljana</annotation>
+		<annotation cp="🐲" type="tts">fuskar dabbar daragon</annotation>
+		<annotation cp="🐉">labarin aljana</annotation>
+		<annotation cp="🐉" type="tts">daragon</annotation>
+		<annotation cp="🦕">brontosaurus | diplodocus | brachiosaurus</annotation>
+		<annotation cp="🦕" type="tts">sauropod</annotation>
+		<annotation cp="🦖">Tyrannosaurus Rex</annotation>
+		<annotation cp="🦖" type="tts">T-Rex</annotation>
+		<annotation cp="🐳">fuska | mai fitowar da ruwa | dabbar whale</annotation>
+		<annotation cp="🐳" type="tts">dabbar whale mai fitowar da ruwa</annotation>
+		<annotation cp="🐋">dabbar whale</annotation>
+		<annotation cp="🐋" type="tts">dabbar whale</annotation>
+		<annotation cp="🐬">reshe mara yatsa</annotation>
+		<annotation cp="🐬" type="tts">kifin dolphin</annotation>
+		<annotation cp="🐟">Pisces | zodiac</annotation>
+		<annotation cp="🐟" type="tts">kifi</annotation>
+		<annotation cp="🐠">kifi | wuri mai zafi</annotation>
+		<annotation cp="🐠" type="tts">kifi na wuri mai zafi</annotation>
+		<annotation cp="🐡">kifi</annotation>
+		<annotation cp="🐡" type="tts">kifi mai kumburawa</annotation>
+		<annotation cp="🦈">kifin shark | kifi</annotation>
+		<annotation cp="🦈" type="tts">kifin shark</annotation>
+		<annotation cp="🐙">dabbar octopus</annotation>
+		<annotation cp="🐙" type="tts">dabbar octopus</annotation>
+		<annotation cp="🐚">ƙumba | lanƙwasasshe</annotation>
+		<annotation cp="🐚" type="tts">lanƙwasasshen ƙumba</annotation>
+		<annotation cp="🐌">dodon koɗi</annotation>
+		<annotation cp="🐌" type="tts">dodon koɗi</annotation>
+		<annotation cp="🦋">malam-buɗe-mana-littafi | ƙwaro | kyakkyawa</annotation>
+		<annotation cp="🦋" type="tts">malam-buɗe-mana-littafi</annotation>
+		<annotation cp="🐛">ƙwaro</annotation>
+		<annotation cp="🐛" type="tts">ƙwaro</annotation>
+		<annotation cp="🐜">ƙwaro</annotation>
+		<annotation cp="🐜" type="tts">cinnaka</annotation>
+		<annotation cp="🐝">zuma | ƙwaro</annotation>
+		<annotation cp="🐝" type="tts">zuma</annotation>
+		<annotation cp="🐞">buzuzu | ƙwaro | ƙwaron ladybird | ƙwaron ladybug</annotation>
+		<annotation cp="🐞" type="tts">buzuzun turawa</annotation>
+		<annotation cp="🦗">fara</annotation>
+		<annotation cp="🦗" type="tts">gyare</annotation>
+		<annotation cp="🕷">ƙwaro</annotation>
+		<annotation cp="🕷" type="tts">gizo</annotation>
+		<annotation cp="🕸">gizo | yanar gizo</annotation>
+		<annotation cp="🕸" type="tts">yanar gizo</annotation>
+		<annotation cp="🦂">scorpio | Scorpius | zodiac</annotation>
+		<annotation cp="🦂" type="tts">kunama</annotation>
+		<annotation cp="💐">fure</annotation>
+		<annotation cp="💐" type="tts">jerin fure</annotation>
+		<annotation cp="🌸">huda | cherry | fure</annotation>
+		<annotation cp="🌸" type="tts">hudar cherry</annotation>
+		<annotation cp="💮">fure</annotation>
+		<annotation cp="💮" type="tts">farin fure</annotation>
+		<annotation cp="🏵">shuke</annotation>
+		<annotation cp="🏵" type="tts">rosette</annotation>
+		<annotation cp="🌹">fure</annotation>
+		<annotation cp="🌹" type="tts">furen wardi</annotation>
+		<annotation cp="🥀">fure | laƙwasse</annotation>
+		<annotation cp="🥀" type="tts">laƙwassen fure</annotation>
+		<annotation cp="🌺">fure</annotation>
+		<annotation cp="🌺" type="tts">furen Hibiscus</annotation>
+		<annotation cp="🌻">fure | rana</annotation>
+		<annotation cp="🌻" type="tts">furenrana</annotation>
+		<annotation cp="🌼">fure</annotation>
+		<annotation cp="🌼" type="tts">huda</annotation>
+		<annotation cp="🌷">fure</annotation>
+		<annotation cp="🌷" type="tts">tulip</annotation>
+		<annotation cp="🌱">ƙarami</annotation>
+		<annotation cp="🌱" type="tts">dashe</annotation>
+		<annotation cp="🌲">bishiya</annotation>
+		<annotation cp="🌲" type="tts">bishiya mai tsanwa</annotation>
+		<annotation cp="🌳">mai kaɗe ganye | kaɗewa | bishiya</annotation>
+		<annotation cp="🌳" type="tts">bishiya mai kaɗe ganye</annotation>
+		<annotation cp="🌴">kwakwa | bishiya</annotation>
+		<annotation cp="🌴" type="tts">bishiyar kwakwa</annotation>
+		<annotation cp="🌵">shuke</annotation>
+		<annotation cp="🌵" type="tts">kyarana</annotation>
+		<annotation cp="🌾">zangarniya | shinkafa | hatsi</annotation>
+		<annotation cp="🌾" type="tts">damin shinkafa</annotation>
+		<annotation cp="🌿">ganye</annotation>
+		<annotation cp="🌿" type="tts">ganye</annotation>
+		<annotation cp="☘">shuke</annotation>
+		<annotation cp="☘" type="tts">shamrock</annotation>
+		<annotation cp="🍀">4 | clover | huɗu | ganye</annotation>
+		<annotation cp="🍀" type="tts">clover mai ganyen huɗu</annotation>
+		<annotation cp="🍁">faɗuwa | ganye | maple</annotation>
+		<annotation cp="🍁" type="tts">ganyen maple</annotation>
+		<annotation cp="🍂">faɗuwa | ganye</annotation>
+		<annotation cp="🍂" type="tts">ganyen da ya faɗi</annotation>
+		<annotation cp="🍃">kaɗa | yi filfilwa | ganye | iska</annotation>
+		<annotation cp="🍃" type="tts">ganye mai yin filfilwa a iska</annotation>
+		<annotation cp="🍇">ɗan itace | inabi</annotation>
+		<annotation cp="🍇" type="tts">inabi</annotation>
+		<annotation cp="🍈">ɗan itace</annotation>
+		<annotation cp="🍈" type="tts">malo</annotation>
+		<annotation cp="🍉">ɗan itace</annotation>
+		<annotation cp="🍉" type="tts">kankana</annotation>
+		<annotation cp="🍊">ɗan itace | lemo</annotation>
+		<annotation cp="🍊" type="tts">tanjarin</annotation>
+		<annotation cp="🍋">kayan lemo | ɗan itace</annotation>
+		<annotation cp="🍋" type="tts">ruwan lemo</annotation>
+		<annotation cp="🍌">ɗan itace</annotation>
+		<annotation cp="🍌" type="tts">ayaba</annotation>
+		<annotation cp="🍍">ɗan itace</annotation>
+		<annotation cp="🍍" type="tts">abarba</annotation>
+		<annotation cp="🍎">tuffa | ɗan itace | ja</annotation>
+		<annotation cp="🍎" type="tts">jan tuffa</annotation>
+		<annotation cp="🍏">tuffa | ɗan itace | kore</annotation>
+		<annotation cp="🍏" type="tts">koren tuffa</annotation>
+		<annotation cp="🍐">ɗan itace</annotation>
+		<annotation cp="🍐" type="tts">pear</annotation>
+		<annotation cp="🍑">ɗan itace</annotation>
+		<annotation cp="🍑" type="tts">ruwan tufa</annotation>
+		<annotation cp="🍒">ceri | ɗan itace</annotation>
+		<annotation cp="🍒" type="tts">ceri</annotation>
+		<annotation cp="🍓">beri | ɗan itace</annotation>
+		<annotation cp="🍓" type="tts">strawberry</annotation>
+		<annotation cp="🥝">kiwi | ɗan itace | abinci</annotation>
+		<annotation cp="🥝" type="tts">ɗan itacen kiwi</annotation>
+		<annotation cp="🍅">ɗan itace | abincin ganye</annotation>
+		<annotation cp="🍅" type="tts">tumatir</annotation>
+		<annotation cp="🥥">kwakwa | piña colada</annotation>
+		<annotation cp="🥥" type="tts">kwakwa</annotation>
+		<annotation cp="🥑">avocade | ɗan itace | abinci</annotation>
+		<annotation cp="🥑" type="tts">avocado</annotation>
+		<annotation cp="🍆">aubergine | abincin ganye</annotation>
+		<annotation cp="🍆" type="tts">gauta</annotation>
+		<annotation cp="🥔">dankali | ganye | abinci</annotation>
+		<annotation cp="🥔" type="tts">dankali</annotation>
+		<annotation cp="🥕">karas | ganye | abinci</annotation>
+		<annotation cp="🥕" type="tts">karas</annotation>
+		<annotation cp="🌽">hatsi | zangarniya | masara | tararrun gadina</annotation>
+		<annotation cp="🌽" type="tts">zangarniyar hatsi</annotation>
+		<annotation cp="🌶">zafi | barkono</annotation>
+		<annotation cp="🌶" type="tts">barkono mai zafi</annotation>
+		<annotation cp="🥒">kokwamba | mai daɗi | ganye | abinci</annotation>
+		<annotation cp="🥒" type="tts">kokwamba</annotation>
+		<annotation cp="🥦">kabeji na daji</annotation>
+		<annotation cp="🥦" type="tts">broccoli</annotation>
+		<annotation cp="🍄">shuken toadstool</annotation>
+		<annotation cp="🍄" type="tts">naman kaza</annotation>
+		<annotation cp="🥜">gyada | abinci | ganye</annotation>
+		<annotation cp="🥜" type="tts">gyada</annotation>
+		<annotation cp="🌰">shuke</annotation>
+		<annotation cp="🌰" type="tts">chestnut</annotation>
+		<annotation cp="🍞">burodi mai yanke-yanke</annotation>
+		<annotation cp="🍞" type="tts">burodi</annotation>
+		<annotation cp="🥐">croissant | abincin crescent roll | na faransa | abinci | burodi</annotation>
+		<annotation cp="🥐" type="tts">croissant</annotation>
+		<annotation cp="🥖">baguette | burodi | na faransa | abinci</annotation>
+		<annotation cp="🥖" type="tts">burodin baguette</annotation>
+		<annotation cp="🥨">murɗaɗɗe</annotation>
+		<annotation cp="🥨" type="tts">pretzel</annotation>
+		<annotation cp="🥞">kek mai zafi | crêpe | fanke | abinci</annotation>
+		<annotation cp="🥞" type="tts">fanke</annotation>
+		<annotation cp="🧀">cuku</annotation>
+		<annotation cp="🧀" type="tts">mayankin cuku</annotation>
+		<annotation cp="🍖">ƙashi | nama</annotation>
+		<annotation cp="🍖" type="tts">nama a kan ƙashi</annotation>
+		<annotation cp="🍗">ƙashi | kaza | ƙafa | kaji</annotation>
+		<annotation cp="🍗" type="tts">ƙafan kaji</annotation>
+		<annotation cp="🥩">yankan naman alade | yankan naman ɗan rago | yanka | naman shanu</annotation>
+		<annotation cp="🥩" type="tts">yankan nama</annotation>
+		<annotation cp="🥓">naman alade | nama | abinci</annotation>
+		<annotation cp="🥓" type="tts">naman alade</annotation>
+		<annotation cp="🍔">burger</annotation>
+		<annotation cp="🍔" type="tts">hamburger</annotation>
+		<annotation cp="🍟">dankali | soyayye</annotation>
+		<annotation cp="🍟" type="tts">soyayyen dankali</annotation>
+		<annotation cp="🍕">cuku | yanki</annotation>
+		<annotation cp="🍕" type="tts">pizza</annotation>
+		<annotation cp="🌭">frankfurter | hot dog | sausage</annotation>
+		<annotation cp="🌭" type="tts">hot dog</annotation>
+		<annotation cp="🥪">burodi</annotation>
+		<annotation cp="🥪" type="tts">abincin sandwich</annotation>
+		<annotation cp="🌮">na mexico</annotation>
+		<annotation cp="🌮" type="tts">taco</annotation>
+		<annotation cp="🌯">na mexico | naɗi</annotation>
+		<annotation cp="🌯" type="tts">burrito</annotation>
+		<annotation cp="🥙">kebab | falafel | wuta | burodi mai lebur | cikakke | abinci</annotation>
+		<annotation cp="🥙" type="tts">cikakken burodi</annotation>
+		<annotation cp="🥚">ƙwai | abinci</annotation>
+		<annotation cp="🥚" type="tts">ƙwai</annotation>
+		<annotation cp="🍳">ƙwai | soyawa | kwanon tuya</annotation>
+		<annotation cp="🍳" type="tts">girkawa</annotation>
+		<annotation cp="🥘">paella | miyan casserole | kwanon tuya | mara zurfi | abinci</annotation>
+		<annotation cp="🥘" type="tts">kwanon mara zurfi na abinci</annotation>
+		<annotation cp="🍲">tukunya | miya</annotation>
+		<annotation cp="🍲" type="tts">tukunyar abinci</annotation>
+		<annotation cp="🥣">abincin safe | hatsi | congee</annotation>
+		<annotation cp="🥣" type="tts">kwano tare da cokali</annotation>
+		<annotation cp="🥗">ganyen | salak | abinci</annotation>
+		<annotation cp="🥗" type="tts">salak na ganye</annotation>
+		<annotation cp="🍿">gugguru</annotation>
+		<annotation cp="🍿" type="tts">gugguru</annotation>
+		<annotation cp="🥫">gwangwani</annotation>
+		<annotation cp="🥫" type="tts">abinci na gwangwani</annotation>
+		<annotation cp="🍱">bento | akwati</annotation>
+		<annotation cp="🍱" type="tts">akwatin bento</annotation>
+		<annotation cp="🍘">biskit | shinkafa</annotation>
+		<annotation cp="🍘" type="tts">biskit na shinkafa</annotation>
+		<annotation cp="🍙">curi | Na japan | shinkafa</annotation>
+		<annotation cp="🍙" type="tts">curin shinkafa</annotation>
+		<annotation cp="🍚">dafaffe | shinkafa</annotation>
+		<annotation cp="🍚" type="tts">dafaffen shinkafa</annotation>
+		<annotation cp="🍛">kori | shinkafa</annotation>
+		<annotation cp="🍛" type="tts">shinkafa na kori</annotation>
+		<annotation cp="🍜">kwano | taliya | ramen | dambatawa</annotation>
+		<annotation cp="🍜" type="tts">kwano mai dambatawa</annotation>
+		<annotation cp="🍝">fasta</annotation>
+		<annotation cp="🍝" type="tts">taliya</annotation>
+		<annotation cp="🍠">dankali | gasasshe | zaƙi</annotation>
+		<annotation cp="🍠" type="tts">gasasshen dankali</annotation>
+		<annotation cp="🍢">kebab | abincin teku | tsinke | sanda</annotation>
+		<annotation cp="🍢" type="tts">abincin oden</annotation>
+		<annotation cp="🍣">sushi</annotation>
+		<annotation cp="🍣" type="tts">sushi</annotation>
+		<annotation cp="🍤">soyayye | jatan lande | jatan lande turawa | tempura</annotation>
+		<annotation cp="🍤" type="tts">soyayyen jatan lande</annotation>
+		<annotation cp="🍥">kek | kifi | kayan kek | mai juyawa</annotation>
+		<annotation cp="🍥" type="tts">kek na kifi mai juyawa</annotation>
+		<annotation cp="🍡">kayan zaƙi | Na japan | tsinke | sanda | zaƙi</annotation>
+		<annotation cp="🍡" type="tts">dango</annotation>
+		<annotation cp="🥟">potsticker | gyōza | jiaozi | pierogi | empanada</annotation>
+		<annotation cp="🥟" type="tts">ƙaramar kwaɓaɓɓiyar fulawa</annotation>
+		<annotation cp="🥠">duba</annotation>
+		<annotation cp="🥠" type="tts">biskit na dukiya</annotation>
+		<annotation cp="🥡">bokitin oyster</annotation>
+		<annotation cp="🥡" type="tts">akwatin abinci na fita waje</annotation>
+		<annotation cp="🦀">Cancer | zodiac</annotation>
+		<annotation cp="🦀" type="tts">ƙaguwa</annotation>
+		<annotation cp="🦐">jatanlande | ƙarami | kifi mai katantanwa | abinci</annotation>
+		<annotation cp="🦐" type="tts">jatanlande</annotation>
+		<annotation cp="🦑">jatan lande na turawa | molusc | abinci</annotation>
+		<annotation cp="🦑" type="tts">jatan lande na turawa</annotation>
+		<annotation cp="🍦">ƙanƙara | kayan zaƙi | mai taushi | mai zaƙi</annotation>
+		<annotation cp="🍦" type="tts">ƙanƙara Mai taushi</annotation>
+		<annotation cp="🍧">kayan zaƙi | ƙanƙara | rugurguje | mai zaƙi</annotation>
+		<annotation cp="🍧" type="tts">rugurgujen ƙanƙara</annotation>
+		<annotation cp="🍨">ƙanƙara | ƙayan zaƙi | mai zaƙi</annotation>
+		<annotation cp="🍨" type="tts">ƙanƙara</annotation>
+		<annotation cp="🍩">kayan zaƙi | donot | mai zaƙi</annotation>
+		<annotation cp="🍩" type="tts">donot</annotation>
+		<annotation cp="🍪">kayan zaƙi | mai zaƙi</annotation>
+		<annotation cp="🍪" type="tts">biskit</annotation>
+		<annotation cp="🎂">ranar haihuwa | kek | shagali | kayan zaƙi | kayan kek | mai zaƙi</annotation>
+		<annotation cp="🎂" type="tts">kek na ranar haihuwa</annotation>
+		<annotation cp="🍰">kek | kayan zaƙi | kayan kek | yanki | mai zaƙi</annotation>
+		<annotation cp="🍰" type="tts">shortcake</annotation>
+		<annotation cp="🥧">kayan fulawa | cika</annotation>
+		<annotation cp="🥧" type="tts">fai</annotation>
+		<annotation cp="🍫">sanda | cakulan | kayan zaƙi | mai zaƙi</annotation>
+		<annotation cp="🍫" type="tts">sandar Cakulan</annotation>
+		<annotation cp="🍬">kayan zaƙi | mai zaƙi</annotation>
+		<annotation cp="🍬" type="tts">alawa</annotation>
+		<annotation cp="🍭">alawa | kayan zaƙi | mai zaƙi</annotation>
+		<annotation cp="🍭" type="tts">alawar Lollipop</annotation>
+		<annotation cp="🍮">kayan zaƙi | alawa mai zaƙi | mai zaƙi</annotation>
+		<annotation cp="🍮" type="tts">kwastad</annotation>
+		<annotation cp="🍯">zuma | tukunyan zuma | tukunya | mai zaƙi</annotation>
+		<annotation cp="🍯" type="tts">tukunyan zuma</annotation>
+		<annotation cp="🍼">jariri | kwalba | sha | madara</annotation>
+		<annotation cp="🍼" type="tts">kwalbar jarirai</annotation>
+		<annotation cp="🥛">gilashi | madara | abinsha</annotation>
+		<annotation cp="🥛" type="tts">gilashin madara</annotation>
+		<annotation cp="☕">shayi | kofi | sha | zafi | mai tururi</annotation>
+		<annotation cp="☕" type="tts">shayi mai zarfi</annotation>
+		<annotation cp="🍵">shayi | kofi | sha | kofin shayi</annotation>
+		<annotation cp="🍵" type="tts">kofin shayi mara mariƙi</annotation>
+		<annotation cp="🍶">mashaya | shayi | kwalba | kofi | sha</annotation>
+		<annotation cp="🍶" type="tts">sake</annotation>
+		<annotation cp="🍾">mashaya | kwalba | murfi | sha | fashewa</annotation>
+		<annotation cp="🍾" type="tts">kwalba mai murfi mai fashewa</annotation>
+		<annotation cp="🍷">mashaya | shayi | sha | gilashi | giya</annotation>
+		<annotation cp="🍷" type="tts">gilashin giya</annotation>
+		<annotation cp="🍸">mashaya | cocktail | sha | gilashi</annotation>
+		<annotation cp="🍸" type="tts">gilashin cocktail</annotation>
+		<annotation cp="🍹">mashaya | sha | na wurin zafi</annotation>
+		<annotation cp="🍹" type="tts">abinsha na wurin zafi</annotation>
+		<annotation cp="🍺">mashaya | giya | sha | kofi</annotation>
+		<annotation cp="🍺" type="tts">kofin giya</annotation>
+		<annotation cp="🍻">mashaya | giya | amo | sha | kofi</annotation>
+		<annotation cp="🍻" type="tts">kofofin giya masu yin amo</annotation>
+		<annotation cp="🥂">yin amo | gilashi | sha | yi shagali</annotation>
+		<annotation cp="🥂" type="tts">gilasoshi masu yin amo</annotation>
+		<annotation cp="🥃">gilashi | tambular | giyan wiski | giya | ɗan giya</annotation>
+		<annotation cp="🥃" type="tts">gilashin tambular</annotation>
+		<annotation cp="🥤">soda | ruwan zaƙi</annotation>
+		<annotation cp="🥤" type="tts">kofi tare da tsinke</annotation>
+		<annotation cp="🥢">hashi</annotation>
+		<annotation cp="🥢" type="tts">sandunan cin abinci</annotation>
+		<annotation cp="🍽">dafuwa | cokali mai yatsu | wuƙa | faranti</annotation>
+		<annotation cp="🍽" type="tts">cokali mai yatsu da wuƙa tare da faranti</annotation>
+		<annotation cp="🍴">girkawa | cokali mai yatsu | wuƙa</annotation>
+		<annotation cp="🍴" type="tts">cokali mai yatsu da wuƙa</annotation>
+		<annotation cp="🥄">cokali | kayan abinci</annotation>
+		<annotation cp="🥄" type="tts">cokali</annotation>
+		<annotation cp="🔪">girkawa | hocho | wuƙa | kayan aiki | makami</annotation>
+		<annotation cp="🔪" type="tts">wuƙar kicin</annotation>
+		<annotation cp="🏺">Aquarius | girkawa | sha | buta | kayan aiki | makami | zodiac</annotation>
+		<annotation cp="🏺" type="tts">amphora</annotation>
+		<annotation cp="🌍">Afirika | duniya | Turai | gulab na duniya</annotation>
+		<annotation cp="🌍" type="tts">gulob na duniya mai nunawa Turai-Afrika</annotation>
+		<annotation cp="🌎">Ƙasashen Amurka | duniya | gulab na duniya</annotation>
+		<annotation cp="🌎" type="tts">gulob mai nunawa Ƙasashen Amurika</annotation>
+		<annotation cp="🌏">Asia | Australia | duniya | gulab na duniya</annotation>
+		<annotation cp="🌏" type="tts">gulob na duniya mai nunawa Asia-Australia</annotation>
+		<annotation cp="🌐">duniya | gulab na duniya | layukan lokaci</annotation>
+		<annotation cp="🌐" type="tts">gulob na duniya mai nunawa layukan lokaci</annotation>
+		<annotation cp="🗺">taswira | duniya</annotation>
+		<annotation cp="🗺" type="tts">taswirar duniya</annotation>
+		<annotation cp="🗾">Japan | taswira</annotation>
+		<annotation cp="🗾" type="tts">taswirar Japan</annotation>
+		<annotation cp="🏔">sanyi | tsauni | ƙanƙara</annotation>
+		<annotation cp="🏔" type="tts">tsauni mai saman ƙanƙara</annotation>
+		<annotation cp="⛰">tsauni</annotation>
+		<annotation cp="⛰" type="tts">tsauni</annotation>
+		<annotation cp="🌋">aman wuta | tsauni</annotation>
+		<annotation cp="🌋" type="tts">dutse mai aman wuta</annotation>
+		<annotation cp="🗻">fuji | tsauni</annotation>
+		<annotation cp="🗻" type="tts">tsaunin fuji</annotation>
+		<annotation cp="🏕">zaman ruga</annotation>
+		<annotation cp="🏕" type="tts">zaman ruga</annotation>
+		<annotation cp="🏖">bakin teku | laima</annotation>
+		<annotation cp="🏖" type="tts">bakin teku tare da laima</annotation>
+		<annotation cp="🏜">hamada</annotation>
+		<annotation cp="🏜" type="tts">hamada</annotation>
+		<annotation cp="🏝">hamada | tsibiri</annotation>
+		<annotation cp="🏝" type="tts">tsibirin hamada</annotation>
+		<annotation cp="🏞">gandu</annotation>
+		<annotation cp="🏞" type="tts">gandun daji na ƙasa</annotation>
+		<annotation cp="🏟">filin wasa</annotation>
+		<annotation cp="🏟" type="tts">filin wasa</annotation>
+		<annotation cp="🏛">na da</annotation>
+		<annotation cp="🏛" type="tts">gini na da</annotation>
+		<annotation cp="🏗">aikin gini</annotation>
+		<annotation cp="🏗" type="tts">aikin gini na gini</annotation>
+		<annotation cp="🏘">gidaje</annotation>
+		<annotation cp="🏘" type="tts">gidaje</annotation>
+		<annotation cp="🏚">zaizayayye | gida</annotation>
+		<annotation cp="🏚" type="tts">zaizayayyen gida</annotation>
+		<annotation cp="🏠">gida</annotation>
+		<annotation cp="🏠" type="tts">gida</annotation>
+		<annotation cp="🏡">gadina | gida</annotation>
+		<annotation cp="🏡" type="tts">gida mai gadina</annotation>
+		<annotation cp="🏢">gini</annotation>
+		<annotation cp="🏢" type="tts">ginin ofis</annotation>
+		<annotation cp="🏣">gidan waya | Na Japan</annotation>
+		<annotation cp="🏣" type="tts">gidan waya Na Japan</annotation>
+		<annotation cp="🏤">Turai | gidan waya</annotation>
+		<annotation cp="🏤" type="tts">gidan waya</annotation>
+		<annotation cp="🏥">likita | magani</annotation>
+		<annotation cp="🏥" type="tts">asibiti</annotation>
+		<annotation cp="🏦">gini</annotation>
+		<annotation cp="🏦" type="tts">banki</annotation>
+		<annotation cp="🏨">gini</annotation>
+		<annotation cp="🏨" type="tts">hotal</annotation>
+		<annotation cp="🏩">hotal | soyayya</annotation>
+		<annotation cp="🏩" type="tts">hotal na soyayya</annotation>
+		<annotation cp="🏪">wuri mai dacewa | shago</annotation>
+		<annotation cp="🏪" type="tts">shago a wuri mai dacewa</annotation>
+		<annotation cp="🏫">gini</annotation>
+		<annotation cp="🏫" type="tts">makaranta</annotation>
+		<annotation cp="🏬">babban | shago</annotation>
+		<annotation cp="🏬" type="tts">babban shago</annotation>
+		<annotation cp="🏭">gini</annotation>
+		<annotation cp="🏭" type="tts">masana’anta</annotation>
+		<annotation cp="🏯">sansani | Na Japan</annotation>
+		<annotation cp="🏯" type="tts">sansani Na Japan</annotation>
+		<annotation cp="🏰">Na Turai</annotation>
+		<annotation cp="🏰" type="tts">sansani</annotation>
+		<annotation cp="💒">ƙaramin coci | soyayya</annotation>
+		<annotation cp="💒" type="tts">bikin aure</annotation>
+		<annotation cp="🗼">Tokyo | hasumiya</annotation>
+		<annotation cp="🗼" type="tts">hasumiyar Tokyo</annotation>
+		<annotation cp="🗽">‘yanci | mutum-mutum</annotation>
+		<annotation cp="🗽" type="tts">mutum-mutumi na ’yanci</annotation>
+		<annotation cp="⛪">Kirista | kuros | addini</annotation>
+		<annotation cp="⛪" type="tts">coci</annotation>
+		<annotation cp="🕌">islam | Musulmi | addini</annotation>
+		<annotation cp="🕌" type="tts">masallaci</annotation>
+		<annotation cp="🕍">Yahudu | Na yahudu | addini | wurin ibada</annotation>
+		<annotation cp="🕍" type="tts">wurin ibada na yahudawa</annotation>
+		<annotation cp="⛩">addini | shinto | wurin addu’a</annotation>
+		<annotation cp="⛩" type="tts">wurin addu’a na shinto</annotation>
+		<annotation cp="🕋">islam | Musulmi | addini</annotation>
+		<annotation cp="🕋" type="tts">kaaba</annotation>
+		<annotation cp="⛲">marmaro</annotation>
+		<annotation cp="⛲" type="tts">marmaro</annotation>
+		<annotation cp="⛺">zaman ruga</annotation>
+		<annotation cp="⛺" type="tts">tanti</annotation>
+		<annotation cp="🌁">hazo</annotation>
+		<annotation cp="🌁" type="tts">mai hazo</annotation>
+		<annotation cp="🌃">dare | tauraro</annotation>
+		<annotation cp="🌃" type="tts">dare mai taurari</annotation>
+		<annotation cp="🏙">birni</annotation>
+		<annotation cp="🏙" type="tts">ganowar birni</annotation>
+		<annotation cp="🌄">safiya | tsauni | rana | fitowar rana</annotation>
+		<annotation cp="🌄" type="tts">fitowar rana bisa tsaunuka</annotation>
+		<annotation cp="🌅">safiya | rana</annotation>
+		<annotation cp="🌅" type="tts">fitowar rana</annotation>
+		<annotation cp="🌆">birni | magariba | yamma | tsarin gari | rana | faɗuwar rana</annotation>
+		<annotation cp="🌆" type="tts">ganowar birni a magariba</annotation>
+		<annotation cp="🌇">magariba | rana</annotation>
+		<annotation cp="🌇" type="tts">faɗuwar rana</annotation>
+		<annotation cp="🌉">gada | dare</annotation>
+		<annotation cp="🌉" type="tts">gada a dare</annotation>
+		<annotation cp="♨">zafi | maɓuɓɓuga mai zafi | maɓuɓɓuga | mai tururi</annotation>
+		<annotation cp="♨" type="tts">maɓuɓɓuga mai zafi</annotation>
+		<annotation cp="🎠">lilon mai juyawa | doki</annotation>
+		<annotation cp="🎠" type="tts">dokin lilon mai juyawa</annotation>
+		<annotation cp="🎡">wurin shaƙatawa | babban | lilo</annotation>
+		<annotation cp="🎡" type="tts">babban lilo</annotation>
+		<annotation cp="🎢">wurin shaƙatawa | motocin wasa | masu juyawa</annotation>
+		<annotation cp="🎢" type="tts">motocin masa masu juyawa</annotation>
+		<annotation cp="💈">mai aski | aski | sanda</annotation>
+		<annotation cp="💈" type="tts">sandar mai aski</annotation>
+		<annotation cp="🎪">’yan wasa | tanti</annotation>
+		<annotation cp="🎪" type="tts">tantin ’yan wasa</annotation>
+		<annotation cp="🚂">inji | reluwe | tururi | jirgin ƙasa</annotation>
+		<annotation cp="🚂" type="tts">mota mai inji</annotation>
+		<annotation cp="🚃">ƙaramar mota | na lantarki | reluwe | jirgin ƙasa | tram | bas mai aiki da lantarki</annotation>
+		<annotation cp="🚃" type="tts">ƙaramar motar reluwe</annotation>
+		<annotation cp="🚄">reluwe | shinkansen | sauri | jirgin ƙasa</annotation>
+		<annotation cp="🚄" type="tts">jirgin ƙasa mai matuƙar sauri</annotation>
+		<annotation cp="🚅">harsashi | reluwe | shinkansen | sauri | jirgin ƙasa</annotation>
+		<annotation cp="🚅" type="tts">jirgin ƙasa mai matuƙar sauri mai hancin harsashi</annotation>
+		<annotation cp="🚆">reluwe</annotation>
+		<annotation cp="🚆" type="tts">jirgin ƙasa</annotation>
+		<annotation cp="🚇">hanyar jirgin ƙasa na rami</annotation>
+		<annotation cp="🚇" type="tts">metro</annotation>
+		<annotation cp="🚈">reluwe</annotation>
+		<annotation cp="🚈" type="tts">reluwe na cunkoso mara yawa</annotation>
+		<annotation cp="🚉">reluwe | jirgin ƙasa</annotation>
+		<annotation cp="🚉" type="tts">tasha</annotation>
+		<annotation cp="🚊">bas mai aiki da lantarki</annotation>
+		<annotation cp="🚊" type="tts">tram</annotation>
+		<annotation cp="🚝">mota</annotation>
+		<annotation cp="🚝" type="tts">reluwe guda</annotation>
+		<annotation cp="🚞">ƙaramar mota | tsauni | reluwe</annotation>
+		<annotation cp="🚞" type="tts">reluwen tsauni</annotation>
+		<annotation cp="🚋">ƙaramar mota | tram | bas mai aiki da lantarki</annotation>
+		<annotation cp="🚋" type="tts">ƙaramar motar tram</annotation>
+		<annotation cp="🚌">mota</annotation>
+		<annotation cp="🚌" type="tts">bas</annotation>
+		<annotation cp="🚍">bas | mai Zuwa</annotation>
+		<annotation cp="🚍" type="tts">bas mai zuwa</annotation>
+		<annotation cp="🚎">bas | tram | mai aiki da lantarki</annotation>
+		<annotation cp="🚎" type="tts">bas mai aiki da lantarki</annotation>
+		<annotation cp="🚐">bas</annotation>
+		<annotation cp="🚐" type="tts">ƙaramin bas</annotation>
+		<annotation cp="🚑">mota</annotation>
+		<annotation cp="🚑" type="tts">ambulan</annotation>
+		<annotation cp="🚒">inji | wuta | babbar mota</annotation>
+		<annotation cp="🚒" type="tts">injin wuta</annotation>
+		<annotation cp="🚓">ƙaramar mota | patiri | ‘yan sanda</annotation>
+		<annotation cp="🚓" type="tts">motar ’yan sanda</annotation>
+		<annotation cp="🚔">ƙaramar motar | mai zuwa | ’yan sanda</annotation>
+		<annotation cp="🚔" type="tts">motar ’yan sanda mai zuwa</annotation>
+		<annotation cp="🚕">mota</annotation>
+		<annotation cp="🚕" type="tts">taksi</annotation>
+		<annotation cp="🚖">mai zuwa | taksi</annotation>
+		<annotation cp="🚖" type="tts">taksi mai zuwa</annotation>
+		<annotation cp="🚗">ƙaramar mota</annotation>
+		<annotation cp="🚗" type="tts">mota</annotation>
+		<annotation cp="🚘">mota | ƙaramar mota | mai zuwa</annotation>
+		<annotation cp="🚘" type="tts">mota mai zuwa</annotation>
+		<annotation cp="🚙">na shaƙatawa | amfani na wasanni</annotation>
+		<annotation cp="🚙" type="tts">motar amfani na wasanni</annotation>
+		<annotation cp="🚚">isarwar kaya | babbar mota</annotation>
+		<annotation cp="🚚" type="tts">babbar mota ta isarwa kaya</annotation>
+		<annotation cp="🚛">tirela | kaɗan | babbar mota</annotation>
+		<annotation cp="🚛" type="tts">tirela mai tarakta</annotation>
+		<annotation cp="🚜">mota</annotation>
+		<annotation cp="🚜" type="tts">tarakta</annotation>
+		<annotation cp="🏎">ƙaramar mota | tsere</annotation>
+		<annotation cp="🏎" type="tts">motar tsere</annotation>
+		<annotation cp="🏍">tsere</annotation>
+		<annotation cp="🏍" type="tts">babur</annotation>
+		<annotation cp="🛵">inji | sukuta</annotation>
+		<annotation cp="🛵" type="tts">sukuta na inji</annotation>
+		<annotation cp="🚲">keke</annotation>
+		<annotation cp="🚲" type="tts">keke</annotation>
+		<annotation cp="🛴">sukuta | na ƙafa</annotation>
+		<annotation cp="🛴" type="tts">sukuta na ƙafa</annotation>
+		<annotation cp="🚏">bas | tashar bas | dakata</annotation>
+		<annotation cp="🚏" type="tts">tashar bas</annotation>
+		<annotation cp="🛣">babbar hanya | hanya</annotation>
+		<annotation cp="🛣" type="tts">hanyar mota</annotation>
+		<annotation cp="🛤">reluwe | jirgin ƙasa</annotation>
+		<annotation cp="🛤" type="tts">sawun reluwe</annotation>
+		<annotation cp="🛢">ganga | mai</annotation>
+		<annotation cp="🛢" type="tts">gangar mai</annotation>
+		<annotation cp="⛽">mai | famfon mai | gas | famfo | tasha</annotation>
+		<annotation cp="⛽" type="tts">famfon mai</annotation>
+		<annotation cp="🚨">bikon | ƙaramar mota | wuta | ‘yan sanda | mai juyawa</annotation>
+		<annotation cp="🚨" type="tts">wutar motar ’yan sanda</annotation>
+		<annotation cp="🚥">wuta | sigina | tarafik</annotation>
+		<annotation cp="🚥" type="tts">wutar tarafik mai kwance</annotation>
+		<annotation cp="🚦">wuta | sigina | tarafik</annotation>
+		<annotation cp="🚦" type="tts">wutar tarafik mai tsaye</annotation>
+		<annotation cp="🛑">na sura mai gefe takwas | alama | dakata</annotation>
+		<annotation cp="🛑" type="tts">alamar dakata</annotation>
+		<annotation cp="🚧">cikas</annotation>
+		<annotation cp="🚧" type="tts">aikin gini</annotation>
+		<annotation cp="⚓">jirgin ruwa | kayan aiki</annotation>
+		<annotation cp="⚓" type="tts">babban karfi</annotation>
+		<annotation cp="⛵">jirgin ruwa na sauri | shaƙatawa | teku | jirgin ruwa mai filafilai ɗaya</annotation>
+		<annotation cp="⛵" type="tts">jirgin ruwa mai filafilai</annotation>
+		<annotation cp="🛶">ƙaramin jirgin ruwa | jirgin ruwa mai sauri</annotation>
+		<annotation cp="🛶" type="tts">ƙaramin jirgin ruwa</annotation>
+		<annotation cp="🚤">jirgin ruwa na sauri</annotation>
+		<annotation cp="🚤" type="tts">jirgin ruwa mai sauri</annotation>
+		<annotation cp="🛳">fasinja | jirgin ruwa</annotation>
+		<annotation cp="🛳" type="tts">jirgin ruwa na fasinja</annotation>
+		<annotation cp="⛴">jirgin ruwa na sauri | fasinja</annotation>
+		<annotation cp="⛴" type="tts">jirgin fito</annotation>
+		<annotation cp="🛥">jirgin ruwa na sauri | jirgin ruwa mai inji</annotation>
+		<annotation cp="🛥" type="tts">jirgin ruwa mai inji</annotation>
+		<annotation cp="🚢">jirgin ruwa na sauri | fasinja</annotation>
+		<annotation cp="🚢" type="tts">jirgin ruwa</annotation>
+		<annotation cp="✈">jirgin sama</annotation>
+		<annotation cp="✈" type="tts">jirgin sama</annotation>
+		<annotation cp="🛩">jirgin sama</annotation>
+		<annotation cp="🛩" type="tts">ƙaramin jirgin sama</annotation>
+		<annotation cp="🛫">jirgin sama | shigarwa | tasowa</annotation>
+		<annotation cp="🛫" type="tts">tasowar jirgin sama</annotation>
+		<annotation cp="🛬">jirgin sama | isarwa | isa | saukarwa</annotation>
+		<annotation cp="🛬" type="tts">isarwar jirgin sama</annotation>
+		<annotation cp="💺">kujera</annotation>
+		<annotation cp="💺" type="tts">wurin zama</annotation>
+		<annotation cp="🚁">mota</annotation>
+		<annotation cp="🚁" type="tts">helikafta</annotation>
+		<annotation cp="🚟">reluwe | rataya</annotation>
+		<annotation cp="🚟" type="tts">reluwe mai rataya</annotation>
+		<annotation cp="🚠">kebur | gondola | tsauni</annotation>
+		<annotation cp="🚠" type="tts">motar sama na tsauni</annotation>
+		<annotation cp="🚡">na sama | kebur | ƙaramar mota | gondola | hanyar tram</annotation>
+		<annotation cp="🚡" type="tts">hanyar mota ta sama</annotation>
+		<annotation cp="🛰">sarari</annotation>
+		<annotation cp="🛰" type="tts">kumbo</annotation>
+		<annotation cp="🚀">sarari</annotation>
+		<annotation cp="🚀" type="tts">roka</annotation>
+		<annotation cp="🛸">UFO</annotation>
+		<annotation cp="🛸" type="tts">faranti mai tasowa</annotation>
+		<annotation cp="🛎">ƙararrawa | yaro mai taimaka baƙi | hotal</annotation>
+		<annotation cp="🛎" type="tts">yaro mai taimaka baƙi ƙararrawa</annotation>
+		<annotation cp="⌛">yashi | mai ƙirga lokaci</annotation>
+		<annotation cp="⌛" type="tts">gilashin lokaci</annotation>
+		<annotation cp="⏳">gilashin lokaci | yashi | mai ƙirga lokaci</annotation>
+		<annotation cp="⏳" type="tts">gilashin lokaci mai yashi mai gudana</annotation>
+		<annotation cp="⌚">agogo</annotation>
+		<annotation cp="⌚" type="tts">kallo</annotation>
+		<annotation cp="⏰">faɗakarwa | agogo</annotation>
+		<annotation cp="⏰" type="tts">agogon faɗakarwa</annotation>
+		<annotation cp="⏱">agogo</annotation>
+		<annotation cp="⏱" type="tts">agogo mai awon gudu</annotation>
+		<annotation cp="⏲">agogo | mai ƙirga lokaci</annotation>
+		<annotation cp="⏲" type="tts">agogon mai ƙirga lokaci</annotation>
+		<annotation cp="🕰">agogo</annotation>
+		<annotation cp="🕰" type="tts">agogon mantelpiece</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | agogo | ƙarfe | sha biyu</annotation>
+		<annotation cp="🕛" type="tts">ƙarfe goma sha biyu</annotation>
+		<annotation cp="🕧">12 | 12:30 | 30 | agogo | da rabi | sha biyu</annotation>
+		<annotation cp="🕧" type="tts">sha biyu da rabi</annotation>
+		<annotation cp="🕐">00 | 1 | 1:00 | agogo | ƙarfe | ɗaya</annotation>
+		<annotation cp="🕐" type="tts">ƙarfe ɗaya</annotation>
+		<annotation cp="🕜">1 | 1:30 | 30 | agogo | ɗaya | da rabi</annotation>
+		<annotation cp="🕜" type="tts">ɗaya da rabi</annotation>
+		<annotation cp="🕑">00 | 2 | 2:00 | agogo | ƙarfe | biyu</annotation>
+		<annotation cp="🕑" type="tts">ƙarfe biyu</annotation>
+		<annotation cp="🕝">2 | 2:30 | 30 | agogo | da rabi | biyu</annotation>
+		<annotation cp="🕝" type="tts">biyu da rabi</annotation>
+		<annotation cp="🕒">00 | 3 | 3:00 | agogo | ƙarfe | uku</annotation>
+		<annotation cp="🕒" type="tts">ƙarfe uku</annotation>
+		<annotation cp="🕞">3 | 3:30 | 30 | agogo | da rabi | uku</annotation>
+		<annotation cp="🕞" type="tts">uku da rabi</annotation>
+		<annotation cp="🕓">00 | 4 | 4:00 | agogo | huɗu | ƙarfe</annotation>
+		<annotation cp="🕓" type="tts">ƙarfe huɗu</annotation>
+		<annotation cp="🕟">30 | 4 | 4:30 | agogo | huɗu | da rabi</annotation>
+		<annotation cp="🕟" type="tts">huɗu da rabi</annotation>
+		<annotation cp="🕔">00 | 5 | 5:00 | agogo | biyar | ƙarfe</annotation>
+		<annotation cp="🕔" type="tts">ƙarfe biyar</annotation>
+		<annotation cp="🕠">30 | 5 | 5:30 | agogo | biyar | da rabi</annotation>
+		<annotation cp="🕠" type="tts">biyar da rabi</annotation>
+		<annotation cp="🕕">00 | 6 | 6:00 | agogo | ƙarfe | shida</annotation>
+		<annotation cp="🕕" type="tts">ƙarfe shida</annotation>
+		<annotation cp="🕡">30 | 6 | 6:30 | agogo | shida | da rabi</annotation>
+		<annotation cp="🕡" type="tts">shida da rabi</annotation>
+		<annotation cp="🕖">00 | 7 | 7:00 | agogo | ƙarfe | bakwai</annotation>
+		<annotation cp="🕖" type="tts">ƙarfe bakwai</annotation>
+		<annotation cp="🕢">30 | 7 | 7:30 | agogo | bakwai | da rabi</annotation>
+		<annotation cp="🕢" type="tts">bakwai da rabi</annotation>
+		<annotation cp="🕗">00 | 8 | 8:00 | agogo | takwas | ƙarfe</annotation>
+		<annotation cp="🕗" type="tts">ƙarfe takwas</annotation>
+		<annotation cp="🕣">30 | 8 | 8:30 | agogo | takwas | da rabi</annotation>
+		<annotation cp="🕣" type="tts">takwas da rabi</annotation>
+		<annotation cp="🕘">00 | 9 | 9:00 | agogo | tara | ƙarfe</annotation>
+		<annotation cp="🕘" type="tts">ƙarfe tara</annotation>
+		<annotation cp="🕤">30 | 9 | 9:30 | agogo | tara | da rabi</annotation>
+		<annotation cp="🕤" type="tts">tara da rabi</annotation>
+		<annotation cp="🕙">00 | 10 | 10:00 | agogo | ƙarfe | goma</annotation>
+		<annotation cp="🕙" type="tts">ƙarfe goma</annotation>
+		<annotation cp="🕥">10 | 10:30 | 30 | agogo | goma | da rabi</annotation>
+		<annotation cp="🕥" type="tts">goma da rabi</annotation>
+		<annotation cp="🕚">00 | 11 | 11:00 | agogo | goma sha ɗaya | ƙarfe</annotation>
+		<annotation cp="🕚" type="tts">ƙarfe goma sha ɗaya</annotation>
+		<annotation cp="🕦">11 | 11:30 | 30 | agogo | goma sha ɗaya | da rabi</annotation>
+		<annotation cp="🕦" type="tts">sha ɗaya da rabi</annotation>
+		<annotation cp="🌑">duhu | wata</annotation>
+		<annotation cp="🌑" type="tts">sabon wata</annotation>
+		<annotation cp="🌒">hilalin wata | wata | mai ƙaruwa</annotation>
+		<annotation cp="🌒" type="tts">hilalin wata mai ƙaruwa</annotation>
+		<annotation cp="🌓">wata | kwata</annotation>
+		<annotation cp="🌓" type="tts">wata na farkon kwata</annotation>
+		<annotation cp="🌔">wucewa rabi | wata | mai ƙaruwa</annotation>
+		<annotation cp="🌔" type="tts">wata wucewa rabi mai ƙaruwa</annotation>
+		<annotation cp="🌕">cikakke | wata</annotation>
+		<annotation cp="🌕" type="tts">cikakken wata</annotation>
+		<annotation cp="🌖">wucewa rabi | wata | mai ragewa</annotation>
+		<annotation cp="🌖" type="tts">wata wucewa rabi mai ragewa</annotation>
+		<annotation cp="🌗">wata | kwata</annotation>
+		<annotation cp="🌗" type="tts">wata na ƙarshen kwata</annotation>
+		<annotation cp="🌘">hilalin wata | wata | mai ragewa</annotation>
+		<annotation cp="🌘" type="tts">hilalin wata mai ragewa</annotation>
+		<annotation cp="🌙">hilali | wata</annotation>
+		<annotation cp="🌙" type="tts">hilalin wata</annotation>
+		<annotation cp="🌚">fuska | wata</annotation>
+		<annotation cp="🌚" type="tts">fuskar sabon wata</annotation>
+		<annotation cp="🌛">fuska | wata | kwata</annotation>
+		<annotation cp="🌛" type="tts">wata na farkon kwata tare da fuska</annotation>
+		<annotation cp="🌜">fuska | wata | kwata</annotation>
+		<annotation cp="🌜" type="tts">wata na ƙarshen kwata tare da fuska</annotation>
+		<annotation cp="🌡">yanayi</annotation>
+		<annotation cp="🌡" type="tts">mai aunin zafin jiki</annotation>
+		<annotation cp="☀">haske | tsirkiyoyi | da rana</annotation>
+		<annotation cp="☀" type="tts">rana</annotation>
+		<annotation cp="🌝">haske | fuska | cikakke | wata</annotation>
+		<annotation cp="🌝" type="tts">cikakken wata tare da fuska</annotation>
+		<annotation cp="🌞">haske | fuska | rana</annotation>
+		<annotation cp="🌞" type="tts">rana tare da fuska</annotation>
+		<annotation cp="⭐">tauraro</annotation>
+		<annotation cp="⭐" type="tts">farin matsakaicin tauraro</annotation>
+		<annotation cp="🌟">mai ƙyalƙyali | haske | haska | yi ƙyalƙyali | tauraro</annotation>
+		<annotation cp="🌟" type="tts">tauraro mai haske</annotation>
+		<annotation cp="🌠">faɗuwa | mashi</annotation>
+		<annotation cp="🌠" type="tts">mashi</annotation>
+		<annotation cp="🌌">sarari</annotation>
+		<annotation cp="🌌" type="tts">milky way</annotation>
+		<annotation cp="☁">yanayi</annotation>
+		<annotation cp="☁" type="tts">gajimare</annotation>
+		<annotation cp="⛅">gajimare | rana</annotation>
+		<annotation cp="⛅" type="tts">rana a bayan gajimare</annotation>
+		<annotation cp="⛈">gajimare | ruwan sama | tsawa</annotation>
+		<annotation cp="⛈" type="tts">gajimare tare da aradu da ruwan sama</annotation>
+		<annotation cp="🌤">gajimare | rana</annotation>
+		<annotation cp="🌤" type="tts">rana a bayan ƙaramin gajimare</annotation>
+		<annotation cp="🌥">gajimare | rana</annotation>
+		<annotation cp="🌥" type="tts">rana a bayan babban gajimare</annotation>
+		<annotation cp="🌦">gajimare | ruwan sama | rana</annotation>
+		<annotation cp="🌦" type="tts">rana a bayan gajimaren ruwan sama</annotation>
+		<annotation cp="🌧">gajimare | ruwan sama</annotation>
+		<annotation cp="🌧" type="tts">gajimare tare da ruwan sama</annotation>
+		<annotation cp="🌨">gajimare | sanyi | ƙanƙara</annotation>
+		<annotation cp="🌨" type="tts">gajimare tare da ƙanƙara</annotation>
+		<annotation cp="🌩">gajimare | aradu</annotation>
+		<annotation cp="🌩" type="tts">gajimare tare da aradu</annotation>
+		<annotation cp="🌪">gajimare | guguwa</annotation>
+		<annotation cp="🌪" type="tts">guguwa mai ƙarfi</annotation>
+		<annotation cp="🌫">gajimare</annotation>
+		<annotation cp="🌫" type="tts">hazo</annotation>
+		<annotation cp="🌬">kaɗe | gajimare | fuska | iska</annotation>
+		<annotation cp="🌬" type="tts">fuskar iska</annotation>
+		<annotation cp="🌀">jiri | guguwa mai ƙarfi | guguwar iska tare da ruwa</annotation>
+		<annotation cp="🌀" type="tts">babban ruwa da iska</annotation>
+		<annotation cp="🌈">ruwan sama</annotation>
+		<annotation cp="🌈" type="tts">baƙangizo</annotation>
+		<annotation cp="🌂">sutura | ruwan sama | laima</annotation>
+		<annotation cp="🌂" type="tts">rufaffiyar laima</annotation>
+		<annotation cp="☂">sutura | ruwan sama</annotation>
+		<annotation cp="☂" type="tts">laima</annotation>
+		<annotation cp="☔">sutura | ɗigo | ruwan sama | laima</annotation>
+		<annotation cp="☔" type="tts">laima tare da ɗige-ɗigen ruwan sama</annotation>
+		<annotation cp="⛱">ruwan sama | rana | laima</annotation>
+		<annotation cp="⛱" type="tts">laima a ƙasa</annotation>
+		<annotation cp="⚡">hatsari | lantarki | wutar lantarki | aradu | ƙarfin wuta | cizon lantarki</annotation>
+		<annotation cp="⚡" type="tts">ƙarfin wuta na sama</annotation>
+		<annotation cp="❄">sanyi | ƙanƙara</annotation>
+		<annotation cp="❄" type="tts">ɓarɓashin ƙanƙara</annotation>
+		<annotation cp="☃">sanyi | ƙanƙara</annotation>
+		<annotation cp="☃" type="tts">mutumin ƙanƙari</annotation>
+		<annotation cp="⛄">sanyi | ƙanƙara | mutumin ƙanƙara</annotation>
+		<annotation cp="⛄" type="tts">mutumin ƙanƙara ban da ƙanƙara</annotation>
+		<annotation cp="☄">sarari</annotation>
+		<annotation cp="☄" type="tts">taurariya mai wutsiya</annotation>
+		<annotation cp="🔥">harshen wuta | kayan aiki</annotation>
+		<annotation cp="🔥" type="tts">wuta</annotation>
+		<annotation cp="💧">sanyi | mai ban dariya | ɗigo | gumi</annotation>
+		<annotation cp="💧" type="tts">ɗan ɗigo</annotation>
+		<annotation cp="🌊">teku | ruwa | igiya</annotation>
+		<annotation cp="🌊" type="tts">igiyar ruwa</annotation>
+		<annotation cp="🎃">shagali | bikin halloween | jack | fitila</annotation>
+		<annotation cp="🎃" type="tts">jack-o-lantern</annotation>
+		<annotation cp="🎄">shagali | Kirsmati | bishiya</annotation>
+		<annotation cp="🎄" type="tts">bishiyar kirsimati</annotation>
+		<annotation cp="🎆">shagali</annotation>
+		<annotation cp="🎆" type="tts">wasan wuta</annotation>
+		<annotation cp="🎇">shagali | wasan wuta | ƙyalƙyali</annotation>
+		<annotation cp="🎇" type="tts">na’urar sa wuta a gas</annotation>
+		<annotation cp="✨">ƙyalƙyali | tauraro</annotation>
+		<annotation cp="✨" type="tts">ƙyalƙyalai</annotation>
+		<annotation cp="🎈">shagali</annotation>
+		<annotation cp="🎈" type="tts">balan-balan</annotation>
+		<annotation cp="🎉">shagali | biki | mai bashewa | tada</annotation>
+		<annotation cp="🎉" type="tts">mai bashewa na biki</annotation>
+		<annotation cp="🎊">ƙwallo | shagali | confetti</annotation>
+		<annotation cp="🎊" type="tts">ƙwallon confetti</annotation>
+		<annotation cp="🎋">tuta | shagali | Na japan | bishiya</annotation>
+		<annotation cp="🎋" type="tts">bishiyar tanabata</annotation>
+		<annotation cp="🎍">gora | shagali | Na Japan | bishiyar pine</annotation>
+		<annotation cp="🎍" type="tts">adon bishiyar pine</annotation>
+		<annotation cp="🎎">shagali | yar tsana | biki | Na Japan</annotation>
+		<annotation cp="🎎" type="tts">yar tsana Na Japan</annotation>
+		<annotation cp="🎏">safa | shagali | tuta</annotation>
+		<annotation cp="🎏" type="tts">tutar safa</annotation>
+		<annotation cp="🎐">ƙararrawa | shagali | ƙararrawar ƙarfe | iska</annotation>
+		<annotation cp="🎐" type="tts">ƙararrawar ƙarfe ta iska</annotation>
+		<annotation cp="🎑">shagali | biki | wata</annotation>
+		<annotation cp="🎑" type="tts">bikin kallon wata</annotation>
+		<annotation cp="🎀">shagali</annotation>
+		<annotation cp="🎀" type="tts">ribon</annotation>
+		<annotation cp="🎁">akwati | shagali | tsaraba | kyauta | naɗaɗɗe</annotation>
+		<annotation cp="🎁" type="tts">naɗaɗɗiyar tsaraba</annotation>
+		<annotation cp="🎗">shagali | tunatarwa | ribon</annotation>
+		<annotation cp="🎗" type="tts">ribon na tunatarwa</annotation>
+		<annotation cp="🎟">shigarwa | tikiti</annotation>
+		<annotation cp="🎟" type="tts">shigarwa</annotation>
+		<annotation cp="🎫">shigarwa | tikiti</annotation>
+		<annotation cp="🎫" type="tts">tikiti</annotation>
+		<annotation cp="🎖">shagali | medal | soja</annotation>
+		<annotation cp="🎖" type="tts">medal na soja</annotation>
+		<annotation cp="🏆">lambar girma</annotation>
+		<annotation cp="🏆" type="tts">kwaf</annotation>
+		<annotation cp="🏅">medal</annotation>
+		<annotation cp="🏅" type="tts">medal na wasanni</annotation>
+		<annotation cp="🥇">na farko | zinari | medal</annotation>
+		<annotation cp="🥇" type="tts">medal na farko</annotation>
+		<annotation cp="🥈">medal | na biyu | azurfa</annotation>
+		<annotation cp="🥈" type="tts">medal na biyu</annotation>
+		<annotation cp="🥉">tagulla | medal | na uku</annotation>
+		<annotation cp="🥉" type="tts">medal na uku</annotation>
+		<annotation cp="⚽">ƙwallo | ƙwallon ƙafa</annotation>
+		<annotation cp="⚽" type="tts">ƙwallon ƙafa</annotation>
+		<annotation cp="⚾">ƙwallo</annotation>
+		<annotation cp="⚾" type="tts">wasan baseball</annotation>
+		<annotation cp="🏀">ƙwallo | kwando</annotation>
+		<annotation cp="🏀" type="tts">wasan ƙwallon kwando</annotation>
+		<annotation cp="🏐">ƙwallo | wasa</annotation>
+		<annotation cp="🏐" type="tts">wasan ƙwallon raga</annotation>
+		<annotation cp="🏈">na amurka | ƙwallo | ƙwallon ƙafa</annotation>
+		<annotation cp="🏈" type="tts">ƙwallon ƙafa na amurka</annotation>
+		<annotation cp="🏉">ƙwallo | ƙwallon ƙafa | rugby</annotation>
+		<annotation cp="🏉" type="tts">ƙwallon ƙafa na rugby</annotation>
+		<annotation cp="🎾">ƙwallon | raket</annotation>
+		<annotation cp="🎾" type="tts">wasan tanis</annotation>
+		<annotation cp="🎳">ƙwallo | wasa</annotation>
+		<annotation cp="🎳" type="tts">wasan bowling</annotation>
+		<annotation cp="🏏">ƙwallo | kulki</annotation>
+		<annotation cp="🏏" type="tts">wasan kurket</annotation>
+		<annotation cp="🏑">ƙwallo | fili | wasa | gora na fili | sanda</annotation>
+		<annotation cp="🏑" type="tts">wasan gora na fili</annotation>
+		<annotation cp="🏒">wasa | gora | ƙanƙara | faifan roba | sanda</annotation>
+		<annotation cp="🏒" type="tts">wasan gora na ƙanƙara</annotation>
+		<annotation cp="🏓">ƙwallo | kulki | wasa | matuƙi | ƙwallon tebur</annotation>
+		<annotation cp="🏓" type="tts">ƙwallon tebur</annotation>
+		<annotation cp="🏸">maki | wasa | raket | ƙwallo</annotation>
+		<annotation cp="🏸" type="tts">ƙwallon gashi</annotation>
+		<annotation cp="🥊">dambe | safar hannu</annotation>
+		<annotation cp="🥊" type="tts">safar hannu na dambe</annotation>
+		<annotation cp="🥋">judo | karate | taekwondo | iyawar wasan faɗa | riga</annotation>
+		<annotation cp="🥋" type="tts">rigar iyawar wasan faɗa</annotation>
+		<annotation cp="🥅">raga | gol</annotation>
+		<annotation cp="🥅" type="tts">ragar gol</annotation>
+		<annotation cp="⛳">wasan golf</annotation>
+		<annotation cp="⛳" type="tts">tuta a cikin rami</annotation>
+		<annotation cp="⛸">ƙanƙara | wasa kan ƙanƙara</annotation>
+		<annotation cp="⛸" type="tts">wasa kan ƙanƙara</annotation>
+		<annotation cp="🎣">kifi | sanda</annotation>
+		<annotation cp="🎣" type="tts">fatsa</annotation>
+		<annotation cp="🎽">gudu | gyale | riga | wasan guje-guje</annotation>
+		<annotation cp="🎽" type="tts">rigar gudu</annotation>
+		<annotation cp="🎿">wasan ski | ƙanƙara</annotation>
+		<annotation cp="🎿" type="tts">wasan skis</annotation>
+		<annotation cp="🛷">motar kaya kan ƙanƙara | motar kaya mutum ɗaya</annotation>
+		<annotation cp="🛷" type="tts">motar kaya kan ƙanƙara</annotation>
+		<annotation cp="🥌">dutse | wasa</annotation>
+		<annotation cp="🥌" type="tts">dutsen wasan curling</annotation>
+		<annotation cp="🎯">kai tsaye | kibiya | ido | wasa | buga | abin bara</annotation>
+		<annotation cp="🎯" type="tts">bugawa ta kai tsaye</annotation>
+		<annotation cp="🎱">8 | ƙwallon 8 | ƙwallo | wasan billard | takwas | wasa</annotation>
+		<annotation cp="🎱" type="tts">ƙwallon pool 8</annotation>
+		<annotation cp="🔮">bal | krisal | labarin aljana | tatsuniya | dukiya | kayan aiki</annotation>
+		<annotation cp="🔮" type="tts">balon kallo</annotation>
+		<annotation cp="🎮">masarrafa | wasa</annotation>
+		<annotation cp="🎮" type="tts">wasan bidiyo</annotation>
+		<annotation cp="🕹">wasan | wasan bidiyo</annotation>
+		<annotation cp="🕹" type="tts">abin buga wasa</annotation>
+		<annotation cp="🎰">wasa | rami</annotation>
+		<annotation cp="🎰" type="tts">na’urar kaya mai karɓin kuɗi</annotation>
+		<annotation cp="🎲">dayis | dayi | wasa</annotation>
+		<annotation cp="🎲" type="tts">dayis na wasa</annotation>
+		<annotation cp="♠">kati | wasa</annotation>
+		<annotation cp="♠" type="tts">zubin suffa</annotation>
+		<annotation cp="♥">kati | wasa</annotation>
+		<annotation cp="♥" type="tts">zubin kubbi</annotation>
+		<annotation cp="♦">kati | wasa</annotation>
+		<annotation cp="♦" type="tts">zubin zi</annotation>
+		<annotation cp="♣">kati | wasa</annotation>
+		<annotation cp="♣" type="tts">zubin kuri</annotation>
+		<annotation cp="🃏">kati | wasa | wildcard</annotation>
+		<annotation cp="🃏" type="tts">joka</annotation>
+		<annotation cp="🀄">wasa | mahjong | ja</annotation>
+		<annotation cp="🀄" type="tts">jan daragon na mahjong</annotation>
+		<annotation cp="🎴">kati | fure | wasa | Na Japan | bugawa</annotation>
+		<annotation cp="🎴" type="tts">katunan wasa mai fure</annotation>
+		<annotation cp="🎭">fasaha | abin rufen ido | kwaikwayo | wurin wasan kwaikwayo</annotation>
+		<annotation cp="🎭" type="tts">wasan kwaikwayo</annotation>
+		<annotation cp="🖼">fasaha | firem | ma’adanar kayayyakin tarihi | fenti | hoto</annotation>
+		<annotation cp="🖼" type="tts">hoto mai firem</annotation>
+		<annotation cp="🎨">fasaha | ma’adanar kayayyakin tarihi | fenti | allon fenti</annotation>
+		<annotation cp="🎨" type="tts">allon mai zane</annotation>
+		<annotation cp="👓">sutura | ido | tabarau | kayan ido</annotation>
+		<annotation cp="👓" type="tts">tabarau</annotation>
+		<annotation cp="🕶">duhu | ido | kayan ido | tabarau</annotation>
+		<annotation cp="🕶" type="tts">gilashin rana</annotation>
+		<annotation cp="👔">sutura</annotation>
+		<annotation cp="👔" type="tts">taye</annotation>
+		<annotation cp="👕">sutura | riga | tshat</annotation>
+		<annotation cp="👕" type="tts">ti-shat</annotation>
+		<annotation cp="👖">suruta | turoza | wanduna</annotation>
+		<annotation cp="👖" type="tts">jin</annotation>
+		<annotation cp="🧣">wuya</annotation>
+		<annotation cp="🧣" type="tts">ɗankwali</annotation>
+		<annotation cp="🧤">hannu</annotation>
+		<annotation cp="🧤" type="tts">safar hannu</annotation>
+		<annotation cp="🧥">jakiti</annotation>
+		<annotation cp="🧥" type="tts">kwat</annotation>
+		<annotation cp="🧦">safa</annotation>
+		<annotation cp="🧦" type="tts">safa</annotation>
+		<annotation cp="👗">sutura</annotation>
+		<annotation cp="👗" type="tts">riga</annotation>
+		<annotation cp="👘">sutura</annotation>
+		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="👙">sutura | ninƙaya</annotation>
+		<annotation cp="👙" type="tts">bikini</annotation>
+		<annotation cp="👚">sutura | mace</annotation>
+		<annotation cp="👚" type="tts">suturar mace</annotation>
+		<annotation cp="👛">sutura | tsaba</annotation>
+		<annotation cp="👛" type="tts">ƙaramar jakar hannu</annotation>
+		<annotation cp="👜">jaka | sutura | ƙaramar jakar hannu</annotation>
+		<annotation cp="👜" type="tts">jakar mata</annotation>
+		<annotation cp="👝">jaka | sutura | zabira</annotation>
+		<annotation cp="👝" type="tts">jaka mara hannu</annotation>
+		<annotation cp="🛍">jaka | hotal | sayayya</annotation>
+		<annotation cp="🛍" type="tts">jakukkuna sayayya</annotation>
+		<annotation cp="🎒">jaka | gafaka | makaranta</annotation>
+		<annotation cp="🎒" type="tts">jakar baya ta makaranta</annotation>
+		<annotation cp="👞">sutura | mutum | takalmi</annotation>
+		<annotation cp="👞" type="tts">takalmin maza</annotation>
+		<annotation cp="👟">wasan guje-guje | sutura | takalmi | kambas</annotation>
+		<annotation cp="👟" type="tts">takalmin gudu</annotation>
+		<annotation cp="👠">sutura | diddige | takalmi | mace</annotation>
+		<annotation cp="👠" type="tts">takalmi mai doguwar dunduniya</annotation>
+		<annotation cp="👡">sutura | sandal | takalmi | mace</annotation>
+		<annotation cp="👡" type="tts">sandal mace</annotation>
+		<annotation cp="👢">but | sutura | takalmi | mace</annotation>
+		<annotation cp="👢" type="tts">but na mace</annotation>
+		<annotation cp="👑">sutura | sarki | sarauniya</annotation>
+		<annotation cp="👑" type="tts">kambi</annotation>
+		<annotation cp="👒">sutura | hula | mace</annotation>
+		<annotation cp="👒" type="tts">hular mace</annotation>
+		<annotation cp="🎩">sutura | hula | sama | shaho</annotation>
+		<annotation cp="🎩" type="tts">shaho</annotation>
+		<annotation cp="🎓">hula | shagali | sutura | saukar karatu</annotation>
+		<annotation cp="🎓" type="tts">hular saukar karatu</annotation>
+		<annotation cp="🧢">hular wasan baseball</annotation>
+		<annotation cp="🧢" type="tts">hula mai baki</annotation>
+		<annotation cp="⛑">taimako | kuros | fuska | hula | hular kwano</annotation>
+		<annotation cp="⛑" type="tts">hular kwano na ma’aikacin ceto</annotation>
+		<annotation cp="📿">cazbi | sutura | abin wuya | addu’a | addini</annotation>
+		<annotation cp="📿" type="tts">cazbi</annotation>
+		<annotation cp="💄">kayan shafawa | kwalliya</annotation>
+		<annotation cp="💄" type="tts">jan-baki</annotation>
+		<annotation cp="💍">daimun</annotation>
+		<annotation cp="💍" type="tts">zobe</annotation>
+		<annotation cp="💎">diamun | lu’ulu’u | dutse</annotation>
+		<annotation cp="💎" type="tts">lu’ulu’u</annotation>
+		<annotation cp="🔇">shiru | yi shiru | mai shiru | mai magana</annotation>
+		<annotation cp="🔇" type="tts">mai magana da aka yiwa shiru</annotation>
+		<annotation cp="🔈">maras ƙarfi</annotation>
+		<annotation cp="🔈" type="tts">sifika ƙarfin murya na ƙasa</annotation>
+		<annotation cp="🔉">matsakaici</annotation>
+		<annotation cp="🔉" type="tts">sifika matsakaicin ƙarfin murya</annotation>
+		<annotation cp="🔊">mai ƙarfi</annotation>
+		<annotation cp="🔊" type="tts">sifika ƙarfin murya na sama</annotation>
+		<annotation cp="📢">mai ƙarfi | jawabi ga jama’a</annotation>
+		<annotation cp="📢" type="tts">lasifika</annotation>
+		<annotation cp="📣">shewa</annotation>
+		<annotation cp="📣" type="tts">bututun ƙara magana</annotation>
+		<annotation cp="📯">kakaki | saƙo | na gidan waya</annotation>
+		<annotation cp="📯" type="tts">kakaki na gidan waya</annotation>
+		<annotation cp="🔔">ƙararrawa</annotation>
+		<annotation cp="🔔" type="tts">ƙararrawa</annotation>
+		<annotation cp="🔕">ƙararrawa | haram | shiru | a’a | babu | an hana | yi shiru | mai shiru</annotation>
+		<annotation cp="🔕" type="tts">ƙararrawa mai maƙalatu</annotation>
+		<annotation cp="🎼">kiɗa | alama</annotation>
+		<annotation cp="🎼" type="tts">alamar kiɗa</annotation>
+		<annotation cp="🎵">kiɗa | rubutu</annotation>
+		<annotation cp="🎵" type="tts">rubutun kiɗa</annotation>
+		<annotation cp="🎶">kiɗa | rubutu | rubuce-rubuce</annotation>
+		<annotation cp="🎶" type="tts">rubuce-rubucen kiɗa</annotation>
+		<annotation cp="🎙">makurofon | kiɗa | sutudiyo</annotation>
+		<annotation cp="🎙" type="tts">makurofon na sutudiyo</annotation>
+		<annotation cp="🎚">lebur | kiɗa | majanyi</annotation>
+		<annotation cp="🎚" type="tts">majanyin lebur</annotation>
+		<annotation cp="🎛">sarrafa | mamurɗi | kiɗa</annotation>
+		<annotation cp="🎛" type="tts">mamurɗin sarrafa</annotation>
+		<annotation cp="🎤">karaoke | makurofon</annotation>
+		<annotation cp="🎤" type="tts">makurofon</annotation>
+		<annotation cp="🎧">mazirin kunne</annotation>
+		<annotation cp="🎧" type="tts">mazirorin kunne</annotation>
+		<annotation cp="📻">bidiyo</annotation>
+		<annotation cp="📻" type="tts">rediyo</annotation>
+		<annotation cp="🎷">kayan kiɗa | kiɗa | sax</annotation>
+		<annotation cp="🎷" type="tts">saxophone</annotation>
+		<annotation cp="🎸">kayan kiɗa | kiɗa</annotation>
+		<annotation cp="🎸" type="tts">gitar</annotation>
+		<annotation cp="🎹">kayan kiɗa | kibod | kiɗa | piano</annotation>
+		<annotation cp="🎹" type="tts">kibod na kiɗa</annotation>
+		<annotation cp="🎺">kayan kiɗa | kiɗa</annotation>
+		<annotation cp="🎺" type="tts">kakaki</annotation>
+		<annotation cp="🎻">kayan kiɗa | kiɗa</annotation>
+		<annotation cp="🎻" type="tts">goge</annotation>
+		<annotation cp="🥁">ganga | sandunan ganga | kiɗa</annotation>
+		<annotation cp="🥁" type="tts">ganga</annotation>
+		<annotation cp="📱">sel | na hannu | waya | tarho</annotation>
+		<annotation cp="📱" type="tts">wayar hannu</annotation>
+		<annotation cp="📲">kibiya | kira | sel | na hannu | waya | karɓa | tarho</annotation>
+		<annotation cp="📲" type="tts">wayar hannu tare da kibiya</annotation>
+		<annotation cp="☎">waya</annotation>
+		<annotation cp="☎" type="tts">tarho</annotation>
+		<annotation cp="📞">waya | kan tarho | tarho</annotation>
+		<annotation cp="📞" type="tts">kan tarho</annotation>
+		<annotation cp="📟">na’urar faɗakarwa</annotation>
+		<annotation cp="📟" type="tts">na’urar faɗakarwa</annotation>
+		<annotation cp="📠">faks</annotation>
+		<annotation cp="📠" type="tts">injin faks</annotation>
+		<annotation cp="🔋">batir</annotation>
+		<annotation cp="🔋" type="tts">batir</annotation>
+		<annotation cp="🔌">na lantarki | wutar lantarki | fulogi</annotation>
+		<annotation cp="🔌" type="tts">fulogin lantarki</annotation>
+		<annotation cp="💻">kwamfuta | pc | na keɓe</annotation>
+		<annotation cp="💻" type="tts">kwamfutar tafi-da-gidanka</annotation>
+		<annotation cp="🖥">kwamfuta | destof</annotation>
+		<annotation cp="🖥" type="tts">kwamfutar na destof</annotation>
+		<annotation cp="🖨">kwamfuta</annotation>
+		<annotation cp="🖨" type="tts">na’urar ɗab’i</annotation>
+		<annotation cp="⌨">kwamfuta</annotation>
+		<annotation cp="⌨" type="tts">kibod</annotation>
+		<annotation cp="🖱">kwamfuta</annotation>
+		<annotation cp="🖱" type="tts">linzamin kwamfuta</annotation>
+		<annotation cp="🖲">kwamfuta</annotation>
+		<annotation cp="🖲" type="tts">bal na bin sawu</annotation>
+		<annotation cp="💽">kwamfuta | diski | na da’ira | ƙaramin diski</annotation>
+		<annotation cp="💽" type="tts">diskin kwamfuta</annotation>
+		<annotation cp="💾">kwamfuta | diski | na floppy</annotation>
+		<annotation cp="💾" type="tts">diski na floppy</annotation>
+		<annotation cp="💿">cd | kwamfuta | diski | na da’ira</annotation>
+		<annotation cp="💿" type="tts">diski na da’ira</annotation>
+		<annotation cp="📀">blu-ray | dvd | kwamfuta | diski | na da’ira</annotation>
+		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🎥">kyamara | silima | fim</annotation>
+		<annotation cp="🎥" type="tts">kyamarar fim</annotation>
+		<annotation cp="🎞">silima | fim | firem-firem</annotation>
+		<annotation cp="🎞" type="tts">firem-firem na fim</annotation>
+		<annotation cp="📽">silima | fim | frajekta | bidiyo</annotation>
+		<annotation cp="📽" type="tts">frajekta na fim</annotation>
+		<annotation cp="🎬">allon nuna fim | fim</annotation>
+		<annotation cp="🎬" type="tts">allon nunan wasan fim</annotation>
+		<annotation cp="📺">tv | bidiyo</annotation>
+		<annotation cp="📺" type="tts">talabijan</annotation>
+		<annotation cp="📷">bidiyo</annotation>
+		<annotation cp="📷" type="tts">kyamara</annotation>
+		<annotation cp="📸">kyamara | ƙyalla | bidiyo</annotation>
+		<annotation cp="📸" type="tts">kyamara mai ƙyalla</annotation>
+		<annotation cp="📹">kyamara | bidiyo</annotation>
+		<annotation cp="📹" type="tts">kyamarar bidiyo</annotation>
+		<annotation cp="📼">kaset | vhs | bidiyo</annotation>
+		<annotation cp="📼" type="tts">kaset na bidiyo</annotation>
+		<annotation cp="🔍">gilashi | mai ƙara girma | nema | kayan aiki</annotation>
+		<annotation cp="🔍" type="tts">gilashi mai ƙara girma mai nunawa hagu</annotation>
+		<annotation cp="🔎">gilashi | mai ƙara girma | nema | kayan aiki</annotation>
+		<annotation cp="🔎" type="tts">gilashi mai ƙara girma mai nunawa dama</annotation>
+		<annotation cp="🕯">wutar lantarki</annotation>
+		<annotation cp="🕯" type="tts">kyandir</annotation>
+		<annotation cp="💡">gulob | mai ban dariya | na lantarki | shawara | wuta</annotation>
+		<annotation cp="💡" type="tts">kwan fitila</annotation>
+		<annotation cp="🔦">na lantarki | wuta | kayan aiki | tocila</annotation>
+		<annotation cp="🔦" type="tts">tocila</annotation>
+		<annotation cp="🏮">sanda | fitila | wuta | ja</annotation>
+		<annotation cp="🏮" type="tts">jan fitilan takarda</annotation>
+		<annotation cp="📔">littafi | sama | mai ado | littafin rubutu</annotation>
+		<annotation cp="📔" type="tts">littafin rubutu mai sama na ado</annotation>
+		<annotation cp="📕">littafi | rufaffe</annotation>
+		<annotation cp="📕" type="tts">rufaffen littafi</annotation>
+		<annotation cp="📖">littafi buɗaɗɗe</annotation>
+		<annotation cp="📖" type="tts">buɗaɗɗen littafi</annotation>
+		<annotation cp="📗">littafi | kore</annotation>
+		<annotation cp="📗" type="tts">koren littafi</annotation>
+		<annotation cp="📘">shuɗi | littafi</annotation>
+		<annotation cp="📘" type="tts">shuɗin littafi</annotation>
+		<annotation cp="📙">littafi | ruwan goro</annotation>
+		<annotation cp="📙" type="tts">littafi na ruwan goro</annotation>
+		<annotation cp="📚">littafi</annotation>
+		<annotation cp="📚" type="tts">littattafai</annotation>
+		<annotation cp="📓">littafin rubutu</annotation>
+		<annotation cp="📓" type="tts">littafin rubutu</annotation>
+		<annotation cp="📒">littafin rubutu</annotation>
+		<annotation cp="📒" type="tts">laja</annotation>
+		<annotation cp="📃">nannaɗi | daftari | shafi</annotation>
+		<annotation cp="📃" type="tts">shafi mai nannaɗi</annotation>
+		<annotation cp="📜">takarda</annotation>
+		<annotation cp="📜" type="tts">gungura</annotation>
+		<annotation cp="📄">daftari | shafi</annotation>
+		<annotation cp="📄" type="tts">shafi mai kallon sama</annotation>
+		<annotation cp="📰">labarai | takarda</annotation>
+		<annotation cp="📰" type="tts">jarida</annotation>
+		<annotation cp="🗞">labarai | jarida | takarda | naɗaɗɗe</annotation>
+		<annotation cp="🗞" type="tts">naɗaɗɗiyar jarida</annotation>
+		<annotation cp="📑">ma’ajiyar rubutu | maki | ma sa maki | maɓallai</annotation>
+		<annotation cp="📑" type="tts">maɓallan ma’ajiyar rubutu</annotation>
+		<annotation cp="🔖">maki</annotation>
+		<annotation cp="🔖" type="tts">ma’ajiyar rubutu</annotation>
+		<annotation cp="🏷">alama</annotation>
+		<annotation cp="🏷" type="tts">alama</annotation>
+		<annotation cp="💰">jaka | dala | kuɗi | jakar kuɗi</annotation>
+		<annotation cp="💰" type="tts">jakar kuɗi</annotation>
+		<annotation cp="💴">banki | kuɗin banki | takardar kuɗi | kuɗin ƙasa | kuɗi | yen</annotation>
+		<annotation cp="💴" type="tts">takardar kuɗi na yen</annotation>
+		<annotation cp="💵">banki | kuɗin banki | takardar kuɗi | kuɗin ƙasa | dala | kuɗi</annotation>
+		<annotation cp="💵" type="tts">takardar kuɗi na dala</annotation>
+		<annotation cp="💶">banki | kuɗin banki | takardar kuɗi | kuɗin ƙasa | euro | kuɗi</annotation>
+		<annotation cp="💶" type="tts">takardar kuɗi na euro</annotation>
+		<annotation cp="💷">banki | kuɗin banki | takardar kuɗi | kuɗin ƙasa | kuɗi | fam</annotation>
+		<annotation cp="💷" type="tts">takardar kuɗi na fam</annotation>
+		<annotation cp="💸">banki | kuɗin banki | takardar kuɗi | dala | tashi | kuɗi | fikafiki</annotation>
+		<annotation cp="💸" type="tts">kuɗi mai fikafiki</annotation>
+		<annotation cp="💳">banki | kati | bashi | kuɗi</annotation>
+		<annotation cp="💳" type="tts">katin bashi</annotation>
+		<annotation cp="💹">banki | zanen lissafi | kuɗin ƙasa | zane | ƙaruwa | kasuwa | kuɗi | tasowa | salo | zuwa sama | yen</annotation>
+		<annotation cp="💹" type="tts">zanen lissafi mai ƙaruwa da yen</annotation>
+		<annotation cp="✉">wasiƙa | imel</annotation>
+		<annotation cp="✉" type="tts">ambulo</annotation>
+		<annotation cp="📧">imel | wasiƙa | mel</annotation>
+		<annotation cp="📧" type="tts">i-mel</annotation>
+		<annotation cp="📨">i-mel | imel | ambulo | mai shigowa | wasiƙa | mel | karɓa</annotation>
+		<annotation cp="📨" type="tts">ambulo mai shigowa</annotation>
+		<annotation cp="📩">kibiya | ƙasa | i-mel | imel | ambulo | wasiƙa | mel | mai fitowa | an aiko</annotation>
+		<annotation cp="📩" type="tts">ambulo tare da kibiya</annotation>
+		<annotation cp="📤">akwati | wasiƙa | mel | akwatin saƙon gefe | tire</annotation>
+		<annotation cp="📤" type="tts">tire na akwatin saƙon gefe</annotation>
+		<annotation cp="📥">akwati | akwatin saƙo | wasiƙa | mel | karɓa | tire</annotation>
+		<annotation cp="📥" type="tts">tire na akwatin saƙo</annotation>
+		<annotation cp="📦">akwati | fakit</annotation>
+		<annotation cp="📦" type="tts">fakiti</annotation>
+		<annotation cp="📫">rufaffe | mel | akwatin saƙo | akwatin wasiƙa</annotation>
+		<annotation cp="📫" type="tts">rufaffen akwatin saƙo tare da ɗagaggiyar tuta</annotation>
+		<annotation cp="📪">rufaffe | ƙasa-ƙasa | mel | akwatin saƙo | akwatin wasiƙa</annotation>
+		<annotation cp="📪" type="tts">rufaffen akwatin saƙo tare tuta ƙasa-ƙasa</annotation>
+		<annotation cp="📬">mel | akwatin saƙo | buɗaɗɗe | akwatin wasiƙa</annotation>
+		<annotation cp="📬" type="tts">buɗaɗɗen akwatin saƙo tare da ɗagaggiyar tuta</annotation>
+		<annotation cp="📭">ƙasa-ƙasa | mel | akwatin saƙo | buɗaɗɗe | akwatin wasiƙa</annotation>
+		<annotation cp="📭" type="tts">buɗaɗɗen akwatin saƙo tare tuta ƙasa-ƙasa</annotation>
+		<annotation cp="📮">mel | akwatin saƙo</annotation>
+		<annotation cp="📮" type="tts">akwatin wasiƙa</annotation>
+		<annotation cp="🗳">ƙuri’a | akwati</annotation>
+		<annotation cp="🗳" type="tts">akwatin ƙuri’a mai ƙuri’a</annotation>
+		<annotation cp="✏">fensir</annotation>
+		<annotation cp="✏" type="tts">fensir</annotation>
+		<annotation cp="✒">bakin alƙalami | alƙalami</annotation>
+		<annotation cp="✒" type="tts">baƙin bakin alƙalami</annotation>
+		<annotation cp="🖋">marmaro | alƙalami</annotation>
+		<annotation cp="🖋" type="tts">alƙalamin ruwa</annotation>
+		<annotation cp="🖊">biro</annotation>
+		<annotation cp="🖊" type="tts">alƙalami</annotation>
+		<annotation cp="🖌">fenti</annotation>
+		<annotation cp="🖌" type="tts">buroshin fenti</annotation>
+		<annotation cp="🖍">fensir mai launi</annotation>
+		<annotation cp="🖍" type="tts">fensir mai launi</annotation>
+		<annotation cp="📝">fensir</annotation>
+		<annotation cp="📝" type="tts">daftari</annotation>
+		<annotation cp="💼">jakar hannu</annotation>
+		<annotation cp="💼" type="tts">jakar hannu</annotation>
+		<annotation cp="📁">fayil | folda</annotation>
+		<annotation cp="📁" type="tts">foldar fayil</annotation>
+		<annotation cp="📂">fayil | folda | buɗaɗɗe</annotation>
+		<annotation cp="📂" type="tts">buɗaɗɗiyar foldar fayil</annotation>
+		<annotation cp="🗂">kati | mai rabawa | fihirisa</annotation>
+		<annotation cp="🗂" type="tts">masu rabawa fihirisan kati</annotation>
+		<annotation cp="📅">kwanan wata</annotation>
+		<annotation cp="📅" type="tts">kalanda</annotation>
+		<annotation cp="📆">kalanda</annotation>
+		<annotation cp="📆" type="tts">kalanda da aka yage</annotation>
+		<annotation cp="🗒">rubutu | abin rubutu | mai lanƙwasawa</annotation>
+		<annotation cp="🗒" type="tts">littafin rubutu mai lanƙwasawa</annotation>
+		<annotation cp="🗓">kalanda | abin rubutu | mai lanƙwasawa</annotation>
+		<annotation cp="🗓" type="tts">kalanda mai lanƙwasawa</annotation>
+		<annotation cp="📇">kati | fihirisa | rolodex</annotation>
+		<annotation cp="📇" type="tts">katin fihirisa</annotation>
+		<annotation cp="📈">zanen lissafi | zane | ƙarawa | salo | zuwa sama</annotation>
+		<annotation cp="📈" type="tts">zanen-lissafi mai ƙarawa</annotation>
+		<annotation cp="📉">zanen-lissafi | zane | salo</annotation>
+		<annotation cp="📉" type="tts">zanen-lissafi mai ragewa</annotation>
+		<annotation cp="📊">sanda | zanen lissafi | zane</annotation>
+		<annotation cp="📊" type="tts">allon jadawali</annotation>
+		<annotation cp="📋">allon zane</annotation>
+		<annotation cp="📋" type="tts">allon zane</annotation>
+		<annotation cp="📌">fil</annotation>
+		<annotation cp="📌" type="tts">mai yin maki wuri</annotation>
+		<annotation cp="📍">fil | mai yin maki wuri</annotation>
+		<annotation cp="📍" type="tts">kewayen mai yin maki wuri</annotation>
+		<annotation cp="📎">kilif</annotation>
+		<annotation cp="📎" type="tts">kilif</annotation>
+		<annotation cp="🖇">mahaɗi | kilif</annotation>
+		<annotation cp="🖇" type="tts">haɗaɗɗen kilif</annotation>
+		<annotation cp="📏">rula | miƙaƙƙen gefe</annotation>
+		<annotation cp="📏" type="tts">miƙaƙƙiyar rula</annotation>
+		<annotation cp="📐">rula | tsari | alwatika</annotation>
+		<annotation cp="📐" type="tts">rula na alwatika</annotation>
+		<annotation cp="✂">kayan aiki | yankewa</annotation>
+		<annotation cp="✂" type="tts">almakashi</annotation>
+		<annotation cp="🗃">akwati | kati | fayil</annotation>
+		<annotation cp="🗃" type="tts">akwatin fayil na kati</annotation>
+		<annotation cp="🗄">kabad | fayil | naɗawa a fayil</annotation>
+		<annotation cp="🗄" type="tts">kabad na fayil</annotation>
+		<annotation cp="🗑">kwandon shara</annotation>
+		<annotation cp="🗑" type="tts">kwandon shara</annotation>
+		<annotation cp="🔒">rufaffe</annotation>
+		<annotation cp="🔒" type="tts">a kulle</annotation>
+		<annotation cp="🔓">a kulle | a buɗe | buɗe</annotation>
+		<annotation cp="🔓" type="tts">a buɗe</annotation>
+		<annotation cp="🔏">tawada | kulle | bakin alƙalami | alƙalami | sirri</annotation>
+		<annotation cp="🔏" type="tts">a kulle tare da alƙalami</annotation>
+		<annotation cp="🔐">rufaffe | makulli | a kulle | mai tsaro</annotation>
+		<annotation cp="🔐" type="tts">a kulle da makulli</annotation>
+		<annotation cp="🔑">kulle | kalmar sirri</annotation>
+		<annotation cp="🔑" type="tts">makulli</annotation>
+		<annotation cp="🗝">matashiya | makulli | kulle | tsoho</annotation>
+		<annotation cp="🗝" type="tts">tsohon makulli</annotation>
+		<annotation cp="🔨">kayan aiki</annotation>
+		<annotation cp="🔨" type="tts">guduma</annotation>
+		<annotation cp="⛏">haƙo | kayan aiki</annotation>
+		<annotation cp="⛏" type="tts">diga</annotation>
+		<annotation cp="⚒">guduma | diga | kayan aiki</annotation>
+		<annotation cp="⚒" type="tts">guduma da diga</annotation>
+		<annotation cp="🛠">guduma | kayan aiki | sufana</annotation>
+		<annotation cp="🛠" type="tts">gudana da sufana</annotation>
+		<annotation cp="🗡">wuƙa | makami</annotation>
+		<annotation cp="🗡" type="tts">wuƙar ƙugu</annotation>
+		<annotation cp="⚔">haɗaɗɗe | takuba | makami</annotation>
+		<annotation cp="⚔" type="tts">haɗaɗɗun takuba</annotation>
+		<annotation cp="🔫">bindiga | bindigar hannu | ƙaramar bindiga | kayan aiki | makami</annotation>
+		<annotation cp="🔫" type="tts">ƙaramar bindiga</annotation>
+		<annotation cp="🏹">mai baka | wasan baka | kibiya | baka | Sagittarius | kayan aiki | makami | zodiac</annotation>
+		<annotation cp="🏹" type="tts">baka da kibiya</annotation>
+		<annotation cp="🛡">makami</annotation>
+		<annotation cp="🛡" type="tts">garkuwa</annotation>
+		<annotation cp="🔧">kayan aiki | sufana</annotation>
+		<annotation cp="🔧" type="tts">sufana</annotation>
+		<annotation cp="🔩">ƙusa | noti | kayan aiki</annotation>
+		<annotation cp="🔩" type="tts">noti da ƙusa</annotation>
+		<annotation cp="⚙">kayan aiki</annotation>
+		<annotation cp="⚙" type="tts">giya</annotation>
+		<annotation cp="🗜">kayan aiki | sakata | datsa</annotation>
+		<annotation cp="🗜" type="tts">kayan ɗaurewa</annotation>
+		<annotation cp="⚖">daidaito | adalci | Libra | sikeloli | kayan aiki | nauyi | zodiac</annotation>
+		<annotation cp="⚖" type="tts">sikeli</annotation>
+		<annotation cp="🔗">mahaɗa</annotation>
+		<annotation cp="🔗" type="tts">mahaɗa</annotation>
+		<annotation cp="⛓">sarƙa</annotation>
+		<annotation cp="⛓" type="tts">sarƙoƙi</annotation>
+		<annotation cp="⚗">kimiyya | kayan aiki</annotation>
+		<annotation cp="⚗" type="tts">alembic</annotation>
+		<annotation cp="🔬">kayan aiki | kimiyya</annotation>
+		<annotation cp="🔬" type="tts">madubin kimiyya</annotation>
+		<annotation cp="🔭">kayan aiki | kimiyya</annotation>
+		<annotation cp="🔭" type="tts">madubin hangen nesa</annotation>
+		<annotation cp="📡">eriya | dish | kumbo</annotation>
+		<annotation cp="📡" type="tts">eriya na kumbo</annotation>
+		<annotation cp="💉">likita | magani | allura | ba da allura | maras lafiya | kayan aiki</annotation>
+		<annotation cp="💉" type="tts">allura</annotation>
+		<annotation cp="💊">likita | magani | maras lafiya</annotation>
+		<annotation cp="💊" type="tts">kwaya</annotation>
+		<annotation cp="🚪">ƙofa</annotation>
+		<annotation cp="🚪" type="tts">ƙofa</annotation>
+		<annotation cp="🛏">hotal | barci</annotation>
+		<annotation cp="🛏" type="tts">gado</annotation>
+		<annotation cp="🛋">kujerar kwance | hotal | fitila</annotation>
+		<annotation cp="🛋" type="tts">kujerar kwance da fitila</annotation>
+		<annotation cp="🚽">ban-ɗaki</annotation>
+		<annotation cp="🚽" type="tts">ban-ɗaki</annotation>
+		<annotation cp="🚿">ruwa</annotation>
+		<annotation cp="🚿" type="tts">shawa</annotation>
+		<annotation cp="🛁">wanka</annotation>
+		<annotation cp="🛁" type="tts">baho</annotation>
+		<annotation cp="🛒">sayayya | amalanke | kura</annotation>
+		<annotation cp="🛒" type="tts">amalanke</annotation>
+		<annotation cp="🚬">shan taba</annotation>
+		<annotation cp="🚬" type="tts">sigari</annotation>
+		<annotation cp="⚰">mutuwa</annotation>
+		<annotation cp="⚰" type="tts">akwatin gawa</annotation>
+		<annotation cp="⚱">mutuwa | jana’iza | tukunyar toka | toka</annotation>
+		<annotation cp="⚱" type="tts">tukunyar jana’iza</annotation>
+		<annotation cp="🗿">fuska | moyai | mutum-mutum</annotation>
+		<annotation cp="🗿" type="tts">moai</annotation>
+		<annotation cp="🏧">atm | mai sarrafa kansa | banki | tela</annotation>
+		<annotation cp="🏧" type="tts">alamar ATM</annotation>
+		<annotation cp="🚮">shara | kwandon shara</annotation>
+		<annotation cp="🚮" type="tts">alamar shara a cikin bola</annotation>
+		<annotation cp="🚰">sha | mai sha | ruwa</annotation>
+		<annotation cp="🚰" type="tts">ruwan sha</annotation>
+		<annotation cp="♿">samun dama</annotation>
+		<annotation cp="♿" type="tts">alamar kujera mai wili</annotation>
+		<annotation cp="🚹">makewayi | mutum | bayan gida | wc</annotation>
+		<annotation cp="🚹" type="tts">ɗakin maza</annotation>
+		<annotation cp="🚺">makewayi | bayan gida | wc | mace</annotation>
+		<annotation cp="🚺" type="tts">ɗakin mata</annotation>
+		<annotation cp="🚻">makewayi | WC | bayan gida</annotation>
+		<annotation cp="🚻" type="tts">bayan gida</annotation>
+		<annotation cp="🚼">jariri | canzawa</annotation>
+		<annotation cp="🚼" type="tts">alamar jariri</annotation>
+		<annotation cp="🚾">mai rufewa | makewayi | bayan gida | ruwa | wc</annotation>
+		<annotation cp="🚾" type="tts">babban ɗaki</annotation>
+		<annotation cp="🛂">dubawa | fasfo</annotation>
+		<annotation cp="🛂" type="tts">mai dubawa fasfo</annotation>
+		<annotation cp="🛃">kwastam</annotation>
+		<annotation cp="🛃" type="tts">kwastam</annotation>
+		<annotation cp="🛄">kaya | hakki</annotation>
+		<annotation cp="🛄" type="tts">hakkin kaya</annotation>
+		<annotation cp="🛅">kaya | kabad mai makulli</annotation>
+		<annotation cp="🛅" type="tts">wurin ajiye kaya</annotation>
+		<annotation cp="⚠">gargaɗi</annotation>
+		<annotation cp="⚠" type="tts">gargaɗi</annotation>
+		<annotation cp="🚸">ɗa | ƙetare | mai tafiya a ƙafa | tarafik</annotation>
+		<annotation cp="🚸" type="tts">yara masu ƙetare hanya</annotation>
+		<annotation cp="⛔">shiga | haram | a’a | babu | an hana | tarafik</annotation>
+		<annotation cp="⛔" type="tts">ba shiga</annotation>
+		<annotation cp="🚫">shiga | haram | a’a | babu</annotation>
+		<annotation cp="🚫" type="tts">an hana</annotation>
+		<annotation cp="🚳">keke | babur | haram | a’a | babu | an hana</annotation>
+		<annotation cp="🚳" type="tts">an hana ma keke</annotation>
+		<annotation cp="🚭">haram | a’a | babu | an hana | shan taba</annotation>
+		<annotation cp="🚭" type="tts">ba a shan taba</annotation>
+		<annotation cp="🚯">haram | shara | a’a | babu | an hana</annotation>
+		<annotation cp="🚯" type="tts">ba a zubar da shara</annotation>
+		<annotation cp="🚱">mara kyau | ba a iya sha | ruwa</annotation>
+		<annotation cp="🚱" type="tts">ruwa mara kyau</annotation>
+		<annotation cp="🚷">haram | a’a | babu | mai taifya a ƙafa | an hana</annotation>
+		<annotation cp="🚷" type="tts">an hana ma masu tafiya a ƙafa</annotation>
+		<annotation cp="📵">sel | haram | na hannu | a’a | babu | waya | ba a yarda ba | tarho</annotation>
+		<annotation cp="📵" type="tts">an hana wayoyin hannu</annotation>
+		<annotation cp="🔞">18 | ƙayyadewar shekara | sha takwas | haram | a’a | babu | ba a yarda ba | ƙasa da shekara</annotation>
+		<annotation cp="🔞" type="tts">an hana ma mutane ƙasa da shekara sha takwas</annotation>
+		<annotation cp="☢">rediyoaktif | alama</annotation>
+		<annotation cp="☢" type="tts">rediyoaktif</annotation>
+		<annotation cp="☣">mai hatsari ga hallitu | alama</annotation>
+		<annotation cp="☣" type="tts">mai hatsari ga hallitu</annotation>
+		<annotation cp="⬆">kibiya | tsinin shiyya | shiyya | arewa</annotation>
+		<annotation cp="⬆" type="tts">kibiyar sama</annotation>
+		<annotation cp="↗">kibiya | shiyya | a ƙetaren tsini shiyya | arewa maso gabas</annotation>
+		<annotation cp="↗" type="tts">kibiyar sama ta dama</annotation>
+		<annotation cp="➡">kibiya | tsinin shiyya | shiyya | gabas</annotation>
+		<annotation cp="➡" type="tts">kibiyar dama</annotation>
+		<annotation cp="↘">kibiya | shiyya | a ƙetaren tsini shiyya | kudu maso gabas</annotation>
+		<annotation cp="↘" type="tts">kibiyar ƙasa ta dama</annotation>
+		<annotation cp="⬇">kibiya | tsinin shiyya | shiyya | ƙasa | kudu</annotation>
+		<annotation cp="⬇" type="tts">kibiyar ƙasa</annotation>
+		<annotation cp="↙">kibiya | shiyya | a ƙetaren tsini shiyya | kudu maso yamma</annotation>
+		<annotation cp="↙" type="tts">kibiyar ƙasa ta hagu</annotation>
+		<annotation cp="⬅">kibiya | tsinin shiyya | shiyya | yamma</annotation>
+		<annotation cp="⬅" type="tts">kibiyar hagu</annotation>
+		<annotation cp="↖">kibiya | shiyya | a ƙetaren tsini shiyya | arewa maso yamma</annotation>
+		<annotation cp="↖" type="tts">kibiyar sama ta hagu</annotation>
+		<annotation cp="↕">kibiya</annotation>
+		<annotation cp="↕" type="tts">kibiyar ƙasa ta sama</annotation>
+		<annotation cp="↔">kibiya</annotation>
+		<annotation cp="↔" type="tts">kibiyar dama ta dama</annotation>
+		<annotation cp="↩">kibiya</annotation>
+		<annotation cp="↩" type="tts">kibiyar dama mai lanƙwasa ta hagu</annotation>
+		<annotation cp="↪">kibiya</annotation>
+		<annotation cp="↪" type="tts">kibiyar hagu mai lanƙwasa ta dama</annotation>
+		<annotation cp="⤴">kibiya</annotation>
+		<annotation cp="⤴" type="tts">kibiyar dama mai lanƙwasa ta sama</annotation>
+		<annotation cp="⤵">kibiya | ƙasa</annotation>
+		<annotation cp="⤵" type="tts">kibiyar dama mai lanƙwasa ta ƙasa</annotation>
+		<annotation cp="🔃">kibiya | ta hannun dama | sake loda</annotation>
+		<annotation cp="🔃" type="tts">kibiyoyi a tsaye ta hannun dama</annotation>
+		<annotation cp="🔄">ta hannun hagu | kibiya | akasin hanyar rana</annotation>
+		<annotation cp="🔄" type="tts">maɓallin kibiyoyi ta hannun hagu</annotation>
+		<annotation cp="🔙">kibiya | baya</annotation>
+		<annotation cp="🔙" type="tts">Kibiya Ta BAYA</annotation>
+		<annotation cp="🔚">kibiya | ƙarshe</annotation>
+		<annotation cp="🔚" type="tts">Kibiya Ta ƘARSHE</annotation>
+		<annotation cp="🔛">kibiya | maki | a kunne</annotation>
+		<annotation cp="🔛" type="tts">Kibiyar A KUNNE!</annotation>
+		<annotation cp="🔜">kibiya | ba da daɗewa ba</annotation>
+		<annotation cp="🔜" type="tts">Kibiyar BA DA DAƊEWA BA</annotation>
+		<annotation cp="🔝">kibiya | kan | sama</annotation>
+		<annotation cp="🔝" type="tts">Kibiya KAI</annotation>
+		<annotation cp="🛐">addini | ibada</annotation>
+		<annotation cp="🛐" type="tts">wurin Ibada</annotation>
+		<annotation cp="⚛">kafiri | ƙwayar zarra</annotation>
+		<annotation cp="⚛" type="tts">alamar ƙwayar zarra</annotation>
+		<annotation cp="🕉">Hindu | addini</annotation>
+		<annotation cp="🕉" type="tts">om</annotation>
+		<annotation cp="✡">Dauda | Yahudu | Na yahudu | addini | tauraro</annotation>
+		<annotation cp="✡" type="tts">tauraron Dauda</annotation>
+		<annotation cp="☸">Mai addini Buddha | dharma | addini | wili</annotation>
+		<annotation cp="☸" type="tts">wilin dharma</annotation>
+		<annotation cp="☯">addini | tao | mai bin tao | yang | yin</annotation>
+		<annotation cp="☯" type="tts">yin yang</annotation>
+		<annotation cp="✝">Kirista | kuros | addini</annotation>
+		<annotation cp="✝" type="tts">kuros na latin</annotation>
+		<annotation cp="☦">Kirista | kuros | addini</annotation>
+		<annotation cp="☦" type="tts">kuros na gargajiya</annotation>
+		<annotation cp="☪">islam | Musulmi | addini</annotation>
+		<annotation cp="☪" type="tts">tauroro da hilali</annotation>
+		<annotation cp="☮">zaman lafiya</annotation>
+		<annotation cp="☮" type="tts">alamar zaman lafiya</annotation>
+		<annotation cp="🕎">candelabrum | alkukin | addini</annotation>
+		<annotation cp="🕎" type="tts">menorah</annotation>
+		<annotation cp="🔯">dukiya | tauraro</annotation>
+		<annotation cp="🔯" type="tts">tauraro mai tsini-shida mai ɗigo</annotation>
+		<annotation cp="♈">rago | zodiac</annotation>
+		<annotation cp="♈" type="tts">Aries</annotation>
+		<annotation cp="♉">sa | takarkari | zodiac</annotation>
+		<annotation cp="♉" type="tts">Taurus</annotation>
+		<annotation cp="♊">tagwai | zodiac</annotation>
+		<annotation cp="♊" type="tts">Gemini</annotation>
+		<annotation cp="♋">ƙaguwa | zodiac</annotation>
+		<annotation cp="♋" type="tts">Cancer</annotation>
+		<annotation cp="♌">zaki | zodiac</annotation>
+		<annotation cp="♌" type="tts">Leo</annotation>
+		<annotation cp="♍">zodiac</annotation>
+		<annotation cp="♍" type="tts">Virgo</annotation>
+		<annotation cp="♎">daidaito | adalci | sikeloli | zodiac</annotation>
+		<annotation cp="♎" type="tts">Libra</annotation>
+		<annotation cp="♏">scorpio | kunama | zodiac</annotation>
+		<annotation cp="♏" type="tts">Scorpius</annotation>
+		<annotation cp="♐">mai baka | zodiac</annotation>
+		<annotation cp="♐" type="tts">Sagittarius</annotation>
+		<annotation cp="♑">akuya | zodiac</annotation>
+		<annotation cp="♑" type="tts">Capricorn</annotation>
+		<annotation cp="♒">maɗauki | ruwa | zodiac</annotation>
+		<annotation cp="♒" type="tts">Aquarius</annotation>
+		<annotation cp="♓">kifi | zodiac</annotation>
+		<annotation cp="♓" type="tts">Pisces</annotation>
+		<annotation cp="⛎">maɗauki kaya | maciji | gamsheƙa | zodiac</annotation>
+		<annotation cp="⛎" type="tts">Taurarin Ophiuchus</annotation>
+		<annotation cp="🔀">kibiya | haɗaɗɗe</annotation>
+		<annotation cp="🔀" type="tts">maɓallin lalewa waƙoƙi</annotation>
+		<annotation cp="🔁">kibiya | ta hannun dama | maimaita</annotation>
+		<annotation cp="🔁" type="tts">maɓallin maimaitawa</annotation>
+		<annotation cp="🔂">kibiya | ta hannun dama | sau ɗaya</annotation>
+		<annotation cp="🔂" type="tts">maɓallin maimaitawa sau ɗaya</annotation>
+		<annotation cp="▶">kibiya | kaɗa | dama | alwatika</annotation>
+		<annotation cp="▶" type="tts">maɓallin kaɗa</annotation>
+		<annotation cp="⏩">kibiya | biyu | sauri | gaba</annotation>
+		<annotation cp="⏩" type="tts">maɓallin turawa waƙa gaba</annotation>
+		<annotation cp="⏭">kibiya | duba na gaba | waƙa na gaba | alwatika</annotation>
+		<annotation cp="⏭" type="tts">maɓallin waƙa na gaba</annotation>
+		<annotation cp="⏯">kibiya | dakatar da | kaɗa | dama | alwatika</annotation>
+		<annotation cp="⏯" type="tts">maɓallin kaɗa ko dakatar da</annotation>
+		<annotation cp="◀">kibiya | hagu | juya | alwatika</annotation>
+		<annotation cp="◀" type="tts">maɓallin juyawa baya</annotation>
+		<annotation cp="⏪">kibiya | biyu | komawa baya</annotation>
+		<annotation cp="⏪" type="tts">maɓallin juyawa baya mai sauri</annotation>
+		<annotation cp="⏮">kibiya | fage na baya | waƙa ta baya | alwatika</annotation>
+		<annotation cp="⏮" type="tts">maɓallin waƙa na ƙarshe</annotation>
+		<annotation cp="🔼">kibiya | maɓalli | ja</annotation>
+		<annotation cp="🔼" type="tts">maɓallin sama</annotation>
+		<annotation cp="⏫">kibiya | biyu</annotation>
+		<annotation cp="⏫" type="tts">maɓallin sama na sauri</annotation>
+		<annotation cp="🔽">kibiya | maɓalli | ƙasa | ja</annotation>
+		<annotation cp="🔽" type="tts">maɓallin ƙasa</annotation>
+		<annotation cp="⏬">kibiya | biyu | ƙasa</annotation>
+		<annotation cp="⏬" type="tts">maɓallin ƙasa na sauri</annotation>
+		<annotation cp="⏸">sanda | biyu | dakatar da | a tsaye</annotation>
+		<annotation cp="⏸" type="tts">maɓallin dakatar da</annotation>
+		<annotation cp="⏹">murabba’i | tsaya</annotation>
+		<annotation cp="⏹" type="tts">maɓallin tsaya</annotation>
+		<annotation cp="⏺">da’ira | naɗa</annotation>
+		<annotation cp="⏺" type="tts">maɓallin naɗawa</annotation>
+		<annotation cp="⏏">fid da</annotation>
+		<annotation cp="⏏" type="tts">maɓallin fid da</annotation>
+		<annotation cp="🎦">kyamara | fim</annotation>
+		<annotation cp="🎦" type="tts">silima</annotation>
+		<annotation cp="🔅">haske | dushe | ƙasa</annotation>
+		<annotation cp="🔅" type="tts">maɓallin dushe</annotation>
+		<annotation cp="🔆">mai haske | haske</annotation>
+		<annotation cp="🔆" type="tts">maɓallin haske</annotation>
+		<annotation cp="📶">eriya | sanda | sel | na hannu | waya | sigina | tarho</annotation>
+		<annotation cp="📶" type="tts">sandunan eriya</annotation>
+		<annotation cp="📳">sel | na hannu | yanayi | waya | tarho | jijjiga</annotation>
+		<annotation cp="📳" type="tts">yanayin jijjiga</annotation>
+		<annotation cp="📴">sel | na hannu | a kashe | waya | tarho</annotation>
+		<annotation cp="📴" type="tts">wayar hannu a kashe</annotation>
+		<annotation cp="♀">mace</annotation>
+		<annotation cp="♀" type="tts">alamar mace</annotation>
+		<annotation cp="♂">namiji</annotation>
+		<annotation cp="♂" type="tts">alamar namiji</annotation>
+		<annotation cp="✖">soke | sau | riɓa | x</annotation>
+		<annotation cp="✖" type="tts">x sau mai nauyi</annotation>
+		<annotation cp="➕">ilimin lissafi | tarawa</annotation>
+		<annotation cp="➕" type="tts">alamar tarawa mai nauyi</annotation>
+		<annotation cp="➖">ilimin lissafi | alamar deɓewa</annotation>
+		<annotation cp="➖" type="tts">alamar deɓewa mai nauyi</annotation>
+		<annotation cp="➗">rabawa | ilimin lissafi</annotation>
+		<annotation cp="➗" type="tts">alamar rabawa mai nauyi</annotation>
+		<annotation cp="‼">bangbang | alamar motsin rai | alama | alamomin rubutu</annotation>
+		<annotation cp="‼" type="tts">alamar motsin rai biyu</annotation>
+		<annotation cp="⁉">alamar motsin rai | alamar motsin rai tare da tambaya | alamomin rubutu | tambaya</annotation>
+		<annotation cp="⁉" type="tts">alamar motsin rai da tambaya</annotation>
+		<annotation cp="❓">alama | alamomin rubutu | tambaya</annotation>
+		<annotation cp="❓" type="tts">alamar tambaya</annotation>
+		<annotation cp="❔">alama | mai rubutu a gefe | alamomin rubutu | tambaya</annotation>
+		<annotation cp="❔" type="tts">farar alamar tambaya</annotation>
+		<annotation cp="❕">alamar motsin rai | alama | mai rubutu a gefe | alamomin rubutu</annotation>
+		<annotation cp="❕" type="tts">farar alamar motsin rai</annotation>
+		<annotation cp="❗">alamar motsin rai | alama | alamomin rubutu</annotation>
+		<annotation cp="❗" type="tts">alamar motsin rai</annotation>
+		<annotation cp="〰">alamar fid da ma’ana | alamomin rubutu | mai igiyar ruwa</annotation>
+		<annotation cp="〰" type="tts">alamar fid da ma’ana mai igiyar ruwa</annotation>
+		<annotation cp="💱">banki | kuɗin ƙasa | musaya | kuɗi</annotation>
+		<annotation cp="💱" type="tts">musayar kuɗin ƙasa</annotation>
+		<annotation cp="💲">kuɗin ƙasa | dala | kuɗi</annotation>
+		<annotation cp="💲" type="tts">alamar dala mai kauri</annotation>
+		<annotation cp="⚕">ma’aikata | magani | aesculapius</annotation>
+		<annotation cp="⚕" type="tts">alamar kula da lafiya</annotation>
+		<annotation cp="♻">maimaita</annotation>
+		<annotation cp="♻" type="tts">alamar maimaita</annotation>
+		<annotation cp="⚜">fleur-de-lis</annotation>
+		<annotation cp="⚜" type="tts">fleur-de-lis</annotation>
+		<annotation cp="🔱">ƙugiya | alama | jirgin ruwa | kayan aiki | mashi mai ƙarshe uku</annotation>
+		<annotation cp="🔱" type="tts">alamar mashi mai ƙarshe uku</annotation>
+		<annotation cp="📛">bajo | suna</annotation>
+		<annotation cp="📛" type="tts">bajon suna</annotation>
+		<annotation cp="🔰">ɗan koyo | chevron | kore | Na Japan | ganye | kayan aiki | rawaya</annotation>
+		<annotation cp="🔰" type="tts">alama Na Japan don ɗan koyo</annotation>
+		<annotation cp="⭕">da’ira | o</annotation>
+		<annotation cp="⭕" type="tts">babbar da’ira mai nauyi</annotation>
+		<annotation cp="✅">yarda | alama</annotation>
+		<annotation cp="✅" type="tts">farar alamar yarda mai nauyi</annotation>
+		<annotation cp="☑">ƙuri’a | akwati | yarda</annotation>
+		<annotation cp="☑" type="tts">akwatin ƙuri’a mai alamar yarda</annotation>
+		<annotation cp="✔">yarda | alama</annotation>
+		<annotation cp="✔" type="tts">alamar yarda mai nauyi</annotation>
+		<annotation cp="❌">soke | alamar | sau | riɓa | x</annotation>
+		<annotation cp="❌" type="tts">alamar kuros</annotation>
+		<annotation cp="❎">alama | murabba’i</annotation>
+		<annotation cp="❎" type="tts">maɓallin alamar kuros</annotation>
+		<annotation cp="➰">lanƙwasa | maɗauki</annotation>
+		<annotation cp="➰" type="tts">lanƙwasasshen maɗauki</annotation>
+		<annotation cp="➿">lanƙwasa | biyu | maɗauki</annotation>
+		<annotation cp="➿" type="tts">lanƙwasasshen maɗauki biyu</annotation>
+		<annotation cp="〽">alamar | kashi</annotation>
+		<annotation cp="〽" type="tts">alamar maimaitawar kashi</annotation>
+		<annotation cp="✳">alamar asterisk</annotation>
+		<annotation cp="✳" type="tts">asterisk mai tsini takwas</annotation>
+		<annotation cp="✴">tauraro</annotation>
+		<annotation cp="✴" type="tts">tauraro mai tsini takwas</annotation>
+		<annotation cp="❇">ƙyalƙyali</annotation>
+		<annotation cp="❇" type="tts">ƙyalƙyali</annotation>
+		<annotation cp="©">haƙƙin mallaka</annotation>
+		<annotation cp="©" type="tts">haƙƙin mallaka</annotation>
+		<annotation cp="®">an yi rajista</annotation>
+		<annotation cp="®" type="tts">an yi rajista</annotation>
+		<annotation cp="™">maki | tm | tambarin kamfani</annotation>
+		<annotation cp="™" type="tts">tambarin kamfani</annotation>
+		<annotation cp="🔠">ABCD | shigarwa | latin | baƙaƙe | manyan baƙaƙe</annotation>
+		<annotation cp="🔠" type="tts">alamar shigarwar manyan baƙaƙe na latin</annotation>
+		<annotation cp="🔡">abcd | shigarwa | latin | baƙaƙe | ƙananan baƙaƙe</annotation>
+		<annotation cp="🔡" type="tts">alamar shigarwa ƙananan baƙaƙe na latin</annotation>
+		<annotation cp="🔢">1234 | shigarwa | lambobi</annotation>
+		<annotation cp="🔢" type="tts">shigarwar lambobi</annotation>
+		<annotation cp="🔣">〒♪&amp;% | shigarwa</annotation>
+		<annotation cp="🔣" type="tts">shigarwar alamomi</annotation>
+		<annotation cp="🔤">abc | abacada | shigarwa | latin | baƙaƙe</annotation>
+		<annotation cp="🔤" type="tts">shigarwar baƙaƙe na latin</annotation>
+		<annotation cp="🅰">a | irin jini</annotation>
+		<annotation cp="🅰" type="tts">maɓallin A (irin jini)</annotation>
+		<annotation cp="🆎">ab | irin jini</annotation>
+		<annotation cp="🆎" type="tts">maɓallin AB (irin jini)</annotation>
+		<annotation cp="🅱">b | irin jini</annotation>
+		<annotation cp="🅱" type="tts">maɓallin B (irin jini)</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">maɓallin CL</annotation>
+		<annotation cp="🆒">mai ni’ima</annotation>
+		<annotation cp="🆒" type="tts">maɓallin MAI NI’IMA</annotation>
+		<annotation cp="🆓">kyauta</annotation>
+		<annotation cp="🆓" type="tts">maɓallin KYAUTA</annotation>
+		<annotation cp="ℹ">b | bayani</annotation>
+		<annotation cp="ℹ" type="tts">bayani</annotation>
+		<annotation cp="🆔">id | shaida</annotation>
+		<annotation cp="🆔" type="tts">maɓallin ID</annotation>
+		<annotation cp="Ⓜ">da’ira | m</annotation>
+		<annotation cp="Ⓜ" type="tts">M da aka saka da’ira</annotation>
+		<annotation cp="🆕">sabo</annotation>
+		<annotation cp="🆕" type="tts">maɓallin SABO</annotation>
+		<annotation cp="🆖">ng</annotation>
+		<annotation cp="🆖" type="tts">maɓallin NG</annotation>
+		<annotation cp="🅾">irin jini | o</annotation>
+		<annotation cp="🅾" type="tts">maɓallin O (irin jini)</annotation>
+		<annotation cp="🆗">TO</annotation>
+		<annotation cp="🆗" type="tts">maɓallin TO</annotation>
+		<annotation cp="🅿">fakin</annotation>
+		<annotation cp="🅿" type="tts">maɓallin P</annotation>
+		<annotation cp="🆘">taimako | sos</annotation>
+		<annotation cp="🆘" type="tts">maɓallin SOS</annotation>
+		<annotation cp="🆚">tare da | vs</annotation>
+		<annotation cp="🆚" type="tts">maɓallin VS</annotation>
+		<annotation cp="🈁">Na Japan | katakana | ココ | &quot;a nan&quot;</annotation>
+		<annotation cp="🈁" type="tts">maɓallin &quot;a nan&quot; Na Japan</annotation>
+		<annotation cp="🈂">Na Japan | katakana | サ | &quot;cajin aiki&quot;</annotation>
+		<annotation cp="🈂" type="tts">maɓallin &quot;cajin aiki&quot; Na Japan</annotation>
+		<annotation cp="🈷">Na Japan | zanen harshe | 月 | &quot;kuɗin wata-wata&quot;</annotation>
+		<annotation cp="🈷" type="tts">maɓallin &quot;kuɗin wata-wata&quot; Na Japan</annotation>
+		<annotation cp="🈶">Na Japan | zanen harshe | 有 | &quot;ba kyauta ba&quot;</annotation>
+		<annotation cp="🈶" type="tts">maɓallin &quot;ba kyauta ba&quot; Na Japan</annotation>
+		<annotation cp="🈯">Na Japan | zanen harshe | 指 | &quot;ƙayyadadde&quot;</annotation>
+		<annotation cp="🈯" type="tts">maɓallin &quot;ƙayyadadde&quot; Na Japan</annotation>
+		<annotation cp="🉐">Na Japan | ideograph | 得 | &quot;ciniki&quot;</annotation>
+		<annotation cp="🉐" type="tts">maɓallin &quot;ciniki&quot; Na Japan</annotation>
+		<annotation cp="🈹">Na Japan | zanen harshe | 割 | &quot;rangwame&quot;</annotation>
+		<annotation cp="🈹" type="tts">maɓallin &quot;rangwame&quot; Na Japan</annotation>
+		<annotation cp="🈚">Na Japan | zanen harshe | 無 | &quot;kyauta&quot;</annotation>
+		<annotation cp="🈚" type="tts">maɓallin &quot;kyauta&quot; Na Japan</annotation>
+		<annotation cp="🈲">Na Japan | zanen harshe | 禁 | &quot;an hana&quot;</annotation>
+		<annotation cp="🈲" type="tts">maɓallin &quot;an hana&quot; Na Japan</annotation>
+		<annotation cp="🉑">Na Japan | zanen harshe | 可 | &quot;wanda ake yarda da&quot;</annotation>
+		<annotation cp="🉑" type="tts">maɓallin &quot;wanda ake yarda da&quot; Na Japan</annotation>
+		<annotation cp="🈸">Na Japan | zanen harshe | 申 | &quot;buƙata&quot;</annotation>
+		<annotation cp="🈸" type="tts">maɓallin &quot;buƙata&quot; Na Japan</annotation>
+		<annotation cp="🈴">Na Japan | zanen harshe | 合 | &quot;yarjejeniya&quot;</annotation>
+		<annotation cp="🈴" type="tts">maɓallin &quot;yarjejeniya&quot; Na Japan</annotation>
+		<annotation cp="🈳">Na Japan | zanen harshe | 空 | &quot;mara komai&quot;</annotation>
+		<annotation cp="🈳" type="tts">maɓallin &quot;mara komai&quot; Na Japan</annotation>
+		<annotation cp="㊗">Na Japan | zanen harshe | 祝 | &quot;murna&quot;</annotation>
+		<annotation cp="㊗" type="tts">maɓallin &quot;murna&quot; Na Japan</annotation>
+		<annotation cp="㊙">Na Japan | zanen harshe | 秘 | &quot;asiri&quot;</annotation>
+		<annotation cp="㊙" type="tts">maɓallin &quot;asiri&quot; Na Japan</annotation>
+		<annotation cp="🈺">Na Japan | zanen harshe | 営 | &quot;a buɗe don kasuwanci&quot;</annotation>
+		<annotation cp="🈺" type="tts">maɓallin &quot;a buɗe don kasuwanci&quot; Na Japan</annotation>
+		<annotation cp="🈵">Na Japan | zanen harshe | 満 | &quot;a cike&quot;</annotation>
+		<annotation cp="🈵" type="tts">maɓallin &quot;a cike&quot; Na Japan</annotation>
+		<annotation cp="🔴">da’ira | ilimin halayen sura | ja</annotation>
+		<annotation cp="🔴" type="tts">jan da’ira</annotation>
+		<annotation cp="🔵">shuɗi | da’ira | ilimin halayen sura</annotation>
+		<annotation cp="🔵" type="tts">shuɗin da’ira</annotation>
+		<annotation cp="⚫">da’ira | ilimin halayen sura</annotation>
+		<annotation cp="⚫" type="tts">baƙin da’ira</annotation>
+		<annotation cp="⚪">da’ira | ilimin halayen sura</annotation>
+		<annotation cp="⚪" type="tts">farin da’ira</annotation>
+		<annotation cp="⬛">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="⬛" type="tts">baƙin babban murabba’i</annotation>
+		<annotation cp="⬜">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="⬜" type="tts">farin babban murabba’i</annotation>
+		<annotation cp="◼">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="◼" type="tts">baƙin matsakaicin murabba’i</annotation>
+		<annotation cp="◻">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="◻" type="tts">farin matsakaicin murabba’i</annotation>
+		<annotation cp="◾">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="◾" type="tts">baƙin matsakaicin-ƙaramin murabba’i</annotation>
+		<annotation cp="◽">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="◽" type="tts">farin matsakaicin-ƙaramin murabba’i</annotation>
+		<annotation cp="▪">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="▪" type="tts">baƙin ƙaramin murabba’i</annotation>
+		<annotation cp="▫">ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="▫" type="tts">farin ƙaramin murabba’i</annotation>
+		<annotation cp="🔶">daimun | ilimin halayen sura | ruwan goro</annotation>
+		<annotation cp="🔶" type="tts">babban daimun na ruwan goro</annotation>
+		<annotation cp="🔷">shuɗi | daimun | ilimin halayen sura</annotation>
+		<annotation cp="🔷" type="tts">babban daimun na shuɗi</annotation>
+		<annotation cp="🔸">daimun | ilimin halayen sura | ruwan goro</annotation>
+		<annotation cp="🔸" type="tts">ƙaramin diamun na ruwan goro</annotation>
+		<annotation cp="🔹">shuɗi | daimun | ilimin halayen sura</annotation>
+		<annotation cp="🔹" type="tts">ƙaramin diamun na shuɗi</annotation>
+		<annotation cp="🔺">ilimin halayen sura | ja</annotation>
+		<annotation cp="🔺" type="tts">jan alwatika mai nunawa sama</annotation>
+		<annotation cp="🔻">ƙasa | ilimin halayen sura | ja</annotation>
+		<annotation cp="🔻" type="tts">jan alwatika mai nunawa ƙasa</annotation>
+		<annotation cp="💠">mai ban dariya | daimun | ilimin halayen sura | ciki</annotation>
+		<annotation cp="💠" type="tts">daimun tare da ɗigo</annotation>
+		<annotation cp="🔘">maɓallin | ilimin halayen sura | rediyo</annotation>
+		<annotation cp="🔘" type="tts">maɓallin rediyo</annotation>
+		<annotation cp="🔳">maɓallin | ilimin halayen sura | mai rubutu a gefe | murabba’i</annotation>
+		<annotation cp="🔳" type="tts">maɓallin farin murabba’i</annotation>
+		<annotation cp="🔲">maɓallin | ilimin halayen sura | murabba’i</annotation>
+		<annotation cp="🔲" type="tts">maɓallin baƙin murabba’i</annotation>
+		<annotation cp="🏁">mai alamar murabba’a | mai alamar murabba’i tsere</annotation>
+		<annotation cp="🏁" type="tts">tuta mai alamar murabba’i</annotation>
+		<annotation cp="🚩">turke</annotation>
+		<annotation cp="🚩" type="tts">tuta na alwatika</annotation>
+		<annotation cp="🎌">shagali | kuros | haɗaɗɗe | Na Japan</annotation>
+		<annotation cp="🎌" type="tts">haɗaɗɗun tutoci</annotation>
+		<annotation cp="🏴">kaɗawa</annotation>
+		<annotation cp="🏴" type="tts">baƙar tuta</annotation>
+		<annotation cp="🏳">kaɗawa</annotation>
+		<annotation cp="🏳" type="tts">farar tuta</annotation>
+		<annotation cp="🏳‍🌈">baƙangizo</annotation>
+		<annotation cp="🏳‍🌈" type="tts">tutar baƙangizo</annotation>
 	</annotations>
 </ldml>

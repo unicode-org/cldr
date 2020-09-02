@@ -1,0 +1,2537 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2020 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="quc"/>
+	</identity>
+	<annotations>
+		<annotation cp="🏻">ub’antajik b’aqilal | uwach 1–2</annotation>
+		<annotation cp="🏻" type="tts">saq ub’antajik b’aqilal</annotation>
+		<annotation cp="🏼">ub’antajik b’aqilal | uwach 3</annotation>
+		<annotation cp="🏼" type="tts">retal saq ub’antajik b’aqilal</annotation>
+		<annotation cp="🏽">ub’antajik b’aqilal | uwach 4</annotation>
+		<annotation cp="🏽" type="tts">retal ub’antajik b’aqilal</annotation>
+		<annotation cp="🏾">ub’antajik b’aqilal | uwcah 5</annotation>
+		<annotation cp="🏾" type="tts">retal-q’eq ub’antajik b’aqilal</annotation>
+		<annotation cp="🏿">ub’antajik b’aqilal | uwach 6</annotation>
+		<annotation cp="🏿" type="tts">q’eq ub’antajik b’aqilal</annotation>
+		<annotation cp="😀">palajaj | ktze’nik</annotation>
+		<annotation cp="😀" type="tts">Ktze’n Palajaj</annotation>
+		<annotation cp="😃">palajaj | tza’maj | utorik | tze’nem</annotation>
+		<annotation cp="😃" type="tts">Tze’naq palajaj uk’ab’om uchi’</annotation>
+		<annotation cp="😄">baq’wach | palajaj | tza’maj | utorik | tze’nem</annotation>
+		<annotation cp="😄" type="tts">Ktze’n palajaj uk’ab’om uchi’ chi’l ktze’n b’aq’wachaj</annotation>
+		<annotation cp="😁">b’aqwach | palajaj | ktze’nik | tze’nem</annotation>
+		<annotation cp="😁" type="tts">Ktze’n palajaj ruk’ ktze’n b’aq’wachaj</annotation>
+		<annotation cp="😆">palajaj | nim tze’nem | chi’aj | torom | utz ub’anom | tze’nem</annotation>
+		<annotation cp="😆" type="tts">Ktze’n palajaj uk’ab’om uchi’ chi’l utzapim b’aq’wachaj</annotation>
+		<annotation cp="😅">tew | palajaj | torom | tze’nem | k’atanal</annotation>
+		<annotation cp="😅" type="tts">Ktze’n palajaj uk’ab’om uchi’ chi’l joron uwa’l wachaj</annotation>
+		<annotation cp="🤣">uwach ulew | tze’nem | ub’olq’otixik | palajaj</annotation>
+		<annotation cp="🤣" type="tts">Sib’alaj tze’naq</annotation>
+		<annotation cp="😂">palajaj | ki’kotemal | nim tze’nem | uwal wachaj</annotation>
+		<annotation cp="😂" type="tts">Palajaj Ruk’ Uwal Wachaj rech Ki’kotemal</annotation>
+		<annotation cp="🙂">palajaj | tze’nem</annotation>
+		<annotation cp="🙂" type="tts">Tze’naq palajaj</annotation>
+		<annotation cp="🙃">palajaj | xulan uwi’</annotation>
+		<annotation cp="🙃" type="tts">Xulan uwi’ palajaj</annotation>
+		<annotation cp="😉">palajaj | yupwachinem</annotation>
+		<annotation cp="😉" type="tts">Utz’apim ub’aqwach palajaj</annotation>
+		<annotation cp="😊">kaqarinaqq | b’aqwachaj | palajaj | tze’nem</annotation>
+		<annotation cp="😊" type="tts">Tze’naq palajaj porotz’ ub’aqwach</annotation>
+		<annotation cp="😇">tyox | palajaj | tzijob’elil chi kij adas | man tzij taj | setesik pa ujolom | man kok ta il | tze’nem</annotation>
+		<annotation cp="😇" type="tts">Tze’naq me’s ruk’ setesik pa ujolom</annotation>
+		<annotation cp="😍">b’aqwachaj | palajaj | loq’ob’al | tze’nem</annotation>
+		<annotation cp="😍" type="tts">Tze’naq palajaj ruk’ anima’ chi ub’aqwach</annotation>
+		<annotation cp="🤩">ktze’nik | palajaj | ch’umil | b’aqwachaj</annotation>
+		<annotation cp="🤩" type="tts">uriqom k’ax</annotation>
+		<annotation cp="😘">palajaj | tz’umanik</annotation>
+		<annotation cp="😘" type="tts">Palajaj kuwupuj jun Chi’aj</annotation>
+		<annotation cp="😗">palajaj | tz’umanik</annotation>
+		<annotation cp="😗" type="tts">Palajaj ruk’ tz’umanik</annotation>
+		<annotation cp="☺">palajaj | tz’ajom | uxlanaq | tze’nem</annotation>
+		<annotation cp="☺" type="tts">tze’nem</annotation>
+		<annotation cp="😚">tzapitalik | b’aq’wachaj | palajaj | tz’umanik</annotation>
+		<annotation cp="😚" type="tts">Palajaj ruk’ tz’umanik Utz’apim uwach</annotation>
+		<annotation cp="😙">b’aq’wachaj | palajaj | tz’umanik | tze’nem</annotation>
+		<annotation cp="😙" type="tts">Palajaj ruk’ Tz’umanik Tz’enaq ub’aqwach</annotation>
+		<annotation cp="😋">k’ok’ | palajaj | ktajin uan’ik | tze’nem | mmm | um</annotation>
+		<annotation cp="😋" type="tts">Palajaj ktajin Kuki’risaj Je’l riki’l</annotation>
+		<annotation cp="😛">palajaj | aq’</annotation>
+		<annotation cp="😛" type="tts">Palajaj ruk’ Relesam Raq</annotation>
+		<annotation cp="😜">b’aqwachaj | palajaj | yaktze’ | aq’ | yupwachinik</annotation>
+		<annotation cp="😜" type="tts">palajaj ruk’ relesam raq’ chi’l uyupwachim uwach</annotation>
+		<annotation cp="🤪">nim | nitz’ | b’aqwach</annotation>
+		<annotation cp="🤪" type="tts">pay palajaj</annotation>
+		<annotation cp="😝">b’aqwachaj | palajaj | il | nab’al | aq’</annotation>
+		<annotation cp="😝" type="tts">palajaj ruk’ relesam raq’ chi’l utz’apim uwach</annotation>
+		<annotation cp="🤑">palajaj | pwaq | chi’aj</annotation>
+		<annotation cp="🤑" type="tts">Palajaj ruk’ pwaq</annotation>
+		<annotation cp="🤗">palajaj | umatzexik | ktjin umatzexik</annotation>
+		<annotation cp="🤗" type="tts">Umatzexik Palajaj</annotation>
+		<annotation cp="🤭">raki’kotem</annotation>
+		<annotation cp="🤭" type="tts">palajaj uch’uqum uchi’</annotation>
+		<annotation cp="🤫">umatzab’axik | matzalem</annotation>
+		<annotation cp="🤫" type="tts">matzalem palajaj</annotation>
+		<annotation cp="🤔">palajaj | ktajin kchomanik</annotation>
+		<annotation cp="🤔" type="tts">Chomanik palajaj</annotation>
+		<annotation cp="🤐">palajaj | chi’aj | Sierrayim</annotation>
+		<annotation cp="🤐" type="tts">Palajaj sierayim uchi’</annotation>
+		<annotation cp="🤨">man q’alaj taj | man q’alb’al k’’u’x taj</annotation>
+		<annotation cp="🤨" type="tts">palajaj ruk’ paqab’isam rij uwach</annotation>
+		<annotation cp="😐">tzaqinaq uk’u’x | palajaj | suk’ulik</annotation>
+		<annotation cp="😐" type="tts">Suk’ul palajaj</annotation>
+		<annotation cp="😑">man k’o ta kub’ij | palajaj | man k’o ta kub’ano | man k’o ta kuch’ob’o</annotation>
+		<annotation cp="😑" type="tts">Palajaj man k’o ta Kub’ij</annotation>
+		<annotation cp="😶">palajaj | chi’aj | man kok ta il | matzalem</annotation>
+		<annotation cp="😶" type="tts">Palajaj Man k’o ta Uchi’</annotation>
+		<annotation cp="😏">palajaj | nitz’ tze’nem</annotation>
+		<annotation cp="😏" type="tts">Jech’el uchi’ palajaj</annotation>
+		<annotation cp="😒">palajaj | man utz  taj | man kki’kot taj</annotation>
+		<annotation cp="😒" type="tts">Man kaki’kot ta palajaj</annotation>
+		<annotation cp="🙄">b’aq’wachaj | palajaj | ktajin ksilkopik</annotation>
+		<annotation cp="🙄" type="tts">Palajaj ruk’ ksilkop b’aqwachaj</annotation>
+		<annotation cp="😬">palajaj | ub’anom palajaj</annotation>
+		<annotation cp="😬" type="tts">Ub’anom Palajaj</annotation>
+		<annotation cp="🤥">palajaj | ub’anik tzij | nim utza’m</annotation>
+		<annotation cp="🤥" type="tts">Nim utza’m</annotation>
+		<annotation cp="😌">palajaj | uxlanaq</annotation>
+		<annotation cp="😌" type="tts">Qajinaq uwach palajaj</annotation>
+		<annotation cp="😔">kosinaq | alajaj | qajinaq uwach</annotation>
+		<annotation cp="😔" type="tts">Qajnaq uwach palajaj</annotation>
+		<annotation cp="😪">Palajaj | waram</annotation>
+		<annotation cp="😪" type="tts">Karaj uwaram palajaj</annotation>
+		<annotation cp="🤤">Palajaj ruk’ K’axaj</annotation>
+		<annotation cp="🤤" type="tts">Palajaj ruk’ K’axaj</annotation>
+		<annotation cp="😴">palajaj | warinaq | qoooj</annotation>
+		<annotation cp="😴" type="tts">Warnaq palajaj</annotation>
+		<annotation cp="😷">joron | kunanel | palajaj | k’oj | kunab’al | yowab’</annotation>
+		<annotation cp="😷" type="tts">Palajaj ruk’ k’oj rech Kunanem</annotation>
+		<annotation cp="🤒">palajaj | yab’il | yowab’ | tewq’aq’al</annotation>
+		<annotation cp="🤒" type="tts">Palajaj Ruk’ Ucholajil tewq’aq’al</annotation>
+		<annotation cp="🤕">pisb’al | palajaj | k’ax | ub’anom k’ax</annotation>
+		<annotation cp="🤕" type="tts">Palajaj ruk’ Pistal Jolomaj</annotation>
+		<annotation cp="🤢">palajaj | lemlotinaq | xa’oj</annotation>
+		<annotation cp="🤢" type="tts">Ulemlotem anima’ palajaj</annotation>
+		<annotation cp="🤮">xa’oj | yab’il</annotation>
+		<annotation cp="🤮" type="tts">palajaj ktajin kxab’ik</annotation>
+		<annotation cp="🤧">palajaj | utz petib’al | at’isnab’em</annotation>
+		<annotation cp="🤧" type="tts">At’ujnab’em palajaj</annotation>
+		<annotation cp="😵">Ksutin ujolom Palajaj</annotation>
+		<annotation cp="😵" type="tts">Ksutin ujolom Palajaj</annotation>
+		<annotation cp="🤯">tontayirinaq</annotation>
+		<annotation cp="🤯" type="tts">ktukin jolomaj</annotation>
+		<annotation cp="🤠">bake’r | palajaj | powi’ | ali b’ake’r</annotation>
+		<annotation cp="🤠" type="tts">Upalaj Upowi’ Bake’r</annotation>
+		<annotation cp="😎">kreprot | joron | b’aqwachaj | tz’ajb’al b’aq’wachaj | palajaj | tze’nem | q’ij | uwaq’ijlent</annotation>
+		<annotation cp="😎" type="tts">Tze’naq palajaj ruk’ anti’oj rech uwaq’ij</annotation>
+		<annotation cp="🤓">palajaj | man k’astal taj | jalajoj palajaj</annotation>
+		<annotation cp="🤓" type="tts">Jalajoj Palajaj</annotation>
+		<annotation cp="🧐">kaqarinaq</annotation>
+		<annotation cp="🧐" type="tts">palajaj ruk’ jun ch’uqwachaj</annotation>
+		<annotation cp="😕">Sachinaq uk’u’x Palajaj</annotation>
+		<annotation cp="😕" type="tts">Sachinaq uk’u’x Palajaj</annotation>
+		<annotation cp="😟">palajaj | uxe’m rib’</annotation>
+		<annotation cp="😟" type="tts">Uxe’m rib’ palajaj</annotation>
+		<annotation cp="🙁">palajaj | kich’</annotation>
+		<annotation cp="🙁" type="tts">B’isornaq palajaj</annotation>
+		<annotation cp="☹">palajaj | kich’</annotation>
+		<annotation cp="☹" type="tts">ukichi’chem upalaj</annotation>
+		<annotation cp="😮">palajaj | chi’aj | jaqatal | jel ub’antajik</annotation>
+		<annotation cp="😮" type="tts">Palajaj ruk’ Jaqatal Chi’aj</annotation>
+		<annotation cp="😯">palajaj | k’anarinaq | sachinaq upensar | qajinaq umayij</annotation>
+		<annotation cp="😯" type="tts">memarinaq Palajaj</annotation>
+		<annotation cp="😲">mayib’al | palajaj | tzaqinaq uk’u’x | tzaqatinaq</annotation>
+		<annotation cp="😲" type="tts">Palaj rech mayib’al</annotation>
+		<annotation cp="😳">sachinaq uk’u’x | palajaj | kaq palajaj</annotation>
+		<annotation cp="😳" type="tts">Kaq palajaj</annotation>
+		<annotation cp="😦">palajaj | b’isorinaq | uchi’ | jaqalik</annotation>
+		<annotation cp="😦" type="tts">B’isorinaq Palajaj ruk’ Ujaqom Uchu’</annotation>
+		<annotation cp="😧">Palajaj B’isorinaq</annotation>
+		<annotation cp="😧" type="tts">Palajaj B’isorinaq</annotation>
+		<annotation cp="😨">palajaj | xib’in ib’ | uxe’m rib’ | xib’irinaq</annotation>
+		<annotation cp="😨" type="tts">Ixib’im rib’ Palaljaj</annotation>
+		<annotation cp="😰">raxkaj | joron | palajaj | chi’aj | jaqom | aninaqil | k’atanal</annotation>
+		<annotation cp="😰" type="tts">Palajaj ruk’ jaqatal chi’aj chi’l joron k’atanal</annotation>
+		<annotation cp="😥">b’isorinaq | palajaj | jororemal | ahhh</annotation>
+		<annotation cp="😥" type="tts">B’isorinaq Palajaj xa k’ut ruk’ Q’alb’al k’u’x</annotation>
+		<annotation cp="😢">oq’ej | palajaj | b’isorinaq | uwal wachaj</annotation>
+		<annotation cp="😢" type="tts">Koq’ Upalaj</annotation>
+		<annotation cp="😭">oq’em | palajaj | b’isorinaq | meremox | uwal wachaj</annotation>
+		<annotation cp="😭" type="tts">Oq’inaq palajaj</annotation>
+		<annotation cp="😱">palajaj | xib’im ib’ | uxib’im rib’ | ukach’uxik | xi’n ib’ | uraqon uchi’</annotation>
+		<annotation cp="😱" type="tts">Palajaj Kuraq uchi’ chech Xb’in ib’</annotation>
+		<annotation cp="😖">Palajaj Sachinaq Uk’u’x</annotation>
+		<annotation cp="😖" type="tts">Palajaj Sachinaq Uk’u’x</annotation>
+		<annotation cp="😣">palajaj | ch’iqiqem</annotation>
+		<annotation cp="😣" type="tts">Ch’iqiqem palajaj</annotation>
+		<annotation cp="😞">B’isorinaq Palajaj</annotation>
+		<annotation cp="😞" type="tts">B’isorinaq Palajaj</annotation>
+		<annotation cp="😓">joron | plajaj | joron k’atanal</annotation>
+		<annotation cp="😓" type="tts">Palajaj ruk’ Joron K’atanal</annotation>
+		<annotation cp="😩">palajaj | kosinaq</annotation>
+		<annotation cp="😩" type="tts">Koq’ palajaj</annotation>
+		<annotation cp="😫">palajaj | kosinaq</annotation>
+		<annotation cp="😫" type="tts">Kosnaq palajaj</annotation>
+		<annotation cp="😤">palajaj | ch’akanem | ch’akanik</annotation>
+		<annotation cp="😤" type="tts">Palajaj ruk’ k’atanal rech Tza’maj</annotation>
+		<annotation cp="😡">k’an | palajaj | k’anarem | xuqulik | k’anal | kaq</annotation>
+		<annotation cp="😡" type="tts">K’a’n palajaj</annotation>
+		<annotation cp="😠">k’an | palajaj | k’anarem</annotation>
+		<annotation cp="😠" type="tts">K’anarinaq Palajaj</annotation>
+		<annotation cp="🤬">usuk’ub’axik ub’ixik</annotation>
+		<annotation cp="🤬" type="tts">taq palajaj ruk’ taq etal chi uchi’</annotation>
+		<annotation cp="😈">palajaj | tzijob’elil kech adas | man tzij taj | taq uk’a’ | tze’nem</annotation>
+		<annotation cp="😈" type="tts">Tze’naq palajaj ruk’ setesik pa ujolom</annotation>
+		<annotation cp="👿">k’ax | man utz taj | laj k’ax | palajaj | tzijob’elil kech adas | man tzij taj</annotation>
+		<annotation cp="👿" type="tts">K’anarinaq Palajaj ruk’ Uk’a’</annotation>
+		<annotation cp="💀">kamikal | palajaj | tzijob’elil kech adas | xib’ib’al</annotation>
+		<annotation cp="💀" type="tts">Ujolom kamnaq</annotation>
+		<annotation cp="☠">b’aq ukrusim rib’ | kamikal | palajaj | xib’ib’al | b’aq rech jolomaj</annotation>
+		<annotation cp="☠" type="tts">b’aq ukrusim rib’ rech jolomaj chi’l taq b’aq</annotation>
+		<annotation cp="💩">tze’b’al | retzelal | palajaj | xib’ib’al</annotation>
+		<annotation cp="💩" type="tts">Tz’uqutz’ik retzelal</annotation>
+		<annotation cp="🤡">Palajaj rech Paya’s</annotation>
+		<annotation cp="🤡" type="tts">Palajaj rech Paya’s</annotation>
+		<annotation cp="👹">winaqirisam | palajaj | tzijob’elil kech adas | man tzij taj | xib’ib’al</annotation>
+		<annotation cp="👹" type="tts">Ogro</annotation>
+		<annotation cp="👺">winaqirisam | palajaj | tzijob’elil kech adas | man tzij taj | xib’ib’al</annotation>
+		<annotation cp="👺" type="tts">Alaj Nitz’</annotation>
+		<annotation cp="👻">winaqirisam | palajaj | tzijob’elil kech adas | man tzij taj | xib’ib’al</annotation>
+		<annotation cp="👻" type="tts">Xib’inel</annotation>
+		<annotation cp="👽">winaqirisam | ajkaj jalwach | palajaj | tzijob’alil kech adas | man tzij taj | xib’ib’al | setkaj</annotation>
+		<annotation cp="👽" type="tts">Ajkaj jalwach</annotation>
+		<annotation cp="👾">ajkaj jalwach | winaqirisam | palajaj | tzijob’elil kech adas | man tzij taj | xib’ib’al | setkaj</annotation>
+		<annotation cp="👾" type="tts">Xib’inel jalwach</annotation>
+		<annotation cp="🤖">palajaj | xib’ib’al | ch’ich’ upalaj</annotation>
+		<annotation cp="🤖" type="tts">Ch’ich’ upalaj</annotation>
+		<annotation cp="😺">me’s | palajaj | chi’aj | jaqom | tze’nem</annotation>
+		<annotation cp="😺" type="tts">Tze’naq me’s uk’ab’om uchi’</annotation>
+		<annotation cp="😸">me’s | baq’wach | palajaj | tze’nem</annotation>
+		<annotation cp="😸" type="tts">Ktze’n Palajaj rech Me’s Ruk’ Ktze’n Ub’aqwach</annotation>
+		<annotation cp="😹">me’s | palajaj | ki’kotemal | uwa’l wachaj</annotation>
+		<annotation cp="😹" type="tts">Upalaj me’s ruk’ uwal Wachaj rech Ki’kotemal</annotation>
+		<annotation cp="😻">me’s | b’aq’wachaj | palajaj | loq’ob’al | tze’nem</annotation>
+		<annotation cp="😻" type="tts">Tze’naq me’s ruk’ anima’ chi ub’aqwach</annotation>
+		<annotation cp="😼">me’s | palajaj | man tzij taj | tze’nem | jeche’l tze’nem</annotation>
+		<annotation cp="😼" type="tts">Upalaj me’s ruk’ Jech’el Tze’nem</annotation>
+		<annotation cp="😽">me’s | b’aq’wach | palajaj | tz’umanik</annotation>
+		<annotation cp="😽" type="tts">Upalaj Me’s ruk’ Tzumanik utz’apim uwach</annotation>
+		<annotation cp="🙀">me’s | palajaj | amalay | qajinaq umayij | kosinaq</annotation>
+		<annotation cp="🙀" type="tts">Kosnaq upalaj me’s</annotation>
+		<annotation cp="😿">me’s | oq’em | palajaj | b’isorinaq | uwa’l wachaj</annotation>
+		<annotation cp="😿" type="tts">Koq’ Upalaj Me’s</annotation>
+		<annotation cp="😾">me’s | palajaj | xuq’ulik</annotation>
+		<annotation cp="😾" type="tts">K’a’n upalaj me’s</annotation>
+		<annotation cp="🙈">k’ax | palajaj | man ya’tal taj | b’anowem | k’oy | ja’i’ | rilik</annotation>
+		<annotation cp="🙈" type="tts">K’oy uch’uqum ub’aq’wach</annotation>
+		<annotation cp="🙉">k’ax | palajaj | man ya’tal taj | b’anowem | k’oy | ja’i’</annotation>
+		<annotation cp="🙉" type="tts">Mata jun K’oy le man Utz taj</annotation>
+		<annotation cp="🙊">k’ax | palajaj | man ya’tal taj | b’anowem | k’oy | ja’i’ | ch’awem</annotation>
+		<annotation cp="🙊" type="tts">K’oy uch’uqum uchi’</annotation>
+		<annotation cp="💋">utzumaxik | taq chi’aj</annotation>
+		<annotation cp="💋" type="tts">Etal rech Tz’umanik</annotation>
+		<annotation cp="💌">anima | tz’ib’wuj | loq’ob’al | taqoqxa’nib’al</annotation>
+		<annotation cp="💌" type="tts">Wuj rech loq’ob’al</annotation>
+		<annotation cp="💘">ch’ab’ | anima</annotation>
+		<annotation cp="💘" type="tts">Anima ruk’ Ch’ab’</annotation>
+		<annotation cp="💝">kemutasil | k’o kraj</annotation>
+		<annotation cp="💝" type="tts">Anima ruk’ Kemutasil</annotation>
+		<annotation cp="💖">k’ikotinq | chupchutem</annotation>
+		<annotation cp="💖" type="tts">Anima’ kachupchutik</annotation>
+		<annotation cp="💗">ki’kotem | ktajin kk’iyik | uyub’linem | ib’och’</annotation>
+		<annotation cp="💗" type="tts">Uk’iyem Anima</annotation>
+		<annotation cp="💓">b’irb’otem | ub’ib’otem anima | ktajin kyub’uwik</annotation>
+		<annotation cp="💓" type="tts">Ub’irb’otem Anima</annotation>
+		<annotation cp="💞">ukichik</annotation>
+		<annotation cp="💞" type="tts">Rutzirisaxik anima’</annotation>
+		<annotation cp="💕">loq’ob’al</annotation>
+		<annotation cp="💕" type="tts">Keb’ anima’</annotation>
+		<annotation cp="💟">anima</annotation>
+		<annotation cp="💟" type="tts">Uwiqik Anima</annotation>
+		<annotation cp="❣">mayb’al | etal | ratal taq tz’ib’</annotation>
+		<annotation cp="❣" type="tts">al anima rech mayb’al</annotation>
+		<annotation cp="💔">upaxixik | paxim</annotation>
+		<annotation cp="💔" type="tts">Paxinaq Anima</annotation>
+		<annotation cp="❤">anima</annotation>
+		<annotation cp="❤" type="tts">kaq anima</annotation>
+		<annotation cp="🧡">uwaxub’</annotation>
+		<annotation cp="🧡" type="tts">uwaxub’ anima</annotation>
+		<annotation cp="💛">q’an</annotation>
+		<annotation cp="💛" type="tts">Q’an anima’</annotation>
+		<annotation cp="💚">rax</annotation>
+		<annotation cp="💚" type="tts">Rax Anima</annotation>
+		<annotation cp="💙">rax kaj</annotation>
+		<annotation cp="💙" type="tts">Raxkaj Anima</annotation>
+		<annotation cp="💜">raxpopoj</annotation>
+		<annotation cp="💜" type="tts">Kaqxuk’uxuj anima’</annotation>
+		<annotation cp="🖤">q’eq | k’ax | man utz taj</annotation>
+		<annotation cp="🖤" type="tts">Q’eq anima</annotation>
+		<annotation cp="💯">100 | nojinaq | cien | ucholajil</annotation>
+		<annotation cp="💯" type="tts">Cien Puntos</annotation>
+		<annotation cp="💢">eyowal | tze’b’al | k’an</annotation>
+		<annotation cp="💢" type="tts">Retal Eyowal</annotation>
+		<annotation cp="💥">polajem | tze’b’al</annotation>
+		<annotation cp="💥" type="tts">Paq’inem</annotation>
+		<annotation cp="💫">tze’b’al | ch’umil</annotation>
+		<annotation cp="💫" type="tts">Ksutin Ujolom</annotation>
+		<annotation cp="💦">tze’b’al | chiklonem | k’atanal</annotation>
+		<annotation cp="💦" type="tts">Alaj taq tz’uj</annotation>
+		<annotation cp="💨">tze’b’al | tijoj anim | anim</annotation>
+		<annotation cp="💨" type="tts">Naj Tijoj Anim</annotation>
+		<annotation cp="🕳">jul</annotation>
+		<annotation cp="🕳" type="tts">jul</annotation>
+		<annotation cp="💣">tze’b’al</annotation>
+		<annotation cp="💣" type="tts">Polajem</annotation>
+		<annotation cp="💬">pupu | jopob’al | tze’b’al | ch’awem | tzijonem</annotation>
+		<annotation cp="💬" type="tts">Pupu ruk’ q’atnak’</annotation>
+		<annotation cp="👁‍🗨">b’aq’wach | pupu tzijonem | ilonelab’</annotation>
+		<annotation cp="👁‍🗨" type="tts">b’aq’wachaj pa pupu tzijonem</annotation>
+		<annotation cp="🗨">chawem | tzijonem</annotation>
+		<annotation cp="🗨" type="tts">moxq’ab’ tzijonem pa jopob’al</annotation>
+		<annotation cp="🗯">eyowal | pupu | jopob’al | k’an</annotation>
+		<annotation cp="🗯" type="tts">wikiq’ab’ eyowarinaq jopob’al</annotation>
+		<annotation cp="💭">pupu | jopob’al | tze’nem | chomanik</annotation>
+		<annotation cp="💭" type="tts">Sutz’ rech chomanik</annotation>
+		<annotation cp="💤">tze’b’al | waram</annotation>
+		<annotation cp="💤" type="tts">Zzz</annotation>
+		<annotation cp="👋">q’ab’aj | q’owem | ktajin kqo’wik</annotation>
+		<annotation cp="👋" type="tts">Upam q’ab’aj</annotation>
+		<annotation cp="🤚">chi rij q’ab’aj | paqab’isam</annotation>
+		<annotation cp="🤚" type="tts">Yakom upam q’ab’aj</annotation>
+		<annotation cp="🖐">uwi’ q’ab’aj | q’ab’aj | lik’italik</annotation>
+		<annotation cp="🖐" type="tts">yakom q’ab’aj ruk’ lik’ital taq uwi’ q’ab’al</annotation>
+		<annotation cp="✋">q’ab’aj</annotation>
+		<annotation cp="✋" type="tts">Yakom q’ab’aj</annotation>
+		<annotation cp="🖖">uwi’ q’ab’al | q’ab’aj | jachq’ab’ | vulcan</annotation>
+		<annotation cp="🖖" type="tts">Rutzil wachaj</annotation>
+		<annotation cp="👌">q’ab’aj | JE’</annotation>
+		<annotation cp="👌" type="tts">Uk’amik q’ab’al</annotation>
+		<annotation cp="✌">q’ab’aj | v | ch’akanem</annotation>
+		<annotation cp="✌" type="tts">q’ab’aj rech ch’akanem</annotation>
+		<annotation cp="🤞">ukrusim rib’ | uwi’ q’ab’aj | q’ab’aj | utz ub’antajik</annotation>
+		<annotation cp="🤞" type="tts">Uwi’ q’ab’aj ukrusim rib’</annotation>
+		<annotation cp="🤟">ILY | q’ab’aj</annotation>
+		<annotation cp="🤟" type="tts">uk’utik katwaj</annotation>
+		<annotation cp="🤘">uwi’ q’ab’aj | q’ab’aj | taq uk’a’ | rok pa</annotation>
+		<annotation cp="🤘" type="tts">Retal uk’a’</annotation>
+		<annotation cp="🤙">sik’inem | q’ab’aj</annotation>
+		<annotation cp="🤙" type="tts">k’utq’ab’aj Chinasik’ij</annotation>
+		<annotation cp="👈">k’utwiq’ab’ | uwi’ q’ab’aj | q’ab’al | chi’pel | uk’utik</annotation>
+		<annotation cp="👈" type="tts">k’utwiq’ab’ Kuk’ut pa Moxq’ab’</annotation>
+		<annotation cp="👉">k’utwiq’ab’ | uwi’ q’ab’aj | q’ab’al | chi’pel | uk’utik</annotation>
+		<annotation cp="👉" type="tts">k’utwiq’ab’ Kuk’ut pa Wikiq’ab’</annotation>
+		<annotation cp="👆">k’utwiq’ab’ | uwi’ q’ab’aj | q’ab’al | chi’pel | uk’utik | uwi’</annotation>
+		<annotation cp="👆" type="tts">k’utwiq’ab’ Kuk’ut pa Uwi’</annotation>
+		<annotation cp="🖕">uwi’ q’ab’aj | q’ab’aj</annotation>
+		<annotation cp="🖕" type="tts">nik’ajal uwi’ q’ab’al</annotation>
+		<annotation cp="👇">K’utwiq’ab’ | chi uxe’ | uwi’ q’ab’aj | q’ab’al | chi’pel | uk’utik</annotation>
+		<annotation cp="👇" type="tts">k’utwiq’ab’ Kuk’ut chi Uxe’</annotation>
+		<annotation cp="☝">uwi’ q’ab’aj | q’ab’al | chi’pel | uk’utik | uwi’</annotation>
+		<annotation cp="☝" type="tts">ch’ipel kuk’ut uwi’</annotation>
+		<annotation cp="👍">+1 | q’ab’aj | nim uwi’ q’ab’aj | uwi’</annotation>
+		<annotation cp="👍" type="tts">Uwi q’ab’aj pa uwi’</annotation>
+		<annotation cp="👎">-1 | chi uxe’ | q’ab’aj | nim uwi’ q’ab’aj</annotation>
+		<annotation cp="👎" type="tts">Uwi q’ab’aj chi uxe’</annotation>
+		<annotation cp="✊">k’olom q’ab’aj | nab’e | q’ab’aj</annotation>
+		<annotation cp="✊" type="tts">K’olom q’ab’aj</annotation>
+		<annotation cp="👊">k’olom q’ab’aj | nab’e | q’ab’aj</annotation>
+		<annotation cp="👊" type="tts">K’olon q’ab’aj petinaq</annotation>
+		<annotation cp="🤛">nab’e | pa moxq’ab’</annotation>
+		<annotation cp="🤛" type="tts">K’olon q’ab’aj</annotation>
+		<annotation cp="🤜">nab’e | pa wikiq’ab’</annotation>
+		<annotation cp="🤜" type="tts">K’olon q’ab’aj rech utzil</annotation>
+		<annotation cp="👏">upaq’apaxik | q’ab’aj</annotation>
+		<annotation cp="👏" type="tts">Upaq’apaxik upaq’ab’aj</annotation>
+		<annotation cp="🙌">nimaq’ij | uk’utik | q’ab’aj | juy | yakom</annotation>
+		<annotation cp="🙌" type="tts">Yakom keb’ q’ab’aj</annotation>
+		<annotation cp="👐">q’ab’aj | ujaqik</annotation>
+		<annotation cp="👐" type="tts">Jaqom q’ab’aj</annotation>
+		<annotation cp="🤲">et’zanel</annotation>
+		<annotation cp="🤲" type="tts">utunik q’ab’aj</annotation>
+		<annotation cp="🤝">uk’ulaxik q’ab’aj | uk’amik chak | riqoj ib’ | uxekexik | q’ab’aj</annotation>
+		<annotation cp="🤝" type="tts">Uk’ulaxik Q’ab’aj</annotation>
+		<annotation cp="🙏">uta’ik | k’ixb’alil | mejom | uk’utik | q’ab’aj | toq’ob’ | ub’ixik  ch’ab’al | tyox</annotation>
+		<annotation cp="🙏" type="tts">Mejtal Q’ab’aj</annotation>
+		<annotation cp="✍">q’ab’al | tz’ib’anem</annotation>
+		<annotation cp="✍" type="tts">Tz’ib’anem chi q’ab’aj</annotation>
+		<annotation cp="💅">uchajixik | taq tz’ajb’al | uchajixik q’ab’ixk’aq | ixk’aq | tz’ajb’al</annotation>
+		<annotation cp="💅" type="tts">Tz’ajb’al ixk’aq</annotation>
+		<annotation cp="🤳">relesaxik uwachib’al | elesab’al wachaj | ch’aweb’al</annotation>
+		<annotation cp="🤳" type="tts">Relesaxik uwachib’al</annotation>
+		<annotation cp="💪">k’utchuq’ab’ | tze’b’al | umejik | ti’oj</annotation>
+		<annotation cp="💪" type="tts">K’utchuq’ab’</annotation>
+		<annotation cp="👂">Upam chak</annotation>
+		<annotation cp="👂" type="tts">Xikinaj</annotation>
+		<annotation cp="👃">Upam chak</annotation>
+		<annotation cp="👃" type="tts">Tza’maj</annotation>
+		<annotation cp="🧠">k’astalik</annotation>
+		<annotation cp="🧠" type="tts">tzantzaq’or</annotation>
+		<annotation cp="👀">b’aqwachaj | palajaj</annotation>
+		<annotation cp="👀" type="tts">B’aq’wachaj</annotation>
+		<annotation cp="👁">Upam chak</annotation>
+		<annotation cp="👁" type="tts">b’aqwach</annotation>
+		<annotation cp="👅">Upam chak</annotation>
+		<annotation cp="👅" type="tts">Raq’</annotation>
+		<annotation cp="👄">taq chi’aj</annotation>
+		<annotation cp="👄" type="tts">Chi’aj</annotation>
+		<annotation cp="👶">ne’ | k’ajol</annotation>
+		<annotation cp="👶" type="tts">Ne’</annotation>
+		<annotation cp="🧒">uwach-man k’o taj | k’ajol</annotation>
+		<annotation cp="🧒" type="tts">ak’al</annotation>
+		<annotation cp="👦">ala | k’ajol</annotation>
+		<annotation cp="👦" type="tts">Ala</annotation>
+		<annotation cp="👧">Virgo | e k’ajol | zodiaco</annotation>
+		<annotation cp="👧" type="tts">Ali</annotation>
+		<annotation cp="🧑">uwach-man k’o taj</annotation>
+		<annotation cp="🧑" type="tts">nim</annotation>
+		<annotation cp="👱">q’an</annotation>
+		<annotation cp="👱" type="tts">Q’an uwi’ winaq</annotation>
+		<annotation cp="👨">Achi</annotation>
+		<annotation cp="👨" type="tts">Achi</annotation>
+		<annotation cp="🧔">ismach</annotation>
+		<annotation cp="🧔" type="tts">winaq k’o risma’ch</annotation>
+		<annotation cp="👱‍♂">q’an | achi</annotation>
+		<annotation cp="👱‍♂" type="tts">aci q’an uwi’</annotation>
+		<annotation cp="👩">Ixoq</annotation>
+		<annotation cp="👩" type="tts">Ixoq</annotation>
+		<annotation cp="👱‍♀">q’an | uwi’</annotation>
+		<annotation cp="👱‍♀" type="tts">ixoq q’an uwi’</annotation>
+		<annotation cp="🧓">uwach-man k’o ta | ri’j</annotation>
+		<annotation cp="🧓" type="tts">ri’j</annotation>
+		<annotation cp="👴">achi | ri’j</annotation>
+		<annotation cp="👴" type="tts">Ri’j achi</annotation>
+		<annotation cp="👵">Ri’j ixoq</annotation>
+		<annotation cp="👵" type="tts">Ri’j ixoq</annotation>
+		<annotation cp="🙍">b’isorinaq | b’anowem</annotation>
+		<annotation cp="🙍" type="tts">Winaq b’isornaq</annotation>
+		<annotation cp="🙍‍♂">b’isorinaq | b’anoqwem | achi</annotation>
+		<annotation cp="🙍‍♂" type="tts">achi b’isorinaq</annotation>
+		<annotation cp="🙍‍♀">b’isorinaq | b’anoqwem | ixoq</annotation>
+		<annotation cp="🙍‍♀" type="tts">ixoq b’isorinaq</annotation>
+		<annotation cp="🙎">b’anowem</annotation>
+		<annotation cp="🙎" type="tts">Winaq schnaq uk’u’x</annotation>
+		<annotation cp="🙎‍♂">uk’utik | achi | xuq’ulik</annotation>
+		<annotation cp="🙎‍♂" type="tts">achi xuq’ulik</annotation>
+		<annotation cp="🙎‍♀">uk’utik | xuqulik | ixoq</annotation>
+		<annotation cp="🙎‍♀" type="tts">ixoq xuq’ulik</annotation>
+		<annotation cp="🙅">Man ya’tal taj | uk’utik | q’ab’aj | ja’i’</annotation>
+		<annotation cp="🙅" type="tts">Winaq uk’utum JA’I’</annotation>
+		<annotation cp="🙅‍♂">Man ya’tal taj | uk’utik | q’ab’aj | achi | ja’i’</annotation>
+		<annotation cp="🙅‍♂" type="tts">achi ktajin kuk’ut JA’I’</annotation>
+		<annotation cp="🙅‍♀">Man ya’tal taj | uk’utik | q’ab’aj | ja’i’ | ixoq</annotation>
+		<annotation cp="🙅‍♀" type="tts">ixoq uk’utum JA’I’</annotation>
+		<annotation cp="🙆">uk’utik | q’ab’aj | JE’</annotation>
+		<annotation cp="🙆" type="tts">Winaq uk’utum JE’</annotation>
+		<annotation cp="🙆‍♂">uk’utik | q’b’aj | achi | JE’</annotation>
+		<annotation cp="🙆‍♂" type="tts">achi ktajin kuk’ut JE’</annotation>
+		<annotation cp="🙆‍♀">uk’utik | q’ab’al | JE’ | ixoq</annotation>
+		<annotation cp="🙆‍♀" type="tts">ixoq ktajin kuk’ut JE’</annotation>
+		<annotation cp="💁">q’ab’aj | upaqab’isaxik | tob’anem | q’alajisanem | man k’o ta uk’ix</annotation>
+		<annotation cp="💁" type="tts">Winaq upaqab’sam jun uq’ab’</annotation>
+		<annotation cp="💁‍♂">achi | mnk’o ta uk’ix | upaqab’isam uq’ab’</annotation>
+		<annotation cp="💁‍♂" type="tts">achi upaqab’isam uq’ab’</annotation>
+		<annotation cp="💁‍♀">man k’o ta uk’ix | upaqab’isaxik q’ab’aj | ixoq</annotation>
+		<annotation cp="💁‍♀" type="tts">ixoq upaqab’isam uq’ab’</annotation>
+		<annotation cp="🙋">uk’utik | q’ab’aj | ki’kotemal | paqab’isam</annotation>
+		<annotation cp="🙋" type="tts">Winaq upaqab’am uq’ab’</annotation>
+		<annotation cp="🙋‍♂">uk’utik | achi | upaqab’isam uq’ab’</annotation>
+		<annotation cp="🙋‍♂" type="tts">achi uyakom uq’ab’</annotation>
+		<annotation cp="🙋‍♀">uk’utik | upaqab’isaxik q’ab’aj | ixoq</annotation>
+		<annotation cp="🙋‍♀" type="tts">ixoq uyakom uq’ab’</annotation>
+		<annotation cp="🙇">uta’ik sachb’al makaj | k’ixb’alil | uk’utik | uta’ik kuyb’al makaj</annotation>
+		<annotation cp="🙇" type="tts">Winaq k’o uk’ixb’alil</annotation>
+		<annotation cp="🙇‍♂">Uta’ik sachb’al makaj | toq’ob’ | k’ixb’alil | uk’utik | achi | uta’ik kuyb’al makaj</annotation>
+		<annotation cp="🙇‍♂" type="tts">achi ktajin kuk’ut k’ixb’alil</annotation>
+		<annotation cp="🙇‍♀">Uta’ik sachb’al makaj | toq’ob’ | k’ixb’alil | uk’utik | uta’ik kuyb’al makaj | ixoq</annotation>
+		<annotation cp="🙇‍♀" type="tts">Ixoq ktajin kuk’ut k’ixb’alil</annotation>
+		<annotation cp="🤦">palajaj | upam q’ab’aj | man kkoj taj | k’otb’al chi’aj</annotation>
+		<annotation cp="🤦" type="tts">Winaq k’o uq’ab’ chi upalaj</annotation>
+		<annotation cp="🤦‍♂">man kkoj taj | k’otb’al chi’aj | q’ab’aj chi palajaj | achi</annotation>
+		<annotation cp="🤦‍♂" type="tts">achi ktajin kuya’ uq’ab’ chi upalaj</annotation>
+		<annotation cp="🤦‍♀">man kkoj taj | k’otb’al chi’aj | q’ab’aj chi palajaj | ixoq</annotation>
+		<annotation cp="🤦‍♀" type="tts">ixoq ktajin kuya’ uq’ab’ chi upalaj</annotation>
+		<annotation cp="🤷">man q’alaj taj | k’otoj chi’aj | man eta’matal tal | man k’o ta ku’xoq</annotation>
+		<annotation cp="🤷" type="tts">Winaq man reta’m taj</annotation>
+		<annotation cp="🤷‍♂">k’otoj chi’aj | man eta’matal taj | man k’o ta ku’xoq | achi | man q’alaj taj</annotation>
+		<annotation cp="🤷‍♂" type="tts">achi man q’alaj ta chi uwach</annotation>
+		<annotation cp="🤷‍♀">k’otoj chi’aj | man eta’matal taj | man k’o ta ku’xoq | man q’alaj taj | ixoq</annotation>
+		<annotation cp="🤷‍♀" type="tts">ixoq man q’alaj ta chi uwach</annotation>
+		<annotation cp="👨‍⚕">achi | rech utzwachil | kunanel | to’l kunanel | tekunanel</annotation>
+		<annotation cp="👨‍⚕" type="tts">achi ajchaj chi rij utzwachil</annotation>
+		<annotation cp="👩‍⚕">ixoq | rech utzwachil | kunanel | to’l kunanel | te kunanel</annotation>
+		<annotation cp="👩‍⚕" type="tts">ixoq chakunel rech utzwachil</annotation>
+		<annotation cp="👨‍🎓">achi | tijoxel | ch’akom eta’mab’al</annotation>
+		<annotation cp="👨‍🎓" type="tts">achi tijoxel</annotation>
+		<annotation cp="👩‍🎓">ixoq | tijoxel | uchakom reta’mab’al</annotation>
+		<annotation cp="👩‍🎓" type="tts">ixoq tijoxel</annotation>
+		<annotation cp="👨‍🏫">achi | ajtij | tijonel</annotation>
+		<annotation cp="👨‍🏫" type="tts">achi ajtij</annotation>
+		<annotation cp="👩‍🏫">ixoq | ajtij | tijonel</annotation>
+		<annotation cp="👩‍🏫" type="tts">ixoq ajtij</annotation>
+		<annotation cp="👨‍⚖">suk’umalil | achi | salot</annotation>
+		<annotation cp="👨‍⚖" type="tts">achi q’atol tzij</annotation>
+		<annotation cp="👩‍⚖">Q’atal tzij | ixo | salot</annotation>
+		<annotation cp="👩‍⚖" type="tts">ixoq k’atb’al tzij</annotation>
+		<annotation cp="👨‍🌾">achi | ajtiko’n | aj ranch | tikol kotz’i’j</annotation>
+		<annotation cp="👨‍🌾" type="tts">achi ajtikon</annotation>
+		<annotation cp="👩‍🌾">ixoq | tik’onel | ajranch | tikoj kotzi’j</annotation>
+		<annotation cp="👩‍🌾" type="tts">ixoq tikonel</annotation>
+		<annotation cp="👨‍🍳">achi | b’anoj wa | chewa</annotation>
+		<annotation cp="👨‍🍳" type="tts">achi b’anal wa</annotation>
+		<annotation cp="👩‍🍳">ixoq | b’anoj wa | chewa</annotation>
+		<annotation cp="👩‍🍳" type="tts">ixoq b’anal wa</annotation>
+		<annotation cp="👨‍🔧">achi | ajk’ay | jaqol ch’ich’ | aj saq ch’ich’ | aj kaxlan q’aq’</annotation>
+		<annotation cp="👨‍🔧" type="tts">aj jaqoj ch’ich’</annotation>
+		<annotation cp="👩‍🔧">ixoq | ajk’ay | k’ayinel | jaqoaj ch’ich’ | aj saq ch’ich’ | aj kaxlan q’aq’</annotation>
+		<annotation cp="👩‍🔧" type="tts">ixoq jaqol ch’ich’</annotation>
+		<annotation cp="👨‍🏭">achi | winaqirisab’al | uwinaqirisaxik | ja b’anb’al | ajchak</annotation>
+		<annotation cp="👨‍🏭" type="tts">achi ajachak pa ja b’anb’al</annotation>
+		<annotation cp="👩‍🏭">ixoq | winaqirisab’al | uwinaqirisaxik | ja b’anb’al | ajchak</annotation>
+		<annotation cp="👩‍🏭" type="tts">ixoq ajchak pa ja b’anb’al</annotation>
+		<annotation cp="👨‍💼">achi | ja chakub’al | k’ayinel | ilawachinel | k’uttz’aqonel | saq chachal</annotation>
+		<annotation cp="👨‍💼" type="tts">achi ajchak pa ja chakub’al</annotation>
+		<annotation cp="👩‍💼">ixoq | ja chakub’al | k’ayinem | ilawachinel | k’uttz’aqonel | saq chachal</annotation>
+		<annotation cp="👩‍💼" type="tts">ixoq chakunel pa ja chak’ub’al</annotation>
+		<annotation cp="👨‍🔬">achi | aj q’inom eta’mab’al | ajjupuqno’jib’al | ajilanel | aj kunab’alil | aj kunanel jolomaj | aj eta’mab’alil k’aslem</annotation>
+		<annotation cp="👨‍🔬" type="tts">ach aj q’inom eta’mab’al</annotation>
+		<annotation cp="👩‍🔬">ixoq | aj q’inom eta’mab’al | ajjupuqno’jib’al | ajilanel | aj kunab’alil | aj kunanel jolomaj | aj eta’mab’alil k’aslem</annotation>
+		<annotation cp="👩‍🔬" type="tts">ixoq q’inom reta’mab’al</annotation>
+		<annotation cp="👨‍💻">achi | aj k’ak’ eta’mab’al | cholajinel | aj software | aj yakalwach | winaqirisanel</annotation>
+		<annotation cp="👨‍💻" type="tts">achi aj k’ak’ eta’mab’al</annotation>
+		<annotation cp="👩‍💻">ixoq | aj k’ak’ eta’mab’al | cholajinel | aj software | aj yakalwach | winaqirisanel</annotation>
+		<annotation cp="👩‍💻" type="tts">ixoq aj k’ak’ eta’mab’al</annotation>
+		<annotation cp="👨‍🎤">achi | b’ixanel | aj b’anowem | rok | ch’umil | jalwachinel</annotation>
+		<annotation cp="👨‍🎤" type="tts">achi b’ixanel</annotation>
+		<annotation cp="👩‍🎤">ixoq | b’ixanel | aj b’anowem | rok | ch’umil | jalwachinel</annotation>
+		<annotation cp="👩‍🎤" type="tts">ixoq b’ixanel</annotation>
+		<annotation cp="👨‍🎨">ajje’lal chak | achi | tukb’al</annotation>
+		<annotation cp="👨‍🎨" type="tts">achi ajje’lal chak</annotation>
+		<annotation cp="👩‍🎨">ajje’lal chak | tukb’al | ixoq</annotation>
+		<annotation cp="👩‍🎨" type="tts">ixoq ajje’lal chak</annotation>
+		<annotation cp="👨‍✈">man | pilot | plane</annotation>
+		<annotation cp="👨‍✈" type="tts">achi binsaj ch’ich’</annotation>
+		<annotation cp="👩‍✈">b’inxik’ich’ich’ | xik’ichich’ | ixoq</annotation>
+		<annotation cp="👩‍✈" type="tts">ixoq b’inxik’ich’ich’</annotation>
+		<annotation cp="👨‍🚀">nik’ol kaj | achi | ajkaj chi’chi’</annotation>
+		<annotation cp="👨‍🚀" type="tts">achi nik’ol kaj</annotation>
+		<annotation cp="👩‍🚀">nik’ol kaj | ajkaj chi’chi’ | ixoq</annotation>
+		<annotation cp="👩‍🚀" type="tts">ixoq nik’ol kaj</annotation>
+		<annotation cp="👨‍🚒">chupul q’aq’ | achi | q’aq’ko’k</annotation>
+		<annotation cp="👨‍🚒" type="tts">achi chupul q’aq’</annotation>
+		<annotation cp="👩‍🚒">chupul q’aq’ | q’aq’ko’k | ixoq</annotation>
+		<annotation cp="👩‍🚒" type="tts">ixoq chupul q’a’q</annotation>
+		<annotation cp="👮">powi’ | q’atb’altzij | chajinel</annotation>
+		<annotation cp="👮" type="tts">Achi q’atb’altzij</annotation>
+		<annotation cp="👮‍♂">powi’ | achi | q’atb’altzij | chajinel</annotation>
+		<annotation cp="👮‍♂" type="tts">achi q’atb’altzij chajinel</annotation>
+		<annotation cp="👮‍♀">powi’ | q’atb’altzij | chajinel | ixoq</annotation>
+		<annotation cp="👮‍♀" type="tts">ixoq q’atb’al tzij chajinel</annotation>
+		<annotation cp="🕵">solonel uxe’ | tatab’enel</annotation>
+		<annotation cp="🕵" type="tts">solonel uxe’</annotation>
+		<annotation cp="🕵‍♂">achi | solonel uxe’ | tatab’enel</annotation>
+		<annotation cp="🕵‍♂" type="tts">achi solonel uxe’</annotation>
+		<annotation cp="🕵‍♀">sonel uxe’ | tatab’enel | ixoq | solonel uxe’</annotation>
+		<annotation cp="🕵‍♀" type="tts">ixoq solonel uxe’</annotation>
+		<annotation cp="💂">Chajinel</annotation>
+		<annotation cp="💂" type="tts">Chajinel</annotation>
+		<annotation cp="💂‍♂">chajinel | achi</annotation>
+		<annotation cp="💂‍♂" type="tts">achi chajinel</annotation>
+		<annotation cp="💂‍♀">chajinel | ixoq</annotation>
+		<annotation cp="💂‍♀" type="tts">ixoq chajinel</annotation>
+		<annotation cp="👷">Tz’aqb’al | powi’ | ajchak</annotation>
+		<annotation cp="👷" type="tts">Ajchak rech Tzaqb’al</annotation>
+		<annotation cp="👷‍♂">tzaqb’al | achi | ajchak</annotation>
+		<annotation cp="👷‍♂" type="tts">achi chakunel pa tz’aqb’al</annotation>
+		<annotation cp="👷‍♀">tz’aqb’al | ixoq | chakunel</annotation>
+		<annotation cp="👷‍♀" type="tts">ixoq chakunel pa tz’aqb’al</annotation>
+		<annotation cp="🤴">Uk’ajol rey</annotation>
+		<annotation cp="🤴" type="tts">Uk’ajol rey</annotation>
+		<annotation cp="👸">tzijob’elil kech adas | man tzij taj</annotation>
+		<annotation cp="👸" type="tts">Umi’al rey</annotation>
+		<annotation cp="👳">pisb’al jolomaj</annotation>
+		<annotation cp="👳" type="tts">Winaq upisom ujolom</annotation>
+		<annotation cp="👳‍♂">achi | pisb’al jolomaj</annotation>
+		<annotation cp="👳‍♂" type="tts">achi ukojom pisb’al jolomaj</annotation>
+		<annotation cp="👳‍♀">pisb’al jolomaj | ixoq</annotation>
+		<annotation cp="👳‍♀" type="tts">ixoq ukojom pisb’al jolomaj</annotation>
+		<annotation cp="👲">gua pi mao | powi’ | achi</annotation>
+		<annotation cp="👲" type="tts">Achi ruk’ ko powi’ rech china</annotation>
+		<annotation cp="🧕">payujolomaj | jipayujolomaj | tipayujolomaj | manta</annotation>
+		<annotation cp="🧕" type="tts">ixoq ruk’ payujolomaj</annotation>
+		<annotation cp="🤵">b’ochi’nel | achi | tukutin</annotation>
+		<annotation cp="🤵" type="tts">Achi pa esmoquin</annotation>
+		<annotation cp="👰">ali kb’ochixik | manta’ | k’ulanem</annotation>
+		<annotation cp="👰" type="tts">K’ulanali ruk’ Tasjolom</annotation>
+		<annotation cp="🤰">Yowab’ ixoq</annotation>
+		<annotation cp="🤰" type="tts">Yowab’ ixoq</annotation>
+		<annotation cp="🤱">tz’um | ne’ | ja kunab’al</annotation>
+		<annotation cp="🤱" type="tts">uya’ik tz’um</annotation>
+		<annotation cp="👼">tyox | ne | plajaj | tzijob’elil kech adas | man tzij taj</annotation>
+		<annotation cp="👼" type="tts">Tyox Ne’</annotation>
+		<annotation cp="🎅">alaxb’al | nimaq’ij | tat | tyox | klos</annotation>
+		<annotation cp="🎅" type="tts">Jachal Sipanik</annotation>
+		<annotation cp="🤶">alaxb’al | nimaq’ij | nan | sant | achi claus</annotation>
+		<annotation cp="🤶" type="tts">Ixoq Claus</annotation>
+		<annotation cp="🧙">mayinel | ixoq ajitz | achi’ ajitz | ajitzab’</annotation>
+		<annotation cp="🧙" type="tts">mayinel</annotation>
+		<annotation cp="🧙‍♂">mayinel | ajitz</annotation>
+		<annotation cp="🧙‍♂" type="tts">achi mayib’al</annotation>
+		<annotation cp="🧙‍♀">ixoq ajitz | ajitzab’</annotation>
+		<annotation cp="🧙‍♀" type="tts">ixoq mayinel</annotation>
+		<annotation cp="🧚">Tisutinel | Q’eq set | B’esolinel</annotation>
+		<annotation cp="🧚" type="tts">hada</annotation>
+		<annotation cp="🧚‍♂">Q’eqset</annotation>
+		<annotation cp="🧚‍♂" type="tts">achi hada</annotation>
+		<annotation cp="🧚‍♀">tisutinel</annotation>
+		<annotation cp="🧚‍♀" type="tts">ixoq hada</annotation>
+		<annotation cp="🧛">tijol kik’ | man kaminaq taj</annotation>
+		<annotation cp="🧛" type="tts">b’atijol kik’</annotation>
+		<annotation cp="🧛‍♂">tijol kik’ | man kaminaq taj</annotation>
+		<annotation cp="🧛‍♂" type="tts">achi b’tijol kik’</annotation>
+		<annotation cp="🧛‍♀">man kaminaq taj</annotation>
+		<annotation cp="🧛‍♀" type="tts">ixoq b’atijol kik’</annotation>
+		<annotation cp="🧜">karixoq | karachi | mekar</annotation>
+		<annotation cp="🧜" type="tts">karwinaq</annotation>
+		<annotation cp="🧜‍♂">Kitriton</annotation>
+		<annotation cp="🧜‍♂" type="tts">karixoq</annotation>
+		<annotation cp="🧜‍♀">karixoq</annotation>
+		<annotation cp="🧜‍♀" type="tts">mekar</annotation>
+		<annotation cp="🧝">tzaqb’al k’u’x</annotation>
+		<annotation cp="🧝" type="tts">jalwach</annotation>
+		<annotation cp="🧝‍♂">tzaqb’al k’u’x</annotation>
+		<annotation cp="🧝‍♂" type="tts">achi jalwach</annotation>
+		<annotation cp="🧝‍♀">tzaqb’al k’u’x</annotation>
+		<annotation cp="🧝‍♀" type="tts">ixoq jalwach</annotation>
+		<annotation cp="🧞">djinn</annotation>
+		<annotation cp="🧞" type="tts">nireta’mab’al</annotation>
+		<annotation cp="🧞‍♂">djinn</annotation>
+		<annotation cp="🧞‍♂" type="tts">achi nireta’mab’al</annotation>
+		<annotation cp="🧞‍♀">djinn</annotation>
+		<annotation cp="🧞‍♀" type="tts">ixoq nireta’mab’al</annotation>
+		<annotation cp="🧟">man kaminaq taj | b’inel kaminaq</annotation>
+		<annotation cp="🧟" type="tts">k’askaminaq</annotation>
+		<annotation cp="🧟‍♂">man kaminaq taj | b’inel kaminaq</annotation>
+		<annotation cp="🧟‍♂" type="tts">achi k’askaminaq</annotation>
+		<annotation cp="🧟‍♀">man kaminaq taj | b’inel kaminaq</annotation>
+		<annotation cp="🧟‍♀" type="tts">ixoq b’inel kaminaq</annotation>
+		<annotation cp="💆">Ji’onem | upaja | palajaj</annotation>
+		<annotation cp="💆" type="tts">Winaq tajin uji’ik</annotation>
+		<annotation cp="💆‍♂">palajaj | achi | ji’onem</annotation>
+		<annotation cp="💆‍♂" type="tts">achi ktajin kji’ik</annotation>
+		<annotation cp="💆‍♀">palajaj | ji’onem | ixoq</annotation>
+		<annotation cp="💆‍♀" type="tts">ixoq ktajin kji’ik</annotation>
+		<annotation cp="💇">ramwi’aj | je’l | upaja | uramixik wi’aj</annotation>
+		<annotation cp="💇" type="tts">Winaq tajin uramixik uwi’</annotation>
+		<annotation cp="💇‍♂">uramixik wi’aj | achi</annotation>
+		<annotation cp="💇‍♂" type="tts">achi ktajin kramix uwi’</annotation>
+		<annotation cp="💇‍♀">uramixik wi’aj | ixoq</annotation>
+		<annotation cp="💇‍♀" type="tts">ixoq ktajin kramix uwi’</annotation>
+		<annotation cp="🚶">nim b’inem | b’inem | ktajin kb’inik</annotation>
+		<annotation cp="🚶" type="tts">Winaq kab’inik</annotation>
+		<annotation cp="🚶‍♂">nim b’inem | achi | b’inem</annotation>
+		<annotation cp="🚶‍♂" type="tts">achi ktajin kb’inik</annotation>
+		<annotation cp="🚶‍♀">nim b’inem | b’inem | ixoq</annotation>
+		<annotation cp="🚶‍♀" type="tts">ixoq ktajin kb’inik</annotation>
+		<annotation cp="🏃">tijoj anim | anim</annotation>
+		<annotation cp="🏃" type="tts">Winaq kutij anim</annotation>
+		<annotation cp="🏃‍♂">tijoj anim | anim | ixoq | taq tijoj anim</annotation>
+		<annotation cp="🏃‍♂" type="tts">achi ktajin kutij anim</annotation>
+		<annotation cp="🏃‍♀">tijoj anim | anim | ixoq | taq tijoj anim</annotation>
+		<annotation cp="🏃‍♀" type="tts">ixoq ktajin kutij anin</annotation>
+		<annotation cp="💃">Ixoq kaxojowik</annotation>
+		<annotation cp="💃" type="tts">Ixoq kaxojowik</annotation>
+		<annotation cp="🕺">xojowem | achi</annotation>
+		<annotation cp="🕺" type="tts">Achi kaxojowik</annotation>
+		<annotation cp="🕴">k’ayinel | achi | nim atz’i’aq</annotation>
+		<annotation cp="🕴" type="tts">achi ukojon nim atz’i’aq rech k’ayinem</annotation>
+		<annotation cp="👯">uxikin imul | aj xojolob’ | nimaq’ij</annotation>
+		<annotation cp="👯" type="tts">E winaq ruk’ uxikin imul</annotation>
+		<annotation cp="👯‍♂">uxikin iimul | aj xojolob’ | ixoq | nimaq’ij</annotation>
+		<annotation cp="👯‍♂" type="tts">achi ruk’ uxikin imul pa nimaq’ij</annotation>
+		<annotation cp="👯‍♀">uxikin iimul | aj xojolob’ | nimaq’ij | ixoq</annotation>
+		<annotation cp="👯‍♀" type="tts">ixoq ruk’ uxikin imul pa nimaq’ij</annotation>
+		<annotation cp="🧖">tuj | uxlab’ upaja</annotation>
+		<annotation cp="🧖" type="tts">winaq pa uxlab’ upaja</annotation>
+		<annotation cp="🧖‍♂">tuj | uxlab’ upaja</annotation>
+		<annotation cp="🧖‍♂" type="tts">achi pa uxlab’ upaja</annotation>
+		<annotation cp="🧖‍♀">tuj | uxlab’ upaja</annotation>
+		<annotation cp="🧖‍♀" type="tts">ixoq pa uxlab’ upaja</annotation>
+		<annotation cp="🧗">paqanel</annotation>
+		<annotation cp="🧗" type="tts">winaq ktajin kpaqi’k</annotation>
+		<annotation cp="🧗‍♂">paqanel</annotation>
+		<annotation cp="🧗‍♂" type="tts">achi ktajin kpaqi’k</annotation>
+		<annotation cp="🧗‍♀">paqanel</annotation>
+		<annotation cp="🧗‍♀" type="tts">ixoq ktajin kpaqi’k</annotation>
+		<annotation cp="🤺">cho’jinel | ktajin kch’ojinik | chi’chi’</annotation>
+		<annotation cp="🤺" type="tts">ch’ojinel</annotation>
+		<annotation cp="🏇">kej | kejanimel | kejanim | anim</annotation>
+		<annotation cp="🏇" type="tts">Anim chi rij kej</annotation>
+		<annotation cp="⛷">chararb’al | saq tew</annotation>
+		<annotation cp="⛷" type="tts">charanel</annotation>
+		<annotation cp="🏂">chararb’al | saq tew | charrar pa t’ajaj</annotation>
+		<annotation cp="🏂" type="tts">Charar pa t’aja’j</annotation>
+		<annotation cp="🏌">potz’ | yopotz’</annotation>
+		<annotation cp="🏌" type="tts">winaq ktajin kretz’ab’ej yopotz’</annotation>
+		<annotation cp="🏌‍♂">yopotz’ | achi</annotation>
+		<annotation cp="🏌‍♂" type="tts">achi ktajin kretz’ab’ej yopotz’</annotation>
+		<annotation cp="🏌‍♀">yopotz’ | ixoq</annotation>
+		<annotation cp="🏌‍♀" type="tts">ixoq ktajin kretz’ab’ej yopotz’</annotation>
+		<annotation cp="🏄">etz’anem pa ja’</annotation>
+		<annotation cp="🏄" type="tts">Winaq aj etz’anel pa ja’</annotation>
+		<annotation cp="🏄‍♂">achi | etz’anem pa ja’</annotation>
+		<annotation cp="🏄‍♂" type="tts">achi ktanin ketz’an pa ja’</annotation>
+		<annotation cp="🏄‍♀">etz’anem pa ja’ | ixoq</annotation>
+		<annotation cp="🏄‍♀" type="tts">ixoq ktanin ketz’an pa ja’</annotation>
+		<annotation cp="🚣">jukub’ | rojukub’</annotation>
+		<annotation cp="🚣" type="tts">Winaq kub’inisaj jukub’</annotation>
+		<annotation cp="🚣‍♂">jukub’ | achi | rojukub’</annotation>
+		<annotation cp="🚣‍♂" type="tts">achi ktajin kub’inisaj jukub’</annotation>
+		<annotation cp="🚣‍♀">jukub’ | rojukub’ | ixoq</annotation>
+		<annotation cp="🚣‍♀" type="tts">ixoq ktajin kub’inisaj jukub’</annotation>
+		<annotation cp="🏊">muxanem</annotation>
+		<annotation cp="🏊" type="tts">Winaq aj muxanel</annotation>
+		<annotation cp="🏊‍♂">achi | muxanem</annotation>
+		<annotation cp="🏊‍♂" type="tts">achi katajin kmuxanik</annotation>
+		<annotation cp="🏊‍♀">muxanem | ixoq</annotation>
+		<annotation cp="🏊‍♀" type="tts">ixoq katajin kmuxanik</annotation>
+		<annotation cp="⛹">potz’</annotation>
+		<annotation cp="⛹" type="tts">winaq ktajin kupixkansaj potz’</annotation>
+		<annotation cp="⛹‍♂">potz’ | achi</annotation>
+		<annotation cp="⛹‍♂" type="tts">achi ktajin kupixkansaj potz’</annotation>
+		<annotation cp="⛹‍♀">potz’ | ixoq</annotation>
+		<annotation cp="⛹‍♀" type="tts">ixoq ktajin kupixkansaj potz’</annotation>
+		<annotation cp="🏋">paqab’isanel | a’lal</annotation>
+		<annotation cp="🏋" type="tts">winaq kupaqab’isaj taq a’lal</annotation>
+		<annotation cp="🏋‍♂">paqab’isanel a’lal | achi</annotation>
+		<annotation cp="🏋‍♂" type="tts">achi kupaqab’isaj taq a’lal</annotation>
+		<annotation cp="🏋‍♀">paqab’isanel a’lal | ixoq</annotation>
+		<annotation cp="🏋‍♀" type="tts">ixoq kupaqab’isaj taq a’lal</annotation>
+		<annotation cp="🚴">key ch’ich’ | animkey ch’ich’ | aj key ch’ich’</annotation>
+		<annotation cp="🚴" type="tts">Winaq aj kej ch’ich’</annotation>
+		<annotation cp="🚴‍♂">key ch’ich’ | animkey ch’ich’ | aj key ch’ich’ | achi</annotation>
+		<annotation cp="🚴‍♂" type="tts">achi b’enaq chi rij kej key ch’ich’</annotation>
+		<annotation cp="🚴‍♀">key ch’ich’ | animkey ch’ich’ | aj key ch’ich’ | ixoq</annotation>
+		<annotation cp="🚴‍♀" type="tts">ixoq b’enaq chi rij kej key ch’ich’</annotation>
+		<annotation cp="🚵">key ch’ich’ | aj key ch’ich’ | juyub’</annotation>
+		<annotation cp="🚵" type="tts">Winaq aj kej ch’ich’ pa juyub’</annotation>
+		<annotation cp="🚵‍♂">key ch’ich’ | aj key ch’ich’ | achi | juyub’</annotation>
+		<annotation cp="🚵‍♂" type="tts">achi b’enaq chi rij key ch’ich’ pa juyub’</annotation>
+		<annotation cp="🚵‍♀">key ch’ich’ | aj key ch’ich’ | b’enaq chi rij key ch’ich’ | juyub’ | ixoq</annotation>
+		<annotation cp="🚵‍♀" type="tts">ixoq b’enaq chi rij key ch’ich’ pa juyub’</annotation>
+		<annotation cp="🤸">setchi’chi’ | ji’etz’amb’al</annotation>
+		<annotation cp="🤸" type="tts">Winaq xulan uwi’</annotation>
+		<annotation cp="🤸‍♂">setchi’chi’ | ji’etz’amb’al | achi</annotation>
+		<annotation cp="🤸‍♂" type="tts">achi pa setch’ich’</annotation>
+		<annotation cp="🤸‍♀">setchi’chi’ | ji’etz’amb’al | ixoq</annotation>
+		<annotation cp="🤸‍♀" type="tts">ixoq pa setch’ich’</annotation>
+		<annotation cp="🤼">ch’ojinel | ch’ojinem</annotation>
+		<annotation cp="🤼" type="tts">E winaq kech’o’jinik</annotation>
+		<annotation cp="🤼‍♂">achi | ch’ojinem</annotation>
+		<annotation cp="🤼‍♂" type="tts">achi ktajin kch’ojinik</annotation>
+		<annotation cp="🤼‍♀">ixoq | ch’ojinel</annotation>
+		<annotation cp="🤼‍♀" type="tts">ixoq ktajin kch’ojinik</annotation>
+		<annotation cp="🤽">potz’ pa ja’ | joron</annotation>
+		<annotation cp="🤽" type="tts">Winaq aj etz’anel potz’ pa ja’</annotation>
+		<annotation cp="🤽‍♂">achi | etzanen potz’ pa ja’</annotation>
+		<annotation cp="🤽‍♂" type="tts">achi ktajin kretz’ab’el potz’ pa ja’</annotation>
+		<annotation cp="🤽‍♀">potz’ pa ja’ | ixoq</annotation>
+		<annotation cp="🤽‍♀" type="tts">ixoq ktajin kretz’ab’ej potz’ pa ja’</annotation>
+		<annotation cp="🤾">potz’ chi q’ab’aj | potz’</annotation>
+		<annotation cp="🤾" type="tts">Winaq aj etz’anel potz’ chi q’ab’aj</annotation>
+		<annotation cp="🤾‍♂">potz’ chi q’ab’al | ixoq</annotation>
+		<annotation cp="🤾‍♂" type="tts">achi ktajin kretz’ab’ej potz’ chi q’ab’aj</annotation>
+		<annotation cp="🤾‍♀">potz’ chi q’ab’aj | ixoq</annotation>
+		<annotation cp="🤾‍♀" type="tts">ixoq ktajin kretz’ab’ej potz’ chi q’ab’aj</annotation>
+		<annotation cp="🤹">juggle | multitask | balance | skill</annotation>
+		<annotation cp="🤹" type="tts">Winaq aj mayib’al</annotation>
+		<annotation cp="🤹‍♂">tzaqb’al k’u’x | achi | k’i chak</annotation>
+		<annotation cp="🤹‍♂" type="tts">achi kub’an tzaqb’al k’u’x</annotation>
+		<annotation cp="🤹‍♀">tzaqb’al k’u’x | k’i chak | ixoq</annotation>
+		<annotation cp="🤹‍♀" type="tts">ixoq kub’an tzaqb’al k’u’x</annotation>
+		<annotation cp="🧘">yoga | chomanem</annotation>
+		<annotation cp="🧘" type="tts">winaq ukrusim raqan</annotation>
+		<annotation cp="🧘‍♂">yoga | chomanem</annotation>
+		<annotation cp="🧘‍♂" type="tts">achi ukrusim raqan</annotation>
+		<annotation cp="🧘‍♀">yoga | chomanem</annotation>
+		<annotation cp="🧘‍♀" type="tts">ixoq ukrusim raqan</annotation>
+		<annotation cp="🛀">juch’ajb’al | ch’ajb’al</annotation>
+		<annotation cp="🛀" type="tts">Winaq tajin katinik</annotation>
+		<annotation cp="🛌">warab’al | waram</annotation>
+		<annotation cp="🛌" type="tts">Winaq pa ch’at</annotation>
+		<annotation cp="👭">k’ulajil | q’ab’aj | uchapik | ixoq</annotation>
+		<annotation cp="👭" type="tts">Keb’ ixoqib’ kichapom kiq’ab’</annotation>
+		<annotation cp="👫">k’ulajil | q’ab’aj | uchapikk | achi | ixoq</annotation>
+		<annotation cp="👫" type="tts">Achi chi’l ixoq kichapom kiq’ab’</annotation>
+		<annotation cp="👬">k’ulajil | Geminis | q’ab’aj | uchapik | achi | yo’x | zodiaco</annotation>
+		<annotation cp="👬" type="tts">Keb’ achijab’ kichapom kiq’ab’</annotation>
+		<annotation cp="💏">k’ulajil</annotation>
+		<annotation cp="💏" type="tts">Tz’umanik</annotation>
+		<annotation cp="💑">k’ulajil | loq’ob’al</annotation>
+		<annotation cp="💑" type="tts">Kab’ichal ruk’ anima</annotation>
+		<annotation cp="👪">Ajupaja</annotation>
+		<annotation cp="👪" type="tts">Ajupaja</annotation>
+		<annotation cp="🗣">palajaj | jolom | mu’j | ch’awem | ktajin ch’awem</annotation>
+		<annotation cp="🗣" type="tts">winaq ktzijonik</annotation>
+		<annotation cp="👤">uwak’u’xaj | inoch’</annotation>
+		<annotation cp="👤" type="tts">Rinoch Uwak’u’xaj</annotation>
+		<annotation cp="👥">uwak’u’xaj | inoch’</annotation>
+		<annotation cp="👥" type="tts">Rinoch’ taq Uwak’u’xaj</annotation>
+		<annotation cp="👣">atz’i’aq | retal aqanaj | retal</annotation>
+		<annotation cp="👣" type="tts">Retal Aqanaj</annotation>
+		<annotation cp="🐵">palajaj | k’oy</annotation>
+		<annotation cp="🐵" type="tts">Upalaj k’oy</annotation>
+		<annotation cp="🐒">K’oy</annotation>
+		<annotation cp="🐒" type="tts">K’oy</annotation>
+		<annotation cp="🦍">Nim K’oy</annotation>
+		<annotation cp="🦍" type="tts">Nim K’oy</annotation>
+		<annotation cp="🐶">tzi’ | palajaj | awaja</annotation>
+		<annotation cp="🐶" type="tts">Upalaj tz’i’</annotation>
+		<annotation cp="🐕">awaja</annotation>
+		<annotation cp="🐕" type="tts">Tz’i’</annotation>
+		<annotation cp="🐩">Tz’i’</annotation>
+		<annotation cp="🐩" type="tts">Caniche</annotation>
+		<annotation cp="🐺">upalaj | koyo’t</annotation>
+		<annotation cp="🐺" type="tts">Upalaj koyo’t</annotation>
+		<annotation cp="🦊">upalaj | sokoyo’t</annotation>
+		<annotation cp="🦊" type="tts">Upalaj sokoyo’t</annotation>
+		<annotation cp="🐱">me’s | palajaj | awaja</annotation>
+		<annotation cp="🐱" type="tts">Upalaj me’s</annotation>
+		<annotation cp="🐈">awaja</annotation>
+		<annotation cp="🐈" type="tts">Me’s</annotation>
+		<annotation cp="🦁">palajaj | Leo | koj | zodiaco</annotation>
+		<annotation cp="🦁" type="tts">Upalaj koj</annotation>
+		<annotation cp="🐯">palajaj | b’alam</annotation>
+		<annotation cp="🐯" type="tts">Upalaj b’alam</annotation>
+		<annotation cp="🐅">B’alam</annotation>
+		<annotation cp="🐅" type="tts">B’alam</annotation>
+		<annotation cp="🐆">B’alame’s</annotation>
+		<annotation cp="🐆" type="tts">B’alame’s</annotation>
+		<annotation cp="🐴">palajaj | key</annotation>
+		<annotation cp="🐴" type="tts">Palajaj rech Kej</annotation>
+		<annotation cp="🐎">kejanim | anim</annotation>
+		<annotation cp="🐎" type="tts">Kej</annotation>
+		<annotation cp="🦄">palajaj | unicornio</annotation>
+		<annotation cp="🦄" type="tts">Upalaj unicornio</annotation>
+		<annotation cp="🦓">juch’</annotation>
+		<annotation cp="🦓" type="tts">me’skej</annotation>
+		<annotation cp="🦌">Masat</annotation>
+		<annotation cp="🦌" type="tts">Masat</annotation>
+		<annotation cp="🐮">Upalaj Wakax</annotation>
+		<annotation cp="🐮" type="tts">Upalaj Wakax</annotation>
+		<annotation cp="🐂">buwakax | tauro | zodiaco</annotation>
+		<annotation cp="🐂" type="tts">Buwakax</annotation>
+		<annotation cp="🐃">wakax | ja’</annotation>
+		<annotation cp="🐃" type="tts">Wakax rech ja’</annotation>
+		<annotation cp="🐄">Wakax</annotation>
+		<annotation cp="🐄" type="tts">Wakax</annotation>
+		<annotation cp="🐷">palajaj | aq</annotation>
+		<annotation cp="🐷" type="tts">Upalaj aq</annotation>
+		<annotation cp="🐖">utikik</annotation>
+		<annotation cp="🐖" type="tts">Aq</annotation>
+		<annotation cp="🐗">Aq</annotation>
+		<annotation cp="🐗" type="tts">K’ache’laq</annotation>
+		<annotation cp="🐽">palajaj | tza’maj | aq</annotation>
+		<annotation cp="🐽" type="tts">Utza’m aq</annotation>
+		<annotation cp="🐏">Aries | chij | zodiaco | ati’t</annotation>
+		<annotation cp="🐏" type="tts">Karne’l</annotation>
+		<annotation cp="🐑">chij | ati’t</annotation>
+		<annotation cp="🐑" type="tts">chij</annotation>
+		<annotation cp="🐐">capricornio | zodiaco</annotation>
+		<annotation cp="🐐" type="tts">K’isik’</annotation>
+		<annotation cp="🐪">rokamey | suq’</annotation>
+		<annotation cp="🐪" type="tts">Kamey</annotation>
+		<annotation cp="🐫">b’akamey</annotation>
+		<annotation cp="🐫" type="tts">Keb’ q’u’s kamey</annotation>
+		<annotation cp="🦒">taq nak’</annotation>
+		<annotation cp="🦒" type="tts">yuqchikop</annotation>
+		<annotation cp="🐘">Tix</annotation>
+		<annotation cp="🐘" type="tts">Tix</annotation>
+		<annotation cp="🦏">Rinoceronte</annotation>
+		<annotation cp="🦏" type="tts">Rinoceronte</annotation>
+		<annotation cp="🐭">Palajaj | ch’o</annotation>
+		<annotation cp="🐭" type="tts">Upalaj ch’o</annotation>
+		<annotation cp="🐁">Ch’o</annotation>
+		<annotation cp="🐁" type="tts">Ch’o</annotation>
+		<annotation cp="🐀">B’ayi’s</annotation>
+		<annotation cp="🐀" type="tts">B’ayi’s</annotation>
+		<annotation cp="🐹">palajaj | jamch’o | awaja</annotation>
+		<annotation cp="🐹" type="tts">Upalaj jamch’o</annotation>
+		<annotation cp="🐰">imul | plajaj | awaja</annotation>
+		<annotation cp="🐰" type="tts">Upalaj imul</annotation>
+		<annotation cp="🐇">imul | awaja</annotation>
+		<annotation cp="🐇" type="tts">Imul</annotation>
+		<annotation cp="🐿">chikuk</annotation>
+		<annotation cp="🐿" type="tts">chikuk</annotation>
+		<annotation cp="🦔">k’ix</annotation>
+		<annotation cp="🦔" type="tts">puk’cho</annotation>
+		<annotation cp="🦇">sotz’ | tijol kik’</annotation>
+		<annotation cp="🦇" type="tts">Sotz’</annotation>
+		<annotation cp="🐻">Upalaj Oso</annotation>
+		<annotation cp="🐻" type="tts">Upalaj Oso</annotation>
+		<annotation cp="🐨">os</annotation>
+		<annotation cp="🐨" type="tts">Coala</annotation>
+		<annotation cp="🐼">palajaj | panda</annotation>
+		<annotation cp="🐼" type="tts">Upalaj panda</annotation>
+		<annotation cp="🐾">aqanaj | etal | tz’ajtz’ib’anem</annotation>
+		<annotation cp="🐾" type="tts">Uparaqan awaj</annotation>
+		<annotation cp="🦃">no’s | tz’ikin</annotation>
+		<annotation cp="🦃" type="tts">No’s</annotation>
+		<annotation cp="🐔">ak’ | tz’iki’n</annotation>
+		<annotation cp="🐔" type="tts">Ak’</annotation>
+		<annotation cp="🐓">ama’ | tz’iki’n</annotation>
+		<annotation cp="🐓" type="tts">Ama’</annotation>
+		<annotation cp="🐣">ne’ | wich’ | elem pa saqmo’l | tz’iki’n</annotation>
+		<annotation cp="🐣" type="tts">Uk’iyib’al Wich’</annotation>
+		<annotation cp="🐤">ne’ | wich’ | tz’iki’n</annotation>
+		<annotation cp="🐤" type="tts">Alaj Wich’</annotation>
+		<annotation cp="🐥">ne’ | wich’ | tz’iki’n</annotation>
+		<annotation cp="🐥" type="tts">Alaj Wich chi uwach</annotation>
+		<annotation cp="🐦">Tz’ikin</annotation>
+		<annotation cp="🐦" type="tts">Tz’ikin</annotation>
+		<annotation cp="🐧">pinguino | tz’iki’n</annotation>
+		<annotation cp="🐧" type="tts">Pingüino</annotation>
+		<annotation cp="🕊">tz’iki’n | xik’ik’em | utzil</annotation>
+		<annotation cp="🕊" type="tts">b’otz’iki’n</annotation>
+		<annotation cp="🦅">xik’ | tz’ikin</annotation>
+		<annotation cp="🦅" type="tts">Xik</annotation>
+		<annotation cp="🦆">patax | tz’ikin</annotation>
+		<annotation cp="🦆" type="tts">Patax</annotation>
+		<annotation cp="🦉">tukur | k’astal | tz’ikin</annotation>
+		<annotation cp="🦉" type="tts">Tukur</annotation>
+		<annotation cp="🐸">palajaj | xpeq</annotation>
+		<annotation cp="🐸" type="tts">Upalaj Xpeq</annotation>
+		<annotation cp="🐊">Kokodril</annotation>
+		<annotation cp="🐊" type="tts">Kokodril</annotation>
+		<annotation cp="🐢">kok | tokok | kok rech ki’ joron</annotation>
+		<annotation cp="🐢" type="tts">Kok</annotation>
+		<annotation cp="🦎">xpa’ch | juquqchikop</annotation>
+		<annotation cp="🦎" type="tts">Xpa’ch</annotation>
+		<annotation cp="🐍">uk’anel | Opzodiaco | kumatz’ | zodiaco</annotation>
+		<annotation cp="🐍" type="tts">Kumatz</annotation>
+		<annotation cp="🐲">chak’chikop | palajaj | tzijob’elil kech adas</annotation>
+		<annotation cp="🐲" type="tts">Chak’achik Awaj Upalaj</annotation>
+		<annotation cp="🐉">tzijob’elil kech adas</annotation>
+		<annotation cp="🐉" type="tts">Chak’achik awaj</annotation>
+		<annotation cp="🦕">b’onimayin</annotation>
+		<annotation cp="🦕" type="tts">sanimayin</annotation>
+		<annotation cp="🦖">tanimayin</annotation>
+		<annotation cp="🦖" type="tts">tenimayin</annotation>
+		<annotation cp="🐳">palajaj | resaxik ja’ | Nim kar</annotation>
+		<annotation cp="🐳" type="tts">Nim kar karesaj la ja’</annotation>
+		<annotation cp="🐋">Mataq’tami’</annotation>
+		<annotation cp="🐋" type="tts">Mataq’tami’</annotation>
+		<annotation cp="🐬">Xik’</annotation>
+		<annotation cp="🐬" type="tts">Aqk’ar</annotation>
+		<annotation cp="🐟">Picis | zodiaco</annotation>
+		<annotation cp="🐟" type="tts">Kar</annotation>
+		<annotation cp="🐠">kar | saq’ij</annotation>
+		<annotation cp="🐠" type="tts">Kar rech saq’ij</annotation>
+		<annotation cp="🐡">Kar</annotation>
+		<annotation cp="🐡" type="tts">K’ixkar</annotation>
+		<annotation cp="🦈">tib’kar | kar</annotation>
+		<annotation cp="🦈" type="tts">Tib’kar</annotation>
+		<annotation cp="🐙">Yatz chikop</annotation>
+		<annotation cp="🐙" type="tts">Yatz chikop</annotation>
+		<annotation cp="🐚">concha | ub’olq’otim rib’</annotation>
+		<annotation cp="🐚" type="tts">Ub’olq’otim rib’ concha</annotation>
+		<annotation cp="🐌">T’ot’</annotation>
+		<annotation cp="🐌" type="tts">T’ot’</annotation>
+		<annotation cp="🦋">pepe | nitz’ chikop | j’el</annotation>
+		<annotation cp="🦋" type="tts">Pepe</annotation>
+		<annotation cp="🐛">nitz’ chikop</annotation>
+		<annotation cp="🐛" type="tts">k’axk’olil</annotation>
+		<annotation cp="🐜">nitz’ chikop</annotation>
+		<annotation cp="🐜" type="tts">Sanik</annotation>
+		<annotation cp="🐝">awonon</annotation>
+		<annotation cp="🐝" type="tts">Raxkab’ rech Awonon</annotation>
+		<annotation cp="🐞">sakitan | nitz’ chikop | ati’t pepe</annotation>
+		<annotation cp="🐞" type="tts">K’o’x</annotation>
+		<annotation cp="🦗">pixk’anjyub’</annotation>
+		<annotation cp="🦗" type="tts">Lol</annotation>
+		<annotation cp="🕷">nitz’ chikop</annotation>
+		<annotation cp="🕷" type="tts">uparaqan key</annotation>
+		<annotation cp="🕸">uparaqan kej | k’at</annotation>
+		<annotation cp="🕸" type="tts">k’at rech uparaqan kej</annotation>
+		<annotation cp="🦂">escorpion | Nimescorpion | zodiaco</annotation>
+		<annotation cp="🦂" type="tts">Escorpión</annotation>
+		<annotation cp="💐">kotz’ij</annotation>
+		<annotation cp="💐" type="tts">Juyetaj</annotation>
+		<annotation cp="🌸">puk’ul | k’uxk’ab’el</annotation>
+		<annotation cp="🌸" type="tts">Ukotz’ijal k’uxk’ab’el</annotation>
+		<annotation cp="💮">kotz’ij</annotation>
+		<annotation cp="💮" type="tts">Saq kotz’i’j</annotation>
+		<annotation cp="🏵">q’ayes</annotation>
+		<annotation cp="🏵" type="tts">kemk’otz’ij</annotation>
+		<annotation cp="🌹">kotz’ij</annotation>
+		<annotation cp="🌹" type="tts">Kaqkoj</annotation>
+		<annotation cp="🥀">kotz’i’j | chaqi’j</annotation>
+		<annotation cp="🥀" type="tts">Chaqi’j kotz’i’j</annotation>
+		<annotation cp="🌺">kotz’ij</annotation>
+		<annotation cp="🌺" type="tts">Taq kotzi’j</annotation>
+		<annotation cp="🌻">kotzi’j | q’ij</annotation>
+		<annotation cp="🌻" type="tts">Q’an kotz’i’j</annotation>
+		<annotation cp="🌼">kotz’ij</annotation>
+		<annotation cp="🌼" type="tts">Kotz’ij</annotation>
+		<annotation cp="🌷">kotz’ij</annotation>
+		<annotation cp="🌷" type="tts">Tulipan</annotation>
+		<annotation cp="🌱">k’ajol</annotation>
+		<annotation cp="🌱" type="tts">Q’ayes</annotation>
+		<annotation cp="🌲">che’</annotation>
+		<annotation cp="🌲" type="tts">Tz’inchaj</annotation>
+		<annotation cp="🌳">ponopik che’ | uwachinem | che’</annotation>
+		<annotation cp="🌳" type="tts">Ponopik Che’</annotation>
+		<annotation cp="🌴">Palmche’</annotation>
+		<annotation cp="🌴" type="tts">Palmche’</annotation>
+		<annotation cp="🌵">q’ayes</annotation>
+		<annotation cp="🌵" type="tts">Nochti’</annotation>
+		<annotation cp="🌾">xikin | aros | ub’aq</annotation>
+		<annotation cp="🌾" type="tts">Q’ayes rech aros</annotation>
+		<annotation cp="🌿">uxaq</annotation>
+		<annotation cp="🌿" type="tts">Ichaj</annotation>
+		<annotation cp="☘">q’ayes</annotation>
+		<annotation cp="☘" type="tts">xakotzi’j</annotation>
+		<annotation cp="🍀">4 | raxkotz’ij | kajib’ | uxaq</annotation>
+		<annotation cp="🍀" type="tts">Kotz’ij Kajib’ Uxaq</annotation>
+		<annotation cp="🍁">ktajin ktzaqik | uxaq | maple</annotation>
+		<annotation cp="🍁" type="tts">Uxaq maple</annotation>
+		<annotation cp="🍂">ktajin ktzaq uxaq</annotation>
+		<annotation cp="🍂" type="tts">Tzaqinaq uxaq che’</annotation>
+		<annotation cp="🍃">sipojem | silob’em | uxaq | kaqiq’</annotation>
+		<annotation cp="🍃" type="tts">Uxaq che’ silob’sam rumal kaqiq’</annotation>
+		<annotation cp="🍇">ki’uwache | raxpopoj</annotation>
+		<annotation cp="🍇" type="tts">Taq raxpopoj</annotation>
+		<annotation cp="🍈">ki’uwache’</annotation>
+		<annotation cp="🍈" type="tts">Uwaxub’awache’</annotation>
+		<annotation cp="🍉">ki’uwache’</annotation>
+		<annotation cp="🍉" type="tts">Kaqaq’oq’</annotation>
+		<annotation cp="🍊">ki’uwache’ alanxa’x</annotation>
+		<annotation cp="🍊" type="tts">Tamarindo</annotation>
+		<annotation cp="🍋">ch’am | ki’uwache’</annotation>
+		<annotation cp="🍋" type="tts">Alamnax</annotation>
+		<annotation cp="🍌">ki’uwache’</annotation>
+		<annotation cp="🍌" type="tts">Ankine’y</annotation>
+		<annotation cp="🍍">ki’uwache’</annotation>
+		<annotation cp="🍍" type="tts">Ch’op</annotation>
+		<annotation cp="🍎">mansa’n | ki’uwache’ | kaq</annotation>
+		<annotation cp="🍎" type="tts">Kaq mansa’n</annotation>
+		<annotation cp="🍏">mansa’n | ki’uwache’ | rax</annotation>
+		<annotation cp="🍏" type="tts">Rax Mansa’n</annotation>
+		<annotation cp="🍐">ki’uwache’</annotation>
+		<annotation cp="🍐" type="tts">Pera</annotation>
+		<annotation cp="🍑">ki’uwache’</annotation>
+		<annotation cp="🍑" type="tts">Tara’s</annotation>
+		<annotation cp="🍒">k’uxk’ab’el | ki’uwache’</annotation>
+		<annotation cp="🍒" type="tts">Taq kaqk’uxk’ab’el</annotation>
+		<annotation cp="🍓">kutan | ki’uwache’</annotation>
+		<annotation cp="🍓" type="tts">Kaqumache’</annotation>
+		<annotation cp="🥝">kiwi | uwache’ | wa</annotation>
+		<annotation cp="🥝" type="tts">Uwach che’ kiwi</annotation>
+		<annotation cp="🍅">ki’uwache’ | uwache’</annotation>
+		<annotation cp="🍅" type="tts">Pix</annotation>
+		<annotation cp="🥥">palmche’ | uwa’l piny</annotation>
+		<annotation cp="🥥" type="tts">koko</annotation>
+		<annotation cp="🥑">avocado | fruit | food</annotation>
+		<annotation cp="🥑" type="tts">Oj</annotation>
+		<annotation cp="🍆">jurq’ax | uwache</annotation>
+		<annotation cp="🍆" type="tts">Raxpopoj Q’ax</annotation>
+		<annotation cp="🥔">saqwach | uwache’ | wa</annotation>
+		<annotation cp="🥔" type="tts">Saqwach</annotation>
+		<annotation cp="🥕">sanaor | uwache’ | wa</annotation>
+		<annotation cp="🥕" type="tts">Sanaor</annotation>
+		<annotation cp="🌽">aj | xkinaj | ixim | schb’al b’e</annotation>
+		<annotation cp="🌽" type="tts">Jal rech Ixim</annotation>
+		<annotation cp="🌶">poqon | q’ax</annotation>
+		<annotation cp="🌶" type="tts">poqon q’ax</annotation>
+		<annotation cp="🥒">raxuwache’ | k’olotal raxuwache’ | uwache’ | wa</annotation>
+		<annotation cp="🥒" type="tts">k’olotal raxuwache’</annotation>
+		<annotation cp="🥦">saq kotz’ij</annotation>
+		<annotation cp="🥦" type="tts">raxichaj</annotation>
+		<annotation cp="🍄">b’e’uxe’ che’</annotation>
+		<annotation cp="🍄" type="tts">Uxe che’</annotation>
+		<annotation cp="🥜">mani’y | kaxlan mani’y | wa | uwache’</annotation>
+		<annotation cp="🥜" type="tts">Mani’y</annotation>
+		<annotation cp="🌰">q’ayes</annotation>
+		<annotation cp="🌰" type="tts">Kaxlanmani’y</annotation>
+		<annotation cp="🍞">lokaxlanwa</annotation>
+		<annotation cp="🍞" type="tts">lokaxlanwa</annotation>
+		<annotation cp="🥐">krosant | nik’aj setesik | rech Francia | wa | kaxlanwa</annotation>
+		<annotation cp="🥐" type="tts">Krosant</annotation>
+		<annotation cp="🥖">jurujik kaxlanwa | kaxlanwa | rech Francia | wa</annotation>
+		<annotation cp="🥖" type="tts">Jurujik kaxlanwa</annotation>
+		<annotation cp="🥨">b’aq’atim</annotation>
+		<annotation cp="🥨" type="tts">tzayayet</annotation>
+		<annotation cp="🥞">ktan setkaxlanwa | krekaxlanwa | kaxlanwa | wa</annotation>
+		<annotation cp="🥞" type="tts">ktan setkaxlanwa</annotation>
+		<annotation cp="🧀">kexu’</annotation>
+		<annotation cp="🧀" type="tts">Jub’a’ Kexu</annotation>
+		<annotation cp="🍖">b’aq | ti’j</annotation>
+		<annotation cp="🍖" type="tts">Ti’ij ruk’ baq</annotation>
+		<annotation cp="🍗">b’aq | ak’ | raqan | rech koral</annotation>
+		<annotation cp="🍗" type="tts">Ra’ ak’</annotation>
+		<annotation cp="🥩">t’ij aq | ti’j chij | umuchik | ub’olik</annotation>
+		<annotation cp="🥩" type="tts">uramik ti’j</annotation>
+		<annotation cp="🥓">bolom ti’j | ti’j | wa</annotation>
+		<annotation cp="🥓" type="tts">B’olom ti’ij</annotation>
+		<annotation cp="🍔">b’uti’jkaxlanwa</annotation>
+		<annotation cp="🍔" type="tts">Ti’jkaxlanwa</annotation>
+		<annotation cp="🍟">B’olom saqwach</annotation>
+		<annotation cp="🍟" type="tts">B’olom saqwach</annotation>
+		<annotation cp="🍕">kexu’ | jub’a kaxlanwa</annotation>
+		<annotation cp="🍕" type="tts">Pizza</annotation>
+		<annotation cp="🌭">lankane’s | k’atkaxlanwa</annotation>
+		<annotation cp="🌭" type="tts">Rab’kaxlanwa</annotation>
+		<annotation cp="🥪">K’axlanwa</annotation>
+		<annotation cp="🥪" type="tts">sati’jkaxlanwa</annotation>
+		<annotation cp="🌮">rech México</annotation>
+		<annotation cp="🌮" type="tts">Wotz’otz’</annotation>
+		<annotation cp="🌯">rech mexico | b’ollq’otim</annotation>
+		<annotation cp="🌯" type="tts">Lajbur</annotation>
+		<annotation cp="🥙">b’rokaxlanwa | fakaxlanwa | jikaxlanwa | riki’l pa kaxlanwa | saq kaxlanwa | wa</annotation>
+		<annotation cp="🥙" type="tts">Riki’l pa kaxlanwa</annotation>
+		<annotation cp="🥚">sqmol | wa</annotation>
+		<annotation cp="🥚" type="tts">Saqmo’l</annotation>
+		<annotation cp="🍳">saqmo’l | ub’olik | kaxlanwa</annotation>
+		<annotation cp="🍳" type="tts">Tzakoj riki’l</annotation>
+		<annotation cp="🥘">paell | xarten | kaxlanwa | mok’omik | wa</annotation>
+		<annotation cp="🥘" type="tts">Riki’l pa xarten</annotation>
+		<annotation cp="🍲">tu’y | kalto</annotation>
+		<annotation cp="🍲" type="tts">Laq rech riki’l</annotation>
+		<annotation cp="🥣">nimaq’ab’ wa’im</annotation>
+		<annotation cp="🥣" type="tts">b’olaq ruk’ pak’ab’al</annotation>
+		<annotation cp="🥗">rax | uwache’ | wa</annotation>
+		<annotation cp="🥗" type="tts">Rax Uwache’</annotation>
+		<annotation cp="🍿">Paq’im ixim</annotation>
+		<annotation cp="🍿" type="tts">Paq’im ixim</annotation>
+		<annotation cp="🥫">b’ot</annotation>
+		<annotation cp="🥫" type="tts">wa pa b’ot</annotation>
+		<annotation cp="🍱">Kajxukut rech Riki’l</annotation>
+		<annotation cp="🍱" type="tts">Kajxukut rech Riki’l</annotation>
+		<annotation cp="🍘">rayet | aros</annotation>
+		<annotation cp="🍘" type="tts">Kaxlanwa aros</annotation>
+		<annotation cp="🍙">tz’uqutz’ik | rech Japón | aros</annotation>
+		<annotation cp="🍙" type="tts">Tz’uqutz’ik aros</annotation>
+		<annotation cp="🍚">Tzakom Aros</annotation>
+		<annotation cp="🍚" type="tts">Tzakom Aros</annotation>
+		<annotation cp="🍛">Aros pa Jok’om</annotation>
+		<annotation cp="🍛" type="tts">Aros pa Jok’om</annotation>
+		<annotation cp="🍜">laq | pirey | rariki’l | k’atan</annotation>
+		<annotation cp="🍜" type="tts">K’atan laq riki’l</annotation>
+		<annotation cp="🍝">pireys</annotation>
+		<annotation cp="🍝" type="tts">Jurujaq</annotation>
+		<annotation cp="🍠">saqwach | b’olom | kamo’t</annotation>
+		<annotation cp="🍠" type="tts">B’olom Kamo’t</annotation>
+		<annotation cp="🍢">keriki’l | polowa | skriki’l | teleb’al</annotation>
+		<annotation cp="🍢" type="tts">Oden</annotation>
+		<annotation cp="🍣">Sushi</annotation>
+		<annotation cp="🍣" type="tts">Sushi</annotation>
+		<annotation cp="🍤">b’olom | prakamaron | kamaron | teriki’l</annotation>
+		<annotation cp="🍤" type="tts">B’olom Kamaron</annotation>
+		<annotation cp="🍥">setkaxlamwa | kar | ki’setkaxlanwa | sutib’al</annotation>
+		<annotation cp="🍥" type="tts">Setesik Kar ruk’ sutib’al</annotation>
+		<annotation cp="🍡">uwi’ riki’l | rech Japón | skriki’l | teleb’al | ki’</annotation>
+		<annotation cp="🍡" type="tts">Dango</annotation>
+		<annotation cp="🥟">ponak’b’al | gyōza | jiaozi | pierogi | empanad</annotation>
+		<annotation cp="🥟" type="tts">t’oqto’y</annotation>
+		<annotation cp="🥠">ya’l ub’ixik</annotation>
+		<annotation cp="🥠" type="tts">q’ochom kab’</annotation>
+		<annotation cp="🥡">osche’</annotation>
+		<annotation cp="🥡" type="tts">k’olwa</annotation>
+		<annotation cp="🦀">cancer | zodiaco</annotation>
+		<annotation cp="🦀" type="tts">Tap</annotation>
+		<annotation cp="🦐">kamaron | nitz’ | karpolo | wa</annotation>
+		<annotation cp="🦐" type="tts">kamaron</annotation>
+		<annotation cp="🦑">kalamar | mokar | wa</annotation>
+		<annotation cp="🦑" type="tts">kalamar</annotation>
+		<annotation cp="🍦">q’or | uwi’ wa | t’ajaj | tz’uqutz’ik t’aja’j | ch’uch’uj | ki’</annotation>
+		<annotation cp="🍦" type="tts">Tz’uqutz’ik t’aja’j</annotation>
+		<annotation cp="🍧">uwi’ wa | t’ajaj | teleb’al | ki’</annotation>
+		<annotation cp="🍧" type="tts">T’aja’j pa k’olib’al</annotation>
+		<annotation cp="🍨">q’or | uwi’ wa | t’ajaj | ki’</annotation>
+		<annotation cp="🍨" type="tts">Joromsab’al</annotation>
+		<annotation cp="🍩">uwi’ wa | setki’kaxlanwa | ki’</annotation>
+		<annotation cp="🍩" type="tts">Taq mulq’ab’</annotation>
+		<annotation cp="🍪">uwi’ wa | ki’</annotation>
+		<annotation cp="🍪" type="tts">Yayet</annotation>
+		<annotation cp="🎂">alaxb’al | setkaxlanwa | nimaq’ij | uwi’ wa | ki’setkaxlanwa | ki’</annotation>
+		<annotation cp="🎂" type="tts">Kaxlanwa rech alaxib’al</annotation>
+		<annotation cp="🍰">setkaxlanwa | uwi’ wa | ki’setkaxlanwa | jub’a’ kaxlanwa | ki’</annotation>
+		<annotation cp="🍰" type="tts">Jub’a kaxlanwa</annotation>
+		<annotation cp="🥧">ki’setkaxlanwa | katajin</annotation>
+		<annotation cp="🥧" type="tts">pisetkaxlanwa</annotation>
+		<annotation cp="🍫">rab’ | chokolat | uwi’ wa | ki’</annotation>
+		<annotation cp="🍫" type="tts">Uq’e’tb’al chokolat</annotation>
+		<annotation cp="🍬">uwi’ wa | ki’</annotation>
+		<annotation cp="🍬" type="tts">Kab’</annotation>
+		<annotation cp="🍭">kab’ | uwi’ wa | ki’</annotation>
+		<annotation cp="🍭" type="tts">Setkab’</annotation>
+		<annotation cp="🍮">uwi’ wa | pukaxlanwa | ki’</annotation>
+		<annotation cp="🍮" type="tts">Ruk’ Uwaltu’</annotation>
+		<annotation cp="🍯">raxkab’ | k’olraxkab’ | k’olib’al | ki’</annotation>
+		<annotation cp="🍯" type="tts">Xa’r rech Raxkab’</annotation>
+		<annotation cp="🍼">ne’ | k’olib’al | kqumuxik | uwal tu’</annotation>
+		<annotation cp="🍼" type="tts">Mamon</annotation>
+		<annotation cp="🥛">kop | uwal tu’ | kqumuxik</annotation>
+		<annotation cp="🥛" type="tts">Kop rech uwaltu’</annotation>
+		<annotation cp="☕">kqumuxik | kape | k’atan | kwosowik | te</annotation>
+		<annotation cp="☕" type="tts">K’atam Kaqumuxik</annotation>
+		<annotation cp="🍵">kqumuxik | kop | te | kopte</annotation>
+		<annotation cp="🍵" type="tts">Jun b’as meq’in te</annotation>
+		<annotation cp="🍶">k’aykqumuxi’k | kqumuxik | k’olib’al | kop</annotation>
+		<annotation cp="🍶" type="tts">Qumulb’al</annotation>
+		<annotation cp="🍾">k’aykqumuxi’k | k’olib’al | korch | kumuxik | kpopob’ik</annotation>
+		<annotation cp="🍾" type="tts">B’ot ruk’ tz’apib’al le kpolajik</annotation>
+		<annotation cp="🍷">k’aykqumuxi’k | kqumuxik | kristal | b’ino</annotation>
+		<annotation cp="🍷" type="tts">Pajb’al rech tzam</annotation>
+		<annotation cp="🍸">k’aykqumuxi’k | koktel | kqumuxik | kristal</annotation>
+		<annotation cp="🍸" type="tts">Kop rech Uwalche’</annotation>
+		<annotation cp="🍹">k’aykqumuxi’k | kqumuxik | saq’ij</annotation>
+		<annotation cp="🍹" type="tts">Ja’ rech saq’ij</annotation>
+		<annotation cp="🍺">k’aykqumuxi’k | tzam | kqumuxik | chib’as</annotation>
+		<annotation cp="🍺" type="tts">Jun xa’r Tzam</annotation>
+		<annotation cp="🍻">k’aykqumuxi’k | tzam | upaq’ixik | kqumuxik | tzara’r</annotation>
+		<annotation cp="🍻" type="tts">Upaq’ixik Xa’r rech Tzam</annotation>
+		<annotation cp="🥂">upaq’ixik | kop | kqumuxik | nimaq’ij</annotation>
+		<annotation cp="🥂" type="tts">Upaq’ixik taq kop</annotation>
+		<annotation cp="🥃">kop | alaj b’as | whitzam | litzam | disparo</annotation>
+		<annotation cp="🥃" type="tts">Alaj b’as</annotation>
+		<annotation cp="🥤">aw | juwaluwache’</annotation>
+		<annotation cp="🥤" type="tts">kop ruk’ jek’b’al</annotation>
+		<annotation cp="🥢">hashi</annotation>
+		<annotation cp="🥢" type="tts">che’teleb’al</annotation>
+		<annotation cp="🍽">tzakoj riki’l | xk’aq | kuchi’l | web’al</annotation>
+		<annotation cp="🍽" type="tts">xk’aq chi’l kuchi’l ruk’ web’al</annotation>
+		<annotation cp="🍴">tzakoj riki’l | xk’aq | kuchi’l</annotation>
+		<annotation cp="🍴" type="tts">Leleb’al chi’l ch’ikb’al</annotation>
+		<annotation cp="🥄">pak’ab’al | pisb’al wa</annotation>
+		<annotation cp="🥄" type="tts">Pak’ab’al</annotation>
+		<annotation cp="🔪">utzakik wa | chokuchi’l | kuchi’l | chakub’al | wek’aqb’al</annotation>
+		<annotation cp="🔪" type="tts">Kuchi’l rech Nuk’b’al q’aq’</annotation>
+		<annotation cp="🏺">acuario | tzakoj riki’l | kqumuxik | k’olki’uwache’ | chakub’al | wek’aqb’al | zodiaco</annotation>
+		<annotation cp="🏺" type="tts">Ánfora</annotation>
+		<annotation cp="🌍">Africa | uwachulew | Europa | k’olok’ik</annotation>
+		<annotation cp="🌍" type="tts">K’olok’ik Kuk’ut Europa chi’l Africa</annotation>
+		<annotation cp="🌎">rech América | uwachulew | k’olok’ik</annotation>
+		<annotation cp="🌎" type="tts">K’olok’ik Kuk’ut taq América</annotation>
+		<annotation cp="🌏">Asia | Austrialia | uwachulew | k’olok’ik</annotation>
+		<annotation cp="🌏" type="tts">K’olok’ik Kuk’ut Asia chi’l Australia</annotation>
+		<annotation cp="🌐">uwachulew | k’olok’ik | utas ulew | uwach ulew</annotation>
+		<annotation cp="🌐" type="tts">K’olok’ik Kuk’ut taq Meriadianos</annotation>
+		<annotation cp="🗺">uwachib’al uwachulew | uwach ulew</annotation>
+		<annotation cp="🗺" type="tts">uwachib’al uwachulew</annotation>
+		<annotation cp="🗾">rech japón | Uwachib’al uwachulew</annotation>
+		<annotation cp="🗾" type="tts">Uwachib’al uwachulew rech Japón</annotation>
+		<annotation cp="🏔">tew | juyub’ | saq tew</annotation>
+		<annotation cp="🏔" type="tts">juyub’ ruk’ saq tew</annotation>
+		<annotation cp="⛰">juyub’</annotation>
+		<annotation cp="⛰" type="tts">juyub’</annotation>
+		<annotation cp="🌋">relesaxik q’aq’ | juyub’</annotation>
+		<annotation cp="🌋" type="tts">Xkanul</annotation>
+		<annotation cp="🗻">saq’ij | juyub’</annotation>
+		<annotation cp="🗻" type="tts">Uwachi’b’al juyub’</annotation>
+		<annotation cp="🏕">uxjuyub’</annotation>
+		<annotation cp="🏕" type="tts">uxjuyub’</annotation>
+		<annotation cp="🏖">uchi’palow | q’ateb’al jab’</annotation>
+		<annotation cp="🏖" type="tts">palow ruk’ q’ateb’al jab’</annotation>
+		<annotation cp="🏜">tz’inilik ulew</annotation>
+		<annotation cp="🏜" type="tts">tz’inilik ulew</annotation>
+		<annotation cp="🏝">tz’inilik ulew | sutja’</annotation>
+		<annotation cp="🏝" type="tts">tz’inilik ulew sutja’</annotation>
+		<annotation cp="🏞">uxlamb’al</annotation>
+		<annotation cp="🏞" type="tts">uxlamb’al rech amaq’</annotation>
+		<annotation cp="🏟">nim etz’amb’al</annotation>
+		<annotation cp="🏟" type="tts">nim etz’amb’al</annotation>
+		<annotation cp="🏛">ojer</annotation>
+		<annotation cp="🏛" type="tts">ojer ja</annotation>
+		<annotation cp="🏗">Tz’aqb’al</annotation>
+		<annotation cp="🏗" type="tts">tz’qb’al ja</annotation>
+		<annotation cp="🏘">taq ja</annotation>
+		<annotation cp="🏘" type="tts">taq ja</annotation>
+		<annotation cp="🏚">meb’a | ja</annotation>
+		<annotation cp="🏚" type="tts">meb’a’ ja</annotation>
+		<annotation cp="🏠">achochib’al | ja</annotation>
+		<annotation cp="🏠" type="tts">Ja</annotation>
+		<annotation cp="🏡">kotzi’j | achochib’al | ja</annotation>
+		<annotation cp="🏡" type="tts">Ja ruk’ kotz’ij</annotation>
+		<annotation cp="🏢">q’a’mja</annotation>
+		<annotation cp="🏢" type="tts">Nim ja chakub’al</annotation>
+		<annotation cp="🏣">powachib’al | rech Japón</annotation>
+		<annotation cp="🏣" type="tts">Taqb’al Oqa’n rech Japon</annotation>
+		<annotation cp="🏤">powachib’al | rech Europa</annotation>
+		<annotation cp="🏤" type="tts">Wachib’al ja chakub’al</annotation>
+		<annotation cp="🏥">ajkun | kunab’al</annotation>
+		<annotation cp="🏥" type="tts">Nim Ja k’unab’al</annotation>
+		<annotation cp="🏦">q’a’mja</annotation>
+		<annotation cp="🏦" type="tts">K’olpwaq</annotation>
+		<annotation cp="🏨">q’a’mja</annotation>
+		<annotation cp="🏨" type="tts">Ja warab’al</annotation>
+		<annotation cp="🏩">warab’al | loq’ob’al</annotation>
+		<annotation cp="🏩" type="tts">Warab’al rech loq’ob’al</annotation>
+		<annotation cp="🏪">K’ayib’al rech Ajawatajem</annotation>
+		<annotation cp="🏪" type="tts">K’ayib’al rech Ajawatajem</annotation>
+		<annotation cp="🏫">q’a’mja</annotation>
+		<annotation cp="🏫" type="tts">Tijob’al</annotation>
+		<annotation cp="🏬">Nimaq k’olib’al</annotation>
+		<annotation cp="🏬" type="tts">Nimaq k’olib’al</annotation>
+		<annotation cp="🏭">q’a’mja</annotation>
+		<annotation cp="🏭" type="tts">Ja wokob’al</annotation>
+		<annotation cp="🏯">kasti’y | rech japón</annotation>
+		<annotation cp="🏯" type="tts">Je’l ja rech Japo’n</annotation>
+		<annotation cp="🏰">rech Europa</annotation>
+		<annotation cp="🏰" type="tts">kasti’y</annotation>
+		<annotation cp="💒">kapi’y | loq’ob’al</annotation>
+		<annotation cp="💒" type="tts">K’ulanem</annotation>
+		<annotation cp="🗼">Torre Tokio</annotation>
+		<annotation cp="🗼" type="tts">Torre Tokio</annotation>
+		<annotation cp="🗽">tzoqopinen | ab’wachib’al</annotation>
+		<annotation cp="🗽" type="tts">Estatua de la libertad</annotation>
+		<annotation cp="⛪">kristian | krus | kojb’al</annotation>
+		<annotation cp="⛪" type="tts">Tyox</annotation>
+		<annotation cp="🕌">islam | musulman | kojb’al</annotation>
+		<annotation cp="🕌" type="tts">Mezquita</annotation>
+		<annotation cp="🕍">Judio | kojb’al | tyoxja</annotation>
+		<annotation cp="🕍" type="tts">tyoxja</annotation>
+		<annotation cp="⛩">kojb’al | sinto | santuar</annotation>
+		<annotation cp="⛩" type="tts">sinto</annotation>
+		<annotation cp="🕋">islam | musulman | kojb’al</annotation>
+		<annotation cp="🕋" type="tts">Kaaba</annotation>
+		<annotation cp="⛲">Uxe’al</annotation>
+		<annotation cp="⛲" type="tts">Uxe’al</annotation>
+		<annotation cp="⛺">uxjuyub’</annotation>
+		<annotation cp="⛺" type="tts">Xax Wara’b’al</annotation>
+		<annotation cp="🌁">q’eq sutz’</annotation>
+		<annotation cp="🌁" type="tts">Q’eq sutz’</annotation>
+		<annotation cp="🌃">chaq’ab’ | ch’umil</annotation>
+		<annotation cp="🌃" type="tts">Chaq’ab’ ruk’ ch’umil</annotation>
+		<annotation cp="🏙">nim tinamit</annotation>
+		<annotation cp="🏙" type="tts">uwachib’al nim tinamit</annotation>
+		<annotation cp="🌄">aq’ab’il | juyub’ | uwaq’ij | uqajb’al q’ij</annotation>
+		<annotation cp="🌄" type="tts">Q’ij chi rij juyub’</annotation>
+		<annotation cp="🌅">aq’ab’il | q’ij</annotation>
+		<annotation cp="🌅" type="tts">Usaqarib’al</annotation>
+		<annotation cp="🌆">nim tinamit | chaq’ab’ | mochaq’ab’ | uwachib’al rulewal | q’ij | uqajb’al q’ij</annotation>
+		<annotation cp="🌆" type="tts">Wachib’al rech Tinamit rech B’enaq q’ij</annotation>
+		<annotation cp="🌇">chaq’ab’il | q’ij</annotation>
+		<annotation cp="🌇" type="tts">Uqajik b’i q’ij</annotation>
+		<annotation cp="🌉">q’axeb’al</annotation>
+		<annotation cp="🌉" type="tts">Q’axeb’al Chaq’ab’</annotation>
+		<annotation cp="♨">k’atan | k’atanja’ | b’inelja’ | b’inel</annotation>
+		<annotation cp="♨" type="tts">k’atanja’</annotation>
+		<annotation cp="🎠">Setkej</annotation>
+		<annotation cp="🎠" type="tts">Setkej</annotation>
+		<annotation cp="🎡">nim uxlamb’al | pejukub’ | setb’inib’al</annotation>
+		<annotation cp="🎡" type="tts">Setesik Mayb’al</annotation>
+		<annotation cp="🎢">nim uxlamb’al | k’aqo’l | set</annotation>
+		<annotation cp="🎢" type="tts">Montaña rusa</annotation>
+		<annotation cp="💈">ramwi’aj | uramixik wi’aj | b’olob’ik ub’antajik</annotation>
+		<annotation cp="💈" type="tts">B’olob’ik ub’antajik</annotation>
+		<annotation cp="🎪">Uk’olib’al Et’zamb’al</annotation>
+		<annotation cp="🎪" type="tts">Uk’olib’al Et’zamb’al</annotation>
+		<annotation cp="🚂">jurujik ch’ich’ | laj jurujik chi’ch’ | k’atanal | nim jurujik ch’ich’</annotation>
+		<annotation cp="🚂" type="tts">Jurujik ch’ich’</annotation>
+		<annotation cp="🚃">ch’ich | kaxlan q’aq’ | laj jurujik chi’ch’ | nim jurujik ch’ch’ | jeb’ch’ich’ | laj jeb’chich’</annotation>
+		<annotation cp="🚃" type="tts">Laj jurujik ch’ich’</annotation>
+		<annotation cp="🚄">laj jurujik chi’ch’ | jurujitza’m ch’ich’ | ukanil | nim jurujik chi’ch’</annotation>
+		<annotation cp="🚄" type="tts">Nim ukanil Jurujik ch’ich’</annotation>
+		<annotation cp="🚅">b’al | laj jurujik chi’ch’ | jurujitza’m ch’ich’ | ukanil | nim jurujik chi’ch’</annotation>
+		<annotation cp="🚅" type="tts">Nim ukanil Jurujik ch’ich’ ruk’ Utz’am</annotation>
+		<annotation cp="🚆">laj jurujik ch’ich’</annotation>
+		<annotation cp="🚆" type="tts">Nim jurujik ch’ich’</annotation>
+		<annotation cp="🚇">uxe’ ulew</annotation>
+		<annotation cp="🚇" type="tts">Etab’al</annotation>
+		<annotation cp="🚈">laj jurujik ch’ich’</annotation>
+		<annotation cp="🚈" type="tts">Uwach jurujik ch’ich’</annotation>
+		<annotation cp="🚉">laj rurujik chi’ch’ | nim rurujik chi’ch’</annotation>
+		<annotation cp="🚉" type="tts">Opanib’al</annotation>
+		<annotation cp="🚊">Trolebús</annotation>
+		<annotation cp="🚊" type="tts">Ub’e jurujik ch’ich’</annotation>
+		<annotation cp="🚝">ch’ich’</annotation>
+		<annotation cp="🚝" type="tts">Jeb’el jurujik ch’ich’</annotation>
+		<annotation cp="🚞">ch’ich’ | juyub’ | laj rurujik chi’ch’</annotation>
+		<annotation cp="🚞" type="tts">Jurujik ch’ich’ pa juyub’</annotation>
+		<annotation cp="🚋">ch’ich’ | ub’e jurujik ch’ich’ | laj jeb’el chi’ch’</annotation>
+		<annotation cp="🚋" type="tts">Ub’e ch’ich’ b’inib’al</annotation>
+		<annotation cp="🚌">ch’ich’</annotation>
+		<annotation cp="🚌" type="tts">Retal Ch’ich’</annotation>
+		<annotation cp="🚍">retal ch’ich’ | kanaqajob’ loq</annotation>
+		<annotation cp="🚍" type="tts">Nim ch’ich’ kanaqajob’ loq</annotation>
+		<annotation cp="🚎">retal ch’ich’ | ub’e jurujik ch’ich | trolebús</annotation>
+		<annotation cp="🚎" type="tts">Trolebús</annotation>
+		<annotation cp="🚐">Retal Ch’ich’</annotation>
+		<annotation cp="🚐" type="tts">Alaj b’inib’al</annotation>
+		<annotation cp="🚑">ch’ich’</annotation>
+		<annotation cp="🚑" type="tts">K’amb’al yowab’</annotation>
+		<annotation cp="🚒">jurujik ch’ich’ | q’aq’ | ko’k</annotation>
+		<annotation cp="🚒" type="tts">Ko’kach’ch’ rech Chupq’aq’</annotation>
+		<annotation cp="🚓">ch’ich’ | pachich’ | chajinel</annotation>
+		<annotation cp="🚓" type="tts">B’inib’al ch’ich’ rech q’atb’altzij</annotation>
+		<annotation cp="🚔">ch’ich’ | petinaq | chajinel</annotation>
+		<annotation cp="🚔" type="tts">Chajib’alch’ich’ Petinaq</annotation>
+		<annotation cp="🚕">ch’ich’</annotation>
+		<annotation cp="🚕" type="tts">Alaj chh’ich’</annotation>
+		<annotation cp="🚖">Alaj Ch’ich’ petinaq</annotation>
+		<annotation cp="🚖" type="tts">Alaj Ch’ich’ petinaq</annotation>
+		<annotation cp="🚗">ch’ich’</annotation>
+		<annotation cp="🚗" type="tts">Ch’ich’</annotation>
+		<annotation cp="🚘">Chich’ b’inib’al | ch’ich’ | knaqajob’ loq’</annotation>
+		<annotation cp="🚘" type="tts">Ch’ich’ b’inib’al kanaqajob’ loq</annotation>
+		<annotation cp="🚙">etz’anem | uwachinem taq etz’anem</annotation>
+		<annotation cp="🚙" type="tts">Etz’anem kakoj wi b’inib’al ch’ich’</annotation>
+		<annotation cp="🚚">Ko’kach’ich’ rech jachb’al</annotation>
+		<annotation cp="🚚" type="tts">Ko’kach’ich’ rech jachb’al</annotation>
+		<annotation cp="🚛">ko’k | retal</annotation>
+		<annotation cp="🚛" type="tts">Alaj ko’k Ch’ich’</annotation>
+		<annotation cp="🚜">ch’ich’</annotation>
+		<annotation cp="🚜" type="tts">Tractor</annotation>
+		<annotation cp="🏎">ch’ich’ | anim</annotation>
+		<annotation cp="🏎" type="tts">anim rech ch’ich’</annotation>
+		<annotation cp="🏍">anim</annotation>
+		<annotation cp="🏍" type="tts">ret’et’</annotation>
+		<annotation cp="🛵">Alaj kej ch’ich’</annotation>
+		<annotation cp="🛵" type="tts">Alaj kej ch’ich’</annotation>
+		<annotation cp="🚲">kej chi’ch’</annotation>
+		<annotation cp="🚲" type="tts">Kej ch’ich’</annotation>
+		<annotation cp="🛴">alaj kej ch’ich’ | upotz’ixik</annotation>
+		<annotation cp="🛴" type="tts">Jilinel</annotation>
+		<annotation cp="🚏">retal ch’ich’ | q’ateb’al ch’ich’ | q’ateb’al</annotation>
+		<annotation cp="🚏" type="tts">Q’ateb’al Retal ch’ich’</annotation>
+		<annotation cp="🛣">q’eq b’e</annotation>
+		<annotation cp="🛣" type="tts">nimq’eq b’e</annotation>
+		<annotation cp="🛤">laj rurujik chi’ch’ | nim rurujik chi’ch’</annotation>
+		<annotation cp="🛤" type="tts">jurujik ch’ich’ ko’k</annotation>
+		<annotation cp="🛢">b’olk’olib’al | q’anal</annotation>
+		<annotation cp="🛢" type="tts">b’olk’olib’al rech q’anal</annotation>
+		<annotation cp="⛽">q’aq’ib’al | polejem rech q’aq’ib’al | wos | polajem | k’olib’al</annotation>
+		<annotation cp="⛽" type="tts">Polajem rech Q’aq’ib’al</annotation>
+		<annotation cp="🚨">q’aq’ | ch’ich’ | chajinel | sutinem</annotation>
+		<annotation cp="🚨" type="tts">Kaxlan q’aq’ rech q’atb’altzij</annotation>
+		<annotation cp="🚥">q’aq’ | etal | ucholajil ch’ich’</annotation>
+		<annotation cp="🚥" type="tts">Qe’l Ucholajil Ch’ich’</annotation>
+		<annotation cp="🚦">q’aq’ | etal | ucholajil ch’ich’</annotation>
+		<annotation cp="🚦" type="tts">Tak’al kaxlan q’aq’ rech b’inib’al</annotation>
+		<annotation cp="🛑">wajxaq xukut | etal | uq’atexik</annotation>
+		<annotation cp="🛑" type="tts">Retal qatalem</annotation>
+		<annotation cp="🚧">q’atch’ich’</annotation>
+		<annotation cp="🚧" type="tts">Tz’aqb’al</annotation>
+		<annotation cp="⚓">nim jukub’ | chakub’al</annotation>
+		<annotation cp="⚓" type="tts">Jachal uwach</annotation>
+		<annotation cp="⛵">jukub’ | jeb’el warab’al | palow | yajukub’</annotation>
+		<annotation cp="⛵" type="tts">Tok’jukub’</annotation>
+		<annotation cp="🛶">alaj jukub’ | jukub’</annotation>
+		<annotation cp="🛶" type="tts">Jukub’</annotation>
+		<annotation cp="🚤">jukub’</annotation>
+		<annotation cp="🚤" type="tts">Ananinaq jukub’</annotation>
+		<annotation cp="🛳">aj b’yaj | nim jukub’</annotation>
+		<annotation cp="🛳" type="tts">aj b’yaj</annotation>
+		<annotation cp="⛴">jukub’ | aj b’ya</annotation>
+		<annotation cp="⛴" type="tts">erenik</annotation>
+		<annotation cp="🛥">jukub’ | ranch’ich’ jukub’</annotation>
+		<annotation cp="🛥" type="tts">anch’ich’ jukub’</annotation>
+		<annotation cp="🚢">jukub’ | aj b’ya</annotation>
+		<annotation cp="🚢" type="tts">Nim jukub’</annotation>
+		<annotation cp="✈">xik’ich’ich’</annotation>
+		<annotation cp="✈" type="tts">xik’ich’ich’</annotation>
+		<annotation cp="🛩">xik’ich’ich’</annotation>
+		<annotation cp="🛩" type="tts">nitz’ xik’ich’ich’</annotation>
+		<annotation cp="🛫">xik’ich’ich’ | okib’al | elem b’ik | taq elem b’ik</annotation>
+		<annotation cp="🛫" type="tts">Releb’al xik’ichi’ch’</annotation>
+		<annotation cp="🛬">xik’ich’ich’ | xik’ich’ich | taq opanib’al | ktajin opanem | ktajin uqajik</annotation>
+		<annotation cp="🛬" type="tts">Ropanib’al xik’ik’el ch’ich’</annotation>
+		<annotation cp="💺">tem</annotation>
+		<annotation cp="💺" type="tts">T’uyulb’al</annotation>
+		<annotation cp="🚁">ch’ich’</annotation>
+		<annotation cp="🚁" type="tts">Rapch’ich’</annotation>
+		<annotation cp="🚟">jurujik ch’’ch’ | q’ateb’al</annotation>
+		<annotation cp="🚟" type="tts">Q’axeb’al</annotation>
+		<annotation cp="🚠">k’a’am | yojukub’ | juyub’</annotation>
+		<annotation cp="🚠" type="tts">Teleférico</annotation>
+		<annotation cp="🚡">pa kaqiq’ | k’a’am | ch’ich’ | jukub’ | xekekb’al</annotation>
+		<annotation cp="🚡" type="tts">Chikajij xekekb’al</annotation>
+		<annotation cp="🛰">chikajil</annotation>
+		<annotation cp="🛰" type="tts">sutinel</annotation>
+		<annotation cp="🛸">UFO</annotation>
+		<annotation cp="🛸" type="tts">chikajilset</annotation>
+		<annotation cp="🛎">ch’ich’ | telenel | warab’al</annotation>
+		<annotation cp="🛎" type="tts">telenel</annotation>
+		<annotation cp="⌛">seneyeb’ | retab’al q’ij</annotation>
+		<annotation cp="⌛" type="tts">Jalajoj lame’t</annotation>
+		<annotation cp="⏳">jalajoj lame’t | seneyeb’ | retab’al q’ij</annotation>
+		<annotation cp="⏳" type="tts">Taq lame’t ruk’ seneyeb’</annotation>
+		<annotation cp="⌚">kloretab’al q’ij</annotation>
+		<annotation cp="⌚" type="tts">Retab’al q’ij</annotation>
+		<annotation cp="⏰">Wane’jb’al rech retalq’ij</annotation>
+		<annotation cp="⏰" type="tts">Wane’jb’al rech retalq’ij</annotation>
+		<annotation cp="⏱">kloretab’al q’ij</annotation>
+		<annotation cp="⏱" type="tts">q’ateb’al retab’alil q’ij</annotation>
+		<annotation cp="⏲">kloretab’al q’ij | retab’al q’ij</annotation>
+		<annotation cp="⏲" type="tts">retab’alil q’ij rech kloretab’al q’ij</annotation>
+		<annotation cp="🕰">kloretab’al q’ij</annotation>
+		<annotation cp="🕰" type="tts">maretab’al q’ij</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | kloretab’al q’ij | ramaj | kab’lajuj</annotation>
+		<annotation cp="🕛" type="tts">Kab’lajuj ramaj</annotation>
+		<annotation cp="🕧">12 | 12:30 | 30 | kloretab’alil q’ij | Kab’lajuj-juwinaq | kab’lajuj</annotation>
+		<annotation cp="🕧" type="tts">Kab’lajuj-juwinaq lajuj</annotation>
+		<annotation cp="🕐">00 | 1 | 1:00 | kloretab’al q’ij | ramaj q’ij | jun</annotation>
+		<annotation cp="🕐" type="tts">Jun ramaj</annotation>
+		<annotation cp="🕜">1 | 1:30 | 30 | kloretab’al q’ij | jun | juwinaq lajuj</annotation>
+		<annotation cp="🕜" type="tts">Jun-juwinaq lajuj</annotation>
+		<annotation cp="🕑">00 | 2 | 2:00 | kloretab’al q’ij | ramaj | keb’</annotation>
+		<annotation cp="🕑" type="tts">Keb’ ramaj</annotation>
+		<annotation cp="🕝">2 | 2:30 | 30 | kloretab’al q’ij | juwinaq lajuj | keb’</annotation>
+		<annotation cp="🕝" type="tts">Keb’-juwinaq lajuj</annotation>
+		<annotation cp="🕒">00 | 3 | 3:00 | kloretab’al q’ij | ramaj | oxib’</annotation>
+		<annotation cp="🕒" type="tts">Oxib’ ramaj</annotation>
+		<annotation cp="🕞">3 | 3:30 | 30 | kloretab’al q’ij | juwinaq lajuj | oxib’</annotation>
+		<annotation cp="🕞" type="tts">Oxib’-juwinaq lajuj</annotation>
+		<annotation cp="🕓">00 | 4 | 4:00 | kloretab’al q’ij | kajib’ | ramaj</annotation>
+		<annotation cp="🕓" type="tts">Kajib’ Ramaj</annotation>
+		<annotation cp="🕟">30 | 4 | 4:30 | kloretab’al q’ij | kajib’ | juwinaq lajuj</annotation>
+		<annotation cp="🕟" type="tts">Kajib’ ruk’ Juwinaq lajuj</annotation>
+		<annotation cp="🕔">00 | 5 | 5:00 | kloretab’al q’ij | job’ | ramaj</annotation>
+		<annotation cp="🕔" type="tts">Job’ Ramaj</annotation>
+		<annotation cp="🕠">30 | 5 | 5:30 | kloretab’al q’ij | job’ | juwinaq lajuj</annotation>
+		<annotation cp="🕠" type="tts">Job’ ruk’ Juwinaq Lajuj</annotation>
+		<annotation cp="🕕">00 | 6 | 6:00 | kloretab’al q’ij | ramaj | waqib’</annotation>
+		<annotation cp="🕕" type="tts">Waqib’ ramaj</annotation>
+		<annotation cp="🕡">30 | 6 | 6:30 | kloretab’al q’ij | waqib’ | juwinaq lajuj</annotation>
+		<annotation cp="🕡" type="tts">Waqb’-juwinaq lajuj</annotation>
+		<annotation cp="🕖">00 | 7 | 7:00 | kloretab’al q’ij | ramaj | wuqub’</annotation>
+		<annotation cp="🕖" type="tts">Wuqub’ ramaj</annotation>
+		<annotation cp="🕢">30 | 7 | 7:30 | kloretab’al q’ij | wuqub’ | juwinaq lajuj</annotation>
+		<annotation cp="🕢" type="tts">Wuqub’-juwinaq lajuj</annotation>
+		<annotation cp="🕗">00 | 8 | 8:00 | kloretab’al q’ij | wajxaqib’ | ramaj</annotation>
+		<annotation cp="🕗" type="tts">Wajxaqib’ Ramaj</annotation>
+		<annotation cp="🕣">30 | 8 | 8:30 | kloretab’al q’ij | wajxaqib’ | juwinaq lajuj</annotation>
+		<annotation cp="🕣" type="tts">Wajxaqib’ ruk’ Juwinaq Lajuj</annotation>
+		<annotation cp="🕘">00 | 9 | 9:00 | kloretab’al q’ij | b’elejeb’ | ramaj</annotation>
+		<annotation cp="🕘" type="tts">B’elejeb’ ramaj</annotation>
+		<annotation cp="🕤">30 | 9 | 9:30 | clock | b’elejeb’ | juwinaq lajuj</annotation>
+		<annotation cp="🕤" type="tts">B’elejeb’-juwinaq lajuj</annotation>
+		<annotation cp="🕙">00 | 10 | 10:00 | kloretab’al q’ij | ramaj | lajuj</annotation>
+		<annotation cp="🕙" type="tts">Lajuj ramaj</annotation>
+		<annotation cp="🕥">10 | 10:30 | 30 | kloretab’al q’ij | lajuj | juwinaq lajuj</annotation>
+		<annotation cp="🕥" type="tts">Lajuj-juwinaq lajuj</annotation>
+		<annotation cp="🕚">00 | 11 | 11:00 | kloretab’al q’ij | ju’lajuj | ramaj</annotation>
+		<annotation cp="🕚" type="tts">Ju’lajuj Ramaj</annotation>
+		<annotation cp="🕦">11 | 11:30 | 30 | kloretab’al q’ij | ju’lajuj | juwinaq lajuj</annotation>
+		<annotation cp="🕦" type="tts">Ju’lajuj ruk’ Juwinaq lajuj</annotation>
+		<annotation cp="🌑">q’equ’m | ik’</annotation>
+		<annotation cp="🌑" type="tts">K’ak’ ik’</annotation>
+		<annotation cp="🌒">uk’iyem ik’ | ik’ | jub’a’ ik’</annotation>
+		<annotation cp="🌒" type="tts">Uk’iyem jub’a ik’</annotation>
+		<annotation cp="🌓">ik’ | nik’aj ik’</annotation>
+		<annotation cp="🌓" type="tts">Nik’aj ik’</annotation>
+		<annotation cp="🌔">kotokik | ik’ | jub’a’ ik’</annotation>
+		<annotation cp="🌔" type="tts">Ub’antajik kotokik ik’</annotation>
+		<annotation cp="🌕">Tzaqat Ik’</annotation>
+		<annotation cp="🌕" type="tts">Tzaqat Ik’</annotation>
+		<annotation cp="🌖">kotokik | ik’ | jub’a’ ik’</annotation>
+		<annotation cp="🌖" type="tts">Q’ilb’al rech xotol ik’</annotation>
+		<annotation cp="🌗">ik’ | nik’aj ik’</annotation>
+		<annotation cp="🌗" type="tts">Jub’a ik’</annotation>
+		<annotation cp="🌘">uk’iyik ik’ | ik’ | meik’</annotation>
+		<annotation cp="🌘" type="tts">Q’ilb’al rech uk’iyem ik’</annotation>
+		<annotation cp="🌙">Uk’iyik ik’</annotation>
+		<annotation cp="🌙" type="tts">Uk’iyik ik’</annotation>
+		<annotation cp="🌚">palajaj | ik’</annotation>
+		<annotation cp="🌚" type="tts">K’ak’ ik’ palajaj</annotation>
+		<annotation cp="🌛">palajaj | ik’ | jub’a’ ik’</annotation>
+		<annotation cp="🌛" type="tts">Nik’aj Ik’ ruk’ Palajaj</annotation>
+		<annotation cp="🌜">palajaj | ik’ | jub’a’ ik’</annotation>
+		<annotation cp="🌜" type="tts">Jub’a ik’ k’o upalaj</annotation>
+		<annotation cp="🌡">meq’owal</annotation>
+		<annotation cp="🌡" type="tts">q’aq’tewal</annotation>
+		<annotation cp="☀">uchupchutem | tun | q’ij</annotation>
+		<annotation cp="☀" type="tts">q’ij</annotation>
+		<annotation cp="🌝">uchupchutem | tun | q’ij</annotation>
+		<annotation cp="🌝" type="tts">Tzaqat Ik’ ruk’ Palajaj</annotation>
+		<annotation cp="🌞">uchupchutem | palajaj | q’ij</annotation>
+		<annotation cp="🌞" type="tts">Q’ij k’o upalaj</annotation>
+		<annotation cp="⭐">q’ij</annotation>
+		<annotation cp="⭐" type="tts">Saq retal ch’umil</annotation>
+		<annotation cp="🌟">kreprotik | kwonik | kcupchutik | chupchutem | ch’umil</annotation>
+		<annotation cp="🌟" type="tts">Uchupchutem Ch’umil</annotation>
+		<annotation cp="🌠">utzaqem | uxu’m | ch’umil</annotation>
+		<annotation cp="🌠" type="tts">Uxu’m ch’umil</annotation>
+		<annotation cp="🌌">chikajil</annotation>
+		<annotation cp="🌌" type="tts">Chikajil</annotation>
+		<annotation cp="☁">meq’owal</annotation>
+		<annotation cp="☁" type="tts">sutz’</annotation>
+		<annotation cp="⛅">sutz’ | q’ij</annotation>
+		<annotation cp="⛅" type="tts">Q’ij chi rij sutz’</annotation>
+		<annotation cp="⛈">sutz’ | jab’ | kaqulja</annotation>
+		<annotation cp="⛈" type="tts">sutz’ ruk’ tzuk’linem chi’l jab’</annotation>
+		<annotation cp="🌤">sutz’ | q’ij</annotation>
+		<annotation cp="🌤" type="tts">q’ij chi rij nitz’ sutz</annotation>
+		<annotation cp="🌥">sutz’ | q’ij</annotation>
+		<annotation cp="🌥" type="tts">q’ij chi rij nim sutz</annotation>
+		<annotation cp="🌦">sutz’ | jab’ | q’ij</annotation>
+		<annotation cp="🌦" type="tts">q’ij chi rij sutz’ rech jab’</annotation>
+		<annotation cp="🌧">Sutz’ | jab’</annotation>
+		<annotation cp="🌧" type="tts">sutz’ ruk’ jab’</annotation>
+		<annotation cp="🌨">sutz’ | tew | saq tew</annotation>
+		<annotation cp="🌨" type="tts">sutz’ ruk’ saq tew</annotation>
+		<annotation cp="🌩">sutz’ | tzuk’linem</annotation>
+		<annotation cp="🌩" type="tts">sutz’ ruk’ tzuklinem</annotation>
+		<annotation cp="🌪">tew | salk’um</annotation>
+		<annotation cp="🌪" type="tts">nim salk’um</annotation>
+		<annotation cp="🌫">sutz’</annotation>
+		<annotation cp="🌫" type="tts">sutz’ u-wächulew</annotation>
+		<annotation cp="🌬">sipojem | sutz’ | palajaj | kaqiq’</annotation>
+		<annotation cp="🌬" type="tts">kaqiq’ palajaj</annotation>
+		<annotation cp="🌀">salk’um | nim salk’um | sutsaq tew</annotation>
+		<annotation cp="🌀" type="tts">Ciclón</annotation>
+		<annotation cp="🌈">jab’</annotation>
+		<annotation cp="🌈" type="tts">Xk’uq’ab’</annotation>
+		<annotation cp="🌂">atz’i’aqb’al</annotation>
+		<annotation cp="🌂" type="tts">Tz’apital Q’atjab’</annotation>
+		<annotation cp="☂">atz’i’aqb’al | jab’</annotation>
+		<annotation cp="☂" type="tts">q’ateb’al jab’</annotation>
+		<annotation cp="☔">atz’i’aqb’al | raqan | jab’ | q’atjab’</annotation>
+		<annotation cp="☔" type="tts">Panab’al ruk’ jab’</annotation>
+		<annotation cp="⛱">jab’ | q’ij | q’atjab’</annotation>
+		<annotation cp="⛱" type="tts">q’atjab’ pa uwach ulew</annotation>
+		<annotation cp="⚡">uk’axal | rech kaxlan q’aq’ | kaxlan q’aq’ | tzuk’linem | uchuq’ab’ kaxlan q’aq’ | zap</annotation>
+		<annotation cp="⚡" type="tts">Nim uchuq’ab’</annotation>
+		<annotation cp="❄">tew | saq tew</annotation>
+		<annotation cp="❄" type="tts">krissaq tew</annotation>
+		<annotation cp="☃">tew | saq tew</annotation>
+		<annotation cp="☃" type="tts">achi rech saq tew</annotation>
+		<annotation cp="⛄">tew | saq tew | achi rech saq tew</annotation>
+		<annotation cp="⛄" type="tts">Achi rech t’aja’j maj utza’m</annotation>
+		<annotation cp="☄">chikajil</annotation>
+		<annotation cp="☄" type="tts">juch’ch’umil</annotation>
+		<annotation cp="🔥">tun | chakub’al</annotation>
+		<annotation cp="🔥" type="tts">Q’aq’</annotation>
+		<annotation cp="💧">tew | tze’b’al | tzuj | k’atanal</annotation>
+		<annotation cp="💧" type="tts">Tz’uj</annotation>
+		<annotation cp="🌊">palow | ja’ | uyi’kopem</annotation>
+		<annotation cp="🌊" type="tts">Uyi’kopem ja’</annotation>
+		<annotation cp="🎃">nimaq’ij | uq’ijol jkaminaqib’ | xib’saq | laq’aq’</annotation>
+		<annotation cp="🎃" type="tts">Tzijil Mukun</annotation>
+		<annotation cp="🎄">nimaq’ij | alaxb’al | che’</annotation>
+		<annotation cp="🎄" type="tts">Che’ rech Alaxib’al</annotation>
+		<annotation cp="🎆">nimaq’ij</annotation>
+		<annotation cp="🎆" type="tts">Kaxlan taq Q’aq’</annotation>
+		<annotation cp="🎇">nimaq’ij | kaxlan taq q’aq’ | kareprotik</annotation>
+		<annotation cp="🎇" type="tts">Kareprotik</annotation>
+		<annotation cp="✨">kreprot | ch’umil</annotation>
+		<annotation cp="✨" type="tts">Kachupchutik</annotation>
+		<annotation cp="🎈">nimaq’ij</annotation>
+		<annotation cp="🎈" type="tts">Pupu</annotation>
+		<annotation cp="🎉">nimaq’ij | woqob’al | taxajab’</annotation>
+		<annotation cp="🎉" type="tts">Wiqob’al rech nimaq’ij</annotation>
+		<annotation cp="🎊">potz’ | nimaq’ij | kab’</annotation>
+		<annotation cp="🎊" type="tts">Setesik rech Kab’</annotation>
+		<annotation cp="🎋">retamaq’ | nimaq’ij | rech japón | che’</annotation>
+		<annotation cp="🎋" type="tts">Che’ rech Tanabata</annotation>
+		<annotation cp="🎍">b’amb’u | nimaq’ij | reh japón | xaqchaj</annotation>
+		<annotation cp="🎍" type="tts">Wiqob’al xaqchaj</annotation>
+		<annotation cp="🎎">nimaq’ij | ala’s | penimaq’ij | rech Japón</annotation>
+		<annotation cp="🎎" type="tts">Taq Ala’s rech Japon</annotation>
+		<annotation cp="🎏">kakar | nimaq’ij | k’atanal</annotation>
+		<annotation cp="🎏" type="tts">Jalajoj kar</annotation>
+		<annotation cp="🎐">ch’ich’ | nimaq’ij | ujek’ik ch’ich’ | kaqiq’</annotation>
+		<annotation cp="🎐" type="tts">Kampani’l rech kaqiq’</annotation>
+		<annotation cp="🎑">nimaq’ij | seriqoj ib’ | ik’</annotation>
+		<annotation cp="🎑" type="tts">Ik’ ch’il nimaq’ij</annotation>
+		<annotation cp="🎀">nimaq’ij</annotation>
+		<annotation cp="🎀" type="tts">kemutasil</annotation>
+		<annotation cp="🎁">kajxukut | nimaq’ij | sipanik | pisom</annotation>
+		<annotation cp="🎁" type="tts">Pisom kochij</annotation>
+		<annotation cp="🎗">nimaq’ij | na’tajisab’al | kemutasil</annotation>
+		<annotation cp="🎗" type="tts">na’tajisab’al kemutasil</annotation>
+		<annotation cp="🎟">rajilab’alil | uwujil</annotation>
+		<annotation cp="🎟" type="tts">rajilab’alil</annotation>
+		<annotation cp="🎫">rajilab’alil</annotation>
+		<annotation cp="🎫" type="tts">Uwujil</annotation>
+		<annotation cp="🎖">nimaq’ij | chachal | rech militar</annotation>
+		<annotation cp="🎖" type="tts">chachal rech militar</annotation>
+		<annotation cp="🏆">sipanik</annotation>
+		<annotation cp="🏆" type="tts">Trofeo</annotation>
+		<annotation cp="🏅">chachal</annotation>
+		<annotation cp="🏅" type="tts">Chachal rech etz’anem</annotation>
+		<annotation cp="🥇">nab’e | q’an pwaq | chachal</annotation>
+		<annotation cp="🥇" type="tts">1st Ucholaj chachal</annotation>
+		<annotation cp="🥈">chachal | ukab’ | saq pwaq</annotation>
+		<annotation cp="🥈" type="tts">2nd Ucholajil Chachal</annotation>
+		<annotation cp="🥉">brons pwaq | chach’al | urox</annotation>
+		<annotation cp="🥉" type="tts">3rd ucholajil Chachal</annotation>
+		<annotation cp="⚽">potz’ | potz’ rech aqanaj | qanpotz’</annotation>
+		<annotation cp="⚽" type="tts">Potz’ rech aqanaj</annotation>
+		<annotation cp="⚾">potz’</annotation>
+		<annotation cp="⚾" type="tts">Potz’pale’t</annotation>
+		<annotation cp="🏀">potz’ | te’l</annotation>
+		<annotation cp="🏀" type="tts">Q’ab’potz’</annotation>
+		<annotation cp="🏐">potz’ | etz’anem</annotation>
+		<annotation cp="🏐" type="tts">Voleibol</annotation>
+		<annotation cp="🏈">rech américa | potz’ | qanpotz’</annotation>
+		<annotation cp="🏈" type="tts">Aqananik rech América</annotation>
+		<annotation cp="🏉">potz’ | qanpotz’</annotation>
+		<annotation cp="🏉" type="tts">Tutz’utik potz’</annotation>
+		<annotation cp="🎾">potz’ | potz’ chi palét</annotation>
+		<annotation cp="🎾" type="tts">Potz’ chi pale’t</annotation>
+		<annotation cp="🎳">potz’ | etz’anem</annotation>
+		<annotation cp="🎳" type="tts">K’aqoj</annotation>
+		<annotation cp="🏏">potz’ | che’ | etz’anem</annotation>
+		<annotation cp="🏏" type="tts">potz’ che’ etz’anem</annotation>
+		<annotation cp="🏑">potz’ | kamp | etz’anem | jopotz’ | che’</annotation>
+		<annotation cp="🏑" type="tts">Hockey chi uwach Q’ayes</annotation>
+		<annotation cp="🏒">tz’anem | jopotz’ | t’aja’j | set | che’</annotation>
+		<annotation cp="🏒" type="tts">Hockey pa Saq Tew</annotation>
+		<annotation cp="🏓">potz’ | che’ | etz’anem | pale’t | tepotz’ rech wanke’t | ping pong</annotation>
+		<annotation cp="🏓" type="tts">Ping Pong</annotation>
+		<annotation cp="🏸">xulq’ab’ | etz’anem | rapale’t | supale’t</annotation>
+		<annotation cp="🏸" type="tts">Setesik pale’t</annotation>
+		<annotation cp="🥊">Tasq’ab’ rech Ch’ayk’olq’ab’</annotation>
+		<annotation cp="🥊" type="tts">Tasq’ab’ rech Ch’ayk’olq’ab’</annotation>
+		<annotation cp="🥋">jucha’oj | karat | tacha’oj | macha’oj | atz’i’aq</annotation>
+		<annotation cp="🥋" type="tts">Atz’i’aq rech ajch’a’oj</annotation>
+		<annotation cp="🥅">Kemk’at Ub’antajik</annotation>
+		<annotation cp="🥅" type="tts">Kemk’at Ub’antajik</annotation>
+		<annotation cp="⛳">yopotz’ | ju’l</annotation>
+		<annotation cp="⛳" type="tts">Retwokaj pa Ju’l</annotation>
+		<annotation cp="⛸">t’ajaj | texajab’</annotation>
+		<annotation cp="⛸" type="tts">texajab’ rech t’ajaj</annotation>
+		<annotation cp="🎣">kar | chapb’al kar</annotation>
+		<annotation cp="🎣" type="tts">Chapb’al kar</annotation>
+		<annotation cp="🎽">tijoj anim | kemutasil | kutin | etz’anelab’</annotation>
+		<annotation cp="🎽" type="tts">Jastaq tijb’al anim</annotation>
+		<annotation cp="🎿">chararb’al | saq tew</annotation>
+		<annotation cp="🎿" type="tts">Chararb’al</annotation>
+		<annotation cp="🛷">teleb’al | seteleb’al</annotation>
+		<annotation cp="🛷" type="tts">b’enam pa teleb’al</annotation>
+		<annotation cp="🥌">rock | etz’anem</annotation>
+		<annotation cp="🥌" type="tts">setab’aj</annotation>
+		<annotation cp="🎯">wakak | ub’aq’wach wakax | b’ach’ikb’al | b’aqwach | etz’anem | ch’ayanem | ucholajil</annotation>
+		<annotation cp="🎯" type="tts">Suk’um Nim ucholajil</annotation>
+		<annotation cp="🎱">8 | 8 potz’ | potz’ | b’ipotz’ | wajxaqib’ | etz’anem</annotation>
+		<annotation cp="🎱" type="tts">K’olok’ik wajxaqib’</annotation>
+		<annotation cp="🔮">potz’ | kristal | tzijob’elil kech adas | man tzij taj | q’onomal | chakub’al</annotation>
+		<annotation cp="🔮" type="tts">Setesik Kristal</annotation>
+		<annotation cp="🎮">ilawachinel | etz’anem</annotation>
+		<annotation cp="🎮" type="tts">Silob’wachib’al rech etz’anem</annotation>
+		<annotation cp="🕹">etz’anem | silob’wachib’al rech etz’anem</annotation>
+		<annotation cp="🕹" type="tts">etz’piz’b’al</annotation>
+		<annotation cp="🎰">etz’anem</annotation>
+		<annotation cp="🎰" type="tts">Ch’ich’ etz’anb’al</annotation>
+		<annotation cp="🎲">dad | kamik | etz’anem</annotation>
+		<annotation cp="🎲" type="tts">Ukamikal etz’anem</annotation>
+		<annotation cp="♠">uwujil | etz’anem</annotation>
+		<annotation cp="♠" type="tts">nimatz’i’aqb’al</annotation>
+		<annotation cp="♥">uwujil | etz’anem</annotation>
+		<annotation cp="♥" type="tts">anima</annotation>
+		<annotation cp="♦">uwujil | etz’anem</annotation>
+		<annotation cp="♦" type="tts">jeb’el ab’aj nimatz’i’aqb’al</annotation>
+		<annotation cp="♣">uwujil | etz’anem</annotation>
+		<annotation cp="♣" type="tts">luwokajil</annotation>
+		<annotation cp="🃏">uwujil | etz’anem | wiwujil</annotation>
+		<annotation cp="🃏" type="tts">Etz’anel</annotation>
+		<annotation cp="🀄">atz’anem | mahjong | kaq</annotation>
+		<annotation cp="🀄" type="tts">Mahjong kaq Dragon</annotation>
+		<annotation cp="🎴">uwujil | kotz’i’j | etz’anem | rech japón | retz’ab’exik</annotation>
+		<annotation cp="🎴" type="tts">Taq kotz’ij uwujil etz’anem</annotation>
+		<annotation cp="🎭">je’laj chak | k’oj | chakunem | tek’utunsab’al | k’olk’utunsanem</annotation>
+		<annotation cp="🎭" type="tts">Palajaj rech je’l k’utunsanem</annotation>
+		<annotation cp="🖼">je’lal chak | uchi’ | tz’ajanem | wachib’al</annotation>
+		<annotation cp="🖼" type="tts">wachib’al kojom uchi’</annotation>
+		<annotation cp="🎨">je’lal chak | k’olojertzij | tz’ajanem | tuk’b’al</annotation>
+		<annotation cp="🎨" type="tts">Palet rech Aje’lal chak</annotation>
+		<annotation cp="👓">atz’i’aqb’al</annotation>
+		<annotation cp="👓" type="tts">Taq kop</annotation>
+		<annotation cp="🕶">q’equ’m | b’aq’wachaj | tz’ajb’al b’aq’wachaj | ilb’al</annotation>
+		<annotation cp="🕶" type="tts">q’ijilb’al</annotation>
+		<annotation cp="👔">Atz’i’aqb’al</annotation>
+		<annotation cp="👔" type="tts">Rab’kulaj</annotation>
+		<annotation cp="👕">atz’i’aqb’al | kutin</annotation>
+		<annotation cp="👕" type="tts">Ku’t atz’i’aq</annotation>
+		<annotation cp="👖">atz’i’aqb’al | papantalon | pantalon</annotation>
+		<annotation cp="👖" type="tts">Taq Rab’koxtar</annotation>
+		<annotation cp="🧣">qulaj</annotation>
+		<annotation cp="🧣" type="tts">ku’t uq</annotation>
+		<annotation cp="🧤">q’ab’aj</annotation>
+		<annotation cp="🧤" type="tts">ch’uq’ab’</annotation>
+		<annotation cp="🧥">chake’t</annotation>
+		<annotation cp="🧥" type="tts">koq’uaj</annotation>
+		<annotation cp="🧦">rab’tasaqanaj</annotation>
+		<annotation cp="🧦" type="tts">tasaqanaj</annotation>
+		<annotation cp="👗">Atz’i’aqb’al</annotation>
+		<annotation cp="👗" type="tts">Roqorik Atz’i’aq</annotation>
+		<annotation cp="👘">Atz’i’aqb’al</annotation>
+		<annotation cp="👘" type="tts">Kimono</annotation>
+		<annotation cp="👙">atz’i’aqb’al | muxanem</annotation>
+		<annotation cp="👙" type="tts">Muxja’</annotation>
+		<annotation cp="👚">Muxja’ | ixoq</annotation>
+		<annotation cp="👚" type="tts">Ujastaq ixoq</annotation>
+		<annotation cp="👛">atz’i’aqb’al | pwaq</annotation>
+		<annotation cp="👛" type="tts">Karte’r</annotation>
+		<annotation cp="👜">chim | atz’i’aqb’al | je’l chim</annotation>
+		<annotation cp="👜" type="tts">Chim</annotation>
+		<annotation cp="👝">chim | atz’i’aqb’al | laj chim</annotation>
+		<annotation cp="👝" type="tts">Je’l B’olxa</annotation>
+		<annotation cp="🛍">chim | warab’al | loq’omanem</annotation>
+		<annotation cp="🛍" type="tts">chim rech loq’oj</annotation>
+		<annotation cp="🎒">chim | tzu’um chim | tijob’al</annotation>
+		<annotation cp="🎒" type="tts">Chim rech tijob’al</annotation>
+		<annotation cp="👞">atz’i’aqb’al | achi | xajab’</annotation>
+		<annotation cp="👞" type="tts">Uxajab’ achi</annotation>
+		<annotation cp="👟">etz’anel | atz’i’aqb’al | xajab’ | etz’xajab’</annotation>
+		<annotation cp="👟" type="tts">Xajab’ tijb’al anim</annotation>
+		<annotation cp="👠">atz’i’aqb’al | uparaqan xajab’ | xajab’ | ixoq</annotation>
+		<annotation cp="👠" type="tts">Nim Uparaqan Xajab’</annotation>
+		<annotation cp="👡">atz’i’aqb’al xplaq xajab’ | xajab’ | ixoq</annotation>
+		<annotation cp="👡" type="tts">Uxo’l aqanaj rech ixoq</annotation>
+		<annotation cp="👢">b’oxajab’ | atz’i’aqb’al | xajab’ | ixoq</annotation>
+		<annotation cp="👢" type="tts">Ub’otax ixoq</annotation>
+		<annotation cp="👑">atz’i’aqb’al | rey | rajawal ixoq</annotation>
+		<annotation cp="👑" type="tts">Setjolomaj</annotation>
+		<annotation cp="👒">chim | atz’i’aqb’al</annotation>
+		<annotation cp="👒" type="tts">Upowi’ ixoq</annotation>
+		<annotation cp="🎩">atz’i’aqb’al | powi’ | uwi’ | jurujik powi’</annotation>
+		<annotation cp="🎩" type="tts">Jurujik powi’</annotation>
+		<annotation cp="🎓">to’y | nimaq’ij | atz’i’aqb’al | ch’akoj eta’mab’al | powi’</annotation>
+		<annotation cp="🎓" type="tts">Powi’ rech Ch’akanem</annotation>
+		<annotation cp="🧢">potz’pale’t</annotation>
+		<annotation cp="🧢" type="tts">b’ito’y</annotation>
+		<annotation cp="⛑">tob’anem | krusim | palajaj | powi’ | ch’ichi’ powi’</annotation>
+		<annotation cp="⛑" type="tts">chi’ch’ powi’ rech tob’anem</annotation>
+		<annotation cp="📿">ch’at | atz’i’aqb’al | chachal | ub’ixik ch’ab’al | kojb’al</annotation>
+		<annotation cp="📿" type="tts">Retz’ab’a’lil uqul q’ab’aj</annotation>
+		<annotation cp="💄">taq tzajb’al | tzajb’al</annotation>
+		<annotation cp="💄" type="tts">Tz’ajb’al chi’aj</annotation>
+		<annotation cp="💍">jeb’el ab’aj</annotation>
+		<annotation cp="💍" type="tts">Mulq’ab’</annotation>
+		<annotation cp="💎">jeb’el ab’aj | etz’ab’al</annotation>
+		<annotation cp="💎" type="tts">Ab’aj rech Gema</annotation>
+		<annotation cp="🔇">mem | matzalem | ch’ab’alil</annotation>
+		<annotation cp="🔇" type="tts">Q’atab’am ch’ab’alil</annotation>
+		<annotation cp="🔈">ch’uch’uj</annotation>
+		<annotation cp="🔈" type="tts">Ta’ob’al tzij nitz’ uchuq’ab’</annotation>
+		<annotation cp="🔉">retal</annotation>
+		<annotation cp="🔉" type="tts">Ta’ob’al tzij retal uchuq’ab’</annotation>
+		<annotation cp="🔊">ko</annotation>
+		<annotation cp="🔊" type="tts">Ta’ob’al tzij nim uchuq’ab’</annotation>
+		<annotation cp="📢">ko | kemriqonib’al kech uk’iyal</annotation>
+		<annotation cp="📢" type="tts">Ko jek’b’al ch’aweb’al</annotation>
+		<annotation cp="📣">ki’kotem</annotation>
+		<annotation cp="📣" type="tts">Ch’ich’ ch’aweb’al</annotation>
+		<annotation cp="📯">uk’a’ | k’olb’al | powujil</annotation>
+		<annotation cp="📯" type="tts">Kotokik trompet</annotation>
+		<annotation cp="🔔">Kampan</annotation>
+		<annotation cp="🔔" type="tts">Kampan</annotation>
+		<annotation cp="🔕">ch’ich’ | man ya’tal taj | mem | ja’i’ | matzalem</annotation>
+		<annotation cp="🔕" type="tts">Kampan ruk’ Juch’</annotation>
+		<annotation cp="🎼">q’ojom | rajilab’alil</annotation>
+		<annotation cp="🎼" type="tts">Wuj rech utz’ib’ q’ojom</annotation>
+		<annotation cp="🎵">q’ojom | uk’u’x q’ojomal</annotation>
+		<annotation cp="🎵" type="tts">Utz’ib’ q’ojom</annotation>
+		<annotation cp="🎶">q’ojom | uk’u’x q’ojomal | taq uk’u’x q’ojomal</annotation>
+		<annotation cp="🎶" type="tts">Taq utz’ib’ q’ojom</annotation>
+		<annotation cp="🎙">jek’ | jek’b’al ch’aweb’al | q’ojom | k’oq’ojomal</annotation>
+		<annotation cp="🎙" type="tts">k’oq’ojomal rech jek’b’al ch’aweb’al</annotation>
+		<annotation cp="🎚">ucholajil | q’ojom | jililb’al</annotation>
+		<annotation cp="🎚" type="tts">jililb’al cholajil</annotation>
+		<annotation cp="🎛">rilawachixik | taq pitz’b’al | q’ojom</annotation>
+		<annotation cp="🎛" type="tts">rilawachixik taq pitz’b’al</annotation>
+		<annotation cp="🎤">jek’ | karaoke</annotation>
+		<annotation cp="🎤" type="tts">Jeqb’al ch’ab’al</annotation>
+		<annotation cp="🎧">k’a’mal</annotation>
+		<annotation cp="🎧" type="tts">Uk’amal ch’aweb’al</annotation>
+		<annotation cp="📻">silob’wachib’al</annotation>
+		<annotation cp="📻" type="tts">Q’axeb’al tzij</annotation>
+		<annotation cp="🎷">chakub’al | q’ojom | saxopon</annotation>
+		<annotation cp="🎷" type="tts">Saxopon</annotation>
+		<annotation cp="🎸">chakub’al | q’ojom</annotation>
+		<annotation cp="🎸" type="tts">Kita’r</annotation>
+		<annotation cp="🎹">chakub’al | retokib’al | q’ojom | tze’mb’al</annotation>
+		<annotation cp="🎹" type="tts">Q’ojomb’al tz’emb’al</annotation>
+		<annotation cp="🎺">chakub’al | q’ojom</annotation>
+		<annotation cp="🎺" type="tts">Trompet</annotation>
+		<annotation cp="🎻">chakub’al | q’ojom</annotation>
+		<annotation cp="🎻" type="tts">Violin</annotation>
+		<annotation cp="🥁">tambor | taq q’ojomb’al tamb’or | q’ojom</annotation>
+		<annotation cp="🥁" type="tts">Tamb’or</annotation>
+		<annotation cp="📱">achib’il ch’aweb’al | achib’il | ch’aweb’al | jach’aweb’al</annotation>
+		<annotation cp="📱" type="tts">B’inib’al ch’aweb’al</annotation>
+		<annotation cp="📲">ch’ab’ | sik’inem | achib’il ch’aweb’al | ch’aweb’al | uk’ulaxik | jach’aweb’al</annotation>
+		<annotation cp="📲" type="tts">B’inib’al ch’aweb’al ruk’ ch’ab’</annotation>
+		<annotation cp="☎">Ch’aweb’al</annotation>
+		<annotation cp="☎" type="tts">ch’aweb’al</annotation>
+		<annotation cp="📞">Chaweb’al | k’ulanel | jach’aweb’al</annotation>
+		<annotation cp="📞" type="tts">Ch’aweb’al pa eye’nik</annotation>
+		<annotation cp="📟">Tzukub’alwinaq</annotation>
+		<annotation cp="📟" type="tts">Tzukub’alwinaq</annotation>
+		<annotation cp="📠">fax</annotation>
+		<annotation cp="📠" type="tts">Q’axeb’al Wuj</annotation>
+		<annotation cp="🔋">K’olq’aq’al</annotation>
+		<annotation cp="🔋" type="tts">K’olq’aq’al</annotation>
+		<annotation cp="🔌">rech kaxlan q’aq’ | kaxlan q’aq’ | t’iqb’al</annotation>
+		<annotation cp="🔌" type="tts">T’iqb’al Kaxlan Q’aq’</annotation>
+		<annotation cp="💻">kematz’ib’ | pc | winaqilal</annotation>
+		<annotation cp="💻" type="tts">Achib’il t’inwach</annotation>
+		<annotation cp="🖥">kematz’ib’ | mexatz’ib’</annotation>
+		<annotation cp="🖥" type="tts">kematz’ib’ rech mexatz’ib’</annotation>
+		<annotation cp="🖨">Kematz’ib’</annotation>
+		<annotation cp="🖨" type="tts">tz’ajtz’ib’anel</annotation>
+		<annotation cp="⌨">Kematz’ib’</annotation>
+		<annotation cp="⌨" type="tts">pitz’b’al</annotation>
+		<annotation cp="🖱">Kematz’ib’</annotation>
+		<annotation cp="🖱" type="tts">ch’o rech kematz’ib’</annotation>
+		<annotation cp="🖲">Kematz’ib’</annotation>
+		<annotation cp="🖲" type="tts">tach’o</annotation>
+		<annotation cp="💽">kematz’ib’ | setk’olib’al | laj setk’olib’al</annotation>
+		<annotation cp="💽" type="tts">Ko K’olib’al</annotation>
+		<annotation cp="💾">kematz’ib’ | setk’olib’al</annotation>
+		<annotation cp="💾" type="tts">Kajxukut K’olib’al</annotation>
+		<annotation cp="💿">ad | kematz’ib’ | setk’olib’al</annotation>
+		<annotation cp="💿" type="tts">Set k’olib’al</annotation>
+		<annotation cp="📀">blu-ray | dvd | kematz’ib’ | setk’olib’al</annotation>
+		<annotation cp="📀" type="tts">Dvd</annotation>
+		<annotation cp="🎥">elesab’al wachib’al | k’utb’al silob’k’utwachinem | silob’k’utwachinem</annotation>
+		<annotation cp="🎥" type="tts">Eelesab’al wachib’al</annotation>
+		<annotation cp="🎞">k’utb’al silob’k’utwachinem | silob’k’utwachinem | taq uchi’</annotation>
+		<annotation cp="🎞" type="tts">taq uchi’ silob’k’utwachib’al</annotation>
+		<annotation cp="📽">k’olib’al silob’k’utwachinem | silob’k’utwachinem | k’utb’al | silob’wachib’al</annotation>
+		<annotation cp="📽" type="tts">k’utb’al silob’k’utwachinem</annotation>
+		<annotation cp="📺">tv | silob’wachinem</annotation>
+		<annotation cp="📺" type="tts">Q’axwachirisab’al</annotation>
+		<annotation cp="📷">silob’wachib’al</annotation>
+		<annotation cp="📷" type="tts">Elesab’al wachib’al</annotation>
+		<annotation cp="📸">Elesab’al wachib’al | tzuk’lenem | silobwachib’al</annotation>
+		<annotation cp="📸" type="tts">Elesab’al wachib’al ruk’ tzuk’linem</annotation>
+		<annotation cp="📹">Elesab’al wachib’al | silob’wachib’al</annotation>
+		<annotation cp="📹" type="tts">Elesab’al silob’wachib’al</annotation>
+		<annotation cp="📼">kemutasil | ruk’ | silob’wachib’al</annotation>
+		<annotation cp="📼" type="tts">Silob’sab’al</annotation>
+		<annotation cp="🔍">kristal | nimarisab’al | tzukunem | chakub’al</annotation>
+		<annotation cp="🔍" type="tts">Setesik lame’t nimarisab’al</annotation>
+		<annotation cp="🔎">kristal | nimarisab’al | tzukunem | chakub’al</annotation>
+		<annotation cp="🔎" type="tts">Qetsab’al</annotation>
+		<annotation cp="🕯">q’aq’ | kantela | kotzi’j</annotation>
+		<annotation cp="🕯" type="tts">kantela</annotation>
+		<annotation cp="💡">saqib’al | tze’b’al | rech kaxlan q’aq’ | chomab’al | q’aq’</annotation>
+		<annotation cp="💡" type="tts">Tzijil kaxlan q’aq’</annotation>
+		<annotation cp="🔦">rech kaxlan q’aq’ | q’aq’ | chakub’al | q’aq’ib’al</annotation>
+		<annotation cp="🔦" type="tts">Tzuk’b’al</annotation>
+		<annotation cp="🏮">rab’ | laq’aq’ | q’aq’ | kaq</annotation>
+		<annotation cp="🏮" type="tts">Kaq tzuk’ulb’al</annotation>
+		<annotation cp="📔">wuj | rij | wiqom | wokub’ixikil</annotation>
+		<annotation cp="📔" type="tts">Wokub’ixikil q’oq’otem rij</annotation>
+		<annotation cp="📕">wuj | tz’apim</annotation>
+		<annotation cp="📕" type="tts">Tz’apital wuj</annotation>
+		<annotation cp="📖">wij | jaqom</annotation>
+		<annotation cp="📖" type="tts">Jaqom wuj</annotation>
+		<annotation cp="📗">wuj | xax</annotation>
+		<annotation cp="📗" type="tts">Rax Wuj</annotation>
+		<annotation cp="📘">Raxkaj Wuj</annotation>
+		<annotation cp="📘" type="tts">Raxkaj Wuj</annotation>
+		<annotation cp="📙">wuj | uwaxub’</annotation>
+		<annotation cp="📙" type="tts">Uje’ koj wuj</annotation>
+		<annotation cp="📚">wuj</annotation>
+		<annotation cp="📚" type="tts">Taq wuj</annotation>
+		<annotation cp="📓">Wokub’ixikil</annotation>
+		<annotation cp="📓" type="tts">Wokub’ixikil</annotation>
+		<annotation cp="📒">Wokub’ixikil</annotation>
+		<annotation cp="📒" type="tts">Kab’ichal retal wuj</annotation>
+		<annotation cp="📃">k’ochom | wokwujchak | uxaq wuj</annotation>
+		<annotation cp="📃" type="tts">Uxaq wuj mejom la chi uxe’</annotation>
+		<annotation cp="📜">wuj</annotation>
+		<annotation cp="📜" type="tts">Ojer wujilal</annotation>
+		<annotation cp="📄">wokwujchak | uxaq</annotation>
+		<annotation cp="📄" type="tts">Uxaq wuj mejom uchi’</annotation>
+		<annotation cp="📰">taq q’alajisanik | wuj</annotation>
+		<annotation cp="📰" type="tts">Wuj tzijonb’al</annotation>
+		<annotation cp="🗞">taq q’alajisanik | wuj tzijomb’al | wuj | b’olq’otim</annotation>
+		<annotation cp="🗞" type="tts">b’olq’otim</annotation>
+		<annotation cp="📑">kojb’al retal wuj | etal | kojb’al retal | taq k’utjaqb’al</annotation>
+		<annotation cp="📑" type="tts">Taq k’utjaqb’al rech kojb’al retal</annotation>
+		<annotation cp="🔖">etal</annotation>
+		<annotation cp="🔖" type="tts">Kojb’al retal</annotation>
+		<annotation cp="🏷">retwokaj</annotation>
+		<annotation cp="🏷" type="tts">retwokaj</annotation>
+		<annotation cp="💰">k’olib’al | dolar | rajil | k’olrajil</annotation>
+		<annotation cp="💰" type="tts">Chim rech pwaq</annotation>
+		<annotation cp="💴">ja k’olpwaq | wujrajil | uwujil loq’oj | amaq’ rajilal | rajil | ub’ixikil | yen</annotation>
+		<annotation cp="💴" type="tts">Pwaq yen</annotation>
+		<annotation cp="💵">ja k’olpwaq | uxaq | uwujil loq’oj | amaq’ rajilal | dólar | rajil | ub’ixikil</annotation>
+		<annotation cp="💵" type="tts">Uxaq Dolar</annotation>
+		<annotation cp="💶">ja k’olpwaq | uxaq | uwujil loq’oj | amaq’ rajilal | euro | rajil | ub’ixikil</annotation>
+		<annotation cp="💶" type="tts">Uxaq Euro</annotation>
+		<annotation cp="💷">ja k’olpwaq | uxaq | uwujil loq’oj | amaq’ rajilal | rajil | ub’ixikil | libra</annotation>
+		<annotation cp="💷" type="tts">Ub’ixikil ja k’olpwaq libra</annotation>
+		<annotation cp="💸">ja k’olpwaq | uxaq | uwujil loq’oj | xik’ikem | rajil | ub’ixikil | taq uxik’</annotation>
+		<annotation cp="💸" type="tts">Pwaq ruk’ uxik’</annotation>
+		<annotation cp="💳">j’a k’olpwaq | uwujil | uwujil k’asaj | rajil</annotation>
+		<annotation cp="💳" type="tts">Uwujil K’asaj</annotation>
+		<annotation cp="💹">ja k’olpwaq | k’utwachib’al | amaq’ rajilal | uk’iyem | k’ayib’al | rajil | paqalem | ub’e’al | ajsik | yen</annotation>
+		<annotation cp="💹" type="tts">Ktajin Kpaqi’ Wokk’utunsab’al ruk’ Yen</annotation>
+		<annotation cp="💱">ja k’olpwaq | amaq’ rajilal | k’exb’alil | rajil</annotation>
+		<annotation cp="💱" type="tts">Uk’exik Pwaq</annotation>
+		<annotation cp="💲">amaq’ rajilal | dolar | rajil</annotation>
+		<annotation cp="💲" type="tts">Al Etal rech Dólar</annotation>
+		<annotation cp="✉">tz’ib’wuj | taqoqxa’nib’al</annotation>
+		<annotation cp="✉" type="tts">k’oltz’ib’wuj</annotation>
+		<annotation cp="📧">taqoqxa’nib’al | tz’ib’wuj | taqoqxa’n</annotation>
+		<annotation cp="📧" type="tts">Taqoqxa’nib’al</annotation>
+		<annotation cp="📨">taqoq-xa’nib’al | taqoqxa’nib’al | k’oltz’ib’wuj | petinaq | tzib’wuj | taqoqxa’n | uk’ulaxik</annotation>
+		<annotation cp="📨" type="tts">Rokik k’oltz’ib’wuj</annotation>
+		<annotation cp="📩">ch’ab’ | chi uxe’ | taqoq-xa’nib’al | taqoqxa’nib’al | k’oltz’ib’wuj | tz’ib’wuj | taqoqxa’n | b’enaq | taqom</annotation>
+		<annotation cp="📩" type="tts">K’olwuj ruk’ ch’ab’</annotation>
+		<annotation cp="📤">kajxukut | tz’ib’wuj | taqoqxa’n | reltaqoqxa’nib’al | taqom | kaxon</annotation>
+		<annotation cp="📤" type="tts">K’olib’al chi kaj</annotation>
+		<annotation cp="📥">kajxukut | k’oltaqoqxa’nib’al | tz’ib’wuj | taqoqxa’n | uk’ulaxik | kaxon</annotation>
+		<annotation cp="📥" type="tts">K’oltaqoqxa’nib’al</annotation>
+		<annotation cp="📦">kajxukut | tanaj</annotation>
+		<annotation cp="📦" type="tts">Tanaj oqxa’n</annotation>
+		<annotation cp="📫">tz’apital | taqoqxa’n | opanib’al taqoqxa’n | powuj</annotation>
+		<annotation cp="📫" type="tts">Tz’apital Opanib’al taqoqxa’n ruk’ Paqab’isam Retwokaj</annotation>
+		<annotation cp="📪">tz’apital | chi uxe’ | taqoqxa’n | opanib’al taqoqxa’n | powuj</annotation>
+		<annotation cp="📪" type="tts">Tz’apital Opanib’al taqoqxa’n ruk’ xulan Retwokaj</annotation>
+		<annotation cp="📬">taqoqxa’n | Opanib’al taqoqxa’n | ujaqik | powuj</annotation>
+		<annotation cp="📬" type="tts">Jaqom k’olib’al taqoqxa’n ruk’ bandera</annotation>
+		<annotation cp="📭">chi uxe’ | taqoqxa’n | Opanib’al taqoqxa’n | ujaqik | powuj</annotation>
+		<annotation cp="📭" type="tts">Jaqom k’olib’al taqoqxa’n</annotation>
+		<annotation cp="📮">taqoqxa’n | Opanib’al taqoqxa’n</annotation>
+		<annotation cp="📮" type="tts">K’olib’al taqoqxa’n</annotation>
+		<annotation cp="🗳">b’owuj | kajxukut</annotation>
+		<annotation cp="🗳" type="tts">kajxukut rech b’owuj ruk’ b’owuj</annotation>
+		<annotation cp="✏">che’ tz’ib’ab’al</annotation>
+		<annotation cp="✏" type="tts">che’ tz’ib’ab’al</annotation>
+		<annotation cp="✒">uwi’ | che’ tz’ib’ab’al</annotation>
+		<annotation cp="✒" type="tts">q’eq uwi’</annotation>
+		<annotation cp="🖋">uxe’l | che’ tz’ib’ab’al</annotation>
+		<annotation cp="🖋" type="tts">uxe’l che’ tz’ib’ab’al</annotation>
+		<annotation cp="🖊">b’oltz’ib’ab’al</annotation>
+		<annotation cp="🖊" type="tts">tz’ib’ab’al</annotation>
+		<annotation cp="🖌">tz’ajanik</annotation>
+		<annotation cp="🖌" type="tts">mestz’ajb’al</annotation>
+		<annotation cp="🖍">tz’ajb’al</annotation>
+		<annotation cp="🖍" type="tts">tz’ajb’al</annotation>
+		<annotation cp="📝">che’ tz’ib’ab’al</annotation>
+		<annotation cp="📝" type="tts">Tz’i’b’ab’al ruk’ wuj</annotation>
+		<annotation cp="💼">Jeb’el k’olib’al</annotation>
+		<annotation cp="💼" type="tts">Jeb’el k’olib’al</annotation>
+		<annotation cp="📁">K’olkemchak rech Kemk’olib’al</annotation>
+		<annotation cp="📁" type="tts">K’olkemchak rech Kemk’olib’al</annotation>
+		<annotation cp="📂">kemk’olib’al | k’olkemk’olib’al | ujaqik</annotation>
+		<annotation cp="📂" type="tts">Jaqom k’olkemchak</annotation>
+		<annotation cp="🗂">uwujul | taq jachb’al | ucholajil</annotation>
+		<annotation cp="🗂" type="tts">jachb’al taq ucholajil wuj</annotation>
+		<annotation cp="📅">uq’ijol</annotation>
+		<annotation cp="📅" type="tts">Cholq’ij</annotation>
+		<annotation cp="📆">Cholq’ij</annotation>
+		<annotation cp="📆" type="tts">Aninaq uretzixik cholq’ij</annotation>
+		<annotation cp="🗒">ub’ixikil | t’in pitz’b’al | b’olq’ot</annotation>
+		<annotation cp="🗒" type="tts">b’olq’ot t’in pitz’b’al</annotation>
+		<annotation cp="🗓">cholq’ij | t’in pitz’b’al | b’olq’ot</annotation>
+		<annotation cp="🗓" type="tts">b’olq’ot cholq’ij</annotation>
+		<annotation cp="📇">uwujil | ucholajil | b’olq’otwuj</annotation>
+		<annotation cp="📇" type="tts">Kemch’aqata’q</annotation>
+		<annotation cp="📈">kutwachib’al | k’utwachib’al | k’iyem | ub’e’al | paqalem</annotation>
+		<annotation cp="📈" type="tts">Ktajin Kpaqi’ Wokk’utunsab’al</annotation>
+		<annotation cp="📉">k’utunsab’al | xulanem | k’utwachib’al | ub’e’al</annotation>
+		<annotation cp="📉" type="tts">Ktajin Kxuli’ Wokk’utunsab’al</annotation>
+		<annotation cp="📊">q’e’tb’al | kut’wachib’al | k’utwachib’al</annotation>
+		<annotation cp="📊" type="tts">K’utwachib’al rech q’e’tb’al</annotation>
+		<annotation cp="📋">K’olk’iwuj</annotation>
+		<annotation cp="📋" type="tts">K’olk’iwuj</annotation>
+		<annotation cp="📌">t’iqb’al</annotation>
+		<annotation cp="📌" type="tts">Nitz’ lawux</annotation>
+		<annotation cp="📍">t’iqb’al | nitz’ lawux</annotation>
+		<annotation cp="📍" type="tts">K’olok’ik nitz’ lawux</annotation>
+		<annotation cp="📎">Chapab’al wuj</annotation>
+		<annotation cp="📎" type="tts">Chapab’al wuj</annotation>
+		<annotation cp="🖇">kemwiqb’al | t’iqb’alwuj</annotation>
+		<annotation cp="🖇" type="tts">tiqital</annotation>
+		<annotation cp="📏">etab’al | suk’ul uchi’</annotation>
+		<annotation cp="📏" type="tts">Suk’ etab’al</annotation>
+		<annotation cp="📐">etab’al | molajil | oxxukut</annotation>
+		<annotation cp="📐" type="tts">Oxxukut etab’al</annotation>
+		<annotation cp="✂">chakub’al | uramixik</annotation>
+		<annotation cp="✂" type="tts">taq qupib’al</annotation>
+		<annotation cp="🗃">kajxukut | uwujil | kemk’olib’al</annotation>
+		<annotation cp="🗃" type="tts">kajxukut rech ukemk’olib’al uwujil</annotation>
+		<annotation cp="🗄">kak’olib’al | kemk’olib’al | uk’olik</annotation>
+		<annotation cp="🗄" type="tts">k’olwuj</annotation>
+		<annotation cp="🗑">meschakach</annotation>
+		<annotation cp="🗑" type="tts">meschakach</annotation>
+		<annotation cp="🔒">tz’apitalik</annotation>
+		<annotation cp="🔒" type="tts">Tz’apitalik</annotation>
+		<annotation cp="🔓">q’ateb’al | ujaqik | utzoqopixik</annotation>
+		<annotation cp="🔓" type="tts">Tz’apital taj</annotation>
+		<annotation cp="🔏">rokib’al che’ tz’ib’ab’al | uq’atexik | uwi’ | tz’ib’ab’al | echeb’alil</annotation>
+		<annotation cp="🔏" type="tts">Tz’apital ruk’ tz’ib’ab’al</annotation>
+		<annotation cp="🔐">tz’apitalik | retokib’al | uq’atexik | chajib’al</annotation>
+		<annotation cp="🔐" type="tts">Tz’apital ruk’ lawe</annotation>
+		<annotation cp="🔑">q’atetalik | retokib’al</annotation>
+		<annotation cp="🔑" type="tts">Lawe</annotation>
+		<annotation cp="🗝">retal | retokib’al | uq’atexik | ojer</annotation>
+		<annotation cp="🗝" type="tts">ojer retokib’al</annotation>
+		<annotation cp="🔨">Chakub’al</annotation>
+		<annotation cp="🔨" type="tts">B’ajib’al</annotation>
+		<annotation cp="⛏">chakub’al | k’otq’inomal</annotation>
+		<annotation cp="⛏" type="tts">usik’ik’</annotation>
+		<annotation cp="⚒">b’ajib’al | usik’ik | chakub’al</annotation>
+		<annotation cp="⚒" type="tts">b’ajib’al chi’l usik’ik</annotation>
+		<annotation cp="🛠">b’ajib’al | chakub’al | lawe rech tyox | rab’lawe</annotation>
+		<annotation cp="🛠" type="tts">B’ajib’al chi’l nim lawe</annotation>
+		<annotation cp="🗡">kuchi’l | wek’aqb’al</annotation>
+		<annotation cp="🗡" type="tts">kuchi’l</annotation>
+		<annotation cp="⚔">ukrusim rib’ | taq spad | wek’aqb’al</annotation>
+		<annotation cp="⚔" type="tts">ukrusim rib’ taq spad</annotation>
+		<annotation cp="🔫">k’aqb’al | q’ab’k’aqb’al | rek’qb’al | chakub’al | wek’aqb’al</annotation>
+		<annotation cp="🔫" type="tts">K’qb’al q’aq’</annotation>
+		<annotation cp="🏹">k’aqanel | k’aqanem | ch’ab’ | k’ixb’alil | Sagitario | chakub’al | wek’aqb’al | zodiaco</annotation>
+		<annotation cp="🏹" type="tts">Arku’ rech Ch’ab’</annotation>
+		<annotation cp="🛡">wek’aqb’al</annotation>
+		<annotation cp="🛡" type="tts">q’ateb’al</annotation>
+		<annotation cp="🔧">chakub’al | lawe rech tyox | rab’lawe</annotation>
+		<annotation cp="🔧" type="tts">Llave inglesa</annotation>
+		<annotation cp="🔩">chapb’al | tz’apib’al | chakub’al</annotation>
+		<annotation cp="🔩" type="tts">Chapb’al ruk’ tz’apib’al</annotation>
+		<annotation cp="⚙">Chakub’al</annotation>
+		<annotation cp="⚙" type="tts">mulaj ch’ich’</annotation>
+		<annotation cp="🗜">chakub’al | t’ot’lawux | nitz’arisab’al</annotation>
+		<annotation cp="🗜" type="tts">laq’apub’al</annotation>
+		<annotation cp="⚖">pajb’al | suk’malil | Libra | taq ucholajil | chakub’al | a’lal | zodiaco</annotation>
+		<annotation cp="⚖" type="tts">Upajik ucholajil</annotation>
+		<annotation cp="🔗">Kemwiqb’al</annotation>
+		<annotation cp="🔗" type="tts">Kemwiqb’al</annotation>
+		<annotation cp="⛓">ch’ich’</annotation>
+		<annotation cp="⛓" type="tts">taq ch’ich’</annotation>
+		<annotation cp="⚗">kaxlan kunab’al | chakub’al</annotation>
+		<annotation cp="⚗" type="tts">k’amil</annotation>
+		<annotation cp="🔬">chakub’al | saqil eta’manik</annotation>
+		<annotation cp="🔬" type="tts">Nitz’arib’al</annotation>
+		<annotation cp="🔭">chakub’al | saqil eta’manik</annotation>
+		<annotation cp="🔭" type="tts">Ilb’al uwach kaj</annotation>
+		<annotation cp="📡">jekchuq’ab’il setk’olib’al | sutinel</annotation>
+		<annotation cp="📡" type="tts">Jek’b’al chuq’ab’il pa kaqiq’</annotation>
+		<annotation cp="💉">kunanel | kunab’al | b’aq | toq’oj | yowab’ | chakub’al</annotation>
+		<annotation cp="💉" type="tts">B’aq kunab’al</annotation>
+		<annotation cp="💊">ajkun | kunab’al | yowab’</annotation>
+		<annotation cp="💊" type="tts">Kunab’al</annotation>
+		<annotation cp="🚪">Uchi ja</annotation>
+		<annotation cp="🚪" type="tts">Uchi ja</annotation>
+		<annotation cp="🛏">warab’al | waram</annotation>
+		<annotation cp="🛏" type="tts">ch’at</annotation>
+		<annotation cp="🛋">nim tem | warab’al | chaq’aq’</annotation>
+		<annotation cp="🛋" type="tts">nim tem chi’l chaq’aq’</annotation>
+		<annotation cp="🚽">Seteleb’al</annotation>
+		<annotation cp="🚽" type="tts">Seteleb’al</annotation>
+		<annotation cp="🚿">ja’</annotation>
+		<annotation cp="🚿" type="tts">Atinib’al</annotation>
+		<annotation cp="🛁">ch’ajb’al</annotation>
+		<annotation cp="🛁" type="tts">Ch’ajb’al</annotation>
+		<annotation cp="🛒">loq’omanem | kare’t | nim kare’t</annotation>
+		<annotation cp="🛒" type="tts">Kare’t rech loq’oj</annotation>
+		<annotation cp="🚬">utub’lixik sik’</annotation>
+		<annotation cp="🚬" type="tts">Sik’</annotation>
+		<annotation cp="⚰">kamik</annotation>
+		<annotation cp="⚰" type="tts">kaxa</annotation>
+		<annotation cp="⚱">kamik | muqunem | k’olchaj | chaj</annotation>
+		<annotation cp="⚱" type="tts">muqunem k’olchaj</annotation>
+		<annotation cp="🗿">palajaj | ab’aj palajaj | ab’aj wachib’al</annotation>
+		<annotation cp="🗿" type="tts">Ab’aj palajaj</annotation>
+		<annotation cp="🏧">atm | pa utukelam | ja k’opwaq | k’olpwaq</annotation>
+		<annotation cp="🏧" type="tts">Retal ATM</annotation>
+		<annotation cp="🚮">limes | wujmes</annotation>
+		<annotation cp="🚮" type="tts">Uk’aqik mes pa uk’olib’al</annotation>
+		<annotation cp="🚰">uqumuxik | Ch’ajch’oj ja’ | ja’</annotation>
+		<annotation cp="🚰" type="tts">Ch’ajch’oj ja’</annotation>
+		<annotation cp="♿">okib’al</annotation>
+		<annotation cp="♿" type="tts">Retal tem kasutin raqan</annotation>
+		<annotation cp="🚹">ch’ajq’ab’ | achi | eleb’al | wc</annotation>
+		<annotation cp="🚹" type="tts">Kik’olib’al achijab’</annotation>
+		<annotation cp="🚺">ch’ajq’ab’ | eleb’al | wc | ixoq</annotation>
+		<annotation cp="🚺" type="tts">Upaja kech ixoqib’</annotation>
+		<annotation cp="🚻">ch’ajq’ab’ | WC | eleb’al</annotation>
+		<annotation cp="🚻" type="tts">Eleb’al</annotation>
+		<annotation cp="🚼">ne’ | ujalik</annotation>
+		<annotation cp="🚼" type="tts">Retal Ne’</annotation>
+		<annotation cp="🚾">k’olatz’i’aq | ch’ajq’ab’ | eleb’al | ja’ | vc</annotation>
+		<annotation cp="🚾" type="tts">Eleb’al rech ja’</annotation>
+		<annotation cp="🛂">uq’atuxik | q’axwujilal</annotation>
+		<annotation cp="🛂" type="tts">Q’atul wujilal</annotation>
+		<annotation cp="🛃">Ja tojb’al okem</annotation>
+		<annotation cp="🛃" type="tts">Ja tojb’al okem</annotation>
+		<annotation cp="🛄">Uk’amik Jastaq</annotation>
+		<annotation cp="🛄" type="tts">Uk’amik Jastaq</annotation>
+		<annotation cp="🛅">eqan | alajk’oljastaq</annotation>
+		<annotation cp="🛅" type="tts">K’olib’al wuj ruk’ lawe</annotation>
+		<annotation cp="⚠">q’ilb’al</annotation>
+		<annotation cp="⚠" type="tts">q’ilb’al</annotation>
+		<annotation cp="🚸">ak’al | ukrusixik | b’inel | ucholajil chich’</annotation>
+		<annotation cp="🚸" type="tts">Ktajin ke’eq’ax ak’alab’</annotation>
+		<annotation cp="⛔">okem | man ya’tal taj | ja’i’ | ucholajil ch’ich’</annotation>
+		<annotation cp="⛔" type="tts">Maj okib’al</annotation>
+		<annotation cp="🚫">okib’al | man ya’tal taj | ja’i’</annotation>
+		<annotation cp="🚫" type="tts">Q’atetalik</annotation>
+		<annotation cp="🚳">key ch’ich’ | kej ch’ich’ | man ya’tal taj | ja’i’</annotation>
+		<annotation cp="🚳" type="tts">Man rech ta kej ch’ich’</annotation>
+		<annotation cp="🚭">man ya’tal taj | ja’i’ | utub’ixik sik’</annotation>
+		<annotation cp="🚭" type="tts">Man rech ta tub’anem</annotation>
+		<annotation cp="🚯">man ya’tal taj | nitz’ | ja’i’</annotation>
+		<annotation cp="🚯" type="tts">Kak’aq ta mes</annotation>
+		<annotation cp="🚱">man ch’ajch’j taj | man kqumux taj | ja’</annotation>
+		<annotation cp="🚱" type="tts">Ja’ maj ch’ajch’oj taj</annotation>
+		<annotation cp="🚷">man ya’tal taj | ja’i’ | b’inel</annotation>
+		<annotation cp="🚷" type="tts">Man rech b’inem</annotation>
+		<annotation cp="📵">achib’il ch’aweb’al | man ya’tal taj | silob’ | ja’i’ | ch’aweb’al | tech’aweb’al</annotation>
+		<annotation cp="📵" type="tts">Man rech ta b’inib’al ch’aweb’al</annotation>
+		<annotation cp="🔞">18 | junab’ q’ateb’al | man ya’tal taj | ja’i’ | maja ujunab’</annotation>
+		<annotation cp="🔞" type="tts">Man kech ta ak’alab’</annotation>
+		<annotation cp="☢">k’atmiq’anem | etal</annotation>
+		<annotation cp="☢" type="tts">k’atmiq’anem</annotation>
+		<annotation cp="☣">k’axk’olk’ache’laj | etal</annotation>
+		<annotation cp="☣" type="tts">uk’axk’olil k’aslemal</annotation>
+		<annotation cp="⬆">ch’ab’ | kut’set | kemriqonib’al | releb’al q’ij</annotation>
+		<annotation cp="⬆" type="tts">ch’ab’ pa uwi’</annotation>
+		<annotation cp="↗">ch’ab’ | kemriqonib’al | ink’utset | releb’al q’ij-releb’al kaqiq’</annotation>
+		<annotation cp="↗" type="tts">ch’ab’ pa uwi’ chi’l pa wikiq’ab’</annotation>
+		<annotation cp="➡">ch’ab’ | k’utset | kemriqonib’al | releb’al q’ij</annotation>
+		<annotation cp="➡" type="tts">wikiq’ab’ ch’ab’</annotation>
+		<annotation cp="↘">ch’ab’ | kemriqonib’al | ink’utset | uqajb’al q’ij-releb’al q’ij</annotation>
+		<annotation cp="↘" type="tts">wikiq’ab’ cha’b’ chi uxe’</annotation>
+		<annotation cp="⬇">ch’ab’ | k’utset | kemriqonib’al | uxe’ | uqajb’al q’ij</annotation>
+		<annotation cp="⬇" type="tts">cha’b’ chi uxe’</annotation>
+		<annotation cp="↙">ch’ab’ | kemriqonib’al | ink’utset | uqajb’al q’ij-uqajb’al kaqiq’</annotation>
+		<annotation cp="↙" type="tts">moxq’ab’ ch’ab’ chi uxe’</annotation>
+		<annotation cp="⬅">ch’ab’ | k’utset | kemriqonib’al | uqajb’al kaqiq</annotation>
+		<annotation cp="⬅" type="tts">moxq’ab’ chab’</annotation>
+		<annotation cp="↖">ch’ab’ | kemriqonib’al | ink’utset | releb’al q’ij-uqajb’al kaqiq’</annotation>
+		<annotation cp="↖" type="tts">moxq’ab’ ch’ab’ pa uwi’</annotation>
+		<annotation cp="↕">Ch’ab’</annotation>
+		<annotation cp="↕" type="tts">ch’ab’ pa uwi’-chi uxe’</annotation>
+		<annotation cp="↔">Ch’ab’</annotation>
+		<annotation cp="↔" type="tts">ch’ab’ moxq’ab’-wikiq’ab’</annotation>
+		<annotation cp="↩">Ch’ab’</annotation>
+		<annotation cp="↩" type="tts">wikiq’ab’ ch’ab’ kotol b’i pa moxq’ab’</annotation>
+		<annotation cp="↪">Ch’ab’</annotation>
+		<annotation cp="↪" type="tts">moxq’ab’ q’ab’ ch’ab’ kotol b’i pa wikiq’ab’</annotation>
+		<annotation cp="⤴">Ch’ab’</annotation>
+		<annotation cp="⤴" type="tts">wikiq’ab’ ch’ab’ kotol b’i pa uwi’</annotation>
+		<annotation cp="⤵">ch’ab’ | uxe’</annotation>
+		<annotation cp="⤵" type="tts">wikiq’ab’ ch’ab’ kotol b’i chi uxe’</annotation>
+		<annotation cp="🔃">ch’ab’ | pa wikiq’ab’ | ya’om chi jumul uchuq’ab’</annotation>
+		<annotation cp="🔃" type="tts">Tak’al taq ch’ab’ pa Wikiq’ab’</annotation>
+		<annotation cp="🔄">pa moxq’ab’ | ch’ab’ | k’ex b’e’al</annotation>
+		<annotation cp="🔄" type="tts">Pitz’b’al rech Moxq’ab’ taq Ch’ab’</annotation>
+		<annotation cp="🔙">chab’ | q’eq</annotation>
+		<annotation cp="🔙" type="tts">Ch’ab’ rech Tzalijisab’al</annotation>
+		<annotation cp="🔚">ch’ab’ | k’isb’al</annotation>
+		<annotation cp="🔚" type="tts">UKISB’AL Ch’ab’</annotation>
+		<annotation cp="🔛">ch’ab’ | etal | utzijik</annotation>
+		<annotation cp="🔛" type="tts">Ch’ab’ chi kaj</annotation>
+		<annotation cp="🔜">ch’ab’ | aninaq</annotation>
+		<annotation cp="🔜" type="tts">Aninaq Ch’ab’</annotation>
+		<annotation cp="🔝">ch’ab’ | uwi’ | pa uwi’</annotation>
+		<annotation cp="🔝" type="tts">Ch’ab’ TOP</annotation>
+		<annotation cp="🛐">kojb’al | K’olib’al b’anb’al ch’ab’al</annotation>
+		<annotation cp="🛐" type="tts">K’olib’al b’anb’al ch’ab’al</annotation>
+		<annotation cp="⚛">makojb’al | atom</annotation>
+		<annotation cp="⚛" type="tts">etal atom</annotation>
+		<annotation cp="🕉">kojb’al | Hindú</annotation>
+		<annotation cp="🕉" type="tts">om</annotation>
+		<annotation cp="✡">David | Judío | rech Juda | kojb’al | ch’umil</annotation>
+		<annotation cp="✡" type="tts">ch’umil rech David</annotation>
+		<annotation cp="☸">Budista | uk’utik dharma | kojb’al | b’inib’al</annotation>
+		<annotation cp="☸" type="tts">b’inisab’al rech dharma</annotation>
+		<annotation cp="☯">kojb’al | kojb’al tao | kojb’al taoist | kojb’al yang | kojb’al yin</annotation>
+		<annotation cp="☯" type="tts">kojb’al yin kojb’al yang</annotation>
+		<annotation cp="✝">kristian | krus | kojb’al</annotation>
+		<annotation cp="✝" type="tts">krus latino</annotation>
+		<annotation cp="☦">kristian | krus | kojb’al</annotation>
+		<annotation cp="☦" type="tts">krus ortodoxio</annotation>
+		<annotation cp="☪">islam | musulman | kojb’al</annotation>
+		<annotation cp="☪" type="tts">ch’umil chi’l uk’iyem</annotation>
+		<annotation cp="☮">utzil</annotation>
+		<annotation cp="☮" type="tts">retal utzil</annotation>
+		<annotation cp="🕎">nimtz’ukb’al | tzuk’b’al | kojb’al</annotation>
+		<annotation cp="🕎" type="tts">Tzuk’ulb’al kotz’i’j</annotation>
+		<annotation cp="🔯">q’inomal | ch’umil</annotation>
+		<annotation cp="🔯" type="tts">Waqib’ uwi’ Jisik’ uwi’ ch’umil</annotation>
+		<annotation cp="♈">ram | zodiaco</annotation>
+		<annotation cp="♈" type="tts">Aries</annotation>
+		<annotation cp="♉">b’uwakax | zodiaco</annotation>
+		<annotation cp="♉" type="tts">Taurus</annotation>
+		<annotation cp="♊">yo’x | zodiaco</annotation>
+		<annotation cp="♊" type="tts">Geminis</annotation>
+		<annotation cp="♋">tap</annotation>
+		<annotation cp="♋" type="tts">Q’ayik</annotation>
+		<annotation cp="♌">leo | zodiaco</annotation>
+		<annotation cp="♌" type="tts">Leo</annotation>
+		<annotation cp="♍">Zodiaco</annotation>
+		<annotation cp="♍" type="tts">Virgo</annotation>
+		<annotation cp="♎">pajb’al | suk’malil | taq ucholajil | zodiaco</annotation>
+		<annotation cp="♎" type="tts">Libra</annotation>
+		<annotation cp="♏">escorpion | zodiaco</annotation>
+		<annotation cp="♏" type="tts">Escorpio</annotation>
+		<annotation cp="♐">k’aqanel</annotation>
+		<annotation cp="♐" type="tts">Sagitario</annotation>
+		<annotation cp="♑">k’isik’ | zodiaco</annotation>
+		<annotation cp="♑" type="tts">Capricornio</annotation>
+		<annotation cp="♒">uk’anel | ja’ | zodiaco</annotation>
+		<annotation cp="♒" type="tts">K’arb’al</annotation>
+		<annotation cp="♓">kar | zodiaco</annotation>
+		<annotation cp="♓" type="tts">Piscis</annotation>
+		<annotation cp="⛎">uk’a’nel | sekumatz’ | kumatz’ | zodiaco</annotation>
+		<annotation cp="⛎" type="tts">Ofiuco</annotation>
+		<annotation cp="🔀">ch’ab’ | krusim</annotation>
+		<annotation cp="🔀" type="tts">Ch’ab’ upach’um rib’</annotation>
+		<annotation cp="🔁">ch’ab’ | pa wikiq’ab’ | ukamulixik</annotation>
+		<annotation cp="🔁" type="tts">Pitz’b’al ukamulixik</annotation>
+		<annotation cp="🔂">ch’ab’ | pa wikiq’ab’ | jumul</annotation>
+		<annotation cp="🔂" type="tts">Pitz’b’al ukamulixik q’ojom</annotation>
+		<annotation cp="▶">ch’ab’ | tzijb’al | wikiq’ab’ | oxxukut</annotation>
+		<annotation cp="▶" type="tts">pitz’b’al rech utzijil</annotation>
+		<annotation cp="⏩">ch’ab’ | keb’ichal | animaq | suk’um</annotation>
+		<annotation cp="⏩" type="tts">Aninaq Pitz’b’al chi Uwach</annotation>
+		<annotation cp="⏭">ch’ab’ | xajtajem teren chi uloq | b’ix teren chi uloq | oxxukut</annotation>
+		<annotation cp="⏭" type="tts">pitz’b’al teren chi uloq</annotation>
+		<annotation cp="⏯">ch’ab’ | uxlanem | utzijjik | wikiq’ab’ | oxxukut</annotation>
+		<annotation cp="⏯" type="tts">pitz’b’al rech utzijik on ruxlanisaxik</annotation>
+		<annotation cp="◀">ch’ab’ | moxq’ab’ | tzalijisab’al | oxxukut</annotation>
+		<annotation cp="◀" type="tts">pitz’b’al rech tzalijisab’al</annotation>
+		<annotation cp="⏪">ch’ab’ | keb’ichal | ub’olq’otixik</annotation>
+		<annotation cp="⏪" type="tts">Aninaq Tzalijisab’al Pitz’b’al</annotation>
+		<annotation cp="⏮">ch’ab’ | xajtajem kanoq | b’ix kanoq | oxxukut</annotation>
+		<annotation cp="⏮" type="tts">pitz’b’al rech uk’isb’al b’ix</annotation>
+		<annotation cp="🔼">ch’ab’ | pitz’b’al | kaq</annotation>
+		<annotation cp="🔼" type="tts">Pitz’b’al pa uwi’</annotation>
+		<annotation cp="⏫">ch’ab’ | kab’ichal</annotation>
+		<annotation cp="⏫" type="tts">Aninaq Pitz’b’al pa uwi’</annotation>
+		<annotation cp="🔽">ch’ab’ | pitz’b’al | chi uxe’ | kaq</annotation>
+		<annotation cp="🔽" type="tts">Pitz’b’al chi uxe’</annotation>
+		<annotation cp="⏬">ch’ab’ | keb’chal | chi uxe’</annotation>
+		<annotation cp="⏬" type="tts">Aninaq Pitz’b’al chi Uxe’</annotation>
+		<annotation cp="⏸">q’e’tb’al | kab’ichal | uxlanen | tak’al juch’</annotation>
+		<annotation cp="⏸" type="tts">pitz’b’al rech uxlanem</annotation>
+		<annotation cp="⏹">kajxukut | uq’atexik</annotation>
+		<annotation cp="⏹" type="tts">pitz’b’al rech uq’atexik</annotation>
+		<annotation cp="⏺">setesik | uk’olik ch’ab’alil</annotation>
+		<annotation cp="⏺" type="tts">pitz’b’al rech uk’olik ch’ab’alil</annotation>
+		<annotation cp="⏏">relesaxik</annotation>
+		<annotation cp="⏏" type="tts">pitz’b’al rech relesaxik</annotation>
+		<annotation cp="🎦">elesab’al wachaj | silob’k’utwachinem</annotation>
+		<annotation cp="🎦" type="tts">Silob’k’utwachib’al</annotation>
+		<annotation cp="🔅">reprotem | q’equ’m | nitz’</annotation>
+		<annotation cp="🔅" type="tts">Ub’antajik Pitz’b’al</annotation>
+		<annotation cp="🔆">reprot | reprotem</annotation>
+		<annotation cp="🔆" type="tts">Reprot B’oton</annotation>
+		<annotation cp="📶">jeq’ku’tb’alil | uq’e’tb’al | achib’il ch’aweb’al | silob’ | ch’aweb’al | etal | tech’aweb’al</annotation>
+		<annotation cp="📶" type="tts">Taq uq’e’tb’al Jeqk’utb’alil</annotation>
+		<annotation cp="📳">achib’il ch’aweb’al | kemub’antajik | ch’aweb’al | tech’aweb’al | b’irirem</annotation>
+		<annotation cp="📳" type="tts">Kab’irb’ot ub’antajik</annotation>
+		<annotation cp="📴">achib’il ch’aweb’all | silob’ | uchupik | ch’aweb’al | techaweb’al</annotation>
+		<annotation cp="📴" type="tts">Chupum b’inib’al ch’aweb’al</annotation>
+		<annotation cp="♀">Ixoq</annotation>
+		<annotation cp="♀" type="tts">Juch’b’i’aj rech ixoq</annotation>
+		<annotation cp="♂">Achi</annotation>
+		<annotation cp="♂" type="tts">juch’b’i’aj rech achi</annotation>
+		<annotation cp="⚕">jastaq | kunab’al | etal</annotation>
+		<annotation cp="⚕" type="tts">etal rech kunanem</annotation>
+		<annotation cp="♻">kej ch’ich’</annotation>
+		<annotation cp="♻" type="tts">retal k’olmes</annotation>
+		<annotation cp="⚜">pek’otzi’j</annotation>
+		<annotation cp="⚜" type="tts">pek’otzi’j</annotation>
+		<annotation cp="🔱">alch’ich’ | etal | q’axeb’al | chakub’al | tiche’</annotation>
+		<annotation cp="🔱" type="tts">Retal oxib’ uwi’</annotation>
+		<annotation cp="📛">nimetal | b’i’aj</annotation>
+		<annotation cp="📛" type="tts">Uk’olib’al b’i’aj</annotation>
+		<annotation cp="🔰">majib’al | chevron | rax | rech japón | uxaq | chakub’al | q’an</annotation>
+		<annotation cp="🔰" type="tts">Etal rech Japon rech taq majib’al</annotation>
+		<annotation cp="⭕">setesik | o</annotation>
+		<annotation cp="⭕" type="tts">Al Nim Setesik</annotation>
+		<annotation cp="✅">q’atub’al | etal</annotation>
+		<annotation cp="✅" type="tts">Saq retal juch’</annotation>
+		<annotation cp="☑">juch’b’al | kajxukut | q’atub’al</annotation>
+		<annotation cp="☑" type="tts">kajxukut rech juch’b’al ruk’ q’atub’al</annotation>
+		<annotation cp="✔">q’atub’al | etal</annotation>
+		<annotation cp="✔" type="tts">nim uq’atub’al etal</annotation>
+		<annotation cp="✖">uq’atexik | k’iyarisanem | uk’iyarisaxik | x</annotation>
+		<annotation cp="✖" type="tts">nim k’iyarisanem x</annotation>
+		<annotation cp="❌">uq’atexik | etal | k’iyarisanem | uk’iyarisaxik | x</annotation>
+		<annotation cp="❌" type="tts">Retal Krus</annotation>
+		<annotation cp="❎">etal | kajxutut</annotation>
+		<annotation cp="❎" type="tts">Pitz’b’al rech retal Krus</annotation>
+		<annotation cp="➕">ajilanem | etal rech mulinem</annotation>
+		<annotation cp="➕" type="tts">Al Etal rech Mulinem</annotation>
+		<annotation cp="➖">ajilab’al | etal rech esanem</annotation>
+		<annotation cp="➖" type="tts">Al Etal rech Elesanem</annotation>
+		<annotation cp="➗">jachanem | ajilab’al</annotation>
+		<annotation cp="➗" type="tts">Al Etal rech Elesab’al</annotation>
+		<annotation cp="➰">kotokik | k’a’am</annotation>
+		<annotation cp="➰" type="tts">Kotokik k’a’am</annotation>
+		<annotation cp="➿">kotokik | kab’ichal | b’atz’</annotation>
+		<annotation cp="➿" type="tts">Kab’ichal kotokik b’atz’</annotation>
+		<annotation cp="〽">etal | tz’aqatil</annotation>
+		<annotation cp="〽" type="tts">k’exb’alil rech utz’aqatil etal</annotation>
+		<annotation cp="✳">ch’umil</annotation>
+		<annotation cp="✳" type="tts">wajxaqib’ ra’l uwi’ ch’umul</annotation>
+		<annotation cp="✴">q’ij</annotation>
+		<annotation cp="✴" type="tts">wajxaqib’ uwi’ ch’umul</annotation>
+		<annotation cp="❇">chupchutem</annotation>
+		<annotation cp="❇" type="tts">chupchutem</annotation>
+		<annotation cp="‼">bangbang | mayib’al | etal | retal tz’ib’</annotation>
+		<annotation cp="‼" type="tts">keb’ichal etal rech mayib’al</annotation>
+		<annotation cp="⁉">mayib’al | interrobang | etal | retal tz’ib’ | k’otb’al chi’aj</annotation>
+		<annotation cp="⁉" type="tts">etal rech k’otb’al chi’aj</annotation>
+		<annotation cp="❓">etal | retal tz’ib’ | k’otb’al chi’aj</annotation>
+		<annotation cp="❓" type="tts">Retal k’otoj chi’aj</annotation>
+		<annotation cp="❔">etal | tz’ajom | retal tz’ib’ | k’otb’al chi’aj</annotation>
+		<annotation cp="❔" type="tts">Saq retal k’otoj chi’aj</annotation>
+		<annotation cp="❕">mayib’al | etal | tz’ajomm | retal tz’ib’</annotation>
+		<annotation cp="❕" type="tts">Retal saq mayb’al</annotation>
+		<annotation cp="❗">mayb’al | etal | ratal taq tz’ib’</annotation>
+		<annotation cp="❗" type="tts">Retal Tzaqb’al k’u’x</annotation>
+		<annotation cp="〰">nimajuch’ | retal tz’ib’ | kotokik</annotation>
+		<annotation cp="〰" type="tts">kotokik nimajuch’</annotation>
+		<annotation cp="©">copyright</annotation>
+		<annotation cp="©" type="tts">copyright</annotation>
+		<annotation cp="®">registered</annotation>
+		<annotation cp="®" type="tts">registered</annotation>
+		<annotation cp="™">etal | tm | k’ayetal</annotation>
+		<annotation cp="™" type="tts">k’ay etal</annotation>
+		<annotation cp="🔠">ABCD | okib’al | latino | taq tz’ib’ | nim tz’ib’</annotation>
+		<annotation cp="🔠" type="tts">Rokib’al Nim tz’ib’ rech Latino</annotation>
+		<annotation cp="🔡">abcd | okib’al | latino | taq tz’ib’ | nitz’ tz’ib’</annotation>
+		<annotation cp="🔡" type="tts">Rokib’al Nitz’ tz’ib’ rech Latino</annotation>
+		<annotation cp="🔢">1234 | okib’al | taq ajilab’al</annotation>
+		<annotation cp="🔢" type="tts">Rokib’al taq Ajilab’al</annotation>
+		<annotation cp="🔣">〒♪&amp;% | okib’al</annotation>
+		<annotation cp="🔣" type="tts">Rokib’al taq Etal</annotation>
+		<annotation cp="🔤">abc | choltz’ib’ | okib’al | latino | taq tz’ib’</annotation>
+		<annotation cp="🔤" type="tts">Rokib’al taq Tz’ib’wuj rech Latino</annotation>
+		<annotation cp="🅰">a | uwach kik’</annotation>
+		<annotation cp="🅰" type="tts">pitz’b’al A (kik’ uwach)</annotation>
+		<annotation cp="🆎">ab | kik’ uwach</annotation>
+		<annotation cp="🆎" type="tts">Pitz’b’al AB (kik’ uwach)</annotation>
+		<annotation cp="🅱">b | kik’ uwach</annotation>
+		<annotation cp="🅱" type="tts">pitz’b’al B (kik’ uwach)</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">B’oton CL</annotation>
+		<annotation cp="🆒">je’l</annotation>
+		<annotation cp="🆒" type="tts">JE’L B’oton</annotation>
+		<annotation cp="🆓">sipatalik</annotation>
+		<annotation cp="🆓" type="tts">Pitz’b’al rech Tzoqopib’al</annotation>
+		<annotation cp="ℹ">i | q’alajisanem</annotation>
+		<annotation cp="ℹ" type="tts">q’alajisanem</annotation>
+		<annotation cp="🆔">id | winaqilal</annotation>
+		<annotation cp="🆔" type="tts">Pitz’b’al rech ID</annotation>
+		<annotation cp="Ⓜ">setesik | m</annotation>
+		<annotation cp="Ⓜ" type="tts">sutim M</annotation>
+		<annotation cp="🆕">k’ak’</annotation>
+		<annotation cp="🆕" type="tts">K’AK’ pitz’b’al</annotation>
+		<annotation cp="🆖">ng</annotation>
+		<annotation cp="🆖" type="tts">NG pitz’b’al</annotation>
+		<annotation cp="🅾">O pitz’b’al (kik’uwach)</annotation>
+		<annotation cp="🅾" type="tts">O pitz’b’al (uwach kik’)</annotation>
+		<annotation cp="🆗">JE’</annotation>
+		<annotation cp="🆗" type="tts">Pitz’b’al rech Uk’amik</annotation>
+		<annotation cp="🅿">chakalem</annotation>
+		<annotation cp="🅿" type="tts">pitz’b’al P</annotation>
+		<annotation cp="🆘">tob’anem | sos</annotation>
+		<annotation cp="🆘" type="tts">Pitz’b’al SOS</annotation>
+		<annotation cp="🆚">ruk’ | vs</annotation>
+		<annotation cp="🆚" type="tts">Pitz’b’al VS</annotation>
+		<annotation cp="🈁">rech japón | katakana | ココ | &quot;waral&quot;</annotation>
+		<annotation cp="🈁" type="tts">Pitz’b’al rech ’waral’ rech Japon</annotation>
+		<annotation cp="🈂">rech Japon | katakana | サ | &quot;tojtal patanib’al&quot;</annotation>
+		<annotation cp="🈂" type="tts">rech Japón &quot;tojtal patanib’al&quot; pitz’b’al</annotation>
+		<annotation cp="🈷">rech Japón | juch’tz’ib’ | 月 | &quot;rajilab’alil chi ik’&quot;</annotation>
+		<annotation cp="🈷" type="tts">rech Japón pitz’b’al rech &quot;rajilab’alil chi ik’&quot;</annotation>
+		<annotation cp="🈶">rech japón | juch’tz’ib’ | 有 | &quot;man sipatal taj&quot;</annotation>
+		<annotation cp="🈶" type="tts">Pitz’b’al rech ’man xaq ta Sipalatik’ rech Japon</annotation>
+		<annotation cp="🈯">rech Japón | juch’tz’ib’ | 指 | &quot;tastalik&quot;</annotation>
+		<annotation cp="🈯" type="tts">Pitz’b’al rech ’tastalik’ rech Japon</annotation>
+		<annotation cp="🉐">rech Japón | juch’tz’ib’ | 得 | &quot;rajilal&quot;</annotation>
+		<annotation cp="🉐" type="tts">Pitz’b’al rech ’rajilal’ rech Jap’on</annotation>
+		<annotation cp="🈹">rech Japón | juch’tz’ib’ | 割 | &quot;qajrajilal&quot;</annotation>
+		<annotation cp="🈹" type="tts">Pitz’b’al rech ’qajrajilal’ rech Japon</annotation>
+		<annotation cp="🈚">rech Japón | juch’tz’ib’ | 無 | &quot;man tojtal taj&quot;</annotation>
+		<annotation cp="🈚" type="tts">Pitz’b’al rech ’man Ktoj taj’ rech Japon</annotation>
+		<annotation cp="🈲">rech Japón | juch’tz’ib’ | 禁 | &quot;man ya’tal taj&quot;</annotation>
+		<annotation cp="🈲" type="tts">Pitz’b’al rech &quot;man ya’tal taj&quot; rech Japon</annotation>
+		<annotation cp="🉑">rech Japón | juch’tz’ib’ | 可 | &quot;uk’amik&quot;</annotation>
+		<annotation cp="🉑" type="tts">Pitz’b’al rech ’uk’amik’ rech Japo’n</annotation>
+		<annotation cp="🈸">rech Japón | juch’tz’ib’ | 申 | &quot;kojkemchak&quot;</annotation>
+		<annotation cp="🈸" type="tts">Pitz’b’al rech ’kojkemchak’ rech Japo’n</annotation>
+		<annotation cp="🈴">rech Japón | juch’tz’ib’ | 合 | &quot;uq’axexik ucholaji&quot;</annotation>
+		<annotation cp="🈴" type="tts">Pitz’b’al rech &quot;uq’axexik ucholajil&quot; rech Japon</annotation>
+		<annotation cp="🈳">rech Japón | juch’tz’ib’ | 空 | &quot;tolonik&quot;</annotation>
+		<annotation cp="🈳" type="tts">Pitz’b’al rech ’tolonik’ rech Japon</annotation>
+		<annotation cp="㊗">rech Japón | juch’tz’ib’ | 祝 | &quot;ki’kotemal chi awech&quot;</annotation>
+		<annotation cp="㊗" type="tts">Pitz’b’al rech &quot;ki’kotemal chi awech&quot; rech Japon</annotation>
+		<annotation cp="㊙">rech Japón | juch’tz’ib’ | 祝 | &quot;echeb’alil&quot;</annotation>
+		<annotation cp="㊙" type="tts">Pitz’b’al rech &quot;echeb’alil&quot; rech Japon</annotation>
+		<annotation cp="🈺">rech Japón | juch’tz’ib’ | 祝 | &quot;jaqatal chech k’ayinem&quot;</annotation>
+		<annotation cp="🈺" type="tts">Japanese ’jaqatal chech taq K’ayinem’ rech Japon</annotation>
+		<annotation cp="🈵">rech Japón | juch’tz’ib’ | 祝 | &quot;man tolon taj&quot;</annotation>
+		<annotation cp="🈵" type="tts">Pitz’b’al rech ’man k’o ta Tolonik’ rech Japon</annotation>
+		<annotation cp="🔴">setesik | jalub’antajik | kaq</annotation>
+		<annotation cp="🔴" type="tts">Setesik kaq</annotation>
+		<annotation cp="🔵">raxkaj | setesik | jalub’antajik</annotation>
+		<annotation cp="🔵" type="tts">Setesik Raxkaj</annotation>
+		<annotation cp="⚫">setesik | jalub’antajik</annotation>
+		<annotation cp="⚫" type="tts">Q’eq Setesik</annotation>
+		<annotation cp="⚪">setesik | jalub’antajik</annotation>
+		<annotation cp="⚪" type="tts">Setesik saq</annotation>
+		<annotation cp="⬛">jalub’antajik | kajxukut</annotation>
+		<annotation cp="⬛" type="tts">Nim q’eq kajxukut</annotation>
+		<annotation cp="⬜">jalub’antajik | kajxukut</annotation>
+		<annotation cp="⬜" type="tts">Nim saq kajxukut</annotation>
+		<annotation cp="◼">jalub’antajik | kajxukut</annotation>
+		<annotation cp="◼" type="tts">retal q’eq’ kajxukut</annotation>
+		<annotation cp="◻">jalub’antajik | kajxukut</annotation>
+		<annotation cp="◻" type="tts">retal saq kajxukut</annotation>
+		<annotation cp="◾">jalub’antajik | kajxukut</annotation>
+		<annotation cp="◾" type="tts">Retal-Nitz’ Q’eq Kajxukut</annotation>
+		<annotation cp="◽">jalub’antajik | kajxukut</annotation>
+		<annotation cp="◽" type="tts">Saq nik’aj nitz’ kajxukut</annotation>
+		<annotation cp="▪">jalub’antajik | kajxukut</annotation>
+		<annotation cp="▪" type="tts">q’eq’ nitz’ kajxukut</annotation>
+		<annotation cp="▫">jalub’antajik | kajxukut</annotation>
+		<annotation cp="▫" type="tts">saq nitz’ kajxukut</annotation>
+		<annotation cp="🔶">jeb’el ab’aj | jalub’antajik | uwaxub’</annotation>
+		<annotation cp="🔶" type="tts">Nim uje’ koj ab’aj</annotation>
+		<annotation cp="🔷">raxkaj | jeb’el ab’aj | jalub’antajik</annotation>
+		<annotation cp="🔷" type="tts">Nim raxkaj ab’aj</annotation>
+		<annotation cp="🔸">jeb’el ab’aj | jalub’antajik | uwaxub’</annotation>
+		<annotation cp="🔸" type="tts">Nitz’ uje’ koj ab’aj</annotation>
+		<annotation cp="🔹">raxkaj | jeb’el ab’aj | jalub’antajik</annotation>
+		<annotation cp="🔹" type="tts">Nitz’ raxkaj ab’aj</annotation>
+		<annotation cp="🔺">Jalub’antajik | kaq</annotation>
+		<annotation cp="🔺" type="tts">Kaq oxxukut paqal uwi’</annotation>
+		<annotation cp="🔻">chi uxe’ | jalub’antajik | kaq</annotation>
+		<annotation cp="🔻" type="tts">Kaq oxxukut xulan uwi’</annotation>
+		<annotation cp="💠">tze’b’al | jeb’el ab’aj | jalub’antajik | chi upam</annotation>
+		<annotation cp="💠" type="tts">Je’lalaj ab’aj ruk’ Nak’</annotation>
+		<annotation cp="🔘">pitz’b’al | jalub’antajik | q’axeb’al tzij</annotation>
+		<annotation cp="🔘" type="tts">Pitz’b’al q’axeb’al tzij</annotation>
+		<annotation cp="🔳">pitz’b’al | jalub’antajik | tz’ajom | kajxukut</annotation>
+		<annotation cp="🔳" type="tts">Saq kajxukut pitz’b’al</annotation>
+		<annotation cp="🔲">pitz’b’al | jalub’antajik | kajxukut</annotation>
+		<annotation cp="🔲" type="tts">Q’eq kajxukut b’oton</annotation>
+		<annotation cp="🏁">kajxukutim | anim</annotation>
+		<annotation cp="🏁" type="tts">Kajxukut Retwokaj</annotation>
+		<annotation cp="🚩">powuj</annotation>
+		<annotation cp="🚩" type="tts">Oxxukut retwokaj</annotation>
+		<annotation cp="🎌">nimaq’ij | krus | ukrusim rib’ | rech Japón</annotation>
+		<annotation cp="🎌" type="tts">Taq retal wokaj Ukrusim rib’</annotation>
+		<annotation cp="🏴">uq’o’ik</annotation>
+		<annotation cp="🏴" type="tts">Q’eq Retwokaj</annotation>
+		<annotation cp="🏳">uq’o’ik</annotation>
+		<annotation cp="🏳" type="tts">saq retamaq’</annotation>
+		<annotation cp="🏳‍🌈">Xk’uq’ab’</annotation>
+		<annotation cp="🏳‍🌈" type="tts">retamaq’ xukuq’ab’</annotation>
+	</annotations>
+</ldml>

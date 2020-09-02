@@ -611,19 +611,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<pattern draft="provisional">EEEE, 'die' d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="long" draft="provisional">
+					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>'die' d MMMM y G</pattern>
+							<pattern draft="provisional">'die' d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="medium" draft="provisional">
+					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>'die' d MMM y G</pattern>
+							<pattern draft="provisional">'die' d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="short" draft="provisional">
+					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d M y G</pattern>
+							<pattern draft="provisional">d M y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -633,19 +633,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<pattern draft="provisional">HH:mm:ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="long" draft="provisional">
+					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="medium" draft="provisional">
+					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
+							<pattern draft="provisional">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="short" draft="provisional">
+					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
+							<pattern draft="provisional">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

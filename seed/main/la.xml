@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2020 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -1134,78 +1135,78 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="10000" count="other" draft="provisional">00M</pattern>
 					<pattern type="100000" count="one" draft="provisional">000M</pattern>
 					<pattern type="100000" count="other" draft="provisional">000M</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 Mn</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 Mn</pattern>
-					<pattern type="10000000" count="one" draft="provisional">00 Mn</pattern>
-					<pattern type="10000000" count="other" draft="provisional">00 Mn</pattern>
-					<pattern type="100000000" count="one" draft="provisional">000 Mn</pattern>
-					<pattern type="100000000" count="other" draft="provisional">000 Mn</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0 Md</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">00 Md</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">00 Md</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">000 Md</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">0 mil Md</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0 mil Md</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">00 mil Md</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 mil Md</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">000 mil Md</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 mil Md</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 Mn</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 Mn</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 Mn</pattern>
+					<pattern type="10000000" count="other" draft="provisional">00 Mn</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 Mn</pattern>
+					<pattern type="100000000" count="other" draft="provisional">000 Mn</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">0 Md</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 Md</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">00 Md</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 Md</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">000 Md</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0 mil Md</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">0 mil Md</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 mil Md</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">00 mil Md</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 mil Md</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">000 mil Md</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<currencies>
- 			<currency type="XAU">
-				<displayName draft="provisional">Aurum</displayName>
-			</currency>
- 			<currency type="XAG">
-				<displayName draft="provisional">Argentum</displayName>
-			</currency>
- 			<currency type="XPT">
-				<displayName draft="provisional">Platinum</displayName>
-			</currency>
- 			<currency type="XPD">
-				<displayName draft="provisional">Palladium</displayName>
-			</currency>
- 			<currency type="USD">
-				<displayName draft="provisional">Dollarium Civitatum Foederatarum</displayName>
-			</currency>
- 			<currency type="EUR">
-				<displayName draft="provisional">Euro</displayName>
-			</currency>
- 			<currency type="HKD">
-				<displayName draft="provisional">Dollarium Hongkongense</displayName>
-			</currency>
- 			<currency type="GBP">
-				<displayName draft="provisional">Libra sterlingorum</displayName>
-			</currency>
- 			<currency type="ITL">
-				<displayName draft="provisional">Lira Italiana</displayName>
-			</currency>
- 			<currency type="RUR">
-				<displayName draft="provisional">Rubelus Russicus</displayName>
-			</currency>
- 			<currency type="GRD">
-				<displayName draft="provisional">Drachma</displayName>
-			</currency>
- 			<currency type="MXN">
-				<displayName draft="provisional">Pensum Mexicanum</displayName>
-			</currency>
- 			<currency type="JPY">
-				<displayName draft="provisional">Yen</displayName>
-			</currency>
- 			<currency type="PEN">
-				<displayName draft="provisional">Nuevo Sol</displayName>
-			</currency>
- 			<currency type="CHF">
+			<currency type="CHF">
 				<displayName draft="provisional">Francus Helveticus</displayName>
 			</currency>
- 			<currency type="NOK">
+			<currency type="EUR">
+				<displayName draft="provisional">Euro</displayName>
+			</currency>
+			<currency type="FIM">
+				<displayName draft="provisional">Marca Finniae</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="provisional">Libra sterlingorum</displayName>
+			</currency>
+			<currency type="GRD">
+				<displayName draft="provisional">Drachma</displayName>
+			</currency>
+			<currency type="HKD">
+				<displayName draft="provisional">Dollarium Hongkongense</displayName>
+			</currency>
+			<currency type="ITL">
+				<displayName draft="provisional">Lira Italiana</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="provisional">Yen</displayName>
+			</currency>
+			<currency type="MXN">
+				<displayName draft="provisional">Pensum Mexicanum</displayName>
+			</currency>
+			<currency type="NOK">
 				<displayName draft="provisional">Corona Norvegiae</displayName>
 			</currency>
- 			<currency type="FIM">
-				<displayName draft="provisional">Marca Finniae</displayName>
+			<currency type="PEN">
+				<displayName draft="provisional">Nuevo Sol</displayName>
+			</currency>
+			<currency type="RUR">
+				<displayName draft="provisional">Rubelus Russicus</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="provisional">Dollarium Civitatum Foederatarum</displayName>
+			</currency>
+			<currency type="XAG">
+				<displayName draft="provisional">Argentum</displayName>
+			</currency>
+			<currency type="XAU">
+				<displayName draft="provisional">Aurum</displayName>
+			</currency>
+			<currency type="XPD">
+				<displayName draft="provisional">Palladium</displayName>
+			</currency>
+			<currency type="XPT">
+				<displayName draft="provisional">Platinum</displayName>
 			</currency>
 		</currencies>
 	</numbers>

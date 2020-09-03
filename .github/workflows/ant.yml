@@ -146,4 +146,4 @@ jobs:
       run: |
         echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
         echo "${SMOKETEST_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
-        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SMOKETEST_PORT} surveytool@${SMOKETEST_HOST} sh /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${GITHUB_SHA}
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SMOKETEST_PORT} surveytool@${SMOKETEST_HOST} bash /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${GITHUB_SHA} --override

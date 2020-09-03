@@ -10,9 +10,13 @@ on:
       git-ref:
         description: Git Ref to Deploy (master, hash, tag)
         required: true
+      option:
+        description: use --override to allow any ref
+        required: false
+        default: ''
 jobs:
   build:
-    name: Deploy To Production
+    name: Build for Production
     runs-on: ubuntu-latest
     steps:
       # - name: Clone Repository (Latest)
@@ -57,6 +61,7 @@ jobs:
           name: cldr-apps
           path: tools/cldr-apps/cldr-apps.war
   deploy:
+    name: Deploy to Production
     needs:
       - build
     runs-on: ubuntu-latest
@@ -80,7 +85,8 @@ jobs:
         # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
         SURVEYTOOL_KNOWNHOSTS: ${{ secrets.SURVEYTOOL_KNOWNHOSTS }}
         DEPLOY_SHA: ${{ github.event.inputs.git-ref }}
+        OVERRIDE: ${{ github.event.inputs.override }}
       run: |
         echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
         echo "${SURVEYTOOL_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
-        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SURVEYTOOL_PORT} surveytool@${SURVEYTOOL_HOST} sh /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${DEPLOY_SHA}
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SURVEYTOOL_PORT} surveytool@${SURVEYTOOL_HOST} bash /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${DEPLOY_SHA} ${OVERRIDE}

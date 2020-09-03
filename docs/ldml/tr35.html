@@ -102,7 +102,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2020-05-13</td>
+        <td class="changed">2020-09-03</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -2369,6 +2369,30 @@ zh-Hant-HK</pre>
           <em>Unknown or Invalid Currency</em>.</p>
         </td>
       </tr>
+      <tr class="changed">
+        <td colspan="4"><strong>A <a href=
+        "#UnicodeDictionaryBreakExclusionIdentifier" name=
+        "UnicodeDictionaryBreakExclusionIdentifier" id=
+        "UnicodeDictionaryBreakExclusionIdentifier">Unicode Dictionary Break Exclusion Identifier</a>
+        specifies scripts to be excluded from dictionary-based text break (for words and lines).
+        The valid values are of one or more items of type SCRIPT_CODE as specified in the
+        <em>name</em> attribute value in the <em>type</em>
+        element of key name="dx" in bcp47/<a target="_blank" href=
+        "https://github.com/unicode-org/cldr/tree/latest/common/bcp47/segmentation.xml">segmentation.xml</a>.</strong></td>
+      </tr>
+      <tr class="changed">
+        <td>"dx"</td>
+        <td>Dictionary break script exclusions</td>
+        <td>
+          <i><code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values</i>
+        </td>
+        <td>
+          <p>One or more items of type SCRIPT_CODE, which are valid
+          <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values.</p>
+          <p>The code Zyyy (Common) can be specified to exclude all scripts, in which case
+          it should be the only SCRIPT_CODE value specified.</p>
+        </td>
+      </tr>
       <tr>
         <td colspan="4"><strong>A <a href=
         "#UnicodeEmojiPresentationStyleIdentifier" name=
@@ -2987,6 +3011,14 @@ zh-Hant-HK</pre>
         "rg" key; this is a subdivision
         code with idStatus='unknown' or 'regular' from the
         idValidity data in common/validity/subdivision.xml.</p>
+        <h5 class="changed"><a name="SCRIPT_CODE" href="#SCRIPT_CODE" id=
+        "SCRIPT_CODE">SCRIPT_CODE</a></h5>
+        <p class="changed">The type name <strong>"SCRIPT_CODE"</strong> is
+        reserved for <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code>
+        values (e.g. "thai", "laoo").
+        The type "SCRIPT_CODE" is used for locale extension key "dx".
+        The value of type for "dx" is represented by one or more SCRIPT_CODEs,
+        such as "thai-laoo".</p>
         <h5><a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE" id=
         "SUBDIVISION_CODE">SUBDIVISION_CODE</a></h5>
         <p>The type name <strong>"SUBDIVISION_CODE"</strong> is
@@ -9025,8 +9057,18 @@ decimal?, group?, special*)) &gt;</pre>
     "Modifications">Modifications</a></h2>
 
     <p class="changed"><b>Revision 60</b></p>
-	<ul>
-	  <li class="changed" ><b>Proposed Update</b> for CLDR 38.</li>
+	<ul class="changed">
+	  <li><b>Proposed Update</b> for CLDR 38.</li>
+
+	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
+        <ul>
+          <li><strong>Section 3.6.1 <a href="#Key_And_Type_Definitions_" >Key And Type Definitions</a></strong>:
+          added new key “dx”, for <a href="#UnicodeDictionaryBreakExclusionIdentifier" >Unicode Dictionary Break Exclusion Identifier</a>.</li>
+          <li><strong>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a></strong>:
+          added description of <a href="#SCRIPT_CODE" >SCRIPT_CODE</a> value for key “dx”.</li>
+        </ul>
+	  </li>
+
 	</ul>
 
     <p><b>Revision 59</b></p>

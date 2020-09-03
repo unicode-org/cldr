@@ -49,7 +49,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Log;
+// import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathChecker;
 import org.unicode.cldr.util.PathHeader;
@@ -352,7 +352,7 @@ public class CLDRModify {
             String sourceDir = sourceDirBase + dir;
             if (!new File(sourceDir).isDirectory()) continue;
             String targetDir = targetDirBase + dir;
-            Log.setLog(targetDir + "/diff", "log.txt");
+            // Log.setLog(targetDir + "/diff", "log.txt");
             try {
                 Factory cldrFactory = Factory.make(sourceDir, ".*");
 
@@ -577,7 +577,7 @@ public class CLDRModify {
                 }
             } finally {
                 fixList.handleCleanup();
-                Log.close();
+                // Log.close();
                 System.out.println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0)
                     + " minutes");
             }

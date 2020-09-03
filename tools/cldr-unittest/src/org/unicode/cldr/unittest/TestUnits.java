@@ -706,7 +706,7 @@ public class TestUnits extends TestFmwk {
                     break;
                 case "light":
                     switch (quantity) {
-                    case "lumen": case "luminous-flux": case "power": case "luminous-intensity": case "luminance": continue;
+                    case "lumen": case "luminous-flux": case "power": case "luminous-intensity": case "luminance": case "illuminance": continue;
                     }
                     break;
                 case "mass":

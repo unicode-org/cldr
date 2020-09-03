@@ -129,7 +129,7 @@ public class TestBCP47 extends TestFmwk {
         }
     }
 
-    static final ImmutableSet<String> SKIP_TYPES = ImmutableSet.of("REORDER_CODE", "RG_KEY_VALUE", "SUBDIVISION_CODE", "CODEPOINTS", "PRIVATE_USE");
+    static final ImmutableSet<String> SKIP_TYPES = ImmutableSet.of("REORDER_CODE", "RG_KEY_VALUE", "SCRIPT_CODE", "SUBDIVISION_CODE", "CODEPOINTS", "PRIVATE_USE");
 
     private void checkKeyType(
         String bcp47Key,

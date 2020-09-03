@@ -171,7 +171,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     private boolean assertContains(String title, Collection<String> set, Collection<String> subset) {
-        boolean result = assertTrue(title, set.containsAll(subset));
+        boolean result = set.containsAll(subset);
         if (!result) {
             Set<String> temp = new LinkedHashSet<>(subset);
             temp.removeAll(set);
@@ -181,6 +181,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             }
             warnln("Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
         }
+        assertTrue(title, result);
         return result;
     }
     

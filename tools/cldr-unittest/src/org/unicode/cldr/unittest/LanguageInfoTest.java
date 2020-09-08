@@ -83,6 +83,9 @@ public class LanguageInfoTest extends TestFmwk {
     }
 
     public void testBasics() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList
             .add(ULocale.FRENCH).add(ULocale.UK).add(ULocale.ENGLISH)
             .build(), data);
@@ -103,6 +106,9 @@ public class LanguageInfoTest extends TestFmwk {
         //				"Problems with language matcher TestChinese.")) {
         //			return;
         //		}
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList.add(
             "zh_CN, zh_TW, iw").build(), data);
         ULocale taiwanChinese = new ULocale("zh_TW");

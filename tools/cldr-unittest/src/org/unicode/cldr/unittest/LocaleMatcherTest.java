@@ -110,6 +110,9 @@ public class LocaleMatcherTest extends TestFmwk {
     //    }
 
     public void testChinese() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         LocaleMatcher matcher = newLocaleMatcher("zh_CN, zh_TW, iw");
         ULocale taiwanChinese = new ULocale("zh_TW");
         ULocale chinaChinese = new ULocale("zh_CN");
@@ -135,12 +138,18 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testFallbacks() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         LocalePriorityList lpl = LocalePriorityList.add("en, hi").build();
         final LocaleMatcher matcher = newLocaleMatcher(lpl, null, 0.09);
         assertEquals("hi", matcher.getBestMatch("sa").toString());
     }
 
     public void testOverrideData() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         double threshold = 0.05;
         LanguageMatcherData localeMatcherData = new LanguageMatcherData()
             .addDistance("br", "fr", 10, true)
@@ -162,6 +171,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testBasics() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher(LocalePriorityList.add(ULocale.FRENCH).add(ULocale.UK)
             .add(ULocale.ENGLISH).build());
         logln(matcher.toString());
@@ -173,6 +185,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testFallback() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         // check that script fallbacks are handled right
         final LocaleMatcher matcher = newLocaleMatcher("zh_CN, zh_TW, iw");
         assertEquals(new ULocale("zh_TW"), matcher.getBestMatch("zh_Hant"));
@@ -183,6 +198,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testSpecials() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         // check that nearby languages are handled
         final LocaleMatcher matcher = newLocaleMatcher("en, fil, ro, nn");
         assertEquals(new ULocale("fil"), matcher.getBestMatch("tl"));
@@ -217,6 +235,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void TestLocaleMatcherCoverage() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         // Add tests for better code coverage
         LocaleMatcher matcher = newLocaleMatcher(LocalePriorityList.add(null, 0).build(), null);
         logln(matcher.toString());
@@ -243,6 +264,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testEmpty() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("");
         assertNull(matcher.getBestMatch(ULocale.FRENCH));
     }
@@ -250,11 +274,17 @@ public class LocaleMatcherTest extends TestFmwk {
     static final ULocale ENGLISH_CANADA = new ULocale("en_CA");
 
     public void testMatch_exact() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         assertEquals(1.0,
             LocaleMatcher.match(ENGLISH_CANADA, ENGLISH_CANADA));
     }
 
     public void testMatch_none() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         double match = LocaleMatcher.match(
             new ULocale("ar_MK"),
             ENGLISH_CANADA);
@@ -263,6 +293,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testMatch_matchOnMazimized() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         ULocale undTw = new ULocale("und_TW");
         ULocale zhHant = new ULocale("zh_Hant");
         double matchZh = LocaleMatcher.match(undTw, new ULocale("zh"));
@@ -281,17 +314,26 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testMatchGrandfatheredCode() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("fr, i_klingon, en_Latn_US");
         assertEquals("en_Latn_US", matcher.getBestMatch("en_GB_oed").toString());
         // assertEquals("tlh", matcher.getBestMatch("i_klingon").toString());
     }
 
     public void testGetBestMatchForList_exactMatch() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en_GB, ja, es_ES, es_MX");
         assertEquals("ja", matcher.getBestMatch("ja, de").toString());
     }
 
     public void testGetBestMatchForList_simpleVariantMatch() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en_GB, ja, es_ES, es_MX");
         // Intentionally avoiding a perfect_match or two candidates for variant
         // matches.
@@ -301,6 +343,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testGetBestMatchForList_matchOnMaximized() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("en, ja");
         // final LocaleMatcher matcher =
         // newLocaleMatcher("fr, en, ja, es_ES, es_MX");
@@ -320,6 +365,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testGetBestMatchForList_noMatchOnMaximized() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         // Regression test for http://b/5714572 .
         final LocaleMatcher matcher = newLocaleMatcher("en, de, fr, ja");
         // de maximizes to de_DE. Pick the exact match for the secondary
@@ -328,6 +376,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testBestMatchForTraditionalChinese() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         // Scenario: An application that only supports Simplified Chinese (and
         // some other languages),
         // but does not support Traditional Chinese. zh_Hans_CN could be
@@ -357,6 +408,9 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testUndefined() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         // When the undefined language doesn't match anything in the list,
         // getBestMatch returns
         // the default, as usual.
@@ -393,6 +447,9 @@ public class LocaleMatcherTest extends TestFmwk {
     // }
 
     public void testGetBestMatch_googlePseudoLocales() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         // Google pseudo locales are primarily based on variant subtags.
         // See http://sites/intl_eng/pseudo_locales.
         // (See below for the region code based fall back options.)
@@ -440,6 +497,9 @@ public class LocaleMatcherTest extends TestFmwk {
      * itself most closely
      */
     public void testExactMatches() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         String lastBase = "";
         TreeSet<ULocale> sorted = new TreeSet<>();
         for (ULocale loc : ULocale.getAvailableLocales()) {
@@ -500,9 +560,9 @@ public class LocaleMatcherTest extends TestFmwk {
     // }
 
     public void testGetBestMatchForList_matchOnMaximized2() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-//            return;
-//        }
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en-GB, ja, es-ES, es-MX");
         // ja-JP matches ja on likely subtags, and it's listed first, thus it wins over
         // thus it wins over the second preference en-GB.
@@ -514,20 +574,18 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testGetBestMatchForList_closeEnoughMatchOnMaximized() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-//            return;
-//        }
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("en-GB, en, de, fr, ja");
         assertEquals("de", matcher.getBestMatch("de-CH, fr").toString());
         assertEquals("en", matcher.getBestMatch("en-US, ar, nl, de, ja").toString());
     }
 
     public void testGetBestMatchForPortuguese() {
-
         if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
             return;
         }
-
         final LocaleMatcher withPTExplicit = newLocaleMatcher("pt_PT, pt_BR, es, es_419");
         final LocaleMatcher withPTImplicit = newLocaleMatcher("pt_PT, pt, es, es_419");
         // Could happen because "pt_BR" is a tier_1 language and "pt_PT" is tier_2.
@@ -553,23 +611,26 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testVariantWithScriptMatch() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-//            return;
-//        }
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("fr, en, sv");
         assertEquals("en", matcher.getBestMatch("en-GB").toString());
         assertEquals("en", matcher.getBestMatch("en-GB, sv").toString());
     }
 
     public void testVariantWithScriptMatch2() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-//            return;
-//        }
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final LocaleMatcher matcher = newLocaleMatcher("en, sv");
         assertEquals("en", matcher.getBestMatch("en-GB, sv").toString());
     }
 
     public void testPerf() {
+        if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
+            return;
+        }
         final String desired = "sv, en";
 
         final LocaleMatcher matcherShort = newLocaleMatcher(desired);

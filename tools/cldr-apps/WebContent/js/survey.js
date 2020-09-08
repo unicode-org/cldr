@@ -2243,13 +2243,12 @@ require(["dojo/ready"], function(ready) {
 					pucontent.appendChild(td);
 				}
 			} else {
-				var clone = td.cloneNode(true);
-				setHelpContent(td);
 				if (!isDashboard()) {
+					// show, for example, dataPageInitialGuidance in Info Panel
+					var clone = td.cloneNode(true);
 					removeAllChildNodes(pucontent);
 					pucontent.appendChild(clone);
 				}
-
 			}
 			td = null;
 

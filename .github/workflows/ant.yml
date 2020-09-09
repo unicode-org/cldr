@@ -91,8 +91,13 @@ jobs:
       run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - ; cd .. '
     - name: Alias Tomcat directory
       run: ln -svf tomcat-tarball/apache-tomcat-* tomcat
+    - name: Setup MySQL
+      run: |
+        sudo systemctl start mysql.service
+        sleep 3
+        mysql --user=root --password=root < tools/cldr-apps/test-setup.sql
     - name: Survey Tool Check
-      run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml check
+      run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml -Djvm_extra_options='-Dorg.unicode.cldr.unittest.web.jdbcurl=jdbc:mysql://cldrtest:VbrB3LFCr6A!@localhost/cldrtest?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC -Dorg.unicode.cldr.unittest.web.KeepDb=true' check
   test:
     needs: build
     runs-on: ubuntu-latest

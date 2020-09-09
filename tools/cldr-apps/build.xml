@@ -37,6 +37,8 @@
 
         <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -Dorg.unicode.cldr.unittest.web.dir=cldr_db_test -DDEBUG=true"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
+        <property name="env.JVM_EXTRA_OPTIONS" value=""/>
+        <property name="jvm_extra_options" value="${env.JVM_EXTRA_OPTIONS}"/>
 
         <!-- from webinit: -->
         <property name="tomcat.home"        value="${CATALINA_HOME}"/>
@@ -333,7 +335,7 @@
     <target name="check" description="Run the standard ICU4J test suite" depends="init">
         <antcall target="_runCheck">
             <param name="runcheck.arg" value="-n"/>
-            <param name="runcheck.jvmarg" value="${jvm_options}"/>
+            <param name="runcheck.jvmarg" value="${jvm_options} ${jvm_extra_options}"/>
         </antcall>
     </target>
 

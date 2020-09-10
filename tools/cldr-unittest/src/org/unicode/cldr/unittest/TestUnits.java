@@ -365,7 +365,6 @@ public class TestUnits extends TestFmwk {
     static final boolean DEBUG = false;
 
     public void TestConversion() {
-        UnitConverter converter = SDI.getUnitConverter();
         Object[][] tests = {
             {"foot", 12, "inch"},
             {"gallon", 4, "quart"},
@@ -1731,10 +1730,9 @@ public class TestUnits extends TestFmwk {
     public void testDistinguishedSetsOfUnits() {
         Set<String> comparatorUnitIds = new LinkedHashSet<>(DtdData.unitOrder.getOrder());
         Set<String> validLongUnitIds = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
-        final UnitConverter unitConverter = SDI.getUnitConverter();
         final BiMap<String, String> shortToLong = Units.LONG_TO_SHORT.inverse();
         Set<String> errors = new LinkedHashSet<>();
-        Set<String> unitsConvertibleLongIds = unitConverter.canConvert().stream()
+        Set<String> unitsConvertibleLongIds = converter.canConvert().stream()
             .map(x -> {
                 String result = shortToLong.get(x);
                 if (result == null) {
@@ -1745,7 +1743,7 @@ public class TestUnits extends TestFmwk {
             .collect(Collectors.toSet());
         assertEquals("", Collections.emptySet(), errors);
 
-        Set<String> simpleConvertibleLongIds = unitConverter.canConvert().stream()
+        Set<String> simpleConvertibleLongIds = converter.canConvert().stream()
             .filter(x -> converter.isSimple(x))
             .map((String x) -> Units.LONG_TO_SHORT.inverse().get(x))
             .collect(Collectors.toSet());
@@ -1827,7 +1825,7 @@ public class TestUnits extends TestFmwk {
             }
             // check others
             CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(locale, true);
-            for (Entry<String, String> entry : UnitConverter.SHORT_TO_LONG_ID.entrySet()) {
+            for (Entry<String, String> entry : converter.SHORT_TO_LONG_ID.entrySet()) {
                 final String shortUnitId = entry.getKey();
                 final String longUnitId = entry.getValue();
                 final UnitId unitId = converter.createUnitId(shortUnitId);
@@ -1930,7 +1928,7 @@ public class TestUnits extends TestFmwk {
             }
 
 
-            for (Entry<String, String> entry : UnitConverter.SHORT_TO_LONG_ID.entrySet()) {
+            for (Entry<String, String> entry : converter.SHORT_TO_LONG_ID.entrySet()) {
                 final String shortUnitId = entry.getKey();
                 if (converter.getComplexity(shortUnitId) == UnitComplexity.simple) {
                     continue;
@@ -2033,7 +2031,7 @@ public class TestUnits extends TestFmwk {
 
             int count = 0;
             for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
-                final String shortUnit = UnitConverter.getShortId(longUnit);
+                final String shortUnit = converter.getShortId(longUnit);
                 String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
 
                 for (String desiredCase : rawCases) {
@@ -2079,7 +2077,6 @@ public class TestUnits extends TestFmwk {
                 logln("No grammar info for: " + localeID);
                 continue;
             }
-            UnitConverter converter = SDI.getUnitConverter();
             Collection<String> genderInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
             if (genderInfo.isEmpty()) {
                 continue;
@@ -2096,7 +2093,7 @@ public class TestUnits extends TestFmwk {
                 if (parts.size() != 5 || !parts.getElement(-1).equals("gender")) {
                     continue;
                 }
-                final String shortId = UnitConverter.getShortId(parts.getAttributeValue(-2, "type"));
+                final String shortId = converter.getShortId(parts.getAttributeValue(-2, "type"));
                 UnitId unitId = converter.createUnitId(shortId);
                 String constructedGender = unitId.getGender(cldrFile, source, partsUsed);
                 final String gender = cldrFile.getStringValue(path);

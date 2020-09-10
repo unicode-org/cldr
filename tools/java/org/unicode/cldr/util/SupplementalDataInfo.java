@@ -3,7 +3,6 @@ package org.unicode.cldr.util;
 import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -938,9 +937,10 @@ public class SupplementalDataInfo {
     public Multimap<String, String> languageGroups = TreeMultimap.create();
 
     public RationalParser rationalParser = new RationalParser();
-    public UnitConverter unitConverter = new UnitConverter(rationalParser);
 
-    public UnitPreferences unitPreferences = new UnitPreferences();
+    private UnitConverter unitConverter = null;
+
+    private final UnitPreferences unitPreferences = new UnitPreferences();
 
     public Map<String, GrammarInfo> grammarLocaleToTargetToFeatureToValues = new TreeMap<>();
 
@@ -985,6 +985,7 @@ public class SupplementalDataInfo {
      * Which directory did we come from?
      */
     final private File directory;
+    private Validity validity;
 
     /**
      * Get an instance chosen using setAsDefaultInstance(), otherwise return an instance using the default directory
@@ -1077,6 +1078,7 @@ public class SupplementalDataInfo {
 
     private SupplementalDataInfo(File directory) {
         this.directory = directory;
+        this.validity = Validity.getInstance(directory.toString() + "/../validity/");
     } // hide
 
     private void makeStuffSafe() {
@@ -1445,6 +1447,9 @@ public class SupplementalDataInfo {
             final String baseUnit = parts.getAttributeValue(-1, "baseUnit");
             final String quantity = parts.getAttributeValue(-1, "quantity");
             final String status = parts.getAttributeValue(-1, "status");
+            if (unitConverter == null) {
+                unitConverter = new UnitConverter(rationalParser, validity);
+            }
             unitConverter.addQuantityInfo(baseUnit, quantity, status);
             return true;
         }

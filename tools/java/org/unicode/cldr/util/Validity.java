@@ -50,6 +50,7 @@ public class Validity {
         Map<LstrType, Map<Status, Set<String>>> data = new EnumMap<>(LstrType.class);
         Map<LstrType, Map<String, Status>> codeToStatus = new EnumMap<>(LstrType.class);
         final String basePath = validityDirectory;
+
         for (String file : new File(basePath).list()) {
             if (!file.endsWith(".xml")) {
                 continue;
@@ -100,6 +101,9 @@ public class Validity {
                     subCodeToStatus.put(code, subtypeAttr);
                 }
             }
+        }
+        if (data.keySet().size() < 5) {
+            throw new IllegalArgumentException("Bad directory for validity files");
         }
         typeToStatusToCodes = CldrUtility.protectCollectionX(data);
         typeToCodeToStatus = CldrUtility.protectCollectionX(codeToStatus);

@@ -1,6 +1,10 @@
 # Everywhere
 .DS_Store
 
+# Maven output directories
+/tools/target
+/tools/*/target
+
 # /
 /.project
 /.classpath

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>cldr-apps</artifactId>
+	<packaging>war</packaging>
+	<name>CLDR Survey Tool</name>
+
+	<url>https://unicode.org/cldr</url>
+
+	<scm>
+		<connection>scm:git:https://github.com/unicode-org/cldr.git</connection>
+	</scm>
+
+	<parent>
+		<groupId>org.unicode.cldr</groupId>
+		<artifactId>cldr-all</artifactId>
+		<version>38.0-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<!-- test -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- icu -->
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>utilities</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- cldr -->
+		<dependency>
+			<groupId>org.unicode.cldr</groupId>
+			<artifactId>cldr</artifactId>
+		</dependency>
+
+		<!-- API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- mail / rss -->
+		<dependency>
+			<groupId>rome</groupId>
+			<artifactId>rome</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.sun.activation</groupId>
+			<artifactId>javax.activation</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+		</dependency>
+
+		<!-- scm -->
+		<dependency>
+			<groupId>org.tmatesoft.svnkit</groupId>
+			<artifactId>svnkit</artifactId>
+		</dependency>
+
+		<!-- codec/util -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
+		<!-- db -->
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.myanmartools</groupId>
+			<artifactId>myanmar-tools</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>cldr-apps</finalName>
+		<sourceDirectory>src</sourceDirectory> <!-- TODO: HACK! until we can pivot src dirs -->
+		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
+				defaults (may be moved to parent pom) -->
+			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+					<configuration>
+						<includes>
+							<include>org/**/*.java</include>
+						</includes>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin-version}</version>
+					<configuration>
+						<systemPropertyVariables>
+							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR>
+							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
+							<java.awt.headless>true</java.awt.headless>
+							<!-- <rununittest.arg>-n -q</rununittest.arg> -->
+						</systemPropertyVariables>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>3.2.2</version>
+					<configuration>
+						<webResources>
+							<resource>
+								<!-- this is relative to the pom.xml directory -->
+								<directory>WebContent</directory>
+								<excludes>
+									<exclude>WEB-INF/lib/*</exclude>
+								</excludes>
+							</resource>
+						</webResources>
+						<archive>
+							<manifestEntries>
+								<Built-By>${user.name}</Built-By>
+								<Build-Time>${maven.build.timestamp}</Build-Time>
+								<CLDR-Apps-Git-Commit>${buildNumber}</CLDR-Apps-Git-Commit>
+								<CLDR-Apps-Git-Branch>${scmBranch}</CLDR-Apps-Git-Branch>
+							</manifestEntries>
+						</archive>
+					</configuration>
+
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>buildnumber-maven-plugin</artifactId>
+					<version>1.4</version>
+					<executions>
+						<execution>
+							<phase>validate</phase>
+							<goals>
+								<goal>create</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+						<attach>true</attach>
+						<addOutputDirectoryToResources>true</addOutputDirectoryToResources>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

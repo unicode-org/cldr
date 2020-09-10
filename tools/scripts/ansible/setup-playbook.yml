@@ -83,6 +83,7 @@
             proxy_pass http://localhost:8080/cldr-apps/;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
           }
         marker: '# {mark} ANSIBLE MANAGED BLOCK'
         insertafter: '^[\s]*server_name' # the LAST uncommented server block
@@ -91,7 +92,7 @@
       user:
         name: surveytool
         shell: /bin/bash
-    - name: Give acess to surveytool user
+    - name: Give access to surveytool user
       file:
         path: /var/lib/tomcat8/cldr/cldr-trunk
         owner: surveytool

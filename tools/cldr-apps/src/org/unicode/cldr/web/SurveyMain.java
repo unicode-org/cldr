@@ -736,6 +736,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // don't flood server if busted- check every minute.
         out.println("<script>timerSpeed = 60080;</script>");
         out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>");
+        // This next is for the DB Busted page, so we can show the MySQL configurator.
+        out.print("<script src='"+ request.getContextPath()+request.getServletPath() + "/../js/cldr-setup.js" + "'></script>");
         out.print(getTopBox());
         out.println("</span>");
         out.println("<hr>");

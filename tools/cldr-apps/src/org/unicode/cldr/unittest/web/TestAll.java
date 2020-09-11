@@ -38,6 +38,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 public class TestAll extends TestGroup {
 
     private static final String DB_SUBDIR = "db";
+    private static final String CLDR_TEST_JDBC = TestAll.class.getPackage().getName() + ".jdbcurl";
     private static final String CLDR_TEST_KEEP_DB = TestAll.class.getPackage().getName() + ".KeepDb";
     private static final String CLDR_TEST_DISK_DB = TestAll.class.getPackage().getName() + ".DiskDb";
     private static boolean sane = false;
@@ -217,7 +218,7 @@ public class TestAll extends TestGroup {
     public synchronized static void setupTestDb() {
         if (dbSetup == false) {
             sanity();
-            DBUtils.makeInstanceFrom(getDataSource());
+            makeDataSource();
             dbSetup = true;
         }
     }
@@ -282,7 +283,7 @@ public class TestAll extends TestGroup {
         return dir;
     }
 
-    static DataSource getDataSource() {
+    static void initDerby() {
         long start = System.currentTimeMillis();
         try {
             Class.forName(DERBY_DRIVER);
@@ -292,10 +293,19 @@ public class TestAll extends TestGroup {
             if (DEBUG)
                 System.err.println("Load " + DERBY_DRIVER + " - " + ElapsedTimer.elapsedTime(start));
         }
-        if (CldrUtility.getProperty(CLDR_TEST_DISK_DB, false)) {
-            return setupDerbyDataSource(getDir(DB_SUBDIR));
+    }
+
+    static void makeDataSource() {
+        final String jdbcUrl = CldrUtility.getProperty(CLDR_TEST_JDBC, "");
+        System.err.println(CLDR_TEST_JDBC +"="+jdbcUrl);
+        if (!jdbcUrl.isEmpty()) {
+            DBUtils.makeInstanceFrom(null, jdbcUrl);
+        } else if (CldrUtility.getProperty(CLDR_TEST_DISK_DB, false)) {
+            initDerby();
+            DBUtils.makeInstanceFrom(setupDerbyDataSource(getDir(DB_SUBDIR)), null);
         } else {
-            return setupDerbyDataSource(null);
+            initDerby();
+            DBUtils.makeInstanceFrom(setupDerbyDataSource(null), null);
         }
     }
 

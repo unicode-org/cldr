@@ -1,9 +1,20 @@
 # these are used for CI testing
+# and, they also serve as an example of how to
+# configure local-vars/local.yml
+
+cldradmin_pw: hunter46 # needs to match cldradmin pw below
 mysql_users:
+  # this is the account used by the survey tool itself
   - name: surveytool
     host: localhost
     password: hunter42
     priv: 'cldrdb.*:ALL'
+  # this is the account used for administrative tasks
+  - name: cldradmin
+    password: hunter46
+    priv: 'cldrdb.*:ALL/*.*:PROCESS'
+    append_privs: yes
+# this is the account used for deployment
 surveytooldeploy:
   password: hunter43
   vap: hunter44

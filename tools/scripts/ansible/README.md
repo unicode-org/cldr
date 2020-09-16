@@ -77,8 +77,7 @@ Then setup github secrets as shown:
 
 ### Setup: Config file
 
-- Create a file `local-vars/local.yml` with the following
-(but with a secure password instead of `hunter42`.)
+- Create a file `local-vars/local.yml` matching the example values in [test-local-vars/local.yml](test-local-vars/local.yml) (but with a secure password instead of `hunter42`!.)
 
 ```yaml
 mysql_users:
@@ -105,6 +104,9 @@ ansible-playbook --check setup-playbook.yml
 
 This is in dry run mode. When it looks good to you, take the
 `--check` out and run it again.
+
+You can also use the `-l cldr-smoke.unicode.org` option to limit
+the operation to a single host.
 
 ## Local Test
 

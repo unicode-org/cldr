@@ -28,7 +28,6 @@ import org.unicode.cldr.util.TempPrintWriter;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
 
 /**
  * Regenerate the plural files. Related classes are:
@@ -59,7 +58,7 @@ public class GeneratedPluralSamples {
         /**
          * Must only be called if visibleFractionDigitCount are the same.
          */
-        public Range(FixedDecimal start, FixedDecimal end) {
+        public Range(EFixedDecimal start, EFixedDecimal end) {
             int temp = 1;
             for (long i = start.getVisibleDecimalDigitCount(); i > 0; --i) {
                 temp *= 10;
@@ -97,7 +96,7 @@ public class GeneratedPluralSamples {
         /**
          * Must only be called if visibleFractionDigitCount are the same.
          */
-        Status getStatus(FixedDecimal ni) {
+        Status getStatus(EFixedDecimal ni) {
             long newValue = ni.getIntegerValue() * offset + ni.getDecimalDigits();
             if (newValue < 0) {
                 throw new IllegalArgumentException("Must not be negative");
@@ -133,6 +132,7 @@ public class GeneratedPluralSamples {
         }
     }
 
+
     private static void append(StringBuilder b, long startValue2, long visibleFractionDigitCount2) {
         int len = b.length();
         for (int i = 0; i < visibleFractionDigitCount2; ++i) {
@@ -143,7 +143,7 @@ public class GeneratedPluralSamples {
         b.insert(len, startValue2);
     }
 
-    public static long getFlatValue(FixedDecimal start) {
+    public static long getFlatValue(EFixedDecimal start) {
         int temp = 1;
         for (long i = start.getVisibleDecimalDigitCount(); i != 0; i /= 10) {
             temp *= 10;
@@ -156,7 +156,7 @@ public class GeneratedPluralSamples {
      */
     static class Ranges {
         @SuppressWarnings("unchecked")
-        Set<Range>[] data = new Set[5];
+        Set<Range>[] data = new Set[10];
         int size = 0;
         {
             for (int i = 0; i < data.length; ++i) {
@@ -176,7 +176,7 @@ public class GeneratedPluralSamples {
             // TODO Auto-generated constructor stub
         }
 
-        void add(FixedDecimal ni) {
+        void add(EFixedDecimal ni) {
             Set<Range> set = data[ni.getVisibleDecimalDigitCount()];
             for (Range item : set) {
                 switch (item.getStatus(ni)) {
@@ -257,8 +257,9 @@ public class GeneratedPluralSamples {
         int countNoTrailing = -1;
         final Set<Double> noTrailing = new TreeSet<>();
         final Ranges samples = new Ranges();
-        final FixedDecimal[] digitToSample = new FixedDecimal[10];
+        final EFixedDecimal[] digitToSample = new EFixedDecimal[20];
         final PluralRules.SampleType sampleType;
+        final Set<EFixedDecimal> exponentSamples = new TreeSet<>();
         private boolean isBounded;
 
         public DataSample(PluralRules.SampleType sampleType) {
@@ -268,15 +269,34 @@ public class GeneratedPluralSamples {
         @Override
         public String toString() {
             Ranges samples2 = new Ranges(samples);
-            for (FixedDecimal ni : digitToSample) {
+            for (EFixedDecimal ni : digitToSample) {
                 if (ni != null) {
                     samples2.add(ni);
                 }
             }
-            return samples2 + (isBounded ? "" : ", …");
+            return format(samples2) + (isBounded ? "" : ", …");
         }
 
-        private void add(FixedDecimal ni) {
+        private String format(Ranges samples2) {
+            StringBuilder builder = new StringBuilder().append(samples2);
+            int max = 5;
+            for (EFixedDecimal exponentSample : exponentSamples) {
+                if (builder.length() != 0) {
+                    builder.append(", ");
+                }
+                builder.append(exponentSample);
+                if (--max < 0) {
+                    break;
+                }
+            }
+            return builder.toString();
+        }
+
+        private void add(EFixedDecimal ni) {
+            if (ni.getExponent() != 0) {
+                exponentSamples.add(ni);
+                return;
+            }
             ++count;
             if (samples.size() < SAMPLE_LIMIT * 2) {
                 samples.add(ni);
@@ -295,17 +315,19 @@ public class GeneratedPluralSamples {
             DataSample other = (DataSample) obj;
             return count == other.count
                 && samples.equals(other.samples)
-                && digitToSample.equals(other.digitToSample);
+                && digitToSample.equals(other.digitToSample)
+                && exponentSamples.equals(other.exponentSamples)
+                ;
         }
 
         @Override
         public int hashCode() {
             // TODO Auto-generated method stub
-            return count ^ samples.hashCode() ^ Arrays.asList(digitToSample).hashCode();
+            return count ^ samples.hashCode() ^ Arrays.asList(digitToSample).hashCode() ^ exponentSamples.hashCode();
         }
 
         public void freeze(String keyword, PluralRules rule) {
-            countNoTrailing = noTrailing.size();
+            countNoTrailing = noTrailing.size() + exponentSamples.size();
             //System.out.println(sampleType + ", " + keyword + ", " + countNoTrailing + ", " + rule);
             isBounded = computeBoundedWithSize(keyword, rule);
             if (countNoTrailing > 0) {
@@ -361,7 +383,7 @@ public class GeneratedPluralSamples {
             this.rules = rules;
         }
 
-        private void add(FixedDecimal ni) {
+        private void add(EFixedDecimal ni) {
             if (boundsComputed) {
                 throw new IllegalArgumentException("Can't call 'add' after 'toString'");
             }
@@ -433,7 +455,7 @@ public class GeneratedPluralSamples {
     //        return true;
     //    }
 
-    static private int getDigit(FixedDecimal ni) {
+    static private int getDigit(EFixedDecimal ni) {
         int result = 0;
         long value = ni.getIntegerValue();
         do {
@@ -446,30 +468,42 @@ public class GeneratedPluralSamples {
     private final TreeMap<String, DataSamples> keywordToData = new TreeMap<>();
     private final PluralType type;
 
-    GeneratedPluralSamples(PluralInfo pluralInfo, PluralType type) {
+    GeneratedPluralSamples(PluralInfo pluralInfo, PluralType type, Set<String> equivalentLocales) {
         this.type = type;
-        PluralInfo pluralRule = pluralInfo;
+
         // 9999, powers; no decimals
-        collect(pluralRule, 10000, 0);
-        collect10s(pluralRule, 10000, 1000000, 0);
+        collect(pluralInfo, 0, 10_000, 0);
+        collect10s(pluralInfo, 10_000, 1_000_000, 0);
 
         if (type == PluralType.cardinal) {
-
             // 9999.9, powers .0
-            collect(pluralRule, 10000, 1);
-            collect10s(pluralRule, 10000, 1000000, 1);
+            collect(pluralInfo, 0, 10_000, 1);
+            collect10s(pluralInfo, 10_000, 1_000_000, 1);
 
             // 999.99, powers .00
-            collect(pluralRule, 1000, 2);
-            collect10s(pluralRule, 1000, 1000000, 2);
+            collect(pluralInfo, 0, 1000, 2);
+            collect10s(pluralInfo, 1000, 1_000_000, 2);
 
             // 99.999, powers .000
-            collect(pluralRule, 100, 3);
-            collect10s(pluralRule, 100, 1000000, 3);
+            collect(pluralInfo, 0, 100, 3);
+            collect10s(pluralInfo, 100, 1_000_000, 3);
 
             // 9.9999, powers .0000
-            collect(pluralRule, 10, 4);
-            collect10s(pluralRule, 10, 1000000, 4);
+            collect(pluralInfo, 0, 10, 4);
+            collect10s(pluralInfo, 10, 1_000_000, 4);
+
+            // add some exponent samples for French
+            // TODO check for any rule with exponent operand and do the same.
+            if (equivalentLocales.contains("fr")) {
+                for (int i = 1; i < 30; ++i) {
+                    add(pluralInfo.getPluralRules(), EFixedDecimal.fromDoubleVisibleAndExponent(i, 0, 5));
+                    add(pluralInfo.getPluralRules(), EFixedDecimal.fromDoubleVisibleAndExponent(i, 0, 6));
+                    add(pluralInfo.getPluralRules(), EFixedDecimal.fromDoubleVisibleAndExponent(i, 0, 7));
+                    add(pluralInfo.getPluralRules(), EFixedDecimal.fromDoubleVisibleAndExponent(i+0.1, 1, 5));
+                    add(pluralInfo.getPluralRules(), EFixedDecimal.fromDoubleVisibleAndExponent(i+0.1, 1, 6));
+                    add(pluralInfo.getPluralRules(), EFixedDecimal.fromDoubleVisibleAndExponent(i+0.1, 1, 7));
+                }
+            }
         }
 
         for (Entry<String, DataSamples> entry : keywordToData.entrySet()) {
@@ -477,22 +511,22 @@ public class GeneratedPluralSamples {
         }
     }
 
-    private void collect10s(PluralInfo pluralInfo, int start, int end, int decimals) {
+    private void collect10s(PluralInfo pluralInfo, long start, long end, int decimals) {
         double power = Math.pow(10, decimals);
         for (long i = start * (int) power; i <= end * (int) power; i *= 10) {
             add(pluralInfo, i / power, decimals);
         }
     }
 
-    private void collect(PluralInfo pluralInfo, int limit, int decimals) {
+    private void collect(PluralInfo pluralInfo, long start, long limit, int decimals) {
         double power = Math.pow(10, decimals);
-        for (int i = 0; i <= limit * (int) power; ++i) {
+        for (long i = start; i <= limit * (int) power; ++i) {
             add(pluralInfo, i / power, decimals);
         }
     }
 
     private void add(PluralInfo pluralInfo, double d, int visibleDecimals) {
-        FixedDecimal ni = new FixedDecimal(d, visibleDecimals);
+        EFixedDecimal ni = EFixedDecimal.fromDoubleAndVisibleDigits(d, visibleDecimals);
         PluralRules pluralRules = pluralInfo.getPluralRules();
         if (CHECK_VALUE && d == VALUE_TO_CHECK) {
             int debug = 0; // debugging
@@ -500,6 +534,16 @@ public class GeneratedPluralSamples {
         String keyword = pluralRules.select(ni);
 
         INFO.add(Info.Type.Warning, checkForDuplicates(pluralRules, ni));
+        add(pluralRules, keyword, ni);
+    }
+
+    public void add(PluralRules pluralRules, EFixedDecimal ni) {
+        String keyword = pluralRules.select(ni);
+        System.out.println(ni + " => " + keyword + ", " + (ni.getVisibleDecimalDigitCount() == 0 ? "integer" : "decimal"));
+        add(pluralRules, keyword, ni);
+    }
+
+    public void add(PluralRules pluralRules, String keyword, EFixedDecimal ni) {
         DataSamples data = keywordToData.get(keyword);
         if (data == null) {
             keywordToData.put(keyword, data = new DataSamples(keyword, pluralRules));
@@ -507,7 +551,7 @@ public class GeneratedPluralSamples {
         data.add(ni);
     }
 
-    public static String checkForDuplicates(PluralRules pluralRules, FixedDecimal ni) {
+    public static String checkForDuplicates(PluralRules pluralRules, EFixedDecimal ni) {
         // add test that there are no duplicates
         Set<String> keywords = new LinkedHashSet<>();
         for (String keywordCheck : pluralRules.getKeywords()) {
@@ -554,10 +598,8 @@ public class GeneratedPluralSamples {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         myOptions.parse(MyOptions.filter, args, true);
-        PluralRules test = PluralRules.parseDescription("one: n in 3,4 or f mod 5 in 3..4;");
-        System.out.println("Check: " + test);
 
         Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
         boolean fileFormat = true; //MyOptions.xml.option.doesOccur();
@@ -568,7 +610,7 @@ public class GeneratedPluralSamples {
         int failureCount = 0;
 
         PluralRules pluralRules2 = PluralRules.createRules("one: n is 3..9; two: n is 7..12");
-        System.out.println("Check: " + checkForDuplicates(pluralRules2, new FixedDecimal(8)));
+        System.out.println("Check: " + checkForDuplicates(pluralRules2, EFixedDecimal.fromString("8e1")));
 
         for (PluralType type : PluralType.values()) {
             try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(MyOptions.output.option.getValue(), type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml")) {
@@ -613,13 +655,19 @@ public class GeneratedPluralSamples {
                     if (fileFormat) {
                         if (!keywords.equals(oldKeywords)) {
                             out.println("\n        <!-- " + keywords.size() + ": " + Joiner.on(",")
-                                .join(keywords) + " -->\n");
+                            .join(keywords) + " -->\n");
                             oldKeywords = keywords;
                         }
                         out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
                         System.out.println(type + "\t" + equivalentLocales);
                     }
-                    GeneratedPluralSamples samples = new GeneratedPluralSamples(pluralInfo, type);
+                    GeneratedPluralSamples samples;
+                    try {
+                        samples = new GeneratedPluralSamples(pluralInfo, type, equivalentLocales);
+                    } catch (Exception e) {
+                        out.dontReplaceFile();
+                        throw e;
+                    }
                     samplesToPlurals.put(samples, pluralInfo);
                     for (String keyword : keywords) {
                         Count count = Count.valueOf(keyword);
@@ -667,7 +715,7 @@ public class GeneratedPluralSamples {
                         String first = remainder.iterator().next();
                         remainder.remove(first);
                         System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + Joiner.on(", ")
-                            .join(remainder));
+                        .join(remainder));
                     }
                     System.out.println();
                 }

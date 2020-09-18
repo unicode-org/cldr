@@ -22,6 +22,7 @@ public class TempPrintWriter extends Writer {
     final PrintWriter tempPrintWriter;
     final String tempName;
     final String filename;
+    boolean noReplace = false;
 
 
     public static TempPrintWriter openUTF8Writer(String filename) {
@@ -53,11 +54,19 @@ public class TempPrintWriter extends Writer {
         }
     }
 
+    public void dontReplaceFile() {
+        noReplace = true;
+    }
+
     @Override
     public void close() {
         tempPrintWriter.close();
         try {
-            replaceDifferentOrDelete(filename, tempName, false);
+            if (noReplace) {
+                new File(tempName).delete();
+            } else {
+                replaceDifferentOrDelete(filename, tempName, false);
+            }
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }

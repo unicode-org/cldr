@@ -3,11 +3,12 @@
 # Don't modify this file.
 GITHUB_SHA=$1
 UNLOCK=$2
+WORKDIR=${TMPDIR-/tmp} # keep all random files here
 export TPASS={{ surveytooldeploy.password }} # from surveytooldeploy.password
 export TUSER=surveytooldeploy # fixed for now
 
 dogit() {
-    rm -f ~/git-list.txt
+    rm -f ${WORKDIR}/git-list.txt
     if [[ ${GITHUB_SHA} = "master" ]];
     then
 	echo "changing 'master' to 'origin/master' to get the latest"
@@ -26,9 +27,9 @@ dogit() {
     else
 	echo "Deploy will include these new items:"
 	echo "---"
-	(git log --oneline HEAD..${GITHUB_SHA} | tee ~/git-list.txt) || exit 1
+	(git log --oneline HEAD..${GITHUB_SHA} | tee ${WORKDIR}/git-list.txt) || exit 1
 	echo "---"
-	if [[ ! -s ~/git-list.txt ]]; # if empty..
+	if [[ ! -s ${WORKDIR}/git-list.txt ]]; # if empty..
 	then
 	    echo "Note, ${GITHUB_SHA} is not ahead of HEAD"  $(git rev-parse --short HEAD)
 	    echo "Checking for items that would be REVERTED if we proceed:"
@@ -53,11 +54,11 @@ dogit() {
 # undeploy old ST
 curl -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/undeploy?path=/cldr-apps'
 # reset last deploy status
-rm -fv cldr-apps.war .deploystatus
+rm -fv ${WORKDIR}/cldr-apps.war ${WORKDIR}/deploystatus
 # copy cldr-apps.war from action runner to server
-dd bs=1024000 status=progress of=cldr-apps.war
+dd bs=1024000 status=progress of=${WORKDIR}/cldr-apps.war
 # this counts the # of files to make sure it's not too short, but also verifies that unzip is OK
 echo ; echo -n 'Unzip check, # of files in cldr-apps.war: '
-(unzip -l cldr-apps.war | wc -l ) || exit 1
+(unzip -l ${WORKDIR}/cldr-apps.war | wc -l ) || exit 1
 # Now, do the deployment!
-curl -q -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/deploy?path=/cldr-apps&tag=cldr-apps&update=true' -T ./cldr-apps.war | tee .deploystatus
+curl -q -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/deploy?path=/cldr-apps&tag=cldr-apps&update=true' -T ${WORKDIR}/cldr-apps.war | tee ${WORKDIR}/deploystatus

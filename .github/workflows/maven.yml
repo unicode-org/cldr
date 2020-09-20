@@ -3,9 +3,10 @@ name: cldr-mvn
 on:
   push:
     branches:
-      - master
+    - '*'
   pull_request:
-    branches: '*'
+    branches:
+    - '*'
 
 jobs:
   build:

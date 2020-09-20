@@ -13,7 +13,7 @@ name: cldr-ant
 on:
   push:
     branches:
-      - master
+      - '*'
   pull_request:
     branches: '*'
 
@@ -124,6 +124,7 @@ jobs:
     - name: CLDR Data Check
       run: ant -noinput datacheck -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd)
   deploy:
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs:
       - build
       - surveytest

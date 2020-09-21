@@ -43,6 +43,7 @@ public enum Organization {
     openoffice_org("Open Office"),
     oracle("Oracle", "sun", "Sun Micro"),
     pakistan("Pakistan"),
+    rodakych("Rodakych", "Nigerian Pidgin"),
     rumantscha("Lia Rumantscha"),
     sil("SIL", "SIL International"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),

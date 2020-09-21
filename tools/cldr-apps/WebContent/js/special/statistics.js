@@ -37,6 +37,7 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 			name: "overview",
 			url: contextPath + "/SurveyAjax?&what=stats_byloc",
 			show: function(json, theDiv, params) {
+				theDiv.appendChild(createChunk("For CLDR version " + surveyVersion, "h2", "helpContent" ));
 				theDiv.appendChild(createChunk("Total submitters: "  + 
 						dojoNumber.format(json.total_submitters) +
 						", Total items: " + dojoNumber.format(json.total_items) 
@@ -56,29 +57,30 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				var count_old = [];
 				var labels = [];
 				var count_new = [];
+				statDiv.style.height = (data_new.length*1)+'em';
 				for(var i in data_new) {
-					var newLabel = new Date(data_new[i][header_new.LAST_MOD]).toLocaleDateString();
+					const theDate = new Date(data_new[i][header_new.DATE]);
+					// get first and last days
+					
+					var newLabel = theDate.toLocaleDateString();
 					var newCount = Number(data_new[i][header_new.COUNT]);
 					labels.push({value: Number(i)+1, text: newLabel}); // labels come from new data
 					count_new.push(newCount);
-					var oldLabel = new Date(data[i][header.LAST_MOD]).toLocaleDateString();
+					var oldLabel = new Date(data[i][header.DATE]).toLocaleDateString();
 					if(newLabel == oldLabel) {
 						// have old data
 						var oldCount = Number(data[i][header.COUNT]);
 						if(oldCount < newCount) {
-							console.log("Preposterous: at " + newLabel + ": " + oldCount + " oldCount < " + newCount + "  newCount " );
+							console.log("Old data must be ≥ new data: however, " + newLabel + ": " + oldCount + " oldCount < " + newCount + "  newCount " );
 							count_old.push(-1);
 						} else {
 							count_old.push(oldCount - newCount);
 						}
 					} else {
-						console.log("Desync: " + newLabel + " / " + oldLabel);
+						console.log("Something out of sync, Old and new labels don’t match: " + newLabel + " / " + oldLabel);
 						count_old.push(-1);
 					}
 				}
-				var gdata = [];
-				gdata.push(count_new);
-				gdata.push(count_old);
 
 				var c = new Chart(statDiv);
 				c.addPlot("default", {type: StackedBars, hAxis: 'y', vAxis: 'x'})
@@ -98,24 +100,52 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				c.render();
 				var l = new SelectableLegend({chart: c});
 				l.placeAt(statDiv);
+				const firstDay = new Date(data_new[0][header_new.DATE]);
+				const lastDay = new Date(data_new[data_new.length-1][header_new.DATE]);
+				theDiv.appendChild(createChunk("Above data range: " + firstDay.toLocaleDateString() + "—" + lastDay.toLocaleDateString(), "p", "helpContent" ));
+
 			}
 		},
 		{
 			name: 'byloc',
 			show: function(json, theDiv, params) {
 				var labels = [];
-				var count_all = [];
+				var count_old = [];
+				var count_new = [];
 				
 				var header = json.stats_byloc.header;			
-				for(var k=0;k<json.stats_byloc.data.length;k++) {
-					var row = json.stats_byloc.data[k];
-					// json.stats_byloc.header.LOCALE/COUNT/LOCALE_NAME
-					// json.stats_byloc.data
-					var loc = row[header.LOCALE];
-					labels.push({value: k+1, loc: loc, text: locmap.getLocaleName(loc)});
-					count_all.push(row[header.COUNT]);
+				var header_new = json.stats_byloc_new.header;	
+				if ( json.stats_byloc.data.length < json.stats_byloc_new.data.length ) {
+				    throw Error("stats_byloc can't have more new than all:" + json.stats_byloc.data.length + " vs " +json.stats_byloc_new.data.length);
 				}
 				
+				const data_all = json.stats_byloc.data; // All locales
+				const data_new = json.stats_byloc_new.data; // New data (not imported)
+				
+				// All data, by locale
+				const byLocale = {};
+				
+				// Collect data
+				data_all.forEach(row => {
+				    const locale = row[header.LOCALE];
+				    byLocale[locale] = byLocale[locale] || {};
+				    byLocale[locale].allCount = row[header.COUNT];
+				});
+				data_new.forEach(row => {
+				    const locale = row[header_new.LOCALE];
+				    byLocale[locale] = byLocale[locale] || {};
+				    byLocale[locale].newCount = row[header_new.COUNT];
+				});
+				// Analyze old count
+				Object.keys(byLocale).sort().forEach(l => {
+				    const {allCount,newCount} = byLocale[l];
+				    const oldCount = byLocale[l].oldCount = allCount - (newCount || 0);
+				    count_old.push(oldCount||0);
+				    count_new.push(newCount||0);
+				    labels.push({value: count_old.length, text: l});
+				});
+
+				// Now, render
 				
 				var statDiv = theDiv;
 				statDiv.style.height = (json.stats_byloc.data.length*1)+'em';
@@ -124,7 +154,8 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				.setTheme(Wetland)
 				.addAxis("x", {labels: labels, vertical: true, dropLabels: false, labelSizeChange: false, minorLabels: false, majorTickStep: 1})
 				.addAxis("y", {vertical: false})
-				.addSeries("all votes", count_all);
+				.addSeries("Just New or changed votes in CLDR "+surveyVersion, count_new)
+				.addSeries("+ Old votes from CLDR "+surveyOldVersion, count_old);
 				var tip = new Tooltip(c, 'default', {
 					text: function(o) {
 						return labels[o.index].text +"   <br>"+count_all[o.index];
@@ -189,6 +220,7 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				if(theSection.url){
 					(function(theSection,subDiv,params){
 						var loading = createChunk(stui.str("loading"), "p", "helpContent");
+						
 						subDiv.appendChild(loading);
 						cldrStAjax.queueXhr({
 							url: theSection.url,
@@ -219,15 +251,6 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 		
 		params.flipper.flipTo(params.pages.other, theDiv);
 		// Now it's shown, can commence with dynamic load
-/*
- * Old and busted raphael graph
-		if(statDiv != null) { // if we are doing a new setup
-			require(["js/raphael.js", "js/g.raphael.js", "js/g.line.js", "js/g.bar.js"], function() {
-				// load raphael before calling this.
-				window.showstats(statDiv.id);
-			});
-		}
-		*/
 	};
 
 	return Page;

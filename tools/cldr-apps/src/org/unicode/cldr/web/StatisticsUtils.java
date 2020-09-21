@@ -26,6 +26,10 @@ public class StatisticsUtils {
     public static final String QUERY_ALL_VOTES = "select  locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE + "  where submitter is not null " + ""
         + " group by locale ";
 
+    public static final String QUERY_NEW_VOTES = "select  locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE + " as new_votes  where submitter is not null " +
+        " AND " + StatisticsUtils.getExcludeOldVotesSql()
+        + " group by locale ";
+
     public static String[][] calcSubmits(String[][] v, String[][] d) {
         return calcSubmits(v, d, NO_LIMIT);
     }

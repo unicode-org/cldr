@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# A cron job may call this with a line such as:
+#     37 7 * * * sh /home/cldrbackup/backup.sh >/dev/null 2>&1
+
+DATABASE_NAME=cldrdb
+FNAME=cldr-DUMP-`date +%Y-%m-%d`
+
+cd /home/cldrbackup
+mysqldump ${DATABASE_NAME} --add-drop-table --create-options --default-character-set=utf8mb4 > ${FNAME}.sql
+xz ${FNAME}.sql
+rsync -q ${FNAME}.sql.xz corp.unicode.org:/home/users/cldrbackup

@@ -75,6 +75,13 @@ Then setup github secrets as shown:
   own system when you ssh into smoketest.
   Try `grep -i smoke ~/.ssh/known_hosts`
 
+Create a folder "cldrbackup" inside local-vars
+```shell
+mkdir -p ./local-vars/cldrbackup
+```
+
+Add three files inside local-vars/cldrbackup-vars: id_rsa, id_rsa.pub, and known_hosts. These must correspond to the public key for cldrbackup on corp.unicode.org. Copy existing versions if you have them. Otherwise, create new ones with `ssh-keygen -t rsa` and copy the public key to corp.unicode.org with `ssh-copy-id -i ~/.ssh/id_rsa cldrbackup@corp.unicode.org`
+
 ### Setup: Config file
 
 - Create a file `local-vars/local.yml` matching the example values in [test-local-vars/local.yml](test-local-vars/local.yml) (but with a secure password instead of `hunter42`!.)

@@ -196,3 +196,5 @@
         --keep --redirect --uir --hsts --staple-ocsp --must-staple
       args:
         creates: /etc/letsencrypt/renewal/{{ inventory_hostname }}.conf
+
+- import_playbook: backup-db-playbook.yml

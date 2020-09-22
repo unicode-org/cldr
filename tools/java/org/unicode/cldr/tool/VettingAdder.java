@@ -27,6 +27,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
@@ -53,13 +54,13 @@ public class VettingAdder {
 
     private void addFiles(String sourceDirectory) throws IOException {
         File f = new File(sourceDirectory);
-        String canonicalName = f.getCanonicalPath();
+        String normalizedPath = PathUtilities.getNormalizedPathString(f);
         if (!f.isDirectory()) {
             String name = f.getName();
             if (name.startsWith("fixed-")) return; // skip
             if (name.equals(".htaccess")) return; // skip
             if (!name.endsWith(".xml")) {
-                Log.logln("Wrong filename format: " + f.getCanonicalPath());
+                Log.logln("Wrong filename format: " + PathUtilities.getNormalizedPathString(f));
                 return;
             }
             String localeName = name.substring(0, name.length() - 4);
@@ -71,7 +72,7 @@ public class VettingAdder {
         } else {
             String[] subnames = f.list();
             for (int i = 0; i < subnames.length; ++i) {
-                addFiles(canonicalName + File.separatorChar + subnames[i]);
+                addFiles(normalizedPath + File.separatorChar + subnames[i]);
             }
         }
     }

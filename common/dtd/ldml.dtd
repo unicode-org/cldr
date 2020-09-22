@@ -2518,7 +2518,6 @@ $Revision$
 <!ATTLIST genderMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
-
 <!-- ######################################################### -->
 
 <!ELEMENT units ( alias | ( unit*, unitLength*, durationUnit*, special* ) ) >
@@ -2988,7 +2987,7 @@ $Revision$
 
 <!ELEMENT characterLabelPattern ( #PCDATA ) >
 <!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED >
-    <!--@MATCH:literal/all, category-list, compatibility, enclosed, extended, historic, miscellaneous, other, scripts, strokes, subscript, superscript -->
+    <!--@MATCH:literal/all, category-list, compatibility, enclosed, extended, historic, miscellaneous, other, scripts, strokes, subscript, superscript-->
 <!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
     <!-- count only used for certain patterns" -->
 <!ATTLIST characterLabelPattern alt NMTOKENS #IMPLIED >

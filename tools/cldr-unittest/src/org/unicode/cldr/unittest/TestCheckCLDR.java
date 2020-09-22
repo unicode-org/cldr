@@ -724,7 +724,7 @@ public class TestCheckCLDR extends TestFmwk {
         Map<Key,Pair<Boolean,String>> actionToExamplePath = new TreeMap<>();
         Counter<Key> counter = new Counter<>();
 
-        for (String locale : Arrays.asList("jv", "fr", "vo")) {
+        for (String locale : Arrays.asList("jv", "fr", "nds")) {
             DummyPathValueInfo dummyPathValueInfo = new DummyPathValueInfo();
             dummyPathValueInfo.locale = CLDRLocale.getInstance(locale);
             CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);

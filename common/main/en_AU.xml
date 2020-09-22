@@ -7361,11 +7361,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
-			<unit type="volume-quart">
-				<displayName>quarts</displayName>
-				<unitPattern count="one">{0} quart</unitPattern>
-				<unitPattern count="other">{0} quarts</unitPattern>
-			</unit>
 			<unit type="volume-pint">
 				<displayName>pints</displayName>
 				<unitPattern count="one">{0} pint</unitPattern>
@@ -7404,7 +7399,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-dessert-spoon">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} dessert spoons</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>↑↑↑</displayName>
@@ -8395,11 +8390,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} gal.</unitPattern>
 				<unitPattern count="other">{0} gal.</unitPattern>
 				<perUnitPattern>{0}/gal.</perUnitPattern>
-			</unit>
-			<unit type="volume-quart">
-				<displayName>qts</displayName>
-				<unitPattern count="one">{0} qt</unitPattern>
-				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName>pints</displayName>

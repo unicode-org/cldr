@@ -125,7 +125,7 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 <a href="<%= request.getContextPath() + request.getServletPath()  + "?vap="+vap+"#!admin_ops" %>">Return to Admin Panel</a>
 <% } else { %>
 <div class='fnotebox'>
-    For instructions, see <a href='http://cldr.unicode.org/index/survey-tool/admin'>Admin Docs</a>. <br>
+    For instructions, see <a href='<%= SurveyMain.ADMIN_HELP_URL %>'>Admin Docs</a>. <br>
     Tabs do not (currently) auto update. Click a tab again to update. <br>
     Be careful!
 </div>

@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,6 +18,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveAction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -71,6 +72,8 @@ public class VettingViewer<T> {
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
 
     public static final Pattern ALT_PROPOSED = PatternCache.get("\\[@alt=\"[^\"]*proposed");
+
+    private static final boolean DEBUG_THREADS = false;
 
     public static Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
 
@@ -415,7 +418,6 @@ public class VettingViewer<T> {
     private final SupplementalDataInfo supplementalDataInfo;
     private final String baselineTitle = "Baseline";
     private final String currentWinningTitle;
-    private ErrorChecker errorChecker;
 
     private final Set<String> defaultContentLocales;
 
@@ -442,7 +444,6 @@ public class VettingViewer<T> {
 
         this.currentWinningTitle = currentWinningTitle;
         reasonsToPaths = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
-        errorChecker = new DefaultErrorStatus(cldrFactory);
     }
 
     public class WritingInfo implements Comparable<WritingInfo> {
@@ -573,6 +574,7 @@ public class VettingViewer<T> {
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID,
             T user, Level usersLevel, boolean quick, String xpath) {
+            final DefaultErrorStatus errorChecker = new DefaultErrorStatus(cldrFactory);
 
             errorChecker.initErrorStatus(sourceFile);
             Matcher altProposed = ALT_PROPOSED.matcher("");
@@ -806,6 +808,190 @@ public class VettingViewer<T> {
     }
 
     /**
+     * This is a context object for Vetting Viewer parallel writes.
+     * It keeps track of the input locales, other parameters, as well as the output
+     * streams.
+     *
+     * When done, appendTo() is called to append the output to the original requester.
+     * @author srl
+     *
+     */
+    private class WriteContext {
+
+        private List<String> localeNames = new ArrayList<>();
+        private List<String> localeIds = new ArrayList<>();
+        private StringBuffer[] outputs;
+        private EnumSet<Choice> choices;
+        private EnumSet<Choice> thingsThatRequireOldFile;
+        private EnumSet<Choice> ourChoicesThatRequireOldFile;
+        private T organization;
+        private VettingViewer<T>.FileInfo totals;
+        private Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo;
+        private String header;
+        private int configParallel; // parallelism. 0 means "let Java decide"
+        private int configChunkSize; // Number of locales to process at once, minimum 1
+
+        @SuppressWarnings("unchecked")
+        public WriteContext(Set<Entry<String, String>> entrySet, EnumSet<Choice> choices, T organization, FileInfo totals, Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo, String header) {
+            for(Entry<String, String> e : entrySet) {
+                localeNames.add(e.getKey());
+                localeIds.add(e.getValue());
+            }
+            int count = localeNames.size();
+            this.outputs = new StringBuffer[count];
+            for(int i=0;i<count;i++) {
+                outputs[i] = new StringBuffer();
+            }
+            if(DEBUG_THREADS) System.err.println("Initted " + this.outputs.length + " outputs");
+
+            // other data
+            this.choices = choices;
+
+            thingsThatRequireOldFile = EnumSet.of(Choice.englishChanged, Choice.missingCoverage, Choice.changedOldValue);
+            ourChoicesThatRequireOldFile = choices.clone();
+            ourChoicesThatRequireOldFile.retainAll(thingsThatRequireOldFile);
+
+            this.organization = organization;
+            this.totals = totals;
+            this.localeNameToFileInfo = localeNameToFileInfo;
+            this.header = header;
+
+            if(DEBUG_THREADS) System.err.println("writeContext for " + organization.toString() + " booted with " + count + " locales");
+
+            // setup env
+            CLDRConfig config = CLDRConfig.getInstance();
+
+            this.configParallel = Math.max(config.getProperty("CLDR_VETTINGVIEWER_PARALLEL", 0), 0);
+            if(this.configParallel < 1) {
+                this.configParallel = java.lang.Runtime.getRuntime().availableProcessors(); // matches ForkJoinPool() behavior
+            }
+            this.configChunkSize = Math.max(config.getProperty("CLDR_VETTINGVIEWER_CHUNKSIZE", 1), 1);
+            System.err.println("vv: CLDR_VETTINGVIEWER_PARALLEL="+configParallel+", CLDR_VETTINGVIEWER_CHUNKSIZE="+configChunkSize);
+        }
+
+        /**
+         * Append all of the results (one stream per locale) to the output parameter.
+         * Insert the "header" as needed.
+         * @param output
+         * @throws IOException
+         */
+        public void appendTo(Appendable output) throws IOException {
+            // all done, append all
+            char lastChar = ' ';
+
+            for(int n=0;n<outputs.length;n++) {
+              final String name = localeNames.get(n);
+              if(DEBUG_THREADS) System.err.println("Appending " + name + " - " + outputs[n].length());
+              output.append(outputs[n]);
+
+              char nextChar = name.charAt(0);
+              if (lastChar != nextChar) {
+                  output.append(this.header);
+                  lastChar = nextChar;
+              }
+            }
+        }
+
+        /**
+         * How many locales are represented in this context?
+         * @return
+         */
+        public int size() {
+            return localeNames.size();
+        }
+    }
+
+    /**
+     * Worker action to implement parallel Vetting Viewer writes.
+     * This takes a WriteContext as a parameter, as well as a subset of the locales
+     * to operate on.
+     *
+     * @author srl
+     *
+     */
+    private class WriteAction extends RecursiveAction {
+       private int length;
+        private int start;
+        private WriteContext context;
+
+        public WriteAction(WriteContext context) {
+            this(context, 0, context.size());
+        }
+
+        public WriteAction(WriteContext context, int start, int length) {
+            this.context = context;
+            this.start = start;
+            this.length = length;
+            if(DEBUG_THREADS) System.err.println("writeAction(…,"+start+", "+length+") of " + context.size() + " with outputCount:" + context.outputs.length);
+        }
+        /**
+         *
+         */
+        private static final long serialVersionUID = 1L;
+
+        @Override
+        protected void compute() {
+            if(length == 0) {
+                return;
+            } else if(length <= context.configChunkSize) {
+                // do this many at once
+                for(int n=start;n<(start+length);n++) {
+                    computeOne(n);
+                }
+            } else {
+                int split = length / 2;
+                // subdivide
+                invokeAll(new WriteAction(context, start, split),
+                          new WriteAction(context, start+split, length-split));
+            }
+        }
+
+        /**
+         * Calculate the VettingViewer output for one locale
+         * @param n
+         */
+        void computeOne(int n) {
+            final String name = context.localeNames.get(n);
+            final String localeID = context.localeIds.get(n);
+            if(DEBUG_THREADS) System.err.println("writeAction.compute("+n+") - " + name + ": "+ localeID);
+            EnumSet<Choice> choices = context.choices;
+            Appendable output = context.outputs[n];
+            if(output == null) {
+                throw new NullPointerException("output " + n + " null");
+            }
+            // Initialize
+
+            CLDRFile sourceFile = cldrFactory.make(localeID, true);
+
+            CLDRFile baselineFile = null;
+            if (!context.ourChoicesThatRequireOldFile.isEmpty()) {
+                try {
+                    Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+                    baselineFile = baselineFactory.make(localeID, true);
+                } catch (Exception e) {
+                }
+            }
+            Level level = Level.MODERN;
+            if (context.organization != null) {
+                level = StandardCodes.make().getLocaleCoverageLevel(context.organization.toString(), localeID);
+            }
+            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, null, choices, localeID, context.organization, level, false);
+            context.localeNameToFileInfo.put(name, fileInfo);
+            context.totals.addAll(fileInfo);
+            if(DEBUG_THREADS) System.err.println("writeAction.compute("+n+") - got fileinfo " + name + ": "+ localeID);
+            try {
+                writeSummaryRow(output, choices, fileInfo.problemCounter, name, localeID);
+                if(DEBUG_THREADS) System.err.println("writeAction.compute("+n+") - wrote " + name + ": "+ localeID);
+
+            } catch (IOException e) {
+                System.err.println("writeAction.compute("+n+") - writeexc " + name + ": "+ localeID);
+                this.completeExceptionally(new RuntimeException("While writing " + localeID, e));
+            }
+            System.err.println("writeAction.compute("+n+") - DONE " + name + ": "+ localeID);
+        }
+    }
+
+    /**
      *
      * @param output
      * @param header
@@ -842,51 +1028,19 @@ public class VettingViewer<T> {
             return;
         }
 
-        EnumSet<Choice> thingsThatRequireOldFile = EnumSet.of(Choice.englishChanged, Choice.missingCoverage, Choice.changedOldValue);
-        EnumSet<Choice> ourChoicesThatRequireOldFile = choices.clone();
-        ourChoicesThatRequireOldFile.retainAll(thingsThatRequireOldFile);
         output.append("<h2>Level: ").append(desiredLevel.toString()).append("</h2>");
         output.append("<table class='tvs-table'>\n");
-        char lastChar = ' ';
         Map<String, FileInfo> localeNameToFileInfo = new TreeMap<>();
         FileInfo totals = new FileInfo();
 
-        for (Entry<String, String> entry : sortedNames.entrySet()) {
-            String name = entry.getKey();
-            String localeID = entry.getValue();
-            // Initialize
+        Set<Entry<String,String>> entrySet = sortedNames.entrySet();
 
-            CLDRFile sourceFile = cldrFactory.make(localeID, true);
+        WriteContext context = this.new WriteContext(entrySet, choices, organization, totals, localeNameToFileInfo, header);
 
-            CLDRFile baselineFile = null;
-            if (!ourChoicesThatRequireOldFile.isEmpty()) {
-                try {
-                    Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-                    baselineFile = baselineFactory.make(localeID, true);
-                } catch (Exception e) {
-                }
-            }
-            Level level = Level.MODERN;
-            if (organization != null) {
-                level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
-            }
-            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, null, choices, localeID, organization, level, false);
-            localeNameToFileInfo.put(name, fileInfo);
-            totals.addAll(fileInfo);
-
-            char nextChar = name.charAt(0);
-            if (lastChar != nextChar) {
-                output.append(header);
-                lastChar = nextChar;
-            }
-
-            writeSummaryRow(output, choices, fileInfo.problemCounter, name, localeID);
-
-            if (output instanceof Writer) {
-                ((Writer) output).flush();
-            }
-        }
-        output.append(header);
+        WriteAction writeAction = this.new WriteAction(context);
+        ForkJoinPool.commonPool().invoke(writeAction);
+        context.appendTo(output); // write all of the results together
+        output.append(header);  // add one header at the bottom
         writeSummaryRow(output, choices, totals.problemCounter, "Total", null);
         output.append("</table>");
         if (SHOW_SUBTYPES) {
@@ -1191,21 +1345,6 @@ public class VettingViewer<T> {
      */
     public VettingViewer<T> setProgressCallback(ProgressCallback newCallback) {
         progressCallback = newCallback;
-        return this;
-    }
-
-    public ErrorChecker getErrorChecker() {
-        return errorChecker;
-    }
-
-    /**
-     * Select a new error checker. Must be set before running.
-     *
-     * @return
-     *
-     */
-    public VettingViewer<T> setErrorChecker(ErrorChecker errorChecker) {
-        this.errorChecker = errorChecker;
         return this;
     }
 

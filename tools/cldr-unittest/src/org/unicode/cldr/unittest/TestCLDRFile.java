@@ -195,7 +195,7 @@ public class TestCLDRFile extends TestFmwk {
         Counter<String> extraPaths = new Counter<>();
         for (String locale : sdi.hasGrammarInfo()) {
             if (sdi.getGrammarInfo(locale).hasInfo(GrammaticalTarget.nominal)) {
-                final CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+                final CLDRFile cldrFile = CLDRConfig.getInstance().getFullCldrFactory().make(locale, true);
                 Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
                 for (String path : sorted2) {
                     if (path.contains("/gender") || path.contains("@gender") || path.contains("@case")) {

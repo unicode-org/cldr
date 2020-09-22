@@ -92,6 +92,7 @@ public enum UnitPathType {
         final String pathPrefix = "//ldml/units/unitLength[@type=\"" + width + "\"]/";
         String longUnitId;
         GrammarInfo grammarInfo1;
+        UnitConverter uc = CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter();
 
         String grammaticalAttributes;
         switch (pathType) {
@@ -100,30 +101,30 @@ public enum UnitPathType {
         case per:
             return pathPrefix + "compoundUnit[@type=\"" + "per" + "\"]/compoundUnitPattern";
         case prefix:
-            longUnitId = UnitConverter.getLongId(shortUnitId);
+            longUnitId = CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter().getLongId(shortUnitId);
             return pathPrefix + "compoundUnit[@type=\"" + longUnitId + "\"]/unitPrefixPattern";
         case power:
-            longUnitId = UnitConverter.getLongId(shortUnitId);
+            longUnitId = uc.getLongId(shortUnitId);
             grammarInfo1 = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(resolvedFile.getLocaleID());
             grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo1, pathType, pluralCategory, genderVariant, caseVariant);
             return pathPrefix + "compoundUnit[@type=\"" + longUnitId + "\"]/compoundUnitPattern1" + grammaticalAttributes;
         case unit:
-            longUnitId = UnitConverter.getLongId(shortUnitId);
+            longUnitId = uc.getLongId(shortUnitId);
             grammarInfo1 = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(resolvedFile.getLocaleID());
             grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo1, pathType, pluralCategory, genderVariant, caseVariant);
             return pathPrefix + "unit[@type=\""  + longUnitId + "\"]/unitPattern" + grammaticalAttributes;
         case displayName:
-            longUnitId = UnitConverter.getLongId(shortUnitId);
+            longUnitId = uc.getLongId(shortUnitId);
             return pathPrefix + "unit[@type=\""  + longUnitId + "\"]/displayName";
         case perUnit:
-            longUnitId = UnitConverter.getLongId(shortUnitId);
+            longUnitId = uc.getLongId(shortUnitId);
             return pathPrefix + "unit[@type=\"" + longUnitId + "\"]/perUnitPattern";
         case gender:
             if (!width.equals("long")) {
                 throw new IllegalArgumentException("illegal width for gender: ");
             }
-            longUnitId = UnitConverter.getLongId(shortUnitId);
-            return pathPrefix + "unit[@type=\"" + UnitConverter.getLongId(shortUnitId) + "\"]/gender";
+            longUnitId = uc.getLongId(shortUnitId);
+            return pathPrefix + "unit[@type=\"" + uc.getLongId(shortUnitId) + "\"]/gender";
         case coordinate:
             return pathPrefix + "coordinateUnit/coordinateUnitPattern[@type=\"" + shortUnitId + "\"]";
         case duration:

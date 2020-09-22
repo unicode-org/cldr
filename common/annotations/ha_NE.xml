@@ -8,16 +8,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
-		<language type="izi"/>
+		<language type="ha"/>
+		<territory type="NE"/>
 	</identity>
-	<layout>
-		<orientation>
-			<characterOrder>left-to-right</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
-		</orientation>
-	</layout>
-	<characters>
-		<exemplarCharacters draft="unconfirmed">[a á à ạ b c d e é è ẹ f g h i í ì ị j k l m ḿ n ń ǹ o ó ò ọ p r s t u ú ù ụ v w y z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[q x]</exemplarCharacters>
-	</characters>
+	<annotations>
+		<annotation cp="‾">kan layi</annotation>
+		<annotation cp="‾" type="tts">kan layi</annotation>
+		<annotation cp="‽">introbang</annotation>
+		<annotation cp="‽" type="tts">introbang</annotation>
+		<annotation cp="‸">kula</annotation>
+		<annotation cp="‸" type="tts">kula</annotation>
+		<annotation cp="⁂">alada</annotation>
+		<annotation cp="⁂" type="tts">alada</annotation>
+	</annotations>
 </ldml>

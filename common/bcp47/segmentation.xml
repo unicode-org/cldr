@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldmlBCP47 SYSTEM "../../common/dtd/ldmlBCP47.dtd">
 <!--
-Copyright © 1991-2015 Unicode, Inc.
+Copyright © 1991-2020 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -9,6 +9,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 <ldmlBCP47>
     <version number="$Revision$"/>
     <keyword>
+        <key name="dx" description="Scripts to exclude from dictionary break" valueType="multiple" since="38">
+            <type name="SCRIPT_CODE" description="ISO 15924 script code"/>
+        </key>
+
         <key name="lb" description="Line break type key" since="27">
             <type name="strict" description="CSS level 3 line-break=strict, e.g. treat CJ as NS"/>
             <type name="normal" description="CSS level 3 line-break=normal, e.g. treat CJ as ID, break before hyphens for ja,zh"/>

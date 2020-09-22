@@ -1962,15 +1962,7 @@ public class LDMLUtilities {
         }
 
         File f = new File(filename);
-        String tmp = null;
-        try {
-            // This normally gives a better path
-            tmp = f.getCanonicalPath();
-        } catch (IOException ioe) {
-            // But this can be used as a backup, for cases
-            // where the file does not exist, etc.
-            tmp = f.getAbsolutePath();
-        }
+        String tmp = PathUtilities.getNormalizedPathString(f);
 
         // URLs must explicitly use only forward slashes
         if (File.separatorChar == '\\') {

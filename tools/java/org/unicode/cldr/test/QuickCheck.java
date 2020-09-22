@@ -26,6 +26,7 @@ import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
@@ -117,11 +118,11 @@ public class QuickCheck {
     private static void checkDtds(String directory) throws IOException {
         File directoryFile = new File(directory);
         File[] listFiles = directoryFile.listFiles();
-        String canonicalPath = directoryFile.getCanonicalPath();
+        String normalizedPath = PathUtilities.getNormalizedPathString(directoryFile);
         if (listFiles == null) {
-            throw new IllegalArgumentException("Empty directory: " + canonicalPath);
+            throw new IllegalArgumentException("Empty directory: " + normalizedPath);
         }
-        System.out.println("Checking files for DTD errors in: " + canonicalPath);
+        System.out.println("Checking files for DTD errors in: " + normalizedPath);
         for (File fileName : listFiles) {
             if (!fileName.toString().endsWith(".xml")) {
                 continue;

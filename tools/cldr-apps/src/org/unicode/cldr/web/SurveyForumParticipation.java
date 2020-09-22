@@ -184,7 +184,7 @@ public class SurveyForumParticipation {
             + " JOIN " + userTable
             + " ON " + forumTable + ".poster=" + userTable + ".id"
             + " WHERE " + forumTable + ".parent=-1"
-            + " AND " + forumTable + ".open=true"
+            + " AND " + forumTable + ".is_open=true"
             + " AND " + forumTable + ".loc=?"
             + " AND (" + forumTable + ".type=?"
             + " OR NOT " + userTable + ".org=?)";
@@ -298,7 +298,7 @@ public class SurveyForumParticipation {
             + " JOIN " + userTable
             + " ON " + forumTable + ".poster=" + userTable + ".id"
             + " WHERE " + forumTable + ".parent=-1"
-            + " AND " + forumTable + ".open=true"
+            + " AND " + forumTable + ".is_open=true"
             + " AND " + forumTable + ".loc=?"
             + " AND " + userTable + ".org=?"
             + " AND " + forumTable + ".type=?";

@@ -24,6 +24,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
@@ -410,7 +411,7 @@ public class TestTransforms extends TestFmwkPlus {
             }
             name = name.substring(5);
             File fileDirectory = new File(CLDRPaths.TEST_DATA + "transforms/");
-            String fileDirectoryName = fileDirectory.getCanonicalPath();
+            String fileDirectoryName = PathUtilities.getNormalizedPathString(fileDirectory);
             assertTrue(fileDirectoryName, fileDirectory.exists());
             
             logln("Testing files in: " + fileDirectoryName);

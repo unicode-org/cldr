@@ -20,9 +20,11 @@ This is your local system, where you control the others from.
 ansible-galaxy install -r roles.yml
 ```
 
-- Make sure you can `ssh` into all of the needed systems. For example, `ssh cldr-ref.unicode.org` should succeed without needing a password.
+- Make sure you can `ssh` into all of the needed systems. For example,
+`ssh cldr-ref.unicode.org` should succeed without needing a password.
 
-- You should be able to run `ansible all -m ping` and get something back like the following:
+- You should be able to run `ansible all -m ping` and get something back
+like the following:
 
 ```shell
 cldr-ref.unicode.org | SUCCESS => {
@@ -38,9 +40,51 @@ cldr-ref.unicode.org | SUCCESS => {
 
 - Install python3. Make sure `python --version` returns "Python 3…"
 
+- TODO: these shouldn't be needed, but they are. Here's the entire
+install command:
+
+```shell
+sudo apt-get update && sudo apt-get install python3 python-apt python3-pymysql
+```
+
+### Setup: surveytool keypair
+
+Create a RSA keypair with no password for the buildbot:
+
+```shell
+mkdir -p ./local-vars
+ssh-keygen -t rsa -b 4096 -f ./local-vars/surveytool -P '' -C 'surveytool deploy'
+```
+
+The contents of the `local-vars/surveytool.pub` file is used for the
+`key:` parameter below in `local.yml`. The `local-vars/surveytool`
+private key is used in the secret `RSA_KEY_SURVEYTOOL`.
+
+Then setup github secrets as shown:
+
+- `SMOKETEST_HOST` -
+  hostname of smoketest
+- `SMOKETEST_PORT` -
+  port of smoketest
+- `RSA_KEY_SURVEYTOOL` -
+  contents of `local-vars/surveytool` (the secret key)
+- `SMOKETEST_KNOWNHOSTS` -
+  run `ssh-keyscan smoketest.example.com` where _smoketest.example.com_
+  is the name of the smoketest server.  Put the results into this
+  secret. One of these lines should match `~/.ssh/known_hosts` on your
+  own system when you ssh into smoketest.
+  Try `grep -i smoke ~/.ssh/known_hosts`
+
+Create a folder "cldrbackup" inside local-vars
+```shell
+mkdir -p ./local-vars/cldrbackup
+```
+
+Add three files inside local-vars/cldrbackup-vars: id_rsa, id_rsa.pub, and known_hosts. These must correspond to the public key for cldrbackup on corp.unicode.org. Copy existing versions if you have them. Otherwise, create new ones with `ssh-keygen -t rsa` and copy the public key to corp.unicode.org with `ssh-copy-id -i ~/.ssh/id_rsa cldrbackup@corp.unicode.org`
+
 ### Setup: Config file
 
-- Create a file `local-vars/local.yml` with the following (but with a secure password instead of `hunter42`.)
+- Create a file `local-vars/local.yml` matching the example values in [test-local-vars/local.yml](test-local-vars/local.yml) (but with a secure password instead of `hunter42`!.)
 
 ```yaml
 mysql_users:
@@ -54,6 +98,7 @@ surveytooldeploy:
   testpw: hunter45
   oldversion: 36
   newversion: 37
+  key: ssh-rsa …  ( SSH key goes here)
 ```
 
 ## Configure
@@ -64,7 +109,11 @@ Run the setup playbook.
 ansible-playbook --check setup-playbook.yml
 ```
 
-This is in dry run mode. When it looks good to you, take the `--check` out and run it again.
+This is in dry run mode. When it looks good to you, take the
+`--check` out and run it again.
+
+You can also use the `-l cldr-smoke.unicode.org` option to limit
+the operation to a single host.
 
 ## Local Test
 

@@ -1,5 +1,7 @@
 package org.unicode.cldr.draft;
 
+import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,6 +21,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
@@ -48,7 +51,7 @@ public final class FileUtilities {
         File file = dir.length() == 0 ? new File(filename) : new File(dir, filename);
         if (SHOW_FILES && log != null) {
             log.println("Opening File: "
-                + file.getCanonicalPath());
+                + getNormalizedPathString(file));
         }
         return new BufferedReader(
             new InputStreamReader(
@@ -64,8 +67,7 @@ public final class FileUtilities {
     public static PrintWriter openWriter(String dir, String filename, String encoding) throws IOException {
         File file = new File(dir, filename);
         if (SHOW_FILES && log != null) {
-            log.println("Creating File: "
-                + file.getCanonicalPath());
+            log.println("Creating File: " + getNormalizedPathString(file));
         }
         String parentName = file.getParent();
         if (parentName != null) {
@@ -242,15 +244,15 @@ public final class FileUtilities {
             return bufferedReader;
         } catch (Exception e) {
             String className = class1 == null ? null : class1.getCanonicalName();
-            String canonicalName = null;
+            String normalizedPath = null;
             try {
                 String relativeFileName = getRelativeFileName(class1, "../util/");
-                canonicalName = new File(relativeFileName).getCanonicalPath();
+                normalizedPath = getNormalizedPathString(relativeFileName);
             } catch (Exception e1) {
                 throw new ICUUncheckedIOException("Couldn't open file: " + file + "; relative to class: "
                     + className, e);
             }
-            throw new ICUUncheckedIOException("Couldn't open file " + file + "; in path " + canonicalName + "; relative to class: "
+            throw new ICUUncheckedIOException("Couldn't open file " + file + "; in path " + normalizedPath + "; relative to class: "
                 + className, e);
         }
     }

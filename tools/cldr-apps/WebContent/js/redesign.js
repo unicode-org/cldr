@@ -492,17 +492,6 @@ function popupAlert(type, content, head, aj, dur) {
 }
 
 /**
- * Set the content for the instruction menu
- *
- * @param content
- *
- * Called only by showInPop2 in survey.js
- */
-function setHelpContent(content) {
-	$('#help-content').html(content);
-}
-
-/**
  * Create/update the pull-down menu popover
  *
  * @param event

@@ -358,6 +358,8 @@ public class SurveyAjax extends HttpServlet {
                 JSONWriter r = newJSONStatusQuick(sm);
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000, StatisticsUtils.QUERY_ALL_VOTES);
                 r.put(what, query);
+                JSONObject query2 = DBUtils.queryToCachedJSON(what+"_new", 5 * 60 * 1000, StatisticsUtils.QUERY_NEW_VOTES);
+                r.put(what+"_new", query2);
                 addGeneralStats(r);
                 send(r, out);
             } else if (what.equals(WHAT_FLAGGED)) {
@@ -381,21 +383,17 @@ public class SurveyAjax extends HttpServlet {
             } else if (what.equals(WHAT_STATS_BYDAY)) {
                 JSONWriter r = newJSONStatus(sm);
                 {
-                    final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
-                        + " group by Year(last_mod) desc ,Month(last_mod) desc,last_mod desc") // mysql
-                        : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
-                            + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
+                    final String sql = "select count(*) as count , Date(last_mod) as date from " + DBUtils.Table.VOTE_VALUE
+                        + " group by date desc";
                     final JSONObject query = DBUtils
                         .queryToCachedJSON(what, (5 * 60 * 1000), sql);
                     r.put("byday", query);
                 }
                 {
                     // exclude old votes
-                    final String sql2 = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
+                    final String sql2 = "select count(*) as count , Date(last_mod) as date from " + DBUtils.Table.VOTE_VALUE
                         + " as new_votes where " + StatisticsUtils.getExcludeOldVotesSql()
-                        + " group by Year(last_mod) desc ,Month(last_mod) desc,last_mod desc") // mysql
-                        : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
-                            + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
+                        + " group by date desc";
                     final JSONObject query2 = DBUtils
                         .queryToCachedJSON(what + "_new", (5 * 60 * 1000), sql2);
                     r.put("byday_new", query2);

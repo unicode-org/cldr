@@ -25,7 +25,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">中深皮膚</annotation>
 		<annotation cp="🏿">↑↑↑</annotation>
 		<annotation cp="🏿" type="tts">↑↑↑</annotation>
-		<annotation cp="‾" draft="contributed">插入符號 | 插線</annotation>
+		<annotation cp="‾" draft="contributed">頂線</annotation>
 		<annotation cp="‾" type="tts" draft="contributed">頂線</annotation>
 		<annotation cp="_">↑↑↑</annotation>
 		<annotation cp="_" type="tts">↑↑↑</annotation>
@@ -43,7 +43,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="・" type="tts">↑↑↑</annotation>
 		<annotation cp=",">逗號</annotation>
 		<annotation cp="," type="tts">逗號</annotation>
-		<annotation cp="،">逗號 | 阿拉伯</annotation>
+		<annotation cp="،">逗號 | 阿拉伯 | 阿拉伯逗號</annotation>
 		<annotation cp="،" type="tts">阿拉伯逗號</annotation>
 		<annotation cp="、">↑↑↑</annotation>
 		<annotation cp="、" type="tts">↑↑↑</annotation>
@@ -63,7 +63,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¿" type="tts">↑↑↑</annotation>
 		<annotation cp="؟">↑↑↑</annotation>
 		<annotation cp="؟" type="tts">↑↑↑</annotation>
-		<annotation cp="‽" draft="contributed">疑問感歎符號</annotation>
+		<annotation cp="‽" draft="contributed">疑問感歎號</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">疑問感歎號</annotation>
 		<annotation cp=".">↑↑↑</annotation>
 		<annotation cp="." type="tts">↑↑↑</annotation>
@@ -161,11 +161,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="″" type="tts">↑↑↑</annotation>
 		<annotation cp="‴">↑↑↑</annotation>
 		<annotation cp="‴" type="tts">↑↑↑</annotation>
-		<annotation cp="‸" draft="contributed">插入點</annotation>
+		<annotation cp="‸" draft="contributed">插入符號</annotation>
 		<annotation cp="‸" type="tts" draft="contributed">插入符號</annotation>
 		<annotation cp="※">↑↑↑</annotation>
 		<annotation cp="※" type="tts">↑↑↑</annotation>
-		<annotation cp="⁂" draft="contributed">三個星號 | 星號</annotation>
+		<annotation cp="⁂" draft="contributed">三星標記</annotation>
 		<annotation cp="⁂" type="tts" draft="contributed">三星標記</annotation>
 		<annotation cp="`">↑↑↑</annotation>
 		<annotation cp="`" type="tts">↑↑↑</annotation>
@@ -181,61 +181,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗" type="tts">↑↑↑</annotation>
 		<annotation cp="←">向左 | 向左箭嘴 | 箭嘴</annotation>
 		<annotation cp="←" type="tts">向左箭嘴</annotation>
-		<annotation cp="↚" draft="contributed">有删除线的左箭嘴</annotation>
+		<annotation cp="↚" draft="contributed">左箭嘴删除线</annotation>
 		<annotation cp="↚" type="tts" draft="contributed">左箭嘴删除线</annotation>
 		<annotation cp="→">向右 | 向右箭嘴 | 箭嘴</annotation>
 		<annotation cp="→" type="tts">向右箭嘴</annotation>
-		<annotation cp="↛" draft="contributed">有删除线的右箭嘴</annotation>
+		<annotation cp="↛" draft="contributed">右箭嘴删除线</annotation>
 		<annotation cp="↛" type="tts" draft="contributed">右箭嘴删除线</annotation>
 		<annotation cp="↑">向上 | 向上箭嘴 | 箭嘴</annotation>
 		<annotation cp="↑" type="tts">向上箭嘴</annotation>
 		<annotation cp="↓">向下 | 向下箭嘴 | 箭嘴</annotation>
 		<annotation cp="↓" type="tts">向下箭嘴</annotation>
-		<annotation cp="↜" draft="contributed">向左的波浪箭嘴</annotation>
+		<annotation cp="↜" draft="contributed">波浪左箭嘴</annotation>
 		<annotation cp="↜" type="tts" draft="contributed">波浪左箭嘴</annotation>
-		<annotation cp="↝" draft="contributed">向右的波浪箭嘴</annotation>
+		<annotation cp="↝" draft="contributed">波浪右箭嘴</annotation>
 		<annotation cp="↝" type="tts" draft="contributed">波浪右箭嘴</annotation>
-		<annotation cp="↞" draft="contributed">雙頭向左箭嘴</annotation>
+		<annotation cp="↞" draft="contributed">向左雙頭箭嘴</annotation>
 		<annotation cp="↞" type="tts" draft="contributed">向左雙頭箭嘴</annotation>
-		<annotation cp="↟" draft="contributed">雙頭向上箭嘴</annotation>
+		<annotation cp="↟" draft="contributed">向上雙頭箭嘴</annotation>
 		<annotation cp="↟" type="tts" draft="contributed">向上雙頭箭嘴</annotation>
-		<annotation cp="↠" draft="contributed">雙頭向右箭嘴</annotation>
+		<annotation cp="↠" draft="contributed">向右雙頭箭嘴</annotation>
 		<annotation cp="↠" type="tts" draft="contributed">向右雙頭箭嘴</annotation>
-		<annotation cp="↡" draft="contributed">雙頭向下箭嘴</annotation>
+		<annotation cp="↡" draft="contributed">向下雙頭箭嘴</annotation>
 		<annotation cp="↡" type="tts" draft="contributed">向下雙頭箭嘴</annotation>
-		<annotation cp="↢" draft="contributed">帶箭尾的向左箭嘴</annotation>
+		<annotation cp="↢" draft="contributed">有尾巴的向左箭嘴</annotation>
 		<annotation cp="↢" type="tts" draft="contributed">有尾巴的向左箭嘴</annotation>
-		<annotation cp="↣" draft="contributed">帶箭尾的向右箭嘴</annotation>
+		<annotation cp="↣" draft="contributed">有尾巴的向右箭嘴</annotation>
 		<annotation cp="↣" type="tts" draft="contributed">有尾巴的向右箭嘴</annotation>
-		<annotation cp="↤" draft="contributed">從槓出發的向左箭嘴</annotation>
+		<annotation cp="↤" draft="contributed">尾部帶槓的向左箭嘴</annotation>
 		<annotation cp="↤" type="tts" draft="contributed">尾部帶槓的向左箭嘴</annotation>
-		<annotation cp="↥" draft="contributed">從槓出發的向上箭嘴</annotation>
+		<annotation cp="↥" draft="contributed">尾部帶槓的向上箭嘴</annotation>
 		<annotation cp="↥" type="tts" draft="contributed">尾部帶槓的向上箭嘴</annotation>
-		<annotation cp="↦" draft="contributed">從槓出發的向右箭嘴</annotation>
+		<annotation cp="↦" draft="contributed">尾部帶槓的向右箭嘴</annotation>
 		<annotation cp="↦" type="tts" draft="contributed">尾部帶槓的向右箭嘴</annotation>
-		<annotation cp="↧" draft="contributed">從槓出發的向下箭嘴</annotation>
+		<annotation cp="↧" draft="contributed">尾部帶槓的向下箭嘴</annotation>
 		<annotation cp="↧" type="tts" draft="contributed">尾部帶槓的向下箭嘴</annotation>
-		<annotation cp="↨" draft="contributed">有基線的上下箭嘴</annotation>
+		<annotation cp="↨" draft="contributed">處於基線的上下箭嘴</annotation>
 		<annotation cp="↨" type="tts" draft="contributed">處於基線的上下箭嘴</annotation>
-		<annotation cp="↫" draft="contributed">環狀箭尾的向左箭嘴</annotation>
+		<annotation cp="↫" draft="contributed">尾部帶環的向左箭嘴</annotation>
 		<annotation cp="↫" type="tts" draft="contributed">尾部帶環的向左箭嘴</annotation>
-		<annotation cp="↬" draft="contributed">環狀箭尾的向右箭嘴</annotation>
+		<annotation cp="↬" draft="contributed">尾部帶環的向右箭嘴</annotation>
 		<annotation cp="↬" type="tts" draft="contributed">尾部帶環的向右箭嘴</annotation>
-		<annotation cp="↭" draft="contributed">向左向右的波浪箭嘴</annotation>
+		<annotation cp="↭" draft="contributed">左右波浪箭嘴</annotation>
 		<annotation cp="↭" type="tts" draft="contributed">左右波浪箭嘴</annotation>
-		<annotation cp="↯" draft="contributed">鋸齒形向下箭嘴</annotation>
+		<annotation cp="↯" draft="contributed">向下鋸齒形箭嘴</annotation>
 		<annotation cp="↯" type="tts" draft="contributed">向下鋸齒形箭嘴</annotation>
-		<annotation cp="↰" draft="contributed">向左轉的向上箭嘴</annotation>
+		<annotation cp="↰" draft="contributed">頭朝左的向上箭嘴</annotation>
 		<annotation cp="↰" type="tts" draft="contributed">頭朝左的向上箭嘴</annotation>
-		<annotation cp="↱" draft="contributed">向右轉的向上箭嘴</annotation>
+		<annotation cp="↱" draft="contributed">頭朝右的向上箭嘴</annotation>
 		<annotation cp="↱" type="tts" draft="contributed">頭朝右的向上箭嘴</annotation>
-		<annotation cp="↲" draft="contributed">向左轉的向下箭嘴</annotation>
+		<annotation cp="↲" draft="contributed">頭朝左的向下箭嘴</annotation>
 		<annotation cp="↲" type="tts" draft="contributed">頭朝左的向下箭嘴</annotation>
-		<annotation cp="↳" draft="contributed">向右轉的向下箭嘴</annotation>
+		<annotation cp="↳" draft="contributed">頭朝右的向下箭嘴</annotation>
 		<annotation cp="↳" type="tts" draft="contributed">頭朝右的向下箭嘴</annotation>
-		<annotation cp="↴" draft="contributed">轉角向下的向右箭嘴</annotation>
+		<annotation cp="↴" draft="contributed">角朝下的向右箭嘴</annotation>
 		<annotation cp="↴" type="tts" draft="contributed">角朝下的向右箭嘴</annotation>
-		<annotation cp="↵" draft="contributed">轉角向左的向下箭嘴</annotation>
+		<annotation cp="↵" draft="contributed">角朝左的向下箭嘴</annotation>
 		<annotation cp="↵" type="tts" draft="contributed">角朝左的向下箭嘴</annotation>
 		<annotation cp="↶" draft="contributed">逆時針上半圓箭嘴</annotation>
 		<annotation cp="↶" type="tts" draft="contributed">逆時針上半圓箭嘴</annotation>
@@ -249,21 +249,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↺" type="tts" draft="contributed">逆時針開口循環箭嘴</annotation>
 		<annotation cp="↻" draft="contributed">順時針開口循環箭嘴</annotation>
 		<annotation cp="↻" type="tts" draft="contributed">順時針開口循環箭嘴</annotation>
-		<annotation cp="↼" draft="contributed">倒鉤</annotation>
+		<annotation cp="↼" draft="contributed">倒鉤在上面的向左魚叉</annotation>
 		<annotation cp="↼" type="tts" draft="contributed">倒鉤在上面的向左魚叉</annotation>
 		<annotation cp="↽" draft="contributed">倒鉤在下面的向左魚叉</annotation>
 		<annotation cp="↽" type="tts" draft="contributed">倒鉤在下面的向左魚叉</annotation>
-		<annotation cp="↾" draft="contributed">倒鉤</annotation>
+		<annotation cp="↾" draft="contributed">倒鉤在右邊的向上魚叉</annotation>
 		<annotation cp="↾" type="tts" draft="contributed">倒鉤在右邊的向上魚叉</annotation>
-		<annotation cp="↿" draft="contributed">倒鉤</annotation>
+		<annotation cp="↿" draft="contributed">倒鉤在左邊的向上魚叉</annotation>
 		<annotation cp="↿" type="tts" draft="contributed">倒鉤在左邊的向上魚叉</annotation>
-		<annotation cp="⇀" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇀" draft="contributed">倒鉤在上面的向右魚叉</annotation>
 		<annotation cp="⇀" type="tts" draft="contributed">倒鉤在上面的向右魚叉</annotation>
-		<annotation cp="⇁" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇁" draft="contributed">倒鉤在下面的向右魚叉</annotation>
 		<annotation cp="⇁" type="tts" draft="contributed">倒鉤在下面的向右魚叉</annotation>
-		<annotation cp="⇂" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇂" draft="contributed">倒鉤在右邊的向下魚叉</annotation>
 		<annotation cp="⇂" type="tts" draft="contributed">倒鉤在右邊的向下魚叉</annotation>
-		<annotation cp="⇃" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇃" draft="contributed">倒鉤在左邊的向下魚叉</annotation>
 		<annotation cp="⇃" type="tts" draft="contributed">倒鉤在左邊的向下魚叉</annotation>
 		<annotation cp="⇄" draft="contributed">向右箭嘴在向左箭嘴的上面</annotation>
 		<annotation cp="⇄" type="tts" draft="contributed">向右箭嘴在向左箭嘴的上面</annotation>
@@ -317,7 +317,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∇" type="tts">↑↑↑</annotation>
 		<annotation cp="∈">↑↑↑</annotation>
 		<annotation cp="∈" type="tts">↑↑↑</annotation>
-		<annotation cp="+">加 | 新增</annotation>
+		<annotation cp="+">加 | 加號 | 新增</annotation>
 		<annotation cp="+" type="tts">↑↑↑</annotation>
 		<annotation cp="±">↑↑↑</annotation>
 		<annotation cp="±" type="tts">加減</annotation>
@@ -335,11 +335,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="&gt;" type="tts">↑↑↑</annotation>
 		<annotation cp="¬">否 | 否定</annotation>
 		<annotation cp="¬" type="tts">否定</annotation>
-		<annotation cp="|">一劃 | 垂直線條 | 條狀 | 棍狀 | 管狀 | 線條 | 謝費爾豎線 | 豎立條形圖</annotation>
+		<annotation cp="|">一劃 | 垂直線條 | 條狀 | 棍狀 | 管狀 | 線條 | 謝費爾豎線 | 豎立條形圖 | 豎線</annotation>
 		<annotation cp="|" type="tts">豎線</annotation>
 		<annotation cp="~">波浪線</annotation>
 		<annotation cp="~" type="tts">波浪線</annotation>
-		<annotation cp="−">↑↑↑</annotation>
+		<annotation cp="−">減 | 減法 | 減法符號</annotation>
 		<annotation cp="−" type="tts">減法符號</annotation>
 		<annotation cp="⁻">↑↑↑</annotation>
 		<annotation cp="⁻" type="tts">↑↑↑</annotation>
@@ -355,9 +355,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≈" type="tts">約等於</annotation>
 		<annotation cp="≡">↑↑↑</annotation>
 		<annotation cp="≡" type="tts">↑↑↑</annotation>
-		<annotation cp="≤">不等於 | 小於 | 等於 | 等號</annotation>
+		<annotation cp="≤">不等於 | 小於 | 小於或等於 | 等於 | 等號</annotation>
 		<annotation cp="≤" type="tts">小於或等於</annotation>
-		<annotation cp="≥">不等於 | 大於 | 等於 | 等號</annotation>
+		<annotation cp="≥">不等於 | 大於 | 大於或等於 | 等於 | 等號</annotation>
 		<annotation cp="≥" type="tts">大於或等於</annotation>
 		<annotation cp="⊂">↑↑↑</annotation>
 		<annotation cp="⊂" type="tts">↑↑↑</annotation>
@@ -2637,7 +2637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📽" type="tts">↑↑↑</annotation>
 		<annotation cp="🎬">↑↑↑</annotation>
 		<annotation cp="🎬" type="tts">↑↑↑</annotation>
-		<annotation cp="📺">電視｜TV</annotation>
+		<annotation cp="📺">電視 | 電視｜TV</annotation>
 		<annotation cp="📺" type="tts">↑↑↑</annotation>
 		<annotation cp="📷">↑↑↑</annotation>
 		<annotation cp="📷" type="tts">↑↑↑</annotation>
@@ -2745,7 +2745,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✏" type="tts">↑↑↑</annotation>
 		<annotation cp="✒">↑↑↑</annotation>
 		<annotation cp="✒" type="tts">↑↑↑</annotation>
-		<annotation cp="🖋">鋼筆｜筆</annotation>
+		<annotation cp="🖋">鋼筆 | 鋼筆｜筆</annotation>
 		<annotation cp="🖋" type="tts">↑↑↑</annotation>
 		<annotation cp="🖊">原子筆 | 原子筆｜筆</annotation>
 		<annotation cp="🖊" type="tts">原子筆</annotation>
@@ -2797,7 +2797,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✂" type="tts">骹剪</annotation>
 		<annotation cp="🗃">卡片檔案盒 | 卡片檔案盒｜卡片｜盒</annotation>
 		<annotation cp="🗃" type="tts">卡片檔案盒</annotation>
-		<annotation cp="🗄">檔案櫃｜檔案</annotation>
+		<annotation cp="🗄">檔案櫃 | 檔案櫃｜檔案</annotation>
 		<annotation cp="🗄" type="tts">↑↑↑</annotation>
 		<annotation cp="🗑">垃圾桶</annotation>
 		<annotation cp="🗑" type="tts">垃圾桶</annotation>
@@ -2827,13 +2827,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">↑↑↑</annotation>
 		<annotation cp="⚔">↑↑↑</annotation>
 		<annotation cp="⚔" type="tts">↑↑↑</annotation>
-		<annotation cp="🔫">手槍 | 槍 | 槍｜武器｜工具</annotation>
+		<annotation cp="🔫">手槍 | 槍 | 槍｜武器｜工具 | 水槍</annotation>
 		<annotation cp="🔫" type="tts">↑↑↑</annotation>
 		<annotation cp="🪃">↑↑↑</annotation>
 		<annotation cp="🪃" type="tts">↑↑↑</annotation>
 		<annotation cp="🏹">射箭｜射手 | 弓 | 弓箭 | 箭</annotation>
 		<annotation cp="🏹" type="tts">↑↑↑</annotation>
-		<annotation cp="🛡">盾牌｜武器</annotation>
+		<annotation cp="🛡">盾牌 | 盾牌｜武器</annotation>
 		<annotation cp="🛡" type="tts">↑↑↑</annotation>
 		<annotation cp="🪚">↑↑↑</annotation>
 		<annotation cp="🪚" type="tts">↑↑↑</annotation>
@@ -3019,7 +3019,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">上下箭嘴</annotation>
 		<annotation cp="↔">左右箭嘴</annotation>
 		<annotation cp="↔" type="tts">左右箭嘴</annotation>
-		<annotation cp="↮" draft="contributed">有删除线的左右箭嘴</annotation>
+		<annotation cp="↮" draft="contributed">左右箭嘴删除线</annotation>
 		<annotation cp="↮" type="tts" draft="contributed">左右箭嘴删除线</annotation>
 		<annotation cp="↩">向左彎嘅右箭嘴</annotation>
 		<annotation cp="↩" type="tts">向左彎嘅右箭嘴</annotation>
@@ -3161,7 +3161,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‼" type="tts">雙感嘆號</annotation>
 		<annotation cp="⁉">感嘆號加問號 | 標點</annotation>
 		<annotation cp="⁉" type="tts">感嘆號加問號</annotation>
-		<annotation cp="❓">問號 | 問題 | 標點</annotation>
+		<annotation cp="❓">問號 | 問題 | 標點 | 紅色問號</annotation>
 		<annotation cp="❓" type="tts">↑↑↑</annotation>
 		<annotation cp="❔">問號 | 標點 | 白色問號</annotation>
 		<annotation cp="❔" type="tts">↑↑↑</annotation>

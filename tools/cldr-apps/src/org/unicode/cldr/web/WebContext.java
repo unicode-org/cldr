@@ -1212,7 +1212,7 @@ public class WebContext implements Cloneable, Appendable {
      * @param parens
      */
     @Deprecated
-    public void printHelpLink(String what, String title, boolean doEdit, boolean parens) {
+    private void printHelpLink(String what, String title, boolean doEdit, boolean parens) {
         if (parens) {
             print("(");
         }

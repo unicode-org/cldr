@@ -1,7 +1,8 @@
 package org.unicode.cldr.util;
 
+import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
+
 import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -936,9 +937,10 @@ public class SupplementalDataInfo {
     public Multimap<String, String> languageGroups = TreeMultimap.create();
 
     public RationalParser rationalParser = new RationalParser();
-    public UnitConverter unitConverter = new UnitConverter(rationalParser);
 
-    public UnitPreferences unitPreferences = new UnitPreferences();
+    private UnitConverter unitConverter = null;
+
+    private final UnitPreferences unitPreferences = new UnitPreferences();
 
     public Map<String, GrammarInfo> grammarLocaleToTargetToFeatureToValues = new TreeMap<>();
 
@@ -975,11 +977,7 @@ public class SupplementalDataInfo {
     }
 
     public static SupplementalDataInfo getInstance(File supplementalDirectory) {
-        try {
-            return getInstance(supplementalDirectory.getCanonicalPath());
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException(e);
-        }
+        return getInstance(getNormalizedPathString(supplementalDirectory));
     }
 
     static private SupplementalDataInfo defaultInstance = null;
@@ -987,6 +985,7 @@ public class SupplementalDataInfo {
      * Which directory did we come from?
      */
     final private File directory;
+    private Validity validity;
 
     /**
      * Get an instance chosen using setAsDefaultInstance(), otherwise return an instance using the default directory
@@ -1019,18 +1018,13 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Error: The string passed as a parameter resolves to the empty string.");
             }
             // canonicalize path
-            String canonicalpath = null;
-            try {
-                canonicalpath = new File(supplementalDirectory).getCanonicalPath();
-            } catch (IOException e) {
-                throw new ICUUncheckedIOException(e);
-            }
-            SupplementalDataInfo instance = directory_instance.get(canonicalpath);
+            String normalizedPath = getNormalizedPathString(supplementalDirectory);
+            SupplementalDataInfo instance = directory_instance.get(normalizedPath);
             if (instance != null) {
                 return instance;
             }
             // reaching here means we have not cached the entry
-            File directory = new File(canonicalpath);
+            File directory = new File(normalizedPath);
             instance = new SupplementalDataInfo(directory);
             MyHandler myHandler = instance.new MyHandler();
             XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
@@ -1053,10 +1047,7 @@ public class SupplementalDataInfo {
             builder.addAll(files2);
             for (File file : builder.get()) {
                 if (DEBUG) {
-                    try {
-                        System.out.println(file.getCanonicalPath());
-                    } catch (IOException e) {
-                    }
+                    System.out.println(getNormalizedPathString(file));
                 }
                 String name = file.toString();
                 String shortName = file.getName();
@@ -1068,14 +1059,14 @@ public class SupplementalDataInfo {
             }
 
             // xfr = new XMLFileReader().setHandler(instance.new MyHandler());
-            // .xfr.read(canonicalpath + "/supplementalMetadata.xml", -1, true);
+            // .xfr.read(normalizedPath + "/supplementalMetadata.xml", -1, true);
 
             instance.makeStuffSafe();
             // cache
             //            directory_instance.put(supplementalDirectory, instance);
-            directory_instance.put(canonicalpath, instance);
-            //            if (!canonicalpath.equals(supplementalDirectory)) {
-            //                directory_instance.put(canonicalpath, instance);
+            directory_instance.put(normalizedPath, instance);
+            //            if (!normalizedPath.equals(supplementalDirectory)) {
+            //                directory_instance.put(normalizedPath, instance);
             //            }
             return instance;
         }
@@ -1087,6 +1078,7 @@ public class SupplementalDataInfo {
 
     private SupplementalDataInfo(File directory) {
         this.directory = directory;
+        this.validity = Validity.getInstance(directory.toString() + "/../validity/");
     } // hide
 
     private void makeStuffSafe() {
@@ -1455,6 +1447,9 @@ public class SupplementalDataInfo {
             final String baseUnit = parts.getAttributeValue(-1, "baseUnit");
             final String quantity = parts.getAttributeValue(-1, "quantity");
             final String status = parts.getAttributeValue(-1, "status");
+            if (unitConverter == null) {
+                unitConverter = new UnitConverter(rationalParser, validity);
+            }
             unitConverter.addQuantityInfo(baseUnit, quantity, status);
             return true;
         }

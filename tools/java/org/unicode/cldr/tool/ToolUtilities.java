@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineComparer;
 import org.unicode.cldr.util.FileReaders;
+import org.unicode.cldr.util.PathUtilities;
 
 /**
  * Utilities for CLDR tools.
@@ -58,26 +61,25 @@ public class ToolUtilities {
             if (!new File(sourceDir, sourceFile).exists()) {
                 File f = new File(batDir, batName);
                 if (f.exists()) {
-                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
+                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + getNormalizedPathString(f));
                     f.delete();
                 }
             } else if (!CldrUtility.areFileIdentical(fullSource, fullTarget, failureLines, lineComparer)) {
                 PrintWriter bat = FileUtilities.openUTF8Writer(batDir, batName);
                 try {
                     bat.println(CLDRPaths.COMPARE_PROGRAM + " " +
-                        new File(fullSource).getCanonicalPath() + " " +
-                        new File(fullTarget).getCanonicalPath());
+                            getNormalizedPathString(fullSource) + " " + getNormalizedPathString(fullTarget));
                 } finally {
                     bat.close();
                 }
             } else {
                 File f = new File(batDir, batName);
                 if (f.exists()) {
-                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
+                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old:\t" + getNormalizedPathString(f));
                     f.delete();
                 }
                 f = new File(fullTarget);
-                if (FileUtilities.SHOW_FILES) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
+                if (FileUtilities.SHOW_FILES) System.out.println("*Deleting old:\t" + getNormalizedPathString(f));
                 f.delete();
             }
         } catch (IOException e) {

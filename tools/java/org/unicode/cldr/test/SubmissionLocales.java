@@ -19,9 +19,9 @@ public final class SubmissionLocales {
         "kok",  // Konkani -(Note: this is already covered by a MS vetter at Modern level)
         "sd_Deva",   // Sindhi (Devanagari)
         "su",   // Sundanese (script TBD)
-        "cad",  // Caddo
-        "pcm",  // Nigerian Pidgin
-        "gn"    // Guarani
+        "pcm"  // Nigerian Pidgin
+//        "cad",  // Caddo
+//        "gn"    // Guarani
         );
 
     public static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of(

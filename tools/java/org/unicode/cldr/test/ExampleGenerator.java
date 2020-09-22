@@ -609,11 +609,11 @@ public class ExampleGenerator {
         }
         if (parts.getElement(-2).equals("unit")) {
             String longUnitId = parts.getAttributeValue(-2, "type");
-            final String shortUnitId = UnitConverter.getShortId(longUnitId);
+            UnitConverter uc = supplementalDataInfo.getUnitConverter();
+            final String shortUnitId = uc.getShortId(longUnitId);
             if (UnitConverter.HACK_SKIP_UNIT_NAMES.contains(shortUnitId)) {
                 return null;
             }
-            UnitConverter uc = supplementalDataInfo.getUnitConverter();
             final UnitId unitId = uc.createUnitId(shortUnitId);
             // LocaleStringProvider stringProvider = new OverridingStringProvider(getCldrFile(), parts.toString(), backgroundPattern(value));
             // removeEmptyRuns(

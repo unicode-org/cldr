@@ -1,0 +1,22 @@
+{
+  "name": "@unicode-org/st-prom-exporter",
+  "version": "1.0.0",
+  "description": "Reads Survey Tool status JSON and exports as Prometheus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Steven R. Loomis <srl295@gmail.com>",
+  "license": "Unicode-DFS-2016",
+  "dependencies": {
+    "bent": "^7.3.10",
+    "express": "^4.17.1",
+    "prom-client": "^12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unicode-org/cldr.git"
+  }
+}

@@ -11,7 +11,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="nn"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">klammeparentes | krøllparentes | parentes | startparentes</annotation>
+		<annotation cp="{">klammeparentes | krøllparentes | parentes | startparentes | startsløyfeparentes</annotation>
 		<annotation cp="{" type="tts">startsløyfeparentes</annotation>
 		<annotation cp="🏻">emojimodifikator | fitzpatrick | hud | hudfarge | hudtype 1–2 | type 1–2</annotation>
 		<annotation cp="🏻" type="tts">hudtype 1–2</annotation>
@@ -35,9 +35,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="–" type="tts">tankestrek</annotation>
 		<annotation cp="—">bindestrekar | em-dash | gefirt | lang tankestrek</annotation>
 		<annotation cp="—" type="tts">lang tankestrek</annotation>
-		<annotation cp="―">strek | vassrett strek</annotation>
+		<annotation cp="―">strek | vassrett strek | vassrett. strek</annotation>
 		<annotation cp="―" type="tts">vassrett. strek</annotation>
-		<annotation cp="・">bindestrek | interpunkt | katakana | prikk | punkt</annotation>
+		<annotation cp="・">bindestrek | interpunkt | katakana | midtstilt prikk i katakana | prikk | punkt</annotation>
 		<annotation cp="・" type="tts">midtstilt prikk i katakana</annotation>
 		<annotation cp=",">komma</annotation>
 		<annotation cp="," type="tts">komma</annotation>
@@ -61,7 +61,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¿" type="tts">opp-ned spørsmålsteikn</annotation>
 		<annotation cp="؟">arabisk spørsmålsteikn | spørsmål | spørsmålsteikn</annotation>
 		<annotation cp="؟" type="tts">arabisk spørsmålsteikn</annotation>
-		<annotation cp="‽">interabang</annotation>
+		<annotation cp="‽">interabang | interrobang</annotation>
 		<annotation cp="‽" type="tts">interrobang</annotation>
 		<annotation cp=".">punktum</annotation>
 		<annotation cp="." type="tts">punktum</annotation>
@@ -91,39 +91,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="»" type="tts">høgre hermeteikn</annotation>
 		<annotation cp=")">bogeparentes | parentes | sluttparentes</annotation>
 		<annotation cp=")" type="tts">sluttparentes</annotation>
-		<annotation cp="[">firkantparentes | klammeparentes | parentes | startparentes</annotation>
+		<annotation cp="[">firkantparentes | klammeparentes | parentes | starthakeparentes | startparentes</annotation>
 		<annotation cp="[" type="tts">starthakeparentes</annotation>
-		<annotation cp="]">firkantparentes | klammeparentes | parentes | sluttparentes</annotation>
+		<annotation cp="]">firkantparentes | klammeparentes | parentes | slutthakeparentes | sluttparentes</annotation>
 		<annotation cp="]" type="tts">slutthakeparentes</annotation>
-		<annotation cp="}">klammeparentes | krøllparentes | parentes | sluttparentes</annotation>
+		<annotation cp="}">klammeparentes | krøllparentes | parentes | sluttparentes | sluttsløyfeparentes</annotation>
 		<annotation cp="}" type="tts">sluttsløyfeparentes</annotation>
-		<annotation cp="〈">parentes | spissparentes | startparentes | vinkelparentes</annotation>
+		<annotation cp="〈">parentes | spissparentes | startparentes | startvinkelparentes | vinkelparentes</annotation>
 		<annotation cp="〈" type="tts">startvinkelparentes</annotation>
-		<annotation cp="〉">parentes | sluttparentes | spissparentes | vinkelparentes</annotation>
+		<annotation cp="〉">parentes | sluttparentes | sluttvinkelparentes | spissparentes | vinkelparentes</annotation>
 		<annotation cp="〉" type="tts">sluttvinkelparentes</annotation>
-		<annotation cp="《">dobbelparentes | parentes | spissparentes | startparentes | vinkelparentes</annotation>
+		<annotation cp="《">dobbel startvinkelparentes | dobbelparentes | parentes | spissparentes | startparentes | vinkelparentes</annotation>
 		<annotation cp="《" type="tts">dobbel startvinkelparentes</annotation>
-		<annotation cp="》">dobbelparentes | parentes | sluttparentes | spissparentes | vinkelparentes</annotation>
+		<annotation cp="》">dobbel sluttvinkelparentes | dobbelparentes | parentes | sluttparentes | spissparentes | vinkelparentes</annotation>
 		<annotation cp="》" type="tts">dobbel sluttvinkelparentes</annotation>
-		<annotation cp="「">hjørneparentes | parentes | startparentes</annotation>
+		<annotation cp="「">hjørneparentes | parentes | starthjørneparentes | startparentes</annotation>
 		<annotation cp="「" type="tts">starthjørneparentes</annotation>
-		<annotation cp="」">hjørneparentes | parentes | sluttparentes</annotation>
+		<annotation cp="」">hjørneparentes | parentes | slutthjørneparentes | sluttparentes</annotation>
 		<annotation cp="」" type="tts">slutthjørneparentes</annotation>
-		<annotation cp="『">hjørneparentes | hol parentes | parentes | startparentes</annotation>
+		<annotation cp="『">hjørneparentes | hol parentes | hol starthjørneparentes | parentes | startparentes</annotation>
 		<annotation cp="『" type="tts">hol starthjørneparentes</annotation>
-		<annotation cp="』">hjørneparentes | hol parentes | parentes | sluttparentes</annotation>
+		<annotation cp="』">hjørneparentes | hol parentes | hol slutthjørneparentes | parentes | sluttparentes</annotation>
 		<annotation cp="』" type="tts">hol slutthjørneparentes</annotation>
-		<annotation cp="【">fylt parentes | linseparentes | parentes | startparentes | svart parentes</annotation>
+		<annotation cp="【">fylt parentes | linseparentes | parentes | startparentes | svart parentes | svart startlinseparentes</annotation>
 		<annotation cp="【" type="tts">svart startlinseparentes</annotation>
-		<annotation cp="】">fylt parentes | linseparentes | parentes | sluttparentes | svart parentes</annotation>
+		<annotation cp="】">fylt parentes | linseparentes | parentes | sluttparentes | svart parentes | svart sluttlinseparentes</annotation>
 		<annotation cp="】" type="tts">svart sluttlinseparentes</annotation>
 		<annotation cp="〔">parentes | skjelpaddeskal | skjelpaddeskalparentes | startparentes</annotation>
 		<annotation cp="〔" type="tts">startparentes skjelpaddeskalparentes</annotation>
 		<annotation cp="〕">parentes | skjelpaddeskal | skjelpaddeskalparentes | sluttparentes</annotation>
 		<annotation cp="〕" type="tts">sluttparentes skjelpaddeskalparentes</annotation>
-		<annotation cp="〖">hol parentes | linseparentes | parentes | startparentes</annotation>
+		<annotation cp="〖">hol parentes | hol startlinseparentes | linseparentes | parentes | startparentes</annotation>
 		<annotation cp="〖" type="tts">hol startlinseparentes</annotation>
-		<annotation cp="〗">hol parentes | linseparentes | parentes | sluttparentes</annotation>
+		<annotation cp="〗">hol parentes | hol sluttlinseparentes | linseparentes | parentes | sluttparentes</annotation>
 		<annotation cp="〗" type="tts">hol sluttlinseparentes</annotation>
 		<annotation cp="§">avsnittssteikn | del | paragraf | paragrafteikn | signum sectionis</annotation>
 		<annotation cp="§" type="tts">paragrafteikn</annotation>
@@ -155,7 +155,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‧" type="tts">stavingsmerke</annotation>
 		<annotation cp="′">primteikn</annotation>
 		<annotation cp="′" type="tts">primteikn</annotation>
-		<annotation cp="″">dobbel primteikn</annotation>
+		<annotation cp="″">dobbel primteikn | dobbelt primteikn</annotation>
 		<annotation cp="″" type="tts">dobbelt primteikn</annotation>
 		<annotation cp="‴">trippelt primteikn</annotation>
 		<annotation cp="‴" type="tts">trippelt primteikn</annotation>
@@ -163,7 +163,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‸" type="tts">innsetjingsteikn</annotation>
 		<annotation cp="※">referansemerke</annotation>
 		<annotation cp="※" type="tts">referansemerke</annotation>
-		<annotation cp="⁂">dinkus | stjerner</annotation>
+		<annotation cp="⁂">asterisme | dinkus | stjerner</annotation>
 		<annotation cp="⁂" type="tts">asterisme</annotation>
 		<annotation cp="`">aksent | gravis | tonem | trykk | venstreaksent</annotation>
 		<annotation cp="`" type="tts">gravis</annotation>
@@ -224,7 +224,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">element i | elementsymbol | matematiske teikn | mengdelære</annotation>
 		<annotation cp="∈" type="tts">element i</annotation>
-		<annotation cp="+">addere | leggje til | pluss</annotation>
+		<annotation cp="+">addere | leggje til | pluss | plussteikn</annotation>
 		<annotation cp="+" type="tts">plussteikn</annotation>
 		<annotation cp="±">pluss/minus</annotation>
 		<annotation cp="±" type="tts">pluss/minus</annotation>
@@ -232,13 +232,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="÷" type="tts">divisjonsteikn</annotation>
 		<annotation cp="×">gonge | gongeteikn | matematiske teikn | multiplikasjon | multiplikasjonsteikn | multiplisere</annotation>
 		<annotation cp="×" type="tts">multiplikasjonsteikn</annotation>
-		<annotation cp="&lt;">mindre enn | starttagg</annotation>
+		<annotation cp="&lt;">er mindre enn | mindre enn | starttagg</annotation>
 		<annotation cp="&lt;" type="tts">er mindre enn</annotation>
 		<annotation cp="=">er lik | likskapsteikn</annotation>
 		<annotation cp="=" type="tts">er lik</annotation>
 		<annotation cp="≠">er ikkje lik | ulikskap | ulikskapsteikn</annotation>
 		<annotation cp="≠" type="tts">er ikkje lik</annotation>
-		<annotation cp="&gt;">endetagg | større enn</annotation>
+		<annotation cp="&gt;">endetagg | er større enn | større enn</annotation>
 		<annotation cp="&gt;" type="tts">er større enn</annotation>
 		<annotation cp="¬">ikkje | negasjon</annotation>
 		<annotation cp="¬" type="tts">negasjon</annotation>
@@ -246,7 +246,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="|" type="tts">loddrett strek</annotation>
 		<annotation cp="~">tilde</annotation>
 		<annotation cp="~" type="tts">tilde</annotation>
-		<annotation cp="−">minus | subtrahere | trekkje frå</annotation>
+		<annotation cp="−">minus | minusteikn | subtrahere | trekkje frå</annotation>
 		<annotation cp="−" type="tts">minusteikn</annotation>
 		<annotation cp="⁻">heva | heva minusteikn | ion | matematiske teikn | minus | negativ ladning</annotation>
 		<annotation cp="⁻" type="tts">heva minusteikn</annotation>
@@ -262,11 +262,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≈" type="tts">er tilnærma lik</annotation>
 		<annotation cp="≡">identisk lik | kongruent med | likskapsteikn | matematiske teikn</annotation>
 		<annotation cp="≡" type="tts">identisk lik</annotation>
-		<annotation cp="≤">likskapsteikn | mindre enn eller lik | ulikskap</annotation>
+		<annotation cp="≤">er mindre enn eller lik | likskapsteikn | mindre enn eller lik | ulikskap</annotation>
 		<annotation cp="≤" type="tts">er mindre enn eller lik</annotation>
-		<annotation cp="≥">likskapsteikn | større enn eller lik | ulikskap</annotation>
+		<annotation cp="≥">er større enn eller lik | likskapsteikn | større enn eller lik | ulikskap</annotation>
 		<annotation cp="≥" type="tts">er større enn eller lik</annotation>
-		<annotation cp="⊂">inklusjonsteikn | matematiske teikn | mengdelære</annotation>
+		<annotation cp="⊂">delmengd av | inklusjonsteikn | matematiske teikn | mengdelære</annotation>
 		<annotation cp="⊂" type="tts">delmengd av</annotation>
 		<annotation cp="▲">fylt | fylt trekant som peikar opp | opp | pil | trekant</annotation>
 		<annotation cp="▲" type="tts">fylt trekant som peikar opp</annotation>
@@ -282,9 +282,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◯" type="tts">stor hol sirkel</annotation>
 		<annotation cp="♪">åttandedelsnote | musikk | note</annotation>
 		<annotation cp="♪" type="tts">åttandedelsnote</annotation>
-		<annotation cp="♭">b | halvnote ned | musikk</annotation>
+		<annotation cp="♭">b | halvnote ned | musikk | note-b</annotation>
 		<annotation cp="♭" type="tts">note-b</annotation>
-		<annotation cp="♯">halnote opp | kryss | musikk</annotation>
+		<annotation cp="♯">halnote opp | kryss | musikk | note-kryss</annotation>
 		<annotation cp="♯" type="tts">note-kryss</annotation>
 		<annotation cp="😀">fjes | glis | glisefjes</annotation>
 		<annotation cp="😀" type="tts">glisefjes</annotation>
@@ -320,7 +320,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤩" type="tts">stjerner i auga</annotation>
 		<annotation cp="😘">elskar deg | fjes | glad i deg | hjarte | kyss | slengkyss</annotation>
 		<annotation cp="😘" type="tts">slengkyss</annotation>
-		<annotation cp="😗">elskar deg | fjes | glad i deg | kyss | kyssefjes i slengkyss</annotation>
+		<annotation cp="😗">elskar deg | fjes | glad i deg | kyss | kyssefjes | kyssefjes i slengkyss</annotation>
 		<annotation cp="😗" type="tts">kyssefjes</annotation>
 		<annotation cp="☺">fjes | omriss | smil | smilefjes</annotation>
 		<annotation cp="☺" type="tts">smilefjes</annotation>
@@ -336,7 +336,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😛" type="tts">rekkjer tunge</annotation>
 		<annotation cp="😜">blunk | blunkar og rekkjer tunge | erte | fjes | rekkje tunge med blunk | spøk</annotation>
 		<annotation cp="😜" type="tts">blunkar og rekkjer tunge</annotation>
-		<annotation cp="🤪">fjes | galen | lite auge | sinnssjuk | stort auge</annotation>
+		<annotation cp="🤪">fjes | gal | galen | lite auge | sinnssjuk | stort auge</annotation>
 		<annotation cp="🤪" type="tts">gal</annotation>
 		<annotation cp="😝">æsj | fælt | fjes | lukkande auge | rekkje tunge | tunga ut med auga lukka</annotation>
 		<annotation cp="😝" type="tts">æsj</annotation>
@@ -360,7 +360,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">uttrykkslaus</annotation>
 		<annotation cp="😶">fjes | ingen munn | utan munn</annotation>
 		<annotation cp="😶" type="tts">utan munn</annotation>
-		<annotation cp="😶‍🌫">distré | fråverande | uoppmerksam</annotation>
+		<annotation cp="😶‍🌫">distré | fjes i skyer | fråverande | uoppmerksam</annotation>
 		<annotation cp="😶‍🌫" type="tts">fjes i skyer</annotation>
 		<annotation cp="😏">fjes | lurt smil | sjølvtilfreds</annotation>
 		<annotation cp="😏" type="tts">lurt smil</annotation>
@@ -402,15 +402,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts">svimmelt fjes</annotation>
 		<annotation cp="😵">fjes | ør | svimmel</annotation>
 		<annotation cp="😵" type="tts">ør</annotation>
-		<annotation cp="😵‍💫">hypnotisert | problem | spiral | svimmel | uææ</annotation>
+		<annotation cp="😵‍💫">fjes med spiralauge | hypnotisert | problem | spiral | svimmel | uææ</annotation>
 		<annotation cp="😵‍💫" type="tts">fjes med spiralauge</annotation>
 		<annotation cp="🤯">eksploderande hovud | forbløffa | overraska | sjokkert</annotation>
 		<annotation cp="🤯" type="tts">eksploderande hovud</annotation>
 		<annotation cp="🤠">cowboy | cowgirl | fjes | fjes med cowboyhatt | hatt</annotation>
 		<annotation cp="🤠" type="tts">fjes med cowboyhatt</annotation>
-		<annotation cp="🥳">feiring | fest | fløyte | hatt | party</annotation>
+		<annotation cp="🥳">feiring | fest | fløyte | hatt | party | partyfjes</annotation>
 		<annotation cp="🥳" type="tts">partyfjes</annotation>
-		<annotation cp="🥸">briller | fjes | forkleding | inkognito | nase</annotation>
+		<annotation cp="🥸">briller | fjes | fjes med forkleding | forkleding | inkognito | nase</annotation>
 		<annotation cp="🥸" type="tts">fjes med forkleding</annotation>
 		<annotation cp="😎">fjes | kul | lyst | smilefjes med solbriller | sol | solbriller</annotation>
 		<annotation cp="😎" type="tts">smilefjes med solbriller</annotation>
@@ -428,7 +428,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">surt fjes</annotation>
 		<annotation cp="😮">fjes | forbausa | open munn</annotation>
 		<annotation cp="😮" type="tts">forbausa</annotation>
-		<annotation cp="😮‍💨">fjes | gispe | kviskre | letta | plystre | puste ut | sukke</annotation>
+		<annotation cp="😮‍💨">fjes | gispe | kviskre | letta | plystre | pustar ut | puste ut | sukke</annotation>
 		<annotation cp="😮‍💨" type="tts">pustar ut</annotation>
 		<annotation cp="😯">fjes | overraska | stum</annotation>
 		<annotation cp="😯" type="tts">overraska</annotation>
@@ -446,7 +446,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😨" type="tts">redd</annotation>
 		<annotation cp="😰">engsteleg og sveittar | fjes | kaldsveitte | open munn | sjuk</annotation>
 		<annotation cp="😰" type="tts">engsteleg og sveittar</annotation>
-		<annotation cp="😥">fjes | letta | puh | skuffa</annotation>
+		<annotation cp="😥">fjes | letta | puh | puh! | skuffa</annotation>
 		<annotation cp="😥" type="tts">puh!</annotation>
 		<annotation cp="😢">fjes | græt | tårer | trist</annotation>
 		<annotation cp="😢" type="tts">græt</annotation>
@@ -550,9 +550,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💔" type="tts">knust hjarte</annotation>
 		<annotation cp="❤">hjarte | raudt hjarte</annotation>
 		<annotation cp="❤" type="tts">raudt hjarte</annotation>
-		<annotation cp="❤‍🔥">brann | eld | heilag hjarte | hjarte | kjærleik | lidenskap</annotation>
+		<annotation cp="❤‍🔥">brann | eld | heilag hjarte | hjarte | hjarte i brann | kjærleik | lidenskap</annotation>
 		<annotation cp="❤‍🔥" type="tts">hjarte i brann</annotation>
-		<annotation cp="❤‍🩹">betre | bra | forbetring | kome seg | lindring | sterkare</annotation>
+		<annotation cp="❤‍🩹">betre | bra | forbetring | kome seg | lindra hjarte | lindring | sterkare</annotation>
 		<annotation cp="❤‍🩹" type="tts">lindra hjarte</annotation>
 		<annotation cp="🧡">hjarte | kjensler | oransje</annotation>
 		<annotation cp="🧡" type="tts">oransje hjarte</annotation>
@@ -602,7 +602,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋" type="tts">vinkande hand</annotation>
 		<annotation cp="🤚">handbak | løfta</annotation>
 		<annotation cp="🤚" type="tts">løfta handbak</annotation>
-		<annotation cp="🖐">finger | flat hand med spreidde fingerer | hand | spreidd</annotation>
+		<annotation cp="🖐">finger | flat hand med spreidde fingerer | flat hand med spreidde fingrar | hand | spreidd</annotation>
 		<annotation cp="🖐" type="tts">flat hand med spreidde fingrar</annotation>
 		<annotation cp="✋">flat hand | handflate | heva hand</annotation>
 		<annotation cp="✋" type="tts">heva hand</annotation>
@@ -610,7 +610,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖖" type="tts">Vulcan-helsing</annotation>
 		<annotation cp="👌">hand | OK | OK-hand | teikn</annotation>
 		<annotation cp="👌" type="tts">OK-hand</annotation>
-		<annotation cp="🤌">fingrane saman | fingrar | hand | sarkastisk | spørsmål</annotation>
+		<annotation cp="🤌">fingrane saman | fingrar | hand | hand med fingertuppane saman | sarkastisk | spørsmål</annotation>
 		<annotation cp="🤌" type="tts">hand med fingertuppane saman</annotation>
 		<annotation cp="🤏">hand som klyp | lite | liten</annotation>
 		<annotation cp="🤏" type="tts">hand som klyp</annotation>
@@ -650,7 +650,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤜" type="tts">knyttneve mot høgre</annotation>
 		<annotation cp="👏">hand | hender | klappande hender | klapping</annotation>
 		<annotation cp="👏" type="tts">klappande hender</annotation>
-		<annotation cp="🙌">begge hender | feirar | feiring | hand | hea hender | rekkjer begge armane i veret</annotation>
+		<annotation cp="🙌">begge hender | feirar | feiring | hand | hea hender | heva hender | rekkjer begge armane i veret</annotation>
 		<annotation cp="🙌" type="tts">heva hender</annotation>
 		<annotation cp="👐">hand | hender | opne</annotation>
 		<annotation cp="👐" type="tts">opne hender</annotation>
@@ -684,9 +684,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃" type="tts">nase</annotation>
 		<annotation cp="🧠">hjerne | intelligent</annotation>
 		<annotation cp="🧠" type="tts">hjerne</annotation>
-		<annotation cp="🫀">hjarte-kar | hjarteslag | kardiologi | muskel | organ | puls | senter</annotation>
+		<annotation cp="🫀">hjarte-kar | hjartemuskel | hjarteslag | kardiologi | muskel | organ | puls | senter</annotation>
 		<annotation cp="🫀" type="tts">hjartemuskel</annotation>
-		<annotation cp="🫁">innpust | organ | pust | puste | respirasjon | utpust</annotation>
+		<annotation cp="🫁">innpust | lunger | organ | pust | puste | respirasjon | utpust</annotation>
 		<annotation cp="🫁" type="tts">lunger</annotation>
 		<annotation cp="🦷">tann | tannlege</annotation>
 		<annotation cp="🦷" type="tts">tann</annotation>
@@ -694,7 +694,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦴" type="tts">knokkel</annotation>
 		<annotation cp="👀">auge | fjes</annotation>
 		<annotation cp="👀" type="tts">auge</annotation>
-		<annotation cp="👁">auge | kropp</annotation>
+		<annotation cp="👁">auga | auge | kropp</annotation>
 		<annotation cp="👁" type="tts">auga</annotation>
 		<annotation cp="👅">fjes | kropp | tunge</annotation>
 		<annotation cp="👅" type="tts">tunge</annotation>
@@ -706,7 +706,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧒" type="tts">barn</annotation>
 		<annotation cp="👦">gut | menneske | ung</annotation>
 		<annotation cp="👦" type="tts">gut</annotation>
-		<annotation cp="👧">jomfrua | menneske | stjernebilete | stjerneteikn | ung</annotation>
+		<annotation cp="👧">jente | jomfrua | menneske | stjernebilete | stjerneteikn | ung</annotation>
 		<annotation cp="👧" type="tts">jente</annotation>
 		<annotation cp="🧑">kjønnsnøytral | menneske | person | vaksen</annotation>
 		<annotation cp="🧑" type="tts">vaksen</annotation>
@@ -714,7 +714,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱" type="tts">Person: blond</annotation>
 		<annotation cp="👨">mann | menneske | vaksen</annotation>
 		<annotation cp="👨" type="tts">mann</annotation>
-		<annotation cp="🧔">mann | mann med skjegg | mann: skjegg | person | skjegg</annotation>
+		<annotation cp="🧔">mann | mann med skjegg | mann: skjegg | person | person: skjegg | skjegg</annotation>
 		<annotation cp="🧔" type="tts">person: skjegg</annotation>
 		<annotation cp="👱‍♂">blond | hår | mann | mann: blond</annotation>
 		<annotation cp="👱‍♂" type="tts">mann: blond</annotation>
@@ -736,9 +736,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍" type="tts">rynkar bryna</annotation>
 		<annotation cp="🙍‍♂">mann | mann som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍‍♂" type="tts">mann som rynkar bryna</annotation>
-		<annotation cp="🙍‍♀">kinne som rynkar bryna | kvinne | mimikk | rynkar panna | skeptisk</annotation>
+		<annotation cp="🙍‍♀">kinne som rynkar bryna | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍‍♀" type="tts">kvinne som rynkar bryna</annotation>
-		<annotation cp="🙎">furter | furting | mimikk | surmuling</annotation>
+		<annotation cp="🙎">furtar | furter | furting | mimikk | surmuling</annotation>
 		<annotation cp="🙎" type="tts">furtar</annotation>
 		<annotation cp="🙎‍♂">furting | mann | mann som furtar | mimikk | surmuling</annotation>
 		<annotation cp="🙎‍♂" type="tts">mann som furtar</annotation>
@@ -766,7 +766,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋" type="tts">rekker opp handa</annotation>
 		<annotation cp="🙋‍♂">mann | mann som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋‍♂" type="tts">mann som rekker opp handa</annotation>
-		<annotation cp="🙋‍♀">kinne som rekker opp handa | kvinne | rekke opp handa</annotation>
+		<annotation cp="🙋‍♀">kinne som rekker opp handa | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋‍♀" type="tts">kvinne som rekker opp handa</annotation>
 		<annotation cp="🧏">døv | døv person | høyre | øyre | tilgjenge</annotation>
 		<annotation cp="🧏" type="tts">døv person</annotation>
@@ -782,9 +782,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙇‍♀" type="tts">bukkande kvinne</annotation>
 		<annotation cp="🤦">andlet | facepalm | fjes | irritasjon | oppgjeven | slår handa mot panna | vantru</annotation>
 		<annotation cp="🤦" type="tts">slår handa mot panna</annotation>
-		<annotation cp="🤦‍♂">ansikt | facepalm | fjes | irritasjon | mann | oppgjeven | vantru</annotation>
+		<annotation cp="🤦‍♂">ansikt | facepalm | fjes | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦‍♂" type="tts">mann som slår handa mot panna</annotation>
-		<annotation cp="🤦‍♀">ansikt | facepalm | fjes | irritasjon | kvinne | oppgjeven | vantru</annotation>
+		<annotation cp="🤦‍♀">ansikt | facepalm | fjes | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦‍♀" type="tts">kvinne som slår handa mot panna</annotation>
 		<annotation cp="🤷">likesæle | skuldretrekning | trekkjer på skuldrene | tvil</annotation>
 		<annotation cp="🤷" type="tts">trekkjer på skuldrene</annotation>
@@ -800,15 +800,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍⚕" type="tts">kvinneleg helsearbeidar</annotation>
 		<annotation cp="🧑‍🎓">skule | student | universitet</annotation>
 		<annotation cp="🧑‍🎓" type="tts">student</annotation>
-		<annotation cp="👨‍🎓">mann | skule | student | universitet</annotation>
+		<annotation cp="👨‍🎓">mann | mannleg student | skule | student | universitet</annotation>
 		<annotation cp="👨‍🎓" type="tts">mannleg student</annotation>
-		<annotation cp="👩‍🎓">kvinne | skule | student | universitet</annotation>
+		<annotation cp="👩‍🎓">kvinne | kvinneleg student | skule | student | universitet</annotation>
 		<annotation cp="👩‍🎓" type="tts">kvinneleg student</annotation>
 		<annotation cp="🧑‍🏫">lærar | skule | undervisning</annotation>
 		<annotation cp="🧑‍🏫" type="tts">lærar</annotation>
-		<annotation cp="👨‍🏫">lærar | mann | skule | undervisning</annotation>
+		<annotation cp="👨‍🏫">lærar | mann | mannleg lærar | skule | undervisning</annotation>
 		<annotation cp="👨‍🏫" type="tts">mannleg lærar</annotation>
-		<annotation cp="👩‍🏫">kvinne | lærar | skule | undervisning</annotation>
+		<annotation cp="👩‍🏫">kvinne | kvinneleg lærar | lærar | skule | undervisning</annotation>
 		<annotation cp="👩‍🏫" type="tts">kvinneleg lærar</annotation>
 		<annotation cp="🧑‍⚖">dommar | jus | juss</annotation>
 		<annotation cp="🧑‍⚖" type="tts">dommar</annotation>
@@ -818,27 +818,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍⚖" type="tts">kvinneleg dommar</annotation>
 		<annotation cp="🧑‍🌾">bonde | gardbrukar | jordbruk</annotation>
 		<annotation cp="🧑‍🌾" type="tts">gardbrukar</annotation>
-		<annotation cp="👨‍🌾">bonde | dyrke | gardbrukar | jordbruk | mann</annotation>
+		<annotation cp="👨‍🌾">bonde | dyrke | gardbrukar | jordbruk | mann | mannleg gardbrukar</annotation>
 		<annotation cp="👨‍🌾" type="tts">mannleg gardbrukar</annotation>
-		<annotation cp="👩‍🌾">bonde | dyrke | gardbrukar | jordbruk | kvinne</annotation>
+		<annotation cp="👩‍🌾">bonde | dyrke | gardbrukar | jordbruk | kvinne | kvinneleg gardbrukar</annotation>
 		<annotation cp="👩‍🌾" type="tts">kvinneleg gardbrukar</annotation>
 		<annotation cp="🧑‍🍳">kokk | matlaging | restaurant</annotation>
 		<annotation cp="🧑‍🍳" type="tts">kokk</annotation>
-		<annotation cp="👨‍🍳">mann | matlaging | restaurant</annotation>
+		<annotation cp="👨‍🍳">mann | mannleg kokk | matlaging | restaurant</annotation>
 		<annotation cp="👨‍🍳" type="tts">mannleg kokk</annotation>
-		<annotation cp="👩‍🍳">kvinne | matlaging | restaurant</annotation>
+		<annotation cp="👩‍🍳">kvinne | kvinneleg kokk | matlaging | restaurant</annotation>
 		<annotation cp="👩‍🍳" type="tts">kvinneleg kokk</annotation>
 		<annotation cp="🧑‍🔧">bil | elektrikar | handverkar | mekanikar | motor | røyrleggjar</annotation>
 		<annotation cp="🧑‍🔧" type="tts">mekanikar</annotation>
-		<annotation cp="👨‍🔧">bil | elektrikar | handverkar | mann | mekanikar | motor | røyrleggjar</annotation>
+		<annotation cp="👨‍🔧">bil | elektrikar | handverkar | mann | mannleg mekanikar | mekanikar | motor | røyrleggjar</annotation>
 		<annotation cp="👨‍🔧" type="tts">mannleg mekanikar</annotation>
-		<annotation cp="👩‍🔧">bil | elektrikar | handverkar | kvinne | mekanikar | motor | røyrleggjar</annotation>
+		<annotation cp="👩‍🔧">bil | elektrikar | handverkar | kvinne | kvinneleg mekanikar | mekanikar | motor | røyrleggjar</annotation>
 		<annotation cp="👩‍🔧" type="tts">kvinneleg mekanikar</annotation>
 		<annotation cp="🧑‍🏭">arbeidar | fabrikk | industri | industriarbeidar | produksjon</annotation>
 		<annotation cp="🧑‍🏭" type="tts">industriarbeidar</annotation>
-		<annotation cp="👨‍🏭">arbeidar | fabrikk | industri | industriarbeidar | mann | produksjon</annotation>
+		<annotation cp="👨‍🏭">arbeidar | fabrikk | industri | industriarbeidar | mann | mannleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👨‍🏭" type="tts">mannleg industriarbeidar</annotation>
-		<annotation cp="👩‍🏭">fabrikk | industri | kvinne | produksjon</annotation>
+		<annotation cp="👩‍🏭">fabrikk | industri | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👩‍🏭" type="tts">kvinneleg industriarbeidar</annotation>
 		<annotation cp="🧑‍💼">kontor | kontorarbeidar | leiar | næringsliv</annotation>
 		<annotation cp="🧑‍💼" type="tts">kontorarbeidar</annotation>
@@ -848,71 +848,71 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍💼" type="tts">kvinneleg kontorarbeidar</annotation>
 		<annotation cp="🧑‍🔬">biologi | forskar | forsking | kjemi | lab | laboratorium | medisin | vitskap</annotation>
 		<annotation cp="🧑‍🔬" type="tts">forskar</annotation>
-		<annotation cp="👨‍🔬">kjemi | laboratorium | mann | vitskap</annotation>
+		<annotation cp="👨‍🔬">kjemi | laboratorium | mann | mannleg forskar | vitskap</annotation>
 		<annotation cp="👨‍🔬" type="tts">mannleg forskar</annotation>
-		<annotation cp="👩‍🔬">kjemi | kvinne | laboratorium | vitskap</annotation>
+		<annotation cp="👩‍🔬">kjemi | kvinne | kvinneleg forskar | laboratorium | vitskap</annotation>
 		<annotation cp="👩‍🔬" type="tts">kvinneleg forskar</annotation>
 		<annotation cp="🧑‍💻">data | IT | IT-ekspert | koding | programvare | teknologi</annotation>
 		<annotation cp="🧑‍💻" type="tts">IT-ekspert</annotation>
-		<annotation cp="👨‍💻">data | IT | koding | mann | programvare | teknologi</annotation>
+		<annotation cp="👨‍💻">data | IT | koding | mann | mannleg IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👨‍💻" type="tts">mannleg IT-ekspert</annotation>
-		<annotation cp="👩‍💻">data | IT | koding | kvinne | programvare | teknologi</annotation>
+		<annotation cp="👩‍💻">data | IT | koding | kvinne | kvinneleg IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👩‍💻" type="tts">kvinneleg IT-ekspert</annotation>
 		<annotation cp="🧑‍🎤">artist | konsert | rock | songar</annotation>
 		<annotation cp="🧑‍🎤" type="tts">artist</annotation>
-		<annotation cp="👨‍🎤">artist | konsert | mann | songar</annotation>
+		<annotation cp="👨‍🎤">artist | konsert | mann | mannleg artist | songar</annotation>
 		<annotation cp="👨‍🎤" type="tts">mannleg artist</annotation>
-		<annotation cp="👩‍🎤">artist | konsert | kvinne | rock | songar</annotation>
+		<annotation cp="👩‍🎤">artist | konsert | kvinne | kvinneleg artist | rock | songar</annotation>
 		<annotation cp="👩‍🎤" type="tts">kvinneleg artist</annotation>
 		<annotation cp="🧑‍🎨">kunstnar | målar</annotation>
 		<annotation cp="🧑‍🎨" type="tts">kunstnar</annotation>
-		<annotation cp="👨‍🎨">kunstnar | målar | mann</annotation>
+		<annotation cp="👨‍🎨">kunstnar | målar | mann | mannleg kunstnar</annotation>
 		<annotation cp="👨‍🎨" type="tts">mannleg kunstnar</annotation>
-		<annotation cp="👩‍🎨">kunstnar | kvinne | målar</annotation>
+		<annotation cp="👩‍🎨">kunstnar | kvinne | kvinneleg kunstnar | målar</annotation>
 		<annotation cp="👩‍🎨" type="tts">kvinneleg kunstnar</annotation>
 		<annotation cp="🧑‍✈">fly | pilot</annotation>
 		<annotation cp="🧑‍✈" type="tts">pilot</annotation>
-		<annotation cp="👨‍✈">fly | mann | pilot</annotation>
+		<annotation cp="👨‍✈">fly | mann | mannleg pilot | pilot</annotation>
 		<annotation cp="👨‍✈" type="tts">mannleg pilot</annotation>
-		<annotation cp="👩‍✈">fly | kvinne | pilot</annotation>
+		<annotation cp="👩‍✈">fly | kvinne | kvinneleg pilot | pilot</annotation>
 		<annotation cp="👩‍✈" type="tts">kvinneleg pilot</annotation>
 		<annotation cp="🧑‍🚀">astronaut | romfart | verdsrommet</annotation>
 		<annotation cp="🧑‍🚀" type="tts">astronaut</annotation>
-		<annotation cp="👨‍🚀">astronaut | mann | romfart | verdsrommet</annotation>
+		<annotation cp="👨‍🚀">astronaut | mann | mannleg astronaut | romfart | verdsrommet</annotation>
 		<annotation cp="👨‍🚀" type="tts">mannleg astronaut</annotation>
-		<annotation cp="👩‍🚀">astronaut | kvinne | romfart | verdsrommet</annotation>
+		<annotation cp="👩‍🚀">astronaut | kvinne | kvinneleg astronaut | romfart | verdsrommet</annotation>
 		<annotation cp="👩‍🚀" type="tts">kvinneleg astronaut</annotation>
 		<annotation cp="🧑‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet</annotation>
 		<annotation cp="🧑‍🚒" type="tts">brannkonstabel</annotation>
-		<annotation cp="👨‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | mann</annotation>
+		<annotation cp="👨‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | mann | mannleg brannkonstabel</annotation>
 		<annotation cp="👨‍🚒" type="tts">mannleg brannkonstabel</annotation>
-		<annotation cp="👩‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | kvinne</annotation>
+		<annotation cp="👩‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | kvinne | kvinneleg brannkonstabel</annotation>
 		<annotation cp="👩‍🚒" type="tts">kvinneleg brannkonstabel</annotation>
 		<annotation cp="👮">betjent | menneske | politi | politibetjent</annotation>
 		<annotation cp="👮" type="tts">politibetjent</annotation>
-		<annotation cp="👮‍♂">betjent | mann | politi | politibetjent</annotation>
+		<annotation cp="👮‍♂">betjent | mann | mannleg politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮‍♂" type="tts">mannleg politibetjent</annotation>
-		<annotation cp="👮‍♀">betjent | kvinne | politi | politibetjent</annotation>
+		<annotation cp="👮‍♀">betjent | kvinne | kvinneleg politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮‍♀" type="tts">kvinneleg politibetjent</annotation>
 		<annotation cp="🕵">detektiv | spion</annotation>
 		<annotation cp="🕵" type="tts">detektiv</annotation>
-		<annotation cp="🕵‍♂">brotsverk | etterforske | mann | privatdetektiv</annotation>
+		<annotation cp="🕵‍♂">brotsverk | etterforske | mann | mannleg detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵‍♂" type="tts">mannleg detektiv</annotation>
-		<annotation cp="🕵‍♀">brotsverk | etterforske | kvinne | privatdetektiv</annotation>
+		<annotation cp="🕵‍♀">brotsverk | etterforske | kvinne | kvinneleg detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵‍♀" type="tts">kvinneleg detektiv</annotation>
 		<annotation cp="💂">gardist | menneske | vakt</annotation>
 		<annotation cp="💂" type="tts">gardist</annotation>
-		<annotation cp="💂‍♂">gardist | mann | vakt</annotation>
+		<annotation cp="💂‍♂">gardist | mann | mannleg gardist | vakt</annotation>
 		<annotation cp="💂‍♂" type="tts">mannleg gardist</annotation>
-		<annotation cp="💂‍♀">gardist | kvinne | vakt</annotation>
+		<annotation cp="💂‍♀">gardist | kvinne | kvinneleg gardist | vakt</annotation>
 		<annotation cp="💂‍♀" type="tts">kvinneleg gardist</annotation>
 		<annotation cp="🥷">gøymd | kampkunst | krigar | ninja</annotation>
 		<annotation cp="🥷" type="tts">ninja</annotation>
 		<annotation cp="👷">anlegg | anleggsarbeidar | arbeidar | hjelm | ingeniør | menneske</annotation>
 		<annotation cp="👷" type="tts">anleggsarbeidar</annotation>
-		<annotation cp="👷‍♂">anlegg | arbeidar | bygg | hjelm | ingeniør | mann</annotation>
+		<annotation cp="👷‍♂">anlegg | arbeidar | bygg | hjelm | ingeniør | mann | mannleg anleggsarbeidar</annotation>
 		<annotation cp="👷‍♂" type="tts">mannleg anleggsarbeidar</annotation>
-		<annotation cp="👷‍♀">anlegg | arbeidar | bygg | hjelm | ingeniør | kvinne</annotation>
+		<annotation cp="👷‍♀">anlegg | arbeidar | bygg | hjelm | ingeniør | kvinne | kvinneleg anleggsarbeidar</annotation>
 		<annotation cp="👷‍♀" type="tts">kvinneleg anleggsarbeidar</annotation>
 		<annotation cp="🤴">prins</annotation>
 		<annotation cp="🤴" type="tts">prins</annotation>
@@ -925,7 +925,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👳‍♀">kvinne | turban | turbankledd kvinne</annotation>
 		<annotation cp="👲">gua pi mao | hatt | lue | mann | mann med kinesisk lue | menneske</annotation>
 		<annotation cp="👲" type="tts">mann med kinesisk lue</annotation>
-		<annotation cp="🧕">hijab | hovudskjerf | hovudslør | kvinne med hovuvdslør | muslim</annotation>
+		<annotation cp="🧕">hijab | hovudskjerf | hovudslør | kvinne med hovudslør | kvinne med hovuvdslør | muslim</annotation>
 		<annotation cp="🧕" type="tts">kvinne med hovudslør</annotation>
 		<annotation cp="🤵">brudgom | person | person i smoking | smoking</annotation>
 		<annotation cp="🤵" type="tts">person i smoking</annotation>
@@ -943,11 +943,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰" type="tts">gravid kvinne</annotation>
 		<annotation cp="🤱">ammar | amming | baby | bryst | morsmjølk</annotation>
 		<annotation cp="🤱" type="tts">ammar</annotation>
-		<annotation cp="👩‍🍼">baby | kvinne | mat | tåteflaske</annotation>
+		<annotation cp="👩‍🍼">baby | kvinne | kvinne som matar baby | mat | tåteflaske</annotation>
 		<annotation cp="👩‍🍼" type="tts">kvinne som matar baby</annotation>
-		<annotation cp="👨‍🍼">baby | mann | mat | tåteflaske</annotation>
+		<annotation cp="👨‍🍼">baby | mann | mann som matar baby | mat | tåteflaske</annotation>
 		<annotation cp="👨‍🍼" type="tts">mann som matar baby</annotation>
-		<annotation cp="🧑‍🍼">baby | mat | person | tåteflaske</annotation>
+		<annotation cp="🧑‍🍼">baby | mat | person | person som matar baby | tåteflaske</annotation>
 		<annotation cp="🧑‍🍼" type="tts">person som matar baby</annotation>
 		<annotation cp="👼">andlet | babyengel | engel | eventyr</annotation>
 		<annotation cp="👼" type="tts">babyengel</annotation>
@@ -955,7 +955,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎅" type="tts">julenissen</annotation>
 		<annotation cp="🤶">jul | julenissemor | mor | nisse</annotation>
 		<annotation cp="🤶" type="tts">julenissemor</annotation>
-		<annotation cp="🧑‍🎄">feiring | jul | nisse | person</annotation>
+		<annotation cp="🧑‍🎄">feiring | jul | julenisse | nisse | person</annotation>
 		<annotation cp="🧑‍🎄" type="tts">julenisse</annotation>
 		<annotation cp="🦸">god | helt | heltinne | superhelt | superkrefter</annotation>
 		<annotation cp="🦸" type="tts">superhelt</annotation>
@@ -1031,15 +1031,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♀" type="tts">kvinneleg fotgjengar</annotation>
 		<annotation cp="🧍">person som står | stå</annotation>
 		<annotation cp="🧍" type="tts">person som står</annotation>
-		<annotation cp="🧍‍♂">mann | står</annotation>
+		<annotation cp="🧍‍♂">mann | mann som står | står</annotation>
 		<annotation cp="🧍‍♂" type="tts">mann som står</annotation>
-		<annotation cp="🧍‍♀">kvinne | står</annotation>
+		<annotation cp="🧍‍♀">kvinne | kvinne som står | står</annotation>
 		<annotation cp="🧍‍♀" type="tts">kvinne som står</annotation>
 		<annotation cp="🧎">knele | kneler | person som kneler</annotation>
 		<annotation cp="🧎" type="tts">person som kneler</annotation>
-		<annotation cp="🧎‍♂">kneler | mann</annotation>
+		<annotation cp="🧎‍♂">kneler | mann | mann som kneler</annotation>
 		<annotation cp="🧎‍♂" type="tts">mann som kneler</annotation>
-		<annotation cp="🧎‍♀">kneler | kvinne</annotation>
+		<annotation cp="🧎‍♀">kneler | kvinne | kvinne som kneler</annotation>
 		<annotation cp="🧎‍♀" type="tts">kvinne som kneler</annotation>
 		<annotation cp="🧑‍🦯">blind | person med blindestokk | tilgjenge</annotation>
 		<annotation cp="🧑‍🦯" type="tts">person med blindestokk</annotation>
@@ -1061,15 +1061,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍🦽" type="tts">kvinne i manuell rullestol</annotation>
 		<annotation cp="🏃">joggar | jogging | løpar | løping | maraton | sport</annotation>
 		<annotation cp="🏃" type="tts">løpar</annotation>
-		<annotation cp="🏃‍♂">jogge | løpe | mann | maraton</annotation>
+		<annotation cp="🏃‍♂">jogge | løpe | mann | mannleg løpar | maraton</annotation>
 		<annotation cp="🏃‍♂" type="tts">mannleg løpar</annotation>
-		<annotation cp="🏃‍♀">jogge | kvinne | løpe | maraton</annotation>
+		<annotation cp="🏃‍♀">jogge | kvineleg løpar | kvinne | løpe | maraton</annotation>
 		<annotation cp="🏃‍♀" type="tts">kvineleg løpar</annotation>
 		<annotation cp="💃">dans | dansande kvinne | kvinne</annotation>
 		<annotation cp="💃" type="tts">dansande kvinne</annotation>
 		<annotation cp="🕺">dans | dansande mann | mann</annotation>
 		<annotation cp="🕺" type="tts">dansande mann</annotation>
-		<annotation cp="🕴">business | dress | forretningsmann | mann | svevande mann</annotation>
+		<annotation cp="🕴">business | dress | forretningsmann | mann | svevande mann | svevande mann i dress</annotation>
 		<annotation cp="🕴" type="tts">svevande mann i dress</annotation>
 		<annotation cp="👯">dansar | fest | hareøyre | menneske | personar med kaninøyre</annotation>
 		<annotation cp="👯" type="tts">personar med kaninøyre</annotation>
@@ -1095,7 +1095,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏇" type="tts">hesteveddeløp</annotation>
 		<annotation cp="⛷">ski | skiløpar | snø</annotation>
 		<annotation cp="⛷" type="tts">skiløpar</annotation>
-		<annotation cp="🏂">snøbrett | snøbrettkøyring | snowboard | snowboardar | snowboarding | vintersport</annotation>
+		<annotation cp="🏂">snøbrett | snøbrettkøyrar | snøbrettkøyring | snowboard | snowboardar | snowboarding | vintersport</annotation>
 		<annotation cp="🏂" type="tts">snøbrettkøyrar</annotation>
 		<annotation cp="🏌">ball | golf | golfspelar</annotation>
 		<annotation cp="🏌" type="tts">golfspelar</annotation>
@@ -1170,9 +1170,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤾‍♀" type="tts">kvinneleg handballspelar</annotation>
 		<annotation cp="🤹">balanse | ferdigheit | multitasking | sjonglering</annotation>
 		<annotation cp="🤹" type="tts">sjonglering</annotation>
-		<annotation cp="🤹‍♂">mann | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹‍♂">mann | mannleg sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹‍♂" type="tts">mannleg sjonglør</annotation>
-		<annotation cp="🤹‍♀">kvinne | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹‍♀">kvinne | kvinneleg sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹‍♀" type="tts">kvinneleg sjonglør</annotation>
 		<annotation cp="🧘">lotusstilling | meditasjon | yoga</annotation>
 		<annotation cp="🧘" type="tts">lotusstilling</annotation>
@@ -1186,7 +1186,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌" type="tts">person i seng</annotation>
 		<annotation cp="🧑‍🤝‍🧑">halde hender | hand | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">personar som leiar</annotation>
-		<annotation cp="👭">halde hender | hand | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👭">halde hender | hand | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
 		<annotation cp="👭" type="tts">kinner som leiar</annotation>
 		<annotation cp="👫">hand | held hender | kvinne | mann | mann og kvinne som leiar | par</annotation>
 		<annotation cp="👫" type="tts">mann og kvinne som leiar</annotation>
@@ -1198,7 +1198,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💑" type="tts">par med hjarte</annotation>
 		<annotation cp="👪">barn | familie | far | menneske | mor</annotation>
 		<annotation cp="👪" type="tts">familie</annotation>
-		<annotation cp="🗣">fjes | hovud | profil | silhuett | snakkande hovud | snakkar | snakke</annotation>
+		<annotation cp="🗣">fjes | hovud | profil | silhuett | snakkande hovud | snakkande hovud i profil | snakkar | snakke</annotation>
 		<annotation cp="🗣" type="tts">snakkande hovud i profil</annotation>
 		<annotation cp="👤">byste | menneske | silhuett | silhuett av byste</annotation>
 		<annotation cp="👤" type="tts">silhuett av byste</annotation>
@@ -1244,7 +1244,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">kattefjes</annotation>
 		<annotation cp="🐈">dyr | katt</annotation>
 		<annotation cp="🐈" type="tts">katt</annotation>
-		<annotation cp="🐈‍⬛">dyr | katt | uhell | ulykke</annotation>
+		<annotation cp="🐈‍⬛">dyr | katt | svart katt | uhell | ulykke</annotation>
 		<annotation cp="🐈‍⬛" type="tts">svart katt</annotation>
 		<annotation cp="🦁">fjes | løva | løve | stjernebilete | stjerneteikn</annotation>
 		<annotation cp="🦁" type="tts">løve</annotation>
@@ -1378,7 +1378,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦩" type="tts">flamingo</annotation>
 		<annotation cp="🦚">fugl | påfugl | prangande | stolt</annotation>
 		<annotation cp="🦚" type="tts">påfugl</annotation>
-		<annotation cp="🦜">fugl | pirat | snakkande | snakkar</annotation>
+		<annotation cp="🦜">fugl | papegøye | pirat | snakkande | snakkar</annotation>
 		<annotation cp="🦜" type="tts">papegøye</annotation>
 		<annotation cp="🐸">dyr | fjes | frosk</annotation>
 		<annotation cp="🐸" type="tts">frosk</annotation>
@@ -1570,7 +1570,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥐" type="tts">croissant</annotation>
 		<annotation cp="🥖">bagett | baguette | brød | fransk | mat</annotation>
 		<annotation cp="🥖" type="tts">bagett</annotation>
-		<annotation cp="🫓">arepa | brød | lavash | nan | pita</annotation>
+		<annotation cp="🫓">arepa | brød | lavash | nan | pita | pitabrød</annotation>
 		<annotation cp="🫓" type="tts">pitabrød</annotation>
 		<annotation cp="🥨">saltkringle | saltstenger | snacks</annotation>
 		<annotation cp="🥨" type="tts">saltkringle</annotation>
@@ -1798,7 +1798,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪨" type="tts">stein</annotation>
 		<annotation cp="🪵">stokk | tømmer | tre | trelast</annotation>
 		<annotation cp="🪵" type="tts">tre</annotation>
-		<annotation cp="🛖">bungalow | hus | jurt | jurte | rundhus</annotation>
+		<annotation cp="🛖">bungalow | hus | hytte | jurt | jurte | rundhus</annotation>
 		<annotation cp="🛖" type="tts">hytte</annotation>
 		<annotation cp="🏘">bustader | bygning | hus</annotation>
 		<annotation cp="🏘" type="tts">bustader</annotation>
@@ -1906,13 +1906,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚝" type="tts">monorail</annotation>
 		<annotation cp="🚞">bane | fjell | fjellbane | framkomstmiddel</annotation>
 		<annotation cp="🚞" type="tts">fjellbane</annotation>
-		<annotation cp="🚋">framkomstmiddel | trikk | vogn</annotation>
+		<annotation cp="🚋">framkomstmiddel | trikk | trikkevogn | vogn</annotation>
 		<annotation cp="🚋" type="tts">trikkevogn</annotation>
 		<annotation cp="🚌">buss | framkomstmiddel</annotation>
 		<annotation cp="🚌" type="tts">buss</annotation>
 		<annotation cp="🚍">buss | framkomstmiddel | motgåande</annotation>
 		<annotation cp="🚍" type="tts">motgåande buss</annotation>
-		<annotation cp="🚎">buss | framkomstmiddel | motgåande</annotation>
+		<annotation cp="🚎">buss | framkomstmiddel | motgåande | trolleybuss</annotation>
 		<annotation cp="🚎" type="tts">trolleybuss</annotation>
 		<annotation cp="🚐">buss | køyretøy | minibuss | van</annotation>
 		<annotation cp="🚐" type="tts">minibuss</annotation>
@@ -2002,7 +2002,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✈" type="tts">fly</annotation>
 		<annotation cp="🛩">fly | framkomstmiddel | lite fly</annotation>
 		<annotation cp="🛩" type="tts">lite fly</annotation>
-		<annotation cp="🛫">avgang | avgangar | fly | flyavgang | framkomstmiddel | innsjekk</annotation>
+		<annotation cp="🛫">avgang | avgangar | fly | fly som tek av | flyavgang | framkomstmiddel | innsjekk</annotation>
 		<annotation cp="🛫" type="tts">fly som tek av</annotation>
 		<annotation cp="🛬">fly | fly som landar | framkomstmiddel | innkomst | innkomstar | kome | lande | landing</annotation>
 		<annotation cp="🛬" type="tts">fly som landar</annotation>
@@ -2018,7 +2018,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚠" type="tts">kabelbane</annotation>
 		<annotation cp="🚡">framkomstmiddel | gondolbane | taubane</annotation>
 		<annotation cp="🚡" type="tts">taubane</annotation>
-		<annotation cp="🛰">satelitt i verdsrommet</annotation>
+		<annotation cp="🛰">satelitt i verdsrommet | satellitt</annotation>
 		<annotation cp="🛰" type="tts">satellitt</annotation>
 		<annotation cp="🚀">framkomstmiddel | rakett | verdsrommet</annotation>
 		<annotation cp="🚀" type="tts">rakett</annotation>
@@ -2030,7 +2030,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧳" type="tts">bagasje</annotation>
 		<annotation cp="⌛">ferdig timeglas | sand | tidtakar</annotation>
 		<annotation cp="⌛" type="tts">ferdig timeglas</annotation>
-		<annotation cp="⏳">sand | starta timeglass | tidtakar</annotation>
+		<annotation cp="⏳">sand | starta timeglas | starta timeglass | tidtakar</annotation>
 		<annotation cp="⏳" type="tts">starta timeglas</annotation>
 		<annotation cp="⌚">armbandsur | ur</annotation>
 		<annotation cp="⌚" type="tts">armbandsur</annotation>
@@ -2042,13 +2042,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⏲" type="tts">tidtakar</annotation>
 		<annotation cp="🕰">klokke | peisur</annotation>
 		<annotation cp="🕰" type="tts">peisur</annotation>
-		<annotation cp="🕛">0:00 | 12:00 | 24:00 | klokka 0:00 | klokka tol 0:00 | tolv</annotation>
+		<annotation cp="🕛">0:00 | 12:00 | 24:00 | klokka 0:00 | klokka tol 0:00 | klokka tolv | tolv</annotation>
 		<annotation cp="🕛" type="tts">klokka tolv</annotation>
 		<annotation cp="🕧">0:30 | 12:30 | halv eitt | klokka | klokka halv eitt</annotation>
 		<annotation cp="🕧" type="tts">klokka halv eitt</annotation>
 		<annotation cp="🕐">1:00 | 13:00 | eitt | klokka</annotation>
 		<annotation cp="🕐" type="tts">klokka eitt</annotation>
-		<annotation cp="🕜">1:30 | 13:30 | halv to | klokka</annotation>
+		<annotation cp="🕜">1:30 | 13:30 | halv to | klokka | klokka halv to</annotation>
 		<annotation cp="🕜" type="tts">klokka halv to</annotation>
 		<annotation cp="🕑">14:00 | 2:00 | klokka | to</annotation>
 		<annotation cp="🕑" type="tts">klokka to</annotation>
@@ -2148,7 +2148,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌧" type="tts">sky med regn</annotation>
 		<annotation cp="🌨">kaldt | sky | sky med snø | vêr</annotation>
 		<annotation cp="🌨" type="tts">sky med snø</annotation>
-		<annotation cp="🌩">lyn | sky | vêr</annotation>
+		<annotation cp="🌩">lyn | sky | sky med lyn | vêr</annotation>
 		<annotation cp="🌩" type="tts">sky med lyn</annotation>
 		<annotation cp="🌪">sky | tornado | vêr</annotation>
 		<annotation cp="🌪" type="tts">tornado</annotation>
@@ -2418,7 +2418,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👡" type="tts">damesandal</annotation>
 		<annotation cp="🩰">ballett | ballettsko | dans</annotation>
 		<annotation cp="🩰" type="tts">ballettsko</annotation>
-		<annotation cp="👢">dame | damstøvlett | klede | sko | støvlett</annotation>
+		<annotation cp="👢">dame | damestøvlett | damstøvlett | klede | sko | støvlett</annotation>
 		<annotation cp="👢" type="tts">damestøvlett</annotation>
 		<annotation cp="👑">dronning | klede | konge | krone</annotation>
 		<annotation cp="👑" type="tts">krone</annotation>
@@ -2664,7 +2664,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💼" type="tts">dokumentmappe</annotation>
 		<annotation cp="📁">arkiv | arkivmappe | fil | mappe</annotation>
 		<annotation cp="📁" type="tts">arkivmappe</annotation>
-		<annotation cp="📂">arkimappe | fil | filmappe | mappe | open</annotation>
+		<annotation cp="📂">arkimappe | fil | filmappe | mappe | open | open arkivmappe</annotation>
 		<annotation cp="📂" type="tts">open arkivmappe</annotation>
 		<annotation cp="🗂">faner | indeks | kort | skiljarar | skiljekort</annotation>
 		<annotation cp="🗂" type="tts">skiljekort</annotation>
@@ -2732,7 +2732,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">dolk</annotation>
 		<annotation cp="⚔">kryss | sverd | sverd i kryss | våpen</annotation>
 		<annotation cp="⚔" type="tts">sverd i kryss</annotation>
-		<annotation cp="🔫">pistol | revolver | våpen</annotation>
+		<annotation cp="🔫">pistol | revolver | våpen | vasspistol</annotation>
 		<annotation cp="🔫" type="tts">vasspistol</annotation>
 		<annotation cp="🪃">australia | boomerang | bumerang | retur | tilbake</annotation>
 		<annotation cp="🪃" type="tts">bumerang</annotation>
@@ -2842,7 +2842,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛒" type="tts">handlevogn</annotation>
 		<annotation cp="🚬">røyking | røyking tillate | sigarett | skilt</annotation>
 		<annotation cp="🚬" type="tts">sigarett</annotation>
-		<annotation cp="⚰">død | gravferd</annotation>
+		<annotation cp="⚰">død | gravferd | kiste</annotation>
 		<annotation cp="⚰" type="tts">kiste</annotation>
 		<annotation cp="🪦">grav | gravplass | gravstein | kyrkjegard</annotation>
 		<annotation cp="🪦" type="tts">gravstein</annotation>
@@ -2910,7 +2910,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↗" type="tts">pil opp-høgre</annotation>
 		<annotation cp="➡">aust | høgrepil | pil | pil høgre | retning</annotation>
 		<annotation cp="➡" type="tts">pil høgre</annotation>
-		<annotation cp="↘">pil | pil ned-høgre | retning | søraust</annotation>
+		<annotation cp="↘">pil | pil ned -høgre | pil ned-høgre | retning | søraust</annotation>
 		<annotation cp="↘" type="tts">pil ned -høgre</annotation>
 		<annotation cp="⬇">nedoverpil | pil | pil ned | retning | sør</annotation>
 		<annotation cp="⬇" type="tts">pil ned</annotation>
@@ -2958,7 +2958,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☸" type="tts">dharmahjulet</annotation>
 		<annotation cp="☯">religion | tao | taoist | yang | yin</annotation>
 		<annotation cp="☯" type="tts">yin yang</annotation>
-		<annotation cp="✝">kristen | kross | latinsk kross | religion</annotation>
+		<annotation cp="✝">kristen | kross | latinsk kross | latisnk kross | religion</annotation>
 		<annotation cp="✝" type="tts">latisnk kross</annotation>
 		<annotation cp="☦">kristen ortodoks | kross | ortodoks kross | religion</annotation>
 		<annotation cp="☦" type="tts">ortodoks kross</annotation>
@@ -3064,13 +3064,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‼" type="tts">dobbelt utropsteikn</annotation>
 		<annotation cp="⁉">! | !? | ? | spørsmål | spørsmålsteikn | teikn | teiknsetjing | utrop | utropsteikn | utropsteikn og spørsmålsteikn</annotation>
 		<annotation cp="⁉" type="tts">utropsteikn og spørsmålsteikn</annotation>
-		<annotation cp="❓">? | spørsmål | spørsmålsteikn</annotation>
+		<annotation cp="❓">? | raudt spørsmålsteikn | spørsmål | spørsmålsteikn</annotation>
 		<annotation cp="❓" type="tts">raudt spørsmålsteikn</annotation>
 		<annotation cp="❔">? | kvitt spørsmålsteikn | spørsmål</annotation>
 		<annotation cp="❔" type="tts">kvitt spørsmålsteikn</annotation>
 		<annotation cp="❕">! | kvitt utropsteikn | utrop</annotation>
 		<annotation cp="❕" type="tts">kvitt utropsteikn</annotation>
-		<annotation cp="❗">! | teikn | teiknsetjing | utrop | utropsteikn</annotation>
+		<annotation cp="❗">! | raudt utropsteikn | teikn | teiknsetjing | utrop | utropsteikn</annotation>
 		<annotation cp="❗" type="tts">raudt utropsteikn</annotation>
 		<annotation cp="〰">bølgja bindestrek | bølgje | bølgjestrek | teikn for lang lyd</annotation>
 		<annotation cp="〰" type="tts">bølgjestrek</annotation>

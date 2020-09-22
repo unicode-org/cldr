@@ -32,6 +32,7 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -115,7 +116,7 @@ public class GenerateItemCounts {
                     : CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir;
                 boolean isFinal = dir == DIRECTORIES[DIRECTORIES.length - 1];
 
-                String fulldir = new File(pathname).getCanonicalPath();
+                String fulldir = PathUtilities.getNormalizedPathString(pathname);
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
                 String fileKey = dir.replace("/", "_");
                 try (
@@ -471,7 +472,7 @@ public class GenerateItemCounts {
             VersionInfo vi = VersionInfo.getInstance(releaseNum);
             boolean captureData = vi.equals(mostRecentVersion);
             releases.add(releaseNum);
-            BufferedReader in = FileUtilities.openUTF8Reader("", subdir.getCanonicalPath());
+            BufferedReader in = FileUtilities.openUTF8Reader("", PathUtilities.getNormalizedPathString(subdir));
             while (true) {
                 String line = in.readLine();
                 if (line == null) break;

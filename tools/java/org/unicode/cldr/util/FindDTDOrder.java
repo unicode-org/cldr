@@ -71,7 +71,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     if (DEBUG) {
                         System.out.println("Opening " + file.getCanonicalFile());
                     }
-                    File dtd = new File(file.getCanonicalPath() + "/../" + "../../common/dtd/ldml.dtd");
+                    File dtd = new File(PathUtilities.getNormalizedPathString(file) + "/../" + "../../common/dtd/ldml.dtd");
                     if (DEBUG) {
                         System.out.println("Opening " + dtd.getCanonicalFile());
                     }
@@ -86,7 +86,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                         throw new IllegalArgumentException("just testing");
                     }
                     is = new InputSource(fis);
-                    is.setSystemId(file.getCanonicalPath() + "/../");
+                    is.setSystemId(PathUtilities.getNormalizedPathString(file) + "/../");
                     xmlReader.parse(is);
                     fis.close();
 
@@ -100,7 +100,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
                     fis = new FileInputStream(filename);
                     is = new InputSource(fis);
-                    is.setSystemId(file.getCanonicalPath() + "/../");
+                    is.setSystemId(PathUtilities.getNormalizedPathString(file) + "/../");
                     xmlReader.parse(is);
                     fis.close();
                     // Then Attributes

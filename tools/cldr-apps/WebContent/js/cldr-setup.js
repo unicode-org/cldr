@@ -73,7 +73,9 @@ function mysqlhelp(ee) {
 
 		var theText = '<Resource name="jdbc/SurveyTool"\n  auth="Container" type="'+values.type+'"\n  username="'+values.user+'"\n  ' +
 					     'password="'+values.password+'"\n  driverClassName="'+values.driver+'"\n  '+
-					     'url="jdbc:'+values.scheme+'://'+values.hostport+'/'+values.database+'"\n  '+
+						 'url="jdbc:'+values.scheme+'://'+values.hostport+'/'+values.database+
+						 '?ConnectionRetryCount=5&amp;ConnectionRetryDelay=20&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC' +
+						 '"\n  '+
 					     'maxActive="8" maxIdle="4" removeAbandoned="true" removeAbandonedTimeout="60" logAbandoned="true" defaultAutoCommit="false"\n  '+
 					     'poolPreparedStatements="true" maxOpenPreparedStatements="150"\n/>';
 		prompt('Okay.  copy this text, and paste it in the middle of your "context.xml" file in the tomcat server directory. On eclipse, you will find context.xml in the workspace under Servers. Then, restart the server and reload this page.',

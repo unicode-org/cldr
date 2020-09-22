@@ -11,6 +11,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LanguageTagParser.OutputOption;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -50,7 +51,7 @@ public class LikelySubtags {
         }
         synchronized(SYNC) {
             supplementalDataInfo = SupplementalDataInfo.getInstance();
-            currencyToLikelyTerritory = new HashMap<String, String>();
+            currencyToLikelyTerritory = new HashMap<>();
             Date now = new Date();
             Set<Row.R2<Double, String>> sorted = new TreeSet<>();
             for (String territory : supplementalDataInfo.getTerritoriesWithPopulationData()) {
@@ -219,7 +220,11 @@ public class LikelySubtags {
 
     // TODO, optimize if needed by adding private routine that maximizes a LanguageTagParser instead of multiple parsings
     // TODO Old, crufty code, needs reworking.
-    public synchronized String minimize(String input) {
+    public String minimize(String input) {
+        return minimize(input, OutputOption.ICU_LCVARIANT);
+    }
+
+    public synchronized String minimize(String input, OutputOption oo) {
         String maximized = maximize(input, toMaximized);
         if (maximized == null) {
             return null;
@@ -256,7 +261,7 @@ public class LikelySubtags {
                     .setVariants(variants)
                     .setExtensions(extensions)
                     .setLocaleExtensions(extensions)
-                    .toString();
+                    .toString(oo);
             }
         }
         return maximized;

@@ -196,8 +196,21 @@ public class LogicalGrouping {
         // fully by paths with count="(0|1)", which are always optional themselves.
         if (!path.contains("[@count=")) return false;
         String pluralType = parts.getAttributeValue(-1, "count");
-        if (pluralType.equals("0") || pluralType.equals("1")) return true;
-        if (!pluralType.equals("zero") && !pluralType.equals("one")) return false;
+        switch (pluralType) {
+        case "0": case "1":
+            return true;
+        case "zero": case "one":
+            break; // continue
+        case "many": // special case for french
+            String localeId = cldrFile.getLocaleID();
+            if (localeId.startsWith("fr")
+                && (localeId.length() == 2 || localeId.charAt(2) == '_')) {
+                return true;
+            }
+            return false;
+        default:
+            return false;
+        }
 
         parts = parts.cloneAsThawed();
         PluralRules pluralRules = getPluralInfo(cldrFile).getPluralRules();

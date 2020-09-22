@@ -6035,9 +6035,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">0000¤</pattern>
-					<pattern type="1000" count="few">0000¤</pattern>
-					<pattern type="1000" count="other">0000¤</pattern>
+					<pattern type="1000" count="one">0</pattern>
+					<pattern type="1000" count="few">0</pattern>
+					<pattern type="1000" count="other">0</pattern>
 					<pattern type="10000" count="one">00 tis'.' ¤</pattern>
 					<pattern type="10000" count="few">00 tis'.' ¤</pattern>
 					<pattern type="10000" count="other">00 tis'.' ¤</pattern>

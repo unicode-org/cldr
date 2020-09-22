@@ -1,0 +1,75 @@
+- hosts: backupdb
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  tasks:
+    - name: ensure cldrbackup group is there
+      group:
+        name: cldrbackup
+        state: present
+    - name: ensure cldrbackup user is there
+      user:
+        name: cldrbackup
+        groups:
+          - cldrbackup
+        append: yes # add to the groups, do not remove
+        state: present
+        create_home: true
+    - name: set up /home/cldrbackup/.my.cnf
+      no_log: true
+      template:
+        src: templates/mycnf.j2
+        dest: /home/cldrbackup/.my.cnf
+        owner: cldrbackup
+        group: cldrbackup
+        mode: '0640'
+    - name: set up /home/cldrbackup/.ssh/
+      file:
+        path: /home/cldrbackup/.ssh/
+        owner: cldrbackup
+        group: cldrbackup
+        mode: '0700'
+        state: directory
+    - name: set up /home/cldrbackup/.ssh/config
+      template:
+        src: templates/cldrbackup/config.j2
+        dest: /home/cldrbackup/.ssh/config.j2
+        owner: cldrbackup
+        group: cldrbackup
+        mode: '0640'
+    - name: set up /home/cldrbackup/.ssh/id_rsa
+      no_log: true
+      copy:
+        src: local-vars/cldrbackup/id_rsa
+        dest: /home/cldrbackup/.ssh/id_rsa
+        owner: cldrbackup
+        group: cldrbackup
+        mode: '0640'
+    - name: set up /home/cldrbackup/.ssh/id_rsa.pub
+      copy:
+        src: local-vars/cldrbackup/id_rsa.pub
+        dest: /home/cldrbackup/.ssh/id_rsa.pub
+        owner: cldrbackup
+        group: cldrbackup
+        mode: '0640'
+    - name: set up /home/cldrbackup/.ssh/known_hosts
+      copy:
+        src: local-vars/cldrbackup/known_hosts
+        dest: /home/cldrbackup/.ssh/known_hosts
+        owner: cldrbackup
+        group: cldrbackup
+        mode: '0640'
+    - name: set up /home/cldrbackup/backup.sh
+      template:
+        src: templates/cldrbackup/backup_sh.j2
+        dest: /home/cldrbackup/.ssh/backup.sh
+        owner: cldrbackup
+        group: cldrbackup
+        mode: '0640'
+    - name: set up daily db backup cron job
+      cron:
+        name: "backup db"
+        minute: "37"
+        hour: "7"
+        job: "sh /home/cldrbackup/backup.sh >/dev/null 2>&1"

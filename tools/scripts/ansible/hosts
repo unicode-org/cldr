@@ -13,3 +13,7 @@ prod
 # encrypt all of the surveytool hosts
 [letsencrypt:children]
 surveytool
+
+# auto-backup cldr db only for production
+[backupdb:children]
+prod

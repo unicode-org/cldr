@@ -62,6 +62,7 @@ public class DBUtils {
     private static DBUtils instance = null;
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
+    private String connectionUrl = null;
     // DB stuff
     public static String db_driver = null;
     public static String db_protocol = null;
@@ -280,9 +281,13 @@ public class DBUtils {
         return instance;
     }
 
-    public synchronized static void makeInstanceFrom(DataSource dataSource2) {
+    /**
+     * For testing use, injecting a specific data source.
+     * For production use, call getInstance().
+     */
+    public synchronized static void makeInstanceFrom(DataSource dataSource2, String url) {
         if (instance == null) {
-            instance = new DBUtils(dataSource2);
+            instance = new DBUtils(dataSource2, url);
         } else {
             throw new IllegalArgumentException("Already initted.");
         }
@@ -615,7 +620,6 @@ public class DBUtils {
                         "driver " + dmd.getDriverName() + " ver " + dmd.getDriverVersion();
                     setupSqlForServerType();
                     SurveyLog.debug("Metadata: " + dbInfo);
-                    handleHaveDatasource(datasource);
                 }
             } catch (SQLException t) {
                 datasource = null;
@@ -635,32 +639,32 @@ public class DBUtils {
             datasource = null;
             throw new Error("Couldn't load context " + JDBC_SURVEYTOOL + " - not using datasource.", nc);
         }
-
     }
 
-    private void handleHaveDatasource(DataSource datasource2) {
-        // process migrations here..
-    }
-
-    public DBUtils(DataSource dataSource2) {
+    public DBUtils(DataSource dataSource2, String curl) {
         datasource = dataSource2;
         Connection c = null;
         try {
             if (datasource != null) {
                 c = datasource.getConnection();
+            } else if(curl != null && !curl.isEmpty()) {
+                this.connectionUrl = curl;
+                c = getDBConnection();
                 DatabaseMetaData dmd = c.getMetaData();
                 dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
                 setupSqlForServerType();
-                if (db_Derby) {
-                    c.setAutoCommit(false);
-                }
-                boolean autoCommit = c.getAutoCommit();
-                if (autoCommit == true) {
-                    throw new IllegalArgumentException("autoCommit was true, expected false. Check your configuration.");
-                }
-                SurveyLog.debug("Metadata: " + dbInfo + ", autocommit: " + autoCommit);
-                handleHaveDatasource(datasource);
+            } else {
+                throw new NullPointerException("DBUtils(): DataSource and URL are both null/empty");
             }
+            DatabaseMetaData dmd = c.getMetaData();
+            dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
+            setupSqlForServerType();
+            c.setAutoCommit(false);
+            boolean autoCommit = c.getAutoCommit();
+            if (autoCommit == true) {
+                throw new IllegalArgumentException("autoCommit was true, expected false. Check your configuration.");
+            }
+            SurveyLog.debug("Metadata: " + dbInfo + ", autocommit: " + autoCommit);
         } catch (SQLException t) {
             datasource = null;
             throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
@@ -757,6 +761,15 @@ public class DBUtils {
     private int db_max_open = 0;
 
     public Connection getDBConnection(String options) {
+        if(connectionUrl != null) {
+            try {
+                Connection c = DriverManager.getConnection(connectionUrl);
+                c.setAutoCommit(false);
+                return c;
+            } catch (SQLException e) {
+                throw new RuntimeException("getConnection() failed for url", e);
+            }
+        }
         try {
             db_max_open = Math.max(db_max_open, db_number_open++);
             db_number_used++;
@@ -775,9 +788,7 @@ public class DBUtils {
             }
 
             Connection c = datasource.getConnection();
-            if (db_Derby) {
-                c.setAutoCommit(false);
-            }
+            c.setAutoCommit(false);
             if (SurveyMain.isUnofficial() && tracker != null)
                 tracker.add(c);
             return c;
@@ -1508,47 +1519,10 @@ public class DBUtils {
     }
 
     public static String getDbBrokenMessage() {
-        final File homeFile = CLDRConfigImpl.homeFile;
-        StringBuilder sb = new StringBuilder(
-            "see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>");
-
-        if (homeFile == null) {
-            sb.insert(0, "(can't find our home directory, either) ");
-        } else {
-            final File cldrDb = new File(homeFile, "cldrdb");
-            try {
-                String connectURI = "jdbc:derby:"
-                    + (cldrDb.getCanonicalPath().replace(System.getProperty("file.separator").charAt(0), '/'));
-
-                if (!cldrDb.exists()) {
-                    // Easier to create it for them than to explain it.
-                    String createURI = connectURI + ";create=true";
-                    System.err.println("Attempting to create a DB at " + createURI);
-                    Driver drv = (Driver) Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
-                    DriverManager.registerDriver(drv);
-                    Connection conn = DriverManager.getConnection(createURI);
-                    conn.close();
-                }
-
-                // Try to print something helpful
-                sb.insert(
-                    0,
-                    "</pre>Read the rest of this notice - for derby, add the following to <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>"
-                        + "&lt;Resource name=\"jdbc/SurveyTool\" type=\"javax.sql.DataSource\" auth=\"Container\" \n"
-                        + "description=\"database for ST\" maxActive=\"100\" maxIdle=\"30\" maxWait=\"10000\" \n"
-                        + " username=\"\" password=\"\" driverClassName=\"org.apache.derby.jdbc.EmbeddedDriver\" \n"
-                        + " url=\"<u>"
-                        + connectURI
-                        + "</u>\" /&gt;\n</pre>\n"
-                        + " <i>Note: if you are on a Windows system, you may have to adjust the path somewhat.</i><br><pre>");
-
-            } catch (Throwable e) {
-                SurveyLog.logException(e, "Trying to help the user out with SQL stuff in " + cldrDb.getAbsolutePath());
-                sb.insert(0, "(sorry, " + e.toString() + " trying to get you some better help text. )  ");
-            }
-        }
-
-        return sb.toString();
+        return
+            "</pre><script src='../js/cldr-setup.js'></script>" +
+            "see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>" +
+            "For MySQL, click: <button onclick='return mysqlhelp()'>MySQL Configurator</button><pre>";
     }
 
     public static java.sql.Timestamp sqlNow() {

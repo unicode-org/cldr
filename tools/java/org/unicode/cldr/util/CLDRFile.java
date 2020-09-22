@@ -228,7 +228,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public static CLDRFile loadFromFile(File f, String localeName, DraftStatus minimalDraftStatus, XMLSource source) {
         String fullFileName = f.getAbsolutePath();
         try {
-            fullFileName = f.getCanonicalPath();
+            fullFileName = PathUtilities.getNormalizedPathString(f);
             if (DEBUG_LOGGING) {
                 System.out.println("Parsing: " + fullFileName);
                 Log.logln(LOG_PROGRESS, "Parsing: " + fullFileName);
@@ -272,7 +272,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 for (File dir : dirs) {
                     File f = new File(dir, localeName + ".xml");
                     try (InputStream fis = InputStreamFactory.createInputStream(f)) {
-                        cldrFile.loadFromInputStream(f.getCanonicalPath(), localeName, fis, minimalDraftStatus);
+                        cldrFile.loadFromInputStream(PathUtilities.getNormalizedPathString(f), localeName, fis, minimalDraftStatus);
                     }
                 }
                 return cldrFile;

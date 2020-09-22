@@ -37,6 +37,8 @@
 
         <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -Dorg.unicode.cldr.unittest.web.dir=cldr_db_test -DDEBUG=true"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
+        <property name="env.JVM_EXTRA_OPTIONS" value=""/>
+        <property name="jvm_extra_options" value="${env.JVM_EXTRA_OPTIONS}"/>
 
         <!-- from webinit: -->
         <property name="tomcat.home"        value="${CATALINA_HOME}"/>
@@ -72,6 +74,10 @@
             <pathelement path="${CLDR_CLASSES}"/>
             <fileset dir="${libs.dir}">
               <include name="**/*.jar"/>
+            </fileset>
+            <fileset erroronmissingdir="false" dir="${CLDR_TOOLS}/dist/for-build">
+              <include name="cldr.jar"/>
+              <include name="cldr-apps.war"/>
             </fileset>
             <!-- <pathelement location="${CLDR_JAR}"/> -->
             <pathelement path="${CLDR_TOOLS}/classes"/>
@@ -233,7 +239,6 @@
     <target name="init-githash" depends="init" description="calculate build.githash">
       <exec executable="git" outputproperty="build.githash" failifexecutionfails="false">
         <arg value="rev-parse" />
-        <arg value="--short" />
         <arg value="HEAD" />
       </exec>
       <condition property="build.githash" value="(unknown)">
@@ -330,7 +335,7 @@
     <target name="check" description="Run the standard ICU4J test suite" depends="init">
         <antcall target="_runCheck">
             <param name="runcheck.arg" value="-n"/>
-            <param name="runcheck.jvmarg" value="${jvm_options}"/>
+            <param name="runcheck.jvmarg" value="${jvm_options} ${jvm_extra_options}"/>
         </antcall>
     </target>
 

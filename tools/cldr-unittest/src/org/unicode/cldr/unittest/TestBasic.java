@@ -50,6 +50,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -169,13 +170,13 @@ public class TestBasic extends TestFmwkPlus {
         List<TimingInfo> data) throws IOException {
         boolean deepCheck = getInclusion() >= 10;
         File[] listFiles = directoryFile.listFiles();
-        String canonicalPath = directoryFile.getCanonicalPath();
+        String normalizedPath = PathUtilities.getNormalizedPathString(directoryFile);
         String indent = Utility.repeat("\t", level);
         if (listFiles == null) {
             throw new IllegalArgumentException(indent + "Empty directory: "
-                + canonicalPath);
+                + normalizedPath);
         }
-        logln("Checking files for DTD errors in: " + indent + canonicalPath);
+        logln("Checking files for DTD errors in: " + indent + normalizedPath);
         for (File fileName : listFiles) {
             String name = fileName.getName();
             if (CLDRConfig.isJunkFile(name)) {
@@ -722,6 +723,14 @@ public class TestBasic extends TestFmwkPlus {
     public void TestDefaultContents() {
         Set<String> defaultContents = Inheritance.defaultContents;
         Multimap<String, String> parentToChildren = Inheritance.parentToChildren;
+
+        // Put a list of locales that should be default content here.
+        final String expectDC[] = {
+            "os_GE" // see CLDR-14118
+        };
+        for(final String locale : expectDC) {
+            assertTrue("expect "+locale+" to be a default content locale", defaultContents.contains(locale));
+        }
 
         if (DEBUG) {
             Inheritance.showChain("", "", "root");
@@ -1450,7 +1459,7 @@ public class TestBasic extends TestFmwkPlus {
         MyHandler myHandler = new MyHandler(overrideDtdType);
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
         try {
-            myHandler.fileName = fileToRead.getCanonicalPath();
+            myHandler.fileName = PathUtilities.getNormalizedPathString(fileToRead);
             xfr.read(myHandler.fileName, -1, true);
             logln(myHandler.fileName);
         } catch (Exception e) {

@@ -29,15 +29,17 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  * @author jchye
  */
 public class CLDRFileTransformer {
+    public enum PolicyIfExisting {
+        RETAIN,  // Do not transliterate if existing output has locale content
+        DISCARD, // Replace existing output locale content
+        MINIMIZE // RETAIN, plus drop values if translit is a no-op.
+    }
+
     /**
      * Contains all supported locale-to-locale conversions along with information
      * needed to convert each locale. Each enum value is named after the locale that results
      * from the conversion.
      */
-    enum PolicyIfExisting {
-        RETAIN, DISCARD, MINIMIZE
-    }
-
     public enum LocaleTransform {
         sr_Latn("sr", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD), //
         sr_Latn_BA("sr_Cyrl_BA", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD), //
@@ -71,6 +73,13 @@ public class CLDRFileTransformer {
             this.direction = direction;
             this.inputChars = new UnicodeSet(inputCharPattern);
             this.policy = policy;
+        }
+
+        /**
+         * @return the policy for existing content
+         */
+        public PolicyIfExisting getPolicyIfExisting() {
+            return policy;
         }
 
         /**

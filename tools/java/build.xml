@@ -151,7 +151,6 @@
         <target name="init-githash" depends="init" description="calculate build.githash">
           <exec executable="git" outputproperty="build.githash" failifexecutionfails="false">
             <arg value="rev-parse" />
-            <arg value="--short" />
             <arg value="HEAD" />
           </exec>
           <condition property="build.githash" value="(unknown)">

@@ -49,6 +49,7 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
@@ -412,7 +413,7 @@ public class ConsoleCheckCLDR {
         System.out.println("Source directories:\n");
         for (File f : sourceDirectories) {
             System.out.println("    " + f.getPath() + "\t("
-                + f.getCanonicalPath() + ")");
+                + PathUtilities.getNormalizedPathString(f) + ")");
         }
 //        System.out.println("factoryFilter: " + factoryFilter);
 //        System.out.println("test filter: " + checkFilter);
@@ -1685,4 +1686,6 @@ public class ConsoleCheckCLDR {
     public static String getLinkedLocale(String locale) {
         return "<a href='http://unicode.org/cldr/apps/survey?_=" + locale + "'>" + locale + "</a>";
     }
+
+
 }

@@ -29,6 +29,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.BaseUrl;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
@@ -364,16 +365,12 @@ public class SearchCLDR {
         File[] newDirs = new File[sourceDirs.length];
         int item = 0;
         for (File s : sourceDirs) {
-            try {
-                String path = s.getCanonicalPath();
-                int baseLoc = path.lastIndexOf("/cldr/");
-                if (baseLoc < 0) {
-                    throw new ICUUncheckedIOException("source doesn't contain /cldr/");
-                }
-                newDirs[item++] = new File(base, path.substring(baseLoc + 5));
-            } catch (IOException e) {
-                throw new ICUUncheckedIOException(e);
+            String path = PathUtilities.getNormalizedPathString(s);
+            int baseLoc = path.lastIndexOf("/cldr/");
+            if (baseLoc < 0) {
+                throw new ICUUncheckedIOException("source doesn't contain /cldr/");
             }
+            newDirs[item++] = new File(base, path.substring(baseLoc + 5));
         }
         return newDirs;
     }

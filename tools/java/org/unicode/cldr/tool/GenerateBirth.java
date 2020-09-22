@@ -28,6 +28,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringId;
@@ -137,7 +138,7 @@ public class GenerateBirth {
         // Set up the binary data files for all others
 
         File file = new File(dataDirectory + "/" + OutdatedPaths.OUTDATED_DATA);
-        final String outputDataFile = file.getCanonicalPath();
+        final String outputDataFile = PathUtilities.getNormalizedPathString(file);
         System.out.println("Writing data: " + outputDataFile);
         DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file));
         dataOut.writeUTF(OutdatedPaths.FORMAT_KEY);
@@ -277,7 +278,7 @@ public class GenerateBirth {
         public void writeBirthValues(String file) throws IOException {
             DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file));
             dataOut.writeUTF(OutdatedPaths.FORMAT_KEY);
-            System.out.println("Writing data: " + new File(file).getCanonicalPath());
+            System.out.println("Writing data: " + PathUtilities.getNormalizedPathString(file));
             dataOut.writeInt(pathToBirthCurrentPrevious.size());
 
             // Load and process all the locales

@@ -12,6 +12,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 //import org.unicode.cldr.util.XPathParts.Comments;
@@ -26,7 +27,7 @@ public class CLDRFormat {
         File dtd = new File(dest + "/main/" + "../../common/dtd/ldmlSupplemental.dtd");
         if (!dtd.exists()) {
             throw new IllegalArgumentException("Can't access DTD\nas is: " + dtd + "\ncanonical: "
-                + dtd.getCanonicalPath());
+                + PathUtilities.getNormalizedPathString(dtd));
         }
         // Log.setLog(Utility.GEN_DIRECTORY + "logCldr.txt");
         for (String subDir : src.list()) {

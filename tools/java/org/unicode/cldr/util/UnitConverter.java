@@ -67,17 +67,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Map<String,String> fixDenormalized;
     private ImmutableMap<String, UnitId> idToUnitId;
 
-    public static final BiMap<String,String> SHORT_TO_LONG_ID;
-    static {
-        Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
-        Map<String,String> _SHORT_TO_LONG_ID = new LinkedHashMap<>();
-        for (String longUnit : VALID_UNITS) {
-            int dashPos = longUnit.indexOf('-');
-            String coreUnit = longUnit.substring(dashPos+1);
-            _SHORT_TO_LONG_ID.put(coreUnit, longUnit);
-        }
-        SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
-    }
+    public final BiMap<String,String> SHORT_TO_LONG_ID;
 
     private boolean frozen = false;
 
@@ -337,8 +327,17 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
     }
 
-    public UnitConverter(RationalParser rationalParser) {
+    public UnitConverter(RationalParser rationalParser, Validity validity) {
         this.rationalParser = rationalParser;
+        // we need to pass in the validity so it is for the same CLDR version as the converter
+        Set<String> VALID_UNITS = validity.getStatusToCodes(LstrType.unit).get(Status.regular);
+        Map<String,String> _SHORT_TO_LONG_ID = new LinkedHashMap<>();
+        for (String longUnit : VALID_UNITS) {
+            int dashPos = longUnit.indexOf('-');
+            String coreUnit = longUnit.substring(dashPos+1);
+            _SHORT_TO_LONG_ID.put(coreUnit, longUnit);
+        }
+        SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
     }
 
     public void addRaw(String source, String target, String factor, String offset, String systems) {
@@ -955,14 +954,22 @@ public class UnitConverter implements Freezable<UnitConverter> {
          * @param partsUsed
 
          * @return
+         * TODO: add parameter to short-circuit the lookup if the unit is not a compound.
          */
         public String getGender(CLDRFile resolvedFile, Output<String> source, Multimap<UnitPathType, String> partsUsed) {
             Map<String,Integer> determiner = numUnitsToPowers.isEmpty() ? denUnitsToPowers : numUnitsToPowers;
             // will not be empty
 
             // get the last one.
-            String lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
-                .orElse(null);
+            // Hard coded for now:
+            String lastMeasure;
+            if (true) {
+                lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
+                    .orElse(null);
+            } else {
+                lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
+                    .orElse(null);
+            }
             lastMeasure = stripPrefixInt(lastMeasure, null);
             String gender = UnitPathType.gender.getTrans(resolvedFile, "long", lastMeasure, null, null, null, partsUsed);
             if (gender != null && source != null) {
@@ -1395,11 +1402,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return getComplexity(x) == UnitComplexity.simple;
     }
 
-    public static String getLongId(String shortUnitId) {
+    public String getLongId(String shortUnitId) {
         return CldrUtility.ifNull(SHORT_TO_LONG_ID.get(shortUnitId), shortUnitId);
     }
 
-    public static String getShortId(String longUnitId) {
+    public String getShortId(String longUnitId) {
         return CldrUtility.ifNull(SHORT_TO_LONG_ID.inverse().get(longUnitId), longUnitId);
     }
 }

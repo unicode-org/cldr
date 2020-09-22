@@ -90,7 +90,7 @@ public class XMLValidator {
             }
         })) {
             if (!quiet) System.out.println("Processing file " + s.getPath());
-            new fileParserThread(s.getCanonicalPath()).run();
+            new fileParserThread(PathUtilities.getNormalizedPathString(s)).run();
         }
     }
 
@@ -134,15 +134,7 @@ public class XMLValidator {
             return filename;
 
         File f = new File(filename);
-        String tmp = null;
-        try {
-            // This normally gives a better path
-            tmp = f.getCanonicalPath();
-        } catch (IOException ioe) {
-            // But this can be used as a backup, for cases
-            // where the file does not exist, etc.
-            tmp = f.getAbsolutePath();
-        }
+        String tmp = PathUtilities.getNormalizedPathString(f);
 
         // URLs must explicitly use only forward slashes
         if (File.separatorChar == '\\') {

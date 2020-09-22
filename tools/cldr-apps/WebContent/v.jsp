@@ -290,14 +290,9 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
                       </ul>
            </li>
             
-            <li id="help-menu" class="pull-menu">
-		          <a href="#"><%= SurveyMain.GENERAL_HELP_NAME %> <b class="caret"></b></a>
-		          <ul class="nav nav-pills nav-stacked" style="display:none">
-		            <li><a href="<%= SurveyMain.GENERAL_HELP_URL %>" target="_blank"><%= SurveyMain.GENERAL_HELP_NAME %> <span class="glyphicon glyphicon-share"></span></a></li>
-		            <li class="nav-divider"></li>
-		            <li id="help-content">Welcome</li>
-		          </ul>
-		   </li>
+            <li>
+		        <a href="<%= SurveyMain.GENERAL_HELP_URL %>" target="_blank"><%= SurveyMain.GENERAL_HELP_NAME %></a>
+            </li>
           </ul>
           <p class="navbar-text navbar-right">
               <span id="flag-info"></span>

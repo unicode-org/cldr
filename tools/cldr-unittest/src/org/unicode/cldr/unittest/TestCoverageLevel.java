@@ -378,7 +378,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "kj|anp|an|niu|mni|dv|swb|pau|gor|nqo|krc|crs|gwi|zza|mad|nog|lez|byn|sad|ssy|mag|iba|"
             + "tpi|kum|wal|mos|dzg|gez|io|tn|snk|mai|ady|chy|mwl|sco|av|efi|war|mic|loz|scn|smj|tem|"
             + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|rap|bug|ban|xal|oc|alt|nia|myv|ain|rar|krl|ay|"
-            + "syr|kv|umb|)");
+            + "syr|kv|umb|cu|prg|vo)");
 
         final Pattern script100 = PatternCache.get("("
             + "Adlm|Afak|Aghb|Ahom|Aran|Armi|Avst|Bali|Bamu|Bass|Batk|Bhks|Blis|Brah|Bugi|Buhd|"
@@ -763,12 +763,16 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"area-square-kilometer\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"area-square-kilometer\"]/unitPattern[@count=\"other\"]",
             },
-            {"fr",
+            {"hi",
                 "COUNT_CASE_GENDER",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]",
+                "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"oblique\"]",
+                "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"oblique\"]",
+                "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"oblique\"]",
+                "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"oblique\"]"
             }
         };
         Set<PathType> seenPt = new TreeSet<>(Arrays.asList(PathType.values()));

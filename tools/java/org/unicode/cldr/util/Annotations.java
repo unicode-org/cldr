@@ -56,21 +56,14 @@ public class Annotations {
 
     static {
         File directory = new File(CLDRPaths.COMMON_DIRECTORY, "annotations");
-        try {
-            DIR = directory.getCanonicalPath();
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException(e);
-        }
+        DIR = PathUtilities.getNormalizedPathString(directory);
         if (DEBUG) {
             System.out.println(DIR);
         }
         Builder<String> temp = ImmutableSet.builder();
         for (File file : directory.listFiles()) {
             if (DEBUG) {
-                try {
-                    System.out.println(file.getCanonicalPath());
-                } catch (IOException e) {
-                }
+                System.out.println(PathUtilities.getNormalizedPathString(file));
             }
             String name = file.toString();
             String shortName = file.getName();

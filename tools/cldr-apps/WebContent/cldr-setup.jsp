@@ -503,7 +503,7 @@ if(request.getParameter("remove_maint")!=null) {
 					<div class='stopText'>
 						Database source was not found ..
 						<pre><%=DBUtils.getDbBrokenMessage()%></pre>
-					</div> <br> For MySQL, try the
+					</div> <br> For MySQL, use the
 					<button onclick='return mysqlhelp()'>MySQL Configurator</button>
 
 					<p>Restart the web server and reload this page to try again.</li>

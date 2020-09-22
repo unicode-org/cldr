@@ -109,7 +109,7 @@ public class ChartGrammaticalForms extends Chart {
         ImmutableSet<String> skip = ImmutableSet.of("mile-scandinavian", "100-kilometer", "dunam");
         Output<String> baseOut = new Output<>();
         for (String longUnit : Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular)) {
-            String shortUnit = UnitConverter.getShortId(longUnit);
+            String shortUnit = uc.getShortId(longUnit);
             System.out.println(shortUnit);
             if (skip.contains(shortUnit)) {
                 continue;
@@ -212,7 +212,7 @@ public class ChartGrammaticalForms extends Chart {
         // collect the "best unit ordering"
         Map<String, BestUnitForGender> unitToBestUnit = new TreeMap<>();
         for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
-            final String shortUnit = UnitConverter.getShortId(longUnit);
+            final String shortUnit = uc.getShortId(longUnit);
             if (shortUnit.equals("generic")) {
                 continue;
             }
@@ -301,7 +301,7 @@ public class ChartGrammaticalForms extends Chart {
                 // also gather info on the "best power units"
 
                 for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
-                    final String shortUnit = UnitConverter.getShortId(longUnit);
+                    final String shortUnit = uc.getShortId(longUnit);
                     String unitCell = getBestBaseUnit(uc, shortUnit, sizeInBaseUnits);
                     String quantity = shortUnit.contentEquals("generic") ? "temperature" : uc.getQuantityFromUnit(shortUnit, false);
 
@@ -358,7 +358,7 @@ public class ChartGrammaticalForms extends Chart {
                 Multimap<String, BestUnitForGender> bestUnitForGender = TreeMultimap.create();
 
                 for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
-                    final String shortUnit = UnitConverter.getShortId(longUnit);
+                    final String shortUnit = uc.getShortId(longUnit);
                     String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
                     final BestUnitForGender bestUnit = unitToBestUnit.get(shortUnit);
                     if (bestUnit != null) {
@@ -422,7 +422,15 @@ public class ChartGrammaticalForms extends Chart {
                                         localizedUnitPattern = unitPatternOut.value;
                                         String placeholderPattern = placeholderMatcher.group();
 
-                                        String combined = UnitConverter.combineLowercasing(new ULocale(locale), "long", localizedPowerPattern, localizedUnitPattern);
+                                        String combined;
+                                        try {
+                                            combined = UnitConverter.combineLowercasing(new ULocale(locale), "long", localizedPowerPattern, localizedUnitPattern);
+                                        } catch (Exception e) {
+                                           throw new IllegalArgumentException(locale + ") Can't combine "
+                                               + "localizedPowerPattern=«" + localizedPowerPattern
+                                               + "» with localizedUnitPattern=«"+ localizedUnitPattern + "»"
+                                               );
+                                        }
                                         String combinedWithPlaceholder = UnitConverter.addPlaceholder(combined, placeholderPattern, placeholderPosition);
 
                                         String sample = MessageFormat.format(combinedWithPlaceholder, decFormat.format(samplePlural));
@@ -478,7 +486,7 @@ public class ChartGrammaticalForms extends Chart {
         if (shortUnit.equals("square-mile")) {
             int debug = 0;
         }
-        String unitCell = ENGLISH.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + UnitConverter.getLongId(shortUnit)
+        String unitCell = ENGLISH.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + uc.getLongId(shortUnit)
         + "\"]/displayName");
         Output<String> baseUnit = new Output<>();
         ConversionInfo info = uc.parseUnitId(shortUnit, baseUnit, false);
@@ -505,7 +513,7 @@ public class ChartGrammaticalForms extends Chart {
                 final String string = bestFactor.toString(FormatStyle.repeating);
                 final double bestDoubleFactor = bestFactor.doubleValue();
                 String pluralCategory = ENGLISH_PLURAL_RULES.select(bestDoubleFactor);
-                final String unitPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + UnitConverter.getLongId(bestUnit)
+                final String unitPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + uc.getLongId(bestUnit)
                 + "\"]/unitPattern[@count=\"" + pluralCategory
                 + "\"]";
                 String unitPattern = ENGLISH.getStringValue(unitPath);

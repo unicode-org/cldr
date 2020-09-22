@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2020 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="br"/>
+	</identity>
+	<collations>
+	        <!-- References: https://en.wikipedia.org/wiki/Breton_language#Alphabet ; http://devri.bzh -->
+	        <collation type="standard">
+			<cr><![CDATA[
+				&C<ch<<<Ch<<<CH<c''h=c\u2019h<<<C''h=C\u2019h<<<C''H=C\u2019H
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

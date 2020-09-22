@@ -281,11 +281,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * TODO: CLDR no longer uses trac; change BUG_URL_BASE to link to github instead
      */
     public static final String BUG_URL_BASE = URL_CLDR + "trac";
-    public static final String GENERAL_HELP_URL = URL_CLDR + "survey_tool.html";
+
+    public static final String GENERAL_HELP_URL = "https://sites.google.com/site/cldr/translation";
     public static final String GENERAL_HELP_NAME = "Instructions";
 
+    public static final String ADMIN_HELP_URL = "http://cldr.unicode.org/index/survey-tool/admin";
+
     // ===== url prefix for help
-    public static final String CLDR_HELP_LINK = GENERAL_HELP_URL + "#";
+    public static final String CLDR_HELP_LINK = URL_CLDR + "survey_tool.html" + "#";
 
     // ===== Hash keys and field values
     public static final String PROPOSED_DRAFT = "proposed-draft";
@@ -733,6 +736,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // don't flood server if busted- check every minute.
         out.println("<script>timerSpeed = 60080;</script>");
         out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>");
+        // This next is for the DB Busted page, so we can show the MySQL configurator.
+        out.print("<script src='"+ request.getContextPath()+request.getServletPath() + "/../js/cldr-setup.js" + "'></script>");
         out.print(getTopBox());
         out.println("</span>");
         out.println("<hr>");
@@ -935,7 +940,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<script>timerSpeed = 6000;</script>");
         String q = ctx.field("q");
         boolean tblsel = false;
-        printAdminMenu(ctx, "/AdminSql");
+        printAdminMenu(ctx);
         ctx.println("<h1>SQL Console (" + DBUtils.getDBKind() + ")</h1>");
 
         ctx.println("<i style='font-size: small; color: silver;'>" + DBUtils.getInstance().getDBInfo() + "</i><br/>");
@@ -1171,9 +1176,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * Admin panel
      *
      * @param ctx
-     * @param helpLink
      */
-    private void printAdminMenu(WebContext ctx, String helpLink) {
+    private void printAdminMenu(WebContext ctx) {
 
         boolean isDump = ctx.hasField("dump");
         boolean isSql = ctx.hasField("sql");
@@ -1186,7 +1190,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.print(" | ");
         ctx.print("<a class='" + (isSql ? "" : "not") + "selected' href='" + ctx.base() + "?sql=" + vap + "'>SQL</a>");
         ctx.print("<br>");
-        ctx.printHelpLink(helpLink, "Admin Help", true);
+        ctx.print("<a href=\"" + SurveyMain.ADMIN_HELP_URL + "\">Admin Help</a>");
         ctx.println("</div>");
     }
 

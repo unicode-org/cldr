@@ -27,12 +27,10 @@ public class TestIdentity extends TestFmwk {
 
         List<Factory> factories = new ArrayList<Factory>();
         factories.add(testInfo.getFullCldrFactory());
-        if (getInclusion() > 5) { // Only do these in exhaustive move
-            factories.add(testInfo.getExemplarsFactory());
-            factories.add(testInfo.getCollationFactory());
-            factories.add(testInfo.getRBNFFactory());
-            factories.add(testInfo.getAnnotationsFactory());
-        }
+        factories.add(testInfo.getExemplarsFactory());
+        factories.add(testInfo.getCollationFactory());
+        factories.add(testInfo.getRBNFFactory());
+        factories.add(testInfo.getAnnotationsFactory());
         for (Factory factory : factories) {
             for (String locale : factory.getAvailable()) {
                 String canonicalLocaleID = ltc.transform(locale);

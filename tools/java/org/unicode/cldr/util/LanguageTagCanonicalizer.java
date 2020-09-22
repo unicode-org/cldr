@@ -52,6 +52,9 @@ public class LanguageTagCanonicalizer implements StringTransform {
     // TODO, handle variants
     @Override
     public synchronized String transform(String locale) {
+        return transform (locale, OutputOption.ICU_LCVARIANT);
+    }
+    public synchronized String transform(String locale, OutputOption oo) {
         ltp1.set(locale);
 
         copyFields2(LanguageTagField.language, getReplacement(LanguageTagField.language, LanguageTagField.language.get(ltp1), locale));
@@ -75,13 +78,13 @@ public class LanguageTagCanonicalizer implements StringTransform {
             }
             ltp1.setVariants(newVariants);
         }
-        final String result = ltp1.toString();
+        final String result = ltp1.toString(oo);
         if ("und".equals(ltp1.getLanguage())) return result;
         if (likely == null) {
             return result;
         }
         // TODO: make more efficient, since likely will do the parsing again.
-        String likelyMin = likely.minimize(result);
+        String likelyMin = likely.minimize(result, oo);
         return likelyMin == null ? result : likelyMin;
     }
 

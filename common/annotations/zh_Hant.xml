@@ -14,7 +14,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<script type="Hant"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">大括孤 | 大括號 | 花括弧 | 花括號</annotation>
+		<annotation cp="{">大括孤 | 大括號 | 左大括號 | 花括弧 | 花括號</annotation>
 		<annotation cp="{" type="tts">左大括號</annotation>
 		<annotation cp="🏻">白皮膚 | 膚色</annotation>
 		<annotation cp="🏻" type="tts">白皮膚</annotation>
@@ -26,13 +26,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">褐皮膚</annotation>
 		<annotation cp="🏿">膚色 | 黑皮膚</annotation>
 		<annotation cp="🏿" type="tts">黑皮膚</annotation>
-		<annotation cp="‾" draft="contributed">上劃線 | 括線</annotation>
+		<annotation cp="‾" draft="contributed">頂線</annotation>
 		<annotation cp="‾" type="tts" draft="contributed">頂線</annotation>
 		<annotation cp="_">底橫線 | 底線 | 橫線 | 線</annotation>
 		<annotation cp="_" type="tts">底線</annotation>
-		<annotation cp="-">一槓 | 一橫 | 減號 | 連字號</annotation>
+		<annotation cp="-">一槓 | 一橫 | 減號 | 連字暨減號 | 連字號</annotation>
 		<annotation cp="-" type="tts">連字暨減號</annotation>
-		<annotation cp="‐">破折號 | 連字號</annotation>
+		<annotation cp="‐">破折號 | 連字符 | 連字號</annotation>
 		<annotation cp="‐" type="tts">連字符</annotation>
 		<annotation cp="–">標點 | 連接號</annotation>
 		<annotation cp="–" type="tts">連接號</annotation>
@@ -42,29 +42,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="―" type="tts">橫線</annotation>
 		<annotation cp="・">中點 | 片假名 | 片假名中點 | 間隔號</annotation>
 		<annotation cp="・" type="tts">片假名中點</annotation>
-		<annotation cp=",">逗號</annotation>
+		<annotation cp=",">逗號 | 逗點</annotation>
 		<annotation cp="," type="tts">逗點</annotation>
-		<annotation cp="،">逗號 | 阿拉伯</annotation>
+		<annotation cp="،">逗號 | 阿拉伯 | 阿拉伯逗號</annotation>
 		<annotation cp="،" type="tts">阿拉伯逗號</annotation>
 		<annotation cp="、">表意 | 頓號</annotation>
 		<annotation cp="、" type="tts">頓號</annotation>
 		<annotation cp=";">分號</annotation>
 		<annotation cp=";" type="tts">分號</annotation>
-		<annotation cp="؛">冒號 | 阿拉伯</annotation>
+		<annotation cp="؛">冒號 | 阿拉伯 | 阿拉伯冒號</annotation>
 		<annotation cp="؛" type="tts">阿拉伯冒號</annotation>
 		<annotation cp=":">冒號</annotation>
 		<annotation cp=":" type="tts">冒號</annotation>
-		<annotation cp="!">驚嘆 | 驚訝</annotation>
+		<annotation cp="!">驚嘆 | 驚嘆符號 | 驚訝</annotation>
 		<annotation cp="!" type="tts">驚嘆符號</annotation>
-		<annotation cp="¡">倒置 | 驚嘆號 | 驚訝</annotation>
+		<annotation cp="¡">倒置 | 倒驚嘆號 | 驚嘆號 | 驚訝</annotation>
 		<annotation cp="¡" type="tts">倒驚嘆號</annotation>
 		<annotation cp="?">問號 | 疑問</annotation>
 		<annotation cp="?" type="tts">問號</annotation>
-		<annotation cp="¿">倒置 | 問號 | 疑問</annotation>
+		<annotation cp="¿">倒問號 | 倒置 | 問號 | 疑問</annotation>
 		<annotation cp="¿" type="tts">倒問號</annotation>
-		<annotation cp="؟">問號 | 疑問 | 阿拉伯</annotation>
+		<annotation cp="؟">問號 | 疑問 | 阿拉伯 | 阿拉伯問號</annotation>
 		<annotation cp="؟" type="tts">阿拉伯問號</annotation>
-		<annotation cp="‽" draft="contributed">疑問驚嘆號</annotation>
+		<annotation cp="‽" draft="contributed">疑問驚歎號</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">疑問驚歎號</annotation>
 		<annotation cp=".">句點 | 點</annotation>
 		<annotation cp="." type="tts">句點</annotation>
@@ -76,37 +76,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="·" type="tts">間隔號</annotation>
 		<annotation cp="'">單引號 | 引號 | 撇號</annotation>
 		<annotation cp="'" type="tts">撇號</annotation>
-		<annotation cp="‘">單引號 | 引號 | 撇號 | 智慧引號</annotation>
+		<annotation cp="‘">單引號 | 左單引號 | 引號 | 撇號 | 智慧引號</annotation>
 		<annotation cp="‘" type="tts">左單引號</annotation>
-		<annotation cp="’">單引號 | 引號 | 撇號 | 智慧引號</annotation>
+		<annotation cp="’">右單引號 | 單引號 | 引號 | 撇號 | 智慧引號</annotation>
 		<annotation cp="’" type="tts">右單引號</annotation>
 		<annotation cp="‚">半形逗號 | 撇號 | 逗號</annotation>
 		<annotation cp="‚" type="tts">半形逗號</annotation>
-		<annotation cp="“">引號 | 智慧引號 | 雙引號</annotation>
+		<annotation cp="“">左雙引號 | 引號 | 智慧引號 | 雙引號</annotation>
 		<annotation cp="“" type="tts">左雙引號</annotation>
-		<annotation cp="”">引號 | 智慧引號 | 雙引號</annotation>
+		<annotation cp="”">右雙引號 | 引號 | 智慧引號 | 雙引號</annotation>
 		<annotation cp="”" type="tts">右雙引號</annotation>
-		<annotation cp="„">低雙引號 | 引號 | 智慧引號 | 雙引號</annotation>
+		<annotation cp="„">低雙引號 | 右低雙引號 | 引號 | 智慧引號 | 雙引號</annotation>
 		<annotation cp="„" type="tts">右低雙引號</annotation>
 		<annotation cp="«">左 | 左書名號 | 括號 | 角形</annotation>
 		<annotation cp="«" type="tts">左書名號</annotation>
 		<annotation cp="»">右 | 右書名號 | 括號 | 角形</annotation>
 		<annotation cp="»" type="tts">右書名號</annotation>
-		<annotation cp=")">圓括弧 | 圓括號 | 括弧 | 括號</annotation>
+		<annotation cp=")">右括號 | 圓括弧 | 圓括號 | 括弧 | 括號</annotation>
 		<annotation cp=")" type="tts">右括號</annotation>
-		<annotation cp="[">括弧 | 括號 | 方型括弧</annotation>
+		<annotation cp="[">左方括號 | 括弧 | 括號 | 方型括弧</annotation>
 		<annotation cp="[" type="tts">左方括號</annotation>
-		<annotation cp="]">括弧 | 括號 | 方型括弧</annotation>
+		<annotation cp="]">右方括號 | 括弧 | 括號 | 方型括弧</annotation>
 		<annotation cp="]" type="tts">右方括號</annotation>
-		<annotation cp="}">大括孤 | 大括號 | 花括弧 | 花括號</annotation>
+		<annotation cp="}">右大括號 | 大括孤 | 大括號 | 花括弧 | 花括號</annotation>
 		<annotation cp="}" type="tts">右大括號</annotation>
-		<annotation cp="〈">單書名號 | 書名號 | 篇名號</annotation>
+		<annotation cp="〈">單書名號 | 左單書名號 | 書名號 | 篇名號</annotation>
 		<annotation cp="〈" type="tts">左單書名號</annotation>
-		<annotation cp="〉">單書名號 | 書名號 | 篇名號</annotation>
+		<annotation cp="〉">右單書名號 | 單書名號 | 書名號 | 篇名號</annotation>
 		<annotation cp="〉" type="tts">右單書名號</annotation>
-		<annotation cp="《">書名號 | 雙書名號</annotation>
+		<annotation cp="《">左雙書名號 | 書名號 | 雙書名號</annotation>
 		<annotation cp="《" type="tts">左雙書名號</annotation>
-		<annotation cp="》">書名號 | 雙書名號</annotation>
+		<annotation cp="》">右雙書名號 | 書名號 | 雙書名號</annotation>
 		<annotation cp="》" type="tts">右雙書名號</annotation>
 		<annotation cp="「">上引號 | 引號</annotation>
 		<annotation cp="「" type="tts">上引號</annotation>
@@ -116,33 +116,33 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="『" type="tts">雙上引號</annotation>
 		<annotation cp="』">雙下引號 | 雙引號</annotation>
 		<annotation cp="』" type="tts">雙下引號</annotation>
-		<annotation cp="【">夾注號 | 實心方頭括號 | 方頭括號</annotation>
+		<annotation cp="【">夾注號 | 實心方頭括號 | 左方頭括號 | 方頭括號</annotation>
 		<annotation cp="【" type="tts">左方頭括號</annotation>
-		<annotation cp="】">夾注號 | 實心方頭括號 | 方頭括號</annotation>
+		<annotation cp="】">右方頭括號 | 夾注號 | 實心方頭括號 | 方頭括號</annotation>
 		<annotation cp="】" type="tts">右方頭括號</annotation>
 		<annotation cp="〔">六角括弧 | 六角括號 | 左六角括號</annotation>
 		<annotation cp="〔" type="tts">左六角括號</annotation>
-		<annotation cp="〕">六角括弧 | 六角括號 | 左六角括號</annotation>
+		<annotation cp="〕">六角括弧 | 六角括號 | 右六角括號 | 左六角括號</annotation>
 		<annotation cp="〕" type="tts">右六角括號</annotation>
-		<annotation cp="〖">括號 | 方頭括號 | 空心方頭括號</annotation>
+		<annotation cp="〖">左空心方頭括號 | 括號 | 方頭括號 | 空心方頭括號</annotation>
 		<annotation cp="〖" type="tts">左空心方頭括號</annotation>
-		<annotation cp="〗">括號 | 方頭括號 | 空心方頭括號</annotation>
+		<annotation cp="〗">右空心方頭括號 | 括號 | 方頭括號 | 空心方頭括號</annotation>
 		<annotation cp="〗" type="tts">右空心方頭括號</annotation>
 		<annotation cp="§">分節符號 | 段落 | 部分 | 章節</annotation>
 		<annotation cp="§" type="tts">分節符號</annotation>
-		<annotation cp="¶">標記 | 段落 | 段落符號</annotation>
+		<annotation cp="¶">標記 | 段落 | 段落標記 | 段落符號</annotation>
 		<annotation cp="¶" type="tts">段落標記</annotation>
 		<annotation cp="@">小老鼠 | 小老鼠符號</annotation>
 		<annotation cp="@" type="tts">小老鼠符號</annotation>
 		<annotation cp="*">星星 | 星號 | 萬用字元</annotation>
 		<annotation cp="*" type="tts">星號</annotation>
-		<annotation cp="/">斜線</annotation>
+		<annotation cp="/">斜線 | 正斜線</annotation>
 		<annotation cp="/" type="tts">正斜線</annotation>
-		<annotation cp="\">反 | 斜線</annotation>
+		<annotation cp="\">反 | 反斜線 | 斜線</annotation>
 		<annotation cp="\" type="tts">反斜線</annotation>
-		<annotation cp="&amp;">&amp; | 且 | 及 | 和</annotation>
+		<annotation cp="&amp;">&amp; | &amp; 符號 | 且 | 及 | 和</annotation>
 		<annotation cp="&amp;" type="tts">&amp; 符號</annotation>
-		<annotation cp="#"># | # 標籤 | 井號 | 雜湊 | 雜湊標記</annotation>
+		<annotation cp="#"># | # 標籤 | 井字號 | 井號 | 雜湊 | 雜湊標記</annotation>
 		<annotation cp="#" type="tts">井字號</annotation>
 		<annotation cp="%">百分 | 百分比 | 百分率</annotation>
 		<annotation cp="%" type="tts">百分率</annotation>
@@ -158,15 +158,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‧" type="tts">連字點</annotation>
 		<annotation cp="′">角分符號</annotation>
 		<annotation cp="′" type="tts">角分符號</annotation>
-		<annotation cp="″">角分符號</annotation>
+		<annotation cp="″">角分符號 | 角秒符號</annotation>
 		<annotation cp="″" type="tts">角秒符號</annotation>
-		<annotation cp="‴">角分符號</annotation>
+		<annotation cp="‴">三上標 | 角分符號</annotation>
 		<annotation cp="‴" type="tts">三上標</annotation>
 		<annotation cp="‸" draft="contributed">脱字符</annotation>
 		<annotation cp="‸" type="tts" draft="contributed">脱字符</annotation>
-		<annotation cp="※">參照 | 參照符號</annotation>
+		<annotation cp="※">參照 | 參照標記 | 參照符號</annotation>
 		<annotation cp="※" type="tts">參照標記</annotation>
-		<annotation cp="⁂" draft="contributed">三星符號｜星號</annotation>
+		<annotation cp="⁂" draft="contributed">星群符號</annotation>
 		<annotation cp="⁂" type="tts" draft="contributed">星群符號</annotation>
 		<annotation cp="`">抑音符 | 重音符 | 音符</annotation>
 		<annotation cp="`" type="tts">重音符</annotation>
@@ -224,7 +224,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↬" type="tts" draft="contributed">尾部帶環的向右箭頭</annotation>
 		<annotation cp="↭" draft="contributed">左右波浪箭頭</annotation>
 		<annotation cp="↭" type="tts" draft="contributed">左右波浪箭頭</annotation>
-		<annotation cp="↯" draft="contributed">鋸齒形箭頭</annotation>
+		<annotation cp="↯" draft="contributed">向下鋸齒形箭頭</annotation>
 		<annotation cp="↯" type="tts" draft="contributed">向下鋸齒形箭頭</annotation>
 		<annotation cp="↰" draft="contributed">頭朝左的向上箭頭</annotation>
 		<annotation cp="↰" type="tts" draft="contributed">頭朝左的向上箭頭</annotation>
@@ -250,21 +250,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↺" type="tts" draft="contributed">逆時針開口循環箭頭</annotation>
 		<annotation cp="↻" draft="contributed">順時針開口循環箭頭</annotation>
 		<annotation cp="↻" type="tts" draft="contributed">順時針開口循環箭頭</annotation>
-		<annotation cp="↼" draft="contributed">倒鉤</annotation>
+		<annotation cp="↼" draft="contributed">倒鉤在上的向左魚叉</annotation>
 		<annotation cp="↼" type="tts" draft="contributed">倒鉤在上的向左魚叉</annotation>
 		<annotation cp="↽" draft="contributed">倒鉤在下的向左魚叉</annotation>
 		<annotation cp="↽" type="tts" draft="contributed">倒鉤在下的向左魚叉</annotation>
-		<annotation cp="↾" draft="contributed">倒鉤</annotation>
+		<annotation cp="↾" draft="contributed">倒鉤在右的向上魚叉</annotation>
 		<annotation cp="↾" type="tts" draft="contributed">倒鉤在右的向上魚叉</annotation>
-		<annotation cp="↿" draft="contributed">倒鉤</annotation>
+		<annotation cp="↿" draft="contributed">倒鉤在左的向上魚叉</annotation>
 		<annotation cp="↿" type="tts" draft="contributed">倒鉤在左的向上魚叉</annotation>
-		<annotation cp="⇀" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇀" draft="contributed">倒鉤在上的向右魚叉</annotation>
 		<annotation cp="⇀" type="tts" draft="contributed">倒鉤在上的向右魚叉</annotation>
-		<annotation cp="⇁" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇁" draft="contributed">倒鉤在下的向右魚叉</annotation>
 		<annotation cp="⇁" type="tts" draft="contributed">倒鉤在下的向右魚叉</annotation>
-		<annotation cp="⇂" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇂" draft="contributed">倒鉤在右的向下魚叉</annotation>
 		<annotation cp="⇂" type="tts" draft="contributed">倒鉤在右的向下魚叉</annotation>
-		<annotation cp="⇃" draft="contributed">倒鉤</annotation>
+		<annotation cp="⇃" draft="contributed">倒鉤在左的向下魚叉</annotation>
 		<annotation cp="⇃" type="tts" draft="contributed">倒鉤在左的向下魚叉</annotation>
 		<annotation cp="⇄" draft="contributed">向右箭頭在上，向左箭頭在下</annotation>
 		<annotation cp="⇄" type="tts" draft="contributed">向右箭頭在上，向左箭頭在下</annotation>
@@ -344,9 +344,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇪" type="tts" draft="contributed">尾部帶槓的向上空心箭頭</annotation>
 		<annotation cp="⇵" draft="contributed">向下箭頭在左，向上箭頭在右</annotation>
 		<annotation cp="⇵" type="tts" draft="contributed">向下箭頭在左，向上箭頭在右</annotation>
-		<annotation cp="∀" draft="contributed">任一 | 全部 | 全體 | 已知</annotation>
+		<annotation cp="∀" draft="contributed">全稱量詞符號</annotation>
 		<annotation cp="∀" type="tts" draft="contributed">全稱量詞符號</annotation>
-		<annotation cp="∂" draft="contributed">微分</annotation>
+		<annotation cp="∂" draft="contributed">偏導數符號</annotation>
 		<annotation cp="∂" type="tts" draft="contributed">偏導數符號</annotation>
 		<annotation cp="∃" draft="contributed">存在量詞符號</annotation>
 		<annotation cp="∃" type="tts" draft="contributed">存在量詞符號</annotation>
@@ -356,29 +356,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">遞減</annotation>
 		<annotation cp="∈">包含 | 屬於</annotation>
 		<annotation cp="∈" type="tts">屬於</annotation>
-		<annotation cp="+">加 | 加法</annotation>
+		<annotation cp="+">加 | 加法 | 加號</annotation>
 		<annotation cp="+" type="tts">加號</annotation>
-		<annotation cp="±">加減</annotation>
+		<annotation cp="±">加減 | 正負號</annotation>
 		<annotation cp="±" type="tts">正負號</annotation>
 		<annotation cp="÷">除 | 除法 | 除法符號 | 除號</annotation>
 		<annotation cp="÷" type="tts">除法符號</annotation>
 		<annotation cp="×">乘 | 乘法 | 乘號</annotation>
 		<annotation cp="×" type="tts">乘號</annotation>
-		<annotation cp="&lt;">標籤 | 開始標籤</annotation>
+		<annotation cp="&lt;">小於 | 標籤 | 開始標籤</annotation>
 		<annotation cp="&lt;" type="tts">小於</annotation>
-		<annotation cp="=">相等 | 等於</annotation>
+		<annotation cp="=">相等 | 等於 | 等號</annotation>
 		<annotation cp="=" type="tts">等號</annotation>
-		<annotation cp="≠">不等 | 不等於</annotation>
+		<annotation cp="≠">不等 | 不等於 | 不等號</annotation>
 		<annotation cp="≠" type="tts">不等號</annotation>
-		<annotation cp="&gt;">標籤 | 結束標籤</annotation>
+		<annotation cp="&gt;">大於 | 標籤 | 結束標籤</annotation>
 		<annotation cp="&gt;" type="tts">大於</annotation>
 		<annotation cp="¬">否定 | 非</annotation>
 		<annotation cp="¬" type="tts">非</annotation>
-		<annotation cp="|">分隔號 | 垂直 | 謝費爾 | 豎</annotation>
+		<annotation cp="|">分隔號 | 垂直 | 謝費爾 | 豎 | 豎線</annotation>
 		<annotation cp="|" type="tts">豎線</annotation>
-		<annotation cp="~">波浪號 | 波狀</annotation>
+		<annotation cp="~">波浪號 | 波狀 | 波狀符號</annotation>
 		<annotation cp="~" type="tts">波狀符號</annotation>
-		<annotation cp="−">減 | 減法</annotation>
+		<annotation cp="−">減 | 減法 | 減號</annotation>
 		<annotation cp="−" type="tts">減號</annotation>
 		<annotation cp="⁻">上標 | 上標負數 | 負數</annotation>
 		<annotation cp="⁻" type="tts">上標負數</annotation>
@@ -390,13 +390,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∩" type="tts">交集</annotation>
 		<annotation cp="∪">聯集 | 集</annotation>
 		<annotation cp="∪" type="tts">聯集</annotation>
-		<annotation cp="≈">等於 | 約略</annotation>
+		<annotation cp="≈">等於 | 約略 | 約略等於</annotation>
 		<annotation cp="≈" type="tts">約略等於</annotation>
 		<annotation cp="≡">全等 | 同餘 | 恆等</annotation>
 		<annotation cp="≡" type="tts">全等</annotation>
-		<annotation cp="≤">不等於 | 等於</annotation>
+		<annotation cp="≤">不等於 | 小於或等於 | 等於</annotation>
 		<annotation cp="≤" type="tts">小於或等於</annotation>
-		<annotation cp="≥">不等於 | 等於</annotation>
+		<annotation cp="≥">不等於 | 大於或等於 | 等於</annotation>
 		<annotation cp="≥" type="tts">大於或等於</annotation>
 		<annotation cp="⊂">子集 | 集</annotation>
 		<annotation cp="⊂" type="tts">子集</annotation>
@@ -492,7 +492,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">面無表情</annotation>
 		<annotation cp="😶">沉默 | 表情</annotation>
 		<annotation cp="😶" type="tts">沉默</annotation>
-		<annotation cp="😶‍🌫">一臉霧水</annotation>
+		<annotation cp="😶‍🌫">一臉霧水 | 茫茫然</annotation>
 		<annotation cp="😶‍🌫" type="tts">茫茫然</annotation>
 		<annotation cp="😏">假笑 | 冷笑</annotation>
 		<annotation cp="😏" type="tts">冷笑</annotation>
@@ -534,7 +534,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">頭昏眼花</annotation>
 		<annotation cp="😵">表情 | 頭暈目眩</annotation>
 		<annotation cp="😵" type="tts">頭暈目眩</annotation>
-		<annotation cp="😵‍💫">催眠 | 呃 | 暈 | 煩惱 | 眩暈</annotation>
+		<annotation cp="😵‍💫">催眠 | 呃 | 暈 | 煩惱 | 目眩頭暈 | 眩暈</annotation>
 		<annotation cp="😵‍💫" type="tts">目眩頭暈</annotation>
 		<annotation cp="🤯">一個頭兩個大 | 驚嚇</annotation>
 		<annotation cp="🤯" type="tts">一個頭兩個大</annotation>
@@ -560,7 +560,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">不滿意</annotation>
 		<annotation cp="😮">啊 | 驚訝</annotation>
 		<annotation cp="😮" type="tts">驚訝</annotation>
-		<annotation cp="😮‍💨">倒抽一口氣 | 呻吟</annotation>
+		<annotation cp="😮‍💨">倒抽一口氣 | 呻吟 | 鬆一口氣</annotation>
 		<annotation cp="😮‍💨" type="tts">鬆一口氣</annotation>
 		<annotation cp="😯">哦 | 驚訝</annotation>
 		<annotation cp="😯" type="tts">哦</annotation>
@@ -682,9 +682,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">心碎</annotation>
 		<annotation cp="❤">心型 | 愛心</annotation>
 		<annotation cp="❤" type="tts">愛心</annotation>
-		<annotation cp="❤‍🔥">奉獻 | 心型 | 愛 | 慾望</annotation>
+		<annotation cp="❤‍🔥">奉獻 | 心型 | 愛 | 慾望 | 火熱的心</annotation>
 		<annotation cp="❤‍🔥" type="tts">火熱的心</annotation>
-		<annotation cp="❤‍🩹">健康 | 恢復 | 療傷</annotation>
+		<annotation cp="❤‍🩹">健康 | 恢復 | 療傷 | 療心</annotation>
 		<annotation cp="❤‍🩹" type="tts">療心</annotation>
 		<annotation cp="🧡">心型 | 橘心</annotation>
 		<annotation cp="🧡" type="tts">橘心</annotation>
@@ -2046,7 +2046,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚌" type="tts">公車</annotation>
 		<annotation cp="🚍">公共汽車 | 公車</annotation>
 		<annotation cp="🚍" type="tts">公共汽車</annotation>
-		<annotation cp="🚎">公車 | 電動巴士</annotation>
+		<annotation cp="🚎">公車 | 無軌電車 | 電動巴士</annotation>
 		<annotation cp="🚎" type="tts">無軌電車</annotation>
 		<annotation cp="🚐">小型巴士</annotation>
 		<annotation cp="🚐" type="tts">小型巴士</annotation>
@@ -2866,7 +2866,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">匕首</annotation>
 		<annotation cp="⚔">劍</annotation>
 		<annotation cp="⚔" type="tts">劍</annotation>
-		<annotation cp="🔫">手槍 | 槍</annotation>
+		<annotation cp="🔫">手槍 | 槍 | 水槍</annotation>
 		<annotation cp="🔫" type="tts">水槍</annotation>
 		<annotation cp="🪃">回飛棒 | 澳洲 | 迴力鏢 | 迴旋 | 迴旋鏢</annotation>
 		<annotation cp="🪃" type="tts">迴力鏢</annotation>
@@ -3186,13 +3186,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♂" type="tts">男</annotation>
 		<annotation cp="⚧">變性 | 變性符號</annotation>
 		<annotation cp="⚧" type="tts">變性符號</annotation>
-		<annotation cp="✖">× | x | 乘法 | 乘法號 | 乘號 | 取消 | 符號</annotation>
+		<annotation cp="✖">× | x | 乘 | 乘法 | 乘法號 | 乘號 | 取消 | 符號</annotation>
 		<annotation cp="✖" type="tts">乘</annotation>
 		<annotation cp="➕">+ | 加 | 加號 | 數學 | 符號</annotation>
 		<annotation cp="➕" type="tts">加</annotation>
 		<annotation cp="➖">- | − | 數學 | 減 | 減號 | 符號</annotation>
 		<annotation cp="➖" type="tts">減</annotation>
-		<annotation cp="➗">÷ | 數學 | 符號 | 除法 | 除號</annotation>
+		<annotation cp="➗">÷ | 數學 | 符號 | 除 | 除法 | 除號</annotation>
 		<annotation cp="➗" type="tts">除</annotation>
 		<annotation cp="♾">全體 | 永遠 | 無限 | 無限大</annotation>
 		<annotation cp="♾" type="tts">無限大</annotation>
@@ -3200,13 +3200,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‼" type="tts">雙驚嘆號</annotation>
 		<annotation cp="⁉">標點 | 驚嘆號加問號</annotation>
 		<annotation cp="⁉" type="tts">驚嘆號加問號</annotation>
-		<annotation cp="❓">問號 | 標點</annotation>
+		<annotation cp="❓">問號 | 標點 | 紅色問號</annotation>
 		<annotation cp="❓" type="tts">紅色問號</annotation>
 		<annotation cp="❔">標點 | 白色問號</annotation>
 		<annotation cp="❔" type="tts">白色問號</annotation>
 		<annotation cp="❕">標點 | 白色驚嘆號</annotation>
 		<annotation cp="❕" type="tts">白色驚嘆號</annotation>
-		<annotation cp="❗">標點 | 驚嘆號</annotation>
+		<annotation cp="❗">標點 | 紅色驚嘆號 | 驚嘆號</annotation>
 		<annotation cp="❗" type="tts">紅色驚嘆號</annotation>
 		<annotation cp="〰">標點 | 波浪線</annotation>
 		<annotation cp="〰" type="tts">波浪線</annotation>
@@ -3428,11 +3428,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¥" type="tts">日幣符號</annotation>
 		<annotation cp="₥">密爾</annotation>
 		<annotation cp="₥" type="tts">密爾</annotation>
-		<annotation cp="₩">韓圓</annotation>
+		<annotation cp="₩">韓元 | 韓圓</annotation>
 		<annotation cp="₩" type="tts">韓元</annotation>
 		<annotation cp="€">歐元 | 歐元符號 | 歐洲 | 貨幣</annotation>
 		<annotation cp="€" type="tts">歐元符號</annotation>
-		<annotation cp="₱">披索</annotation>
+		<annotation cp="₱">披索 | 比索</annotation>
 		<annotation cp="₱" type="tts">比索</annotation>
 		<annotation cp="₹">印度盧比 | 盧比 | 貨幣</annotation>
 		<annotation cp="₹" type="tts">印度盧比</annotation>

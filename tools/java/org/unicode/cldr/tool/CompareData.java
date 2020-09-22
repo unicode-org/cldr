@@ -11,6 +11,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PrettyPath;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -51,9 +52,9 @@ public class CompareData {
         try {
             UOption.parseArgs(args, options);
             String sourceDir = options[SOURCEDIR].value + "common/main/";
-            System.out.println(new File(sourceDir).getCanonicalPath());
+            System.out.println(PathUtilities.getNormalizedPathString(sourceDir));
             String compareDir = options[DESTDIR].value + "common/main/";
-            System.out.println(new File(compareDir).getCanonicalPath());
+            System.out.println(PathUtilities.getNormalizedPathString(compareDir));
 
             cldrFactory = Factory.make(sourceDir, options[MATCH].value);
             Factory oldFactory = Factory.make(compareDir, options[MATCH].value);

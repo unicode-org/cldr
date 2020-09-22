@@ -12,7 +12,7 @@ public class LocaleMatcherShim {
     static final SupplementalDataInfo INFO = CONFIG.getSupplementalDataInfo();
     static final LanguageMatcherData LANGUAGE_MATCHER_DATA = new LanguageMatcherData();
     static {
-        for (R4<String, String, Integer, Boolean> foo : INFO.getLanguageMatcherData("written")) {
+        for (R4<String, String, Integer, Boolean> foo : INFO.getLanguageMatcherData("written_new")) {
             LANGUAGE_MATCHER_DATA.addDistance(foo.get0(), foo.get1(), foo.get2(), foo.get3());
         }
         LANGUAGE_MATCHER_DATA.freeze();

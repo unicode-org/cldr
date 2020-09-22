@@ -11,9 +11,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="mai"/>
 	</identity>
 	<annotations>
+		<annotation cp="‾">ऊपरी रेखा</annotation>
 		<annotation cp="‾" type="tts">ऊपरी रेखा</annotation>
+		<annotation cp="¬">नकार</annotation>
 		<annotation cp="¬" type="tts">नकार</annotation>
+		<annotation cp="|">ऊर्ध्वाधर रेखा</annotation>
 		<annotation cp="|" type="tts">ऊर्ध्वाधर रेखा</annotation>
+		<annotation cp="~">समरुप</annotation>
 		<annotation cp="~" type="tts">समरुप</annotation>
 	</annotations>
 </ldml>

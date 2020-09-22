@@ -4705,12 +4705,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="10000000" count="other">00 millóns</pattern>
 					<pattern type="100000000" count="one">000 millóns</pattern>
 					<pattern type="100000000" count="other">000 millóns</pattern>
-					<pattern type="1000000000" count="one">0</pattern>
-					<pattern type="1000000000" count="other">0</pattern>
-					<pattern type="10000000000" count="one">0</pattern>
-					<pattern type="10000000000" count="other">0</pattern>
-					<pattern type="100000000000" count="one">0</pattern>
-					<pattern type="100000000000" count="other">0</pattern>
+					<pattern type="1000000000" count="one">0000 millóns</pattern>
+					<pattern type="1000000000" count="other">0000 millóns</pattern>
+					<pattern type="10000000000" count="one">00000 millóns</pattern>
+					<pattern type="10000000000" count="other">00000 millóns</pattern>
+					<pattern type="100000000000" count="one">000000 millóns</pattern>
+					<pattern type="100000000000" count="other">000000 millóns</pattern>
 					<pattern type="1000000000000" count="one">0 billón</pattern>
 					<pattern type="1000000000000" count="other">0 billóns</pattern>
 					<pattern type="10000000000000" count="one">00 billóns</pattern>
@@ -4733,12 +4733,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="10000000" count="other">00 M</pattern>
 					<pattern type="100000000" count="one">000 M</pattern>
 					<pattern type="100000000" count="other">000 M</pattern>
-					<pattern type="1000000000" count="one">0</pattern>
-					<pattern type="1000000000" count="other">0</pattern>
-					<pattern type="10000000000" count="one">0</pattern>
-					<pattern type="10000000000" count="other">0</pattern>
-					<pattern type="100000000000" count="one">0</pattern>
-					<pattern type="100000000000" count="other">0</pattern>
+					<pattern type="1000000000" count="one">0000 M</pattern>
+					<pattern type="1000000000" count="other">0000 M</pattern>
+					<pattern type="10000000000" count="one">00000 M</pattern>
+					<pattern type="10000000000" count="other">00000 M</pattern>
+					<pattern type="100000000000" count="one">000000 M</pattern>
+					<pattern type="100000000000" count="other">000000 M</pattern>
 					<pattern type="1000000000000" count="one">0 B</pattern>
 					<pattern type="1000000000000" count="other">0 B</pattern>
 					<pattern type="10000000000000" count="one">00 B</pattern>
@@ -4773,24 +4773,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">0 ¤</pattern>
-					<pattern type="1000" count="other">0 ¤</pattern>
-					<pattern type="10000" count="one">0 ¤</pattern>
-					<pattern type="10000" count="other">0 ¤</pattern>
-					<pattern type="100000" count="one">0 ¤</pattern>
-					<pattern type="100000" count="other">0 ¤</pattern>
+					<pattern type="1000" count="one">0</pattern>
+					<pattern type="1000" count="other">0</pattern>
+					<pattern type="10000" count="one">0</pattern>
+					<pattern type="10000" count="other">0</pattern>
+					<pattern type="100000" count="one">0</pattern>
+					<pattern type="100000" count="other">0</pattern>
 					<pattern type="1000000" count="one">0 M¤</pattern>
 					<pattern type="1000000" count="other">0 M¤</pattern>
 					<pattern type="10000000" count="one">00 M¤</pattern>
 					<pattern type="10000000" count="other">00 M¤</pattern>
 					<pattern type="100000000" count="one">000 M¤</pattern>
 					<pattern type="100000000" count="other">000 M¤</pattern>
-					<pattern type="1000000000" count="one">0 ¤</pattern>
-					<pattern type="1000000000" count="other">0 ¤</pattern>
-					<pattern type="10000000000" count="one">0 ¤</pattern>
-					<pattern type="10000000000" count="other">0 ¤</pattern>
-					<pattern type="100000000000" count="one">0 ¤</pattern>
-					<pattern type="100000000000" count="other">0 ¤</pattern>
+					<pattern type="1000000000" count="one">0000 M¤</pattern>
+					<pattern type="1000000000" count="other">0000 M¤</pattern>
+					<pattern type="10000000000" count="one">00000 M¤</pattern>
+					<pattern type="10000000000" count="other">00000 M¤</pattern>
+					<pattern type="100000000000" count="one">00000 M¤</pattern>
+					<pattern type="100000000000" count="other">00000 M¤</pattern>
 					<pattern type="1000000000000" count="one">0 B¤</pattern>
 					<pattern type="1000000000000" count="other">0 B¤</pattern>
 					<pattern type="10000000000000" count="one">00 B¤</pattern>

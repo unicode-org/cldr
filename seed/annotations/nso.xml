@@ -1,0 +1,2541 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2020 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="nso"/>
+	</identity>
+	<annotations>
+		<annotation cp="🏻">go tlola letlalo | mohuta 1–2</annotation>
+		<annotation cp="🏻" type="tts">mmala wa letlalo wa go taga</annotation>
+		<annotation cp="🏼">mmala wa letlalo | mohuta 3</annotation>
+		<annotation cp="🏼" type="tts">mmala wa letlalo wa go taga wa magareng</annotation>
+		<annotation cp="🏽">mmala wa letlalo | mohuta 4</annotation>
+		<annotation cp="🏽" type="tts">mmala wa letlalo wa magareng</annotation>
+		<annotation cp="🏾">mmala wa letlalo | mohuta 5</annotation>
+		<annotation cp="🏾" type="tts">mmala wa letlalo wo moswana wa magareng</annotation>
+		<annotation cp="🏿">mmala wa letlalo | mohuta 6</annotation>
+		<annotation cp="🏿" type="tts">mmala wa letlalo wo moswana</annotation>
+		<annotation cp="😀">myemyela | sefahlego</annotation>
+		<annotation cp="😀" type="tts">sefahlego se myemyelago kudu</annotation>
+		<annotation cp="😃">bula | molomo | myemyela | sefahlego</annotation>
+		<annotation cp="😃" type="tts">sefahlego se myemyelago le molomo o bulegilego</annotation>
+		<annotation cp="😄">bula | leihlo | molomo | myemyela | sefahlego</annotation>
+		<annotation cp="😄" type="tts">sefahlego seo se myemyelago seo se butšego molomo le sefahlego se myemyelago</annotation>
+		<annotation cp="😁">leihlo | momyemyelo | sefahlego | šinyalala</annotation>
+		<annotation cp="😁" type="tts">sefahlego se šinyalalago le sefahlego se myemyelago</annotation>
+		<annotation cp="😆">bula | kgotsofalo | molomo | myemyela | sefahlego | sega</annotation>
+		<annotation cp="😆" type="tts">sefahlego seo se myemyelago sa molomo wa go bulega le mahlo a tswaletšwego</annotation>
+		<annotation cp="😅">bula | kudumela | myemyela | sefahlego | tonya</annotation>
+		<annotation cp="😅" type="tts">sefahlego seo se myemyelago se butše molomo le kudumela e tonyago</annotation>
+		<annotation cp="🤣">fase | kgokologa | sefahlego | sega</annotation>
+		<annotation cp="🤣" type="tts">go sega o rapaletše fase</annotation>
+		<annotation cp="😂">lethabo | mogokgo | sefahlego | sesego</annotation>
+		<annotation cp="😂" type="tts">sefahlego sa megokgo ya lethabo</annotation>
+		<annotation cp="🙂">myemyela | sefahlego</annotation>
+		<annotation cp="🙂" type="tts">sefahlego se myemyelago ganyenyane</annotation>
+		<annotation cp="🙃">lebeletše fase | sefahlego</annotation>
+		<annotation cp="🙃" type="tts">sefahlego se lebeletšego fase</annotation>
+		<annotation cp="😉">ponya leihlo | sefahlego</annotation>
+		<annotation cp="😉" type="tts">sefahlego se ponyago letee</annotation>
+		<annotation cp="😊">bonya | leihlo | myemyela | sefahlego</annotation>
+		<annotation cp="😊" type="tts">sefahlego le mahlo a myemyelago</annotation>
+		<annotation cp="😇">boithabišo | go hloka molato | halo | kgalefo | myemyela | nonwane | sefahlego</annotation>
+		<annotation cp="😇" type="tts">sefahlego se myemyelago le halo</annotation>
+		<annotation cp="😍">leihlo | lerato | myemyela | sefahlego</annotation>
+		<annotation cp="😍" type="tts">sefahlego se myemyelago le mahlwana a pellwana</annotation>
+		<annotation cp="🤩">mahlo | myemyela | naledi | sefahlego</annotation>
+		<annotation cp="🤩" type="tts">go wa ga naledi</annotation>
+		<annotation cp="😘">atla | sefahlego</annotation>
+		<annotation cp="😘" type="tts">katlo ye butšwetšago moya</annotation>
+		<annotation cp="😗">atla | sefahlego</annotation>
+		<annotation cp="😗" type="tts">sefahlego sa go atlana</annotation>
+		<annotation cp="☺">iketla | ipeilego | myemyela | sefahlego</annotation>
+		<annotation cp="☺" type="tts">sefahlego se myemyelago</annotation>
+		<annotation cp="😚">atlana | leihlo | sefahlego | tswalela</annotation>
+		<annotation cp="😚" type="tts">sefahlego sa go atlana le go tswalela mahlo</annotation>
+		<annotation cp="😙">atlana | leihlo | myemyela | sefahlego</annotation>
+		<annotation cp="😙" type="tts">sefahlego sa go atlana le go myemyela</annotation>
+		<annotation cp="😋">bose | myemyela | rothiša | sefahlego | um | yum</annotation>
+		<annotation cp="😋" type="tts">sefahlego se fanago ka dijo tše rothišago mare</annotation>
+		<annotation cp="😛">leleme | sefahlego</annotation>
+		<annotation cp="😛" type="tts">sefahlego sa lelengwana</annotation>
+		<annotation cp="😜">leihlo | leihlwana | leleme | motlae | sefahlego</annotation>
+		<annotation cp="😜" type="tts">sefahlego seo se ntšhitšego leleme le go ponya leihlo</annotation>
+		<annotation cp="🤪">kgolo | leihlo | nyenyane</annotation>
+		<annotation cp="🤪" type="tts">sefahlego sa bogaswi</annotation>
+		<annotation cp="😝">befile | leihlo | leleme | sefahlego | tatso</annotation>
+		<annotation cp="😝" type="tts">sefahlego sa go ntšha leleme le mahlo a tswalegilego</annotation>
+		<annotation cp="🤑">molomo | sefahlego | tšhelete</annotation>
+		<annotation cp="🤑" type="tts">sefahlego sa tšhelete molomong</annotation>
+		<annotation cp="🤗">go gokarela | gokarela | sefahlego</annotation>
+		<annotation cp="🤗" type="tts">sefahlego se gokarelanago</annotation>
+		<annotation cp="🤭">mmalo</annotation>
+		<annotation cp="🤭" type="tts">sefahlego se nago le seatla molomong</annotation>
+		<annotation cp="🤫">homola | setu</annotation>
+		<annotation cp="🤫" type="tts">sefahlego sa gore homola</annotation>
+		<annotation cp="🤔">nagana | sefahlego</annotation>
+		<annotation cp="🤔" type="tts">sefahlego se naganago</annotation>
+		<annotation cp="🤐">molomo | sefahlego | tswalela</annotation>
+		<annotation cp="🤐" type="tts">sefahlego sa molomo o tswalegilego</annotation>
+		<annotation cp="🤨">pelaelo | šitišwa</annotation>
+		<annotation cp="🤨" type="tts">sefahlego se emišitšego dintši</annotation>
+		<annotation cp="😐">go hwa | magareng | sefahlego</annotation>
+		<annotation cp="😐" type="tts">sefahlego sa magareng</annotation>
+		<annotation cp="😑">go hloka maikwelo | sa go se bolele | se sa bolelego | sefahlego</annotation>
+		<annotation cp="😑" type="tts">sefahlego sa go hloka maikwelo</annotation>
+		<annotation cp="😶">homola | molomo | sefahlego | setu</annotation>
+		<annotation cp="😶" type="tts">sefahlego sa go hloka molomo</annotation>
+		<annotation cp="😏">sefahlego | sega</annotation>
+		<annotation cp="😏" type="tts">go myemyela mo go sa kgahlišego</annotation>
+		<annotation cp="😒">go se kgotsofale | go se thabe | sefahlego</annotation>
+		<annotation cp="😒" type="tts">sefahlego sa go se kgotsofale</annotation>
+		<annotation cp="🙄">go dikologa | mahlo | sefahlego</annotation>
+		<annotation cp="🙄" type="tts">sefahlego sa mahlo a go dikologa</annotation>
+		<annotation cp="😬">myemyela | sefahlego</annotation>
+		<annotation cp="😬" type="tts">sefahlego se tšintšego</annotation>
+		<annotation cp="🤥">maaka | sefahlego | sefahlego sa maaka</annotation>
+		<annotation cp="🤥" type="tts">sefahlego se bolelago maaka</annotation>
+		<annotation cp="😌">imologa | sefahlego</annotation>
+		<annotation cp="😌" type="tts">sefahlego se imologilego</annotation>
+		<annotation cp="😔">gannwe | lapa | sefahlego</annotation>
+		<annotation cp="😔" type="tts">sefahlego se lapišitšwego ke bophelo</annotation>
+		<annotation cp="😪">robala | sefahlego</annotation>
+		<annotation cp="😪" type="tts">sefahlego sa boroko</annotation>
+		<annotation cp="🤤">ditete | sefahlego</annotation>
+		<annotation cp="🤤" type="tts">sefahlego sa ditete</annotation>
+		<annotation cp="😴">robala | sefahlego | zzz</annotation>
+		<annotation cp="😴" type="tts">sefahlego se robetšego</annotation>
+		<annotation cp="😷">babja | maseke | ngaka | sefahlego | sehlare | tonya</annotation>
+		<annotation cp="😷" type="tts">sefahlego se aperego tša bongaka</annotation>
+		<annotation cp="🤒">bolwetši | lwala | sefahlego | themometara</annotation>
+		<annotation cp="🤒" type="tts">Sefahlego se nago le themometara</annotation>
+		<annotation cp="🤕">gobala | kgobalo | sefahlego</annotation>
+		<annotation cp="🤕" type="tts">sefahlego sa pantetšhe ya hlogong</annotation>
+		<annotation cp="🤢">belekega | go hlatša | sefahlego</annotation>
+		<annotation cp="🤢" type="tts">sefahlego se belekegago</annotation>
+		<annotation cp="🤮">hlatša | lwala</annotation>
+		<annotation cp="🤮" type="tts">sefahlego se hlatšago</annotation>
+		<annotation cp="🤧">go ithimola | mahlatse | sefahlego</annotation>
+		<annotation cp="🤧" type="tts">sefahlego se ithimolago</annotation>
+		<annotation cp="😵">dikologago | sefahlego</annotation>
+		<annotation cp="😵" type="tts">sefahlego se dikologago</annotation>
+		<annotation cp="🤯">maketše</annotation>
+		<annotation cp="🤯" type="tts">hlogo e thunyago</annotation>
+		<annotation cp="🤠">kefa | lekhaopoye | mosadi ka kefa | seatla</annotation>
+		<annotation cp="🤠" type="tts">sefahlego sa kefa ya lekhaopoye</annotation>
+		<annotation cp="😎">digalase | digalasetšatši | go apara mahlong | leihlo | letšatši | myemyela | phadima | sefahlego | tonya</annotation>
+		<annotation cp="😎" type="tts">sefahlego se myemyelago ka digalasetšatši</annotation>
+		<annotation cp="🤓">dipaketsane | paketsane | sefahlego</annotation>
+		<annotation cp="🤓" type="tts">sefahlego sa dipaketsane</annotation>
+		<annotation cp="🧐">pitlagane</annotation>
+		<annotation cp="🧐" type="tts">sefahlego sa metlae</annotation>
+		<annotation cp="😕">gakanega | sefahlego</annotation>
+		<annotation cp="😕" type="tts">sefahlego se gakanegilego</annotation>
+		<annotation cp="😟">makalo | sefahlego</annotation>
+		<annotation cp="😟" type="tts">sefahlego se tshwenyegilego</annotation>
+		<annotation cp="🙁">sefahlego | šošobane</annotation>
+		<annotation cp="🙁" type="tts">sefahlego sa go se dumele go se nene</annotation>
+		<annotation cp="☹">sefahlego | šošobane</annotation>
+		<annotation cp="☹" type="tts">sefahlego se se šošobanego</annotation>
+		<annotation cp="😮">bula | kwelobohloko | molomo | sefahlego</annotation>
+		<annotation cp="😮" type="tts">sefahlego sa molomo o bulegilego</annotation>
+		<annotation cp="😯">go makala | homola | maketše | sefahlego</annotation>
+		<annotation cp="😯" type="tts">sefahlego se homotšego</annotation>
+		<annotation cp="😲">kudu | makala | makalo | sefahlego</annotation>
+		<annotation cp="😲" type="tts">sefahlego se maketšego</annotation>
+		<annotation cp="😳">dikologa | sefahlego | thaba</annotation>
+		<annotation cp="😳" type="tts">sefahlego se thabilego kudu</annotation>
+		<annotation cp="😦">befa | bula | molomo | sefahlego</annotation>
+		<annotation cp="😦" type="tts">sefahlego sa go se dumele le molomo o bulegilego</annotation>
+		<annotation cp="😧">bohloko | sefahlego</annotation>
+		<annotation cp="😧" type="tts">sefahlego se kwago bohloko</annotation>
+		<annotation cp="😨">boifa | poifo | sefahlego | tšhoga</annotation>
+		<annotation cp="😨" type="tts">sefahlego se boifago</annotation>
+		<annotation cp="😰">bula | kitima | kudumela | molomo | sefahlego | tala | tonya</annotation>
+		<annotation cp="😰" type="tts">sefahlego sa molomo o bulegilego le kudumela e tonyago</annotation>
+		<annotation cp="😥">go lokologa | go nyama | makalo | sefahlego</annotation>
+		<annotation cp="😥" type="tts">sefahlego se nyamilego sa go imologa</annotation>
+		<annotation cp="😢">lla | mogokgo | nyama | sefahlego</annotation>
+		<annotation cp="😢" type="tts">sefahlego se llago</annotation>
+		<annotation cp="😭">lla | mogokgo | nyama | sefahlego</annotation>
+		<annotation cp="😭" type="tts">sefahlego se llelago godimo</annotation>
+		<annotation cp="😱">boifa | goeletša | hudupana | poifo | sefahlego | tšhoga</annotation>
+		<annotation cp="😱" type="tts">sefahlego se goeletšago ka poifo</annotation>
+		<annotation cp="😖">sefahlego | tenegile</annotation>
+		<annotation cp="😖" type="tts">sefahlego se tenegilego</annotation>
+		<annotation cp="😣">kgotlelela | sefahlego</annotation>
+		<annotation cp="😣" type="tts">sefahlego sa go kgotlelela</annotation>
+		<annotation cp="😞">nyama | sefahlego</annotation>
+		<annotation cp="😞" type="tts">sefahlego se se nyamilego</annotation>
+		<annotation cp="😓">kudumela | sefahlego | tonya</annotation>
+		<annotation cp="😓" type="tts">sefahlego sa kudumela e tonyago</annotation>
+		<annotation cp="😩">imelwa | lapa | sefahlego</annotation>
+		<annotation cp="😩" type="tts">sefahlego se imelwago</annotation>
+		<annotation cp="😫">lapa | sefahlego</annotation>
+		<annotation cp="😫" type="tts">sefahlego se lapilego</annotation>
+		<annotation cp="😤">fenya | sefahlego | thopa</annotation>
+		<annotation cp="😤" type="tts">sefahlego sa go tupa muši nkong</annotation>
+		<annotation cp="😡">bohubedu | galefa | kgalefo | kwata | sefahlego | tsupola</annotation>
+		<annotation cp="😡" type="tts">sefahlego se ipopilego molomo</annotation>
+		<annotation cp="😠">gafa | kgalefo | sefahlego</annotation>
+		<annotation cp="😠" type="tts">sefahlego se galefilego</annotation>
+		<annotation cp="🤬">go rogana</annotation>
+		<annotation cp="🤬" type="tts">sefahlego se nago le maswao kgauswi le molomo</annotation>
+		<annotation cp="😈">kgopolo | manaka | myemyela | nonwane | sefahlego</annotation>
+		<annotation cp="😈" type="tts">sefahlego sa manaka se myemyelago</annotation>
+		<annotation cp="👿">imp | kgopolo | letemone | nonwane | sathane | sefahlego</annotation>
+		<annotation cp="👿" type="tts">sefahlego sa manaka se galefilego</annotation>
+		<annotation cp="💀">kgopolo | lehu | nonwane | sefahlego</annotation>
+		<annotation cp="💀" type="tts">marapo a hlogo</annotation>
+		<annotation cp="☠">kgokgo | lehu | marapo | sefahlego | sepoko</annotation>
+		<annotation cp="☠" type="tts">marapo a hlogo le marapo a putlaganego</annotation>
+		<annotation cp="💩">go kaka | makaka | motlae | sefahlego | sephedi | taga</annotation>
+		<annotation cp="💩" type="tts">mokgobo wa makaka</annotation>
+		<annotation cp="🤡">rametlae | sefahlego</annotation>
+		<annotation cp="🤡" type="tts">sefahlego sa rametlae</annotation>
+		<annotation cp="👹">kgokgo | kgopolo | nonwane | phoofolo | sefahlego</annotation>
+		<annotation cp="👹" type="tts">okere</annotation>
+		<annotation cp="👺">kgokgo | kgopolo | nonwane | phoofolo | sefahlego</annotation>
+		<annotation cp="👺" type="tts">kobline</annotation>
+		<annotation cp="👻">kgokgo | kgopolo | nonwane | phoofolo | sefahlego</annotation>
+		<annotation cp="👻" type="tts">sepoko</annotation>
+		<annotation cp="👽">e sa tlwaelegago | kgopolo | nonwane | sebopiwa | sefahlego | sepoko | ufo</annotation>
+		<annotation cp="👽" type="tts">motšwantle</annotation>
+		<annotation cp="👾">e sa tlwaelegago | kgole | kgopolo | nonwane | sebopiwa | sefahlego | sepoko | ufo</annotation>
+		<annotation cp="👾" type="tts">sephedi sa motšwantle</annotation>
+		<annotation cp="🤖">roboto | sefahlego | sephidi</annotation>
+		<annotation cp="🤖" type="tts">sefahlego sa roboto</annotation>
+		<annotation cp="😺">bula | katse | molomo | myemyela | sefahlego</annotation>
+		<annotation cp="😺" type="tts">sefahlego se myemyelago sa katse se butšego molomo</annotation>
+		<annotation cp="😸">katse | leihlo | myemyela | sefahlego | thaba</annotation>
+		<annotation cp="😸" type="tts">sefahlego sa katse se myemyelago kudu le mahlong</annotation>
+		<annotation cp="😹">katse | lethabo | mogokgo | sefahlego</annotation>
+		<annotation cp="😹" type="tts">sefahlego sa katse sa mekgokgo ya lethabo</annotation>
+		<annotation cp="😻">leihlo | lerato | myemyela | sefahlego</annotation>
+		<annotation cp="😻" type="tts">sefahlego sa katse se myemyelago le mahlo a lerato</annotation>
+		<annotation cp="😼">katse | kwera | myemyela | sefahlego | tenega</annotation>
+		<annotation cp="😼" type="tts">sefahlego sa katse se tenegilego</annotation>
+		<annotation cp="😽">atlana | katse | leihlo | sefahlego</annotation>
+		<annotation cp="😽" type="tts">sefahlego sa katse sa go atlana se tswaletše mahlo</annotation>
+		<annotation cp="🙀">ijo | imelwa | katse | makala | sefahlego</annotation>
+		<annotation cp="🙀" type="tts">sefahlego se imetšwego sa katse</annotation>
+		<annotation cp="😿">katse | lla | mogokgo | nyama | sefahlego</annotation>
+		<annotation cp="😿" type="tts">sefahlego sa katse se se llago</annotation>
+		<annotation cp="😾">ipopile | katse | molomo</annotation>
+		<annotation cp="😾" type="tts">katse e ipopilego molomo</annotation>
+		<annotation cp="🙈">aowa | bobe | bona | e sego | ganetšwa | sefahlego | šupetša | thibelwa | tšhwene</annotation>
+		<annotation cp="🙈" type="tts">kgabo ya go se bone bobe</annotation>
+		<annotation cp="🙉">aowa | bobe | e sego | ekwa | ganetšwa | sefahlego | šupetša | thibelwa | tšhwene</annotation>
+		<annotation cp="🙉" type="tts">kgabo ya go se kwe bobe</annotation>
+		<annotation cp="🙊">aowa | bobe | e sego | ekwa | ganetšwa | sefahlego | šupetša | thibelwa | tšhwene</annotation>
+		<annotation cp="🙊" type="tts">kgabo ya go se bolele bobe</annotation>
+		<annotation cp="💋">atlana | melomo</annotation>
+		<annotation cp="💋" type="tts">leswao la tladimolongwana</annotation>
+		<annotation cp="💌">lengwalo | lerato | molaetša | pelo</annotation>
+		<annotation cp="💌" type="tts">lengwalo la lerato</annotation>
+		<annotation cp="💘">khutlonne | lerungwana</annotation>
+		<annotation cp="💘" type="tts">pelo le lerungwana</annotation>
+		<annotation cp="💝">balenthaene | ribone</annotation>
+		<annotation cp="💝" type="tts">pelo ya ribone</annotation>
+		<annotation cp="💖">benyabenya | thabile</annotation>
+		<annotation cp="💖" type="tts">pelo e benyabenyago</annotation>
+		<annotation cp="💗">betha | gola | thaba | tšhoga</annotation>
+		<annotation cp="💗" type="tts">pelo e golago</annotation>
+		<annotation cp="💓">betha | go pompa ga pelo | pompa</annotation>
+		<annotation cp="💓" type="tts">pelo e bethago</annotation>
+		<annotation cp="💞">dikologa</annotation>
+		<annotation cp="💞" type="tts">dipelo tše dikologago</annotation>
+		<annotation cp="💕">lerato</annotation>
+		<annotation cp="💕" type="tts">dipelo tše pedi</annotation>
+		<annotation cp="💟">pelo</annotation>
+		<annotation cp="💟" type="tts">pelo e kgabišitšwego</annotation>
+		<annotation cp="❣">kgatholo | leswao | makalo</annotation>
+		<annotation cp="❣" type="tts">go makala ga pelo e kgolo</annotation>
+		<annotation cp="💔">pelo | roba</annotation>
+		<annotation cp="💔" type="tts">pelo e robegilego</annotation>
+		<annotation cp="❤">pelo</annotation>
+		<annotation cp="❤" type="tts">pelo e khubedu</annotation>
+		<annotation cp="🧡">mmala wa namune</annotation>
+		<annotation cp="🧡" type="tts">pelo ya mmala wa namune</annotation>
+		<annotation cp="💛">serolwana</annotation>
+		<annotation cp="💛" type="tts">pelo e serolwana</annotation>
+		<annotation cp="💚">talamorogo</annotation>
+		<annotation cp="💚" type="tts">pelo e talamorogo</annotation>
+		<annotation cp="💙">talalegodimo</annotation>
+		<annotation cp="💙" type="tts">pelo e talalegodimo</annotation>
+		<annotation cp="💜">phepholo</annotation>
+		<annotation cp="💜" type="tts">pelo e phepolo</annotation>
+		<annotation cp="🖤">bobe | bokgopo | boso</annotation>
+		<annotation cp="🖤" type="tts">pelo e ntsho</annotation>
+		<annotation cp="💯">100 | dintlha | lekgolo | tletše</annotation>
+		<annotation cp="💯" type="tts">dintlha tše lekgolo</annotation>
+		<annotation cp="💢">galefa | kwata | motlae</annotation>
+		<annotation cp="💢" type="tts">leswao la kgalefo</annotation>
+		<annotation cp="💥">kgolo | motlae</annotation>
+		<annotation cp="💥" type="tts">go thulana</annotation>
+		<annotation cp="💫">motlae | naletšana</annotation>
+		<annotation cp="💫" type="tts">Go dikologa</annotation>
+		<annotation cp="💦">kudumela | motlae | tšhologa</annotation>
+		<annotation cp="💦" type="tts">marothi a kudumela</annotation>
+		<annotation cp="💨">kitima | motlae | teše</annotation>
+		<annotation cp="💨" type="tts">go sepela</annotation>
+		<annotation cp="🕳">molete</annotation>
+		<annotation cp="🕳" type="tts">molete</annotation>
+		<annotation cp="💣">motlae</annotation>
+		<annotation cp="💣" type="tts">pomo</annotation>
+		<annotation cp="💬">dipolelo | motlae | pabole | palone | polelo</annotation>
+		<annotation cp="💬" type="tts">polelo ya ka paloneng</annotation>
+		<annotation cp="👁‍🗨">hlatse | leihlo | pudulapolelo</annotation>
+		<annotation cp="👁‍🗨" type="tts">leihlo ka gare ga pudulapolelo</annotation>
+		<annotation cp="🗨">poledišano | polelo</annotation>
+		<annotation cp="🗨" type="tts">podula ya polelo ka go le letshadi</annotation>
+		<annotation cp="🗯">galefa | kwata | palone | podula</annotation>
+		<annotation cp="🗯" type="tts">podula ya polelo ka go le letona</annotation>
+		<annotation cp="💭">kgopolo | motlae | palone | podula</annotation>
+		<annotation cp="💭" type="tts">paloni ya go nagana</annotation>
+		<annotation cp="💤">motlae | robala</annotation>
+		<annotation cp="💤" type="tts">zzz</annotation>
+		<annotation cp="👋">dumediša | dumela | seatla</annotation>
+		<annotation cp="👋" type="tts">letsogo le dumedišago</annotation>
+		<annotation cp="🤚">emišitšwe | seatla sa ka morago</annotation>
+		<annotation cp="🤚" type="tts">letsogo le emišeditšwego morago</annotation>
+		<annotation cp="🖐">aroganya | monwana | seatla</annotation>
+		<annotation cp="🖐" type="tts">go emiša letsogo o arogantše menwana</annotation>
+		<annotation cp="✋">seatla</annotation>
+		<annotation cp="✋" type="tts">letsogo le išitšwego godimo</annotation>
+		<annotation cp="🖖">emiša menwana e bulegile | monwana | seatla | vulcan</annotation>
+		<annotation cp="🖖" type="tts">go dumediša ga vulcan</annotation>
+		<annotation cp="👌">GO LOKILE | seatla</annotation>
+		<annotation cp="👌" type="tts">letsogo le le rego GO LOKILE</annotation>
+		<annotation cp="✌">seatla | thopa | v</annotation>
+		<annotation cp="✌" type="tts">seatla la go thopa</annotation>
+		<annotation cp="🤞">mahlatse | monwana | seatla | sefapano</annotation>
+		<annotation cp="🤞" type="tts">menwana e kopanego</annotation>
+		<annotation cp="🤟">ILY | seatla</annotation>
+		<annotation cp="🤟" type="tts">leswao la lerato</annotation>
+		<annotation cp="🤘">godimo | manaka | monwaana | seatla</annotation>
+		<annotation cp="🤘" type="tts">leswao la manaka</annotation>
+		<annotation cp="🤙">mogala | seatla</annotation>
+		<annotation cp="🤙" type="tts">seatla le bitšago</annotation>
+		<annotation cp="👈">gare | monwana | seatla | seatla ka morago | šupa</annotation>
+		<annotation cp="👈" type="tts">letsogo la ka morago le šupile ka go le letshadi</annotation>
+		<annotation cp="👉">gare | monwana | seatla | seatla ka morago | šupa</annotation>
+		<annotation cp="👉" type="tts">letsogo la ka morago le šupile ka go le letona</annotation>
+		<annotation cp="👆">gare | godimo | letsogo ka morago | monwana | seatla | šupa</annotation>
+		<annotation cp="👆" type="tts">letsogo la ka morago le šupile godimo</annotation>
+		<annotation cp="🖕">monwana | seatla</annotation>
+		<annotation cp="🖕" type="tts">monwana wa gare</annotation>
+		<annotation cp="👇">gare | monwana | seatla | seatla ka morago | šupa | tlase</annotation>
+		<annotation cp="👇" type="tts">letsogo la ka morago le šupile tlase</annotation>
+		<annotation cp="☝">gare | godimo | monwana | seatla | šupa</annotation>
+		<annotation cp="☝" type="tts">monwana wa bone o šupile godimo</annotation>
+		<annotation cp="👍">+1 | godimo | monwana o mokoto | seatla</annotation>
+		<annotation cp="👍" type="tts">monwana o mokoto godimo</annotation>
+		<annotation cp="👎">-1 | monwana o mogolo | seatla | tlase</annotation>
+		<annotation cp="👎" type="tts">monwana o mogolo tlase</annotation>
+		<annotation cp="✊">feise | huna | seatla</annotation>
+		<annotation cp="✊" type="tts">feise e išitšwego godimo</annotation>
+		<annotation cp="👊">feise | huna | seatla</annotation>
+		<annotation cp="👊" type="tts">feise e sa tlago</annotation>
+		<annotation cp="🤛">ka go le letshadi | letswele</annotation>
+		<annotation cp="🤛" type="tts">letswele le lebilego ka le letshadi</annotation>
+		<annotation cp="🤜">ka go le letona | letswele</annotation>
+		<annotation cp="🤜" type="tts">letswele le lebilego ka go le letona</annotation>
+		<annotation cp="👏">betha | seatla</annotation>
+		<annotation cp="👏" type="tts">go betha matsogo</annotation>
+		<annotation cp="🙌">emiša | mmalo | moketeko | seatla | šupa</annotation>
+		<annotation cp="🙌" type="tts">go emiša matsogo</annotation>
+		<annotation cp="👐">bula | seatla</annotation>
+		<annotation cp="👐" type="tts">matsogo a bulegilego</annotation>
+		<annotation cp="🤲">thapelo</annotation>
+		<annotation cp="🤲" type="tts">matsogo a ile godimo gotee</annotation>
+		<annotation cp="🤝">go šikinya seatla | seatla | seboka | šikinya | tumelelano</annotation>
+		<annotation cp="🤝" type="tts">tumedišo ka letsogo</annotation>
+		<annotation cp="🙏">inama | kgopelo | leboga | phuthwa | seatla | šupa | thapelo</annotation>
+		<annotation cp="🙏" type="tts">diatla tše phuthilwego</annotation>
+		<annotation cp="✍">ngwala | seatla</annotation>
+		<annotation cp="✍" type="tts">seatla le ngwalago</annotation>
+		<annotation cp="💅">botse | hlokomela | lenala | manala | pholeše</annotation>
+		<annotation cp="💅" type="tts">pholeše ya manala</annotation>
+		<annotation cp="🤳">go itšea senepe | khamera | mogala</annotation>
+		<annotation cp="🤳" type="tts">go itšea senepe</annotation>
+		<annotation cp="💪">dimpa | ekiša | lekalekana | mešifa</annotation>
+		<annotation cp="💪" type="tts">dimpana tša go itwaetša</annotation>
+		<annotation cp="👂">mmele</annotation>
+		<annotation cp="👂" type="tts">tsebe</annotation>
+		<annotation cp="👃">mmele</annotation>
+		<annotation cp="👃" type="tts">nko</annotation>
+		<annotation cp="🧠">bohlale</annotation>
+		<annotation cp="🧠" type="tts">monagano</annotation>
+		<annotation cp="👀">leihlo | sefahlego</annotation>
+		<annotation cp="👀" type="tts">mahlo</annotation>
+		<annotation cp="👁">mmele</annotation>
+		<annotation cp="👁" type="tts">leihlo</annotation>
+		<annotation cp="👅">mmele</annotation>
+		<annotation cp="👅" type="tts">leleme</annotation>
+		<annotation cp="👄">melomo</annotation>
+		<annotation cp="👄" type="tts">molomo</annotation>
+		<annotation cp="👶">lesea | monyenyane</annotation>
+		<annotation cp="👶" type="tts">lesea</annotation>
+		<annotation cp="🧒">bong bja magareng | nyenyanee</annotation>
+		<annotation cp="🧒" type="tts">ngwana</annotation>
+		<annotation cp="👦">mofsa | mošemane</annotation>
+		<annotation cp="👦" type="tts">mošemane</annotation>
+		<annotation cp="👧">Biko | bofsa | mosetsana | zodiake</annotation>
+		<annotation cp="👧" type="tts">mosetsana</annotation>
+		<annotation cp="🧑">bong bja magareng</annotation>
+		<annotation cp="🧑" type="tts">motho yo mogolo</annotation>
+		<annotation cp="👱">mesehla</annotation>
+		<annotation cp="👱" type="tts">motho wa meriri ye mesehla</annotation>
+		<annotation cp="👨">monna</annotation>
+		<annotation cp="👨" type="tts">monna</annotation>
+		<annotation cp="🧔">leledu</annotation>
+		<annotation cp="🧔" type="tts">motho ka maledu</annotation>
+		<annotation cp="👱‍♂">mesehla | monna</annotation>
+		<annotation cp="👱‍♂" type="tts">monna wa meriri ya mesehla</annotation>
+		<annotation cp="👩">mosadi</annotation>
+		<annotation cp="👩" type="tts">mosadi</annotation>
+		<annotation cp="👱‍♀">mesehla | mosadi</annotation>
+		<annotation cp="👱‍♀" type="tts">mosadi wa meriri ye mesehla</annotation>
+		<annotation cp="🧓">bong bja magareng | godile</annotation>
+		<annotation cp="🧓" type="tts">mokgalabje yo mogolo</annotation>
+		<annotation cp="👴">monna | motšofadi</annotation>
+		<annotation cp="👴" type="tts">mokgalabje</annotation>
+		<annotation cp="👵">mosadi | motšofadi</annotation>
+		<annotation cp="👵" type="tts">mokgekolo</annotation>
+		<annotation cp="🙍">go se dumele | poleloditho</annotation>
+		<annotation cp="🙍" type="tts">motho yo a sa dumelego ka ditho</annotation>
+		<annotation cp="🙍‍♂">go se dumele | monna | poleloditho</annotation>
+		<annotation cp="🙍‍♂" type="tts">monna yo a sa dumelego</annotation>
+		<annotation cp="🙍‍♀">boitšhišinyo | go se dumele | mosadi</annotation>
+		<annotation cp="🙍‍♀" type="tts">mosadi yo a sa dumelego ka ditho</annotation>
+		<annotation cp="🙎">go ipopa | go šupa</annotation>
+		<annotation cp="🙎" type="tts">motho yo a ipopilego molomo</annotation>
+		<annotation cp="🙎‍♂">go ipopa molomo | go šupa | monna</annotation>
+		<annotation cp="🙎‍♂" type="tts">monna yo a ipopilego molomo</annotation>
+		<annotation cp="🙎‍♀">go ipopa | go šupa | mosadi</annotation>
+		<annotation cp="🙎‍♀" type="tts">mosadi yo a ipopilego molomo</annotation>
+		<annotation cp="🙅">aowa | e sego | ganetša | kganetšwa | poleloditho | seatla</annotation>
+		<annotation cp="🙅" type="tts">motho o re AOWA ka ditho</annotation>
+		<annotation cp="🙅‍♂">aowa | go gana | go šupa | monna | seatla | thibelo</annotation>
+		<annotation cp="🙅‍♂" type="tts">monna o re AOWA ka ditho</annotation>
+		<annotation cp="🙅‍♀">aowa | go gana | go šupa | mosadi | seatla | thibelo</annotation>
+		<annotation cp="🙅‍♀" type="tts">mosadi o re AOWA ka ditho</annotation>
+		<annotation cp="🙆">GO LOKILE | go šupa | seatla</annotation>
+		<annotation cp="🙆" type="tts">Motho o re go LOKILE</annotation>
+		<annotation cp="🙆‍♂">GO LOKILE | go šupa | monna | seatla</annotation>
+		<annotation cp="🙆‍♂" type="tts">monna o re GO LOKILE</annotation>
+		<annotation cp="🙆‍♀">GO LOKILE | go šupa | mosadi | seatla</annotation>
+		<annotation cp="🙆‍♀" type="tts">mosadi o re GO LOKILE</annotation>
+		<annotation cp="💁">dumela | seatla | thabiša | thušo | tshedimošo</annotation>
+		<annotation cp="💁" type="tts">motho yo a dumelago ka seatla</annotation>
+		<annotation cp="💁‍♂">go kgwatha | kgahliša | monna</annotation>
+		<annotation cp="💁‍♂" type="tts">monna yo a kgwathago seatla</annotation>
+		<annotation cp="💁‍♀">kgwatha ka seatla | mosadi | thabiša</annotation>
+		<annotation cp="💁‍♀" type="tts">mosadi o kgwatha ka seatla</annotation>
+		<annotation cp="🙋">go šupa | lethabo | seatla | tsoša</annotation>
+		<annotation cp="🙋" type="tts">motho o emišitše seatla</annotation>
+		<annotation cp="🙋‍♂">go emiša seatla | go šupa | monna</annotation>
+		<annotation cp="🙋‍♂" type="tts">monna o emiša seatla</annotation>
+		<annotation cp="🙋‍♀">go emiša seatla | go šupa | mosadi</annotation>
+		<annotation cp="🙋‍♀" type="tts">mosadi o emiša seatla</annotation>
+		<annotation cp="🙇">inama | šupa | tshwarelo</annotation>
+		<annotation cp="🙇" type="tts">motho yo a inamego</annotation>
+		<annotation cp="🙇‍♂">inama | kgopelo | monna | šupa | tshwarelo</annotation>
+		<annotation cp="🙇‍♂" type="tts">monna o a inama</annotation>
+		<annotation cp="🙇‍♀">inama | kgopelo | mosadi | šupa | tshwarelo</annotation>
+		<annotation cp="🙇‍♀" type="tts">mosadi o a inama</annotation>
+		<annotation cp="🤦">bogare bja seatla | go hemelana | go se kgolwe | sefahlego</annotation>
+		<annotation cp="🤦" type="tts">motho yo a emišago ka seatla</annotation>
+		<annotation cp="🤦‍♂">bokagare bja seatla | go hemela godimo | go se kgolwe | monna</annotation>
+		<annotation cp="🤦‍♂" type="tts">monna o beile seatla sefahlegong</annotation>
+		<annotation cp="🤦‍♀">bokagare bja seatla | go hemela godimo | go se kgolwe | mosadi</annotation>
+		<annotation cp="🤦‍♀" type="tts">mosadi a beile bokagare bja seatla</annotation>
+		<annotation cp="🤷">go belaela | go emiša magetla | go hlokomologa | go se kwane</annotation>
+		<annotation cp="🤷" type="tts">motho yo a emišitšego magetla</annotation>
+		<annotation cp="🤷‍♂">go emiša magetla | go hlokomologa | go se kwane | monna | pelaelo</annotation>
+		<annotation cp="🤷‍♂" type="tts">monna o emiša magetla</annotation>
+		<annotation cp="🤷‍♀">go emiša magetla | go hlokomologa | go se kwane | mosadi | pelaelo</annotation>
+		<annotation cp="🤷‍♀" type="tts">mosadi o emiša magetla</annotation>
+		<annotation cp="👨‍⚕">moalafi | monna | mooki | ngaka | tlhokomelokalafo</annotation>
+		<annotation cp="👨‍⚕" type="tts">monna wa go šoma ka tša kalafo</annotation>
+		<annotation cp="👩‍⚕">kalafo | mooki | mosadi | ngaka | tlhokomelo ya maphelo</annotation>
+		<annotation cp="👩‍⚕" type="tts">mosadi wa go šoma ka tša kalafo</annotation>
+		<annotation cp="👨‍🎓">aloga | monna | morutwana</annotation>
+		<annotation cp="👨‍🎓" type="tts">morutwana wa monna</annotation>
+		<annotation cp="👩‍🎓">morutwana | mosadi | sealoga sa thuto</annotation>
+		<annotation cp="👩‍🎓" type="tts">morutwana wa mosadi</annotation>
+		<annotation cp="👨‍🏫">mohlahli | monna | moprofesara | morutiši</annotation>
+		<annotation cp="👨‍🏫" type="tts">morutiši wa monna</annotation>
+		<annotation cp="👩‍🏫">mohlahli | moprofesara | morutiši | mosadi</annotation>
+		<annotation cp="👩‍🏫" type="tts">morutišigadi</annotation>
+		<annotation cp="👨‍⚖">dikala | monna | toka</annotation>
+		<annotation cp="👨‍⚖" type="tts">monna wa moahlodi</annotation>
+		<annotation cp="👩‍⚖">dikala | moahlodi | mosadi</annotation>
+		<annotation cp="👩‍⚖" type="tts">mosadi wa moahlodi</annotation>
+		<annotation cp="👨‍🌾">dirapa | molemi | monna | serapana</annotation>
+		<annotation cp="👨‍🌾" type="tts">monna wa molemi</annotation>
+		<annotation cp="👩‍🌾">dirapa | molemi | mosadi | serapa</annotation>
+		<annotation cp="👩‍🌾" type="tts">molemi wa mosadi</annotation>
+		<annotation cp="👨‍🍳">apea | mosadi | seapei</annotation>
+		<annotation cp="👨‍🍳" type="tts">monna wa go apea</annotation>
+		<annotation cp="👩‍🍳">apea | mosadi | seapei</annotation>
+		<annotation cp="👩‍🍳" type="tts">mosadi wa go apea</annotation>
+		<annotation cp="👨‍🔧">go šoma ka meetse | mekheniki | mohlagase | monna | morekiši</annotation>
+		<annotation cp="👨‍🔧" type="tts">monna wa mekheniki</annotation>
+		<annotation cp="👩‍🔧">mekheniki | morekiši | mosadi | mošomi wa mehlagase | pholampara</annotation>
+		<annotation cp="👩‍🔧" type="tts">mosadi wa go šoma ka mohlagase</annotation>
+		<annotation cp="👨‍🏭">bokgobokano | feme | intasteri | monna | mošomi</annotation>
+		<annotation cp="👨‍🏭" type="tts">monna wa go šoma femeng</annotation>
+		<annotation cp="👩‍🏭">bokgobokano | feme | mosadi | mošomi | ya intasteri</annotation>
+		<annotation cp="👩‍🏭" type="tts">mosadi wa go šoma femeng</annotation>
+		<annotation cp="👨‍💼">kgwebo | kholara e tšhweu | molaodi | monna | mothadi | ofisi</annotation>
+		<annotation cp="👨‍💼" type="tts">monna wa go šoma ofising</annotation>
+		<annotation cp="👩‍💼">kgwebo | kholara e tšhweu | molaodi | mosadi | mothadi | ofisi</annotation>
+		<annotation cp="👩‍💼" type="tts">mosadi wa go šoma ofising</annotation>
+		<annotation cp="👨‍🔬">moentšeneere | monna | mošomo wa khemiseng | radipalo | radiphedi | rafisiki | thutamahlale</annotation>
+		<annotation cp="👨‍🔬" type="tts">ramahlale</annotation>
+		<annotation cp="👩‍🔬">dipalo | khemese | moentšeneere | mosadi | mošomi wa maphelo | rafisiki | ramahlale</annotation>
+		<annotation cp="👩‍🔬" type="tts">mosadi wa thutamahlale</annotation>
+		<annotation cp="👨‍💻">khoutara | mohlami | monna | motšweletši | softwere | theknolotši</annotation>
+		<annotation cp="👨‍💻" type="tts">monna wa theknolotši</annotation>
+		<annotation cp="👩‍💻">khouto | mohlami | mosadi | motšweletši | softewere | theknolotši</annotation>
+		<annotation cp="👩‍💻" type="tts">mosadi wa theknolotši</annotation>
+		<annotation cp="👨‍🎤">monna | mothabiši | naletšana | rock | sebapadi | seopedi</annotation>
+		<annotation cp="👨‍🎤" type="tts">monna wa seopedi</annotation>
+		<annotation cp="👩‍🎤">mosadi | mothabiši | naletšana | rock | sebapadi sa sefaleng | seopedi</annotation>
+		<annotation cp="👩‍🎤" type="tts">mosadi wa seopedi</annotation>
+		<annotation cp="👨‍🎨">monna | mothadi | phalete</annotation>
+		<annotation cp="👨‍🎨" type="tts">monna wa mothadi</annotation>
+		<annotation cp="👩‍🎨">mosadi | mothadi | phalete</annotation>
+		<annotation cp="👩‍🎨" type="tts">mosadi wa go thala</annotation>
+		<annotation cp="👨‍✈">mofofiši | monna | sefofane</annotation>
+		<annotation cp="👨‍✈" type="tts">monna wa mofofiši</annotation>
+		<annotation cp="👩‍✈">mofofiši | mosadi | sefofane</annotation>
+		<annotation cp="👩‍✈" type="tts">mosadi wa mofofiši</annotation>
+		<annotation cp="👨‍🚀">mosadi | moyalefaufaung | rokhete</annotation>
+		<annotation cp="👨‍🚀" type="tts">monna wa go ya lefaufaung</annotation>
+		<annotation cp="👩‍🚀">mosadi | moyalefaufaung | rokhete</annotation>
+		<annotation cp="👩‍🚀" type="tts">mosadi wa go ya lefaufaung</annotation>
+		<annotation cp="👨‍🚒">monna | motimamollo | theraka ya mollo</annotation>
+		<annotation cp="👨‍🚒" type="tts">monna wa motimamollo</annotation>
+		<annotation cp="👩‍🚒">lori ya ditimamello | mosadi | raditimamello</annotation>
+		<annotation cp="👩‍🚒" type="tts">mosadi ditimamello</annotation>
+		<annotation cp="👮">lephodisa | mohlankedi</annotation>
+		<annotation cp="👮" type="tts">mohlankedi wa maphodisa</annotation>
+		<annotation cp="👮‍♂">lephodisa | mohlankedi | monna</annotation>
+		<annotation cp="👮‍♂" type="tts">monna wa mohlankedi wa lephodisa</annotation>
+		<annotation cp="👮‍♀">lephodisa | mohlankedi | mosadi</annotation>
+		<annotation cp="👮‍♀" type="tts">mosadi wa lephodisa</annotation>
+		<annotation cp="🕵">khukhunetša | lephodisa | tlhodi</annotation>
+		<annotation cp="🕵" type="tts">lephodisa</annotation>
+		<annotation cp="🕵‍♂">khukhunetša | lephodisa | monna | tlhodi</annotation>
+		<annotation cp="🕵‍♂" type="tts">monna wa lephodisa</annotation>
+		<annotation cp="🕵‍♀">khukhunetša | lephodisa | mosadi | tlhodi</annotation>
+		<annotation cp="🕵‍♀" type="tts">lephodisa la mosadi</annotation>
+		<annotation cp="💂">mohlokomedi</annotation>
+		<annotation cp="💂" type="tts">mohlokomedi</annotation>
+		<annotation cp="💂‍♂">mohlokomedi | monna</annotation>
+		<annotation cp="💂‍♂" type="tts">mohlokomedi wa monna</annotation>
+		<annotation cp="💂‍♀">mohlokomedi | mosadi</annotation>
+		<annotation cp="💂‍♀" type="tts">mohlokomedi wa mosadi</annotation>
+		<annotation cp="👷">kago | kefa | mošomi</annotation>
+		<annotation cp="👷" type="tts">mošomi wa go aga</annotation>
+		<annotation cp="👷‍♂">moagi | monna | mošomi</annotation>
+		<annotation cp="👷‍♂" type="tts">monna wa tša kago</annotation>
+		<annotation cp="👷‍♀">kago | mosadi | mošomi</annotation>
+		<annotation cp="👷‍♀" type="tts">mosadi wa tša kago</annotation>
+		<annotation cp="🤴">morwakgoši</annotation>
+		<annotation cp="🤴" type="tts">morwakgoši</annotation>
+		<annotation cp="👸">kanegelo | nonwane</annotation>
+		<annotation cp="👸" type="tts">kgošigadi</annotation>
+		<annotation cp="👳">thepene</annotation>
+		<annotation cp="👳" type="tts">motho yo rwelego thepene</annotation>
+		<annotation cp="👳‍♂">monna | thepene</annotation>
+		<annotation cp="👳‍♂" type="tts">monna yo rwelego thepene</annotation>
+		<annotation cp="👳‍♀">mosadi | thepene</annotation>
+		<annotation cp="👳‍♀" type="tts">mosadi yo rwelego thepene</annotation>
+		<annotation cp="👲">gua pi mao | kefa | monna</annotation>
+		<annotation cp="👲" type="tts">monna ka kefa ya Matšhaena</annotation>
+		<annotation cp="🧕">go rwala hlogong | hijab | mantilla | tichel</annotation>
+		<annotation cp="🧕" type="tts">mosadi yo a rwelego hlogong</annotation>
+		<annotation cp="🤵">monna | monyadi | sutu</annotation>
+		<annotation cp="🤵" type="tts">monna ka sutu</annotation>
+		<annotation cp="👰">lenyalo | lešira | ngwetši</annotation>
+		<annotation cp="👰" type="tts">ngwetši ka lešira</annotation>
+		<annotation cp="🤰">imilego | mosadi</annotation>
+		<annotation cp="🤰" type="tts">mosadi yo a imilego</annotation>
+		<annotation cp="🤱">anya | lesea | letswele</annotation>
+		<annotation cp="🤱" type="tts">go nyantšha</annotation>
+		<annotation cp="👼">kanegelo | lesea | morongwa | nonwane | sefahlego</annotation>
+		<annotation cp="👼" type="tts">lengoloi la lesea</annotation>
+		<annotation cp="🎅">claus | Keresemose | keteka | santa | tate</annotation>
+		<annotation cp="🎅" type="tts">Santa Claus</annotation>
+		<annotation cp="🤶">claus | go keteka | Keresemose | mma | Mohumadi</annotation>
+		<annotation cp="🤶" type="tts">Mohumagadi Claus</annotation>
+		<annotation cp="🧙">maleatlana | mehlolo | moloi | temošo</annotation>
+		<annotation cp="🧙" type="tts">maleatlana</annotation>
+		<annotation cp="🧙‍♂">maleatlanna | temošo</annotation>
+		<annotation cp="🧙‍♂" type="tts">monna wa maleatlana</annotation>
+		<annotation cp="🧙‍♀">maleatlana | moloi</annotation>
+		<annotation cp="🧙‍♀" type="tts">mosadi wa maleatlana</annotation>
+		<annotation cp="🧚">Oberon | Puck | Titania</annotation>
+		<annotation cp="🧚" type="tts">boikgopolelo</annotation>
+		<annotation cp="🧚‍♂">Oberon | Puck</annotation>
+		<annotation cp="🧚‍♂" type="tts">monna wa boikgopolelo</annotation>
+		<annotation cp="🧚‍♀">Titania</annotation>
+		<annotation cp="🧚‍♀" type="tts">mosadi wa boikgopolelo</annotation>
+		<annotation cp="🧛">Dracula | hwile</annotation>
+		<annotation cp="🧛" type="tts">bemphaya</annotation>
+		<annotation cp="🧛‍♂">Dracula | hwile</annotation>
+		<annotation cp="🧛‍♂" type="tts">monna wa bemphaya</annotation>
+		<annotation cp="🧛‍♀">ga se a hwa</annotation>
+		<annotation cp="🧛‍♀" type="tts">mosadi wa bemphaya</annotation>
+		<annotation cp="🧜">meetseng | memeite | sephidi</annotation>
+		<annotation cp="🧜" type="tts">motho wa ka meetseng</annotation>
+		<annotation cp="🧜‍♂">Tritone</annotation>
+		<annotation cp="🧜‍♂" type="tts">monna wa ka meetseng</annotation>
+		<annotation cp="🧜‍♀">mosadi wa ka meetseng</annotation>
+		<annotation cp="🧜‍♀" type="tts">sephedi sa ka meetseng</annotation>
+		<annotation cp="🧝">mehlolo</annotation>
+		<annotation cp="🧝" type="tts">sephidi se matla</annotation>
+		<annotation cp="🧝‍♂">mehlolo</annotation>
+		<annotation cp="🧝‍♂" type="tts">monna wa matla a magolo</annotation>
+		<annotation cp="🧝‍♀">mehlolo</annotation>
+		<annotation cp="🧝‍♀" type="tts">mosadi wa matla a magolo</annotation>
+		<annotation cp="🧞">djinn</annotation>
+		<annotation cp="🧞" type="tts">genie</annotation>
+		<annotation cp="🧞‍♂">djinn</annotation>
+		<annotation cp="🧞‍♂" type="tts">monna wa genie</annotation>
+		<annotation cp="🧞‍♀">djinn</annotation>
+		<annotation cp="🧞‍♀" type="tts">mosadi wa genie</annotation>
+		<annotation cp="🧟">go se hwe | go sepela o hwile</annotation>
+		<annotation cp="🧟" type="tts">setlotlwane</annotation>
+		<annotation cp="🧟‍♂">go se hwe | go sepela o hwile</annotation>
+		<annotation cp="🧟‍♂" type="tts">monna wa setlotlwane</annotation>
+		<annotation cp="🧟‍♀">go se hwe | go sepela o hwile</annotation>
+		<annotation cp="🧟‍♀" type="tts">mosadi wa setlotlwane</annotation>
+		<annotation cp="💆">go thidullwa | meriri | mosadi</annotation>
+		<annotation cp="💆" type="tts">motho yo a masatšwago</annotation>
+		<annotation cp="💆‍♂">go masatša | monna | sefahlego</annotation>
+		<annotation cp="💆‍♂" type="tts">monna o a masatšwa</annotation>
+		<annotation cp="💆‍♀">go masatša | mosadi | sefahlego</annotation>
+		<annotation cp="💆‍♀" type="tts">mosadi o a masatšwa</annotation>
+		<annotation cp="💇">botse | kgabišwa | kota meriri | meriri</annotation>
+		<annotation cp="💇" type="tts">motho yo a kotwago moriri</annotation>
+		<annotation cp="💇‍♂">go kotwa moriri | monna</annotation>
+		<annotation cp="💇‍♂" type="tts">monna yo a kotwago moriri</annotation>
+		<annotation cp="💇‍♀">go kotwa moriri | mosadi</annotation>
+		<annotation cp="💇‍♀" type="tts">mosadi yo a kotwago moriri</annotation>
+		<annotation cp="🚶">haeka | sepela | wa sepela</annotation>
+		<annotation cp="🚶" type="tts">motho yo a sepelago</annotation>
+		<annotation cp="🚶‍♂">monna | namela | sepela</annotation>
+		<annotation cp="🚶‍♂" type="tts">monna o a sepela</annotation>
+		<annotation cp="🚶‍♀">mosadi | namela | sepela</annotation>
+		<annotation cp="🚶‍♀" type="tts">mosadi o a sepela</annotation>
+		<annotation cp="🏃">kitima | marathone</annotation>
+		<annotation cp="🏃" type="tts">motho yo a kitimago</annotation>
+		<annotation cp="🏃‍♂">kitima | lebelo | marathone | monna</annotation>
+		<annotation cp="🏃‍♂" type="tts">monna o a kitima</annotation>
+		<annotation cp="🏃‍♀">kitima | lebelo | marathone | mosadi</annotation>
+		<annotation cp="🏃‍♀" type="tts">mosadi o a kitima</annotation>
+		<annotation cp="💃">bina | mosadi</annotation>
+		<annotation cp="💃" type="tts">mosadi yo a binago</annotation>
+		<annotation cp="🕺">monna | motantsho</annotation>
+		<annotation cp="🕺" type="tts">monna yo a binago</annotation>
+		<annotation cp="🕴">kgwebo | monna | sutu</annotation>
+		<annotation cp="🕴" type="tts">monna o apere sutu ya mošomo wa ema</annotation>
+		<annotation cp="👯">ditsebjang tša mmutla | go tantsha | moletlo</annotation>
+		<annotation cp="👯" type="tts">batho ba ditsebe tša mmutla ba a bina</annotation>
+		<annotation cp="👯‍♂">ditsebe tša mmutla | go tantsha | moletlo | monna</annotation>
+		<annotation cp="👯‍♂" type="tts">monna wa ditsebe tša mmutla o moletlong</annotation>
+		<annotation cp="👯‍♀">ditsebe tša mmutla | go tantsha | moletlo | mosadi</annotation>
+		<annotation cp="👯‍♀" type="tts">mosadi wa ditsebe tša mmutla o moletlong</annotation>
+		<annotation cp="🧖">phaphoši ya moya wa go fiša | sauna</annotation>
+		<annotation cp="🧖" type="tts">motho ka phaphošing ya moya wa go fiša</annotation>
+		<annotation cp="🧖‍♂">phaphoši ya moya wa go fiša | sauna</annotation>
+		<annotation cp="🧖‍♂" type="tts">monna ka phaphošing ya moya wa go fiša</annotation>
+		<annotation cp="🧖‍♀">phaphoši ya moya wa go fiša | sauna</annotation>
+		<annotation cp="🧖‍♀" type="tts">mosadi ka phaphošing ya moya wa go fiša</annotation>
+		<annotation cp="🧗">monamedi</annotation>
+		<annotation cp="🧗" type="tts">motho o a namela</annotation>
+		<annotation cp="🧗‍♂">monamedi</annotation>
+		<annotation cp="🧗‍♂" type="tts">monna o a namela</annotation>
+		<annotation cp="🧗‍♀">monamedi</annotation>
+		<annotation cp="🧗‍♀" type="tts">mosadi o a namela</annotation>
+		<annotation cp="🤺">go lwa ka lerungwana | lerumo | molwantwa ya marungwana</annotation>
+		<annotation cp="🤺" type="tts">motho o lwa ka marumo</annotation>
+		<annotation cp="🏇">joki | lebelo | lebelo la dipere | pere</annotation>
+		<annotation cp="🏇" type="tts">go kitima ga dipere</annotation>
+		<annotation cp="⛷">lehlwa | sekhae</annotation>
+		<annotation cp="⛷" type="tts">sekhaya</annotation>
+		<annotation cp="🏂">lehlwa | poto ya lehlwa | sekhaei</annotation>
+		<annotation cp="🏂" type="tts">go sesa lehlweng</annotation>
+		<annotation cp="🏌">kolofo | polo</annotation>
+		<annotation cp="🏌" type="tts">motho o bapala kolofo</annotation>
+		<annotation cp="🏌‍♂">golofo | monna</annotation>
+		<annotation cp="🏌‍♂" type="tts">monna o bapala kolofo</annotation>
+		<annotation cp="🏌‍♀">golofo | mosadi</annotation>
+		<annotation cp="🏌‍♀" type="tts">mosadi o bapala kolofo</annotation>
+		<annotation cp="🏄">go sesa lewatleng</annotation>
+		<annotation cp="🏄" type="tts">motho a sesa lewatleng</annotation>
+		<annotation cp="🏄‍♂">monna | o sesa lewatleng</annotation>
+		<annotation cp="🏄‍♂" type="tts">monna o sesa lewatleng</annotation>
+		<annotation cp="🏄‍♀">go sesa lewatleng | mosadi</annotation>
+		<annotation cp="🏄‍♀" type="tts">mosadi o sesa lewatleng</annotation>
+		<annotation cp="🚣">sekepe | seketswana</annotation>
+		<annotation cp="🚣" type="tts">motho ka seketswana</annotation>
+		<annotation cp="🚣‍♂">monna | sekepe | seketswana</annotation>
+		<annotation cp="🚣‍♂" type="tts">monna o otlela seketswana</annotation>
+		<annotation cp="🚣‍♀">mosadi | sekepe | seketswana</annotation>
+		<annotation cp="🚣‍♀" type="tts">mosadi o otlela seketswana</annotation>
+		<annotation cp="🏊">go rutha</annotation>
+		<annotation cp="🏊" type="tts">motho o a rutha</annotation>
+		<annotation cp="🏊‍♂">monna | rutha</annotation>
+		<annotation cp="🏊‍♂" type="tts">monna o a rutha</annotation>
+		<annotation cp="🏊‍♀">go rutha | mosadi</annotation>
+		<annotation cp="🏊‍♀" type="tts">mosadi o a rutha</annotation>
+		<annotation cp="⛹">polo</annotation>
+		<annotation cp="⛹" type="tts">motho o bethantšha polo</annotation>
+		<annotation cp="⛹‍♂">monna | polo</annotation>
+		<annotation cp="⛹‍♂" type="tts">monna o bethantšha polo</annotation>
+		<annotation cp="⛹‍♀">mosadi | polo</annotation>
+		<annotation cp="⛹‍♀" type="tts">mosadi o bethantšha polo</annotation>
+		<annotation cp="🏋">boima | kuka</annotation>
+		<annotation cp="🏋" type="tts">motho o kuka boima</annotation>
+		<annotation cp="🏋‍♂">kuka boima | monna</annotation>
+		<annotation cp="🏋‍♂" type="tts">monna o kuka boima</annotation>
+		<annotation cp="🏋‍♀">kuka boima | mosadi</annotation>
+		<annotation cp="🏋‍♀" type="tts">mosadi o kuka boima</annotation>
+		<annotation cp="🚴">go bapala ka paesekela | go namela paesekela | paesekela</annotation>
+		<annotation cp="🚴" type="tts">motho ka paesekela</annotation>
+		<annotation cp="🚴‍♂">go namela paesekela | monamedipaesekela | monna | paesekela</annotation>
+		<annotation cp="🚴‍♂" type="tts">monna o nametše paesekela</annotation>
+		<annotation cp="🚴‍♀">go bapala ka paesekela | go namela paesekela | mosadi | paesekela</annotation>
+		<annotation cp="🚴‍♀" type="tts">mosadi o nametše paesekela</annotation>
+		<annotation cp="🚵">go bapala ka paesekela | go namela paesekela | paesekela | thaba</annotation>
+		<annotation cp="🚵" type="tts">motho ka paesekela thabeng</annotation>
+		<annotation cp="🚵‍♂">go namela paesekela | monna | paesekela | thaba</annotation>
+		<annotation cp="🚵‍♂" type="tts">monna ka paesekela thabeng</annotation>
+		<annotation cp="🚵‍♀">go bapala ka paesekela | go namela paesekela | mosadi | paesekela | thaba</annotation>
+		<annotation cp="🚵‍♀" type="tts">mosadi ka paesekela thabeng</annotation>
+		<annotation cp="🤸">boithobollommele | khetewili</annotation>
+		<annotation cp="🤸" type="tts">motho a dikologa ka mmele</annotation>
+		<annotation cp="🤸‍♂">boithobollommele | go khethawila | monna</annotation>
+		<annotation cp="🤸‍♂" type="tts">monna o a khethawila</annotation>
+		<annotation cp="🤸‍♀">boithobollommele | go khethawila | mosadi</annotation>
+		<annotation cp="🤸‍♀" type="tts">mosadi o a khethawila</annotation>
+		<annotation cp="🤼">go sesela | molwi wa reseling</annotation>
+		<annotation cp="🤼" type="tts">motho o lwa reseling</annotation>
+		<annotation cp="🤼‍♂">banna | go resela</annotation>
+		<annotation cp="🤼‍♂" type="tts">banna ba a resela</annotation>
+		<annotation cp="🤼‍♀">go resela | mosadi</annotation>
+		<annotation cp="🤼‍♀" type="tts">mosadi o lwa reseling</annotation>
+		<annotation cp="🤽">meetse | polo</annotation>
+		<annotation cp="🤽" type="tts">motho o bapala polo ya ka meetseng</annotation>
+		<annotation cp="🤽‍♂">monna | polo ya ka meetseng</annotation>
+		<annotation cp="🤽‍♂" type="tts">monna o bapala polo ya ka meetseng</annotation>
+		<annotation cp="🤽‍♀">mosadi | polo ya ka meetseng</annotation>
+		<annotation cp="🤽‍♀" type="tts">mosadi o bapala polo ya ka meetseng</annotation>
+		<annotation cp="🤾">polo | polo ya diatla</annotation>
+		<annotation cp="🤾" type="tts">motho a bapala polo ya diatla</annotation>
+		<annotation cp="🤾‍♂">monna | polo ya diatla</annotation>
+		<annotation cp="🤾‍♂" type="tts">monna o bapa polo ya diatla</annotation>
+		<annotation cp="🤾‍♀">polo ya diatla mosadi</annotation>
+		<annotation cp="🤾‍♀" type="tts">mosadi o bapala polo ya diatla</annotation>
+		<annotation cp="🤹">bokgoni | go dira mediro e mentši | go swara mo le mo | go thekenetša</annotation>
+		<annotation cp="🤹" type="tts">motho o swara mo le mola</annotation>
+		<annotation cp="🤹‍♂">go dira mediro e mentši | go swara mo le mo | monna</annotation>
+		<annotation cp="🤹‍♂" type="tts">monna o dira mediro e mentši</annotation>
+		<annotation cp="🤹‍♀">go dira mediro e mentši | go swara mo le mo | mosadi</annotation>
+		<annotation cp="🤹‍♀" type="tts">mosadi o swara mo le mola</annotation>
+		<annotation cp="🧘">go naganišiša | yoga</annotation>
+		<annotation cp="🧘" type="tts">motho a phuthile maoto</annotation>
+		<annotation cp="🧘‍♂">go naganišiša | yoga</annotation>
+		<annotation cp="🧘‍♂" type="tts">monna a phuthile maoto</annotation>
+		<annotation cp="🧘‍♀">go naganišiša | yoga</annotation>
+		<annotation cp="🧘‍♀" type="tts">mosadi a phuthile maoto</annotation>
+		<annotation cp="🛀">hlapa | pafo ya go hlapa</annotation>
+		<annotation cp="🛀" type="tts">motho o a hlapa</annotation>
+		<annotation cp="🛌">hotele | robala</annotation>
+		<annotation cp="🛌" type="tts">motho mpeteng</annotation>
+		<annotation cp="👭">baratani | mosadi | seatla | swarana</annotation>
+		<annotation cp="👭" type="tts">basadi ba babedi ba swarane ka matsogo</annotation>
+		<annotation cp="👫">balekane | monna | mosadi | seatla | swara</annotation>
+		<annotation cp="👫" type="tts">monna le mosadi ba swarane ka matsogo</annotation>
+		<annotation cp="👬">baratani | Gemini | mafahla | monna | seatla | swara | zodiac</annotation>
+		<annotation cp="👬" type="tts">banna ba babedi ba swarane ka matsogo</annotation>
+		<annotation cp="💏">atlana | balekane</annotation>
+		<annotation cp="💏" type="tts">atlana</annotation>
+		<annotation cp="💑">balekane | balekane ka pelwana | lerato</annotation>
+		<annotation cp="💑" type="tts">balekane ka pelwana</annotation>
+		<annotation cp="👪">lapa</annotation>
+		<annotation cp="👪" type="tts">lapa</annotation>
+		<annotation cp="🗣">bolela | go bolela | seatla | sefahlego | silhouete</annotation>
+		<annotation cp="🗣" type="tts">hlogo e bolelago</annotation>
+		<annotation cp="👤">gare | silhouete</annotation>
+		<annotation cp="👤" type="tts">ka gare ga silhouete</annotation>
+		<annotation cp="👥">gare | silhouete</annotation>
+		<annotation cp="👥" type="tts">bogareng bja silhouete</annotation>
+		<annotation cp="👣">mohlala | mohlala wa kgato | seaparo</annotation>
+		<annotation cp="👣" type="tts">mehlala ya dikgato</annotation>
+		<annotation cp="🐵">kgabo | sefahlego</annotation>
+		<annotation cp="🐵" type="tts">sefahlego sa kgabo</annotation>
+		<annotation cp="🐒">kgabo</annotation>
+		<annotation cp="🐒" type="tts">kgabo</annotation>
+		<annotation cp="🦍">korela</annotation>
+		<annotation cp="🦍" type="tts">korela</annotation>
+		<annotation cp="🐶">mpšha | phoofolo ya ka gae | sefahlego</annotation>
+		<annotation cp="🐶" type="tts">sefahlego sa mpša</annotation>
+		<annotation cp="🐕">phoofolo ya ka gae</annotation>
+		<annotation cp="🐕" type="tts">mpša</annotation>
+		<annotation cp="🐩">mpša</annotation>
+		<annotation cp="🐩" type="tts">mpšha e nyenyane</annotation>
+		<annotation cp="🐺">phiri | sefahlego</annotation>
+		<annotation cp="🐺" type="tts">sefahlego sa phiri</annotation>
+		<annotation cp="🦊">phukubje | sefahlego</annotation>
+		<annotation cp="🦊" type="tts">sefahlego sa phukubje</annotation>
+		<annotation cp="🐱">mpšha | phoofolo ya ka gae | sefahlego</annotation>
+		<annotation cp="🐱" type="tts">sefahlego sa katse</annotation>
+		<annotation cp="🐈">phoofolo ya ka gae</annotation>
+		<annotation cp="🐈" type="tts">katse</annotation>
+		<annotation cp="🦁">Leo | sefahlego | tau | zodiac</annotation>
+		<annotation cp="🦁" type="tts">sefahlego sa tau</annotation>
+		<annotation cp="🐯">lepogo | sefahlego</annotation>
+		<annotation cp="🐯" type="tts">sefahlego sa lepogo</annotation>
+		<annotation cp="🐅">lepogo</annotation>
+		<annotation cp="🐅" type="tts">lepogo</annotation>
+		<annotation cp="🐆">nkwe</annotation>
+		<annotation cp="🐆" type="tts">nkwe</annotation>
+		<annotation cp="🐴">pere | sefahlego</annotation>
+		<annotation cp="🐴" type="tts">sefahlego sa pere</annotation>
+		<annotation cp="🐎">go kitima | lebelo | lebelo la dipere</annotation>
+		<annotation cp="🐎" type="tts">pere</annotation>
+		<annotation cp="🦄">phoofolo | sefahlego</annotation>
+		<annotation cp="🦄" type="tts">seswantšhwana sa phoofolo</annotation>
+		<annotation cp="🦓">mothaladi</annotation>
+		<annotation cp="🦓" type="tts">pitsi</annotation>
+		<annotation cp="🦌">kgama</annotation>
+		<annotation cp="🦌" type="tts">kgama</annotation>
+		<annotation cp="🐮">kgomo | sefahlego</annotation>
+		<annotation cp="🐮" type="tts">sefahlego sa kgomo</annotation>
+		<annotation cp="🐂">poo | Taurus | zodiac</annotation>
+		<annotation cp="🐂" type="tts">pholo</annotation>
+		<annotation cp="🐃">meetse | nare</annotation>
+		<annotation cp="🐃" type="tts">nare ya ka meetseng</annotation>
+		<annotation cp="🐄">kgomo ya tshadi</annotation>
+		<annotation cp="🐄" type="tts">kgomo ya tshadi</annotation>
+		<annotation cp="🐷">kolobe | sefahlego</annotation>
+		<annotation cp="🐷" type="tts">sefahlego sa kolobe</annotation>
+		<annotation cp="🐖">buna</annotation>
+		<annotation cp="🐖" type="tts">kolobe</annotation>
+		<annotation cp="🐗">kolobe</annotation>
+		<annotation cp="🐗" type="tts">kolobe ya naga</annotation>
+		<annotation cp="🐽">kolobe | nko | sefahlego</annotation>
+		<annotation cp="🐽" type="tts">nko ya kolobe</annotation>
+		<annotation cp="🐏">Aries | nku | pholo | zodiac</annotation>
+		<annotation cp="🐏" type="tts">kgapa</annotation>
+		<annotation cp="🐑">nku | tshadi</annotation>
+		<annotation cp="🐑" type="tts">nku ya tshadi</annotation>
+		<annotation cp="🐐">Capricorn | zodiac</annotation>
+		<annotation cp="🐐" type="tts">pudi</annotation>
+		<annotation cp="🐪">mathota | tromentari</annotation>
+		<annotation cp="🐪" type="tts">kamela</annotation>
+		<annotation cp="🐫">kamela | mathota | modudi</annotation>
+		<annotation cp="🐫" type="tts">kamela ya mathota a mabedi</annotation>
+		<annotation cp="🦒">maswao</annotation>
+		<annotation cp="🦒" type="tts">thutlwa</annotation>
+		<annotation cp="🐘">tlou</annotation>
+		<annotation cp="🐘" type="tts">tlou</annotation>
+		<annotation cp="🦏">tšhukudu</annotation>
+		<annotation cp="🦏" type="tts">tšhukudu</annotation>
+		<annotation cp="🐭">legotlo | sefahlego</annotation>
+		<annotation cp="🐭" type="tts">sefahlego sa legotlo</annotation>
+		<annotation cp="🐁">maose</annotation>
+		<annotation cp="🐁" type="tts">maose</annotation>
+		<annotation cp="🐀">legotlo</annotation>
+		<annotation cp="🐀" type="tts">legotlo</annotation>
+		<annotation cp="🐹">ntswete | phoofolo ya ka gae | sefahlego</annotation>
+		<annotation cp="🐹" type="tts">sefahlego sa ntswete</annotation>
+		<annotation cp="🐰">mmutla | mmutlana | phoofolo ya ka gae | sefahlego</annotation>
+		<annotation cp="🐰" type="tts">sefahlego sa mmutla</annotation>
+		<annotation cp="🐇">mmutlana | phoofolo ya ka gae</annotation>
+		<annotation cp="🐇" type="tts">mmutla</annotation>
+		<annotation cp="🐿">legotlonyana</annotation>
+		<annotation cp="🐿" type="tts">legotlonyana</annotation>
+		<annotation cp="🦔">dikologa</annotation>
+		<annotation cp="🦔" type="tts">noko</annotation>
+		<annotation cp="🦇">bemphaya | mankgagane</annotation>
+		<annotation cp="🦇" type="tts">mankgagane</annotation>
+		<annotation cp="🐻">bere | sefgahlego</annotation>
+		<annotation cp="🐻" type="tts">sefahlego se bere</annotation>
+		<annotation cp="🐨">bere</annotation>
+		<annotation cp="🐨" type="tts">koala</annotation>
+		<annotation cp="🐼">phanta | sefahlego</annotation>
+		<annotation cp="🐼" type="tts">sefahlego sa phanta</annotation>
+		<annotation cp="🐾">borofa | maoto | mohlala</annotation>
+		<annotation cp="🐾" type="tts">mohlala wa borofa</annotation>
+		<annotation cp="🦃">nonyana | turkey</annotation>
+		<annotation cp="🦃" type="tts">turkey</annotation>
+		<annotation cp="🐔">kgogo | nonyana</annotation>
+		<annotation cp="🐔" type="tts">kgogo</annotation>
+		<annotation cp="🐓">mokoko | nonyana</annotation>
+		<annotation cp="🐓" type="tts">mokoko</annotation>
+		<annotation cp="🐣">kgogo | letswiana | nonyana | thwathwaša</annotation>
+		<annotation cp="🐣" type="tts">letswiana le a thwathwaša</annotation>
+		<annotation cp="🐤">kgogo | letswiana | nonyana</annotation>
+		<annotation cp="🐤" type="tts">letswiana</annotation>
+		<annotation cp="🐥">kgogo | letswiana | nonyana</annotation>
+		<annotation cp="🐥" type="tts">letswiana le le galefilego</annotation>
+		<annotation cp="🐦">nonyana</annotation>
+		<annotation cp="🐦" type="tts">nonyana</annotation>
+		<annotation cp="🐧">nonyana | phenkhwini</annotation>
+		<annotation cp="🐧" type="tts">phenkhwini</annotation>
+		<annotation cp="🕊">fofa | khutšo | nonyana</annotation>
+		<annotation cp="🕊" type="tts">leeba</annotation>
+		<annotation cp="🦅">nonyana | ntšhu</annotation>
+		<annotation cp="🦅" type="tts">ntšhu</annotation>
+		<annotation cp="🦆">lepidibidi | nonyana</annotation>
+		<annotation cp="🦆" type="tts">lepidibidi</annotation>
+		<annotation cp="🦉">bohlale | leribiši | nonyana</annotation>
+		<annotation cp="🦉" type="tts">leribiši</annotation>
+		<annotation cp="🐸">sefahlego | segwagwa</annotation>
+		<annotation cp="🐸" type="tts">sefahlego sa segwagwa</annotation>
+		<annotation cp="🐊">kwena</annotation>
+		<annotation cp="🐊" type="tts">kwena</annotation>
+		<annotation cp="🐢">khudu | khutšwana</annotation>
+		<annotation cp="🐢" type="tts">khudu ya ka meetseng</annotation>
+		<annotation cp="🦎">mokgaritswane | segagabi</annotation>
+		<annotation cp="🦎" type="tts">mokgaditswane</annotation>
+		<annotation cp="🐍">noga | Ophiuchus | rwala | zodiac</annotation>
+		<annotation cp="🐍" type="tts">noga</annotation>
+		<annotation cp="🐲">kgolomodumo | nonwane | sefahlego</annotation>
+		<annotation cp="🐲" type="tts">sefahlego sa kgolomodumo</annotation>
+		<annotation cp="🐉">nonwane</annotation>
+		<annotation cp="🐉" type="tts">kgolomodumo</annotation>
+		<annotation cp="🦕">brachiosaurus | brontosaurus | diplodocus</annotation>
+		<annotation cp="🦕" type="tts">sauropod</annotation>
+		<annotation cp="🦖">Tyrannosaurus Rex</annotation>
+		<annotation cp="🦖" type="tts">T-Rex</annotation>
+		<annotation cp="🐳">leruarua | sefahlego | tshela</annotation>
+		<annotation cp="🐳" type="tts">leruarua le le tshwelago</annotation>
+		<annotation cp="🐋">leruarua</annotation>
+		<annotation cp="🐋" type="tts">leruarua</annotation>
+		<annotation cp="🐬">boto ya go rutha</annotation>
+		<annotation cp="🐬" type="tts">tolefini</annotation>
+		<annotation cp="🐟">Pisces | zodiac</annotation>
+		<annotation cp="🐟" type="tts">hlapi</annotation>
+		<annotation cp="🐠">hlapi | hlapi ya mebala</annotation>
+		<annotation cp="🐠" type="tts">hlapi ya mebala</annotation>
+		<annotation cp="🐡">hlapi</annotation>
+		<annotation cp="🐡" type="tts">hlapi ya go kokomoga</annotation>
+		<annotation cp="🦈">hlapi | šaka</annotation>
+		<annotation cp="🦈" type="tts">šaka</annotation>
+		<annotation cp="🐙">okthopase</annotation>
+		<annotation cp="🐙" type="tts">okthopase</annotation>
+		<annotation cp="🐚">mokokotlo | shele</annotation>
+		<annotation cp="🐚" type="tts">shele</annotation>
+		<annotation cp="🐌">kgopa</annotation>
+		<annotation cp="🐌" type="tts">kgopa</annotation>
+		<annotation cp="🦋">botse | khunkhwane | serurubele</annotation>
+		<annotation cp="🦋" type="tts">serurubele</annotation>
+		<annotation cp="🐛">khunkhwane</annotation>
+		<annotation cp="🐛" type="tts">selomanyane</annotation>
+		<annotation cp="🐜">khunkhwane</annotation>
+		<annotation cp="🐜" type="tts">tšhošane</annotation>
+		<annotation cp="🐝">khunkhwane | nose</annotation>
+		<annotation cp="🐝" type="tts">nosi</annotation>
+		<annotation cp="🐞">khunkhwane | khunkhwanyane | tshaatšana | tshadi</annotation>
+		<annotation cp="🐞" type="tts">khunkwanyane ya tshadi</annotation>
+		<annotation cp="🦗">tšie</annotation>
+		<annotation cp="🦗" type="tts">khrikete</annotation>
+		<annotation cp="🕷">khunkhwane</annotation>
+		<annotation cp="🕷" type="tts">segoko</annotation>
+		<annotation cp="🕸">bolepu | segoko</annotation>
+		<annotation cp="🕸" type="tts">bolepu bja segoko</annotation>
+		<annotation cp="🦂">scorpio | Scorpius | zodiac</annotation>
+		<annotation cp="🦂" type="tts">kgome</annotation>
+		<annotation cp="💐">letšoba</annotation>
+		<annotation cp="💐" type="tts">ngatana ya matšoba</annotation>
+		<annotation cp="🌸">blossom | cherry | letšoba</annotation>
+		<annotation cp="🌸" type="tts">matšoba a cherry</annotation>
+		<annotation cp="💮">letšoba</annotation>
+		<annotation cp="💮" type="tts">letšoba le letšhweu</annotation>
+		<annotation cp="🏵">semela</annotation>
+		<annotation cp="🏵" type="tts">rosete</annotation>
+		<annotation cp="🌹">letšoba</annotation>
+		<annotation cp="🌹" type="tts">letšobana</annotation>
+		<annotation cp="🥀">letšoba | ponne</annotation>
+		<annotation cp="🥀" type="tts">letšoba le ponnego</annotation>
+		<annotation cp="🌺">letšoba</annotation>
+		<annotation cp="🌺" type="tts">letšoba le bulegilego</annotation>
+		<annotation cp="🌻">letšatši | letšoba</annotation>
+		<annotation cp="🌻" type="tts">sonopolomo</annotation>
+		<annotation cp="🌼">letšoba</annotation>
+		<annotation cp="🌼" type="tts">khukhuša</annotation>
+		<annotation cp="🌷">letšoba</annotation>
+		<annotation cp="🌷" type="tts">lekhukhuša</annotation>
+		<annotation cp="🌱">nyenyane</annotation>
+		<annotation cp="🌱" type="tts">peu</annotation>
+		<annotation cp="🌲">mohlare</annotation>
+		<annotation cp="🌲" type="tts">mohlare wa go dula o le o motala</annotation>
+		<annotation cp="🌳">foforega | hlohlorega | mohlare</annotation>
+		<annotation cp="🌳" type="tts">mohlare wa go hlohlorega</annotation>
+		<annotation cp="🌴">mohlare | mopalema</annotation>
+		<annotation cp="🌴" type="tts">mohlare wa mopalema</annotation>
+		<annotation cp="🌵">semela</annotation>
+		<annotation cp="🌵" type="tts">khakthase</annotation>
+		<annotation cp="🌾">reise | thoro | tsebe</annotation>
+		<annotation cp="🌾" type="tts">mohlare wa reise</annotation>
+		<annotation cp="🌿">letlakala</annotation>
+		<annotation cp="🌿" type="tts">segwere</annotation>
+		<annotation cp="☘">semela</annotation>
+		<annotation cp="☘" type="tts">šemoroko</annotation>
+		<annotation cp="🍀">4 | letlakala | mahlare | nne</annotation>
+		<annotation cp="🍀" type="tts">letlakala la mahlare a mane</annotation>
+		<annotation cp="🍁">foforega | letlakala | mapole</annotation>
+		<annotation cp="🍁" type="tts">letlakala la mohlare</annotation>
+		<annotation cp="🍂">foforega | letlakala</annotation>
+		<annotation cp="🍂" type="tts">letlakala le le welego</annotation>
+		<annotation cp="🍃">letlakala | moya | tšea ke moya</annotation>
+		<annotation cp="🍃" type="tts">letlakala leo le tšwego ke moya</annotation>
+		<annotation cp="🍇">seenywa | terebe</annotation>
+		<annotation cp="🍇" type="tts">diterebe</annotation>
+		<annotation cp="🍈">seenywa</annotation>
+		<annotation cp="🍈" type="tts">melone</annotation>
+		<annotation cp="🍉">seenywa</annotation>
+		<annotation cp="🍉" type="tts">legapu</annotation>
+		<annotation cp="🍊">namune | seenywa</annotation>
+		<annotation cp="🍊" type="tts">nariki</annotation>
+		<annotation cp="🍋">legoro la namune | seenywa</annotation>
+		<annotation cp="🍋" type="tts">swiri</annotation>
+		<annotation cp="🍌">seenywa</annotation>
+		<annotation cp="🍌" type="tts">panana</annotation>
+		<annotation cp="🍍">seenywa</annotation>
+		<annotation cp="🍍" type="tts">phaeneapole</annotation>
+		<annotation cp="🍎">apola | bohubedu | seenywa</annotation>
+		<annotation cp="🍎" type="tts">apola e hubedu</annotation>
+		<annotation cp="🍏">apola | botala | seenywa</annotation>
+		<annotation cp="🍏" type="tts">apola e tala</annotation>
+		<annotation cp="🍐">seenywa</annotation>
+		<annotation cp="🍐" type="tts">piere</annotation>
+		<annotation cp="🍑">seenywa</annotation>
+		<annotation cp="🍑" type="tts">perekisi</annotation>
+		<annotation cp="🍒">cheri | seenywa</annotation>
+		<annotation cp="🍒" type="tts">cheri</annotation>
+		<annotation cp="🍓">peri | seenywa</annotation>
+		<annotation cp="🍓" type="tts">strawberry</annotation>
+		<annotation cp="🥝">kiwi | seenywa | sejo</annotation>
+		<annotation cp="🥝" type="tts">seenywa sa kiwi</annotation>
+		<annotation cp="🍅">morogo | seenywa</annotation>
+		<annotation cp="🍅" type="tts">tamati</annotation>
+		<annotation cp="🥥">pina colada | polame</annotation>
+		<annotation cp="🥥" type="tts">khokhonate</annotation>
+		<annotation cp="🥑">abokhate | seenywa | sejo</annotation>
+		<annotation cp="🥑" type="tts">abokhate</annotation>
+		<annotation cp="🍆">aubetšini | morogo</annotation>
+		<annotation cp="🍆" type="tts">mothobe</annotation>
+		<annotation cp="🥔">letapola | morogo | sejo</annotation>
+		<annotation cp="🥔" type="tts">letapola</annotation>
+		<annotation cp="🥕">kherotse | morogo | sejo</annotation>
+		<annotation cp="🥕" type="tts">kherotse</annotation>
+		<annotation cp="🌽">bupi | lehea | tsebe</annotation>
+		<annotation cp="🌽" type="tts">letlakala la lehea</annotation>
+		<annotation cp="🌶">baba | perepere</annotation>
+		<annotation cp="🌶" type="tts">perepere ya go baba</annotation>
+		<annotation cp="🥒">khukhampa | morogo | phikile | sejo</annotation>
+		<annotation cp="🥒" type="tts">khukhampa</annotation>
+		<annotation cp="🥦">khabetše ya naga</annotation>
+		<annotation cp="🥦" type="tts">brokholi</annotation>
+		<annotation cp="🍄">makaka a segwaga</annotation>
+		<annotation cp="🍄" type="tts">mašerumu</annotation>
+		<annotation cp="🥜">morogo | ponkisi | sejo | tokomane</annotation>
+		<annotation cp="🥜" type="tts">ditokomane</annotation>
+		<annotation cp="🌰">semela</annotation>
+		<annotation cp="🌰" type="tts">dikoko</annotation>
+		<annotation cp="🍞">lofo</annotation>
+		<annotation cp="🍞" type="tts">borotho</annotation>
+		<annotation cp="🥐">borotho | dijo | khroisante | paloni | rolo ya borotho</annotation>
+		<annotation cp="🥐" type="tts">khroisante</annotation>
+		<annotation cp="🥖">baguette | borotho | paloni | sejo</annotation>
+		<annotation cp="🥖" type="tts">borotho bja baguette</annotation>
+		<annotation cp="🥨">rarane</annotation>
+		<annotation cp="🥨" type="tts">simba</annotation>
+		<annotation cp="🥞">crepe | panekuku | panse | sejo</annotation>
+		<annotation cp="🥞" type="tts">dipanse</annotation>
+		<annotation cp="🧀">tšhese</annotation>
+		<annotation cp="🧀" type="tts">selai sa tšhese</annotation>
+		<annotation cp="🍖">lerapo</annotation>
+		<annotation cp="🍖" type="tts">nama lerapong</annotation>
+		<annotation cp="🍗">kgogo | lerapo | monatla</annotation>
+		<annotation cp="🍗" type="tts">monatlana</annotation>
+		<annotation cp="🥩">kgomo | nama | nku | setsekakolobe</annotation>
+		<annotation cp="🥩" type="tts">nama</annotation>
+		<annotation cp="🥓">kolobe | nama ya kgomo | sejo</annotation>
+		<annotation cp="🥓" type="tts">nama ya kolobe</annotation>
+		<annotation cp="🍔">peka</annotation>
+		<annotation cp="🍔" type="tts">hampeka</annotation>
+		<annotation cp="🍟">ditšhipisi | ditšhipsi</annotation>
+		<annotation cp="🍟" type="tts">ditšhipisi</annotation>
+		<annotation cp="🍕">selai | tšhese</annotation>
+		<annotation cp="🍕" type="tts">phitsa</annotation>
+		<annotation cp="🌭">biana | boroso | hotdog</annotation>
+		<annotation cp="🌭" type="tts">hot dog</annotation>
+		<annotation cp="🥪">borotho</annotation>
+		<annotation cp="🥪" type="tts">sangwetši</annotation>
+		<annotation cp="🌮">tša ba mexico</annotation>
+		<annotation cp="🌮" type="tts">thakho</annotation>
+		<annotation cp="🌯">tša ba mexico | wrap</annotation>
+		<annotation cp="🌯" type="tts">burrito</annotation>
+		<annotation cp="🥙">borotho bja phaphathi | falafele | kebab | phaphathi | sangwetši | sejo</annotation>
+		<annotation cp="🥙" type="tts">borotho bja phaphathi bjo tladitšwego</annotation>
+		<annotation cp="🥚">lee | sejo</annotation>
+		<annotation cp="🥚" type="tts">lee</annotation>
+		<annotation cp="🍳">foraiwa | lee | pane</annotation>
+		<annotation cp="🍳" type="tts">apea</annotation>
+		<annotation cp="🥘">go iša | khaserole | paella | pane | sejo</annotation>
+		<annotation cp="🥘" type="tts">pane ya go iša ya borotho</annotation>
+		<annotation cp="🍲">nama | poto</annotation>
+		<annotation cp="🍲" type="tts">poto ya dijo</annotation>
+		<annotation cp="🥣">congee | dijo tša mesong | serele</annotation>
+		<annotation cp="🥣" type="tts">sekotlelo le lelepola</annotation>
+		<annotation cp="🥗">salate | sejo | talamorogo</annotation>
+		<annotation cp="🥗" type="tts">salate e tala</annotation>
+		<annotation cp="🍿">phopokhone</annotation>
+		<annotation cp="🍿" type="tts">phopokhone</annotation>
+		<annotation cp="🥫">tšhitswana</annotation>
+		<annotation cp="🥫" type="tts">sejo ka kheneng</annotation>
+		<annotation cp="🍱">lepokisi | poleite</annotation>
+		<annotation cp="🍱" type="tts">lepokisana la bento</annotation>
+		<annotation cp="🍘">pisikiti | reise</annotation>
+		<annotation cp="🍘" type="tts">pisikiti</annotation>
+		<annotation cp="🍙">Japane | polo | reisee</annotation>
+		<annotation cp="🍙" type="tts">polo ya reise</annotation>
+		<annotation cp="🍚">apeilwe | reise</annotation>
+		<annotation cp="🍚" type="tts">reise e apeilwego</annotation>
+		<annotation cp="🍛">baba | reise</annotation>
+		<annotation cp="🍛" type="tts">reise ya go baba</annotation>
+		<annotation cp="🍜">fiša | makaroni | poleite | ramen</annotation>
+		<annotation cp="🍜" type="tts">sekotlelo sa go fiša</annotation>
+		<annotation cp="🍝">makaroni</annotation>
+		<annotation cp="🍝" type="tts">makaroni</annotation>
+		<annotation cp="🍠">bose | forawa | matapola</annotation>
+		<annotation cp="🍠" type="tts">matapola a forailwego</annotation>
+		<annotation cp="🍢">hlaba | hlapi | kebab | phathana</annotation>
+		<annotation cp="🍢" type="tts">metswako ya dijo</annotation>
+		<annotation cp="🍣">suši</annotation>
+		<annotation cp="🍣" type="tts">suši</annotation>
+		<annotation cp="🍤">foraiwa | hlapi | tempura</annotation>
+		<annotation cp="🍤" type="tts">hlapiana e forailwego</annotation>
+		<annotation cp="🍥">dikologa | folouro | hlapi | khekhe</annotation>
+		<annotation cp="🍥" type="tts">kheke e thadilwego ya hlapi</annotation>
+		<annotation cp="🍡">bose | Japane | menate | phata | phathana</annotation>
+		<annotation cp="🍡" type="tts">dango</annotation>
+		<annotation cp="🥟">empanada | gyōza | jiaozi | pierogi | potstikha</annotation>
+		<annotation cp="🥟" type="tts">letompolo</annotation>
+		<annotation cp="🥠">boporofeta</annotation>
+		<annotation cp="🥠" type="tts">kuku ya mahlatse</annotation>
+		<annotation cp="🥡">oesterepheile</annotation>
+		<annotation cp="🥡" type="tts">lepokisi la dijo</annotation>
+		<annotation cp="🦀">Cancer | zodiac</annotation>
+		<annotation cp="🦀" type="tts">letlapakgerere</annotation>
+		<annotation cp="🦐">hlapi ya legapi | nyenyane | sejo | šerimbo</annotation>
+		<annotation cp="🦐" type="tts">šerimpo</annotation>
+		<annotation cp="🦑">sejo | sekhwiti | seneile</annotation>
+		<annotation cp="🦑" type="tts">sekhwiti</annotation>
+		<annotation cp="🍦">boleta | bose | ice | icecream | khirimo | menate</annotation>
+		<annotation cp="🍦" type="tts">ice cream e boleta</annotation>
+		<annotation cp="🍧">aese | bose | kotile | tesete</annotation>
+		<annotation cp="🍧" type="tts">aese ye bopilwego</annotation>
+		<annotation cp="🍨">aese | bose | kherimo | menate</annotation>
+		<annotation cp="🍨" type="tts">ice cream</annotation>
+		<annotation cp="🍩">bose | tesete | tonate</annotation>
+		<annotation cp="🍩" type="tts">tonate</annotation>
+		<annotation cp="🍪">bose | menate</annotation>
+		<annotation cp="🍪" type="tts">kuku</annotation>
+		<annotation cp="🎂">bose | folouro | khekhe | moketeko | tesete | tšatši la matswalo</annotation>
+		<annotation cp="🎂" type="tts">khekhe ya matswalo</annotation>
+		<annotation cp="🍰">bose | folouro | khekhe | menate | selae</annotation>
+		<annotation cp="🍰" type="tts">khekhe e kopana</annotation>
+		<annotation cp="🥧">go tlala | ting</annotation>
+		<annotation cp="🥧" type="tts">phae</annotation>
+		<annotation cp="🍫">bose | menate | para | tšhokolete</annotation>
+		<annotation cp="🍫" type="tts">para ya tšhokolete</annotation>
+		<annotation cp="🍬">bose | menate</annotation>
+		<annotation cp="🍬" type="tts">lelekere</annotation>
+		<annotation cp="🍭">bose | lelekere | tesete</annotation>
+		<annotation cp="🍭" type="tts">pongpong</annotation>
+		<annotation cp="🍮">bose | kuku | menate</annotation>
+		<annotation cp="🍮" type="tts">khasetete</annotation>
+		<annotation cp="🍯">bose | pitša ya todi | poto | todi</annotation>
+		<annotation cp="🍯" type="tts">pitša ya todi</annotation>
+		<annotation cp="🍼">go nwa | lepotlelo | maswi | ngwana</annotation>
+		<annotation cp="🍼" type="tts">tami</annotation>
+		<annotation cp="🥛">galase | maswi | seno</annotation>
+		<annotation cp="🥛" type="tts">galase ya maswi</annotation>
+		<annotation cp="☕">bela | fiša | go nwa | kofi | seno | tea</annotation>
+		<annotation cp="☕" type="tts">seno se fišago</annotation>
+		<annotation cp="🍵">komiki ya tea | kopi | seno | tea</annotation>
+		<annotation cp="🍵" type="tts">kopi ya go hloka mokgok</annotation>
+		<annotation cp="🍶">kopi | lepotlelo | para | seno</annotation>
+		<annotation cp="🍶" type="tts">seike</annotation>
+		<annotation cp="🍾">bula | khoko | para | seno</annotation>
+		<annotation cp="🍾" type="tts">lepotlelo la go tswalela ka lepolankana</annotation>
+		<annotation cp="🍷">beine | galase | go nwa | para | seno</annotation>
+		<annotation cp="🍷" type="tts">galase ya beine</annotation>
+		<annotation cp="🍸">cocktail | galase | para | seno</annotation>
+		<annotation cp="🍸" type="tts">galase ya cocktail</annotation>
+		<annotation cp="🍹">para | seno | throphikhale</annotation>
+		<annotation cp="🍹" type="tts">seno se kgabišitšwego</annotation>
+		<annotation cp="🍺">galase | para | piri | seno</annotation>
+		<annotation cp="🍺" type="tts">kopi ya piri</annotation>
+		<annotation cp="🍻">galase | para | piri | seno | thulana</annotation>
+		<annotation cp="🍻" type="tts">dikopi tša piri di a bethanago</annotation>
+		<annotation cp="🥂">bethana | galase | go keteka | nwa</annotation>
+		<annotation cp="🥂" type="tts">digalase tše di bethanago</annotation>
+		<annotation cp="🥃">bjala | galase | sehlokamokgoko | šote | whisky</annotation>
+		<annotation cp="🥃" type="tts">galase ya go hloka mokgoko</annotation>
+		<annotation cp="🥤">soda | tšusi</annotation>
+		<annotation cp="🥤" type="tts">komiki le lethontswana</annotation>
+		<annotation cp="🥢">haši</annotation>
+		<annotation cp="🥢" type="tts">diphatana</annotation>
+		<annotation cp="🍽">foroko | go apea | poleite | thipa</annotation>
+		<annotation cp="🍽" type="tts">thipa le foroko ka poleiteng</annotation>
+		<annotation cp="🍴">foroko | go apea | thipa</annotation>
+		<annotation cp="🍴" type="tts">foroko le thipa</annotation>
+		<annotation cp="🥄">lelepola | sebjana sa tafola</annotation>
+		<annotation cp="🥄" type="tts">lelepola</annotation>
+		<annotation cp="🔪">go apea | sebetša | thipa | thipa e bogale | tholosi</annotation>
+		<annotation cp="🔪" type="tts">thipa ya go apea</annotation>
+		<annotation cp="🏺">Aquarius | galase | go apea | go nwa | sebetša | tholosi | zodiac</annotation>
+		<annotation cp="🏺" type="tts">moeta</annotation>
+		<annotation cp="🌍">Afrika | lefase | lefasebophara | Yuropa</annotation>
+		<annotation cp="🌍" type="tts">mmapa o bontšhago Yuropa le Afrika</annotation>
+		<annotation cp="🌎">Amerika | lefase</annotation>
+		<annotation cp="🌎" type="tts">mmapa o bontšhago Amerika</annotation>
+		<annotation cp="🌏">Australia | Ešia | lefase</annotation>
+		<annotation cp="🌏" type="tts">mmapa o bontšhago Asia le Australia</annotation>
+		<annotation cp="🌐">lefase | nkgokolo</annotation>
+		<annotation cp="🌐" type="tts">diswantšho tša lefase</annotation>
+		<annotation cp="🗺">lefase | mmepe</annotation>
+		<annotation cp="🗺" type="tts">mmepe wa lefase</annotation>
+		<annotation cp="🗾">Japane | mmEpa</annotation>
+		<annotation cp="🗾" type="tts">mmapa wa Japane</annotation>
+		<annotation cp="🏔">lehlwa | thaba | tonya</annotation>
+		<annotation cp="🏔" type="tts">thaba e apereditšwego ke lehlwa</annotation>
+		<annotation cp="⛰">thaba</annotation>
+		<annotation cp="⛰" type="tts">thaba</annotation>
+		<annotation cp="🌋">go wa | thaba</annotation>
+		<annotation cp="🌋" type="tts">thabamollo</annotation>
+		<annotation cp="🗻">mothuthupo | thaba</annotation>
+		<annotation cp="🗻" type="tts">mothuthupo wa thaba</annotation>
+		<annotation cp="🏕">go kampa</annotation>
+		<annotation cp="🏕" type="tts">go kampa</annotation>
+		<annotation cp="🏖">lewatle | samporene</annotation>
+		<annotation cp="🏖" type="tts">lebopo le samporene</annotation>
+		<annotation cp="🏜">leganata</annotation>
+		<annotation cp="🏜" type="tts">leganata</annotation>
+		<annotation cp="🏝">leganata | sehlakahlaka</annotation>
+		<annotation cp="🏝" type="tts">sehlakahlakaganata</annotation>
+		<annotation cp="🏞">serapa</annotation>
+		<annotation cp="🏞" type="tts">serapa sa bosetšhaba</annotation>
+		<annotation cp="🏟">lepatlelo</annotation>
+		<annotation cp="🏟" type="tts">lepatlelo</annotation>
+		<annotation cp="🏛">kgale</annotation>
+		<annotation cp="🏛" type="tts">moago wa kgale</annotation>
+		<annotation cp="🏗">go aga</annotation>
+		<annotation cp="🏗" type="tts">go aga moago</annotation>
+		<annotation cp="🏘">dintlo</annotation>
+		<annotation cp="🏘" type="tts">dintlo</annotation>
+		<annotation cp="🏚">hlokomologa | ntlo</annotation>
+		<annotation cp="🏚" type="tts">ntlo e hlokomologilwego</annotation>
+		<annotation cp="🏠">legae | ntlo</annotation>
+		<annotation cp="🏠" type="tts">ntlo</annotation>
+		<annotation cp="🏡">legae | ntlo | serapa</annotation>
+		<annotation cp="🏡" type="tts">ntlo le serapa</annotation>
+		<annotation cp="🏢">moago</annotation>
+		<annotation cp="🏢" type="tts">moago wa diofisi</annotation>
+		<annotation cp="🏣">Japane | ofisi</annotation>
+		<annotation cp="🏣" type="tts">ofisi ya poso ya japane</annotation>
+		<annotation cp="🏤">poso | Yuropa</annotation>
+		<annotation cp="🏤" type="tts">ofisi ya poso</annotation>
+		<annotation cp="🏥">dihlare | ngaka</annotation>
+		<annotation cp="🏥" type="tts">sepetlele</annotation>
+		<annotation cp="🏦">moago</annotation>
+		<annotation cp="🏦" type="tts">panka</annotation>
+		<annotation cp="🏨">moago</annotation>
+		<annotation cp="🏨" type="tts">hotele</annotation>
+		<annotation cp="🏩">hotele | lerato</annotation>
+		<annotation cp="🏩" type="tts">hotele ya lerato</annotation>
+		<annotation cp="🏪">kholofelo | lebenkele</annotation>
+		<annotation cp="🏪" type="tts">lebenkele la kholofelo</annotation>
+		<annotation cp="🏫">moago</annotation>
+		<annotation cp="🏫" type="tts">sekolo</annotation>
+		<annotation cp="🏬">lebenkele | lefapha</annotation>
+		<annotation cp="🏬" type="tts">lefapha la lebenkele</annotation>
+		<annotation cp="🏭">moago</annotation>
+		<annotation cp="🏭" type="tts">feme</annotation>
+		<annotation cp="🏯">Japane | ntlo ya bogoši</annotation>
+		<annotation cp="🏯" type="tts">ntlo ya bogoši ya Japane</annotation>
+		<annotation cp="🏰">Yuropa</annotation>
+		<annotation cp="🏰" type="tts">ntlo ya bogoši</annotation>
+		<annotation cp="💒">lerato | ntlo ya thapelo</annotation>
+		<annotation cp="💒" type="tts">lenyalo</annotation>
+		<annotation cp="🗼">Tokyo | tora</annotation>
+		<annotation cp="🗼" type="tts">tora ya Tokyo</annotation>
+		<annotation cp="🗽">Liberty | sehlwaseeme</annotation>
+		<annotation cp="🗽" type="tts">Sehlwa se eme sa Liberty</annotation>
+		<annotation cp="⛪">bodumedi | Bokriste | sefapano</annotation>
+		<annotation cp="⛪" type="tts">kereke</annotation>
+		<annotation cp="🕌">bodumedi | islamo | Moselemo</annotation>
+		<annotation cp="🕌" type="tts">mosque</annotation>
+		<annotation cp="🕍">Bajuda | bodumedi | Mojuda | tempele</annotation>
+		<annotation cp="🕍" type="tts">sinagogo</annotation>
+		<annotation cp="⛩">bodumedi | shinto | shrine</annotation>
+		<annotation cp="⛩" type="tts">aletare ya shinto</annotation>
+		<annotation cp="🕋">bodumedi | islamo | Moselemo</annotation>
+		<annotation cp="🕋" type="tts">kaaba</annotation>
+		<annotation cp="⛲">petse</annotation>
+		<annotation cp="⛲" type="tts">petse</annotation>
+		<annotation cp="⛺">go kampa</annotation>
+		<annotation cp="⛺" type="tts">tente</annotation>
+		<annotation cp="🌁">kgodi</annotation>
+		<annotation cp="🌁" type="tts">go kgodi</annotation>
+		<annotation cp="🌃">bošego | naledi</annotation>
+		<annotation cp="🌃" type="tts">bošego bja dinaledi</annotation>
+		<annotation cp="🏙">toropo</annotation>
+		<annotation cp="🏙" type="tts">ponagalo ya toropo</annotation>
+		<annotation cp="🌄">go dikela ga letšatši | letšatši | masa | thaba</annotation>
+		<annotation cp="🌄" type="tts">letšatši le hlaba thabeng</annotation>
+		<annotation cp="🌅">letšatši | mesong</annotation>
+		<annotation cp="🌅" type="tts">go hlaba ga letšatši</annotation>
+		<annotation cp="🌆">boso | go dikela ga letšatši | letšatši | mantšiboa | ponagalo ya lefase | toropo</annotation>
+		<annotation cp="🌆" type="tts">kgoro e bonalago lewatleng</annotation>
+		<annotation cp="🌇">boso | letšatši</annotation>
+		<annotation cp="🌇" type="tts">go dikela ga letšatši</annotation>
+		<annotation cp="🌉">bošego | leporogo</annotation>
+		<annotation cp="🌉" type="tts">leporogo bošego</annotation>
+		<annotation cp="♨">fiša | lehlabula | lehlabula la go fiša | phišo</annotation>
+		<annotation cp="♨" type="tts">lehlabula la go fiša</annotation>
+		<annotation cp="🎠">kharaosele | pere</annotation>
+		<annotation cp="🎠" type="tts">pere ya kharaosele</annotation>
+		<annotation cp="🎡">leotwana | phaka ya go kgahla | teku</annotation>
+		<annotation cp="🎡" type="tts">leotwana la teku</annotation>
+		<annotation cp="🎢">moyeng | namela | phaka ya go kgahla</annotation>
+		<annotation cp="🎢" type="tts">papadi ya dinamelwa tša moyeng</annotation>
+		<annotation cp="💈">kota meriri | lebenkele | pala</annotation>
+		<annotation cp="💈" type="tts">pala ya lebenkele la go kota meriri</annotation>
+		<annotation cp="🎪">metlae | tente</annotation>
+		<annotation cp="🎪" type="tts">tente ya metlae</annotation>
+		<annotation cp="🚂">entšene | phišo | setimela | tsela ya diterene</annotation>
+		<annotation cp="🚂" type="tts">terene</annotation>
+		<annotation cp="🚃">koloi | mohlagase | pese ya letorokisi | seporo | setimela | therema</annotation>
+		<annotation cp="🚃" type="tts">terene ya koloi</annotation>
+		<annotation cp="🚄">lebelo | seporo | setimela | terene ya lebelo</annotation>
+		<annotation cp="🚄" type="tts">terene ya lebelo</annotation>
+		<annotation cp="🚅">kolo | lebelo | seporo | setimela | terene ya lebelo</annotation>
+		<annotation cp="🚅" type="tts">lebelo la terene ya nko ya kolo</annotation>
+		<annotation cp="🚆">seporo</annotation>
+		<annotation cp="🚆" type="tts">setimela</annotation>
+		<annotation cp="🚇">tsejana</annotation>
+		<annotation cp="🚇" type="tts">toropokgolo</annotation>
+		<annotation cp="🚈">seporo</annotation>
+		<annotation cp="🚈" type="tts">seporo sa lebone</annotation>
+		<annotation cp="🚉">seporo | setimela</annotation>
+		<annotation cp="🚉" type="tts">seteše</annotation>
+		<annotation cp="🚊">pese ya terole</annotation>
+		<annotation cp="🚊" type="tts">terene ya mohlagase</annotation>
+		<annotation cp="🚝">koloi</annotation>
+		<annotation cp="🚝" type="tts">terene ya go sepela godimo</annotation>
+		<annotation cp="🚞">koloi | seporo | thaba</annotation>
+		<annotation cp="🚞" type="tts">seporo sa thabeng</annotation>
+		<annotation cp="🚋">koloi | koloi ya mohlagase | pese ya letorokisi</annotation>
+		<annotation cp="🚋" type="tts">koloi ya go bulega</annotation>
+		<annotation cp="🚌">koloi</annotation>
+		<annotation cp="🚌" type="tts">pese</annotation>
+		<annotation cp="🚍">pese | tlago</annotation>
+		<annotation cp="🚍" type="tts">pese e tlago</annotation>
+		<annotation cp="🚎">koloi ya mohlagase | letorokisi | pese</annotation>
+		<annotation cp="🚎" type="tts">pese ya terole</annotation>
+		<annotation cp="🚐">pese</annotation>
+		<annotation cp="🚐" type="tts">pese e nyenyane</annotation>
+		<annotation cp="🚑">koloi</annotation>
+		<annotation cp="🚑" type="tts">ampulense</annotation>
+		<annotation cp="🚒">entšene | lori | mollo</annotation>
+		<annotation cp="🚒" type="tts">koloi ya ditimamollo</annotation>
+		<annotation cp="🚓">hlapetša | koloi | maphodisa</annotation>
+		<annotation cp="🚓" type="tts">koloi ya maphodisa</annotation>
+		<annotation cp="🚔">koloi | lephodisa | tlago</annotation>
+		<annotation cp="🚔" type="tts">koloi ya maphodisa e tlago</annotation>
+		<annotation cp="🚕">koloi</annotation>
+		<annotation cp="🚕" type="tts">thekisi</annotation>
+		<annotation cp="🚖">thekisi | tlago</annotation>
+		<annotation cp="🚖" type="tts">thekisi e tlago</annotation>
+		<annotation cp="🚗">koloi</annotation>
+		<annotation cp="🚗" type="tts">mmotoro</annotation>
+		<annotation cp="🚘">koloi | mmotoro | tlago</annotation>
+		<annotation cp="🚘" type="tts">mmotoro o tlago</annotation>
+		<annotation cp="🚙">boithabišo | dipapadi</annotation>
+		<annotation cp="🚙" type="tts">koloi ya dipapadi</annotation>
+		<annotation cp="🚚">dithotho | lori</annotation>
+		<annotation cp="🚚" type="tts">lori ya dithoto</annotation>
+		<annotation cp="🚛">lori | lorikopana</annotation>
+		<annotation cp="🚛" type="tts">lori ya merwalo</annotation>
+		<annotation cp="🚜">koloi</annotation>
+		<annotation cp="🚜" type="tts">terekere</annotation>
+		<annotation cp="🏎">kitima | koloi</annotation>
+		<annotation cp="🏎" type="tts">koloi ya mabelo</annotation>
+		<annotation cp="🏍">lebelo</annotation>
+		<annotation cp="🏍" type="tts">sekuta</annotation>
+		<annotation cp="🛵">motoro | sekuta</annotation>
+		<annotation cp="🛵" type="tts">sekuta sa mmoto</annotation>
+		<annotation cp="🚲">sekuta</annotation>
+		<annotation cp="🚲" type="tts">paesekele</annotation>
+		<annotation cp="🛴">raga | sekuta</annotation>
+		<annotation cp="🛴" type="tts">paesekela e nyenyane</annotation>
+		<annotation cp="🚏">boemapese | ema | pese</annotation>
+		<annotation cp="🚏" type="tts">boemapese</annotation>
+		<annotation cp="🛣">tsela | tsela ya lephefo</annotation>
+		<annotation cp="🛣" type="tts">mmila</annotation>
+		<annotation cp="🛤">seporo | setimela</annotation>
+		<annotation cp="🛤" type="tts">terene tseleng ye terene</annotation>
+		<annotation cp="🛢">moropa | oli</annotation>
+		<annotation cp="🛢" type="tts">moropa wa oli</annotation>
+		<annotation cp="⛽">gase | peterole | pompi | seteišene</annotation>
+		<annotation cp="⛽" type="tts">pompo ya peterole</annotation>
+		<annotation cp="🚨">dikologa | kolobe | koloi | lebone | lephodisa</annotation>
+		<annotation cp="🚨" type="tts">lebone la koloi ya maphodisa</annotation>
+		<annotation cp="🚥">lebone | leswao | sephethephethe</annotation>
+		<annotation cp="🚥" type="tts">roboto ya go rapama</annotation>
+		<annotation cp="🚦">lebone | leswao | sephethephethe</annotation>
+		<annotation cp="🚦" type="tts">roboto ya go tsepama</annotation>
+		<annotation cp="🛑">ema | khutloseswi | leswao</annotation>
+		<annotation cp="🛑" type="tts">leswao la ema</annotation>
+		<annotation cp="🚧">thibelo</annotation>
+		<annotation cp="🚧" type="tts">go aga</annotation>
+		<annotation cp="⚓">sekepe | tholosi</annotation>
+		<annotation cp="⚓" type="tts">ankere</annotation>
+		<annotation cp="⛵">bothata | lewatle | sekepe | seketswana</annotation>
+		<annotation cp="⛵" type="tts">seketswana sa go sesa</annotation>
+		<annotation cp="🛶">sekepe | seketswana</annotation>
+		<annotation cp="🛶" type="tts">seketswana</annotation>
+		<annotation cp="🚤">seketswana</annotation>
+		<annotation cp="🚤" type="tts">sekepe sa lebelo</annotation>
+		<annotation cp="🛳">monamedi | sekepe</annotation>
+		<annotation cp="🛳" type="tts">monamedi wa sekepe</annotation>
+		<annotation cp="⛴">monamedi | sepeke</annotation>
+		<annotation cp="⛴" type="tts">sekepe se segolo</annotation>
+		<annotation cp="🛥">sekepe | sekuta</annotation>
+		<annotation cp="🛥" type="tts">thuthuthu</annotation>
+		<annotation cp="🚢">monamedi | sepeke</annotation>
+		<annotation cp="🚢" type="tts">sekepe</annotation>
+		<annotation cp="✈">difofane | sefofane</annotation>
+		<annotation cp="✈" type="tts">sefofane</annotation>
+		<annotation cp="🛩">difofane | sefofane</annotation>
+		<annotation cp="🛩" type="tts">sefofane se senyenyane</annotation>
+		<annotation cp="🛫">boemafofane | difofane | go hlola | go tloga | sefofane</annotation>
+		<annotation cp="🛫" type="tts">moo difofane di tlogago gona</annotation>
+		<annotation cp="🛬">bofihlelo | difofane | go ema | moo go fihlelwago difofane | sefofane</annotation>
+		<annotation cp="🛬" type="tts">go goroga ga sefofane</annotation>
+		<annotation cp="💺">setulo</annotation>
+		<annotation cp="💺" type="tts">setulo</annotation>
+		<annotation cp="🚁">koloi</annotation>
+		<annotation cp="🚁" type="tts">helikhoptara</annotation>
+		<annotation cp="🚟">fegilwego | seporo</annotation>
+		<annotation cp="🚟" type="tts">seporo se fegilwego</annotation>
+		<annotation cp="🚠">gondola | thaba | thapo</annotation>
+		<annotation cp="🚠" type="tts">thapo ya thaba</annotation>
+		<annotation cp="🚡">ariale | gondola | koloi | thapo | tsejana</annotation>
+		<annotation cp="🚡" type="tts">koloyana ya dithapo</annotation>
+		<annotation cp="🛰">sekgoba</annotation>
+		<annotation cp="🛰" type="tts">sathalaete</annotation>
+		<annotation cp="🚀">sekgoba</annotation>
+		<annotation cp="🚀" type="tts">rokhete</annotation>
+		<annotation cp="🛸">UFO</annotation>
+		<annotation cp="🛸" type="tts">piring ya go fofa</annotation>
+		<annotation cp="🛎">hopo ya pele | hotele | pele</annotation>
+		<annotation cp="🛎" type="tts">pele ya lebati</annotation>
+		<annotation cp="⌛">santa | sefanako</annotation>
+		<annotation cp="⌛" type="tts">galasana ya nako</annotation>
+		<annotation cp="⏳">galase ya nako | nako | santa</annotation>
+		<annotation cp="⏳" type="tts">galase ya nako e nago le santa</annotation>
+		<annotation cp="⌚">nako</annotation>
+		<annotation cp="⌚" type="tts">sešupanako</annotation>
+		<annotation cp="⏰">alamo | sešupanako</annotation>
+		<annotation cp="⏰" type="tts">sešupanako sa alamo</annotation>
+		<annotation cp="⏱">nako</annotation>
+		<annotation cp="⏱" type="tts">nako ya go ema</annotation>
+		<annotation cp="⏲">ema | nako</annotation>
+		<annotation cp="⏲" type="tts">go lekanyetša nako</annotation>
+		<annotation cp="🕰">nako</annotation>
+		<annotation cp="🕰" type="tts">nako e botse</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | godimo ga hlogo | lesomepedi | nako</annotation>
+		<annotation cp="🕛" type="tts">iri ya lesomepedi godimo ga hlogo</annotation>
+		<annotation cp="🕧">12 | 12:30 | 30 | godimo ga hlogo | lesomepedi | masometharo</annotation>
+		<annotation cp="🕧" type="tts">seripa ka morago ga iri ya lesomepedi</annotation>
+		<annotation cp="🕐">00 | 1 | 1:00 | godimo ga hlogo | nako | pele</annotation>
+		<annotation cp="🕐" type="tts">iri ya pele godimo ga hlogo</annotation>
+		<annotation cp="🕜">1 | 1:30 | 30 | masometharo | nako | pele</annotation>
+		<annotation cp="🕜" type="tts">seripa ka morago ga iri ya pele</annotation>
+		<annotation cp="🕑">00 | 2 | 2:00 | godimo ga hlogo | nako | pedi</annotation>
+		<annotation cp="🕑" type="tts">iri ya bobedi godimo ga hlogo</annotation>
+		<annotation cp="🕝">2 | 2:30 | 30 | masometharo | nako | pedi</annotation>
+		<annotation cp="🕝" type="tts">seripa ka morago ga iri ya bobedi</annotation>
+		<annotation cp="🕒">00 | 3 | 3:00 | godimo ga hlogo | nako | tharo</annotation>
+		<annotation cp="🕒" type="tts">iri ya boraro godimo ga hlogo</annotation>
+		<annotation cp="🕞">3 | 3:30 | 30 | masometharo | nako | tharo</annotation>
+		<annotation cp="🕞" type="tts">seripagare go tšwa go iri ya boraro</annotation>
+		<annotation cp="🕓">00 | 4 | 4:00 | godimo ga hlogo | nako | nne</annotation>
+		<annotation cp="🕓" type="tts">iri ya bone godimo ga hlogo</annotation>
+		<annotation cp="🕟">30 | 4 | 4:30 | masometharo | nako | nne</annotation>
+		<annotation cp="🕟" type="tts">seripagare go tšwa go iri ya bone</annotation>
+		<annotation cp="🕔">00 | 5 | 5:00 | godimo ga hlogo | hlano | nako</annotation>
+		<annotation cp="🕔" type="tts">iri ya bohlano godimo ga hlogo</annotation>
+		<annotation cp="🕠">30 | 5 | 5:30 | hlano | masometharo | nako</annotation>
+		<annotation cp="🕠" type="tts">seripagare go tšwa go iri ya bohlano</annotation>
+		<annotation cp="🕕">00 | 6 | 6:00 | godimo ga hlogo | nako | tshelela</annotation>
+		<annotation cp="🕕" type="tts">iri ya boselela godimo ga hlogo</annotation>
+		<annotation cp="🕡">30 | 6 | 6:30 | masometharo | nako | tshelela</annotation>
+		<annotation cp="🕡" type="tts">seripagare go tšwa go botshelela</annotation>
+		<annotation cp="🕖">00 | 7 | 7:00 | godimo ga hlogo | nako | šupa</annotation>
+		<annotation cp="🕖" type="tts">iri ya bošupa godimo ga hlogo</annotation>
+		<annotation cp="🕢">30 | 7 | 7:30 | masometharo | nako | šupa</annotation>
+		<annotation cp="🕢" type="tts">seripagare go tšwa go iri ya bošupa</annotation>
+		<annotation cp="🕗">00 | 8 | 8:00 | godimo ga hlogo | nako | seswai</annotation>
+		<annotation cp="🕗" type="tts">iri ya seswai godimo ga hlogo</annotation>
+		<annotation cp="🕣">30 | 8 | 8:30 | masometharo | nako | seswai</annotation>
+		<annotation cp="🕣" type="tts">seripagare go tšwa go iri ya seswai</annotation>
+		<annotation cp="🕘">00 | 9 | 9:00 | godimo ga hlogo | nako | senyane</annotation>
+		<annotation cp="🕘" type="tts">iri ya senyane godimo ga hlogo</annotation>
+		<annotation cp="🕤">30 | 9 | 9:30 | masometharo | nako | senyane</annotation>
+		<annotation cp="🕤" type="tts">seripagare go tšwa go iri ya senyane</annotation>
+		<annotation cp="🕙">00 | 10 | 10:00 | godimo ga hlogo | lesome | nako</annotation>
+		<annotation cp="🕙" type="tts">iri ya lesome godimo ga hlogo</annotation>
+		<annotation cp="🕥">10 | 10:30 | 30 | lesome | masometharo | nako</annotation>
+		<annotation cp="🕥" type="tts">seripagare go tšwa go iri ya lesome</annotation>
+		<annotation cp="🕚">00 | 11 | 11:00 | godimo ga hlogo | lesometee | nako</annotation>
+		<annotation cp="🕚" type="tts">iri ya lesometee godimo ga hlogo</annotation>
+		<annotation cp="🕦">11 | 11:30 | 30 | lesometee | masometharo | nako</annotation>
+		<annotation cp="🕦" type="tts">seripa ka morago ga iri ya lesometee</annotation>
+		<annotation cp="🌑">boso | ngwedi</annotation>
+		<annotation cp="🌑" type="tts">ngwedi o mofsa</annotation>
+		<annotation cp="🌒">hwelela | ngwedi | seripa</annotation>
+		<annotation cp="🌒" type="tts">ngwedi wa seripa wo o kgopamego</annotation>
+		<annotation cp="🌓">kotara | ngwedi</annotation>
+		<annotation cp="🌓" type="tts">ngwedi wa kotara ya mathomo</annotation>
+		<annotation cp="🌔">gotšego | ngwedi | seripa</annotation>
+		<annotation cp="🌔" type="tts">ngwedi wo o fifetšego</annotation>
+		<annotation cp="🌕">ka botlalo | ngwadi</annotation>
+		<annotation cp="🌕" type="tts">ngwedi o tletšego</annotation>
+		<annotation cp="🌖">felelago | gotšego | ngwedi</annotation>
+		<annotation cp="🌖" type="tts">ngwedi o sa felelago</annotation>
+		<annotation cp="🌗">kotara | ngwedi</annotation>
+		<annotation cp="🌗" type="tts">kotara ya mafelelo ya ngwedi</annotation>
+		<annotation cp="🌘">kgopamego | ngwedi | seripa</annotation>
+		<annotation cp="🌘" type="tts">ngwedi o hwelelago wa go kgopama</annotation>
+		<annotation cp="🌙">kgopamego | ngwedi</annotation>
+		<annotation cp="🌙" type="tts">ngwedi o balamego</annotation>
+		<annotation cp="🌚">ngwedi | sefahlego</annotation>
+		<annotation cp="🌚" type="tts">sefahlego sa ngwedi o mofsa</annotation>
+		<annotation cp="🌛">kotara | ngwedi | sefahlego</annotation>
+		<annotation cp="🌛" type="tts">kotara ya mathomo ya ngwedi le sefahlego</annotation>
+		<annotation cp="🌜">kotara | ngwedi | sefahlego</annotation>
+		<annotation cp="🌜" type="tts">kotara ya mafelelo ya ngwedi le sefahlego</annotation>
+		<annotation cp="🌡">boso</annotation>
+		<annotation cp="🌡" type="tts">themomethara</annotation>
+		<annotation cp="☀">go letšatši | mahlasedi | phadima</annotation>
+		<annotation cp="☀" type="tts">letšatši</annotation>
+		<annotation cp="🌝">ngwedi | phadima | sefahlego | tlala</annotation>
+		<annotation cp="🌝" type="tts">ngwedi o feletšego le sefahlego</annotation>
+		<annotation cp="🌞">letšatši | phadima | sefahlego</annotation>
+		<annotation cp="🌞" type="tts">letšatši le nago le ngwedi</annotation>
+		<annotation cp="⭐">naledi</annotation>
+		<annotation cp="⭐" type="tts">naledi ya bogare ye tšhweu</annotation>
+		<annotation cp="🌟">hlaba | naledi | phadima | phadimago</annotation>
+		<annotation cp="🌟" type="tts">naledi e phadimago</annotation>
+		<annotation cp="🌠">ewa | fofa | naledi</annotation>
+		<annotation cp="🌠" type="tts">naledi e fofago</annotation>
+		<annotation cp="🌌">sekgoba</annotation>
+		<annotation cp="🌌" type="tts">dithutlwanaledi</annotation>
+		<annotation cp="☁">boso</annotation>
+		<annotation cp="☁" type="tts">maru</annotation>
+		<annotation cp="⛅">letšatši | maru</annotation>
+		<annotation cp="⛅" type="tts">letšatši ka morago ga ngwedi</annotation>
+		<annotation cp="⛈">legadima | maru | pula</annotation>
+		<annotation cp="⛈" type="tts">maru a magadima le pula</annotation>
+		<annotation cp="🌤">letšatši | maru</annotation>
+		<annotation cp="🌤" type="tts">letšatši ka morago ga leru le lenyenyane</annotation>
+		<annotation cp="🌥">letšatši | maru</annotation>
+		<annotation cp="🌥" type="tts">letšatši ka morago ga leru le legolo</annotation>
+		<annotation cp="🌦">leru | letšatši | pula</annotation>
+		<annotation cp="🌦" type="tts">letšatši ka morago ga leru la pula</annotation>
+		<annotation cp="🌧">leru | pula</annotation>
+		<annotation cp="🌧" type="tts">maru a nago le pula</annotation>
+		<annotation cp="🌨">lehlwa | maru | tonya</annotation>
+		<annotation cp="🌨" type="tts">maru a nago le lehlwa</annotation>
+		<annotation cp="🌩">legadima | maru</annotation>
+		<annotation cp="🌩" type="tts">maru a nago le magadima</annotation>
+		<annotation cp="🌪">maru | sesasedi</annotation>
+		<annotation cp="🌪" type="tts">thonato</annotation>
+		<annotation cp="🌫">maru</annotation>
+		<annotation cp="🌫" type="tts">kgodi</annotation>
+		<annotation cp="🌬">maru | moya | phefo | sefahlego</annotation>
+		<annotation cp="🌬" type="tts">bokapele bja moya</annotation>
+		<annotation cp="🌀">dikologa | fapošitšwego | typhoon</annotation>
+		<annotation cp="🌀" type="tts">modikologo</annotation>
+		<annotation cp="🌈">pula</annotation>
+		<annotation cp="🌈" type="tts">molalatladi</annotation>
+		<annotation cp="🌂">diaparo | pula | samporene</annotation>
+		<annotation cp="🌂" type="tts">samporene se se tswaletšwego</annotation>
+		<annotation cp="☂">diaparo | pula</annotation>
+		<annotation cp="☂" type="tts">samporene</annotation>
+		<annotation cp="☔">lerothi | pula | samporela | seaparo</annotation>
+		<annotation cp="☔" type="tts">samporene se nago le marothodi a pula</annotation>
+		<annotation cp="⛱">letšatši | pula | samporela</annotation>
+		<annotation cp="⛱" type="tts">samporene mo fase</annotation>
+		<annotation cp="⚡">diboletse | kotsi | legadima | mohlagase | zepo</annotation>
+		<annotation cp="⚡" type="tts">voltage ya godimo</annotation>
+		<annotation cp="❄">lehlwa | tonya</annotation>
+		<annotation cp="❄" type="tts">lehlwa le legolo</annotation>
+		<annotation cp="☃">lehlwa | tonya</annotation>
+		<annotation cp="☃" type="tts">monna wa lehlwa</annotation>
+		<annotation cp="⛄">lehlwa | monna wa lehlwa | tonya</annotation>
+		<annotation cp="⛄" type="tts">monna wa lehlwa ntle le lehlwa</annotation>
+		<annotation cp="☄">sekgoba</annotation>
+		<annotation cp="☄" type="tts">khomete</annotation>
+		<annotation cp="🔥">kgabo | tholosi</annotation>
+		<annotation cp="🔥" type="tts">mollo</annotation>
+		<annotation cp="💧">kudumela | lerothi | motlae | tonya</annotation>
+		<annotation cp="💧" type="tts">lerotholodi</annotation>
+		<annotation cp="🌊">lephoto | lewatle | meetse</annotation>
+		<annotation cp="🌊" type="tts">lephoto la meetse</annotation>
+		<annotation cp="🎃">halowini | jeke | lantere | moketeko</annotation>
+		<annotation cp="🎃" type="tts">seswantšhwana sa moletlo</annotation>
+		<annotation cp="🎄">Keresemose | mohlare | moketeko</annotation>
+		<annotation cp="🎄" type="tts">mohlare wa Keresemose</annotation>
+		<annotation cp="🎆">moketeko</annotation>
+		<annotation cp="🎆" type="tts">dikherikhete</annotation>
+		<annotation cp="🎇">dikherikhethe | mokete | setimamollo</annotation>
+		<annotation cp="🎇" type="tts">sephadimi</annotation>
+		<annotation cp="✨">naledi | phadima</annotation>
+		<annotation cp="✨" type="tts">ya phadima</annotation>
+		<annotation cp="🎈">moketeko</annotation>
+		<annotation cp="🎈" type="tts">palone</annotation>
+		<annotation cp="🎉">mokete | moletlo | senya | thada</annotation>
+		<annotation cp="🎉" type="tts">sesenyamodiro</annotation>
+		<annotation cp="🎊">mokete | moletlo | polo</annotation>
+		<annotation cp="🎊" type="tts">polo ya moletlo</annotation>
+		<annotation cp="🎋">Japane | mohlare | mokete | thibelo</annotation>
+		<annotation cp="🎋" type="tts">mohlare wa tanabata</annotation>
+		<annotation cp="🎍">bamboo | Japane | moketeko | pine</annotation>
+		<annotation cp="🎍" type="tts">mokgabišo wa pine</annotation>
+		<annotation cp="🎎">Japane | moketeko | moletlo | popi</annotation>
+		<annotation cp="🎎" type="tts">dipopi tša Japane</annotation>
+		<annotation cp="🎏">keteka | mokete | popi</annotation>
+		<annotation cp="🎏" type="tts">popi ya hlapi</annotation>
+		<annotation cp="🎐">kgabiša | moketeko | moya | pele</annotation>
+		<annotation cp="🎐" type="tts">mokgabišo</annotation>
+		<annotation cp="🎑">moketeko | moletlo | ngwedi</annotation>
+		<annotation cp="🎑" type="tts">moletlo wa go bona ngwedi</annotation>
+		<annotation cp="🎀">moketeko</annotation>
+		<annotation cp="🎀" type="tts">ripone</annotation>
+		<annotation cp="🎁">kgabiša | lepokisi | mokete | mpho | neo</annotation>
+		<annotation cp="🎁" type="tts">mpho e kgabišitšwego</annotation>
+		<annotation cp="🎗">kgopotšo | moketeko | ribone</annotation>
+		<annotation cp="🎗" type="tts">ribone ya kgopotšo</annotation>
+		<annotation cp="🎟">go tsena | thekete</annotation>
+		<annotation cp="🎟" type="tts">dithekete tša go tsena</annotation>
+		<annotation cp="🎫">kamogelo</annotation>
+		<annotation cp="🎫" type="tts">thekete</annotation>
+		<annotation cp="🎖">mašole | metale | mokete</annotation>
+		<annotation cp="🎖" type="tts">metale wa mašole</annotation>
+		<annotation cp="🏆">sefoka</annotation>
+		<annotation cp="🏆" type="tts">sefoka</annotation>
+		<annotation cp="🏅">metale</annotation>
+		<annotation cp="🏅" type="tts">metale ya dipapadi</annotation>
+		<annotation cp="🥇">gauta | mathomo | metale</annotation>
+		<annotation cp="🥇" type="tts">metale wa maemo a pele</annotation>
+		<annotation cp="🥈">bobedi | metale | silibera</annotation>
+		<annotation cp="🥈" type="tts">metale wa maemo a bobedi</annotation>
+		<annotation cp="🥉">boraro | metale | poronse</annotation>
+		<annotation cp="🥉" type="tts">metale wa maemo a boraro</annotation>
+		<annotation cp="⚽">kgwele | kgwele ya maoto | polo</annotation>
+		<annotation cp="⚽" type="tts">kgwele ya maoto</annotation>
+		<annotation cp="⚾">polo</annotation>
+		<annotation cp="⚾" type="tts">peisepolo</annotation>
+		<annotation cp="🏀">molete | polo</annotation>
+		<annotation cp="🏀" type="tts">kgwele ya diatla</annotation>
+		<annotation cp="🏐">papadi | polo</annotation>
+		<annotation cp="🏐" type="tts">bolipolo</annotation>
+		<annotation cp="🏈">amerika | kgwele ya maoto | polo</annotation>
+		<annotation cp="🏈" type="tts">polo ya amerika</annotation>
+		<annotation cp="🏉">kgwele ya maoto | polo | rakbi</annotation>
+		<annotation cp="🏉" type="tts">polo ya rakbi</annotation>
+		<annotation cp="🎾">betha | polo</annotation>
+		<annotation cp="🎾" type="tts">thenese</annotation>
+		<annotation cp="🎳">papadi | polo</annotation>
+		<annotation cp="🎳" type="tts">go paola</annotation>
+		<annotation cp="🏏">papadi | petša | polo</annotation>
+		<annotation cp="🏏" type="tts">papadi ya krikete</annotation>
+		<annotation cp="🏑">hockey | lebala | papadi | phata | polo</annotation>
+		<annotation cp="🏑" type="tts">papadi ya hockey</annotation>
+		<annotation cp="🏒">hockey | ice | papadi | phatha | phathana</annotation>
+		<annotation cp="🏒" type="tts">hoki ya lehlweng</annotation>
+		<annotation cp="🏓">papadi | phata | ping pong | polo | sebapadišwa | thenese ya tafoleng</annotation>
+		<annotation cp="🏓" type="tts">polo ya ping</annotation>
+		<annotation cp="🏸">go šiedišana | papadi | patha | sebapadišwa</annotation>
+		<annotation cp="🏸" type="tts">petemintone</annotation>
+		<annotation cp="🥊">diatlana | matswele</annotation>
+		<annotation cp="🥊" type="tts">ditlelafo tša papadi ya matswele</annotation>
+		<annotation cp="🥋">judo | karate | sekaratel | taekwondo | yunifomo</annotation>
+		<annotation cp="🥋" type="tts">yunifomo ya bokgabo bja sekarate</annotation>
+		<annotation cp="🥅">nete | nno</annotation>
+		<annotation cp="🥅" type="tts">nete ya dino</annotation>
+		<annotation cp="⛳">kolofo | molete</annotation>
+		<annotation cp="⛳" type="tts">folaga ka lešobeng</annotation>
+		<annotation cp="⛸">ice | sesa</annotation>
+		<annotation cp="⛸" type="tts">go bapala go sesa aeseng</annotation>
+		<annotation cp="🎣">hlapi | molete</annotation>
+		<annotation cp="🎣" type="tts">pale ya go rea dihlapi</annotation>
+		<annotation cp="🎽">go kitima | hempe | ramabelo | sash</annotation>
+		<annotation cp="🎽" type="tts">hempe ya go kitima</annotation>
+		<annotation cp="🎿">lehlwa | sekhae</annotation>
+		<annotation cp="🎿" type="tts">sekhaese</annotation>
+		<annotation cp="🛷">kuka | tafolana</annotation>
+		<annotation cp="🛷" type="tts">tafolana</annotation>
+		<annotation cp="🥌">papadi | roko</annotation>
+		<annotation cp="🥌" type="tts">leswika le kgopamego</annotation>
+		<annotation cp="🎯">betha | lefelo | leihlo | leihlo la poo | lerungwana | papadi | poo</annotation>
+		<annotation cp="🎯" type="tts">go betha ka go lebanya</annotation>
+		<annotation cp="🎱">8 | papadi | piliate | polo | polo ya bo 8 | seswai</annotation>
+		<annotation cp="🎱" type="tts">polo ya bo 8</annotation>
+		<annotation cp="🔮">go duma | lehumo | nonwane | phadima | polo | tholosi</annotation>
+		<annotation cp="🔮" type="tts">polo ya go phadima</annotation>
+		<annotation cp="🎮">go laola | papadi</annotation>
+		<annotation cp="🎮" type="tts">papadi ya bidio</annotation>
+		<annotation cp="🕹">papadi | papadi ya bidio</annotation>
+		<annotation cp="🕹" type="tts">selo sa go bapadiša</annotation>
+		<annotation cp="🎰">papadi | seloto</annotation>
+		<annotation cp="🎰" type="tts">motšhene wa tšhelete</annotation>
+		<annotation cp="🎲">letaese | papadi</annotation>
+		<annotation cp="🎲" type="tts">papadi ya letaese</annotation>
+		<annotation cp="♠">karata | papadi</annotation>
+		<annotation cp="♠" type="tts">sutu ya sepeiti</annotation>
+		<annotation cp="♥">karata | papadi</annotation>
+		<annotation cp="♥" type="tts">pelo ya suit</annotation>
+		<annotation cp="♦">karata | papadi</annotation>
+		<annotation cp="♦" type="tts">taemane ya suti</annotation>
+		<annotation cp="♣">karata | papadi</annotation>
+		<annotation cp="♣" type="tts">sutu ya sehlopha</annotation>
+		<annotation cp="🃏">karata | karata e nngwe | papadi</annotation>
+		<annotation cp="🃏" type="tts">joker</annotation>
+		<annotation cp="🀄">hubedu | mahjong | papadi</annotation>
+		<annotation cp="🀄" type="tts">kgolomodumo e hubedu ya mahjong</annotation>
+		<annotation cp="🎴">bapala | Japane | karata | letšoba | papadi</annotation>
+		<annotation cp="🎴" type="tts">dikarata tša papadi tša matšoba</annotation>
+		<annotation cp="🎭">bokgabo | ditiragalo | sefala</annotation>
+		<annotation cp="🎭" type="tts">go dira tša bokgabo</annotation>
+		<annotation cp="🖼">bokgabo | go penta | musiamo | sebopego | seswantšho</annotation>
+		<annotation cp="🖼" type="tts">senepe se se foreimetšwego</annotation>
+		<annotation cp="🎨">bokgabo | musiamo | palete | pente</annotation>
+		<annotation cp="🎨" type="tts">palete ya bokgabo</annotation>
+		<annotation cp="👓">digalase tša mahlo | diporele | leihlo | seaparo</annotation>
+		<annotation cp="👓" type="tts">digalase</annotation>
+		<annotation cp="🕶">digalase | diporele | leihlo | leswiswi</annotation>
+		<annotation cp="🕶" type="tts">digalase tša letšatši</annotation>
+		<annotation cp="👔">diaparo</annotation>
+		<annotation cp="👔" type="tts">thai</annotation>
+		<annotation cp="👕">hempe | seaparo | sekhipha</annotation>
+		<annotation cp="👕" type="tts">sekhipha</annotation>
+		<annotation cp="👖">borokgo | marokgo | seaparo</annotation>
+		<annotation cp="👖" type="tts">dipokathe</annotation>
+		<annotation cp="🧣">molala</annotation>
+		<annotation cp="🧣" type="tts">sekhafo</annotation>
+		<annotation cp="🧤">seatla</annotation>
+		<annotation cp="🧤" type="tts">ditlelafo</annotation>
+		<annotation cp="🧥">baki</annotation>
+		<annotation cp="🧥" type="tts">baiki</annotation>
+		<annotation cp="🧦">lesokisi la bomme</annotation>
+		<annotation cp="🧦" type="tts">masokisi</annotation>
+		<annotation cp="👗">diaparo</annotation>
+		<annotation cp="👗" type="tts">roko</annotation>
+		<annotation cp="👘">diaparo</annotation>
+		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="👙">diaparo | rutha</annotation>
+		<annotation cp="👙" type="tts">pikini</annotation>
+		<annotation cp="👚">mosadi | seaparo</annotation>
+		<annotation cp="👚" type="tts">diaparo tša basadi</annotation>
+		<annotation cp="👛">khoine | seaparo</annotation>
+		<annotation cp="👛" type="tts">sekhwama</annotation>
+		<annotation cp="👜">peke | seaparo | sekhwama</annotation>
+		<annotation cp="👜" type="tts">peke ya go athwa</annotation>
+		<annotation cp="👝">peke | phese | seaparo</annotation>
+		<annotation cp="👝" type="tts">peke ya basadi</annotation>
+		<annotation cp="🛍">go reka | hotele | peke</annotation>
+		<annotation cp="🛍" type="tts">mokotla wa reka</annotation>
+		<annotation cp="🎒">mokotla | peke | sekolo</annotation>
+		<annotation cp="🎒" type="tts">peke ya sekolo</annotation>
+		<annotation cp="👞">monna | seaparo | seeta</annotation>
+		<annotation cp="👞" type="tts">seeta sa monna</annotation>
+		<annotation cp="👟">dieta | dipapadi | seaparo | teki</annotation>
+		<annotation cp="👟" type="tts">dieta tša go kitima</annotation>
+		<annotation cp="👠">hili | mosadi | seaparo</annotation>
+		<annotation cp="👠" type="tts">dihili tše ditelele tša basadi</annotation>
+		<annotation cp="👡">mosadi | ramphašane | seaparo | seeta</annotation>
+		<annotation cp="👡" type="tts">ramphašane ya basadi</annotation>
+		<annotation cp="👢">mosadi | putsu | seaparo | seeta</annotation>
+		<annotation cp="👢" type="tts">diputsu tša basadi</annotation>
+		<annotation cp="👑">kgoši | kgošigadi | seaparo</annotation>
+		<annotation cp="👑" type="tts">korone</annotation>
+		<annotation cp="👒">kefa | mosadi | seaparo</annotation>
+		<annotation cp="👒" type="tts">kefa ya basadi</annotation>
+		<annotation cp="🎩">godimo | kefa | mongatse | seaparo</annotation>
+		<annotation cp="🎩" type="tts">kefa ya godimo</annotation>
+		<annotation cp="🎓">dikalogo | kefa | moketeko | seaparo</annotation>
+		<annotation cp="🎓" type="tts">kefa ya go aloga</annotation>
+		<annotation cp="🧢">kefa ya peisepolo</annotation>
+		<annotation cp="🧢" type="tts">kefa ya thekišo</annotation>
+		<annotation cp="⛑">helmete | kefa | sefahlego | sefapano | thušo</annotation>
+		<annotation cp="⛑" type="tts">helmete ya bašomi ba thušo</annotation>
+		<annotation cp="📿">bodumedi | kefa | phetha | seaparo | thapelo</annotation>
+		<annotation cp="📿" type="tts">dipheta tša thapelo</annotation>
+		<annotation cp="💄">boikgabišo | ditlolatlolane</annotation>
+		<annotation cp="💄" type="tts">setlolamelomo</annotation>
+		<annotation cp="💍">taemane</annotation>
+		<annotation cp="💍" type="tts">palamonwana</annotation>
+		<annotation cp="💎">leswika | sebenyane | taemane</annotation>
+		<annotation cp="💎" type="tts">leswika le bohlokwa</annotation>
+		<annotation cp="🔇">emiša | homola | seboledi | setu</annotation>
+		<annotation cp="🔇" type="tts">dipikara tše di timilwego</annotation>
+		<annotation cp="🔈">fase</annotation>
+		<annotation cp="🔈" type="tts">sepikara sa bolumo ya tlase</annotation>
+		<annotation cp="🔉">bogareng</annotation>
+		<annotation cp="🔉" type="tts">sepikara sa bolumo ya magareng</annotation>
+		<annotation cp="🔊">lešata</annotation>
+		<annotation cp="🔊" type="tts">sepikara sa bolumo ya godimo</annotation>
+		<annotation cp="📢">go bolela le batho | lešata</annotation>
+		<annotation cp="📢" type="tts">sepikara sa go rasa</annotation>
+		<annotation cp="📣">go phaphatha matsogo</annotation>
+		<annotation cp="📣" type="tts">mekafoune</annotation>
+		<annotation cp="📯">ka poso | lenaka | poso</annotation>
+		<annotation cp="📯" type="tts">lenaka la poso</annotation>
+		<annotation cp="🔔">pele</annotation>
+		<annotation cp="🔔" type="tts">pele</annotation>
+		<annotation cp="🔕">aowa | e sego | homola | pele | setu | thibelo | thibetšwe</annotation>
+		<annotation cp="🔕" type="tts">pele e khansetšwego</annotation>
+		<annotation cp="🎼">mmino | ntlha</annotation>
+		<annotation cp="🎼" type="tts">dintlha tša mmino</annotation>
+		<annotation cp="🎵">mmino | nnoto</annotation>
+		<annotation cp="🎵" type="tts">noto ya mmino</annotation>
+		<annotation cp="🎶">dinnoto | mmino | nnoto</annotation>
+		<annotation cp="🎶" type="tts">dinnoto tša mmino</annotation>
+		<annotation cp="🎙">maeke | maekrofouno | mmino | setutio</annotation>
+		<annotation cp="🎙" type="tts">maekrofouno wa ka setutiong</annotation>
+		<annotation cp="🎚">boemo | mmino | selaeta</annotation>
+		<annotation cp="🎚" type="tts">konope ya selaeta</annotation>
+		<annotation cp="🎛">dikonope | laola | mmino</annotation>
+		<annotation cp="🎛" type="tts">dikonope tša go laola</annotation>
+		<annotation cp="🎤">karaoke | maeke</annotation>
+		<annotation cp="🎤" type="tts">maekherofoune</annotation>
+		<annotation cp="🎧">go tsenya ka tsebeng</annotation>
+		<annotation cp="🎧" type="tts">ditsebjana</annotation>
+		<annotation cp="📻">bidio</annotation>
+		<annotation cp="📻" type="tts">seyalemoya</annotation>
+		<annotation cp="🎷">mmino | sax | tholosi</annotation>
+		<annotation cp="🎷" type="tts">seksofoune</annotation>
+		<annotation cp="🎸">mmino | seletšo</annotation>
+		<annotation cp="🎸" type="tts">katara</annotation>
+		<annotation cp="🎹">mmino | piano | seletšo</annotation>
+		<annotation cp="🎹" type="tts">khiipoto ya mmino</annotation>
+		<annotation cp="🎺">mmino | seletšo</annotation>
+		<annotation cp="🎺" type="tts">porompeta</annotation>
+		<annotation cp="🎻">mmino | seletšo</annotation>
+		<annotation cp="🎻" type="tts">bayolini</annotation>
+		<annotation cp="🥁">kota ya go letša moropa | mmino | moropa</annotation>
+		<annotation cp="🥁" type="tts">moropa</annotation>
+		<annotation cp="📱">founo | founo ya ka gae | mogala | sele</annotation>
+		<annotation cp="📱" type="tts">selefouno</annotation>
+		<annotation cp="📲">amogela | founo | founo ya ka gae | lerungwana | mogala | sele</annotation>
+		<annotation cp="📲" type="tts">founo ya go ba le lerungwana</annotation>
+		<annotation cp="☎">mogala</annotation>
+		<annotation cp="☎" type="tts">founo</annotation>
+		<annotation cp="📞">founo ya ka gae | mogala | seamogedi</annotation>
+		<annotation cp="📞" type="tts">seamogedi sa founo</annotation>
+		<annotation cp="📟">pheitšara</annotation>
+		<annotation cp="📟" type="tts">pheitšara</annotation>
+		<annotation cp="📠">fekese</annotation>
+		<annotation cp="📠" type="tts">motšhene wa fekese</annotation>
+		<annotation cp="🔋">peteri</annotation>
+		<annotation cp="🔋" type="tts">peteri</annotation>
+		<annotation cp="🔌">mohlagase | pholaka</annotation>
+		<annotation cp="🔌" type="tts">pholaka ya mohlagase</annotation>
+		<annotation cp="💻">khomphutha | motho | pc</annotation>
+		<annotation cp="💻" type="tts">khomphutha ya lepthopo</annotation>
+		<annotation cp="🖥">khomphutha | teskethopo</annotation>
+		<annotation cp="🖥" type="tts">khomphutha ya teskthopo</annotation>
+		<annotation cp="🖨">khomphutha</annotation>
+		<annotation cp="🖨" type="tts">phrinthara</annotation>
+		<annotation cp="⌨">khomphutha</annotation>
+		<annotation cp="⌨" type="tts">khiipoto</annotation>
+		<annotation cp="🖱">khomphutha</annotation>
+		<annotation cp="🖱" type="tts">maose wa khomphutha</annotation>
+		<annotation cp="🖲">khomphutha</annotation>
+		<annotation cp="🖲" type="tts">polwana ya maose</annotation>
+		<annotation cp="💽">khomphutha | seetša | tiske | tiskenyana</annotation>
+		<annotation cp="💽" type="tts">tiske ya khomphutha</annotation>
+		<annotation cp="💾">floppy | khomphutha | tiske</annotation>
+		<annotation cp="💾" type="tts">flopitiske</annotation>
+		<annotation cp="💿">cd | khomphutha | seetša | tiske</annotation>
+		<annotation cp="💿" type="tts">tiske ya kgetho</annotation>
+		<annotation cp="📀">blu-ray | dvd | khomphutha | seetša | tiske</annotation>
+		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🎥">khamera | mmobi | sinema</annotation>
+		<annotation cp="🎥" type="tts">khamera ya mmobi</annotation>
+		<annotation cp="🎞">filimi | foreime | mobi | sinema</annotation>
+		<annotation cp="🎞" type="tts">diforeime tša filimi</annotation>
+		<annotation cp="📽">bidio | cinema | filimi | mobi | protšekta</annotation>
+		<annotation cp="📽" type="tts">protšekta ya filimi</annotation>
+		<annotation cp="🎬">mmobi | poto</annotation>
+		<annotation cp="🎬" type="tts">poto ya mmobi</annotation>
+		<annotation cp="📺">bidio | thelebišene</annotation>
+		<annotation cp="📺" type="tts">thelebišene</annotation>
+		<annotation cp="📷">bidio</annotation>
+		<annotation cp="📷" type="tts">khamera</annotation>
+		<annotation cp="📸">bidio | foleše | khamera</annotation>
+		<annotation cp="📸" type="tts">khamera ya foleše</annotation>
+		<annotation cp="📹">bidio | khamera</annotation>
+		<annotation cp="📹" type="tts">khamera ya bidio</annotation>
+		<annotation cp="📼">bidio | theipe | vhs</annotation>
+		<annotation cp="📼" type="tts">khasete ya bidio</annotation>
+		<annotation cp="🔍">galase | nyaka | segodiši | tholosi</annotation>
+		<annotation cp="🔍" type="tts">galase ya go bona ya go leba ka go le letshadi</annotation>
+		<annotation cp="🔎">galase | nyaka | segodiši | tholosi</annotation>
+		<annotation cp="🔎" type="tts">galase ya go bona ya go leba ka go le letona</annotation>
+		<annotation cp="🕯">lebone</annotation>
+		<annotation cp="🕯" type="tts">kerese</annotation>
+		<annotation cp="💡">lebone | mohlagase | motlae</annotation>
+		<annotation cp="💡" type="tts">tlelupu</annotation>
+		<annotation cp="🔦">lebone | mohlagase | tholosi | totšhe</annotation>
+		<annotation cp="🔦" type="tts">lebone</annotation>
+		<annotation cp="🏮">bohubedu | lantere | lebone | para</annotation>
+		<annotation cp="🏮" type="tts">lantere ya letlakakala le lehubedu</annotation>
+		<annotation cp="📔">kgabišo | khabara | notepuku | puku</annotation>
+		<annotation cp="📔" type="tts">notepuku ya khabara e kgabišitšwego</annotation>
+		<annotation cp="📕">puku | tswaletšwe</annotation>
+		<annotation cp="📕" type="tts">puku e tswaletšwego</annotation>
+		<annotation cp="📖">bulwa | puku</annotation>
+		<annotation cp="📖" type="tts">puku e bulegilego</annotation>
+		<annotation cp="📗">puku | talamorogo</annotation>
+		<annotation cp="📗" type="tts">puku e talamorogo</annotation>
+		<annotation cp="📘">puku | tala</annotation>
+		<annotation cp="📘" type="tts">puku e talalegodimo</annotation>
+		<annotation cp="📙">mmala wa namune | puku</annotation>
+		<annotation cp="📙" type="tts">puku ya mmala wa namune</annotation>
+		<annotation cp="📚">puku</annotation>
+		<annotation cp="📚" type="tts">dipuku</annotation>
+		<annotation cp="📓">notepuku</annotation>
+		<annotation cp="📓" type="tts">notepuku</annotation>
+		<annotation cp="📒">notepuku</annotation>
+		<annotation cp="📒" type="tts">leja</annotation>
+		<annotation cp="📃">khele | letlakala | tokumente</annotation>
+		<annotation cp="📃" type="tts">letlakala le kobegilego</annotation>
+		<annotation cp="📜">pampiri</annotation>
+		<annotation cp="📜" type="tts">sekorola</annotation>
+		<annotation cp="📄">letlakala | tokumente</annotation>
+		<annotation cp="📄" type="tts">letlakala le lebeletšego godimo</annotation>
+		<annotation cp="📰">ditaba | pampiri</annotation>
+		<annotation cp="📰" type="tts">kuranta</annotation>
+		<annotation cp="🗞">ditaba | kuranta | letlakala | phuthilwe</annotation>
+		<annotation cp="🗞" type="tts">kuranta e phuthilwego</annotation>
+		<annotation cp="📑">dithepo | leswao | maswao | swaya puku</annotation>
+		<annotation cp="📑" type="tts">dithepo tša go swaya puku</annotation>
+		<annotation cp="🔖">leswao</annotation>
+		<annotation cp="🔖" type="tts">pukumaraka</annotation>
+		<annotation cp="🏷">leipole</annotation>
+		<annotation cp="🏷" type="tts">leipole</annotation>
+		<annotation cp="💰">mokotla wa tšhelete | peke | tolara | tšhelete</annotation>
+		<annotation cp="💰" type="tts">mokotla wa tšhelete</annotation>
+		<annotation cp="💴">ntlha | panka | selipi sa panka | tefišo | tšhelete | tšheletepampiri | yen</annotation>
+		<annotation cp="💴" type="tts">tšheletepampiri ya yen</annotation>
+		<annotation cp="💵">ntlha | panka | tefišo | tolara | tšhelete | tšheletepampiri</annotation>
+		<annotation cp="💵" type="tts">tšhelete ya pampiri ya tolara</annotation>
+		<annotation cp="💶">ntlha | panka | selipi sa panka | tefišo | tšhelete | yuro</annotation>
+		<annotation cp="💶" type="tts">tšhelete ya pampiri ya yuro</annotation>
+		<annotation cp="💷">ntlha | panka | ponto | selipi sa panka | tšhelete</annotation>
+		<annotation cp="💷" type="tts">tšhelete ya pampiri ya ponto</annotation>
+		<annotation cp="💸">fofa | mafego | ntlah | panka | silipi sa panka | tefišo | tolara | tšhelete</annotation>
+		<annotation cp="💸" type="tts">tšhelete ya go utswiwa</annotation>
+		<annotation cp="💳">karata | mokitlana | panka | tšhelete</annotation>
+		<annotation cp="💳" type="tts">karata ya mokitlana</annotation>
+		<annotation cp="💹">godimo | godiša | kerafo | kgolo | mmaraka | panka | tšhate | tšhelete | tumile | yen</annotation>
+		<annotation cp="💹" type="tts">tšhate e oketšagago ka yen</annotation>
+		<annotation cp="✉">imeile | lengwalo</annotation>
+		<annotation cp="✉" type="tts">omfolopo</annotation>
+		<annotation cp="📧">imeile | lengwalo | meile</annotation>
+		<annotation cp="📧" type="tts">emaile</annotation>
+		<annotation cp="📨">amogela | emaile | lengwalo | maile | onfolopo | tsena</annotation>
+		<annotation cp="📨" type="tts">onfolopo e tsenago</annotation>
+		<annotation cp="📩">e-maile | emaile | lengwalo | lerungwana | mailee | onfolopo | romela | sepela | tlase</annotation>
+		<annotation cp="📩" type="tts">onfolopo ya lerungwana</annotation>
+		<annotation cp="📤">lengwalo | lepokisi | maile | romela | therei</annotation>
+		<annotation cp="📤" type="tts">therei ya melaetša ye tšwago</annotation>
+		<annotation cp="📥">amogela | lengwalo | lepokisi | meile | melaetšatsena | therei</annotation>
+		<annotation cp="📥" type="tts">therei ya melaetšatsena</annotation>
+		<annotation cp="📦">lepokisi | phasela</annotation>
+		<annotation cp="📦" type="tts">sephuthelwana</annotation>
+		<annotation cp="📫">lepokisi la maile | lepokisi la poso | maile | tswaletšwe</annotation>
+		<annotation cp="📫" type="tts">lepokisi la melaetša le tswaletšwego le nago le folaga e emeletšego</annotation>
+		<annotation cp="📪">lepokisi la maile | lepokisi la poso | maile | tlase | tswaletšwe</annotation>
+		<annotation cp="📪" type="tts">lepokisi la melaetša le tswaletšwego le nago le folaga e robetšego</annotation>
+		<annotation cp="📬">bula | lepokisi la maile | lepokisi la poso | maile</annotation>
+		<annotation cp="📬" type="tts">lepokisi la melaetša le bulegilego le nago le folaga e emeletšego</annotation>
+		<annotation cp="📭">bula | lepokisi la maile | lepokisi la poso | maile | tlase</annotation>
+		<annotation cp="📭" type="tts">lepokisi la melaetša le bulegilego le nago le folaga e robetšego</annotation>
+		<annotation cp="📮">lepokisi la meile | meile</annotation>
+		<annotation cp="📮" type="tts">lepokisi la poso</annotation>
+		<annotation cp="🗳">lepokisi | palote</annotation>
+		<annotation cp="🗳" type="tts">lepokisi la palote le nago le palote</annotation>
+		<annotation cp="✏">phensele</annotation>
+		<annotation cp="✏" type="tts">phensele</annotation>
+		<annotation cp="✒">nib | pene</annotation>
+		<annotation cp="✒" type="tts">nib e ntsho</annotation>
+		<annotation cp="🖋">pene | telele</annotation>
+		<annotation cp="🖋" type="tts">pene e telele</annotation>
+		<annotation cp="🖊">pene e koto</annotation>
+		<annotation cp="🖊" type="tts">pene</annotation>
+		<annotation cp="🖌">go penta</annotation>
+		<annotation cp="🖌" type="tts">poratšhe ya go penta</annotation>
+		<annotation cp="🖍">kherayone</annotation>
+		<annotation cp="🖍" type="tts">kherayone</annotation>
+		<annotation cp="📝">phensele</annotation>
+		<annotation cp="📝" type="tts">memorantamo</annotation>
+		<annotation cp="💼">porifikheisi</annotation>
+		<annotation cp="💼" type="tts">porifikheisi</annotation>
+		<annotation cp="📁">faele | foltara</annotation>
+		<annotation cp="📁" type="tts">faele ya foltara</annotation>
+		<annotation cp="📂">bula | faele | foltara</annotation>
+		<annotation cp="📂" type="tts">faele ya foltara e bulegilego</annotation>
+		<annotation cp="🗂">diaroganyi | karata | lemetletšo</annotation>
+		<annotation cp="🗂" type="tts">dikarata tša go aroganya lemetletšo</annotation>
+		<annotation cp="📅">letšatši</annotation>
+		<annotation cp="📅" type="tts">khalentara</annotation>
+		<annotation cp="📆">khalentara</annotation>
+		<annotation cp="📆" type="tts">tlerola khalentara</annotation>
+		<annotation cp="🗒">manyokenyoke | ntlha | phete</annotation>
+		<annotation cp="🗒" type="tts">noutephete e lomagantšwego</annotation>
+		<annotation cp="🗓">khalentara | lomaganya | phete</annotation>
+		<annotation cp="🗓" type="tts">khalentara e lomagatšwego</annotation>
+		<annotation cp="📇">khalentara | lemetletšo | searoganyi</annotation>
+		<annotation cp="📇" type="tts">karata ya tšhupaboteng</annotation>
+		<annotation cp="📈">godimo | kgolo | methalo | tšhate | tumile</annotation>
+		<annotation cp="📈" type="tts">go oketšwa ga tšhate</annotation>
+		<annotation cp="📉">methalo | tlase | tšhate | tumile</annotation>
+		<annotation cp="📉" type="tts">tšhate e fokotšegago</annotation>
+		<annotation cp="📊">methalo | para | tšhate</annotation>
+		<annotation cp="📊" type="tts">tšhate ya dipara</annotation>
+		<annotation cp="📋">klipbote</annotation>
+		<annotation cp="📋" type="tts">klipbote</annotation>
+		<annotation cp="📌">phini</annotation>
+		<annotation cp="📌" type="tts">phini ya go kgarametša</annotation>
+		<annotation cp="📍">phini | phini ya go kgarametša</annotation>
+		<annotation cp="📍" type="tts">phini ya go kgarametša ya nkgokolo</annotation>
+		<annotation cp="📎">seswarišamatlakala</annotation>
+		<annotation cp="📎" type="tts">seswarišamatlakala</annotation>
+		<annotation cp="🖇">linki | seswarišamatlakala</annotation>
+		<annotation cp="🖇" type="tts">seswarišamatlakala sa dilinki</annotation>
+		<annotation cp="📏">mothalo o emego thwii | thaladi</annotation>
+		<annotation cp="📏" type="tts">thaladi e emego thwii</annotation>
+		<annotation cp="📐">khutlotharo | mokgobo | thaladi</annotation>
+		<annotation cp="📐" type="tts">thaladi ya khutlotharo</annotation>
+		<annotation cp="✂">go sega | tholosi</annotation>
+		<annotation cp="✂" type="tts">sekero</annotation>
+		<annotation cp="🗃">faele | karata | lepokisi</annotation>
+		<annotation cp="🗃" type="tts">lepokisi la go faela dikarata</annotation>
+		<annotation cp="🗄">faele | go faela | kabinete</annotation>
+		<annotation cp="🗄" type="tts">kabinete ya difaele</annotation>
+		<annotation cp="🗑">motomo wa ditlakala</annotation>
+		<annotation cp="🗑" type="tts">motomo wa ditlakala</annotation>
+		<annotation cp="🔒">tswaletšwe</annotation>
+		<annotation cp="🔒" type="tts">notletšwe</annotation>
+		<annotation cp="🔓">bula | go bula | tswaletšwe</annotation>
+		<annotation cp="🔓" type="tts">e notlolotšwe</annotation>
+		<annotation cp="🔏">inki | nib | notlela | pene | sephiri</annotation>
+		<annotation cp="🔏" type="tts">e notletšwe ka pene</annotation>
+		<annotation cp="🔐">senotlelo | tšhireletšego | tswalela | tswaletšwe</annotation>
+		<annotation cp="🔐" type="tts">e notletšwe ka khii</annotation>
+		<annotation cp="🔑">notlela | phasewete</annotation>
+		<annotation cp="🔑" type="tts">khii</annotation>
+		<annotation cp="🗝">kgale | khii | notlela | sekgomaretši</annotation>
+		<annotation cp="🗝" type="tts">sekhii sa kgale</annotation>
+		<annotation cp="🔨">sedirišwa</annotation>
+		<annotation cp="🔨" type="tts">hamole</annotation>
+		<annotation cp="⛏">maene | tholosi</annotation>
+		<annotation cp="⛏" type="tts">peke</annotation>
+		<annotation cp="⚒">hamola | peke | tholosi</annotation>
+		<annotation cp="⚒" type="tts">hamola le peke</annotation>
+		<annotation cp="🛠">hamola | sepanere | spanere | tholosi</annotation>
+		<annotation cp="🛠" type="tts">hamola le sepanere</annotation>
+		<annotation cp="🗡">sebetša | thipa</annotation>
+		<annotation cp="🗡" type="tts">goga</annotation>
+		<annotation cp="⚔">ditšhoša | sebetša | sefapano</annotation>
+		<annotation cp="⚔" type="tts">ditšhoša tše di dirilego sefapano</annotation>
+		<annotation cp="🔫">go dikolologa | sebetša | sethunya | sethunya se senyenyane | tholosi</annotation>
+		<annotation cp="🔫" type="tts">sethunya se sennyane</annotation>
+		<annotation cp="🏹">bora | kotse | mosebe | Sagittarius | sebetša | tholosi | zodiac</annotation>
+		<annotation cp="🏹" type="tts">bora le mosebe</annotation>
+		<annotation cp="🛡">sebetša</annotation>
+		<annotation cp="🛡" type="tts">sešireletši</annotation>
+		<annotation cp="🔧">sepanere | spanere | tholosi</annotation>
+		<annotation cp="🔧" type="tts">sepanere</annotation>
+		<annotation cp="🔩">pauto | sekurufi | tholosi</annotation>
+		<annotation cp="🔩" type="tts">pauto le nate</annotation>
+		<annotation cp="⚙">sedirišwa</annotation>
+		<annotation cp="⚙" type="tts">kere</annotation>
+		<annotation cp="🗜">pitlela | tang | tholosi</annotation>
+		<annotation cp="🗜" type="tts">tlelempo</annotation>
+		<annotation cp="⚖">boima | dikala | Libra | tekatekanyo | tholosi | toka | zodiac</annotation>
+		<annotation cp="⚖" type="tts">go lekanya boleng</annotation>
+		<annotation cp="🔗">linki</annotation>
+		<annotation cp="🔗" type="tts">linki</annotation>
+		<annotation cp="⛓">tšhaene</annotation>
+		<annotation cp="⛓" type="tts">ditšhaene</annotation>
+		<annotation cp="⚗">khemistri | tholosi</annotation>
+		<annotation cp="⚗" type="tts">tshwarišano</annotation>
+		<annotation cp="🔬">tholosi | thutamahlale</annotation>
+		<annotation cp="🔬" type="tts">maekherosekoupu</annotation>
+		<annotation cp="🔭">tholosi | thutamahlale</annotation>
+		<annotation cp="🔭" type="tts">thelesekoupu</annotation>
+		<annotation cp="📡">manakana | sathalaete | tishi</annotation>
+		<annotation cp="📡" type="tts">sathalaete ya manakana</annotation>
+		<annotation cp="💉">dihlare | lwala | ngaka | shote | tholosi | tšhwaana</annotation>
+		<annotation cp="💉" type="tts">saerintše</annotation>
+		<annotation cp="💊">dihlare | lwala | ngaka</annotation>
+		<annotation cp="💊" type="tts">philisi</annotation>
+		<annotation cp="🚪">lebati</annotation>
+		<annotation cp="🚪" type="tts">lebati</annotation>
+		<annotation cp="🛏">hotele | robala</annotation>
+		<annotation cp="🛏" type="tts">mpete</annotation>
+		<annotation cp="🛋">hotele | lebone | sofa</annotation>
+		<annotation cp="🛋" type="tts">sofa le lebone</annotation>
+		<annotation cp="🚽">ntlwana ya boithomelo</annotation>
+		<annotation cp="🚽" type="tts">ntlwana ya boithomelo</annotation>
+		<annotation cp="🚿">meetse</annotation>
+		<annotation cp="🚿" type="tts">šawara</annotation>
+		<annotation cp="🛁">pafo</annotation>
+		<annotation cp="🛁" type="tts">thepo ya pafo</annotation>
+		<annotation cp="🛒">go reka | mokotla | theroli</annotation>
+		<annotation cp="🛒" type="tts">mokotla wa go reka</annotation>
+		<annotation cp="🚬">go tsuba</annotation>
+		<annotation cp="🚬" type="tts">kwae</annotation>
+		<annotation cp="⚰">lehu</annotation>
+		<annotation cp="⚰" type="tts">lepokisi</annotation>
+		<annotation cp="⚱">lehu | moeta | molora | poloko</annotation>
+		<annotation cp="⚱" type="tts">moeta wa lehu</annotation>
+		<annotation cp="🗿">sefahlego | sehlwaseeme</annotation>
+		<annotation cp="🗿" type="tts">sehlwaseeme</annotation>
+		<annotation cp="🏧">motšhenetšhelete | panka | thelara | wa maitirišo</annotation>
+		<annotation cp="🏧" type="tts">leswao la ATM</annotation>
+		<annotation cp="🚮">motopomo wa ditlakala | tlatša ditlakala</annotation>
+		<annotation cp="🚮" type="tts">leswao la motomo wa ditlakala</annotation>
+		<annotation cp="🚰">go nwa | meetse | swarega</annotation>
+		<annotation cp="🚰" type="tts">meetse a swaregago</annotation>
+		<annotation cp="♿">go tsena</annotation>
+		<annotation cp="♿" type="tts">leswao la wilitšhere</annotation>
+		<annotation cp="🚹">monna | ntlwanaboithomelo | ntlwanaboithušo | wc</annotation>
+		<annotation cp="🚹" type="tts">ntlwanaboithomelo ya banna</annotation>
+		<annotation cp="🚺">mosadi | ntlwanaboithomelo | ntlwanaboithušo | wc</annotation>
+		<annotation cp="🚺" type="tts">ntlwana ya basadi</annotation>
+		<annotation cp="🚻">ntlwana | ntlwanaboithomelo | WC</annotation>
+		<annotation cp="🚻" type="tts">ntlwanaboithušo</annotation>
+		<annotation cp="🚼">fetola | lesea</annotation>
+		<annotation cp="🚼" type="tts">leswao la lesea</annotation>
+		<annotation cp="🚾">meetse | ntlwanaboithomelo | ntlwanaboithušo | thoilete | wc</annotation>
+		<annotation cp="🚾" type="tts">thoilete ya meetse</annotation>
+		<annotation cp="🛂">phasepote | taolo</annotation>
+		<annotation cp="🛂" type="tts">taolo ya phasepote</annotation>
+		<annotation cp="🛃">metlwae</annotation>
+		<annotation cp="🛃" type="tts">metlwae</annotation>
+		<annotation cp="🛄">morwalo | tšea</annotation>
+		<annotation cp="🛄" type="tts">kleime ya merwalo</annotation>
+		<annotation cp="🛅">morwalo | notlela</annotation>
+		<annotation cp="🛅" type="tts">morwalo o tlogetšwego</annotation>
+		<annotation cp="⚠">temošo</annotation>
+		<annotation cp="⚠" type="tts">temošo</annotation>
+		<annotation cp="🚸">basepedi | feta | ngwana | sephethephethe</annotation>
+		<annotation cp="🚸" type="tts">bana ba a tshela</annotation>
+		<annotation cp="⛔">aowa | e sego | go tsena | sephethephethe | thibelwa</annotation>
+		<annotation cp="⛔" type="tts">ga go tsenwe</annotation>
+		<annotation cp="🚫">aowa | e sego | thibelwa | tsena</annotation>
+		<annotation cp="🚫" type="tts">go thibetšwe</annotation>
+		<annotation cp="🚳">aowa | e sego | paesekela | thibelwa | thibetšwe</annotation>
+		<annotation cp="🚳" type="tts">dipaesekela ga di dumelelwe</annotation>
+		<annotation cp="🚭">aowa | e sego | kgoga | thibelwa</annotation>
+		<annotation cp="🚭" type="tts">ga go kgogwe</annotation>
+		<annotation cp="🚯">aowa | e sego | lahla | thibelwa</annotation>
+		<annotation cp="🚯" type="tts">ga go tlatšwe ditlakala</annotation>
+		<annotation cp="🚱">ga a nwewe | ga e swarege | meetse</annotation>
+		<annotation cp="🚱" type="tts">meetse a sa rwalegego</annotation>
+		<annotation cp="🚷">aowa | basepedi | e sego | thibelwa</annotation>
+		<annotation cp="🚷" type="tts">batho ga ba dumelelwe</annotation>
+		<annotation cp="📵">aowa | e sego | founo | founo ya ka gae | sele | thibelwa | thibetšwe</annotation>
+		<annotation cp="📵" type="tts">difouno ga di dumelelwe</annotation>
+		<annotation cp="🔞">18 | aowa | e sego | lesomeseswai | nyenyane | thibelo | thibelo ya mengwaga | thibetšwe</annotation>
+		<annotation cp="🔞" type="tts">e sego ba ka tlase ga lesomeseswai</annotation>
+		<annotation cp="☢">leswao | terefoile</annotation>
+		<annotation cp="☢" type="tts">radioekthibi</annotation>
+		<annotation cp="☣">kotsitlhagong | leswao</annotation>
+		<annotation cp="☣" type="tts">kotsitlhagong</annotation>
+		<annotation cp="⬆">cardinal | leboa | lerungwana | tlhahlo</annotation>
+		<annotation cp="⬆" type="tts">lerungwana la godimo</annotation>
+		<annotation cp="↗">intercardinal | leboabohlabela | lerungwana | tlhahlo</annotation>
+		<annotation cp="↗" type="tts">lerungwana la godimo ka gojeng</annotation>
+		<annotation cp="➡">bohlabela | cardinal | lerungwana | tšhupo</annotation>
+		<annotation cp="➡" type="tts">lerungwana la gojeng</annotation>
+		<annotation cp="↘">borwabohlabela | kopanyamathoko | lerungwana | tlhahlo</annotation>
+		<annotation cp="↘" type="tts">lerungwana la tlase ka gojeng</annotation>
+		<annotation cp="⬇">cardinal | leboa | lerungwana | tlase | tlhahlo</annotation>
+		<annotation cp="⬇" type="tts">lerungwana la tlase</annotation>
+		<annotation cp="↙">borwabodikela | intercardinal | lerungwana | tlhahlo</annotation>
+		<annotation cp="↙" type="tts">lerungwana la tlase ka go le letshadi</annotation>
+		<annotation cp="⬅">bodikela | cardinal | lerungwana | tlhahlo</annotation>
+		<annotation cp="⬅" type="tts">lerungwana la ka go le letshadi</annotation>
+		<annotation cp="↖">kopanyamathoko | leboabodikela | lerungwana | tlhahlo</annotation>
+		<annotation cp="↖" type="tts">lerungwana la godimo ka go le letshadi</annotation>
+		<annotation cp="↕">lerungwana</annotation>
+		<annotation cp="↕" type="tts">lerungwana la godimo le tlase</annotation>
+		<annotation cp="↔">lerungwana</annotation>
+		<annotation cp="↔" type="tts">lerungwana la ka go le letshadi go ya go le letona</annotation>
+		<annotation cp="↩">lerungwana</annotation>
+		<annotation cp="↩" type="tts">lerungwana la godimo le eya ka go le letshadi</annotation>
+		<annotation cp="↪">lerungwana</annotation>
+		<annotation cp="↪" type="tts">lerungwana la ka go le letshadi le eya ka go le letona</annotation>
+		<annotation cp="⤴">lerungwana</annotation>
+		<annotation cp="⤴" type="tts">lerungwana la ka go le letona le eya godimo</annotation>
+		<annotation cp="⤵">lerungwana | tlase</annotation>
+		<annotation cp="⤵" type="tts">lerungwana la ka go le letona lekgopamela tlase</annotation>
+		<annotation cp="🔃">ka go le letona | lerungwana | tsenya leswa</annotation>
+		<annotation cp="🔃" type="tts">marungwana a dikologelago ka go le letona</annotation>
+		<annotation cp="🔄">dikologa | ka go le letona | ka go le letshadi | lerungwana</annotation>
+		<annotation cp="🔄" type="tts">konope ya marungwana a dikologelago ka go le letshadi</annotation>
+		<annotation cp="🔙">lerungwana | morago</annotation>
+		<annotation cp="🔙" type="tts">lerungwana la MORAGO</annotation>
+		<annotation cp="🔚">lerungwana | mafelelong</annotation>
+		<annotation cp="🔚" type="tts">lerungwana la go BOFELO</annotation>
+		<annotation cp="🔛">go | lerungwana | leswao</annotation>
+		<annotation cp="🔛" type="tts">leswao la go GOTEDITŠE</annotation>
+		<annotation cp="🔜">kgauswinyane | lerungwana</annotation>
+		<annotation cp="🔜" type="tts">leswao la E SE KGALE</annotation>
+		<annotation cp="🔝">godimo | lerumo</annotation>
+		<annotation cp="🔝" type="tts">leswao la GODIMO</annotation>
+		<annotation cp="🛐">bodumedi | thapelo</annotation>
+		<annotation cp="🛐" type="tts">lefelo la borapedi</annotation>
+		<annotation cp="⚛">athomo | ila modimo</annotation>
+		<annotation cp="⚛" type="tts">leswao la athomo</annotation>
+		<annotation cp="🕉">bodumedi | Hindu</annotation>
+		<annotation cp="🕉" type="tts">om</annotation>
+		<annotation cp="✡">Bajuda | bodumedi | Mojuda | naledi | Tafita</annotation>
+		<annotation cp="✡" type="tts">naledi ya Tafita</annotation>
+		<annotation cp="☸">Bhuda | bodumedi | dharma | leotwana</annotation>
+		<annotation cp="☸" type="tts">leotwana la dharma</annotation>
+		<annotation cp="☯">bodumedi | tao | taoist | yang | yin</annotation>
+		<annotation cp="☯" type="tts">yin yang</annotation>
+		<annotation cp="✝">bodumedi | Bokriste | sefapano</annotation>
+		<annotation cp="✝" type="tts">sefapano sa latin</annotation>
+		<annotation cp="☦">bodumedi | Bokriste | sefapano</annotation>
+		<annotation cp="☦" type="tts">sefapano sa othotokse</annotation>
+		<annotation cp="☪">bodumedi | islamo | Moselemo</annotation>
+		<annotation cp="☪" type="tts">naledi e khutlohlano</annotation>
+		<annotation cp="☮">khutšo</annotation>
+		<annotation cp="☮" type="tts">leswao la khutšo</annotation>
+		<annotation cp="🕎">bodumedi | candelabrum | phatha ya lebone</annotation>
+		<annotation cp="🕎" type="tts">sehlomapone</annotation>
+		<annotation cp="🔯">mahlatse | naledi</annotation>
+		<annotation cp="🔯" type="tts">naletšana ya dikhutlwana e thadilego tshelela</annotation>
+		<annotation cp="♈">ramo | zodiake</annotation>
+		<annotation cp="♈" type="tts">Aries</annotation>
+		<annotation cp="♉">pholo | poo | zodiac</annotation>
+		<annotation cp="♉" type="tts">Taurus</annotation>
+		<annotation cp="♊">mafahla | zodiac</annotation>
+		<annotation cp="♊" type="tts">Gemini</annotation>
+		<annotation cp="♋">swara | zodiac</annotation>
+		<annotation cp="♋" type="tts">Cancer</annotation>
+		<annotation cp="♌">tau | zodiac</annotation>
+		<annotation cp="♌" type="tts">Leo</annotation>
+		<annotation cp="♍">zodiake</annotation>
+		<annotation cp="♍" type="tts">Virgo</annotation>
+		<annotation cp="♎">dikala | tekatekanyo | toka | zodiac</annotation>
+		<annotation cp="♎" type="tts">Libra</annotation>
+		<annotation cp="♏">scorpio | scorpius | zodiac</annotation>
+		<annotation cp="♏" type="tts">Scorpius</annotation>
+		<annotation cp="♐">archer | zodiac</annotation>
+		<annotation cp="♐" type="tts">Sagittarius</annotation>
+		<annotation cp="♑">pudi | zodiac</annotation>
+		<annotation cp="♑" type="tts">Capricorn</annotation>
+		<annotation cp="♒">meetse | moswari | zodiac</annotation>
+		<annotation cp="♒" type="tts">Aquarius</annotation>
+		<annotation cp="♓">hlapi | zodiac</annotation>
+		<annotation cp="♓" type="tts">Pisces</annotation>
+		<annotation cp="⛎">moswari | noga | zodiac</annotation>
+		<annotation cp="⛎" type="tts">Ophiuchus</annotation>
+		<annotation cp="🔀">lerumo | putlane</annotation>
+		<annotation cp="🔀" type="tts">konope ya go beakanya dikoša</annotation>
+		<annotation cp="🔁">bušeletša | ka go le letona | lerungwana</annotation>
+		<annotation cp="🔁" type="tts">konope ya go bušeletša</annotation>
+		<annotation cp="🔂">gatee | ka go le letona | lerungwana</annotation>
+		<annotation cp="🔂" type="tts">konope e tee ya go bušeletša</annotation>
+		<annotation cp="▶">bapala | khutlotharo | lerungwana | letona</annotation>
+		<annotation cp="▶" type="tts">konope ya go bapala</annotation>
+		<annotation cp="⏩">bobedi | ka pela | ka pela kudu | lerungwana</annotation>
+		<annotation cp="⏩" type="tts">konope ya go bapala ka lebelo</annotation>
+		<annotation cp="⏭">karolo e latelago | khutlotharo | koša e latelago | lerungwana</annotation>
+		<annotation cp="⏭" type="tts">koša e latelago</annotation>
+		<annotation cp="⏯">bapala | emišanyana | khutlotharo | lerungwana | letona</annotation>
+		<annotation cp="⏯" type="tts">konope ya go emiša goba go bapal</annotation>
+		<annotation cp="◀">khutlotharo | lerungwana | letshadi | morago</annotation>
+		<annotation cp="◀" type="tts">konope ya go boetša morago</annotation>
+		<annotation cp="⏪">bušetša morago | lerungwana | pedi</annotation>
+		<annotation cp="⏪" type="tts">konope ya go boela morago ka lebelo</annotation>
+		<annotation cp="⏮">dikarolo tše di fetilego | khutlotharo | koša e fetilego | lerungwana</annotation>
+		<annotation cp="⏮" type="tts">konope ya koša ya go feta</annotation>
+		<annotation cp="🔼">hubedu | konope | lerungwana</annotation>
+		<annotation cp="🔼" type="tts">konope ya godimo</annotation>
+		<annotation cp="⏫">lerungwana | pedi</annotation>
+		<annotation cp="⏫" type="tts">konope ya go ya godimo ka kebelo</annotation>
+		<annotation cp="🔽">bohubedu | konotswaana | lerungwana | tlase</annotation>
+		<annotation cp="🔽" type="tts">konope ya tlase</annotation>
+		<annotation cp="⏬">lerungwana | pedi | tlase</annotation>
+		<annotation cp="⏬" type="tts">konope ya tlase ka lebelo</annotation>
+		<annotation cp="⏸">emiša | para | pedi | tsepama</annotation>
+		<annotation cp="⏸" type="tts">konope ya go emišanyana</annotation>
+		<annotation cp="⏹">emiša | sekwere</annotation>
+		<annotation cp="⏹" type="tts">konope ya go emiša</annotation>
+		<annotation cp="⏺">nkgokolo | rekhotha</annotation>
+		<annotation cp="⏺" type="tts">konope ya go rekhotha</annotation>
+		<annotation cp="⏏">ntšha</annotation>
+		<annotation cp="⏏" type="tts">konope ya go ntšha</annotation>
+		<annotation cp="🎦">filimi | khamera | mobi</annotation>
+		<annotation cp="🎦" type="tts">bobogelo bja dimobi</annotation>
+		<annotation cp="🔅">boso | phadimo | tlase</annotation>
+		<annotation cp="🔅" type="tts">konope ya go tima</annotation>
+		<annotation cp="🔆">phadima | phadimo</annotation>
+		<annotation cp="🔆" type="tts">konope ya go phadima</annotation>
+		<annotation cp="📶">founo | founo ya ka gae | manakana | para | sele | sikinale</annotation>
+		<annotation cp="📶" type="tts">dipara tša manakana</annotation>
+		<annotation cp="📳">founo | founo ya ka gae | motlele | sele | šikinyega</annotation>
+		<annotation cp="📳" type="tts">mokgwa wa go šikinyega</annotation>
+		<annotation cp="📴">founo | mogala | sele | tima</annotation>
+		<annotation cp="📴" type="tts">founo e timilwe</annotation>
+		<annotation cp="♀">mosadi</annotation>
+		<annotation cp="♀" type="tts">leswao la mosadi</annotation>
+		<annotation cp="♂">monna</annotation>
+		<annotation cp="♂" type="tts">leswao la monna</annotation>
+		<annotation cp="✖">atiša | go atiša | khansela | x</annotation>
+		<annotation cp="✖" type="tts">leswao e legolo la go atiša x</annotation>
+		<annotation cp="➕">dipalo | hlakanya</annotation>
+		<annotation cp="➕" type="tts">leswao le legolo la hlakanya</annotation>
+		<annotation cp="➖">dipalo | ntšha</annotation>
+		<annotation cp="➖" type="tts">leswao le legolo la go ntšha</annotation>
+		<annotation cp="➗">dipalo | karolo</annotation>
+		<annotation cp="➗" type="tts">leswao le legolo la aroganya</annotation>
+		<annotation cp="‼">bangbang | leswao | makalo | maswao</annotation>
+		<annotation cp="‼" type="tts">maswao a mabedi a makalo</annotation>
+		<annotation cp="⁉">leswao | leswaopotšišo | makalo | maswaodikga | potšišo</annotation>
+		<annotation cp="⁉" type="tts">leswao la makalo le potšišo</annotation>
+		<annotation cp="❓">leswao | maswaodikga | potšišo</annotation>
+		<annotation cp="❓" type="tts">leswao la potšišo</annotation>
+		<annotation cp="❔">bontšhitšwe | leswao | maswaodikga | potšišo</annotation>
+		<annotation cp="❔" type="tts">leswao le letšhweu la hlakanya</annotation>
+		<annotation cp="❕">bontšhitšwe | leswao | makalo | maswaodikga</annotation>
+		<annotation cp="❕" type="tts">leswao le legolo la makalo le letšhweu</annotation>
+		<annotation cp="❗">kgatholo | leswao | makalo</annotation>
+		<annotation cp="❗" type="tts">leswao la go makala</annotation>
+		<annotation cp="〰">kgopame | maswaodikga | thaladi</annotation>
+		<annotation cp="〰" type="tts">mothalo wa go dikologa</annotation>
+		<annotation cp="💱">fetola | panka | tšhelete | tšhetele</annotation>
+		<annotation cp="💱" type="tts">go fetola tšhelete</annotation>
+		<annotation cp="💲">tolara | tšhelete</annotation>
+		<annotation cp="💲" type="tts">leswao le legolo la tolara</annotation>
+		<annotation cp="⚕">bašomi | dihlare | modimo wa dihlare</annotation>
+		<annotation cp="⚕" type="tts">leswao la kalafo</annotation>
+		<annotation cp="♻">hwetša gape</annotation>
+		<annotation cp="♻" type="tts">leswao la go hwetša gape</annotation>
+		<annotation cp="⚜">fluer-de-lis</annotation>
+		<annotation cp="⚜" type="tts">fluer-de-lis</annotation>
+		<annotation cp="🔱">ankere | leswao | sabola | sekepe | tholosi</annotation>
+		<annotation cp="🔱" type="tts">leswao sabola</annotation>
+		<annotation cp="📛">leina | petše</annotation>
+		<annotation cp="📛" type="tts">leina la petše</annotation>
+		<annotation cp="🔰">chevron | Japane | mathomong | sehlare | serolwana | tala | tholosi</annotation>
+		<annotation cp="🔰" type="tts">leswao la Japane la mathomong</annotation>
+		<annotation cp="⭕">nkgokolo | o</annotation>
+		<annotation cp="⭕" type="tts">leswao le legolo la nkgokolo</annotation>
+		<annotation cp="✅">lekola | leswao</annotation>
+		<annotation cp="✅" type="tts">leswao le legolo la go hlola le letšhweu</annotation>
+		<annotation cp="☑">hlola | lepokisi | palote</annotation>
+		<annotation cp="☑" type="tts">lepokisi la palote le kgethilwego</annotation>
+		<annotation cp="✔">lekola | leswao</annotation>
+		<annotation cp="✔" type="tts">leswao le legolo la go kgetha</annotation>
+		<annotation cp="❌">atiša | go atiša | khansela | leswao | x</annotation>
+		<annotation cp="❌" type="tts">sefapano</annotation>
+		<annotation cp="❎">khutlonne | leswao</annotation>
+		<annotation cp="❎" type="tts">konope ya leswao</annotation>
+		<annotation cp="➰">meriri | tatagana</annotation>
+		<annotation cp="➰" type="tts">meriri e tatanego</annotation>
+		<annotation cp="➿">bobedi | meriri | tatagana</annotation>
+		<annotation cp="➿" type="tts">meriri e tatanego gabedi</annotation>
+		<annotation cp="〽">karolo | leswao</annotation>
+		<annotation cp="〽" type="tts">leswao la karolo la go fetola</annotation>
+		<annotation cp="✳">naletšana</annotation>
+		<annotation cp="✳" type="tts">naletšana ya marungwana a seswai</annotation>
+		<annotation cp="✴">naledi</annotation>
+		<annotation cp="✴" type="tts">naledi ya khutloseswai</annotation>
+		<annotation cp="❇">benya</annotation>
+		<annotation cp="❇" type="tts">benya</annotation>
+		<annotation cp="©">khopiraete</annotation>
+		<annotation cp="©" type="tts">khopiraete</annotation>
+		<annotation cp="®">ngwadišitšwe</annotation>
+		<annotation cp="®" type="tts">ngwadišitšwe</annotation>
+		<annotation cp="™">leswao | leswaokgwebo | tm</annotation>
+		<annotation cp="™" type="tts">leswao la kgwebo</annotation>
+		<annotation cp="🔠">ABCD | ditlhaka | lathini | mengwalo e mekoto | tsenya</annotation>
+		<annotation cp="🔠" type="tts">go tsenya leswao le legolo la selatine</annotation>
+		<annotation cp="🔡">abcd | ditlhaka | ditlhaka tše nnnyane | lathini | tsenya</annotation>
+		<annotation cp="🔡" type="tts">go tsenya leswao le lenyenyane la selatine</annotation>
+		<annotation cp="🔢">1234 | dinomoro | go tsenya</annotation>
+		<annotation cp="🔢" type="tts">go tsenya dinomoro</annotation>
+		<annotation cp="🔣">〒♪&amp;% | go tsenya</annotation>
+		<annotation cp="🔣" type="tts">go tsenya maswao</annotation>
+		<annotation cp="🔤">abc | ditlhaka | go tsenya | lathini</annotation>
+		<annotation cp="🔤" type="tts">go tsenya ditlhaka tša selatine</annotation>
+		<annotation cp="🅰">a | mohuta wa madi</annotation>
+		<annotation cp="🅰" type="tts">konope ya A (mohuta wa madi)</annotation>
+		<annotation cp="🆎">ab | mohuta wa madi</annotation>
+		<annotation cp="🆎" type="tts">konope ya AB (mohuta wa madi)</annotation>
+		<annotation cp="🅱">b | mohuta wa madi</annotation>
+		<annotation cp="🅱" type="tts">konope ya B (mohuta wa madi)</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">konope ya CL</annotation>
+		<annotation cp="🆒">cool</annotation>
+		<annotation cp="🆒" type="tts">konope ya COOL</annotation>
+		<annotation cp="🆓">mahala</annotation>
+		<annotation cp="🆓" type="tts">konope ya MAHALA</annotation>
+		<annotation cp="ℹ">i | tshedimošo</annotation>
+		<annotation cp="ℹ" type="tts">tshedimošo</annotation>
+		<annotation cp="🆔">boitsebišo | id</annotation>
+		<annotation cp="🆔" type="tts">konope ya ID</annotation>
+		<annotation cp="Ⓜ">m | nkgokolo</annotation>
+		<annotation cp="Ⓜ" type="tts">nkgokolo ya M</annotation>
+		<annotation cp="🆕">mpsha</annotation>
+		<annotation cp="🆕" type="tts">konope ya MPSHA</annotation>
+		<annotation cp="🆖">ng</annotation>
+		<annotation cp="🆖" type="tts">konope ya NG</annotation>
+		<annotation cp="🅾">mohuta wa madi | o</annotation>
+		<annotation cp="🅾" type="tts">konope ya O (mohuta wa madi)</annotation>
+		<annotation cp="🆗">OK</annotation>
+		<annotation cp="🆗" type="tts">konope ya OK</annotation>
+		<annotation cp="🅿">go phaka koloi</annotation>
+		<annotation cp="🅿" type="tts">konope ya P</annotation>
+		<annotation cp="🆘">sos | thušo</annotation>
+		<annotation cp="🆘" type="tts">konope ya SOS</annotation>
+		<annotation cp="🆚">kgahlanong le | vs</annotation>
+		<annotation cp="🆚" type="tts">konope ya VS</annotation>
+		<annotation cp="🈁">&quot;mo&quot; | katakana | Sejapane | ココ</annotation>
+		<annotation cp="🈁" type="tts">konope ya Sejapane ya &quot;mo&quot;</annotation>
+		<annotation cp="🈂">&quot;tefišo ya tirelo&quot; | katakana | Sejapane | サ</annotation>
+		<annotation cp="🈂" type="tts">konope ya Sejapane ya &quot;tefišo ya tirelo&quot;</annotation>
+		<annotation cp="🈷">&quot;tefišo ya kgwedi ka kgwedi&quot; | leswao | Sejapane | 月</annotation>
+		<annotation cp="🈷" type="tts">konope ya Sejapane ya &quot;tefišo ya kgwedi ka kgwedi&quot;</annotation>
+		<annotation cp="🈶">&quot;e sego mahala&quot; | leswao | Sejapane | 有</annotation>
+		<annotation cp="🈶" type="tts">konope ya Sejapane ya &quot;ga se mahala&quot;</annotation>
+		<annotation cp="🈯">&quot;beetšwego&quot; | leswao | Sejapane | 指</annotation>
+		<annotation cp="🈯" type="tts">konope ya Sejapane ye &quot;beetšwego&quot;</annotation>
+		<annotation cp="🉐">&quot;mpho&quot; | leswao | Sejapane | 得</annotation>
+		<annotation cp="🉐" type="tts">konope ya Sejapane ya &quot;mpho&quot;</annotation>
+		<annotation cp="🈹">&quot;phokoletšo&quot; | leswao | Sejapane | 割</annotation>
+		<annotation cp="🈹" type="tts">konope ya Sejapane ya &quot;phokoletšo&quot;</annotation>
+		<annotation cp="🈚">&quot;mahala&quot; | leswao | Sejapane | 無</annotation>
+		<annotation cp="🈚" type="tts">konope ya Sejapane ya &quot;mahala&quot;</annotation>
+		<annotation cp="🈲">&quot;thibetšwe&quot; | leswao | Sejapane | 指</annotation>
+		<annotation cp="🈲" type="tts">konope ya Sejapane ya &quot;ileditšwe&quot;</annotation>
+		<annotation cp="🉑">&quot;amogelegile&quot; | leswao | Sejapane | 可</annotation>
+		<annotation cp="🉑" type="tts">konope ya Sejapane ya &quot;e amogelegile&quot;</annotation>
+		<annotation cp="🈸">&quot;tirišo&quot; | leswao | Sejapane | 申</annotation>
+		<annotation cp="🈸" type="tts">konope ya Sejapane ya &quot;tirišo&quot;</annotation>
+		<annotation cp="🈴">&quot;go phasa mphato&quot; | leswao | Sejapane | 合</annotation>
+		<annotation cp="🈴" type="tts">konope ya Sejapane ya &quot;go phasa mphato&quot;</annotation>
+		<annotation cp="🈳">&quot;mošomo&quot; | leswao | Sejapane | 空</annotation>
+		<annotation cp="🈳" type="tts">konope ya Sejapane ya &quot;mošomo&quot;</annotation>
+		<annotation cp="㊗">&quot;tebogišo&quot; | leswao | Sejapane | 祝</annotation>
+		<annotation cp="㊗" type="tts">konope ya Sejapane ya &quot;tebogišo&quot;</annotation>
+		<annotation cp="㊙">&quot;sephiri&quot; | leswao | Sejapane | 秘</annotation>
+		<annotation cp="㊙" type="tts">konope ya Sejapane ya &quot;sephiri&quot;</annotation>
+		<annotation cp="🈺">&quot;e buletšwe kgwebo&quot; | leswao | Sejapane | 営</annotation>
+		<annotation cp="🈺" type="tts">konope ya Sejapane ya &quot;buletšwe kgwebo&quot;</annotation>
+		<annotation cp="🈵">&quot;ga go sekgoba&quot; | leswao | Sejapane | 満</annotation>
+		<annotation cp="🈵" type="tts">konope ya Sejapane ya &quot;ga go sekgoba&quot;</annotation>
+		<annotation cp="🔴">bohubedu | nkgokolo | tšeomethri</annotation>
+		<annotation cp="🔴" type="tts">nkgokolo ye khubedu</annotation>
+		<annotation cp="🔵">nkgokolo | talalegodimo | tšeomethri</annotation>
+		<annotation cp="🔵" type="tts">nkgokolo ye talalegodimo</annotation>
+		<annotation cp="⚫">nkgokolo | tšeomethri</annotation>
+		<annotation cp="⚫" type="tts">nkgokolo ye ntsho</annotation>
+		<annotation cp="⚪">nkgokolo | tšeomethri</annotation>
+		<annotation cp="⚪" type="tts">nkgokolo e tšhweu</annotation>
+		<annotation cp="⬛">khutlonne | tšeomethri</annotation>
+		<annotation cp="⬛" type="tts">khutlonne e ntsho e kgolo</annotation>
+		<annotation cp="⬜">khutlonne | tšeomethri</annotation>
+		<annotation cp="⬜" type="tts">khutlonne e kgolo tšhweu</annotation>
+		<annotation cp="◼">khutlonne | tšeomethri</annotation>
+		<annotation cp="◼" type="tts">bogare bja ngwedi o moso</annotation>
+		<annotation cp="◻">khutlonne | tšeomethri</annotation>
+		<annotation cp="◻" type="tts">bogare bja ngwedi o motšhweu</annotation>
+		<annotation cp="◾">khutlonne | tšeomethri</annotation>
+		<annotation cp="◾" type="tts">khutlonne e ntsho ya bogareng</annotation>
+		<annotation cp="◽">khutlonne | tšeomethri</annotation>
+		<annotation cp="◽" type="tts">khutlonee e tšhweu ya bogareng</annotation>
+		<annotation cp="▪">khutlonne | tšeomethri</annotation>
+		<annotation cp="▪" type="tts">khutlonne e nyenyane e ntsho</annotation>
+		<annotation cp="▫">khutlonne | tšeomethri</annotation>
+		<annotation cp="▫" type="tts">khutlonne e nyenyane e tšhweu</annotation>
+		<annotation cp="🔶">namune | taemane | tšeomethri</annotation>
+		<annotation cp="🔶" type="tts">taemane e kgolo ya mmala wa namune</annotation>
+		<annotation cp="🔷">taemane | talalegodimo | tšeomethri</annotation>
+		<annotation cp="🔷" type="tts">taemane e kgolo e talalegodimo</annotation>
+		<annotation cp="🔸">namune | taemane | tšeomethri</annotation>
+		<annotation cp="🔸" type="tts">taemane e nyenyane ya mmala wa namune</annotation>
+		<annotation cp="🔹">taemane | talalegodimo | tšeomethri</annotation>
+		<annotation cp="🔹" type="tts">taemane e nyenyane e talamorogo</annotation>
+		<annotation cp="🔺">bohubedu | tšeomethri</annotation>
+		<annotation cp="🔺" type="tts">khutlonne e hubedu e šupilego godimo</annotation>
+		<annotation cp="🔻">bohubedu | tlase | tšeomethri</annotation>
+		<annotation cp="🔻" type="tts">khutlonne e hubedu e šupilego fase</annotation>
+		<annotation cp="💠">gare | motlae | taemane | tšeomethri</annotation>
+		<annotation cp="💠" type="tts">taemane e nago le khutlo</annotation>
+		<annotation cp="🔘">konope | radio | tšeomethri</annotation>
+		<annotation cp="🔘" type="tts">konope ya seyalemoya</annotation>
+		<annotation cp="🔳">bontšhitšwe | khutlonne | konope | tšeomethri</annotation>
+		<annotation cp="🔳" type="tts">taemane e tšhweu ya khutlonee</annotation>
+		<annotation cp="🔲">khutlonne | konope | tšeomethri</annotation>
+		<annotation cp="🔲" type="tts">taemane e ntsho ya khutlonee</annotation>
+		<annotation cp="🏁">kgetha | kgethilwe | lebelo</annotation>
+		<annotation cp="🏁" type="tts">folaga e kgethilwego</annotation>
+		<annotation cp="🚩">poso</annotation>
+		<annotation cp="🚩" type="tts">fologa ya khutlonne</annotation>
+		<annotation cp="🎌">fapane | Japane | mokete | sefapano</annotation>
+		<annotation cp="🎌" type="tts">difolaga tše di thadilwego ka bogare</annotation>
+		<annotation cp="🏴">go emiša seatla</annotation>
+		<annotation cp="🏴" type="tts">folaga e ntsho</annotation>
+		<annotation cp="🏳">go emiša seatla</annotation>
+		<annotation cp="🏳" type="tts">fologa e tšhweu</annotation>
+		<annotation cp="🏳‍🌈">molalatladi</annotation>
+		<annotation cp="🏳‍🌈" type="tts">folaga ya molalatladi</annotation>
+	</annotations>
+</ldml>

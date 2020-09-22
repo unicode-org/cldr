@@ -336,6 +336,8 @@ public class MailSender implements Runnable {
 
     private int lastIdProcessed = -1; // spinner
 
+    // Fetch one (1) row of mail that needs to be processed. Process it, then cause a new task to be created
+    // to process yet another, etc.
     @Override
     public void run() {
         if (!CLDR_SENDMAIL) {
@@ -378,12 +380,11 @@ public class MailSender implements Runnable {
                 conn = db.getDBConnection();
                 conn.setAutoCommit(false);
                 java.sql.Timestamp sqlnow = DBUtils.sqlNow();
-                s = DBUtils.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id "
+                s = DBUtils.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ? and try_count < 3 order by id "
                     + (DBUtils.db_Mysql ? "limit 1" : ""));
                 s.setInt(1, lastIdProcessed);
                 rs = s.executeQuery();
-
-                if (rs.first() == false) {
+                if (rs.next() == false) { // No mail to send.
                     if (lastIdProcessed > 0) {
                         if (DEBUG) {
                             System.out.println("reset lastidprocessed to -1");

@@ -13,7 +13,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="az"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">buruq mötərizə | fiqurlu mötərizə</annotation>
+		<annotation cp="{">açılan buruq mötərizə | buruq mötərizə | fiqurlu mötərizə</annotation>
 		<annotation cp="{" type="tts">açılan buruq mötərizə</annotation>
 		<annotation cp="🏻">açıq dəri tonu | emoji modifikatoru | növ 1–2</annotation>
 		<annotation cp="🏻" type="tts">açıq dəri tonu</annotation>
@@ -25,11 +25,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">orta-tünd dəri tonu</annotation>
 		<annotation cp="🏿">emoji modifikatoru | növ 6 | tünd dəri tonu</annotation>
 		<annotation cp="🏿" type="tts">tünd dəri tonu</annotation>
-		<annotation cp="‾">cizgi | üzəri xətli</annotation>
+		<annotation cp="‾">cizgi | üstü cizgili | üzəri xətli</annotation>
 		<annotation cp="‾" type="tts">üstü cizgili</annotation>
 		<annotation cp="_">alt tire | alt xətt | aşağı xətt | tire | xətt</annotation>
 		<annotation cp="_" type="tts">aşağı xətt</annotation>
-		<annotation cp="-">defis | minus | tire</annotation>
+		<annotation cp="-">defis | defis-minus | minus | tire</annotation>
 		<annotation cp="-" type="tts">defis-minus</annotation>
 		<annotation cp="‐">defis | tire</annotation>
 		<annotation cp="‐" type="tts">defis</annotation>
@@ -39,31 +39,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="—" type="tts">uzun tire</annotation>
 		<annotation cp="―">horizontal xətt | tire</annotation>
 		<annotation cp="―" type="tts">horizontal xətt</annotation>
-		<annotation cp="・">interpunkt | katakana | nöqtələr | orta nöqtə</annotation>
+		<annotation cp="・">interpunkt | katakana | katakana orta nöqtə | nöqtələr | orta nöqtə</annotation>
 		<annotation cp="・" type="tts">katakana orta nöqtə</annotation>
-		<annotation cp=",">vergül durğusu</annotation>
+		<annotation cp=",">vergül | vergül durğusu</annotation>
 		<annotation cp="," type="tts">vergül</annotation>
-		<annotation cp="،">ərəb | vergül</annotation>
+		<annotation cp="،">ərəb | ərəb vergülü | vergül</annotation>
 		<annotation cp="،" type="tts">ərəb vergülü</annotation>
-		<annotation cp="、">ideografik | vergül</annotation>
+		<annotation cp="、">ideografik | ideoqrafik vergül | vergül</annotation>
 		<annotation cp="、" type="tts">ideoqrafik vergül</annotation>
 		<annotation cp=";">nöqtəli vergül</annotation>
 		<annotation cp=";" type="tts">nöqtəli vergül</annotation>
-		<annotation cp="؛">ərəb | nöqtəli vergül</annotation>
+		<annotation cp="؛">ərəb | ərəb nöqtəli vergülü | nöqtəli vergül</annotation>
 		<annotation cp="؛" type="tts">ərəb nöqtəli vergülü</annotation>
-		<annotation cp=":">iki nöqtə durğusu</annotation>
+		<annotation cp=":">iki nöqtə | iki nöqtə durğusu</annotation>
 		<annotation cp=":" type="tts">iki nöqtə</annotation>
-		<annotation cp="!">nida | nida işarəsi | partlayış</annotation>
+		<annotation cp="!">nida | nida işarəsi | nida nişanı | partlayış</annotation>
 		<annotation cp="!" type="tts">nida nişanı</annotation>
-		<annotation cp="¡">nida | nida durğusu | nida işarəsi | partlayış | tərs</annotation>
+		<annotation cp="¡">nida | nida durğusu | nida işarəsi | partlayış | tərs | tərs nida işarəsi</annotation>
 		<annotation cp="¡" type="tts">tərs nida işarəsi</annotation>
-		<annotation cp="?">sual</annotation>
+		<annotation cp="?">sual | sual nişanı</annotation>
 		<annotation cp="?" type="tts">sual nişanı</annotation>
-		<annotation cp="¿">sual | sual işarəsi | tərs</annotation>
+		<annotation cp="¿">sual | sual işarəsi | tərs | tərs sual işarəsi</annotation>
 		<annotation cp="¿" type="tts">tərs sual işarəsi</annotation>
-		<annotation cp="؟">ərəb | sual | sual işarəsi</annotation>
+		<annotation cp="؟">ərəb | ərəb sual işarəsi | sual | sual işarəsi</annotation>
 		<annotation cp="؟" type="tts">ərəb sual işarəsi</annotation>
-		<annotation cp="‽">interabanq</annotation>
+		<annotation cp="‽">interabanq | interrobanq</annotation>
 		<annotation cp="‽" type="tts">interrobanq</annotation>
 		<annotation cp=".">nöqtə | tam durğu</annotation>
 		<annotation cp="." type="tts">nöqtə</annotation>
@@ -73,39 +73,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="。" type="tts">ideoqrafik nöqtə</annotation>
 		<annotation cp="·">interpunkt | middot | nöqtə | orta</annotation>
 		<annotation cp="·" type="tts">orta nöqtə</annotation>
-		<annotation cp="'">apostrof | dırnaq | tək dırnaq</annotation>
+		<annotation cp="'">apostrof | dırnaq | tək dırnaq | tipoqraf apostrofu</annotation>
 		<annotation cp="'" type="tts">tipoqraf apostrofu</annotation>
-		<annotation cp="‘">apostrof | dırnaq | smart dırnaq | tək dırnaq</annotation>
+		<annotation cp="‘">apostrof | dırnaq | smart dırnaq | sol apostrof | tək dırnaq</annotation>
 		<annotation cp="‘" type="tts">sol apostrof</annotation>
-		<annotation cp="’">apostrof | dırnaq | smart dırnaq | tək dırnaq</annotation>
+		<annotation cp="’">apostrof | dırnaq | sağ apostrof | smart dırnaq | tək dırnaq</annotation>
 		<annotation cp="’" type="tts">sağ apostrof</annotation>
-		<annotation cp="‚">apostrof | aşağı dırnaq | dırnaq</annotation>
+		<annotation cp="‚">apostrof | aşağı dırnaq | aşağı sağ apostrof | dırnaq</annotation>
 		<annotation cp="‚" type="tts">aşağı sağ apostrof</annotation>
-		<annotation cp="“">dırnaq | ikiqat dırnaq | sitat | smart sitat</annotation>
+		<annotation cp="“">dırnaq | ikiqat dırnaq | sitat | smart sitat | sol sitat işarəsi</annotation>
 		<annotation cp="“" type="tts">sol sitat işarəsi</annotation>
-		<annotation cp="”">dırnaq | ikiqat dırnaq | sitat | smart sitat</annotation>
+		<annotation cp="”">dırnaq | ikiqat dırnaq | sağ sitat işarəsi | sitat | smart sitat</annotation>
 		<annotation cp="”" type="tts">sağ sitat işarəsi</annotation>
-		<annotation cp="„">aşağı sitat | dırnaq | ikiqat dırnaq | sitat v smart sitat</annotation>
+		<annotation cp="„">aşağı sağ sitat işarəsi | aşağı sitat | dırnaq | ikiqat dırnaq | sitat v smart sitat</annotation>
 		<annotation cp="„" type="tts">aşağı sağ sitat işarəsi</annotation>
 		<annotation cp="«">bucaq | dırnaq işarəsi | düzbucaqlı mötərizə | redaktə kursoru | şevron | sol | sol dırnaq işarəsi</annotation>
 		<annotation cp="«" type="tts">sol dırnaq işarəsi</annotation>
 		<annotation cp="»">bucaq | dırnaq işarəsi | düzbucaqlı mötərizə | redaktə kursoru | sağ | sağ dırnaq işarəsi | şevron</annotation>
 		<annotation cp="»" type="tts">sağ dırnaq işarəsi</annotation>
-		<annotation cp=")">mötərizə | qövsvari mötərizə</annotation>
+		<annotation cp=")">mötərizə | qapanan mötərizə | qövsvari mötərizə</annotation>
 		<annotation cp=")" type="tts">qapanan mötərizə</annotation>
-		<annotation cp="[">kvadrat mötərizə | mötərizə</annotation>
+		<annotation cp="[">açılan kvadrat mötərizə | kvadrat mötərizə | mötərizə</annotation>
 		<annotation cp="[" type="tts">açılan kvadrat mötərizə</annotation>
-		<annotation cp="]">kvadrat mötərizə | mötərizə</annotation>
+		<annotation cp="]">kvadrat mötərizə | mötərizə | qapanan kvadrat mötərizə</annotation>
 		<annotation cp="]" type="tts">qapanan kvadrat mötərizə</annotation>
-		<annotation cp="}">buruq mötərizə | fiqurlu mötərizə</annotation>
+		<annotation cp="}">buruq mötərizə | fiqurlu mötərizə | qapanan buruq mötərizə</annotation>
 		<annotation cp="}" type="tts">qapanan buruq mötərizə</annotation>
-		<annotation cp="〈">brilliant mötərizə | bucaqlı mötərizə | mötərizə | oxlu mötərizə | şevron</annotation>
+		<annotation cp="〈">açılan bucaqlı mötərizə | brilliant mötərizə | bucaqlı mötərizə | mötərizə | oxlu mötərizə | şevron</annotation>
 		<annotation cp="〈" type="tts">açılan bucaqlı mötərizə</annotation>
-		<annotation cp="〉">brilliant mötərizə | bucaqlı mötərizə | mötərizə | oxlu mötərizə | şevron</annotation>
+		<annotation cp="〉">brilliant mötərizə | bucaqlı mötərizə | mötərizə | oxlu mötərizə | qapanan bucaqlı mötərizə | şevron</annotation>
 		<annotation cp="〉" type="tts">qapanan bucaqlı mötərizə</annotation>
-		<annotation cp="《">ikiqat bucaqlı mötərizə | mötərizə</annotation>
+		<annotation cp="《">açılan ikiqat bucaqlı mötərizə | ikiqat bucaqlı mötərizə | mötərizə</annotation>
 		<annotation cp="《" type="tts">açılan ikiqat bucaqlı mötərizə</annotation>
-		<annotation cp="》">ikiqat bucaqlı mötərizə | mötərizə</annotation>
+		<annotation cp="》">ikiqat bucaqlı mötərizə | mötərizə | qapanan ikiqat bucaqlı mötərizə</annotation>
 		<annotation cp="》" type="tts">qapanan ikiqat bucaqlı mötərizə</annotation>
 		<annotation cp="「">açılan künc mötərizəsi | mötərizəsi</annotation>
 		<annotation cp="「" type="tts">açılan künc mötərizəsi</annotation>
@@ -115,21 +115,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="『" type="tts">açılan boş künc mötərizəsi</annotation>
 		<annotation cp="』">mötərizə | qapanan boş künc mötərizəsi</annotation>
 		<annotation cp="』" type="tts">qapanan boş künc mötərizəsi</annotation>
-		<annotation cp="【">linza mötərizəsi | mötərizə</annotation>
+		<annotation cp="【">açılan qara linza mötərizəsi | linza mötərizəsi | mötərizə</annotation>
 		<annotation cp="【" type="tts">açılan qara linza mötərizəsi</annotation>
-		<annotation cp="】">linza mötərizəsi | mötərizə</annotation>
+		<annotation cp="】">linza mötərizəsi | mötərizə | qapanan qara linza mötərizəsi</annotation>
 		<annotation cp="】" type="tts">qapanan qara linza mötərizəsi</annotation>
-		<annotation cp="〔">kronşteyn mötərizə | mötərizə</annotation>
+		<annotation cp="〔">açılan kronşteyn mötərizə | kronşteyn mötərizə | mötərizə</annotation>
 		<annotation cp="〔" type="tts">açılan kronşteyn mötərizə</annotation>
-		<annotation cp="〕">kronşteyn mötərizə | mötərizə</annotation>
+		<annotation cp="〕">kronşteyn mötərizə | mötərizə | qapanan kronşteyn mötərizə</annotation>
 		<annotation cp="〕" type="tts">qapanan kronşteyn mötərizə</annotation>
-		<annotation cp="〖">boş linza mötərizəsi | mötərizə</annotation>
+		<annotation cp="〖">açılan boş linza mötərizəsi | boş linza mötərizəsi | mötərizə</annotation>
 		<annotation cp="〖" type="tts">açılan boş linza mötərizəsi</annotation>
-		<annotation cp="〗">boş linza mötərizəsi | mötərizə</annotation>
+		<annotation cp="〗">boş linza mötərizəsi | mötərizə | qapanan boş linza mötərizəsi</annotation>
 		<annotation cp="〗" type="tts">qapanan boş linza mötərizəsi</annotation>
 		<annotation cp="§">bölmə | bölmə işarəsi | hissə | paraqraf | paraqraf işarəsi</annotation>
 		<annotation cp="§" type="tts">paraqraf işarəsi</annotation>
-		<annotation cp="¶">absaz işarəsi | alinea | parafir | paraqraf</annotation>
+		<annotation cp="¶">absaz işarəsi | alinea | parafir | paraqraf | paraqraf nişanı</annotation>
 		<annotation cp="¶" type="tts">paraqraf nişanı</annotation>
 		<annotation cp="@">ampersat | arobaza | arroba | ət işarəsi | ət nişanı | strudel | ticari ət</annotation>
 		<annotation cp="@" type="tts">ət işarəsi</annotation>
@@ -141,7 +141,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="\" type="tts">geri sleş</annotation>
 		<annotation cp="&amp;">ampersant | et | və</annotation>
 		<annotation cp="&amp;" type="tts">ampersant</annotation>
-		<annotation cp="#">funt | heş | heşteq | lb | nömrə</annotation>
+		<annotation cp="#">funt | heş | heş işarəsi | heşteq | lb | nömrə</annotation>
 		<annotation cp="#" type="tts">heş işarəsi</annotation>
 		<annotation cp="%">faiz</annotation>
 		<annotation cp="%" type="tts">faiz</annotation>
@@ -153,19 +153,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‡" type="tts">ikixaçlı xəncər işarəsi</annotation>
 		<annotation cp="•">böyük nöqtə | nöqtə</annotation>
 		<annotation cp="•" type="tts">böyük nöqtə</annotation>
-		<annotation cp="‧">defis | nöqtə | tire</annotation>
+		<annotation cp="‧">defis | keçid nöqtəsi | nöqtə | tire</annotation>
 		<annotation cp="‧" type="tts">keçid nöqtəsi</annotation>
-		<annotation cp="′">ştrix işarəsi</annotation>
+		<annotation cp="′">ştrix | ştrix işarəsi</annotation>
 		<annotation cp="′" type="tts">ştrix</annotation>
-		<annotation cp="″">ştrix</annotation>
+		<annotation cp="″">ikiqat ştrix | ştrix</annotation>
 		<annotation cp="″" type="tts">ikiqat ştrix</annotation>
-		<annotation cp="‴">ştrix</annotation>
+		<annotation cp="‴">ştrix | üçqat ştrix</annotation>
 		<annotation cp="‴" type="tts">üçqat ştrix</annotation>
-		<annotation cp="‸">bağlanan dırnaq işarəsi</annotation>
+		<annotation cp="‸">açılan dırnaq işarəsi | bağlanan dırnaq işarəsi</annotation>
 		<annotation cp="‸" type="tts">açılan dırnaq işarəsi</annotation>
 		<annotation cp="※">kontrol işarəsi</annotation>
 		<annotation cp="※" type="tts">kontrol işarəsi</annotation>
-		<annotation cp="⁂">üç | ulduz</annotation>
+		<annotation cp="⁂">asterizm | üç | ulduz</annotation>
 		<annotation cp="⁂" type="tts">asterizm</annotation>
 		<annotation cp="`">ağır | ton | vurğu</annotation>
 		<annotation cp="`" type="tts">ağır vurğu</annotation>
@@ -223,7 +223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↬" type="tts">halqa ilə sağa doğru ox</annotation>
 		<annotation cp="↭">sola-sağa dalğalı ox</annotation>
 		<annotation cp="↭" type="tts">sola-sağa dalğalı ox</annotation>
-		<annotation cp="↯">ziqzaq</annotation>
+		<annotation cp="↯">aşağıya doğru ziqzaqşəkilli ox | ziqzaq</annotation>
 		<annotation cp="↯" type="tts">aşağıya doğru ziqzaqşəkilli ox</annotation>
 		<annotation cp="↰">yuxarı sol istiqamətli ox ucu</annotation>
 		<annotation cp="↰" type="tts">yuxarı sol istiqamətli ox ucu</annotation>
@@ -249,21 +249,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↺" type="tts">saat əqrəbinin əksi istiqamətində açıq dairəvi ox</annotation>
 		<annotation cp="↻">saat əqrəbi istiqamətində açıq dairəvi ox</annotation>
 		<annotation cp="↻" type="tts">saat əqrəbi istiqamətində açıq dairəvi ox</annotation>
-		<annotation cp="↼">dişək</annotation>
+		<annotation cp="↼">dişək | sola doğru yuxarı qarmaq dişəyi</annotation>
 		<annotation cp="↼" type="tts">sola doğru yuxarı qarmaq dişəyi</annotation>
 		<annotation cp="↽">sola doğru aşağı qarmaq dişəyi</annotation>
 		<annotation cp="↽" type="tts">sola doğru aşağı qarmaq dişəyi</annotation>
-		<annotation cp="↾">dişək</annotation>
+		<annotation cp="↾">dişək | yuxarı sağa doğru qarmaq dişəyi</annotation>
 		<annotation cp="↾" type="tts">yuxarı sağa doğru qarmaq dişəyi</annotation>
-		<annotation cp="↿">dişək</annotation>
+		<annotation cp="↿">dişək | yuxarı sola doğru qarmaq dişəyi</annotation>
 		<annotation cp="↿" type="tts">yuxarı sola doğru qarmaq dişəyi</annotation>
-		<annotation cp="⇀">dişək</annotation>
+		<annotation cp="⇀">dişək | sağa doğru yuxarı qarmaq dişəyi</annotation>
 		<annotation cp="⇀" type="tts">sağa doğru yuxarı qarmaq dişəyi</annotation>
-		<annotation cp="⇁">dişək</annotation>
+		<annotation cp="⇁">dişək | sağa doğru aşağı qarmaq dişəyi</annotation>
 		<annotation cp="⇁" type="tts">sağa doğru aşağı qarmaq dişəyi</annotation>
-		<annotation cp="⇂">dişək</annotation>
+		<annotation cp="⇂">aşağıya doğru sağa qarmaq dişəyi | dişək</annotation>
 		<annotation cp="⇂" type="tts">aşağıya doğru sağa qarmaq dişəyi</annotation>
-		<annotation cp="⇃">dişək</annotation>
+		<annotation cp="⇃">aşağıya doğru sola qarmaq dişəyi | dişək</annotation>
 		<annotation cp="⇃" type="tts">aşağıya doğru sola qarmaq dişəyi</annotation>
 		<annotation cp="⇄">sola doğru olan oxun üzərində sağa doğru ox</annotation>
 		<annotation cp="⇄" type="tts">sola doğru olan oxun üzərində sağa doğru ox</annotation>
@@ -343,9 +343,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇪" type="tts">xəttdən yuxarıya doğru dəlikli ox</annotation>
 		<annotation cp="⇵">aşağı oxun solunda yuxarı ox</annotation>
 		<annotation cp="⇵" type="tts">aşağı oxun solunda yuxarı ox</annotation>
-		<annotation cp="∀">hamısı | istənilən | universal | verilən</annotation>
+		<annotation cp="∀">çevrilmiş A | hamısı | istənilən | universal | verilən</annotation>
 		<annotation cp="∀" type="tts">çevrilmiş A</annotation>
-		<annotation cp="∂">differensial</annotation>
+		<annotation cp="∂">differensial | qismən differensial</annotation>
 		<annotation cp="∂" type="tts">qismən differensial</annotation>
 		<annotation cp="∃">çevrilmiş E</annotation>
 		<annotation cp="∃" type="tts">çevrilmiş E</annotation>
@@ -357,9 +357,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">daxildir | dəst | element | elementi | üzvlük</annotation>
 		<annotation cp="∈" type="tts">elementi</annotation>
-		<annotation cp="∉">element</annotation>
+		<annotation cp="∉">çoxluğa daxil deyil | element</annotation>
 		<annotation cp="∉" type="tts">çoxluğa daxil deyil</annotation>
-		<annotation cp="∋">element</annotation>
+		<annotation cp="∋">çoxluğa daxildir | element</annotation>
 		<annotation cp="∋" type="tts">çoxluğa daxildir</annotation>
 		<annotation cp="∎">son sübut</annotation>
 		<annotation cp="∎" type="tts">son sübut</annotation>
@@ -367,9 +367,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∏" type="tts">yaranma</annotation>
 		<annotation cp="∑">cəm | riyaziyyat</annotation>
 		<annotation cp="∑" type="tts">cəm</annotation>
-		<annotation cp="+">əlavə | toplama</annotation>
+		<annotation cp="+">əlavə | toplama | toplama işarəsi</annotation>
 		<annotation cp="+" type="tts">toplama işarəsi</annotation>
-		<annotation cp="±">plus-minus</annotation>
+		<annotation cp="±">plus-minus | toplama-çıxma</annotation>
 		<annotation cp="±" type="tts">toplama-çıxma</annotation>
 		<annotation cp="÷">bölmə | bölmə işarəsi | bölmək | kiçik xaç</annotation>
 		<annotation cp="÷" type="tts">bölmə işarəsi</annotation>
@@ -377,7 +377,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">vurma işarəsi</annotation>
 		<annotation cp="&lt;">açılan teq | kiçik işarəsi | teq</annotation>
 		<annotation cp="&lt;" type="tts">kiçik işarəsi</annotation>
-		<annotation cp="≮">bərabərsizlik | riyaziyyat</annotation>
+		<annotation cp="≮">bərabərsizlik | kiçik deyil | riyaziyyat</annotation>
 		<annotation cp="≮" type="tts">kiçik deyil</annotation>
 		<annotation cp="=">bərabər | eşit</annotation>
 		<annotation cp="=" type="tts">bərabər</annotation>
@@ -385,7 +385,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≠" type="tts">qeyri-bərabər</annotation>
 		<annotation cp="&gt;">böyük işarəsi | qapanan teq | teq</annotation>
 		<annotation cp="&gt;" type="tts">böyük işarəsi</annotation>
-		<annotation cp="≯">bərabərsizlik | riyaziyyat</annotation>
+		<annotation cp="≯">bərabərsizlik | böyük deyil | riyaziyyat</annotation>
 		<annotation cp="≯" type="tts">böyük deyil</annotation>
 		<annotation cp="¬">inkar | yox</annotation>
 		<annotation cp="¬" type="tts">inkar</annotation>
@@ -393,29 +393,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="|" type="tts">vertikal xətt</annotation>
 		<annotation cp="~">tilda</annotation>
 		<annotation cp="~" type="tts">tilda</annotation>
-		<annotation cp="−">çıxma | minus</annotation>
+		<annotation cp="−">çıxma | çıxma işarəsi | minus</annotation>
 		<annotation cp="−" type="tts">çıxma işarəsi</annotation>
 		<annotation cp="⁻">minus | üstdə minus | üstdə yazılan</annotation>
 		<annotation cp="⁻" type="tts">üstdə minus</annotation>
-		<annotation cp="∓">üstəgəl-çıx</annotation>
+		<annotation cp="∓">çıx-yaxud-üstəgəl | üstəgəl-çıx</annotation>
 		<annotation cp="∓" type="tts">çıx-yaxud-üstəgəl</annotation>
-		<annotation cp="∕">çəpəki xətt | sleş | xətt</annotation>
+		<annotation cp="∕">bölmə sleşi | çəpəki xətt | sleş | xətt</annotation>
 		<annotation cp="∕" type="tts">bölmə sleşi</annotation>
-		<annotation cp="⁄">fraksiya | xətt</annotation>
+		<annotation cp="⁄">fraksiya | fraksiya sleşi | xətt</annotation>
 		<annotation cp="⁄" type="tts">fraksiya sleşi</annotation>
-		<annotation cp="∗">ulduz</annotation>
+		<annotation cp="∗">ulduz | ulduz operatoru</annotation>
 		<annotation cp="∗" type="tts">ulduz operatoru</annotation>
 		<annotation cp="∘">dərəcə operatoru</annotation>
 		<annotation cp="∘" type="tts">dərəcə operatoru</annotation>
-		<annotation cp="∙">operator</annotation>
+		<annotation cp="∙">böyük nöqtə operatoru | operator</annotation>
 		<annotation cp="∙" type="tts">böyük nöqtə operatoru</annotation>
 		<annotation cp="√">əsas | irrasional | kök | kökaltı | kvadrat | radikal</annotation>
 		<annotation cp="√" type="tts">kökaltı</annotation>
-		<annotation cp="∝">mütənasiblik</annotation>
+		<annotation cp="∝">mütənasib | mütənasiblik</annotation>
 		<annotation cp="∝" type="tts">mütənasib</annotation>
 		<annotation cp="∞">sonsuzluq | sonsuzluq işarəsi</annotation>
 		<annotation cp="∞" type="tts">sonsuzluq işarəsi</annotation>
-		<annotation cp="∟">bucaq | riyaziyyat</annotation>
+		<annotation cp="∟">bucaq | riyaziyyat | sağ bucaq</annotation>
 		<annotation cp="∟" type="tts">sağ bucaq</annotation>
 		<annotation cp="∠">bucaq | iti</annotation>
 		<annotation cp="∠" type="tts">bucaq</annotation>
@@ -427,9 +427,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≈" type="tts">təxminən bərabər</annotation>
 		<annotation cp="≡">bərabər | bərabərdir | dəqiq | üçqat</annotation>
 		<annotation cp="≡" type="tts">bərabərdir</annotation>
-		<annotation cp="≤">bərabər | bərabərsizlik | kiçik</annotation>
+		<annotation cp="≤">bərabər | bərabərsizlik | kiçik | kiçik və ya bərabər</annotation>
 		<annotation cp="≤" type="tts">kiçik və ya bərabər</annotation>
-		<annotation cp="≥">bərabər | bərabərsizlik | böyük</annotation>
+		<annotation cp="≥">bərabər | bərabərsizlik | böyük | böyük və ya bərabər</annotation>
 		<annotation cp="≥" type="tts">böyük və ya bərabər</annotation>
 		<annotation cp="⊂">altçoxluğu | altçoxluq | dəst</annotation>
 		<annotation cp="⊂" type="tts">altçoxluğu</annotation>
@@ -525,7 +525,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">ifadəsiz üz</annotation>
 		<annotation cp="😶">ağız | ağızsız üz | sakit | səssiz | üz</annotation>
 		<annotation cp="😶" type="tts">ağızsız üz</annotation>
-		<annotation cp="😶‍🌫">bulud | buludlu baş</annotation>
+		<annotation cp="😶‍🌫">bulud | buludlu baş | buludlu üz</annotation>
 		<annotation cp="😶‍🌫" type="tts">buludlu üz</annotation>
 		<annotation cp="😏">özündən razı gülümsəmək | özündən razı gülümsəyən üz | üz</annotation>
 		<annotation cp="😏" type="tts">özündən razı gülümsəyən üz</annotation>
@@ -567,7 +567,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">gicəllənən üz</annotation>
 		<annotation cp="😵">başgicəllənmə | başıgicəllənən üz | üz</annotation>
 		<annotation cp="😵" type="tts">başıgicəllənən üz</annotation>
-		<annotation cp="😵‍💫">başgicəllənmə | hipnozlanmış | problem | spiral</annotation>
+		<annotation cp="😵‍💫">başgicəllənmə | hipnozlanmış | problem | spiral | spiral gözlü üz</annotation>
 		<annotation cp="😵‍💫" type="tts">spiral gözlü üz</annotation>
 		<annotation cp="🤯">partlayan baş | şoka düşmüş</annotation>
 		<annotation cp="🤯" type="tts">partlayan baş</annotation>
@@ -593,7 +593,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">qaşqabaqlı üz</annotation>
 		<annotation cp="😮">açıq | ağız | ağzı açıq üz | simpatiya | üz</annotation>
 		<annotation cp="😮" type="tts">ağzı açıq üz</annotation>
-		<annotation cp="😮‍💨">ciyərəçəkmə | nəfəsalma | pıçıldama</annotation>
+		<annotation cp="😮‍💨">ciyərəçəkmə | nəfəs alan üz | nəfəsalma | pıçıldama</annotation>
 		<annotation cp="😮‍💨" type="tts">nəfəs alan üz</annotation>
 		<annotation cp="😯">heyrətlənmiş | susmuş | təəccüblənmiş | üz</annotation>
 		<annotation cp="😯" type="tts">heyrətlənmiş üz</annotation>
@@ -715,9 +715,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">sınmış ürək</annotation>
 		<annotation cp="❤">qırmızı ürək | ürək</annotation>
 		<annotation cp="❤" type="tts">qırmızı ürək</annotation>
-		<annotation cp="❤‍🔥">müqəddəs ürək | sevgi | şəhvət | ürək | yanmaq</annotation>
+		<annotation cp="❤‍🔥">alovlu ürək | müqəddəs ürək | sevgi | şəhvət | ürək | yanmaq</annotation>
 		<annotation cp="❤‍🔥" type="tts">alovlu ürək</annotation>
-		<annotation cp="❤‍🩹">özünə gəlmək | sağalma | sağlam | yara bandı bağlamaq</annotation>
+		<annotation cp="❤‍🩹">özünə gəlmək | sağalma | sağlam | yara bandı bağlamaq | yara bandlı ürək</annotation>
 		<annotation cp="❤‍🩹" type="tts">yara bandlı ürək</annotation>
 		<annotation cp="🧡">narıncı | narıncı ürək</annotation>
 		<annotation cp="🧡" type="tts">narıncı ürək</annotation>
@@ -883,9 +883,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">saqqallı şəxs</annotation>
 		<annotation cp="👱‍♂">kişi | sarışın</annotation>
 		<annotation cp="👱‍♂" type="tts">sarışın kişi</annotation>
-		<annotation cp="🧔‍♀">kişi | kişi: saqqal | saqqal</annotation>
+		<annotation cp="🧔‍♀">kişi | kişi: saqqal | qadın: saqqal | saqqal</annotation>
 		<annotation cp="🧔‍♀" type="tts">qadın: saqqal</annotation>
-		<annotation cp="🧔‍♂">kişi | kişi: saqqal | saqqal</annotation>
+		<annotation cp="🧔‍♂">kişi | kişi; saqqal | kişi: saqqal | saqqal</annotation>
 		<annotation cp="🧔‍♂" type="tts">kişi; saqqal</annotation>
 		<annotation cp="👩">qadın</annotation>
 		<annotation cp="👩" type="tts">qadın</annotation>
@@ -1099,7 +1099,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤵‍♂" type="tts">smokinqli adam</annotation>
 		<annotation cp="🤵‍♀">qadın | smokinq | smokinqli qadın</annotation>
 		<annotation cp="🤵‍♀" type="tts">smokinqli qadın</annotation>
-		<annotation cp="👰">fata | fatalı gəlin | gəlin | şəxs</annotation>
+		<annotation cp="👰">duvaqlı şəxs | fata | fatalı gəlin | gəlin | şəxs</annotation>
 		<annotation cp="👰" type="tts">duvaqlı şəxs</annotation>
 		<annotation cp="👰‍♂">adam | duvaq | duvaqlı adam</annotation>
 		<annotation cp="👰‍♂" type="tts">duvaqlı adam</annotation>
@@ -1207,7 +1207,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">dizi üstündə kişi</annotation>
 		<annotation cp="🧎‍♀">dizi üstündə | dizi üstündə qadın | qadın</annotation>
 		<annotation cp="🧎‍♀" type="tts">dizi üstündə qadın</annotation>
-		<annotation cp="🧑‍🦯">ağ çəlikli adam | görmə məhdudiyyətli | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑‍🦯">ağ çəlikli adam | görmə məhdudiyyətli | xüsusi funksiyalar | zondlayan çəlikli adam</annotation>
 		<annotation cp="🧑‍🦯" type="tts">zondlayan çəlikli adam</annotation>
 		<annotation cp="👨‍🦯">kişi | kor | zond ilə kişi</annotation>
 		<annotation cp="👨‍🦯" type="tts">zond ilə kişi</annotation>
@@ -1219,7 +1219,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🦼" type="tts">motorlu oturacaqda kişi</annotation>
 		<annotation cp="👩‍🦼">motorlu | oturacaqda | qadın</annotation>
 		<annotation cp="👩‍🦼" type="tts">motorlu oturacaqda qadın</annotation>
-		<annotation cp="🧑‍🦽">əlil arabası | əlil arabasında adam</annotation>
+		<annotation cp="🧑‍🦽">əl arabasında adam | əlil arabası | əlil arabasında adam</annotation>
 		<annotation cp="🧑‍🦽" type="tts">əl arabasında adam</annotation>
 		<annotation cp="👨‍🦽">kişi | manual | oturacaqda</annotation>
 		<annotation cp="👨‍🦽" type="tts">manual oturacaqda kişi</annotation>
@@ -3459,19 +3459,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">funt</annotation>
 		<annotation cp="¥">CNY | JPY | valyuta | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
-		<annotation cp="₥">mil</annotation>
+		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
-		<annotation cp="₩">KPW | KRW</annotation>
+		<annotation cp="₩">KPW | KRW | von</annotation>
 		<annotation cp="₩" type="tts">von</annotation>
 		<annotation cp="€">avro | EUR | valyuta</annotation>
 		<annotation cp="€" type="tts">avro</annotation>
-		<annotation cp="₱">peso işarəsi</annotation>
+		<annotation cp="₱">peso | peso işarəsi</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
 		<annotation cp="₹">Hindistan rupisi | rupi | valyuta</annotation>
 		<annotation cp="₹" type="tts">Hindistan rupisi</annotation>
 		<annotation cp="₽">rubl | valyuta</annotation>
 		<annotation cp="₽" type="tts">rubl</annotation>
-		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿">bitkoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkoin</annotation>
 		<annotation cp="¹">bir | üstdə bir | üstdə yazılan</annotation>
 		<annotation cp="¹" type="tts">üstdə bir</annotation>

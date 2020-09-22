@@ -1,0 +1,63 @@
+#!/bin/bash
+# Note: this is managed by Ansible, as deploy-sh.j2
+# Don't modify this file.
+GITHUB_SHA=$1
+UNLOCK=$2
+export TPASS={{ surveytooldeploy.password }} # from surveytooldeploy.password
+export TUSER=surveytooldeploy # fixed for now
+
+dogit() {
+    rm -f ~/git-list.txt
+    if [[ ${GITHUB_SHA} = "master" ]];
+    then
+	echo "changing 'master' to 'origin/master' to get the latest"
+	GITHUB_SHA=origin/master
+    fi
+    git fetch -p || exit 1
+    git clean -f -d || echo 'warning: err on cleanup'
+    # what are we deploying?
+
+    echo    "cldr-trunk was at  :" $(git rev-parse --short HEAD)
+    echo -n "you want to move to:"
+    git rev-parse --short "${GITHUB_SHA}" || exit 1 # fail on err
+    if [[ $(git rev-parse --short HEAD) = $(git rev-parse --short "${GITHUB_SHA}") ]];
+    then
+	echo "No checkout needed. Continuing with redeploy."
+    else
+	echo "Deploy will include these new items:"
+	echo "---"
+	(git log --oneline HEAD..${GITHUB_SHA} | tee ~/git-list.txt) || exit 1
+	echo "---"
+	if [[ ! -s ~/git-list.txt ]]; # if empty..
+	then
+	    echo "Note, ${GITHUB_SHA} is not ahead of HEAD"  $(git rev-parse --short HEAD)
+	    echo "Checking for items that would be REVERTED if we proceed:"
+	    echo "---"
+	    git log --oneline ${GITHUB_SHA}..HEAD
+	    echo "---"
+	    if [[ "${UNLOCK}" = "--override" ]];
+	    then
+		echo ".. continuing anyway! due to " "${UNLOCK}"
+	    else
+		echo "STOP. Check the override box if you really want to do this"
+		exit 1
+	    fi
+	fi
+	git checkout -f ${GITHUB_SHA}
+	echo "HEAD is now at" $(git rev-parse --short HEAD) "!"
+     fi
+}
+
+# Check git first, before undeploying. Want to exit early
+(cd  /var/lib/tomcat8/cldr/cldr-trunk/ && dogit ) || exit 1
+# undeploy old ST
+curl -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/undeploy?path=/cldr-apps'
+# reset last deploy status
+rm -fv cldr-apps.war .deploystatus
+# copy cldr-apps.war from action runner to server
+dd bs=1024000 status=progress of=cldr-apps.war
+# this counts the # of files to make sure it's not too short, but also verifies that unzip is OK
+echo ; echo -n 'Unzip check, # of files in cldr-apps.war: '
+(unzip -l cldr-apps.war | wc -l ) || exit 1
+# Now, do the deployment!
+curl -q -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/deploy?path=/cldr-apps&tag=cldr-apps&update=true' -T ./cldr-apps.war | tee .deploystatus

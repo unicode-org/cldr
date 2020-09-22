@@ -377,7 +377,7 @@ public class LocaleMatcher {
         static Pattern pattern = Pattern.compile(
             "([a-z]{1,8}|\\*)"
                 + "(?:[_-]([A-Z][a-z]{3}|\\*))?"
-                + "(?:[_-]([A-Z]{2}|[0-9]{3}|\\*))?");
+                + "(?:[_-]([$]!?[a-zA-Z]+|[A-Z]{2}|[0-9]{3}|\\*))?");
 
         public LocalePatternMatcher(String toMatch) {
             Matcher matcher = pattern.matcher(toMatch);

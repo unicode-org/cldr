@@ -1,5 +1,9 @@
+cldr_database_name: cldrdb
+cldr_db_backup_host: corp.unicode.org
+cldr_db_backup_user: cldrbackup
+cldr_db_backup_destination: "{{ cldr_db_backup_host }}:/home/users/{{ cldr_db_backup_user }}"
 mysql_databases:
-  - name: cldrdb
+  - name: "{{ cldr_database_name }}"
     encoding: latin1
     collation: latin1_bin
 mysql_enabled_on_startup: true

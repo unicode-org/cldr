@@ -137,12 +137,15 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				    byLocale[locale].newCount = row[header_new.COUNT];
 				});
 				// Analyze old count
-				Object.keys(byLocale).sort().forEach(l => {
+				count_old.push(0);
+				count_new.push(0);
+				labels.push({value: 0, text: ''});
+				Object.keys(byLocale).sort().reverse().forEach(l => {
 				    const {allCount,newCount} = byLocale[l];
 				    const oldCount = byLocale[l].oldCount = allCount - (newCount || 0);
+				    labels.push({value: count_old.length, text: l}); // value: 1 text: 'aa', etc.
 				    count_old.push(oldCount||0);
 				    count_new.push(newCount||0);
-				    labels.push({value: count_old.length, text: l});
 				});
 
 				// Now, render
@@ -158,7 +161,12 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				.addSeries("+ Old votes from CLDR "+surveyOldVersion, count_old);
 				var tip = new Tooltip(c, 'default', {
 					text: function(o) {
-						return labels[o.index].text +"   <br>"+count_all[o.index];
+						let ret =  labels[o.index].text +"   "+count_old[o.index];
+						if(locmap && labels[o.index].text) {
+							// use the on-client locmap to lookup the locale id
+							ret += ' ' + locmap.getLocaleName(labels[o.index].text);
+						}
+						return ret;
 					}
 				});
 				c.render();

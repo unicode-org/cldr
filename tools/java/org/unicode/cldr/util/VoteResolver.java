@@ -683,12 +683,15 @@ public class VoteResolver<T> {
      */
     private boolean usingKeywordAnnotationVoting = false;
 
-    private final Comparator<T> ucaCollator = new Comparator<T>() {
-        Collator col = Collator.getInstance(ULocale.ENGLISH);
+    private static final Collator englishCollator = Collator.getInstance(ULocale.ENGLISH).freeze();
 
+    /**
+     * Used for comparing objects of type T
+     */
+    private final Comparator<T> objectCollator = new Comparator<T>() {
         @Override
         public int compare(T o1, T o2) {
-            return col.compare(String.valueOf(o1), String.valueOf(o2));
+            return englishCollator.compare(String.valueOf(o1), String.valueOf(o2));
         }
     };
 
@@ -866,10 +869,9 @@ public class VoteResolver<T> {
         values.add(value);
     }
 
-    private Set<T> values = new TreeSet<>(ucaCollator);
+    private Set<T> values = new TreeSet<>(objectCollator);
 
     private final Comparator<T> votesThenUcaCollator = new Comparator<T>() {
-        Collator col = Collator.getInstance(ULocale.ENGLISH);
 
         /**
          * Compare candidate items by vote count, highest vote first.
@@ -896,7 +898,7 @@ public class VoteResolver<T> {
             } else if (o2.equals(CldrUtility.INHERITANCE_MARKER)) {
                 return 1;
             }
-            return col.compare(String.valueOf(o1), String.valueOf(o2));
+            return englishCollator.compare(String.valueOf(o1), String.valueOf(o2));
         }
     };
 
@@ -1057,14 +1059,13 @@ public class VoteResolver<T> {
          * Sort again, and omit skipValue
          */
         List<T> list = new ArrayList<>(sortedValues);
-        Collator col = Collator.getInstance(ULocale.ENGLISH);
         Collections.sort(list, (v1, v2) -> {
             long c1 = (voteCount != null) ? voteCount.get(v1) : totals.getCount(v1);
             long c2 = (voteCount != null) ? voteCount.get(v2) : totals.getCount(v2);
             if (c1 != c2) {
                 return (c1 < c2) ? 1 : -1; // decreasing numeric order (most votes wins)
             }
-            return col.compare(String.valueOf(v1), String.valueOf(v2));
+            return englishCollator.compare(String.valueOf(v1), String.valueOf(v2));
         });
         sortedValues.clear();
         for (T value : list) {
@@ -1202,7 +1203,6 @@ public class VoteResolver<T> {
      */
     private void resortValuesBasedOnAdjustedVoteCounts(Set<T> sortedValues, HashMap<T, Long> voteCount) {
         List<T> list = new ArrayList<>(sortedValues);
-        Collator col = Collator.getInstance(ULocale.ENGLISH);
         Collections.sort(list, (v1, v2) -> {
             long c1 = voteCount.get(v1), c2 = voteCount.get(v2);
             if (c1 != c2) {
@@ -1213,7 +1213,7 @@ public class VoteResolver<T> {
             if (size1 != size2) {
                 return (size1 < size2) ? -1 : 1; // increasing order of size (smallest set wins)
             }
-            return col.compare(String.valueOf(v1), String.valueOf(v2));
+            return englishCollator.compare(String.valueOf(v1), String.valueOf(v2));
         });
         sortedValues.clear();
         for (T value : list) {

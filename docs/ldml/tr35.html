@@ -569,6 +569,7 @@
           Keyboards (keyboard mappings)</a></li>
         </ul>
       </li>
+      <li class='changed'>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></li>
       <li><a href="#References">References</a></li>
       <li><a href="#Acknowledgments">Acknowledgments</a></li>
       <li><a href="#Modifications">Modifications</a></li>
@@ -1119,8 +1120,8 @@
 
     <p>A <code><a href=
     "#unicode_locale_id">unicode_locale_id</a></code> is in <em>canonical form</em> when it has canonical syntax and contains no aliased subtags. A <code><a href=
-    "#unicode_locale_id">unicode_locale_id</a></code> can be transformed into canonical form in the following way:</p>
-    <ul>
+    "#unicode_locale_id">unicode_locale_id</a></code> can be transformed into canonical form <span class='changed'>according to <a href="#LocaleId_Canonicalization" >Annex C. LocaleId Canonicalization</a></span>.</p>
+    <ul class='removed'>
       <li>Use the bcp47 data  to replace <em>keys, types, tfields, </em>and<em> tvalues</em> by their canonical forms. See <a href=
       "#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U
       Extension Data Files</a>) and <a href="#Transformed_Content_Data_File">Section 3.7.1 T Extension Data Files</a>. The aliases are in the <strong>alias</strong> attribute value, while the canonical is in the <strong>name</strong> attribute value. For example,
@@ -1185,7 +1186,7 @@
         </ul>
       </li>
       </ul>
-		<blockquote>* Formally, replacement of multiple territories uses <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>. However, there are a small number of cases of multiple territories, so the mappings can be precomputed. This results in a faster lookup with a very small subset of the likely subtags data.</blockquote>
+		<blockquote class='removed'>* Formally, replacement of multiple territories uses <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>. However, there are a small number of cases of multiple territories, so the mappings can be precomputed. This results in a faster lookup with a very small subset of the likely subtags data.</blockquote>
 	    <p>A <code><a href=
     "#unicode_locale_id">unicode_locale_id</a></code> is <em>maximal</em> when the  <code><a href=
     "#unicode_language_id">unicode_language_id</a></code> and tlang (if any) have been transformed by the Add Likely Subtags operation in <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>, excluding &quot;und&quot;. </p>
@@ -1267,9 +1268,8 @@
     "Language_Tag_to_Locale_Identifier">BCP 47 Language Tag to
     Unicode BCP 47 Locale Identifier</a></h5>
     <p>A valid [<a href="#BCP47">BCP47</a>] language tag can be
-    converted to a valid Unicode BCP 47 locale identifier by
-    performing the following transformation.</p>
-    <ol>
+    converted to a valid Unicode BCP 47 locale identifier <span class='changed'>according to <a href="#LocaleId_Canonicalization" >Annex C. LocaleId Canonicalization</a></span></p>
+    <ol class='removed'>
 	  <li>Canonicalize the syntax of the language tag (afterwards, there will be
 	  no extlang subtags) as per <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>.</li>
       <li>If the BCP 47 primary language subtag matches the
@@ -8564,6 +8564,268 @@ decimal?, group?, special*)) &gt;</pre>
       </tr>
     </table>
     <hr>
+    <div class='changed'>
+	  <h2><a href="#LocaleId_Canonicalization" name="LocaleId_Canonicalization">Annex C. LocaleId Canonicalization</a></h2>
+	  <p>&nbsp;</p>
+		  <p>The languageAlias, scriptAlias, territoryAlias, and variantAlias elements are used as rules to transform an input <em>source localeId</em>. The first step is to transform the <em>languageId</em> portion of the localeId. <br>
+      </p>
+		  <blockquote>Note: in the following discussion, the separator '-' is used. That is also used in examples of XML alias data, even though for compatibility reasons that alias data actually uses '_' as a separator. The processing can also be applied to syntax while maintaining the separator '_', <em>mutatis mutandis</em>. CLDR also uses &ldquo;territory&rdquo; and &ldquo;region&rdquo; interchangeably.</blockquote>
+	  <h3 >Definitions</h3>
+	  <h4 >1. Multimap interpretation</h4>
+		  <p>Interpret each languageId as a multimap from a <em>fieldId</em> (language, script, region, variants) to a <strong>set</strong> of field values.</p>
+	  <p><em>Examples:</em></p>
+		  <a ></a><a ></a>
+		  <table class='simple'>
+		    <tbody>
+		      <tr>
+		        <td colspan="1" rowspan="2"><p> </p>
+		          <p><strong>Source</strong></p></td>
+		        <td colspan="4" rowspan="1"><p><strong>Fields</strong></p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p><strong>Language</strong></p></td>
+		        <td colspan="1" rowspan="1"><p><strong>Script</strong></p></td>
+		        <td colspan="1" rowspan="1"><p><strong>Region</strong></p></td>
+		        <td colspan="1" rowspan="1"><p><strong>Variants</strong></p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>en-GB</p></td>
+		        <td colspan="1" rowspan="1"><p>{en}</p></td>
+		        <td colspan="1" rowspan="1"><p>{}</p></td>
+		        <td colspan="1" rowspan="1"><p>{GB}</p></td>
+		        <td colspan="1" rowspan="1"><p>{}</p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>und-GB</p></td>
+		        <td colspan="1" rowspan="1"><p>{}</p></td>
+		        <td colspan="1" rowspan="1"><p>{}</p></td>
+		        <td colspan="1" rowspan="1"><p>{GB}</p></td>
+		        <td colspan="1" rowspan="1"><p>{}</p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>ja-Latn-YU-hepburn-heploc</p></td>
+		        <td colspan="1" rowspan="1"><p>{ja}</p></td>
+		        <td colspan="1" rowspan="1"><p>{Latn}</p></td>
+		        <td colspan="1" rowspan="1"><p>{YU}</p></td>
+		        <td colspan="1" rowspan="1"><p>{hepburn, heploc}</p></td>
+	          </tr>
+	        </tbody>
+      </table>
+		  <p> </p>
+		  <ul>
+		    <li>This can be represented as an abbreviated format: {L={ja}, S={Latn}, R={YU}, V={hepburn, heploc}}, skipping empty sets.</li>
+		    <li>&ldquo;und&rdquo; is a special language code that is treated as an empty set.</li>
+		    <li>Of course, only the Variants can contain more than one item: the others are either empty or contain exactly 1 item.</li>
+      </ul>
+	  <h4 >2. Alias elements</h4>
+		  <p>For the languageAlias elements, the <em>type</em> and <em>replacements</em> are languageIds.</p>
+		  <p>For the script-, territory- (aka region), and variant- Alias elements, the type and replacements are interpreted as a languageIds, <em>after</em> prefixing with &ldquo;und-&rdquo;. Thus</p>
+		  <code>&lt;territoryAlias type="AN" replacement="CW SX BQ" reason="deprecated"/&gt;</code>
+		  <p>is interpreted as:</p>
+		  <code>&lt;territoryAlias type="und-AN" replacement="und-CW und-SX und-BQ" reason="deprecated"/&gt;</code>
+		  <p>Note that for the case of territoryAlias, there may be multiple replacement values separated by spaces in the text (such as replacement="und-CW und-SX und-BQ"); other rules only ever have a single replacement value.</p>
+		  <p> </p>
+	  <h4 >3. Matches</h4>
+		  <p>A rule matches a source if and only for all fields, each <em>source</em> field ⊇ <em>type</em> field.</p>
+		  <blockquote>
+		  <p><em>Examples:</em></p>
+		  <p>source=&ldquo;ja-heploc-hepburn&rdquo; and type=&rdquo;und-hepburn&rdquo;</p>
+		  <table class='simple'>
+		    <tbody>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{ja} ⊇ {} </p></td>
+		        <td colspan="1" rowspan="1"><p>success, und = {}</p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{hepburn, heploc} ⊇ {hepburn}</p></td>
+		        <td colspan="1" rowspan="1"><p><strong>success</strong></p></td>
+	          </tr>
+	        </tbody>
+		    </table>
+		  <p>so the rule matches the source. (Note that order of variants is immaterial to matching)</p>
+		  <p>&nbsp;</p>
+		  <p> </p>
+		  <p>source=&ldquo;ja-hepburn&rdquo; and type=&rdquo;und-hepburn-heploc&rdquo;</p>
+		  <table class='simple'>
+		    <tbody>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{ja} ⊇ {} </p></td>
+		        <td colspan="1" rowspan="1"><p>success, und = {}</p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{hepburn} ⊉ {hepburn, heploc}</p></td>
+		        <td colspan="1" rowspan="1"><p><strong>failure</strong></p></td>
+	          </tr>
+	        </tbody>
+		    </table>
+		  <p>so the rule does not match the source.</p></blockquote>
+	  <h4 >4. Replacement</h4>
+	  <p>A matching rule can be used to transform the source fields as follows</p>
+		  <ul>
+		    <li>if type.field ≠ {}
+		      <ul>
+		        <li>source.field = (source.field - type.field) ∪ replacement.field</li>
+	          </ul>
+		    </li>
+      
+		    <li>else if source.field = {} and replacement.field ≠ {}
+		      <ul>
+		        <li>source.field = replacement.field</li>
+	          </ul>
+		    </li>
+      </ul>
+		  <p><em>Example:</em></p>
+		  <blockquote><p>source=ja-Latn- fonipa-hepburn-heploc</p>
+		  <p>rule =&rdquo;&lt;languageAlias type="und-hepburn-heploc"</p>
+		  <p>replacement="und-alalc97"&gt;&rdquo;</p>
+		  <p>&nbsp;</p>
+		  <p>result=&rdquo;ja-Latn-alalc97-fonipa&rdquo; // note that CLDR canonical order of variants is alphabetical</p></blockquote>
+	  <h5 >Territory Exception</h5>
+		  <p>If the field = territory, and the replacement.field has more than one value, then look up the most likely territory* for the base language code (and script, if there is one). If that likely territory is in the list of replacements, use it. Otherwise, use the first territory in the list.</p>
+		  <p><em>Example:</em></p>
+	  <blockquote><p>source=ja-Latn- fonipa-hepburn-heploc</p>
+	    <p>rule =&rdquo;&lt;languageAlias type="und-hepburn-heploc"</p>
+		  <p>replacement="und-alalc97"&gt;&rdquo;</p>
+	    <p>&nbsp;</p>
+	    <p>result=&rdquo;ja-Latn-alalc97-fonipa&rdquo; <em>// note that CLDR canonical order of variants is alphabetical</em></p>
+		  </blockquote>
+	  <h4>5. Canonicalizing Syntax</h4>
+		<p>To canonicalize the syntax of <em>source</em>: </p>
+		<ul>
+		  <li>Initial Script Subtag
+		    <ul>
+		      <li>If the first subtag has 4 letters, prepend the source with &quot;-und&quot;</li>
+		      <li>Note: These are only for specialized use.</li>
+	        </ul>
+	      </li>
+		  <li>Casing
+		    <ul>
+		      <li>Put any script subtag into title case (eg, Hant)</li>
+		      <li>Put any region subtag int uppercase (eg, DE)</li>
+		      <li>Put all other subtags into lowercase (eg, en, fonipa)</li>
+	        </ul>
+	      </li>
+		  <li>Order
+		    <ul>
+		      <li>Put any variants into alphabetical order (eg, en-fonipa-scouse, not en-scouse-fonipa)</li>
+		      <li>Put any extensions into alphabetical order by their singleton (eg, en-t-xxx-u-yyy, not en-u-yyy-t-xxx)</li>
+		      <li>Put all attributes into  alphabetical order.</li>
+		      <li>Put all &lt;keywords, tfields&gt; pairs into alphabetical order of their keys, within their respective extensions.</li>
+		      <li>Remove any type or tfield value of "true"</li>
+	        </ul>
+		  </li>
+		  <li>Separator
+		    <ul>
+		      <li>Replace '_' by '-' </li>
+	        </ul>
+		  </li>
+	  </ul>
+	  <h3 >Preprocessing</h3>
+	  <p>The data from supplementalMetadata is (logically) preprocessed as follows.</p>
+		  <ol start="1">
+		    <li>Load the rules from supplementalMetadata.xml, replacing '_' by '-', and adding &ldquo;und-&rdquo; as described in <em>Definition 2. Alias Elements</em>.</li>
+		    <li>Capture all languageAlias rules where the <em>type</em> is an invalid languageId into a set of <strong>BCP47 LegacyRules</strong>. Example:
+		      <ol>
+		        <li>&lt;languageAlias type="i-mingo" replacement="see-x-i-mingo" reason="legacy"/&gt;</li>
+	          </ol>
+		    </li>
+		    <li>Discard all rules where the <em>type</em> is an invalid languageId. Examples are
+<ol>
+          <li>&lt;languageAlias type="i-mingo" replacement="see-x-i-mingo" reason="legacy"/&gt;</li>
+		        <li>&lt;territoryAlias type="und-AAA" replacement="und-AA" reason="overlong"/&gt;</li>
+	          </ol>
+	        </li>
+		    <li>Change the <em>type</em> and <em>replacement</em> values in the remaining rules into multimap rules, as per <em>Definition 1. Multimap Interpretation</em>. 
+		      <ol>
+		        <li>Note that the &ldquo;und&rdquo; value disappears.</li>
+	          </ol>
+		    </li>
+		    
+		    <li>Order the set of rules by
+		      <ol>
+		        <li>the size of the union of all field value sets, with largest size first</li>
+		        <li>and then alphabetically by field.</li>
+	          </ol>
+	        </li>
+		    
+		    <li>The result is the set of <strong>Alias Rules</strong></li>
+      </ol>
+		  <p> </p>
+	  <p>So using the examples above, we get the following order:</p>
+		  <table class='simple'>
+		    <tbody>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p><strong>languageId</strong></p></td>
+		        <td colspan="1" rowspan="1"><p><strong>size of union</strong></p></td>
+		        <td colspan="1" rowspan="1"><p><strong>Alpha</strong></p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{V={hepburn, heploc}}</p></td>
+		        <td colspan="1" rowspan="1"><p>2</p></td>
+		        <td colspan="1" rowspan="1"><p>n/a</p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{L={en}, R={GB}}</p></td>
+		        <td colspan="1" rowspan="1"><p>2</p></td>
+		        <td colspan="1" rowspan="2"><p>en &lt; fr</p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{L={fr}, R={CA}}</p></td>
+		        <td colspan="1" rowspan="1"><p>2</p></td>
+	          </tr>
+		      <tr>
+		        <td colspan="1" rowspan="1"><p>{R={CA}}</p></td>
+		        <td colspan="1" rowspan="1"><p>1</p></td>
+		        <td colspan="1" rowspan="1"><p>n/a</p></td>
+	          </tr>
+	        </tbody>
+      </table>
+		  <p> </p>
+		  <blockquote><strong>Note: </strong>The secondary sort order in Preprocessing step 5.2 is only to ensure  determinant results when two rules &ldquo;of the same length&rdquo; could apply.</blockquote>
+	  <h3 >Processing LanguageIds</h3>
+	  <p>To canonicalize a given <em>source</em>:</p>
+		  <ol start="1">
+		    <li>Canonicalize the syntax of <em>source</em> as per <em>Definition 5. Canonicalizing Syntax</em>.</li>
+            <li>Where the <em>source</em> could be an arbitrary BCP 47 language tag, first process as follows:
+<ol>
+          <li>If the source is identical to one of the types in the BCP47 LegacyRules, replace the entire source by the replacement value.</li>
+		        <li>Else if there is an extlang subtag, then apply Step 3 of <a href="https://www.google.com/url?q=https://tools.ietf.org/html/bcp47%23section-4.5&sa=D&ust=1600829915065000&usg=AOvVaw12vD5EzoVl3VFzEyrECMj-">https://tools.ietf.org/html/bcp47#section-4.5</a> to remove the extlang subtag (possibly adjusting the language subtag).		        
+		          <ol>
+		            <li>Don&rsquo;t apply any of the other canonicalization steps in that section, however.</li>
+	              </ol>
+	            </li>
+		        <li>Else if the first subtag is "x", prefix by "und-".</li>
+		        <li><strong>Note: </strong>there are currently no valid 4-letter primary language subtags. While it is extremely unlikely that BCP47 would ever register them, if so then <i>languageAlias</i> mappings will be supplied for them, mapping to defined CLDR language subtags (from the idStatus=&quot;reserved&quot; set).</li>
+	          </ol>
+		    </li>
+		    <li>Find the first matching rule in <strong>Alias Rules</strong> (from <strong>Preprocessing</strong>)
+<ol>
+          <li>If there are none, return <em>source</em></li>
+	          </ol>
+	        </li>
+		    <li>Transform <em>source</em> according to that rule</li>
+		    <li>loop (goto #3)</li>
+      </ol>
+	  <h2 >Processing LocaleIds</h2>
+	  <p>The canonicalization of localeIds is done by first canonicalizing the languageId portion, then handling extensions in the following way:</p>
+		  <ol start="1">
+		    <li>Replace any <em>tlang</em> languageId value by its canonicalization.</li>
+		    <li>Use the bcp47 data to replace keys, types, tfields, and tvalues by their canonical forms. See <strong>Section 3.6.4 U Extension Data Files</strong> and <strong>Section 3.7.1 T Extension Data Files</strong>. The matches are in the alias attribute value, while the canonical replacement is in the name attribute value. For example:
+		      <ol>
+		        <li>Because of the following bcp47 data:<br>
+		          <code>&lt;key name="ms"…&gt;…&lt;type name="uksystem" … alias="imperial" … /&gt;…&lt;/key&gt;</code></li>
+		        <li>We get the following transformation:<br>
+		          <code>en-u-ms-imperial ⇒ en-u-ms-uksystem</code></li>
+	          </ol>
+		    </li>
+		    
+		    <li>If there is an 'sd' or 'rg' key, replace any subdivision alias in its value in the same way, using subdivisionAlias data.</li>
+      </ol>
+	  <h2 >Optimizations</h2>
+		  <p>The above algorithm is a logical statement of the process, but would obviously not be directly suited to production code. Production-level code can use many optimizations for efficiency while achieving the same result. For example, the Alias Rules can be further preprocessed to avoid indefinite looping, instead doing a rule lookup once per subtag. As another example, the small number of <strong>Territory Exceptions</strong> can be preprocessed to avoid the likely subtags processing.</p>
+	    <p>&nbsp;</p>
+	  </div>
+	  <hr>
     <h2><a name="References" href="#References" id=
     "References">References</a></h2>
     <table cellpadding="4" cellspacing="0" class="noborder" border=
@@ -9062,10 +9324,23 @@ decimal?, group?, special*)) &gt;</pre>
 
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
         <ul>
+          <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></strong>: replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong></li>
+          <li><strong>Section <a  href=
+    "#BCP_47_Language_Tag_Conversion" >3.3.1 BCP 47 Language Tag
+    Conversion</a>:</strong> replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong></li>
           <li><strong>Section 3.6.1 <a href="#Key_And_Type_Definitions_" >Key And Type Definitions</a></strong>:
           added new key “dx”, for <a href="#UnicodeDictionaryBreakExclusionIdentifier" >Unicode Dictionary Break Exclusion Identifier</a>.</li>
           <li><strong>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a></strong>:
           added description of <a href="#SCRIPT_CODE" >SCRIPT_CODE</a> value for key “dx”.</li>
+          <li><strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a>
+          </strong>
+            <ul>
+              <li>Added new Annex, replacing text in <strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></strong> and <strong>Section <a  href=
+    "#BCP_47_Language_Tag_Conversion" >3.3.1 BCP 47 Language Tag
+    Conversion</a></strong></li>
+              <li>Cleans up ambiguities in the previous specification of canonicalization. (This was done in concert with fixes to the alias data to work better with the specification.)</li>
+            </ul>
+          </li>
         </ul>
 	  </li>
 

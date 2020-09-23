@@ -7,6 +7,7 @@ package org.unicode.cldr.unittest.web;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.WebContext;
@@ -82,9 +83,23 @@ public class TestMisc extends TestFmwk {
     }
 
     public void TestGitHash() {
-        String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
+        final String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
+        System.out.println("TestGitHash: appsVersion = " + appsVersion);
         assertNotNull("getting CLDR-Apps version", appsVersion);
-        String toolsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Tools");
+        if (CLDRURLS.UNKNOWN_REVISION.equals(appsVersion)) {
+            errln("❌ appsVersion = UNKNOWN_REVISION: " + appsVersion);
+        }
+
+        final String toolsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Tools");
         assertNotNull("getting CLDR-Tools version", toolsVersion);
+        if (CLDRURLS.UNKNOWN_REVISION.equals(toolsVersion)) {
+            errln("❌ toolsVersion = UNKNOWN_REVISION: " + toolsVersion);
+        }
+
+        final String hash = CLDRConfig.getInstance().getProperty("CLDR_DATA_HASH");
+        assertNotNull("getting CLDR_DATA_HASH", hash);
+        if (hash != null && !hash.matches("[0-9a-f]+")) {
+            errln("❌ CLDR_DATA_HASH is not hex: " + hash);
+        }
     }
 }

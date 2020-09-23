@@ -10,13 +10,12 @@ jobs:
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Lint Ansible Playbook
-      uses: ansible/ansible-lint-action@master
+      uses: ansible/ansible-lint-action@6c8c14186662e43effbe39a678950896a46799ad
       with:
         targets: |
           tools/scripts/ansible/setup-playbook.yml
-        override-deps: |
-          ansible==2.9
-          ansible-lint==4.2.0
+          tools/scripts/ansible/upgrade-playbook.yml
+          tools/scripts/ansible/backup-db-playbook.yml
         args: ""
     - name: Lint Markdown
       # Warn, don't fail yet

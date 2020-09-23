@@ -82,9 +82,27 @@ public class TestMisc extends TestFmwk {
     }
 
     public void TestGitHash() {
-        String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
+        final String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
         assertNotNull("getting CLDR-Apps version", appsVersion);
-        String toolsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Tools");
+        /*
+         * TODO: fail if CLDRURLS.UNKNOWN_REVISION.equals(appsVersion))
+         * and likewise for toolsVersion
+         */
+        // if (CLDRURLS.UNKNOWN_REVISION.equals(appsVersion)) {
+        //    errln("❌ appsVersion = UNKNOWN_REVISION: " + appsVersion);
+        // }
+
+        final String toolsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Tools");
         assertNotNull("getting CLDR-Tools version", toolsVersion);
+
+        /*
+         * TODO: add a regression test here for CLDR_DATA_HASH
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-13582
+         */
+        // final String hash = CLDRConfig.getInstance().getProperty("CLDR_DATA_HASH");
+        // assertNotNull("getting CLDR_DATA_HASH", hash);
+        // if (hash != null && !hash.matches("[0-9a-f]+")) {
+        //    errln("❌ CLDR_DATA_HASH is not hex: " + hash);
+        // }
     }
 }

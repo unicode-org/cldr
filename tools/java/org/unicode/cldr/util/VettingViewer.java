@@ -42,7 +42,6 @@ import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -1005,7 +1004,7 @@ public class VettingViewer<T> {
     private void writeSummaryTable(Appendable output, String header, Level desiredLevel,
         EnumSet<Choice> choices, T organization) throws IOException {
 
-        Map<String, String> sortedNames = new TreeMap<>(Collator.getInstance());
+        Map<String, String> sortedNames = new TreeMap<>(CLDRConfig.getInstance().getCollator());
 
         // Gather the relevant paths
         // Each one will be marked with the choice that it triggered.

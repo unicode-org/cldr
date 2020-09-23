@@ -24,10 +24,19 @@ import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ULocale;
 
 public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<K>> {
-    private RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-    {
-        uca.setNumericCollation(true);
+    private static final class CollatorHelper {
+        public static final Collator UCA = getUCA();
+        /**
+         * This does not change, so we can create one and freeze it.
+         * @return
+         */
+        private static Collator getUCA() {
+            final RuleBasedCollator newUca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+            newUca.setNumericCollation(true);
+            return newUca.freeze();
+        }
     }
+    // initialize this once
     private Map<K, Integer> ordering = new TreeMap<>(); // maps from name to rank
     private List<K> rankToName = new ArrayList<>();
     private boolean errorOnMissing = true;
@@ -178,7 +187,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
 
         if (a instanceof CharSequence) {
             if (b instanceof CharSequence) {
-                int result = uca.compare(a.toString(), b.toString());
+                int result = CollatorHelper.UCA.compare(a.toString(), b.toString());
                 if (result != 0) {
                     return result;
                 }

@@ -25,12 +25,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.ibm.icu</groupId>
-			<artifactId>icu4j</artifactId>
+			<artifactId>icu4j-for-cldr</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.ibm.icu</groupId>
-			<artifactId>utilities</artifactId>
+			<artifactId>utilities-for-cldr</artifactId>
 		</dependency>
 
 		<dependency>
@@ -138,10 +138,9 @@
 
 	<repositories>
 		<repository>
-			<!-- TODO: fix when https://github.com/unicode-org/icu/pull/1270 lands -->
-			<id>githubsrl295</id>
-			<name>HACK: GitHub srl295 Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/srl295/icu</url>
+			<id>githubicu</id>
+          	<name>GitHub unicode-org/icu Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/unicode-org/icu</url>
 		</repository>
 	</repositories>
 </project>

@@ -37,13 +37,13 @@
 		<!-- icu -->
 		<dependency>
 			<groupId>com.ibm.icu</groupId>
-			<artifactId>icu4j</artifactId>
+			<artifactId>icu4j-for-cldr</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.ibm.icu</groupId>
-			<artifactId>utilities</artifactId>
+			<artifactId>utilities-for-cldr</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<!-- cldr -->

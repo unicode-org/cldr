@@ -16,7 +16,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- TODO: fix when https://github.com/unicode-org/icu/pull/1270 lands -->
-		<icu4j.version>0.0.0-cldr-38-d00</icu4j.version>
+		<icu4j.version>68.1-SNAPSHOT-cldr-2020-09-22</icu4j.version>
 		<junit.version>4.11</junit.version>
 		<junit.jupiter.version>5.5.1</junit.jupiter.version>
 		<maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
@@ -40,12 +40,12 @@
 			<!-- ICU -->
 			<dependency>
 				<groupId>com.ibm.icu</groupId>
-				<artifactId>icu4j</artifactId>
+				<artifactId>icu4j-for-cldr</artifactId>
 				<version>${icu4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.ibm.icu</groupId>
-				<artifactId>utilities</artifactId>
+				<artifactId>utilities-for-cldr</artifactId>
 				<version>${icu4j.version}</version>
 			</dependency>
 

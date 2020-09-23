@@ -25,9 +25,9 @@ TODO: Remove this when ICU-21251 is completed.
           <snapshots><enabled>true</enabled></snapshots>
         </repository>
         <repository>
-          <id>githubsrl295</id>
-          <name>GitHub srl295/icu Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/srl295/icu</url>
+          <id>githubicu</id>
+          <name>GitHub unicode-org/icu Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/unicode-org/icu</url>
         </repository>
         <repository>
           <id>github</id>
@@ -45,7 +45,7 @@ TODO: Remove this when ICU-21251 is completed.
       <password>${GITHUB_TOKEN}</password>
     </server>
     <server>
-      <id>githubsrl295</id>
+      <id>githubicu</id>
       <username>${GITHUB_ACTOR}</username>
       <password>${GITHUB_TOKEN}</password>
     </server>

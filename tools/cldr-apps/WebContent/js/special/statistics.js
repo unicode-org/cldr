@@ -58,6 +58,11 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				var labels = [];
 				var count_new = [];
 				statDiv.style.height = (data_new.length*1)+'em';
+				
+				count_old.push(0);
+				count_new.push(0);
+				labels.push({value: 0, text: ''});
+
 				for(var i in data_new) {
 					const theDate = new Date(data_new[i][header_new.DATE]);
 					// get first and last days
@@ -86,9 +91,9 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				c.addPlot("default", {type: StackedBars, hAxis: 'y', vAxis: 'x'})
 				.setTheme(Wetland)
 				.addAxis("x", {labels: labels, vertical: true, dropLabels: false, labelSizeChange: true, minorLabels: false, majorTickStep: 1})
-				.addAxis("y", {vertical: false})
-				.addSeries("Just New or changed votes in CLDR "+surveyVersion, count_new)
-				.addSeries("+ Old votes from CLDR "+surveyOldVersion, count_old);
+				.addAxis("y", {rotation: -90, vertical: false})
+				.addSeries("&nbsp;Just New or changed votes in CLDR "+surveyVersion, count_new)
+				.addSeries("&nbsp;Imported winning votes from previous releases", count_old);
 				
 				var tip = new Tooltip(c, 'default', {
 					text: function(o) {
@@ -137,9 +142,11 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				    byLocale[locale].newCount = row[header_new.COUNT];
 				});
 				// Analyze old count
+				
 				count_old.push(0);
 				count_new.push(0);
 				labels.push({value: 0, text: ''});
+
 				Object.keys(byLocale).sort().reverse().forEach(l => {
 				    const {allCount,newCount} = byLocale[l];
 				    const oldCount = byLocale[l].oldCount = allCount - (newCount || 0);
@@ -151,14 +158,14 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 				// Now, render
 				
 				var statDiv = theDiv;
-				statDiv.style.height = (json.stats_byloc.data.length*1)+'em';
+				statDiv.style.height = 3+(json.stats_byloc.data.length*1)+'em';
 				var c = new Chart(statDiv);
 				c.addPlot("default", {type: StackedBars, hAxis: 'y', vAxis: 'x'})
 				.setTheme(Wetland)
 				.addAxis("x", {labels: labels, vertical: true, dropLabels: false, labelSizeChange: false, minorLabels: false, majorTickStep: 1})
-				.addAxis("y", {vertical: false})
-				.addSeries("Just New or changed votes in CLDR "+surveyVersion, count_new)
-				.addSeries("+ Old votes from CLDR "+surveyOldVersion, count_old);
+				.addAxis("y", {vertical: false, rotation: -90})
+				.addSeries("&nbsp;Just New or changed votes in CLDR "+surveyVersion, count_new)
+				.addSeries("&nbsp;Imported winning votes from previous releases", count_old);
 				var tip = new Tooltip(c, 'default', {
 					text: function(o) {
 						let ret =  labels[o.index].text +"   "+count_old[o.index];

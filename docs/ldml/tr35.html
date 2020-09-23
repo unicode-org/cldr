@@ -8675,7 +8675,7 @@ decimal?, group?, special*)) &gt;</pre>
 		    </li>
       </ul>
 		  <p><em>Example:</em></p>
-		  <blockquote><p>source=ja-Latn- fonipa-hepburn-heploc</p>
+		  <blockquote><p>source=ja-Latn-fonipa-hepburn-heploc</p>
 		  <p>rule =&rdquo;&lt;languageAlias type="und-hepburn-heploc"</p>
 		  <p>replacement="und-alalc97"&gt;&rdquo;</p>
 		  <p>&nbsp;</p>
@@ -8683,7 +8683,7 @@ decimal?, group?, special*)) &gt;</pre>
 	  <h5 >Territory Exception</h5>
 		  <p>If the field = territory, and the replacement.field has more than one value, then look up the most likely territory* for the base language code (and script, if there is one). If that likely territory is in the list of replacements, use it. Otherwise, use the first territory in the list.</p>
 		  <p><em>Example:</em></p>
-	  <blockquote><p>source=ja-Latn- fonipa-hepburn-heploc</p>
+	  <blockquote><p>source=ja-Latn-fonipa-hepburn-heploc</p>
 	    <p>rule =&rdquo;&lt;languageAlias type="und-hepburn-heploc"</p>
 		  <p>replacement="und-alalc97"&gt;&rdquo;</p>
 	    <p>&nbsp;</p>
@@ -8694,7 +8694,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<ul>
 		  <li>Initial Script Subtag
 		    <ul>
-		      <li>If the first subtag has 4 letters, prepend the source with &quot;-und&quot;</li>
+		      <li>If the first subtag has 4 letters, prepend the source with &quot;und-&quot;</li>
 		      <li>Note: These are only for specialized use.</li>
 	        </ul>
 	      </li>

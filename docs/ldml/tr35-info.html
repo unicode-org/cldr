@@ -2188,8 +2188,11 @@ Once a matching unitPreference element is found:
 
 <li>The unit is the element value
 <li>The skeleton (if there is one) supplies formatting information for the unit. API settings may allow that to be overridden.
+  <ul>
+    <li class='changed'>The syntax and semantics for the skeleton value are defined by the <a href="https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html">ICU Number Skeletons</a> document.</li>
+  </ul>
 <li>If the unit is mixed (eg foot:inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.
-<li>If the skeleton is missing, the default number formatting is used.</li></ul>
+<li>If the skeleton is missing, the default<span class='changed'> is skeleton=&quot;<strong>precision-integer/@@*</strong>&quot;. However, the client can also override or tune the number formatting</span>.</li></ul>
 
 <h3>Constraints</h3>
 

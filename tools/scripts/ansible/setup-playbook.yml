@@ -79,6 +79,7 @@
         block: |
           # proxy /cldr-apps/ to tomcat
           location /cldr-apps/ {
+            rewrite ^/(.+)\._[\da-f]+_\.(js|css)$ /$1.$2 break;
             allow all;
             proxy_pass http://localhost:8080/cldr-apps/;
             proxy_set_header Host $host;

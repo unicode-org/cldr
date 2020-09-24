@@ -18,12 +18,7 @@ TODO: Remove this when ICU-21251 is completed.
     <profile>
       <id>github</id>
       <repositories>
-        <repository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>true</enabled></snapshots>
-        </repository>
+        <!-- the 'central' repository is already defined by default. -->
         <repository>
           <id>github</id>
           <name>GitHub unicode-org/cldr Apache Maven Packages</name>

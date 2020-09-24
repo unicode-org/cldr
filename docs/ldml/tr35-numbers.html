@@ -2523,23 +2523,39 @@ System Data</a>.</em> ) &gt;<br>
     <p>The xml value for each pluralRule is a <em>condition</em>
     with a boolean result that specifies whether that rule (i.e.
     that plural form) applies to a given numeric value <em>n</em>,
-    where n can be expressed as a decimal fraction. Clients of CLDR
+    where n can be expressed as a decimal fraction<span class='changed'> or with compact decimal formatting, denoted by scientific notation in the syntax, e.g., “1.2e6” for “1.2M”</span>. Clients of CLDR
     may express all the rules for a locale using the following
     syntax:</p>
     <pre>
-    rules         = rule (';' rule)*<br>rule          = keyword ':' condition samples<br>              | 'other' ':' samples<br>keyword       = [a-z]+<br>keyword       = [a-z]+</pre>
+rules         = rule (';' rule)*
+rule          = keyword ':' condition samples
+              | 'other' ':' samples
+keyword       = [a-z]+
+keyword       = [a-z]+
+	</pre>
     <p>In CLDR, the keyword is the attribute value of 'count'.
     Those values in CLDR are currently limited to just what is in
     the DTD, but clients may support other values.</p>
     <p>The conditions themselves have the following syntax.</p>
-    <pre>condition     = and_condition ('or' and_condition)*
-samples       = ('@integer' sampleList)?<br>                ('@decimal' sampleList)?                
-and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
-operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
-sampleList    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
-sampleRange   = decimalValue ('~' decimalValue)?
-value         = digit+
-decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
+    <pre>condition       = and_condition ('or' and_condition)*
+samples         = ('@integer' sampleList)?
+                  ('@decimal' sampleList)?                
+and_condition   = relation ('and' relation)*
+relation        = is_relation | in_relation | within_relation 
+is_relation     = expr 'is' ('not')? value
+in_relation     = expr (('not')? 'in' | '=' | '!=') range_list
+within_relation = expr ('not')? 'within' range_list
+expr            = operand (('mod' | '%') value)?
+operand         = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<span class="changed"> | 'e'</span>
+range_list      = (range | value) (',' range_list)*
+range           = value'..'value
+sampleList      = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
+sampleRange     = decimalValue ('~' decimalValue)?
+value           = <span class="changed">'0' | valueNoLead0</span>
+<span class="changed">valueNoLead0    = digitPos digit+</span>
+decimalValue    = <span class="changed">value</span> ('.' <span class="changed">digit+</span>)?<span class="changed"> ('e' valueNoLead0)?</span>
+digit           = <span class="changed">[0-9]</span>
+<span class="changed">digitPos        = [1-9]</span>
                 </pre>
     <ul>
       <li>Whitespace (defined as Unicode <a href=
@@ -2579,8 +2595,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
         </tr>
         <tr>
           <td>n</td>
-          <td>absolute value of the source number (integer and
-          decimals).</td>
+          <td>absolute value of the source number (<span class='changed'>using the </span>integer, decimals<span class='changed'>, and exponent</span>).</td>
         </tr>
         <tr>
           <td>i</td>
@@ -2606,6 +2621,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
           <td>visible fractional digits in n, <em>without</em>
           trailing zeros.</td>
         </tr>
+        <tr class='changed'>
+          <td>e</td>
+          <td>exponent of the power of 10 used in compact decimal formatting.</td>
+        </tr>
       </table>
     </div><br>
     <div dir="ltr">
@@ -2623,36 +2642,29 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
           <col width="10%">
           <col width="10%">
         </colgroup>
-        <tr>
-          <th><strong>n</strong></th>
-          <th>
-            <div align="center">
+        <tr style='text-align: right'>
+          <th><strong>source</strong></th>
+          <th class='changed' style='text-align: right'>n</th>
+          <th style='text-align: right'>
               i
-            </div>
+          </th>
+          <th style='text-align: right'>
+                v
+          </th>
+          <th style='text-align: right'>
+                w
+          </th>
+          <th style='text-align: right'>
+                f
           </th>
           <th>
-            <div align="center">
-              v
-            </div>
+                t
           </th>
-          <th>
-            <div align="center">
-              w
-            </div>
-          </th>
-          <th>
-            <div align="center">
-              f
-            </div>
-          </th>
-          <th>
-            <div align="center">
-              t
-            </div>
-          </th>
+          <th class='changed' style='text-align:right'> e</th>
         </tr>
-        <tr>
+        <tr style='text-align:right'>
           <td>1</td>
+          <td class='changed' style='text-align:right'>1</td>
           <td>
             <div align="right">
               1
@@ -2678,9 +2690,11 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
               0
             </div>
           </td>
+          <td class='changed' style='text-align:right'>0</td>
         </tr>
         <tr>
           <td>1.0</td>
+          <td class='changed' style='text-align:right'>1</td>
           <td>
             <div align="right">
               1
@@ -2706,9 +2720,11 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
               0
             </div>
           </td>
+          <td class='changed' style='text-align:right'>0</td>
         </tr>
         <tr>
           <td>1.00</td>
+          <td class='changed' style='text-align:right'>1</td>
           <td>
             <div align="right">
               1
@@ -2734,9 +2750,11 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
               0
             </div>
           </td>
+          <td class='changed' style='text-align:right'>0</td>
         </tr>
         <tr>
           <td>1.3</td>
+          <td class='changed' style='text-align:right'>1.3</td>
           <td>
             <div align="right">
               1
@@ -2762,9 +2780,11 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
               3
             </div>
           </td>
+          <td class='changed' style='text-align:right'>0</td>
         </tr>
         <tr>
           <td>1.30</td>
+          <td class='changed' style='text-align:right'>1.3</td>
           <td>
             <div align="right">
               1
@@ -2790,9 +2810,11 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
               3
             </div>
           </td>
+          <td class='changed' style='text-align:right'>0</td>
         </tr>
         <tr>
           <td>1.03</td>
+          <td class='changed' style='text-align:right'>1.03</td>
           <td>
             <div align="right">
               1
@@ -2818,9 +2840,11 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
               3
             </div>
           </td>
+          <td class='changed' style='text-align:right'>0</td>
         </tr>
         <tr>
           <td>1.230</td>
+          <td class='changed' style='text-align:right'>1.23</td>
           <td>
             <div align="right">
               1
@@ -2846,6 +2870,37 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
               23
             </div>
           </td>
+          <td class='changed' style='text-align:right'>0</td>
+        </tr>
+        <tr class='changed' style='text-align: right'>
+          <td style='text-align:right'>1200000</td>
+          <td style='text-align:right'>1200000</td>
+          <td style='text-align:right'>1200000</td>
+          <td style='text-align:right'>0</td>
+          <td style='text-align:right'>0</td>
+          <td style='text-align:right'>0</td>
+          <td style='text-align:right'>0</td>
+          <td style='text-align:right'>6</td>
+        </tr>
+        <tr class='changed'>
+          <td>1.2e6</td>
+          <td style='text-align: right'>1200000</td>
+          <td style='text-align: right'>1200000</td>
+          <td style='text-align: right'>1</td>
+          <td style='text-align: right'>1</td>
+          <td style='text-align: right'>2</td>
+          <td style='text-align: right'>2</td>
+          <td style='text-align: right'>6</td>
+        </tr>
+        <tr class='changed>
+          <td>123e6</td>
+          <td style='text-align: right'>123000000</td>
+          <td style='text-align: right'>123000000</td>
+          <td style='text-align: right'>0</td>
+          <td style='text-align: right'>0</td>
+          <td style='text-align: right'>0</td>
+          <td style='text-align: right'>0</td>
+          <td style='text-align: right'>6</td>
         </tr>
       </table>
     </div><br>
@@ -2917,7 +2972,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
     is 1.3.</p>
     <p>The values of relations are defined according to the operand
     as follows. Importantly, the results may depend on the visible
-    decimals in the source, including trailing zeros.</p>
+    decimals in the source, including trailing zeros, <span class='changed'>and the compact decimal exponent</span>.</p>
     <ol>
       <li>Let the base value BV be computed from absolute value of
       the original source number according to the operand.</li>
@@ -2987,15 +3042,15 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
     <p>Where samples are provided, the absence of one of the sample
     indicators indicates that no numeric values can satisify that
     rule. For example, the rule "i = 1 and v = 0" can only have
-    integer samples, so @decimal must not occur.</p>
+    integer samples, so @decimal must not occur.<span class='changed'> The @integer samples have no visible fraction digits, while  @decimal samples have visible fraction digits; both can have exponents (if the 'e' operand occurs).</span></p>
     <p>The sampleRanges have a special notation:
     <strong>start</strong>~<strong>end</strong>. The
     <strong>start</strong> and <strong>end</strong> values must
-    have the same number of decimal digits. The range encompasses
+    have the same number of decimal digits<span class="changed">, and the same exponent values (or neither have exponents)</span>. The range encompasses
     all and only values those value <strong>v</strong> where
     <strong>start ≤ v ≤ end</strong>, and where <strong>v</strong>
     has the same number of decimal places as <strong>start</strong>
-    and <strong>end</strong>.</p>
+    and <strong>end</strong><span class="changed">, and the same exponent values</span>.</p>
     <p>Samples must indicate whether they are infinite or not. The
     '…' marker must be present if and only infinitely many values
     (integer or decimal) can satisfy the rule. If a set is not
@@ -3023,10 +3078,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
         <td>Infinite set: 1.3, 1.4, 1.5, 1.03, 1.04, 1.05, …</td>
       </tr>
     </table><br>
-    <p>In determining whether a set of samples is infinite, leading
-    zero integer digits and trailing zero decimals are not
-    significant. Thus "i = 1 and f = 0" is satisfied by 01, 1, 1.0,
-    1.00, 1.000, etc. but is still considered finite.</p>
+    <p>In determining whether a set of samples is infinite, <span class='removed'>leading
+    zero integer digits and </span>trailing zero decimals are not
+    significant. Thus "i = 1<span class="changed">000</span> and f = 0" is satisfied by 01<span class="changed">000</span>, 1<span class="changed">000</span>, 1<span class="changed">000</span>.0,
+    1<span class="changed">000</span>.00, 1<span class="changed">000</span>.000, <span class="changed">01e3</span> etc. but is still considered finite.</p>
     <h4><a name="Using_cardinals" href="#Using_cardinals" id=
     "Using_cardinals">5.1.4 Using Cardinals</a></h4>
     <p>Elements such as &lt;currencyFormats&gt;, &lt;currency&gt;

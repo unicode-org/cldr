@@ -95,6 +95,7 @@
 		<mkdir dir="${log.dir}" />
 		<javac srcdir="${src.dir}"
 			includes="org/unicode/cldr/**/*.java"
+			excludes="**/TestShim.java"
 			destdir="${build.dir}" classpathref="project.class.path" source="1.8"
 			target="1.8" debug="on" deprecation="off" includeantruntime="false"
 			encoding="UTF-8" />

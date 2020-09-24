@@ -148,6 +148,15 @@
 	<build>
 		<finalName>cldr-apps</finalName>
 		<sourceDirectory>src</sourceDirectory> <!-- TODO: HACK! until we can pivot src dirs -->
+		<testResources>
+			<testResource>
+				<directory>src</directory>
+				<includes>
+					<include>org/unicode/cldr/unittest/web/data/**/*</include>
+				</includes>
+			</testResource>
+		</testResources>
+
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
 				defaults (may be moved to parent pom) -->
 			<plugins>

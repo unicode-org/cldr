@@ -158,6 +158,16 @@ public class TestAll extends TestGroup {
     }
 
     public static void main(String[] args) {
+        int errCount = runTests(args);
+        if (errCount != 0) {
+            System.exit(1);
+        }
+    }
+
+    /**
+     * Run all tests, but do not System.exit at the end.
+     */
+    public static int runTests(String[] args) {
         final boolean doTimeStamps = false;
         TimeStampingPrintWriter tspw = new TimeStampingPrintWriter(System.out);
         if (!doTimeStamps) {
@@ -172,9 +182,7 @@ public class TestAll extends TestGroup {
         sb.append("Tests took ");
         sb.append(dispBean.toString());
         System.out.println(sb.toString());
-        if (errCount != 0) {
-            System.exit(1);
-        }
+        return errCount;
     }
 
     public TestAll() {

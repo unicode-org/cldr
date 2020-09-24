@@ -7,6 +7,7 @@ package org.unicode.cldr.unittest.web;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -86,9 +87,20 @@ public class TestAll extends TestGroup {
     public static final String DERBY_PREFIX = "jdbc:derby:";
 
     public static void main(String[] args) {
+        main(args, null);
+        /* NOTREACHED */
+    }
+
+    public static void main(String[] args, PrintWriter logs) {
         CheckCLDR.setDisplayInformation(CLDRConfig.getInstance().getEnglish());
         args = TestAll.doResetDb(args);
-        new TestAll().run(args);
+        TestAll test = new TestAll();
+        if(logs != null) {
+            test.run(args, logs);
+        } else {
+            test.run(args);
+            /* NOTREACHED */
+        }
     }
 
     public static String[] doResetDb(String[] args) {

@@ -33,9 +33,15 @@
 			<artifactId>utilities-for-cldr</artifactId>
 		</dependency>
 
+		<!-- test -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
 
@@ -71,6 +77,7 @@
 	</dependencies>
 
 	<build>
+		<testSourceDirectory>${project.basedir}/../cldr-unittest/src</testSourceDirectory>
 		<sourceDirectory>.</sourceDirectory> <!-- TODO: fix by refactoring source dirs, CLDR-11585 -->
 		<resources>
 			<resource>
@@ -87,6 +94,15 @@
 				</includes>
 			</resource>
 		</resources>
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/../cldr-unittest/src</directory>
+				<includes>
+					<include>org/unicode/cldr/unittest/*.txt</include>
+					<include>org/unicode/cldr/unittest/data/**/*</include>
+				</includes>
+			</testResource>
+		</testResources>
 
 		<plugins>
 			<plugin>
@@ -135,12 +151,4 @@
 		</plugins>
 
 	</build>
-
-	<repositories>
-		<repository>
-			<id>githubicu</id>
-          	<name>GitHub unicode-org/icu Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/unicode-org/icu</url>
-		</repository>
-	</repositories>
 </project>

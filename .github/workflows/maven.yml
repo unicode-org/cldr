@@ -24,3 +24,8 @@ jobs:
         run: mvn -s .github/workflows/mvn-settings.xml -B package --file tools/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test with maven
+        run: mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

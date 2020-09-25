@@ -106,7 +106,7 @@ public class TestAll extends TestGroup {
     public static String[] doResetDb(String[] args) {
         if (CLDRConfig.getInstance().getEnvironment() != Environment.UNITTEST) {
             throw new InternalError(
-                "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS (replaces old -DCLDR_WEB_TESTS");
+                "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS");
         }
         if (CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
             if (DEBUG)

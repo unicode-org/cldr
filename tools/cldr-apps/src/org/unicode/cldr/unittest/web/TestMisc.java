@@ -7,6 +7,7 @@ package org.unicode.cldr.unittest.web;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.WebContext;
@@ -82,27 +83,26 @@ public class TestMisc extends TestFmwk {
     }
 
     public void TestGitHash() {
-        final String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
-        assertNotNull("getting CLDR-Apps version", appsVersion);
-        /*
-         * TODO: fail if CLDRURLS.UNKNOWN_REVISION.equals(appsVersion))
-         * and likewise for toolsVersion
-         */
-        // if (CLDRURLS.UNKNOWN_REVISION.equals(appsVersion)) {
-        //    errln("❌ appsVersion = UNKNOWN_REVISION: " + appsVersion);
-        // }
-
-        final String toolsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Tools");
-        assertNotNull("getting CLDR-Tools version", toolsVersion);
-
-        /*
-         * TODO: add a regression test here for CLDR_DATA_HASH
-         * Reference: https://unicode-org.atlassian.net/browse/CLDR-13582
-         */
-        // final String hash = CLDRConfig.getInstance().getProperty("CLDR_DATA_HASH");
-        // assertNotNull("getting CLDR_DATA_HASH", hash);
-        // if (hash != null && !hash.matches("[0-9a-f]+")) {
-        //    errln("❌ CLDR_DATA_HASH is not hex: " + hash);
-        // }
+        final String hash = CldrUtility.getCldrBaseDirHash();
+        assertNotNull("getCldrBaseDirHash", hash);
+        if (hash != null) {
+            if (!hash.matches("[0-9a-f]+")) {
+                errln("❌ getCldrBaseDirHash is not hex: " + hash);
+            } else if (hash.length() < 8) {
+                errln("❌ getCldrBaseDirHash is shorter than 8 chars: " + hash);
+            }
+        }
+        final String strings[] = {"CLDR-Apps", "CLDR-Tools"};
+        for (String s : strings) {
+            final String version = CLDRConfigImpl.getGitHashForSlug(s);
+            assertNotNull("getting " + s + " version", version);
+            /*
+             * TODO: fail if CLDRURLS.UNKNOWN_REVISION.equals(version).
+             * Currently they do equal CLDRURLS.UNKNOWN_REVISION, since SurveyMain.init isn't called for TestAll.
+             */
+            // if (CLDRURLS.UNKNOWN_REVISION.equals(version)) {
+            //    errln("❌ " + s + " = UNKNOWN_REVISION: " + version);
+            // }
+        }
     }
 }

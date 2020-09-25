@@ -3223,7 +3223,7 @@ public class SurveyAjax extends HttpServlet {
             return "";
         }
         if (cacheBustingExtension == null) {
-            final String hash = CLDRConfig.getInstance().getProperty("CLDR_DATA_HASH");
+            final String hash = CldrUtility.getCldrBaseDirHash();
             if (hash == null || !hash.matches("[0-9a-f]+")) {
                 cacheBustingExtension = "";
             } else {

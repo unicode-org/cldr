@@ -1,12 +1,10 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URL;
@@ -80,13 +78,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     }
 
     CLDRConfigImpl() {
-        // TODO remove this after some time- just warn people about the old message
-        final String cwt = System.getProperty("CLDR_WEB_TESTS");
-        if (cwt != null && cwt.equals("true")) {
-            throw new InternalError(
-                "Error: CLDR_WEB_TESTS is obsolete - please set the CLDR_ENVIRONMENT to UNITTEST instead -  ( -DCLDR_ENVIRONMENT=UNITTEST ). Anyways, exitting.");
-        }
-
         final String env = System.getProperty("CLDR_ENVIRONMENT");
         if (env != null && env.equals(Environment.UNITTEST.name())) {
             throw new InternalError("-DCLDR_ENVIRONMENT=" + env + " - exitting!");
@@ -180,7 +171,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         // The git version of the cldr.jar file embedded in cldr-apps.
         survprops.put("CLDR_UTILITIES_HASH", getGitHashForSlug("CLDR-Tools"));
         // The git version of the CLDR_DIR currently in use.
-        survprops.put("CLDR_DATA_HASH", getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));
+        survprops.put("CLDR_DATA_HASH", CldrUtility.getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));
 
         survprops.put("CLDRHOME", cldrHome);
 
@@ -188,31 +179,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     }
 
     public final static String ALL_GIT_HASHES[] = { "CLDR_SURVEYTOOL_HASH", "CLDR_UTILITIES_HASH", "CLDR_DATA_HASH" };
-
-    /**
-     * Return the git hash for a dir.
-     * @param dir
-     * @return
-     */
-    public final static String getGitHashForDir(String dir) {
-        final String GIT_HASH_COMMANDS[] = { "git",  "rev-parse", "HEAD" };
-        try {
-            if(dir == null) return CLDRURLS.UNKNOWN_REVISION; // no dir
-            File f = new File(dir);
-            if(!f.isDirectory()) return CLDRURLS.UNKNOWN_REVISION; // does not exist
-            Process p = Runtime.getRuntime().exec(GIT_HASH_COMMANDS, null, f);
-            try(BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
-                String str = is.readLine();
-                if(str.length() == 0) throw new Exception("git returned empty");
-                return str;
-            }
-        } catch(Throwable t) {
-            // We do not expect this to be called frequently.
-            System.err.println("While trying to get 'git' hash for " + dir + " : " + t.getMessage());
-            t.printStackTrace();
-            return CLDRURLS.UNKNOWN_REVISION;
-        }
-    }
 
     /**
      * Return the git hash for (slug)-Git-Hash.
@@ -240,7 +206,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 //            t.printStackTrace();
         }
         return CLDRURLS.UNKNOWN_REVISION;
-
     }
 
     /**

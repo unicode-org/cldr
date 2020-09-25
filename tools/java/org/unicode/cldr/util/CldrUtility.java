@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -1554,5 +1555,47 @@ public class CldrUtility {
             return result.toString();
         }
         return item.toString();
+    }
+
+    /**
+     * Return the git hash for the CLDR base directory.
+     *
+     * @return the hash, like "9786e05e95a2e4f02687fa3b84126782f9f698a3"
+     */
+    public static String getCldrBaseDirHash() {
+        final File baseDir = CLDRConfig.getInstance().getCldrBaseDirectory();
+        return getGitHashForDir(baseDir.toString());
+    }
+
+    /**
+     * Return the git hash for a directory.
+     *
+     * @param dir the directory name
+     * @return the hash, like "9786e05e95a2e4f02687fa3b84126782f9f698a3"
+     */
+    public final static String getGitHashForDir(String dir) {
+        final String GIT_HASH_COMMANDS[] = { "git",  "rev-parse", "HEAD" };
+        try {
+            if (dir == null) {
+                return CLDRURLS.UNKNOWN_REVISION; // no dir
+            }
+            File f = new File(dir);
+            if (!f.isDirectory()) {
+                return CLDRURLS.UNKNOWN_REVISION; // does not exist
+            }
+            Process p = Runtime.getRuntime().exec(GIT_HASH_COMMANDS, null, f);
+            try (BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+                String str = is.readLine();
+                if (str.length() == 0) {
+                    throw new Exception("git returned empty");
+                }
+                return str;
+            }
+        } catch(Throwable t) {
+            // We do not expect this to be called frequently.
+            System.err.println("While trying to get 'git' hash for " + dir + " : " + t.getMessage());
+            t.printStackTrace();
+            return CLDRURLS.UNKNOWN_REVISION;
+        }
     }
 }

@@ -183,5 +183,17 @@
 	<!-- G1 Aprel should be eliminated. G2 ↑↑↑ should combine with F1 aprel to beat M1 Aprel.
 		Winner should be ↑↑↑, and ↑↑↑ resolves to the Bailey value aprel. -->
 	<verify status="approved" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']" >aprel</verify>
-	
+
+	<!-- Make sure Bailey and inheritance are combined for the purpose of getStatusForOrganization.
+	     This scenario is based on one for which a bug was encountered previously.
+	     Two vetters for 'hard' Bailey should defeat one vetter for 'soft' inheritance, but the latter's vote
+	     should not cause inclusion in the 'losing' or 'disputed' sections of the Dashboard
+	     Reference: https://unicode-org.atlassian.net/browse/CLDR-10365 -->
+	<user name="OrgStatA1" org="apple" level="vetter" locales="*"/>
+	<user name="OrgStatG1" org="google" level="vetter" locales="*"/>
+	<user name="OrgStatM1" org="microsoft" level="vetter" locales="*"/>
+	<vote name="OrgStatA1" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">pistolet à eau</vote>
+	<vote name="OrgStatM1" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">pistolet à eau</vote>
+	<vote name="OrgStatG1" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">↑↑↑</vote>
+	<verify status="approved" orgStatus="ok" statusOrg="google" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">pistolet à eau</verify>
 </TestSTFactory>

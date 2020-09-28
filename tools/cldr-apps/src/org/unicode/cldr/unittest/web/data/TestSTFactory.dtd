@@ -32,6 +32,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST verify locale CDATA #REQUIRED>
 <!ATTLIST verify xpath CDATA #REQUIRED>
 <!ATTLIST verify status NMTOKEN #REQUIRED>
+<!ATTLIST verify orgStatus CDATA #IMPLIED>
+<!ATTLIST verify statusOrg CDATA #IMPLIED>
 
 <!ELEMENT setvar EMPTY >
 <!ATTLIST setvar locale CDATA #REQUIRED>

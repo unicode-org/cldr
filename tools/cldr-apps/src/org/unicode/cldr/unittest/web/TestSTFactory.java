@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
@@ -372,6 +373,9 @@ public class TestSTFactory extends TestFmwk {
         runDataDrivenTest("TestUserRegistry");
     }
 
+    /*
+     * TODO: shorten this function, over 300 lines; use subroutines
+     */
     private void runDataDrivenTest(final String fileBasename) throws SQLException, IOException {
         final STFactory fac = getFactory();
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
@@ -605,7 +609,7 @@ public class TestSTFactory extends TestFmwk {
                         errln(pathCount + "g Expected from XML: Status=" + expStatus + " got " + xpathStatusBack + " " + locale + ":"
                             + fullXpathBack + " Resolver=" + box.getResolver(xpath));
                     }
-
+                    verifyOrgStatus(r, attrs);
                 }
                     break;
                 case "verifyUser": {
@@ -658,6 +662,25 @@ public class TestSTFactory extends TestFmwk {
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown test element type " + elem);
+                }
+            }
+
+            /**
+             * If a "verify" element includes "orgStatus" and "statusOrg" attributes, then report an
+             * error unless getStatusForOrganization returns the specified status for the specified org
+             *
+             * @param r the VoteResolver
+             * @param attrs the attributes
+             */
+            private void verifyOrgStatus(VoteResolver<String> r, Map<String, String> attrs) {
+                final String expOrgStatus = attrs.get("orgStatus"); // e.g., "ok"
+                final String expStatusOrg = attrs.get("statusOrg"); // e.g., "apple"
+                if (expOrgStatus != null && expStatusOrg != null) {
+                    final Organization org = Organization.fromString(expStatusOrg);
+                    final String actualOrgStatus = r.getStatusForOrganization(org).toString();
+                    if (!expOrgStatus.equals(actualOrgStatus)) {
+                        errln("Error: expected + " + expOrgStatus + " got " + actualOrgStatus + " for " + expStatusOrg);
+                    }
                 }
             }
 

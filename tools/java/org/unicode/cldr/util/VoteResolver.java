@@ -395,8 +395,6 @@ public class VoteResolver<T> {
          */
         public void clear() {
             for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
-                //  for (Organization org : orgToVotes.keySet()) {
-                // orgToVotes.get(org).clear();
                 entry.getValue().clear();
             }
             orgToAdd.clear();
@@ -406,16 +404,12 @@ public class VoteResolver<T> {
             baileySet = false;
         }
 
-        public int countValuesWithVotes() {
-            return totalVotes.size();
-        }
-
         /**
          * Returns value of voted item, in case there is exactly 1.
          *
          * @return
          */
-        public T getSingleVotedItem() {
+        private T getSingleVotedItem() {
             return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
         }
 
@@ -591,7 +585,7 @@ public class VoteResolver<T> {
             return orgCount;
         }
 
-        public int getBestPossibleVote() {
+        private int getBestPossibleVote() {
             int total = 0;
             for (Map.Entry<Organization, Integer> entry : orgToMax.entrySet()) {
                 total += entry.getValue();
@@ -903,6 +897,11 @@ public class VoteResolver<T> {
     };
 
     /**
+     * This will be changed to true if both kinds of vote are present
+     */
+    private boolean bothInheritanceAndBaileyHadVotes = false;
+
+    /**
      * Resolve the votes. Resolution entails counting votes and setting
      * members for this VoteResolver, including winningStatus, winningValue,
      * and many others.
@@ -967,7 +966,7 @@ public class VoteResolver<T> {
          * with "hard" votes for the Bailey value. Note that sortedValues and voteCount are
          * both local variables.
          */
-        combineInheritanceWithBaileyForVoting(sortedValues, voteCount);
+        bothInheritanceAndBaileyHadVotes = combineInheritanceWithBaileyForVoting(sortedValues, voteCount);
 
         /*
          * Adjust sortedValues and voteCount as needed for annotation keywords.
@@ -1029,13 +1028,13 @@ public class VoteResolver<T> {
      * @param sortedValues the set of sorted values, possibly to be modified
      * @param voteCount the hash giving the vote count for each value, possibly to be modified
      *
-     * Reference: https://unicode.org/cldr/trac/ticket/11299
+     * @return true if both "hard" and "soft" votes existed and were combined, else false
      */
-    private void combineInheritanceWithBaileyForVoting(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+    private boolean combineInheritanceWithBaileyForVoting(Set<T> sortedValues, HashMap<T, Long> voteCount) {
         if (organizationToValueAndVote == null
                 || organizationToValueAndVote.baileySet == false
                 || organizationToValueAndVote.baileyValue == null) {
-            return;
+            return false;
         }
         T hardValue = organizationToValueAndVote.baileyValue;
         T softValue = (T) CldrUtility.INHERITANCE_MARKER;
@@ -1043,30 +1042,49 @@ public class VoteResolver<T> {
          * Check containsKey before get, to avoid NullPointerException.
          */
         if (!voteCount.containsKey(hardValue) || !voteCount.containsKey(softValue)) {
-            return;
+            return false;
         }
         long hardCount = voteCount.get(hardValue);
         long softCount = voteCount.get(softValue);
         if (hardCount == 0 || softCount == 0) {
-            return;
+            return false;
         }
-        T combValue = (hardCount > softCount) ? hardValue : softValue;
-        T skipValue = (hardCount > softCount) ? softValue : hardValue;
-        long combinedCount = hardCount + softCount;
+        reallyCombineInheritanceWithBailey(sortedValues, voteCount, hardValue, softValue, hardCount, softCount);
+        return true;
+    }
+
+    /**
+     * Given that both "hard" and "soft" votes exist, combine them
+     *
+     * @param sortedValues the set of sorted values, to be modified
+     * @param voteCount the hash giving the vote count for each value, to be modified
+     * @param hardValue the bailey value
+     * @param softValue the inheritance marker
+     * @param hardCount the number of votes for hardValue
+     * @param softCount the number of votes for softValue
+     */
+    private void reallyCombineInheritanceWithBailey(Set<T> sortedValues, HashMap<T, Long> voteCount,
+            T hardValue, T softValue, long hardCount, long softCount) {
+        final T combValue = (hardCount > softCount) ? hardValue : softValue;
+        final T skipValue = (hardCount > softCount) ? softValue : hardValue;
+        final long combinedCount = hardCount + softCount;
         voteCount.put(combValue, combinedCount);
         voteCount.put(skipValue, 0L);
         /*
-         * Sort again, and omit skipValue
+         * Sort again
          */
         List<T> list = new ArrayList<>(sortedValues);
         Collections.sort(list, (v1, v2) -> {
-            long c1 = (voteCount != null) ? voteCount.get(v1) : totals.getCount(v1);
-            long c2 = (voteCount != null) ? voteCount.get(v2) : totals.getCount(v2);
+            long c1 = voteCount.get(v1);
+            long c2 = voteCount.get(v2);
             if (c1 != c2) {
                 return (c1 < c2) ? 1 : -1; // decreasing numeric order (most votes wins)
             }
             return englishCollator.compare(String.valueOf(v1), String.valueOf(v2));
         });
+        /*
+         * Omit skipValue
+         */
         sortedValues.clear();
         for (T value : list) {
             if (!value.equals(skipValue)) {
@@ -1276,7 +1294,7 @@ public class VoteResolver<T> {
                 if (newWinner == null) {
                     newWinner = value;
                     voteCount.put(newWinner, voteCount.get(oldWinner) + 2); // more than oldWinner and newSecond
-                } else if (newSecond == null) {
+                } else if (newSecond == null) { // TODO: fix redundant null check: newSecond can only be null
                     newSecond = value;
                     voteCount.put(newSecond, voteCount.get(oldWinner) + 1); // more than oldWinner, less than newWinner
                     break;
@@ -1358,7 +1376,7 @@ public class VoteResolver<T> {
         return Status.unconfirmed;
     }
 
-    public Status getPossibleWinningStatus() {
+    private Status getPossibleWinningStatus() {
         if (!resolved) {
             resolveVotes();
         }
@@ -1399,7 +1417,7 @@ public class VoteResolver<T> {
      *
      * @return
      */
-    public T getOValue() {
+    private T getOValue() {
         if (!resolved) {
             resolveVotes();
         }
@@ -1412,19 +1430,11 @@ public class VoteResolver<T> {
      *
      * @return
      */
-    public T getNValue() {
+    private T getNValue() {
         if (!resolved) {
             resolveVotes();
         }
         return nValue;
-    }
-
-    /**
-     * @deprecated
-     */
-    @Deprecated
-    public T getNextToWinningValue() {
-        return getNValue();
     }
 
     /**
@@ -1794,9 +1804,6 @@ public class VoteResolver<T> {
     }
 
     public static class UnknownVoterException extends RuntimeException {
-        /**
-         *
-         */
         private static final long serialVersionUID = 3430877787936678609L;
         int voter;
 
@@ -1808,13 +1815,9 @@ public class VoteResolver<T> {
         public String toString() {
             return "Unknown voter: " + voter;
         }
-
-        public int getVoter() {
-            return voter;
-        }
     }
 
-    public static String fixBogusDraftStatusValues(String attributeValue) {
+    private static String fixBogusDraftStatusValues(String attributeValue) {
         if (attributeValue == null) return "approved";
         if ("confirmed".equals(attributeValue)) return "approved";
         if ("true".equals(attributeValue)) return "unconfirmed";
@@ -1822,6 +1825,9 @@ public class VoteResolver<T> {
         return attributeValue;
     }
 
+    /*
+     * TODO: either delete this or explain why it's needed
+     */
     public int size() {
         return values.size();
     }
@@ -1862,29 +1868,22 @@ public class VoteResolver<T> {
         if (!resolved) {
             resolveVotes();
         }
-
-        T win = getWinningValue();
         T orgVote = organizationToValueAndVote.getOrgVoteRaw(orgOfUser);
-
-        if (!equalsOrgVote(win, orgVote)) {
+        if (!equalsOrgVote(winningValue, orgVote)) {
             // We voted and lost
             return VoteStatus.losing;
         }
-
-        Status winStatus = getWinningStatus();
-        boolean provisionalOrWorse = Status.provisional.compareTo(winStatus) >= 0;
-
-        // get the number of other values with votes.
-        int itemsWithVotes = organizationToValueAndVote.countValuesWithVotes();
-        T singleVotedItem = organizationToValueAndVote.getSingleVotedItem();
-
+        final int itemsWithVotes = countDistinctValuesWithVotes();
         if (itemsWithVotes > 1) {
-            // If there are votes for two items, we should look at them.
+            // If there are votes for two "distinct" items, we should look at them.
             return VoteStatus.disputed;
-        } else if (!equalsOrgVote(win, singleVotedItem)) { // singleVotedItem != null && ...
+        }
+        final T singleVotedItem = organizationToValueAndVote.getSingleVotedItem();
+        if (!equalsOrgVote(winningValue, singleVotedItem)) {
             // If someone voted but didn't win
             return VoteStatus.disputed;
-        } else if (provisionalOrWorse) {
+        }
+        if (Status.provisional.compareTo(winningStatus) >= 0) {
             // If the value is provisional, it needs more votes.
             return VoteStatus.provisionalOrWorse;
         } else if (itemsWithVotes == 0) {
@@ -1896,11 +1895,40 @@ public class VoteResolver<T> {
         }
     }
 
+    /**
+     * Should these two values be treated as equivalent for getStatusForOrganization?
+     *
+     * @param value
+     * @param orgVote
+     * @return true if they are equivalent, false if they are distinct
+     */
     private boolean equalsOrgVote(T value, T orgVote) {
         return orgVote == null
             || orgVote.equals(value)
-            || CldrUtility.INHERITANCE_MARKER.equals(value)
-                && orgVote.equals(organizationToValueAndVote.baileyValue);
+            || (CldrUtility.INHERITANCE_MARKER.equals(value)
+                && orgVote.equals(organizationToValueAndVote.baileyValue))
+            || (CldrUtility.INHERITANCE_MARKER.equals(orgVote)
+                && value.equals(organizationToValueAndVote.baileyValue));
+    }
+
+    /**
+     * Count the distinct values that have votes.
+     *
+     * For this purpose, if there are both votes for inheritance and
+     * votes for the specific value matching the inherited (bailey) value,
+     * they are not "distinct": count them as a single value.
+     *
+     * @return the number of distinct values
+     */
+    private int countDistinctValuesWithVotes() {
+        if (!resolved) { // must be resolved for bothInheritanceAndBaileyHadVotes
+            throw new RuntimeException("countDistinctValuesWithVotes !resolved");
+        }
+        int count = organizationToValueAndVote.totalVotes.size();
+        if (count > 1 && bothInheritanceAndBaileyHadVotes) {
+            return count - 1; // prevent showing as "disputed" in dashboard
+        }
+        return count;
     }
 
     /**

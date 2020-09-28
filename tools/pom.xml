@@ -225,7 +225,12 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin-version}</version>
 					<configuration>
-						<argLine>-DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true  -DCLDR_DIR=../../ -Xmx6g -enableassertions</argLine>
+						<systemPropertyVariables>
+							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR> <!-- this is valid for tools/java and tools/cldr-apps-->
+							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
+							<java.awt.headless>true</java.awt.headless>
+						</systemPropertyVariables>
+						<argLine>-Xmx6g -enableassertions</argLine>
 					</configuration>
 				</plugin>
 				<plugin>

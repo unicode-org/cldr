@@ -39,6 +39,10 @@ class LdmlConvertRules {
         "decimalFormat:pattern:count",
         "currencyFormat:pattern:count",
         "unit:unitPattern:count",
+        // compound units
+        "compoundUnit:compoundUnitPattern1:count",
+        "compoundUnit:compoundUnitPattern1:gender",
+        "compoundUnit:compoundUnitPattern1:case",
         "field:relative:type",
         "field:relativeTime:type",
         "relativeTime:relativeTimePattern:count",

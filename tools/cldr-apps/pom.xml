@@ -179,18 +179,6 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>${maven-surefire-plugin-version}</version>
-					<configuration>
-						<systemPropertyVariables>
-							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR>
-							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
-							<java.awt.headless>true</java.awt.headless>
-							<!-- <rununittest.arg>-n -q</rununittest.arg> -->
-						</systemPropertyVariables>
-					</configuration>
-				</plugin>
-				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>3.2.2</version>
 					<configuration>

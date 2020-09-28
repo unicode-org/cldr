@@ -116,19 +116,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<systemPropertyVariables>
-						<CLDR_DIR>${project.basedir}/../../</CLDR_DIR>
-						<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
-						<java.awt.headless>true</java.awt.headless>
-						<datacheck.arg>-S common,seed -e -z FINAL_TESTING</datacheck.arg>
-						<rununittest.arg>-n -q</rununittest.arg>
-					</systemPropertyVariables>
-				</configuration>
-			</plugin>
-
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
 			</plugin>

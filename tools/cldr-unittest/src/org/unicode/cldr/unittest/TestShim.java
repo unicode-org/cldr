@@ -23,8 +23,9 @@ class TestShim {
 
     @Test
     public void TestTestShimUtilTest() {
-        // Note: checks the system property corresponding to java.lang,
-        // we expect this to be unset!
+        // Note: checks the system property corresponding to java.lang
+        // We expect the system property "java.lang.testArgs" will not be set,
+        // and so the default "-a -b -c" will be used.
         String args[] = TestShimUtils.getArgs(java.lang.String.class, "-a -b -c");
         String expectArgs[] = { "-a", "-b", "-c" };
         assertArrayEquals(args, expectArgs, "Expected arg parse");

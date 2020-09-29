@@ -2427,8 +2427,8 @@ System Data</a>.</em> ) &gt;<br>
     25–30, 35–40, …, decimals). Russian does not need additional
     separate forms for zero, two, or many, so these are not
     defined.</p>
-    <p>The plural category for negative numbers is calculated
-    according to the absolute value of the source. (This may change
+    <p><span class='changed'>A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for decimalValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. </span>The plural category for negative numbers is calculated
+    according to the absolute value of the source <span class='changed'>number, and leading integer digits don't have any effect on the plural category calculation.</span> (This may change
     in the future, if we find languages that have different
     behavior.)</p>
     <p>Plural categories may also differ according to the visible
@@ -2549,11 +2549,10 @@ expr            = operand (('mod' | '%') value)?
 operand         = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<span class="changed"> | 'e'</span>
 range_list      = (range | value) (',' range_list)*
 range           = value'..'value
+value           = digit+
 sampleList      = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
-sampleRange     = decimalValue ('~' decimalValue)?
-value           = <span class="changed">'0' | valueNoLead0</span>
-<span class="changed">valueNoLead0    = digitPos digit+</span>
-decimalValue    = <span class="changed">value</span> ('.' <span class="changed">digit+</span>)?<span class="changed"> ('e' valueNoLead0)?</span>
+sampleRange     = <span class="changed">sample</span>Value ('~' <span class="changed">sample</span>Value)?
+<span class="changed">sample</span>Value     = <span class="changed">value</span> ('.' <span class="changed">digit+</span>)?<span class="changed"> ('e' digitPos digit+)?</span>
 digit           = <span class="changed">[0-9]</span>
 <span class="changed">digitPos        = [1-9]</span>
                 </pre>
@@ -2581,9 +2580,9 @@ digit           = <span class="changed">[0-9]</span>
     </ul>
     <h4><a name="Operands" href="#Operands" id="Operands">5.1.1
     Operands</a></h4>
-    <p>The operands have the following meaning:</p>
+    <p>The operands <span class="changed">correspond to features of the source number, and</span> have the following meanings. </p>
     <div dir="ltr">
-      <table>
+      <table class='simple'>
         <caption>
           <a name="Plural_Operand_Meanings" href=
           "#Plural_Operand_Meanings" id=
@@ -2595,7 +2594,7 @@ digit           = <span class="changed">[0-9]</span>
         </tr>
         <tr>
           <td>n</td>
-          <td>absolute value of the source number (<span class='changed'>using the </span>integer, decimals<span class='changed'>, and exponent</span>).</td>
+          <td>absolute value of the source number.</td>
         </tr>
         <tr>
           <td>i</td>
@@ -2604,305 +2603,178 @@ digit           = <span class="changed">[0-9]</span>
         <tr>
           <td>v</td>
           <td>number of visible fraction digits in n, <em>with</em>
-          trailing zeros.</td>
+          trailing zeros.<span class="changed">*</span></td>
         </tr>
         <tr>
           <td>w</td>
           <td>number of visible fraction digits in n,
-          <em>without</em> trailing zeros.</td>
+          <em>without</em> trailing zeros.<span class="changed">*</span></td>
         </tr>
         <tr>
           <td>f</td>
-          <td>visible fractional digits in n, <em>with</em>
-          trailing zeros.</td>
+          <td>visible fraction digits in n, <em>with</em>
+          trailing zeros.<span class="changed">*</span></td>
         </tr>
         <tr>
           <td>t</td>
-          <td>visible fractional digits in n, <em>without</em>
-          trailing zeros.</td>
+          <td>visible fraction digits in n, <em>without</em>
+          trailing zeros.<span class="changed">*</span></td>
         </tr>
         <tr class='changed'>
           <td>e</td>
-          <td>exponent of the power of 10 used in compact decimal formatting.</td>
+          <td>compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting.</td>
         </tr>
       </table>
-    </div><br>
+    </div>
+    <p class='changed'>* If there is a compact decimal exponent value ('e'), then the f, t, v, and w values are computed <em>after</em> shifting the decimal point in the original by the 'e' value. So for 1.2e3, the f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. Similarly, for 1.2005e3 has i=1200 and f=5 (corresponding to 1200.5).</p>
     <div dir="ltr">
-      <table>
+      <table class='simple'; style='width:30em'>
         <caption>
           <a name="Plural_Operand_Examples" href=
           "#Plural_Operand_Examples" id=
           "Plural_Operand_Examples">Plural Operand Examples</a>
         </caption>
-        <colgroup>
-          <col width="10%">
-          <col width="10%">
-          <col width="10%">
-          <col width="10%">
-          <col width="10%">
-          <col width="10%">
-        </colgroup>
-        <tr style='text-align: right'>
-          <th><strong>source</strong></th>
-          <th class='changed' style='text-align: right'>n</th>
-          <th style='text-align: right'>
-              i
-          </th>
-          <th style='text-align: right'>
-                v
-          </th>
-          <th style='text-align: right'>
-                w
-          </th>
-          <th style='text-align: right'>
-                f
-          </th>
-          <th>
-                t
-          </th>
-          <th class='changed' style='text-align:right'> e</th>
-        </tr>
-        <tr style='text-align:right'>
-          <td>1</td>
-          <td class='changed' style='text-align:right'>1</td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td class='changed' style='text-align:right'>0</td>
-        </tr>
-        <tr>
-          <td>1.0</td>
-          <td class='changed' style='text-align:right'>1</td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td class='changed' style='text-align:right'>0</td>
-        </tr>
-        <tr>
-          <td>1.00</td>
-          <td class='changed' style='text-align:right'>1</td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              2
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              0
-            </div>
-          </td>
-          <td class='changed' style='text-align:right'>0</td>
-        </tr>
-        <tr>
-          <td>1.3</td>
-          <td class='changed' style='text-align:right'>1.3</td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              3
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              3
-            </div>
-          </td>
-          <td class='changed' style='text-align:right'>0</td>
-        </tr>
-        <tr>
-          <td>1.30</td>
-          <td class='changed' style='text-align:right'>1.3</td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              2
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              30
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              3
-            </div>
-          </td>
-          <td class='changed' style='text-align:right'>0</td>
-        </tr>
-        <tr>
-          <td>1.03</td>
-          <td class='changed' style='text-align:right'>1.03</td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              2
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              2
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              3
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              3
-            </div>
-          </td>
-          <td class='changed' style='text-align:right'>0</td>
-        </tr>
-        <tr>
-          <td>1.230</td>
-          <td class='changed' style='text-align:right'>1.23</td>
-          <td>
-            <div align="right">
-              1
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              3
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              2
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              230
-            </div>
-          </td>
-          <td>
-            <div align="right">
-              23
-            </div>
-          </td>
-          <td class='changed' style='text-align:right'>0</td>
-        </tr>
-        <tr class='changed' style='text-align: right'>
-          <td style='text-align:right'>1200000</td>
-          <td style='text-align:right'>1200000</td>
-          <td style='text-align:right'>1200000</td>
-          <td style='text-align:right'>0</td>
-          <td style='text-align:right'>0</td>
-          <td style='text-align:right'>0</td>
-          <td style='text-align:right'>0</td>
-          <td style='text-align:right'>6</td>
-        </tr>
-        <tr class='changed'>
-          <td>1.2e6</td>
-          <td style='text-align: right'>1200000</td>
-          <td style='text-align: right'>1200000</td>
-          <td style='text-align: right'>1</td>
-          <td style='text-align: right'>1</td>
-          <td style='text-align: right'>2</td>
-          <td style='text-align: right'>2</td>
-          <td style='text-align: right'>6</td>
-        </tr>
-        <tr class='changed>
-          <td>123e6</td>
-          <td style='text-align: right'>123000000</td>
-          <td style='text-align: right'>123000000</td>
-          <td style='text-align: right'>0</td>
-          <td style='text-align: right'>0</td>
-          <td style='text-align: right'>0</td>
-          <td style='text-align: right'>0</td>
-          <td style='text-align: right'>6</td>
-        </tr>
-      </table>
+<tr>
+<th style='text-align: right'>source</th>
+  <th style='text-align: right'>n</th>
+  <th style='text-align: right'>i</th>
+  <th style='text-align: right'>v</th>
+  <th style='text-align: right'>w</th>
+  <th style='text-align: right'>f</th>
+  <th style='text-align: right'>t</th>
+  <th style='text-align: right'>e</th>
+</tr>
+<tr>
+<td style='text-align: right'>1</td>
+  <td class='changed' style='text-align:right'>1</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>0</td>
+  <td style='text-align: right'>0</td>
+  <td style='text-align: right'>0</td>
+  <td style='text-align: right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td style='text-align: right'>1.0</td>
+  <td class='changed' style='text-align:right'>1</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>0</td>
+  <td style='text-align: right'>0</td>
+  <td style='text-align: right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td style='text-align: right'>1.00</td>
+  <td class='changed' style='text-align:right'>1</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>2</td>
+  <td style='text-align: right'>0</td>
+  <td style='text-align: right'>0</td>
+  <td style='text-align: right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td style='text-align: right'>1.3</td>
+  <td class='changed' style='text-align:right'>1.3</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>3</td>
+  <td style='text-align: right'>3</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td style='text-align: right'>1.30</td>
+  <td class='changed' style='text-align:right'>1.3</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>2</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>30</td>
+  <td style='text-align: right'>3</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td style='text-align: right'>1.03</td>
+  <td class='changed' style='text-align:right'>1.03</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>2</td>
+  <td style='text-align: right'>2</td>
+  <td style='text-align: right'>3</td>
+  <td style='text-align: right'>3</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td style='text-align: right'>1.230</td>
+  <td class='changed' style='text-align:right'>1.23</td>
+  <td style='text-align: right'>1</td>
+  <td style='text-align: right'>3</td>
+  <td style='text-align: right'>2</td>
+  <td style='text-align: right'>230</td>
+  <td style='text-align: right'>23</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td class='changed' style='text-align:right'>1200000</td>
+  <td class='changed' style='text-align:right'>1200000</td>
+  <td class='changed' style='text-align:right'>1200000</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td class='changed' style='text-align:right'>1.2e6</td>
+  <td class='changed' style='text-align:right'>1200000</td>
+  <td class='changed' style='text-align:right'>1200000</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>6</td>
+</tr>
+<tr>
+<td class='changed' style='text-align:right'>123e6</td>
+  <td class='changed' style='text-align:right'>123000000</td>
+  <td class='changed' style='text-align:right'>123000000</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>6</td>
+</tr>
+<tr>
+<td class='changed' style='text-align:right'>123e5</td>
+  <td class='changed' style='text-align:right'>12300000</td>
+  <td class='changed' style='text-align:right'>12300000</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>0</td>
+  <td class='changed' style='text-align:right'>5</td>
+</tr>
+<tr>
+<td class='changed' style='text-align:right'>1200.5</td>
+  <td class='changed' style='text-align:right'>1200.5</td>
+  <td class='changed' style='text-align:right'>1200</td>
+  <td class='changed' style='text-align:right'>1</td>
+  <td class='changed' style='text-align:right'>1</td>
+  <td class='changed' style='text-align:right'>5</td>
+  <td class='changed' style='text-align:right'>5</td>
+  <td class='changed' style='text-align:right'>0</td>
+</tr>
+<tr>
+<td class='changed' style='text-align:right'>1.2005e3</td>
+  <td class='changed' style='text-align:right'>1200.5</td>
+  <td class='changed' style='text-align:right'>1200</td>
+  <td class='changed' style='text-align:right'>1</td>
+  <td class='changed' style='text-align:right'>1</td>
+  <td class='changed' style='text-align:right'>5</td>
+  <td class='changed' style='text-align:right'>5</td>
+  <td class='changed' style='text-align:right'>3</td>
+</tr>
+		</table>
     </div><br>
     <h4><a name="Relations" href="#Relations" id="Relations">5.1.2
     Relations</a></h4>
@@ -3042,15 +2914,15 @@ digit           = <span class="changed">[0-9]</span>
     <p>Where samples are provided, the absence of one of the sample
     indicators indicates that no numeric values can satisify that
     rule. For example, the rule "i = 1 and v = 0" can only have
-    integer samples, so @decimal must not occur.<span class='changed'> The @integer samples have no visible fraction digits, while  @decimal samples have visible fraction digits; both can have exponents (if the 'e' operand occurs).</span></p>
+    integer samples, so @decimal must not occur.<span class='changed'> The @integer samples have no visible fraction digits, while  @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).</span></p>
     <p>The sampleRanges have a special notation:
     <strong>start</strong>~<strong>end</strong>. The
     <strong>start</strong> and <strong>end</strong> values must
-    have the same number of decimal digits<span class="changed">, and the same exponent values (or neither have exponents)</span>. The range encompasses
+    have the same number of decimal digits<span class="changed">, and the same compact decimal exponent values (or neither have compact decimal exponent values)</span>. The range encompasses
     all and only values those value <strong>v</strong> where
     <strong>start ≤ v ≤ end</strong>, and where <strong>v</strong>
     has the same number of decimal places as <strong>start</strong>
-    and <strong>end</strong><span class="changed">, and the same exponent values</span>.</p>
+    and <strong>end</strong><span class="changed">, and the same compact decimal exponent values</span>.</p>
     <p>Samples must indicate whether they are infinite or not. The
     '…' marker must be present if and only infinitely many values
     (integer or decimal) can satisfy the rule. If a set is not
@@ -3078,8 +2950,8 @@ digit           = <span class="changed">[0-9]</span>
         <td>Infinite set: 1.3, 1.4, 1.5, 1.03, 1.04, 1.05, …</td>
       </tr>
     </table><br>
-    <p>In determining whether a set of samples is infinite, <span class='removed'>leading
-    zero integer digits and </span>trailing zero decimals are not
+    <p>In determining whether a set of samples is infinite, leading
+    zero integer digits and trailing zero decimals are not
     significant. Thus "i = 1<span class="changed">000</span> and f = 0" is satisfied by 01<span class="changed">000</span>, 1<span class="changed">000</span>, 1<span class="changed">000</span>.0,
     1<span class="changed">000</span>.00, 1<span class="changed">000</span>.000, <span class="changed">01e3</span> etc. but is still considered finite.</p>
     <h4><a name="Using_cardinals" href="#Using_cardinals" id=

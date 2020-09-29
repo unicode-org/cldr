@@ -84,6 +84,7 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.FixedDecimalRange;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UnicodeSet;
@@ -131,7 +132,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     FixedDecimalRange lastSample = null;
                     for (FixedDecimalRange sample : sSamples.samples) {
                         if (lastSample != null) {
-                            if (lastSample.start.compareTo(sample.start) > 0) {
+                            if (compare(lastSample.start,sample.start) > 0) {
                                 errln(locale + ":" + c + ": out of order with "
                                     + lastSample + " > " + sample);
                             } else if (false) {
@@ -144,6 +145,30 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 }
             }
         }
+    }
+
+    /**
+     * Hack until ICU's FixedDecimal is fixed
+     *
+     */
+    public static int compare(PluralRules.FixedDecimal me, PluralRules.FixedDecimal other) {
+        if (me.getPluralOperand(Operand.e) != other.getPluralOperand(Operand.e)) {
+            return me.getPluralOperand(Operand.e) < other.getPluralOperand(Operand.e) ? -1 : 1;
+        }
+        if (me.getIntegerValue() != other.getIntegerValue()) {
+            return me.getIntegerValue() < other.getIntegerValue() ? -1 : 1;
+        }
+        if (me.getSource() != other.getSource()) {
+            return me.getSource() < other.getSource() ? -1 : 1;
+        }
+        if (me.getVisibleDecimalDigitCount() != other.getVisibleDecimalDigitCount()) {
+            return me.getVisibleDecimalDigitCount() < other.getVisibleDecimalDigitCount() ? -1 : 1;
+        }
+        long diff = me.getDecimalDigits() - other.getDecimalDigits();
+        if (diff != 0) {
+            return diff < 0 ? -1 : 1;
+        }
+        return 0;
     }
 
     public void TestPluralRanges() {

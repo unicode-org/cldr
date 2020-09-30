@@ -3,18 +3,31 @@ package org.unicode.cldr.unittest;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.EFixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.number.Notation;
+import com.ibm.icu.number.NumberFormatter;
+import com.ibm.icu.number.NumberFormatter.UnitWidth;
+import com.ibm.icu.number.Precision;
+import com.ibm.icu.number.UnlocalizedNumberFormatter;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.MeasureUnit;
+import com.ibm.icu.util.ULocale;
 
 public class TestPluralRuleGeneration extends TestFmwkPlus {
     public static void main(String[] args) {
@@ -102,43 +115,162 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             throw new ICUException(e);
         }
         Object[][] checkItems = {
+            // compare each group of items against one another, where a group is bounded by {},
+            // source,  f,      v,  e,  plural (, skipString — if toString doesn't roundtrip)?
+            {"2300000", 2300000d, 0, 0, "other"},
+            {"2.3e6", 2300000d, 0, 6, "many"},
+            {},
+            {"1.20050e3",1200.5d, 2, 3, "other", "skipString"},
+            {},
+            {"1200.5", 1200.5d, 1, 0, "other"},
+            {"1.2005e3", 1200.5d, 1, 3, "other"},
+            {},
+            {"1200000", 1200000d, 0, 0, "other"},
+            {"1.2e6", 1200000d, 0, 6, "many"},
+            {"1.20e6", 1200000d, 0, 6, "many", "skipString"},
+            {},
             {"1234567.8", 1234567.8, 1, 0, "other"},
-            {"123456.78e1", 123456.78, 2, 1, "other"},
-            {"12.345678e5", 12.345678, 6, 5, "other"},
-            {"1.2345678e6", 1.2345678, 7, 6, "many"}
+            {"123456.78e1", 1234567.8, 1, 1, "other"},
+            {"12.345678e5", 1234567.8, 1, 5, "other"},
+            {"1.2345678e6", 1234567.8, 1, 6, "many"},
         };
-        EFixedDecimal lastFromString = null;
+        String lastSource = null;
+        FixedDecimal lastFromString = null;
+        Map<Operand, Double> lastOperands = null;
         for (Object[] row : checkItems) {
+            if (row.length == 0) {
+                // reset to different group
+                lastSource = null;
+                lastFromString = null;
+                lastOperands = null;
+                continue;
+            }
             String rowString = Arrays.asList(row).toString();
-            final String arg0 = (String)row[0];
-            final double f = (double)row[1];
-            final int v = (int)row[2];
-            final int e = (int)row[3];
-            final String expected = (String)row[4];
 
-            EFixedDecimal fromString = EFixedDecimal.fromString(arg0);
-            EFixedDecimal fromDoubleAndExponent = EFixedDecimal.fromDoubleVisibleAndExponent(f, v, e);
-            double expectedDouble = f*Math.pow(10,e);
+            final String source = (String)row[0];
+            final double fExpected = (double)row[1];
+            final int vExpected = (int)row[2];
+            final int eExpected = (int)row[3];
+            final String pluralExpected = (String)row[4];
+            final boolean checkString = row.length < 6 || !"skipString".equals(row[5]);
 
-            assertEquals(rowString + " double vs fromString", expectedDouble, fromString.doubleValue());
-            assertEquals(rowString + " double vs fromDoubleAndExponent", expectedDouble, fromDoubleAndExponent.doubleValue());
+            // basics
 
-            assertEquals(rowString + " fromString vs fromDoubleAndExponent", fromString, fromDoubleAndExponent);
-            assertEquals(rowString + " exponent, fromString vs fromDoubleAndExponent", fromString.getExponent(), fromDoubleAndExponent.getExponent());
-            assertEquals(rowString + " exponent vs getPluralOperand(e)", (double)fromString.getExponent(), fromString.getPluralOperand(PluralRules.Operand.e));
+            FixedDecimal fromString = new FixedDecimal(source);
 
-            assertEquals(rowString + " fromString vs fromDoubleAndExponent", 0, fromString.compareTo(fromDoubleAndExponent));
-            assertEquals(rowString + " fromString.toString", (row[0]), fromString.toString());
+            final String fromToString = fromString.toString();
+            if (checkString && !assertEquals(rowString + " source vs fromString", source, fromToString)) {
+                fromString.toString(); // for debugging
+            }
+            if (!assertEquals(rowString + " double vs toString", fExpected, fromString.doubleValue())) {
+                fromString.doubleValue(); // for debugging
+            }
+            String pluralActual = test.select(fromString);
+            assertEquals(rowString + " plural category", pluralExpected, pluralActual);
 
-            String actual = test.select(fromString);
-            assertEquals(rowString + " plural category", expected, actual);
+            // previous in group
 
+            Map<Operand, Double> operands = getOperandMap(fromString);
             if (lastFromString != null) {
-                assertEquals(lastFromString + " vs " + fromString, 1, lastFromString.compareTo(fromString));
-                assertEquals("double " + lastFromString + " vs " + fromString, lastFromString.doubleValue(), lastFromString.doubleValue());
+                if (!assertTrue(lastSource + (checkString ? " < " :  " ≤ ") + source, lastFromString.compareTo(fromString) < (checkString ? 0 : 1))) {
+                    lastFromString.compareTo(fromString); // for debugging
+                }
+                assertEquals("double " + lastSource + " vs " + source, lastFromString.doubleValue(), lastFromString.doubleValue());
+                assertEquals("operands " + lastSource + " vs " + source, lastOperands, operands);
             }
 
+            // different constructor
+
+            FixedDecimal fromDoubleAndExponent = FixedDecimal.createWithExponent(fExpected, vExpected, eExpected);
+
+            if (!assertEquals(rowString + " fromString vs fromDoubleAndExponent", fromString, fromDoubleAndExponent)) {
+                FixedDecimal.createWithExponent(fExpected, vExpected, eExpected);
+            }
+            assertEquals(rowString + " double vs fromDoubleAndExponent", fExpected, fromDoubleAndExponent.doubleValue());
+
+            assertEquals(rowString + " exponent, fromString vs fromDoubleAndExponent", fromString.getPluralOperand(Operand.e), fromDoubleAndExponent.getPluralOperand(Operand.e));
+
+            assertEquals(rowString + " fromString vs fromDoubleAndExponent", 0, fromString.compareTo(fromDoubleAndExponent));
+
+
+            lastSource = source;
             lastFromString = fromString;
+            lastOperands = operands;
         }
+    }
+
+    private Map<Operand,Double> getOperandMap(FixedDecimal fixedDecimal) {
+        Map<Operand,Double> result = new LinkedHashMap<>();
+        for (Operand op : Operand.values()) {
+            switch (op) {
+            case e: case j:
+                continue;
+            }
+            result.put(op, fixedDecimal.getPluralOperand(op));
+        }
+        return ImmutableMap.copyOf(result);
+    }
+
+    static final Set<Operand> orderedOperands = ImmutableSet.of(Operand.n, Operand.i, Operand.v, Operand.w, Operand.f, Operand.t, Operand.e);
+
+    public void TestEFixedDecimal2() {
+        UnlocalizedNumberFormatter unfScientific = NumberFormatter.with()
+            .unit(MeasureUnit.KILOMETER)
+            .unitWidth(UnitWidth.FULL_NAME)
+            .notation(Notation.engineering());
+
+        UnlocalizedNumberFormatter unfCompact = unfScientific.notation(Notation.compactLong());
+        unfScientific = unfScientific.precision(Precision.minMaxSignificantDigits(1, 3));
+
+        ImmutableSet<ULocale> locales = ImmutableSet.of(ULocale.ENGLISH, ULocale.FRENCH);
+        ImmutableSet<String> tests = ImmutableSet.of(
+            "1", "1.0", "1.00",
+            "1.3", "1.30", "1.03", "1.230",
+            "1200000", "1.2e6",
+            "123e6",
+            "123e5",
+            "1200.5",
+            "1.2005e3"
+            );
+
+        for (String test : tests) {
+            final FixedDecimal source = new FixedDecimal(test);
+            assertEquals("check toString", test, source.toString());
+        }
+
+        System.out.println();
+        String ops = "";
+        for (Operand op : orderedOperands) {
+            ops += "\t" + op.toString();
+        }
+        System.out.println("locale\tsource"
+            + ops
+            + "\tpluralCat"
+            );
+        for (ULocale locale : locales) {
+            PluralRules pr = PluralRules.forLocale(locale);
+
+            for (String test : tests) {
+                final FixedDecimal source = new FixedDecimal(test);
+                System.out.println(locale
+                    + "\t" + source.toString()
+                    + "\t" + pluralInfo(pr, source)
+                    );
+            }
+            System.out.println();
+
+        }
+    }
+
+    static final DecimalFormat nf = new DecimalFormat("0.#####");
+
+    public CharSequence pluralInfo(PluralRules pr, final FixedDecimal formatted) {
+        StringBuilder buffer = new StringBuilder();
+        for (Operand op :orderedOperands) {
+            double opValue = formatted.getPluralOperand(op);
+            buffer.append(nf.format(opValue) + "\t");
+        }
+        buffer.append(pr.select(formatted));
+        return buffer;
     }
 }

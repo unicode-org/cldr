@@ -147,16 +147,6 @@
 	</dependencies>
 	<build>
 		<finalName>cldr-apps</finalName>
-		<sourceDirectory>src</sourceDirectory> <!-- TODO: HACK! until we can pivot src dirs -->
-		<testResources>
-			<testResource>
-				<directory>src</directory>
-				<includes>
-					<include>org/unicode/cldr/unittest/web/data/**/*</include>
-				</includes>
-			</testResource>
-		</testResources>
-
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
 				defaults (may be moved to parent pom) -->
 			<plugins>
@@ -174,15 +164,6 @@
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
 					<configuration>
-						<webResources>
-							<resource>
-								<!-- this is relative to the pom.xml directory -->
-								<directory>WebContent</directory>
-								<excludes>
-									<exclude>WEB-INF/lib/*</exclude>
-								</excludes>
-							</resource>
-						</webResources>
 						<archive>
 							<manifestEntries>
 								<Built-By>${user.name}</Built-By>

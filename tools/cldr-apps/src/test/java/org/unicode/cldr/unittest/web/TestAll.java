@@ -91,15 +91,16 @@ public class TestAll extends TestGroup {
         /* NOTREACHED */
     }
 
-    public static void main(String[] args, PrintWriter logs) {
+    public static int main(String[] args, PrintWriter logs) {
         CheckCLDR.setDisplayInformation(CLDRConfig.getInstance().getEnglish());
         args = TestAll.doResetDb(args);
         TestAll test = new TestAll();
         if(logs != null) {
-            test.run(args, logs);
+            return test.run(args, logs);
         } else {
             test.run(args);
             /* NOTREACHED */
+            return -1; // does not actually return
         }
     }
 

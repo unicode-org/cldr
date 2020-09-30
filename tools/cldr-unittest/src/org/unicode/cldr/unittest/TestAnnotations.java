@@ -295,7 +295,7 @@ public class TestAnnotations extends TestFmwkPlus {
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);
 
-        String emojiImageDir = CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/WebContent/images/emoji";
+        String emojiImageDir = CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/src/main/webapp/images/emoji";
         for (String emoji : Emoji.getNonConstructed()) {
             String noVs = emoji.replace(Emoji.EMOJI_VARIANT, "");
 

@@ -4,6 +4,8 @@
         <tstamp/>
 
         <property name="src.dir" value="src"/>
+
+        <!-- libs.dir remains the same, for Ant compatibility. TODO: delete when we drop ant.-->
         <property name="libs.dir" value="WebContent/WEB-INF/lib"/>
 
         <property name="build.dir" value="build/classes"/>
@@ -62,8 +64,8 @@
 
         <property name="warfile" location="cldr-apps.war"/>
 
-	<property name="WebContent" location="./WebContent"/>
-	<property name="WEB-INF" location="${WebContent}/WEB-INF"/>
+        <property name="WebContent" location="src/main/webapp"/>
+        <property name="WEB-INF" location="${WebContent}/WEB-INF"/>
         <property name="webxml" location="${WEB-INF}/web.xml"/>
 
         <mkdir dir="${build.dir}"/>
@@ -98,7 +100,10 @@
 
  <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->
 
-        <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
+        <!-- 
+          Does not exist.  Ignoring this.
+          <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/> 
+          -->
 
         <path id="catalina-ant.classpath">
           <fileset dir="${tomcat.home}/lib">
@@ -199,7 +204,7 @@
         <mkdir dir="${doc.dir}"/>
         <javadoc
             packagenames="org.unicode.cldr.*"
-            sourcepath="${src.dir}"
+            sourcepath="${src.dir}/main/java"
             destdir="${doc.dir}"
             classpathref="project.class.path"
             nodeprecatedlist="true"
@@ -225,7 +230,7 @@
 
     <target name="all" depends="init" description="build web classes">
         <javac
-            srcdir="${src.dir}"
+            srcdir="${src.dir}/main/java"
         	includes="org/unicode/cldr/util/*.java,org/unicode/cldr/web/*.java,org/json/*.java"
             destdir="${build.dir}"
             classpathref="project.class.path"
@@ -258,7 +263,11 @@
             <!-- all other files in /root -->
             <zipfileset dir="${WebContent}" excludes="**/.svn/**/*"/>
 
+            <!-- TODO: include OLD jars. These will be deleted when we drop ant. -->
+            <zipfileset dir="./WebContent" excludes="**/.svn/**/*"/>
+
             <!-- certain jars that we want -->
+            <!-- I suppose these were here in case they were in a different location? -->
             <lib file="${UTILITIES_JAR}"/>  <!-- CLDR utilities -->
             <lib file="${ICU4J_JAR}"/>  <!-- CLDR jar -->
             <lib file="${CLDR_JAR}"/>  <!-- CLDR jar -->
@@ -315,8 +324,9 @@
 
    <target name="tests" depends="all" description="Rebuild just tests">
         <javac
-            srcdir="${src.dir}"
+            srcdir="${src.dir}/test/java"
         	includes="org/unicode/cldr/unittest/web/*.java"
+          excludes="org/unicode/cldr/unittest/web/TestShim.java"
             destdir="${build.dir}"
             classpathref="project.class.path"
             source="1.8"
@@ -326,7 +336,7 @@
             encoding="UTF-8"/>
         <mkdir dir="${build.dir}/org/unicode/cldr/unittest/web/data"/>
         <copy todir="${build.dir}/org/unicode/cldr/unittest/web/data">
-            <fileset dir="${src.dir}/org/unicode/cldr/unittest/web/data"
+            <fileset dir="${src.dir}/test/resources/org/unicode/cldr/unittest/web/data"
                 excludes="**/CVS/**/*"/>
         </copy>
 

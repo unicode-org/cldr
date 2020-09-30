@@ -1,12 +1,13 @@
 package org.unicode.cldr.unittest;
 
-import java.io.PrintWriter;
-
-import org.unicode.cldr.util.TestShimUtils;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.unicode.cldr.util.TestShimUtils;
+
+// NOTE: When not under Maven, you'll see compile errs in eclipse.
+// Ignore them.
 
 /**
  * a JUnit test that calls TestAll.
@@ -18,7 +19,7 @@ class TestShim {
         // regular main() will System.exit() which is not too friendly.
         // call this instead.
         int errCount = TestAll.runTests(args);
-        assertEquals(errCount, 0, "Test had errors");
+        assertEquals(0, errCount, "Test had errors");
     }
 
     @Test

@@ -17,8 +17,12 @@
         response.sendRedirect(request.getContextPath());
         return;
     }
-
-    if (action.equals("list") && UserRegistry.userIsVetter(sess.user)) {
+    if (action.equals("flagged") && UserRegistry.userIsTC(sess.user)) {
+        final String query = "SELECT      flag.locale AS locale,     flag.last_mod AS last_mod,     user.id AS user,     user.org AS org,     user.email AS email,     xpath.xpath AS xpath " +
+        "FROM   " +  DBUtils.Table.VOTE_FLAGGED + " AS flag,     cldr_xpaths AS xpath,     cldr_users AS user WHERE     xpath.id = flag.xpath         AND user.id = flag.submitter ORDER BY last_mod DESC";
+        response.setHeader("content-disposition", "attachment;  filename=\"SurveyTool_flagged.csv" + "\"");
+        DBUtils.writeCsv(query, out);
+    } else if (action.equals("list") && UserRegistry.userIsVetter(sess.user)) {
         if ("ALL".equals(org)) {
             org = null;
         }

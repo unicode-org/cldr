@@ -116,6 +116,7 @@ define({
 		recentNone: "No items to show.",
 		recentCount: "Count",
 		downloadXmlLink: "Download XML...",
+		downloadCsvLink: "Download CSV...",
 
 		testOkay: "has no errors or warnings",
 		testWarn: "has warnings",

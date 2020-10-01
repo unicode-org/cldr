@@ -582,10 +582,11 @@ public class ExampleGenerator {
                 value = "�";
             }
             R3<Integer, Integer, Boolean> info = dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
-            int time = (((info.get0() + info.get1()) % DayPeriodInfo.DAY_LIMIT) / 2);
-            //String calendar = parts.getAttributeValue(3, "type");
-            String timeFormatString = icuServiceBuilder.formatDayPeriod(time, backgroundStartSymbol + value + backgroundEndSymbol);
-            examples.add(invertBackground(timeFormatString));
+            if (info != null) {
+                int time = (((info.get0() + info.get1()) % DayPeriodInfo.DAY_LIMIT) / 2);
+                String timeFormatString = icuServiceBuilder.formatDayPeriod(time, backgroundStartSymbol + value + backgroundEndSymbol);
+                examples.add(invertBackground(timeFormatString));
+            }
         }
         return formatExampleList(examples.toArray(new String[examples.size()]));
     }
@@ -615,25 +616,13 @@ public class ExampleGenerator {
                 return null;
             }
             final UnitId unitId = uc.createUnitId(shortUnitId);
-            // LocaleStringProvider stringProvider = new OverridingStringProvider(getCldrFile(), parts.toString(), backgroundPattern(value));
-            // removeEmptyRuns(
             String width = parts.getAttributeValue(2, "type");
             String pattern = unitId.toString(getCldrFile(), width, count, "nominative", null, false);
-            if (!value.contentEquals(pattern)) {
+            if (pattern != null && !value.contentEquals(pattern)) {
                 examples.add(pattern);
             }
         }
         return formatExampleList(examples);
-    }
-
-    private String backgroundPattern(String value) {
-        Matcher matcher = UnitConverter.PLACEHOLDER.matcher(value);
-        if (!matcher.find()) {
-            return backgroundStartSymbol + value + backgroundEndSymbol;
-        }
-        return backgroundStartSymbol + value.substring(0,matcher.start(0)) + backgroundEndSymbol
-            + value.substring(matcher.start(0),matcher.end(0))
-            + backgroundStartSymbol + value.substring(matcher.end(0)) + backgroundEndSymbol;
     }
 
     private String handleFormatPerUnit(XPathParts parts, String value) {
@@ -1147,7 +1136,12 @@ public class ExampleGenerator {
         DateFormat df = this.icuServiceBuilder.getDateFormat("gregorian", value.replace('h', 'H'));
         df.setTimeZone(TimeZone.GMT_ZONE);
         long time = ((5 * 60 + 37) * 60 + 23) * 1000;
-        return df.format(new Date(time));
+        try {
+            return df.format(new Date(time));
+        } catch (IllegalArgumentException e) {
+            // e.g., Illegal pattern character 'o' in "aɖabaƒoƒo m:ss"
+            return null;
+        }
     }
 
     @SuppressWarnings("deprecation")
@@ -1595,9 +1589,11 @@ public class ExampleGenerator {
             territory = loc.getCountry();
             if (territory == null || territory.length() == 0) {
                 loc = supplementalDataInfo.getDefaultContentFromBase(loc);
-                territory = loc.getCountry();
-                if (territory.equals("001") && loc.getLanguage().equals("ar")) {
-                    territory = "EG"; // Use Egypt as territory for examples in ar locale, since its default content is ar_001.
+                if (loc != null) {
+                    territory = loc.getCountry();
+                    if (territory.equals("001") && loc.getLanguage().equals("ar")) {
+                        territory = "EG"; // Use Egypt as territory for examples in ar locale, since its default content is ar_001.
+                    }
                 }
             }
             if (territory == null || territory.length() == 0) {
@@ -1679,6 +1675,9 @@ public class ExampleGenerator {
         }
         int numDigits = format.getMinimumIntegerDigits();
         Map<Count, Double> samples = patternExamples.getSamples(numDigits);
+        if (samples == null) {
+            return null;
+        }
         return samples.get(count);
     }
 
@@ -1905,6 +1904,9 @@ public class ExampleGenerator {
      * @return
      */
     private String setBackground(String inputPattern) {
+        if (inputPattern == null) {
+            return "?";
+        }
         Matcher m = PARAMETER.matcher(inputPattern);
         return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol)
         + backgroundEndSymbol;

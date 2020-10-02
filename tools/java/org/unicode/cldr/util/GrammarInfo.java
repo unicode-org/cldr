@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -10,11 +11,13 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.Freezable;
@@ -30,7 +33,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     public enum GrammaticalTarget {nominal}
 
     public enum GrammaticalFeature {
-        grammaticalNumber("plurality", "Ⓟ", "other"),
+        grammaticalNumber("plural", "Ⓟ", "other"),
         grammaticalCase("case", "Ⓒ", "nominative"),
         grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite"),
         grammaticalGender("gender", "Ⓖ", "neuter");
@@ -58,6 +61,15 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         public static Matcher pathHasFeature(String path) {
             Matcher result = PATH_HAS_FEATURE.matcher(path);
             return result.find() ? result : null;
+        }
+        static final Map<String, GrammaticalFeature> shortNameToEnum =
+            ImmutableMap.copyOf(Arrays.asList(GrammaticalFeature.values())
+            .stream()
+            .collect(Collectors.toMap(e -> e.shortName, e -> e)));
+
+        public static GrammaticalFeature fromName(String name) {
+            GrammaticalFeature result = shortNameToEnum.get(name);
+            return result != null ? result : valueOf(name);
         }
     }
 

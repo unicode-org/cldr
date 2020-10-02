@@ -37,12 +37,14 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarDerivation;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
@@ -2011,7 +2013,7 @@ public class TestUnits extends TestFmwk {
         }
     }
 
-    public void TestDerivedCase() {
+  public void TestDerivedCase() {
         // needs further work
         if (logKnownIssue("CLDR-13920", "finish this as part of unit derivation work")) {
             return;
@@ -2068,15 +2070,16 @@ public class TestUnits extends TestFmwk {
             }
         }
     }
-
     public void TestGenderOfCompounds() {
         Set<String> skipUnits = ImmutableSet.of("kilocalorie", "kilopascal", "terabyte", "gigabyte", "kilobyte", "gigabit", "kilobit", "megabit", "megabyte", "terabit");
+        final ImmutableSet<String> keyValues = ImmutableSet.of("length", "mass", "duration", "power");
         for (String localeID : GrammarInfo.SEED_LOCALES) {
             GrammarInfo grammarInfo = SDI.getGrammarInfo(localeID);
             if (grammarInfo == null) {
                 logln("No grammar info for: " + localeID);
                 continue;
             }
+            UnitConverter converter = SDI.getUnitConverter();
             Collection<String> genderInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
             if (genderInfo.isEmpty()) {
                 continue;
@@ -2086,19 +2089,50 @@ public class TestUnits extends TestFmwk {
             Output<String> source = new Output<>();
             Multimap<UnitPathType, String> partsUsed = LinkedHashMultimap.create();
 
+            Set<String> units = new HashSet<>();
+            M4<String, String, String, Boolean> quantityToGenderToUnits = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
+            M4<String, String, String, Boolean> genderToQuantityToUnits = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
 
             for (String path : cldrFile) {
-                XPathParts parts = XPathParts.getFrozenInstance(path);
-                //ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/gender
-                if (parts.size() != 5 || !parts.getElement(-1).equals("gender")) {
+                if (!path.startsWith("//ldml/units/unitLength[@type=\"long\"]/unit[@type=")) {
                     continue;
                 }
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 final String shortId = converter.getShortId(parts.getAttributeValue(-2, "type"));
+                String quantity;
+                try {
+                    quantity = converter.getQuantityFromUnit(shortId, false);
+                } catch (Exception e) {
+                    continue;
+                }
+
+                //ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/gender
+                String gender = null;
+                if (parts.size() == 5 && parts.getElement(-1).equals("gender")) {
+                    gender = cldrFile.getStringValue(path);
+                    if (true) {
+                        quantityToGenderToUnits.put(quantity, gender, shortId, true);
+                        genderToQuantityToUnits.put(quantity, gender, shortId, true);
+                    }
+                } else {
+                    if (units.contains(shortId)) {
+                        continue;
+                    }
+                    units.add(shortId);
+                }
                 UnitId unitId = converter.createUnitId(shortId);
                 String constructedGender = unitId.getGender(cldrFile, source, partsUsed);
-                final String gender = cldrFile.getStringValue(path);
-                final boolean areEqual = gender.equals(constructedGender);
-                if (!areEqual && !skipUnits.contains(shortId)) {
+                boolean multiUnit = unitId.denUnitsToPowers.size() + unitId.denUnitsToPowers.size() > 1;
+                if (gender == null && (constructedGender == null || !multiUnit)) {
+                    continue;
+                }
+
+                final boolean areEqual = Objects.equals(gender, constructedGender);
+                if (false) {
+                    final String printInfo = localeID + "\t" + unitId + "\t" + gender + "\t" + multiUnit + "\t" + quantity + "\t" + constructedGender + "\t" + areEqual;
+                    System.out.println(printInfo);
+                }
+                if (gender != null && !areEqual && !skipUnits.contains(shortId)) {
                     unitId.getGender(cldrFile, source, partsUsed);
                     shortUnitToGender.put(shortId, unitId + "\t" + gender + "\t" + constructedGender + "\t" + areEqual);
                 }
@@ -2106,6 +2140,45 @@ public class TestUnits extends TestFmwk {
             for (Entry<String,String> entry : shortUnitToGender.entrySet()) {
                 errln(localeID + "\t" + entry);
             }
+
+            Set<String> missing = new LinkedHashSet<>(genderInfo);
+            for (String quantity : keyValues) {
+                M3<String, String, Boolean> genderToUnits = quantityToGenderToUnits.get(quantity);
+                showData(localeID, null, quantity, genderToUnits);
+                missing.removeAll(genderToUnits.keySet());
+            }
+            for (String quantity : quantityToGenderToUnits.keySet()) {
+                M3<String, String, Boolean> genderToUnits = quantityToGenderToUnits.get(quantity);
+                showData(localeID, missing, quantity, genderToUnits);
+            }
+            for (String gender : missing) {
+                System.out.println(localeID + "\t" + "?" + "\t" + gender + "\t?");
+            }
         }
+    }
+
+    public void showData(String localeID, Set<String> genderFilter, String quantity, final M3<String, String, Boolean> genderToUnits) {
+        for (Entry<String, Map<String, Boolean>> entry2 : genderToUnits) {
+            String gender = entry2.getKey();
+            if (genderFilter != null) {
+                if(!genderFilter.contains(gender)) {
+                    continue;
+                }
+                genderFilter.remove(gender);
+            }
+            for (String unit : entry2.getValue().keySet()) {
+                System.out.println(localeID + "\t" + quantity + "\t" + gender + "\t" + unit);
+            }
+        }
+    }
+
+    public void testDerivation() {
+        int count = 0;
+        for (String locale : SDI.hasGrammarDerivation()) {
+            GrammarDerivation gd = SDI.getGrammarDerivation(locale);
+            System.out.println(locale + " => " + gd);
+            ++count;
+        }
+        assertNotEquals("hasGrammarDerivation", 0, count);
     }
 }

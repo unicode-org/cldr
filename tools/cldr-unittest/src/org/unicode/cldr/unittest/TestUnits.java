@@ -2098,7 +2098,7 @@ public class TestUnits extends TestFmwk {
                     continue;
                 }
                 XPathParts parts = XPathParts.getFrozenInstance(path);
-                final String shortId = UnitConverter.getShortId(parts.getAttributeValue(-2, "type"));
+                final String shortId = converter.getShortId(parts.getAttributeValue(-2, "type"));
                 String quantity;
                 try {
                     quantity = converter.getQuantityFromUnit(shortId, false);

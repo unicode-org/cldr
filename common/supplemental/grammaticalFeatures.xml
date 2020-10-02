@@ -138,5 +138,73 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalGender values="animate inanimate personal feminine neuter"/>
       <grammaticalGender scope="units" values="inanimate feminine neuter"/>
     </grammaticalFeatures>
+    <grammaticalDerivations locales="root">
+	<!-- determine the gender of a compound unit from the gender of its components -->
+	<!-- The attributeValues of value are: 0 (=gender of the first element), 1 (=gender of second element), or one of the valid gender values for the language -->
+	
+	  <deriveCompound feature="gender" structure="per" value="0"/> <!-- gender(gram-per-meter) ←  gender(gram) --> 
+	  <deriveCompound feature="gender" structure="times" value="1"/> <!-- gender(newton-meter) ←  gender(meter) --> 
+	  <deriveCompound feature="gender" structure="power" value="0"/> <!-- gender(square-meter) ←  gender(meter) --> 
+	  <deriveCompound feature="gender" structure="prefix" value="0"/> <!-- gender(kilometer) ←  gender(meter)--> 
+	
+	<!-- from the pluralCategory of the compound unit, determine the pluralCategory of its components -->
+	<!-- The attributeValues of value0 and value1 are: compound (=the pluralCategory of the compound),  or one of the valid plural category values for the language -->
+	
+	  <deriveComponent feature="plural" structure="per" value0="compound" value1="one"/> <!-- compound(gram-per-meter) ⇒  compound(gram) “per" singular(meter) -->
+	  <deriveComponent feature="plural" structure="times" value0="one"  value1="compound"/>  <!-- compound(newton-meter) ⇒  singular(newton) “-" compound(meter) -->
+	  <deriveComponent feature="plural" structure="power" value0="one"  value1="compound"/>  <!-- compound(square-meter) ⇒  singular(square) compound(meter) -->
+	  <deriveComponent feature="plural" structure="prefix" value0="one"  value1="compound"/> <!-- compound(kilometer) ⇒  singular(kilo) compound(meter) -->
+	
+	<!-- from the grammatical case of the compound unit, determine the grammatical case of its components -->
+	<!-- The attributeValues of value0 and value1 are: compound (=the grammatical case of the compound),  or one of the valid grammatical case values for the language -->
+
+	  <deriveComponent feature="case" structure="per" value0="compound" value1="nominative"/> <!-- compound(gram-per-meter) ⇒ compound(gram) “per" accusative(meter) -->
+	  <deriveComponent feature="case" structure="times" value0="nominative"  value1="compound"/> <!-- compound(newton-meter) ⇒  nominative(newton) “-" compound(meter) -->
+	  <deriveComponent feature="case" structure="power" value0="nominative"  value1="compound"/> <!-- compound(square-meter) ⇒  nominative(square) compound(meter) -->
+	  <deriveComponent feature="case" structure="prefix" value0="nominative"  value1="compound"/><!--compound(kilometer) ⇒  nominative(kilo) compound(meter) -->
+	</grammaticalDerivations>
+	<grammaticalDerivations locales="de">
+	<!-- determine the gender of a compound unit from the gender of its components -->
+	<!-- The attributeValues of value are: 0 (=gender of the first element), 1 (=gender of second element), or one of the valid gender values for the language -->
+	
+	  <deriveCompound feature="gender" structure="per" value="0"/> <!-- gender(gram-per-meter) ←  gender(gram) --> 
+	  <deriveCompound feature="gender" structure="times" value="1"/> <!-- gender(newton-meter) ←  gender(meter) --> 
+	  <deriveCompound feature="gender" structure="power" value="0"/> <!-- gender(square-meter) ←  gender(meter) --> 
+	  <deriveCompound feature="gender" structure="prefix" value="0"/> <!-- gender(kilometer) ←  gender(meter)--> 
+	
+	<!-- from the pluralCategory of the compound unit, determine the pluralCategory of its components -->
+	<!-- The attributeValues of value0 and value1 are: compound (=the pluralCategory of the compound),  or one of the valid plural category values for the language -->
+	
+	  <deriveComponent feature="plural" structure="per" value0="compound" value1="one"/> <!-- compound(gram-per-meter) ⇒  compound(gram) “per" singular(meter) -->
+	  <deriveComponent feature="plural" structure="times" value0="one"  value1="compound"/>  <!-- compound(newton-meter) ⇒  singular(newton) “-" compound(meter) -->
+	  <deriveComponent feature="plural" structure="power" value0="one"  value1="compound"/>  <!-- compound(square-meter) ⇒  singular(square) compound(meter) -->
+	  <deriveComponent feature="plural" structure="prefix" value0="one"  value1="compound"/> <!-- compound(kilometer) ⇒  singular(kilo) compound(meter) -->
+	
+	<!-- from the grammatical case of the compound unit, determine the grammatical case of its components -->
+	<!-- The attributeValues of value0 and value1 are: compound (=the grammatical case of the compound),  or one of the valid grammatical case values for the language -->
+
+	  <deriveComponent feature="case" structure="per" value0="compound" value1="accusative"/> <!-- compound(gram-per-meter) ⇒ compound(gram) “per" accusative(meter) -->
+	  <deriveComponent feature="case" structure="times" value0="nominative"  value1="compound"/> <!-- compound(newton-meter) ⇒  nominative(newton) “-" compound(meter) -->
+	  <deriveComponent feature="case" structure="power" value0="nominative"  value1="compound"/> <!-- compound(square-meter) ⇒  nominative(square) compound(meter) -->
+	  <deriveComponent feature="case" structure="prefix" value0="nominative"  value1="compound"/><!--compound(kilometer) ⇒  nominative(kilo) compound(meter) -->
+	</grammaticalDerivations>
+	<grammaticalDerivations locales="fr">
+	<!-- determine the gender of a compound unit from the gender of its components -->
+	<!-- The attributeValues of value are: 0 (=gender of the first element), 1 (=gender of second element), or one of the valid gender values for the language -->
+	
+	  <deriveCompound feature="gender" structure="per" value="0"/> <!-- gender(gram-per-meter) ←  gender(gram) --> 
+	  <deriveCompound feature="gender" structure="times" value="0"/> <!-- gender(newton-meter) ←  gender(meter) --> 
+	  <deriveCompound feature="gender" structure="power" value="0"/> <!-- gender(square-meter) ←  gender(meter) --> 
+	  <deriveCompound feature="gender" structure="prefix" value="0"/> <!-- gender(kilometer) ←  gender(meter)--> 
+	
+	<!-- from the pluralCategory of the compound unit, determine the pluralCategory of its components -->
+	<!-- The attributeValues of value0 and value1 are: compound (=the pluralCategory of the compound),  or one of the valid plural category values for the language -->
+	
+	  <deriveComponent feature="plural" structure="per" value0="compound" value1="one"/> <!-- compound(gram-per-meter) ⇒  compound(gram) “per" singular(meter) -->
+	  <deriveComponent feature="plural" structure="times" value0="compound"  value1="compound"/>  <!-- compound(newton-meter) ⇒  singular(newton) “-" compound(meter) -->
+	  <deriveComponent feature="plural" structure="power" value0="compound"  value1="compound"/>  <!-- compound(square-meter) ⇒  singular(square) compound(meter) -->
+	  <deriveComponent feature="plural" structure="prefix" value0="one"  value1="compound"/> <!-- compound(kilometer) ⇒  singular(kilo) compound(meter) -->
+	
+	</grammaticalDerivations>
   </grammaticalData>
 </supplementalData>

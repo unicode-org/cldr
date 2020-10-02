@@ -1230,7 +1230,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!-- # Grammatical Features -->
 
-<!ELEMENT grammaticalData ( grammaticalFeatures* ) >
+<!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) >
 
 <!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) >
 <!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
@@ -1257,4 +1257,29 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@MATCH:set/literal/units-->
 <!ATTLIST grammaticalDefiniteness values NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/definite, indefinite, unspecified, construct-->
+    <!--@VALUE-->
+    
+<!ELEMENT grammaticalDerivations (deriveCompound*, deriveComponent*) >
+<!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED >
+    <!--@MATCH:set/validity/locale-->
+
+<!ELEMENT deriveCompound EMPTY >
+<!ATTLIST deriveCompound feature NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/gender -->
+<!ATTLIST deriveCompound structure NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/per, times, power, prefix -->
+<!ATTLIST deriveCompound value NMTOKEN #REQUIRED >
+    <!--@MATCH:set/literal/0, 1 --> <!--TODO: add @MATCH function for locale's gender categories and use here -->
+    <!--@VALUE-->
+
+<!ELEMENT deriveComponent EMPTY >
+<!ATTLIST deriveComponent feature NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/plural, case -->
+<!ATTLIST deriveComponent structure NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/per, times, power, prefix -->
+<!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED >
+    <!--@MATCH:set/literal/compound, zero, one, two, few, many, other, accusative, nominative --> <!--TODO: add @MATCH function for locale's plural/case categories and use here -->
+    <!--@VALUE-->
+<!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED >
+    <!--@MATCH:set/literal/compound, zero, one, two, few, many, other, accusative, nominative --> <!--TODO: add @MATCH function for locale's plural/case categories and use here -->
     <!--@VALUE-->

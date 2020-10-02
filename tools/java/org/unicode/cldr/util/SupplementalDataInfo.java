@@ -943,6 +943,7 @@ public class SupplementalDataInfo {
     private final UnitPreferences unitPreferences = new UnitPreferences();
 
     public Map<String, GrammarInfo> grammarLocaleToTargetToFeatureToValues = new TreeMap<>();
+    public Map<String, GrammarDerivation> localeToGrammarDerivation = new TreeMap<>();
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -1188,6 +1189,7 @@ public class SupplementalDataInfo {
         languageGroups = ImmutableSetMultimap.copyOf(languageGroups);
 
         grammarLocaleToTargetToFeatureToValues = CldrUtility.protectCollection(grammarLocaleToTargetToFeatureToValues);
+        localeToGrammarDerivation = CldrUtility.protectCollection(localeToGrammarDerivation);
 
         ImmutableSet.Builder<String> newScripts = ImmutableSet.<String> builder();
         Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getStatusToCodes(LstrType.script);
@@ -1369,16 +1371,47 @@ public class SupplementalDataInfo {
         }
 
         private boolean handleGrammaticalData(String value, XPathParts parts) {
+            /*
+            <!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
+            <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
+            OR
+            <!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED >
+             */
+
             for (String locale : split_space.split(parts.getAttributeValue(2, "locales"))) {
-                GrammarInfo targetToFeatureToValues = grammarLocaleToTargetToFeatureToValues.get(locale);
-                if (targetToFeatureToValues == null) {
-                    grammarLocaleToTargetToFeatureToValues.put(locale, targetToFeatureToValues = new GrammarInfo());
-                }
-                final String targets = parts.getAttributeValue(2, "targets");
-                if (parts.size() < 4) {
-                    targetToFeatureToValues.add(targets, null, null, null); // special case "known no features"
-                } else {
-                    targetToFeatureToValues.add(targets, parts.getElement(3), parts.getAttributeValue(3, "scope"), parts.getAttributeValue(3, "values"));
+                switch (parts.getElement(2)) {
+                case "grammaticalFeatures":
+                    GrammarInfo targetToFeatureToValues = grammarLocaleToTargetToFeatureToValues.get(locale);
+                    if (targetToFeatureToValues == null) {
+                        grammarLocaleToTargetToFeatureToValues.put(locale, targetToFeatureToValues = new GrammarInfo());
+                    }
+                    final String targets = parts.getAttributeValue(2, "targets");
+                    if (parts.size() < 4) {
+                        targetToFeatureToValues.add(targets, null, null, null); // special case "known no features"
+                    } else {
+                        targetToFeatureToValues.add(targets, parts.getElement(3), parts.getAttributeValue(3, "scope"), parts.getAttributeValue(3, "values"));
+                    }
+                    break;
+                case "grammaticalDerivations":
+                    String feature = parts.getAttributeValue(3, "feature");
+                    String structure = parts.getAttributeValue(3, "structure");
+                    GrammarDerivation grammarCompoundDerivation = localeToGrammarDerivation.get(locale);
+                    if (grammarCompoundDerivation == null) {
+                        localeToGrammarDerivation.put(locale, grammarCompoundDerivation = new GrammarDerivation());
+                    }
+
+                    switch (parts.getElement(3)) {
+                    case "deriveCompound":
+                        grammarCompoundDerivation.add(feature, structure, parts.getAttributeValue(3, "value"));
+                        break;
+                    case "deriveComponent":
+                        grammarCompoundDerivation.add(feature, structure, parts.getAttributeValue(3, "value0"), parts.getAttributeValue(3, "value1"));
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Structure not handled: " + parts);
+                    }
+                    break;
+                default: throw new IllegalArgumentException("Structure not handled: " + parts);
                 }
             }
             return true;
@@ -4509,6 +4542,21 @@ public class SupplementalDataInfo {
                 continue;
             }
             GrammarInfo result = grammarLocaleToTargetToFeatureToValues.get(locale);
+            if (result != null) {
+                return result;
+            }
+        }
+        return null;
+    }
+
+    public Set<String> hasGrammarDerivation() {
+        return localeToGrammarDerivation.keySet();
+    }
+
+
+    public GrammarDerivation getGrammarDerivation(String locale) {
+        for (;locale != null; locale = LocaleIDParser.getParent(locale)) {
+            GrammarDerivation result = localeToGrammarDerivation.get(locale);
             if (result != null) {
                 return result;
             }

@@ -315,7 +315,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     @Deprecated
     private String defaultBase = CLDRURLS.DEFAULT_BASE + "/survey"; /* base URL */
-    private static String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
     public static String fileBase = null; // not static - may change later.
     // Common dir
     public static String fileBaseSeed = null; // not static - may change later.
@@ -4167,10 +4166,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             } else {
                 survprops.getEnvironment();
             }
-            vetweb = survprops.getProperty("CLDR_VET_WEB", cldrHome + "/vetdata"); // dir
-            // for
-            // web
-            // data
 
             getFileBase();
             getFileBaseSeed();
@@ -4194,10 +4189,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             if (!new File(fileBaseSeed).isDirectory()) {
                 busted("CLDR_SEED isn't a directory: " + fileBaseSeed);
-                return;
-            }
-            if (!new File(vetweb).isDirectory()) {
-                busted("CLDR_VET_WEB isn't a directory: " + vetweb);
                 return;
             }
             progress.update("Setup supplemental..");

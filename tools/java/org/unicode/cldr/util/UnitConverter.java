@@ -19,6 +19,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.GrammarDerivation.CompoundUnitStructure;
+import org.unicode.cldr.util.GrammarDerivation.Values;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.Rational.RationalParser;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -957,23 +960,51 @@ public class UnitConverter implements Freezable<UnitConverter> {
          * TODO: add parameter to short-circuit the lookup if the unit is not a compound.
          */
         public String getGender(CLDRFile resolvedFile, Output<String> source, Multimap<UnitPathType, String> partsUsed) {
-            Map<String,Integer> determiner = numUnitsToPowers.isEmpty() ? denUnitsToPowers : numUnitsToPowers;
             // will not be empty
 
-            // get the last one.
-            // Hard coded for now:
-            String lastMeasure;
-            if (true) {
-                lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
-                    .orElse(null);
+            GrammarDerivation gd = null;
+            //Values power = gd.get(GrammaticalFeature.grammaticalGender, CompoundUnitStructure.power); no data available yet
+            //Values prefix = gd.get(GrammaticalFeature.grammaticalGender, CompoundUnitStructure.prefix);
+
+
+            Map<String,Integer> determiner;
+            if (numUnitsToPowers.isEmpty()) {
+                determiner = denUnitsToPowers;
+            } else if (denUnitsToPowers.isEmpty()) {
+                determiner = numUnitsToPowers;
             } else {
-                lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
-                    .orElse(null);
+                if (gd == null) {
+                    gd = SupplementalDataInfo.getInstance().getGrammarDerivation(resolvedFile.getLocaleID());
+                }
+                Values per = gd.get(GrammaticalFeature.grammaticalGender, CompoundUnitStructure.per);
+                boolean useFirst = per.value0.equals("0");
+                determiner = useFirst ? numUnitsToPowers // otherwise use numerator if possible
+                    : denUnitsToPowers;
+                // TODO add test that the value is 0 or 1, so that if it fails we know to upgrade this code.
             }
-            lastMeasure = stripPrefixInt(lastMeasure, null);
-            String gender = UnitPathType.gender.getTrans(resolvedFile, "long", lastMeasure, null, null, null, partsUsed);
+
+            Entry<String, Integer> bestMeasure;
+            if (determiner.size() == 1) {
+                bestMeasure = determiner.entrySet().iterator().next();
+            } else {
+                if (gd == null) {
+                    gd = SupplementalDataInfo.getInstance().getGrammarDerivation(resolvedFile.getLocaleID());
+                }
+                Values times = gd.get(GrammaticalFeature.grammaticalGender, CompoundUnitStructure.times);
+                boolean useFirst = times.value0.equals("0");
+                if (useFirst) {
+                    bestMeasure = determiner.entrySet().iterator().next();
+                } else {
+                    bestMeasure = null; // we know the determiner is not empty, but this makes the compiler
+                    for (Entry<String, Integer> entry : determiner.entrySet()) {
+                        bestMeasure = entry;
+                    }
+                }
+            }
+            String strippedUnit = stripPrefixInt(bestMeasure.getKey(), null);
+            String gender = UnitPathType.gender.getTrans(resolvedFile, "long", strippedUnit, null, null, null, partsUsed);
             if (gender != null && source != null) {
-                source.value = lastMeasure;
+                source.value = strippedUnit;
             }
             return gender;
         }

@@ -383,7 +383,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         return sb.toString();
     }
 
-    private static int getVisibleFractionCount(String value) {
+    public static int getVisibleFractionCount(String value) {
         value = value.trim();
         int decimalPos = value.indexOf('.') + 1;
         if (decimalPos == 0) {

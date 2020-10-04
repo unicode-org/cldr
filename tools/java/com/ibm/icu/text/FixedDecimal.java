@@ -312,6 +312,28 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         this(parseDecimalSampleRangeNumString(n));
     }
 
+//    /**
+//     * @internal CLDR
+//     * @deprecated This API is ICU internal only
+//     */
+//    @Deprecated
+//    private static FixedDecimal parseDecimalSampleRangeNumString(String num) {
+//        if (num.contains("e")) {
+//            int ePos = num.lastIndexOf('e');
+//            int expNumPos = ePos + 1;
+//            String exponentStr = num.substring(expNumPos);
+//            int exponent = Integer.parseInt(exponentStr);
+//            String fractionStr = num.substring(0, ePos);
+//            return FixedDecimal.createWithExponent(
+//                    Double.parseDouble(fractionStr),
+//                    getVisibleFractionCount(fractionStr),
+//                    exponent);
+//        } else {
+//            return new FixedDecimal(Double.parseDouble(num), getVisibleFractionCount(num));
+//        }
+//    }
+
+    // The value of n needs to take the exponent into account
     public static FixedDecimal parseDecimalSampleRangeNumString(String num) {
         double n;
         int v;
@@ -361,7 +383,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         return sb.toString();
     }
 
-    public static int getVisibleFractionCount(String value) {
+    private static int getVisibleFractionCount(String value) {
         value = value.trim();
         int decimalPos = value.indexOf('.') + 1;
         if (decimalPos == 0) {
@@ -460,39 +482,6 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         return (int)(decimalDigits + 37 * (visibleDecimalDigitCount + (int)(37 * source)));
     }
 
-    public static String toSampleString(IFixedDecimal source) {
-        final double n = source.getPluralOperand(Operand.n);
-        final int exponent = (int) source.getPluralOperand(Operand.e);
-        final int visibleDecimalDigitCount = (int) source.getPluralOperand(Operand.v);
-        if (exponent == 0) {
-            return String.format(Locale.ROOT, "%." + visibleDecimalDigitCount + "f", n);
-        } else {
-            // we need to slide the exponent back
-
-            int fixedV = visibleDecimalDigitCount + exponent;
-            String baseString = String.format(Locale.ROOT, "%." + fixedV + "f",n/Math.pow(10,exponent));
-
-            // HACK
-            // However, we don't have enough information to round-trip if v == 0
-            // So in that case we choose the shortest form,
-            // so we have to have a hack to strip trailing fraction spaces.
-            if (visibleDecimalDigitCount == 0) {
-                for (int i = visibleDecimalDigitCount; i < fixedV; ++i) {
-                    // TODO this code could and should be optimized, but for now...
-                    if (baseString.endsWith("0")) {
-                        baseString = baseString.substring(0,baseString.length()-1);
-                        continue;
-                    }
-                    break;
-                }
-                if (baseString.endsWith(".")) {
-                    baseString = baseString.substring(0,baseString.length()-1);
-                }
-            }
-            return baseString + "e" + exponent;
-        }
-    }
-
     /**
      * @internal CLDR
      * @deprecated This API is ICU internal only.
@@ -500,8 +489,57 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
     @Deprecated
     @Override
     public String toString() {
-        return toSampleString(this);
+        if (exponent == 0) {
+            return String.format(Locale.ROOT, "%." + visibleDecimalDigitCount + "f", source);
+        } else {
+            // we need to slide the exponent back
+
+            int fixedV = visibleDecimalDigitCount + exponent;
+            String baseString = String.format(Locale.ROOT, "%." + fixedV + "f", getSource()/Math.pow(10,exponent));
+
+            // However, the format does not round trip.
+            // Usually we want the shortest form, so we have to have a hack to strip trailing fraction spaces.
+            for (int i = visibleDecimalDigitCount; i < fixedV; ++i) {
+                // TODO this code could and should be optimized, but for now...
+                if (baseString.endsWith("0")) {
+                    baseString = baseString.substring(0,baseString.length()-1);
+                    continue;
+                }
+                break;
+            }
+            if (baseString.endsWith(".")) {
+                baseString = baseString.substring(0,baseString.length()-1);
+            }
+
+            return baseString + "e" + exponent;
+        }
     }
+
+//    // FixedDecimal.toString isn't working right.
+//    public String xtoString() {
+//        // we need to slide v up
+//        final int v = getVisibleDecimalDigitCount();
+//        final int exponent = getExponent();
+//        if (exponent == 0) {
+//            return String.format(Locale.ROOT, "%." + v + "f", getSource());
+//        }
+//        int fixedV = v + exponent;
+//        String baseString = String.format(Locale.ROOT, "%." + fixedV + "f", getSource()/Math.pow(10,exponent));
+//        // however, the format does not round trip.
+//        // so we have to have a hack to strip trailing fraction spaces.
+//        for (int i = v; i < fixedV; ++i) {
+//            // TODO this code could and should be optimized, but for now...
+//            if (baseString.endsWith("0")) {
+//                baseString = baseString.substring(0,baseString.length()-1);
+//                continue;
+//            }
+//            break;
+//        }
+//        if (baseString.endsWith(".")) {
+//            baseString = baseString.substring(0,baseString.length()-1);
+//        }
+//        return baseString + "e" + exponent;
+//    }
 
     /**
      * @internal CLDR

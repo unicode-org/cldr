@@ -17,3 +17,7 @@ surveytool
 # auto-backup cldr db only for production
 [backupdb:children]
 prod
+
+# redact cldr db only for staging (cldr-smoke)
+[redactdb:children]
+staging

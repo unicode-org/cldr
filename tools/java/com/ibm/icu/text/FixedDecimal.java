@@ -383,7 +383,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         return sb.toString();
     }
 
-    private static int getVisibleFractionCount(String value) {
+    public static int getVisibleFractionCount(String value) {
         value = value.trim();
         int decimalPos = value.indexOf('.') + 1;
         if (decimalPos == 0) {
@@ -482,6 +482,39 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         return (int)(decimalDigits + 37 * (visibleDecimalDigitCount + (int)(37 * source)));
     }
 
+    public static String toSampleString(IFixedDecimal source) {
+        final double n = source.getPluralOperand(Operand.n);
+        final int exponent = (int) source.getPluralOperand(Operand.e);
+        final int visibleDecimalDigitCount = (int) source.getPluralOperand(Operand.v);
+        if (exponent == 0) {
+            return String.format(Locale.ROOT, "%." + visibleDecimalDigitCount + "f", n);
+        } else {
+            // we need to slide the exponent back
+
+            int fixedV = visibleDecimalDigitCount + exponent;
+            String baseString = String.format(Locale.ROOT, "%." + fixedV + "f",n/Math.pow(10,exponent));
+
+            // HACK
+            // However, we don't have enough information to round-trip if v == 0
+            // So in that case we choose the shortest form,
+            // so we have to have a hack to strip trailing fraction spaces.
+            if (visibleDecimalDigitCount == 0) {
+                for (int i = visibleDecimalDigitCount; i < fixedV; ++i) {
+                    // TODO this code could and should be optimized, but for now...
+                    if (baseString.endsWith("0")) {
+                        baseString = baseString.substring(0,baseString.length()-1);
+                        continue;
+                    }
+                    break;
+                }
+                if (baseString.endsWith(".")) {
+                    baseString = baseString.substring(0,baseString.length()-1);
+                }
+            }
+            return baseString + "e" + exponent;
+        }
+    }
+
     /**
      * @internal CLDR
      * @deprecated This API is ICU internal only.
@@ -489,30 +522,34 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
     @Deprecated
     @Override
     public String toString() {
-        if (exponent == 0) {
-            return String.format(Locale.ROOT, "%." + visibleDecimalDigitCount + "f", source);
-        } else {
-            // we need to slide the exponent back
-
-            int fixedV = visibleDecimalDigitCount + exponent;
-            String baseString = String.format(Locale.ROOT, "%." + fixedV + "f", getSource()/Math.pow(10,exponent));
-
-            // However, the format does not round trip.
-            // Usually we want the shortest form, so we have to have a hack to strip trailing fraction spaces.
-            for (int i = visibleDecimalDigitCount; i < fixedV; ++i) {
-                // TODO this code could and should be optimized, but for now...
-                if (baseString.endsWith("0")) {
-                    baseString = baseString.substring(0,baseString.length()-1);
-                    continue;
-                }
-                break;
-            }
-            if (baseString.endsWith(".")) {
-                baseString = baseString.substring(0,baseString.length()-1);
-            }
-
-            return baseString + "e" + exponent;
-        }
+        return toSampleString(this);
+//        if (exponent == 0) {
+//            return String.format(Locale.ROOT, "%." + visibleDecimalDigitCount + "f", source);
+//        } else {
+//            // we need to slide the exponent back
+//
+//            int fixedV = visibleDecimalDigitCount + exponent;
+//            String baseString = String.format(Locale.ROOT, "%." + fixedV + "f", getSource()/Math.pow(10,exponent));
+//
+//            // However, we don't have enough information to round-trip if v == 0
+//            // So in that case we choose the shortest form,
+//            // so we have to have a hack to strip trailing fraction spaces.
+//            if (visibleDecimalDigitCount == 0) {
+//                for (int i = visibleDecimalDigitCount; i < fixedV; ++i) {
+//                    // TODO this code could and should be optimized, but for now...
+//                    if (baseString.endsWith("0")) {
+//                        baseString = baseString.substring(0,baseString.length()-1);
+//                        continue;
+//                    }
+//                    break;
+//                }
+//                if (baseString.endsWith(".")) {
+//                    baseString = baseString.substring(0,baseString.length()-1);
+//                }
+//            }
+//
+//            return baseString + "e" + exponent;
+//        }
     }
 
 //    // FixedDecimal.toString isn't working right.

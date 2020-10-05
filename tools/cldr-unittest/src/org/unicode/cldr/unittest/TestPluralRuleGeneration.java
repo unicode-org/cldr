@@ -15,6 +15,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
+import com.ibm.icu.math.BigDecimal;
 import com.ibm.icu.number.Notation;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.NumberFormatter.UnitWidth;
@@ -23,6 +25,7 @@ import com.ibm.icu.number.UnlocalizedNumberFormatter;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.IFixedDecimal;
 import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.ICUException;
@@ -229,8 +232,8 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             "1200000", "1.2e6",
             "123e6",
             "123e5",
-            "1200.5",
-            "1.2005e3"
+            "1200.50",
+            "1.20050e3"
             );
 
         for (String test : tests) {
@@ -253,13 +256,116 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             for (String test : tests) {
                 final FixedDecimal source = new FixedDecimal(test);
                 System.out.println(locale
-                    + "\t" + source.toString()
+                    + "\t" + FixedDecimal.toSampleString(source)
                     + "\t" + pluralInfo(pr, source)
                     );
             }
             System.out.println();
 
         }
+    }
+
+    public void TestDecimalQuantity() {
+        ImmutableSet<String> tests = ImmutableSet.of(
+            "1000.5",
+            "1.0005e3",
+            "1",
+            "1.0",
+            "1.00",
+            "1.3",
+            "1.30",
+            "1.03",
+            "1.230",
+            "1200000",
+            "1.2e6",
+            "123e6",
+            "123e5",
+            "1200.5",
+            "1.2005e3",
+            "2300000",
+            "2.3e6",
+            //"1.20050e3",
+            "1200.5",
+            "1.2005e3",
+            "1200000",
+            "1.2e6",
+            //"1.20e6",
+            "1234567.8",
+            "123456.78e1",
+            "12.345678e5",
+            "1.2345678e6",
+            "1.20050e3"
+            );
+
+        boolean ok;
+        for (int i = 0; i < 3; ++i) {
+            for (String test : tests) {
+                IFixedDecimal sourceFixedDecimal = new FixedDecimal(test);
+                DecimalQuantity_DualStorageBCD sourceDecimalQuantity = quantityFromSampleString(test);
+                switch(i) {
+                case 0:
+                    ok = assertEquals(test + " — check FixedDecimal toString", test, sourceFixedDecimal.toString());
+                    if (!ok) {
+                        sourceFixedDecimal = new FixedDecimal(test); // for debugging
+                        sourceFixedDecimal.toString();
+                    }
+                    break;
+                case 1:
+                    ok = assertEquals(test + " — check quantity toScientificString",
+                        test, FixedDecimal.toSampleString(sourceDecimalQuantity));
+                    if (!ok) {
+                        sourceFixedDecimal = quantityFromSampleString(test); // for debugging
+                    }
+                    break;
+                case 2:
+                    ok = assertEquals(test + " — check operands FixedDecimal vs DecimalQuantity", "",
+                        showOperandDifferences("FD", sourceFixedDecimal, "DC", sourceDecimalQuantity));
+                    break;
+                }
+            }
+        }
+    }
+
+    public static String showOperandDifferences(String myTitle, IFixedDecimal me, String otherTitle, IFixedDecimal other) {
+        StringBuilder result = new StringBuilder();
+        for (Operand op : Operand.values()) {
+            if (me.getPluralOperand(op) != other.getPluralOperand(op)) {
+                if (result.length() != 0) {
+                    result.append("; ");
+                }
+                result.append(op)
+                .append(": "
+                    + myTitle
+                    + "=").append(me.getPluralOperand(op))
+                .append(" "
+                    + otherTitle
+                    + "=").append(other.getPluralOperand(op))
+                ;
+            }
+        }
+        return result.toString();
+    }
+
+    public static DecimalQuantity_DualStorageBCD quantityFromSampleString(String num) {
+        final DecimalQuantity_DualStorageBCD sourceQuantity;
+        int exponent = 0;
+        int ePos = num.indexOf('e');
+        if (ePos >= 0) {
+            String exponentStr = num.substring(ePos + 1);
+            exponent = Integer.parseInt(exponentStr);
+            num = num.substring(0, ePos);
+        }
+
+        int v = FixedDecimal.getVisibleFractionCount(num) + exponent;
+
+        BigDecimal altBD = new BigDecimal(num);
+        altBD = altBD.movePointRight(exponent);
+        sourceQuantity = new DecimalQuantity_DualStorageBCD(altBD);
+        sourceQuantity.setMinFraction(v-exponent); //"1.20050e3" v should be 2, is 4
+        sourceQuantity.adjustMagnitude(-exponent);
+        sourceQuantity.adjustExponent(exponent);
+
+        return sourceQuantity;
     }
 
     static final DecimalFormat nf = new DecimalFormat("0.#####");

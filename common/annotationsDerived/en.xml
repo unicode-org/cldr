@@ -610,6 +610,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧔🏾" type="tts">person: medium-dark skin tone, beard</annotation>
 		<annotation cp="🧔🏿">beard | dark skin tone | person | person: beard</annotation>
 		<annotation cp="🧔🏿" type="tts">person: dark skin tone, beard</annotation>
+		<annotation cp="🧔🏻‍♂">beard | light skin tone | man | man: beard</annotation>
+		<annotation cp="🧔🏻‍♂" type="tts">man: light skin tone, beard</annotation>
+		<annotation cp="🧔🏼‍♂">beard | man | man: beard | medium-light skin tone</annotation>
+		<annotation cp="🧔🏼‍♂" type="tts">man: medium-light skin tone, beard</annotation>
+		<annotation cp="🧔🏽‍♂">beard | man | man: beard | medium skin tone</annotation>
+		<annotation cp="🧔🏽‍♂" type="tts">man: medium skin tone, beard</annotation>
+		<annotation cp="🧔🏾‍♂">beard | man | man: beard | medium-dark skin tone</annotation>
+		<annotation cp="🧔🏾‍♂" type="tts">man: medium-dark skin tone, beard</annotation>
+		<annotation cp="🧔🏿‍♂">beard | dark skin tone | man | man: beard</annotation>
+		<annotation cp="🧔🏿‍♂" type="tts">man: dark skin tone, beard</annotation>
 		<annotation cp="👱🏻‍♂">blond | blond-haired man | hair | light skin tone | man | man: blond hair</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">man: light skin tone, blond hair</annotation>
 		<annotation cp="👱🏼‍♂">blond | blond-haired man | hair | man | man: blond hair | medium-light skin tone</annotation>
@@ -768,26 +778,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">man: medium-dark skin tone, bald</annotation>
 		<annotation cp="👨🏿‍🦲">adult | bald | dark skin tone | man</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">man: dark skin tone, bald</annotation>
-		<annotation cp="🧔🏻‍♀">beard | light skin tone | woman | woman: beard</annotation>
-		<annotation cp="🧔🏻‍♀" type="tts">woman: light skin tone, beard</annotation>
-		<annotation cp="🧔🏼‍♀">beard | medium-light skin tone | woman | woman: beard</annotation>
-		<annotation cp="🧔🏼‍♀" type="tts">woman: medium-light skin tone, beard</annotation>
-		<annotation cp="🧔🏽‍♀">beard | medium skin tone | woman | woman: beard</annotation>
-		<annotation cp="🧔🏽‍♀" type="tts">woman: medium skin tone, beard</annotation>
-		<annotation cp="🧔🏾‍♀">beard | medium-dark skin tone | woman | woman: beard</annotation>
-		<annotation cp="🧔🏾‍♀" type="tts">woman: medium-dark skin tone, beard</annotation>
-		<annotation cp="🧔🏿‍♀">beard | dark skin tone | woman | woman: beard</annotation>
-		<annotation cp="🧔🏿‍♀" type="tts">woman: dark skin tone, beard</annotation>
-		<annotation cp="🧔🏻‍♂">beard | light skin tone | man | man: beard</annotation>
-		<annotation cp="🧔🏻‍♂" type="tts">man: light skin tone, beard</annotation>
-		<annotation cp="🧔🏼‍♂">beard | man | man: beard | medium-light skin tone</annotation>
-		<annotation cp="🧔🏼‍♂" type="tts">man: medium-light skin tone, beard</annotation>
-		<annotation cp="🧔🏽‍♂">beard | man | man: beard | medium skin tone</annotation>
-		<annotation cp="🧔🏽‍♂" type="tts">man: medium skin tone, beard</annotation>
-		<annotation cp="🧔🏾‍♂">beard | man | man: beard | medium-dark skin tone</annotation>
-		<annotation cp="🧔🏾‍♂" type="tts">man: medium-dark skin tone, beard</annotation>
-		<annotation cp="🧔🏿‍♂">beard | dark skin tone | man | man: beard</annotation>
-		<annotation cp="🧔🏿‍♂" type="tts">man: dark skin tone, beard</annotation>
 		<annotation cp="👩🏻">adult | light skin tone | woman</annotation>
 		<annotation cp="👩🏻" type="tts">woman: light skin tone</annotation>
 		<annotation cp="👩🏼">adult | medium-light skin tone | woman</annotation>
@@ -798,6 +788,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">woman: medium-dark skin tone</annotation>
 		<annotation cp="👩🏿">adult | dark skin tone | woman</annotation>
 		<annotation cp="👩🏿" type="tts">woman: dark skin tone</annotation>
+		<annotation cp="🧔🏻‍♀">beard | light skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏻‍♀" type="tts">woman: light skin tone, beard</annotation>
+		<annotation cp="🧔🏼‍♀">beard | medium-light skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏼‍♀" type="tts">woman: medium-light skin tone, beard</annotation>
+		<annotation cp="🧔🏽‍♀">beard | medium skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏽‍♀" type="tts">woman: medium skin tone, beard</annotation>
+		<annotation cp="🧔🏾‍♀">beard | medium-dark skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏾‍♀" type="tts">woman: medium-dark skin tone, beard</annotation>
+		<annotation cp="🧔🏿‍♀">beard | dark skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏿‍♀" type="tts">woman: dark skin tone, beard</annotation>
 		<annotation cp="👱🏻‍♀">blond hair | blond-haired woman | blonde | hair | light skin tone | woman | woman: blond hair</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">woman: light skin tone, blond hair</annotation>
 		<annotation cp="👱🏼‍♀">blond hair | blond-haired woman | blonde | hair | medium-light skin tone | woman | woman: blond hair</annotation>
@@ -4006,6 +4006,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">flag: Scotland</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">flag</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">flag: Wales</annotation>
+		<annotation cp="¤" type="tts">Unknown Currency</annotation>
+		<annotation cp="֏" type="tts">Armenian Dram</annotation>
+		<annotation cp="؋" type="tts">Afghan Afghani</annotation>
+		<annotation cp="৳" type="tts">Bangladeshi Taka</annotation>
+		<annotation cp="฿" type="tts">Thai Baht</annotation>
+		<annotation cp="៛" type="tts">Cambodian Riel</annotation>
+		<annotation cp="₡" type="tts">Costa Rican Colón</annotation>
+		<annotation cp="₦" type="tts">Nigerian Naira</annotation>
+		<annotation cp="₧" type="tts">Spanish Peseta</annotation>
+		<annotation cp="₪" type="tts">Israeli New Shekel</annotation>
+		<annotation cp="₫" type="tts">Vietnamese Dong</annotation>
+		<annotation cp="₭" type="tts">Laotian Kip</annotation>
+		<annotation cp="₮" type="tts">Mongolian Tugrik</annotation>
+		<annotation cp="₲" type="tts">Paraguayan Guarani</annotation>
+		<annotation cp="₴" type="tts">Ukrainian Hryvnia</annotation>
+		<annotation cp="₵" type="tts">Ghanaian Cedi</annotation>
+		<annotation cp="₸" type="tts">Kazakhstani Tenge</annotation>
+		<annotation cp="₺" type="tts">Turkish Lira</annotation>
+		<annotation cp="₼" type="tts">Azerbaijani Manat</annotation>
+		<annotation cp="₾" type="tts">Georgian Lari</annotation>
 		<annotation cp="0⃣">keycap</annotation>
 		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
 		<annotation cp="1⃣">keycap</annotation>

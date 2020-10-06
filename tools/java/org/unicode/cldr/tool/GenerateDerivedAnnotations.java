@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -16,6 +18,7 @@ import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -24,7 +27,9 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSortedSet;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.text.UnicodeSet;
 
 public class GenerateDerivedAnnotations {
@@ -38,6 +43,20 @@ public class GenerateDerivedAnnotations {
         .add(Annotations.MISSING_MARKER)
         .freeze();
 
+    static Map<String,String> codepointToIsoCurrencyCode;
+    static {
+        final Splitter tabSplitter = Splitter.on('\t').trimResults();
+        Map<String,String> _codepointToIsoCurrencyCode = new TreeMap<>();
+        for (String line : FileUtilities.in(CldrUtility.class, "data/codepointToIsoCurrencyCode.tsv")) {
+            if (line.startsWith("#")) {
+                continue;
+            }
+            List<String> parts = tabSplitter.splitToList(line);
+            _codepointToIsoCurrencyCode.put(parts.get(0), parts.get(1));
+        }
+        codepointToIsoCurrencyCode = ImmutableMap.copyOf(_codepointToIsoCurrencyCode);
+    }
+
     public static void main(String[] args) throws IOException {
         boolean missingOnly = args.length > 0 && args[0].equals("missing");
         if (missingOnly) {
@@ -48,9 +67,14 @@ public class GenerateDerivedAnnotations {
         AnnotationSet enAnnotations = Annotations.getDataSet("en");
         CLDRFile english = CLDR_CONFIG.getEnglish();
 
-        UnicodeSet derivables = new UnicodeSet(Emoji.getAllRgiNoES()).removeAll(enAnnotations.keySet()).freeze();
+        UnicodeSet derivables = new UnicodeSet(Emoji.getAllRgiNoES())
+            .addAll(codepointToIsoCurrencyCode.keySet())
+            .removeAll(enAnnotations.keySet())
+            .freeze();
+
         Map<String, UnicodeSet> localeToFailures = new LinkedHashMap<>();
         Set<String> locales = ImmutableSortedSet.copyOf(Annotations.getAvailable());
+        final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
 
         for (String locale : locales) {
             if ("root".equals(locale)) {
@@ -69,6 +93,7 @@ public class GenerateDerivedAnnotations {
                 continue;
             }
             CLDRFile target = new CLDRFile(new SimpleXMLSource(locale));
+            CLDRFile main = null;
             DisplayAndInputProcessor DAIP = new DisplayAndInputProcessor(target);
             Exception[] internalException = new Exception[1];
 
@@ -80,6 +105,20 @@ public class GenerateDerivedAnnotations {
                     shortName = annotations.getShortName(derivable);
                 } catch (Exception e) {
                 }
+
+                if (shortName == null) {
+                    String currencyCode = codepointToIsoCurrencyCode.get(derivable);
+                    if (currencyCode != null) {
+                        if (main == null) {
+                            main = cldrFactory.make(locale, true);
+                        }
+                        shortName = main.getName(CLDRFile.CURRENCY_NAME, currencyCode);
+                        if (shortName.contentEquals(currencyCode)) {
+                            shortName = null; // don't want fallback raw code
+                        }
+                    }
+                }
+
                 if (shortName == null || SKIP.containsSome(shortName)) {
                     continue; // missing
                 }
@@ -163,4 +202,5 @@ public class GenerateDerivedAnnotations {
         }
         System.out.println("Be sure to run CLDRModify passes afterwards, and generate transformed locales (like de-CH).");
     }
+
 }

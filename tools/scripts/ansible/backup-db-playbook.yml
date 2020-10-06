@@ -45,7 +45,7 @@
         dest: /home/cldrbackup/.ssh/id_rsa
         owner: cldrbackup
         group: cldrbackup
-        mode: '0640'
+        mode: '0600'
     - name: set up /home/cldrbackup/.ssh/id_rsa.pub
       copy:
         src: local-vars/cldrbackup/id_rsa.pub
@@ -70,6 +70,7 @@
     - name: set up daily db backup cron job
       cron:
         name: "backup db"
+        user: cldrbackup
         minute: "37"
         hour: "7"
         job: "sh /home/cldrbackup/backup.sh >/dev/null 2>&1"

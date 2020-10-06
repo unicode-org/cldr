@@ -1,5 +1,12 @@
-The graphemeCluster directory contains files used to modify the default Grapheme Cluster Break (GCB)
-(https://unicode.org/reports/tr29/) algorithm to add support for not splitting Indic aksaras.
+CLDR Segmentation data
+#  Copyright © 1991-2020 Unicode, Inc.
+#  For terms of use, see http://www.unicode.org/copyright.html
+#  Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+#  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+The segments directory contains files used to customize the default segmentation data in the UCD. 
+
+Currently this just applies to the Grapheme Cluster Break (GCB) (https://unicode.org/reports/tr29/) algorithm,
+to add support for not splitting Indic aksaras.
 
 The modifications are:
 

@@ -60,6 +60,12 @@ const cldrStForum = (function() {
 	let userCanPost = false;
 
 	/**
+	 * Whether to use UTC for displaying date/time
+	 * Helpful for unit tests
+	 */
+	let displayUtc = false;
+
+	/**
 	 * Fetch the Forum data from the server, and "load" it
 	 *
 	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
@@ -1085,6 +1091,10 @@ const cldrStForum = (function() {
 		function pad(n) {
 			return (n < 10) ? '0' + n : n;
 		}
+		if (displayUtc) {
+			return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) +
+			' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes() + ' UTC');
+		}
 		return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
 			' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
 	}
@@ -1232,6 +1242,13 @@ const cldrStForum = (function() {
 		return threadHash;
 	}
 
+	/**
+	 * Set whether to use UTC for displaying date/time
+	 */
+	function setDisplayUtc(utc) {
+		displayUtc = utc ? true : false;
+	}
+
 	/*
 	 * Make only these functions accessible from other files:
 	 */
@@ -1247,6 +1264,7 @@ const cldrStForum = (function() {
 		 */
 		test: {
 			getThreadHash: getThreadHash,
+			setDisplayUtc: setDisplayUtc,
 		}
 	};
 })();

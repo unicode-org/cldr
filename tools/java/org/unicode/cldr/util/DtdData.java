@@ -102,6 +102,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static final Set<String> DRAFT_ON_NON_LEAF_ALLOWED = ImmutableSet.of("collation", "transform", "unitPreferenceData", "rulesetGrouping");
 
     public static class Attribute implements Named {
+        private static final Joiner JOINER_COMMA_SPACE = Joiner.on(", ");
+        public static final String AUG_TRAIL = "⟫";
+        public static final String AUG_LEAD = "⟪";
+        public static final String ENUM_TRAIL = "⟩";
+        public static final String ENUM_LEAD = "⟨";
+        public static final Pattern LEAD_TRAIL = Pattern.compile("(.*[" + AUG_LEAD + ENUM_LEAD + "])(.*)([" + AUG_TRAIL + ENUM_TRAIL + "].*)");
         public final String name;
         public final Element element;
         public final Mode mode;
@@ -309,9 +315,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public String getMatchString() {
-            return type == AttributeType.ENUMERATED_TYPE ? "⟨" + Joiner.on(", ")
-                .join(values.keySet()) + "⟩"
-                : matchValue != null ? "⟪" + matchValue.toString() + "⟫"
+            return type == AttributeType.ENUMERATED_TYPE ? ENUM_LEAD + JOINER_COMMA_SPACE.join(values.keySet()) + ENUM_TRAIL
+                : matchValue != null ? AUG_LEAD + matchValue.toString() + AUG_TRAIL
                     : "";
         }
 

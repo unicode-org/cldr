@@ -54,7 +54,8 @@
         group: cldradmin
         mode: '0640'
     - name: fetch and unzip db
-      command: bash /home/cldradmin/fetch-db.sh
+      # This playbook is intended to always make a change.
+      command: bash /home/cldradmin/fetch-db.sh # noqa 301
       become: yes
       become_user: cldradmin
     - name: stop tomcat
@@ -63,7 +64,8 @@
         name: tomcat8
         state: stopped
     - name: redact db
-      command: bash /home/cldradmin/redact-db.sh
+      # This playbook is intended to always make a change.
+      command: bash /home/cldradmin/redact-db.sh # noqa 301
       become: yes
       become_user: cldradmin
     - name: restart tomcat

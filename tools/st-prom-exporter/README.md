@@ -12,9 +12,8 @@ Survey Tool.
 ```json
 {
     "instances": {
-        "cldr-smoke2.unicode.org": "https://cldr-smoke2.unicode.org/cldr-apps/SurveyAjax?what=status",
-        "st.unicode.org": "https://st.unicode.org/cldr-apps/SurveyAjax?what=status",
-        "cldr-smoke.unicode.org": "https://cldr-smoke.unicode.org/smoketest/SurveyAjax?what=status"
+        "cldr-smoke.unicode.org": "https://cldr-smoke.unicode.org/cldr-apps/SurveyAjax?what=status",
+        "st.unicode.org": "https://st.unicode.org/cldr-apps/SurveyAjax?what=status"
     },
     "port": 9099
 }

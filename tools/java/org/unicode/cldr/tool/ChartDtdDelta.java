@@ -11,6 +11,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
@@ -23,6 +24,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -34,6 +36,8 @@ import com.ibm.icu.util.VersionInfo;
  * @author markdavis
  */
 public class ChartDtdDelta extends Chart {
+
+    private static final Splitter SPLITTER_SPACE = Splitter.on(' ');
 
     private static final String DEPRECATED_PREFIX = "⊖";
 
@@ -71,7 +75,7 @@ public class ChartDtdDelta extends Chart {
             + AttributeStatus.value.shortName + "=" + AttributeStatus.value + ", or "
             + AttributeStatus.metadata.shortName + "=" + AttributeStatus.metadata + ".</li>\n"
             + "<li>Attribute value constraints are marked with ⟨…⟩ (for DTD constraints) and ⟪…⟫ (for augmented constraints, added in v35.0).</li>\n"
-            + "<li>Changes in status or constraints are shown with ➠.</li>\n"
+            + "<li>Changes in status or constraints are shown with ➠, with identical sections shown with ….</li>\n"
             + "<li>Newly ordered elements are indicated with " + ORDERED_SIGN + "; newly unordered with " + UNORDERED_SIGN + ".</li>\n"
             + "</ul></li></ul>\n"
             + "<p>For more information, see the LDML spec.</p>";
@@ -337,7 +341,7 @@ public class ChartDtdDelta extends Chart {
                 String pre, post;
                 Attribute attributeOld = attribute.getMatchingName(attributesOld);
                 if (attributeOld == null) {
-                    display += " " + AttributeStatus.getShortName(status) + " " + match;
+                    display = NEW_PREFIX + name +  " " + AttributeStatus.getShortName(status) + " " + match;
                 } else if (attribute.isDeprecated() && !attributeOld.isDeprecated()) {
                     display = DEPRECATED_PREFIX + name;
                 } else {
@@ -358,11 +362,43 @@ public class ChartDtdDelta extends Chart {
                     } else {
                         continue main; // skip attribute entirely;
                     }
-                    display += " " + pre + "➠" + post;
+                    display = name + " " + diff(pre, post);
                 }
                 names.add(display);
             }
         return names;
+    }
+
+    public static String diff(String pre, String post) {
+        Matcher matcherPre = Attribute.LEAD_TRAIL.matcher(pre);
+        Matcher matcherPost = Attribute.LEAD_TRAIL.matcher(post);
+        if (matcherPre.matches() && matcherPost.matches()) {
+            List<String> preParts = SPLITTER_SPACE.splitToList(matcherPre.group(2));
+            List<String> postParts = SPLITTER_SPACE.splitToList(matcherPost.group(2));
+            pre = matcherPre.group(1) + remove(preParts, postParts) + matcherPre.group(3);
+            post = matcherPost.group(1) + remove(postParts, preParts) + matcherPost.group(3);
+        }
+        return pre + "➠" + post;
+    }
+
+    private static String remove(List<String> main, List<String> toRemove) {
+        List<String> result = new ArrayList<>();
+        boolean removed = false;
+        for (String s : main) {
+            if (toRemove.contains(s)) {
+                removed = true;
+            } else {
+                if (removed) {
+                    result.add("…");
+                    removed = false;
+                }
+                result.add(s);
+            }
+        }
+        if (removed) {
+            result.add("…");
+        }
+        return Joiner.on(" ").join(result);
     }
 
 //    private static boolean isDeprecated(DtdData dtdCurrent, String elementName, String attributeName) {

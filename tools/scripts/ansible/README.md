@@ -102,6 +102,14 @@ surveytooldeploy:
   key: ssh-rsa …  ( SSH key goes here)
 ```
 
+## Setup: cldrcc
+
+```shell
+mkdir -p local-vars/cldrcc
+ssh-keygen -t rsa -b 2048 -C 'CLDR Commit Checker' -f local-vars/cldrcc/id_rsa
+```
+
+
 ## Configure
 
 Run the setup playbook.

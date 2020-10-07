@@ -13,14 +13,12 @@ jobs:
       # the hash here is a specific version of that repo, since there is not a later commit.
       uses: ansible/ansible-lint-action@6c8c14186662e43effbe39a678950896a46799ad
       with:
-        targets: |
-          tools/scripts/ansible/setup-playbook.yml
-          tools/scripts/ansible/upgrade-playbook.yml
-          tools/scripts/ansible/backup-db-playbook.yml
-        args: ""
+        targets: tools/scripts/ansible/*-playbook.yml
     - name: Lint Markdown
       # Warn, don't fail yet
       run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)
+    - name: Lint GitHub Actions
+      run: npx yaml-lint .github/workflows/*.yml
   build:
     runs-on: macos-latest
     steps:

@@ -135,7 +135,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: cldr-apps
-    - name: Deploy to cldr-smoke2 (experimental)
+    - name: Deploy to cldr-smoke (experimental)
       # Deploys only on push to master.
       # Does not deploy for PRs.
       if: ${{ github.event_name == 'push' }}

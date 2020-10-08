@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+"https://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
   <meta name="generator" content=
@@ -70,12 +70,12 @@
 <body>
   <table class="header" width="100%">
     <tr>
-      <td class="icon"><a href="http://unicode.org"><img alt=
+      <td class="icon"><a href="https://unicode.org"><img alt=
       "[Unicode]" src="../logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
-      "http://www.unicode.org/reports/">Technical Reports</a></td>
+      "https://www.unicode.org/reports/">Technical Reports</a></td>
     </tr>
     <tr>
       <td class="gray">&nbsp;</td>
@@ -105,7 +105,7 @@
     <p>This document describes parts of an XML format
     (<i>vocabulary</i>) for the exchange of structured locale data.
     This format is used in the <a href=
-    "http://cldr.unicode.org/">Unicode Common Locale Data
+    "https://unicode.org/cldr/">Unicode Common Locale Data
     Repository</a>.</p>
     <p>This is a partial document, describing only those parts of
     the LDML that are relevant for supplemental data. For the other
@@ -268,7 +268,7 @@
     contained in the locale hierarchy. It is not localizable, nor
     is it overridden by locale data. The current CLDR data can be
     viewed in the <a href=
-    "http://www.unicode.org/cldr/data/charts/supplemental/index.html">
+    "https://www.unicode.org/cldr/data/charts/supplemental/index.html">
     Supplemental Charts</a>.</p>
     <p class="dtd">
     <!-- t d {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}-->
@@ -335,7 +335,7 @@
     </ul>
     <p>For a chart showing the relationships (plus the included
     timezones), see the <a href=
-    "http://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html">
+    "https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html">
     Territory Containment Chart</a>. The XML structure has the
     following form.</p>
     <pre>&lt;territoryContainment&gt;</pre>
@@ -444,7 +444,7 @@
     language in each territory: that is, the population that is
     able to read and write each language, and is comfortable enough
     to use it with computers. For a chart of this data, see
-    <a href='http://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>
+    <a href='https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>
     Territory-Language Information</a>.</p>
     <p><em>Example</em></p>
     <pre style='font-size: 70%'>
@@ -769,7 +769,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     codes are used, such as the numeric code for XK.</p>
     <p>The currencyCodes are mappings from three letter currency
     codes to numeric values (ISO 4217 <a href=
-    "http://www.currency-iso.org/en/home/tables/table-a1.html">Current
+    "https://www.currency-iso.org/en/home/tables/table-a1.html">Current
     currency &amp; funds code list</a>.) The mapping currently
     covers only current codes and does not include historic
     currencies. For example:</p>
@@ -844,9 +844,9 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     up to date, such as:</p>
     <ul>
       <li><a href=
-      "http://i18napis.appspot.com/address/data/US">http://i18napis.appspot.com/address/data/US</a></li>
+      "https://i18napis.appspot.com/address/data/US">https://i18napis.appspot.com/address/data/US</a></li>
       <li><a href=
-      "http://i18napis.appspot.com/address/data/CH">http://i18napis.appspot.com/address/data/CH</a></li>
+      "https://i18napis.appspot.com/address/data/CH">https://i18napis.appspot.com/address/data/CH</a></li>
       <li>...<br></li>
     </ul>
     <p class="dtd">&lt;!ELEMENT postalCodeData (postCodeRegex*)
@@ -953,7 +953,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
         information about the language and writing system that is
         required before other information can be added using the
         CLDR survey tool. See <a href=
-        "http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a></td>
+        "https://unicode.org/cldr/index/cldr-spec/minimaldata">https://unicode.org/cldr/index/cldr-spec/minimaldata</a></td>
       </tr>
       <tr>
         <td nowrap>
@@ -1085,7 +1085,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     <pre>
     &lt;approvalRequirements&gt;<br>   &lt;!--  "high bar" items --&gt;
                 &lt;approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/&gt;
-                &lt;!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;
+                &lt;!--  established locales - https://unicode.org/cldr/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;
                 &lt;approvalRequirement votes="8" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/&gt;
                 &lt;!--  all other items --&gt;
                 &lt;approvalRequirement votes="4" locales="*" paths=""/&gt;<br>&lt;/approvalRequirements&gt;              </pre>
@@ -1095,7 +1095,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     cs, etc.) requires 8 votes, and that all other locales require
     4 votes only.</p>
     <p>For more information on the CLDR Voting process, See
-    <a href="http://cldr.unicode.org/index/process">http://cldr.unicode.org/index/process</a></p>
+    <a href="https://unicode.org/cldr/index/process">https://unicode.org/cldr/index/process</a></p>
     <h3>8.1 <a name="Coverage_Level_Definitions" href=
     "#Coverage_Level_Definitions" id=
     "Coverage_Level_Definitions">Definitions</a></h3>
@@ -1244,7 +1244,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
         <ul>
           <li>however, in that case the locale must be added to the
           validSubLocale list in <a href=
-          "http://unicode.org/cldr/data/common/collation/root.xml">collation/root.xml</a>.</li>
+          "https://unicode.org/cldr/data/common/collation/root.xml">collation/root.xml</a>.</li>
         </ul>
       </li>
       <li>for currency symbol, language, territory, script names,
@@ -1359,7 +1359,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
         <td>macrolanguage</td>
         <td>The code in type is an encompassed languagethat is
         replaced by a macrolanguage, such as '<a href=
-        "http://www-01.sil.org/iso639-3/documentation.asp?id=arb">arb'</a>
+        "https://www.sil.org/iso639-3/documentation.asp?id=arb">arb'</a>
         by 'ar'.</td>
       </tr>
       <tr>
@@ -1371,7 +1371,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
       <tr>
         <td>bibliographic</td>
         <td>The code in type is a <a href=
-        "http://www.loc.gov/standards/iso639-2/langhome.html">bibliographic
+        "https://www.loc.gov/standards/iso639-2/langhome.html">bibliographic
         code</a>, which is replaced by a terminology code, such as
         'alb' by 'sq'.</td>
       </tr>
@@ -1492,7 +1492,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     &gt;<br></p>
     <p>The &lt;cldrVersion&gt; attribute defines the CLDR version
     for this data, as published on <a href=
-    "http://cldr.unicode.org/index/downloads">CLDR
+    "https://unicode.org/cldr/index/downloads">CLDR
     Releases/Downloads</a></p>
     <p>The &lt;unicodeVersion&gt; attribute defines the version of
     the Unicode standard that is used to interpret data.
@@ -2220,7 +2220,7 @@ Once a matching unitPreference element is found:
     consequential damages in connection with or arising out of the
     use of the information or programs contained or accompanying
     this technical report. The Unicode <a href=
-    "http://unicode.org/copyright.html">Terms of Use</a> apply.</p>
+    "https://unicode.org/copyright.html">Terms of Use</a> apply.</p>
     <p class="copyright">Unicode and the Unicode logo are
     trademarks of Unicode, Inc., and are registered in some
     jurisdictions.</p>

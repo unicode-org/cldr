@@ -102,7 +102,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2020-09-03</td>
+        <td class="changed">2020-10-06</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -1214,7 +1214,8 @@
           4.5</a> and <a href=
           "https://tools.ietf.org/html/bcp47#section-3.1.7" target=
           "_blank">Section 3.1.7</a>)</li>
-          <li>No irregular BCP 47 grandfathered tags are allowed
+          <li>No irregular BCP 47 <span class="removed">grandfathered </span><span class="changed">legacy language </span>tags
+          <span class="changed">(marked as “Type: grandfathered” in BCP 47) </span>are allowed
           (these are all deprecated in BCP 47)</li>
           <li>A tag must not start with the subtag "x": thus a
           <em>privateuse</em> (eg x-abc) can only be after a
@@ -1376,7 +1377,8 @@
       <tr>
         <td><code>i-enochian</code></td>
         <td><code>und-x-i-enochian</code></td>
-        <td>prefix any grandfathered tags with "und-x-" [4]</td>
+        <td>prefix any <span class="removed">grandfathered </span><span class="changed">legacy language </span>tags
+          <span class="changed">(marked as “Type: grandfathered” in BCP 47)</span> with "und-x-" [4]</td>
       </tr>
       <tr>
         <td><code>x-abc</code></td>
@@ -5224,7 +5226,8 @@ root</pre>
           a case, the original script and/or region are retained if
           there is one. Thus "sh_Arab_AQ" ➞ "sr_Arab_AQ", not
           "sr_Latn_AQ".</li>
-          <li>If the tag is grandfathered (see &lt;variable
+          <li>If the tag is <span class="removed">grandfathered </span><span class="changed">a legacy language tag
+          </span>(<span class="changed">marked as “Type: grandfathered” in BCP 47; </span>see &lt;variable
           id="$grandfathered" type="choice"&gt; in the supplemental
           data), then return it.</li>
           <li>Remove the script code 'Zzzz' and the region code
@@ -8789,7 +8792,7 @@ decimal?, group?, special*)) &gt;</pre>
             <li>Where the <em>source</em> could be an arbitrary BCP 47 language tag, first process as follows:
 <ol>
           <li>If the source is identical to one of the types in the BCP47 LegacyRules, replace the entire source by the replacement value.</li>
-		        <li>Else if there is an extlang subtag, then apply Step 3 of <a href="https://www.google.com/url?q=https://tools.ietf.org/html/bcp47%23section-4.5&sa=D&ust=1600829915065000&usg=AOvVaw12vD5EzoVl3VFzEyrECMj-">https://tools.ietf.org/html/bcp47#section-4.5</a> to remove the extlang subtag (possibly adjusting the language subtag).		        
+		        <li>Else if there is an extlang subtag, then apply Step 3 of <a href="https://www.google.com/url?q=https://tools.ietf.org/html/bcp47%23section-4.5&amp;sa=D&amp;ust=1600829915065000&amp;usg=AOvVaw12vD5EzoVl3VFzEyrECMj-">https://tools.ietf.org/html/bcp47#section-4.5</a> to remove the extlang subtag (possibly adjusting the language subtag).		        
 		          <ol>
 		            <li>Don&rsquo;t apply any of the other canonicalization steps in that section, however.</li>
 	              </ol>
@@ -9345,13 +9348,6 @@ decimal?, group?, special*)) &gt;</pre>
           </li>
         </ul>
 	  </li>
-    <li ><strong>Part 6: <a href=
-    "tr35-info.html#Contents">Supplemental</a> (supplemental
-        data)</strong>
-	    <ul>
-	      <li><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: defined the userPreferences skeleton more precisely.</li>
-        </ul>
-	  </li>
 	  <li>
 	    <p><strong>Part 3: <a href=
     "tr35-numbers.html#Contents">Numbers</a> (number &amp; currency
@@ -9361,7 +9357,15 @@ decimal?, group?, special*)) &gt;</pre>
       Rules</a> : added the 'e' operand for use in certain compact number formatting.</li>
         </ul>
 	  </li>
-  </ul>
+      <li><strong>Part 6: <a href=
+      "tr35-info.html#Contents">Supplemental</a> (supplemental
+        data)</strong>
+	    <ul>
+	      <li><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: defined the userPreferences skeleton more precisely.</li>
+        </ul>
+	  </li>
+      <li><strong>Throughout: </strong>Where possible, use “legacy” (for language tag or unit) instead of “grandfathered”.</li>
+ </ul>
   <p><b>Revision 59</b></p>
   <p><span class='changed'>[Ed Note: remove R59 once we are ready to release.]</span></p>
 	<ul>

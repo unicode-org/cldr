@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+"https://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
   <meta name="generator" content=
@@ -70,12 +70,12 @@
 <body>
   <table class="header" width="100%">
     <tr>
-      <td class="icon"><a href="http://unicode.org"><img alt=
+      <td class="icon"><a href="https://unicode.org"><img alt=
       "[Unicode]" src="../logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
-      "http://www.unicode.org/reports/">Technical Reports</a></td>
+      "https://www.unicode.org/reports/">Technical Reports</a></td>
     </tr>
     <tr>
       <td class="gray">&nbsp;</td>
@@ -104,7 +104,7 @@
     <p>This document describes parts of an XML format
     (<i>vocabulary</i>) for the exchange of structured locale data.
     This format is used in the <a href=
-    "http://cldr.unicode.org/">Unicode Common Locale Data
+    "https://unicode.org/cldr/">Unicode Common Locale Data
     Repository</a>.</p>
     <p>This is a partial document, describing only those parts of
     the LDML that are relevant for collation (sorting, searching
@@ -344,7 +344,7 @@
     The data supports not only sorting but also language-sensitive
     searching and grouping under index headers. All CLDR collations
     are based on the [<a href=
-    "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] default
+    "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>] default
     order, with common modifications applied in the CLDR root
     collation, and further tailored for language and style as
     needed.</p>
@@ -352,7 +352,7 @@
     "#CLDR_Collation_Algorithm" id="CLDR_Collation_Algorithm">CLDR
     Collation Algorithm</a></h3>
     <p>The CLDR collation algorithm is an extension of the <a href=
-    "http://www.unicode.org/reports/tr10/#Main_Algorithm">Unicode
+    "https://www.unicode.org/reports/tr10/#Main_Algorithm">Unicode
     Collation Algorithm</a>.</p>
     <h4>1.1.1 <a name="Algorithm_FFFE" href="#Algorithm_FFFE" id=
     "Algorithm_FFFE">U+FFFE</a></h4>
@@ -361,7 +361,7 @@
     ignorable in alternate handling. On the identical level, a
     minimal, unique “weight” must be emitted for U+FFFE as well.
     This allows for <a href=
-    "http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging
+    "https://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging
     Sort Keys</a> within code point space.</p>
     <p>For example, when sorting names in a database, a sortable
     string can be formed with <em>last_name</em> + '\uFFFE' +
@@ -428,7 +428,7 @@
     </ul>
     <p class="note">Note: Matching of discontiguous contractions
     should be implemented without rewriting the text (unlike in the
-    [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
+    [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
     algorithm specification), so that prefix matching is
     predictable. (It should also help with contraction matching
     performance.) An implementation that does rewrite the text, as
@@ -626,10 +626,10 @@
     <h2>2 <a name="Root_Collation" href="#Root_Collation" id=
     "Root_Collation">Root Collation</a></h2>
     <p>The CLDR root collation order is based on the <a href=
-    "http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">
+    "https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">
     Default Unicode Collation Element Table (DUCET)</a> defined in
     <em>UTS #10: Unicode Collation Algorithm</em> [<a href=
-    "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. It is
+    "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. It is
     used by all other locales by default, or as the base for their
     tailorings. (For a chart view of the UCA, see Collation Chart
     [<a href="tr35.html#UCAChart">UCAChart</a>].)</p>
@@ -688,7 +688,7 @@
     "#non_variable_symbols" id="non_variable_symbols">Non-variable
     symbols</a></h3>
     <p>There are multiple <a href=
-    "http://www.unicode.org/reports/tr10/#Variable_Weighting">Variable-Weighting</a>
+    "https://www.unicode.org/reports/tr10/#Variable_Weighting">Variable-Weighting</a>
     options in the UCA for symbols and punctuation, including
     <em>non-ignorable</em> and <em>shifted</em>. With the
     <em>shifted</em> option, almost all symbols and punctuation are
@@ -706,17 +706,17 @@
       <li><i>Section 3.3, <a href="#Setting_Options">Setting
       Options</a></i></li>
       <li><a href=
-      "http://www.unicode.org/charts/collation/">http://www.unicode.org/charts/collation/</a></li>
+      "https://www.unicode.org/charts/collation/">https://www.unicode.org/charts/collation/</a></li>
     </ul>
     <h3>2.3 <a name="tibetan_contractions" href=
     "#tibetan_contractions" id="tibetan_contractions">Additional
     contractions for Tibetan</a></h3>
     <p>Ten contractions are added for Tibetan: Two to fulfill
     <a href=
-    "http://www.unicode.org/reports/tr10/#WF5">well-formedness
+    "https://www.unicode.org/reports/tr10/#WF5">well-formedness
     condition 5</a>, and eight more to preserve the default order
     for Tibetan. For details see <i>UTS #10, Section 3.8.2,
-    <a href="http://www.unicode.org/reports/tr10/#Well_Formed_DUCET">
+    <a href="https://www.unicode.org/reports/tr10/#Well_Formed_DUCET">
     Well-Formedness of the DUCET</a></i>.</p>
     <h3>2.4 <a name="tailored_noncharacter_weights" href=
     "#tailored_noncharacter_weights" id=
@@ -737,9 +737,9 @@
     <p>UCA (beginning with version 6.3) also maps
     <strong>U+FFFD</strong> to a special collation element with a
     very high primary weight, so that it is reliably non-<a href=
-    "http://www.unicode.org/reports/tr10/#Variable_Weighting">variable</a>,
+    "https://www.unicode.org/reports/tr10/#Variable_Weighting">variable</a>,
     for use with <a href=
-    "http://www.unicode.org/reports/tr10/#Handling_Illformed">ill-formed
+    "https://www.unicode.org/reports/tr10/#Handling_Illformed">ill-formed
     code unit sequences</a>.</p>
     <p>In CLDR, so as to maintain the special collation elements,
     <strong>U+FFFD..U+FFFF</strong> are not further tailorable, and
@@ -808,9 +808,9 @@
         <strong>CollationTest_CLDR</strong> - The CLDR versions of
         the CollationTest files, which use the tailorings for CLDR.
         For information on the format, see <a href=
-        "http://www.unicode.org/Public/UCA/latest/CollationTest.html">
+        "https://www.unicode.org/Public/UCA/latest/CollationTest.html">
         CollationTest.html</a> in the <a href=
-        "http://www.unicode.org/reports/tr10/#Data10">UCA data
+        "https://www.unicode.org/reports/tr10/#Data10">UCA data
         directory</a>.
         <ul>
           <li>CollationTest_CLDR_NON_IGNORABLE.txt</li>
@@ -831,7 +831,7 @@
     described in <i>Section 2, <a href="#Root_Collation">Root
     Collation</a></i> .</p>
     <p>The format is similar to that of <a href=
-    "http://www.unicode.org/reports/tr10/#File_Format">allkeys.txt</a>,
+    "https://www.unicode.org/reports/tr10/#File_Format">allkeys.txt</a>,
     although there may be some differences in whitespace.</p>
     <h4>2.6.2 <a name="File_Format_FractionalUCA_txt" href=
     "#File_Format_FractionalUCA_txt" id=
@@ -848,7 +848,7 @@
       <p>Lists the ranges of Unified_Ideograph characters in
       collation order. (New in CLDR 24.) They map to collation
       elements with <a href=
-      "http://www.unicode.org/reports/tr10/#Implicit_Weights">implicit
+      "https://www.unicode.org/reports/tr10/#Implicit_Weights">implicit
       (constructed) primary weights</a>.</p>
     </blockquote>
     <pre>[radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑予㐧𠄒-𠄔争𠀩𠄕亊𠄖-𠄘𪜜事㐨𠄙-𠄛𪜝𠄜𠄝]
@@ -872,19 +872,19 @@
       radical-stroke order.</p>
       <p>The root collation radical-stroke order is derived from
       the first (normative) values of the <a href=
-      "http://www.unicode.org/reports/tr38/#kRSUnicode">Unihan
+      "https://www.unicode.org/reports/tr38/#kRSUnicode">Unihan
       kRSUnicode</a> field for each Han character. Han characters
       are ordered by radical, with traditional forms sorting before
       simplified ones. Characters with the same radical are ordered
       by residual stroke count. Characters with the same
       radical-stroke values are ordered by block and code point, as
       for <a href=
-      "http://www.unicode.org/reports/tr10/#Implicit_Weights">UCA
+      "https://www.unicode.org/reports/tr10/#Implicit_Weights">UCA
       implicit weights</a>.</p>
       <p>There is one <code>[radical ...]</code> line per radical,
       in the order of radical numbers. Each line shows the radical
       number and the representative characters from the <a href=
-      "http://www.unicode.org/reports/tr44/#UCD_Files_Table">UCD
+      "https://www.unicode.org/reports/tr44/#UCD_Files_Table">UCD
       file CJKRadicals.txt</a>, followed by a colon (“:”) and the
       Han characters with that radical in the order as described
       above. A range like <code>万-丌</code> indicates that the code
@@ -1169,7 +1169,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     both.</p>
     <p class="note">Note: CLDR collation tailoring data should
     follow the <a href=
-    "http://cldr.unicode.org/index/cldr-spec/collation-guidelines">CLDR
+    "https://unicode.org/cldr/index/cldr-spec/collation-guidelines">CLDR
     Collation Guidelines</a>.</p>
     <h3>3.1 <a name="Collation_Types" href="#Collation_Types" id=
     "Collation_Types">Collation Types</a></h3>
@@ -1207,7 +1207,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
       <li class="note">In CLDR 23 and before, LDML collation files
       used an XML format. Starting with CLDR 24, the XML collation
       syntax is deprecated and no longer used. See the <i><a href=
-      "http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">
+      "https://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">
       CLDR 23 version of this document</a></i> for details about
       the XML collation syntax.</li>
     </ul>
@@ -1389,7 +1389,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         (primary)</td>
         <td rowspan="5">Sets the default strength for comparison,
         as described in the [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
         <em>Note that a strength setting of greater than 4 may have
         the same effect as <strong>identical</strong>, depending on
         the locale and implementation.</em></td>
@@ -1421,7 +1421,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         non-ignorable]</code></strong></i><br></td>
         <td rowspan="3">Sets alternate handling for variable
         weights, as described in [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
         where "shifted" causes certain characters to be ignored in
         comparison. <em>The default for LDML is different than it
         is in the UCA. In LDML, the default for alternate handling
@@ -1446,7 +1446,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         <td><code>[backwards 2]</code></td>
         <td rowspan="2">Sets the comparison for the second level to
         be <strong>backwards</strong>, as described in [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
       </tr>
       <tr>
         <td>false</td>
@@ -1459,7 +1459,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         (UCA default)</strong></td>
         <td rowspan="2">If <strong>on</strong>, then the normal
         [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
         algorithm is used. If <strong>off</strong>, then most
         strings should still sort correctly despite not normalizing
         to NFD first.<br>
@@ -1524,9 +1524,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         other non-variable code points in <strong>shifted</strong>.
         That is, the normal Level 4 value for a regular collation
         element is FFFF, as described in [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
         <em>Section 3.6, <a href=
-        "http://www.unicode.org/reports/tr10/#Variable_Weighting">Variable
+        "https://www.unicode.org/reports/tr10/#Variable_Weighting">Variable
         Weighting</a></em> . This is changed to FFFE for
         [:script=Hiragana:] characters. The strength must be
         greater or equal than quaternary if this attribute is to
@@ -1543,7 +1543,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         <td><code>[numericOrdering on]</code></td>
         <td rowspan="2">If set to <strong>on</strong>, any sequence
         of Decimal Digits (General_Category = Nd in the [<a href=
-        "http://www.unicode.org/reports/tr41/#UAX44">UAX44</a>]) is
+        "https://www.unicode.org/reports/tr41/#UAX44">UAX44</a>]) is
         sorted at a primary level with its numeric value. For
         example, "A-21" &lt; "A-123". The computed primary weights
         are all at the start of the <strong>digit</strong>
@@ -1576,7 +1576,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         weights less than or equal to the variable top will be
         considered variable, and thus affected by the alternate
         handling. Variables are ignorable by default in [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but
         not in CLDR.</td>
       </tr>
       <tr>
@@ -1617,7 +1617,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
           should "pin" ("round up") the variableTop to the top of
           the containing reordering group.<br>
           Variables are ignorable by default in [<a href=
-          "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
+          "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
           but not in CLDR. See below for more information.</p>
         </td>
       </tr>
@@ -1628,9 +1628,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         <td>match-boundaries: <em><strong>none</strong></em> |
         whole-character | whole-word<br>
         Defined by <em>Section 8, <a href=
-        "http://www.unicode.org/reports/tr10/#Searching">Searching
+        "https://www.unicode.org/reports/tr10/#Searching">Searching
         and Matching</a></em> of [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
       </tr>
       <tr>
         <td><em>n/a</em></td>
@@ -1639,9 +1639,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         <td>match-style: <em><strong>minimal</strong></em> | medial
         | maximal<br>
         Defined by <em>Section 8, <a href=
-        "http://www.unicode.org/reports/tr10/#Searching">Searching
+        "https://www.unicode.org/reports/tr10/#Searching">Searching
         and Matching</a></em> of [<a href=
-        "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+        "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
       </tr>
     </table>
     <h4>3.4.1 <a name="Common_Settings" href="#Common_Settings" id=
@@ -1699,7 +1699,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     Variable characters to just include space marks. In that case,
     maxVariable would be set to "space". (In CLDR 24 and earlier,
     the now-deprecated variableTop would be set to U+1680, see the
-    “Whitespace” <a href="http://unicode.org/charts/collation/">UCA
+    “Whitespace” <a href="https://unicode.org/charts/collation/">UCA
     collation chart</a>). Alternatively, someone could want more of
     the Common characters in them, and include characters up to
     (but not including) '0', by setting maxVariable to "currency".
@@ -1917,7 +1917,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
       same combination of higher-level weights of any collation
       element according to the current state.</li>
       <li>Weights must be allocated in accordance with the <a href=
-      "http://www.unicode.org/reports/tr10/#Well-Formed">UCA
+      "https://www.unicode.org/reports/tr10/#Well-Formed">UCA
       well-formedness conditions</a>.</li>
       <li>When incrementing any weight, lower-level weights should
       be reset to the “common” values, to help with sort key
@@ -2646,8 +2646,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     primary CE; and a tertiary CE must have a tertiary weight T
     which is greater than the tertiary weight t of any primary or
     secondary CE ([<a href=
-    "http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] <a href=
-    "http://www.unicode.org/reports/tr10/#WF2">WF2</a>).</p>
+    "https://www.unicode.org/reports/tr41/#UTS10">UCA</a>] <a href=
+    "https://www.unicode.org/reports/tr10/#WF2">WF2</a>).</p>
     <div align="center">
       <table>
         <tbody>
@@ -2718,9 +2718,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     <strong>caseLevel</strong>, the combined case+tertiary weight
     of a tertiary CE must be greater than the combined
     case+tertiary weight of any primary or secondary CE so that
-    [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
+    [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
     <a href=
-    "http://www.unicode.org/reports/tr10/#WF2">well-formedness
+    "https://www.unicode.org/reports/tr10/#WF2">well-formedness
     condition 2</a> is fulfilled. Since the tertiary CE’s tertiary
     weight T is already greater than any t of primary or secondary
     CEs, it is sufficient to set its case weight to UPPER=3. It
@@ -2728,9 +2728,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     table uses the constant 3 in this case rather than the computed
     c.)</p>
     <p>The case weight of a tertiary-ignorable CE must be 0 so that
-    [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
+    [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
     <a href=
-    "http://www.unicode.org/reports/tr10/#WF1">well-formedness
+    "https://www.unicode.org/reports/tr10/#WF1">well-formedness
     condition 1</a> is fulfilled.</p>
     <h4>3.14.3 <a name="Case_Tailored" href="#Case_Tailored" id=
     "Case_Tailored">Tailored Strings</a></h4>
@@ -2996,7 +2996,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     consequential damages in connection with or arising out of the
     use of the information or programs contained or accompanying
     this technical report. The Unicode <a href=
-    "http://unicode.org/copyright.html">Terms of Use</a> apply.</p>
+    "https://unicode.org/copyright.html">Terms of Use</a> apply.</p>
     <p class="copyright">Unicode and the Unicode logo are
     trademarks of Unicode, Inc., and are registered in some
     jurisdictions.</p>

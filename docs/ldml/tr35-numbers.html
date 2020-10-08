@@ -801,30 +801,51 @@ System Data</a>.</em> ) &gt;<br>
     &lt;/miscPatterns&gt;</code></p>
     <h3>2.6 <a name="Minimal_Pairs" href="#Minimal_Pairs" id=
     "Minimal_Pairs">Minimal Pairs</a></h3>
-    <p class="dtd">&lt;!ELEMENT minimalPairs ( alias | (
-    pluralMinimalPairs*, ordinalMinimalPairs*, special* ) )
-    &gt;<br>
-    &lt;!ATTLIST minimalPairs alt NMTOKENS #IMPLIED &gt;<br>
+    <p class="dtd">&lt;!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*<span class='changed'>, caseMinimalPairs*, genderMinimalPairs*</span>, special* ) ) &gt;<br>
+      <span class='removed'>&lt;!ATTLIST minimalPairs alt NMTOKENS #IMPLIED &gt;<br>
     &lt;!ATTLIST minimalPairs draft (approved | contributed |
-    provisional | unconfirmed) #IMPLIED &gt;<br></p>
+    provisional | unconfirmed) #IMPLIED &gt;</span><br></p>
     <p class="dtd">&lt;!ELEMENT pluralMinimalPairs ( #PCDATA )
     &gt;<br>
     &lt;!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED &gt;<br>
-    &lt;!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED &gt;<br>
+    <span class='removed'>&lt;!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED &gt;<br>
     &lt;!ATTLIST pluralMinimalPairs draft (approved | contributed |
-    provisional | unconfirmed) #IMPLIED &gt;</p>
+    provisional | unconfirmed) #IMPLIED &gt;</span></p>
     <p class="dtd">&lt;!ELEMENT ordinalMinimalPairs ( #PCDATA )
     &gt;<br>
     &lt;!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED
     &gt;<br>
-    &lt;!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED &gt;<br>
+    <span class='removed'>&lt;!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED &gt;<br>
     &lt;!ATTLIST ordinalMinimalPairs draft (approved | contributed
-    | provisional | unconfirmed) #IMPLIED &gt;</p>
+    | provisional | unconfirmed) #IMPLIED &gt;</span></p>
+    <p class="dtd">&lt;!ELEMENT caseMinimalPairs ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST caseMinimalPairs case NMTOKEN #REQUIRED &gt;</p>
+    <p class="dtd">&lt;!ELEMENT genderMinimalPairs ( #PCDATA ) &gt; <br>
+      &lt;!ATTLIST genderMinimalPairs gender NMTOKEN #REQUIRED &gt;</p>
     <p>Minimal pairs provide examples that justify why multiple
-    plural or ordinal categories exist. For more information, see
-    <a href=
+
+    plural or ordinal categories exist<span class='changed'>, and for providing contextual examples for verifying consistency of translations. The allowable values for the count, ordinal, case, and gender attributes are found in the dtd file</span>.</p>
+    <p class='changed'>Examples</p>
+    <p  class='changed'><code>&lt;minimalPairs&gt;<br>
+  &lt;pluralMinimalPairs count=&quot;one&quot;&gt;{0} Tag&lt;/pluralMinimalPairs&gt;<<br>
+  &lt;pluralMinimalPairs count=&quot;other&quot;&gt;{0} Tage&lt;/pluralMinimalPairs&gt;<br>
+<br>
+  &lt;ordinalMinimalPairs ordinal=&quot;other&quot;&gt;{0}. Abzweigung nach rechts nehmen&lt;/ordinalMinimalPairs&gt;<br>
+<br>
+  &lt;caseMinimalPairs case=&quot;accusative&quot;&gt;… für {0} …&lt;/caseMinimalPairs&gt;<br>
+  &lt;caseMinimalPairs case=&quot;dative&quot;&gt;… mit {0} …&lt;/caseMinimalPairs&gt;<br>
+  &lt;caseMinimalPairs case=&quot;genitive&quot;&gt;Anstatt {0} …&lt;/caseMinimalPairs&gt;<br>
+  &lt;caseMinimalPairs case=&quot;nominative&quot;&gt;{0} kostet (kosten) € 3,50.&lt;/caseMinimalPairs&gt;<br>
+<br>
+  &lt;genderMinimalPairs gender=&quot;feminine&quot;&gt;Die {0} ist …&lt;/genderMinimalPairs&gt;<br>
+  &lt;genderMinimalPairs gender=&quot;masculine&quot;&gt;Der {0} ist …&lt;/genderMinimalPairs&gt;<br>
+  &lt;genderMinimalPairs gender=&quot;neuter&quot;&gt;Das {0} ist …&lt;/genderMinimalPairs&gt;<br>
+	&lt;/minimalPairs&gt;</code></p>
+    <br>
+    <p>For more information, see <a href=
     "https://unicode.org/cldr/index/cldr-spec/plural-rules">Plural
-    Rules</a>.</p>
+    Rules</a> <span class='changed'>and <a href="http://cldr.unicode.org/translation/grammatical-inflection">Grammatical Inflection</a></span>.</p>
+
     <h2><a name="Number_Format_Patterns" href=
     "#Number_Format_Patterns" id="Number_Format_Patterns">3 Number
     Format Patterns</a></h2>

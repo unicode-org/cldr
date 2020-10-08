@@ -596,7 +596,7 @@ public class ZoneParser {
 
     private static String[] TZFiles = { "africa", "antarctica", "asia",
         "australasia", "backward", "etcetera", "europe", "northamerica",
-        "pacificnew", "southamerica", "systemv" };
+        "southamerica" };
 
     private static Map<String, String> FIX_UNSTABLE_TZIDS;
 

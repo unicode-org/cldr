@@ -1185,7 +1185,7 @@
           <li>If there is an 'sd' or 'rg' key, replace any subdivision alias in its value in the same way, using <em>subdivisionAlias</em> data.</li>
         </ul>
       </li>
-      </ul>
+    </ul>
 		<blockquote class='removed'>* Formally, replacement of multiple territories uses <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>. However, there are a small number of cases of multiple territories, so the mappings can be precomputed. This results in a faster lookup with a very small subset of the likely subtags data.</blockquote>
 	    <p>A <code><a href=
     "#unicode_locale_id">unicode_locale_id</a></code> is <em>maximal</em> when the  <code><a href=
@@ -4356,37 +4356,121 @@ root</pre>
     "Multiple_Inheritance"></a><a name="Lateral_Inheritance" href=
     "#Lateral_Inheritance" id="Lateral_Inheritance">4.1.2 Lateral
     Inheritance</a></h4>
-    <p>In clearly specified instances, resources may inherit from
-    within the same locale. For example, currency format symbols
-    inherit from the number format symbols; the Buddhist calendar
-    inherits from the Gregorian calendar. This <i>only</i> happens
-    where documented in this specification. In these special cases,
-    the inheritance functions as normal, up to the root. If the
-    data is not found along that path, then a second search is
-    made, logically changing the element/attribute to the alternate
-    values.</p>
-    <p>For example, for the locale "en_US" the month data in
-    &lt;calendar class="<span style=
-    "color: blue">buddhist</span>"&gt; inherits first from
-    &lt;calendar class="<span style=
-    "color: blue">buddhist</span>"&gt; in "en", then in "root". If
-    not found there, then it inherits from &lt;calendar
-    type="<span style="color: blue">gregorian</span>"&gt; in
-    "en_US", then "en", then in "root".</p>
-    <p>There is one special case, for items with a "count"
-    parameter (used to select a plural form). In that case, the
-    inheritance works as follows:</p>
-    <p>If there is no value for a path, and that path has a
-    [@count="x"] attribute and value, then:</p>
+    <p>In the following instances, resources may inherit from
+    within the same locale<span class='changed'>, <em>before inheriting from the parent</em></span>. </p>
+	  <div class='changed'>
+    <table border="1" cellpadding="3" cellspacing=
+    "0" class='simple' >
+      <tbody>
+        <tr>
+          <th nowrap style="vertical-align: top;">Element</th>
+          <th nowrap style="vertical-align: top;">Source</th>
+          <th nowrap style="vertical-align: top;">Context</th>
+        </tr>
+        <tr>
+          <td  style="vertical-align: top;">currency/pattern</td>
+          <td   style="vertical-align: top;">currencyFormat</td>
+          <td   style="vertical-align: top;">numberSystem = defaultNumberingSystem, unless otherwise specified*<br>
+            currencyFormatLength  type=none, unless otherwise specified<br>
+            currencyFormat type=&quot;standard&quot;, unless otherwise specified</td>
+        </tr>
+        <tr>
+          <td  style="vertical-align: top;">currency/decimal</td>
+          <td   style="vertical-align: top;">symbols/decimal</td>
+          <td  style="vertical-align: top;">numberSystem = defaultNumberingSystem, unless otherwise specified</td>
+        </tr>
+        <tr>
+          <td  style="vertical-align: top;">currency/group</td>
+          <td  style="vertical-align: top;">symbols/group</td>
+          <td style="vertical-align: top;">numberSystem = defaultNumberingSystem, unless otherwise specified</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>* The &quot;unless otherwise specified&quot; clause is for when an API or other context indicates a different choice, such as <span style="vertical-align: top;">currencyFormat type=&quot;accounting&quot;</span>.    </p>
+    <p>For example, with 			/currency [@type=&quot;CVE&quot;], the decimal symbol for almost all locales is the value from symbols/decimal, but for pt_CV it is explicitly							&lt;decimal&gt;$&lt;/decimal&gt;.</p>
+    <p>&nbsp;</p>
+    <p>The following attributes use lateral inheritance for all elements with the DTD root = ldml, except where otherwise noted. The process is applied recursively.</p>
+    <table border="1" cellpadding="3" cellspacing=
+    "0" class='simple' >
+      <tbody>
+        <tr>
+          <th nowrap style="vertical-align: top;">Atttribute</th>
+          <th nowrap style="vertical-align: top;">Fallback</th>
+          <th nowrap style="vertical-align: top;">Exception Elements</th>
+        </tr>
+        <tr>
+          <td  style="vertical-align: top;">case</td>
+          <td   style="vertical-align: top;">&quot;nominative&quot; → ∅</td>
+          <td   style="vertical-align: top;">caseMinimalPairs</td>
+        </tr>
+        <tr>
+          <td  style="vertical-align: top;">gender</td>
+          <td   style="vertical-align: top;">default_gender(locale) → ∅</td>
+          <td   style="vertical-align: top;">genderMinimalPairs</td>
+        </tr>
+        <tr>
+          <td  style="vertical-align: top;">count</td>
+          <td  style="vertical-align: top;">plural_rules(locale, x)  → &quot;other&quot;  → ∅</td>
+          <td  style="vertical-align: top;">minDays, pluralMinimalPairs</td>
+        </tr>
+        <tr>
+          <td  style="vertical-align: top;">ordinal</td>
+          <td  style="vertical-align: top;">plural_rules(locale, x)  → &quot;other&quot;  → ∅</td>
+          <td  style="vertical-align: top;">ordinalMinimalPairs</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The gender fallback is to neuter if the locale has a neuter gender, otherwise masculine. This may be extended in the future if necessary. See also <a href="tr35-general.html#Grammatical_Features">Part 2, Section 15, Grammatical Features</a>.</p>
+    </div>
+    <p>For example,    if there is no value for a path, and that path has a
+      [@count="x"] attribute and value, then:</p>
     <ol>
+      <li class='changed'>If &quot;x&quot; is numeric, the path falls back to the path with [@count=«the plural rules category for x for that locale»], within that the same locale. 
+        <ol>
+          <li>For example, [@count="0"] for English falls back to @count="other"], while for French falls back to [@count="one"].</li>
+        </ol>
+      </li>
       <li>If "x" is anything but "other", it falls back to
-      [@count="other"], within that the same locale.</li>
-      <li>In the special case of currencies, if the
-      [@count="other"] value is missing, it falls back to the path
-      that is completely missing the count item.</li>
-      <li>If there is no value within the same locale, the same
-      process is used in the parent locale, and so on.</li>
+        a path [@count="other"], within that the same locale.</li>
+      <li>If &quot;x&quot; is &quot;other&quot;,
+       it falls back to the path
+      that is completely missing the count item, <span class="changed">within that the same locale</span>.</li>
+      <li>If there is no value for that path the same locale, the same
+      process is used <span class='changed'>for the original path</span> in the parent locale.</li>
     </ol>
+	  	  <div class='changed'>
+	  	    <p>A path may have multiple attributes with lateral inheritance. In such a case, all of the combinations are tried, and in the order supplied above. For example (this is the very worst case):</p>
+	  	    <p> 				/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;feminine&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+	  	    <p>/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;feminine&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span>      </p>
+	  	    <p>/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;feminine&quot;]<span style="vertical-align: top;"> →</span></p>
+	  	    <p>/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;neuter&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;neuter&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;neuter&quot;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;few&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;few&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;few&quot;]<span style="vertical-align: top;"> →</span></p>
+            <p>&nbsp;</p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@gender=&quot;feminine&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@gender=&quot;feminine&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@gender=&quot;feminine&quot;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@gender=&quot;neuter&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@gender=&quot;neuter&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@gender=&quot;neuter&quot;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@count=&quot;other&quot;]<span style="vertical-align: top;"> →</span></p>
+            <p>&nbsp;</p>
+            <p>/compoundUnitPattern1[@gender=&quot;feminine&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@gender=&quot;feminine&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@gender=&quot;feminine&quot;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@gender=&quot;neuter&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@gender=&quot;neuter&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@gender=&quot;neuter&quot;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1[@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
+            <p>/compoundUnitPattern1</p>
+      </div>
+    <p>&nbsp;</p>
     <p><em>Examples:</em></p>
     <table class='simple' border="1" cellpadding="3" cellspacing=
     "0" id="a1bn3">
@@ -8691,7 +8775,7 @@ decimal?, group?, special*)) &gt;</pre>
 		  <p>replacement="und-alalc97"&gt;&rdquo;</p>
 	    <p>&nbsp;</p>
 	    <p>result=&rdquo;ja-Latn-alalc97-fonipa&rdquo; <em>// note that CLDR canonical order of variants is alphabetical</em></p>
-		  </blockquote>
+	  </blockquote>
 	  <h4>5. Canonicalizing Syntax</h4>
 		<p>To canonicalize the syntax of <em>source</em>: </p>
 		<ul>
@@ -8827,7 +8911,7 @@ decimal?, group?, special*)) &gt;</pre>
 	  <h2 >Optimizations</h2>
 		  <p>The above algorithm is a logical statement of the process, but would obviously not be directly suited to production code. Production-level code can use many optimizations for efficiency while achieving the same result. For example, the Alias Rules can be further preprocessed to avoid indefinite looping, instead doing a rule lookup once per subtag. As another example, the small number of <strong>Territory Exceptions</strong> can be preprocessed to avoid the likely subtags processing.</p>
 	    <p>&nbsp;</p>
-	  </div>
+    </div>
 	  <hr>
     <h2><a name="References" href="#References" id=
     "References">References</a></h2>
@@ -9329,7 +9413,7 @@ decimal?, group?, special*)) &gt;</pre>
 
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
         <ul>
-          <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></strong>: replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong></li>
+          <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></strong>: replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong>
           <li><strong>Section <a  href=
     "#BCP_47_Language_Tag_Conversion" >3.3.1 BCP 47 Language Tag
     Conversion</a>:</strong> replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong></li>
@@ -9337,6 +9421,7 @@ decimal?, group?, special*)) &gt;</pre>
           added new key “dx”, for <a href="#UnicodeDictionaryBreakExclusionIdentifier" >Unicode Dictionary Break Exclusion Identifier</a>.</li>
           <li><strong>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a></strong>:
           added description of <a href="#SCRIPT_CODE" >SCRIPT_CODE</a> value for key “dx”.</li>
+          <li><strong>Section  <a  href="#Lateral_Inheritance">4.1.2 Lateral Inheritance</a>: </strong>specified lateral inheritance in more detail, added case and gender.</li>
           <li><strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a>
           </strong>
             <ul>
@@ -9348,13 +9433,36 @@ decimal?, group?, special*)) &gt;</pre>
           </li>
         </ul>
 	  </li>
+	<li><strong>Part 2: <a href=
+    "tr35-general.html#Contents">General</a> (display names &amp;
+	  transforms, etc.)</strong>
+		<ul>
+		  <li><strong>Section 6 <a href="#Unit_Elements">Unit Elements</a></strong><a href="#Unit_Elements"></a>
+		    <ul>
+		      <li>Added new element compoundUnitPattern1</li>
+		      <li>Added case attribute to compoundUnitPattern</li>
+		      <li>Provided full description of compound unit components</li>
+	        </ul>
+		  </li>
+		  <li>Section 16 <a ref="tr35-general.html#Grammatical_Derivations">Grammatical Derivations</a> — new</li>
+      </ul>
+	</li>
+	<li ><strong>Part 6: <a href=
+    "tr35-info.html#Contents">Supplemental</a> (supplemental
+        data)</strong>
+	    <ul>
+	      <li><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: defined the userPreferences skeleton more precisely.</li>
+        </ul>
+	  </li>
 	  <li>
 	    <p><strong>Part 3: <a href=
     "tr35-numbers.html#Contents">Numbers</a> (number &amp; currency
 	      formatting)</strong></p>
 	    <ul>
-	      <li>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural
-      Rules</a> : added the 'e' operand for use in certain compact number formatting.</li>
+	      <li><strong>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural
+      Rules</a> :</strong> added the 'e' operand for use in certain compact number formatting.</li>
+	      <li><strong>Section 2.6 <a href="tr35-numbers.html#Minimal_Pairs" >Minimal Pairs</a></strong><a name="Minimal_Pairs" href="#Minimal_Pairs" id=
+    "Minimal_Pairs"></a>: added case and gender minimal pairs. Removed the alt/draft ATTLIST since those are documented elsewhere and just obfuscate the text.<em>n</em></li>
         </ul>
 	  </li>
       <li><strong>Part 6: <a href=

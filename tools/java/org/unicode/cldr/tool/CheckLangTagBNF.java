@@ -46,7 +46,7 @@ class CheckLangTagBNF {
 
     private static final String[] groupNames = { "whole", "lang", "script", "region", "variants", "extensions",
         "privateuse",
-        "grandfathered", "privateuse", "localeExtensions"
+        "legacy", "privateuse", "localeExtensions"
     };
 
     /**
@@ -215,15 +215,6 @@ class CheckLangTagBNF {
 
         System.out.println(contents);
 
-        // System.out.println(langTagPattern);
-        // System.out.println(cleanedLangTagPattern);
-//        StandardCodes sc = StandardCodes.make();
-//        Set<String> grandfathered = sc.getAvailableCodes("grandfathered");
-        // for (Iterator it = grandfathered.iterator(); it.hasNext();) {
-        // System.out.print(it.next() + " | ");
-        // }
-        // System.out.println();
-
         LanguageTagParser ltp = new LanguageTagParser();
         SimpleLocaleParser simpleLocaleParser = new SimpleLocaleParser();
         boolean expected = true;
@@ -294,7 +285,7 @@ class CheckLangTagBNF {
 
             if (ltp.getLanguage().length() != 0)
                 System.out.println("\tlang:    \t" + ltp.getLanguage()
-                    + (ltp.isGrandfathered() ? " (grandfathered)" : ""));
+                    + (ltp.isLegacy() ? " (legacy)" : ""));
             if (ltp.getScript().length() != 0) System.out.println("\tscript:\t" + ltp.getScript());
             if (ltp.getRegion().length() != 0) System.out.println("\tregion:\t" + ltp.getRegion());
             if (ltp.getVariants().size() != 0) System.out.println("\tvariants:\t" + ltp.getVariants());

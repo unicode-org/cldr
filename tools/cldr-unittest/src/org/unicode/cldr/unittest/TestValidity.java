@@ -411,7 +411,7 @@ public class TestValidity extends TestFmwkPlus {
         }
 
 
-        ImmutableSet<LstrType> LstrTypesToSkip = ImmutableSet.of(LstrType.extlang, LstrType.grandfathered, LstrType.redundant);
+        ImmutableSet<LstrType> LstrTypesToSkip = ImmutableSet.of(LstrType.extlang, LstrType.legacy, LstrType.redundant);
         Set<LstrType> lstrTypesToTest = EnumSet.allOf(LstrType.class);
         lstrTypesToTest.removeAll(LstrTypesToSkip);
         Set<String> missingAliases = new LinkedHashSet<>();

@@ -91,10 +91,10 @@ public class LanguageTagParser {
     }
 
     /**
-     * @return Returns the grandfathered flag
+     * @return True if the language tag is marked as “Type: grandfathered” in BCP 47.
      */
-    public boolean isGrandfathered() {
-        return grandfathered;
+    public boolean isLegacy() {
+        return legacy;
     }
 
     /**
@@ -168,7 +168,7 @@ public class LanguageTagParser {
     // private fields
 
     private String original;
-    private boolean grandfathered = false;
+    private boolean legacy = false;
     private String language;
     private String script;
     private String region;
@@ -183,7 +183,7 @@ public class LanguageTagParser {
     private static final UnicodeSet X = new UnicodeSet("[xX]").freeze();
     private static final UnicodeSet ALPHA_MINUS_X = new UnicodeSet(ALPHA).removeAll(X).freeze();
     private static StandardCodes standardCodes = StandardCodes.make();
-    private static final Set<String> grandfatheredCodes = standardCodes.getAvailableCodes("grandfathered");
+    private static final Set<String> legacyCodes = standardCodes.getAvailableCodes("legacy");
     private static final String separator = "-_"; // '-' alone for 3066bis language tags
     private static final UnicodeSet SEPARATORS = new UnicodeSet().addAll(separator).freeze();
     private static final Splitter SPLIT_BAR = Splitter.on(CharMatcher.anyOf(separator));
@@ -215,7 +215,7 @@ public class LanguageTagParser {
 
         // clear everything out
         language = region = script = "";
-        grandfathered = false;
+        legacy = false;
         variants.clear();
         extensions.clear();
         localeExtensions.clear();
@@ -246,10 +246,9 @@ public class LanguageTagParser {
             languageTag = languageTag.substring(0, atPosition);
         }
 
-        // first test for grandfathered
-        if (grandfatheredCodes.contains(languageTag)) {
+        if (legacyCodes.contains(languageTag)) {
             language = languageTag;
-            grandfathered = true;
+            legacy = true;
             return this;
         }
 
@@ -327,7 +326,7 @@ public class LanguageTagParser {
      * @return true iff the language tag validates
      */
     public boolean isValid() {
-        if (grandfathered) return true; // don't need further checking, since we already did so when parsing
+        if (legacy) return true; // don't need further checking, since we already did so when parsing
         if (!validates(language, "language")) return false;
         if (!validates(script, "script")) return false;
         if (!validates(region, "territory")) return false;

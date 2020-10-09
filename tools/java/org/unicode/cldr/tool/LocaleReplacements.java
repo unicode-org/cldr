@@ -169,7 +169,7 @@ public class LocaleReplacements {
         if (key == null) {
             return;
         }
-        if (type.equals("grandfathered") || type.equals("redundant")) {
+        if (type.equals("legacy") || type.equals("redundant")) {
             type = "language";
         }
 

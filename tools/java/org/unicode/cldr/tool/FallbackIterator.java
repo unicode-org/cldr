@@ -77,18 +77,18 @@ public class FallbackIterator implements Iterator<String> {
 
             "canonicalize", // mechanically generated
 
-            // grandfathered
+            // Language tags marked as “Type: grandfathered” in BCP 47.
             "art-lojban;jbo",
-            "cel-gaulish;xcg", // Grandfathered code with special replacement: cel-gaulish
-            "en-GB-oed;en-GB-x-oed", // Grandfathered code with special replacement: en-GB-oed
+            "cel-gaulish;xcg", // Special replacement: cel-gaulish
+            "en-GB-oed;en-GB-x-oed", // Special replacement: en-GB-oed
             "i-ami;ami",
             "i-bnn;bnn",
-            "i-default;und", // Grandfathered code with special replacement: i-default
-            "i-enochian;x-enochian", // Grandfathered code with special replacement: i-enochian
+            "i-default;und", // Special replacement: i-default
+            "i-enochian;x-enochian", // Special replacement: i-enochian
             "i-hak;zh-hakka",
             "i-klingon;tlh",
             "i-lux;lb",
-            "i-mingo;see", // Grandfathered code with special replacement: i-mingo
+            "i-mingo;see", // Special replacement: i-mingo
             "i-navajo;nv",
             "i-pwn;pwn",
             "i-tao;tao",
@@ -105,7 +105,7 @@ public class FallbackIterator implements Iterator<String> {
             "zh-gan;gan",
             "zh-guoyu;zh-cmn",
             "zh-hakka;hak",
-            "zh-min;nan", // Grandfathered code with special replacement: zh-min
+            "zh-min;nan", // Special replacement: zh-min
             "zh-min-nan;nan",
             "zh-wuu;wuu",
             "zh-xiang;hsn",

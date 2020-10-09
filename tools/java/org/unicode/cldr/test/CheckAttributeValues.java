@@ -532,7 +532,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     }
 
     public static class LocaleMatcher implements Predicate<String> {
-        Predicate<String> grandfathered = variables.get("$grandfathered").matcher;
+        Predicate<String> legacy = variables.get("$grandfathered").matcher;
         Predicate<String> language = variables.get("$language").matcher;
         Predicate<String> script = variables.get("$script").matcher;
         Predicate<String> territory = variables.get("$territory").matcher;
@@ -555,7 +555,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
         @Override
         public boolean test(String value) {
-            if (grandfathered.test(value)) return true;
+            if (legacy.test(value)) return true;
             lip.set((String) value);
             String field = lip.getLanguage();
             if (!language.test(field)) return false;

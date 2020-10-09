@@ -796,7 +796,7 @@ public class TestUnits extends TestFmwk {
     }
 
     static final UnicodeSet ALLOWED_IN_COMPONENT = new UnicodeSet("[a-z0-9]").freeze();
-    static final Set<String> GRANDFATHERED_SIMPLES = ImmutableSet.of("em", "g-force", "therm-us");
+    static final Set<String> STILL_RECOGNIZED_SIMPLES = ImmutableSet.of("em", "g-force", "therm-us");
 
     public void TestOrder() {
         if (SHOW_DATA) System.out.println();
@@ -807,7 +807,7 @@ public class TestUnits extends TestFmwk {
             }
         }
         for (String unit : CORE_TO_TYPE.keySet()) {
-            if (!GRANDFATHERED_SIMPLES.contains(unit)) {
+            if (!STILL_RECOGNIZED_SIMPLES.contains(unit)) {
                 for (String part : unit.split("-")) {
                     assertTrue(unit + " has no parts < 2 in length", part.length() > 2);
                     assertTrue(unit + " has only allowed characters", ALLOWED_IN_COMPONENT.containsAll(part));

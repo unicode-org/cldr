@@ -84,7 +84,7 @@ public class TestAttributeValues extends TestFmwk {
         String dtdTypeArg = params.props == null ? null : (String) params.props.get("dtdtype");
 
         // short- circuits for testing. null means do all
-        Set<DtdType> checkTypes = dtdTypeArg == null ? DtdType.STANDARD_SET 
+        Set<DtdType> checkTypes = dtdTypeArg == null ? DtdType.STANDARD_SET
             : Collections.singleton(DtdType.valueOf(dtdTypeArg)) ;
         ImmutableSet<ValueStatus> showStatuses = null ; // ImmutableSet.of(ValueStatus.invalid, ValueStatus.unknown);
 
@@ -94,14 +94,14 @@ public class TestAttributeValues extends TestFmwk {
                 Set<String> files = new TreeSet<>();
                 for (String stringDir : dtdType.directories) {
                     addXMLFiles(dtdType, mainDirs + stringDir, files);
-                    if (isVerbose()) 
+                    if (isVerbose())
                         synchronized (pathChecker.testLog) {
                         warnln(mainDirs + stringDir);
                     }
                 }
                 Stream<String> stream = SERIAL ? files.stream() : files.parallelStream();
                 stream.forEach(file -> checkFile(pathChecker, file));
-                
+
 //                for (String file : files) {
 //                    checkFile(pathChecker, file);
 //                }
@@ -134,7 +134,7 @@ public class TestAttributeValues extends TestFmwk {
             return;
         }
         if (!dirFile.isDirectory()) {
-            if (getInclusion() <= 5 
+            if (getInclusion() <= 5
                 && dtdType == DtdType.ldml) {
                 if (path.contains("/annotationsDerived/")) {
                     return;
@@ -215,7 +215,7 @@ public class TestAttributeValues extends TestFmwk {
     }
 
     static class PathChecker {
-        private final ChainedMap.M5<ValueStatus, String, String, String, Boolean> valueStatusInfo 
+        private final ChainedMap.M5<ValueStatus, String, String, String, Boolean> valueStatusInfo
         = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
         private final Set<String> seen = new HashSet<>();
         private final Map<String,Map<String,Map<String,Boolean>>> seenEAV = new ConcurrentHashMap<>();
@@ -302,7 +302,7 @@ public class TestAttributeValues extends TestFmwk {
             boolean haveProblems = false;
 //          if (testLog.logKnownIssue("cldrbug 10120", "Don't enable error until complete")) {
 //              testLog.warnln("Counts: " + counter.toString());
-//          } else 
+//          } else
             for (ValueStatus valueStatus : ValueStatus.values()) {
                 if (valueStatus == ValueStatus.valid) {
                     continue;
@@ -324,7 +324,7 @@ public class TestAttributeValues extends TestFmwk {
             out.append("attribute\tCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
 
             out.append("\nStatus\tDtdType\tElement\tAttribute\tMatch expression\t#Failures\tFailing values\n");
-            
+
             for (Entry<ValueStatus, Map<String, Map<String, Map<String, Boolean>>>> entry : valueStatusInfo) {
                 ValueStatus valueStatus = entry.getKey();
                 if (retain != null && !retain.contains(valueStatus)) {
@@ -340,17 +340,17 @@ public class TestAttributeValues extends TestFmwk {
                         Set<String> validFound = entry3.getValue().keySet();
                         String matchValue = matchValues.get(elementName + "\t" + attributeName);
                         out.append(
-                            valueStatus 
-                            + "\t" + dtdData.dtdType 
-                            + "\t" + elementName 
-                            + "\t" + attributeName 
+                            valueStatus
+                            + "\t" + dtdData.dtdType
+                            + "\t" + elementName
+                            + "\t" + attributeName
                             + "\t" + (matchValue == null ? "" : matchValue)
                             + "\t" + validFound.size()
                             + "\t" + Joiner.on(", ").join(validFound)
                             + "\n"
                             );
                         if (valueStatus == ValueStatus.valid) try {
-                            LstrType lstr = LstrType.valueOf(elementName);
+                            LstrType lstr = LstrType.fromString(elementName);
                             Map<String, Validity.Status> codeToStatus = VALIDITY.getCodeToStatus(lstr);
                             Set<String> missing = new TreeSet<>(codeToStatus.keySet());
                             if (lstr == LstrType.variant) {
@@ -366,19 +366,19 @@ public class TestAttributeValues extends TestFmwk {
                             }
                             if (!missing.isEmpty()) {
                                 out.append(
-                                    "unused" 
-                                        + "\t" + dtdData.dtdType 
-                                        + "\t" + elementName 
-                                        + "\t" + attributeName 
-                                        + "\t" + "" 
-                                        + "\t" + "" 
+                                    "unused"
+                                        + "\t" + dtdData.dtdType
+                                        + "\t" + elementName
+                                        + "\t" + attributeName
+                                        + "\t" + ""
+                                        + "\t" + ""
                                         + "\t" + Joiner.on(", ").join(missing)
                                         + "\n"
                                     );
                             }
                         } catch (Exception e) {}
                     }
-                } 
+                }
             }
             synchronized (testLog) {
                 testLog.errln(out.toString());

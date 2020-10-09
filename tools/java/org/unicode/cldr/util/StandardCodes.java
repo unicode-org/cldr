@@ -48,7 +48,7 @@ import com.ibm.icu.util.Output;
 public class StandardCodes {
 
     public enum CodeType {
-        language, script, territory, extlang, grandfathered, redundant, variant, currency, tzid;
+        language, script, territory, extlang, legacy, redundant, variant, currency, tzid;
         public static CodeType from(String name) {
             if ("region".equals(name)) {
                 return territory;
@@ -193,7 +193,7 @@ public class StandardCodes {
      */
     @Deprecated
     public List<String> getCodes(String type, String data) {
-        return getCodes(CodeType.valueOf(type), data);
+        return getCodes(CodeType.from(type), data);
     }
 
     /**
@@ -212,7 +212,7 @@ public class StandardCodes {
      */
     @Deprecated
     public String getPreferred(String type, String code) {
-        return getPreferred(CodeType.valueOf(type), code);
+        return getPreferred(CodeType.from(type), code);
     }
 
     /**
@@ -1031,7 +1031,7 @@ public class StandardCodes {
         region("ZZ"),
         variant(),
         extlang(true, false),
-        grandfathered(true, false),
+        legacy(true, false),
         redundant(true, false),
         /** specialized codes for validity; TODO: rename LstrType **/
         currency(false, true, "XXX"),
@@ -1078,7 +1078,7 @@ public class StandardCodes {
         public String toCompatString() {
             switch (this) {
             case region: return "territory";
-            case grandfathered: return "language";
+            case legacy: return "language";
             case redundant: return "language";
             default: return toString();
             }
@@ -1206,9 +1206,11 @@ public class StandardCodes {
                 LstrField label = LstrField.from(line.substring(0, pos2));
                 String rest = line.substring(pos2 + 1).trim();
                 if (label == LstrField.Type) {
-                    subtagData = CldrUtility.get(result2, lastType = LstrType.valueOf(rest));
+                    lastType = rest.equals("grandfathered") ?
+                        LstrType.legacy : LstrType.fromString(rest);
+                    subtagData = CldrUtility.get(result2, lastType);
                     if (subtagData == null) {
-                        result2.put(LstrType.valueOf(rest), subtagData = new TreeMap<>());
+                        result2.put(lastType, subtagData = new TreeMap<>());
                     }
                 } else if (label == LstrField.Subtag
                     || label == LstrField.Tag) {
@@ -1286,9 +1288,9 @@ public class StandardCodes {
 
         // add extras
         for (int i = 0; i < extras.length; ++i) {
-            Map<String, Map<LstrField, String>> subtagData = CldrUtility.get(result2, LstrType.valueOf(extras[i][0]));
+            Map<String, Map<LstrField, String>> subtagData = CldrUtility.get(result2, LstrType.fromString(extras[i][0]));
             if (subtagData == null) {
-                result2.put(LstrType.valueOf(extras[i][0]), subtagData = new TreeMap<>());
+                result2.put(LstrType.fromString(extras[i][0]), subtagData = new TreeMap<>());
             }
             Map<LstrField, String> labelData = new TreeMap<>();
             for (int j = 2; j < extras[i].length; j += 2) {

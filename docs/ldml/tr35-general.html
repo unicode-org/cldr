@@ -1327,9 +1327,10 @@
     special*) ) &gt;<br>
     &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;<br>
     <br>
-    &lt;!ELEMENT unit (alias | (displayName*, unitPattern*,
-    perUnitPattern*, special*) ) &gt;<br>
+    &lt;!ELEMENT unit ( alias | ( <span class='changed'>gender*, </span>displayName*, unitPattern*, perUnitPattern*, special* ) ) &gt;<br>
     &lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;<br>
+    <br>
+    <span class='changed'>&lt;!ELEMENT gender ( #PCDATA )&gt;</span><br>
     <br>
     &lt;!ELEMENT durationUnit (alias | (durationUnitPattern*,
     special*) ) &gt;<br>
@@ -1340,6 +1341,12 @@
     | many | other) #REQUIRED &gt;<br>
     <br>
     &lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
+    <span class='changed'>&lt;!ATTLIST compoundUnitPattern case NMTOKENS #IMPLIED &gt;</span><br>
+    <br>
+    <span class='changed'>&lt;!ELEMENT compoundUnitPattern1 ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST compoundUnitPattern1 count (0 | 1 | zero | one | two | few | many | other) #IMPLIED &gt; <br>
+    &lt;!ATTLIST compoundUnitPattern1 gender NMTOKENS #IMPLIED &gt; <br>
+    &lt;!ATTLIST compoundUnitPattern1 case NMTOKENS #IMPLIED &gt;</span><br>
     <br>
     &lt;!ELEMENT coordinateUnit ( alias | ( displayName*,
     coordinateUnitPattern*, special* ) ) &gt;<br>
@@ -1362,8 +1369,26 @@
   &lt;unitPattern count="other"&gt;<span style=
 "color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
+    <p class='changed'>The german rules are more complicated, because German has both gender and case. They thus have additional information, as illustrated below. Note that if there is no @case attribute, for backwards compatibility the implied case is nominative. The possible values for @case are listed in the <strong>grammaticalFeatures</strong> element. These follow the inheritance specified in Part 1, Section <a href=
+    "tr35.html#Lateral_Inheritance">4.1.2 Lateral
+    Inheritance</a>. Note that the additional grammar elements are only present in the &lt;unitLength type='long'&gt; form.</p>
+	  <pre class='changed'>&lt;unit type=&quot;duration-day&quot;&gt;
+	  <strong>&lt;gender&gt;masculine&lt;/gender&gt;</strong>
+	  &lt;displayName&gt;Tage&lt;/displayName&gt;
+	  &lt;unitPattern count=&quot;one&quot;&gt;{0} Tag&lt;/unitPattern&gt;
+	  <strong>&lt;unitPattern count=&quot;one&quot; case=&quot;accusative&quot;&gt;{0} Tag&lt;/unitPattern&gt;
+	  &lt;unitPattern count=&quot;one&quot; case=&quot;dative&quot;&gt;{0} Tag&lt;/unitPattern&gt;
+	  &lt;unitPattern count=&quot;one&quot; case=&quot;genitive&quot;&gt;{0} Tages&lt;/unitPattern&gt;
+</strong>	  &lt;unitPattern count=&quot;other&quot;&gt;{0} Tage&lt;/unitPattern&gt;
+	  <strong>&lt;unitPattern count=&quot;other&quot; case=&quot;accusative&quot;&gt;{0} Tage&lt;/unitPattern&gt;
+	  &lt;unitPattern count=&quot;other&quot; case=&quot;dative&quot;&gt;{0} Tagen&lt;/unitPattern&gt;
+	  &lt;unitPattern count=&quot;other&quot; case=&quot;genitive&quot;&gt;{0} Tage&lt;/unitPattern&gt;
+</strong>	  &lt;perUnitPattern&gt;{0} pro Tag&lt;/perUnitPattern&gt;
+&lt;/unit&gt;</pre>
 
-    <p>In addition to supporting language-specific plural cases
+    <p>These follow the inheritance specified in Part 1, Section <a href=
+    "tr35.html#Lateral_Inheritance">4.1.2 Lateral
+    Inheritance</a>.In addition to supporting language-specific plural cases
     such as “one” and “other”, unitPatterns support the
     language-independent explicit cases “0” and “1” for special
     handling of numeric values that are exactly 0 or 1; see
@@ -2448,10 +2473,8 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     example, in "zh", references to a person being 3 days old or 30
     years old would use the forms “他3天大” and “他30岁”
     respectively.</p>
-    <h3>6.4 <a name="perUnitPatterns" href="#perUnitPatterns" id=
-    "perUnitPatterns">per Unit patterns</a><a name=
-    "compoundUnitPattern" href="#compoundUnitPattern" id=
-    "compoundUnitPattern"></a></h3>
+    <h3>6.4 <a class='changed' name="compound-units" href="#compound-units" >Compound Units</a><a name=
+    "compoundUnitPattern" ></a><a name="perUnitPatterns" ></a></h3>
     <p>A common combination of units is X per Y, such as <em>miles
     per hour</em> or <em>liters per second</em>. Some units already
     have 'precomputed' forms, such as
@@ -2463,6 +2486,27 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     per {1}" or "{0}/{1}" can be used to construct cases such as "2
     feet <strong>per</strong> second" or
     "ft<strong>/</strong>s"</p>
+    <div class='changed'>
+    <p>There are different types of compound units:</p>
+    <p><strong>Prefixes</strong> are for powers of 10 and powers of 1024 (the latter only used with digital units of measure):</p>
+    <pre>&lt;compoundUnit type=&quot;10p9&quot;&gt;<br>  &lt;unitPrefixPattern&gt;Giga{0}&lt;/unitPrefixPattern&gt;<br>&lt;/compoundUnit&gt;
+	
+&lt;compoundUnit type=&quot;1024p3&quot;&gt;<br>  &lt;unitPrefixPattern&gt;Gibi{0}&lt;/unitPrefixPattern&gt;<br>&lt;/compoundUnit&gt;
+</pre>
+    <p><strong>compoundUnitPatterns</strong> are used for compounding units by multiplication or division: kilowatt-hours, or meters per second.</p>
+    <pre>
+&lt;compoundUnit type=&quot;per&quot;&gt;<br>  &lt;compoundUnitPattern&gt;{0} pro {1}&lt;/compoundUnitPattern&gt;<br>&lt;/compoundUnit&gt;
+
+&lt;compoundUnit type=&quot;times&quot;&gt;<br>  &lt;compoundUnitPattern&gt;{0}⋅{1}&lt;/compoundUnitPattern&gt;<br>&lt;/compoundUnit&gt;
+</pre>
+    <p><strong>compoundUnitPattern1s</strong> are used for expressing powers, such as square meter or cubic foot. These are the most complicated, since they can vary by plural category (count), by case, and by gender. However, these extra attributes are only used if the are present in the <strong>grammaticalFeatures</strong> element for the language in question. See  <a href="tr35-general.html#Grammatical_Features">Section 15, Grammatical Features</a>. Note that the additional grammar elements are only present in the &lt;unitLength type='long'&gt; form.</p>
+    <p>These follow the inheritance specified in <a href=
+    "tr35.html#Lateral_Inheritance">Part 1, Section 4.1.2 Lateral
+    Inheritance</a>.</p>
+    <pre>
+&lt;compoundUnit type=&quot;power2&quot;&gt;<br>  &lt;compoundUnitPattern1&gt;{0} kw.&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;accusative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;dative&quot;&gt;{0} kwadratowemu&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;genitive&quot;&gt;{0} kwadratowego&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;instrumental&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;locative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;vocative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot;&gt;{0} kwadratowa&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;accusative&quot;&gt;{0} kwadratową&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;dative&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;genitive&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;instrumental&quot;&gt;{0} kwadratową&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;locative&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;vocative&quot;&gt;{0} kwadratowa&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;accusative&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;dative&quot;&gt;{0} kwadratowemu&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;genitive&quot;&gt;{0} kwadratowego&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;instrumental&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;locative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;vocative&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot; case=&quot;accusative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot; case=&quot;dative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;
+  …</pre>
+    </div>
     <p><strong>perUnitPattern</strong> — This is used as the
     denominator with another unit name. For example, a form such as
     "{0} per second" can be used to form "2 feet <strong>per
@@ -2470,11 +2514,14 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     <p>The difference between these is that in some inflected
     languages, the compoundUnit cannot be used to form grammatical
     phrases. This is typically because the "per" + "second" combine
-    in a non-trivial way. For such languages, the compoundUnit
+    in a non-trivial way. </p>
+    <p>&nbsp;</p>
+    <p>For a description of how to use these fields to construct a localized name, see Section 6.4 <a href="#compound-units">Compound Units</a></p>
+    <p>For such languages, the compoundUnit
     should only be used as a fallback, when there is no other
     recourse.</p>
     <p>When constructing a pattern for value=V, numeratorUnit=N,
-    denominatorUnit=D, the following precess is used.</p>
+    denominatorUnit=D, the following process is used.</p>
     <ol>
       <li>If there is a compound form for N/D already available
       (e.g.,
@@ -5028,7 +5075,7 @@ The current data includes the following:
 </p><ul>
 
 <li>There are currently 3 grammatical features found in the <a href="https://github.com/unicode-org/cldr/blob/master/common/dtd/ldmlSupplemental.dtd#1229">DTD</a>: Gender, Case, Definiteness
-<li>There are initial mappings from locales to grammatical features they exhibit in the file <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/grammaticalFeatures.xml">grammaticalFeatures.xml</a></li></ul>
+<li>There are  <span class='changed'>mappings from supported</span> locales to grammatical features they exhibit in the file <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/grammaticalFeatures.xml">grammaticalFeatures.xml</a>. <span class='changed'>Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.</span></li></ul>
 
 <p>
 Note that the CLDR plural categories overlap some of these features, since some languages use case and other devices to change words based on the numeric values.
@@ -5036,10 +5083,8 @@ Note that the CLDR plural categories overlap some of these features, since some 
 <h2>Features</h2>
 
 
-<p class='dtd'>
-&lt;!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
-</p>
-<p class='dtd'>
+<p class='dtd'> <span class='changed'>&lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;<br>  &lt;!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) &gt;</span><br>
+&lt;!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED ><br>
 &lt;!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
 </p>
 <p>&nbsp;</p>
@@ -5305,7 +5350,7 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 
 
 
-<table>
+<table class='simple'>
   <tr>
    <td>definite
    </td>
@@ -5338,8 +5383,114 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
    <td>&nbsp;</td>
   </tr>
 </table>
+    <div class='changed'>
+<h2>16 <a name="Grammatical_Derivations" href="#Grammatical_Derivations">Grammatical Derivations</a></h2>
+	    <pre class='dtd'>&lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;
+&lt;!ELEMENT grammaticalDerivations (deriveCompound*, deriveComponent*) &gt;
+&lt;!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED &gt;
 
-    <hr>
+&lt;!ELEMENT deriveCompound EMPTY &gt; 
+&lt;!ATTLIST deriveCompound feature NMTOKENS #REQUIRED &gt;     
+&lt;!ATTLIST deriveCompound structure NMTOKENS #REQUIRED &gt;     
+&lt;!ATTLIST deriveCompound value NMTOKEN #REQUIRED &gt;     
+
+&lt;!ATTLIST deriveComponent feature NMTOKENS #REQUIRED &gt;     
+&lt;!ATTLIST deriveComponent structure NMTOKENS #REQUIRED &gt;     
+&lt;!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED &gt;     
+&lt;!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED &gt;    
+</pre>
+	    <p>The grammatical derivation data contains information about the case, gender, and plural categories of compound units. Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.</p>
+	    <p>A compound unit can use 4 mechanisms, illustrated here in formatted strings:</p>
+<br />
+      <ul>
+        <li dir="ltr">
+          <p dir="ltr" role="presentation">Prefix patterns: 1&nbsp; <strong>kilo</strong>gram</p>
+        </li>
+        <li dir="ltr">
+          <p dir="ltr" role="presentation">Power patterns: 3 <strong>square</strong> kilometers</p>
+        </li>
+        <li dir="ltr">
+          <p dir="ltr" role="presentation">Per patterns: 3 kilograms <strong>per</strong> meter</p>
+        </li>
+        <ul>
+          <li dir="ltr">
+            <p dir="ltr" role="presentation">An edge case is where there is no numerator, such as &ldquo;1 per-second&rdquo;</p>
+          </li>
+        </ul>
+        <li dir="ltr">
+          <p dir="ltr" role="presentation">Times patterns: 3 kilowatt<strong>-</strong>hours</p>
+        </li>
+      </ul>
+      <p>For the purposes of grammatical derivation (and name construction), a compound  unit ID such as kilogram-meter-per-square-second is represented as a tree structure where the leaves are the atomic units:</p>
+      <table class='simple' style="  margin-left: auto;margin-right: auto;">
+        <tr>
+          <td colspan="3" style="text-align:center"><strong>per</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align:center"><strong>times</strong></td>
+          <td style="text-align:center"><strong>square</strong></td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><strong>kilo</strong></td>
+          <td style="text-align:center">meter</td>
+          <td style="text-align:center">second</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">gram</td>
+          <td style="text-align:center">-</td>
+          <td style="text-align:center">-</td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <p dir="ltr">Where there are mutiple <strong>times</strong> nodes, the grouping is left-first, so gram-meter-second-candela is:</p>
+      <table class='simple' style="  margin-left: auto;margin-right: auto;">
+        <tr>
+          <td colspan="4" style="text-align:center"><strong>times</strong></td>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align:center"><strong>times</strong></td>
+          <td style="text-align:center">candela</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align:center"><strong>times</strong></td>
+          <td style="text-align:center">meter</td>
+          <td style="text-align:center">-</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">gram</td>
+          <td style="text-align:center">meter</td>
+          <td colspan="2" style="text-align:center">-</td>
+        </tr>
+      </table>
+      <p dir="ltr">&nbsp;</p>
+      <p dir="ltr">Each section below  is only applicable if the language has more than one values  <em>for units</em>: for example, for plural categories it has to have more than just &quot;other&quot;. When that information is available for a language, it is found in <strong>Section 15 <a href="#Grammatical_Features"
+    id="Grammatical_Features2">Grammatical Features</a></strong><a href="#Grammatical_Features"
+    id="Grammatical_Features2"></a>.	        </p>
+      <p dir="ltr">The gender derivation would be appropriate for an API call like <code>String genderValue = getGrammaticalGender(locale, &quot;kilogram-meter-per-square-second&quot;)</code>. This can be used where the choice of word forms in the rest of a phrase can depend on the gender of the  unit.</p>
+      <p dir="ltr">On the other hand, the derivation of plural category and case are used in building up the name of a compound unit, where the desired plural category is available from the number to be formatted with the unit, and the case value is known from the position in a message. For example, the case could be accusative if the formatted unit is to be the direct object in a sentence or phrase. This could be expressed in an API call such as <code>String inflectedName = getUnitName(locale, &quot;kilogram-meter-per-square-second&quot;, pluralCategory, caseValue)</code>. </p>
+      <p dir="ltr">When deriving an inflected compound unit pattern, as the tree-stucture is processed by getting the appropriate localized patterns for the structural components and names for the atomic components, the plural category and case of the subtrees can be computed concurrently.</p>
+      <p dir="ltr"><em>In  CLDR v38, the data for  two locales is provided so that implemenations can ready their code for when more locale data is available. The structure may be further extended as more locales are added, to deal with additional locale requirements: for example,  a separate &quot;times-per&quot; structure could be added for a &quot;times&quot; in  the denominator portion of a compound unit name, if that turns out to be necessary for some locales.</em></p>
+      <h3 dir="ltr">Deriving the Gender of Compound Units</h3>
+	    <p dir="ltr">The deriveCompound[@feature=&quot;gender&quot;] data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The attributeValues of value are: 0 (=gender of the first element), 1 (=gender of second element), or one of the valid gender values for the language:      </p>
+      <p dir="ltr">Example:</p>
+	    <pre>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;per&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(gram-per-meter) ←  gender(gram) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;times&quot; value=&quot;1&quot;/&gt; &lt;!-- gender(newton-meter) ←  gender(meter) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;power&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(square-meter) ←  gender(meter) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;prefix&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(kilometer) ←  gender(meter)--&gt; </pre>
+	    <h3><strong>Deriving the Plural Category of Unit Components</strong></h3>
+	    <p>The deriveComponent[@feature=&quot;plural&quot;] data provides information for how to derive the plural category for each of the atomic units, from the plural category of the whole compound and the structure of the compound.	    The attributeValues of value0 and value1 are: &quot;compound&quot; (=the pluralCategory of the compound),  or one of the valid plural category values for the language.</p>
+	    <p>Example:</p>
+      <pre>
+&lt;deriveComponent feature=&quot;plural&quot; structure=&quot;per&quot; value0=&quot;compound&quot; value1=&quot;one&quot;/&gt; &lt;!-- compound(gram-per-meter) ⇒  compound(gram) “per&quot; singular(meter) --&gt;
+&lt;deriveComponent feature=&quot;plural&quot; structure=&quot;times&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt;  &lt;!-- compound(newton-meter) ⇒  singular(newton) “-&quot; compound(meter) --&gt;
+&lt;deriveComponent feature=&quot;plural&quot; structure=&quot;power&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt;  &lt;!-- compound(square-meter) ⇒  singular(square) compound(meter) --&gt;
+&lt;deriveComponent feature=&quot;plural&quot; structure=&quot;prefix&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(kilometer) ⇒  singular(kilo) compound(meter) --&gt;</pre>
+      <h3><strong>Deriving the Case  of Unit Components</strong></h3>
+      <p>The deriveComponent[@feature=&quot;plural&quot;] data provides information for how to derive the plural category for each of the atomic units, from the plural category of the whole compound and the structure of the compound.The attributeValues of value0 and value1 are: compound (=the grammatical case of the compound),  or one of the valid grammatical case values for the language.</p>
+      <p>Example:</p>
+      <pre>&lt;deriveComponent feature=&quot;case&quot; structure=&quot;per&quot; value0=&quot;compound&quot; value1=&quot;nominative&quot;/&gt; &lt;!-- compound(gram-per-meter) ⇒ compound(gram) “per&quot; accusative(meter) --&gt; 	  
+&lt;deriveComponent feature=&quot;case&quot; structure=&quot;times&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(newton-meter) ⇒  nominative(newton) “-&quot; compound(meter) --&gt; 	  
+&lt;deriveComponent feature=&quot;case&quot; structure=&quot;power&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(square-meter) ⇒  nominative(square) compound(meter) --&gt; 	  
+&lt;deriveComponent feature=&quot;case&quot; structure=&quot;prefix&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt;&lt;!--compound(kilometer) ⇒  nominative(kilo) compound(meter) --&gt;</pre>
+    </div>
+<hr>
     <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or
     implied warranty of any kind, and assumes no liability for

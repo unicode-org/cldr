@@ -2476,18 +2476,9 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     <h3>6.4 <a class='changed' name="compound-units" href="#compound-units" >Compound Units</a><a name=
     "compoundUnitPattern" ></a><a name="perUnitPatterns" ></a></h3>
     <p>A common combination of units is X per Y, such as <em>miles
-    per hour</em> or <em>liters per second</em>. Some units already
-    have 'precomputed' forms, such as
-    <strong>kilometer-per-hour</strong>; where such units exist,
-    they should be used in preference. There are two other patterns
-    that can be used to compose unit symbols or names.</p>
-    <p><strong>compoundUnit</strong> — This is used to construct a
-    pattern from two unit names. For example, a form such as "{0}
-    per {1}" or "{0}/{1}" can be used to construct cases such as "2
-    feet <strong>per</strong> second" or
-    "ft<strong>/</strong>s"</p>
+    per hour</em> or <em>liters per second</em> or <em>kilowatt-hours</em>. </p>
     <div class='changed'>
-    <p>There are different types of compound units:</p>
+    <p>There  different types of compound units:</p>
     <p><strong>Prefixes</strong> are for powers of 10 and powers of 1024 (the latter only used with digital units of measure):</p>
     <pre>&lt;compoundUnit type=&quot;10p9&quot;&gt;<br>  &lt;unitPrefixPattern&gt;Giga{0}&lt;/unitPrefixPattern&gt;<br>&lt;/compoundUnit&gt;
 	
@@ -2507,58 +2498,112 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
 &lt;compoundUnit type=&quot;power2&quot;&gt;<br>  &lt;compoundUnitPattern1&gt;{0} kw.&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;accusative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;dative&quot;&gt;{0} kwadratowemu&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;genitive&quot;&gt;{0} kwadratowego&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;instrumental&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;locative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;vocative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot;&gt;{0} kwadratowa&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;accusative&quot;&gt;{0} kwadratową&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;dative&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;genitive&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;instrumental&quot;&gt;{0} kwadratową&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;locative&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;vocative&quot;&gt;{0} kwadratowa&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;accusative&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;dative&quot;&gt;{0} kwadratowemu&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;genitive&quot;&gt;{0} kwadratowego&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;instrumental&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;locative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;vocative&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot; case=&quot;accusative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot; case=&quot;dative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;
   …</pre>
     </div>
-    <p><strong>perUnitPattern</strong> — This is used as the
-    denominator with another unit name. For example, a form such as
-    "{0} per second" can be used to form "2 feet <strong>per
-    second</strong>".</p>
-    <p>The difference between these is that in some inflected
-    languages, the compoundUnit cannot be used to form grammatical
-    phrases. This is typically because the "per" + "second" combine
-    in a non-trivial way. </p>
     <p>&nbsp;</p>
-    <p>For a description of how to use these fields to construct a localized name, see Section 6.4 <a href="#compound-units">Compound Units</a></p>
-    <p>For such languages, the compoundUnit
-    should only be used as a fallback, when there is no other
-    recourse.</p>
-    <p>When constructing a pattern for value=V, numeratorUnit=N,
-    denominatorUnit=D, the following process is used.</p>
+    <p>Some units already
+    have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>; where such units exist,
+    they should be used in preference.  </p>
+    <div class='changed'>
+    <p>If there is no precomputed form, the following process in pseudocode is used to generate a pattern for the compound unit. The deriveCompound data values from <strong>Section 16 <a name="Grammatical_Derivations" href="#Grammatical_Derivations">Grammatical Derivations</a></strong>
+    are given in pseudocode, so value0 of the per-structure is given as per0(...).    </p>
+    <p>&nbsp;</p>
+    <p><strong>pattern(unitId, locale, length, pluralCategory, caseVariant)</strong></p>
     <ol>
-      <li>If there is a compound form for N/D already available
-      (e.g.,
-      <code>kilometer-per-hour</code>), use it.</li>
-      <li>Otherwise (e.g.,
-      <code>kilogram-per-second</code>), format the N
-      pattern with the number using plural categories.
-        <ul>
-          <li>→ "3 kilograms"</li>
-        </ul>
-      </li>
-      <li>See if there is a <strong>perUnitPattern</strong> for D.
+      <li>Put the unitId into normalized order: hour-kilowatt =&gt; kilowatt-hour, meter-square-meter-per-second-second =&gt; cubic-meter-per-square-second</li>
+      <li>Set result to be getValue(unitId with length, pluralCategory, caseVariant)
         <ol>
-          <li>If so, then substitute the formatted numerator into
-          the <strong>perUnitPattern</strong>
-            <ul>
-              <li>"3 kilograms" + "{0} per second" → "3 kilograms
-              per second"</li>
-            </ul>
-          </li>
-          <li>If not, get the <strong>compoundUnit</strong>
-          pattern, and substitute the formatted numerator for {0}
-          and the singular form of the denominator for {1}, after
-          stripping the {0} and trimming spaces.
-            <ul>
-              <li>"3 kilograms" + "{0} per {1}" + "{0} second"
-              →</li>
-              <li>"3 kilograms" + "{0} per {1}" + "second" →</li>
-              <li>"3 kilograms per second"</li>
-            </ul>
-          </li>
+          <li>If result is not empty, return it</li>
         </ol>
       </li>
+      <li>Divide the unitId into numerator (the part before the &quot;-per-&quot;) and denominator (the part after the &quot;-per-). If both are empty, fail</li>
+      <li>Set numeratorUnitString to patternTimes(numerator, length, per0(pluralCategory), per0(caseVariant))</li>
+      <li>Set denominatorUnitString to patternTimes(denominator, length, per1(pluralCategory), per1(caseVariant)) </li>
+      <li>Set perPattern to be getValue(times, locale, length)</li>
+      <li>If the denominatorString is empty, set result to denominatorString, otherwise set result to format(perPattern, numeratorString, denominatorString)      </li>
+      <li>return format(result, globalPlacholder, globalPlaceholderPosition)</li>
+      </ol>
+    <p><strong>patternTimes(product_unit, locale, length, pluralCategory, caseVariant)</strong></p>
+    <ol>
+      <li>Set hasMultiple to true iff product_unit has more than one single_unit</li>
+      <li>Set timesPattern to be getValue(times, locale, length)</li>
+      <li>Set result to be empty</li>
+      <li>For each single_unit in product_unit
+        <ol>
+          <li>If hasMultiple
+            <ol>
+              <li>Set singlePluralCategory to be times0(pluralCategory)</li>
+              <li>Set singleCaseVariant to be times0(caseVariant)</li>
+              <li>Set pluralCategory to be times1(pluralCategory)</li>
+              <li>Set caseVariant to be times1(caseVariant)</li>
+            </ol>
+          </li>
+          <li>Get the gender of that single_unit</li>
+          <li>If singleUnit starts with a dimensionality_prefix, such as 'square-'
+            <ol>
+              <li>set dimensionalityPrefixPattern to be  getValue(that dimensionality_prefix, locale, length, singlePluralCategory, singleCaseVariant, gender), such as &quot;{0} kwadratowym&quot;</li>
+              <li>remove the dimensionality_prefix from singleUnit</li>
+            </ol>
+          </li>
+          <li>if singleUnit starts with an si_prefix, such as 'centi'
+            <ol>
+              <li>set siPrefixPattern to be getValue(that si_prefix, locale, length), such as &quot;centy{0}&quot;</li>
+              <li>remove the si_prefix from singleUnit</li>
+            </ol>
+          </li>
+          <li>Set corePattern to be  the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as &quot;{0} metrem&quot;</li>
+          <li>Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.</li>
+          <li>If the position is <em>middle</em>, then fail</li>
+          <li>If globalPlaceholder is empty
+            <ol>
+              <li>Set globalPlacholder to placeholder</li>
+              <li>Set globalPlaceholderPosition to placeholderPosition</li>
+            </ol>
+          </li>
+          <li>If siPrefixPattern is not empty
+            <ol>
+              <li>Set coreUnit to be the combineLowercasing(locale, length, siPrefixPattern, coreUnit)</li>
+            </ol>
+          </li>
+          <li>If  dimensionalityPrefixPattern is not empty
+            <ol>
+              <li>Set coreUnit to be the combineLowercasing(locale, length, dimensionalityPrefixPattern, coreUnit)</li>
+            </ol>
+          </li>
+          <li>If the result is empty, set result to be coreUnit</li>
+          <li>Otherwise set result to be format(timesPattern, result, coreUnit)</li>
+        </ol>
+      </li>
+      <li>Return result</li>
+      </ol>
+    <p><strong>combineLowercasing(locale, length, prefixPattern, coreUnit)</strong></p>
+    <ol>
+      <li>If the length is &quot;long&quot; and the prefixPattern contains no spaces, lowercase the coreUnit according to the locale</li>
+      <li>return format(prefixPattern, unitPattern)</li>
+      </ol>
+    <p><strong>format(pattern, arguments…)</strong></p>
+    <ol>
+      <li>return the result of substituting the arguments for the placeholders {0}, {1}, etc.</li>
+      </ol>
+    <p><strong>getValue(key, locale, length, variants…)</strong></p>
+    <ol>
+      <li>return the element value in the locale for the path corresponding to the key, locale, length, and variants — using normal inheritance including <a href="https://unicode-org.github.io/cldr/ldml/tr35.html#Multiple_Inheritance">Lateral Inheritance</a> and <a href="https://unicode-org.github.io/cldr/ldml/tr35.html#Parent_Locales">Parent Locales</a>.</li>
     </ol>
-    <p>The patterns can have different unit lengths, so the
-    appropriate unit length should be used (with fallbacks if
-    necessary).</p>
+    <p><strong>Extract(corePattern, coreUnit, placeHolder, placeholderPosition)</strong></p>
+    <ol>
+      <li>Find the position of the <strong>placeHolder</strong> in the core pattern</li>
+      <li>Set <strong>placeHolderPosition</strong> to that postion (start, middle, or end)</li>
+      <li>Remove the <strong>placeHolder</strong> from the <strong>corePattern</strong> and set <strong>coreUnit</strong> to that result</li>
+    </ol>
+    <p>At each point in the process, if there is a precomposed form for a segment of the unitId, then use that precomposed form instead. For example, if there is a  pattern in the locale for (square-kilometer, length, singlePluralCategory, singleCaseVariant, gender), then use it instead.    </p>
+    <p>If the locale does not provide full modern coverage, the process could fall back to root locale for some localized patterns. That may give a &quot;ransom-note&quot; effect for the user. To avoid that, it may be preferable to abort the process at that point, and then localize the unitId for the root locale.</p>
+    <p>If a unit is not supported by root, then the localization is not supported by CLDR and will fail.</p>
+    </div>
+    <p>There is also a precomposed <strong>perUnitPattern</strong> which is used as the
+    denominator with another unit name. For example, a form such as
+    "{0} per second" can be used to form "2 feet <strong>per
+    second</strong>". The difference between these is that in some inflected
+      languages, the compoundUnit cannot be used to form grammatical
+      phrases. This is typically because the "per" + "second" combine
+    in a non-trivial way. The <strong>perUnitPattern</strong> should be applied if the denominator has only one element, and matches the perUnitPattern type.</p>
 
     <h3>6.5 <a name="Unit_Sequences" href="#Unit_Sequences" id=
     "Unit_Sequences">Unit Sequences (Mixed Units)</a></h3>
@@ -5399,18 +5444,19 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED &gt;     
 &lt;!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED &gt;    
 </pre>
-	    <p>The grammatical derivation data contains information about the case, gender, and plural categories of compound units. Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.</p>
+	    <p>The grammatical derivation data contains information about the case, gender, and plural categories of compound units. This is supplemental data, so the inheritance for locales needs to be done by the client.</p>
+	    <p><em>Note: In  CLDR v38, the data for  two locales is provided so that implemenations can ready their code for when more locale data is available. In subsequent releases structure may be further extended as more locales are added, to deal with additional locale requirements.</em></p>
 	    <p>A compound unit can use 4 mechanisms, illustrated here in formatted strings:</p>
 <br />
       <ul>
         <li dir="ltr">
-          <p dir="ltr" role="presentation">Prefix patterns: 1&nbsp; <strong>kilo</strong>gram</p>
+          <p dir="ltr" role="presentation"><strong>Prefix</strong>: 1&nbsp; <strong>kilo</strong>gram</p>
         </li>
         <li dir="ltr">
-          <p dir="ltr" role="presentation">Power patterns: 3 <strong>square</strong> kilometers</p>
+          <p dir="ltr" role="presentation"><strong>Power</strong>: 3 <strong>square</strong> kilometers</p>
         </li>
         <li dir="ltr">
-          <p dir="ltr" role="presentation">Per patterns: 3 kilograms <strong>per</strong> meter</p>
+          <p dir="ltr" role="presentation"><strong>Per</strong>: 3 kilograms <strong>per</strong> meter</p>
         </li>
         <ul>
           <li dir="ltr">
@@ -5418,63 +5464,63 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
           </li>
         </ul>
         <li dir="ltr">
-          <p dir="ltr" role="presentation">Times patterns: 3 kilowatt<strong>-</strong>hours</p>
+          <p dir="ltr" role="presentation"><strong>Times</strong>: 3 kilowatt<strong>-</strong>hours</p>
         </li>
       </ul>
-      <p>For the purposes of grammatical derivation (and name construction), a compound  unit ID such as kilogram-meter-per-square-second is represented as a tree structure where the leaves are the atomic units:</p>
+      <p>For the purposes of grammatical derivation (and name construction), a compound  unit ID can be represented as a tree structure where the leaves are the atomic units, and the higher level node are one of the above. Here is an extreme example of that: <em>kilogram-square-kilometer-ampere-candela-per-square-second-mole</em></p>
       <table class='simple' style="  margin-left: auto;margin-right: auto;">
         <tr>
-          <td colspan="3" style="text-align:center"><strong>per</strong></td>
+          <td colspan="6" style="text-align:center"><strong>per</strong></td>
         </tr>
         <tr>
+          <td colspan="4" style="text-align:center"><strong>times</strong></td>
           <td colspan="2" style="text-align:center"><strong>times</strong></td>
-          <td style="text-align:center"><strong>square</strong></td>
         </tr>
         <tr>
           <td style="text-align:center"><strong>kilo</strong></td>
-          <td style="text-align:center">meter</td>
-          <td style="text-align:center">second</td>
-        </tr>
-        <tr>
-          <td style="text-align:center">gram</td>
-          <td style="text-align:center">-</td>
-          <td style="text-align:center">-</td>
-        </tr>
-      </table>
-      <p>&nbsp;</p>
-      <p dir="ltr">Where there are mutiple <strong>times</strong> nodes, the grouping is left-first, so gram-meter-second-candela is:</p>
-      <table class='simple' style="  margin-left: auto;margin-right: auto;">
-        <tr>
-          <td colspan="4" style="text-align:center"><strong>times</strong></td>
-        </tr>
-        <tr>
-          <td colspan="3" style="text-align:center"><strong>times</strong></td>
+          <td style="text-align:center"><strong>square</strong></td>
+          <td style="text-align:center">ampere</td>
           <td style="text-align:center">candela</td>
-        </tr>
-        <tr>
-          <td colspan="2" style="text-align:center"><strong>times</strong></td>
-          <td style="text-align:center">meter</td>
-          <td style="text-align:center">-</td>
+          <td style="text-align:center"><strong>square</strong></td>
+          <td style="text-align:center">mole</td>
         </tr>
         <tr>
           <td style="text-align:center">gram</td>
+          <td style="text-align:center"><strong>kilo</strong></td>
+          <td style="text-align:center">-</td>
+          <td style="text-align:center">-</td>
+          <td style="text-align:center">second</td>
+          <td style="text-align:center">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">-</td>
           <td style="text-align:center">meter</td>
+          <td style="text-align:center">-</td>
+          <td style="text-align:center">-</td>
           <td colspan="2" style="text-align:center">-</td>
         </tr>
       </table>
-      <p dir="ltr">&nbsp;</p>
-      <p dir="ltr">Each section below  is only applicable if the language has more than one values  <em>for units</em>: for example, for plural categories it has to have more than just &quot;other&quot;. When that information is available for a language, it is found in <strong>Section 15 <a href="#Grammatical_Features"
+      <p>Note that the prefix and power nodes are unary (exactly 1 child), the per pattern is unary or binary (1 or 2 children), and the times pattern is n-ary (where n &gt; 1). </p>
+      <p>&nbsp;</p>
+      <p dir="ltr">Each section below  is only applicable if the language has more than one value  <em>for units</em>: for example, for plural categories the language has to have more than just &quot;other&quot;. When that information is available for a language, it is found in <strong>Section 15 <a href="#Grammatical_Features"
     id="Grammatical_Features2">Grammatical Features</a></strong><a href="#Grammatical_Features"
     id="Grammatical_Features2"></a>.	        </p>
       <p dir="ltr">The gender derivation would be appropriate for an API call like <code>String genderValue = getGrammaticalGender(locale, &quot;kilogram-meter-per-square-second&quot;)</code>. This can be used where the choice of word forms in the rest of a phrase can depend on the gender of the  unit.</p>
       <p dir="ltr">On the other hand, the derivation of plural category and case are used in building up the name of a compound unit, where the desired plural category is available from the number to be formatted with the unit, and the case value is known from the position in a message. For example, the case could be accusative if the formatted unit is to be the direct object in a sentence or phrase. This could be expressed in an API call such as <code>String inflectedName = getUnitName(locale, &quot;kilogram-meter-per-square-second&quot;, pluralCategory, caseValue)</code>. </p>
-      <p dir="ltr">When deriving an inflected compound unit pattern, as the tree-stucture is processed by getting the appropriate localized patterns for the structural components and names for the atomic components, the plural category and case of the subtrees can be computed concurrently.</p>
-      <p dir="ltr"><em>In  CLDR v38, the data for  two locales is provided so that implemenations can ready their code for when more locale data is available. The structure may be further extended as more locales are added, to deal with additional locale requirements: for example,  a separate &quot;times-per&quot; structure could be added for a &quot;times&quot; in  the denominator portion of a compound unit name, if that turns out to be necessary for some locales.</em></p>
+      <p dir="ltr">When deriving an inflected compound unit pattern, as the tree-stucture is processed by getting the appropriate localized patterns for the structural components and names for the atomic components. The computation of the plural category and the case of the subtrees can be computed from the <strong>deriveComponent</strong> data. The <strong>times</strong> data is treated as binary, and applied from left to right: with the example from above, the plural categories for the components of <em>kilogram-square-kilometer-ampere-candela</em> are computed by applying </p>
+      <p align="center"><strong>times</strong>(<em>kilogram, <strong>times</strong>(square-kilometer, <strong>times</strong>(ampere, candela)))</em></p>
+      <p dir="ltr">For a description of how to use these fields to construct a localized name, see <strong>Section 6.4 <a href="#compound-units">Compound Units</a></strong>.</p>
       <h3 dir="ltr">Deriving the Gender of Compound Units</h3>
 	    <p dir="ltr">The deriveCompound[@feature=&quot;gender&quot;] data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The attributeValues of value are: 0 (=gender of the first element), 1 (=gender of second element), or one of the valid gender values for the language:      </p>
       <p dir="ltr">Example:</p>
 	    <pre>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;per&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(gram-per-meter) ←  gender(gram) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;times&quot; value=&quot;1&quot;/&gt; &lt;!-- gender(newton-meter) ←  gender(meter) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;power&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(square-meter) ←  gender(meter) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;prefix&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(kilometer) ←  gender(meter)--&gt; </pre>
-	    <h3><strong>Deriving the Plural Category of Unit Components</strong></h3>
+		<p dir="ltr" role="presentation">For example, for gram-per-meter, the first line above means:</p>
+        <ul>
+          <li dir="ltr">
+            <p dir="ltr" role="presentation">The gender of the compound is the gender of the first component of the 'per', that is, of the &quot;gram&quot;. So if gram is feminine in that language, the gender of the compound is feminine.          </p>
+          </li>
+        </ul>
+        <h3><strong>Deriving the Plural Category of Unit Components</strong></h3>
 	    <p>The deriveComponent[@feature=&quot;plural&quot;] data provides information for how to derive the plural category for each of the atomic units, from the plural category of the whole compound and the structure of the compound.	    The attributeValues of value0 and value1 are: &quot;compound&quot; (=the pluralCategory of the compound),  or one of the valid plural category values for the language.</p>
 	    <p>Example:</p>
       <pre>
@@ -5482,6 +5528,13 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;deriveComponent feature=&quot;plural&quot; structure=&quot;times&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt;  &lt;!-- compound(newton-meter) ⇒  singular(newton) “-&quot; compound(meter) --&gt;
 &lt;deriveComponent feature=&quot;plural&quot; structure=&quot;power&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt;  &lt;!-- compound(square-meter) ⇒  singular(square) compound(meter) --&gt;
 &lt;deriveComponent feature=&quot;plural&quot; structure=&quot;prefix&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(kilometer) ⇒  singular(kilo) compound(meter) --&gt;</pre>
+      <p dir="ltr" role="presentation">For example, for gram-per-meter, the first line above means:</p>
+
+      <ul>
+        <li dir="ltr">
+          <p dir="ltr" role="presentation">When the plural form of gram-per-meter is needed (rather than singular), then the gram part of the translation has to have a plural form like &ldquo;grams&rdquo;, while the meter part of the translation has to have a singular form like &ldquo;metre&rdquo;. This would be composed with the pattern for &quot;per&quot; (say &quot;{0} pro {1}&quot;) to get &quot;grams pro metre&quot;.</p>
+        </li>
+      </ul>
       <h3><strong>Deriving the Case  of Unit Components</strong></h3>
       <p>The deriveComponent[@feature=&quot;plural&quot;] data provides information for how to derive the plural category for each of the atomic units, from the plural category of the whole compound and the structure of the compound.The attributeValues of value0 and value1 are: compound (=the grammatical case of the compound),  or one of the valid grammatical case values for the language.</p>
       <p>Example:</p>
@@ -5489,6 +5542,14 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;deriveComponent feature=&quot;case&quot; structure=&quot;times&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(newton-meter) ⇒  nominative(newton) “-&quot; compound(meter) --&gt; 	  
 &lt;deriveComponent feature=&quot;case&quot; structure=&quot;power&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(square-meter) ⇒  nominative(square) compound(meter) --&gt; 	  
 &lt;deriveComponent feature=&quot;case&quot; structure=&quot;prefix&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt;&lt;!--compound(kilometer) ⇒  nominative(kilo) compound(meter) --&gt;</pre>
+      <p dir="ltr">For example, for gram-per-meter, the first line above means:</p>
+      <br />
+      <ul>
+        <li dir="ltr">
+          <p dir="ltr" role="presentation">When the accusative form of gram-per-meter is needed, then the gram part of the translation has take the accusative case (&ldquo;gramu&rdquo;, in a language that marks the accusative case with 'u'), while the meter part of the translation has a nominative form like &ldquo;metre&rdquo;. This would be composed with the pattern for &quot;per&quot; (say &quot;{0} pro {1}&quot;) to get &quot;gramu pro metre&quot;.</p>
+        </li>
+      </ul>
+      <p>&nbsp;</p>
     </div>
 <hr>
     <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All

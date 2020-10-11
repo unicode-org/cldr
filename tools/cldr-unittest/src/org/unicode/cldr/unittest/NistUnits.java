@@ -48,13 +48,14 @@ final class NistUnits {
         try {
             Multimap<String, String> _idChanges = LinkedHashMultimap.create();
             Set<String> _skipping = new LinkedHashSet<>();
+            Multimap<String,String> _unitToQuantity = TreeMultimap.create();
 
             List<ExternalUnitConversionData> _externalConversionData = new ArrayList<>();
             try (BufferedReader in = CldrUtility.getUTF8Data("external/nistConversions.txt")) {
                 String quantity = null;
                 try (Stream<String> s = in.lines()) {
                     for (String line : (Iterable<String>) s::iterator) {
-                        if (line.startsWith("#") 
+                        if (line.startsWith("#")
                             || line.equals("To convert from\tto\tMultiply by")
                             || line.startsWith("degree Fahrenheit hour square foot per British thermal unitth inch") // bad NIST data
                             ) {
@@ -62,15 +63,17 @@ final class NistUnits {
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
                         switch(parts.size()) {
-                        case 1: 
+                        case 1:
                             quantity = parts.get(0);
                             break;
-                        case 4: 
+                        case 4:
                             Rational factor = Rational.of((parts.get(2) + parts.get(3)).replace(" ", ""));
                             ExternalUnitConversionData data = new ExternalUnitConversionData(quantity, parts.get(0), parts.get(1), factor, line, _idChanges);
                             _externalConversionData.add(data);
+                            //_unitToQuantity.put(data.source, quantity);
+                            _unitToQuantity.put(data.target, quantity);
                             break;
-                        default: 
+                        default:
                             _skipping.add(line);
                         }
                     }
@@ -79,7 +82,6 @@ final class NistUnits {
 
             Map<String, TargetInfo> unitToTargetInfo = new TreeMap<>();
             Map<String,String> _symbolToUnit = new TreeMap<>();
-            Multimap<String,String> _unitToQuantity = TreeMultimap.create();
             try (BufferedReader in = CldrUtility.getUTF8Data("external/nistBaseUnits.txt")) {
                 try (Stream<String> s = in.lines()) {
                     for (String line : (Iterable<String>) s::iterator) {
@@ -109,36 +111,36 @@ final class NistUnits {
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
                         // #Quantity   Special Name    Special symbol  Expression in terms of other SI units   Expression in terms of SI base units
-                        
+
                         String quantity = parts.get(0);
                         List<String> quantities = SPLIT_COMMAS.splitToList(quantity).stream()
                             .map(x ->  SPLIT_PARENS.split(parts.get(0)).iterator().next())
                             .collect(Collectors.toList());
                         quantity = Joiner.on(", ").join(quantities);
-                        
+
                         String name = SPLIT_PARENS.split(parts.get(1)).iterator().next();
                         if (name.equals("degree Celsius")) {
                             name = "celsius";
                         }
-                        
+
                         String symbol = parts.get(2);
                         String expressionInOtherSymbols = parts.get(4);
                         String expressionInBaseSymbols = parts.get(4);
                         _symbolToUnit.put(symbol, name);
                         _unitToQuantity.putAll(name, quantities);
-                        
+
                         final String targetUnit = getUnitFromSymbols(expressionInBaseSymbols, _symbolToUnit);
                         unitToTargetInfo.put(name, new TargetInfo(targetUnit, new ConversionInfo(Rational.ONE, Rational.ZERO), Collections.emptyMap()));
-                        
+
                         ExternalUnitConversionData data = new ExternalUnitConversionData(quantity, name, targetUnit, Rational.ONE, line, _idChanges);
                         _externalConversionData.add(data);
 
                     }
                 }
             }
-            
+
             // Protect everything
-            
+
             skipping = ImmutableSet.copyOf(_skipping);
             idChanges = ImmutableMultimap.copyOf(_idChanges);
             externalConversionData = ImmutableList.copyOf(_externalConversionData);

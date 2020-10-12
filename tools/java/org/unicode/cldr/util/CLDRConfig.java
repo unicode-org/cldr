@@ -27,6 +27,7 @@ import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
 public class CLDRConfig extends Properties {
+    public static boolean SKIP_SEED = System.getProperty("CLDR_SKIP_SEED") != null;
     /**
      *
      */
@@ -321,8 +322,8 @@ public class CLDRConfig extends Properties {
                 File[] paths = {
                     new File(CLDRPaths.MAIN_DIRECTORY),
                     new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
-                    new File(CLDRPaths.SEED_DIRECTORY),
-                    new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
+                    SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY),
+                        SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
                 };
                 commonAndSeedAndMainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
             }
@@ -335,7 +336,7 @@ public class CLDRConfig extends Properties {
             if (fullFactory == null) {
                 File[] paths = {
                     new File(CLDRPaths.MAIN_DIRECTORY),
-                    new File(CLDRPaths.SEED_DIRECTORY)};
+                    SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY)};
                 fullFactory = SimpleFactory.make(paths, ".*");
             }
         }

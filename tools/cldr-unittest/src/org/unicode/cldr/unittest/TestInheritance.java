@@ -66,7 +66,7 @@ public class TestInheritance extends TestFmwk {
     public void TestLocalesHaveOfficial() {
         // If we have a language, we have all the region locales where the
         // language is official
-        Set<String> SKIP_TERRITORIES = new HashSet<String>(Arrays.asList("001",
+        Set<String> SKIP_TERRITORIES = new HashSet<>(Arrays.asList("001",
             "150"));
         for (Entry<String, R2<List<String>, String>> s : dataInfo
             .getLocaleAliasInfo().get("territory").entrySet()) {
@@ -145,7 +145,7 @@ public class TestInheritance extends TestFmwk {
                 }
                 Set<String> officalChildren = entry.getValue().keySet();
                 if (!children.containsAll(officalChildren)) {
-                    Set<String> missing = new TreeSet<String>(officalChildren);
+                    Set<String> missing = new TreeSet<>(officalChildren);
                     missing.removeAll(children);
                     String message = "Missing CLDR locales for " + status
                         + " languages: " + missing;
@@ -159,7 +159,7 @@ public class TestInheritance extends TestFmwk {
         }
 
         if (DEBUG) {
-            Set<String> languages = new TreeSet<String>(
+            Set<String> languages = new TreeSet<>(
                 languageToChildren.keySet());
             languages.addAll(languageToOfficialChildren.keySet());
             System.out.print("\ncode\tlanguage");
@@ -247,18 +247,18 @@ public class TestInheritance extends TestFmwk {
         // find multiscript locales
         Relation<String, String> base2scripts = Relation.of(
             new TreeMap<String, Set<String>>(), TreeSet.class);
-        Map<String, String> parent2default = new TreeMap<String, String>();
-        Map<String, String> default2parent = new TreeMap<String, String>();
+        Map<String, String> parent2default = new TreeMap<>();
+        Map<String, String> default2parent = new TreeMap<>();
         Relation<String, String> base2locales = Relation.of(
             new TreeMap<String, Set<String>>(), TreeSet.class);
 
-        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("bm", "ha"));
+        Set<String> knownMultiScriptLanguages = new HashSet<>(Arrays.asList("bm", "ha"));
         // get multiscript locales
         for (String localeID : availableLocales) {
             String script = ltp.set(localeID).getScript();
             final String base = ltp.getLanguage();
-            if (!availableLocales.contains(base)) {
-                errln("Missing base locale for: " + localeID);
+            if (!availableLocales.contains(base) && !base.equals("und")) {
+                errln("Missing lang-subtag for: " + localeID);
             }
             base2locales.put(base, localeID);
             if (!script.isEmpty() && !base.equals("en")) { // HACK for en
@@ -290,8 +290,8 @@ public class TestInheritance extends TestFmwk {
             checkLocale(likelyAndMaximized.getKey(), true);
             checkLocale(likelyAndMaximized.getValue(), true);
         }
-        Map<String, String> exceptionDcLikely = new HashMap<String, String>();
-        Map<String, String> exceptionLikelyDc = new HashMap<String, String>();
+        Map<String, String> exceptionDcLikely = new HashMap<>();
+        Map<String, String> exceptionLikelyDc = new HashMap<>();
         for (String[] s : new String[][] { { "ar_001", "ar_Arab_EG" }, }) {
             exceptionDcLikely.put(s[0], s[1]);
             exceptionLikelyDc.put(s[1], s[0]);
@@ -372,7 +372,7 @@ public class TestInheritance extends TestFmwk {
         for (String loc : availableLocales) {
             String currentLoc = loc;
             boolean foundError = false;
-            List<String> inheritanceChain = new ArrayList<String>(Arrays.asList(loc));
+            List<String> inheritanceChain = new ArrayList<>(Arrays.asList(loc));
             while (currentLoc != null && !foundError) {
                 currentLoc = LocaleIDParser.getParent(currentLoc);
                 if (inheritanceChain.contains(currentLoc)) {
@@ -392,7 +392,7 @@ public class TestInheritance extends TestFmwk {
         Set<String> skip = Builder.with(new HashSet<String>())
             .addAll("root", "und")
             .freeze();
-        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<String>(Arrays.asList("bm", "ha", "hi", "ms", "iu", "mn"));
+        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<>(Arrays.asList("bm", "ha", "hi", "ms", "iu", "mn"));
         // for each base we have to have,
         // if multiscript, we have default contents for base+script,
         // base+script+region;
@@ -465,7 +465,7 @@ public class TestInheritance extends TestFmwk {
         // Then default contents la => la_Scrp && la_Scrp => la_Scrp_RG
         // or default contents la => la_RG && ! la_Scrp => la_Scrp_RG
 
-        TreeSet<String> additionalDefaultContents = new TreeSet<String>();
+        TreeSet<String> additionalDefaultContents = new TreeSet<>();
 
         for (Entry<String, String> entry : likely2Maximized.entrySet()) {
             String source = entry.getKey();
@@ -677,7 +677,7 @@ public class TestInheritance extends TestFmwk {
     }
 
     public void TestDeprecatedTerritoryDataLocaleIds() {
-        HashSet<String> checked = new HashSet<String>();
+        HashSet<String> checked = new HashSet<>();
         for (String language : dataInfo
             .getLanguagesForTerritoriesPopulationData()) {
             checkLocale(language, false); // checks la_Scrp and la
@@ -925,7 +925,7 @@ public class TestInheritance extends TestFmwk {
     // TODO move this into central utilities
     private <K, V> String showDifferences(Map<K, V> a, Map<K, V> b) {
         StringBuilder result = new StringBuilder();
-        Set<K> keys = new LinkedHashSet<K>();
+        Set<K> keys = new LinkedHashSet<>();
         keys.addAll(a.keySet());
         keys.addAll(b.keySet());
         for (K key : keys) {

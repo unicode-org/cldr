@@ -99,6 +99,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Integer INTEGER_ONE = Integer.valueOf(1);
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false); // set for verbose debugging information
     private static final boolean GENERATE_TESTS = CldrUtility.getProperty("TestUnits:GENERATE_TESTS", false);
@@ -106,7 +107,7 @@ public class TestUnits extends TestFmwk {
     private static final String TEST_SEP = ";\t";
 
     private static final ImmutableSet<String> WORLD_SET = ImmutableSet.of("001");
-    private static final CLDRConfig info = CLDRConfig.getInstance();
+    private static final CLDRConfig info = CLDR_CONFIG;
     private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
 
     static final UnitConverter converter = SDI.getUnitConverter();
@@ -123,7 +124,7 @@ public class TestUnits extends TestFmwk {
     private Map<String, String> BASE_UNIT_TO_QUANTITY = converter.getBaseUnitToQuantity();
 
     public void TestSpaceInNarrowUnits() {
-        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        final CLDRFile english = CLDR_CONFIG.getEnglish();
         final Matcher m = Pattern.compile("narrow.*unitPattern").matcher("");
         for (String path : english) {
             if (m.reset(path).find()) {
@@ -233,7 +234,7 @@ public class TestUnits extends TestFmwk {
     static final String PATH_SQUARE_METER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"{1}\"]";
 
     public void TestCompoundUnit3() {
-        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        Factory factory = CLDR_CONFIG.getCldrFactory();
 
         Map<String,String> prefixToType = new LinkedHashMap<>();
         for (String[] prefixRow : PREFIX_NAME_TYPE) {
@@ -1749,9 +1750,9 @@ public class TestUnits extends TestFmwk {
             .filter(x -> converter.isSimple(x))
             .map((String x) -> Units.LONG_TO_SHORT.inverse().get(x))
             .collect(Collectors.toSet());
-        CLDRFile root = CLDRConfig.getInstance().getCldrFactory().make("root", true);
+        CLDRFile root = CLDR_CONFIG.getCldrFactory().make("root", true);
         ImmutableSet<String> unitLongIdsRoot = ImmutableSet.copyOf(getUnits(root, new TreeSet<>()));
-        ImmutableSet<String> unitLongIdsEnglish = ImmutableSet.copyOf(getUnits(CLDRConfig.getInstance().getEnglish(), new TreeSet<>()));
+        ImmutableSet<String> unitLongIdsEnglish = ImmutableSet.copyOf(getUnits(CLDR_CONFIG.getEnglish(), new TreeSet<>()));
 
         assertSameCollections("root unit IDs", "English", unitLongIdsRoot, unitLongIdsEnglish);
         final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds, Arrays.asList("concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg"));
@@ -1817,6 +1818,8 @@ public class TestUnits extends TestFmwk {
     public void TestGender() {
         Output<String> source = new Output<>();
         Multimap<UnitPathType, String> partsUsed = TreeMultimap.create();
+        Factory factory = CLDR_CONFIG.getFullCldrFactory();
+        Set<String> available = factory.getAvailable();
 
         for (String locale : SDI.hasGrammarInfo()) {
             // skip ones without gender info
@@ -1825,8 +1828,11 @@ public class TestUnits extends TestFmwk {
             if (genderInfo.isEmpty()) {
                 continue;
             }
+            if (CLDRConfig.SKIP_SEED && !available.contains(locale)) {
+                continue;
+            }
             // check others
-            CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            CLDRFile resolvedFile = factory.make(locale, true);
             for (Entry<String, String> entry : converter.SHORT_TO_LONG_ID.entrySet()) {
                 final String shortUnitId = entry.getKey();
                 final String longUnitId = entry.getValue();
@@ -1891,7 +1897,7 @@ public class TestUnits extends TestFmwk {
         for (String[] row : sampleUnits) {
             ++count;
             final String locale = row[0];
-            CLDRFile resolvedFileRaw = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            CLDRFile resolvedFileRaw = CLDR_CONFIG.getCLDRFile(locale, true);
             LocaleStringProvider resolvedFile;
             switch(locale) {
             case "fr":  resolvedFile = resolvedFileRaw.makeOverridingStringProvider(frOverrides); break;
@@ -1913,16 +1919,16 @@ public class TestUnits extends TestFmwk {
 
         // first gather all the  examples
         Set<String> skippedUnits = new LinkedHashSet<>();
-        Set<String> testSet = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
+        Set<String> testSet = CLDR_CONFIG.getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
         Counter<String> localeToErrorCount = new Counter<>();
         for (String localeId : testSet) {
             if (localeId.contains("_")) {
                 continue; // skip to make test shorter
             }
-            CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(localeId, true);
-            PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(localeId);
+            CLDRFile resolvedFile = CLDR_CONFIG.getCLDRFile(localeId, true);
+            PluralInfo pluralInfo = CLDR_CONFIG.getSupplementalDataInfo().getPlurals(localeId);
             PluralRules pluralRules = pluralInfo.getPluralRules();
-            GrammarInfo grammarInfo =CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(localeId);
+            GrammarInfo grammarInfo =CLDR_CONFIG.getSupplementalDataInfo().getGrammarInfo(localeId);
             Collection<String> caseVariants = grammarInfo == null ? null
                 : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
             if (caseVariants == null || caseVariants.isEmpty()) {
@@ -1992,7 +1998,7 @@ public class TestUnits extends TestFmwk {
         CheckUnits checkUnits = new CheckUnits();
         PathHeader.Factory phf = PathHeader.getFactory();
         for (String locale : Arrays.asList("en", "fr", "de", "pl", "el")) {
-            CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
 
             Options options = new Options();
             List<CheckStatus> possibleErrors = new ArrayList<>();
@@ -2019,7 +2025,7 @@ public class TestUnits extends TestFmwk {
             return;
         }
         for (String locale : Arrays.asList("pl", "ru")) {
-            CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
             GrammarInfo gi = SDI.getGrammarInfo(locale);
             Collection<String> rawCases = gi.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
 

@@ -292,6 +292,9 @@ public class TestAnnotations extends TestFmwkPlus {
         }
     }
     public void testEmojiImages() {
+        if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/"))  {
+            return; // don't bother checking production for this: the images are only in master, not production
+        }
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);
 
@@ -405,6 +408,9 @@ public class TestAnnotations extends TestFmwkPlus {
 
 
     public void testSuperfluousAnnotationPaths() {
+        if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/"))  {
+            return; // don't bother checking production for this: root is empty
+        }
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         ImmutableSet<String> rootPaths = ImmutableSortedSet.copyOf(factoryAnnotations.make("root", false).iterator("//ldml/annotations/"));
 
@@ -425,7 +431,9 @@ public class TestAnnotations extends TestFmwkPlus {
         for (String locale : factoryAnnotations.getAvailable()) {
             ImmutableSet<String> currentPaths = ImmutableSortedSet.copyOf(factoryAnnotations.make(locale, false).iterator("//ldml/annotations/"));
             Set<String> superfluous = setDifference(currentPaths, rootPaths);
-            assertTrue("root contains " + locale, superfluous.isEmpty());
+            if (!assertTrue("root contains " + locale, superfluous.isEmpty())) {
+                int debug = 0;
+            }
             allSuperfluous.addAll(superfluous);
             for (String s : currentPaths) {
                 if (s.contains("\uFE0F")) {

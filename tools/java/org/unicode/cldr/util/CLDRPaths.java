@@ -17,15 +17,16 @@ import com.google.common.collect.ImmutableList;
  */
 
 public class CLDRPaths {
-    private static final String CASING_SUBDIR = "casing/";
-    private static final String VALIDITY_SUBDIR = "validity/";
-    private static final String ANNOTATIONS_DERIVED_SUBDIR = "annotationsDerived/";
-    private static final String COLLATION_SUBDIR = "collation/";
-    private static final String RBNF_SUBDIR = "rbnf/";
-    private static final String TRANSFORMS_SUBDIR = "transforms/";
-    private static final String MAIN_SUBDIR = "main/";
-    private static final String SUBDIVISIONS_SUBDIR = "subdivisions/";
-    private static final String ANNOTATIONS_SUBDIR = "annotations/";
+    public static final String COMMON_SUBDIR = "common/";
+    public static final String CASING_SUBDIR = "casing/";
+    public static final String VALIDITY_SUBDIR = "validity/";
+    public static final String ANNOTATIONS_DERIVED_SUBDIR = "annotationsDerived/";
+    public static final String COLLATION_SUBDIR = "collation/";
+    public static final String RBNF_SUBDIR = "rbnf/";
+    public static final String TRANSFORMS_SUBDIR = "transforms/";
+    public static final String MAIN_SUBDIR = "main/";
+    public static final String SUBDIVISIONS_SUBDIR = "subdivisions/";
+    public static final String ANNOTATIONS_SUBDIR = "annotations/";
 
     /** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
     // set the base directory with -Dcldrdata=<value>
@@ -61,7 +62,7 @@ public class CLDRPaths {
 
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/" + MAIN_SUBDIR);
     public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/births/");
-    
+
     public static final String CHART_DIRECTORY = CldrUtility.getPath(STAGING_DIRECTORY + "docs/charts/", ToolConstants.CHART_VERSION);
     public static final String VERIFY_DIR = CLDRPaths.CHART_DIRECTORY + "verify/";
 

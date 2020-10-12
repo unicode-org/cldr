@@ -376,6 +376,8 @@ public class SimpleFactory extends Factory {
      * @return
      */
     public static Factory make(File sourceDirectory[], String matchString, DraftStatus minimalDraftStatus) {
+        // TODO change API to take list
+        sourceDirectory = filterOutNulls(sourceDirectory);
         if (!CACHE_SIMPLE_FACTORIES) {
             return new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
         }
@@ -421,6 +423,16 @@ public class SimpleFactory extends Factory {
             }
             return factoryCache.asMap().get(key);
         }
+    }
+
+    private static File[] filterOutNulls(File[] sourceDirectory) {
+        List<File> result = new ArrayList<>();
+        for (File f : sourceDirectory) {
+            if (f != null) {
+                result.add(f);
+            }
+        }
+        return result.toArray(new File[result.size()]);
     }
 
     @SuppressWarnings("unchecked")

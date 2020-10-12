@@ -57,7 +57,7 @@ public class Validity {
             }
             LstrType type = null;
             try {
-                type = LstrType.valueOf(file.substring(0, file.length() - 4));
+                type = LstrType.fromString(file.substring(0, file.length() - 4));
             } catch (Exception e) {
                 continue;
             }
@@ -77,7 +77,7 @@ public class Validity {
                 if (!"id".equals(parts.getElement(-1))) {
                     continue;
                 }
-                LstrType typeAttr = LstrType.valueOf(parts.getAttributeValue(-1, "type"));
+                LstrType typeAttr = LstrType.fromString(parts.getAttributeValue(-1, "type"));
                 if (typeAttr != type) {
                     throw new IllegalArgumentException("Corrupt value for " + type);
                 }

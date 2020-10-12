@@ -264,7 +264,7 @@ public abstract class MatchValue implements Predicate<String> {
             if (shortId) {
                 typeName = typeName.substring(6);
             }
-            LstrType type = LstrType.valueOf(typeName);
+            LstrType type = LstrType.fromString(typeName);
             return new ValidityMatchValue(type, statuses, shortId);
         }
 

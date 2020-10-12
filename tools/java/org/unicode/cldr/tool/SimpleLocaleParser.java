@@ -40,7 +40,7 @@ class SimpleLocaleParser {
             " | ( x (?: [-_] [a-z 0-9]{1,8} )+ )"
             + // private use
             " | ( en [-_] GB [-_] oed"
-            + // grandfathered gorp
+            + // legacy gorp
             "   | i [-_] (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )"
             +
             "   | no [-_] (?: bok | nyn )" +
@@ -89,7 +89,7 @@ class SimpleLocaleParser {
         }
         language = root.group(1);
         if (language == null) {
-            language = root.group(8); // grandfathered
+            language = root.group(8); // marked as “Type: grandfathered” in BCP 47
             if (language == null) {
                 language = "und"; // placeholder for completely private use
             }

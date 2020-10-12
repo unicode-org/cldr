@@ -696,7 +696,6 @@ public class AttributeValueValidity {
     }
 
     public static class LocaleMatcher extends MatcherPattern {
-        //final ObjectMatcherReason grandfathered = getNonNullVariable("$grandfathered").matcher;
         final MatcherPattern language;
         final MatcherPattern script = getNonNullVariable("$_script");
         final MatcherPattern territory = getNonNullVariable("$_region");
@@ -712,9 +711,6 @@ public class AttributeValueValidity {
 
         @Override
         public boolean matches(String value, Output<String> reason) {
-//            if (grandfathered.matches(value, reason)) {
-//                return true;
-//            }
             lip.set(value);
             String field = lip.getLanguage();
             if (!language.matches(field, reason)) {

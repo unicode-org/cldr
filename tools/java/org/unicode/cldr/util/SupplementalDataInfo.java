@@ -1806,7 +1806,6 @@ public class SupplementalDataInfo {
             }
             if (level2.equals("alias")) {
                 // <alias>
-                // <!-- grandfathered 3066 codes -->
                 // <languageAlias type="art-lojban" replacement="jbo"/> <!-- Lojban -->
                 String level3 = parts.getElement(3);
                 if (!level3.endsWith("Alias")) {

@@ -313,7 +313,7 @@ public class LocaleMatcherTest extends TestFmwk {
             matchEnHantTw < matchZh);
     }
 
-    public void testMatchGrandfatheredCode() {
+    public void testMatchLegacyCode() {
         if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
             return;
         }

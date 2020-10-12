@@ -17,6 +17,9 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -31,14 +34,25 @@ import org.xml.sax.SAXParseException;
 
 @CLDRTool(alias = "validate", description = "Check XML files for validity")
 public class XMLValidator {
-    public static boolean quiet = false;
-    public static boolean parseonly = false;
+    public boolean quiet = false;
+    public boolean parseonly = false;
+    public boolean justCheckBom = false;
+
+    public XMLValidator(boolean quiet, boolean parseonly, boolean justCheckBom) {
+        this.quiet = quiet;
+        this.parseonly = parseonly;
+        this.justCheckBom = justCheckBom;
+    }
 
     public static void main(String[] args) throws IOException {
+        boolean quiet = false;
+        boolean parseonly = false;
+        boolean justCheckBom = false;
         if (args.length == 0) {
             System.out.println("No files specified. Validation failed. Use --help for help.");
             return;
         }
+        List<File> toCheck = new ArrayList<>();
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-q") || args[i].equals("--quiet")) {
                 quiet = true;
@@ -46,26 +60,41 @@ public class XMLValidator {
                 usage();
                 return;
             } else if (args[i].equals("--parseonly")) {
-                System.err.println("# DTD Validation is disabled. Will only check for well formed XML.");
                 parseonly = true;
+            } else if (args[i].equals("--justCheckBom")) {
+                justCheckBom = true;
             } else {
                 File f = new File(args[i]);
                 if (f.isDirectory()) {
-                    parseDirectory(f);
+                    addDirectory(f, toCheck);
+                } else if(f.canRead()) {
+                    toCheck.add(f);
                 } else {
-                    if (!quiet) System.out.println("Processing file " + args[i]);
-                    new fileParserThread(args[i]).run();
+                    throw(new IllegalArgumentException("Not a regular file: " + f.getAbsolutePath()));
                 }
             }
         }
         if (parseonly) {
-            System.err.println("# DTD Validation is disabled. Only checked for well formed XML.");
+            System.err.println("# DTD Validation is disabled. Will only check for well-formed XML.");
+        }
+        if(toCheck.isEmpty()) {
+            throw new IllegalArgumentException("No files specified to check.");
+        }
+        if(!quiet) {
+            System.err.println("# " + toCheck.size() + " file(s) to check");
+        }
+        int failCount = new XMLValidator(quiet, parseonly, justCheckBom).check(toCheck);
+        if(failCount != 0) {
+            System.err.println("# FAIL: " + failCount + " of " + toCheck.size() + " file(s) had errors.");
+            System.exit(1);
+        } else if(!quiet) {
+            System.err.println("# " + toCheck.size() + " file(s) OK");
         }
     }
 
-    private static void parseDirectory(File f) throws IOException {
+    private static void addDirectory(File f, List<File> toCheck) throws IOException {
         // System.err.println("Parsing directory " + f.getAbsolutePath());
-        for (File s : f.listFiles(new FilenameFilter() {
+        for (final File s : f.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File arg0, String arg1) {
                 if (arg1.startsWith(".")) {
@@ -75,7 +104,7 @@ public class XMLValidator {
                 // System.err.println("Considering " + n.getAbsolutePath() );
                 if (n.isDirectory()) {
                     try {
-                        parseDirectory(n);
+                        addDirectory(n, toCheck);
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -89,25 +118,30 @@ public class XMLValidator {
                 }
             }
         })) {
-            if (!quiet) System.out.println("Processing file " + s.getPath());
-            new fileParserThread(PathUtilities.getNormalizedPathString(s)).run();
+            toCheck.add(s);
         }
     }
 
+    /**
+     * Check a list of files, return the number of failures
+     * @param toCheck
+     * @return failure count, or 0 if all OK
+     */
+    public int check(List<File> toCheck) {
+       return toCheck
+            .parallelStream()
+            .mapToInt(f -> parse(f))
+            .sum();
+    }
+
     private static void usage() {
-        System.err.println("usage:  " + XMLValidator.class.getName() + " [ -q ] [ --help ] [ --parseonly ] file ...");
+        System.err.println("usage:  " + XMLValidator.class.getName() + " [ -q ] [ --help ] [ --parseonly ] [ --justCheckBom ] file ...");
         System.err.println("usage:  " + XMLValidator.class.getName()
-            + " [ -q ] [ --help ] [ --parseonly ] directory ...");
+            + " [ -q ] [ --help ] [ --parseonly ] [ --justCheckBom ] directory ...");
     }
 
     /**
      * Utility method to translate a String filename to URL.
-     *
-     * Note: This method is not necessarily proven to get the correct URL for
-     * every possible kind of filename; it should be improved. It handles the
-     * most common cases that we've encountered when running Conformance tests
-     * on Xalan. Also note, this method does not handle other non-file: flavors
-     * of URLs at all.
      *
      * If the name is null, return null. If the name starts with a common URI
      * scheme (namely the ones found in the examples of RFC2396), then simply
@@ -118,8 +152,9 @@ public class XMLValidator {
      *            a local path/filename of a file
      * @return a file:/// URL, the same string if it appears to already be a
      *         URL, or null if error
+     * @throws MalformedURLException
      */
-    public static String filenameToURL(String filename) {
+    public static String filenameToURL(String filename) throws MalformedURLException {
         // null begets null - something like the commutative property
         if (null == filename)
             return null;
@@ -134,61 +169,36 @@ public class XMLValidator {
             return filename;
 
         File f = new File(filename);
-        String tmp = PathUtilities.getNormalizedPathString(f);
-
-        // URLs must explicitly use only forward slashes
-        if (File.separatorChar == '\\') {
-            tmp = tmp.replace('\\', '/');
-        }
-        // Note the presumption that it's a file reference
-        // Ensure we have the correct number of slashes at the
-        // start: we always want 3 /// if it's absolute
-        // (which we should have forced above)
-        if (tmp.startsWith("/"))
-            return "file://" + tmp;
-        else
-            return "file:///" + tmp;
-
+        return f.toURI().toURL().toString();
     }
 
-    public static class fileParserThread extends Thread {
-        String filename;
+    /**
+     *
+     * @param f file to parse
+     * @return 1 if problems, 0 if OK
+     */
+    public int parse(File f) {
 
-        fileParserThread(String _filename) {
-            filename = _filename;
-        }
+        if(checkForBOM(f)) return 1; // had BOM - fail
 
-        @Override
-        public void run() {
-            // Force filerefs to be URI's if needed: note this is independent of any
-            // other files
-            String docURI = filenameToURL(filename);
-            parse(new InputSource(docURI), filename);
-        }
-    }
+        if(justCheckBom) return 0; // short cut
 
-    static Document parse(InputSource docSrc, String filename) {
-
-        // Check for BOM.
+        final String filename = PathUtilities.getNormalizedPathString(f);
+        // Force filerefs to be URI's if needed: note this is independent of any
+        // other files
+        String docURI;
         try {
-            FileInputStream fis = null;
-            try {
-                fis = new FileInputStream(filename);
-                byte bytes[] = new byte[3];
-                if (fis.read(bytes) == 3 &&
-                    bytes[0] == (byte) 0xef &&
-                    bytes[1] == (byte) 0xbb &&
-                    bytes[2] == (byte) 0xbf) {
-                    System.err.println(filename + ": ERROR: contains UTF-8 BOM (shouldn't happen in CLDR XML files)");
-                }
-            } finally {
-                if (fis != null) {
-                    fis.close();
-                }
-            }
-        } catch (IOException ioe) { /* ignored- other branches will report an error. */
+            docURI = filenameToURL(filename);
+            parse(new InputSource(docURI), filename);
+            return 0; // OK
+        } catch(Throwable t) {
+            t.printStackTrace();
+            System.err.println(f.getPath() + " - fail - " + t);
+            return 1; // fail
         }
+    }
 
+    Document parse(InputSource docSrc, String filename) {
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
         // Always set namespaces on
         if (!parseonly) {
@@ -289,5 +299,32 @@ public class XMLValidator {
             }
         }
         return doc;
+    }
+
+    /**
+     * @return true if BOM found
+     */
+    private static boolean checkForBOM(File f) {
+        // Check for BOM.
+        try {
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(f);
+                byte bytes[] = new byte[3];
+                if (fis.read(bytes) == 3 &&
+                    bytes[0] == (byte) 0xef &&
+                    bytes[1] == (byte) 0xbb &&
+                    bytes[2] == (byte) 0xbf) {
+                    System.err.println(f.getPath() + ": ERROR: contains UTF-8 BOM (shouldn't happen in CLDR XML files)");
+                    return true;
+                }
+            } finally {
+                if (fis != null) {
+                    fis.close();
+                }
+            }
+        } catch (IOException ioe) { /* ignored- other branches will report an error. */
+        }
+        return false;
     }
 }

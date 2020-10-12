@@ -331,7 +331,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public CLDRFile loadFromInputStream(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
         CLDRFile cldrFile = this;
-        fis = new StripUTF8BOMInputStream(fis);
         InputStreamReader reader = new InputStreamReader(fis, Charset.forName("UTF-8"));
         MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(cldrFile, minimalDraftStatus);
         XMLFileReader.read(fileName, reader, -1, true, DEFAULT_DECLHANDLER);

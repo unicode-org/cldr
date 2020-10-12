@@ -55,7 +55,7 @@ public class XMLNormalizingLoader{
     private static final boolean DEBUG = false;
     enum SupplementalStatus {
         NEVER_SET, IS_SUMPPLEMENTAL, NOT_SUPPLEMENTAL
-    };
+    }
 
     private static class XMLSourceCacheKey {
         private final String localeId;
@@ -152,7 +152,7 @@ public class XMLNormalizingLoader{
     public static XMLSource loadXMLFile(File f, String localeId, DraftStatus minimalDraftStatus) {
         // use try-with-resources statement
         try (
-            InputStream fis = new StripUTF8BOMInputStream(new FileInputStream(f));
+            InputStream fis = new FileInputStream(f);
             InputStreamReader reader = new InputStreamReader(fis, Charset.forName("UTF-8"))
         ) {
             String fullFileName = f.getCanonicalPath();

@@ -205,7 +205,7 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                         shouldHave.add("<" + typeCompat + "Alias"
                             + " type=\"" + subtagCompat + "\""
                             + (possibleReplacement == null || possibleReplacement.isEmpty() ? "" : " replacement=\"" + possibleReplacement + "\"")
-                            + " reason=\"" + (type == LstrType.grandfathered || type == LstrType.redundant ? type.toString() : "deprecated") + "\""
+                            + " reason=\"" + (type == LstrType.legacy || type == LstrType.redundant ? type.toString() : "deprecated") + "\""
                             + "/>  <!-- " + subtagInfo.get(LstrField.Description) + " -->");
                     } else {
                         shouldSkip.add(subtag);

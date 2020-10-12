@@ -224,11 +224,11 @@ public class GenerateG2xG2 {
         } else {
             boolean USE_3066bis = choice == 2;
             // produce random list of RFC3066 language tags
-            Set<String> grandfathered = sc.getAvailableCodes("grandfathered");
+            Set<String> legacy = sc.getAvailableCodes("legacy");
             List<String> language_subtags = new ArrayList<>(sc.getGoodAvailableCodes("language"));
             List<String> script_subtags = new ArrayList<>(sc.getGoodAvailableCodes("script"));
             List<String> region_subtags = new ArrayList<>(sc.getGoodAvailableCodes("territory"));
-            for (String possibility : grandfathered) {
+            for (String possibility : legacy) {
                 System.out.println(possibility);
                 if (new ULocale(possibility).getScript().length() != 0) {
                     System.out.println("\tAdding");

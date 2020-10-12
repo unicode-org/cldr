@@ -817,9 +817,9 @@ public class CountItems {
     public static Map<String, String> getVariables(VariableType variableType) {
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
         Map<String, String> variableSubstitutions = new LinkedHashMap<>();
-        for (String type : new String[] { "grandfathered", "territory", "script", "variant" }) {
+        for (String type : new String[] { "legacy", "territory", "script", "variant" }) {
             Set<String> i;
-            i = (variableType == VariableType.full || type.equals("grandfathered")) ? sc.getAvailableCodes(type) : sc.getGoodAvailableCodes(type);
+            i = (variableType == VariableType.full || type.equals("legacy")) ? sc.getAvailableCodes(type) : sc.getGoodAvailableCodes(type);
             addVariable(variableSubstitutions, type, i, sep);
         }
 

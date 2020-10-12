@@ -32,6 +32,13 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: BOM check in .xml files
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl java
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="-q --justCheckBom exemplars seed common keyboards"
+          && echo 'No XML BOM detected'
       - name: Setup MySQL
         run: |
           sudo systemctl start mysql.service

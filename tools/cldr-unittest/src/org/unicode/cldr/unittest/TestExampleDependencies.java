@@ -97,7 +97,7 @@ public class TestExampleDependencies extends TestFmwk {
         RecordingCLDRFile cldrFile = makeRecordingCldrFile(localeId);
         cldrFile.disableCaching();
 
-        Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
+        Set<String> paths = new TreeSet<>(cldrFile.getComparator());
         // time-consuming
         cldrFile.forEach(paths::add);
 
@@ -156,13 +156,13 @@ public class TestExampleDependencies extends TestFmwk {
         CLDRFile cldrFile = makeMutableResolved(factory, localeId); // time-consuming
         cldrFile.disableCaching();
 
-        Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
+        Set<String> paths = new TreeSet<>(cldrFile.getComparator());
         // time-consuming
         cldrFile.forEach(paths::add);
 
         ExampleGenerator egBase = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
-        HashMap<String, String> originalValues = new HashMap<String, String>();
+        HashMap<String, String> originalValues = new HashMap<>();
 
         getExamplesForBase(egBase, cldrFile, paths, originalValues);
         /*
@@ -402,10 +402,10 @@ public class TestExampleDependencies extends TestFmwk {
         writer.println("    public static ImmutableSetMultimap<String, String> dependencies");
         writer.println("            = new ImmutableSetMultimap.Builder<String, String>()");
         int dependenciesWritten = 0;
-        ArrayList<String> listA = new ArrayList<String>(dependencies.keySet());
+        ArrayList<String> listA = new ArrayList<>(dependencies.keySet());
         Collections.sort(listA);
         for (String pathA : listA) {
-            ArrayList<String> listB = new ArrayList<String>(dependencies.get(pathA));
+            ArrayList<String> listB = new ArrayList<>(dependencies.get(pathA));
             Collections.sort(listB);
             String a = "\"" + pathA.replaceAll("\"", "\\\\\"") + "\"";
             for (String pathB : listB) {
@@ -421,7 +421,7 @@ public class TestExampleDependencies extends TestFmwk {
     }
 
     private void writeJson(Multimap<String, String> dependencies, String dir, String name, PrintWriter writer) {
-        ArrayList<String> list = new ArrayList<String>(dependencies.keySet());
+        ArrayList<String> list = new ArrayList<>(dependencies.keySet());
         Collections.sort(list);
         boolean firstPathA = true;
         int keysWritten = 0;

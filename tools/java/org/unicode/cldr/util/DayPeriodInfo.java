@@ -241,6 +241,9 @@ public class DayPeriodInfo {
      */
     public R3<Integer, Integer, Boolean> getFirstDayPeriodInfo(DayPeriodInfo.DayPeriod dayPeriod) {
         Span span = getFirstDayPeriodSpan(dayPeriod);
+        if (span == null) {
+            return null;
+        }
         return Row.of(span.start, span.end, true);
     }
 
@@ -334,11 +337,16 @@ public class DayPeriodInfo {
             break;
         }
         StringBuilder result = new StringBuilder();
-        for (Span span : dayPeriodsToSpans.get(dayPeriod)) {
-            if (result.length() != 0) {
-                result.append("; ");
+        Set<Span> set = dayPeriodsToSpans.get(dayPeriod);
+        if (set != null) {
+            for (Span span : set) {
+                if (span != null) {
+                    if (result.length() != 0) {
+                        result.append("; ");
+                    }
+                    result.append(span.toStringPlain());
+                }
             }
-            result.append(span.toStringPlain());
         }
         return result.toString();
     }

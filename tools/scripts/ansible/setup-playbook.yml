@@ -47,6 +47,23 @@
         owner: tomcat8
         group: tomcat8
         mode: 0775
+    - name: Rotate CLDR logs
+      blockinfile:
+        path: "/etc/logrotate.d/surveytool-logs"
+        owner: root
+        mode: "0644"
+        block: |
+          /var/lib/tomcat8/cldr/cldrmail.log /var/lib/tomcat8/cldr/exception.log {
+            daily
+            rotate 7
+            compress
+            copytruncate
+            missingok
+            notifempty
+            dateext
+            create 0640 surveytool cldr
+          }
+        create: true
     - name: Create cldr.properties
       template:
         dest: /var/lib/tomcat8/cldr/cldr.properties

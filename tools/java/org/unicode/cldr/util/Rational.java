@@ -313,7 +313,7 @@ public final class Rational implements Comparable<Rational> {
 
         switch (style) {
         case repeating:
-            String result = toRepeating(30); // limit of 30 on the repeating length, so we don't get crazy
+            String result = toRepeating(30); // limit of 30 on the repeating length, so we don't get unreasonable
             if (result != null) {
                 return result;
             }

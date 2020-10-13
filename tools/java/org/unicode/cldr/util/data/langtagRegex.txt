@@ -35,7 +35,7 @@ $extension  = $singleton (?: $s $alphanum{2,8} )+ ; # singleton 1*("-" (2*8alpha
 
 $privateUse = $x (?: $s $alphanum{1,8} )+ ; # "x" 1*("-" (1*8alphanum))
 
-# Define certain grandfathered codes, since otherwise the regex is pretty useless.
+# Define certain legacy codes (marked as “Type: grandfathered” in BCP 47), since otherwise the regex is pretty useless.
 # Since these are limited, this is safe even later changes to the registry --
 # the only oddity is that it might change the type of the tag, and thus
 # the results from the capturing groups.

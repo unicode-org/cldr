@@ -50,21 +50,22 @@ fr-Latn-CA
 fr-Latn-FR
 fr-shadok 	 # Variant
 fr-y-myext-myext2
-i-default      	 # grandfathered
-i-default 	 # grandfathered
-i-enochian 	 # Grand fathered
-i-klingon 	 # grandfathered
-i-klingon 	 # grandfathered with singleton
+i-default      	 # legacy (marked as “Type: grandfathered” in BCP 47)
+i-default 	 # legacy
+i-enochian 	 # legacy
+i-klingon 	 # legacy
+i-klingon 	 # legacy with singleton
 mn-Cyrl-MN
 mN-cYrL-Mn
-no-bok 	 # grandfathered without singleton
+no-bok 	 # legacy without singleton
 sl-IT-nedis
 sl-nedis
 sr-Latn-CS
 x-12345678-a
 x-fr-CH
 
-#all of the grandfathered codes; first the really goofy ones. Cased oddly for an extra test.
+#all of the legacy codes (marked as “Type: grandfathered” in BCP 47); first the really goofy ones.
+#Cased oddly for an extra test.
 En-Gb-Oed
 I-Ami
 I-Bnn
@@ -264,7 +265,7 @@ fr-Latn-F
 overlongone
 tlh-a-b-foo
 
-i-notexist          	 # grandfathered but not registered: invalid, even if we only test well-formedness
+i-notexist          	 # legacy but not registered: invalid, even if we only test well-formedness
 
 en-enx                    # Extended tag
 en-enx-eny-enz-latn-us    # Extended tag

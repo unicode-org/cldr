@@ -501,7 +501,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static String defaultServletPath = null;
     /**
-     * IP blacklist
+     * IP exclusion list
      */
     static Hashtable<String, Object> BAD_IPS = new Hashtable<>();
     public static String fileBaseA;

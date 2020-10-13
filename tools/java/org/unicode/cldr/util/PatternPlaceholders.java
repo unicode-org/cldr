@@ -127,21 +127,20 @@ public class PatternPlaceholders {
 
     }
 
-    private RegexLookup<PlaceholderData> patternPlaceholders;
-
-    private static PatternPlaceholders SINGLETON;
+    private final RegexLookup<PlaceholderData> patternPlaceholders;
 
     private PatternPlaceholders() {
+        patternPlaceholders = RegexLookup.of(new MapTransform())
+            .setValueMerger(new MyMerger())
+            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+    }
+
+    static final private class PatternPlaceholdersHelper {
+        static final PatternPlaceholders SINGLETON = new PatternPlaceholders();
     }
 
     public static PatternPlaceholders getInstance() {
-        if (SINGLETON == null) {
-            SINGLETON = new PatternPlaceholders();
-            SINGLETON.patternPlaceholders = RegexLookup.of(new MapTransform())
-                .setValueMerger(new MyMerger())
-                .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
-        }
-        return SINGLETON;
+        return PatternPlaceholdersHelper.SINGLETON;
     }
 
     public Map<String, PlaceholderInfo> get(String path) {

@@ -1359,14 +1359,15 @@ public class MetazoneSortMode extends SortMode {
     }
 
     @Override
-    Comparator<DataRow> createComparator() {
-        return comparator();
+    Comparator<DataRow> getComparator() {
+        return ComparatorHelper.COMPARATOR;
     }
 
-    public static Comparator<DataRow> comparator() {
-        final int ourKey = SortMode.SortKeyType.SORTKEY_CALENDAR.ordinal();
-        final Comparator<DataRow> codeComparator = CodeSortMode.comparator();
-        return new Comparator<DataRow>() {
+    private static final class ComparatorHelper {
+        private static final Comparator<DataRow> COMPARATOR  = new Comparator<DataRow>() {
+            final int ourKey = SortMode.SortKeyType.SORTKEY_CALENDAR.ordinal();
+            final Comparator<DataRow> codeComparator = CodeSortMode.internalGetComparator();
+
             @Override
             public int compare(DataRow p1, DataRow p2) {
                 if (p1 == p2) {

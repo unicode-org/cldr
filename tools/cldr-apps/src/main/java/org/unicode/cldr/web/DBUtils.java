@@ -14,7 +14,6 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,7 +38,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRConfigImpl;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
@@ -59,7 +58,6 @@ public class DBUtils {
     // false);
 
     private static final boolean DEBUG_SQL = false; // show "all" SQL
-    private static DBUtils instance = null;
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
     private String connectionUrl = null;
@@ -270,26 +268,27 @@ public class DBUtils {
         return out.toString();
     }
 
-    public static DBUtils peekInstance() {
-        return instance;
-    }
-
-    public synchronized static DBUtils getInstance() {
-        if (instance == null) {
-            instance = new DBUtils();
-        }
-        return instance;
+    public static DBUtils getInstance() {
+        return DBUtilsHelper.SINGLETON;
     }
 
     /**
      * For testing use, injecting a specific data source.
      * For production use, call getInstance().
      */
-    public synchronized static void makeInstanceFrom(DataSource dataSource2, String url) {
-        if (instance == null) {
-            instance = new DBUtils(dataSource2, url);
-        } else {
-            throw new IllegalArgumentException("Already initted.");
+    public static void makeInstanceFrom(DataSource dataSource2, String url) {
+        System.err.println("DBUtils: Note: changing the DBUtils singleton instance to " + dataSource2 + " @ " + url);
+        DBUtilsHelper.SINGLETON = new DBUtils(dataSource2, url);
+    }
+
+    private static final class DBUtilsHelper {
+        static DBUtils SINGLETON = new DBUtils();
+        static void shutdown(DBUtils fromThis) {
+            if(SINGLETON != fromThis) {
+                throw new RuntimeException("DBUtils Shutdown with some other instance");
+            } else {
+                SINGLETON = null;
+            }
         }
     }
 
@@ -599,6 +598,10 @@ public class DBUtils {
     }
 
     private DBUtils() {
+        if(CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
+            System.err.println("NOT initializing datasource: UNITTEST environment. Must call DBUtils.makeInstanceFrom() before DB operations will work."); //  makeInstanceFrom() must be called.
+            return;
+        }
         // Initialize DB context
         System.err.println("Loading datasource: java:comp/env " + JDBC_SURVEYTOOL);
         ElapsedTimer et = new ElapsedTimer();
@@ -606,7 +609,6 @@ public class DBUtils {
             Context initialContext = new InitialContext();
             Context eCtx = (Context) initialContext.lookup("java:comp/env");
             datasource = (DataSource) eCtx.lookup(JDBC_SURVEYTOOL);
-            // datasource = (DataSource) envContext.lookup("ASDSDASDASDASD");
 
             if (datasource != null) {
                 System.err.println("Got datasource: " + datasource.toString() + " in " + et);
@@ -730,7 +732,7 @@ public class DBUtils {
         }
         if (tracker != null)
             tracker.clear();
-        instance = null;
+        DBUtilsHelper.shutdown(this);
     }
 
     /**

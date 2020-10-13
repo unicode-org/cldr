@@ -26,7 +26,6 @@ public class NameSort extends SortMode {
      */
     @Override
     String getName() {
-        // TODO Auto-generated method stub
         return name;
     }
 
@@ -37,7 +36,6 @@ public class NameSort extends SortMode {
      */
     @Override
     Membership[] memberships() {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -47,14 +45,17 @@ public class NameSort extends SortMode {
      * @see org.unicode.cldr.web.SortMode#createComparator()
      */
     @Override
-    Comparator<DataRow> createComparator() {
-        // TODO Auto-generated method stub
-        return comparator();
+    Comparator<DataRow> getComparator() {
+        return ComparatorHelper.COMPARATOR;
     }
 
-    public static Comparator<DataRow> comparator() {
-        final Collator myCollator = CodeSortMode.createCollator();
-        return new Comparator<DataRow>() {
+    public static Comparator<DataRow> internalGetComparator() {
+        return ComparatorHelper.COMPARATOR;
+    }
+
+    private static final class ComparatorHelper {
+        static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
+            final Collator myCollator = CodeSortMode.internalGetCollator();
             // com.ibm.icu.text.Collator myCollator = rbc;
             @Override
             public int compare(DataRow p1, DataRow p2) {

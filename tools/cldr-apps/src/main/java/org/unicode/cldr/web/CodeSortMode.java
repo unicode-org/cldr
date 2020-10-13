@@ -36,13 +36,21 @@ public class CodeSortMode extends SortMode {
     }
 
     @Override
-    Comparator<DataRow> createComparator() {
-        return comparator();
+    Comparator<DataRow> getComparator() {
+        return ComparatorHelper.COMPARATOR;
     }
 
-    public static Comparator<DataRow> comparator() {
-        return new Comparator<DataRow>() {
-            final Collator myCollator = createCollator();
+    static final private class CollatorHelper {
+        private static Collator createCollator() {
+            RuleBasedCollator rbc = ((RuleBasedCollator) Collator.getInstance());
+            rbc.setNumericCollation(true);
+            return rbc.freeze();
+        }
+        static final Collator COLLATOR = createCollator();
+    }
+    static final private class ComparatorHelper {
+        static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
+            final Collator myCollator = CollatorHelper.COLLATOR;
 
             @Override
             public int compare(DataRow p1, DataRow p2) {
@@ -52,12 +60,15 @@ public class CodeSortMode extends SortMode {
                 return myCollator.compare(p1.getPrettyPath(), p2.getPrettyPath());
             }
         };
+
     }
 
-    public static Collator createCollator() {
-        RuleBasedCollator rbc = ((RuleBasedCollator) Collator.getInstance());
-        rbc.setNumericCollation(true);
-        return rbc;
+    public static Collator internalGetCollator() {
+        return CollatorHelper.COLLATOR;
+    }
+
+    public static Comparator<DataRow> internalGetComparator() {
+        return ComparatorHelper.COMPARATOR;
     }
 
     @Override

@@ -76,20 +76,16 @@ public class SpecialLocales {
         return getInstance().getCommentInternal(l).replaceAll("@@", "@" + l.getBaseName());
     }
 
-    /**
-     * Singleton object
-     */
-    private static SpecialLocales singleton = null;
+    private static final class SpecialLocalesHelper {
+        static final SpecialLocales SINGLETON = new SpecialLocales();
+    }
 
     /**
      * Internal accessor. All access is via the static functions.
      * @return
      */
     private static synchronized SpecialLocales getInstance() {
-        if (singleton == null) {
-            singleton = new SpecialLocales();
-        }
-        return singleton;
+        return SpecialLocalesHelper.SINGLETON;
     }
 
     private Map<CLDRLocale, Type> specials = new HashMap<>();

@@ -59,10 +59,6 @@ public abstract class SortMode {
         } else {
             list.add(CodeSortMode.name);
         }
-        if (false) { // hide others
-            list.add(NameSort.name);
-            list.add(InterestSort.name);
-        }
         return list;
     }
 
@@ -93,16 +89,14 @@ public abstract class SortMode {
     abstract String getDisplayName();
 
     /**
-     *
-     * @return
+     * @return the array of partition memberships to use
      */
     abstract Partition.Membership[] memberships();
 
     /**
-     *
-     * @return
+     * @return the comparator to use
      */
-    abstract Comparator<DataRow> createComparator();
+    abstract Comparator<DataRow> getComparator();
 
     public String getDisplayName(DataRow p) {
         if (p == null) {
@@ -222,7 +216,7 @@ public abstract class SortMode {
     }
 
     public DataSection.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
-        DataRow rows[] = createSortedList(createComparator(), matcher, values);
+        DataRow rows[] = createSortedList(getComparator(), matcher, values);
         return new DataSection.DisplaySet(rows, this, createPartitions(rows));
     }
 

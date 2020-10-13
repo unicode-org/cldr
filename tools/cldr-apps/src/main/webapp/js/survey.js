@@ -2126,6 +2126,7 @@ require(["dojo/ready"], function(ready) {
 		 * @param {Boolean} hideIfLast
 		 * @param {Function} fn
 		 * @param {Boolean} immediate
+		 * @returns {Node} a reference to the right hand panel, if not in Dashboard mode
 		 */
 		window.showInPop2 = function(str, tr, hideIfLast, fn, immediate, hide) {
 			if (unShow) {
@@ -2144,9 +2145,10 @@ require(["dojo/ready"], function(ready) {
 			setLastShown(hideIfLast);
 
 			/*
-			 * TODO: clarify or rename; this td isn't really a td, is it?
+			 * This is the temporary fragment used for the
+			 * "info panel" contents. 
 			 */
-			var td = document.createDocumentFragment();
+			var fragment = document.createDocumentFragment();
 
 			// Always have help (if available).
 			var theHelp = null;
@@ -2192,17 +2194,17 @@ require(["dojo/ready"], function(ready) {
 				}
 			}
 			if (theHelp) {
-				td.appendChild(theHelp);
+				fragment.appendChild(theHelp);
 			}
 
 			if (str) { // If a simple string, clone the string
 				var div2 = document.createElement("div");
 				div2.innerHTML = str;
-				td.appendChild(div2);
+				fragment.appendChild(div2);
 			}
 			// If a generator fn (common case), call it.
 			if (fn != null) {
-				unShow = fn(td);
+				unShow = fn(fragment);
 
 			}
 
@@ -2211,10 +2213,10 @@ require(["dojo/ready"], function(ready) {
 				theVoteinfo = tr.voteDiv;
 			}
 			if (theVoteinfo) {
-				td.appendChild(theVoteinfo.cloneNode(true));
+				fragment.appendChild(theVoteinfo.cloneNode(true));
 			}
 			if (tr && tr.ticketLink) {
-				td.appendChild(tr.ticketLink.cloneNode(true));
+				fragment.appendChild(tr.ticketLink.cloneNode(true));
 			}
 
 			// forum stuff
@@ -2226,31 +2228,32 @@ require(["dojo/ready"], function(ready) {
 				 * after cloning?
 				 */
 				var forumDivClone = tr.forumDiv.cloneNode(true);
-				showForumStuff(td, forumDivClone, tr); // give a chance to update anything else
-				td.appendChild(forumDivClone);
+				showForumStuff(fragment, forumDivClone, tr); // give a chance to update anything else
+				fragment.appendChild(forumDivClone);
 			}
 
 			if (tr && tr.theRow && tr.theRow.xpath) {
-				td.appendChild(clickToSelect(createChunk(tr.theRow.xpath, "div", "xpath")));
+				fragment.appendChild(clickToSelect(createChunk(tr.theRow.xpath, "div", "xpath")));
 			}
 
-			// SRL suspicious
+			// Now, copy or append the 'fragment' to the
+			// appropriate spot. This depends on how we were called.
 			if (tr) {
 				if (isDashboard()) {
-					showHelpFixPanel(td);
+					showHelpFixPanel(fragment);
 				} else {
 					removeAllChildNodes(pucontent);
-					pucontent.appendChild(td);
+					pucontent.appendChild(fragment);
 				}
 			} else {
 				if (!isDashboard()) {
 					// show, for example, dataPageInitialGuidance in Info Panel
-					var clone = td.cloneNode(true);
+					var clone = fragment.cloneNode(true);
 					removeAllChildNodes(pucontent);
 					pucontent.appendChild(clone);
 				}
 			}
-			td = null;
+			fragment = null;
 
 			// for the voter
 			$('.voteInfo_voterInfo').hover(function() {
@@ -2268,7 +2271,11 @@ require(["dojo/ready"], function(ready) {
 				$(this).html($(this).data('name'));
 				$(this).closest('td').css('text-align', 'left');
 			});
-
+			if(!isDashboard()) {
+				return pucontent;
+			} else {
+				return null;
+			}
 		};
 		// delay before show
 		window.showInPop = function(str, tr, hideIfLast, fn, immediate) {

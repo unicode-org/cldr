@@ -1230,6 +1230,21 @@ public class DBUtils {
         public void close() throws SQLException;
     }
 
+    public static void writeCsv(final String query, Writer out) throws SQLException, IOException {
+        Connection conn = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            rs = DBUtils.prepareForwardReadOnly(conn, query).executeQuery();
+            writeCsv(rs, out);
+        } catch (java.sql.SQLException se) {
+            SurveyLog.logException(se, "running csv: " + se);
+            throw se;
+        } finally {
+            DBUtils.close(rs, conn);
+        }
+    }
+
     public static void writeCsv(ResultSet rs, Writer out) throws SQLException, IOException {
         ResultSetMetaData rsm = rs.getMetaData();
         int cc = rsm.getColumnCount();

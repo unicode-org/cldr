@@ -20,48 +20,9 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 	 */
 	Page.prototype.parseHash = function parseHash(hash, pieces) {
 		surveyCurrentPage='';
-//		if(pieces && pieces.length>3){
-//			if(!pieces[3] || pieces[3]=='') {
-//				surveyCurrentId='';
-//			} else {
-//				var id = new Number(pieces[3]);
-//				if(id == NaN) {
-//					surveyCurrentId = '';
-//				} else {
-//					surveyCurrentId = id.toString();
-//					this.handleIdChanged(surveyCurrentId);
-//				}
-//			}
-//		}
 	};
 	
 	Page.prototype.handleIdChanged = function handleIdChanged(strid) {
-//		if(strid && strid != '') {
-//			var id = new Number(strid);
-//			if(id == NaN) {
-//				surveyCurrentId = '';
-//			} else {
-//				surveyCurrentId = id.toString();
-//			}
-//			var itemid = "fp"+id;
-//			var pdiv = document.getElementById(itemid);
-//			if(pdiv) {
-//				console.log("Scrolling " + itemid);
-//				win.scrollIntoView(pdiv);
-//				(function(o,itemid,pdiv){
-//					//if(!o.lastHighlight) {
-//					//	o.lastHighlight=itemid;
-//						pdiv.style["background-color"]="yellow";
-//						window.setTimeout(function(){
-//							pdiv.style["background-color"]=null;
-//						//	o.lastHighlight=null;
-//						}, 2000);
-//					//}
-//				})(this,itemid,pdiv);
-//			} else {
-//				console.log("No item "+itemid);
-//			}
-//		}
 	};
 
 	Page.prototype.show = function show(params) {
@@ -73,7 +34,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 	        	return;
 			}
 			// set up the 'right sidebar'
-			showInPop2(stui.str(params.name+"Guidance"), null, null, null, true); /* show the box the first time */					
+			const pucontent = showInPop2(stui.str(params.name+"Guidance"), null, null, null, true); /* show the box the first time */					
 			
 			var ourDiv = document.createElement("div");
 			ourDiv.className = 'special_'+params.name;
@@ -153,6 +114,13 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 			hideLoader(null);
 			params.flipper.flipTo(params.pages.other, ourDiv);
 			params.special.handleIdChanged(surveyCurrentId); // rescroll.
+
+			if(surveyUserPerms.userIsTC) {
+				// For TC, show button (includes emails, so TC only)
+				const csvButton = $('<form></form>', {action: "DataExport.jsp?do=flagged&s=" + surveySessionId});
+				csvButton.append($('<input></input', {type: 'submit', value: stui.str('downloadCsvLink')}));
+				$(pucontent).append(csvButton);
+			}
 		})
 		.otherwise(function(err) {
         	params.special.showError(params, null, {err: err, what: "Loading forum data"});

@@ -26,120 +26,85 @@ import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
+/**
+ * Basic information about the CLDR environment.
+ * Use CLDRConfig.getInstance() to create your instance.
+ *
+ * Special notes:
+ * - Within the Survey Tool, a special subclass of this class named CLDRConfigImpl is used instead,
+ * which see.
+ * - Within unit tests, -DCLDR_ENVIRONMENT=UNITTEST is set, which prevents the use of CLDRConfigImpl
+ */
 public class CLDRConfig extends Properties {
     public static boolean SKIP_SEED = System.getProperty("CLDR_SKIP_SEED") != null;
-    /**
-     *
-     */
     private static final long serialVersionUID = -2605254975303398336L;
     public static boolean DEBUG = false;
-    private static CLDRConfig INSTANCE = null;
+    /**
+     * This is the special implementation which will be used, i.e. CLDRConfigImpl
+     */
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
 
     /**
-     * Object to use for synchronization when interacting with Factory
+     * What environment is CLDR in?
      */
-    private static final Object CLDR_FACTORY_SYNC = new Object();
-
-    /**
-     * Object to use for synchronization when interacting with Factory
-     */
-    private static final Object FULL_FACTORY_SYNC = new Object();
-
-    /**
-     * Object to use for synchronization when interacting with Factory
-     */
-    private static final Object EXEMPLARS_FACTORY_SYNC = new Object();
-    /**
-     * Object to use for synchronization when interacting with Factory
-     */
-    private static final Object COLLATION_FACTORY_SYNC = new Object();
-    /**
-     * Object to use for synchronization when interacting with Factory
-     */
-    private static final Object RBNF_FACTORY_SYNC = new Object();
-
-    /**
-     * Object to use for synchronization when interacting with Factory
-     */
-    private static final Object ANNOTATIONS_FACTORY_SYNC = new Object();
-
-    /**
-     * Object to use for synchronization when interacting with Factory
-     */
-    private static final Object SUBDIVISION_FACTORY_SYNC = new Object();
-
-    /**
-     * Object used for synchronization when interacting with SupplementalData
-     */
-    private static final Object SUPPLEMENTAL_DATA_SYNC = new Object();
-
-    /**
-     * Object used for synchronization in getCollator()
-     */
-    private static final Object GET_COLLATOR_SYNC = new Object();
-
-    /**
-     * Object used for synchronization in getCollator()
-     */
-    private static final Object GET_COLLATOR_SYNC_ROOT = new Object();
-
-    /**
-     * Object used for synchronization in getStandardCodes()
-     */
-    private static final Object GET_STANDARD_CODES_SYNC = new Object();
-
-    /**
-     * Object used for synchronization in getCoverageInfo()
-     */
-    private static Object COVERAGE_INFO_SYNC = new Object();
-
     public enum Environment {
         LOCAL, // < == unknown.
-        SMOKETEST, // staging area
-        PRODUCTION, // production server!
+        SMOKETEST, // staging (SurveyTool) area
+        PRODUCTION, // production (SurveyTool) server!
         UNITTEST // unit test setting
     }
 
-    public static CLDRConfig getInstance() {
-        synchronized (CLDRConfig.class) {
-            if (INSTANCE == null) {
-                final String env = System.getProperty("CLDR_ENVIRONMENT");
-                if (env != null && env.equals(Environment.UNITTEST.name())) {
-                    if (DEBUG) {
-                        System.err.println("-DCLDR_ENVIRONMENT=" + env + " - not loading " + SUBCLASS);
-                    }
-                } else {
-                    try {
-                        // System.err.println("Attempting to new up a " + SUBCLASS);
-                        INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
+    public static final class CLDRConfigHelper {
+        private static CLDRConfig make() {
+            CLDRConfig instance = null;
+            final String env = System.getProperty("CLDR_ENVIRONMENT");
+            if (env != null && env.equals(Environment.UNITTEST.name())) {
+                // For unittests, skip the following
+                if (DEBUG) {
+                    System.err.println("-DCLDR_ENVIRONMENT=" + env + " - not loading " + SUBCLASS);
+                }
+            } else {
+                // This is the branch for SurveyTool
+                try {
+                    // System.err.println("Attempting to new up a " + SUBCLASS);
+                    instance = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
 
-                        if (INSTANCE != null) {
-                            System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
-                                + INSTANCE.getClass().getName());
-                        } else {
-                            if (DEBUG) {
-                                // Probably occurred because ( config.getEnvironment() == Environment.UNITTEST )
-                                // see CLDRConfigImpl
-                                System.err.println("Note: CLDRConfig Subclass " +
-                                    SUBCLASS + ".newInstance() returned NULL " +
-                                    "( this is OK if we aren't inside the SurveyTool's web server )");
-                            }
+                    if (instance != null) {
+                        System.err.println("Using CLDRConfig: " + instance.toString() + " - "
+                            + instance.getClass().getName());
+                    } else {
+                        if (DEBUG) {
+                            // Probably occurred because ( config.getEnvironment() == Environment.UNITTEST )
+                            // see CLDRConfigImpl
+                            System.err.println("Note: CLDRConfig Subclass " +
+                                SUBCLASS + ".newInstance() returned NULL " +
+                                "( this is OK if we aren't inside the SurveyTool's web server )");
                         }
-                    } catch (ClassNotFoundException e) {
-                        // Expected - when not under cldr-apps, this class doesn't exist.
-                    } catch (InstantiationException | IllegalAccessException e) {
-                        // TODO: log a useful message
                     }
+                } catch (ClassNotFoundException e) {
+                    // Expected - when not under cldr-apps, this class doesn't exist.
+                } catch (InstantiationException | IllegalAccessException e) {
+                    // TODO: log a useful message
                 }
             }
-            if (INSTANCE == null) {
-                INSTANCE = new CLDRConfig();
-                CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"),
+            if (instance == null) {
+                // this is the "normal" branch for tools and such
+                instance = new CLDRConfig();
+                CldrUtility.checkValidDirectory(instance.getProperty("CLDR_DIR"),
                     "You have to set -DCLDR_DIR=<validdirectory>");
             }
+            return instance;
         }
-        return INSTANCE;
+
+        static final CLDRConfig SINGLETON = make();
+    }
+
+    /**
+     * Main getter for the singleton CLDRConfig.
+     * @return
+     */
+    public static CLDRConfig getInstance() {
+        return CLDRConfigHelper.SINGLETON;
     }
 
     String initStack = null;
@@ -148,25 +113,14 @@ public class CLDRConfig extends Properties {
         initStack = StackTracker.currentStack();
     }
 
+    /**
+     * This returns the stacktrace of the first caller to getInstance(), for debugging.
+     * @return
+     */
     public String getInitStack() {
         return initStack;
     }
 
-    private CoverageInfo coverageInfo = null;
-    private SupplementalDataInfo supplementalDataInfo;
-    private StandardCodes sc;
-    private Factory cldrFactory;
-    private Factory fullFactory;
-    private Factory mainAndAnnotationsFactory;
-    private Factory commonAndSeedAndMainAndAnnotationsFactory;
-    private Factory exemplarsFactory;
-    private Factory collationFactory;
-    private Factory rbnfFactory;
-    private Factory annotationsFactory;
-    private Factory subdivisionFactory;
-    private Factory supplementalFactory;
-    private RuleBasedCollator colRoot;
-    private RuleBasedCollator col;
     private Phase phase = null; // default
 
     private LoadingCache<String, CLDRFile> cldrFileResolvedCache = CacheBuilder.newBuilder()
@@ -212,144 +166,131 @@ public class CLDRConfig extends Properties {
         }
     }
 
+    private static final class SupplementalDataInfoHelper {
+        static final SupplementalDataInfo SINGLETON = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+    }
+
     public SupplementalDataInfo getSupplementalDataInfo() {
-        synchronized (SUPPLEMENTAL_DATA_SYNC) {
-            if (supplementalDataInfo == null) {
-                supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-            }
-        }
-        return supplementalDataInfo;
+        // Note: overridden in subclass.
+        return SupplementalDataInfoHelper.SINGLETON;
     }
 
-    public StandardCodes getStandardCodes() {
-        synchronized (GET_STANDARD_CODES_SYNC) {
-            if (sc == null) {
-                sc = StandardCodes.make();
-            }
-        }
-        return sc;
+    /**
+     * StandardCodes.make() already returns a singleton
+     * @deprecated use {@link StandardCodes#make()}
+     * @return
+     */
+    @Deprecated
+    public final StandardCodes getStandardCodes() {
+        return StandardCodes.make();
     }
 
-    public CoverageInfo getCoverageInfo() {
-        synchronized (COVERAGE_INFO_SYNC) {
-            if (coverageInfo == null) {
-                coverageInfo = new CoverageInfo(getSupplementalDataInfo());
-            }
-        }
-        return coverageInfo;
+    private static final class CoverageInfoHelper {
+        static final CoverageInfo SINGLETON = new CoverageInfo(getInstance().getSupplementalDataInfo());
     }
 
-    public Factory getCldrFactory() {
-        synchronized (CLDR_FACTORY_SYNC) {
-            if (cldrFactory == null) {
-                cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-            }
-        }
-        return cldrFactory;
+    public final CoverageInfo getCoverageInfo() {
+        return CoverageInfoHelper.SINGLETON;
     }
 
-    public Factory getExemplarsFactory() {
-        synchronized (EXEMPLARS_FACTORY_SYNC) {
-            if (exemplarsFactory == null) {
-                exemplarsFactory = Factory.make(CLDRPaths.EXEMPLARS_DIRECTORY, ".*");
-            }
-        }
-        return exemplarsFactory;
+    private static final class CldrFactoryHelper {
+        static final Factory SINGLETON = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     }
 
-    public Factory getCollationFactory() {
-        synchronized (COLLATION_FACTORY_SYNC) {
-            if (collationFactory == null) {
-                collationFactory = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*");
-            }
-        }
-        return collationFactory;
+    public final Factory getCldrFactory() {
+        return CldrFactoryHelper.SINGLETON;
     }
 
-    public Factory getRBNFFactory() {
-        synchronized (RBNF_FACTORY_SYNC) {
-            if (rbnfFactory == null) {
-                rbnfFactory = Factory.make(CLDRPaths.RBNF_DIRECTORY, ".*");
-            }
-        }
-        return rbnfFactory;
+    private static final class ExemplarsFactoryHelper {
+        static final Factory SINGLETON = Factory.make(CLDRPaths.EXEMPLARS_DIRECTORY, ".*");
+    }
+
+    public final Factory getExemplarsFactory() {
+        return ExemplarsFactoryHelper.SINGLETON;
+    }
+
+    private static final class CollationFactoryHelper {
+        static final Factory SINGLETON = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*");
+    }
+
+    public final Factory getCollationFactory() {
+        return CollationFactoryHelper.SINGLETON;
+    }
+
+    private static final class RBNFFactoryHelper {
+        static final Factory SINGLETON = Factory.make(CLDRPaths.RBNF_DIRECTORY, ".*");
+    }
+
+    public final Factory getRBNFFactory() {
+        return RBNFFactoryHelper.SINGLETON;
+    }
+
+    private static final class AnnotationsFactoryHelper {
+        static final Factory SINGLETON = Factory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
     }
 
     public Factory getAnnotationsFactory() {
-        synchronized (ANNOTATIONS_FACTORY_SYNC) {
-            if (annotationsFactory == null) {
-                annotationsFactory = Factory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
-            }
-        }
-        return annotationsFactory;
+        return AnnotationsFactoryHelper.SINGLETON;
     }
 
-    public Factory getSubdivisionFactory() {
-        synchronized (SUBDIVISION_FACTORY_SYNC) {
-            if (subdivisionFactory == null) {
-                subdivisionFactory = Factory.make(CLDRPaths.SUBDIVISIONS_DIRECTORY, ".*");
-            }
-        }
-        return subdivisionFactory;
+    private static final class SubdivisionsFactoryHelper {
+        static final Factory SINGLETON = Factory.make(CLDRPaths.SUBDIVISIONS_DIRECTORY, ".*");
     }
 
-    public Factory getMainAndAnnotationsFactory() {
-        synchronized (FULL_FACTORY_SYNC) {
-            if (mainAndAnnotationsFactory == null) {
-                File[] paths = {
-                    new File(CLDRPaths.MAIN_DIRECTORY),
-                    new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
-                mainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
-            }
-        }
-        return mainAndAnnotationsFactory;
+    public final Factory getSubdivisionFactory() {
+        return SubdivisionsFactoryHelper.SINGLETON;
     }
 
-    static Factory allFactory;
-
-    public Factory getCommonSeedExemplarsFactory() {
-        synchronized (FULL_FACTORY_SYNC) {
-            if (allFactory == null) {
-                allFactory = SimpleFactory.make(addStandardSubdirectories(CLDR_DATA_DIRECTORIES), ".*");
-            }
-        }
-        return allFactory;
+    private static final class MainAndAnnotationsFactoryHelper {
+        private static final File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY),
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
+        static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
 
-    public Factory getCommonAndSeedAndMainAndAnnotationsFactory() {
-        synchronized (FULL_FACTORY_SYNC) {
-            if (commonAndSeedAndMainAndAnnotationsFactory == null) {
-                File[] paths = {
-                    new File(CLDRPaths.MAIN_DIRECTORY),
-                    new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
-                    SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY),
-                        SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
-                };
-                commonAndSeedAndMainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
-            }
-        }
-        return commonAndSeedAndMainAndAnnotationsFactory;
+    public final Factory getMainAndAnnotationsFactory() {
+        return MainAndAnnotationsFactoryHelper.SINGLETON;
     }
 
-    public Factory getFullCldrFactory() {
-        synchronized (FULL_FACTORY_SYNC) {
-            if (fullFactory == null) {
-                File[] paths = {
-                    new File(CLDRPaths.MAIN_DIRECTORY),
-                    SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY)};
-                fullFactory = SimpleFactory.make(paths, ".*");
-            }
-        }
-        return fullFactory;
+    private static final class CommonSeedExemplarsFactoryHelper {
+        static final Factory SINGLETON = SimpleFactory.make(getInstance().addStandardSubdirectories(CLDR_DATA_DIRECTORIES), ".*");
     }
 
-    public Factory getSupplementalFactory() {
-        synchronized (CLDR_FACTORY_SYNC) {
-            if (supplementalFactory == null) {
-                supplementalFactory = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
-            }
-        }
-        return supplementalFactory;
+    public final Factory getCommonSeedExemplarsFactory() {
+        return CommonSeedExemplarsFactoryHelper.SINGLETON;
+    }
+
+    private static final class CommonAndSeedAndMainAndAnnotationsFactoryHelper {
+        private static final File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY),
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+            SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY),
+                SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
+        };
+        static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
+    }
+
+    public final Factory getCommonAndSeedAndMainAndAnnotationsFactory() {
+        return CommonAndSeedAndMainAndAnnotationsFactoryHelper.SINGLETON;
+    }
+
+    private static final class FullCldrFactoryHelper {
+        private static final File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY),
+            SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY)};
+        static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
+    }
+
+    public final Factory getFullCldrFactory() {
+        return FullCldrFactoryHelper.SINGLETON;
+    }
+
+    private static final class SupplementalFactoryHelper {
+        static final Factory SINGLETON = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
+    }
+
+    public final Factory getSupplementalFactory() {
+        return SupplementalFactoryHelper.SINGLETON;
     }
 
     public CLDRFile getEnglish() {
@@ -357,44 +298,49 @@ public class CLDRConfig extends Properties {
     }
 
     public CLDRFile getCLDRFile(String locale, boolean resolved) {
-
         return resolved ? cldrFileResolvedCache.getUnchecked(locale) : cldrFileUnresolvedCache.getUnchecked(locale);
-
     }
 
     public CLDRFile getRoot() {
         return getCLDRFile("root", true);
     }
 
-    public Collator getCollatorRoot() {
-        synchronized (GET_COLLATOR_SYNC_ROOT) {
-            if (colRoot == null) {
-                CLDRFile root = getCollationFactory().make("root", false);
-                String rules = root.getStringValue("//ldml/collations/collation[@type=\"emoji\"][@visibility=\"external\"]/cr");
-                try {
-                    colRoot = new RuleBasedCollator(rules);
-                } catch (Exception e) {
-                    colRoot = (RuleBasedCollator) getCollator();
-                    return colRoot;
-                }
-                colRoot.setStrength(Collator.IDENTICAL);
-                colRoot.setNumericCollation(true);
-                colRoot.freeze();
+    private static final class CollatorRootHelper {
+        static final RuleBasedCollator SINGLETON = make();
+
+        private static final RuleBasedCollator make() {
+            RuleBasedCollator colRoot;
+
+            CLDRFile root = getInstance().getCollationFactory().make("root", false);
+            String rules = root.getStringValue("//ldml/collations/collation[@type=\"emoji\"][@visibility=\"external\"]/cr");
+            try {
+                colRoot = new RuleBasedCollator(rules);
+            } catch (Exception e) {
+                colRoot = (RuleBasedCollator) getInstance().getCollator();
+                return colRoot;
             }
+            colRoot.setStrength(Collator.IDENTICAL);
+            colRoot.setNumericCollation(true);
+            colRoot.freeze();
+            return colRoot;
         }
-        return colRoot;
+    }
+    public final Collator getCollatorRoot() {
+        return CollatorRootHelper.SINGLETON;
     }
 
-    public Collator getCollator() {
-        synchronized (GET_COLLATOR_SYNC) {
-            if (col == null) {
-                col = (RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
-                col.setStrength(Collator.IDENTICAL);
-                col.setNumericCollation(true);
-                col.freeze();
-            }
+    private static final class CollatorHelper {
+        static final Collator SINGLETON = make();
+        private static final Collator make() {
+            final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
+            col.setStrength(Collator.IDENTICAL);
+            col.setNumericCollation(true);
+            col.freeze();
+            return col;
         }
-        return col;
+    }
+    public Collator getCollator() {
+        return CollatorHelper.SINGLETON;
     }
 
     public synchronized Phase getPhase() {
@@ -620,7 +566,7 @@ public class CLDRConfig extends Properties {
      * Get a list of CLDR directories containing actual data
      * @return an iterable containing the names of all CLDR data subdirectories
      */
-    public Iterable<String> getCLDRDataDirectories() {
+    public static Iterable<String> getCLDRDataDirectories() {
         return Arrays.asList(CLDR_DATA_DIRECTORIES);
     }
 
@@ -665,7 +611,7 @@ public class CLDRConfig extends Properties {
         return ret.toArray(new File[ret.size()]);
     }
 
-    public File[] fileArrayFromStringArray(File dir, String... subdirNames) {
+    public static File[] fileArrayFromStringArray(File dir, String... subdirNames) {
         File[] fileList = new File[subdirNames.length];
         int i = 0;
         for (String item : subdirNames) {
@@ -674,7 +620,7 @@ public class CLDRConfig extends Properties {
         return fileList;
     }
 
-    private void addIfExists(List<File> ret, File baseFile, String sub) {
+    private static void addIfExists(List<File> ret, File baseFile, String sub) {
         File file = new File(baseFile, sub);
         if (file.exists()) {
             ret.add(file);

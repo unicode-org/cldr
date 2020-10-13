@@ -1502,18 +1502,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             out.append("'>load:" + (int) Math.floor(load * 100.0) + "%</span>");
         }
-        {
-            DBUtils theDb = DBUtils.peekInstance();
-            if (theDb != null) {
-                try {
-                    out.append(" <span title='DB Connections/Max Connections'>db:");
-                    theDb.statsShort(out);
-                    out.append("</span>");
-                } catch (IOException e) {
-                    // e.printStackTrace();
-                }
-            }
-        }
         return out.toString();
     }
 

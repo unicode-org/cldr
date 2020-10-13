@@ -48,16 +48,16 @@ public class InterestSort extends SortMode {
      * @see org.unicode.cldr.web.SortMode#createComparator()
      */
     @Override
-    Comparator<DataRow> createComparator() {
-        return comparator();
+    Comparator<DataRow> getComparator() {
+        return ComparatorHelper.COMPARATOR;
     }
 
-    static Comparator<DataRow> comparator() {
-        final int ourKey = SortMode.SortKeyType.SORTKEY_INTEREST.ordinal();
+    private static final class ComparatorHelper {
+        static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
+            final int ourKey = SortMode.SortKeyType.SORTKEY_INTEREST.ordinal();
 
-        final Comparator<DataRow> nameComparator = NameSort.comparator();
-        final Collator collator = CodeSortMode.createCollator();
-        return new Comparator<DataRow>() {
+            final Comparator<DataRow> nameComparator = NameSort.internalGetComparator();
+            final Collator collator = CodeSortMode.internalGetCollator();
 
             @Override
             public int compare(DataRow p1, DataRow p2) {

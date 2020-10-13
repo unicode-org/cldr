@@ -72,8 +72,6 @@ public class StandardCodes {
 
     public static final String NO_COUNTRY = "001";
 
-    private static StandardCodes singleton;
-
     private EnumMap<CodeType, Map<String, List<String>>> type_code_data = new EnumMap<>(
         CodeType.class);
 
@@ -89,13 +87,14 @@ public class StandardCodes {
 
     private static final boolean DEBUG = false;
 
+    private static final class StandardCodesHelper {
+        static final StandardCodes SINGLETON = new StandardCodes();
+    }
     /**
      * Get the singleton copy of the standard codes.
      */
     static public synchronized StandardCodes make() {
-        if (singleton == null)
-            singleton = new StandardCodes();
-        return singleton;
+        return StandardCodesHelper.SINGLETON;
     }
 
     /**

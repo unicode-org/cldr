@@ -538,19 +538,16 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         Predicate<String> territory = variables.get("$territory").matcher;
         Predicate<String> variant = variables.get("$variant").matcher;
         LocaleIDParser lip = new LocaleIDParser();
-        static LocaleMatcher singleton = null;
-        static Object sync = new Object();
 
-        private LocaleMatcher(boolean b) {
+        private LocaleMatcher() {
+        }
+
+        private static final class LocaleMatcherHelper {
+            static LocaleMatcher SINGLETON = new LocaleMatcher();
         }
 
         public static LocaleMatcher make() {
-            synchronized (sync) {
-                if (singleton == null) {
-                    singleton = new LocaleMatcher(true);
-                }
-            }
-            return singleton;
+            return LocaleMatcherHelper.SINGLETON;
         }
 
         @Override

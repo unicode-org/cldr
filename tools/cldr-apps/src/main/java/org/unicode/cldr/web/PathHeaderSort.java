@@ -29,7 +29,7 @@ public class PathHeaderSort extends SortMode {
     }
 
     @Override
-    Comparator<DataRow> createComparator() {
+    Comparator<DataRow> getComparator() {
         return null; // not used
     }
 

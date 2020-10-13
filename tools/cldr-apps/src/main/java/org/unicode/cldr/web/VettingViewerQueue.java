@@ -59,7 +59,9 @@ public class VettingViewerQueue {
 
     public static CLDRLocale SUMMARY_LOCALE = CLDRLocale.getInstance(ULocale.forLanguageTag("und-vetting"));
 
-    static VettingViewerQueue instance = new VettingViewerQueue();
+    private static final class VettingViewerQueueHelper {
+        static VettingViewerQueue instance = new VettingViewerQueue();
+    }
 
     /**
      * Get the singleton instance of the queue
@@ -67,7 +69,7 @@ public class VettingViewerQueue {
      * @return
      */
     public static VettingViewerQueue getInstance() {
-        return instance;
+        return VettingViewerQueueHelper.instance;
     }
 
     static int gMax = -1;

@@ -100,9 +100,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         cldrHomeSet = true;
     }
 
-    /**
-     * Never called for cldr-apps TestAll.java.
-     */
     private synchronized void init() {
         if (isInitted)
             return;

@@ -784,7 +784,8 @@ public class GenerateMaximalLocales {
                 + "\tin\t" + debugStuff);
         }
 
-        defaultLocaleContent.remove("und_ZZ"); // und_ZZ isn't ever a real locale.
+        defaultLocaleContent.remove("und_ZZ"); // und_ZZ isn't ever a real locale. (old sandbox)
+        defaultLocaleContent.remove("mul_ZZ"); // mul_ZZ isn't ever a real locale.
 
         showDefaultContentDifferencesAndFix(defaultLocaleContent);
 

@@ -344,7 +344,6 @@ public class SurveyAjax extends HttpServlet {
             }
             loc = l.toString(); // normalized
         }
-
         try {
             if (sm == null) {
                 sendNoSurveyMain(out);
@@ -1283,7 +1282,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws IOException
      */
     public static CLDRLocale validateLocale(PrintWriter out, String loc, String sess) throws IOException {
-        CLDRLocale ret;
+        CLDRLocale ret = null;
         if (CookieSession.sm == null || SurveyMain.isSetup == false) {
             sendNoSurveyMain(out);
             return null;
@@ -1310,15 +1309,29 @@ public class SurveyAjax extends HttpServlet {
                 }
             }
         }
-        if (loc == null || loc.isEmpty() || (ret = CLDRLocale.getInstance(loc)) == null || !SurveyMain.getLocalesSet().contains(ret)) {
+        if (loc != null && !loc.isEmpty()) {
+            ret = CLDRLocale.getInstance(loc);
+        }
+        if (ret == null) {
             JSONWriter r = newJSON();
-            r.put("err", "Bad locale code:" + loc);
+            r.put("err", "Missing/unusable locale code:" + loc);
+            r.put("loc", loc);
+            r.put("err_code", ErrorCode.E_BAD_LOCALE);
+            send(r, out);
+            return null; // failed
+        } else if(!SurveyMain.getLocalesSet().contains(ret)) {
+            // Here we validate that the locale is a "Survey Tool Locale".
+            // Ideally, the caller should be refactored for cases where
+            // a locale is not needed.
+            // For now, the client should pass in 'root' in lieu of a locale.
+            JSONWriter r = newJSON();
+            r.put("err", "Not in the CLDR locale set:" + loc);
             r.put("loc", loc);
             r.put("err_code", ErrorCode.E_BAD_LOCALE);
             send(r, out);
             return null; // failed
         } else {
-            return CLDRLocale.getInstance(loc);
+            return ret;
         }
     }
 
@@ -1356,12 +1369,16 @@ public class SurveyAjax extends HttpServlet {
             locale.put("type", Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));
             if (SurveyMain.getReadOnlyLocales().contains(loc)) {
                 locale.put("readonly", true);
-                String comment = SpecialLocales.getComment(loc);
-                locale.put("readonly_why", comment);
-                String commentraw = SpecialLocales.getCommentRaw(loc);
-                locale.put("readonly_why_raw", commentraw);
             } else if (dcParent != null) {
                 locale.put("readonly", true);
+            }
+            final SpecialLocales.Type localeType = SpecialLocales.getType(loc);
+            if(localeType != null) {
+                locale.put("special_type", localeType.name());
+                String comment = SpecialLocales.getComment(loc);
+                locale.put("special_comment", comment);
+                String commentraw = SpecialLocales.getCommentRaw(loc);
+                locale.put("special_comment_raw", commentraw);
             }
 
             JSONArray subLocales = new JSONArray();

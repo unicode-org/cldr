@@ -84,6 +84,7 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.SandboxLocales;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
@@ -639,7 +640,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     u.email = newRealName + "." + randomEmail.trim();
                     String newLocales = ctx.field("new_locales").trim();
                     newLocales = UserRegistry.normalizeLocaleList(newLocales);
-                    if (newLocales.isEmpty()) newLocales = "und";
                     u.locales = newLocales;
                     u.password = randomPass;
                     u.userlevel = ctx.fieldInt("new_userlevel", -1);
@@ -881,18 +881,39 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return fileBase;
     }
 
+    private static SandboxLocales sandbox = null;
+
     /**
      * Get all of the file bases as an array
      * @return
      */
     private static File[] getFileBases() {
+        SandboxLocales sandbox = getSandbox();
         getFileBase(); // load these
-        File files[] = { new File(getFileBase()),
+        File files[] = {
+            new File(getFileBase()),
             new File(getFileBaseSeed()),
             new File(fileBaseA),
-            new File(fileBaseASeed)
+            new File(fileBaseASeed),
+            sandbox.getMainDir(), // regular sandbox
+            sandbox.getAnnotationsDir(), // annotation sandbox
         };
         return files;
+    }
+
+    private static SandboxLocales getSandbox() {
+        synchronized(SurveyMain.class) {
+            if(sandbox == null) {
+                try {
+                    sandbox = new SandboxLocales(new File(getSurveyHome(), "sandbox"));
+                } catch (IOException e) {
+                    SurveyMain.busted("Could not initialize sandbox locales", e);
+                    /** NOTREACHED **/
+                    throw new RuntimeException(e);
+                }
+            }
+            return sandbox;
+        }
     }
 
     /**
@@ -1579,7 +1600,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String new_email = ctx.field("new_email");
         String new_locales = ctx.field("new_locales");
         new_locales = UserRegistry.normalizeLocaleList(new_locales);
-        if (new_locales.isEmpty()) new_locales = "und";
+        if (new_locales.isEmpty()) new_locales = "mul";
         String new_org = ctx.field("new_org");
         int new_userlevel = ctx.fieldInt("new_userlevel", -1);
 
@@ -1732,12 +1753,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx.println("<h4> (and missing locales for " + missingLocalesForOrg + ")</h4>");
         }
 
-        /*
-         * TODO: remove this call to getInFiles unless it has a required side-effect
-         */
-        getInFiles();
         Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
-         int totalUsers = 0;
+        int totalUsers = 0;
         int allUsers = 0; // users with all
 
         int totalSubmit = 0;
@@ -4524,13 +4541,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     private static File[] getInFiles() {
         Set<File> s = new HashSet<>();
-        if (fileBase != null) {
+        for(final File fileBase : getFileBases()) {
             for (File f : getInFiles(fileBase)) {
-                s.add(f);
-            }
-        }
-        if (fileBaseSeed != null) {
-            for (File f : getInFiles(fileBaseSeed)) {
                 s.add(f);
             }
         }
@@ -4543,8 +4555,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param base
      * @return
      */
-    private static File[] getInFiles(String base) {
-        File baseDir = new File(base);
+    private static File[] getInFiles(File baseDir) {
         // get the list of input XML files
         FileFilter myFilter = getXmlFileFilter();
         return baseDir.listFiles(myFilter);

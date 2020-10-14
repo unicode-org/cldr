@@ -20,6 +20,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SpecialLocales;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.lang.UCharacter;
@@ -69,7 +70,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             // we are better off  with an empty map here
             types = Collections.emptyMap();
         }
-        if (types == null || types.isEmpty()) {
+        if ((types == null || types.isEmpty()) && !SpecialLocales.isScratchLocale(locale)) {
             possibleErrors.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.warningType)
                 .setSubtype(Subtype.incorrectCasing)

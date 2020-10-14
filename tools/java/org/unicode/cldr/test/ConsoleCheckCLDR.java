@@ -472,7 +472,7 @@ public class ConsoleCheckCLDR {
         String lastBaseLanguage = "";
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
-        final List<String> specialPurposeLocales = new ArrayList<>(Arrays.asList("en_US_POSIX", "en_ZZ", "und", "und_ZZ"));
+        final List<String> specialPurposeLocales = new ArrayList<>(Arrays.asList("en_US_POSIX", "en_ZZ"));
         for (String localeID : locales) {
             if (CLDRFile.isSupplementalName(localeID)) continue;
             if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {

@@ -672,7 +672,7 @@ public class StandardCodes {
     // ========== PRIVATES ==========
 
     private StandardCodes() {
-        String[] files = { /* "lstreg.txt", */"ISO4217.txt" }; // , "TZID.txt"
+        String[] files = { "ISO4217.txt" }; // , "TZID.txt"
         type_code_preferred.put(CodeType.tzid, new TreeMap<String, String>());
         add(CodeType.language, "root", "Root");
         String originalLine = null;

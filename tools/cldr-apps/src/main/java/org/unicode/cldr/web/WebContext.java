@@ -1664,7 +1664,7 @@ public class WebContext implements Cloneable, Appendable {
         if (password.isEmpty()) {
             password = field(SurveyMain.QUERY_PASSWORD_ALT);
         }
-        boolean letmein = SurveyMain.vap.equals(field("letmein")); // back door, using master password
+        boolean letmein = SurveyMain.vap.equals(field("letmein")); // using CLDR_VAP (admin) password
         String email = field(SurveyMain.QUERY_EMAIL);
         if ("admin@".equals(email) && SurveyMain.vap.equals(password)) {
             letmein = true;

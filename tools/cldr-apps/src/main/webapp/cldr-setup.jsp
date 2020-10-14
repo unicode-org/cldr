@@ -277,7 +277,7 @@ if(request.getParameter("remove_maint")!=null) {
 
 			String setupvars[] = {
 					"CLDR_VAP",
-					"This is the master password (the 'VAP') for the surveytool. You may leave this value as is or change it. (The admin.html file may become out of date if the password is changed. Delete it and it will be regenerated.)",
+					"This is the admin password (the 'VAP') for the surveytool. You may leave this value as is or change it. (The admin.html file may become out of date if the password is changed. Delete it and it will be regenerated.)",
 					"CLDR_TESTPW",
 					"Test password for 'smoketest' like functionality. Allows anyone with password to create an account. May be left blank.",
 					"CLDR_DIR",

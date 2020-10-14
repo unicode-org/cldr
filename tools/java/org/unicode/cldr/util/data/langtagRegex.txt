@@ -42,7 +42,7 @@ $privateUse = $x (?: $s $alphanum{1,8} )+ ; # "x" 1*("-" (1*8alphanum))
 # http://www.iana.org/assignments/language-subtag-registry
 # Note that these have to be compared case insensitively, requiring (?i) below.
 
-$grandfathered  = en $s GB $s oed
+$legacy  = en $s GB $s oed
       | i $s (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )
       | no $s (?: bok | nyn )
       | sgn $s (?: BE $s (?: fr | nl) | CH $s de )
@@ -52,7 +52,7 @@ $grandfathered  = en $s GB $s oed
 # For well-formedness, we don't need the ones that would otherwise pass.
 # For validity, they need to be checked.
 
-# $grandfatheredWellFormed = (?:
+# $legacyWellFormed = (?:
 #         art $s lojban
 #     | cel $s gaulish
 #     | zh $s (?: guoyu | hakka | xiang )
@@ -75,12 +75,12 @@ $langtag = (?: ( $language )
       (?: $s ( $privateUse ) )? 5%);
 
 # Here is the final breakdown, with capturing groups for each of these components
-# The variants, extensions, grandfathered, and private-use may have interior '-'
+# The variants, extensions, legacy, and private-use may have interior '-'
  
 $root = (?i) # case-insensitive
   (?:
       $langtag 90%
     | ( $privateUse ) 5%
-    | ( $grandfathered ) 5%)
+    | ( $legacy ) 5%)
 #    (?: \@ $keywords )? 5%
     ;

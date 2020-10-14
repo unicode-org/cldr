@@ -2606,7 +2606,7 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
       </ol>
     <p><strong>per0(...), times0(...), etc.</strong></p>
     <ol>
-      <li>These represent the <strong>deriveCompound</strong> data values from <strong>Section 16 <a name="Grammatical_Derivations" href="#Grammatical_Derivations">Grammatical Derivations</a></strong>, where value0 of the per-structure is given as per0(...), and so on.</li>
+      <li>These represent the <strong>deriveCompound</strong> data values from <strong>Section 16 <a href="#Grammatical_Derivations">Grammatical Derivations</a></strong>, where value0 of the per-structure is given as per0(...), and so on.</li>
       <li>&quot;power&quot; corresponds to  dimensionality_prefix, while &quot;prefix&quot; corresponds to si_prefix.</li>
     </ol>
     <p>If the locale does not provide full modern coverage, the process could fall back to root locale for some localized patterns. That may give a &quot;ransom-note&quot; effect for the user. To avoid that, it may be preferable to abort the process at that point, and then localize the unitId for the root locale.</p>
@@ -4861,6 +4861,16 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
         "count" value, which allows the right plural form to be
         specified for the language.</td>
       </tr>
+      <tr class="changed">
+        <th>subscript</th>
+        <td>subscript {0}</td>
+        <td>For indicating subscript forms, such as "subscript digits".</td>
+      </tr>
+      <tr class="changed">
+        <th>superscript</th>
+        <td>superscript {0}</td>
+        <td>For indicating superscript forms, such as "superscript digits".</td>
+      </tr>
     </table>
     <p>The following are character labels. Where the meaning of the
     label is fairly clear (like "animal") or is in the Unicode
@@ -5462,28 +5472,18 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED &gt;     
 &lt;!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED &gt;    
 </pre>
-	    <p>The grammatical derivation data contains information about the case, gender, and plural categories of compound units. This is supplemental data, so the inheritance by locale needs to be done by the client.</p>
-	    <p><em>Note: In  CLDR v38, the data for  two locales is provided so that implemenations can ready their code for when more locale data is available. In subsequent releases structure may be further extended as more locales are added, to deal with additional locale requirements.</em></p>
-	    <p>A compound unit can use 4 mechanisms, illustrated here in formatted strings:</p>
-<br />
+      <p>The grammatical derivation data contains information about the case, gender, and plural categories of compound units. This is supplemental data, so the inheritance by locale needs to be done by the client.</p>
+      <p><em>Note: In  CLDR v38, the data for  two locales is provided so that implemenations can ready their code for when more locale data is available. In subsequent releases structure may be further extended as more locales are added, to deal with additional locale requirements.</em></p>
+      <p>A compound unit can use 4 mechanisms, illustrated here in formatted strings:</p>
       <ul>
-        <li dir="ltr">
-          <p dir="ltr" role="presentation"><strong>Prefix</strong>: 1&nbsp; <strong>kilo</strong>gram</p>
+        <li><strong>Prefix</strong>: 1&nbsp; <strong>kilo</strong>gram</li>
+        <li><strong>Power</strong>: 3 <strong>square</strong> kilometers</li>
+        <li><strong>Per</strong>: 3 kilograms <strong>per</strong> meter
+          <ul>
+            <li>An edge case is where there is no numerator, such as &ldquo;1 per-second&rdquo;</li>
+          </ul>
         </li>
-        <li dir="ltr">
-          <p dir="ltr" role="presentation"><strong>Power</strong>: 3 <strong>square</strong> kilometers</p>
-        </li>
-        <li dir="ltr">
-          <p dir="ltr" role="presentation"><strong>Per</strong>: 3 kilograms <strong>per</strong> meter</p>
-        </li>
-        <ul>
-          <li dir="ltr">
-            <p dir="ltr" role="presentation">An edge case is where there is no numerator, such as &ldquo;1 per-second&rdquo;</p>
-          </li>
-        </ul>
-        <li dir="ltr">
-          <p dir="ltr" role="presentation"><strong>Times</strong>: 3 kilowatt<strong>-</strong>hours</p>
-        </li>
+        <li><strong>Times</strong>: 3 kilowatt<strong>-</strong>hours</li>
       </ul>
       <p>For the purposes of grammatical derivation (and name construction), a compound  unit ID can be represented as a tree structure where the leaves are the atomic units, and the higher level node are one of the above. Here is an extreme example of that: <em>kilogram-square-kilometer-ampere-candela-per-square-second-mole</em></p>
       <table class='simple' style="  margin-left: auto;margin-right: auto;">
@@ -5518,11 +5518,13 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
           <td colspan="2" style="text-align:center">-</td>
         </tr>
       </table>
-      <p>Note that the prefix and power nodes are unary (exactly 1 child), the per pattern is unary or binary (1 or 2 children), and the times pattern is n-ary (where n &gt; 1). </p>
+      <p>Note that the prefix and power nodes are unary (exactly 1 child), the per pattern is unary or binary (1 or 2 children),
+        and the times pattern is n-ary (where n &gt; 1).</p>
       <p>&nbsp;</p>
-      <p dir="ltr">Each section below  is only applicable if the language has more than one value  <em>for units</em>: for example, for plural categories the language has to have more than just &quot;other&quot;. When that information is available for a language, it is found in <strong>Section 15 <a href="#Grammatical_Features"
-    id="Grammatical_Features2">Grammatical Features</a></strong><a href="#Grammatical_Features"
-    id="Grammatical_Features2"></a>.	        </p>
+      <p>Each section below  is only applicable if the language has more than one value <em>for units</em>:
+        for example, for plural categories the language has to have more than just &quot;other&quot;.
+        When that information is available for a language, it is found in
+        <strong>Section 15 <a href="#Grammatical_Features" id="Grammatical_Features2">Grammatical Features</a></strong>.</p>
       <p dir="ltr">The gender derivation would be appropriate for an API call like <code>String genderValue = getGrammaticalGender(locale, &quot;kilogram-meter-per-square-second&quot;)</code>. This can be used where the choice of word forms in the rest of a phrase can depend on the gender of the  unit.</p>
       <p dir="ltr">On the other hand, the derivation of plural category and case are used in building up the name of a compound unit, where the desired plural category is available from the number to be formatted with the unit, and the case value is known from the position in a message. For example, the case could be accusative if the formatted unit is to be the direct object in a sentence or phrase. This could be expressed in an API call such as <code>String inflectedName = getUnitName(locale, &quot;kilogram-meter-per-square-second&quot;, pluralCategory, caseValue)</code>. </p>
       <p dir="ltr">When deriving an inflected compound unit pattern, as the tree-stucture is processed by getting the appropriate localized patterns for the structural components and names for the atomic components. The computation of the plural category and the case of the subtrees can be computed from the <strong>deriveComponent</strong> data. The <strong>times</strong> data is treated as binary, and applied from left to right: with the example from above, the plural categories for the components of <em>kilogram-square-kilometer-ampere-candela</em> are computed by applying </p>
@@ -5533,10 +5535,10 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 	    <p dir="ltr">The <strong>deriveCompound[@feature=&quot;gender&quot;]</strong> data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The attributeValues of value are: 0 (=gender of the first element), 1 (=gender of second element), or one of the valid gender values for the language: </p>
       <p dir="ltr">Example:</p>
 	    <pre>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;per&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(gram-per-meter) ←  gender(gram) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;times&quot; value=&quot;1&quot;/&gt; &lt;!-- gender(newton-meter) ←  gender(meter) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;power&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(square-meter) ←  gender(meter) --&gt; <br>&lt;deriveCompound feature=&quot;gender&quot; structure=&quot;prefix&quot; value=&quot;0&quot;/&gt; &lt;!-- gender(kilometer) ←  gender(meter)--&gt; </pre>
-		<p dir="ltr" role="presentation">For example, for gram-per-meter, the first line above means:</p>
+		<p>For example, for gram-per-meter, the first line above means:</p>
         <ul>
           <li dir="ltr">
-            <p dir="ltr" role="presentation">The gender of the compound is the gender of the first component of the 'per', that is, of the &quot;gram&quot;. So if gram is feminine in that language, the gender of the compound is feminine.          </p>
+            <p>The gender of the compound is the gender of the first component of the 'per', that is, of the &quot;gram&quot;. So if gram is feminine in that language, the gender of the compound is feminine.          </p>
           </li>
         </ul>
         <h3>16.2 <a name="plural_compound_units" href="#plural_compound_units">Deriving the Plural Category of Unit Components</a></h3>
@@ -5547,11 +5549,11 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;deriveComponent feature=&quot;plural&quot; structure=&quot;times&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt;  &lt;!-- compound(newton-meter) ⇒  singular(newton) “-&quot; compound(meter) --&gt;
 &lt;deriveComponent feature=&quot;plural&quot; structure=&quot;power&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt;  &lt;!-- compound(square-meter) ⇒  singular(square) compound(meter) --&gt;
 &lt;deriveComponent feature=&quot;plural&quot; structure=&quot;prefix&quot; value0=&quot;one&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(kilometer) ⇒  singular(kilo) compound(meter) --&gt;</pre>
-      <p dir="ltr" role="presentation">For example, for gram-per-meter, the first line above means:</p>
+      <p>For example, for gram-per-meter, the first line above means:</p>
 
       <ul>
         <li dir="ltr">
-          <p dir="ltr" role="presentation">When the plural form of gram-per-meter is needed (rather than singular), then the gram part of the translation has to have a plural form like &ldquo;grams&rdquo;, while the meter part of the translation has to have a singular form like &ldquo;metre&rdquo;. This would be composed with the pattern for &quot;per&quot; (say &quot;{0} pro {1}&quot;) to get &quot;grams pro metre&quot;.</p>
+          <p>When the plural form of gram-per-meter is needed (rather than singular), then the gram part of the translation has to have a plural form like &ldquo;grams&rdquo;, while the meter part of the translation has to have a singular form like &ldquo;metre&rdquo;. This would be composed with the pattern for &quot;per&quot; (say &quot;{0} pro {1}&quot;) to get &quot;grams pro metre&quot;.</p>
         </li>
       </ul>
       <h3>16.3 <a name="case_compound_units" href="#case_compound_units">Deriving the Case  of Unit Components</a></h3>
@@ -5562,10 +5564,9 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;deriveComponent feature=&quot;case&quot; structure=&quot;power&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt; &lt;!-- compound(square-meter) ⇒  nominative(square) compound(meter) --&gt; 	  
 &lt;deriveComponent feature=&quot;case&quot; structure=&quot;prefix&quot; value0=&quot;nominative&quot;  value1=&quot;compound&quot;/&gt;&lt;!--compound(kilometer) ⇒  nominative(kilo) compound(meter) --&gt;</pre>
       <p dir="ltr">For example, for gram-per-meter, the first line above means:</p>
-      <br />
       <ul>
         <li dir="ltr">
-          <p dir="ltr" role="presentation">When the accusative form of gram-per-meter is needed, then the gram part of the translation has take the accusative case (eg, &ldquo;gramu&rdquo;, in a language that marks the accusative case with 'u'), while the meter part of the translation has a nominative form like &ldquo;metre&rdquo;. This would be composed with the pattern for &quot;per&quot; (say &quot;{0} pro {1}&quot;) to get &quot;gramu pro metre&quot;.</p>
+          <p>When the accusative form of gram-per-meter is needed, then the gram part of the translation has take the accusative case (eg, &ldquo;gramu&rdquo;, in a language that marks the accusative case with 'u'), while the meter part of the translation has a nominative form like &ldquo;metre&rdquo;. This would be composed with the pattern for &quot;per&quot; (say &quot;{0} pro {1}&quot;) to get &quot;gramu pro metre&quot;.</p>
         </li>
       </ul>
       <p>&nbsp;</p>

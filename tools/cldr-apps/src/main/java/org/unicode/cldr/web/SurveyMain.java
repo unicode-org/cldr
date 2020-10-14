@@ -4751,6 +4751,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static long shortN = 0;
+    /**
+     * Only used by about.jsp to know whether it's safe to call DBUtils.getInstance()
+     */
+    public static boolean isDbSetup = false;
     private static final int MAX_CHARS = 100;
     private static final String SHORT_A = "(Click to show entire message.)";
     private static final String SHORT_B = "(hide.)";
@@ -4832,6 +4836,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         try {
             progress.update("begin.."); // restore
             dbUtils.startupDB(this, progress);
+            SurveyMain.isDbSetup  = true;
             // now other tables..
             progress.update("Setup databases "); // restore
             try {

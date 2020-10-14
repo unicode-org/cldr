@@ -13,6 +13,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
+import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.text.NumberFormat;
 
@@ -47,7 +48,7 @@ public class FindWidths {
         Factory phf = PathHeader.getFactory(english);
         Map<PathHeader, Integer> englishWidths = new HashMap<>();
         Map<PathHeader, Data> maxWidths = new TreeMap<>();
-        Set<String> sampleLocales = testInfo.getStandardCodes().getLocaleCoverageLocales("google");
+        Set<String> sampleLocales = StandardCodes.make().getLocaleCoverageLocales("google");
 
         for (String path : english) {
             PathHeader ph = phf.fromPath(path);

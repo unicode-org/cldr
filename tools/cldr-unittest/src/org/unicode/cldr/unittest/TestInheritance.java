@@ -78,7 +78,7 @@ public class TestInheritance extends TestFmwk {
         Relation<String, String> languageLocalesSeen = Relation.of(
             new TreeMap<String, Set<String>>(), TreeSet.class);
 
-        Set<String> testOrg = testInfo.getStandardCodes()
+        Set<String> testOrg = StandardCodes.make()
             .getLocaleCoverageLocales("google");
         ChainedMap.M4<String, OfficialStatus, String, Boolean> languageToOfficialChildren = ChainedMap
             .of(new TreeMap<String, Object>(),
@@ -845,7 +845,7 @@ public class TestInheritance extends TestFmwk {
 
     // TODO move this into central utilities
 
-    private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
+    private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final Map<String, Map<String, R2<List<String>, String>>> DEPRECATED_INFO = dataInfo
         .getLocaleAliasInfo();
 

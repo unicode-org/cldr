@@ -42,7 +42,7 @@ import com.google.common.collect.TreeMultimap;
 public class ListCoverageLevels {
     public static void main(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
-        StandardCodes sc = config.getStandardCodes();
+        StandardCodes sc = StandardCodes.make();
         SupplementalDataInfo sdi = config.getSupplementalDataInfo();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> defaultContents = sdi.getDefaultContentLocales();

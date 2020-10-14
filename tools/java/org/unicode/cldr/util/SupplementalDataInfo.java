@@ -981,7 +981,6 @@ public class SupplementalDataInfo {
         return getInstance(getNormalizedPathString(supplementalDirectory));
     }
 
-    static private SupplementalDataInfo defaultInstance = null;
     /**
      * Which directory did we come from?
      */
@@ -995,18 +994,19 @@ public class SupplementalDataInfo {
      * @return
      */
     public static SupplementalDataInfo getInstance() {
-        if (defaultInstance != null) {
-            return defaultInstance;
-        }
-        return CLDRConfig.getInstance().getSupplementalDataInfo();
-        // return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        return SupplementalDataInfoHelper.SINGLETON;
     }
 
     /**
      * Mark this as the default instance to be returned by getInstance()
      */
     public void setAsDefaultInstance() {
-        defaultInstance = this;
+        SupplementalDataInfoHelper.SINGLETON = this;
+    }
+
+    public static final class SupplementalDataInfoHelper {
+        // Note: not final, because setAsDefaultInstance can modify it.
+        static SupplementalDataInfo SINGLETON = CLDRConfig.getInstance().getSupplementalDataInfo();
     }
 
     public static SupplementalDataInfo getInstance(String supplementalDirectory) {

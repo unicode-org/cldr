@@ -32,7 +32,7 @@ public class DayPeriodsCheck {
             localesToCheck.clear();
             switch (arg) {
             case "groups":
-                StandardCodes sc = CLDRConfig.getInstance().getStandardCodes();
+                StandardCodes sc = StandardCodes.make();
                 CLDRFile english = CLDRConfig.getInstance().getEnglish();
                 english.getName(LanguageGroup.uralic.iso);
 

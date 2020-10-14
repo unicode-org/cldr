@@ -31,6 +31,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Format;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -63,9 +64,9 @@ public class TestLocale extends TestFmwkPlus {
         Type.Living, Type.Constructed, Type.Historical, Type.Extinct, Type.Special);
     static Set<Scope> ALLOWED_LANGUAGE_SCOPES = EnumSet.of(Scope.Individual,
         Scope.Macrolanguage, Scope.Special); // , Special, Collection, PrivateUse, Unknown
-    static Set<String> ALLOWED_SCRIPTS = testInfo.getStandardCodes()
+    static Set<String> ALLOWED_SCRIPTS = StandardCodes.make()
         .getGoodAvailableCodes(CodeType.script);
-    static Set<String> ALLOWED_REGIONS = testInfo.getStandardCodes()
+    static Set<String> ALLOWED_REGIONS = StandardCodes.make()
         .getGoodAvailableCodes(CodeType.territory);
 
     /**
@@ -74,9 +75,9 @@ public class TestLocale extends TestFmwkPlus {
     static String XPATH_ALIAS_STRING = "//alias";
 
     public void TestLanguageRegions() {
-        Set<String> missingLanguageRegion = new LinkedHashSet<String>();
+        Set<String> missingLanguageRegion = new LinkedHashSet<>();
         // TODO This should be derived from metadata: https://unicode.org/cldr/trac/ticket/11224
-        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("az", "ff", "bs", "hi", "ks", "mni", "ms", "pa", "sat", "sd", "shi", "sr", "su", "vai", "uz", "yue", "zh"));
+        Set<String> knownMultiScriptLanguages = new HashSet<>(Arrays.asList("az", "ff", "bs", "hi", "ks", "mni", "ms", "pa", "sat", "sd", "shi", "sr", "su", "vai", "uz", "yue", "zh"));
         Set<String> available = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO
@@ -440,7 +441,7 @@ public class TestLocale extends TestFmwkPlus {
         assertEquals("Locale name", "中国語 (アラビア文字\u3001アメリカ合衆国)",
             japanese.getName("zh-Arab-US"));
     }
-    
+
     public void TestLocaleDisplay() {
         System.out.println("\nUse -v to get samples for tests");
         String fileName = CLDRPaths.TEST_DATA + "localeIdentifiers/localeDisplayName.txt";
@@ -455,7 +456,7 @@ public class TestLocale extends TestFmwkPlus {
         };
         Factory factory = SimpleFactory.make(paths, ".*");
         Set<String> seen = new HashSet<>();
-        
+
         try {
             for (String line : Files.readLines(new File(fileName), UTF_8)) {
                 line = line.trim();
@@ -463,10 +464,10 @@ public class TestLocale extends TestFmwkPlus {
                 if (line.startsWith("@")) {
                     String[] parts = line.split("=");
                     switch(parts[0]) {
-                    case "@locale": 
+                    case "@locale":
                         cldrFile = factory.make(parts[1], true);
                         break;
-                    case "@compound": 
+                    case "@compound":
                         switch(parts[1]) {
                         case "true": compound=true; break;
                         case "false": compound=false; break;
@@ -490,10 +491,10 @@ public class TestLocale extends TestFmwkPlus {
 //                String uLocaleAsBcp47 = forComparison.toLanguageTag();
 //                assertEquals("ICU roundtrips", localeId, uLocaleAsBcp47);
 
-                
+
 //                String bcp47 = ltp.toString(OutputOption.BCP47);
 //                String icuFormat = ltp.toString(OutputOption.ICU);
-                
+
 //                // check that the icuFormat is ok except for order
 //                Set<String> icuComponents = new TreeSet<>(AT_AND_SEMI.splitToList(forComparison.toString().toLowerCase(Locale.ROOT)));
 //                Set<String> icuFormatComponents = new TreeSet<>(AT_AND_SEMI.splitToList(icuFormat.toLowerCase(Locale.ROOT)));
@@ -503,12 +504,12 @@ public class TestLocale extends TestFmwkPlus {
 //                LanguageTagParser ltp2 = new LanguageTagParser()
 //                    .set(icuFormat);
 //                String roundTripId = ltp2.toString(OutputOption.BCP47);
-                
-                
+
+
 //                // check that the format roundtrips
 //                assertEquals("LTP(BCP47)=>ICU=>BCP47", bcp47, roundTripId);
 
-                canonicalizer.transform(ltp);                
+                canonicalizer.transform(ltp);
                 String name = cldrFile.getName(ltp, true, null);
                 if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
                     formattedExamplesForSpec.append("<tr><td>")
@@ -536,13 +537,13 @@ public class TestLocale extends TestFmwkPlus {
             String localeBase = "en-" + (LanguageTagParser.isTKey(key) ? "t-" : "u-") + key + "-";
             // abbreviate some values
             switch(key) {
-            case "cu": 
+            case "cu":
                 showName(cldrFile, seen, localeBase, "eur", "jpy", "usd", "chf");
                 continue keyLoop;
-            case "tz": 
+            case "tz":
                 showName(cldrFile, seen, localeBase, "uslax", "gblon", "chzrh");
                 continue keyLoop;
-            case "dx": 
+            case "dx":
                 // skip for now, probably need to fix something in CLDRFile
                 continue keyLoop;
             }
@@ -564,7 +565,7 @@ public class TestLocale extends TestFmwkPlus {
             showName(cldrFile, skipLocales, localeBase, sample);
         }
     }
-    
+
     private void showName(CLDRFile cldrFile, Set<String> skipLocales, String localeBase, String... samples) {
         for (String sample : samples) {
             showName(cldrFile, skipLocales, localeBase, sample);
@@ -572,7 +573,7 @@ public class TestLocale extends TestFmwkPlus {
     }
 
     static final UnicodeSet LOCALIZED = new UnicodeSet("[A-Z€$¥${foobar2}]");
-    
+
     private void showName(CLDRFile cldrFile, Set<String> skipLocales, String localeBase, String value) {
         String locale = localeBase + value;
         if (skipLocales.contains(locale)) {
@@ -674,7 +675,7 @@ public class TestLocale extends TestFmwkPlus {
 
 
                     String gorp = key.equals(lastKey) ? "" :
-                        (key.equals("t") ? "-u-ca-persian" : "-t-hi") 
+                        (key.equals("t") ? "-u-ca-persian" : "-t-hi")
                         + "-a-AA-v-VV-y-YY-x-foobar";
 
                     lastKey = key;
@@ -706,10 +707,10 @@ public class TestLocale extends TestFmwkPlus {
         case "PRIVATE_USE": // [t, x0, PRIVATE_USE]
             valuesSet = ImmutableSet.of("foobar2");
             break;
-        case "REORDER_CODE":    // [u, kr, REORDER_CODE] 
+        case "REORDER_CODE":    // [u, kr, REORDER_CODE]
             valuesSet = ImmutableSet.of("arab", "digit-deva-latn");
             break;
-        case "SCRIPT_CODE":    // [u, dx, SCRIPT_CODE] 
+        case "SCRIPT_CODE":    // [u, dx, SCRIPT_CODE]
             valuesSet = ImmutableSet.of("thai", "thai-laoo");
             break;
         case "RG_KEY_VALUE":    // [u, rg, RG_KEY_VALUE]
@@ -718,7 +719,7 @@ public class TestLocale extends TestFmwkPlus {
         case "SUBDIVISION_CODE":    // [u, sd, SUBDIVISION_CODE]
             valuesSet = ImmutableSet.of("usca", "gbsct", "frnor");
             break;
-        default: 
+        default:
             throw new IllegalArgumentException();
         }
         return valuesSet;
@@ -734,7 +735,7 @@ public class TestLocale extends TestFmwkPlus {
             + "-" + key + "-" + String.join("-", values) + gorp;
         ltp.set(locale);
 
-        logln(ltp.toString(Format.bcp47) 
+        logln(ltp.toString(Format.bcp47)
             + " == " + ltp.toString(Format.icu)
             + "\n\t\tstructure:\t" + ltp.toString(Format.structure));
         try {

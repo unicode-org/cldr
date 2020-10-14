@@ -27,6 +27,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Objects;
@@ -50,6 +51,7 @@ public class ShowRegionalVariants {
 
     enum MyOptions {
         targetDir(".*", CLDRPaths.GEN_DIRECTORY + "/regional/", "target output file."),;
+
         // boilderplate
         final Option option;
 
@@ -63,7 +65,7 @@ public class ShowRegionalVariants {
 
         MY_DIR = MyOptions.targetDir.option.getValue();
 
-        Set<String> coverageLocales = CONFIG.getStandardCodes().getLocaleCoverageLocales("cldr");
+        Set<String> coverageLocales = StandardCodes.make().getLocaleCoverageLocales("cldr");
         Set<String> dc = new HashSet<>(SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales());
         Set<String> skipLocales = new HashSet<>(Arrays.asList("root", "en_US_POSIX", "sr_Latn"));
 

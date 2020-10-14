@@ -13,7 +13,7 @@ public class FallbackIteratorDataGenerator {
     static CLDRConfig testInfo = ToolConfig.getToolInstance();
 
     public static void main(String[] args) {
-        final StandardCodes sc = testInfo.getStandardCodes();
+        final StandardCodes sc = StandardCodes.make();
         List<String> decanonicalizeList = new ArrayList<>();
         System.out.println();
         System.out.println("\t\t\"canonicalize\",\t\t// mechanically generated");

@@ -175,16 +175,6 @@ public class CLDRConfig extends Properties {
         return SupplementalDataInfoHelper.SINGLETON;
     }
 
-    /**
-     * StandardCodes.make() already returns a singleton
-     * @deprecated use {@link StandardCodes#make()}
-     * @return
-     */
-    @Deprecated
-    public final StandardCodes getStandardCodes() {
-        return StandardCodes.make();
-    }
-
     private static final class CoverageInfoHelper {
         static final CoverageInfo SINGLETON = new CoverageInfo(getInstance().getSupplementalDataInfo());
     }

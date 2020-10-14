@@ -51,6 +51,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -372,7 +373,7 @@ public class TestBasic extends TestFmwkPlus {
 
     public void TestCurrencyFallback() {
         Factory cldrFactory = testInfo.getCldrFactory();
-        Set<String> currencies = testInfo.getStandardCodes().getAvailableCodes(
+        Set<String> currencies = StandardCodes.make().getAvailableCodes(
             "currency");
 
         final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = new UnicodeSet(

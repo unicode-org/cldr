@@ -24,6 +24,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.google.common.base.Joiner;
@@ -144,7 +145,7 @@ public class GenerateDerivedAnnotations {
             }
             failures.freeze();
             if (!failures.isEmpty()) {
-                Level level = CLDR_CONFIG.getStandardCodes().getLocaleCoverageLevel(Organization.cldr, locale);
+                Level level = StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
                 System.out.println("Failures\t" + locale
                     + "\t" + level
                     + "\t" + english.getName(locale)

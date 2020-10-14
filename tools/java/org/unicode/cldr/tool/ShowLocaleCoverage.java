@@ -138,7 +138,7 @@ public class ShowLocaleCoverage {
     private static final String LATEST = ToolConstants.CHART_VERSION;
     private static final double CORE_SIZE = CoreItems.values().length - CoreItems.ONLY_RECOMMENDED.size();
     public static CLDRConfig testInfo = ToolConfig.getToolInstance();
-    private static final StandardCodes SC = testInfo.getStandardCodes();
+    private static final StandardCodes SC = StandardCodes.make();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final StandardCodes STANDARD_CODES = SC;
 

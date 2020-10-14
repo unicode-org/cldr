@@ -97,8 +97,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 
-    private static final StandardCodes STANDARD_CODES = testInfo
-        .getStandardCodes();
+    private static final StandardCodes STANDARD_CODES = StandardCodes.make();
 
     private static final SupplementalDataInfo SUPPLEMENTAL = testInfo
         .getSupplementalDataInfo();
@@ -182,7 +181,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             localesToTest.add(locale);
         }
-        Set<String> modernLocales = testInfo.getStandardCodes()
+        Set<String> modernLocales = StandardCodes.make()
             .getLocaleCoverageLocales(Organization.cldr,
                 EnumSet.of(Level.MODERN));
 
@@ -975,7 +974,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void TestAliases() {
-        testInfo.getStandardCodes();
+        StandardCodes.make();
         Map<String, Map<String, Map<String, String>>> bcp47Data = StandardCodes
             .getLStreg();
         Map<String, Map<String, R2<List<String>, String>>> aliases = SUPPLEMENTAL

@@ -430,7 +430,7 @@ public class CountItems {
     public static void writeMetazonePrettyPath() {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
         Map<String, Map<String, String>> map = testInfo.getSupplementalDataInfo().getMetazoneToRegionToZone();
-        Map zoneToCountry = testInfo.getStandardCodes().getZoneToCounty();
+        Map zoneToCountry = StandardCodes.make().getZoneToCounty();
         Set<Pair<String, String>> results = new TreeSet<>();
         Map<String, String> countryToContinent = getCountryToContinent(testInfo.getSupplementalDataInfo(),
             testInfo.getEnglish());

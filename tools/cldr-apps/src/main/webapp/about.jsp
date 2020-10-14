@@ -76,18 +76,21 @@
             <th>SurveyMain.TRANS_HINT_LANGUAGE_NAME</th>
             <td> <%=org.unicode.cldr.web.SurveyMain.TRANS_HINT_LANGUAGE_NAME%>  </td>
         </tr>
-        <% for(String k : org.unicode.cldr.util.CLDRConfigImpl.ALL_GIT_HASHES) { %>
-	        <tr class="row<%= ((i++)%2) %>">
-	            <th><%= k %></th>
-	            <td> <%= CLDRURLS.gitHashToLink(CLDRConfigImpl.getInstance().getProperty(k)) %>  </td>
-	        </tr>
-        <% } %>
+        <% 
+        	if(SurveyMain.isConfigSetup) {
+	        	for(String k : org.unicode.cldr.util.CLDRConfigImpl.ALL_GIT_HASHES) { %>
+		        <tr class="row<%= ((i++)%2) %>">
+		            <th><%= k %></th>
+		            <td> <%= CLDRURLS.gitHashToLink(CLDRConfigImpl.getInstance().getProperty(k)) %>  </td>
+		        </tr>
+        <% 		}
+	        }%>
     </table>    
     <%
         }
     %>
 
-<% { org.unicode.cldr.web.DBUtils d = org.unicode.cldr.web.DBUtils.peekInstance();  if (d!=null) { %>
+<% if(SurveyMain.isDbSetup) { org.unicode.cldr.web.DBUtils d = org.unicode.cldr.web.DBUtils.getInstance();  if (d!=null) { %>
 
         <h4 class="selected">Database information</h4>
     <% 

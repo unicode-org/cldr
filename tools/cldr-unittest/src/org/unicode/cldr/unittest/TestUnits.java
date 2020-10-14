@@ -59,6 +59,7 @@ import org.unicode.cldr.util.Rational.ContinuedFraction;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.Rational.RationalParser;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -1919,7 +1920,7 @@ public class TestUnits extends TestFmwk {
 
         // first gather all the  examples
         Set<String> skippedUnits = new LinkedHashSet<>();
-        Set<String> testSet = CLDR_CONFIG.getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
+        Set<String> testSet = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
         Counter<String> localeToErrorCount = new Counter<>();
         for (String localeId : testSet) {
             if (localeId.contains("_")) {

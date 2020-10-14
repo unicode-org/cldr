@@ -820,8 +820,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestTerritoryOrder() {
-        final Set<String> goodAvailableCodes = CLDRConfig.getInstance()
-            .getStandardCodes().getGoodAvailableCodes("territory");
+        final Set<String> goodAvailableCodes = StandardCodes.make().getGoodAvailableCodes("territory");
         Set<String> results = showContained("001", 0, new HashSet<>(
             goodAvailableCodes));
         results.remove("ZZ");

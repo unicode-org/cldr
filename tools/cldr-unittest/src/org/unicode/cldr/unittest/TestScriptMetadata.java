@@ -49,7 +49,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     public void TestScriptOfSample() {
         BitSet bitset = new BitSet();
-        for (String script : new TreeSet<String>(ScriptMetadata.getScripts())) {
+        for (String script : new TreeSet<>(ScriptMetadata.getScripts())) {
             Info info0 = ScriptMetadata.getInfo(script);
             int codePointCount = UTF16.countCodePoint(info0.sampleChar);
             assertEquals("Sample must be single character", 1, codePointCount);
@@ -99,7 +99,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
     @SuppressWarnings("deprecation")
     public void TestScripts() {
         UnicodeSet temp = new UnicodeSet();
-        Set<String> missingScripts = new TreeSet<String>();
+        Set<String> missingScripts = new TreeSet<>();
         Relation<IdUsage, String> map = Relation.of(
             new EnumMap<IdUsage, Set<String>>(IdUsage.class),
             LinkedHashSet.class);
@@ -133,7 +133,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     // lifted from ShowLanguages
     private static Set<String> getEnglishTypes(String type, int code, StandardCodes sc, CLDRFile english) {
-        Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
+        Set<String> result = new HashSet<>(sc.getSurveyToolDisplayCodes(type));
         for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
             XPathParts parts = XPathParts.getFrozenInstance(it.next());
             String newType = parts.getAttributeValue(-1, "type");
@@ -152,9 +152,9 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     public void TestShowLanguages() {
         // lifted from ShowLanguages - this is what ShowLanguages tried to do.
-        StandardCodes sc = testInfo.getStandardCodes();
+        StandardCodes sc = StandardCodes.make();
         CLDRFile english = testInfo.getEnglish();
-        Set<String> bads = new TreeSet<String>();
+        Set<String> bads = new TreeSet<>();
         UnicodeSet temp = new UnicodeSet();
         for (String s : getScriptsToShow(sc, english)) {
             if (ScriptMetadata.getInfo(s) == null) {
@@ -175,7 +175,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     public void TestGeographicGrouping() {
         CLDRFile english = testInfo.getEnglish();
-        Set<Row.R3<IdUsage, String, String>> lines = new TreeSet<Row.R3<IdUsage, String, String>>();
+        Set<Row.R3<IdUsage, String, String>> lines = new TreeSet<>();
         Set<String> extras = ScriptMetadata.getExtras();
         for (Entry<String, Info> sc : ScriptMetadata.iterable()) {
             String scriptCode = sc.getKey();
@@ -205,7 +205,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
     public void TestScriptCategories() {
 
         // test completeness
-        Set<String> scripts = new TreeSet<String>(ScriptMetadata.getScripts());
+        Set<String> scripts = new TreeSet<>(ScriptMetadata.getScripts());
         scripts.removeAll(Arrays.asList("Zinh", "Zyyy", "Zzzz"));
         logln("All: " + scripts);
         for (ScriptMetadata.Groupings x : ScriptMetadata.Groupings.values()) {
@@ -249,9 +249,9 @@ public class TestScriptMetadata extends TestFmwkPlus {
         TreeSet<String> b = With.in(bRaw).toCollection(
             ScriptMetadata.TO_SHORT_SCRIPT, new TreeSet<String>());
 
-        Set<String> a_b = new TreeSet<String>(a);
+        Set<String> a_b = new TreeSet<>(a);
         a_b.removeAll(b);
-        Set<String> b_a = new TreeSet<String>(b);
+        Set<String> b_a = new TreeSet<>(b);
         b_a.removeAll(a);
         assertEquals(title + " New vs Old, ", a_b.toString(), b_a.toString());
     }

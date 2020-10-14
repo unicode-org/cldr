@@ -26,7 +26,6 @@ public class CompareSuppress {
 
     public static void main(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
-        config.getStandardCodes();
         Map<LstrType, Map<String, Map<LstrField, String>>> lstr = StandardCodes.getEnumLstreg();
         Map<String, Map<LstrField, String>> langData = lstr.get(LstrType.language);
         LanguageTagParser ltp = new LanguageTagParser();

@@ -47,7 +47,7 @@ public class ListRedundantUnicodeSets {
 
         Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
-        StandardCodes sdc = CLDRConfig.getInstance().getStandardCodes();
+        StandardCodes sdc = StandardCodes.make();
 
         for (String localeID : cldrFactory.getAvailable()) {
             Level localeCoverageLevel = sdc.getLocaleCoverageLevel(Organization.cldr, localeID);

@@ -19,6 +19,7 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Splitter;
@@ -97,7 +98,7 @@ public class GenerateCasingChart {
                 new LinkedHashMap<ContextTransformType, Object>(),
                 ContextTransformValue.class);
 
-            Level level = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLevel("cldr", locale);
+            Level level = StandardCodes.make().getLocaleCoverageLevel("cldr", locale);
             boolean hasCasedLetters = changesUpper.containsSome(exemplars);
             Set<String> items = new LinkedHashSet<>();
             cldrFile.iterator("//ldml/contextTransforms").forEachRemaining(items::add);

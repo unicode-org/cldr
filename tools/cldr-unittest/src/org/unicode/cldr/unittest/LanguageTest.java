@@ -31,14 +31,14 @@ public class LanguageTest extends TestFmwk {
         .getSupplementalDataInfo();
     final Map<String, String> likelyMap = supplementalDataInfo
         .getLikelySubtags();
-    final HashMap<String, String> language2likely = new HashMap<String, String>();
-    final HashMap<String, String> script2likely = new HashMap<String, String>();
+    final HashMap<String, String> language2likely = new HashMap<>();
+    final HashMap<String, String> script2likely = new HashMap<>();
     {
-        final HashMap<String, Map<Type, String>> language2script = new HashMap<String, Map<Type, String>>();
-        final HashMap<String, Map<Type, String>> language2territory = new HashMap<String, Map<Type, String>>();
-        final HashMap<String, Map<Type, String>> script2language = new HashMap<String, Map<Type, String>>();
-        final HashMap<String, Map<Type, String>> script2territory = new HashMap<String, Map<Type, String>>();
-        final HashSet<String> scriptSet = new HashSet<String>();
+        final HashMap<String, Map<Type, String>> language2script = new HashMap<>();
+        final HashMap<String, Map<Type, String>> language2territory = new HashMap<>();
+        final HashMap<String, Map<Type, String>> script2language = new HashMap<>();
+        final HashMap<String, Map<Type, String>> script2territory = new HashMap<>();
+        final HashSet<String> scriptSet = new HashSet<>();
         for (String language : supplementalDataInfo
             .getBasicLanguageDataLanguages()) {
             for (BasicLanguageData basic : supplementalDataInfo
@@ -89,7 +89,7 @@ public class LanguageTest extends TestFmwk {
         String language, final String script, Type type) {
         Map<Type, String> old = hashMap.get(language);
         if (old == null) {
-            hashMap.put(language, old = new EnumMap<Type, String>(Type.class));
+            hashMap.put(language, old = new EnumMap<>(Type.class));
         }
         if (!old.containsKey(type)) {
             old.put(type, script);
@@ -101,9 +101,9 @@ public class LanguageTest extends TestFmwk {
     }
 
     public void TestThatLanguagesHaveScript() {
-        Set<String> needTransfer = new LinkedHashSet<String>();
+        Set<String> needTransfer = new LinkedHashSet<>();
         LanguageTagParser parser = new LanguageTagParser();
-        Map<String, Counter2<String>> scriptToLanguageCounter = new TreeMap<String, Counter2<String>>();
+        Map<String, Counter2<String>> scriptToLanguageCounter = new TreeMap<>();
         for (String language : supplementalDataInfo
             .getLanguagesForTerritoriesPopulationData()) {
             String script = parser.set(language).getScript();
@@ -125,7 +125,7 @@ public class LanguageTest extends TestFmwk {
             }
             Counter2<String> c = scriptToLanguageCounter.get(script);
             if (c == null) {
-                scriptToLanguageCounter.put(script, c = new Counter2<String>());
+                scriptToLanguageCounter.put(script, c = new Counter2<>());
             }
             for (String territory : supplementalDataInfo
                 .getTerritoriesForPopulationData(language)) {
@@ -153,7 +153,7 @@ public class LanguageTest extends TestFmwk {
         if (false)
             throw new IllegalArgumentException(
                 "    Remove Kana => Ainu, Bopo, Latn => Afar");
-        Set<String> needTransfer = new LinkedHashSet<String>();
+        Set<String> needTransfer = new LinkedHashSet<>();
         Set<String> unicodeScripts = getUnicodeScripts();
         for (String script : unicodeScripts) {
             String likely = likelyMap.get("und_" + script);
@@ -211,7 +211,7 @@ public class LanguageTest extends TestFmwk {
     }
 
     Set<String> getUnicodeScripts() {
-        Set<String> scripts = new TreeSet<String>();
+        Set<String> scripts = new TreeSet<>();
         int min = UCharacter.getIntPropertyMinValue(UProperty.SCRIPT);
         int max = UCharacter.getIntPropertyMaxValue(UProperty.SCRIPT);
         UnicodeSet temp = new UnicodeSet();
@@ -237,7 +237,7 @@ public class LanguageTest extends TestFmwk {
 
     public String getDescription(String type, String token) {
         try {
-            testInfo.getStandardCodes();
+            StandardCodes.make();
             String name = StandardCodes.getLStreg().get(type).get(token)
                 .get("Description");
             int pos = name.indexOf('▪');

@@ -223,7 +223,7 @@ public class WikipediaOfficialLanguages {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
         CLDRFile english = testInfo.getEnglish();
         SupplementalDataInfo supplementalDataInfo = testInfo.getSupplementalDataInfo();
-        StandardCodes sc = testInfo.getStandardCodes();
+        StandardCodes sc = StandardCodes.make();
         Set<String> locales = sc.getLocaleCoverageLocales("google"); // for now, restrict this
 
         System.out.println("Cc\tCountry\tLc\tLanguage Name\tWiki status (heuristic)\tCLDR status\t\tWiki notes");

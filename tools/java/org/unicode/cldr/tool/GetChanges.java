@@ -21,6 +21,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.collect.ImmutableSet;
@@ -229,7 +230,7 @@ public class GetChanges {
 
         Multimap<String,PathHeader> missing = TreeMultimap.create();
 
-        Set<String> locales = testInfo.getStandardCodes().getLocaleCoverageLocales(Organization.cldr, Collections.singleton(Level.MODERN));
+        Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, Collections.singleton(Level.MODERN));
 
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : locales) {

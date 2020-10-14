@@ -62,7 +62,7 @@ import com.ibm.icu.util.ULocale;
 public class TestCoverageLevel extends TestFmwkPlus {
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
-    private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
+    private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
     private static final SupplementalDataInfo SDI = testInfo.getSupplementalDataInfo();
 

@@ -24,7 +24,7 @@ import com.ibm.icu.util.ULocale;
 public class GenerateDayPeriodChart {
     static final SupplementalDataInfo SUP = CLDRConfig.getInstance().getSupplementalDataInfo();
     static final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
-    static final StandardCodes SC = CLDRConfig.getInstance().getStandardCodes();
+    static final StandardCodes SC = StandardCodes.make();
     static final int MINUTE = 60 * 1000;
     static final int HOUR = 60 * MINUTE;
 

@@ -18,6 +18,7 @@ import org.unicode.cldr.util.CLDRTransforms.Direction;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CLDRTransforms.Visibility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.With;
 
@@ -41,7 +42,7 @@ public class FixTransformNames {
 
     private void run(String[] args) {
         CLDRFile file = testInfo.getEnglish();
-        for (String lang : testInfo.getStandardCodes().getAvailableCodes(CodeType.language)) {
+        for (String lang : StandardCodes.make().getAvailableCodes(CodeType.language)) {
             String name = file.getName(lang);
             if (!name.equals(lang)) {
                 fieldToCode.put(name, lang);

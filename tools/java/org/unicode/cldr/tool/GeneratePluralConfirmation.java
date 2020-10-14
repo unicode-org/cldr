@@ -30,7 +30,7 @@ public class GeneratePluralConfirmation {
 
     private static final CLDRConfig testInfo = ToolConfig.getToolInstance();
 
-    private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
+    private static final StandardCodes STANDARD_CODES = StandardCodes.make();
 
     private static final SupplementalDataInfo SUPPLEMENTAL = testInfo.getSupplementalDataInfo();
 

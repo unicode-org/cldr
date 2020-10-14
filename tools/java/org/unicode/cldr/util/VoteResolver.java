@@ -717,28 +717,15 @@ public class VoteResolver<T> {
     }
 
     /**
-     * You must call this locale whenever you are using a VoteResolver with a new locale.
-     * More efficient to call the CLDRLocale version.
+     * Set the number of required votes for this VoteResolver, based on the given locale and PathHeader
      *
-     * @param locale
-     * @return
-     * @deprecated need to use the other version to get path-based voting requirements right.
-     */
-    @Deprecated
-    public VoteResolver<T> setLocale(String locale) {
-        setLocale(CLDRLocale.getInstance(locale), null);
-        return this;
-    }
-
-    /**
-     * You must call this locale whenever you are using a VoteResolver with a new locale or a new Pathheader
+     * You must call this whenever you are using a VoteResolver with a new locale or a new PathHeader
      *
-     * @param locale
-     * @return
+     * @param locale the CLDRLocale
+     * @param pathHeader the PathHeader
      */
-    public VoteResolver<T> setLocale(CLDRLocale locale, PathHeader path) {
-        requiredVotes = supplementalDataInfo.getRequiredVotes(locale.getLanguageLocale(), path);
-        return this;
+    public void setLocale(CLDRLocale locale, PathHeader pathHeader) {
+        requiredVotes = supplementalDataInfo.getRequiredVotes(locale, pathHeader);
     }
 
     /**

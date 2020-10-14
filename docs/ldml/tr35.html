@@ -102,7 +102,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2020-10-07</td>
+        <td class="changed">2020-10-12</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -9413,63 +9413,59 @@ decimal?, group?, special*)) &gt;</pre>
 
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
         <ul>
-          <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></strong>: replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong>
-          <li><strong>Section <a  href=
-    "#BCP_47_Language_Tag_Conversion" >3.3.1 BCP 47 Language Tag
+          <li><strong>Section 3.2.1 <a href="#Canonical_Unicode_Locale_Identifiers">Canonical Unicode Locale Identifiers</a></strong>: replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong>
+          <li><strong>Section 3.3.1 <a  href=
+    "#BCP_47_Language_Tag_Conversion" >BCP 47 Language Tag
     Conversion</a>:</strong> replaced text by a reference to <strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong></li>
           <li><strong>Section 3.6.1 <a href="#Key_And_Type_Definitions_" >Key And Type Definitions</a></strong>:
           added new key “dx”, for <a href="#UnicodeDictionaryBreakExclusionIdentifier" >Unicode Dictionary Break Exclusion Identifier</a>.</li>
           <li><strong>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a></strong>:
           added description of <a href="#SCRIPT_CODE" >SCRIPT_CODE</a> value for key “dx”.</li>
-          <li><strong>Section  <a  href="#Lateral_Inheritance">4.1.2 Lateral Inheritance</a>: </strong>specified lateral inheritance in more detail, added case and gender.</li>
-          <li><strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a>
-          </strong>
+          <li><strong>Section 4.1.2 <a  href="#Lateral_Inheritance">Lateral Inheritance</a>: </strong>specified lateral inheritance in more detail, added case and gender.</li>
+          <li><strong>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></strong>
             <ul>
-              <li>Added new Annex, replacing text in <strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></strong> and <strong>Section <a  href=
-    "#BCP_47_Language_Tag_Conversion" >3.3.1 BCP 47 Language Tag
+              <li>Added new Annex, replacing text in <strong>Section 3.2.1 <a href="#Canonical_Unicode_Locale_Identifiers">Canonical Unicode Locale Identifiers</a></strong> and <strong>Section 3.3.1 <a  href=
+    "#BCP_47_Language_Tag_Conversion" >BCP 47 Language Tag
     Conversion</a></strong></li>
               <li>Cleans up ambiguities in the previous specification of canonicalization. (This was done in concert with fixes to the alias data to work better with the specification.)</li>
             </ul>
           </li>
         </ul>
 	  </li>
-	<li><strong>Part 2: <a href=
-    "tr35-general.html#Contents">General</a> (display names &amp;
-	  transforms, etc.)</strong>
-		<ul>
-		  <li><strong>Section 6 <a href="#Unit_Elements">Unit Elements</a></strong><a href="#Unit_Elements"></a>
+	  <li><strong>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp;transforms, etc.)</strong>
+        <ul>
+          <li><strong>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a></strong>
 		    <ul>
 		      <li>Added new element compoundUnitPattern1</li>
 		      <li>Added case attribute to compoundUnitPattern</li>
 		      <li>Provided full description of compound unit components</li>
-	        </ul>
-		  </li>
-		  <li>Section 16 <a ref="tr35-general.html#Grammatical_Derivations">Grammatical Derivations</a> — new</li>
-      </ul>
-	</li>
-	<li ><strong>Part 6: <a href=
-    "tr35-info.html#Contents">Supplemental</a> (supplemental
-        data)</strong>
-	    <ul>
-	      <li><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: defined the userPreferences skeleton more precisely.</li>
+		    </ul>
+          </li>
+
+          <li><strong>Section 14.2 <a href="tr35-general.html#Character_Labels">Annotations Character Labels</a></strong>
+		    <ul>
+		      <li>Added new characterLabelPattern type attribute values subscript and superscript.</li>
+		    </ul>
+          </li>
+
+          <li><strong>Section 16 <a href="tr35-general.html#Grammatical_Derivations">Grammatical Derivations</a></strong> — new</li>
         </ul>
 	  </li>
-	  <li>
-	    <p><strong>Part 3: <a href=
-    "tr35-numbers.html#Contents">Numbers</a> (number &amp; currency
-	      formatting)</strong></p>
-	    <ul>
-	      <li><strong>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural
-      Rules</a> :</strong> added the 'e' operand for use in certain compact number formatting.</li>
-	      <li><strong>Section 2.6 <a href="tr35-numbers.html#Minimal_Pairs" >Minimal Pairs</a></strong><a name="Minimal_Pairs" href="#Minimal_Pairs" id=
-    "Minimal_Pairs"></a>: added case and gender minimal pairs. Removed the alt/draft ATTLIST since those are documented elsewhere and just obfuscate the text.<em>n</em></li>
+	  <li><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</strong>
+        <ul>
+	      <li><strong>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a>:</strong>
+	        added approximatelySign.</li>
+	      <li><strong>Section 2.6 <a href="tr35-numbers.html#Minimal_Pairs">Minimal Pairs</a>:</strong> added case and
+	        gender minimal pairs. Removed the alt/draft ATTLIST since those are documented elsewhere and just obfuscate
+	        the text.</li>
+	      <li><strong>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a>:</strong>
+	        added the 'e' operand for use in certain compact number formatting.</li>
         </ul>
 	  </li>
-      <li><strong>Part 6: <a href=
-      "tr35-info.html#Contents">Supplemental</a> (supplemental
-        data)</strong>
+      <li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</strong>
 	    <ul>
-	      <li><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: defined the userPreferences skeleton more precisely.</li>
+	      <li><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: defined the
+	        userPreferences skeleton more precisely.</li>
         </ul>
 	  </li>
       <li><strong>Throughout: </strong>Where possible, use “legacy” (for language tag or unit) instead of “grandfathered”.</li>

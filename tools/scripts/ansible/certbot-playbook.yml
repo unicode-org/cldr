@@ -1,0 +1,17 @@
+- hosts: letsencrypt
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  tasks:
+    - name: Install certbot packages
+      apt:
+        pkg:
+          - python3-certbot-nginx
+    - name: setup certbot
+      command: >
+        sudo certbot --nginx --agree-tos -m {{ certbot_admin_email }}
+        -d {{ inventory_hostname }} --non-interactive
+        --keep --redirect --uir --hsts --staple-ocsp --must-staple
+      args:
+        creates: /etc/letsencrypt/renewal/{{ inventory_hostname }}.conf

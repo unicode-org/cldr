@@ -1,11 +1,11 @@
 package org.unicode.cldr.unittest;
 /*
  * TODO: rename this file and class to avoid confusion with org.unicode.cldr.util TestUtilities.java
- * When Eclipse console shows an error such as 
+ * When Eclipse console shows an error such as
  *    Error: (TestUtilities.java:1154) : 8 value: expected "old-value", got null
  * the link wrongly opens the wrong file named TestUtilities.java. The two files are:
  * cldr/tools/java/org/unicode/cldr/util/TestUtilities.java
- * cldr/tools/cldr-unittest/src/org/unicode/cldr/unittest/TestUtilities.java 
+ * cldr/tools/cldr-unittest/src/org/unicode/cldr/unittest/TestUtilities.java
  */
 
 import java.io.StringWriter;
@@ -129,7 +129,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestStringId() {
-        ArrayList<StringIdThread> threads = new ArrayList<StringIdThread>();
+        ArrayList<StringIdThread> threads = new ArrayList<>();
 
         for (int i = 0; i < 8; i++) {
             StringIdThread thread = new StringIdThread(i);
@@ -175,9 +175,9 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestDelegatingIterator() {
-        Set<String> s = new TreeSet<String>(Arrays.asList(new String[] { "a",
+        Set<String> s = new TreeSet<>(Arrays.asList(new String[] { "a",
             "b", "c" }));
-        Set<String> t = new LinkedHashSet<String>(Arrays.asList(new String[] {
+        Set<String> t = new LinkedHashSet<>(Arrays.asList(new String[] {
             "f", "d", "e" }));
         StringBuilder result = new StringBuilder();
 
@@ -209,7 +209,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestUntimedCounter() {
         // simulates how Counter is used in VettingViewer
-        Counter<Choice> problemCounter = new Counter<Choice>();
+        Counter<Choice> problemCounter = new Counter<>();
         problemCounter.increment(Choice.error);
         problemCounter.increment(Choice.error);
         problemCounter.increment(Choice.warning);
@@ -218,7 +218,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("problemCounter warning", 1, problemCounter.get(Choice.warning));
         assertEquals("problemCounter weLost", 0, problemCounter.get(Choice.weLost));
 
-        Counter<Choice> otherCounter = new Counter<Choice>();
+        Counter<Choice> otherCounter = new Counter<>();
         otherCounter.addAll(problemCounter);
         otherCounter.increment(Choice.error);
 
@@ -228,7 +228,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestCounter() {
-        Counter<String> counter = new Counter<String>(true);
+        Counter<String> counter = new Counter<>(true);
         Comparator<String> uca = new Comparator<String>() {
             Collator col = Collator.getInstance(ULocale.ENGLISH);
 
@@ -253,7 +253,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("getMap", "{a=95, b=151, c=95, d=-3}", counter.toString());
 
         assertEquals("getKeysetSortedByKey", Arrays.asList("a", "b", "c", "d"),
-            new ArrayList<String>(counter.getKeysetSortedByKey()));
+            new ArrayList<>(counter.getKeysetSortedByKey()));
 
         assertEquals(
             "getKeysetSortedByCount(true, ucaDown)",
@@ -262,7 +262,7 @@ public class TestUtilities extends TestFmwkPlus {
                 ucaDown)));
 
         assertEquals("getKeysetSortedByCount(true, null), value",
-            Arrays.asList("d", "a", "c", "b"), new ArrayList<String>(
+            Arrays.asList("d", "a", "c", "b"), new ArrayList<>(
                 counter.getKeysetSortedByCount(true, uca)));
 
         assertEquals("getKeysetSortedByCount(false, ucaDown), descending",
@@ -270,16 +270,16 @@ public class TestUtilities extends TestFmwkPlus {
                 counter.getKeysetSortedByCount(false, ucaDown)));
 
         assertEquals("getKeysetSortedByCount(false, null), descending, value",
-            Arrays.asList("b", "a", "c", "d"), new ArrayList<String>(
+            Arrays.asList("b", "a", "c", "d"), new ArrayList<>(
                 counter.getKeysetSortedByCount(false, uca)));
     }
 
     public void TestOrganizationOrder() {
-        Map<String, Organization> stringToOrg = new TreeMap<String, Organization>();
+        Map<String, Organization> stringToOrg = new TreeMap<>();
         for (Organization org : Organization.values()) {
             stringToOrg.put(org.toString(), org);
         }
-        List<Organization> reordered = new ArrayList<Organization>(
+        List<Organization> reordered = new ArrayList<>(
             stringToOrg.values());
         List<Organization> plain = Arrays.asList(Organization.values());
         for (int i = 0; i < reordered.size(); ++i) {
@@ -397,8 +397,8 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestTrunkStatus() {
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
-        resolver.setLocale("de");
+        VoteResolver<String> resolver = new VoteResolver<>();
+        resolver.setLocale(CLDRLocale.getInstance("de"), null);
 
         resolver.setTrunk("new-item", Status.approved);
         assertEquals("", "new-item", resolver.getWinningValue());
@@ -412,9 +412,8 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestVoteResolverNgombaTrunkStatus() {
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
-        resolver.setLocale("jgo");
-        final String jgo21 = "\uA78B"; // "[ɑ ɑ́ ɑ̂ ɑ̌ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p pf s sh t ts u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z Ꞌ]";
+        VoteResolver<String> resolver = new VoteResolver<>();
+        resolver.setLocale(CLDRLocale.getInstance("jgo"), null);
         final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
         resolver.setTrunk(jgo22trunk, Status.approved); // seed/jgo.xml from 22
         // trunk
@@ -425,9 +424,9 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestVoteStatus() {
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
 
-        resolver.setLocale("de");
+        resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
         resolver.add("fii", toVoterId("adobeE"));
@@ -461,9 +460,9 @@ public class TestUtilities extends TestFmwkPlus {
         // XPath: //ldml/localeDisplayNames/territories/territory[@type="BQ"]
         // gcvs.openoffice_org.example.com
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
 
-        resolver.setLocale("af");
+        resolver.setLocale(CLDRLocale.getInstance("af"), null);
         resolver.setTrunk("BQ", Status.missing);
         VoteStatus status = resolver
             .getStatusForOrganization(Organization.openoffice_org);
@@ -495,12 +494,12 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestTotalVotesStatus() {
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
 
         Status oldStatus = Status.unconfirmed;
 
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("de");
+        resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setTrunk("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
@@ -513,7 +512,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.clear();
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("de");
+        resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setTrunk("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("zebra", toVoterId("googleS"));
@@ -528,12 +527,12 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestVoteDowngrade() {
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
 
         Status oldStatus = Status.unconfirmed;
 
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("mt");
+        resolver.setLocale(CLDRLocale.getInstance("mt"), null);
         resolver.setTrunk("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"));
@@ -544,7 +543,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.clear();
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("mt");
+        resolver.setLocale(CLDRLocale.getInstance("mt"), null);
         resolver.setTrunk("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"));
@@ -558,7 +557,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.clear();
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("mt");
+        resolver.setLocale(CLDRLocale.getInstance("mt"), null);
         resolver.setTrunk("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
@@ -576,7 +575,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.clear();
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("mt");
+        resolver.setLocale(CLDRLocale.getInstance("mt"), null);
         resolver.setTrunk("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
@@ -594,12 +593,12 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestResolvedVoteCounts() {
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
 
         Status oldStatus = Status.unconfirmed;
 
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("de");
+        resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setTrunk("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
@@ -607,29 +606,29 @@ public class TestUtilities extends TestFmwkPlus {
         // check that alphabetical wins when votes are equal
         Map<String, Long> counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());
-        assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(2));
+        assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(2));
 
         resolver.clear();
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("de");
+        resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setTrunk("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
         counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());
-        assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(0));
+        assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(0));
 
         resolver.clear();
         resolver.setBaileyValue("bailey");
-        resolver.setLocale("de");
+        resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setTrunk("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleS"));
         counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());
-        assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(0));
+        assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(0));
     }
 
-    private void verifyRequiredVotes(VoteResolver resolver, String locale,
+    private void verifyRequiredVotes(VoteResolver<String> resolver, String locale,
         String xpath, int required) {
         StringBuilder sb = new StringBuilder();
         sb.append("Locale: " + locale);
@@ -647,7 +646,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestRequiredVotes() {
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
 
         verifyRequiredVotes(
             resolver,
@@ -719,7 +718,7 @@ public class TestUtilities extends TestFmwkPlus {
         // second is the individual in that org, and
         // third is the voting weight.
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
         String[] tests = {
             "bailey=BAILEY",
             "comment=regression case from John Emmons",
@@ -838,7 +837,7 @@ public class TestUtilities extends TestFmwkPlus {
         String baileyValue = null;
         List<String> sameVotes = null;
         String locale = null;
-        Map<Integer, String> values = new TreeMap<Integer, String>();
+        Map<Integer, String> values = new TreeMap<>();
         int counter = -1;
 
         for (String test : tests) {
@@ -862,7 +861,7 @@ public class TestUtilities extends TestFmwkPlus {
             } else if (name.equalsIgnoreCase("value")) {
                 expectedValue = value;
             } else if (name.equalsIgnoreCase("sameVotes")) {
-                sameVotes = value == null ? new ArrayList<String>(0) : Arrays
+                sameVotes = value == null ? new ArrayList<>(0) : Arrays
                     .asList(value.split(",\\s*"));
             } else if (name.equalsIgnoreCase("status")) {
                 expectedStatus = Status.valueOf(value);
@@ -879,7 +878,7 @@ public class TestUtilities extends TestFmwkPlus {
                 counter++;
                 // load the resolver
                 resolver.setBaileyValue(baileyValue);
-                resolver.setLocale(locale);
+                resolver.setLocale(CLDRLocale.getInstance(locale), null);
                 resolver.setTrunk(oldValue, oldStatus);
                 for (int voter : values.keySet()) {
                     resolver.add(values.get(voter), voter);
@@ -1067,7 +1066,7 @@ public class TestUtilities extends TestFmwkPlus {
     private double _checkUnicodeMapSetTime(int iterations, int type) {
         UnicodeMap<String> map1 = SCRIPTS;
         Map<Integer, String> map2 = map1.putAllCodepointsInto(new HashMap<Integer, String>());
-        Map<Integer, String> map3 = new TreeMap<Integer, String>(map2);
+        Map<Integer, String> map3 = new TreeMap<>(map2);
         System.gc();
         double start = System.currentTimeMillis();
         for (int j = 0; j < iterations; ++j)
@@ -1092,9 +1091,9 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     private double checkUnicodeMapGetTime(int iterations, int type) {
-        UnicodeMap<String> map1 = new UnicodeMap<String>();
+        UnicodeMap<String> map1 = new UnicodeMap<>();
         Map<Integer, String> map2 = map1.putAllCodepointsInto(new HashMap<Integer, String>());
-        Map<Integer, String> map3 = new TreeMap<Integer, String>();
+        Map<Integer, String> map3 = new TreeMap<>();
         _checkUnicodeMapGetTime(map1, map2, map3, 1, type); // warmup
         double result = _checkUnicodeMapGetTime(map1, map2, map3, iterations, type);
         logln((type == 0 ? "UnicodeMap" : type == 1 ? "HashMap" : type == 2 ? "ICU" : "TreeMap") + "\t" + nf.format(result));
@@ -1130,7 +1129,7 @@ public class TestUtilities extends TestFmwkPlus {
     public void TestStevenTest() {
 
         VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
 
         String tests[] = {
             "bailey=BAILEY",
@@ -1201,8 +1200,8 @@ public class TestUtilities extends TestFmwkPlus {
         List<String> sameVotes = null;
         String locale = null;
         int voteEntries = 0;
-        Map<Integer, String> values = new TreeMap<Integer, String>();
-        Map<Integer, VoteEntries> valuesMap = new TreeMap<Integer, VoteEntries>();
+        Map<Integer, String> values = new TreeMap<>();
+        Map<Integer, VoteEntries> valuesMap = new TreeMap<>();
 
         int counter = -1;
 
@@ -1227,7 +1226,7 @@ public class TestUtilities extends TestFmwkPlus {
             } else if (name.equalsIgnoreCase("bailey")) {
                 baileyValue = value;
             } else if (name.equalsIgnoreCase("sameVotes")) {
-                sameVotes = value == null ? new ArrayList<String>(0) : Arrays
+                sameVotes = value == null ? new ArrayList<>(0) : Arrays
                     .asList(value.split(",\\s*"));
             } else if (name.equalsIgnoreCase("status")) {
                 expectedStatus = Status.valueOf(value);
@@ -1250,7 +1249,7 @@ public class TestUtilities extends TestFmwkPlus {
                 counter++;
                 // load the resolver
                 resolver.setBaileyValue(baileyValue);
-                resolver.setLocale(locale);
+                resolver.setLocale(CLDRLocale.getInstance(locale), null);
                 resolver.setTrunk(oldValue, oldStatus);
                 for (int voteEntry : valuesMap.keySet()) {
 
@@ -1278,7 +1277,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void testBaileyVotes() {
         VoteResolver.setVoterToInfo(TestUser.TEST_USERS);
-        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteResolver<String> resolver = new VoteResolver<>();
         CLDRLocale locale = CLDRLocale.getInstance("de");
         PathHeader path = null;
 

@@ -39,7 +39,7 @@ jobs:
         key: ${{ runner.os }}-tomcat-tarball
     - name: Download Tomcat # only on cache miss
       if: steps.cache-tomcat.outputs.cache-hit != 'true'
-      run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - ; cd .. '
+      run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.59/bin/apache-tomcat-8.5.59.tar.gz" | tar xfpz - ; cd .. '
     - name: Alias Tomcat directory
       run: ln -svf tomcat-tarball/apache-tomcat-* tomcat
     # CLDR Tools
@@ -88,7 +88,7 @@ jobs:
         key: ${{ runner.os }}-tomcat-tarball
     - name: Download Tomcat # only on cache miss
       if: steps.cache-tomcat.outputs.cache-hit != 'true'
-      run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - ; cd .. '
+      run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.59/bin/apache-tomcat-8.5.59.tar.gz" | tar xfpz - ; cd .. '
     - name: Alias Tomcat directory
       run: ln -svf tomcat-tarball/apache-tomcat-* tomcat
     - name: Setup MySQL

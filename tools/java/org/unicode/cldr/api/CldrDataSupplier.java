@@ -50,14 +50,14 @@ import com.google.common.collect.Multimap;
  *
  * <p>Note that because the distinguishing paths associated with a {@link CldrValue} are unique per
  * visitation, the special "version" path/value must be omitted (e.g. "//ldml/version") since it
- * would otherwise appear multiple times. This should be fine, since the version is always available
- * via {@link #getCldrVersionString()} and this mechanism is scheduled for deprecation anyway.
+ * would otherwise appear multiple times. It's also possible that the data being processed by this
+ * library has a different version to the library itself.
  */
 public abstract class CldrDataSupplier {
     /**
-     * Returns the current CLDR version string (e.g. {@code "36"}). This is just wrapping the
-     * underlying CLDR version string to avoid users needing to import anything from outside the
-     * "api" package.
+     * Returns the default CLDR version string (e.g. {@code "36"}) that is compiled into the CLDR
+     * API library. Note that users of this API may need to specify a different version string when
+     * processing data that is out-of-sync with the current library version.
      */
     public static String getCldrVersionString() {
         return CLDRFile.GEN_VERSION;

@@ -170,6 +170,75 @@ public final class PrefixVisitorTest extends TestFmwk {
         assertEquals("cldr path prefixes", expectedDtd, prefixes);
     }
 
+    public void TestNestedPrefixVisitors() {
+        List<CldrValue> values = new ArrayList<>();
+        addTo(values, "//ldml/dates/fields/field[@type=\"era\"]/displayName", "era");
+        addTo(values, "//ldml/localeDisplayNames/languages/language[@type=\"fr\"]", "French");
+        addTo(values, "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]", "Switzerland");
+
+        CldrData testData = CldrDataSupplier.forValues(values);
+
+        List<String> prefixes = new ArrayList<>();
+        class SubVisitor implements PrefixVisitor {
+            private final PathMatcher matcher;
+            private final SubVisitor subVisitor;
+            private final String name;
+
+            public SubVisitor(
+                String name, PathMatcher matcher, SubVisitor subVisitor) {
+                this.matcher = matcher;
+                this.subVisitor = subVisitor;
+                this.name = name;
+            }
+
+            @Override
+            public void visitPrefixStart(CldrPath prefix, Context ctx) {
+                prefixes.add("+" + name + ": " + prefix);
+                if (subVisitor != null && matcher.matches(prefix)) {
+                    // Bound sub-visitors with markers (just to test the "done function" really).
+                    prefixes.add("---->");
+                    ctx.install(subVisitor, v -> prefixes.add("<----"));
+                }
+            }
+
+            @Override
+            public void visitPrefixEnd(CldrPath prefix) {
+                prefixes.add("-" + name + ": " + prefix);
+            }
+        }
+
+        // These matchers are visited by the parent doing the matching and the child visitor sees
+        // everything below this point (but not the path itself).
+        PathMatcher ldml = PathMatcher.of("//ldml");
+        PathMatcher names = ldml.withSuffix("localeDisplayNames");
+        // Visitors constructed in reverse (since the child is passed into the parent).
+        SubVisitor baz = new SubVisitor("baz", null, null);
+        SubVisitor bar = new SubVisitor("bar", names, baz);
+        SubVisitor foo = new SubVisitor("foo", ldml, bar);
+
+        testData.accept(DTD, foo);
+        List<String> expectedNested = ImmutableList.of(
+            "+foo: //ldml",
+            "---->",  // Everything below //ldml is visited by "bar".
+            "+bar: //ldml/localeDisplayNames",
+            "---->",  // Everything below //ldml/localeDisplayNames is visited by "baz".
+            "+baz: //ldml/localeDisplayNames/languages",
+            "-baz: //ldml/localeDisplayNames/languages",
+            "+baz: //ldml/localeDisplayNames/territories",
+            "-baz: //ldml/localeDisplayNames/territories",
+            "<----",  // The "done function" is called at the upwards transition of visitors.
+            "-bar: //ldml/localeDisplayNames",
+            "+bar: //ldml/dates",
+            "+bar: //ldml/dates/fields",
+            "+bar: //ldml/dates/fields/field[@type=\"era\"]",
+            "-bar: //ldml/dates/fields/field[@type=\"era\"]",
+            "-bar: //ldml/dates/fields",
+            "-bar: //ldml/dates",
+            "<----",
+            "-foo: //ldml");
+        assertEquals("cldr path prefixes", expectedNested, prefixes);
+    }
+
     // Note: Just testing the test supplier, not the real suppliers (their tests are elsewhere).
     public void TestParentPathsNotAllowed() {
         List<CldrValue> values = new ArrayList<>();

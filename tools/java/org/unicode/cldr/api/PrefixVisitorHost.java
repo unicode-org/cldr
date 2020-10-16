@@ -144,8 +144,7 @@ final class PrefixVisitorHost {
     };
 
     private PrefixVisitorHost(PrefixVisitor visitor) {
-        this.visitorStack.push(VisitorState.of(visitor, v -> {
-        }, null));
+        this.visitorStack.push(VisitorState.of(visitor, v -> {}, null));
     }
 
     // Called after visitation is complete to close out the last visited value path.

@@ -1,0 +1,6 @@
+- hosts: prod
+  become: yes
+  tasks:
+    - name: Set the hostname
+      hostname:
+         name: st.unicode.org

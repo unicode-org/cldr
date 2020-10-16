@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.Map;
 
@@ -130,7 +131,7 @@ public class FileCopier {
      * @throws IOException
      */
     public static void copy(Class<?> cls, String sourceFile, Writer out) throws IOException {
-        copy(new InputStreamReader(cls.getResourceAsStream(sourceFile), Charset.forName("UTF-8")), out);
+        copy(new InputStreamReader(cls.getResourceAsStream(sourceFile), StandardCharsets.UTF_8), out);
     }
 
     /**

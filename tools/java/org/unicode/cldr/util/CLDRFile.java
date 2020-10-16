@@ -12,9 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -331,9 +329,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public CLDRFile loadFromInputStream(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
         CLDRFile cldrFile = this;
-        InputStreamReader reader = new InputStreamReader(fis, Charset.forName("UTF-8"));
         MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(cldrFile, minimalDraftStatus);
-        XMLFileReader.read(fileName, reader, -1, true, DEFAULT_DECLHANDLER);
+        XMLFileReader.read(fileName, fis, -1, true, DEFAULT_DECLHANDLER);
         if (DEFAULT_DECLHANDLER.isSupplemental < 0) {
             throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
         }

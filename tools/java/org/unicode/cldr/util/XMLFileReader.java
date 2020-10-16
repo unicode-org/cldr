@@ -11,9 +11,7 @@ package org.unicode.cldr.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Reader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -24,6 +22,8 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
@@ -93,27 +93,12 @@ public class XMLFileReader {
     public XMLFileReader read(String fileName, int handlers, boolean validating) {
         try (InputStream fis = new FileInputStream(fileName);
             ) {
-            return read(fileName, fis, handlers, validating);
+            return read(fileName, new InputSource(fis), handlers, validating);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fileName).initCause(e);
         }
     }
 
-    /**
-     * read from a Stream
-     * @param fileName
-     * @param handlers
-     * @param validating
-     * @param fis
-     * @return
-     */
-    public XMLFileReader read(String fileName, InputStream fis, int handlers, boolean validating) {
-        try (InputStreamReader inputStreamReader = new InputStreamReader(fis, Charset.forName("UTF-8"))) {
-            return read(fileName, inputStreamReader, handlers, validating);
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException(e);
-        }
-    }
 
     /**
      * read from a CLDR resource
@@ -126,7 +111,7 @@ public class XMLFileReader {
      */
     public XMLFileReader readCLDRResource(String resName, int handlers, boolean validating) {
         try (InputStream inputStream = CldrUtility.getInputStream(resName)) {
-            return read(resName, inputStream, handlers, validating);
+            return read(resName, new InputSource(inputStream), handlers, validating);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -143,7 +128,7 @@ public class XMLFileReader {
      */
     public XMLFileReader read(String resName, Class<?> callingClass, int handlers, boolean validating) {
         try (InputStream inputStream = CldrUtility.getInputStream(callingClass, resName)) {
-            return read(resName, inputStream, handlers, validating);
+            return read(resName, new InputSource(inputStream), handlers, validating);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -154,36 +139,52 @@ public class XMLFileReader {
         return this;
     }
 
+    public XMLFileReader read(String systemID, InputSource insrc, int handlers, boolean validating) {
+        read(systemID, insrc, handlers, validating, DEFAULT_DECLHANDLER.reset());
+        return this;
+    }
+
+    public static void read(String systemID, InputStream instr, int handlers, boolean validating, AllHandler allHandler) {
+        InputSource is = new InputSource(instr);
+        read(systemID, is, handlers, validating, allHandler);
+    }
+
     public static void read(String systemID, Reader reader, int handlers, boolean validating, AllHandler allHandler) {
+        InputSource is = new InputSource(reader);
+        read(systemID, is, handlers, validating, allHandler);
+    }
+
+    public static void read(String systemID, InputSource is, int handlers, boolean validating, AllHandler allHandler) {
         try {
-            XMLReader xmlReader = createXMLReader(validating);
-            if ((handlers & CONTENT_HANDLER) != 0) {
-                xmlReader.setContentHandler(allHandler);
-            }
-            if ((handlers & ERROR_HANDLER) != 0) {
-                xmlReader.setErrorHandler(allHandler);
-            }
-            if ((handlers & LEXICAL_HANDLER) != 0) {
-                xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", allHandler);
-            }
-            if ((handlers & DECLARATION_HANDLER) != 0) {
-                xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", allHandler);
-            }
-            InputSource is = new InputSource(reader);
+            XMLReader xmlReader = createXMLReader(handlers, validating, allHandler);
             is.setSystemId(systemID);
             try {
                 xmlReader.parse(is);
             } catch (AbortException e) {
             } // ok
-            reader.close();
         } catch (SAXParseException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + systemID + "\tline:\t"
                 + e.getLineNumber()).initCause(e);
-        } catch (SAXException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + systemID).initCause(e);
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + systemID).initCause(e);
         }
+    }
+
+    private static final XMLReader createXMLReader(int handlers, boolean validating, AllHandler allHandler) throws SAXNotRecognizedException, SAXNotSupportedException {
+        XMLReader xmlReader = createXMLReader(validating);
+        if ((handlers & CONTENT_HANDLER) != 0) {
+            xmlReader.setContentHandler(allHandler);
+        }
+        if ((handlers & ERROR_HANDLER) != 0) {
+            xmlReader.setErrorHandler(allHandler);
+        }
+        if ((handlers & LEXICAL_HANDLER) != 0) {
+            xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", allHandler);
+        }
+        if ((handlers & DECLARATION_HANDLER) != 0) {
+            xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", allHandler);
+        }
+        return xmlReader;
     }
 
     public interface AllHandler extends ContentHandler, LexicalHandler, DeclHandler, ErrorHandler {

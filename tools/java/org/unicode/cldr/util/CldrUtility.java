@@ -17,7 +17,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -68,7 +67,6 @@ public class CldrUtility {
 
     public static final boolean DEBUG_MISSING_DIRECTORIES = false;
 
-    public static final Charset UTF8 = Charset.forName("utf-8");
     public static final boolean BETA = false;
 
     public static final String LINE_SEPARATOR = "\n";

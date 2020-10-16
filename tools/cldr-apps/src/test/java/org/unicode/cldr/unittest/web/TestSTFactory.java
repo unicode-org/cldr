@@ -720,7 +720,8 @@ public class TestSTFactory extends TestFmwk {
             // String type, String mode, String value) {};
         });
         final String fileName = fileBasename + ".xml";
-        myReader.read(TestSTFactory.class.getResource("data/" + fileName).toString(), TestAll.getUTF8Data(fileName), -1, true);
+        myReader.read(TestSTFactory.class.getResource("data/" + fileName).toString(), // for DTD resolution
+                        TestAll.getUTF8Data(fileName), -1, true);
     }
 
     public void TestVettingWithNonDistinguishing() throws SQLException, IOException, InvalidXPathException, SurveyException {

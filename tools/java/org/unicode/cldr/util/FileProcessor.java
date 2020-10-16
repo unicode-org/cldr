@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 import com.ibm.icu.util.ICUUncheckedIOException;
 
@@ -49,7 +50,7 @@ public class FileProcessor {
     public FileProcessor process(String fileName) {
         try {
             FileInputStream fileStream = new FileInputStream(fileName);
-            InputStreamReader reader = new InputStreamReader(fileStream, CldrUtility.UTF8);
+            InputStreamReader reader = new InputStreamReader(fileStream, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
             return process(bufferedReader, fileName);
         } catch (Exception e) {
@@ -60,7 +61,7 @@ public class FileProcessor {
     public FileProcessor process(String directory, String fileName) {
         try {
             FileInputStream fileStream = new FileInputStream(directory + File.separator + fileName);
-            InputStreamReader reader = new InputStreamReader(fileStream, CldrUtility.UTF8);
+            InputStreamReader reader = new InputStreamReader(fileStream, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
             return process(bufferedReader, fileName);
         } catch (Exception e) {

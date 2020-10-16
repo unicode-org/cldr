@@ -1,6 +1,6 @@
 package org.unicode.cldr.util;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,7 +17,6 @@ public final class StringId {
     private static final Map<String, Long> STRING_TO_ID = new ConcurrentHashMap<>();
     private static final Map<Long, String> ID_TO_STRING = new ConcurrentHashMap<>();
     private static final MessageDigest digest;
-    private static final Charset UTF_8 = Charset.forName("UTF-8");
     private static final int RETRY_LIMIT = 9;
     static {
         try {
@@ -44,7 +43,7 @@ public final class StringId {
         while (true) {
             try {
                 synchronized (digest) {
-                    byte[] hash = digest.digest(string.getBytes(UTF_8));
+                    byte[] hash = digest.digest(string.getBytes(StandardCharsets.UTF_8));
                     long result = 0;
                     for (int i = 0; i < 8; ++i) {
                         result <<= 8;

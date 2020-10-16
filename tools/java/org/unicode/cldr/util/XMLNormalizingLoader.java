@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -153,12 +151,11 @@ public class XMLNormalizingLoader{
         // use try-with-resources statement
         try (
             InputStream fis = new FileInputStream(f);
-            InputStreamReader reader = new InputStreamReader(fis, Charset.forName("UTF-8"))
         ) {
             String fullFileName = f.getCanonicalPath();
             XMLSource source = new SimpleXMLSource(localeId);
             XMLNormalizingHandler XML_HANDLER = new XMLNormalizingHandler(source, minimalDraftStatus);
-            XMLFileReader.read(fullFileName, reader, -1, true, XML_HANDLER);
+            XMLFileReader.read(fullFileName, fis, -1, true, XML_HANDLER);
             if (XML_HANDLER.supplementalStatus == SupplementalStatus.NEVER_SET) {
                 throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
             }

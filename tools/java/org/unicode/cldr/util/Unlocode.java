@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -243,7 +244,7 @@ public class Unlocode {
 
     public static void loadIso() throws IOException {
         BufferedReader br = FileReaders.openFile(CldrUtility.class,
-            "data/external/subdivisionData.txt", CldrUtility.UTF8);
+            "data/external/subdivisionData.txt", StandardCharsets.UTF_8);
         while (true) {
             // Subdivision category TAB 3166-2 code TAB Subdivision name TAB Language code TAB Romanization system TAB Parent subdivision
 

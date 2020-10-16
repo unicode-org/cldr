@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import org.unicode.cldr.util.With.SimpleIterator;
 
@@ -19,7 +20,7 @@ public class FileReaders {
     // return handler.process(classLocation, fileName);
     // }
     public static BufferedReader openFile(Class<?> class1, String file) {
-        return openFile(class1, file, CldrUtility.UTF8);
+        return openFile(class1, file, StandardCharsets.UTF_8);
     }
 
     public static BufferedReader openFile(Class<?> class1, String file, Charset charset) {
@@ -38,7 +39,7 @@ public class FileReaders {
             final InputStream resourceAsStream = class1.getResourceAsStream(file);
             // String foo = class1.getResource(".").toString();
             if (charset == null) {
-                charset = CldrUtility.UTF8;
+                charset = StandardCharsets.UTF_8;
             }
             InputStreamReader reader = new InputStreamReader(resourceAsStream, charset);
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
@@ -67,7 +68,7 @@ public class FileReaders {
     }
 
     public static BufferedReader openFile(String directory, String file) {
-        return openFile(directory, file, CldrUtility.UTF8);
+        return openFile(directory, file, StandardCharsets.UTF_8);
     }
 
     public static String getRelativeFileName(Class<?> class1, String filename) {

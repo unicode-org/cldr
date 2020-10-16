@@ -15,13 +15,13 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
@@ -159,7 +159,7 @@ public final class FileUtilities {
         public FileProcessor process(String fileName) {
             try {
                 FileInputStream fileStream = new FileInputStream(fileName);
-                InputStreamReader reader = new InputStreamReader(fileStream, UTF8);
+                InputStreamReader reader = new InputStreamReader(fileStream, StandardCharsets.UTF_8);
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
@@ -170,7 +170,7 @@ public final class FileUtilities {
         public FileProcessor process(String directory, String fileName) {
             try {
                 FileInputStream fileStream = new FileInputStream(directory + File.separator + fileName);
-                InputStreamReader reader = new InputStreamReader(fileStream, UTF8);
+                InputStreamReader reader = new InputStreamReader(fileStream, StandardCharsets.UTF_8);
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
@@ -218,7 +218,7 @@ public final class FileUtilities {
     // return handler.process(classLocation, fileName);
     // }
     public static BufferedReader openFile(Class<?> class1, String file) {
-        return openFile(class1, file, UTF8);
+        return openFile(class1, file, StandardCharsets.UTF_8);
     }
 
     public static BufferedReader openFile(Class<?> class1, String file, Charset charset) {
@@ -237,7 +237,7 @@ public final class FileUtilities {
             final InputStream resourceAsStream = class1.getResourceAsStream(file);
             // String foo = class1.getResource(".").toString();
             if (charset == null) {
-                charset = UTF8;
+                charset = StandardCharsets.UTF_8;
             }
             InputStreamReader reader = new InputStreamReader(resourceAsStream, charset);
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
@@ -274,14 +274,12 @@ public final class FileUtilities {
     }
 
     public static BufferedReader openFile(File file) {
-        return openFile(file, UTF8);
+        return openFile(file, StandardCharsets.UTF_8);
     }
 
     public static BufferedReader openFile(String directory, String file) {
-        return openFile(directory, file, UTF8);
+        return openFile(directory, file, StandardCharsets.UTF_8);
     }
-
-    public static final Charset UTF8 = Charset.forName("utf-8");
 
     public static String[] splitCommaSeparated(String line) {
         // items are separated by ','
@@ -321,11 +319,11 @@ public final class FileUtilities {
     }
 
     public static void appendFile(Class<?> class1, String filename, PrintWriter out) {
-        appendFile(class1, filename, UTF8, null, out);
+        appendFile(class1, filename, StandardCharsets.UTF_8, null, out);
     }
 
     public static void appendFile(Class<?> class1, String filename, String[] replacementList, PrintWriter out) {
-        appendFile(class1, filename, UTF8, replacementList, out);
+        appendFile(class1, filename, StandardCharsets.UTF_8, replacementList, out);
     }
 
     public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList,
@@ -421,7 +419,7 @@ public final class FileUtilities {
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName, String[] replacementList) {
         try {
             PrintWriter out = openUTF8Writer(targetDirectory, newName);
-            appendFile(class1, sourceFile, UTF8, replacementList, out);
+            appendFile(class1, sourceFile, StandardCharsets.UTF_8, replacementList, out);
             out.close();
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e); // dang'd checked exceptions
@@ -450,7 +448,7 @@ public final class FileUtilities {
      *
      */
     public static Iterable<String> in(Class<?> class1, String file) {
-        return With.in(new FileLines(openFile(class1, file, UTF8)));
+        return With.in(new FileLines(openFile(class1, file, StandardCharsets.UTF_8)));
     }
 
     /**
@@ -476,7 +474,7 @@ public final class FileUtilities {
      *
      */
     public static Iterable<String> in(String directory, String file) {
-        return With.in(new FileLines(openFile(directory, file, UTF8)));
+        return With.in(new FileLines(openFile(directory, file, StandardCharsets.UTF_8)));
     }
 
     /**
@@ -575,6 +573,6 @@ public final class FileUtilities {
     }
 
     public static Iterable<String> in(File file) {
-        return With.in(new FileLines(openFile(file, UTF8)));
+        return With.in(new FileLines(openFile(file, StandardCharsets.UTF_8)));
     }
 }

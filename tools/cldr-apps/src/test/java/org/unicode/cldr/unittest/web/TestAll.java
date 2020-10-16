@@ -143,7 +143,6 @@ public class TestAll extends TestGroup {
     /**
      *
      * @author srl
-     * @see TestInfo
      */
     public static class WebTestInfo {
         private static WebTestInfo INSTANCE = null;
@@ -406,4 +405,5 @@ public class TestAll extends TestGroup {
     static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
         return FileReaders.openFile(TestAll.class, "data/" + name);
     }
+
 }

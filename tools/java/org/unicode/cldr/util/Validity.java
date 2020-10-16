@@ -51,7 +51,11 @@ public class Validity {
         Map<LstrType, Map<String, Status>> codeToStatus = new EnumMap<>(LstrType.class);
         final String basePath = validityDirectory;
 
-        for (String file : new File(basePath).list()) {
+        File validityDir = new File(basePath);
+        if (!validityDir.isDirectory()) {
+            throw new IllegalArgumentException("Not a directory: " + validityDir.getAbsolutePath());
+        }
+        for (String file : validityDir.list()) {
             if (!file.endsWith(".xml")) {
                 continue;
             }
@@ -103,7 +107,7 @@ public class Validity {
             }
         }
         if (data.keySet().size() < 5) {
-            throw new IllegalArgumentException("Bad directory for validity files");
+            throw new IllegalArgumentException("Bad directory for validity files: " + validityDir.getAbsolutePath());
         }
         typeToStatusToCodes = CldrUtility.protectCollectionX(data);
         typeToCodeToStatus = CldrUtility.protectCollectionX(codeToStatus);

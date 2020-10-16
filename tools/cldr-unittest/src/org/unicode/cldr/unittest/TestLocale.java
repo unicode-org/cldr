@@ -2,7 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -51,7 +51,6 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class TestLocale extends TestFmwkPlus {
-    private static final Charset UTF_8 = Charset.forName("UTF-8");
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     public static Splitter AT_AND_SEMI = Splitter.on(CharMatcher.anyOf(";@"));
@@ -458,7 +457,7 @@ public class TestLocale extends TestFmwkPlus {
         Set<String> seen = new HashSet<>();
 
         try {
-            for (String line : Files.readLines(new File(fileName), UTF_8)) {
+            for (String line : Files.readLines(new File(fileName), StandardCharsets.UTF_8)) {
                 line = line.trim();
                 if (line.startsWith("#") || line.isEmpty()) continue;
                 if (line.startsWith("@")) {

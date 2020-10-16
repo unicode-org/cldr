@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import org.unicode.cldr.util.With.SimpleIterator;
 
@@ -24,7 +25,7 @@ public class StringIterables {
      *
      */
     public static Iterable<String> in(Class<?> class1, String file) {
-        return With.in(new FileLines(FileReaders.openFile(class1, file, CldrUtility.UTF8)));
+        return With.in(new FileLines(FileReaders.openFile(class1, file, StandardCharsets.UTF_8)));
     }
 
     /**
@@ -50,7 +51,7 @@ public class StringIterables {
      *
      */
     public static Iterable<String> in(String directory, String file) {
-        return With.in(new FileLines(FileReaders.openFile(directory, file, CldrUtility.UTF8)));
+        return With.in(new FileLines(FileReaders.openFile(directory, file, StandardCharsets.UTF_8)));
     }
 
     /**

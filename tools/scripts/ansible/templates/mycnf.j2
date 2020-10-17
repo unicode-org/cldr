@@ -1,5 +1,7 @@
 # managed by ansible setup-playboook.yml
 [client]
 user=cldradmin
-database={{ cldr_database_name }}
 password={{ cldradmin_pw }}
+
+[mysql]
+database={{ cldr_database_name }}

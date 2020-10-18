@@ -126,8 +126,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public static final String GEN_VERSION = "38";
     public static final List<String> SUPPLEMENTAL_NAMES = Arrays.asList("characters", "coverageLevels", "dayPeriods", "genderList", "grammaticalFeatures",
         "languageInfo",
-        "languageGroup", "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "rgScope", "supplementalData",
-        "supplementalMetadata", "telephoneCodeData", "units", "windowsZones");
+        "languageGroup", "likelySubtags", "metaZones", "numberingSystems", "ordinals", "pluralRanges", "plurals", "postalCodeData", "rgScope",
+        "supplementalData", "supplementalMetadata", "telephoneCodeData", "units", "windowsZones");
 
     private Set<String> extraPaths = null;
 

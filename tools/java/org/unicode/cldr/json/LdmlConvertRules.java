@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableSet;
 class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
-    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "grammaticalFeatures", "postalCodeData", "pluralRanges",
+    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "grammaticalFeatures", "postalCodeData",
         "subdivisions", "units");
 
     /**
@@ -57,6 +57,8 @@ class LdmlConvertRules {
         "unitPreferenceDataData:unitPreferences:category",
         "measurementData:measurementSystem:category",
         "supplemental:plurals:type",
+        "pluralRanges:pluralRange:start",
+        "pluralRanges:pluralRange:end",
         "pluralRules:pluralRule:count",
         "languageMatches:languageMatch:desired");
 
@@ -175,6 +177,9 @@ class LdmlConvertRules {
         // common/collation
         "collations:default:choice",
 
+        // common/supplemental/pluralRanges.xml
+        "pluralRanges:pluralRange:result",
+
         // identity elements
         "identity:language:type",
         "identity:script:type",
@@ -259,6 +264,7 @@ class LdmlConvertRules {
      */
     public static final SplittableAttributeSpec[] SPLITTABLE_ATTRS = {
         new SplittableAttributeSpec("calendarPreference", "territories", null),
+        new SplittableAttributeSpec("pluralRanges", "locales", null),
         new SplittableAttributeSpec("pluralRules", "locales", null),
         new SplittableAttributeSpec("minDays", "territories", "count"),
         new SplittableAttributeSpec("firstDay", "territories", "day"),
@@ -297,7 +303,7 @@ class LdmlConvertRules {
      * multiple items, and items for each locale should be grouped together.
      */
     public static final String[] ELEMENT_NEED_SORT = {
-        "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
+        "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule", "pluralRanges",
         "pluralRules", "personList", "calendarPreferenceData", "character-fallback", "types", "timeData", "minDays",
         "firstDay", "weekendStart", "weekendEnd", "measurementData", "measurementSystem"
     };

@@ -818,13 +818,14 @@ System Data</a>.</em> ) &gt;<br>
     <span class='removed'>&lt;!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED &gt;<br>
     &lt;!ATTLIST ordinalMinimalPairs draft (approved | contributed
     | provisional | unconfirmed) #IMPLIED &gt;</span></p>
-    <p class="dtd">&lt;!ELEMENT caseMinimalPairs ( #PCDATA ) &gt;<br>
-    &lt;!ATTLIST caseMinimalPairs case NMTOKEN #REQUIRED &gt;</p>
-    <p class="dtd">&lt;!ELEMENT genderMinimalPairs ( #PCDATA ) &gt; <br>
-      &lt;!ATTLIST genderMinimalPairs gender NMTOKEN #REQUIRED &gt;</p>
+    <p class="dtd"><span class='changed'>&lt;!ELEMENT caseMinimalPairs ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST caseMinimalPairs case NMTOKEN #REQUIRED &gt;</span></p>
+    <p class="dtd"><span class='changed'>&lt;!ELEMENT genderMinimalPairs ( #PCDATA ) &gt; <br>
+      &lt;!ATTLIST genderMinimalPairs gender NMTOKEN #REQUIRED &gt;</span></p>
     <p>Minimal pairs provide examples that justify why multiple
-
-    plural or ordinal categories exist<span class='changed'>, and for providing contextual examples for verifying consistency of translations. The allowable values for the count, ordinal, case, and gender attributes are found in the dtd file</span>.</p>
+    plural or ordinal categories exist<span class='changed'>, and for providing contextual
+    examples for verifying consistency of translations. The allowable values for the count,
+    ordinal, case, and gender attributes are found in the dtd file</span>.</p>
     <p class='changed'>Examples</p>
     <p  class='changed'><code>&lt;minimalPairs&gt;<br>
   &lt;pluralMinimalPairs count=&quot;one&quot;&gt;{0} Tag&lt;/pluralMinimalPairs&gt;<<br>
@@ -842,9 +843,9 @@ System Data</a>.</em> ) &gt;<br>
   &lt;genderMinimalPairs gender=&quot;neuter&quot;&gt;Das {0} ist …&lt;/genderMinimalPairs&gt;<br>
 	&lt;/minimalPairs&gt;</code></p>
     <br>
-    <p>For more information, see <a href=
-    "https://unicode.org/cldr/index/cldr-spec/plural-rules">Plural
-    Rules</a> <span class='changed'>and <a href="http://cldr.unicode.org/translation/grammatical-inflection">Grammatical Inflection</a></span>.</p>
+    <p>For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a>
+    <span class='changed'>and
+    <a href="http://cldr.unicode.org/translation/grammatical-inflection">Grammatical Inflection</a></span>.</p>
 
     <h2><a name="Number_Format_Patterns" href=
     "#Number_Format_Patterns" id="Number_Format_Patterns">3 Number

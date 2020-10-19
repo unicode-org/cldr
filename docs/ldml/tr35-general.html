@@ -215,8 +215,8 @@
           <li>6.1 <a href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
           <li>6.2 <a href="#Unit_Identifiers">Unit Identifiers</a></li>
           <li>6.3 <a href="#Example_Units">Example Units</a></li>
-		  <li>6.4 <a href="#perUnitPatterns">per Unit patterns</a></li>
-          <li>6.5 <a href="#Unit_Sequences">Unit Sequences</a></li>
+		  <li>6.4 <span class="changed"><a href="#compound-units">Compound Units</a></span></li>
+          <li>6.5 <a href="#Unit_Sequences">Unit Sequences (Mixed Units)</a></li>
           <li>6.6 <a href="#durationUnit">durationUnit</a></li>
           <li>6.7 <a href="#coordinateUnit">coordinateUnit</a></li>
           <li>6.8 <a href= "#Territory_Based_Unit_Preferences">Territory-Based Unit
@@ -1739,8 +1739,8 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     Validity Data</a></em>. The compound
     units in the table below either require specialized formatting
     or have a numerator and/or demoninator that are not defined as
-    valid standalone units. Note: as explained in <em>Section 6.1
-    <a href="#perUnitPatterns">per Unit patterns</a></em>, CLDR
+    valid standalone units. Note: as explained in <span class="changed"><em>Section 6.4
+    <a href="#compound-units">Compound Units</a></em></span>, CLDR
     provides data to format any compound unit composed of two
     simple units from the following table.</p>
     <table>
@@ -5458,7 +5458,7 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 </table>
     <div class='changed'>
 <h2>16 <a name="Grammatical_Derivations" href="#Grammatical_Derivations">Grammatical Derivations</a></h2>
-	    <pre class='dtd'>&lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;
+<pre class='dtd'><span class="changed">&lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;
 &lt;!ELEMENT grammaticalDerivations (deriveCompound*, deriveComponent*) &gt;
 &lt;!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED &gt;
 
@@ -5471,7 +5471,7 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;!ATTLIST deriveComponent structure NMTOKENS #REQUIRED &gt;     
 &lt;!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED &gt;     
 &lt;!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED &gt;    
-</pre>
+</span></pre>
       <p>The grammatical derivation data contains information about the case, gender, and plural categories of compound units. This is supplemental data, so the inheritance by locale needs to be done by the client.</p>
       <p><em>Note: In  CLDR v38, the data for  two locales is provided so that implemenations can ready their code for when more locale data is available. In subsequent releases structure may be further extended as more locales are added, to deal with additional locale requirements.</em></p>
       <p>A compound unit can use 4 mechanisms, illustrated here in formatted strings:</p>

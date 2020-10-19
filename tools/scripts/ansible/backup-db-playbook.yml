@@ -63,7 +63,7 @@
     - name: set up /home/cldrbackup/backup.sh
       template:
         src: templates/cldrbackup/backup_sh.j2
-        dest: /home/cldrbackup/.ssh/backup.sh
+        dest: /home/cldrbackup/backup.sh
         owner: cldrbackup
         group: cldrbackup
         mode: '0640'

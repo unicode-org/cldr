@@ -54,14 +54,14 @@
         mode: "0644"
         block: |
           /var/lib/tomcat8/cldr/cldrmail.log /var/lib/tomcat8/cldr/exception.log {
+            su tomcat8 tomcat8
             daily
-            rotate 7
+            rotate 14
             compress
-            copytruncate
             missingok
             notifempty
             dateext
-            create 0640 tomcat8 tomcat8
+            create
           }
         create: true
     - name: Create cldr.properties

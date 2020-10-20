@@ -317,9 +317,10 @@ public class CheckWidths extends CheckCLDR {
         })
         ;
 
-    static {
-        System.out.println("EMs: " + ApproximateWidth.getWidth("grinning cat face with smiling eyes"));
-    }
+// Quell noisy printout
+//    static {
+//        System.out.println("EMs: " + ApproximateWidth.getWidth("grinning cat face with smiling eyes"));
+//    }
 
     Set<Limit> found = new LinkedHashSet<>();
 

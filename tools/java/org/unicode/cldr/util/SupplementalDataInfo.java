@@ -2601,17 +2601,6 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * This appears to be unused, so didn't provide new version.
-     *
-     * @param xpath
-     * @return
-     */
-    public int getCoverageValueOld(String xpath) {
-        ULocale loc = new ULocale("und");
-        return getCoverageValueOld(xpath, loc);
-    }
-
-    /**
      * Older version of code.
      *
      * @param xpath

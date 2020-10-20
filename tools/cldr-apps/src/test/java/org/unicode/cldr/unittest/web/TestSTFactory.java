@@ -401,7 +401,7 @@ public class TestSTFactory extends TestFmwk {
                 for (String k : xpp.getAttributeKeys(-1)) {
                     attrs.put(k, xpp.getAttributeValue(-1, k));
                 }
-                if ("und_ZZ".equals(attrs.get("locale"))) {
+                if ("mul_ZZ".equals(attrs.get("locale"))) {
                     int debug = 0;
                 }
 
@@ -461,7 +461,7 @@ public class TestSTFactory extends TestFmwk {
                     try {
                         box.voteForValue(u, xpath, value);
                         if (needException) {
-                            errln(pathCount + " Expected exception, didn't get one");
+                            errln("ERR: path #" + pathCount + ", xpath="+xpath+", locale="+locale+": expected exception, didn't get one");
                         }
                     } catch (InvalidXPathException e) {
                         errln("Error: invalid xpath exception " + xpath + " : " + e);

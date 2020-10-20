@@ -93,8 +93,8 @@ function showV() {
 						addClass(clickyLink, "locked");
 						addClass(subLocDiv, "hide");
 
-						if (subInfo.readonly_why) {
-							clickyLink.title = subInfo.readonly_why;
+						if (subInfo.special_comment) {
+							clickyLink.title = subInfo.special_comment;
 						} else if (subInfo.dcChild) {
 							clickyLink.title = stui.sub("defaultContentChild_msg", {
 								info: subInfo,
@@ -104,10 +104,15 @@ function showV() {
 						} else {
 							clickyLink.title = stui.str("readonlyGuidance");
 						}
-					} else if (window.canmodify && subLoc in window.canmodify) {
+					} else if (subInfo.special_comment) {
+						// could be the sandbox locale, or some other comment.
+						clickyLink.title = subInfo.special_comment;
+					}
+					
+					if (window.canmodify && subLoc in window.canmodify) {
 						addClass(clickyLink, "canmodify");
 					} else {
-						addClass(subLocDiv, "hide");
+						addClass(subLocDiv, "hide"); // not modifiable
 					}
 					return clickyLink;
 				};
@@ -1158,24 +1163,31 @@ function showV() {
 					var bund = locmap.getLocaleInfo(surveyCurrentLocale);
 
 					if (bund) {
-						if (bund.readonly) {
-							var msg = null;
-							if (bund.readonly_why) {
-								msg = bund.readonly_why_raw;
+						if (bund.readonly || bund.special_comment_raw) {
+							let msg = null;
+							if (bund.readonly) {
+								if (bund.special_comment_raw) {
+									msg = bund.special_comment_raw;
+								} else {
+									msg = stui.str("readonly_unknown");
+								}
+								msg = stui.sub("readonly_msg", {
+									info: bund,
+									locale: surveyCurrentLocale,
+									msg: msg
+								});
 							} else {
-								msg = stui.str("readonly_unknown");
+								// Not readonly, could be a scratch locale
+								msg = bund.special_comment_raw;
 							}
-							var asHtml = stui.sub("readonly_msg", {
-								info: bund,
-								locale: surveyCurrentLocale,
-								msg: msg
-							});
-							asHtml = locmap.linkify(asHtml);
-							var theChunk = domConstruct.toDom(asHtml);
-							var subDiv = document.createElement("div");
-							subDiv.appendChild(theChunk);
-							subDiv.className = 'warnText';
-							theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
+							if(msg) {
+								msg = locmap.linkify(msg);
+								var theChunk = domConstruct.toDom(msg);
+								var subDiv = document.createElement("div");
+								subDiv.appendChild(theChunk);
+								subDiv.className = 'warnText';
+								theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
+							}
 						} else if (bund.dcChild) {
 							var theChunk = domConstruct.toDom(stui.sub("defaultContentChild_msg", {
 								info: bund,
@@ -1876,7 +1888,7 @@ function showV() {
 
 					var theLocale = surveyCurrentLocale;
 					if (surveyCurrentLocale === null || surveyCurrentLocale == '') {
-						theLocale = 'und';
+						theLocale = 'root'; // Default.
 					}
 					var xurl = contextPath + "/SurveyAjax?what=menus&_=" + theLocale + "&locmap=" + true + "&s=" + surveySessionId + cacheKill();
 					myLoad(xurl, "initial menus for " + surveyCurrentLocale, function(json) {

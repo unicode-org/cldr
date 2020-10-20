@@ -258,7 +258,7 @@ public class TestInheritance extends TestFmwk {
             String script = ltp.set(localeID).getScript();
             final String base = ltp.getLanguage();
             if (!availableLocales.contains(base) && !base.equals("und")) {
-                errln("Missing lang-subtag for: " + localeID);
+                errln("Missing lang-subtag base " + base + " for: " + localeID);
             }
             base2locales.put(base, localeID);
             if (!script.isEmpty() && !base.equals("en")) { // HACK for en

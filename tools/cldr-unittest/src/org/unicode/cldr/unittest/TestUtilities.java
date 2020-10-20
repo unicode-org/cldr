@@ -918,7 +918,9 @@ public class TestUtilities extends TestFmwkPlus {
         assertSpecialLocale("en", SpecialLocales.Type.readonly);
         assertSpecialLocale("en_ZZ", SpecialLocales.Type.readonly);
         assertSpecialLocale("en_ZZ_PROGRAMMERESE", null); // not defined
-        assertSpecialLocale("und", SpecialLocales.Type.scratch);
+        assertSpecialLocale("und", null);
+        assertSpecialLocale("mul", SpecialLocales.Type.scratch);
+        assertSpecialLocale("mul_ZZ", SpecialLocales.Type.scratch);
         assertSpecialLocale("und_001", null); // not defined
 
         CLDRLocale sr_Latn = CLDRLocale.getInstance("sr_Latn");

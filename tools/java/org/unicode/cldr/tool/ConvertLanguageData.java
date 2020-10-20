@@ -74,7 +74,7 @@ public class ConvertLanguageData {
 
     private static final boolean DEBUG = false;
     // change this if you need to override what is generated for the default contents.
-    private static final List<String> defaultOverrides = Arrays.asList("es_ES".split("\\s+")); // und_ZZ
+    private static final List<String> defaultOverrides = Arrays.asList("es_ES".split("\\s+"));
 
     public static final boolean SHOW_DIFF = false;
 

@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
@@ -1176,7 +1177,6 @@ public class UserRegistry {
 
         if (!intLocs) {
             newLocales = normalizeLocaleList(newLocales);
-            if (newLocales.isEmpty()) newLocales = "und";
         } else {
             newLocales = validateIntlocList(newLocales);
         }
@@ -1793,8 +1793,8 @@ public class UserRegistry {
             return null; // Admin can modify all
         if (userIsTC(u))
             return null; // TC can modify all
-        if (locale.getLanguage().equals("und")) { // all user accounts can write
-            // to und.
+        if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
+            // All users can modify the sandbox 
             return null;
         }
         if ((u.locales == null) && userIsExpert(u))
@@ -1849,7 +1849,8 @@ public class UserRegistry {
             return null;
 
         // the 'und' locale and sublocales can always be modified
-        if (locale.getLanguage().equals("und")) {
+        if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
+            // All users can modify the sandbox 
             return null;
         }
 
@@ -2026,9 +2027,6 @@ public class UserRegistry {
                 continue;
             }
             s.add(l);
-        }
-        if (s.isEmpty() && localeList.trim().length() > 0) {
-            s.add(CLDRLocale.getInstance("und")); // don't set it to 'all'
         }
         return s;
     }

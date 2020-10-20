@@ -15,6 +15,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -130,7 +131,8 @@ public class CheckCoverage extends FactoryCheckCLDR {
             supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
             coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
             PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
-            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")) {
+            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")
+                   && !SpecialLocales.isScratchLocale(localeID)) {
                 possibleErrors.add(new CheckStatus()
                     .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
                     .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",

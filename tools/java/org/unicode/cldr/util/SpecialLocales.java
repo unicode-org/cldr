@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -119,6 +120,7 @@ public class SpecialLocales {
         }
         return findLocale(fromLocale.getParent(), origLocale);
     }
+    private static boolean DEBUG = false;
 
     /**
      * Internal constructor
@@ -141,68 +143,96 @@ public class SpecialLocales {
                 " via transliteration, and so @@ may not be edited directly. Edit @"+inputLocale.getBaseName()+" to make changes.");
         }
 
-        // from StandardCodes.java
-        String line;
-        int ln = 0;
-        try {
-            BufferedReader lstreg = CldrUtility.getUTF8Data("SpecialLocales.txt");
-            while (true) {
-                line = lstreg.readLine();
-                ln++;
-                if (line == null)
-                    break;
-                int commentPos = line.indexOf('#');
-                if (commentPos >= 0) {
-                    line = line.substring(0, commentPos);
-                }
-                line = line.trim();
-                if (line.length() == 0)
-                    continue;
-                List<String> stuff = CldrUtility.splitList(line, ';', true);
-                String id = stuff.get(0);
-                boolean includeSublocs = (id.endsWith(INCLUDE_SUBLOCALES));
-                if (includeSublocs) {
-                    id = id.substring(0, id.length() - INCLUDE_SUBLOCALES.length());
-                }
-                String type = stuff.get(1);
-                String comment = stuff.get(2);
-                Type t = null;
-
-                // verify that the locale is valid
-                CLDRLocale l = null;
-                try {
-                    l = CLDRLocale.getInstance(id);
-                } catch (Exception e) {
-                    throw new IllegalArgumentException("Invalid CLDRLocale in SpecialLocales.txt:" + ln + ": " + line);
-                }
-
-                // verify that the type is valid
-                try {
-                    t = Type.valueOf(type.toLowerCase(Locale.ENGLISH));
-                } catch (Exception e) {
-                    throw new IllegalArgumentException("Invalid SpecialLocales.Type in SpecialLocales.txt:" + ln + ": "
-                        + line);
-                }
-
-                addToType(t, l);
-                if (includeSublocs) {
-                    specialsWildcards.add(l);
-                }
-                if (!comment.isEmpty()) {
-                    comments.put(l, comment);
-                }
-                if (false) {
-                    System.out.println(SpecialLocales.class.getSimpleName() + ": locale " + l + ", includejSublocs=" + includeSublocs + ", type=" + t
-                        + ", comment: " + comment);
-                }
+        for(final DataFileRow r : DataFileRow.ROWS) {
+            // verify that the locale is valid
+            CLDRLocale l = null;
+            try {
+                l = CLDRLocale.getInstance(r.id);
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Invalid CLDRLocale in SpecialLocales.txt:" + r.id);
             }
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException("Internal Error", e);
+
+            addToType(r.type, l);
+            if (r.includeSubLocs) {
+                if(r.type == Type.scratch) {
+                    throw new IllegalArgumentException("Scratch locales cannot include sublocales: " + l);
+                }
+                specialsWildcards.add(l);
+            }
+            if (!r.comment.isEmpty()) {
+                comments.put(l, r.comment);
+            }
+            if (DEBUG) {
+                System.out.println(SpecialLocales.class.getSimpleName() + ": locale " + l + ", includejSublocs=" + r.includeSubLocs + ", type=" + r.type
+                    + ", comment: " + r.comment);
+            }
+
         }
         specials = Collections.unmodifiableMap(specials);
         specialsWildcards = Collections.unmodifiableSet(specialsWildcards);
         comments = Collections.unmodifiableMap(comments);
         types = Collections.unmodifiableMap(types);
+    }
+
+    private static class DataFileRow {
+        public boolean includeSubLocs;
+        public DataFileRow(String id, Type type, String comment, boolean includeSubLocs) {
+            this.id = id;
+            this.type = type;
+            this.comment = comment;
+            this.includeSubLocs = includeSubLocs;
+        }
+        public String id;
+        public Type type;
+        public String comment;
+
+        public static List<DataFileRow> ROWS = readDataFile();
+
+        static private List<DataFileRow> readDataFile() {
+            List<DataFileRow> rows = new ArrayList<>();
+            // from StandardCodes.java
+            String line;
+            int ln = 0;
+            try {
+                BufferedReader lstreg = CldrUtility.getUTF8Data("SpecialLocales.txt");
+                while (true) {
+                    line = lstreg.readLine();
+                    ln++;
+                    if (line == null)
+                        break;
+                    int commentPos = line.indexOf('#');
+                    if (commentPos >= 0) {
+                        line = line.substring(0, commentPos);
+                    }
+                    line = line.trim();
+                    if (line.length() == 0)
+                        continue;
+                    List<String> stuff = CldrUtility.splitList(line, ';', true);
+                    String id = stuff.get(0);
+                    boolean includeSublocs = (id.endsWith(INCLUDE_SUBLOCALES));
+                    if (includeSublocs) {
+                        id = id.substring(0, id.length() - INCLUDE_SUBLOCALES.length());
+                    }
+                    String type = stuff.get(1);
+                    String comment = stuff.get(2);
+                    Type t = null;
+
+
+                    // verify that the type is valid
+                    try {
+                        t = Type.valueOf(type.toLowerCase(Locale.ENGLISH));
+                    } catch (Exception e) {
+                        throw new IllegalArgumentException("Invalid SpecialLocales.Type in SpecialLocales.txt:" + ln + ": "
+                            + line);
+                    }
+
+                    rows.add(new DataFileRow(id, t, comment, includeSublocs));
+                }
+            } catch (IOException e) {
+                throw new ICUUncheckedIOException("Internal Error", e);
+            }
+            return rows;
+        }
     }
 
     private Set<CLDRLocale> addToType(Type t, CLDRLocale l) {
@@ -216,4 +246,37 @@ public class SpecialLocales {
         return s;
     }
 
+    /**
+     * @param locale
+     * @return true if the locale type is scratch
+     * @deprecated use the CLDRLocale variant
+     */
+    @Deprecated
+    public static boolean isScratchLocale(String locale) {
+        return isScratchLocale(CLDRLocale.getInstance(locale));
+    }
+
+    /**
+     * Check if this is a scratch (sandbox) locale
+     * @param loc
+     * @return true if it is a sandbox locale
+     */
+    public static boolean isScratchLocale(CLDRLocale loc) {
+        return getType(loc) == Type.scratch;
+    }
+
+    /**
+     * Low level function to list scratch locales.
+     * Used for fetching the list prior to CLDRLocale startup.
+     * @return
+     */
+    public static List<String> getScratchLocaleIds() {
+        List<String> ids = new ArrayList<>();
+        for(final DataFileRow r : DataFileRow.ROWS) {
+            if(r.type == Type.scratch) {
+                ids.add(r.id);
+            }
+        }
+        return ids;
+    }
 }

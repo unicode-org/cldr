@@ -638,7 +638,9 @@ abstract public class CheckCLDR {
      * @param possibleErrors
      * @return
      * @see #setCldrFileToCheck(CLDRFile, Options, List)
+     * @deprecated
      */
+    @Deprecated
     final public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
         List<CheckStatus> possibleErrors) {
         return setCldrFileToCheck(cldrFileToCheck, new Options(options), possibleErrors);

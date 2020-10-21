@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -140,7 +141,7 @@ public class Ldml2JsonConverter {
 
     private class JSONSection implements Comparable<JSONSection> {
         public String section;
-        public Matcher matcher;
+        public Pattern pattern;
         public String packageName;
 
         @Override
@@ -149,8 +150,6 @@ public class Ldml2JsonConverter {
         }
 
     }
-
-    private Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<>();
 
     private Map<String, String> dependencies;
     private List<JSONSection> sections;
@@ -204,7 +203,7 @@ public class Ldml2JsonConverter {
                 if (hasSection && hasPath) {
                     JSONSection j = new JSONSection();
                     j.section = section;
-                    j.matcher = PatternCache.get(path).matcher("");
+                    j.pattern = PatternCache.get(path);
                     if (hasPackage) {
                         j.packageName = packageName;
                     }
@@ -240,7 +239,7 @@ public class Ldml2JsonConverter {
         // Add a section at the end of the list that will match anything not already matched.
         JSONSection j = new JSONSection();
         j.section = "other";
-        j.matcher = PatternCache.get(".*").matcher("");
+        j.pattern = PatternCache.get(".*");
         sections.add(j);
 
     }
@@ -252,7 +251,7 @@ public class Ldml2JsonConverter {
      *            The path string being transformed.
      * @return The transformed path.
      */
-    private String transformPath(String pathStr, String pathPrefix) {
+    private String transformPath(final String pathStr, final String pathPrefix) {
         String result = pathStr;
 
         if (DEBUG) {
@@ -290,8 +289,10 @@ public class Ldml2JsonConverter {
         return result;
     }
 
-    private void mapPathsToSections(CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
+    private Map<JSONSection, List<CldrItem>> mapPathsToSections(AtomicInteger readCount, int totalCount,
+            CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
         throws IOException, ParseException {
+        final Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<>();
 
         String locID = file.getLocaleID();
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
@@ -314,7 +315,7 @@ public class Ldml2JsonConverter {
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (Iterator<String> it = file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null)); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();
-            String path = it.next();
+            final String path = it.next();
             String fullPath = file.getFullXPath(path);
             String value = file.getWinningValue(path);
             if (path.startsWith("//ldml/localeDisplayNames/languages") &&
@@ -362,9 +363,12 @@ public class Ldml2JsonConverter {
             String transformedPath = transformPath(path, pathPrefix);
             String transformedFullPath = transformPath(fullPath, pathPrefix);
 
+            if(transformedPath.isEmpty()) {
+                continue; // skip this path
+            }
+
             for (JSONSection js : sections) {
-                js.matcher.reset(transformedPath);
-                if (js.matcher.matches()) {
+                if (js.pattern.matcher(transformedPath).matches()) {
                     CldrItem item = new CldrItem(transformedPath, transformedFullPath, path, fullPath, value);
 
                     List<CldrItem> cldrItems = sectionItems.get(js);
@@ -383,7 +387,7 @@ public class Ldml2JsonConverter {
         JSONSection otherSection = sections.get(sections.size() - 1);
         List<CldrItem> others = sectionItems.get(otherSection);
         if (others == null) {
-            return;
+            return sectionItems;
         }
         List<CldrItem> otherSectionItems = new ArrayList<>(others);
         int addedItemCount = 0;
@@ -408,6 +412,7 @@ public class Ldml2JsonConverter {
                 addedItemCount++;
             }
         }
+        return sectionItems;
     }
 
     /**
@@ -420,7 +425,9 @@ public class Ldml2JsonConverter {
      * @throws IOException
      * @throws ParseException
      */
-    private void convertCldrItems(String dirName, String filename, String pathPrefix)
+    private void convertCldrItems(AtomicInteger readCount, int totalCount,
+            String dirName, String filename, String pathPrefix,
+            final Map<JSONSection, List<CldrItem>> sectionItems)
         throws IOException, ParseException {
         // zone and timezone items are queued for sorting first before they are
         // processed.
@@ -479,6 +486,8 @@ public class Ldml2JsonConverter {
                         System.out.println("pack: " + js.packageName);
                         System.out.println("dir: " + dirName);
                     }
+                } else {
+                    outputDirname.append("/" + filename);
                 }
 
                 File dir = new File(outputDirname.toString());
@@ -495,8 +504,11 @@ public class Ldml2JsonConverter {
                 for (String outputDir : outputDirs) {
                     List<CldrItem> theItems = sectionItems.get(js);
                     if (theItems == null || theItems.size() == 0) {
+                        System.out.println(">"+progressPrefix(readCount, totalCount) +
+                            outputDir + " - no items to write");
                         continue;
                     }
+                    System.out.println("?"+progressPrefix(readCount, totalCount) + outputDir + " - " + theItems.size() + " item(s) to write.");
                     PrintWriter outf = FileUtilities.openUTF8Writer(outputDir, outFilename);
                     JsonWriter out = new JsonWriter(outf);
                     out.setIndent("  ");
@@ -510,7 +522,9 @@ public class Ldml2JsonConverter {
                     int valueCount = 0;
                     String previousIdentityPath = null;
                     for (CldrItem item : theItems) {
-
+                        if(item.getPath().isEmpty()) {
+                            throw new IllegalArgumentException("empty xpath in " + filename + " section " + js.packageName+"/"+js.section);
+                        }
                         if (type == RunType.rbnf) {
                             item.setValue(item.getValue().replace('→', '>'));
                             item.setValue(item.getValue().replace('←', '<'));
@@ -628,7 +642,8 @@ public class Ldml2JsonConverter {
 
                     resolveSortingItems(out, nodesForLastItem, sortingItems);
                     resolveArrayItems(out, nodesForLastItem, arrayItems);
-                    System.out.println(String.format("  %s = %d values", outFilename, valueCount));
+                    System.out.println(">"+progressPrefix(readCount, totalCount) + String.format(".../%s/%s\t= %d values", 
+                        dir.getPath().substring(this.outputDir.length()+1), outFilename, valueCount));
                     closeNodes(out, nodesForLastItem.size() - 2, 0);
                     outf.println();
                     out.close();
@@ -1185,6 +1200,14 @@ public class Ldml2JsonConverter {
         return i;
     }
 
+    private final String progressPrefix(AtomicInteger readCount, int totalCount) {
+        return progressPrefix(readCount.get(), totalCount);
+    }
+
+    private final String progressPrefix(int readCount, int totalCount) {
+        return String.format("[%d/%d]:\t", readCount, totalCount);
+    }
+
     /**
      * Process files in a directory of CLDR file tree.
      *
@@ -1201,28 +1224,63 @@ public class Ldml2JsonConverter {
         Factory cldrFactory = Factory.make(
             cldrCommonDir + dirName + "/", ".*");
         Set<String> files = cldrFactory.getAvailable();
-        for (String filename : files) {
-            if (LdmlConvertRules.IGNORE_FILE_SET.contains(filename)) {
-                continue;
+        final int total = files.size();
+        AtomicInteger readCount = new AtomicInteger(0);
+        Map<String, Throwable> errs = new TreeMap<>();
+        files
+            .parallelStream()
+            .unordered()
+            .forEach(filename -> {
+
+                if (LdmlConvertRules.IGNORE_FILE_SET.contains(filename)) {
+                    return;
+                }
+                if (!filename.matches(match)) {
+                    return;
+                }
+
+                String pathPrefix;
+                CLDRFile file = cldrFactory.make(filename, resolve && type == RunType.main, minimalDraftStatus);
+                // Print 'reading' after the make, to stagger the output a little bit.
+                // Otherwise, the printout happens before any work happens, and is easily out of order.
+                System.out.println("<"+progressPrefix(readCount.incrementAndGet(), total) +
+                    "Reading " + dirName + "/" + filename);
+
+                if (type == RunType.main) {
+                    pathPrefix = "/cldr/" + dirName + "/" + filename.replaceAll("_", "-") + "/";
+                } else {
+                    pathPrefix = "/cldr/" + dirName + "/";
+                }
+
+                try {
+                    convertCldrItems(readCount, total, dirName, filename, pathPrefix, 
+                        mapPathsToSections(readCount, total, file, pathPrefix, sdi));
+                } catch(IOException | ParseException t) {
+                    t.printStackTrace();
+                    System.err.println("!"+progressPrefix(readCount.incrementAndGet(), total)+filename + " - err - " + t);
+                    errs.put(filename, t);
+                } finally {
+                    System.out.println("."+progressPrefix(readCount, total) + 
+                        "Completing " + dirName + "/" + filename);
+                }
+            });
+
+        if(!errs.isEmpty()) {
+            System.err.println("Errors in these files:");
+            for(Map.Entry<String,Throwable> e : errs.entrySet()) {
+                System.err.println(e.getKey() + " - " + e.getValue());
             }
-            if (!filename.matches(match)) {
-                continue;
+            // rethrow
+            for(Map.Entry<String,Throwable> e : errs.entrySet()) {
+                if(e.getValue() instanceof IOException ) {
+                    throw (IOException)e.getValue(); // throw the first one
+                } else if(e.getValue() instanceof ParseException ) {
+                    throw (ParseException)e.getValue(); // throw the first one
+                } else {
+                    throw new RuntimeException("Other exception thrown: "  + e.getValue());
+                }
+                /* NOTREACHED */
             }
-
-            System.out.println("Processing file " + dirName + "/" + filename);
-            String pathPrefix;
-            CLDRFile file = cldrFactory.make(filename, resolve && type == RunType.main, minimalDraftStatus);
-
-            sectionItems.clear();
-            if (type == RunType.main) {
-                pathPrefix = "/cldr/" + dirName + "/" + filename.replaceAll("_", "-") + "/";
-            } else {
-                pathPrefix = "/cldr/" + dirName + "/";
-            }
-            mapPathsToSections(file, pathPrefix, sdi);
-
-            convertCldrItems(dirName, filename, pathPrefix);
-
         }
 
         if (writePackages) {

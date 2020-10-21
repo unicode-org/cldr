@@ -26,6 +26,7 @@ class LdmlConvertRules {
         "monthWidth:month:yeartype",
         "characters:parseLenients:scope",
         "dateFormat:pattern:numbers",
+        "characterLabelPatterns:characterLabelPattern:count", // originally under characterLabels
         "currencyFormats:unitPattern:count",
         "currency:displayName:count",
         "numbers:symbols:numberSystem",
@@ -60,7 +61,9 @@ class LdmlConvertRules {
         "pluralRanges:pluralRange:start",
         "pluralRanges:pluralRange:end",
         "pluralRules:pluralRule:count",
-        "languageMatches:languageMatch:desired");
+        "languageMatches:languageMatch:desired",
+        "styleNames:styleName:subtype",
+        "styleNames:styleName:alt");
 
     /**
      * The set of attributes that should become part of the name in form of
@@ -372,7 +375,7 @@ class LdmlConvertRules {
      * done by transforming the path. Following rules covers these kind of
      * transformation.
      * Note: It is important to keep the order for these rules. Whenever a
-     * rule matches, further rule won't be applied.
+     * rule matches, further rules won't be applied.
      */
     public static final PathTransformSpec PATH_TRANSFORMATIONS[] = {
         // Add "standard" as type attribute to exemplarCharacter element if there
@@ -410,6 +413,16 @@ class LdmlConvertRules {
         // Split out types into its various fields
         new PathTransformSpec("(.*)/types/type\\[@key=\"([^\"]*)\"\\]\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/types/$2/$3$4"),
+
+        // Typographic
+        new PathTransformSpec("(.*)/(typographicNames)/(axisName|featureName)\\[@type=\"([^\"]*)\"\\](.*)$",
+            "$1/$2/$3s/$4$5"),
+        new PathTransformSpec("(.*)/(typographicNames)/(styleName)(.*)$",
+            "$1/$2/$3s/$3$4"),
+
+        // put CharacterLabelPatterns under CharacterLabelPatterns
+        new PathTransformSpec("(.*)/(characterLabels)/(characterLabelPattern)(.*)$",
+            "$1/characterLabelPatterns/$3$4"),
 
         new PathTransformSpec(
             "(.*/numbers/(decimal|scientific|percent|currency)Formats\\[@numberSystem=\"([^\"]*)\"\\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\\[@type=\"standard\"]/pattern.*$",

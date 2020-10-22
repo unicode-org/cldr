@@ -335,7 +335,7 @@
     </ul>
     <p>For a chart showing the relationships (plus the included
     timezones), see the <a href=
-    "https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html">
+    "https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html">
     Territory Containment Chart</a>. The XML structure has the
     following form.</p>
     <pre>&lt;territoryContainment&gt;</pre>
@@ -444,7 +444,7 @@
     language in each territory: that is, the population that is
     able to read and write each language, and is comfortable enough
     to use it with computers. For a chart of this data, see
-    <a href='https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>
+    <a href='https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_language_information.html'>
     Territory-Language Information</a>.</p>
     <p><em>Example</em></p>
     <pre style='font-size: 70%'>
@@ -953,7 +953,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
         information about the language and writing system that is
         required before other information can be added using the
         CLDR survey tool. See <a href=
-        "https://unicode.org/cldr/index/cldr-spec/minimaldata">https://unicode.org/cldr/index/cldr-spec/minimaldata</a></td>
+        "http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a></td>
       </tr>
       <tr>
         <td nowrap>
@@ -1085,7 +1085,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     <pre>
     &lt;approvalRequirements&gt;<br>   &lt;!--  "high bar" items --&gt;
                 &lt;approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/&gt;
-                &lt;!--  established locales - https://unicode.org/cldr/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;
+                &lt;!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;
                 &lt;approvalRequirement votes="8" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/&gt;
                 &lt;!--  all other items --&gt;
                 &lt;approvalRequirement votes="4" locales="*" paths=""/&gt;<br>&lt;/approvalRequirements&gt;              </pre>
@@ -1095,7 +1095,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     cs, etc.) requires 8 votes, and that all other locales require
     4 votes only.</p>
     <p>For more information on the CLDR Voting process, See
-    <a href="https://unicode.org/cldr/index/process">https://unicode.org/cldr/index/process</a></p>
+    <a href="http://cldr.unicode.org/index/process">http://cldr.unicode.org/index/process</a></p>
     <h3>8.1 <a name="Coverage_Level_Definitions" href=
     "#Coverage_Level_Definitions" id=
     "Coverage_Level_Definitions">Definitions</a></h3>
@@ -1244,7 +1244,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
         <ul>
           <li>however, in that case the locale must be added to the
           validSubLocale list in <a href=
-          "https://unicode.org/cldr/data/common/collation/root.xml">collation/root.xml</a>.</li>
+          "https://github.com/unicode-org/cldr/blob/master/common/collation/root.xml">collation/root.xml</a>.</li>
         </ul>
       </li>
       <li>for currency symbol, language, territory, script names,
@@ -1492,7 +1492,7 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     &gt;<br></p>
     <p>The &lt;cldrVersion&gt; attribute defines the CLDR version
     for this data, as published on <a href=
-    "https://unicode.org/cldr/index/downloads">CLDR
+    "http://cldr.unicode.org/index/downloads">CLDR
     Releases/Downloads</a></p>
     <p>The &lt;unicodeVersion&gt; attribute defines the version of
     the Unicode standard that is used to interpret data.
@@ -2106,7 +2106,7 @@ The intended usage is to take the measure to be formatted, and the desired categ
 
  <li>If there is an exact match for the usage, but not for the region, try region=”001”.</li></ul>
 
-  <li>The specification allows for <a href="https://www.unicode.org/cldr/charts/34/supplemental/territory_containment_un_m_49.html">containment regions</a> , <a href="https://www.unicode.org/cldr/charts/34/supplemental/territory_subdivisions.html">region subdivisions</a>.
+  <li>The specification allows for <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html">containment regions</a> , <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_subdivisions.html">region subdivisions</a>.
   <li>While in version 37 only 001 is used, in the future the data may contain others.
   <li>The fallback is: subdivision2 ⇒ subdivision1 ⇒ region/country ⇒ subcontinent ⇒ continent ⇒ world
   <li>Example: 

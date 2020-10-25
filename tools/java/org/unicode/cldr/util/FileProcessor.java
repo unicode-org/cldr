@@ -38,10 +38,11 @@ public class FileProcessor {
 
     public FileProcessor process(Class<?> classLocation, String fileName) {
         try {
+            System.err.println("# Reading config file " + fileName);
             BufferedReader in = FileReaders.openFile(classLocation, fileName);
             return process(in, fileName);
         } catch (Exception e) {
-            throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
+            throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0 + " - while reading" + fileName).initCause(e);
         }
 
     }

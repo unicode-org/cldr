@@ -461,5 +461,12 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*)/weekData/(.*)\\[@alt=\"variant\"\\](.*)", "$1/weekData/$2$3"),
         new PathTransformSpec("(.*)/unitPreferenceData/unitPreferences\\[@category=\"([^\"]*)\"\\]\\[@usage=\"([^\"]*)\"\\](.*)",
             "$1/unitPreferenceData/unitPreferences/$2/$3$4"),
+
+        // Annotations
+        // If there is a type, move that into a sibling value
+        new PathTransformSpec("(.*)/(annotations)/(annotation)\\[@cp=\"([^\"]*)\"\\]\\[@type=\"([^\"]*)\"\\](.*)$",
+                                "$1/$2/$4/$5$6"),
+        new PathTransformSpec("(.*)/(annotations)/(annotation)\\[@cp=\"([^\"]*)\"\\](.*)$",
+                                "$1/$2/$4/default$5"),
     };
 }

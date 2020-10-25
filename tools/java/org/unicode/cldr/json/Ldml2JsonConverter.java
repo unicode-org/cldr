@@ -21,6 +21,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -58,7 +59,7 @@ public class Ldml2JsonConverter {
     private static boolean DEBUG = false;
 
     private enum RunType {
-        main, supplemental, segments, rbnf
+        main, supplemental, segments, rbnf, annotations, annotationsDerived
     }
 
     private static final StandardCodes sc = StandardCodes.make();
@@ -83,7 +84,7 @@ public class Ldml2JsonConverter {
                     "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
                 .add("match", 'm', ".*", ".*",
                     "Regular expression to define only specific locales or files to be generated")
-                .add("type", 't', "(main|supplemental|segments|rbnf)", "main",
+                .add("type", 't', "(main|supplemental|segments|rbnf|annotations|annotationsDerived)", "main",
                     "Type of CLDR data being generated, main, supplemental, or segments.")
                 .add("resolved", 'r', "(true|false)", "false",
                     "Whether the output JSON for the main directory should be based on resolved or unresolved data")
@@ -232,7 +233,8 @@ public class Ldml2JsonConverter {
             case rbnf:
                 myReader.process(Ldml2JsonConverter.class, "JSON_config_rbnf.txt");
                 break;
-
+            default:
+                myReader.process(Ldml2JsonConverter.class, "JSON_config_"+type.name()+".txt");
             }
         }
 
@@ -245,6 +247,10 @@ public class Ldml2JsonConverter {
     }
 
     /**
+     * @see XPathParts#addInternal
+     */
+    static final Pattern ANNOTATION_CP_REMAP = PatternCache.get("^(.*)\\[@cp=\"(\\[|\\]|'|\"|@|/|=)\"\\](.*)$");
+    /**
      * Transform the path by applying PATH_TRANSFORMATIONS rules.
      *
      * @param pathStr
@@ -254,12 +260,29 @@ public class Ldml2JsonConverter {
     private String transformPath(final String pathStr, final String pathPrefix) {
         String result = pathStr;
 
+        // handle annotation cp value
+        Matcher cpm = ANNOTATION_CP_REMAP.matcher(result);
+        if( cpm.matches() ) {
+            // We need to avoid breaking the syntax not just of JSON, but of XPATH.
+            final String badCodepointRange = cpm.group(2);
+            StringBuilder sb = new StringBuilder(cpm.group(1))
+                .append("[@cp=\"");
+            // JSON would handle a wide range of things if escaped, but XPATH will not.
+            if(badCodepointRange.codePointCount(0, badCodepointRange.length()) != 1) {
+                // forbid more than one U+ (because we will have to unescape it.)
+                throw new IllegalArgumentException("Need exactly one codepoint in the @cp string, but got " + badCodepointRange + " in xpath " + pathStr);
+            }
+            badCodepointRange.codePoints().forEach(cp -> sb.append("U+").append(Integer.toHexString(cp).toUpperCase()));
+            sb.append("\"]").append(cpm.group(3));
+            result = sb.toString();
+        }
+
         if (DEBUG) {
             System.out.println(" IN pathStr : " + result);
         }
         Matcher m;
         for (int i = 0; i < LdmlConvertRules.PATH_TRANSFORMATIONS.length; i++) {
-            m = LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern.matcher(pathStr);
+            m = LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern.matcher(result);
             if (m.matches()) {
                 if (DEBUG) {
                     System.out.println(LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern);
@@ -1040,7 +1063,17 @@ public class Ldml2JsonConverter {
 
         Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
 
-        out.name(objName);
+        if( type == RunType.annotations || type == RunType.annotationsDerived ) {
+            if(objName.startsWith("U+")) {
+                // parse U+22 -> "   etc
+                out.name(com.ibm.icu.text.UTF16.valueOf(Integer.parseInt(objName.substring(2), 16)));
+            } else {
+                out.name(objName);
+            }
+        } else {
+            out.name(objName);
+        }
+
         out.beginObject();
         for (String key : attrAsValueMap.keySet()) {
             String value = escapeValue(attrAsValueMap.get(key));
@@ -1364,12 +1397,21 @@ public class Ldml2JsonConverter {
         value = escapeValue(value);
 
         if (attrAsValueMap.isEmpty()) {
+            out.name(objName);
             if (value.isEmpty()) {
-                out.name(objName);
                 out.beginObject();
                 out.endObject();
+            } else if (type == RunType.annotations || 
+                type == RunType.annotationsDerived) {
+                out.beginArray();
+                // split this, so "a | b | c" becomes ["a","b","c"]
+                for (final String s : Annotations.splitter.split(value.trim())) {
+                    out.value(s);
+                }
+                out.endArray();
             } else {
-                out.name(objName).value(value);
+                // normal value
+                out.value(value);
             }
             return;
         }
@@ -1405,13 +1447,10 @@ public class Ldml2JsonConverter {
                     out.value(s);
                 }
                 out.endArray();
-            } else {
-                if (type != RunType.rbnf) {
+            } else if (type != RunType.rbnf) {
                     out.name("_" + key).value(attrValue);
-                } else {
-                    out.name(key).value(attrValue);
-                }
-
+            } else {
+                out.name(key).value(attrValue);
             }
         }
         if (!objName.equals("rbnfrule")) {

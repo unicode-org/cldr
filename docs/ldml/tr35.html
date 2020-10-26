@@ -87,13 +87,13 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">38</td>
+        <td>38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -102,20 +102,20 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2020-10-18</td>
+        <td>2020-10-23</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
         <td>This Version</td>
-        <td class="changed">
-		<a href="https://www.unicode.org/reports/tr35/tr35-60/tr35.html">
-		https://www.unicode.org/reports/tr35/tr35-60/tr35.html</a></td>
+        <td>
+		<a href="https://www.unicode.org/reports/tr35/tr35-61/tr35.html">
+		https://www.unicode.org/reports/tr35/tr35-61/tr35.html</a></td>
       </tr>
       <tr>
         <td>Previous Version</td>
-        <td class="changed">
-		<a href="https://www.unicode.org/reports/tr35/tr35-59/tr35.html">
-		https://www.unicode.org/reports/tr35/tr35-59/tr35.html</a></td>
+        <td>
+		<a href="https://www.unicode.org/reports/tr35/tr35-60/tr35.html">
+		https://www.unicode.org/reports/tr35/tr35-60/tr35.html</a></td>
       </tr>
       <tr>
         <td>Latest Version</td>
@@ -139,12 +139,12 @@
       </tr>
       <tr>
         <td>DTDs</td>
-        <td class="changed"><a href="https://github.com/unicode-org/cldr/tree/maint/maint-38/common/dtd">
+        <td><a href="https://github.com/unicode-org/cldr/tree/maint/maint-38/common/dtd">
 		http://unicode.org/cldr/dtd/38/</a></td>
       </tr>
       <tr>
         <td>Revision</td>
-        <td class="changed"><a href="#Modifications">60</a></td>
+        <td><a href="#Modifications">61</a></td>
       </tr>
     </table>
     <h3><i>Summary</i></h3>
@@ -154,7 +154,7 @@
     Data Repository</a>.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED -->
+    <!-- NOT YET APPROVED 
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -164,14 +164,14 @@
                                 progress.
                         </i>
                 </p>
-    <!-- END NOT YET APPROVED -->
-    <!-- APPROVED 
+     END NOT YET APPROVED -->
+    <!-- APPROVED -->
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-     END APPROVED -->
+    <!-- END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -569,7 +569,7 @@
           Keyboards (keyboard mappings)</a></li>
         </ul>
       </li>
-      <li class='changed'>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></li>
+      <li>Annex C. <a href="#LocaleId_Canonicalization" >LocaleId Canonicalization</a></li>
       <li><a href="#References">References</a></li>
       <li><a href="#Acknowledgments">Acknowledgments</a></li>
       <li><a href="#Modifications">Modifications</a></li>
@@ -1120,73 +1120,9 @@
 
     <p>A <code><a href=
     "#unicode_locale_id">unicode_locale_id</a></code> is in <em>canonical form</em> when it has canonical syntax and contains no aliased subtags. A <code><a href=
-    "#unicode_locale_id">unicode_locale_id</a></code> can be transformed into canonical form <span class='changed'>according to <a href="#LocaleId_Canonicalization" >Annex C. LocaleId Canonicalization</a></span>.</p>
-    <ul class='removed'>
-      <li>Use the bcp47 data  to replace <em>keys, types, tfields, </em>and<em> tvalues</em> by their canonical forms. See <a href=
-      "#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U
-      Extension Data Files</a>) and <a href="#Transformed_Content_Data_File">Section 3.7.1 T Extension Data Files</a>. The aliases are in the <strong>alias</strong> attribute value, while the canonical is in the <strong>name</strong> attribute value. For example,
-      <ul>
-  <li>Because of the following bcp47 data:
-    <ul>
-      <li> &lt;key name=&quot;ms&quot;…&gt;…&lt;type name=&quot;<u>uksystem</u>&quot; … alias=&quot;<u>imperial</u>&quot; … /&gt;…&lt;/key&gt;</li>
-    </ul>
-  </li>
-  <li>We get the following transformation:
-    <ul>
-      <li>en-u-ms-<u>imperial</u> ⇒  en-u-ms-<u>uksystem</u></li>
-      </ul>
-  </li>
-  </ul>
-      </li>
-      <li>Replace aliases in the <code><a href=
-    "#unicode_language_id">unicode_language_id</a></code> and  tlang (if any) using the following process:
-        <ul>
-          <li>If the language subtag matches the <i>type</i> attribute of a <i>languageAlias</i> element in <a href="tr35-info.html#Supplemental_Data">Supplemental
-            Data</a>, replace the language subtag with the <i>replacement</i> value.
-            <ol>
-              <li>If there are additional subtags in the <i>replacement</i> value, add them to the result, but
-                only if there is no corresponding subtag already in the
-                tag.</li>
-              <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) are in  type attributes, and are also replaced.</li>
-            </ol>
-          </li>
-          <li>If the region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i> element in <a href=
-      "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-            replace the region subtag with the <i>replacement</i> value, as follows:
-            <ol>
-              <li>If there is a single territory in the replacement,
-                use it.</li>
-              <li>If there are multiple territories:
-                <ol>
-                  <li>Look up the most likely territory* for the base
-                    language code (and script, if there is one).</li>
-                  <li>If that likely territory is in the list, use
-                    it.</li>
-                  <li>Otherwise, use the first territory in the
-                    list.</li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li>If the script subtag matches the <i>type</i> attribute of a <em>scriptAlias</em> element in 
-		  <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-            replace the script subtag with the <i>replacement</i> value.</li>
-          <li>If any variant subtag matches the <i>type</i> attribute of a <em>variantAlias</em> element in <a href=
-      "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-            replace the variant subtag with the <i>replacement</i> value.
-            <ul>
-              <li>The replacement may not be a variant subtag. In that case, the variant subtag is removed, and the other tag is substituted. For example, hy-FR-arevmda ⇒ hyw-FR</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>Replace aliases in special key values:
-        <ul>
-          <li>If there is an 'sd' or 'rg' key, replace any subdivision alias in its value in the same way, using <em>subdivisionAlias</em> data.</li>
-        </ul>
-      </li>
-    </ul>
-		<blockquote class='removed'>* Formally, replacement of multiple territories uses <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>. However, there are a small number of cases of multiple territories, so the mappings can be precomputed. This results in a faster lookup with a very small subset of the likely subtags data.</blockquote>
+    "#unicode_locale_id">unicode_locale_id</a></code> can be transformed into canonical form according to <a href="#LocaleId_Canonicalization" >Annex C. LocaleId Canonicalization</a>.</p>
+
+
 	    <p>A <code><a href=
     "#unicode_locale_id">unicode_locale_id</a></code> is <em>maximal</em> when the  <code><a href=
     "#unicode_language_id">unicode_language_id</a></code> and tlang (if any) have been transformed by the Add Likely Subtags operation in <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>, excluding &quot;und&quot;. </p>
@@ -1214,8 +1150,8 @@
           4.5</a> and <a href=
           "https://tools.ietf.org/html/bcp47#section-3.1.7" target=
           "_blank">Section 3.1.7</a>)</li>
-          <li>No irregular BCP 47 <span class="removed">grandfathered </span><span class="changed">legacy language </span>tags
-          <span class="changed">(marked as “Type: grandfathered” in BCP 47) </span>are allowed
+          <li>No irregular BCP 47 legacy language tags
+          (marked as “Type: grandfathered” in BCP 47) are allowed
           (these are all deprecated in BCP 47)</li>
           <li>A tag must not start with the subtag "x": thus a
           <em>privateuse</em> (eg x-abc) can only be after a
@@ -1269,53 +1205,8 @@
     "Language_Tag_to_Locale_Identifier">BCP 47 Language Tag to
     Unicode BCP 47 Locale Identifier</a></h5>
     <p>A valid [<a href="#BCP47">BCP47</a>] language tag can be
-    converted to a valid Unicode BCP 47 locale identifier <span class='changed'>according to <a href="#LocaleId_Canonicalization" >Annex C. LocaleId Canonicalization</a></span></p>
-    <ol class='removed'>
-	  <li>Canonicalize the syntax of the language tag (afterwards, there will be
-	  no extlang subtags) as per <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>.</li>
-      <li>If the BCP 47 primary language subtag matches the
-      <i>type</i> attribute of a <i>languageAlias</i> element in
-      <a href="tr35-info.html#Supplemental_Data">Supplemental
-      Data</a>, replace the language subtag with the
-      <i>replacement</i> value.
-        <ol>
-          <li>If there are additional subtags in the
-          <i>replacement</i> value, add them to the result, but
-          only if there is no corresponding subtag already in the
-          tag.</li>
-          <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) are in  type attributes, and are also replaced.</li>
-          <li><strong>Note: </strong>there are currently no valid 4-letter primary language subtags. While it is extremely unlikely that BCP47 would ever register them, if so then <i>languageAlias</i> mappings will be supplied for them, mapping to defined CLDR language subtags (from the idStatus=&quot;reserved&quot; set).</li>
-        </ol>
-      </li>
-      <li>If the BCP 47 region subtag matches the <i>type</i>
-      attribute of a <i>territoryAlias</i> element in <a href=
-      "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-      replace the region subtag with the <i>replacement</i>
-      value, as follows:
-        <ol>
-          <li>If there is a single territory in the replacement,
-          use it.</li>
-          <li>If there are multiple territories:
-            <ol>
-              <li>Look up the most likely territory for the base
-              language code (and script, if there is one).</li>
-              <li>If that likely territory is in the list, use
-              it.</li>
-              <li>Otherwise, use the first territory in the
-              list.</li>
-            </ol>
-          </li>
-        </ol>
-      </li>
-      <li>If the BCP 47 script subtag matches the <i>type</i>
-      attribute of a <i>scriptAlias</i> element in <a href=
-      "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-      replace the script subtag with the <i>replacement</i>
-      value. </li>
-      <li>If the tag is a deprecated grandfathered tag
-	    that remains after step #1, prefix by "und-x-".</li>
-      <li>If the first subtag is "x", prefix by "und-".</li>
-    </ol>
+    converted to a valid Unicode BCP 47 locale identifier according to <a href="#LocaleId_Canonicalization" >Annex C. LocaleId Canonicalization</a></p>
+    
     <p>The result is a Unicode BCP 47 locale identifier, in
     canonical form. It is both a BCP 47 language tag and a Unicode
     locale identifier. Because the process maps from all BCP 47
@@ -1377,8 +1268,8 @@
       <tr>
         <td><code>i-enochian</code></td>
         <td><code>und-x-i-enochian</code></td>
-        <td>prefix any <span class="removed">grandfathered </span><span class="changed">legacy language </span>tags
-          <span class="changed">(marked as “Type: grandfathered” in BCP 47)</span> with "und-x-" [4]</td>
+        <td>prefix any legacy language tags
+          (marked as “Type: grandfathered” in BCP 47) with "und-x-" [4]</td>
       </tr>
       <tr>
         <td><code>x-abc</code></td>
@@ -2371,7 +2262,7 @@ zh-Hant-HK</pre>
           <em>Unknown or Invalid Currency</em>.</p>
         </td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td colspan="4"><strong>A <a href=
         "#UnicodeDictionaryBreakExclusionIdentifier" name=
         "UnicodeDictionaryBreakExclusionIdentifier" id=
@@ -2382,7 +2273,7 @@ zh-Hant-HK</pre>
         element of key name="dx" in bcp47/<a target="_blank" href=
         "https://github.com/unicode-org/cldr/tree/latest/common/bcp47/segmentation.xml">segmentation.xml</a>.</strong></td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>"dx"</td>
         <td>Dictionary break script exclusions</td>
         <td>
@@ -3013,9 +2904,9 @@ zh-Hant-HK</pre>
         "rg" key; this is a subdivision
         code with idStatus='unknown' or 'regular' from the
         idValidity data in common/validity/subdivision.xml.</p>
-        <h5 class="changed"><a name="SCRIPT_CODE" href="#SCRIPT_CODE" id=
+        <h5><a name="SCRIPT_CODE" href="#SCRIPT_CODE" id=
         "SCRIPT_CODE">SCRIPT_CODE</a></h5>
-        <p class="changed">The type name <strong>"SCRIPT_CODE"</strong> is
+        <p>The type name <strong>"SCRIPT_CODE"</strong> is
         reserved for <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code>
         values (e.g. "thai", "laoo").
         The type "SCRIPT_CODE" is used for locale extension key "dx".
@@ -4357,8 +4248,8 @@ root</pre>
     "#Lateral_Inheritance" id="Lateral_Inheritance">4.1.2 Lateral
     Inheritance</a></h4>
     <p>In the following instances, resources may inherit from
-    within the same locale<span class='changed'>, <em>before inheriting from the parent</em></span>. </p>
-	  <div class='changed'>
+    within the same locale, <em>before inheriting from the parent</em>. </p>
+
     <table border="1" cellpadding="3" cellspacing=
     "0" class='simple' >
       <tbody>
@@ -4421,11 +4312,11 @@ root</pre>
       </tbody>
     </table>
     <p>The gender fallback is to neuter if the locale has a neuter gender, otherwise masculine. This may be extended in the future if necessary. See also <a href="tr35-general.html#Grammatical_Features">Part 2, Section 15, Grammatical Features</a>.</p>
-    </div>
+
     <p>For example,    if there is no value for a path, and that path has a
       [@count="x"] attribute and value, then:</p>
     <ol>
-      <li class='changed'>If &quot;x&quot; is numeric, the path falls back to the path with [@count=«the plural rules category for x for that locale»], within that the same locale. 
+      <li>If &quot;x&quot; is numeric, the path falls back to the path with [@count=«the plural rules category for x for that locale»], within that the same locale. 
         <ol>
           <li>For example, [@count="0"] for English falls back to @count="other"], while for French falls back to [@count="one"].</li>
         </ol>
@@ -4434,11 +4325,11 @@ root</pre>
         a path [@count="other"], within that the same locale.</li>
       <li>If &quot;x&quot; is &quot;other&quot;,
        it falls back to the path
-      that is completely missing the count item, <span class="changed">within that the same locale</span>.</li>
+      that is completely missing the count item, within that the same locale.</li>
       <li>If there is no value for that path the same locale, the same
-      process is used <span class='changed'>for the original path</span> in the parent locale.</li>
+      process is used for the original path in the parent locale.</li>
     </ol>
-	  	  <div class='changed'>
+
 	  	    <p>A path may have multiple attributes with lateral inheritance. In such a case, all of the combinations are tried, and in the order supplied above. For example (this is the very worst case):</p>
 	  	    <p> 				/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;feminine&quot;][@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
 	  	    <p>/compoundUnitPattern1[@count=&quot;few&quot;][@gender=&quot;feminine&quot;][@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span>      </p>
@@ -4469,7 +4360,7 @@ root</pre>
             <p>/compoundUnitPattern1[@case=&quot;accusative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
             <p>/compoundUnitPattern1[@case=&quot;nominative&quot;&gt;]<span style="vertical-align: top;"> →</span></p>
             <p>/compoundUnitPattern1</p>
-      </div>
+
     <p>&nbsp;</p>
     <p><em>Examples:</em></p>
     <table class='simple' border="1" cellpadding="3" cellspacing=
@@ -5310,8 +5201,8 @@ root</pre>
           a case, the original script and/or region are retained if
           there is one. Thus "sh_Arab_AQ" ➞ "sr_Arab_AQ", not
           "sr_Latn_AQ".</li>
-          <li>If the tag is <span class="removed">grandfathered </span><span class="changed">a legacy language tag
-          </span>(<span class="changed">marked as “Type: grandfathered” in BCP 47; </span>see &lt;variable
+          <li>If the tag is a legacy language tag
+          (marked as “Type: grandfathered” in BCP 47; see &lt;variable
           id="$grandfathered" type="choice"&gt; in the supplemental
           data), then return it.</li>
           <li>Remove the script code 'Zzzz' and the region code
@@ -6841,7 +6732,7 @@ root</pre>
       </tr>
       <tr>
         <td nowrap>[x\u{61 2019 62}y]</td>
-        <td>Equivalent to [x\u0061\u201<span class='changed'>9</span>\u0062y] (= [xa’by])</td>
+        <td>Equivalent to [x\u0061\u2019\u0062y] (= [xa’by])</td>
       </tr>
       <tr>
         <td nowrap>[{ax}-{bz}]</td>
@@ -8651,7 +8542,7 @@ decimal?, group?, special*)) &gt;</pre>
       </tr>
     </table>
     <hr>
-    <div class='changed'>
+
 	  <h2><a href="#LocaleId_Canonicalization" name="LocaleId_Canonicalization">Annex C. LocaleId Canonicalization</a></h2>
 	  <p>&nbsp;</p>
 		  <p>The languageAlias, scriptAlias, territoryAlias, and variantAlias elements are used as rules to transform an input <em>source localeId</em>. The first step is to transform the <em>languageId</em> portion of the localeId. <br>
@@ -8911,7 +8802,7 @@ decimal?, group?, special*)) &gt;</pre>
 	  <h2 >Optimizations</h2>
 		  <p>The above algorithm is a logical statement of the process, but would obviously not be directly suited to production code. Production-level code can use many optimizations for efficiency while achieving the same result. For example, the Alias Rules can be further preprocessed to avoid indefinite looping, instead doing a rule lookup once per subtag. As another example, the small number of <strong>Territory Exceptions</strong> can be preprocessed to avoid the likely subtags processing.</p>
 	    <p>&nbsp;</p>
-    </div>
+
 	  <hr>
     <h2><a name="References" href="#References" id=
     "References">References</a></h2>
@@ -9015,7 +8906,7 @@ decimal?, group?, special*)) &gt;</pre>
         process for technical reports, and for a list of technical
         reports.</i></td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td class="noborder" width="148">[<a name="Unicode" href=
         "#Unicode" id="Unicode">Unicode</a>]</td>
         <td class="noborder" width="730">The Unicode Consortium, <i>The Unicode Standard, Version 13.0.0</i><br>
@@ -9397,8 +9288,8 @@ decimal?, group?, special*)) &gt;</pre>
       tools.</li>
       <li>Markus Scherer for a major rewrite of Part 5, Collation.</li>
       <li><a href="https://www.sffc.xyz/">Shane Carr</a> for his work on numbers and measurement units.</li>
-      <li><span class='changed'>Robin Leroy for his work on compact plurals: Part 3, Section 5, <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural
-      Rules</a></span></li>
+      <li>Robin Leroy for his work on compact plurals: Part 3, Section 5, <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural
+      Rules</a></li>
     </ul>
     <p>Other contributors to CLDR are listed on the <a href=
     "https://www.unicode.org/cldr/">CLDR Project Page</a>.</p>
@@ -9407,9 +9298,9 @@ decimal?, group?, special*)) &gt;</pre>
     <h2><a name="Modifications" href="#Modifications" id=
     "Modifications">Modifications</a></h2>
 
-    <p class="changed"><b>Revision 60</b></p>
-	<ul class="changed">
-	  <li><b>Proposed Update</b> for CLDR 38.</li>
+    <p><b>Revision 61</b></p>
+	<ul>
+	  <li><b>Reissued</b> for CLDR 38.</li>
 
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
         <ul>
@@ -9470,65 +9361,7 @@ decimal?, group?, special*)) &gt;</pre>
 	  </li>
       <li><strong>Throughout: </strong>Where possible, use “legacy” (for language tag or unit) instead of “grandfathered”.</li>
  </ul>
-  <p><b>Revision 59</b></p>
-  <p><span class='changed'>[Ed Note: remove R59 once we are ready to release.]</span></p>
-	<ul>
-	  <li class="changed" ><b>Updated</b> for CLDR 37.</li>
 
-	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
-		        <ul>
-          <li><strong>Section 5.7.1 <a href="#match_expressions" >Attribute Value Constraints</a></strong>: added enhancements for /validity, especially for units.</li>
-          <li><strong>Section <a href="#Unicode_Sets">5.3.3 Unicode Sets</a></strong>: cleaned up syntax definitions</li>
-        </ul>
-	</li>
-	  <li><strong>Part 2: <a href=
-    "tr35-general.html#Contents">General</a> (display names &amp;
-	  transforms, etc.)</strong>
-	    <ul>
-	      <li> <strong>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a></strong>: 
-            <ul>
-              <li>Added information on patterns without “{0}”.</li>
-              <li>Added new subsections below, and renumbered other subsections.</li>
-              <li><strong>6.1 <a href="tr35-general.html#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></strong></li>
-              <li><strong>6.2 <a href="tr35-general.html#Unit_Identifiers">Unit Identifiers</a></strong>: extended the syntax of unit identifiers substantially.</li>
-              <li><strong>6.9 <a href="tr35-general.html#Private_Use_Units">Private-Use Units</a></strong>: New reserved prefix for private-use units.</li>
-            </ul>
-	      </li>
-	      <li><strong>Section 11 <a href="tr35-general.html#ListPatterns" >List Patterns</a></strong>: added examples of customized  processing for specific languages</li>
- 	      <li><strong>Section 15 <a href="tr35-general.html#Grammatical_Features">Grammatical Features</a></strong>: added structure and data for grammatical features</li>
-        </ul>
-      </li>
-	  <li>
-	    <p><strong>Part 3: <a href=
-    "tr35-numbers.html#Contents">Numbers</a> (number &amp; currency
-	      formatting)</strong></p>
-        <ul>
-              <li ><strong>Section 4 <a href="tr35-numbers.html#Currencies" >Currencies</a></strong>: Updated
-              &lt;currencySpacing&gt; example to match current root data.</li>
-        </ul>
-        <p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</strong></p>
-        <ul>
-          <li><em>no changes</em>
-          </li>
-        </ul>
-        <p><strong>Part 5: <a href=
-    "tr35-collation.html#Contents">Collation</a> (sorting,
-          searching, grouping)</strong></p>
-        <ul><li><em>no changes</em></li></ul>
-        <p><strong>Part 6: <a href=
-    "tr35-info.html#Contents">Supplemental</a> (supplemental
-          data)</strong></p>
-        <ul>
-              <li ><strong>Section 13 <a href="tr35-info.html#Unit_Conversion" >Unit Conversion</a></strong>: added new section on structure and data for unit conversions.</li>
-              <li ><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: added new section on structure and data for unit preferences.
-              Deprecates the &lt;unitPreferences&gt; scope attribute.</li>
-        </ul>
-        <p><strong>Part 7: <a href=
-    "tr35-keyboards.html#Contents">Keyboards</a> (keyboard
-          mappings)</strong></p>
-        <ul><li><em>no changes</em></li></ul>
-	  </li>
-	</ul>
 
 	      <p>&nbsp;</p>
    

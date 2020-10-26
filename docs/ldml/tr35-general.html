@@ -82,14 +82,14 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)<br>
     Part 2: General</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">38</td>
+        <td>38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -113,7 +113,7 @@
     and the links above.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED -->
+    <!-- NOT YET APPROVED 
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -123,14 +123,14 @@
                                 progress.
                         </i>
                 </p>
-    <!-- END NOT YET APPROVED -->
-    <!-- APPROVED 
+     END NOT YET APPROVED -->
+    <!-- APPROVED -->
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-     END APPROVED -->
+    <!-- END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -215,7 +215,7 @@
           <li>6.1 <a href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
           <li>6.2 <a href="#Unit_Identifiers">Unit Identifiers</a></li>
           <li>6.3 <a href="#Example_Units">Example Units</a></li>
-		  <li>6.4 <span class="changed"><a href="#compound-units">Compound Units</a></span></li>
+		  <li>6.4 <a href="#compound-units">Compound Units</a></li>
           <li>6.5 <a href="#Unit_Sequences">Unit Sequences (Mixed Units)</a></li>
           <li>6.6 <a href="#durationUnit">durationUnit</a></li>
           <li>6.7 <a href="#coordinateUnit">coordinateUnit</a></li>
@@ -299,7 +299,7 @@
 <li>15.2 <a href="#Case">Case</a></li>
 </ul>
 		</li>
-		<li class='changed'>16 <a href="#Grammatical_Derivations">Grammatical Derivations</a>
+		<li>16 <a href="#Grammatical_Derivations">Grammatical Derivations</a>
 		  <ul class="toc"><li>16.1<a href="#gender_compound_units">Deriving the Gender of Compound Units</a></li>
 		    <li>16.2 <a href="#plural_compound_units">Deriving the Plural Category of Unit Components</a></li>
 		    <li>16.3 <a href="#case_compound_units">Deriving the Case  of Unit Components</a></li>
@@ -440,7 +440,7 @@
 		  <li>Format special values. As usual, if  lacking  data, use the subtag(s).
 		    <ol>
 		      <li>key=&quot;kr&quot;: (REORDER_CODE) assume the value is a script code, and get its display name.</li>
-		      <li class="changed">key=&quot;dx&quot;: (SCRIPT_CODE) assume the value is a script code, and get its display name.</li>
+		      <li>key=&quot;dx&quot;: (SCRIPT_CODE) assume the value is a script code, and get its display name.</li>
 		      <li>key=&quot;vt&quot;: (CODEPOINTS, deprecated) the value is a list of code points. Set the value display name to it, after replacing [-_] by space.</li>
 		      <li>key=&quot;x0&quot;: (PRIVATE_USE) the value is a list of subtags. No formatting available, so use the subtag(s).</li>
 		      <li>key=&quot;sd&quot;: (SUBDIVISION_CODE) use the subdivision data to find the display name.</li>
@@ -1334,10 +1334,10 @@
     special*) ) &gt;<br>
     &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;<br>
     <br>
-    &lt;!ELEMENT unit ( alias | ( <span class='changed'>gender*, </span>displayName*, unitPattern*, perUnitPattern*, special* ) ) &gt;<br>
+    &lt;!ELEMENT unit ( alias | ( gender*, displayName*, unitPattern*, perUnitPattern*, special* ) ) &gt;<br>
     &lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;<br>
     <br>
-    <span class='changed'>&lt;!ELEMENT gender ( #PCDATA )&gt;</span><br>
+    &lt;!ELEMENT gender ( #PCDATA )&gt;<br>
     <br>
     &lt;!ELEMENT durationUnit (alias | (durationUnitPattern*,
     special*) ) &gt;<br>
@@ -1348,12 +1348,12 @@
     | many | other) #REQUIRED &gt;<br>
     <br>
     &lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
-    <span class='changed'>&lt;!ATTLIST compoundUnitPattern case NMTOKENS #IMPLIED &gt;</span><br>
+    &lt;!ATTLIST compoundUnitPattern case NMTOKENS #IMPLIED &gt;<br>
     <br>
-    <span class='changed'>&lt;!ELEMENT compoundUnitPattern1 ( #PCDATA ) &gt;<br>
+    &lt;!ELEMENT compoundUnitPattern1 ( #PCDATA ) &gt;<br>
     &lt;!ATTLIST compoundUnitPattern1 count (0 | 1 | zero | one | two | few | many | other) #IMPLIED &gt; <br>
     &lt;!ATTLIST compoundUnitPattern1 gender NMTOKENS #IMPLIED &gt; <br>
-    &lt;!ATTLIST compoundUnitPattern1 case NMTOKENS #IMPLIED &gt;</span><br>
+    &lt;!ATTLIST compoundUnitPattern1 case NMTOKENS #IMPLIED &gt;<br>
     <br>
     &lt;!ELEMENT coordinateUnit ( alias | ( displayName*,
     coordinateUnitPattern*, special* ) ) &gt;<br>
@@ -1376,10 +1376,10 @@
   &lt;unitPattern count="other"&gt;<span style=
 "color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
-    <p class='changed'>The german rules are more complicated, because German has both gender and case. They thus have additional information, as illustrated below. Note that if there is no @case attribute, for backwards compatibility the implied case is nominative. The possible values for @case are listed in the <strong>grammaticalFeatures</strong> element. These follow the inheritance specified in Part 1, Section <a href=
+    <p>The german rules are more complicated, because German has both gender and case. They thus have additional information, as illustrated below. Note that if there is no @case attribute, for backwards compatibility the implied case is nominative. The possible values for @case are listed in the <strong>grammaticalFeatures</strong> element. These follow the inheritance specified in Part 1, Section <a href=
     "tr35.html#Lateral_Inheritance">4.1.2 Lateral
     Inheritance</a>. Note that the additional grammar elements are only present in the &lt;unitLength type='long'&gt; form.</p>
-	  <pre class='changed'>&lt;unit type=&quot;duration-day&quot;&gt;
+	  <pre>&lt;unit type=&quot;duration-day&quot;&gt;
 	  <strong>&lt;gender&gt;masculine&lt;/gender&gt;</strong>
 	  &lt;displayName&gt;Tage&lt;/displayName&gt;
 	  &lt;unitPattern count=&quot;one&quot;&gt;{0} Tag&lt;/unitPattern&gt;
@@ -1699,7 +1699,7 @@ The formal syntax for identifiers is provided below.
 
 	   <li><em>Example: </em>gallon-imperial</li>
 <li><em>Constraint: </em>At least one unit_component must not itself be a simple_unit
-<li><em>Note: </em>3 simple units are <span class="removed">grandfathered in</span><span class="changed">currently allowed as legacy usage</span>,
+<li><em>Note: </em>3 simple units are currently allowed as legacy usage,
 where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”) 
   
   <ul>
@@ -1739,8 +1739,8 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     Validity Data</a></em>. The compound
     units in the table below either require specialized formatting
     or have a numerator and/or demoninator that are not defined as
-    valid standalone units. Note: as explained in <span class="changed"><em>Section 6.4
-    <a href="#compound-units">Compound Units</a></em></span>, CLDR
+    valid standalone units. Note: as explained in <em>Section 6.4
+    <a href="#compound-units">Compound Units</a></em>, CLDR
     provides data to format any compound unit composed of two
     simple units from the following table.</p>
     <table>
@@ -2480,11 +2480,11 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     example, in "zh", references to a person being 3 days old or 30
     years old would use the forms “他3天大” and “他30岁”
     respectively.</p>
-    <h3>6.4 <a class='changed' name="compound-units" href="#compound-units" >Compound Units</a><a name=
+    <h3>6.4 <a name="compound-units" href="#compound-units" >Compound Units</a><a name=
     "compoundUnitPattern" ></a><a name="perUnitPatterns" ></a></h3>
     <p>A common combination of units is X per Y, such as <em>miles
     per hour</em> or <em>liters per second</em> or <em>kilowatt-hours</em>. </p>
-    <div class='changed'>
+
     <p>There are different types of structure used to build the localized name of compound units. All of these  follow the inheritance specified in <a href=
     "tr35.html#Lateral_Inheritance">Part 1, Section 4.1.2 Lateral
     Inheritance</a>.</p>
@@ -2503,12 +2503,12 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     <pre>
 &lt;compoundUnit type=&quot;power2&quot;&gt;<br>  &lt;compoundUnitPattern1&gt;{0} kw.&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;accusative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;dative&quot;&gt;{0} kwadratowemu&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;genitive&quot;&gt;{0} kwadratowego&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;instrumental&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;locative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; case=&quot;vocative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot;&gt;{0} kwadratowa&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;accusative&quot;&gt;{0} kwadratową&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;dative&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;genitive&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;instrumental&quot;&gt;{0} kwadratową&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;locative&quot;&gt;{0} kwadratowej&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;feminine&quot; case=&quot;vocative&quot;&gt;{0} kwadratowa&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;accusative&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;dative&quot;&gt;{0} kwadratowemu&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;genitive&quot;&gt;{0} kwadratowego&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;instrumental&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;locative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;one&quot; gender=&quot;inanimate&quot; case=&quot;vocative&quot;&gt;{0} kwadratowy&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot; case=&quot;accusative&quot;&gt;{0} kwadratowe&lt;/compoundUnitPattern1&gt;<br>  &lt;compoundUnitPattern1 count=&quot;few&quot; case=&quot;dative&quot;&gt;{0} kwadratowym&lt;/compoundUnitPattern1&gt;
   …</pre>
-    </div>
+
     <p>&nbsp;</p>
     <p>Some units already
     have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>; where such units exist,
     they should be used in preference.  </p>
-    <div class='changed'>
+
     <p>If there is no precomputed form, the following process in pseudocode is used to generate a pattern for the compound unit. </p>
     <p>&nbsp;</p>
     <p><strong>pattern(unitId, locale, length, pluralCategory, caseVariant)</strong></p>
@@ -2614,7 +2614,7 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
     <h4>Precomposed Compound Units</h4>
     <p>At each point in the process, if there is a precomposed form for a segment of the unitId, then  that precomposed form should be used instead. For example, if there is a  pattern in the locale for (square-kilometer, length, singlePluralCategory, singleCaseVariant, gender), then it should be used  instead of composing the name from &quot;square&quot; and &quot;kilometer&quot;.</p>
     <p></p>
-    </div>
+
     <p>There is also a precomposed <strong>perUnitPattern</strong> which is used as the
     denominator with another unit name. For example, a form such as
     "{0} per second" can be used to form "2 feet <strong>per
@@ -4861,12 +4861,12 @@ where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-f
         "count" value, which allows the right plural form to be
         specified for the language.</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <th>subscript</th>
         <td>subscript {0}</td>
         <td>For indicating subscript forms, such as "subscript digits".</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <th>superscript</th>
         <td>superscript {0}</td>
         <td>For indicating superscript forms, such as "superscript digits".</td>
@@ -5148,7 +5148,7 @@ The current data includes the following:
 </p><ul>
 
 <li>There are currently 3 grammatical features found in the <a href="https://github.com/unicode-org/cldr/blob/master/common/dtd/ldmlSupplemental.dtd#1229">DTD</a>: Gender, Case, Definiteness
-<li>There are  <span class='changed'>mappings from supported</span> locales to grammatical features they exhibit in the file <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/grammaticalFeatures.xml">grammaticalFeatures.xml</a>. <span class='changed'>Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.</span></li></ul>
+<li>There are  mappings from supported locales to grammatical features they exhibit in the file <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/grammaticalFeatures.xml">grammaticalFeatures.xml</a>. Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.</li></ul>
 
 <p>
 Note that the CLDR plural categories overlap some of these features, since some languages use case and other devices to change words based on the numeric values.
@@ -5156,30 +5156,30 @@ Note that the CLDR plural categories overlap some of these features, since some 
 <h2>Features</h2>
 
 
-<p class='dtd'> <span class='changed'>&lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;<br>  &lt;!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) &gt;</span><br>
-&lt;!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED ><br>
-&lt;!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
+<p class='dtd'> &lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;<br>  &lt;!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) &gt;<br>
+&lt;!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED &gt;<br>
+&lt;!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED &gt;
 </p>
 <p>&nbsp;</p>
 <p class='dtd'>
-&lt;!ELEMENT grammaticalCase EMPTY>
+&lt;!ELEMENT grammaticalCase EMPTY&gt;
 </p>
 <p class='dtd'>
-&lt;!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
-</p>
-<p>&nbsp;</p>
-<p class='dtd'>
-&lt;!ELEMENT grammaticalGender EMPTY>
-</p>
-<p class='dtd'>
-&lt;!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
+&lt;!ATTLIST grammaticalCase values NMTOKENS #REQUIRED &gt;
 </p>
 <p>&nbsp;</p>
 <p class='dtd'>
-&lt;!ELEMENT grammaticalDefiniteness EMPTY>
+&lt;!ELEMENT grammaticalGender EMPTY&gt;
 </p>
 <p class='dtd'>
-&lt;!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
+&lt;!ATTLIST grammaticalGender values NMTOKENS #REQUIRED &gt;
+</p>
+<p>&nbsp;</p>
+<p class='dtd'>
+&lt;!ELEMENT grammaticalDefiniteness EMPTY&gt;
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED &gt;
 </p>
 <h3>15.1<a name="Gender" href="#Gender" >Gender</a></h3>
 <p>
@@ -5191,8 +5191,8 @@ Note that the CLDR plural categories overlap some of these features, since some 
 
 
 
-<pre class="prettyprint">&lt;grammaticalFeatures targets="nominal" locales="es fr it pt">
-   &lt;grammaticalGender values="masculine feminine"/>
+<pre class="prettyprint">&lt;grammaticalFeatures targets="nominal" locales="es fr it pt"&gt;
+   &lt;grammaticalGender values="masculine feminine"/&gt;
 </pre>
 
 
@@ -5456,9 +5456,9 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
    <td>&nbsp;</td>
   </tr>
 </table>
-    <div class='changed'>
+
 <h2>16 <a name="Grammatical_Derivations" href="#Grammatical_Derivations">Grammatical Derivations</a></h2>
-<pre class='dtd'><span class="changed">&lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;
+<pre class='dtd'>&lt;!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) &gt;
 &lt;!ELEMENT grammaticalDerivations (deriveCompound*, deriveComponent*) &gt;
 &lt;!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED &gt;
 
@@ -5471,7 +5471,7 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 &lt;!ATTLIST deriveComponent structure NMTOKENS #REQUIRED &gt;     
 &lt;!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED &gt;     
 &lt;!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED &gt;    
-</span></pre>
+</pre>
       <p>The grammatical derivation data contains information about the case, gender, and plural categories of compound units. This is supplemental data, so the inheritance by locale needs to be done by the client.</p>
       <p><em>Note: In  CLDR v38, the data for  two locales is provided so that implemenations can ready their code for when more locale data is available. In subsequent releases structure may be further extended as more locales are added, to deal with additional locale requirements.</em></p>
       <p>A compound unit can use 4 mechanisms, illustrated here in formatted strings:</p>
@@ -5570,7 +5570,7 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
         </li>
       </ul>
       <p>&nbsp;</p>
-    </div>
+
 <hr>
     <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or

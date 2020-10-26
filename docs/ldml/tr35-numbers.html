@@ -82,14 +82,14 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)<br>
     Part 3: Numbers</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">38</td>
+        <td>38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -113,7 +113,7 @@
     "tr35.html">main LDML document</a> and the links above.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED -->
+    <!-- NOT YET APPROVED 
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -123,14 +123,14 @@
                                 progress.
                         </i>
                 </p>
-    <!-- END NOT YET APPROVED -->
-    <!-- APPROVED 
+     END NOT YET APPROVED -->
+    <!-- APPROVED -->
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-     END APPROVED -->
+    <!-- END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -429,7 +429,7 @@ System Data</a>.</em> ) &gt;<br>
     "Number_Symbols">Number Symbols</a></h3>
     <p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*,
     list*, percentSign*, nativeZeroDigit*, patternDigit*,
-    plusSign*, minusSign*, <span class="changed">approximatelySign*, </span>exponential*,
+    plusSign*, minusSign*, approximatelySign*, exponential*,
     superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*,
     currencyGroup*, timeSeparator*, special*)) &gt;</p>
     <p>Number symbols define the localized symbols that are
@@ -488,8 +488,8 @@ System Data</a>.</em> ) &gt;<br>
       or implicitly. In the explicit pattern, the value of the
       plusSign can be substituted for the value of the minusSign to
       produce a pattern that has an explicit plus sign.</dd>
-      <dt class="changed"><b>approximatelySign</b></dt>
-      <dd class="changed">- Symbol used to denote a value that is approximate but
+      <dt><b>approximatelySign</b></dt>
+      <dd>- Symbol used to denote a value that is approximate but
       not exact. The symbol is substituted in place of the minusSign
       using the same semantics as plusSign substitution.</dd>
       <dt><b>exponential</b></dt>
@@ -801,33 +801,27 @@ System Data</a>.</em> ) &gt;<br>
     &lt;/miscPatterns&gt;</code></p>
     <h3>2.6 <a name="Minimal_Pairs" href="#Minimal_Pairs" id=
     "Minimal_Pairs">Minimal Pairs</a></h3>
-    <p class="dtd">&lt;!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*<span class='changed'>, caseMinimalPairs*, genderMinimalPairs*</span>, special* ) ) &gt;<br>
-      <span class='removed'>&lt;!ATTLIST minimalPairs alt NMTOKENS #IMPLIED &gt;<br>
-    &lt;!ATTLIST minimalPairs draft (approved | contributed |
-    provisional | unconfirmed) #IMPLIED &gt;</span><br></p>
+    <p class="dtd">&lt;!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, caseMinimalPairs*, genderMinimalPairs*, special* ) ) &gt;<br>
+    </p>
     <p class="dtd">&lt;!ELEMENT pluralMinimalPairs ( #PCDATA )
     &gt;<br>
     &lt;!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED &gt;<br>
-    <span class='removed'>&lt;!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED &gt;<br>
-    &lt;!ATTLIST pluralMinimalPairs draft (approved | contributed |
-    provisional | unconfirmed) #IMPLIED &gt;</span></p>
+    </p>
     <p class="dtd">&lt;!ELEMENT ordinalMinimalPairs ( #PCDATA )
     &gt;<br>
     &lt;!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED
     &gt;<br>
-    <span class='removed'>&lt;!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED &gt;<br>
-    &lt;!ATTLIST ordinalMinimalPairs draft (approved | contributed
-    | provisional | unconfirmed) #IMPLIED &gt;</span></p>
-    <p class="dtd"><span class='changed'>&lt;!ELEMENT caseMinimalPairs ( #PCDATA ) &gt;<br>
-    &lt;!ATTLIST caseMinimalPairs case NMTOKEN #REQUIRED &gt;</span></p>
-    <p class="dtd"><span class='changed'>&lt;!ELEMENT genderMinimalPairs ( #PCDATA ) &gt; <br>
-      &lt;!ATTLIST genderMinimalPairs gender NMTOKEN #REQUIRED &gt;</span></p>
+    </p>
+    <p class="dtd">&lt;!ELEMENT caseMinimalPairs ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST caseMinimalPairs case NMTOKEN #REQUIRED &gt;</p>
+    <p class="dtd">&lt;!ELEMENT genderMinimalPairs ( #PCDATA ) &gt; <br>
+      &lt;!ATTLIST genderMinimalPairs gender NMTOKEN #REQUIRED &gt;</p>
     <p>Minimal pairs provide examples that justify why multiple
-    plural or ordinal categories exist<span class='changed'>, and for providing contextual
+    plural or ordinal categories exist, and for providing contextual
     examples for verifying consistency of translations. The allowable values for the count,
-    ordinal, case, and gender attributes are found in the dtd file</span>.</p>
-    <p class='changed'>Examples</p>
-    <p  class='changed'><code>&lt;minimalPairs&gt;<br>
+    ordinal, case, and gender attributes are found in the dtd file.</p>
+    <p>Examples</p>
+    <p><code>&lt;minimalPairs&gt;<br>
   &lt;pluralMinimalPairs count=&quot;one&quot;&gt;{0} Tag&lt;/pluralMinimalPairs&gt;<br>
   &lt;pluralMinimalPairs count=&quot;other&quot;&gt;{0} Tage&lt;/pluralMinimalPairs&gt;<br>
 <br>
@@ -844,8 +838,8 @@ System Data</a>.</em> ) &gt;<br>
 	&lt;/minimalPairs&gt;</code></p>
     <br>
     <p>For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a>
-    <span class='changed'>and
-    <a href="http://cldr.unicode.org/translation/grammatical-inflection">Grammatical Inflection</a></span>.</p>
+    and
+    <a href="http://cldr.unicode.org/translation/grammatical-inflection">Grammatical Inflection</a>.</p>
 
     <h2><a name="Number_Format_Patterns" href=
     "#Number_Format_Patterns" id="Number_Format_Patterns">3 Number
@@ -2449,8 +2443,8 @@ System Data</a>.</em> ) &gt;<br>
     25–30, 35–40, …, decimals). Russian does not need additional
     separate forms for zero, two, or many, so these are not
     defined.</p>
-    <p><span class='changed'>A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for decimalValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. </span>The plural category for negative numbers is calculated
-    according to the absolute value of the source <span class='changed'>number, and leading integer digits don't have any effect on the plural category calculation.</span> (This may change
+    <p>A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for decimalValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. The plural category for negative numbers is calculated
+    according to the absolute value of the source number, and leading integer digits don't have any effect on the plural category calculation. (This may change
     in the future, if we find languages that have different
     behavior.)</p>
     <p>Plural categories may also differ according to the visible
@@ -2545,7 +2539,7 @@ System Data</a>.</em> ) &gt;<br>
     <p>The xml value for each pluralRule is a <em>condition</em>
     with a boolean result that specifies whether that rule (i.e.
     that plural form) applies to a given numeric value <em>n</em>,
-    where n can be expressed as a decimal fraction<span class='changed'> or with compact decimal formatting, denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”</span>. Clients of CLDR
+    where n can be expressed as a decimal fraction or with compact decimal formatting, denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. Clients of CLDR
     may express all the rules for a locale using the following
     syntax:</p>
     <pre>
@@ -2568,15 +2562,15 @@ is_relation     = expr 'is' ('not')? value
 in_relation     = expr (('not')? 'in' | '=' | '!=') range_list
 within_relation = expr ('not')? 'within' range_list
 expr            = operand (('mod' | '%') value)?
-operand         = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<span class="changed"> | 'c' | 'e'</span>
+operand         = 'n' | 'i' | 'f' | 't' | 'v' | 'w' | 'c' | 'e'
 range_list      = (range | value) (',' range_list)*
 range           = value'..'value
 value           = digit+
 sampleList      = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
-sampleRange     = <span class="changed">sample</span>Value ('~' <span class="changed">sample</span>Value)?
-<span class="changed">sample</span>Value     = <span class="changed">value</span> ('.' <span class="changed">digit+</span>)?<span class="changed"> ([ce] digitPos digit+)?</span>
-digit           = <span class="changed">[0-9]</span>
-<span class="changed">digitPos        = [1-9]</span>
+sampleRange     = sampleValue ('~' sampleValue)?
+sampleValue     = value ('.' digit+)? ([ce] digitPos digit+)?
+digit           = [0-9]
+digitPos        = [1-9]
                 </pre>
     <ul>
       <li>Whitespace (defined as Unicode <a href=
@@ -2602,7 +2596,7 @@ digit           = <span class="changed">[0-9]</span>
     </ul>
     <h4><a name="Operands" href="#Operands" id="Operands">5.1.1
     Operands</a></h4>
-    <p>The operands <span class="changed">correspond to features of the source number, and</span> have the following meanings. </p>
+    <p>The operands correspond to features of the source number, and have the following meanings. </p>
     <div dir="ltr">
       <table class='simple'>
         <caption>
@@ -2625,34 +2619,34 @@ digit           = <span class="changed">[0-9]</span>
         <tr>
           <td>v</td>
           <td>number of visible fraction digits in n, <em>with</em>
-          trailing zeros.<span class="changed">*</span></td>
+          trailing zeros.*</td>
         </tr>
         <tr>
           <td>w</td>
           <td>number of visible fraction digits in n,
-          <em>without</em> trailing zeros.<span class="changed">*</span></td>
+          <em>without</em> trailing zeros.*</td>
         </tr>
         <tr>
           <td>f</td>
           <td>visible fraction digits in n, <em>with</em>
-          trailing zeros.<span class="changed">*</span></td>
+          trailing zeros.*</td>
         </tr>
         <tr>
           <td>t</td>
           <td>visible fraction digits in n, <em>without</em>
-          trailing zeros.<span class="changed">*</span></td>
+          trailing zeros.*</td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td>c</td>
           <td>compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting.</td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td>e</td>
           <td>currently, synonym for ‘c’. however, may be redefined in the future.</td>
         </tr>
       </table>
     </div>
-    <p class='changed'>* If there is a compact decimal exponent value (‘c’), then the f, t, v, and w values are computed <em>after</em> shifting the decimal point in the original by the ‘c’ value. So for 1.2c3, the f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. Similarly, for 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p>
+    <p>* If there is a compact decimal exponent value (‘c’), then the f, t, v, and w values are computed <em>after</em> shifting the decimal point in the original by the ‘c’ value. So for 1.2c3, the f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. Similarly, for 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p>
     <div dir="ltr">
       <table class='simple' width='30em'>
         <caption>
@@ -2672,133 +2666,133 @@ digit           = <span class="changed">[0-9]</span>
 </tr>
 <tr>
 <td style='text-align: right'>1</td>
-  <td class='changed' style='text-align:right'>1</td>
+  <td style='text-align:right'>1</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>0</td>
   <td style='text-align: right'>0</td>
   <td style='text-align: right'>0</td>
   <td style='text-align: right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
 <td style='text-align: right'>1.0</td>
-  <td class='changed' style='text-align:right'>1</td>
+  <td style='text-align:right'>1</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>0</td>
   <td style='text-align: right'>0</td>
   <td style='text-align: right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
 <td style='text-align: right'>1.00</td>
-  <td class='changed' style='text-align:right'>1</td>
+  <td style='text-align:right'>1</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>2</td>
   <td style='text-align: right'>0</td>
   <td style='text-align: right'>0</td>
   <td style='text-align: right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
 <td style='text-align: right'>1.3</td>
-  <td class='changed' style='text-align:right'>1.3</td>
+  <td style='text-align:right'>1.3</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>3</td>
   <td style='text-align: right'>3</td>
-  <td class='changed' style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
 <td style='text-align: right'>1.30</td>
-  <td class='changed' style='text-align:right'>1.3</td>
+  <td style='text-align:right'>1.3</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>2</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>30</td>
   <td style='text-align: right'>3</td>
-  <td class='changed' style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
 <td style='text-align: right'>1.03</td>
-  <td class='changed' style='text-align:right'>1.03</td>
+  <td style='text-align:right'>1.03</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>2</td>
   <td style='text-align: right'>2</td>
   <td style='text-align: right'>3</td>
   <td style='text-align: right'>3</td>
-  <td class='changed' style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
 <td style='text-align: right'>1.230</td>
-  <td class='changed' style='text-align:right'>1.23</td>
+  <td style='text-align:right'>1.23</td>
   <td style='text-align: right'>1</td>
   <td style='text-align: right'>3</td>
   <td style='text-align: right'>2</td>
   <td style='text-align: right'>230</td>
   <td style='text-align: right'>23</td>
-  <td class='changed' style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
-<td class='changed' style='text-align:right'>1200000</td>
-  <td class='changed' style='text-align:right'>1200000</td>
-  <td class='changed' style='text-align:right'>1200000</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
+<td style='text-align:right'>1200000</td>
+  <td style='text-align:right'>1200000</td>
+  <td style='text-align:right'>1200000</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
-<td class='changed' style='text-align:right'>1.2c6</td>
-  <td class='changed' style='text-align:right'>1200000</td>
-  <td class='changed' style='text-align:right'>1200000</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>6</td>
+<td style='text-align:right'>1.2c6</td>
+  <td style='text-align:right'>1200000</td>
+  <td style='text-align:right'>1200000</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>6</td>
 </tr>
 <tr>
-<td class='changed' style='text-align:right'>123c6</td>
-  <td class='changed' style='text-align:right'>123000000</td>
-  <td class='changed' style='text-align:right'>123000000</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>6</td>
+<td style='text-align:right'>123c6</td>
+  <td style='text-align:right'>123000000</td>
+  <td style='text-align:right'>123000000</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>6</td>
 </tr>
 <tr>
-<td class='changed' style='text-align:right'>123c5</td>
-  <td class='changed' style='text-align:right'>12300000</td>
-  <td class='changed' style='text-align:right'>12300000</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>0</td>
-  <td class='changed' style='text-align:right'>5</td>
+<td style='text-align:right'>123c5</td>
+  <td style='text-align:right'>12300000</td>
+  <td style='text-align:right'>12300000</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>0</td>
+  <td style='text-align:right'>5</td>
 </tr>
 <tr>
-<td class='changed' style='text-align:right'>1200.50</td>
-  <td class='changed' style='text-align:right'>1200.5</td>
-  <td class='changed' style='text-align:right'>1200</td>
-  <td class='changed' style='text-align:right'>2</td>
-  <td class='changed' style='text-align:right'>1</td>
-  <td class='changed' style='text-align:right'>50</td>
-  <td class='changed' style='text-align:right'>5</td>
-  <td class='changed' style='text-align:right'>0</td>
+<td style='text-align:right'>1200.50</td>
+  <td style='text-align:right'>1200.5</td>
+  <td style='text-align:right'>1200</td>
+  <td style='text-align:right'>2</td>
+  <td style='text-align:right'>1</td>
+  <td style='text-align:right'>50</td>
+  <td style='text-align:right'>5</td>
+  <td style='text-align:right'>0</td>
 </tr>
 <tr>
-<td class='changed' style='text-align:right'>1.20050c3</td>
-  <td class='changed' style='text-align:right'>1200.5</td>
-  <td class='changed' style='text-align:right'>1200</td>
-  <td class='changed' style='text-align:right'>2</td>
-  <td class='changed' style='text-align:right'>1</td>
-  <td class='changed' style='text-align:right'>50</td>
-  <td class='changed' style='text-align:right'>5</td>
-  <td class='changed' style='text-align:right'>3</td>
+<td style='text-align:right'>1.20050c3</td>
+  <td style='text-align:right'>1200.5</td>
+  <td style='text-align:right'>1200</td>
+  <td style='text-align:right'>2</td>
+  <td style='text-align:right'>1</td>
+  <td style='text-align:right'>50</td>
+  <td style='text-align:right'>5</td>
+  <td style='text-align:right'>3</td>
 </tr>
 		</table>
     </div><br>
@@ -2870,12 +2864,12 @@ digit           = <span class="changed">[0-9]</span>
     is 1.3.</p>
     <p>The values of relations are defined according to the operand
     as follows. Importantly, the results may depend on the visible
-    decimals in the source, including trailing zeros, <span class='changed'>and the compact decimal exponent</span>.</p>
+    decimals in the source, including trailing zeros, and the compact decimal exponent.</p>
     <ol>
       <li>Let the base value BV be computed from absolute value of
       the original source number according to the operand.</li>
       <li>Let R be false when the comparison contains ‘not’.</li>
-      <li>Let R be !R if &nbsp;the comparison contains ‘within’ and
+      <li>Let R be !R if the comparison contains ‘within’ and
       the source number is not an integer.</li>
       <li>If there is a module value MV, let BV be BV -
       floor(BV/MV).</li>
@@ -2940,15 +2934,15 @@ digit           = <span class="changed">[0-9]</span>
     <p>Where samples are provided, the absence of one of the sample
     indicators indicates that no numeric values can satisify that
     rule. For example, the rule "i = 1 and v = 0" can only have
-    integer samples, so @decimal must not occur.<span class='changed'> The @integer samples have no visible fraction digits, while  @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).</span></p>
+    integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while  @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).</p>
     <p>The sampleRanges have a special notation:
     <strong>start</strong>~<strong>end</strong>. The
     <strong>start</strong> and <strong>end</strong> values must
-    have the same number of decimal digits<span class="changed">, and the same compact decimal exponent values (or neither have compact decimal exponent values)</span>. The range encompasses
+    have the same number of decimal digits, and the same compact decimal exponent values (or neither have compact decimal exponent values). The range encompasses
     all and only values those value <strong>v</strong> where
     <strong>start ≤ v ≤ end</strong>, and where <strong>v</strong>
     has the same number of decimal places as <strong>start</strong>
-    and <strong>end</strong><span class="changed">, and the same compact decimal exponent values</span>.</p>
+    and <strong>end</strong>, and the same compact decimal exponent values.</p>
     <p>Samples must indicate whether they are infinite or not. The
     '…' marker must be present if and only infinitely many values
     (integer or decimal) can satisfy the rule. If a set is not
@@ -2978,8 +2972,8 @@ digit           = <span class="changed">[0-9]</span>
     </table><br>
     <p>In determining whether a set of samples is infinite, leading
     zero integer digits and trailing zero decimals are not
-    significant. Thus "i = 1<span class="changed">000</span> and f = 0" is satisfied by 01<span class="changed">000</span>, 1<span class="changed">000</span>, 1<span class="changed">000</span>.0,
-    1<span class="changed">000</span>.00, 1<span class="changed">000</span>.000, <span class="changed">01c3</span> etc. but is still considered finite.</p>
+    significant. Thus "i = 1000 and f = 0" is satisfied by 01000, 1000, 1000.0,
+    1000.00, 1000.000, 01c3 etc. but is still considered finite.</p>
     <h4><a name="Using_cardinals" href="#Using_cardinals" id=
     "Using_cardinals">5.1.4 Using Cardinals</a></h4>
     <p>Elements such as &lt;currencyFormats&gt;, &lt;currency&gt;

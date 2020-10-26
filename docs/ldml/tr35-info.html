@@ -82,14 +82,14 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)<br>
     Part 6: Supplemental</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">38</td>
+        <td>38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -113,7 +113,7 @@
     document</a> and the links above.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED -->
+    <!-- NOT YET APPROVED 
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -123,14 +123,14 @@
                                 progress.
                         </i>
                 </p>
-    <!-- END NOT YET APPROVED -->
-    <!-- APPROVED 
+     END NOT YET APPROVED -->
+    <!-- APPROVED -->
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-     END APPROVED -->
+    <!-- END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -195,7 +195,7 @@
               Specific Usages</a>
                 <ul class="toc">
                   <li>Table: <a href=
-                  "#Unit_Preference_Categories">Unit Preference
+                  "#Unit_Preferences">Unit Preference
                   Categories</a></li>
                 </ul>
               </li>
@@ -2189,10 +2189,10 @@ Once a matching unitPreference element is found:
 <li>The unit is the element value
 <li>The skeleton (if there is one) supplies formatting information for the unit. API settings may allow that to be overridden.
   <ul>
-    <li class='changed'>The syntax and semantics for the skeleton value are defined by the <a href="https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html">ICU Number Skeletons</a> document.</li>
+    <li>The syntax and semantics for the skeleton value are defined by the <a href="https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html">ICU Number Skeletons</a> document.</li>
   </ul>
 <li>If the unit is mixed (eg foot:inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.
-<li>If the skeleton is missing, the default<span class='changed'> is skeleton=&quot;<strong>precision-integer/@@*</strong>&quot;. However, the client can also override or tune the number formatting</span>.</li></ul>
+<li>If the skeleton is missing, the default is skeleton=&quot;<strong>precision-integer/@@*</strong>&quot;. However, the client can also override or tune the number formatting.</li></ul>
 
 <h3>Constraints</h3>
 

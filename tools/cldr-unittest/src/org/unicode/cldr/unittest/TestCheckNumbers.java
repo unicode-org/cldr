@@ -16,7 +16,6 @@ import org.unicode.cldr.util.XMLSource;
 
 public class TestCheckNumbers extends TestFmwkPlus {
 
-
     public static void main(String[] args) {
         new TestCheckNumbers().run(args);
     }
@@ -28,14 +27,12 @@ public class TestCheckNumbers extends TestFmwkPlus {
 
         // should succeed, since "one" only has one number in ast.
         checkSingularity(checkNumbers, "en",
-            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", 
-            "K", null
-            );
+            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
+            "K", null);
         // should fail, "one" may match both 1 and zero in french
         checkSingularity(checkNumbers, "fr",
-            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", 
-            "K", Subtype.missingZeros
-            );
+            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
+            "K", Subtype.missingZeros);
 
     }
 

@@ -111,7 +111,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // Note for the above, an actual time separator path may add the following after the above:
         // [@alt='...'] and/or [@draft='...']
         // Ideally we would get the following for default calendar, here we just use gregorian; probably OK
-        patternForHm = resolvedFile.getWinningValue("//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='Hm']");
+        patternForHm = resolvedFile
+            .getWinningValue("//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='Hm']");
 
         return this;
     }
@@ -292,12 +293,12 @@ public class CheckNumbers extends FactoryCheckCLDR {
             // Check for sane usage of grouping separators.
             if (COMMA_ABUSE.matcher(value).find()) {
                 result
-                .add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.tooManyGroupingSeparators)
-                    .setMessage(
-                        "Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
+                    .add(new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.tooManyGroupingSeparators)
+                        .setMessage(
+                            "Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
             } else {
                 // check that we have a canonical pattern
                 String pattern = getCanonicalPattern(value, type, zeroCount, isPOSIX);
@@ -409,7 +410,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             }
             if (!value.contains("0")) {
                 switch (pe.size()) {
-                case 0:  // do nothing, shouldn't ever happen
+                case 0: // do nothing, shouldn't ever happen
                     break;
                 case 1:
                     // If a plural case corresponds to a single double value, the format is

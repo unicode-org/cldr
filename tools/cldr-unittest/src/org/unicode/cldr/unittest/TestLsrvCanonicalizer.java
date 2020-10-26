@@ -58,25 +58,23 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                 if (DEBUG && rules.size() > 1) {
                     System.out.println(
                         "source: " + toTest
-                        + ", expected: " + expected
-                        + ", actual: " + actual
-                        + ", rules: " + rules
-                        );
+                            + ", expected: " + expected
+                            + ", actual: " + actual
+                            + ", rules: " + rules);
                 }
                 if (!Objects.equal(expected, actual)) {
                     errln("Error: "
                         + "source: " + toTest
                         + ", expected: " + expected
                         + ", actual: " + actual
-                        + ", rules: " + rules
-                        );
+                        + ", rules: " + rules);
                 }
             }
         }
     }
 
     public void TestAgainstLanguageSubtagRegistry() {
-        Map<String,String> exceptions = ImmutableMap.<String, String>builder()
+        Map<String, String> exceptions = ImmutableMap.<String, String> builder()
             .put("drh", "mn") // Darkhat => Halh Mongolian
             .put("drw", "fa_af") // Darwazi => Dari
             .put("tnf", "fa_af") // Tangshewi => Dari
@@ -148,8 +146,7 @@ public class TestLsrvCanonicalizer extends TestFmwk {
             "arevela", "arevmda",
             // newly added
             "bmy", "btl", "bxx", "byy", "cbe", "cbh", "cum", "dha", "dzd", "emo", "iap", "ime", "kbf", "kox", "lba", "lsg", "mhh", "mja", "mld", "mwx",
-            "mwy", "myi", "myq", "ome", "pbz", "pgy", "pod", "prb", "puk", "rie", "rna", "rsi", "sgo", "snh", "svr", "toe", "xbx", "xip", "yds", "ynh", "yri"
-            );
+            "mwy", "myi", "myq", "ome", "pbz", "pgy", "pod", "prb", "puk", "rie", "rna", "rsi", "sgo", "snh", "svr", "toe", "xbx", "xip", "yds", "ynh", "yri");
 
 //        Error: (TestLsrvCanonicalizer.java:110) : drh: expected "khk", got "mn"
 //        Error: (TestLsrvCanonicalizer.java:110) : drw: expected "prs", got "fa_af"
@@ -172,7 +169,7 @@ public class TestLsrvCanonicalizer extends TestFmwk {
         Set<String> shouldSkip = new LinkedHashSet<>();
         Set<String> addExceptions = new LinkedHashSet<>();
 
-        for ( Entry<LstrType, Map<String, Map<LstrField, String>>> entry1 : StandardCodes.getEnumLstreg().entrySet()) {
+        for (Entry<LstrType, Map<String, Map<LstrField, String>>> entry1 : StandardCodes.getEnumLstreg().entrySet()) {
             LstrType type = entry1.getKey();
             if (type == LstrType.extlang) {
                 continue;

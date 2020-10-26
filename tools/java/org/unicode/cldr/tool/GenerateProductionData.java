@@ -102,7 +102,7 @@ public class GenerateProductionData {
         fileMatch(new Params()
             .setHelp("regex to match patterns")
             .setMatch(".*")),
-        ;
+            ;
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -176,19 +176,21 @@ public class GenerateProductionData {
         long removed;
         long retained;
         long remaining;
+
         Stats clear() {
             files = removed = retained = remaining = 0;
             return this;
         }
+
         @Override
         public String toString() {
-            return
-                "files=" + files
+            return "files=" + files
                 + (removed + retained + remaining == 0 ? ""
                     : "; removed=" + removed
-                    + "; retained=" + retained
-                    + "; remaining=" + remaining);
+                        + "; retained=" + retained
+                        + "; remaining=" + remaining);
         }
+
         public void showNonZero(String label) {
             if (removed + retained + remaining != 0) {
                 System.out.println(label + toString());
@@ -251,7 +253,7 @@ public class GenerateProductionData {
                 // when the currFactory is null, we just copy files as-is
                 boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, currFactory, isLdmlDtdType, stats);
                 if (isEmpty) { // only happens for ldml
-                    emptyLocales.add(file.substring(0,file.length()-4)); // remove .xml for localeId
+                    emptyLocales.add(file.substring(0, file.length() - 4)); // remove .xml for localeId
                 }
             }
             stats.showNonZero("\tTOTAL:\t");
@@ -270,7 +272,7 @@ public class GenerateProductionData {
             if (!file.endsWith(".xml")) {
                 return false;
             }
-            String localeId = file.substring(0, file.length()-4);
+            String localeId = file.substring(0, file.length() - 4);
             if (FILE_MATCH != null) {
                 if (!FILE_MATCH.reset(localeId).matches()) {
                     return false;
@@ -382,7 +384,7 @@ public class GenerateProductionData {
                 if (isSubdivisionDirectory) {
                     Collection<Pair<String, String>> path_values = localeToSubdivisionsToMigrate.get(localeId);
                     if (path_values != null) {
-                        for (Pair<String, String>path_value : path_values) {
+                        for (Pair<String, String> path_value : path_values) {
                             outCldrFile.add(path_value.getFirst(), path_value.getSecond());
                         }
                         localeToSubdivisionsToMigrate.removeAll(localeId);
@@ -471,7 +473,7 @@ public class GenerateProductionData {
             if (FILE_MATCH != null) {
                 String file = sourceFile.getName();
                 int dotPos = file.lastIndexOf('.');
-                String baseName = dotPos >= 0 ? file.substring(0, file.length()-dotPos) : file;
+                String baseName = dotPos >= 0 ? file.substring(0, file.length() - dotPos) : file;
                 if (!FILE_MATCH.reset(baseName).matches()) {
                     return false;
                 }
@@ -545,7 +547,7 @@ public class GenerateProductionData {
      */
     private static Set<String> dateTimePaths(String xpath) {
         LinkedHashSet<String> result = new LinkedHashSet<>();
-        String prefix = xpath.substring(0,xpath.indexOf(']') + 2); // get after ]/
+        String prefix = xpath.substring(0, xpath.indexOf(']') + 2); // get after ]/
         for (String type : Arrays.asList("date", "time", "dateTime")) {
             String pattern = prefix + "$XFormats/$XFormatLength[@type=\"$Y\"]/$XFormat[@type=\"standard\"]/pattern[@type=\"standard\"]".replace("$X", type);
             for (String width : Arrays.asList("full", "long", "medium", "short")) {
@@ -557,7 +559,7 @@ public class GenerateProductionData {
 
     private static Set<String> getChildless(Set<String> emptyLocales, Set<String> available) {
         // first build the parent2child map
-        Multimap<String,String> parent2child = HashMultimap.create();
+        Multimap<String, String> parent2child = HashMultimap.create();
         for (String locale : available) {
             String parent = LocaleIDParser.getParent(locale);
             if (parent != null) {

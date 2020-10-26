@@ -104,26 +104,33 @@ public class GenerateValidityXml {
             }
             return info;
         }
+
         public SetMultimap<Status, String> getStatusMap() {
             TreeMultimap<Status, String> result = TreeMultimap.create();
             Multimaps.invertFrom(Multimaps.forMap(codeToStatus), result);
             return ImmutableSetMultimap.copyOf(result);
         }
+
         public void put(String key, Status value) {
             codeToStatus.put(key, value);
         }
+
         public void remove(String key, Status value) {
             codeToStatus.remove(key, value);
         }
+
         public void clear() {
             codeToStatus.clear();
         }
+
         public Set<Entry<String, Status>> entrySet() {
             return codeToStatus.entrySet();
         }
+
         public Status get(String key) {
             return codeToStatus.get(key);
         }
+
         public void putBest(String currency, Status newStatus) {
             Status oldStatus = get(currency);
             if (oldStatus == null || newStatus.compareTo(oldStatus) < 0) {
@@ -273,8 +280,7 @@ public class GenerateValidityXml {
                 String code = entry2.getKey();
                 if (type == LstrType.language && code.equals("aam")
                     || type == LstrType.variant && code.equals("arevela")
-                    || type == LstrType.extlang && code.equals("lsg")
-                    ) {
+                    || type == LstrType.extlang && code.equals("lsg")) {
                     int debug = 0;
                 }
                 Map<LstrField, String> data = entry2.getValue();

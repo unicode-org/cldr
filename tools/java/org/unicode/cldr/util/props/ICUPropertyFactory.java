@@ -29,7 +29,6 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.VersionInfo;
 
-
 /**
  * Provides a general interface for Unicode Properties, and
  * extracting sets based on those values.
@@ -93,25 +92,25 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
                 return String.valueOf(Normalizer.normalize(codePoint, Normalizer.NFD).equals(UTF16.valueOf(codePoint)));
             case isNFKC:
                 return String
-                        .valueOf(Normalizer.normalize(codePoint, Normalizer.NFKC).equals(UTF16.valueOf(codePoint)));
+                    .valueOf(Normalizer.normalize(codePoint, Normalizer.NFKC).equals(UTF16.valueOf(codePoint)));
             case isNFKD:
                 return String
-                        .valueOf(Normalizer.normalize(codePoint, Normalizer.NFKD).equals(UTF16.valueOf(codePoint)));
+                    .valueOf(Normalizer.normalize(codePoint, Normalizer.NFKD).equals(UTF16.valueOf(codePoint)));
             case isLowercase:
                 return String.valueOf(UCharacter.toLowerCase(Locale.ENGLISH, UTF16.valueOf(codePoint)).equals(
-                        UTF16.valueOf(codePoint)));
+                    UTF16.valueOf(codePoint)));
             case isUppercase:
                 return String.valueOf(UCharacter.toUpperCase(Locale.ENGLISH, UTF16.valueOf(codePoint)).equals(
-                        UTF16.valueOf(codePoint)));
+                    UTF16.valueOf(codePoint)));
             case isTitlecase:
                 return String.valueOf(UCharacter.toTitleCase(Locale.ENGLISH, UTF16.valueOf(codePoint), null).equals(
-                        UTF16.valueOf(codePoint)));
+                    UTF16.valueOf(codePoint)));
             case isCasefolded:
                 return String.valueOf(UCharacter.foldCase(UTF16.valueOf(codePoint), true).equals(
-                        UTF16.valueOf(codePoint)));
+                    UTF16.valueOf(codePoint)));
             case isCased:
                 return String.valueOf(UCharacter.toLowerCase(Locale.ENGLISH, UTF16.valueOf(codePoint)).equals(
-                        UTF16.valueOf(codePoint)));
+                    UTF16.valueOf(codePoint)));
             case UProperty.SCRIPT_EXTENSIONS:
                 return getStringScriptExtensions(codePoint);
             }
@@ -190,8 +189,8 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
 
         public boolean isCombiningClassProperty() {
             return (propEnum == UProperty.CANONICAL_COMBINING_CLASS
-                    || propEnum == UProperty.LEAD_CANONICAL_COMBINING_CLASS
-                    || propEnum == UProperty.TRAIL_CANONICAL_COMBINING_CLASS);
+                || propEnum == UProperty.LEAD_CANONICAL_COMBINING_CLASS
+                || propEnum == UProperty.TRAIL_CANONICAL_COMBINING_CLASS);
         }
 
         private static int fixedGetPropertyValueEnum(int propEnum, String valueAlias) {
@@ -250,7 +249,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
         static {
             for (int i = 0; i <= 255; ++i) {
                 String alias = UCharacter.getPropertyValueName(UProperty.CANONICAL_COMBINING_CLASS, i,
-                        UProperty.NameChoice.LONG);
+                    UProperty.NameChoice.LONG);
                 String numStr = String.valueOf(i);
                 if (alias != null) {
                     cccHack.put(alias, numStr);
@@ -396,12 +395,10 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
         }
     }
 
-  /*{
+    /*{
             matchIterator = new UnicodeSetIterator(
                 new UnicodeSet("[^[:Cn:]-[:Default_Ignorable_Code_Point:]]"));
         }*/
-
-
 
     /*
      * Other Missing Functions:
@@ -422,33 +419,32 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
      */
 
     static final Names Binary_Extras = new Names(UProperty.BINARY_LIMIT,
-          new String[] {
-          "isNFC", "isNFD", "isNFKC", "isNFKD",
-          "isLowercase", "isUppercase", "isTitlecase", "isCasefolded", "isCased",
-    });
+        new String[] {
+            "isNFC", "isNFD", "isNFKC", "isNFKD",
+            "isLowercase", "isUppercase", "isTitlecase", "isCasefolded", "isCased",
+        });
 
 //    static final Names String_Extras = new Names(UProperty.STRING_LIMIT,
 //          new String[] {
 //          "toNFC", "toNFD", "toNFKC", "toNKFD",
 //    });
 
-    static final int
-        isNFC = UProperty.BINARY_LIMIT,
-        isNFD = UProperty.BINARY_LIMIT+1,
-        isNFKC = UProperty.BINARY_LIMIT+2,
-        isNFKD = UProperty.BINARY_LIMIT+3,
-        isLowercase = UProperty.BINARY_LIMIT+4,
-        isUppercase = UProperty.BINARY_LIMIT+5,
-        isTitlecase = UProperty.BINARY_LIMIT+6,
-        isCasefolded = UProperty.BINARY_LIMIT+7,
-        isCased = UProperty.BINARY_LIMIT+8,
-        BINARY_LIMIT = UProperty.BINARY_LIMIT+9
+    static final int isNFC = UProperty.BINARY_LIMIT,
+        isNFD = UProperty.BINARY_LIMIT + 1,
+        isNFKC = UProperty.BINARY_LIMIT + 2,
+        isNFKD = UProperty.BINARY_LIMIT + 3,
+        isLowercase = UProperty.BINARY_LIMIT + 4,
+        isUppercase = UProperty.BINARY_LIMIT + 5,
+        isTitlecase = UProperty.BINARY_LIMIT + 6,
+        isCasefolded = UProperty.BINARY_LIMIT + 7,
+        isCased = UProperty.BINARY_LIMIT + 8,
+        BINARY_LIMIT = UProperty.BINARY_LIMIT + 9
 
 //        NFC  = UProperty.STRING_LIMIT,
 //        NFD  = UProperty.STRING_LIMIT+1,
 //        NFKC = UProperty.STRING_LIMIT+2,
 //        NFKD = UProperty.STRING_LIMIT+3
-        ;
+    ;
 
     protected ICUPropertyFactory() {
         Collection c = getInternalAvailablePropertyAliases(new ArrayList());
@@ -459,13 +455,14 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
     }
 
     static BitSet BITSET = new BitSet();
+
     public static synchronized String getStringScriptExtensions(int codePoint) {
         int result = UScript.getScriptExtensions(codePoint, BITSET);
         if (result >= 0) {
             return UScript.getName(result);
         }
-        TreeMap<String,String> sorted = new TreeMap<>();
-        for (int scriptCode = BITSET.nextSetBit(0); scriptCode >= 0; scriptCode = BITSET.nextSetBit(scriptCode+1)) {
+        TreeMap<String, String> sorted = new TreeMap<>();
+        for (int scriptCode = BITSET.nextSetBit(0); scriptCode >= 0; scriptCode = BITSET.nextSetBit(scriptCode + 1)) {
             // sort by short form
             sorted.put(UScript.getShortName(scriptCode), UScript.getName(scriptCode));
         }
@@ -483,11 +480,11 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
 
     public List getInternalAvailablePropertyAliases(List result) {
         int[][] ranges = {
-                {UProperty.BINARY_START,    UProperty.BINARY_LIMIT},
-                {UProperty.INT_START,       UProperty.INT_LIMIT},
-                {UProperty.DOUBLE_START,    UProperty.DOUBLE_LIMIT},
-                {UProperty.STRING_START,    UProperty.STRING_LIMIT},
-                {UProperty.OTHER_PROPERTY_START, UProperty.OTHER_PROPERTY_LIMIT},
+            { UProperty.BINARY_START, UProperty.BINARY_LIMIT },
+            { UProperty.INT_START, UProperty.INT_LIMIT },
+            { UProperty.DOUBLE_START, UProperty.DOUBLE_LIMIT },
+            { UProperty.STRING_START, UProperty.STRING_LIMIT },
+            { UProperty.OTHER_PROPERTY_START, UProperty.OTHER_PROPERTY_LIMIT },
 
         };
         for (int i = 0; i < ranges.length; ++i) {

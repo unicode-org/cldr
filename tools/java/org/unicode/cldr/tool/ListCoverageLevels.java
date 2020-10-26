@@ -60,15 +60,15 @@ public class ListCoverageLevels {
         }
 
         M4<Level, String, Attributes, Boolean> data = ChainedMap.of(
-            new TreeMap<Level,Object>(),
-            new TreeMap<String,Object>(),
-            new TreeMap<Attributes,Object>(),
+            new TreeMap<Level, Object>(),
+            new TreeMap<String, Object>(),
+            new TreeMap<Attributes, Object>(),
             Boolean.class);
-         M5<String, Level, CLDRLocale, List<String>, Boolean> starredToLevels = ChainedMap.of(
-            new TreeMap<String,Object>(),
-            new TreeMap<Level,Object>(),
-            new TreeMap<CLDRLocale,Object>(),
-            new HashMap<List<String>,Object>(),
+        M5<String, Level, CLDRLocale, List<String>, Boolean> starredToLevels = ChainedMap.of(
+            new TreeMap<String, Object>(),
+            new TreeMap<Level, Object>(),
+            new TreeMap<CLDRLocale, Object>(),
+            new HashMap<List<String>, Object>(),
             Boolean.class);
 
         // We don't care which items are present in the locale, just what the coverage level is.
@@ -157,19 +157,19 @@ public class ListCoverageLevels {
     }
 
     private static String getLocaleName(Set<CLDRLocale> all, Set<CLDRLocale> locales) {
-        Function<Set<CLDRLocale>,String> remainderName = x -> {
+        Function<Set<CLDRLocale>, String> remainderName = x -> {
             Set<CLDRLocale> y = new LinkedHashSet<>(all);
             y.removeAll(x);
             return "AllLcs-(" + Joiner.on("|").join(y) + ")";
         };
         return all == null ? Joiner.on("|").join(locales)
             : locales.equals(all) ? "AllLcs"
-                : locales.size()*2 > all.size() ? remainderName.apply(locales)
+                : locales.size() * 2 > all.size() ? remainderName.apply(locales)
                     : Joiner.on("|").join(locales);
     }
 
-    static class Attributes implements Comparable<Attributes>{
-        private static final Comparator<Iterable<String>> COLLECTION_COMPARATOR = Comparators.lexicographical(Comparator.<String>naturalOrder());
+    static class Attributes implements Comparable<Attributes> {
+        private static final Comparator<Iterable<String>> COLLECTION_COMPARATOR = Comparators.lexicographical(Comparator.<String> naturalOrder());
         private final CLDRLocale cLoc;
         private final List<String> attributes;
 
@@ -206,11 +206,10 @@ public class ListCoverageLevels {
             return result;
         }
 
-
         public static Multimap<String, List<String>> getLocaleNameToAttributeList(Set<CLDRLocale> all, Set<Attributes> attributeSet) {
-            Multimap<String,List<String>> localeNameToAttributeList = TreeMultimap.create(Comparator.naturalOrder(), COLLECTION_COMPARATOR);
+            Multimap<String, List<String>> localeNameToAttributeList = TreeMultimap.create(Comparator.naturalOrder(), COLLECTION_COMPARATOR);
             {
-                Multimap<List<String>,CLDRLocale> attributesToLocales = TreeMultimap.create(COLLECTION_COMPARATOR, Comparator.naturalOrder());
+                Multimap<List<String>, CLDRLocale> attributesToLocales = TreeMultimap.create(COLLECTION_COMPARATOR, Comparator.naturalOrder());
                 int count = 0;
                 for (Attributes attributes : attributeSet) {
                     count = attributes.attributes.size();
@@ -252,7 +251,7 @@ public class ListCoverageLevels {
             if (!source.iterator().hasNext()) {
                 return Collections.emptyMap();
             }
-            Map<T,Map> items = new LinkedHashMap<>();
+            Map<T, Map> items = new LinkedHashMap<>();
             for (Iterable<T> list : source) {
                 Map<T, Map> top = items;
                 for (T item : list) {
@@ -273,10 +272,12 @@ public class ListCoverageLevels {
                 .compare(attributes, o.attributes, COLLECTION_COMPARATOR)
                 .result();
         }
+
         @Override
         public String toString() {
-            return attributes.isEmpty() ? cLoc.toString() : cLoc + "|" + Joiner.on("|")
-                .join(attributes);
+            return attributes.isEmpty() ? cLoc.toString()
+                : cLoc + "|" + Joiner.on("|")
+                    .join(attributes);
         }
     }
 }

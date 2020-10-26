@@ -30,8 +30,8 @@ public class TestUnContainment extends TestFmwkPlus {
         .get("territory");
 
     private static final Set<String> NOT_CLDR_TERRITORY_CODES = ImmutableSet.of("830"); // Channel Islands
-    private static final Set<String> KNOWN_CONTAINMENT_EXCEPTIONS = ImmutableSet.of("AQ","680"); // Antarctica, Sark
-    
+    private static final Set<String> KNOWN_CONTAINMENT_EXCEPTIONS = ImmutableSet.of("AQ", "680"); // Antarctica, Sark
+
     final Multimap<String, String> UnChildToParent;
     {
         Multimap<String, String> _UnChildToParent = TreeMultimap.create();
@@ -47,7 +47,7 @@ public class TestUnContainment extends TestFmwkPlus {
                     String region = items.get(i);
                     if (!region.isEmpty()) {
                         region = unToCldrCode(region);
-                        if (parent != null && region != null){
+                        if (parent != null && region != null) {
                             _UnChildToParent.put(region, parent);
                         }
                         if (region != null) {
@@ -86,11 +86,11 @@ public class TestUnContainment extends TestFmwkPlus {
     }
 
     private String unToCldrCode(String code) {
-        
+
         if (NOT_CLDR_TERRITORY_CODES.contains(code)) {
             return null;
         }
-        
+
         R2<List<String>, String> codeInfo = regionToInfo.get(code);
         if (codeInfo != null) {
             if (codeInfo.get0() != null && !codeInfo.get0().isEmpty()) {
@@ -101,7 +101,7 @@ public class TestUnContainment extends TestFmwkPlus {
     }
 
     public void TestContainment() {
-        
+
         /*
         CLDR
         <group type="001" contains="019 002 150 142 009"/> <!--World -->

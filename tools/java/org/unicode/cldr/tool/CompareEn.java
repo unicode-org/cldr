@@ -77,7 +77,7 @@ public class CompareEn {
                 if (path.startsWith("//ldml/identity")) {
                     continue;
                 }
-             // skip certain paths
+                // skip certain paths
                 if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")) {
                     if (VERBOSE) {
                         System.out.println("Skipping\t" + path);
@@ -154,9 +154,9 @@ public class CompareEn {
                     }
                     out.println(
                         "\t" + valueR
-                        + "\t" + en_001.getStringValue(path)
-                        + "\t" + en_GB.getStringValue(path)
-                        + "\t" + path);
+                            + "\t" + en_001.getStringValue(path)
+                            + "\t" + en_GB.getStringValue(path)
+                            + "\t" + path);
                 }
             }
         }

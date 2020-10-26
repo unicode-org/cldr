@@ -97,11 +97,10 @@ public class ChartAnnotations extends Chart {
             "🇦🇨",
             "⛹️‍♀️",
             "👨‍⚕️",
-            "🏳️‍🌈","🏴‍☠️",
+            "🏳️‍🌈", "🏴‍☠️",
             "👨‍🦰",
             "👨🏿‍🦰",
-            "🏿","🦰"
-            ))
+            "🏿", "🦰"))
         .freeze();
 
     public void writeSubcharts(Anchors anchors) throws IOException {

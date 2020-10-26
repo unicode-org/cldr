@@ -25,7 +25,8 @@ final class InMemoryData implements CldrData {
             checkArgument(pathPrefixes.add(p),
                 "distinguishing paths must not be prefixes of other paths: %s", p);
             // Add the rest of the path prefixes for this path (until we hit existing values).
-            for (p = p.getParent(); p != null && pathPrefixes.add(p); p = p.getParent()) {}
+            for (p = p.getParent(); p != null && pathPrefixes.add(p); p = p.getParent()) {
+            }
         }
     }
 

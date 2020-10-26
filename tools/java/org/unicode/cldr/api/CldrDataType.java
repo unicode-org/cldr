@@ -47,8 +47,7 @@ public enum CldrDataType {
      */
     LDML(DtdType.ldml, DtdType.ldmlICU);
 
-    private static final ImmutableMap<String, CldrDataType> NAME_MAP =
-        Arrays.stream(values()).collect(toImmutableMap(t -> t.mainType.name(), identity()));
+    private static final ImmutableMap<String, CldrDataType> NAME_MAP = Arrays.stream(values()).collect(toImmutableMap(t -> t.mainType.name(), identity()));
 
     /**
      * Returns a CLDR data type given its XML name (the root element name in a CLDR path).
@@ -79,14 +78,12 @@ public enum CldrDataType {
         // Note that the function passed in to the wrapped comparators needs to be fast, since it's
         // called for each comparison. We assume getElementFromName() and getAttributesFromName()
         // are efficient, and if not we'll need to cache.
-        this.elementComparator =
-            wrapToHandleUnknownNames(
-                dtd.getElementComparator(),
-                dtd.getElementFromName()::containsKey);
-        this.attributeComparator =
-            wrapToHandleUnknownNames(
-                dtd.getAttributeComparator(),
-                dtd.getAttributesFromName()::containsKey);
+        this.elementComparator = wrapToHandleUnknownNames(
+            dtd.getElementComparator(),
+            dtd.getElementFromName()::containsKey);
+        this.attributeComparator = wrapToHandleUnknownNames(
+            dtd.getAttributeComparator(),
+            dtd.getAttributesFromName()::containsKey);
     }
 
     String getLdmlName() {
@@ -104,8 +101,7 @@ public enum CldrDataType {
     Stream<Element> getElements() {
         Stream<Element> elements = elementsFrom(mainType);
         if (!extraTypes.isEmpty()) {
-            elements =
-                Stream.concat(elements, extraTypes.stream().flatMap(CldrDataType::elementsFrom));
+            elements = Stream.concat(elements, extraTypes.stream().flatMap(CldrDataType::elementsFrom));
         }
         return elements;
     }

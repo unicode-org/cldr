@@ -36,8 +36,9 @@ public class StandardCodesTest extends TestFmwk {
                 continue;
             }
             for (String locale : sc.getLocaleCoverageLocales(org)) {
-                String name = locale.equals("*") ? "ALL" : testInfo
-                    .getEnglish().getName(locale);
+                String name = locale.equals("*") ? "ALL"
+                    : testInfo
+                        .getEnglish().getName(locale);
                 logln(org + "\t;\t" + locale + "\t;\t"
                     + sc.getLocaleCoverageLevel(org.toString(), locale)
                     + "\t;\t" + name);

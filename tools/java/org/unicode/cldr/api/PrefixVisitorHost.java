@@ -74,7 +74,7 @@ final class PrefixVisitorHost {
      * instances are kept in a stack; they are added when a new visitor is installed to begin a
      * sub hierarchy visitation and removed automatically once the visitation is complete.
      */
-    @SuppressWarnings("unused")  // For unused arguments in no-op default methods.
+    @SuppressWarnings("unused") // For unused arguments in no-op default methods.
     private static abstract class VisitorState implements PrefixVisitor {
         /** Creates a visitor state from the given visitor for the specified leaf value. */
         static <T extends ValueVisitor> VisitorState of(
@@ -144,7 +144,8 @@ final class PrefixVisitorHost {
     };
 
     private PrefixVisitorHost(PrefixVisitor visitor) {
-        this.visitorStack.push(VisitorState.of(visitor, v -> {}, null));
+        this.visitorStack.push(VisitorState.of(visitor, v -> {
+        }, null));
     }
 
     // Called after visitation is complete to close out the last visited value path.
@@ -168,9 +169,7 @@ final class PrefixVisitorHost {
     // Go up from the previous path to the common length (we _have_ already visited the leaf
     // node of the previous path and we do not allow the new path to be a sub-path) ...
     private void handleLastPath(int length) {
-        for (CldrPath prefix = lastValuePath.getParent();
-             prefix != null && prefix.getLength() > length;
-             prefix = prefix.getParent()) {
+        for (CldrPath prefix = lastValuePath.getParent(); prefix != null && prefix.getLength() > length; prefix = prefix.getParent()) {
             // Get the current visitor here (it could have been modified by the last iteration).
             //
             // Note: e.prefix can be null for the top-most entry in the stack, but that's fine

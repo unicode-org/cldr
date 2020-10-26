@@ -45,7 +45,7 @@ public class RemoveEmptyCLDR {
                         continue;
                     }
                     String name = f.getName();
-                    name = name.substring(0,name.length()-4); // remove .xml
+                    name = name.substring(0, name.length() - 4); // remove .xml
                     XMLFileReader.loadPathValues(normalizedPath, data, false);
                     for (Pair<String, String> item : data) {
                         if (item.getFirst().contains("/identity")) {

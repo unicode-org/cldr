@@ -24,13 +24,16 @@ public class XMLModify {
         sourceDirectory(new Params()
             .setHelp("sourceDirectory")
             .setDefault(CLDRPaths.COMMON_DIRECTORY)
-            .setMatch(".+")), targetDirectory(new Params()
-                .setHelp("targetDirectory")
-                .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
-                .setMatch(".+")), fileRegex(new Params().setHelp("filename regex")
-                    .setMatch(".*")
-                    .setDefault(".*")), pathRegex(new Params().setHelp("path regex")
-                        .setMatch(".*")),
+            .setMatch(".+")),
+        targetDirectory(new Params()
+            .setHelp("targetDirectory")
+            .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
+            .setMatch(".+")),
+        fileRegex(new Params().setHelp("filename regex")
+            .setMatch(".*")
+            .setDefault(".*")),
+        pathRegex(new Params().setHelp("path regex")
+            .setMatch(".*")),
 //        PathReplacement(new Params().setHelp("path replacement")
 //            .setMatch(".*")),
 //        valueRegex(new Params().setHelp("path regex")

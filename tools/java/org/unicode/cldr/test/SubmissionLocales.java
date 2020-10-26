@@ -12,26 +12,26 @@ import com.google.common.collect.ImmutableSet;
 
 public final class SubmissionLocales {
     public static Set<String> NEW_CLDR_LOCALES = ImmutableSet.of(
-        "ceb",  // Cebuano (not new in release, but needs major changes)
-        "mai",  // Maithili
-        "mni",  // Manipuri (Bengali script)-Apple as well
-        "sat",  // Santali -(Apple use Olck script)
-        "kok",  // Konkani -(Note: this is already covered by a MS vetter at Modern level)
-        "sd_Deva",   // Sindhi (Devanagari)
-        "su",   // Sundanese (script TBD)
-        "pcm"  // Nigerian Pidgin
+        "ceb", // Cebuano (not new in release, but needs major changes)
+        "mai", // Maithili
+        "mni", // Manipuri (Bengali script)-Apple as well
+        "sat", // Santali -(Apple use Olck script)
+        "kok", // Konkani -(Note: this is already covered by a MS vetter at Modern level)
+        "sd_Deva", // Sindhi (Devanagari)
+        "su", // Sundanese (script TBD)
+        "pcm" // Nigerian Pidgin
 //        "cad",  // Caddo
 //        "gn"    // Guarani
-        );
+    );
 
     public static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of(
-        "chr",  // Cherokee
-        "gd",   // Scottish Gaelic, Gaelic
-        "fo"    // Faroese
-        );
+        "chr", // Cherokee
+        "gd", // Scottish Gaelic, Gaelic
+        "fo" // Faroese
+    );
 
     // have to have a lazy eval because otherwise CLDRConfig is called too early in the boot process
-    public static Set<String> CLDR_LOCALES = ImmutableSet.<String>builder()
+    public static Set<String> CLDR_LOCALES = ImmutableSet.<String> builder()
         .addAll(HIGH_LEVEL_LOCALES)
         .addAll(NEW_CLDR_LOCALES)
         .addAll(StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet()).build();
@@ -44,9 +44,7 @@ public final class SubmissionLocales {
 //                }
 //            }
 
-    public static final Pattern ALLOWED_IN_LIMITED_PATHS =
-    Pattern.compile("//ldml/annotations/annotation.*[🤵👰⬆➡⬇⬅♾✖➕➖➗]");
-
+    public static final Pattern ALLOWED_IN_LIMITED_PATHS = Pattern.compile("//ldml/annotations/annotation.*[🤵👰⬆➡⬇⬅♾✖➕➖➗]");
 
     /* Example of special paths
      * Pattern.compile(
@@ -71,7 +69,6 @@ public final class SubmissionLocales {
 //ldml/dates/timeZoneNames/zone[@type="Asia/Macau"]/exemplarCity, old: Macau, new: Macao
 //ldml/dates/timeZoneNames/metazone[@type="Macau"]/long/generic, old: Macau Time, new: Macao Time
 //ldml/localeDisplayNames/territories/territory[@type="SZ"], old: Swaziland, new: Eswatini
-
 
     /**
      * Only call this if LIMITED_SUBMISSION

@@ -56,6 +56,7 @@ public class NameSort extends SortMode {
     private static final class ComparatorHelper {
         static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
             final Collator myCollator = CodeSortMode.internalGetCollator();
+
             // com.ibm.icu.text.Collator myCollator = rbc;
             @Override
             public int compare(DataRow p1, DataRow p2) {

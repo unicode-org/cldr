@@ -51,7 +51,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
             type).getElement2Children();
         // Relation<String, String> toParents =
         // ElementAttributeInfo.getElement2Parents(type);
-        Set<String> containsOrdered = new LinkedHashSet<String>();
+        Set<String> containsOrdered = new LinkedHashSet<>();
         for (String element : toChildren.keySet()) {
             int ordered = 0;
             Set<String> containedElements = toChildren.getAll(element);
@@ -161,18 +161,18 @@ public class TestDTDAttributes extends TestFmwkPlus {
             }
         }
 
-        Set<String> nondistinguishing = new TreeSet<String>(
+        Set<String> nondistinguishing = new TreeSet<>(
             nondistinguishingAttributeToElements.keySet());
         nondistinguishing.removeAll(distinguishingAttributeToElements.keySet());
         logln("// " + dtdType + "\tnondistinguishing: " + nondistinguishing);
 
-        Set<String> distinguishing = new TreeSet<String>(
+        Set<String> distinguishing = new TreeSet<>(
             distinguishingAttributeToElements.keySet());
         nondistinguishing.removeAll(nondistinguishingAttributeToElements
             .keySet());
         logln("// " + dtdType + "\tdistinguishing: " + distinguishing);
 
-        Set<String> both = new TreeSet<String>(
+        Set<String> both = new TreeSet<>(
             distinguishingAttributeToElements.keySet());
         both.retainAll(nondistinguishingAttributeToElements.keySet());
         logln("// " + dtdType + "\tboth: " + both);
@@ -203,7 +203,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
             .getInstance(dtdType2).getElementAttribute2Data();
         Set<R2<String, String>> commonKeys = getCommon(mainData.keySet(),
             suppData.keySet(), new TreeSet<R2<String, String>>());
-        Set<R2<String, String>> same = new TreeSet<R2<String, String>>();
+        Set<R2<String, String>> same = new TreeSet<>();
         for (R2<String, String> key : commonKeys) {
             R3<Set<String>, String, String> mainValue = mainData.get(key);
             R3<Set<String>, String, String> suppValue = suppData.get(key);
@@ -253,7 +253,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
             dtdType2).getElement2Children();
         Set<String> commonKeys = getCommon(mainData.keySet(),
             suppData.keySet(), new TreeSet<String>());
-        Set<String> same = new TreeSet<String>();
+        Set<String> same = new TreeSet<>();
         for (String key : commonKeys) {
             Set<String> mainValues = mainData.getAll(key);
             Set<String> suppValues = suppData.getAll(key);
@@ -288,7 +288,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
         // }
     }
 
-    static final Set<String> COLLATION_SINGLETONS = new HashSet<String>(
+    static final Set<String> COLLATION_SINGLETONS = new HashSet<>(
         Arrays.asList(new String[] { "first_non_ignorable",
             "first_primary_ignorable", "first_secondary_ignorable",
             "first_tertiary_ignorable", "first_trailing",
@@ -381,7 +381,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
         Set<String> possibleElements = dtdElementToAttributes.keySet();
         Set<String> foundElements = elementToAttributes.keySet();
         if (!foundElements.equals(possibleElements)) {
-            Set<String> missing = new TreeSet<String>(possibleElements);
+            Set<String> missing = new TreeSet<>(possibleElements);
             missing.removeAll(foundElements);
             errln(type + "\t" + "Elements defined but not in data:\t" + missing);
         }
@@ -402,7 +402,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
                     + actualAttributes + ", " + attributesAlwaysFound);
             }
 
-            Set<String> notFound = new TreeSet<String>(dtdAttributes);
+            Set<String> notFound = new TreeSet<>(dtdAttributes);
             notFound.removeAll(actualAttributes);
             notFound.remove("draft");
             notFound.remove("references");
@@ -485,7 +485,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
         if (actualAttributes == null) {
             actualAttributes = Collections.emptySet();
         } else if (actualAttributes.contains("_q")) {
-            actualAttributes = new LinkedHashSet<String>(actualAttributes);
+            actualAttributes = new LinkedHashSet<>(actualAttributes);
             actualAttributes.remove("_q");
         }
         return actualAttributes;
@@ -494,9 +494,9 @@ public class TestDTDAttributes extends TestFmwkPlus {
     static class CurrentData {
         static class NodeData {
             final DtdType myType;
-            Map<String, R2<String, String>> branchNodes = new TreeMap<String, R2<String, String>>();
-            Map<String, R3<String, String, String>> valueNodes = new TreeMap<String, R3<String, String, String>>();
-            Map<String, R2<String, String>> valuelessNodes = new TreeMap<String, R2<String, String>>();
+            Map<String, R2<String, String>> branchNodes = new TreeMap<>();
+            Map<String, R3<String, String, String>> valueNodes = new TreeMap<>();
+            Map<String, R2<String, String>> valuelessNodes = new TreeMap<>();
             Relation<String, String> elementToAttributes = Relation
                 .<String, String> of(new TreeMap<String, Set<String>>(),
                     TreeSet.class);
@@ -509,7 +509,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
             }
         }
 
-        static Map<DtdType, NodeData> fullNodeData = new HashMap<DtdType, NodeData>();
+        static Map<DtdType, NodeData> fullNodeData = new HashMap<>();
         static {
             for (String locale : testInfo.getCldrFactory().getAvailable()) {
                 CLDRFile file = testInfo.getCLDRFile(locale, false);
@@ -542,7 +542,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
                                 element, attributes);
                         } else {
                             // need retainAll, removeAll
-                            for (String old : new TreeSet<String>(oldAlways)) {
+                            for (String old : new TreeSet<>(oldAlways)) {
                                 if (!attributes.contains(old)) {
                                     nodeData.elementToAttributesAlwaysFound
                                         .remove(element, old);
@@ -667,8 +667,9 @@ public class TestDTDAttributes extends TestFmwkPlus {
     private String formatForAttribute(Set<String> type, String mode,
         String value) {
         String first = type.iterator().next();
-        String typeName = attributeTypes.contains(first) ? first : type
-            .toString();
+        String typeName = attributeTypes.contains(first) ? first
+            : type
+                .toString();
         if (mode == null) {
             if (value == null) {
                 throw new IllegalArgumentException(type + ", " + mode + ", "
@@ -691,10 +692,10 @@ public class TestDTDAttributes extends TestFmwkPlus {
         throw new IllegalArgumentException(type + ", " + mode + ", " + value);
     }
 
-    static Set<String> attributeTypes = new HashSet<String>(
+    static Set<String> attributeTypes = new HashSet<>(
         Arrays.asList(new String[] { "CDATA", "ID", "IDREF", "IDREFS",
             "ENTITY", "ENTITIES", "NMTOKEN", "NMTOKENS" }));
 
-    static Set<String> attributeMode = new HashSet<String>(
+    static Set<String> attributeMode = new HashSet<>(
         Arrays.asList(new String[] { "#REQUIRED", "#IMPLIED", "#FIXED" }));
 }

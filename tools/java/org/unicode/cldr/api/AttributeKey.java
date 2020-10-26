@@ -47,23 +47,21 @@ import com.google.common.collect.ImmutableTable;
 public final class AttributeKey {
     // Unsorted cache of all possible known attribute keys (not including keys for elements in
     // external namespaces (e.g. "icu:").
-    private static final ImmutableTable<String, String, AttributeKey> KNOWN_KEYS =
-        Arrays.stream(CldrDataType.values())
-            .flatMap(CldrDataType::getElements)
-            .flatMap(e -> e.getAttributes().keySet().stream()
-                .filter(AttributeKey::isKnownAttribute)
-                .map(a -> new AttributeKey(e.getName(), a.getName())))
-            .distinct()
-            .collect(toImmutableTable(
-                AttributeKey::getElementName, AttributeKey::getAttributeName, identity()));
+    private static final ImmutableTable<String, String, AttributeKey> KNOWN_KEYS = Arrays.stream(CldrDataType.values())
+        .flatMap(CldrDataType::getElements)
+        .flatMap(e -> e.getAttributes().keySet().stream()
+            .filter(AttributeKey::isKnownAttribute)
+            .map(a -> new AttributeKey(e.getName(), a.getName())))
+        .distinct()
+        .collect(toImmutableTable(
+            AttributeKey::getElementName, AttributeKey::getAttributeName, identity()));
 
     private static boolean isKnownAttribute(Attribute attr) {
         return !attr.isDeprecated() &&
             (attr.attributeStatus == distinguished || attr.attributeStatus == value);
     }
 
-    private static final Splitter LIST_SPLITTER =
-        Splitter.on(CharMatcher.whitespace()).omitEmptyStrings();
+    private static final Splitter LIST_SPLITTER = Splitter.on(CharMatcher.whitespace()).omitEmptyStrings();
 
     /**
      * Common interface to permit both {@link CldrPath} and {@link CldrValue} to have attributes

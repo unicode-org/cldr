@@ -20,7 +20,7 @@ import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 
-public class TestCompactNumbers  extends TestFmwkPlus {
+public class TestCompactNumbers extends TestFmwkPlus {
     static final boolean DEBUG = false;
     private static StandardCodes sc = StandardCodes.make();
     private static final CLDRConfig CLDRCONFIG = CLDRConfig.getInstance();
@@ -84,8 +84,7 @@ public class TestCompactNumbers  extends TestFmwkPlus {
                 + "\tnf:\t" + formattedNumber
                 + "\tcnf:\t" + compactFormattedNumber
                 + "\tclnf:\t" + compactLongFormattedNumber
-                + "\tccnf:\t" + compactCurrFormattedNumber
-                );
+                + "\tccnf:\t" + compactCurrFormattedNumber);
         }
     }
 }

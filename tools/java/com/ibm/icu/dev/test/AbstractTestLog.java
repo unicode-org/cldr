@@ -121,11 +121,12 @@ public abstract class AbstractTestLog implements TestLog {
             }
         }
     }
-    public boolean isDateAtLeast(int year, int month, int day){
+
+    public boolean isDateAtLeast(int year, int month, int day) {
         Date now = new Date();
         Calendar c = new GregorianCalendar(year, month, day);
         Date dt = c.getTime();
-        if(now.compareTo(dt)>=0){
+        if (now.compareTo(dt) >= 0) {
             return true;
         }
         return false;

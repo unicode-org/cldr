@@ -111,8 +111,8 @@ public class TestTransforms extends TestFmwkPlus {
             CLDRFile uzLatn = factory.make("uz_Latn", false);
             CLDRFile uzCyrl = factory.make("uz", false);
 
-            Set<String> latinFromCyrillicSucceeds = new TreeSet<String>();
-            Set<String> latinFromCyrillicFails = new TreeSet<String>();
+            Set<String> latinFromCyrillicSucceeds = new TreeSet<>();
+            Set<String> latinFromCyrillicFails = new TreeSet<>();
             for (String path : uzCyrl) {
                 String latnValue = uzLatn.getStringValue(path);
                 if (latnValue == null) {
@@ -185,7 +185,7 @@ public class TestTransforms extends TestFmwkPlus {
 
     enum Options {
         transliterator, roundtrip
-    };
+    }
 
     private String makeLegacyTransformID(String source, String target, String variant) {
         if (variant != null) {
@@ -251,7 +251,7 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     private Map<String, File> getTransformIDs(String transformsDirectoryPath) {
-        Map<String, File> ids = new HashMap<String, File>();
+        Map<String, File> ids = new HashMap<>();
         File dir = new File(transformsDirectoryPath);
         if (!dir.exists()) {
             errln("Cannot find transforms directory at " + transformsDirectoryPath);
@@ -287,7 +287,7 @@ public class TestTransforms extends TestFmwkPlus {
             return;
         }
 
-        Set<String> removedTransforms = new HashSet<String>();
+        Set<String> removedTransforms = new HashSet<>();
         removedTransforms.add("ASCII-Latin"); // http://unicode.org/cldr/trac/ticket/9163
 
         Map<String, File> oldTransforms = getTransformIDs(CLDRPaths.LAST_TRANSFORMS_DIRECTORY);
@@ -307,7 +307,7 @@ public class TestTransforms extends TestFmwkPlus {
         String[][] tests = {
             { "transliterator=", "Katakana-Latin" },
             { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F",
-            "ha hā ba pa" },
+                "ha hā ba pa" },
             { "transliterator=", "Hangul-Latin" },
             { "roundtrip=", "true" }, { "갗", "gach" }, { "느", "neu" }, };
 
@@ -322,15 +322,15 @@ public class TestTransforms extends TestFmwkPlus {
                 switch (Options.valueOf(source
                     .substring(0, source.length() - 1).toLowerCase(
                         Locale.ENGLISH))) {
-                        case transliterator:
-                            id = target;
-                            transform = Transliterator.getInstance(id);
-                            inverse = Transliterator.getInstance(id,
-                                Transliterator.REVERSE);
-                            break;
-                        case roundtrip:
-                            roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
-                            break;
+                case transliterator:
+                    id = target;
+                    transform = Transliterator.getInstance(id);
+                    inverse = Transliterator.getInstance(id,
+                        Transliterator.REVERSE);
+                    break;
+                case roundtrip:
+                    roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
+                    break;
                 }
                 continue;
             }
@@ -413,7 +413,7 @@ public class TestTransforms extends TestFmwkPlus {
             File fileDirectory = new File(CLDRPaths.TEST_DATA + "transforms/");
             String fileDirectoryName = PathUtilities.getNormalizedPathString(fileDirectory);
             assertTrue(fileDirectoryName, fileDirectory.exists());
-            
+
             logln("Testing files in: " + fileDirectoryName);
 
             Set<String> foundTranslitsLower = new TreeSet();
@@ -487,7 +487,6 @@ public class TestTransforms extends TestFmwkPlus {
         }
         return target;
     }
-
 
     enum Casing {
         Upper, Title, Lower
@@ -638,51 +637,47 @@ public class TestTransforms extends TestFmwkPlus {
         assertEquals("Hira-Kata", hiraKata.transform("゛゜ わ゙ ゟ"), "゛゜ ヷ ヨリ");
     }
 
-  public void TestZawgyiToUnicode10899() {
-    // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
-    Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
+    public void TestZawgyiToUnicode10899() {
+        // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
+        Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
 
-    String z1 =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
-    String expected =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+        String z1 = "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String expected = "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
-    String actual = z2u.transform(z1);
+        String actual = z2u.transform(z1);
 
-    assertEquals("z1 to u1", expected, actual);
+        assertEquals("z1 to u1", expected, actual);
 
-    String z2 = "တကယ္ဆို အျငိႈးေတြမဲ႔ေသာလမ္းေသာလမ္းမွာ တိုႈျပန္ဆံုျကတဲ႔အခါ ";
-    expected = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
-    actual = z2u.transform(z2);
-    assertEquals("z2 to u2", expected, actual);
+        String z2 = "တကယ္ဆို အျငိႈးေတြမဲ႔ေသာလမ္းေသာလမ္းမွာ တိုႈျပန္ဆံုျကတဲ႔အခါ ";
+        expected = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+        actual = z2u.transform(z2);
+        assertEquals("z2 to u2", expected, actual);
 
-    String z3 = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
-    expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
-    actual = z2u.transform(z3);
-    assertEquals("z3 to u3", expected, actual);
-  }
+        String z3 = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
+        expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+        actual = z2u.transform(z3);
+        assertEquals("z3 to u3", expected, actual);
+    }
 
-  public void TestUnicodeToZawgyi111107() {
-    // Some tests for the transformation from Unicode to Zawgyi font encoding
-    Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
+    public void TestUnicodeToZawgyi111107() {
+        // Some tests for the transformation from Unicode to Zawgyi font encoding
+        Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
 
-    String expected =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
-    String u1 =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+        String expected = "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String u1 = "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
-    String actual = u2z.transform(u1);
+        String actual = u2z.transform(u1);
 
-    assertEquals("u1 to z1", expected, actual);
+        assertEquals("u1 to z1", expected, actual);
 
-    expected = "တကယ္ဆို အႃငွိုးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
-    String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
-    actual = u2z.transform(u2);
-    assertEquals("u2 to z2", expected, actual);
+        expected = "တကယ္ဆို အႃငွိုးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
+        String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+        actual = u2z.transform(u2);
+        assertEquals("u2 to z2", expected, actual);
 
-    expected = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
-    String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
-    actual = u2z.transform(u3);
-    assertEquals("u3 to z3", expected, actual);
-  }
+        expected = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
+        String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+        actual = u2z.transform(u3);
+        assertEquals("u3 to z3", expected, actual);
+    }
 }

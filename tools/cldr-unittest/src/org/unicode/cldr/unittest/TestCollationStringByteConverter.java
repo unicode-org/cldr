@@ -129,8 +129,8 @@ public class TestCollationStringByteConverter {
     private static void checkBasic() {
         System.out.println(ULocale.getDisplayName("en_GB", "en"));
 
-        DictionaryBuilder<CharSequence> builder = new StateDictionaryBuilder<CharSequence>();
-        Map<CharSequence, CharSequence> map = new TreeMap<CharSequence, CharSequence>(
+        DictionaryBuilder<CharSequence> builder = new StateDictionaryBuilder<>();
+        Map<CharSequence, CharSequence> map = new TreeMap<>(
             Dictionary.CHAR_SEQUENCE_COMPARATOR);
         map.put("a", "ABC");
         map.put("bc", "B"); // ß
@@ -138,7 +138,7 @@ public class TestCollationStringByteConverter {
         String[] tests = { "a/bc", "bc", "a", "d", "", "abca" };
         for (String test : tests) {
             System.out.println("TRYING: " + test);
-            DictionaryCharList<CharSequence> gcs = new DictionaryCharList<CharSequence>(
+            DictionaryCharList<CharSequence> gcs = new DictionaryCharList<>(
                 dict, test);
             for (int i = 0; gcs.hasCharAt(i); ++i) {
                 char c = gcs.charAt(i);
@@ -195,7 +195,7 @@ public class TestCollationStringByteConverter {
             System.out.println(parser.debugShow2());
         }
 
-        LinkedHashSet<DateFormat> tests = new LinkedHashSet<DateFormat>();
+        LinkedHashSet<DateFormat> tests = new LinkedHashSet<>();
         // Arrays.asList(new String[] {"jan 12 1963 1942 au", "1:2:3",
         // "1:3 jan"})
         Calendar testDate = Calendar.getInstance();
@@ -326,8 +326,9 @@ public class TestCollationStringByteConverter {
             + test.substring(0, parsePosition.getIndex())
             + "|"
             + test.substring(parsePosition.getIndex())
-            + (parsePosition.getErrorIndex() == -1 ? "" : "/"
-                + parsePosition.getErrorIndex())
+            + (parsePosition.getErrorIndex() == -1 ? ""
+                : "/"
+                    + parsePosition.getErrorIndex())
             + "}";
     }
 
@@ -357,7 +358,7 @@ public class TestCollationStringByteConverter {
         for (String test : tests) {
             String result = matcher
                 .setText(
-                    new DictionaryCharList<String>(converter
+                    new DictionaryCharList<>(converter
                         .getDictionary(), test))
                 .convert(new StringBuffer()).toString();
             System.out.println(test + "\t=>\t" + result);
@@ -371,27 +372,27 @@ public class TestCollationStringByteConverter {
             System.out.println();
         }
 
-        DictionaryBuilder<String> builder = new StateDictionaryBuilder<String>(); // .setByteConverter(converter);
-        Map<CharSequence, String> map = new TreeMap<CharSequence, String>(
+        DictionaryBuilder<String> builder = new StateDictionaryBuilder<>(); // .setByteConverter(converter);
+        Map<CharSequence, String> map = new TreeMap<>(
             Dictionary.CHAR_SEQUENCE_COMPARATOR);
         map.put("ab", "found-ab");
         map.put("abc", "found-ab");
         map.put("ss", "found-ss"); // ß
         Dictionary<String> dict = builder.make(map);
         final String string = "Abcde and ab c Upon aß AB basS Time\u00E0bA\u0300b";
-        DictionaryCharList<String> x = new DictionaryCharList<String>(
+        DictionaryCharList<String> x = new DictionaryCharList<>(
             converter.getDictionary(), string);
         x.hasCharAt(Integer.MAX_VALUE); // force growth
         System.out.println("Internal: "
             + x.sourceSubSequence(0, x.getKnownLength()));
 
         TestStateDictionaryBuilder.tryFind(string,
-            new DictionaryCharList<String>(converter.getDictionary(),
+            new DictionaryCharList<>(converter.getDictionary(),
                 string),
             dict, Filter.ALL);
 
         TestStateDictionaryBuilder.tryFind(string,
-            new DictionaryCharList<String>(converter.getDictionary(),
+            new DictionaryCharList<>(converter.getDictionary(),
                 string),
             dict, Filter.LONGEST_MATCH);
 

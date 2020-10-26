@@ -43,7 +43,8 @@ public class ScriptMetadata {
         // must match the spreadsheet header (caseless compare) or have the alternate header as an argument.
         // doesn't have to be in order
         WR, AGE, SAMPLE_CODE, ID_USAGE("ID Usage (UAX31)"), RTL("RTL?"), LB_LETTERS("LB letters?"), SHAPING_REQ("Shaping Req?"), IME("IME?"), ORIGIN_COUNTRY(
-            "Origin Country"), DENSITY("~Density"), LANG_CODE, HAS_CASE("Has Case?");
+            "Origin Country"),
+        DENSITY("~Density"), LANG_CODE, HAS_CASE("Has Case?");
 
         int columnNumber = -1;
         final Set<String> names = new HashSet<>();

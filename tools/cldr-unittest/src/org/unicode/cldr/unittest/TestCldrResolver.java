@@ -80,7 +80,7 @@ public class TestCldrResolver extends TestFmwkPlus {
         protected Map<String, String> loadToolDataFromResolver(String locale) {
             // Resolve with the tool
             CLDRFile file = resolver.resolveLocale(locale);
-            Map<String, String> values = new HashMap<String, String>();
+            Map<String, String> values = new HashMap<>();
             for (String path : file) {
                 values.put(path, file.getStringValue(path));
             }
@@ -120,7 +120,7 @@ public class TestCldrResolver extends TestFmwkPlus {
             // Resolve with CLDR and check against CldrResolver output.
             for (String locale : locales) {
                 CLDRFile cldrResolved = testInfo.getCLDRFile(locale, true);
-                Set<String> cldrPaths = new HashSet<String>();
+                Set<String> cldrPaths = new HashSet<>();
                 Map<String, String> toolResolved = loadToolDataFromResolver(locale);
                 // Check to make sure no paths from the CLDR-resolved version
                 // that aren't
@@ -184,7 +184,7 @@ public class TestCldrResolver extends TestFmwkPlus {
                 return super.loadToolDataFromResolver(locale);
             } else {
                 Map<String, String> resolvedParent = loadToolDataFromResolver(parent);
-                Map<String, String> resolvedChild = new HashMap<String, String>(
+                Map<String, String> resolvedChild = new HashMap<>(
                     resolvedParent);
                 Map<String, String> unresolvedChild = super.loadToolDataFromResolver(locale);
                 for (String distinguishedPath : unresolvedChild.keySet()) {

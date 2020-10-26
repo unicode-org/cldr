@@ -134,7 +134,6 @@ public class GeneratedPluralSamples {
         }
     }
 
-
     private static void append(StringBuilder b, long startValue2, long visibleFractionDigitCount2) {
         int len = b.length();
         for (int i = 0; i < visibleFractionDigitCount2; ++i) {
@@ -318,8 +317,7 @@ public class GeneratedPluralSamples {
             return count == other.count
                 && samples.equals(other.samples)
                 && digitToSample.equals(other.digitToSample)
-                && exponentSamples.equals(other.exponentSamples)
-                ;
+                && exponentSamples.equals(other.exponentSamples);
         }
 
         @Override
@@ -502,12 +500,12 @@ public class GeneratedPluralSamples {
                     add(pluralRules, i, 0, 3);
                     add(pluralRules, i, 0, 6);
                     add(pluralRules, i, 0, 9);
-                    add(pluralRules, i+0.1, 1, 3);
-                    add(pluralRules, i+0.1, 1, 6);
-                    add(pluralRules, i+0.1, 1, 9);
-                    add(pluralRules, i+0.0001, 4, 3);
-                    add(pluralRules, i+0.0000001, 7, 6);
-                    add(pluralRules, i+0.0000000001, 10, 9);
+                    add(pluralRules, i + 0.1, 1, 3);
+                    add(pluralRules, i + 0.1, 1, 6);
+                    add(pluralRules, i + 0.1, 1, 9);
+                    add(pluralRules, i + 0.0001, 4, 3);
+                    add(pluralRules, i + 0.0000001, 7, 6);
+                    add(pluralRules, i + 0.0000000001, 10, 9);
                 }
                 int debug = 0;
             }
@@ -547,7 +545,8 @@ public class GeneratedPluralSamples {
     public void add(final PluralRules pluralRules, double n, int v, int e) {
         FixedDecimal ni = FixedDecimal.createWithExponent(n * Math.pow(10, e), v, e);
         String keyword = pluralRules.select(ni);
-        System.out.println("{" + n + ", " + v + ", " + e + "} " + ni + " => " + keyword + ", " + (ni.getVisibleDecimalDigitCount() == 0 ? "integer" : "decimal"));
+        System.out
+            .println("{" + n + ", " + v + ", " + e + "} " + ni + " => " + keyword + ", " + (ni.getVisibleDecimalDigitCount() == 0 ? "integer" : "decimal"));
         add(pluralRules, keyword, ni);
     }
 
@@ -628,7 +627,8 @@ public class GeneratedPluralSamples {
         System.out.println("Check: " + checkForDuplicates(pluralRules2, new FixedDecimal("8e1")));
 
         for (PluralType type : PluralType.values()) {
-            try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(MyOptions.output.option.getValue(), type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml")) {
+            try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(MyOptions.output.option.getValue(),
+                type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml")) {
                 out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
                 System.out.println("\n");
                 Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
@@ -649,7 +649,8 @@ public class GeneratedPluralSamples {
                 // sort if necessary
                 Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<>()
                     : new TreeSet<>(new HackComparator(type == PluralType.cardinal
-                    ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
+                        ? WritePluralRules.HACK_ORDER_PLURALS
+                        : WritePluralRules.HACK_ORDER_ORDINALS));
                 for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                     sorted.add(entry);
                 }
@@ -670,7 +671,7 @@ public class GeneratedPluralSamples {
                     if (fileFormat) {
                         if (!keywords.equals(oldKeywords)) {
                             out.println("\n        <!-- " + keywords.size() + ": " + Joiner.on(",")
-                            .join(keywords) + " -->\n");
+                                .join(keywords) + " -->\n");
                             oldKeywords = keywords;
                         }
                         out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
@@ -730,7 +731,7 @@ public class GeneratedPluralSamples {
                         String first = remainder.iterator().next();
                         remainder.remove(first);
                         System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + Joiner.on(", ")
-                        .join(remainder));
+                            .join(remainder));
                     }
                     System.out.println();
                 }

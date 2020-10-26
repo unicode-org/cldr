@@ -249,10 +249,10 @@ public abstract class CLDRURLS {
      * @return
      */
     public static String gitHashToLink(String hash) {
-        if(!isKnownHash(hash)) return "<span class=\"githashLink\">"+hash+"</span>"; // Not linkifiable
+        if (!isKnownHash(hash)) return "<span class=\"githashLink\">" + hash + "</span>"; // Not linkifiable
         return "<a class=\"githashLink\" href=\"" +
-                CldrUtility.getProperty("CLDR_COMMIT_BASE", "https://github.com/unicode-org/cldr/commit/")
-                + hash + "\">" + hash.substring(0, 8) + "</a>";
+            CldrUtility.getProperty("CLDR_COMMIT_BASE", "https://github.com/unicode-org/cldr/commit/")
+            + hash + "\">" + hash.substring(0, 8) + "</a>";
     }
 
     /**

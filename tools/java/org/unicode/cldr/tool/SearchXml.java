@@ -419,27 +419,27 @@ public class SearchXml {
                         String data = groups
                             ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
                             : value + "\t" + path;
-                            if (!unique) {
-                                String pathHeaderInfo = "";
-                                if (PATH_HEADER_FACTORY != null) {
-                                    PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
-                                    if (pathHeader != null) {
-                                        pathHeaderInfo = "\n\t" + pathHeader
-                                            + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
-                                    }
+                        if (!unique) {
+                            String pathHeaderInfo = "";
+                            if (PATH_HEADER_FACTORY != null) {
+                                PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
+                                if (pathHeader != null) {
+                                    pathHeaderInfo = "\n\t" + pathHeader
+                                        + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
                                 }
-                                // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
-                                if (!groups && pathHeaderInfo.isEmpty()) {
-                                    show(ConfigOption.add, filePath, file, null, null, path, Collections.singleton(value), null);
-                                } else {
-                                    System.out.println("#?" +
-                                        (recursive ? filePath + "\t" : "")
-                                        + file + "\t" + data
-                                        + pathHeaderInfo);
-                                }
-                            } else {
-                                uniqueData.add(data, 1);
                             }
+                            // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
+                            if (!groups && pathHeaderInfo.isEmpty()) {
+                                show(ConfigOption.add, filePath, file, null, null, path, Collections.singleton(value), null);
+                            } else {
+                                System.out.println("#?" +
+                                    (recursive ? filePath + "\t" : "")
+                                    + file + "\t" + data
+                                    + pathHeaderInfo);
+                            }
+                        } else {
+                            uniqueData.add(data, 1);
+                        }
                     }
                 }
             }
@@ -454,7 +454,9 @@ public class SearchXml {
         }
     }
 
-    enum ConfigOption {delete, add, addNew, replace}
+    enum ConfigOption {
+        delete, add, addNew, replace
+    }
 
     public static void show(ConfigOption configOption,
         String fileParent,
@@ -470,7 +472,6 @@ public class SearchXml {
 
         // locale=en ; action=add ; new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
         // locale=  af     ; action=add ; new_path=        //ldml/dates/fields/field[@type="second"]/relative[@type="0"]    ; new_value=    nou
-
 
         int extensionPos = localeOrFile.lastIndexOf('.');
         String fileWithoutSuffix = extensionPos >= 0 ? localeOrFile.substring(0, extensionPos) : localeOrFile;

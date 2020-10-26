@@ -114,10 +114,13 @@ public final class KeyboardId {
     /** The current set of platforms supported. */
     public enum Platform {
         ANDROID(4.4f, KeyboardSettings.of(FallbackSetting.NONE, TransformFailureSetting.NONE,
-            TransformPartialSetting.NONE)), CHROMEOS(33f, KeyboardSettings.of(FallbackSetting.BASE, TransformFailureSetting.OMIT,
-                TransformPartialSetting.HIDE)), OSX(10.9f, KeyboardSettings.of(FallbackSetting.BASE, TransformFailureSetting.EMIT,
-                    TransformPartialSetting.SHOW)), WINDOWS(10f, KeyboardSettings.of(FallbackSetting.OMIT, TransformFailureSetting.EMIT,
-                        TransformPartialSetting.HIDE));
+            TransformPartialSetting.NONE)),
+        CHROMEOS(33f, KeyboardSettings.of(FallbackSetting.BASE, TransformFailureSetting.OMIT,
+            TransformPartialSetting.HIDE)),
+        OSX(10.9f, KeyboardSettings.of(FallbackSetting.BASE, TransformFailureSetting.EMIT,
+            TransformPartialSetting.SHOW)),
+        WINDOWS(10f, KeyboardSettings.of(FallbackSetting.OMIT, TransformFailureSetting.EMIT,
+            TransformPartialSetting.HIDE));
 
         private final float version;
         private final KeyboardSettings settings;

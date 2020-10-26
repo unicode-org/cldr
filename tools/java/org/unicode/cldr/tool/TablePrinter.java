@@ -99,8 +99,9 @@ public class TablePrinter {
         }
 
         public Column setCellPattern(String cellPattern) {
-            this.cellPattern = cellPattern == null ? null : new MessageFormat(
-                MessageFormat.autoQuoteApostrophe(cellPattern), ULocale.ENGLISH);
+            this.cellPattern = cellPattern == null ? null
+                : new MessageFormat(
+                    MessageFormat.autoQuoteApostrophe(cellPattern), ULocale.ENGLISH);
             return this;
         }
 

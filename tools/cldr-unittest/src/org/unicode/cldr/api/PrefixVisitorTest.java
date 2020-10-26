@@ -13,7 +13,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * Tests for the code which converts a sequence of path/value pairs into a nested sequence of path
- * prefixes (this is necessary when using prefix visitors for data obtained via CLDRFile). 
+ * prefixes (this is necessary when using prefix visitors for data obtained via CLDRFile).
  */
 public final class PrefixVisitorTest extends TestFmwk {
 
@@ -219,14 +219,14 @@ public final class PrefixVisitorTest extends TestFmwk {
         testData.accept(DTD, foo);
         List<String> expectedNested = ImmutableList.of(
             "+foo: //ldml",
-            "---->",  // Everything below //ldml is visited by "bar".
+            "---->", // Everything below //ldml is visited by "bar".
             "+bar: //ldml/localeDisplayNames",
-            "---->",  // Everything below //ldml/localeDisplayNames is visited by "baz".
+            "---->", // Everything below //ldml/localeDisplayNames is visited by "baz".
             "+baz: //ldml/localeDisplayNames/languages",
             "-baz: //ldml/localeDisplayNames/languages",
             "+baz: //ldml/localeDisplayNames/territories",
             "-baz: //ldml/localeDisplayNames/territories",
-            "<----",  // The "done function" is called at the upwards transition of visitors.
+            "<----", // The "done function" is called at the upwards transition of visitors.
             "-bar: //ldml/localeDisplayNames",
             "+bar: //ldml/dates",
             "+bar: //ldml/dates/fields",

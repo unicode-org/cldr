@@ -31,7 +31,8 @@ import com.ibm.icu.util.ULocale;
 public class GenerateCasingChart {
 
     enum ContextTransformUsage {
-        languages, script, keyValue, calendar_field, day_format_except_narrow, day_standalone_except_narrow, month_format_except_narrow, month_standalone_except_narrow, era_name, era_abbr, relative, currencyName, number_spellout
+        languages, script, keyValue, calendar_field, day_format_except_narrow, day_standalone_except_narrow, month_format_except_narrow,
+        month_standalone_except_narrow, era_name, era_abbr, relative, currencyName, number_spellout
     }
 
     enum ContextTransformType {

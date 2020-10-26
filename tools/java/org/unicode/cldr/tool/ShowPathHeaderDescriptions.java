@@ -69,6 +69,7 @@ public class ShowPathHeaderDescriptions {
             System.out.println(++i + "\t" + entry.getElement() + "\t" + entry.getCount());
         }
     }
+
     public static void showDescriptions(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
         CLDRFile english = config.getEnglish();

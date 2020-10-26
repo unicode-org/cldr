@@ -30,19 +30,19 @@ public class GenerateEnglishChanged {
     private static final File TRUNK_DIRECTORY = new File(CLDRPaths.BASE_DIRECTORY);
 // TODO
     private static final File RELEASE_DIRECTORY = new File(CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + ".0" + "/");
-private static final boolean TRIAL = false;
+    private static final boolean TRIAL = false;
 
     public static void main(String[] args) {
         String[] base = { "common" };
         File[] addStandardSubdirectories = CLDR_CONFIG.addStandardSubdirectories(
-            CLDR_CONFIG.fileArrayFromStringArray(
+            CLDRConfig.fileArrayFromStringArray(
                 TRUNK_DIRECTORY, base));
 
         Factory factoryTrunk = SimpleFactory.make(addStandardSubdirectories, ".*");
         CLDRFile englishTrunk = factoryTrunk.make("en", true);
 
         addStandardSubdirectories = CLDR_CONFIG.addStandardSubdirectories(
-            CLDR_CONFIG.fileArrayFromStringArray(
+            CLDRConfig.fileArrayFromStringArray(
                 RELEASE_DIRECTORY, base));
 
         Factory factoryLastRelease = SimpleFactory.make(addStandardSubdirectories, ".*");
@@ -56,7 +56,7 @@ private static final boolean TRIAL = false;
         starrer.setSubstitutionPattern(placeholder);
 
         Set<String> abbreviatedPaths = new LinkedHashSet<>();
-        Multimap<String,List<String>> pathsDiffer = LinkedHashMultimap.create();
+        Multimap<String, List<String>> pathsDiffer = LinkedHashMultimap.create();
         for (String path : paths) {
             String valueTrunk = englishTrunk.getStringValue(path);
             if (valueTrunk == null) { // new, handled otherwise
@@ -120,7 +120,6 @@ private static final boolean TRIAL = false;
                     path = path.replaceFirst(placeholder, "(" + compressed + ")");
                 }
                 multipath += "|" + path;
-
 
                 System.out.println(path);
             }

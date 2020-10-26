@@ -25,7 +25,7 @@ public class TestStringByteConverter {
 
     enum Type {
         utf8, normal, compact
-    };
+    }
 
     public static void main(String[] args) throws IOException {
 
@@ -214,7 +214,8 @@ public class TestStringByteConverter {
         }
         ioBytePosition[0] = 0;
         int retest = unsigned ? CompactStringByteConverter.readUnsignedInt(
-            bytes, ioBytePosition) : CompactStringByteConverter.readInt(
+            bytes, ioBytePosition)
+            : CompactStringByteConverter.readInt(
                 bytes, ioBytePosition);
         int lengthRead = ioBytePosition[0];
         if (test != retest)

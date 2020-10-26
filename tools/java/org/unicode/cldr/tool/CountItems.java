@@ -85,7 +85,7 @@ public class CountItems {
         + " America/Los_Angeles America/Phoenix America/Denver America/Chicago America/Indianapolis"
         + " America/New_York";
 
-    static final ImmutableMap<String, String> country_map = ImmutableMap.<String, String>builder()
+    static final ImmutableMap<String, String> country_map = ImmutableMap.<String, String> builder()
         .put("AQ", "http://www.worldtimezone.com/time-antarctica24.php")
         .put("AR", "http://www.worldtimezone.com/time-south-america24.php")
         .put("AU", "http://www.worldtimezone.com/time-australia24.php")
@@ -169,8 +169,9 @@ public class CountItems {
             UnicodeSet range = new UnicodeSet(it.codepoint, it.codepointEnd);
             boolean hasPat = range.containsSome(patterns);
             String prefix = !hasPat ? "Not-Syntax"
-                : !range.containsSome(unassigned) ? "Closed" : !range
-                    .containsSome(punassigned) ? "Closed2" : "Open";
+                : !range.containsSome(unassigned) ? "Closed"
+                    : !range
+                        .containsSome(punassigned) ? "Closed2" : "Open";
 
             boolean show = (prefix.equals("Open") || prefix.equals("Closed2"));
 

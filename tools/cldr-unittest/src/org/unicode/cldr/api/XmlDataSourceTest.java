@@ -65,8 +65,7 @@ public class XmlDataSourceTest extends TestFmwk {
             "    </key>",
             "  </keyword>",
             "</ldmlBCP47>");
-        XmlDataSource xmlDataSource =
-            new XmlDataSource(BCP47, files.keySet(), UNCONFIRMED, openFileFn(files));
+        XmlDataSource xmlDataSource = new XmlDataSource(BCP47, files.keySet(), UNCONFIRMED, openFileFn(files));
 
         Map<CldrPath, CldrValue> expected = new LinkedHashMap<>();
         addTo(expected, "//ldmlBCP47/keyword"
@@ -107,7 +106,7 @@ public class XmlDataSourceTest extends TestFmwk {
         assertEquals("paths and values", expected, out);
         assertEquals("paths order", dtdOrderedPaths, ImmutableList.copyOf(out.keySet()));
     }
-    
+
     public void TestBadElementNesting() {
         ListMultimap<Path, String> files = LinkedListMultimap.create();
         String fakeXmlName = "bad.xml";
@@ -131,10 +130,10 @@ public class XmlDataSourceTest extends TestFmwk {
             "    </region>",
             "  </currencyData>",
             "</supplementalData>");
-        XmlDataSource badDataSource =
-            new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
+        XmlDataSource badDataSource = new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
         try {
-            badDataSource.accept(ARBITRARY, v -> {});
+            badDataSource.accept(ARBITRARY, v -> {
+            });
             fail("expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             assertErrorMessageContains(e, "error reading");
@@ -166,10 +165,10 @@ public class XmlDataSourceTest extends TestFmwk {
             "    </character-fallback>",
             "  </characters>",
             "</supplementalData>");
-        XmlDataSource badDataSource =
-            new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
+        XmlDataSource badDataSource = new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
         try {
-            badDataSource.accept(ARBITRARY, v -> {});
+            badDataSource.accept(ARBITRARY, v -> {
+            });
             fail("expected RuntimeException");
         } catch (RuntimeException e) {
             assertErrorMessageContains(e, "Unknown error");
@@ -192,11 +191,9 @@ public class XmlDataSourceTest extends TestFmwk {
             "    </character-fallback>",
             "  </characters>",
             "</supplementalData>");
-        XmlDataSource src =
-            new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
-        src.accept(DTD, v ->
-            assertFalse("is DTD version string",
-                v.getPath().toString().startsWith("//supplementalData/version")));
+        XmlDataSource src = new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
+        src.accept(DTD, v -> assertFalse("is DTD version string",
+            v.getPath().toString().startsWith("//supplementalData/version")));
     }
 
     private static void addFile(ListMultimap<Path, String> files, String path, String... lines) {

@@ -46,10 +46,15 @@ public class PluralMinimalPairs {
                 String sample = cldrFile.getStringValue(path);
                 String element = parts.getElement(-1);
                 PluralType type;
-                switch(element) {
-                case "pluralMinimalPairs": type = PluralType.CARDINAL; break;
-                case "ordinalMinimalPairs": type = PluralType.ORDINAL; break;
-                default: continue; // skip grammar, case
+                switch (element) {
+                case "pluralMinimalPairs":
+                    type = PluralType.CARDINAL;
+                    break;
+                case "ordinalMinimalPairs":
+                    type = PluralType.ORDINAL;
+                    break;
+                default:
+                    continue; // skip grammar, case
                 }
                 PluralInfo.Count category = PluralInfo.Count.valueOf(
                     parts.getAttributeValue(-1, type == PluralType.CARDINAL ? "count" : "ordinal"));

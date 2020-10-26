@@ -12,7 +12,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineComparer;
 import org.unicode.cldr.util.FileReaders;
-import org.unicode.cldr.util.PathUtilities;
 
 /**
  * Utilities for CLDR tools.
@@ -68,7 +67,7 @@ public class ToolUtilities {
                 PrintWriter bat = FileUtilities.openUTF8Writer(batDir, batName);
                 try {
                     bat.println(CLDRPaths.COMPARE_PROGRAM + " " +
-                            getNormalizedPathString(fullSource) + " " + getNormalizedPathString(fullTarget));
+                        getNormalizedPathString(fullSource) + " " + getNormalizedPathString(fullTarget));
                 } finally {
                     bat.close();
                 }

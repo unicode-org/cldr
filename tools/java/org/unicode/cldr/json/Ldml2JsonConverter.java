@@ -234,7 +234,7 @@ public class Ldml2JsonConverter {
                 myReader.process(Ldml2JsonConverter.class, "JSON_config_rbnf.txt");
                 break;
             default:
-                myReader.process(Ldml2JsonConverter.class, "JSON_config_"+type.name()+".txt");
+                myReader.process(Ldml2JsonConverter.class, "JSON_config_" + type.name() + ".txt");
             }
         }
 
@@ -250,6 +250,7 @@ public class Ldml2JsonConverter {
      * @see XPathParts#addInternal
      */
     static final Pattern ANNOTATION_CP_REMAP = PatternCache.get("^(.*)\\[@cp=\"(\\[|\\]|'|\"|@|/|=)\"\\](.*)$");
+
     /**
      * Transform the path by applying PATH_TRANSFORMATIONS rules.
      *
@@ -262,13 +263,13 @@ public class Ldml2JsonConverter {
 
         // handle annotation cp value
         Matcher cpm = ANNOTATION_CP_REMAP.matcher(result);
-        if( cpm.matches() ) {
+        if (cpm.matches()) {
             // We need to avoid breaking the syntax not just of JSON, but of XPATH.
             final String badCodepointRange = cpm.group(2);
             StringBuilder sb = new StringBuilder(cpm.group(1))
                 .append("[@cp=\"");
             // JSON would handle a wide range of things if escaped, but XPATH will not.
-            if(badCodepointRange.codePointCount(0, badCodepointRange.length()) != 1) {
+            if (badCodepointRange.codePointCount(0, badCodepointRange.length()) != 1) {
                 // forbid more than one U+ (because we will have to unescape it.)
                 throw new IllegalArgumentException("Need exactly one codepoint in the @cp string, but got " + badCodepointRange + " in xpath " + pathStr);
             }
@@ -313,7 +314,7 @@ public class Ldml2JsonConverter {
     }
 
     private Map<JSONSection, List<CldrItem>> mapPathsToSections(AtomicInteger readCount, int totalCount,
-            CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
+        CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
         throws IOException, ParseException {
         final Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<>();
 
@@ -386,7 +387,7 @@ public class Ldml2JsonConverter {
             String transformedPath = transformPath(path, pathPrefix);
             String transformedFullPath = transformPath(fullPath, pathPrefix);
 
-            if(transformedPath.isEmpty()) {
+            if (transformedPath.isEmpty()) {
                 continue; // skip this path
             }
 
@@ -449,8 +450,8 @@ public class Ldml2JsonConverter {
      * @throws ParseException
      */
     private void convertCldrItems(AtomicInteger readCount, int totalCount,
-            String dirName, String filename, String pathPrefix,
-            final Map<JSONSection, List<CldrItem>> sectionItems)
+        String dirName, String filename, String pathPrefix,
+        final Map<JSONSection, List<CldrItem>> sectionItems)
         throws IOException, ParseException {
         // zone and timezone items are queued for sorting first before they are
         // processed.
@@ -527,11 +528,11 @@ public class Ldml2JsonConverter {
                 for (String outputDir : outputDirs) {
                     List<CldrItem> theItems = sectionItems.get(js);
                     if (theItems == null || theItems.size() == 0) {
-                        System.out.println(">"+progressPrefix(readCount, totalCount) +
+                        System.out.println(">" + progressPrefix(readCount, totalCount) +
                             outputDir + " - no items to write");
                         continue;
                     }
-                    System.out.println("?"+progressPrefix(readCount, totalCount) + outputDir + " - " + theItems.size() + " item(s) to write.");
+                    System.out.println("?" + progressPrefix(readCount, totalCount) + outputDir + " - " + theItems.size() + " item(s) to write.");
                     PrintWriter outf = FileUtilities.openUTF8Writer(outputDir, outFilename);
                     JsonWriter out = new JsonWriter(outf);
                     out.setIndent("  ");
@@ -545,8 +546,8 @@ public class Ldml2JsonConverter {
                     int valueCount = 0;
                     String previousIdentityPath = null;
                     for (CldrItem item : theItems) {
-                        if(item.getPath().isEmpty()) {
-                            throw new IllegalArgumentException("empty xpath in " + filename + " section " + js.packageName+"/"+js.section);
+                        if (item.getPath().isEmpty()) {
+                            throw new IllegalArgumentException("empty xpath in " + filename + " section " + js.packageName + "/" + js.section);
                         }
                         if (type == RunType.rbnf) {
                             item.setValue(item.getValue().replace('→', '>'));
@@ -665,8 +666,8 @@ public class Ldml2JsonConverter {
 
                     resolveSortingItems(out, nodesForLastItem, sortingItems);
                     resolveArrayItems(out, nodesForLastItem, arrayItems);
-                    System.out.println(">"+progressPrefix(readCount, totalCount) + String.format(".../%s/%s\t= %d values", 
-                        dir.getPath().substring(this.outputDir.length()+1), outFilename, valueCount));
+                    System.out.println(">" + progressPrefix(readCount, totalCount) + String.format(".../%s/%s\t= %d values",
+                        dir.getPath().substring(this.outputDir.length() + 1), outFilename, valueCount));
                     closeNodes(out, nodesForLastItem.size() - 2, 0);
                     outf.println();
                     out.close();
@@ -1063,8 +1064,8 @@ public class Ldml2JsonConverter {
 
         Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
 
-        if( type == RunType.annotations || type == RunType.annotationsDerived ) {
-            if(objName.startsWith("U+")) {
+        if (type == RunType.annotations || type == RunType.annotationsDerived) {
+            if (objName.startsWith("U+")) {
                 // parse U+22 -> "   etc
                 out.name(com.ibm.icu.text.UTF16.valueOf(Integer.parseInt(objName.substring(2), 16)));
             } else {
@@ -1276,7 +1277,7 @@ public class Ldml2JsonConverter {
                 CLDRFile file = cldrFactory.make(filename, resolve && type == RunType.main, minimalDraftStatus);
                 // Print 'reading' after the make, to stagger the output a little bit.
                 // Otherwise, the printout happens before any work happens, and is easily out of order.
-                System.out.println("<"+progressPrefix(readCount.incrementAndGet(), total) +
+                System.out.println("<" + progressPrefix(readCount.incrementAndGet(), total) +
                     "Reading " + dirName + "/" + filename);
 
                 if (type == RunType.main) {
@@ -1286,31 +1287,31 @@ public class Ldml2JsonConverter {
                 }
 
                 try {
-                    convertCldrItems(readCount, total, dirName, filename, pathPrefix, 
+                    convertCldrItems(readCount, total, dirName, filename, pathPrefix,
                         mapPathsToSections(readCount, total, file, pathPrefix, sdi));
-                } catch(IOException | ParseException t) {
+                } catch (IOException | ParseException t) {
                     t.printStackTrace();
-                    System.err.println("!"+progressPrefix(readCount.incrementAndGet(), total)+filename + " - err - " + t);
+                    System.err.println("!" + progressPrefix(readCount.incrementAndGet(), total) + filename + " - err - " + t);
                     errs.put(filename, t);
                 } finally {
-                    System.out.println("."+progressPrefix(readCount, total) + 
+                    System.out.println("." + progressPrefix(readCount, total) +
                         "Completing " + dirName + "/" + filename);
                 }
             });
 
-        if(!errs.isEmpty()) {
+        if (!errs.isEmpty()) {
             System.err.println("Errors in these files:");
-            for(Map.Entry<String,Throwable> e : errs.entrySet()) {
+            for (Map.Entry<String, Throwable> e : errs.entrySet()) {
                 System.err.println(e.getKey() + " - " + e.getValue());
             }
             // rethrow
-            for(Map.Entry<String,Throwable> e : errs.entrySet()) {
-                if(e.getValue() instanceof IOException ) {
-                    throw (IOException)e.getValue(); // throw the first one
-                } else if(e.getValue() instanceof ParseException ) {
-                    throw (ParseException)e.getValue(); // throw the first one
+            for (Map.Entry<String, Throwable> e : errs.entrySet()) {
+                if (e.getValue() instanceof IOException) {
+                    throw (IOException) e.getValue(); // throw the first one
+                } else if (e.getValue() instanceof ParseException) {
+                    throw (ParseException) e.getValue(); // throw the first one
                 } else {
-                    throw new RuntimeException("Other exception thrown: "  + e.getValue());
+                    throw new RuntimeException("Other exception thrown: " + e.getValue());
                 }
                 /* NOTREACHED */
             }
@@ -1401,7 +1402,7 @@ public class Ldml2JsonConverter {
             if (value.isEmpty()) {
                 out.beginObject();
                 out.endObject();
-            } else if (type == RunType.annotations || 
+            } else if (type == RunType.annotations ||
                 type == RunType.annotationsDerived) {
                 out.beginArray();
                 // split this, so "a | b | c" becomes ["a","b","c"]
@@ -1448,7 +1449,7 @@ public class Ldml2JsonConverter {
                 }
                 out.endArray();
             } else if (type != RunType.rbnf) {
-                    out.name("_" + key).value(attrValue);
+                out.name("_" + key).value(attrValue);
             } else {
                 out.name(key).value(attrValue);
             }

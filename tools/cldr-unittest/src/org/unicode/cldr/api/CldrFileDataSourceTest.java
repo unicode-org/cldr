@@ -58,8 +58,7 @@ public class CldrFileDataSourceTest extends TestFmwk {
 
     public void TestNoDtdVersionPath() {
         CldrFileDataSource unresolved = new CldrFileDataSource(testInfo.getCLDRFile("en_GB", false));
-        unresolved.accept(DTD, v ->
-            assertFalse("is DTD version string",
-                v.getPath().toString().startsWith("//ldml/version")));
+        unresolved.accept(DTD, v -> assertFalse("is DTD version string",
+            v.getPath().toString().startsWith("//ldml/version")));
     }
 }

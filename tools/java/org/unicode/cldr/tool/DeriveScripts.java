@@ -100,9 +100,9 @@ public class DeriveScripts {
             CLDRFile cldrFile;
             try {
                 cldrFile = fullCldrFactory.make(lang, false);
-            } catch(final SimpleFactory.NoSourceDirectoryException nsde) {
-                throw new RuntimeException("Cannot load locale "+ lang+" for " + file
-                    + " (canonicalized from " + ltp.getLanguage()+")", nsde);
+            } catch (final SimpleFactory.NoSourceDirectoryException nsde) {
+                throw new RuntimeException("Cannot load locale " + lang + " for " + file
+                    + " (canonicalized from " + ltp.getLanguage() + ")", nsde);
             }
             UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
             for (String s : exemplars) {

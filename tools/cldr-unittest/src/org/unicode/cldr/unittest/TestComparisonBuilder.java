@@ -53,7 +53,7 @@ public class TestComparisonBuilder extends TestFmwk {
         // There's no point in reordering the dtd contents to make this test
         // pass
         // unless FindDtdOrder also checks attributes.
-        Builder<String> builder = new Builder<String>(Ordering.NATURAL);
+        Builder<String> builder = new Builder<>(Ordering.NATURAL);
         for (DtdType dtd : DtdType.values()) {
             Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(
                 dtd).getElement2Attributes();
@@ -87,18 +87,18 @@ public class TestComparisonBuilder extends TestFmwk {
     }
 
     public void TestDtdElements() {
-        Set<String> specials = new HashSet<String>(Arrays.asList(new String[] {
+        Set<String> specials = new HashSet<>(Arrays.asList(new String[] {
             "EMPTY", "PCDATA", "ANY" }));
         for (DtdType dtd : DtdType.values()) {
             if (dtd.rootType != dtd) {
                 continue;
             }
-            Builder<String> builder = new Builder<String>(Ordering.NATURAL);
+            Builder<String> builder = new Builder<>(Ordering.NATURAL);
             builder.add(dtd.toString());
             Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(
                 dtd).getElement2Children();
             for (String element : eaInfo.keySet()) {
-                Set<String> children = new LinkedHashSet<String>(
+                Set<String> children = new LinkedHashSet<>(
                     eaInfo.getAll(element));
                 children.removeAll(specials);
                 if (children.size() == 0)
@@ -115,17 +115,17 @@ public class TestComparisonBuilder extends TestFmwk {
             // check that the ordering is right
             for (String element : eaInfo2.keySet()) {
                 Set<String> elements = eaInfo2.getAll(element);
-                Set<String> children = new LinkedHashSet<String>(elements);
+                Set<String> children = new LinkedHashSet<>(elements);
                 children.removeAll(specials);
                 verifyOrdering(comp, children);
             }
             // check that all can be ordered
             try {
-                Set<String> items = new TreeSet<String>(comp);
+                Set<String> items = new TreeSet<>(comp);
                 items.addAll(eaInfo2.keySet()); // we'll get exception if it
                 // fails
             } catch (Exception e) {
-                Set<String> missing = new LinkedHashSet<String>(eaInfo2.keySet());
+                Set<String> missing = new LinkedHashSet<>(eaInfo2.keySet());
                 missing.removeAll(comp.getOrdering());
                 errln(dtd + "\t" + e.getClass().getName() + "\t"
                     + e.getMessage() + ";\tMissing: " + missing);
@@ -135,7 +135,7 @@ public class TestComparisonBuilder extends TestFmwk {
 
     public void TestMonkey() {
         Random random = new Random(1);
-        Set<R2<Integer, Integer>> soFar = new HashSet<R2<Integer, Integer>>();
+        Set<R2<Integer, Integer>> soFar = new HashSet<>();
         for (int j = 0; j < 100; ++j) {
             int itemCount = 50;
             int linkCount = 1000;
@@ -143,7 +143,7 @@ public class TestComparisonBuilder extends TestFmwk {
                 random.nextInt(linkCount));
 
             for (Ordering order : Ordering.values()) {
-                Builder<Integer> builder = new Builder<Integer>(order);
+                Builder<Integer> builder = new Builder<>(order);
                 for (R2<Integer, Integer> pair : soFar) {
                     builder.add(pair.get0(), pair.get1());
                 }
@@ -175,7 +175,7 @@ public class TestComparisonBuilder extends TestFmwk {
 
     public void TestCycle3() {
         for (Ordering order : Ordering.values()) {
-            Builder<String> builder = new Builder<String>(order);
+            Builder<String> builder = new Builder<>(order);
             builder.add("c", "a");
             builder.add("a", "b");
             builder.add("b", "c");
@@ -185,7 +185,7 @@ public class TestComparisonBuilder extends TestFmwk {
 
     public void TestCycle7() {
         for (Ordering order : Ordering.values()) {
-            Builder<String> builder = new Builder<String>(order);
+            Builder<String> builder = new Builder<>(order);
             builder.add("f", "a");
             builder.add("a", "b");
             builder.add("b", "c");
@@ -199,7 +199,7 @@ public class TestComparisonBuilder extends TestFmwk {
 
     public void TestCycle2() {
         for (Ordering order : Ordering.values()) {
-            Builder<String> builder = new Builder<String>(order);
+            Builder<String> builder = new Builder<>(order);
             try {
                 builder.add("c", "d");
                 builder.add("d", "e");
@@ -240,7 +240,7 @@ public class TestComparisonBuilder extends TestFmwk {
 
     public void TestFallback2() {
         for (Ordering order : Ordering.values()) {
-            Builder<String> builder = new Builder<String>(order);
+            Builder<String> builder = new Builder<>(order);
             builder.setFallbackComparator(new Comparator<String>() {
                 @Override
                 public int compare(String o1, String o2) {

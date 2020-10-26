@@ -5,7 +5,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * Tests for the core CLDR value representation. Since this is an immutable value type, the tests
- * largely focus on things like parsing and validity checking. 
+ * largely focus on things like parsing and validity checking.
  */
 public class CldrValueTest extends TestFmwk {
 
@@ -21,7 +21,7 @@ public class CldrValueTest extends TestFmwk {
         CldrValue v = CldrValue.parseValue("//supplementalData/info[@digits=\"2\"][@iso4217=\"AMD\"]"
             + "[@cashRounding=\"0\"][@rounding=\"0\"][@cashDigits=\"0\"]", "");
         assertEquals("value", "", v.getValue());
-        // The map contains only the value attributes (no "iso4217") and in DTD order. 
+        // The map contains only the value attributes (no "iso4217") and in DTD order.
         ImmutableMap<AttributeKey, String> expected = ImmutableMap.of(
             AttributeKey.keyOf("info", "digits"), "2",
             AttributeKey.keyOf("info", "rounding"), "0",
@@ -50,23 +50,28 @@ public class CldrValueTest extends TestFmwk {
     public void TestValueEquality() {
         CldrValue v = CldrValue.parseValue(
             "//supplementalData/info[@iso4217=\"AMD\"][@digits=\"2\"]"
-                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]", "value");
+                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]",
+            "value");
         // Same value, but attributes in a different order in the string (does not matter).
         CldrValue vDiffOrder = CldrValue.parseValue(
             "//supplementalData/info[@iso4217=\"AMD\"][@cashRounding=\"0\"]"
-                + "[@cashDigits=\"0\"][@rounding=\"0\"][@digits=\"2\"]", "value");
+                + "[@cashDigits=\"0\"][@rounding=\"0\"][@digits=\"2\"]",
+            "value");
         // Different value does matter.
         CldrValue vDiffValue = CldrValue.parseValue(
             "//supplementalData/info[@iso4217=\"AMD\"][@digits=\"2\"]"
-                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]", "different");
+                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]",
+            "different");
         // Different "value" attribute value does matter.
         CldrValue vDiffAttr = CldrValue.parseValue(
             "//supplementalData/info[@iso4217=\"AMD\"][@digits=\"3\"]"
-                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]", "value");
+                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]",
+            "value");
         // Differing "distinguishing" attribute does matter (that's part of the CldrPath).
         CldrValue vSameDiffPath = CldrValue.parseValue(
             "//supplementalData/info[@iso4217=\"XXX\"][@digits=\"2\"]"
-                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]", "value");
+                + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]",
+            "value");
         assertEquals("equal instances", v, vDiffOrder);
         assertNotEquals("unequal path", v, vSameDiffPath);
         assertNotEquals("unequal values", v, vDiffValue);

@@ -177,7 +177,7 @@ public class TestBagFormatter {
     /*    static final double LOG10 = Math.log(10);
     public static void useSignificantDigits(double value, int digits) {
         double log10 = Math.log(value)/LOG10; // log[e]
-        
+
     }*/
 
     static final UnicodeSet RTL = new UnicodeSet("[[:L:]&[[:bidi class=R:][:bidi class=AL:]]]");
@@ -234,7 +234,7 @@ public class TestBagFormatter {
             .getPropertySet(matches, null);
         System.out.println(bf.showSetNames(propAlias + " with " + matches, stuff));
     }
-    
+
     static void showNames(String propAlias, String pattern) {
         BagFormatter bf = new BagFormatter();
         UnicodeSet stuff;

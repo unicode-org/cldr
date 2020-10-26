@@ -570,7 +570,7 @@ public class GenerateEnums {
     Set<String> corrigendum = new TreeSet<>(Arrays.asList(new String[] { "QE", "833",
         "830", "172" })); // 003, 419
 
-    private ImmutableMap<String, String> extraNames = ImmutableMap.<String, String>builder()
+    private ImmutableMap<String, String> extraNames = ImmutableMap.<String, String> builder()
         .put("BU", "Burma").put("TP", "East Timor").put("YU", "Yugoslavia")
         .put("ZR", "Zaire").put("CD", "Congo (Kinshasa, Democratic Republic)")
         .put("CI", "Ivory Coast (Cote d'Ivoire)")
@@ -852,9 +852,11 @@ public class GenerateEnums {
         // name
         String replacement = getDeprecatedReplacement(type, cldrName);
 
-        String resolvedEnglishName = englishName != null ? englishName : type
-            .equals("territory") ? getEnglishName(codeName) : type
-                .equals("currency") ? getName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
+        String resolvedEnglishName = englishName != null ? englishName
+            : type
+                .equals("territory") ? getEnglishName(codeName)
+                    : type
+                        .equals("currency") ? getName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
         resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
         String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +

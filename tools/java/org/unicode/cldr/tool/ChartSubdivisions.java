@@ -116,8 +116,9 @@ public class ChartSubdivisions extends Chart {
             tablePrinter.addRow()
                 .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
                 .addCell(region)
-                .addCell(regionAliases == null ? "«none»" : "=" + Joiner.on(", ")
-                    .join(regionAliases))
+                .addCell(regionAliases == null ? "«none»"
+                    : "=" + Joiner.on(", ")
+                        .join(regionAliases))
                 //.addCell(type)
                 .addCell("")
                 .addCell("")

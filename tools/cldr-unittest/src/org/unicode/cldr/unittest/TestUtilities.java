@@ -861,8 +861,9 @@ public class TestUtilities extends TestFmwkPlus {
             } else if (name.equalsIgnoreCase("value")) {
                 expectedValue = value;
             } else if (name.equalsIgnoreCase("sameVotes")) {
-                sameVotes = value == null ? new ArrayList<>(0) : Arrays
-                    .asList(value.split(",\\s*"));
+                sameVotes = value == null ? new ArrayList<>(0)
+                    : Arrays
+                        .asList(value.split(",\\s*"));
             } else if (name.equalsIgnoreCase("status")) {
                 expectedStatus = Status.valueOf(value);
             } else if (name.equalsIgnoreCase("conflicts")) {
@@ -1228,8 +1229,9 @@ public class TestUtilities extends TestFmwkPlus {
             } else if (name.equalsIgnoreCase("bailey")) {
                 baileyValue = value;
             } else if (name.equalsIgnoreCase("sameVotes")) {
-                sameVotes = value == null ? new ArrayList<>(0) : Arrays
-                    .asList(value.split(",\\s*"));
+                sameVotes = value == null ? new ArrayList<>(0)
+                    : Arrays
+                        .asList(value.split(",\\s*"));
             } else if (name.equalsIgnoreCase("status")) {
                 expectedStatus = Status.valueOf(value);
             } else if (name.equalsIgnoreCase("conflicts")) {

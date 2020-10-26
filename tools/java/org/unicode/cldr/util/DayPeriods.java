@@ -16,7 +16,8 @@ public class DayPeriods {
 
     public enum DayPeriod {
         MORNING1("EARLY_MORNING"), MORNING2("MORNING"), AFTERNOON1("EARLY_AFTERNOON"), AFTERNOON2("AFTERNOON"), EVENING1("EARLY_EVENING"), EVENING2(
-            "EVENING"), NIGHT1("NIGHT"), NIGHT2("LATE_NIGHT");
+            "EVENING"),
+        NIGHT1("NIGHT"), NIGHT2("LATE_NIGHT");
         public final String name;
 
         DayPeriod(String name) {

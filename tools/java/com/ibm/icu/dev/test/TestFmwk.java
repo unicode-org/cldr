@@ -80,9 +80,9 @@ public class TestFmwk extends AbstractTestLog {
 
     // Handling exception thrown during text execution (not including
     // RuntimeException thrown by errln).
-    protected void handleException(Throwable e){
+    protected void handleException(Throwable e) {
         Throwable ex = e.getCause();
-        if(ex == null){
+        if (ex == null) {
             ex = e;
         }
         if (ex instanceof OutOfMemoryError) {
@@ -96,8 +96,8 @@ public class TestFmwk extends AbstractTestLog {
             // such case.
             return;
         }
-        if (ex instanceof ExceptionInInitializerError){
-            ex = ((ExceptionInInitializerError)ex).getException();
+        if (ex instanceof ExceptionInInitializerError) {
+            ex = ((ExceptionInInitializerError) ex).getException();
         }
 
         //Stack trace
@@ -109,7 +109,7 @@ public class TestFmwk extends AbstractTestLog {
 
         //System.err.println("TF handleException msg: " + msg);
         if (ex instanceof MissingResourceException || ex instanceof NoClassDefFoundError ||
-                msg.indexOf("java.util.MissingResourceException") >= 0) {
+            msg.indexOf("java.util.MissingResourceException") >= 0) {
             if (params.warnings || params.nodata) {
                 warnln(ex.toString() + '\n' + msg);
             } else {
@@ -119,6 +119,7 @@ public class TestFmwk extends AbstractTestLog {
             errln(ex.toString() + '\n' + msg);
         }
     }
+
     // use this instead of new random so we get a consistent seed
     // for our tests
     protected Random createRandom() {
@@ -153,7 +154,7 @@ public class TestFmwk extends AbstractTestLog {
          * names. Adopts and modifies the classname list
          */
         protected TestGroup(String defaultPackage, String[] classnames,
-                String description) {
+            String description) {
             if (classnames == null) {
                 throw new IllegalStateException("classnames must not be null");
             }
@@ -238,6 +239,7 @@ public class TestFmwk extends AbstractTestLog {
 
             return target;
         }
+
         @Override
         protected TestFmwk getSubtest(String testName) throws TestFmwkException {
             finishInit();
@@ -285,7 +287,7 @@ public class TestFmwk extends AbstractTestLog {
                         Class cls = Class.forName(name);
                         if (!TestFmwk.class.isAssignableFrom(cls)) {
                             throw new IllegalStateException("class " + name
-                                    + " does not extend TestFmwk");
+                                + " does not extend TestFmwk");
                         }
 
                         tests[i] = cls;
@@ -320,7 +322,7 @@ public class TestFmwk extends AbstractTestLog {
 
         public Target append(Target targets) {
             Target t = this;
-            while(t.next != null) {
+            while (t.next != null) {
                 t = t.next;
             }
             t.next = targets;
@@ -357,7 +359,7 @@ public class TestFmwk extends AbstractTestLog {
             return null;
         }
 
-        protected void execute() throws Exception{
+        protected void execute() throws Exception {
         }
     }
 
@@ -391,7 +393,7 @@ public class TestFmwk extends AbstractTestLog {
         }
 
         @Override
-        protected void execute() throws Exception{
+        protected void execute() throws Exception {
             if (params.inDocMode()) {
                 // nothing to execute
             } else if (!params.stack.included) {
@@ -412,7 +414,7 @@ public class TestFmwk extends AbstractTestLog {
             // If non-exhaustive, check if the method target
             // takes excessive time.
             if (params.inclusion <= 5) {
-                double deltaSec = (double)(System.currentTimeMillis() - params.stack.millis)/1000;
+                double deltaSec = (double) (System.currentTimeMillis() - params.stack.millis) / 1000;
                 if (deltaSec > params.maxTargetSec) {
                     if (params.timeLog == null) {
                         params.timeLog = new StringBuffer();
@@ -484,7 +486,7 @@ public class TestFmwk extends AbstractTestLog {
                             // sort in reverse order, later we link up in
                             // forward order
                             return ((Target) rhs).name
-                                    .compareTo(((Target) lhs).name);
+                                .compareTo(((Target) lhs).name);
                         }
                     });
 
@@ -520,7 +522,7 @@ public class TestFmwk extends AbstractTestLog {
     protected TestFmwk() {
     }
 
-    protected void init() throws Exception{
+    protected void init() throws Exception {
     }
 
     /**
@@ -574,7 +576,7 @@ public class TestFmwk extends AbstractTestLog {
 
         if (localParams.timeLog != null && localParams.timeLog.length() > 0) {
             localParams.log.println("\nTest cases taking excessive time (>" +
-                    localParams.maxTargetSec + "s):");
+                localParams.maxTargetSec + "s):");
             localParams.log.println(localParams.timeLog.toString());
         }
 
@@ -595,7 +597,7 @@ public class TestFmwk extends AbstractTestLog {
         }
 
         if (errorCount > 0) {
-            localParams.log.println("\n<< " + errorCount+ " TEST(S) FAILED >>");
+            localParams.log.println("\n<< " + errorCount + " TEST(S) FAILED >>");
         } else {
             localParams.log.println("\n<< ALL TESTS PASSED >>");
         }
@@ -625,7 +627,7 @@ public class TestFmwk extends AbstractTestLog {
                 resolveTarget(_params).run();
                 ec = _params.errorCount;
             } else {
-                for (int i = 0; i < tests.length ; ++i) {
+                for (int i = 0; i < tests.length; ++i) {
                     if (tests[i] == null) continue;
 
                     if (i > 0) {
@@ -699,7 +701,8 @@ public class TestFmwk extends AbstractTestLog {
                 try {
                     for (;;) {
                         int n = targetPath.indexOf('/');
-                        String prefix = n == -1 ? targetPath : targetPath
+                        String prefix = n == -1 ? targetPath
+                            : targetPath
                                 .substring(0, n);
                         TestFmwk subtest = test.getSubtest(prefix);
 
@@ -753,7 +756,7 @@ public class TestFmwk extends AbstractTestLog {
         Target target = null;
         if (targetName != null) {
             try {
-                Method method = cls.getMethod(targetName, (Class[])null);
+                Method method = cls.getMethod(targetName, (Class[]) null);
                 target = new MethodTarget(targetName, method);
             } catch (NoSuchMethodException e) {
                 if (!inheritTargets()) {
@@ -769,7 +772,7 @@ public class TestFmwk extends AbstractTestLog {
                     String name = methods[i].getName();
                     if (name.startsWith("Test") || name.startsWith("test")) {
                         target = new MethodTarget(name, methods[i])
-                        .setNext(target);
+                            .setNext(target);
                     }
                 }
             }
@@ -906,7 +909,7 @@ public class TestFmwk extends AbstractTestLog {
     public String getProperty(String key) {
         String val = null;
         if (key != null && key.length() > 0 && params.props != null) {
-            val = (String)params.props.get(key.toLowerCase());
+            val = (String) params.props.get(key.toLowerCase());
         }
         return val;
     }
@@ -950,21 +953,21 @@ public class TestFmwk extends AbstractTestLog {
         pw.println(" -d[escribe] Print a short descriptive string for this test and all");
         pw.println("       listed targets.");
         pw.println(" -e<n> Set exhaustiveness from 0..10.  Default is 0, fewest tests.\n"
-                + "       To run all tests, specify -e10.  Giving -e with no <n> is\n"
-                + "       the same as -e5.");
+            + "       To run all tests, specify -e10.  Giving -e with no <n> is\n"
+            + "       the same as -e5.");
         pw.println(" -filter:<str> Only tests matching filter will be run or listed.\n"
-                + "       <str> is of the form ['^']text[','['^']text].\n"
-                + "       Each string delimited by ',' is a separate filter argument.\n"
-                + "       If '^' is prepended to an argument, its matches are excluded.\n"
-                + "       Filtering operates on test groups as well as tests, if a test\n"
-                + "       group is included, all its subtests that are not excluded will\n"
-                + "       be run.  Examples:\n"
-                + "    -filter:A -- only tests matching A are run.  If A matches a group,\n"
-                + "       all subtests of this group are run.\n"
-                + "    -filter:^A -- all tests except those matching A are run.  If A matches\n"
-                + "        a group, no subtest of that group will be run.\n"
-                + "    -filter:A,B,^C,^D -- tests matching A or B and not C and not D are run\n"
-                + "       Note: Filters are case insensitive.");
+            + "       <str> is of the form ['^']text[','['^']text].\n"
+            + "       Each string delimited by ',' is a separate filter argument.\n"
+            + "       If '^' is prepended to an argument, its matches are excluded.\n"
+            + "       Filtering operates on test groups as well as tests, if a test\n"
+            + "       group is included, all its subtests that are not excluded will\n"
+            + "       be run.  Examples:\n"
+            + "    -filter:A -- only tests matching A are run.  If A matches a group,\n"
+            + "       all subtests of this group are run.\n"
+            + "    -filter:^A -- all tests except those matching A are run.  If A matches\n"
+            + "        a group, no subtest of that group will be run.\n"
+            + "    -filter:A,B,^C,^D -- tests matching A or B and not C and not D are run\n"
+            + "       Note: Filters are case insensitive.");
         pw.println(" -h[elp] Print this help text and exit.");
         pw.println(" -hex Display non-ASCII characters in hexadecimal format");
         pw.println(" -l[ist] List immediate targets of this test");
@@ -975,13 +978,13 @@ public class TestFmwk extends AbstractTestLog {
         //      pw.println(" -m[emory] print memory usage and force gc for
         // each test");
         pw.println(" -n[othrow] Message on test failure rather than exception.\n"
-                + "       This is the default behavior and has no effects on ICU 55+.");
+            + "       This is the default behavior and has no effects on ICU 55+.");
         pw.println(" -p[rompt] Prompt before exiting");
         pw.println(" -prop:<key>=<value> Set optional property used by this test");
         pw.println(" -q[uiet] Do not show warnings");
         pw.println(" -r[andom][:<n>] If present, randomize targets.  If n is present,\n"
-                + "       use it as the seed.  If random is not set, targets will\n"
-                + "       be in alphabetical order to ensure cross-platform consistency.");
+            + "       use it as the seed.  If random is not set, targets will\n"
+            + "       be in alphabetical order to ensure cross-platform consistency.");
         pw.println(" -s[ilent] No output except error summary or exceptions.");
         pw.println(" -tfilter:<str> Transliterator Test filter of ids.");
         pw.println(" -t[ime]:<n> Print elapsed time only for tests exceeding n milliseconds.");
@@ -1002,7 +1005,8 @@ public class TestFmwk extends AbstractTestLog {
         pw.println(" If multiple targets are provided, each is executed in order.");
         pw.flush();
     }
-    public static String hex(char[] s){
+
+    public static String hex(char[] s) {
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < s.length; ++i) {
             if (i != 0) result.append(',');
@@ -1010,7 +1014,8 @@ public class TestFmwk extends AbstractTestLog {
         }
         return result.toString();
     }
-    public static String hex(byte[] s){
+
+    public static String hex(byte[] s) {
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < s.length; ++i) {
             if (i != 0) result.append(',');
@@ -1018,6 +1023,7 @@ public class TestFmwk extends AbstractTestLog {
         }
         return result.toString();
     }
+
     public static String hex(char ch) {
         StringBuffer result = new StringBuffer();
         String foo = Integer.toString(ch, 16).toUpperCase();
@@ -1084,7 +1090,7 @@ public class TestFmwk extends AbstractTestLog {
      * @return a Date object for the given y/m/d
      */
     protected static synchronized java.util.Date getDate(int year, int month,
-            int dom) {
+        int dom) {
         if (cal == null) {
             cal = new java.util.GregorianCalendar();
         }
@@ -1097,15 +1103,19 @@ public class TestFmwk extends AbstractTestLog {
         public NullWriter() {
             super(System.out, false);
         }
+
         @Override
         public void write(int c) {
         }
+
         @Override
         public void write(char[] buf, int off, int len) {
         }
+
         @Override
         public void write(String s, int off, int len) {
         }
+
         @Override
         public void println() {
         }
@@ -1131,7 +1141,7 @@ public class TestFmwk extends AbstractTestLog {
             synchronized (lock) {
                 buffer.setLength(0);
                 if (PRINTABLES.indexOf(c) < 0
-                        && TestUtil.escapeUnprintable(buffer, c)) {
+                    && TestUtil.escapeUnprintable(buffer, c)) {
                     super.write(buffer.toString());
                 } else {
                     super.write(c);
@@ -1148,7 +1158,7 @@ public class TestFmwk extends AbstractTestLog {
                     int c = UTF16Util.charAt(buf, 0, buf.length, off);
                     off += UTF16Util.getCharCount(c);
                     if (PRINTABLES.indexOf(c) < 0
-                            && TestUtil.escapeUnprintable(buffer, c)) {
+                        && TestUtil.escapeUnprintable(buffer, c)) {
                         super.write(buffer.toString());
                         buffer.setLength(0);
                     } else {
@@ -1255,7 +1265,7 @@ public class TestFmwk extends AbstractTestLog {
                             params.quiet = true;
                             params.verbose = false;
                         } else if (arg.equals("-hex")) {
-                            params.log =  new ASCIIWriter(log, true);
+                            params.log = new ASCIIWriter(log, true);
                         } else if (arg.equals("-help") || arg.equals("-h")) {
                             usageError = true;
                         } else if (arg.equals("-warning") || arg.equals("-w")) {
@@ -1296,8 +1306,8 @@ public class TestFmwk extends AbstractTestLog {
                         } else if (arg.startsWith("-e")) {
                             // see above
                             params.inclusion = (arg.length() == 2)
-                                    ? 5
-                                            : Integer.parseInt(arg.substring(2));
+                                ? 5
+                                : Integer.parseInt(arg.substring(2));
                             if (params.inclusion < 0 || params.inclusion > 10) {
                                 usageError = true;
                                 break;
@@ -1313,7 +1323,7 @@ public class TestFmwk extends AbstractTestLog {
                                     val = Long.parseLong(num);
                                 } catch (Exception e) {
                                     log.println("*** Error: could not parse time threshold '"
-                                            + num + "'");
+                                        + num + "'");
                                     usageError = true;
                                     break;
                                 }
@@ -1349,10 +1359,10 @@ public class TestFmwk extends AbstractTestLog {
                             if (params.props == null) {
                                 params.props = new HashMap();
                             }
-                            params.props.put(temp.substring(0, eql), temp.substring(eql+1));
+                            params.props.put(temp.substring(0, eql), temp.substring(eql + 1));
                         } else {
                             log.println("*** Error: unrecognized argument: "
-                                    + args[i]);
+                                + args[i]);
                             usageError = true;
                             break;
                         }
@@ -1479,17 +1489,17 @@ public class TestFmwk extends AbstractTestLog {
 
         public boolean doMethods() {
             return !inDocMode() || listlevel == 3
-                    || (indentLevel == 1 && listlevel > 0);
+                || (indentLevel == 1 && listlevel > 0);
         }
 
         public boolean doRecurse() {
             return !inDocMode() || listlevel > 1
-                    || (indentLevel == 1 && listlevel > 0);
+                || (indentLevel == 1 && listlevel > 0);
         }
 
         public boolean doRecurseGroupsOnly() {
             return inDocMode()
-                    && (listlevel == 2 || (indentLevel == 1 && listlevel > 0));
+                && (listlevel == 2 || (indentLevel == 1 && listlevel > 0));
         }
 
         // return 0, -1, or 1
@@ -1565,7 +1575,7 @@ public class TestFmwk extends AbstractTestLog {
         }
 
         private void msg(String message, int level, boolean incCount,
-                boolean newln) {
+            boolean newln) {
             int oldLevel = level;
             //            if (level == WARN && (!warnings && !nodata)){
             //                level = ERR;
@@ -1584,7 +1594,7 @@ public class TestFmwk extends AbstractTestLog {
             if (verbose || level > (quiet ? WARN : LOG)) {
                 if (!suppressIndent) {
                     indent(indentLevel + 1);
-                    final String[] MSGNAMES = {"", "Warning: ", "Error: "};
+                    final String[] MSGNAMES = { "", "Warning: ", "Error: " };
                     log.print(MSGNAMES[oldLevel]);
                 }
 
@@ -1598,8 +1608,8 @@ public class TestFmwk extends AbstractTestLog {
             }
 
             if (level == ERR) {
-                if (!suppressIndent && errorSummary != null && stack !=null
-                        && (errorCount == stack.ec + 1)) {
+                if (!suppressIndent && errorSummary != null && stack != null
+                    && (errorCount == stack.ec + 1)) {
                     stack.appendPath(errorSummary);
                     errorSummary.append("\n");
                 }
@@ -1621,9 +1631,9 @@ public class TestFmwk extends AbstractTestLog {
                     needLineFeed = false;
                 }
             } else {
-                if(!nodataArg){
+                if (!nodataArg) {
                     msg("Test " + name + " not found or not valid.", WARN, true,
-                            true);
+                        true);
                 }
             }
         }
@@ -1699,18 +1709,18 @@ public class TestFmwk extends AbstractTestLog {
 
             if (errorDelta != 0) {
                 log.println(" FAILED ("
-                        + errorDelta
-                        + " failure(s)"
-                        + ((warnDelta != 0) ? ", " + warnDelta
-                                + " warning(s)" : "")
-                                + ((invalidDelta != 0) ? ", " + invalidDelta
-                                        + " test(s) skipped)" : ")"));
+                    + errorDelta
+                    + " failure(s)"
+                    + ((warnDelta != 0) ? ", " + warnDelta
+                        + " warning(s)" : "")
+                    + ((invalidDelta != 0) ? ", " + invalidDelta
+                        + " test(s) skipped)" : ")"));
             } else if (warnDelta != 0) {
                 log.println(" ALERT ("
-                        + warnDelta
-                        + " warning(s)"
-                        + ((invalidDelta != 0) ? ", " + invalidDelta
-                                + " test(s) skipped)" : ")"));
+                    + warnDelta
+                    + " warning(s)"
+                    + ((invalidDelta != 0) ? ", " + invalidDelta
+                        + " test(s) skipped)" : ")"));
             } else if (invalidDelta != 0) {
                 log.println(" Qualified (" + invalidDelta + " test(s) skipped)");
             } else {
@@ -1753,7 +1763,7 @@ public class TestFmwk extends AbstractTestLog {
             name = (String) f.get(null);
         } catch (IllegalAccessException e) {
             throw new IllegalStateException(
-                    "static field CLASS_TARGET_NAME must be accessible");
+                "static field CLASS_TARGET_NAME must be accessible");
         } catch (NoSuchFieldException e) {
             int n = Math.max(name.lastIndexOf('.'), name.lastIndexOf('$'));
             if (n != -1) {
@@ -1860,35 +1870,37 @@ public class TestFmwk extends AbstractTestLog {
     }
 
     protected boolean assertEquals(String message, boolean expected,
-            boolean actual) {
+        boolean actual) {
         return handleAssert(expected == actual, message, String
-                .valueOf(expected), String.valueOf(actual));
+            .valueOf(expected), String.valueOf(actual));
     }
 
     protected boolean assertEquals(String message, long expected, long actual) {
         return handleAssert(expected == actual, message, String
-                .valueOf(expected), String.valueOf(actual));
+            .valueOf(expected), String.valueOf(actual));
     }
 
     // do NaN and range calculations to precision of float, don't rely on
     // promotion to double
     protected boolean assertEquals(String message, float expected,
-            float actual, double error) {
+        float actual, double error) {
         boolean result = Float.isInfinite(expected)
-                ? expected == actual
-                : !(Math.abs(expected - actual) > error); // handles NaN
+            ? expected == actual
+            : !(Math.abs(expected - actual) > error); // handles NaN
         return handleAssert(result, message, String.valueOf(expected)
-                + (error == 0 ? "" : " (within " + error + ")"), String
+            + (error == 0 ? "" : " (within " + error + ")"),
+            String
                 .valueOf(actual));
     }
 
     protected boolean assertEquals(String message, double expected,
-            double actual, double error) {
+        double actual, double error) {
         boolean result = Double.isInfinite(expected)
-                ? expected == actual
-                : !(Math.abs(expected - actual) > error); // handles NaN
+            ? expected == actual
+            : !(Math.abs(expected - actual) > error); // handles NaN
         return handleAssert(result, message, String.valueOf(expected)
-                + (error == 0 ? "" : " (within " + error + ")"), String
+            + (error == 0 ? "" : " (within " + error + ")"),
+            String
                 .valueOf(actual));
     }
 
@@ -1900,30 +1912,32 @@ public class TestFmwk extends AbstractTestLog {
     }
 
     protected boolean assertEquals(String message, Object expected,
-            Object actual) {
-        boolean result = expected == null ? actual == null : expected
+        Object actual) {
+        boolean result = expected == null ? actual == null
+            : expected
                 .equals(actual);
         return handleAssert(result, message, stringFor(expected),
-                stringFor(actual));
+            stringFor(actual));
     }
 
     protected boolean assertNotEquals(String message, Object expected,
-            Object actual) {
-        boolean result = !(expected == null ? actual == null : expected
+        Object actual) {
+        boolean result = !(expected == null ? actual == null
+            : expected
                 .equals(actual));
         return handleAssert(result, message, stringFor(expected),
-                stringFor(actual), "not equal to", true);
+            stringFor(actual), "not equal to", true);
     }
 
     protected boolean assertSame(String message, Object expected, Object actual) {
         return handleAssert(expected == actual, message, stringFor(expected),
-                stringFor(actual), "==", false);
+            stringFor(actual), "==", false);
     }
 
     protected boolean assertNotSame(String message, Object expected,
-            Object actual) {
+        Object actual) {
         return handleAssert(expected != actual, message, stringFor(expected),
-                stringFor(actual), "!=", true);
+            stringFor(actual), "!=", true);
     }
 
     protected boolean assertNull(String message, Object actual) {
@@ -1932,7 +1946,7 @@ public class TestFmwk extends AbstractTestLog {
 
     protected boolean assertNotNull(String message, Object actual) {
         return handleAssert(actual != null, message, null, stringFor(actual),
-                "!=", true);
+            "!=", true);
     }
 
     protected void fail() {
@@ -1950,12 +1964,12 @@ public class TestFmwk extends AbstractTestLog {
     }
 
     private boolean handleAssert(boolean result, String message,
-            String expected, String actual) {
+        String expected, String actual) {
         return handleAssert(result, message, expected, actual, null, false);
     }
 
     public boolean handleAssert(boolean result, String message,
-            Object expected, Object actual, String relation, boolean flip) {
+        Object expected, Object actual, String relation, boolean flip) {
         if (!result || isVerbose()) {
             if (message == null) {
                 message = "";
@@ -1966,14 +1980,15 @@ public class TestFmwk extends AbstractTestLog {
             relation = relation == null ? ", got " : " " + relation + " ";
             if (result) {
                 logln("OK " + message + ": "
-                        + (flip ? expected + relation + actual : expected));
+                    + (flip ? expected + relation + actual : expected));
             } else {
                 // assert must assume errors are true errors and not just warnings
                 // so cannot warnln here
-                errln(  message
-                        + ": expected"
-                        + (flip ? relation + expected : " " + expected
-                                + (actual != null ? relation + actual : "")));
+                errln(message
+                    + ": expected"
+                    + (flip ? relation + expected
+                        : " " + expected
+                            + (actual != null ? relation + actual : "")));
             }
         }
         return result;
@@ -1997,14 +2012,13 @@ public class TestFmwk extends AbstractTestLog {
             if (source != null && !source.equals("TestFmwk.java") && !source.equals("AbstractTestLog.java")) {
                 String methodName = st.getMethodName();
                 if (methodName != null &&
-                       (methodName.startsWith("Test") || methodName.startsWith("test") || methodName.equals("main"))) {
+                    (methodName.startsWith("Test") || methodName.startsWith("test") || methodName.equals("main"))) {
                     return "(" + source + ":" + st.getLineNumber() + ") ";
                 }
             }
         }
         throw new InternalError();
     }
-
 
     // End JUnit-like assertions
 

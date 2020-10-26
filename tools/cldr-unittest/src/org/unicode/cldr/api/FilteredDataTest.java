@@ -13,18 +13,15 @@ import com.ibm.icu.dev.test.TestFmwk;
 
 public class FilteredDataTest extends TestFmwk {
     public void TestSimple() {
-        CldrValue keep =
-            ldml("numbers/currencies/currency[@type=\"USD\"]/displayName", "US Dollar");
-        CldrValue remove =
-            ldml("numbers/currencies/currency[@type=\"USD\"]/symbol", "US$");
-        CldrValue replace =
-            ldml("units/durationUnit[@type=\"foo\"]/durationUnitPattern", "YYY");
-        CldrValue replacement =
-            ldml("units/durationUnit[@type=\"foo\"]/durationUnitPattern", "ZZZ");
+        CldrValue keep = ldml("numbers/currencies/currency[@type=\"USD\"]/displayName", "US Dollar");
+        CldrValue remove = ldml("numbers/currencies/currency[@type=\"USD\"]/symbol", "US$");
+        CldrValue replace = ldml("units/durationUnit[@type=\"foo\"]/durationUnitPattern", "YYY");
+        CldrValue replacement = ldml("units/durationUnit[@type=\"foo\"]/durationUnitPattern", "ZZZ");
 
         CldrData src = CldrDataSupplier.forValues(ImmutableList.of(keep, remove, replace));
         CldrData filtered = new FilteredData(src) {
-            @Override protected CldrValue filter(CldrValue value) {
+            @Override
+            protected CldrValue filter(CldrValue value) {
                 if (value.equals(remove)) {
                     return null;
                 } else if (value.equals(replace)) {
@@ -45,19 +42,19 @@ public class FilteredDataTest extends TestFmwk {
     }
 
     public void TestBadReplacementPath() {
-        CldrValue replace =
-            ldml("numbers/currencies/currency[@type=\"USD\"]/displayName", "VALUE");
-        CldrValue replacement =
-            ldml("numbers/currencies/currency[@type=\"USD\"]/symbol", "VALUE");
+        CldrValue replace = ldml("numbers/currencies/currency[@type=\"USD\"]/displayName", "VALUE");
+        CldrValue replacement = ldml("numbers/currencies/currency[@type=\"USD\"]/symbol", "VALUE");
 
         CldrData src = CldrDataSupplier.forValues(ImmutableList.of(replace));
         CldrData filtered = new FilteredData(src) {
-            @Override protected CldrValue filter(CldrValue value) {
+            @Override
+            protected CldrValue filter(CldrValue value) {
                 return replacement;
             }
         };
         try {
-            filtered.accept(ARBITRARY, v -> {});
+            filtered.accept(ARBITRARY, v -> {
+            });
             fail("expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             assertErrorMessageContains(e, "not permitted to modify distinguishing paths");
@@ -67,19 +64,19 @@ public class FilteredDataTest extends TestFmwk {
     }
 
     public void TestBadReplacementAttributes() {
-        CldrValue replace =
-            ldml("numbers/currencies/currency[@type=\"USD\"]/displayName", "XXX");
-        CldrValue replacement =
-            ldml("numbers/currencies/currency[@type=\"GBP\"]/displayName", "XXX");
+        CldrValue replace = ldml("numbers/currencies/currency[@type=\"USD\"]/displayName", "XXX");
+        CldrValue replacement = ldml("numbers/currencies/currency[@type=\"GBP\"]/displayName", "XXX");
 
         CldrData src = CldrDataSupplier.forValues(ImmutableList.of(replace));
         CldrData filtered = new FilteredData(src) {
-            @Override protected CldrValue filter(CldrValue value) {
+            @Override
+            protected CldrValue filter(CldrValue value) {
                 return replacement;
             }
         };
         try {
-            filtered.accept(ARBITRARY, v -> {});
+            filtered.accept(ARBITRARY, v -> {
+            });
             fail("expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             assertErrorMessageContains(e, "not permitted to modify distinguishing paths");

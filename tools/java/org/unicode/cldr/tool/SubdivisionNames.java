@@ -42,7 +42,7 @@ public class SubdivisionNames {
 
         // do inheritance
 
-        Map<String,String> builder = new TreeMap<>();
+        Map<String, String> builder = new TreeMap<>();
         while (true) {
             addSubdivisionNames(locale, builder, dirs);
             String parent = LocaleIDParser.getParent(locale);
@@ -78,7 +78,8 @@ public class SubdivisionNames {
                         builder.put(type, name);
                     }
                 }
-            } catch (Exception e) {} // if we can't find it, skip
+            } catch (Exception e) {
+            } // if we can't find it, skip
         }
     }
 
@@ -143,20 +144,19 @@ public class SubdivisionNames {
     }
 
     public static void main(String[] args) {
-         Factory annotations = CLDRConfig.getInstance().getAnnotationsFactory();
-         for (String locale : annotations.getAvailable()) {
-             SubdivisionNames sd = new SubdivisionNames(locale, "main", "subdivisions");
-             /**
-              *             <subdivision type="gbeng">England</subdivision>
+        Factory annotations = CLDRConfig.getInstance().getAnnotationsFactory();
+        for (String locale : annotations.getAvailable()) {
+            SubdivisionNames sd = new SubdivisionNames(locale, "main", "subdivisions");
+            /**
+             *             <subdivision type="gbeng">England</subdivision>
             <subdivision type="gbsct">Scotland</subdivision>
             <subdivision type="gbwls">Wales</subdivision>
 
-              */
-             System.out.println(locale
-                 + " gbeng=" + sd.get("gbeng")
-                 + " gbsct=" + sd.get("gbsct")
-                 + " gbwls=" + sd.get("gbwls")
-             );
-         }
+             */
+            System.out.println(locale
+                + " gbeng=" + sd.get("gbeng")
+                + " gbsct=" + sd.get("gbsct")
+                + " gbwls=" + sd.get("gbwls"));
+        }
     }
 }

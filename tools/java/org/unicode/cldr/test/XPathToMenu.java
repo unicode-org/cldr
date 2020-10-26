@@ -24,10 +24,8 @@ final class XPathToMenu {
     private static final String CODEPATTERNS = "codePatterns";
     private static final String MEASNAMES = "measurementSystemNames";
 
-    private static final String LOCALEDISPLAYPATTERN_XPATH =
-            LOCALEDISPLAYNAMES + LDMLConstants.LOCALEDISPLAYPATTERN;
-    private static final String NUMBERSCURRENCIES =
-            LDMLConstants.NUMBERS + "/" + CURRENCIES;
+    private static final String LOCALEDISPLAYPATTERN_XPATH = LOCALEDISPLAYNAMES + LDMLConstants.LOCALEDISPLAYPATTERN;
+    private static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/" + CURRENCIES;
 
     /**
      * All of the data items under LOCALEDISPLAYNAMES (menu items)
@@ -315,5 +313,6 @@ final class XPathToMenu {
         "Samara", "Europe",
     };
 
-    private XPathToMenu() {}
+    private XPathToMenu() {
+    }
 }

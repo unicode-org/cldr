@@ -39,7 +39,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
      */
     private static final boolean CHECK_FLAG_AND_EMOJI = false;
 
-
     // Get Date-Time in milliseconds
     private static long getDateTimeinMillis(int year, int month, int date) {
         Calendar cal = Calendar.getInstance();
@@ -71,7 +70,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         UNIT_PREFIX("//ldml/units/unitLength.*/unitPrefixPattern", MatchType.REGEX),
         UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX),
         UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX),
-        UNITS_COORDINATE( "//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX),
+        UNITS_COORDINATE("//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX),
         UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX),
         UNITS("//ldml/units/unitLength.*/(displayName|unitPattern|perUnitPattern)", MatchType.REGEX),
         FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX),
@@ -115,7 +114,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
          */
         public static Type getType(String path) {
             for (Type type : values()) {
-                if (type==Type.FIELDS_NARROW) continue; // skip FIELDS_NARROW so the corresponding paths are included in FIELDS_RELATIVE
+                if (type == Type.FIELDS_NARROW) continue; // skip FIELDS_NARROW so the corresponding paths are included in FIELDS_RELATIVE
                 if (type.matchType == MatchType.PREFIX) {
                     if (path.startsWith(type.getPrefix())) {
                         return type;
@@ -450,12 +449,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // Collisions between different lengths of the same field are allowed
         if (myType == Type.UNITS_COORDINATE) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
-            String myFieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
+            String myFieldType = (parts.containsElement("displayName")) ? "displayName" : parts.findAttributeValue("coordinateUnitPattern", "type");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
                 parts = XPathParts.getFrozenInstance(curVal);
-                String fieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
+                String fieldType = (parts.containsElement("displayName")) ? "displayName" : parts.findAttributeValue("coordinateUnitPattern", "type");
                 if (myFieldType.equals(fieldType)) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH FIELD  " + fieldType);

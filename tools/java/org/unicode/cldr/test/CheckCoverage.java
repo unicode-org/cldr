@@ -132,7 +132,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
             coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
             PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
             if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")
-                   && !SpecialLocales.isScratchLocale(localeID)) {
+                && !SpecialLocales.isScratchLocale(localeID)) {
                 possibleErrors.add(new CheckStatus()
                     .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
                     .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",

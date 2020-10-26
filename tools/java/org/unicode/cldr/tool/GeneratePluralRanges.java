@@ -93,14 +93,14 @@ public class GeneratePluralRanges {
             }
             for (RangeSample rangeSample : list) {
                 System.out.println(locale + "\t" + english.getName(locale)
-                + "\t" + rangeSample.start
-                + "\t" + rangeSample.end
-                + "\t" + (rangeSample.result == null ? "missing" : rangeSample.result)
-                + "\t" + rangeSample.min
-                + "\t" + rangeSample.max
-                + "\t" + rangeSample.startExample
-                + "\t" + rangeSample.endExample
-                + "\t" + rangeSample.resultExample);
+                    + "\t" + rangeSample.start
+                    + "\t" + rangeSample.end
+                    + "\t" + (rangeSample.result == null ? "missing" : rangeSample.result)
+                    + "\t" + rangeSample.min
+                    + "\t" + rangeSample.max
+                    + "\t" + rangeSample.startExample
+                    + "\t" + rangeSample.endExample
+                    + "\t" + rangeSample.resultExample);
             }
         }
     }
@@ -223,22 +223,18 @@ public class GeneratePluralRanges {
 
     // Ordering by size-of-set first, and then lexicographically, with a final tie-break on the
     // string representation.
-    private static final Comparator<Set<String>> STRING_SET_COMPARATOR =
-        Comparator.<Set<String>, Integer>comparing(Set::size)
-            .thenComparing(lexicographical(Comparator.<String>naturalOrder()));
-    private static final Comparator<Set<Count>> COUNT_SET_COMPARATOR =
-        Comparator.<Set<Count>, Integer>comparing(Set::size)
-            .thenComparing(lexicographical(Comparator.<Count>naturalOrder()));
+    private static final Comparator<Set<String>> STRING_SET_COMPARATOR = Comparator.<Set<String>, Integer> comparing(Set::size)
+        .thenComparing(lexicographical(Comparator.<String> naturalOrder()));
+    private static final Comparator<Set<Count>> COUNT_SET_COMPARATOR = Comparator.<Set<Count>, Integer> comparing(Set::size)
+        .thenComparing(lexicographical(Comparator.<Count> naturalOrder()));
 
     public void reformatPluralRanges() {
         Map<Set<Count>, Relation<Set<String>, String>> seen = new TreeMap<>(COUNT_SET_COMPARATOR);
-        try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(CLDRPaths.SUPPLEMENTAL_DIRECTORY,"pluralRanges.xml")) {
+        try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "pluralRanges.xml")) {
             out.println(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass()) +
                 "\t<version number=\"$Revision$\" />\n" +
-                "\t<plurals>"
-                );
+                "\t<plurals>");
             for (String locale : SUPPLEMENTAL.getPluralRangesLocales()) {
-
 
                 PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
                 PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
@@ -343,8 +339,8 @@ public class GeneratePluralRanges {
             for (Count end : pluralInfo.getCounts()) {
                 Count r = matrix.endSame(end);
                 if (r != null
-                    //&& r != Count.other
-                    ) {
+                //&& r != Count.other
+                ) {
                     result.add("<pluralRange" +
                         "              \t\tend=\"" + end
                         + "\"\tresult=\"" + r + "\"/>");
@@ -355,8 +351,8 @@ public class GeneratePluralRanges {
             for (Count start : pluralInfo.getCounts()) {
                 Count r = matrix.startSame(start, endDone, emit);
                 if (r != null
-                    // && r != Count.other
-                    ) {
+                // && r != Count.other
+                ) {
                     if (emit.value) {
                         result.add("<pluralRange" +
                             "\tstart=\"" + start
@@ -377,8 +373,8 @@ public class GeneratePluralRanges {
                 }
                 Count r = matrix.get(start, end);
                 if (r != null
-                    //&& !(MINIMAL && r == Count.other)
-                    ) {
+                //&& !(MINIMAL && r == Count.other)
+                ) {
                     result.add(PluralRanges.showRange(start, end, r));
                 } else {
                     result.add("<!-- <pluralRange" +

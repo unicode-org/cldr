@@ -23,7 +23,8 @@ import com.ibm.icu.text.UnicodeSetSpanner;
 public class Units {
 
     private static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
-    public static Pattern NO_SPACE_PREFIX = Pattern.compile("\\}" + ExampleGenerator.backgroundEndSymbol + "?\\p{L}|\\p{L}" + ExampleGenerator.backgroundStartSymbol + "?\\{");
+    public static Pattern NO_SPACE_PREFIX = Pattern
+        .compile("\\}" + ExampleGenerator.backgroundEndSymbol + "?\\p{L}|\\p{L}" + ExampleGenerator.backgroundStartSymbol + "?\\{");
 
     public static String combinePattern(String unitFormat, String compoundPattern, boolean lowercaseUnitIfNoSpaceInCompound) {
         // meterFormat of the form {0} meters or {0} Meter
@@ -51,9 +52,9 @@ public class Units {
 
     static final UnicodeSetSpanner SPACE_SPANNER = new UnicodeSetSpanner(WHITESPACE);
 
-    public static final Map<String,String> CORE_TO_TYPE;
-    public static final Multimap<String,String> TYPE_TO_CORE;
-    public static final BiMap<String,String> LONG_TO_SHORT;
+    public static final Map<String, String> CORE_TO_TYPE;
+    public static final Multimap<String, String> TYPE_TO_CORE;
+    public static final BiMap<String, String> LONG_TO_SHORT;
 
     static {
         Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
@@ -63,8 +64,8 @@ public class Units {
         Map<String, String> longToShort = new TreeMap<>();
         for (String s : VALID_UNITS) {
             int dashPos = s.indexOf('-');
-            String unitType = s.substring(0,dashPos);
-            String coreUnit = s.substring(dashPos+1);
+            String unitType = s.substring(0, dashPos);
+            String coreUnit = s.substring(dashPos + 1);
             longToShort.put(s, coreUnit);
             //coreUnit = converter.fixDenormalized(coreUnit);
             coreToType.put(coreUnit, unitType);

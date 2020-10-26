@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -43,15 +42,15 @@ class SandboxLocalesTest {
         check.setEnglishFile(instance.getEnglish());
         CheckCLDR.Options options = new CheckCLDR.Options();
         // our factory includes common/main, so limit here.
-        for(final CLDRLocale l : SpecialLocales.getByType(SpecialLocales.Type.scratch)) {
+        for (final CLDRLocale l : SpecialLocales.getByType(SpecialLocales.Type.scratch)) {
             System.out.println("Testing " + l);
             CLDRFile f = factory.make(l.getBaseName(), true, null);
             List<CheckCLDR.CheckStatus> errs = new LinkedList<>();
             check.setCldrFileToCheck(f, options, errs);
-            for(final CheckCLDR.CheckStatus err : errs) {
-                System.err.println(l.getBaseName() + ": " + err.getMessage() + " - " + err.getType() + "/" +  err.getSubtype());
+            for (final CheckCLDR.CheckStatus err : errs) {
+                System.err.println(l.getBaseName() + ": " + err.getMessage() + " - " + err.getType() + "/" + err.getSubtype());
             }
-            assertTrue(errs.isEmpty(), "had " + errs.size() +" error(s) in " + l);
+            assertTrue(errs.isEmpty(), "had " + errs.size() + " error(s) in " + l);
         }
     }
 }

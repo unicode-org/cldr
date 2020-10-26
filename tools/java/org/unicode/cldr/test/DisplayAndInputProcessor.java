@@ -137,11 +137,10 @@ public class DisplayAndInputProcessor {
         { 'ӊ', 'ң' }, { 'Ӊ', 'Ң' } }; //  right modifier
 
     private static final char[][] URDU_PLUS_CONVERSIONS = {
-        { '\u0643', '\u06A9' }}; //  wrong char
+        { '\u0643', '\u06A9' } }; //  wrong char
 
     private static final ZawgyiDetector detector = new ZawgyiDetector();
-    private static final Transliterator zawgyiUnicodeTransliterator =
-        Transliterator.getInstance("Zawgyi-my");
+    private static final Transliterator zawgyiUnicodeTransliterator = Transliterator.getInstance("Zawgyi-my");
 
     private Collator col;
 
@@ -852,7 +851,7 @@ public class DisplayAndInputProcessor {
 
     public static String fixAdlamNasalization(String fromString) {
         return ADLAM_MISNASALIZED.matcher(fromString)
-        .replaceAll("$1"+ADLAM_NASALIZATION+"$2");  // replace quote with 𞥋
+            .replaceAll("$1" + ADLAM_NASALIZATION + "$2"); // replace quote with 𞥋
     }
 
     static Pattern REMOVE_QUOTE1 = PatternCache.get("(\\s)(\\\\[-\\}\\]\\&])()");
@@ -878,14 +877,26 @@ public class DisplayAndInputProcessor {
                 continue;
             }
             switch (string) {
-            case "\u2011": toAdd.add("-"); break; // nobreak hyphen
-            case "-": toAdd.add("\u2011"); break; // nobreak hyphen
+            case "\u2011":
+                toAdd.add("-");
+                break; // nobreak hyphen
+            case "-":
+                toAdd.add("\u2011");
+                break; // nobreak hyphen
 
-            case " ": toAdd.add("\u00a0"); break; // nobreak space
-            case "\u00a0": toAdd.add(" "); break; // nobreak space
+            case " ":
+                toAdd.add("\u00a0");
+                break; // nobreak space
+            case "\u00a0":
+                toAdd.add(" ");
+                break; // nobreak space
 
-            case "\u202F": toAdd.add("\u2009"); break; // nobreak narrow space
-            case "\u2009": toAdd.add("\u202F"); break; // nobreak narrow space
+            case "\u202F":
+                toAdd.add("\u2009");
+                break; // nobreak narrow space
+            case "\u2009":
+                toAdd.add("\u202F");
+                break; // nobreak narrow space
             }
             if (exemplarType.convertUppercase) {
                 string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
@@ -961,8 +972,10 @@ public class DisplayAndInputProcessor {
      */
     public enum NumericType {
         CURRENCY(new int[] { 1, 2, 2 }, new int[] { 1, 2, 2 }), CURRENCY_ABBREVIATED(), DECIMAL(new int[] { 1, 0, 3 },
-            new int[] { 1, 0, 6 }), DECIMAL_ABBREVIATED(), PERCENT(new int[] { 1, 0, 0 },
-                new int[] { 1, 0, 0 }), SCIENTIFIC(new int[] { 0, 0, 0 }, new int[] { 1, 6, 6 }), NOT_NUMERIC;
+            new int[] { 1, 0, 6 }),
+        DECIMAL_ABBREVIATED(), PERCENT(new int[] { 1, 0, 0 },
+            new int[] { 1, 0, 0 }),
+        SCIENTIFIC(new int[] { 0, 0, 0 }, new int[] { 1, 6, 6 }), NOT_NUMERIC;
 
         private static final Pattern NUMBER_PATH = Pattern
             .compile("//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");

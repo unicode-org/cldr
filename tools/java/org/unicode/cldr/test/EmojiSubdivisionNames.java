@@ -29,20 +29,19 @@ import com.ibm.icu.util.ULocale;
 public class EmojiSubdivisionNames {
     private static final String subdivisionPathPrefix = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"";
     private static final String subdivisionPathSuffix = "\"]";
-    private static final Map<String,Map<String,String>> localeToNameToSubdivisionId = new ConcurrentHashMap<>();
-    private static final Map<String,Map<String,String>> localeToSubdivisionIdToName = new ConcurrentHashMap<>();
+    private static final Map<String, Map<String, String>> localeToNameToSubdivisionId = new ConcurrentHashMap<>();
+    private static final Map<String, Map<String, String>> localeToSubdivisionIdToName = new ConcurrentHashMap<>();
 
     private static final Pattern SUBDIVISION_PATTERN = Pattern.compile("\\s*<subdivision\\s+type=\"(gb(?:eng|sct|wls))\">([^<]+)</subdivision>");
     private static final SortedSet<String> SUBDIVISION_FILE_NAMES = ImmutableSortedSet.copyOf(
-        new File(CLDRPaths.SUBDIVISIONS_DIRECTORY).list()
-        );
+        new File(CLDRPaths.SUBDIVISIONS_DIRECTORY).list());
 
     static {
         localeToNameToSubdivisionId.put("root", Collections.emptyMap());
     }
 
     public static Map<String, String> getSubdivisionIdToName(String localeID) {
-        Map<String,String> result = localeToSubdivisionIdToName.get(localeID);
+        Map<String, String> result = localeToSubdivisionIdToName.get(localeID);
         if (result == null) {
             load(localeID);
             result = localeToSubdivisionIdToName.get(localeID);
@@ -54,7 +53,7 @@ public class EmojiSubdivisionNames {
     }
 
     public static Map<String, String> getNameToSubdivisionPath(String localeID) {
-        Map<String,String> result = localeToNameToSubdivisionId.get(localeID);
+        Map<String, String> result = localeToNameToSubdivisionId.get(localeID);
         if (result == null) {
             load(localeID);
             result = localeToNameToSubdivisionId.get(localeID);
@@ -67,7 +66,7 @@ public class EmojiSubdivisionNames {
 
     private static void load(String localeID) {
         try {
-            Map<String,String> _subdivisionIdToName;
+            Map<String, String> _subdivisionIdToName;
             Map<String, String> _nameToSubdivisionId;
 
             String fileName = localeID + ".xml";
@@ -123,7 +122,7 @@ public class EmojiSubdivisionNames {
         Set<String> locales = new HashSet<>();
         for (String filename : SUBDIVISION_FILE_NAMES) {
             if (filename.endsWith(".xml")) {
-                String locale = filename.substring(0, filename.length()-4);
+                String locale = filename.substring(0, filename.length() - 4);
                 Map<String, String> map = getSubdivisionIdToName(locale);
                 if (!map.isEmpty()) {
                     locales.add(locale);

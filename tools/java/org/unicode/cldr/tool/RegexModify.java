@@ -23,21 +23,26 @@ public class RegexModify {
 
     enum MyOptions {
         verbose(new Params()
-            .setHelp("verbose debugging messages")), sourceDirectory(new Params()
-                .setHelp("sourceDirectory")
-                .setDefault(CLDRPaths.COMMON_DIRECTORY)
-                .setMatch(".+")), targetDirectory(new Params()
-                    .setHelp("targetDirectory")
-                    .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
-                    .setMatch(".+")), fileRegex(new Params()
-                        .setHelp("filename regex")
-                        .setMatch(".*")
-                        .setDefault(".*\\.xml")), lineRegex(new Params()
-                            .setHelp("line regex")
-                            .setMatch(".*")), applyFunction(new Params()
-                                .setHelp("function name to apply")
-                                .setMatch(".*")),
-                                ;
+            .setHelp("verbose debugging messages")),
+        sourceDirectory(new Params()
+            .setHelp("sourceDirectory")
+            .setDefault(CLDRPaths.COMMON_DIRECTORY)
+            .setMatch(".+")),
+        targetDirectory(new Params()
+            .setHelp("targetDirectory")
+            .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
+            .setMatch(".+")),
+        fileRegex(new Params()
+            .setHelp("filename regex")
+            .setMatch(".*")
+            .setDefault(".*\\.xml")),
+        lineRegex(new Params()
+            .setHelp("line regex")
+            .setMatch(".*")),
+        applyFunction(new Params()
+            .setHelp("function name to apply")
+            .setMatch(".*")),
+            ;
 
         // BOILERPLATE TO COPY
         final Option option;

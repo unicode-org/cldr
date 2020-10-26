@@ -21,9 +21,11 @@ import com.google.common.collect.Maps;
  */
 public enum ModifierKey {
     COMMAND(Variant.NONE, "cmd"), CONTROL(Variant.PARENT, "ctrl"), CONTROL_LEFT(Variant.LEFT, "ctrl"), CONTROL_RIGHT(Variant.RIGHT, "ctrl"), ALT(Variant.PARENT,
-        "alt"), ALT_LEFT(Variant.LEFT, "alt"), ALT_RIGHT(Variant.RIGHT, "alt"), OPTION(Variant.PARENT, "opt"), OPTION_LEFT(Variant.LEFT, "opt"), OPTION_RIGHT(
-            Variant.RIGHT,
-            "opt"), CAPSLOCK(Variant.NONE, "caps"), SHIFT(Variant.PARENT, "shift"), SHIFT_LEFT(Variant.LEFT, "shift"), SHIFT_RIGHT(Variant.RIGHT, "shift");
+        "alt"),
+    ALT_LEFT(Variant.LEFT, "alt"), ALT_RIGHT(Variant.RIGHT, "alt"), OPTION(Variant.PARENT, "opt"), OPTION_LEFT(Variant.LEFT, "opt"), OPTION_RIGHT(
+        Variant.RIGHT,
+        "opt"),
+    CAPSLOCK(Variant.NONE, "caps"), SHIFT(Variant.PARENT, "shift"), SHIFT_LEFT(Variant.LEFT, "shift"), SHIFT_RIGHT(Variant.RIGHT, "shift");
 
     // Map of modifier key identifiers (obtained by calling toString()) to the modifier key itself.
     private static final ImmutableMap<String, ModifierKey> STRING_TO_MODIFIER_KEY = Maps.uniqueIndex(

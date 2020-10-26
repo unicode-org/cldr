@@ -135,9 +135,6 @@ public class SubdivisionNode {
             NAMES.put(code, lang, value);
         }
 
-
-
-
         static final String[] CRUFT = {
             "Emirate",
             "Parish",
@@ -203,8 +200,6 @@ public class SubdivisionNode {
             return fixName(input);
         }
 
-
-
         private static void appendName(CLDRFile fileSubdivisions, final String sdCode, String name, String level) throws IOException {
             if (name == null) {
                 return;
@@ -264,7 +259,6 @@ public class SubdivisionNode {
                     return fixName(cldrName);
                 }
             }
-
 
             cldrName = SubdivisionInfo.SUBDIVISION_NAMES_ENGLISH_FORMER.get(value);
             if (cldrName != null) {
@@ -451,18 +445,20 @@ public class SubdivisionNode {
             }
             return name;
         }
+
         public void print(PrintWriter out) {
             print(out, 0, "", BASE);
             for (Entry<String, String> entry : TO_COUNTRY_CODE.entrySet()) {
                 out.println(entry.getKey() + "\t" + entry.getValue());
             }
         }
+
         private void print(PrintWriter out, int indent, String prefix, SubdivisionNode base2) {
             if (!prefix.isEmpty()) {
                 prefix += "\t";
             }
             prefix += base2.code;
-            final String indentString = Utility.repeat("\t", 4-indent);
+            final String indentString = Utility.repeat("\t", 4 - indent);
             out.println(prefix + indentString + getName(base2));
             if (base2.children.isEmpty()) {
                 return;
@@ -501,8 +497,8 @@ public class SubdivisionNode {
              */
             output.append(
                 DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                + "\t<version number=\"$Revision" + "$\"/>\n"
-                + "\t<subdivisionContainment>\n");
+                    + "\t<version number=\"$Revision" + "$\"/>\n"
+                    + "\t<subdivisionContainment>\n");
             printXml(output, sdset.BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");
         }
@@ -573,8 +569,7 @@ public class SubdivisionNode {
             }
             output.append("<subdivisionAlias"
                 + " type=\"" + toReplace + "\""
-                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0, 2) + "?" :
-                Joiner.on(" ").join(replaceBy)) + "\""
+                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0, 2) + "?" : Joiner.on(" ").join(replaceBy)) + "\""
                 + " reason=\"" + reason + "\"/>"
                 + (replaceBy == null ? " <!- - " : " <!-- ")
                 + sdset.getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"
@@ -636,7 +631,7 @@ public class SubdivisionNode {
                     }
                     seen.add(region);
                     pw.append(";\t" + ENGLISH_ICU.regionDisplayName(region) + ": " + sdset.getIsoName(sample)
-                    + " (" + sample + ")");
+                        + " (" + sample + ")");
                     //if (--max < 0) break;
                 }
                 pw.append(System.lineSeparator());
@@ -668,11 +663,11 @@ public class SubdivisionNode {
                     output.append(
                         ENGLISH_ICU.regionDisplayName(countryCode)
 //                        + "\t" + WikiSubdivisionLanguages.WIKIDATA_TO_MID.get(value)
-                        + "\t" + cldrName
-                        + "\t" + value
-                        + "\t" + iso
-                        + "\t" + wiki
-                        + "\n");
+                            + "\t" + cldrName
+                            + "\t" + value
+                            + "\t" + iso
+                            + "\t" + wiki
+                            + "\n");
                 }
             }
             if (countEqual.size() != 0) {
@@ -692,11 +687,11 @@ public class SubdivisionNode {
                     output.append(
                         ENGLISH_ICU.regionDisplayName(countryCode)
 //                        + "\t" + WikiSubdivisionLanguages.WIKIDATA_TO_MID.get(value)
-                        + "\t" + value
-                        + "\t" + cldrName
-                        + "\t" + iso
-                        + "\t" + wiki
-                        + "\n");
+                            + "\t" + value
+                            + "\t" + cldrName
+                            + "\t" + iso
+                            + "\t" + wiki
+                            + "\n");
                 }
             }
         }

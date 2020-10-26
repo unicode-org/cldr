@@ -104,9 +104,9 @@ public class CldrItem implements Comparable<CldrItem> {
             System.out.println("---");
         }
 
-        if(path.isEmpty()) {
+        if (path.isEmpty()) {
             // Should not happen
-            throw new IllegalArgumentException("empty path with " + fullPath+"|"+untransformedPath+"|"+untransformedFullPath+ " = " + value );
+            throw new IllegalArgumentException("empty path with " + fullPath + "|" + untransformedPath + "|" + untransformedFullPath + " = " + value);
         }
 
         this.path = path;
@@ -208,7 +208,7 @@ public class CldrItem implements Comparable<CldrItem> {
     }
 
     public void setPath(String path) {
-        if(path.isEmpty()) {
+        if (path.isEmpty()) {
             throw new IllegalArgumentException("empty path");
         }
         this.path = path;

@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -32,7 +31,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
 import com.ibm.icu.text.UnicodeSetSpanner;
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class Annotations {
     private static final boolean DEBUG = false;
@@ -71,7 +69,7 @@ public class Annotations {
                 shortName.startsWith("#") || // skip other junk files
                 shortName.startsWith(".")
 //                || shortName.contains("001") // skip world english for now
-                ) continue; // skip dot files (backups, etc)
+            ) continue; // skip dot files (backups, etc)
             temp.add(dotSplitter.split(shortName).iterator().next());
         }
         LOCALES = temp.build();
@@ -105,9 +103,11 @@ public class Annotations {
                         templocaleData.put(key, parentValue);
                     } else { // need to combine
                         String tts = myValue.tts == null
-                            ? parentValue.tts : myValue.tts;
+                            ? parentValue.tts
+                            : myValue.tts;
                         Set<String> annotations = myValue.annotations == null || myValue.annotations.isEmpty()
-                            ? parentValue.annotations : myValue.annotations;
+                            ? parentValue.annotations
+                            : myValue.annotations;
                         templocaleData.put(key, new Annotations(annotations, tts));
                     }
                 }
@@ -381,7 +381,7 @@ public class Annotations {
 //                    if (subdivisionName != null) {
 //                        subdivisionName = ENGLISH_MARKER + subdivisionCode;
 //                    } else {
-                        subdivisionName = MISSING_MARKER + subdivisionCode;
+                    subdivisionName = MISSING_MARKER + subdivisionCode;
 //                    }
                 }
                 String flagName = flagLabel == null ? subdivisionName : initialPattern.format(flagLabel, subdivisionName);
@@ -424,7 +424,7 @@ public class Annotations {
                     code = code.startsWith(EmojiConstants.MAN) ? "👬"
                         : code.endsWith(EmojiConstants.MAN) ? "👫"
                             : code.startsWith(EmojiConstants.WOMAN) ? "👭"
-                            : NEUTRAL_HOLDING;
+                                : NEUTRAL_HOLDING;
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     rem = code + rem;
@@ -505,7 +505,7 @@ public class Annotations {
                     String sep = initialPattern.format("", "");
                     int splitPoint = shortName.indexOf(sep);
                     if (splitPoint >= 0) {
-                        String modName0 = shortName.substring(splitPoint+sep.length());
+                        String modName0 = shortName.substring(splitPoint + sep.length());
                         shortName = shortName.substring(0, splitPoint);
                         if (modName != null) {
                             arguments.add(modName);

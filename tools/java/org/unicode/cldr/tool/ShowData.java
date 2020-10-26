@@ -711,7 +711,7 @@ public class ShowData {
         // "$" //
         // + "Date" //
         // + "$") // odd style to keep CVS from substituting
-         // isoDateFormat.format(new Date())
+        // isoDateFormat.format(new Date())
         BufferedReader input = ToolUtilities.getUTF8Data("chart-template.html");
         StringBuffer result = new StringBuffer();
         while (true) {

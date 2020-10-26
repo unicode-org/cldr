@@ -29,12 +29,10 @@ public class GenerateSubdivisions {
     private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "iso_country_codes/";
     static final String ISO_SUBDIVISION_CODES = ISO_COUNTRY_CODES + "iso_country_codes.xml";
 
-
     // TODO: consider whether to use the last archive directory to generate
     // There are pros and cons.
     // Pros are that we don't introduce "fake" deprecated elements that are introduced and deprecated during the 6 month CLDR cycle
     // Cons are that we may have to repeat work
-
 
     static final class SubdivisionInfo {
         static final SupplementalDataInfo SDI_LAST = SupplementalDataInfo.getInstance(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/supplemental/");
@@ -45,7 +43,8 @@ public class GenerateSubdivisions {
 
         static final Validity VALIDITY_FORMER = Validity.getInstance(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/validity/");
 
-        static final Relation<String, String> formerRegionToSubdivisions = Relation.of(new HashMap<String, Set<String>>(), TreeSet.class, SubdivisionNode.ROOT_COL);
+        static final Relation<String, String> formerRegionToSubdivisions = Relation.of(new HashMap<String, Set<String>>(), TreeSet.class,
+            SubdivisionNode.ROOT_COL);
         static {
             Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getStatusToCodes(LstrType.subdivision);
             for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {
@@ -87,8 +86,7 @@ public class GenerateSubdivisions {
                 "2018-02-20_iso_country_code_ALL_xml",
                 "2018-09-02_iso_country_code_ALL_xml",
                 "2019-02-26_iso_country_code_ALL_xml",
-                "2020-03-05_iso_country_code_ALL_xml"
-                )) {
+                "2020-03-05_iso_country_code_ALL_xml")) {
                 SubdivisionSet sdset1 = new SubdivisionSet(CLDRPaths.CLDR_PRIVATE_DIRECTORY + source + "/iso_country_codes.xml");
                 try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/" + source + ".txt")) {
                     sdset1.print(pw);

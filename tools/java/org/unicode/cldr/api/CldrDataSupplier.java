@@ -201,8 +201,7 @@ public abstract class CldrDataSupplier {
         // be minimal.
         private synchronized Factory getFactory() {
             if (factory == null) {
-                File[] dirArray =
-                    getDirectoriesForType(LDML).map(Path::toFile).toArray(File[]::new);
+                File[] dirArray = getDirectoriesForType(LDML).map(Path::toFile).toArray(File[]::new);
                 checkArgument(dirArray.length > 0,
                     "no LDML directories exist: %s", directoryMap.get(LDML));
                 factory = SimpleFactory.make(dirArray, ".*", draftStatus.getRawStatus());
@@ -268,16 +267,20 @@ public abstract class CldrDataSupplier {
             }
         }
 
-        private static final Predicate<Path> IS_XML_FILE =
-            p -> Files.isRegularFile(p) && p.getFileName().toString().endsWith(".xml");
+        private static final Predicate<Path> IS_XML_FILE = p -> Files.isRegularFile(p) && p.getFileName().toString().endsWith(".xml");
     }
 
     private static final CldrData NO_DATA = new CldrData() {
-        @Override public void accept(PathOrder order, ValueVisitor visitor) {}
+        @Override
+        public void accept(PathOrder order, ValueVisitor visitor) {
+        }
 
-        @Override public void accept(PathOrder order, PrefixVisitor visitor) {}
+        @Override
+        public void accept(PathOrder order, PrefixVisitor visitor) {
+        }
 
-        @Override public CldrValue get(CldrPath path) {
+        @Override
+        public CldrValue get(CldrPath path) {
             return null;
         }
     };

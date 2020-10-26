@@ -225,9 +225,10 @@ public class CalendarSortMode extends SortMode {
     }
 
     private static final class ComparatorHelper {
-        static final Comparator<DataRow> COMPARATOR = new  Comparator<DataRow>() {
+        static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
             final int ourKey = SortMode.SortKeyType.SORTKEY_CALENDAR.ordinal();
             final Comparator<DataRow> codeComparator = CodeSortMode.internalGetComparator();
+
             @Override
             public int compare(DataRow p1, DataRow p2) {
                 if (p1 == p2) {

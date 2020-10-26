@@ -158,7 +158,8 @@ public class ChartLanguageGroups extends Chart {
 
     private String getPairName(Pair<String, String> pair, boolean showCollection) {
         return (showCollection && COLLECTIONS.contains(pair.getSecond())
-            ? SHOULD_NOT_BE_LEAF_NODE + " " : "")
+            ? SHOULD_NOT_BE_LEAF_NODE + " "
+            : "")
             + pair.getSecond() + " “" + pair.getFirst() + "”";
     }
 

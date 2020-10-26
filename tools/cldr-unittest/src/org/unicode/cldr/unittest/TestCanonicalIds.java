@@ -39,7 +39,7 @@ public class TestCanonicalIds extends TestFmwk {
     }
 
     public void TestTimezones() {
-        Set<String> bcp47Canonical = new LinkedHashSet<String>();
+        Set<String> bcp47Canonical = new LinkedHashSet<>();
         Relation<R2<String, String>, String> data = testInfo
             .getSupplementalDataInfo().getBcp47Aliases();
         Map<R2<String, String>, String> deprecatedData = testInfo
@@ -111,9 +111,9 @@ public class TestCanonicalIds extends TestFmwk {
         Map<String, R2<List<String>, String>> badMap = aliasInfo.get(type
             .toString());
         final String valueString = entry.getValue().get1();
-        HashSet<String> values = new LinkedHashSet<String>(
+        HashSet<String> values = new LinkedHashSet<>(
             Arrays.asList(WHITESPACE_PATTERN.split(valueString.trim())));
-        Set<String> emptyScripts = new TreeSet<String>();
+        Set<String> emptyScripts = new TreeSet<>();
         UnicodeSet remainingCharacters = new UnicodeSet(0, 0x10FFFF);
         UnicodeSet s = new UnicodeSet();
         for (String value : values) {
@@ -141,7 +141,7 @@ public class TestCanonicalIds extends TestFmwk {
             // if (!emptyScripts.isEmpty()) {
             // errln("Remove empty scripts from $script!: " + emptyScripts);
             // }
-            Set<String> missingScripts = new TreeSet<String>(specialValues);
+            Set<String> missingScripts = new TreeSet<>(specialValues);
             missingScripts.removeAll(values);
             while (remainingCharacters.size() != 0) {
                 String first = remainingCharacters.iterator().next();

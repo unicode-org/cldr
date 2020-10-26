@@ -40,7 +40,7 @@ public class TestAliases extends TestFmwk {
         }
     }
 
-    /** Check on 
+    /** Check on
      * http://unicode.org/cldr/trac/ticket/9477
      *      <field type="quarter-narrow">
      *           <alias source="locale" path="../field[@type='quarter-short']"/>

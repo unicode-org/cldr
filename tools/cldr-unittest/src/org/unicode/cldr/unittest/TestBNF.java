@@ -94,20 +94,20 @@ public class TestBNF {
         p = Pick.or(new String[]{"", "a", "bb", "ccc"});
         testOr(p, 3);
         p = Pick.repeat(3, 5, new int[]{20, 30, 20}, "a");
-        testOr(p, 5);        
+        testOr(p, 5);
         p = Pick.codePoint("[a-ce]");
-        testCodePoints(p);        
+        testCodePoints(p);
         p = Pick.codePoint("[a-ce]");
-        testCodePoints(p);        
+        testCodePoints(p);
         p = Pick.string(2, 8, p);
         testOr(p,10);
-        
+
         p = Pick.or(new String[]{"", "a", "bb", "ccc"});
         p = Pick.and(p).and2(p).and2("&");
         testMatch(p, "abb&");
         testMatch(p, "bba");
-        
-        // testEnglish();        
+
+        // testEnglish();
     }
     */
 

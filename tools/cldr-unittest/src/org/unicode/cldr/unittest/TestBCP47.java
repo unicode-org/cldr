@@ -129,7 +129,8 @@ public class TestBCP47 extends TestFmwk {
         }
     }
 
-    static final ImmutableSet<String> SKIP_TYPES = ImmutableSet.of("REORDER_CODE", "RG_KEY_VALUE", "SCRIPT_CODE", "SUBDIVISION_CODE", "CODEPOINTS", "PRIVATE_USE");
+    static final ImmutableSet<String> SKIP_TYPES = ImmutableSet.of("REORDER_CODE", "RG_KEY_VALUE", "SCRIPT_CODE", "SUBDIVISION_CODE", "CODEPOINTS",
+        "PRIVATE_USE");
 
     private void checkKeyType(
         String bcp47Key,
@@ -215,7 +216,6 @@ public class TestBCP47 extends TestFmwk {
 
         warnln("CLDR deprecated bcp47 ids: " + deprecatedBcp47s);
         warnln("CLDR deprecated tzids: " + deprecatedAliases);
-
 
         for (String tzid : TimeZone.getAvailableIDs()) {
             if (BOGUS_TZIDS.contains(tzid)) {

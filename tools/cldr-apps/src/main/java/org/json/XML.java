@@ -442,8 +442,10 @@ public class XML {
             return b.toString();
         } else {
             s = (o == null) ? "null" : escape(o.toString());
-            return (tagName == null) ? "\"" + s + "\"" : (s.length() == 0) ? "<" + tagName + "/>" : "<" + tagName + ">" + s
-                + "</" + tagName + ">";
+            return (tagName == null) ? "\"" + s + "\""
+                : (s.length() == 0) ? "<" + tagName + "/>"
+                    : "<" + tagName + ">" + s
+                        + "</" + tagName + ">";
         }
     }
 }

@@ -59,8 +59,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
         .add("^//ldml/dates/timeZoneNames/metazone\\[@type=\"GMT\"]", true)
         .add("^//ldml/localeDisplayNames/territories/territory\\[@type=\"[^\"]*+\"]\\[@alt=\"short\"]", true)
         .add("^//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName", true)
-        .add("^//ldml/localeDisplayNames/types/type\\[@key=\"collation\"]\\[@type=\"standard\"]", true)
-        ;
+        .add("^//ldml/localeDisplayNames/types/type\\[@key=\"collation\"]\\[@type=\"standard\"]", true);
 
     static UnicodeSet ASCII_LETTER = new UnicodeSet("[a-zA-Z]").freeze();
 
@@ -203,25 +202,25 @@ public class CheckForCopy extends FactoryCheckCLDR {
         switch (failure) {
         case same_as_english:
             result
-            .add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.warningType)
-                .setSubtype(Subtype.sameAsEnglish)
-                .setCheckOnSubmit(false)
-                .setMessage(
-                    "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
-                    new Object[] {}));
+                .add(new CheckStatus()
+                    .setCause(this)
+                    .setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.sameAsEnglish)
+                    .setCheckOnSubmit(false)
+                    .setMessage(
+                        "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                        new Object[] {}));
             break;
         case same_as_code:
             result
-            .add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.sameAsCode)
-                .setCheckOnSubmit(false)
-                .setMessage(
-                    "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
-                    new Object[] {}));
+                .add(new CheckStatus()
+                    .setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.sameAsCode)
+                    .setCheckOnSubmit(false)
+                    .setMessage(
+                        "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                        new Object[] {}));
             break;
         default:
         }

@@ -17,7 +17,7 @@ public class CLDRCompare {
         String filter = CldrUtility.getProperty("filter", ".*");
         Matcher matcher = PatternCache.get(filter).matcher("");
         File oldVersion = new File(CldrUtility.getProperty("old", PathUtilities.getNormalizedPathString(CLDRPaths.COMMON_DIRECTORY
-    + "../../../common-cldr1.6")));
+            + "../../../common-cldr1.6")));
         if (!oldVersion.exists()) {
             throw new IllegalArgumentException("Directory not found");
         }

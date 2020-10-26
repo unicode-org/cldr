@@ -1,8 +1,8 @@
 package org.unicode.cldr.unittest.web;
 
-import java.io.PrintWriter;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.PrintWriter;
 
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.TestShimUtils;

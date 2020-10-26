@@ -16,7 +16,7 @@ public class AllTests extends TestGroup {
         PathMatcherTest.class,
         PrefixVisitorTest.class,
         XmlDataSourceTest.class);
-    
+
     public static void main(String[] args) {
         System.setProperty("CLDR_ENVIRONMENT", "UNITTEST");
         new AllTests().run(args, new PrintWriter(System.out));
@@ -27,7 +27,7 @@ public class AllTests extends TestGroup {
             .map(Class::getName)
             .collect(toImmutableList()).toArray(new String[0]);
     }
-    
+
     public AllTests() {
         super("org.unicode.cldr.api", getTestClassNames(), "API unit tests");
     }

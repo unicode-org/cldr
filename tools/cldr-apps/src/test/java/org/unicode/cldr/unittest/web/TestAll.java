@@ -95,7 +95,7 @@ public class TestAll extends TestGroup {
         CheckCLDR.setDisplayInformation(CLDRConfig.getInstance().getEnglish());
         args = TestAll.doResetDb(args);
         TestAll test = new TestAll();
-        if(logs != null) {
+        if (logs != null) {
             return test.run(args, logs);
         } else {
             test.run(args);
@@ -309,7 +309,7 @@ public class TestAll extends TestGroup {
 
     static void makeDataSource() {
         final String jdbcUrl = CldrUtility.getProperty(CLDR_TEST_JDBC, "");
-        System.err.println(CLDR_TEST_JDBC +"="+jdbcUrl);
+        System.err.println(CLDR_TEST_JDBC + "=" + jdbcUrl);
         if (!jdbcUrl.isEmpty()) {
             DBUtils.makeInstanceFrom(null, jdbcUrl);
         } else if (CldrUtility.getProperty(CLDR_TEST_DISK_DB, false)) {

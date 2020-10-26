@@ -122,7 +122,8 @@ public interface CldrData {
              *                current path prefix.
              */
             default void install(ValueVisitor visitor) {
-                install(visitor, v -> {});
+                install(visitor, v -> {
+                });
             }
 
             /**
@@ -145,7 +146,8 @@ public interface CldrData {
              *                current path prefix.
              */
             default void install(PrefixVisitor visitor) {
-                install(visitor, v -> {});
+                install(visitor, v -> {
+                });
             }
 
             /**
@@ -171,7 +173,8 @@ public interface CldrData {
          * @param context a mechanism for installing sub-hierarchy visitors rooted at this point in
          *                the visitation.
          */
-        default void visitPrefixStart(CldrPath prefix, Context context) {}
+        default void visitPrefixStart(CldrPath prefix, Context context) {
+        }
 
         /**
          * Callback method invoked to signal the end of some sub-hierarchy visitation. This method
@@ -187,7 +190,8 @@ public interface CldrData {
          * @param prefix a path prefix corresponding to the end of some previously started
          *               sub-hierarchy visitation.
          */
-        default void visitPrefixEnd(CldrPath prefix) {}
+        default void visitPrefixEnd(CldrPath prefix) {
+        }
 
         /**
          * Callback method invoked for each value encountered by this visitor. This is equivalent
@@ -196,6 +200,7 @@ public interface CldrData {
          * method is useful for implementing visitors with full coverage of all paths and values
          * in the {@link CldrData} hierarchy.
          */
-        default void visitValue(CldrValue value) {}
+        default void visitValue(CldrValue value) {
+        }
     }
 }

@@ -87,8 +87,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
     public enum ExemplarType {
         main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true), punctuation(ALLOWED_IN_PUNCTUATION, "punctuation",
-            false), auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)",
-                true), index(UAllowedInExemplars, "(specific-script - invisibles)", false), numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
+            false),
+        auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)",
+            true),
+        index(UAllowedInExemplars, "(specific-script - invisibles)", false), numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
         // currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", false)
         ;
 
@@ -126,8 +128,9 @@ public class CheckExemplars extends FactoryCheckCLDR {
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
         prettyPrinter = new UnicodeSetPrettyPrinter()
             .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-            .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                .setStrength2(Collator.PRIMARY))
+            .setSpaceComparator(col != null ? col
+                : Collator.getInstance(ULocale.ROOT)
+                    .setStrength2(Collator.PRIMARY))
             .setCompressRanges(true);
 
         // check for auxiliary anyway
@@ -175,8 +178,9 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     if (overlap.size() != 0) {
                         String fixedExemplar1 = new UnicodeSetPrettyPrinter()
                             .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                            .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                                .setStrength2(Collator.PRIMARY))
+                            .setSpaceComparator(col != null ? col
+                                : Collator.getInstance(ULocale.ROOT)
+                                    .setStrength2(Collator.PRIMARY))
                             .setCompressRanges(true)
                             .format(overlap);
                         result

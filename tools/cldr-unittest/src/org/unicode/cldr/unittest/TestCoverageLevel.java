@@ -138,14 +138,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
             System.out.println(maxLevelCount
                 + "\t"
                 + localesWithUniqueLevels.size()
-                / localeCount
+                    / localeCount
                 + "\t"
                 + starred
                 + "\t"
                 + Joiner.on(", ").join(levelsFound)
                 + "\t"
-                + (maxLevelCount == 1 ? "all" : localesWithUniqueLevels
-                    .size() == 0 ? "none" : Joiner.on(", ").join(localesWithUniqueLevels)));
+                + (maxLevelCount == 1 ? "all"
+                    : localesWithUniqueLevels
+                        .size() == 0 ? "none" : Joiner.on(", ").join(localesWithUniqueLevels)));
         }
     }
 
@@ -259,15 +260,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
             switch (field) {
             case CLDRFile.LANGUAGE_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("language");
+                    .get("language");
                 break;
             case CLDRFile.TERRITORY_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("territory");
+                    .get("territory");
                 break;
             case CLDRFile.SCRIPT_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("script");
+                    .get("script");
                 break;
             default:
                 dep = null;
@@ -284,11 +285,13 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 extra = lang == null ? "X" : lang;
             } else if (field == CLDRFile.CURRENCY_NAME) {
                 Date last = currencyToLast.get(source);
-                extra = last == null ? "?" : last.compareTo(NOW) < 0 ? "old"
-                    : "";
+                extra = last == null ? "?"
+                    : last.compareTo(NOW) < 0 ? "old"
+                        : "";
             }
-            R2<List<String>, String> depValue = dep == null ? null : dep
-                .get(source);
+            R2<List<String>, String> depValue = dep == null ? null
+                : dep
+                    .get(source);
             if (depValue != null) {
                 extra += extra.isEmpty() ? "" : "-";
                 extra += depValue.get1();
@@ -299,12 +302,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     RegexLookup<Level> exceptions = RegexLookup.of(null,
         new Transform<String, Level>() {
-        @Override
-        public Level transform(String source) {
-            return Level.fromLevel(Integer.parseInt(source));
-        }
-    }, null).loadFromFile(TestCoverageLevel.class,
-        "TestCoverageLevel.txt");
+            @Override
+            public Level transform(String source) {
+                return Level.fromLevel(Integer.parseInt(source));
+            }
+        }, null).loadFromFile(TestCoverageLevel.class,
+            "TestCoverageLevel.txt");
 
     public void TestExceptions() {
         for (Map.Entry<Finder, Level> x : exceptions) {
@@ -622,8 +625,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             } else if (path.startsWith("//ldml/units")) {
                 // Skip paths for narrow unit fields.
                 if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
-                    || path.endsWith("/compoundUnitPattern1")
-                    ) {
+                    || path.endsWith("/compoundUnitPattern1")) {
                     continue;
                 }
             }
@@ -675,17 +677,17 @@ public class TestCoverageLevel extends TestFmwkPlus {
     public void testLogicalGroupingSamples() {
         System.out.println(GrammarInfo.SEED_LOCALES);
         String[][] test = {
-            {"de",
+            { "de",
                 "SINGLETON",
                 "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
             },
-            {"de",
+            { "de",
                 "METAZONE",
                 "//ldml/dates/timeZoneNames/metazone[@type=\"Alaska\"]/long/generic",
                 "//ldml/dates/timeZoneNames/metazone[@type=\"Alaska\"]/long/standard",
                 "//ldml/dates/timeZoneNames/metazone[@type=\"Alaska\"]/long/daylight",
             },
-            {"de",
+            { "de",
                 "DAYS",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sun\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"mon\"]",
@@ -695,7 +697,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"fri\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sat\"]",
             },
-            {"nl",
+            { "nl",
                 "DAY_PERIODS",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"morning1\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"afternoon1\"]",
@@ -703,14 +705,14 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"night1\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"midnight\"]",
             },
-            {"de",
+            { "de",
                 "QUARTERS",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"1\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"2\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"3\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"4\"]",
             },
-            {"de",
+            { "de",
                 "MONTHS",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"2\"]",
@@ -725,13 +727,13 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"11\"]",
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]",
             },
-            {"de",
+            { "de",
                 "RELATIVE",
                 "//ldml/dates/fields/field[@type=\"week-short\"]/relative[@type=\"-1\"]",
                 "//ldml/dates/fields/field[@type=\"week-short\"]/relative[@type=\"0\"]",
                 "//ldml/dates/fields/field[@type=\"week-short\"]/relative[@type=\"1\"]",
             },
-            {"de",
+            { "de",
                 "DECIMAL_FORMAT_LENGTH",
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
@@ -740,19 +742,19 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"one\"]",
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"other\"]",
             },
-            {"cs",
+            { "cs",
                 "COUNT",
                 "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"one\"]",
                 "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"few\"]",
                 "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"many\"]",
                 "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]",
             },
-            {"de",
+            { "de",
                 "COUNT",
                 "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]",
                 "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]",
             },
-            {"de",
+            { "de",
                 "COUNT_CASE",
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"area-square-kilometer\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"area-square-kilometer\"]/unitPattern[@count=\"one\"][@case=\"dative\"]",
@@ -763,7 +765,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"area-square-kilometer\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"area-square-kilometer\"]/unitPattern[@count=\"other\"]",
             },
-            {"hi",
+            { "hi",
                 "COUNT_CASE_GENDER",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]",
@@ -799,11 +801,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
         logKnownIssue("CLDR-13951", "Add more LogicalGrouping tests, fix DECIMAL_FORMAT_LENGTH, etc.");
     }
 
-    private Multimap<String,String> delta(Set<String> expected, Set<String> grouping) {
+    private Multimap<String, String> delta(Set<String> expected, Set<String> grouping) {
         if (expected.equals(grouping)) {
             return ImmutableListMultimap.of();
         }
-        Multimap<String,String> result = LinkedHashMultimap.create();
+        Multimap<String, String> result = LinkedHashMultimap.create();
         TreeSet<String> aMinusB = new TreeSet<>(expected);
         aMinusB.removeAll(grouping);
         result.putAll("expected-actual", aMinusB);

@@ -66,7 +66,8 @@ public class GenerateLanguageContainment {
             code = code.replace("\"", "");
             R2<List<String>, String> v = ALIAS_MAP.get(code);
             String result = v == null
-                ? code : v.get0().get(0);
+                ? code
+                : v.get0().get(0);
             result = result.contains("_")
                 ? code
                 : result;

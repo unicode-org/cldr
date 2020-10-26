@@ -12,15 +12,13 @@ import java.util.Set;
 import org.unicode.cldr.draft.Keyboard;
 import org.unicode.cldr.draft.Keyboard.KeyboardWarningException;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.PathUtilities;
 
 public class TestKeyboard extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestKeyboard().run(args);
     }
 
-    static final String dtdLocation =
-            getNormalizedPathString(CLDRConfig.getInstance().getCldrBaseDirectory()) + "/keyboards/dtd/ldmlKeyboard.dtd";
+    static final String dtdLocation = getNormalizedPathString(CLDRConfig.getInstance().getCldrBaseDirectory()) + "/keyboards/dtd/ldmlKeyboard.dtd";
 
     public void TestGoodSample() throws IOException {
         // preload these to make debugging easier

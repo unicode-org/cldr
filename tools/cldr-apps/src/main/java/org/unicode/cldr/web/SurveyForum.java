@@ -191,7 +191,7 @@ public class SurveyForum {
 
                     UserRegistry.User u = sm.reg.getInfo(uid);
                     if (u != null && u.email != null && u.email.length() > 0
-                            && !(UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
+                        && !(UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
                         if (UserRegistry.userIsVetter(u)) {
                             cc_emails.add(u.id);
                         } else {
@@ -310,7 +310,7 @@ public class SurveyForum {
                 }
                 postId = parentId;
             }
-         } catch (SQLException se) {
+        } catch (SQLException se) {
             String complaint = "SurveyForum: Couldn't get parent for post - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(se, complaint);
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
@@ -630,10 +630,10 @@ public class SurveyForum {
                     // specific POST
                     if (base_xpath <= 0) {
                         o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
-                                + " WHERE (" + forumPosts + ".forum =? AND "
-                                + forumPosts + " .id =?) ORDER BY "
-                                + forumPosts
-                                + ".last_time DESC",
+                            + " WHERE (" + forumPosts + ".forum =? AND "
+                            + forumPosts + " .id =?) ORDER BY "
+                            + forumPosts
+                            + ".last_time DESC",
                             forumNumber, /* base_xpath,*/ident);
                     } else {
                         // just a restriction - specific post, specific xpath
@@ -775,7 +775,7 @@ public class SurveyForum {
         }
         postInfo.setPath(base_xpath);
         final boolean couldFlag = couldFlagOnLosing(postInfo.getUser(), sm.xpt.getById(base_xpath), locale)
-                && !sm.getSTFactory().getFlag(locale, base_xpath);
+            && !sm.getSTFactory().getFlag(locale, base_xpath);
         postInfo.setCouldFlagOnLosing(couldFlag);
         if (couldFlag) {
             postInfo.setText(postInfo.getText() + FLAGGED_FOR_REVIEW_HTML);
@@ -794,7 +794,7 @@ public class SurveyForum {
      * @param didClearFlag
      */
     public void doForumAfterVote(CLDRLocale locale, User user, String distinguishingXpath, int xpathId,
-            String value, boolean didClearFlag) {
+        String value, boolean didClearFlag) {
         if (didClearFlag) {
             try {
                 int newPostId = postFlagRemoved(xpathId, locale, user);
@@ -851,7 +851,7 @@ public class SurveyForum {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
-                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
+                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
             pList.setInt(1, PostType.REQUEST.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -862,7 +862,7 @@ public class SurveyForum {
                 posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
             }
             posts.forEach((root, subject) -> autoPostReplyAgree(root, subject, locale, user, xpathId, value));
-         } catch (SQLException se) {
+        } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostAgree - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(se, complaint);
         } finally {
@@ -871,7 +871,7 @@ public class SurveyForum {
     }
 
     private void autoPostReplyAgree(int root, String subject, CLDRLocale locale, User user,
-            int xpathId, String value) {
+        int xpathId, String value) {
         String text = "(Auto-generated:) I voted for “" + value + "”";
         PostInfo postInfo = new PostInfo(locale, PostType.AGREE.toName(), text);
         postInfo.setSubj(subject);
@@ -907,7 +907,7 @@ public class SurveyForum {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT root,subj FROM " + tableName
-                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
             pList.setInt(1, PostType.AGREE.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -918,7 +918,7 @@ public class SurveyForum {
                 posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
             }
             posts.forEach((root, subject) -> autoPostReplyDecline(root, subject, locale, user, xpathId, value));
-         } catch (SQLException se) {
+        } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostDecline - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(se, complaint);
         } finally {
@@ -927,10 +927,10 @@ public class SurveyForum {
     }
 
     private void autoPostReplyDecline(int root, String subject, CLDRLocale locale, User user,
-            int xpathId, String value) {
+        int xpathId, String value) {
         String text = (value == null)
-                ? "(Auto-generated:) I changed my vote to Abstain, and will reconsider my vote."
-                : "(Auto-generated:) I changed my vote to “" + value + "”, which now disagrees with the request.";
+            ? "(Auto-generated:) I changed my vote to Abstain, and will reconsider my vote."
+            : "(Auto-generated:) I changed my vote to “" + value + "”, which now disagrees with the request.";
         PostInfo postInfo = new PostInfo(locale, PostType.DECLINE.toName(), text);
         postInfo.setSubj(subject);
         postInfo.setPath(xpathId);
@@ -964,7 +964,7 @@ public class SurveyForum {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
-                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
             pList.setInt(1, PostType.REQUEST.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -975,7 +975,7 @@ public class SurveyForum {
                 posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
             }
             posts.forEach((root, subject) -> autoPostReplyClose(root, subject, locale, user, xpathId, value));
-         } catch (SQLException se) {
+        } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostClose - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(se, complaint);
         } finally {
@@ -984,10 +984,10 @@ public class SurveyForum {
     }
 
     private void autoPostReplyClose(int root, String subject, CLDRLocale locale, User user,
-            int xpathId, String value) {
+        int xpathId, String value) {
         String abstainOrQuotedValue = value == null ? "Abstain" : "“" + value + "”";
         String text = "(Auto-generated:) I changed my vote to " + abstainOrQuotedValue
-                + ", disagreeing with my request. This topic is being closed.";
+            + ", disagreeing with my request. This topic is being closed.";
         PostInfo postInfo = new PostInfo(locale, PostType.CLOSE.toName(), text);
         postInfo.setSubj(subject);
         postInfo.setPath(xpathId);

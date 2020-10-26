@@ -26,10 +26,9 @@ final class ExternalUnitConversionData {
     public final ConversionInfo info;
     public final String line;
 
-    public ExternalUnitConversionData(String quantity, String source, String target, Rational factor, String line, Multimap<String,String> changes) {
+    public ExternalUnitConversionData(String quantity, String source, String target, Rational factor, String line, Multimap<String, String> changes) {
         super();
         this.quantity = quantity;
-
 
         LinkedHashSet<String> sourceChanges = new LinkedHashSet<>();
         this.source = extractUnit(quantity, source, sourceChanges);
@@ -53,12 +52,10 @@ final class ExternalUnitConversionData {
         degree Rankine (°R) kelvin (K)  T/K = (T/°R)/1.8
         kelvin (K)  degree Celsius (°C) t/°C = T/K - 273.15
      */
-    static final Map<String,Rational> temperatureHack = ImmutableMap.of(
+    static final Map<String, Rational> temperatureHack = ImmutableMap.of(
         "fahrenheit|celsius", Rational.of("-32/1.8"),
         "fahrenheit|kelvin", Rational.of("459.67/1.8"),
-        "celsius|kelvin", Rational.of("273.15")
-        );
-
+        "celsius|kelvin", Rational.of("273.15"));
 
     private String extractUnit(String quantity, String source, Set<String> changes) {
         // drop footnotes

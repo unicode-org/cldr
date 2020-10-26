@@ -149,6 +149,7 @@ public class ChartGrammaticalForms extends Chart {
         final double distanceFromOne; // zero is better
         final String quantity;
         final String shortUnit;
+
         public BestUnitForGender(String shortUnit, String quantity, Collection<String> systems, double baseSize) {
             super();
             this.shortUnit = shortUnit;
@@ -157,6 +158,7 @@ public class ChartGrammaticalForms extends Chart {
             this.metric = systems.contains("metric");
             this.distanceFromOne = Math.abs(Math.log(baseSize));
         }
+
         @Override
         public int compareTo(BestUnitForGender o) {
             // negation, because we want the best one first
@@ -168,23 +170,27 @@ public class ChartGrammaticalForms extends Chart {
                 .compare(shortUnit, o.shortUnit)
                 .result();
         }
+
         @Override
         public int hashCode() {
             return shortUnit.hashCode();
         }
+
         @Override
         public boolean equals(Object obj) {
-            return compareTo((BestUnitForGender)obj) == 0;
+            return compareTo((BestUnitForGender) obj) == 0;
         }
+
         @Override
         public String toString() {
-            return shortUnit + "(" + (durationOrLength ? "D" : "") + (metric ? "M" : "") + ":" + quantity + ":" + Math.round(distanceFromOne*10) + ")";
+            return shortUnit + "(" + (durationOrLength ? "D" : "") + (metric ? "M" : "") + ":" + quantity + ":" + Math.round(distanceFromOne * 10) + ")";
         }
     }
 
     public class TablePrinterWithHeader {
         final String header;
         final TablePrinter tablePrinter;
+
         public TablePrinterWithHeader(String header, TablePrinter tablePrinter) {
             this.header = header;
             this.tablePrinter = tablePrinter;
@@ -200,11 +206,11 @@ public class ChartGrammaticalForms extends Chart {
 
         MapComparator<String> caseOrder = new MapComparator<>(new String[] {
             "nominative", "vocative", "accusative", "oblique",
-            "genitive", "dative", "locative", "instrumental"});
+            "genitive", "dative", "locative", "instrumental" });
         Set<String> sortedCases = new TreeSet<>(caseOrder);
 
         MapComparator<String> genderOrder = new MapComparator<>(new String[] {
-            "masculine", "inanimate", "animate", "common", "feminine", "neuter"});
+            "masculine", "inanimate", "animate", "common", "feminine", "neuter" });
         Set<String> sortedGenders = new TreeSet<>(genderOrder);
 
         Output<Double> sizeInBaseUnits = new Output<>();
@@ -276,7 +282,6 @@ public class ChartGrammaticalForms extends Chart {
 
             Map<String, TablePrinterWithHeader> info = new LinkedHashMap<>();
 
-
             if (sortedCases.size() > 1) {
                 // set up the table and add the headers
                 TablePrinter caseTablePrinter = new TablePrinter()
@@ -289,9 +294,8 @@ public class ChartGrammaticalForms extends Chart {
                     .setSortPriority(1)
                     .setHidden(true)
                     .addColumn("Gender", "class='source' width='1%'", null, "class='source'", true)
-                    .addColumn("Case", "class='source' width='1%'", null, "class='source'", true)
-                    ;
-                double width = ((int) ((99.0 / (adjustedPlurals.size()*2 + 1)) * 1000)) / 1000.0;
+                    .addColumn("Case", "class='source' width='1%'", null, "class='source'", true);
+                double width = ((int) ((99.0 / (adjustedPlurals.size() * 2 + 1)) * 1000)) / 1000.0;
                 String widthStringTarget = "class='target' width='" + width + "%'";
                 final PluralRules pluralRules = plurals.getPluralRules();
 
@@ -311,20 +315,21 @@ public class ChartGrammaticalForms extends Chart {
                     for (String case1 : sortedCases) { //
                         // start a row, then add the cells in the row.
                         caseTablePrinter
-                        .addRow()
-                        .addCell(unitCell)
-                        .addCell(quantity)
-                        .addCell(sizeInBaseUnits.value)
-                        .addCell(gender)
-                        .addCell(case1);
+                            .addRow()
+                            .addCell(unitCell)
+                            .addCell(quantity)
+                            .addCell(sizeInBaseUnits.value)
+                            .addCell(gender)
+                            .addCell(case1);
 
                         for (Count plural : adjustedPlurals) {
                             Double sample = getBestSample(pluralRules, plural);
 
                             // <caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
 
-                            String unitPattern = cldrFile.getStringValueWithBailey("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnit + "\"]/unitPattern"
-                                + GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, plural.toString(), null, case1));
+                            String unitPattern = cldrFile
+                                .getStringValueWithBailey("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnit + "\"]/unitPattern"
+                                    + GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, plural.toString(), null, case1));
 
                             caseTablePrinter.addCell(unitPattern);
 
@@ -348,8 +353,8 @@ public class ChartGrammaticalForms extends Chart {
                         + "The <b>Gender</b> column is informative; it just supplies the supplied gender for the unit.</p>\n"
                         + "<ul><li>For clarity, conversion values are supplied for non-metric units. "
                         + "For more information, see <a target='unit_conversions' href='../supplemental/unit_conversions.html'>Unit Conversions</a>.</li>"
-                        + "</ul>\n"
-                        , caseTablePrinter));
+                        + "</ul>\n",
+                    caseTablePrinter));
             }
 
             if (sortedCases.size() > 1 || sortedGenders.size() > 1) {
@@ -374,15 +379,13 @@ public class ChartGrammaticalForms extends Chart {
                     System.out.println(locale + "\t" + entry.getKey() + "\t" + items);
                 }
 
-
                 TablePrinter caseTablePrinter = new TablePrinter()
                     .addColumn("Unit", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
                     .setSortPriority(2)
                     .setRepeatHeader(true)
                     .addColumn("Case", "class='source' width='1%'", null, "class='source'", true)
-                    .addColumn("Gender", "class='source' width='1%'", null, "class='source'", true)
-                    ;
-                double width = ((int) ((99.0 / (adjustedPlurals.size()*2 + 1)) * 1000)) / 1000.0;
+                    .addColumn("Gender", "class='source' width='1%'", null, "class='source'", true);
+                double width = ((int) ((99.0 / (adjustedPlurals.size() * 2 + 1)) * 1000)) / 1000.0;
                 String widthStringTarget = "class='target' width='" + width + "%'";
                 final PluralRules pluralRules = plurals.getPluralRules();
 
@@ -402,11 +405,10 @@ public class ChartGrammaticalForms extends Chart {
                         for (String case1 : sortedCases) { //
                             // start a row, then add the cells in the row.
                             caseTablePrinter
-                            .addRow()
-                            .addCell(unitCell)
-                            .addCell(case1)
-                            .addCell(gender + (bestUnit == null ? "" : "\n(" + bestUnit + ")"))
-                            ;
+                                .addRow()
+                                .addCell(unitCell)
+                                .addCell(case1)
+                                .addCell(gender + (bestUnit == null ? "" : "\n(" + bestUnit + ")"));
 
                             for (Count plural : adjustedPlurals) {
                                 String localizedPowerPattern = UnitPathType.power.getTrans(cldrFile, "long", power, plural.toString(), case1, gender, null);
@@ -416,7 +418,8 @@ public class ChartGrammaticalForms extends Chart {
                                     caseTablePrinter.addCell("n/a");
                                 } else {
                                     Double samplePlural = getBestSample(pluralRules, plural);
-                                    String localizedUnitPattern = UnitPathType.unit.getTrans(cldrFile, "long", bestUnit, plural.toString(), case1, gender, null);
+                                    String localizedUnitPattern = UnitPathType.unit.getTrans(cldrFile, "long", bestUnit, plural.toString(), case1, gender,
+                                        null);
                                     placeholderPosition = UnitConverter.extractUnit(placeholderMatcher, localizedUnitPattern, unitPatternOut);
                                     if (placeholderPosition != PlaceholderLocation.middle) {
                                         localizedUnitPattern = unitPatternOut.value;
@@ -424,18 +427,19 @@ public class ChartGrammaticalForms extends Chart {
 
                                         String combined;
                                         try {
-                                            combined = UnitConverter.combineLowercasing(new ULocale(locale), "long", localizedPowerPattern, localizedUnitPattern);
+                                            combined = UnitConverter.combineLowercasing(new ULocale(locale), "long", localizedPowerPattern,
+                                                localizedUnitPattern);
                                         } catch (Exception e) {
-                                           throw new IllegalArgumentException(locale + ") Can't combine "
-                                               + "localizedPowerPattern=«" + localizedPowerPattern
-                                               + "» with localizedUnitPattern=«"+ localizedUnitPattern + "»"
-                                               );
+                                            throw new IllegalArgumentException(locale + ") Can't combine "
+                                                + "localizedPowerPattern=«" + localizedPowerPattern
+                                                + "» with localizedUnitPattern=«" + localizedUnitPattern + "»");
                                         }
                                         String combinedWithPlaceholder = UnitConverter.addPlaceholder(combined, placeholderPattern, placeholderPosition);
 
                                         String sample = MessageFormat.format(combinedWithPlaceholder, decFormat.format(samplePlural));
 
-                                        String caseMinimalPair = cldrFile.getStringValue("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
+                                        String caseMinimalPair = cldrFile
+                                            .getStringValue("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
                                         String withContext = caseMinimalPair == null ? sample : MessageFormat.format(caseMinimalPair, sample);
 
                                         caseTablePrinter.addCell(withContext);
@@ -454,9 +458,9 @@ public class ChartGrammaticalForms extends Chart {
                         + "The patterns are first supplied, and then combined with the samples and "
                         + "<b><a target='doc-minimal-pairs' href='http://cldr.unicode.org/translation/grammatical-inflection#TOC-Miscellaneous-Minimal-Pairs'>case minimal pair patterns</a></b> "
                         + "in the next <b>Formatted Sample</b> column."
-                        + "</p>", caseTablePrinter));
+                        + "</p>",
+                    caseTablePrinter));
             }
-
 
             if (!info.isEmpty()) {
                 String name = ENGLISH.getName(locale);
@@ -465,12 +469,13 @@ public class ChartGrammaticalForms extends Chart {
         }
     }
 
-    public void addTwoColumns(TablePrinter caseTablePrinter, String widthStringTarget, Collection<Count> adjustedPlurals, final PluralRules pluralRules, boolean spanRows) {
+    public void addTwoColumns(TablePrinter caseTablePrinter, String widthStringTarget, Collection<Count> adjustedPlurals, final PluralRules pluralRules,
+        boolean spanRows) {
         for (Count plural : adjustedPlurals) {
             Double sample = getBestSample(pluralRules, plural);
             final String pluralHeader = plural.toString() + " (" + sample + ")";
             caseTablePrinter.addColumn("Form for: " + pluralHeader, widthStringTarget, null, "class='target'", true)
-            .setSpanRows(spanRows);
+                .setSpanRows(spanRows);
             caseTablePrinter.addColumn("Formatted Sample: " + pluralHeader, widthStringTarget, null, "class='target'", true);
         }
     }
@@ -487,7 +492,7 @@ public class ChartGrammaticalForms extends Chart {
             int debug = 0;
         }
         String unitCell = ENGLISH.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + uc.getLongId(shortUnit)
-        + "\"]/displayName");
+            + "\"]/displayName");
         Output<String> baseUnit = new Output<>();
         ConversionInfo info = uc.parseUnitId(shortUnit, baseUnit, false);
 
@@ -514,8 +519,8 @@ public class ChartGrammaticalForms extends Chart {
                 final double bestDoubleFactor = bestFactor.doubleValue();
                 String pluralCategory = ENGLISH_PLURAL_RULES.select(bestDoubleFactor);
                 final String unitPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + uc.getLongId(bestUnit)
-                + "\"]/unitPattern[@count=\"" + pluralCategory
-                + "\"]";
+                    + "\"]/unitPattern[@count=\"" + pluralCategory
+                    + "\"]";
                 String unitPattern = ENGLISH.getStringValue(unitPath);
                 if (unitPattern == null) {
                     final UnitId unitId = uc.createUnitId(bestUnit);
@@ -552,7 +557,7 @@ public class ChartGrammaticalForms extends Chart {
     private class Subchart extends Chart {
         String title;
         String file;
-        private Map<String,TablePrinterWithHeader> tablePrinter;
+        private Map<String, TablePrinterWithHeader> tablePrinter;
 
         @Override
         public boolean getShowDate() {
@@ -597,8 +602,7 @@ public class ChartGrammaticalForms extends Chart {
                 + "<li>Translators often have difficulties with the the minimal pair patterns, "
                 + "since they are <i>transcreations</i> not translations. The Hindi minimal pair patterns for case and gender have been discarded because they were incorrectly translated.</li>"
                 + "<li>We don't expect translators to supply minimal pair patterns that are natural for any kind of placeholder: "
-                + "for example, it is probably not typical to use the vocative with 3.2 meters! So look at the <b>Formatted Samples</b> as an aid for helping to see the context for grammatical inflections, but one that has limitations.</li></ul>"
-                ;
+                + "for example, it is probably not typical to use the vocative with 3.2 meters! So look at the <b>Formatted Samples</b> as an aid for helping to see the context for grammatical inflections, but one that has limitations.</li></ul>";
         }
 
         @Override
@@ -608,14 +612,14 @@ public class ChartGrammaticalForms extends Chart {
                 pw.append("<ol>\n");
                 for (String header : tablePrinter.keySet()) {
                     pw.write("<li><b>"
-                        + "<a href='#" + FileUtilities.anchorize(header)+ "'>" + header + "</a>"
+                        + "<a href='#" + FileUtilities.anchorize(header) + "'>" + header + "</a>"
                         + "</b></li>\n");
                 }
                 pw.append("</ol>\n");
             }
             for (Entry<String, TablePrinterWithHeader> entry : tablePrinter.entrySet()) {
                 final String header = entry.getKey();
-                pw.write("<h2><a name='" + FileUtilities.anchorize(header)+ "'>" + header + "</a></h2>\n");
+                pw.write("<h2><a name='" + FileUtilities.anchorize(header) + "'>" + header + "</a></h2>\n");
                 final TablePrinterWithHeader explanation = entry.getValue();
                 pw.write(explanation.header);
                 pw.write(explanation.tablePrinter.toTable());

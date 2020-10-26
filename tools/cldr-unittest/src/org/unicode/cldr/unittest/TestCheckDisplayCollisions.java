@@ -22,7 +22,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
 public class TestCheckDisplayCollisions extends TestFmwkPlus {
-    private static final String ukRegion =  "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
+    private static final String ukRegion = "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
     private static final String englandSubdivision = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"gbeng\"]";
 
     private static final String scorpioEmoji = "//ldml/annotations/annotation[@cp=\"♏\"][@type=\"tts\"]";
@@ -38,7 +38,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String deciNarrow = "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
     private static final String deciShort = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         new TestCheckDisplayCollisions().run(args);
     }
 
@@ -150,7 +150,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
             errln("init: " + possibleErrors);
             possibleErrors.clear();
         }
-        Map<String,List<CheckStatus>> found = new HashMap<>();
+        Map<String, List<CheckStatus>> found = new HashMap<>();
         for (String path : cldrFileResolved) {
             String value = cldrFileResolved.getStringValue(path);
             //System.out.println(path + "\t" + value);
@@ -195,18 +195,17 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         }
     }
 
-    public void TestDotPixel14031 () {
+    public void TestDotPixel14031() {
         TestFactory factory = new TestFactory();
         XMLSource rootSource = new SimpleXMLSource("root");
         factory.addFile(new CLDRFile(rootSource));
 
         XMLSource localeSource = new SimpleXMLSource("de");
-        Map<String,String> m = ImmutableMap.of(
+        Map<String, String> m = ImmutableMap.of(
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/displayName", "Punkt",
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
-            );
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter");
         for (Entry<String, String> entry : m.entrySet()) {
             localeSource.putValueAtPath(entry.getKey(), entry.getValue());
         }

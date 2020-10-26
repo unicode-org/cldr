@@ -87,7 +87,7 @@ import com.ibm.icu.util.ULocale;
  * -DSHOW_FILES=<anything> shows all create/open of files.
  */
 @CLDRTool(alias = "modify",
-description = "Tool for applying modifications to the CLDR files. Use -h to see the options.")
+    description = "Tool for applying modifications to the CLDR files. Use -h to see the options.")
 public class CLDRModify {
     private static final boolean DEBUG = false;
     static final String DEBUG_PATHS = null; // ".*currency.*";
@@ -282,25 +282,25 @@ public class CLDRModify {
         + "\tc\t ignore comments in <merge_dir> files"
 //        + XPathParts.NEWLINE
 //        + "-r\t to minimize the results (removing items that inherit from parent)."
-+ XPathParts.NEWLINE
-+ "-v\t incorporate vetting information, and generate diff files."
-+ XPathParts.NEWLINE
-+ "-z\t generate resolved files"
-+ XPathParts.NEWLINE
-+ "-p\t set path for -fx"
-+ XPathParts.NEWLINE
-+ "-u\t set user for -fb"
-+ XPathParts.NEWLINE
-+ "-a\t pattern: recurse over all subdirectories that match pattern"
-+ XPathParts.NEWLINE
-+ "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
-+ XPathParts.NEWLINE
-+ "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
-+ XPathParts.NEWLINE
-+ "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
-+ XPathParts.NEWLINE
-+ "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
-+ XPathParts.NEWLINE;
+        + XPathParts.NEWLINE
+        + "-v\t incorporate vetting information, and generate diff files."
+        + XPathParts.NEWLINE
+        + "-z\t generate resolved files"
+        + XPathParts.NEWLINE
+        + "-p\t set path for -fx"
+        + XPathParts.NEWLINE
+        + "-u\t set user for -fb"
+        + XPathParts.NEWLINE
+        + "-a\t pattern: recurse over all subdirectories that match pattern"
+        + XPathParts.NEWLINE
+        + "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
+        + XPathParts.NEWLINE
+        + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
+        + XPathParts.NEWLINE
+        + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
+        + XPathParts.NEWLINE
+        + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
+        + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 = "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."
         + XPathParts.NEWLINE;
@@ -419,7 +419,7 @@ public class CLDRModify {
                         long now = System.currentTimeMillis();
                         if (now - lastTime > 5000) {
                             System.out.println(" .. still processing " + test + " [" + spin + "/" + locales.size()
-                            + "]");
+                                + "]");
                             lastTime = now;
                         }
                     }
@@ -708,7 +708,6 @@ public class CLDRModify {
 
     static PathChecker pathChecker = new PathChecker();
 
-
     abstract static class CLDRFilter {
         protected CLDRFile cldrFileToFilter;
         protected CLDRFile cldrFileToFilterResolved;
@@ -747,13 +746,14 @@ public class CLDRModify {
             return cldrFileToFilterResolved;
 
         }
+
         public void show(String reason, String detail) {
             System.out.println("%" + localeID + "\t" + reason + "\tConsidering " + detail);
         }
 
         public void retain(String path, String reason) {
             System.out.println("%" + localeID + "\t" + reason + "\tRetaining: " + cldrFileToFilter.getStringValue(path)
-            + "\t at: " + path);
+                + "\t at: " + path);
         }
 
         public void remove(String path) {
@@ -784,8 +784,9 @@ public class CLDRModify {
                 + "\t«"
                 + oldValueOldPath
                 + "»"
-                + (newFullPath.equals(oldFullPath) || oldValueNewPath == null ? "" : oldValueNewPath
-                    .equals(oldValueOldPath) ? "/=" : "/«" + oldValueNewPath + "»")
+                + (newFullPath.equals(oldFullPath) || oldValueNewPath == null ? ""
+                    : oldValueNewPath
+                        .equals(oldValueOldPath) ? "/=" : "/«" + oldValueNewPath + "»")
                 + "\t→\t" + (newValue == null ? "∅" : newValue.equals(oldValueOldPath) ? "≡" : "«" + newValue + "»")
                 + "\t" + oldFullPath
                 + (newFullPath.equals(oldFullPath) ? "" : "\t→\t" + newFullPath));
@@ -1377,7 +1378,7 @@ public class CLDRModify {
                 nf.setGroupingUsed(false);
 
                 String tagString = leadingParenString + nf.format(fromDate) + separator + nf.format(toDate)
-                + trailingParenString;
+                    + trailingParenString;
 
                 replace(fullXPath, fullXPath, value + tagString);
 
@@ -1953,165 +1954,165 @@ public class CLDRModify {
         fixList.add('k',
             "fix according to -k config file. Details on http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config",
             new CLDRFilter() {
-            private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> locale2keyValues;
-            private LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = new LinkedHashSet<>();
-            private Matcher draftMatcher = Pattern.compile("\\[@draft=\"[^\"]+\"]").matcher("");
+                private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> locale2keyValues;
+                private LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = new LinkedHashSet<>();
+                private Matcher draftMatcher = Pattern.compile("\\[@draft=\"[^\"]+\"]").matcher("");
 
-            @Override
-            public void handleStart() {
-                super.handleStart();
-                if (!options[FIX].doesOccur || !options[FIX].value.equals("k")) {
-                    return;
-                }
-                if (locale2keyValues == null) {
-                    fillCache();
-                }
-                // set up for the specific locale we are dealing with.
-                // a small optimization
-                String localeId = getLocaleID();
-                keyValues.clear();
-                for (Entry<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> localeMatcher : locale2keyValues
-                    .entrySet()) {
-                    if (localeMatcher.getKey().matches(localeId)) {
-                        keyValues.addAll(localeMatcher.getValue());
+                @Override
+                public void handleStart() {
+                    super.handleStart();
+                    if (!options[FIX].doesOccur || !options[FIX].value.equals("k")) {
+                        return;
                     }
-                }
-                System.out.println("# Checking entries & changing:\t" + keyValues.size());
-                for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
-                    ConfigMatch action = entry.get(ConfigKeys.action);
-                    //ConfigMatch locale = entry.get(ConfigKeys.locale);
-                    ConfigMatch pathMatch = entry.get(ConfigKeys.path);
-                    ConfigMatch valueMatch = entry.get(ConfigKeys.value);
-                    ConfigMatch newPath = entry.get(ConfigKeys.new_path);
-                    ConfigMatch newValue = entry.get(ConfigKeys.new_value);
-                    switch (action.action) {
-                    // we add all the values up front
-                    case addNew:
-                    case add:
-                        if (pathMatch != null || valueMatch != null || newPath == null || newValue == null) {
-                            throw new IllegalArgumentException(
-                                "Bad arguments, must have non-null for one of:" +
-                                    "path, value, new_path, new_value "
-                                    + ":\n\t"
-                                    + entry);
+                    if (locale2keyValues == null) {
+                        fillCache();
+                    }
+                    // set up for the specific locale we are dealing with.
+                    // a small optimization
+                    String localeId = getLocaleID();
+                    keyValues.clear();
+                    for (Entry<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> localeMatcher : locale2keyValues
+                        .entrySet()) {
+                        if (localeMatcher.getKey().matches(localeId)) {
+                            keyValues.addAll(localeMatcher.getValue());
                         }
-                        String newPathString = newPath.getPath(getResolved());
-                        if (action.action == ConfigAction.add
-                            || cldrFileToFilter.getStringValue(newPathString) == null) {
-                            replace(newPathString, newPathString, newValue.exactMatch, "config");
-                        }
-                        break;
+                    }
+                    System.out.println("# Checking entries & changing:\t" + keyValues.size());
+                    for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
+                        ConfigMatch action = entry.get(ConfigKeys.action);
+                        //ConfigMatch locale = entry.get(ConfigKeys.locale);
+                        ConfigMatch pathMatch = entry.get(ConfigKeys.path);
+                        ConfigMatch valueMatch = entry.get(ConfigKeys.value);
+                        ConfigMatch newPath = entry.get(ConfigKeys.new_path);
+                        ConfigMatch newValue = entry.get(ConfigKeys.new_value);
+                        switch (action.action) {
+                        // we add all the values up front
+                        case addNew:
+                        case add:
+                            if (pathMatch != null || valueMatch != null || newPath == null || newValue == null) {
+                                throw new IllegalArgumentException(
+                                    "Bad arguments, must have non-null for one of:" +
+                                        "path, value, new_path, new_value "
+                                        + ":\n\t"
+                                        + entry);
+                            }
+                            String newPathString = newPath.getPath(getResolved());
+                            if (action.action == ConfigAction.add
+                                || cldrFileToFilter.getStringValue(newPathString) == null) {
+                                replace(newPathString, newPathString, newValue.exactMatch, "config");
+                            }
+                            break;
                         // we just check
-                    case replace:
-                        if ((pathMatch == null && valueMatch == null) || (newPath == null && newValue == null)) {
-                            throw new IllegalArgumentException(
-                                "Bad arguments, must have " +
-                                    "(path!=null OR value=null) AND (new_path!=null OR new_value!=null):\n\t"
-                                    + entry);
-                        }
-                        break;
+                        case replace:
+                            if ((pathMatch == null && valueMatch == null) || (newPath == null && newValue == null)) {
+                                throw new IllegalArgumentException(
+                                    "Bad arguments, must have " +
+                                        "(path!=null OR value=null) AND (new_path!=null OR new_value!=null):\n\t"
+                                        + entry);
+                            }
+                            break;
                         // For delete, we just check; we'll remove later
-                    case delete:
-                        if (newPath != null || newValue != null) {
-                            throw new IllegalArgumentException("Bad arguments, must have " +
-                                "newPath=null, newValue=null"
-                                + entry);
+                        case delete:
+                            if (newPath != null || newValue != null) {
+                                throw new IllegalArgumentException("Bad arguments, must have " +
+                                    "newPath=null, newValue=null"
+                                    + entry);
+                            }
+                            break;
+                        default: // fall through
+                            throw new IllegalArgumentException("Internal Error");
                         }
-                        break;
-                    default: // fall through
-                        throw new IllegalArgumentException("Internal Error");
                     }
                 }
-            }
 
-            private void fillCache() {
-                locale2keyValues = new LinkedHashMap<>();
-                String configFileName = options[KONFIG].value;
-                FileProcessor myReader = new FileProcessor() {
-                    {
-                        doHash = false;
-                    }
+                private void fillCache() {
+                    locale2keyValues = new LinkedHashMap<>();
+                    String configFileName = options[KONFIG].value;
+                    FileProcessor myReader = new FileProcessor() {
+                        {
+                            doHash = false;
+                        }
 
-                    @Override
-                    protected boolean handleLine(int lineCount, String line) {
-                        line = line.trim();
+                        @Override
+                        protected boolean handleLine(int lineCount, String line) {
+                            line = line.trim();
 //                            if (line.isEmpty()) {
 //                                return true;
 //                            }
-                        String[] lineParts = line.split("\\s*;\\s*");
-                        Map<ConfigKeys, ConfigMatch> keyValue = new EnumMap<>(
-                            ConfigKeys.class);
-                        for (String linePart : lineParts) {
-                            int pos = linePart.indexOf('=');
-                            if (pos < 0) {
-                                throw new IllegalArgumentException(lineCount + ":\t No = in command: «" + linePart + "» in " + line);
+                            String[] lineParts = line.split("\\s*;\\s*");
+                            Map<ConfigKeys, ConfigMatch> keyValue = new EnumMap<>(
+                                ConfigKeys.class);
+                            for (String linePart : lineParts) {
+                                int pos = linePart.indexOf('=');
+                                if (pos < 0) {
+                                    throw new IllegalArgumentException(lineCount + ":\t No = in command: «" + linePart + "» in " + line);
+                                }
+                                ConfigKeys key = ConfigKeys.valueOf(linePart.substring(0, pos).trim());
+                                if (keyValue.containsKey(key)) {
+                                    throw new IllegalArgumentException("Must not have multiple keys: " + key);
+                                }
+                                String match = linePart.substring(pos + 1).trim();
+                                keyValue.put(key, new ConfigMatch(key, match));
                             }
-                            ConfigKeys key = ConfigKeys.valueOf(linePart.substring(0, pos).trim());
-                            if (keyValue.containsKey(key)) {
-                                throw new IllegalArgumentException("Must not have multiple keys: " + key);
+                            final ConfigMatch locale = keyValue.get(ConfigKeys.locale);
+                            if (locale == null || keyValue.get(ConfigKeys.action) == null) {
+                                throw new IllegalArgumentException();
                             }
-                            String match = linePart.substring(pos + 1).trim();
-                            keyValue.put(key, new ConfigMatch(key, match));
-                        }
-                        final ConfigMatch locale = keyValue.get(ConfigKeys.locale);
-                        if (locale == null || keyValue.get(ConfigKeys.action) == null) {
-                            throw new IllegalArgumentException();
-                        }
 
-                        // validate new path
-                        LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = locale2keyValues
-                            .get(locale);
-                        if (keyValues == null) {
-                            locale2keyValues.put(locale,
-                                keyValues = new LinkedHashSet<>());
+                            // validate new path
+                            LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = locale2keyValues
+                                .get(locale);
+                            if (keyValues == null) {
+                                locale2keyValues.put(locale,
+                                    keyValues = new LinkedHashSet<>());
+                            }
+                            keyValues.add(keyValue);
+                            return true;
                         }
-                        keyValues.add(keyValue);
-                        return true;
-                    }
-                };
-                myReader.process(CLDRModify.class, configFileName);
-            }
+                    };
+                    myReader.process(CLDRModify.class, configFileName);
+                }
 
-            @Override
-            public void handlePath(String xpath) {
-                // slow method; could optimize
-                for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
-                    if (xpath.equals("AKUAPEM")) {
-                        int debug = 0;
-                    }
-                    ConfigMatch pathMatch = entry.get(ConfigKeys.path);
-                    if (pathMatch != null && !pathMatch.matches(xpath)) {
-                        continue;
-                    }
-                    ConfigMatch valueMatch = entry.get(ConfigKeys.value);
-                    String value = cldrFileToFilter.getStringValue(xpath);
-                    if (valueMatch != null && !valueMatch.matches(value)) {
-                        continue;
-                    }
-                    ConfigMatch action = entry.get(ConfigKeys.action);
-                    switch (action.action) {
-                    case delete:
-                        remove(xpath, "config");
-                        break;
-                    case replace:
-                        ConfigMatch newPath = entry.get(ConfigKeys.new_path);
-                        ConfigMatch newValue = entry.get(ConfigKeys.new_value);
-
-                        String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                        String draft = "";
-                        int loc = fullpath.indexOf("[@draft=");
-                        if (loc >= 0) {
-                            int loc2 = fullpath.indexOf(']', loc + 7);
-                            draft = fullpath.substring(loc, loc2 + 1);
+                @Override
+                public void handlePath(String xpath) {
+                    // slow method; could optimize
+                    for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
+                        if (xpath.equals("AKUAPEM")) {
+                            int debug = 0;
                         }
+                        ConfigMatch pathMatch = entry.get(ConfigKeys.path);
+                        if (pathMatch != null && !pathMatch.matches(xpath)) {
+                            continue;
+                        }
+                        ConfigMatch valueMatch = entry.get(ConfigKeys.value);
+                        String value = cldrFileToFilter.getStringValue(xpath);
+                        if (valueMatch != null && !valueMatch.matches(value)) {
+                            continue;
+                        }
+                        ConfigMatch action = entry.get(ConfigKeys.action);
+                        switch (action.action) {
+                        case delete:
+                            remove(xpath, "config");
+                            break;
+                        case replace:
+                            ConfigMatch newPath = entry.get(ConfigKeys.new_path);
+                            ConfigMatch newValue = entry.get(ConfigKeys.new_value);
 
-                        String modPath = ConfigMatch.getModified(pathMatch, xpath, newPath) + draft;
-                        String modValue = ConfigMatch.getModified(valueMatch, value, newValue);
-                        replace(xpath, modPath, modValue, "config");
+                            String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                            String draft = "";
+                            int loc = fullpath.indexOf("[@draft=");
+                            if (loc >= 0) {
+                                int loc2 = fullpath.indexOf(']', loc + 7);
+                                draft = fullpath.substring(loc, loc2 + 1);
+                            }
+
+                            String modPath = ConfigMatch.getModified(pathMatch, xpath, newPath) + draft;
+                            String modValue = ConfigMatch.getModified(valueMatch, value, newValue);
+                            replace(xpath, modPath, modValue, "config");
+                        }
                     }
                 }
-            }
-        });
+            });
         fixList.add('i', "fix Identical Children");
         fixList.add('o', "check attribute validity");
 
@@ -2172,7 +2173,6 @@ public class CLDRModify {
                     }
                     // at this point, the vxmlValue is ^^^ and the trunk value is either null or == baileyValue
 
-
                     // special hack to avoid combined locale names like //ldml/localeDisplayNames/languages/language[@type="en_AU"][@draft="contributed"]
 
 //                    if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=") && xpath.contains("_")) {
@@ -2189,6 +2189,7 @@ public class CLDRModify {
                     add(fullPath, vxmlValue, "Add or replace by " + CldrUtility.INHERITANCE_MARKER);
                 }
             }
+
             @Override
             public void handlePath(String xpath) {
                 // Everything done in handleStart
@@ -2216,6 +2217,7 @@ public class CLDRModify {
                     coverageLeveler = CoverageLevel2.getInstance(localeID);
                 }
             }
+
             @Override
             public void handlePath(String xpath) {
                 if (skip
@@ -2282,9 +2284,8 @@ public class CLDRModify {
 
     public static String getLast2Dirs(File sourceDir1) {
         String[] pathElements = sourceDir1.toString().split("/");
-        return pathElements[pathElements.length-2] + "/" + pathElements[pathElements.length-1] + "/";
+        return pathElements[pathElements.length - 2] + "/" + pathElements[pathElements.length - 1] + "/";
     }
-
 
     // references="http://www.stat.fi/tk/tt/luokitukset/lk/kieli_02.html"
 

@@ -51,7 +51,7 @@ public class ChartUnitPreferences extends Chart {
             + "<li>The ‘If ≥’ column shows the thresholds: the first line for a given region where the input amount is greater or equal applies. "
             + "For example, for 0.5km as input for [area, default, 001] would result in <i>hectare</i>.</li>"
             + "<li>" + ChartUnitConversions.RATIONAL_MSG + "</li>\n"
-            + "<li>"  + ChartUnitConversions.QUANTITY_MSG + "</li>"
+            + "<li>" + ChartUnitConversions.QUANTITY_MSG + "</li>"
             + "<li>" + ChartUnitConversions.SPEC_GENERAL_MSG + ", and how to fall back if a given usage or region is not found.</li>\n"
             + "</ul>"
             + dataScrapeMessage("/tr35-general.html#Contents", "common/testData/units/unitPreferencesTest.txt", "common/supplemental/units.xml");
@@ -90,14 +90,14 @@ public class ChartUnitPreferences extends Chart {
 
                     for (UnitPreference pref : entry3.getValue()) {
                         tablePrinter.addRow()
-                        .addCell(baseUnit)
-                        .addCell(usage)
-                        .addCell(sampleRegionStr)
-                        .addCell(pref.geq.toString(FormatStyle.html))
-                        .addCell(Joiner.on(" & ").join(Splitter.on("-and-").split(pref.unit)))
-                        .addCell(pref.skeleton)
-                        .addCell(quantity)
-                        .finishRow();
+                            .addCell(baseUnit)
+                            .addCell(usage)
+                            .addCell(sampleRegionStr)
+                            .addCell(pref.geq.toString(FormatStyle.html))
+                            .addCell(Joiner.on(" & ").join(Splitter.on("-and-").split(pref.unit)))
+                            .addCell(pref.skeleton)
+                            .addCell(quantity)
+                            .finishRow();
 
                     }
                 }
@@ -112,15 +112,15 @@ public class ChartUnitPreferences extends Chart {
         TreeSet<Pair<String, Integer>> sorted = new TreeSet<>(samples.setToSample.values());
         for (Pair<String, Integer> pair : sorted) {
             tablePrinter2.addRow()
-            .addCell(sampleDisplay(pair))
-            .addCell(Joiner.on(", ").join(samples.setToSample.inverse().get(pair)))
-            .finishRow();
+                .addCell(sampleDisplay(pair))
+                .addCell(Joiner.on(", ").join(samples.setToSample.inverse().get(pair)))
+                .finishRow();
         }
         pw.write(tablePrinter2.toTable());
     }
 
     private String sampleDisplay(Pair<String, Integer> sampleRegion) {
-        return sampleRegion.getFirst() + (sampleRegion.getSecond() < 0 ?  "" : "<sup>" + sampleRegion.getSecond() + "</sup>");
+        return sampleRegion.getFirst() + (sampleRegion.getSecond() < 0 ? "" : "<sup>" + sampleRegion.getSecond() + "</sup>");
     }
 
     private static final class Samples {

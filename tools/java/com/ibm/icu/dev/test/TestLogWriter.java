@@ -16,8 +16,8 @@ public final class TestLogWriter extends Writer {
     private boolean closed;
 
     public TestLogWriter(TestLog log, int level) {
-    this.log = log;
-    this.level = level;
+        this.log = log;
+        this.level = level;
     }
 
     @Override

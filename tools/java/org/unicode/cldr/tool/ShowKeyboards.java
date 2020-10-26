@@ -74,9 +74,12 @@ public class ShowKeyboards {
 
     enum MyOptions {
         idFilter(".+", ".*", "Filter the information based on id, using a regex argument."), sourceDirectory(".+", CLDRPaths.BASE_DIRECTORY + "keyboards/",
-            "The source directory. CURRENTLY CAN’T BE CHANGED!!"), targetDirectory(".+", CLDRPaths.CHART_DIRECTORY + "keyboards/",
-                "The target directory."), layouts(null, null,
-                    "Only create html files for keyboard layouts"), repertoire(null, null, "Only create html files for repertoire"),;
+            "The source directory. CURRENTLY CAN’T BE CHANGED!!"),
+        targetDirectory(".+", CLDRPaths.CHART_DIRECTORY + "keyboards/",
+            "The target directory."),
+        layouts(null, null,
+            "Only create html files for keyboard layouts"),
+        repertoire(null, null, "Only create html files for repertoire"),;
         // boilerplate
         final Option option;
 

@@ -23,14 +23,14 @@ public class TestCollators extends TestFmwk {
     public static void main(String[] args) {
         new TestCollators().run(args);
     }
-    
+
     public void TestAccessByCldrConfig() {
         Collator col = CLDRConfig.getInstance().getCollatorRoot();
         String[] testSequence = {
-            "😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", 
-            "😎", "😍", "😘", "🥰", "ℹ", "a", "A", "b", 
+            "😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋",
+            "😎", "😍", "😘", "🥰", "ℹ", "a", "A", "b",
             null,
-            "🏻", "🏼", "🏽", "🏾", "🏿", "🦰", "🦱", "🦳", "🦲", "🏻a"};
+            "🏻", "🏼", "🏽", "🏾", "🏿", "🦰", "🦱", "🦳", "🦲", "🏻a" };
         String last = null;
         for (String test : testSequence) {
             if (last != null && test != null) {
@@ -40,6 +40,7 @@ public class TestCollators extends TestFmwk {
             last = test;
         }
     }
+
     public void TestBuildable() {
         for (String locale : CollatorSource.getAvailableLocales()) {
             logln(locale);

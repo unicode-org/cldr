@@ -49,8 +49,8 @@ public enum CldrVersion {
                 return result;
             }
             versionInfo = versionInfo.getMilli() != 0 ? VersionInfo.getInstance(versionInfo.getMajor(), versionInfo.getMinor())
-                    : versionInfo.getMinor() != 0 ? VersionInfo.getInstance(versionInfo.getMajor())
-                        : unknown.versionInfo; // will always terminate with unknown.
+                : versionInfo.getMinor() != 0 ? VersionInfo.getInstance(versionInfo.getMajor())
+                    : unknown.versionInfo; // will always terminate with unknown.
         }
     }
 
@@ -61,10 +61,12 @@ public enum CldrVersion {
     public VersionInfo getVersionInfo() {
         return versionInfo;
     }
+
     @Override
     public String toString() {
         return dotName;
     }
+
     public String getBaseDirectory() {
         return baseDirectory;
     }
@@ -87,7 +89,7 @@ public enum CldrVersion {
         }
     }
 
-    public static final CldrVersion LAST_RELEASE_VERSION = values()[values().length-2];
+    public static final CldrVersion LAST_RELEASE_VERSION = values()[values().length - 2];
     public static final List<CldrVersion> CLDR_VERSIONS_ASCENDING;
     public static final List<CldrVersion> CLDR_VERSIONS_DESCENDING;
     private static final Map<VersionInfo, CldrVersion> versionInfoToCldrVersion;
@@ -118,9 +120,9 @@ public enum CldrVersion {
     public List<File> getPathsForFactory() {
         return ImmutableList.copyOf(versionInfo != null && versionInfo.getMajor() < 27
             ? new File[] { new File(getBaseDirectory() + "common/main/") }
-        : new File[] {
-            new File(getBaseDirectory() + "common/main/"),
-            new File(getBaseDirectory() + "common/annotations/") });
+            : new File[] {
+                new File(getBaseDirectory() + "common/main/"),
+                new File(getBaseDirectory() + "common/annotations/") });
     }
 
     /**

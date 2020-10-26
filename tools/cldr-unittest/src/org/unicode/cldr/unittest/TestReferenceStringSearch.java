@@ -196,7 +196,7 @@ public class TestReferenceStringSearch {
         private int keyLength;
 
         public DirectStringSearch setCollator(RuleBasedCollator collation) {
-            Map<CharSequence, String> map = new TreeMap<CharSequence, String>(
+            Map<CharSequence, String> map = new TreeMap<>(
                 Dictionary.CHAR_SEQUENCE_COMPARATOR);
             new CollationMapMaker().generateCollatorFolding(collation, map);
             // for compactness, we'd use .setIntMapFactory(new
@@ -233,7 +233,7 @@ public class TestReferenceStringSearch {
         }
 
         public DirectStringSearch setTarget(String textToSearchIn) {
-            this.textToSearchIn = new DictionaryCharList<String>(dictionary,
+            this.textToSearchIn = new DictionaryCharList<>(dictionary,
                 textToSearchIn);
             if (breaker != null) {
                 breaker.setText(textToSearchIn);
@@ -242,7 +242,7 @@ public class TestReferenceStringSearch {
         }
 
         public DirectStringSearch setKey(String key) {
-            this.key = new DictionaryCharList<String>(dictionary, key);
+            this.key = new DictionaryCharList<>(dictionary, key);
             keyLength = key.length();
             return this;
         }

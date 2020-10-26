@@ -50,32 +50,31 @@ public class TestCache implements XMLSource.Listener {
          *               clears any objects that might already be in it
          * @param value the value to be checked
          */
-         public void check(String path, List<CheckStatus> result, String value) {
-             /*
-              * result.clear() is needed to avoid phantom warnings in the Info Panel, if we're called
-              * with non-empty result (leftover from another row) and we get cachedResult != null.
-              * cc.check() also calls result.clear() (at least as of 2018-11-20) so in that case it's
-              * currently redundant here. Clear it here unconditionally to be sure.
-              */
-             result.clear();
-             Pair<String, String> key = new Pair<>(path, value);
-             List<CheckStatus> cachedResult = pathCache.get(key);
-             if (cachedResult != null) {
-                 result.addAll(cachedResult);
-             }
-             else {
-                 cc.check(path, file.getFullXPath(path), value, options, result);
-                 pathCache.put(key, ImmutableList.copyOf(result));
-             }
-         }
+        public void check(String path, List<CheckStatus> result, String value) {
+            /*
+             * result.clear() is needed to avoid phantom warnings in the Info Panel, if we're called
+             * with non-empty result (leftover from another row) and we get cachedResult != null.
+             * cc.check() also calls result.clear() (at least as of 2018-11-20) so in that case it's
+             * currently redundant here. Clear it here unconditionally to be sure.
+             */
+            result.clear();
+            Pair<String, String> key = new Pair<>(path, value);
+            List<CheckStatus> cachedResult = pathCache.get(key);
+            if (cachedResult != null) {
+                result.addAll(cachedResult);
+            } else {
+                cc.check(path, file.getFullXPath(path), value, options, result);
+                pathCache.put(key, ImmutableList.copyOf(result));
+            }
+        }
 
-         public void getExamples(String path, String value, List<CheckStatus> result) {
-             cc.getExamples(path, file.getFullXPath(path), value, options, result);
-         }
+        public void getExamples(String path, String value, List<CheckStatus> result) {
+            cc.getExamples(path, file.getFullXPath(path), value, options, result);
+        }
 
-         public List<CheckStatus> getPossibleProblems() {
-             return possibleProblems;
-         }
+        public List<CheckStatus> getPossibleProblems() {
+            return possibleProblems;
+        }
     }
 
     private static final boolean DEBUG = false;
@@ -98,18 +97,18 @@ public class TestCache implements XMLSource.Listener {
     public TestResultBundle getBundle(CheckCLDR.Options options) {
         TestResultBundle b = testResultCache.getIfPresent(options);
         if (DEBUG) {
-             if (b != null) {
-                 System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
-             }
-             System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
-         }
-         if (b == null) {
-             // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
-             b = new TestResultBundle(options);
-             // System.err.println(et.toString());
-             testResultCache.put(options, b);
-         }
-         return b;
+            if (b != null) {
+                System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
+            }
+            System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
+        }
+        if (b == null) {
+            // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
+            b = new TestResultBundle(options);
+            // System.err.println(et.toString());
+            testResultCache.put(options, b);
+        }
+        return b;
     }
 
     protected Factory getFactory() {
@@ -276,7 +275,7 @@ public class TestCache implements XMLSource.Listener {
         String locString = locale.toString();
         ExampleGenerator eg = exampleGeneratorCache.getIfPresent(locString);
         if (eg == null) {
-            synchronized(exampleGeneratorCache) {
+            synchronized (exampleGeneratorCache) {
                 eg = exampleGeneratorCache.getIfPresent(locString);
                 if (eg == null) {
                     eg = new ExampleGenerator(ourSrc, translationHintsFile, englishPath);

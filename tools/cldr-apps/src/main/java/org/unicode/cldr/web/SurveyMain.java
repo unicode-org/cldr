@@ -430,17 +430,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             // verify config sanity
             CLDRConfig cconfig = CLDRConfigImpl.getInstance();
-            try(InputStream is = config.getServletContext().getResourceAsStream(JarFile.MANIFEST_NAME)) {
+            try (InputStream is = config.getServletContext().getResourceAsStream(JarFile.MANIFEST_NAME)) {
                 Manifest mf = new Manifest(is);
-                String s = mf.getMainAttributes().getValue("CLDR-Apps"+"-Git-Commit");
-                if(s != null && !s.isEmpty()) {
-                    SurveyMain.CLDR_SURVEYTOOL_HASH  = s;
-                    ((CLDRConfigImpl)cconfig).setCldrAppsHash(s);
+                String s = mf.getMainAttributes().getValue("CLDR-Apps" + "-Git-Commit");
+                if (s != null && !s.isEmpty()) {
+                    SurveyMain.CLDR_SURVEYTOOL_HASH = s;
+                    ((CLDRConfigImpl) cconfig).setCldrAppsHash(s);
                     System.err.println("Updated CLDR_APPS_HASH to " + s);
                 } else {
                     System.err.println("CLDR_APPS_HASH = unknown (no value in manifest)");
                 }
-            } catch(Throwable t) {
+            } catch (Throwable t) {
                 System.err.println("CLDR_APPS_HASH = unknown - " + t.toString());
             }
             isConfigSetup = true; // we have a CLDRConfig - so config is setup.
@@ -736,7 +736,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         out.println("<script>timerSpeed = 60080;</script>");
         out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>");
         // This next is for the DB Busted page, so we can show the MySQL configurator.
-        out.print("<script src='"+ request.getContextPath()+request.getServletPath() + "/../js/cldr-setup.js" + "'></script>");
+        out.print("<script src='" + request.getContextPath() + request.getServletPath() + "/../js/cldr-setup.js" + "'></script>");
         out.print(getTopBox());
         out.println("</span>");
         out.println("<hr>");
@@ -902,8 +902,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static SandboxLocales getSandbox() {
-        synchronized(SurveyMain.class) {
-            if(sandbox == null) {
+        synchronized (SurveyMain.class) {
+            if (sandbox == null) {
                 try {
                     sandbox = new SandboxLocales(new File(getSurveyHome(), "sandbox"));
                 } catch (IOException e) {
@@ -1294,7 +1294,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public String getSpecialHeaderText() {
         String specialHeader = CLDRConfig.getInstance().getProperty("CLDR_HEADER");
-        if(specialHeader==null) return "";
+        if (specialHeader == null) return "";
         return specialHeader;
     }
 
@@ -1388,6 +1388,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     static final Pattern HASH_PATTERN = Pattern.compile("^CLDR_([A-Z]+)_HASH$");
+
     /**
      * Get the current source revision
      * @param asLink true if HTML, false if plaintext
@@ -1401,20 +1402,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String lastLink = null;
         final Set<String> resultSet = new HashSet<>(); // If only one result ,return a single string.
 
-        for(Iterator<String> i = currev.keys(); i.hasNext();) {
+        for (Iterator<String> i = currev.keys(); i.hasNext();) {
             final String k = i.next().toString();
             String v;
             output.append(' ');
-            if(asLink) {
+            if (asLink) {
                 final String friendly = HASH_PATTERN.matcher(k).replaceFirst("$1").toLowerCase();
-                output.append("<span title='"+k+"'>"+friendly+"</span>"); // use more friendly name
+                output.append("<span title='" + k + "'>" + friendly + "</span>"); // use more friendly name
             } else {
                 output.append(k);
             }
             output.append('=');
             try {
                 v = currev.getString(k);
-                if(asLink) {
+                if (asLink) {
                     String link = CLDRURLS.gitHashToLink(v);
                     output.append(link);
                     resultSet.add(link);
@@ -1423,18 +1424,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     resultSet.add(v);
                 }
             } catch (JSONException e) {
-                String message = "(exception: " + e.getMessage()+")";
+                String message = "(exception: " + e.getMessage() + ")";
                 output.append(message);
                 resultSet.add(message);
             }
         }
         // If it is unanimous, return a single string.
-        if(resultSet.size() == 1) {
+        if (resultSet.size() == 1) {
             return resultSet.toArray()[0].toString(); // Return the single result.
         }
         return output.toString();
     }
-
 
     /**
      * Get the git hash for cldr-apps, statically.
@@ -1462,7 +1462,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static JSONObject getCurrevJSON() {
         final CLDRConfigImpl instance = CLDRConfigImpl.getInstance();
         JSONObject jo = new JSONObject();
-        for(final String p : CLDRConfigImpl.ALL_GIT_HASHES) {
+        for (final String p : CLDRConfigImpl.ALL_GIT_HASHES) {
             try {
                 jo.put(p, instance.getProperty(p, CLDRURLS.UNKNOWN_REVISION));
             } catch (JSONException e) {
@@ -2743,7 +2743,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             if (ctx.session.user.intlocs == null) {
                                 ctx.println(
                                     "<br><i>List languages only, separated by spaces.  Example: <tt class='codebox'>en fr zh</tt>. leave blank for 'all locales'.</i>");
-                            }                            // ctx.println("<br>Note: changing interest locales is currently unimplemented. Check back later.<br>");
+                            } // ctx.println("<br>Note: changing interest locales is currently unimplemented. Check back later.<br>");
                         }
 
                         ctx.println("<ul><tt class='codebox'>" + UserRegistry.prettyPrintLocale(ctx.session.user.intlocs)
@@ -3841,15 +3841,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             Properties xmlCachePropsNew = new java.util.Properties();
             if (useCache && xmlCache.exists())
                 try {
-                java.io.FileInputStream is = new java.io.FileInputStream(xmlCache);
-                xmlCacheProps.load(is);
-                is.close();
+                    java.io.FileInputStream is = new java.io.FileInputStream(xmlCache);
+                    xmlCacheProps.load(is);
+                    is.close();
                 } catch (java.io.IOException ioe) {
-                /* throw new UnavailableException */
-                SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't load XML Cache file from '" + "(home)" + "/"
-                    + XML_CACHE_PROPERTIES + ": ", ioe);
-                busted("Couldn't load XML Cache file from '" + "(home)" + "/" + XML_CACHE_PROPERTIES + ": ", ioe);
-                return;
+                    /* throw new UnavailableException */
+                    SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't load XML Cache file from '" + "(home)" + "/"
+                        + XML_CACHE_PROPERTIES + ": ", ioe);
+                    busted("Couldn't load XML Cache file from '" + "(home)" + "/" + XML_CACHE_PROPERTIES + ": ", ioe);
+                    return;
                 }
 
             int n = 0;
@@ -3928,23 +3928,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             if (useCache)
                 try {
-                // delete old stuff
-                if (xmlCacheBack.exists()) {
-                xmlCacheBack.delete();
-                }
-                if (xmlCache.exists()) {
-                xmlCache.renameTo(xmlCacheBack);
-                }
-                java.io.FileOutputStream os = new java.io.FileOutputStream(xmlCache);
-                xmlCachePropsNew.store(os, "YOU MAY DELETE THIS CACHE. Cache updated at " + new Date());
-                progress.update(n++, "Loading configuration..");
-                os.close();
+                    // delete old stuff
+                    if (xmlCacheBack.exists()) {
+                        xmlCacheBack.delete();
+                    }
+                    if (xmlCache.exists()) {
+                        xmlCache.renameTo(xmlCacheBack);
+                    }
+                    java.io.FileOutputStream os = new java.io.FileOutputStream(xmlCache);
+                    xmlCachePropsNew.store(os, "YOU MAY DELETE THIS CACHE. Cache updated at " + new Date());
+                    progress.update(n++, "Loading configuration..");
+                    os.close();
                 } catch (java.io.IOException ioe) {
-                /* throw new UnavailableException */
-                SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't write " + xmlCache + " file from '" + cldrHome
-                    + "': ", ioe);
-                busted("Couldn't write " + xmlCache + " file from '" + cldrHome + "': ", ioe);
-                return;
+                    /* throw new UnavailableException */
+                    SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't write " + xmlCache + " file from '" + cldrHome
+                        + "': ", ioe);
+                    busted("Couldn't write " + xmlCache + " file from '" + cldrHome + "': ", ioe);
+                    return;
                 }
 
             if (!failedSuppTest.isEmpty()) {
@@ -4541,7 +4541,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     private static File[] getInFiles() {
         Set<File> s = new HashSet<>();
-        for(final File fileBase : getFileBases()) {
+        for (final File fileBase : getFileBases()) {
             for (File f : getInFiles(fileBase)) {
                 s.add(f);
             }
@@ -4754,7 +4754,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     stack = "(no stack)\n";
                 }
             }
-            isBustedStack = stack + "\n" + "[" + new Date().toGMTString() + "] ";            //isBustedThrowable = t;
+            isBustedStack = stack + "\n" + "[" + new Date().toGMTString() + "] "; //isBustedThrowable = t;
             isBustedTimer = new ElapsedTimer();
         } else {
             SurveyLog.warnOnce("[was already busted, not overriding old message.]");
@@ -4847,7 +4847,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         try {
             progress.update("begin.."); // restore
             dbUtils.startupDB(this, progress);
-            SurveyMain.isDbSetup  = true;
+            SurveyMain.isDbSetup = true;
             // now other tables..
             progress.update("Setup databases "); // restore
             try {

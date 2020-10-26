@@ -26,6 +26,7 @@ import com.ibm.icu.util.ULocale;
 public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<K>> {
     private static final class CollatorHelper {
         public static final Collator UCA = getUCA();
+
         /**
          * This does not change, so we can create one and freeze it.
          * @return
@@ -36,6 +37,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
             return newUca.freeze();
         }
     }
+
     // initialize this once
     private Map<K, Integer> ordering = new TreeMap<>(); // maps from name to rank
     private List<K> rankToName = new ArrayList<>();

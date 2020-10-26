@@ -25,7 +25,7 @@ public class TestIdentity extends TestFmwk {
         LanguageTagParser ltp = new LanguageTagParser();
         LanguageTagCanonicalizer ltc = new LanguageTagCanonicalizer();
 
-        List<Factory> factories = new ArrayList<Factory>();
+        List<Factory> factories = new ArrayList<>();
         factories.add(testInfo.getFullCldrFactory());
         factories.add(testInfo.getExemplarsFactory());
         factories.add(testInfo.getCollationFactory());
@@ -40,7 +40,7 @@ public class TestIdentity extends TestFmwk {
                     : "<missing>";
                 String fTerritory = ltp.getRegion().length() > 0 ? ltp
                     .getRegion() : "<missing>";
-                Set<String> fVariants = new HashSet<String>(ltp.getVariants());
+                Set<String> fVariants = new HashSet<>(ltp.getVariants());
                 CLDRFile localeData;
                 if (factory.equals(testInfo.getFullCldrFactory())) {
                     localeData = testInfo.getCLDRFile(locale, false);
@@ -87,7 +87,7 @@ public class TestIdentity extends TestFmwk {
                         + fTerritory + "\n\tValue in identity section is: "
                         + iTerritory);
                 }
-                Set<String> iVariants = new HashSet<String>(ltp.getVariants());
+                Set<String> iVariants = new HashSet<>(ltp.getVariants());
                 if (!fVariants.equals(iVariants)) {
                     errln("Variants for locale \""
                         + locale

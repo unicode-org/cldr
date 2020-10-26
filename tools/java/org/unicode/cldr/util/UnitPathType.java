@@ -17,15 +17,15 @@ public enum UnitPathType {
         GrammarInfo.GrammaticalFeature.grammaticalCase),
         null),
     perUnit("minute", null, null),
-    times(null, null, ImmutableMultimap.<String,String>builder()
+    times(null, null, ImmutableMultimap.<String, String> builder()
         .put("", "newton-meter")
         .put("", "kilowatt-hour")
         .build()),
-    per(null, null, ImmutableMultimap.<String,String>builder()
+    per(null, null, ImmutableMultimap.<String, String> builder()
         .put("", "meter-per-second")
         .put("", "mile-per-gallon")
         .build()),
-    prefix(null, null, ImmutableMultimap.<String,String>builder()
+    prefix(null, null, ImmutableMultimap.<String, String> builder()
         .put("10p2", "hectopascal")
         .put("10p3", "kilometer")
         .put("10p6", "megabyte")
@@ -44,23 +44,22 @@ public enum UnitPathType {
             GrammarInfo.GrammaticalFeature.grammaticalNumber,
             GrammarInfo.GrammaticalFeature.grammaticalCase,
             GrammarInfo.GrammaticalFeature.grammaticalGender),
-        ImmutableMultimap.<String,String>builder()
-        .put("power2", "square-meter")
-        .put("power2", "square-second")
-        .put("power3", "cubic-meter")
-        .put("power3", "cubic-second")
-        .build()),
+        ImmutableMultimap.<String, String> builder()
+            .put("power2", "square-meter")
+            .put("power2", "square-second")
+            .put("power3", "cubic-meter")
+            .put("power3", "cubic-second")
+            .build()),
     duration(null, null, null),
-    gender(null,null, null),
+    gender(null, null, null),
     coordinate(null, null, null),
-    displayName(null, null, null)
-    ;
+    displayName(null, null, null);
 
     public final Set<GrammaticalFeature> features;
     public final Set<String> sampleShortUnitType;
-    public final ImmutableMultimap<String,String> sampleComposedShortUnitIds;
+    public final ImmutableMultimap<String, String> sampleComposedShortUnitIds;
 
-    private UnitPathType(String sampleType, Set<GrammarInfo.GrammaticalFeature> features, ImmutableMultimap<String,String> sampleComposedLongUnits) {
+    private UnitPathType(String sampleType, Set<GrammarInfo.GrammaticalFeature> features, ImmutableMultimap<String, String> sampleComposedLongUnits) {
         this.sampleShortUnitType = Collections.singleton(sampleType);
         this.sampleComposedShortUnitIds = sampleComposedLongUnits;
         this.features = features == null ? Collections.emptySet() : ImmutableSet.copyOf(features);
@@ -71,17 +70,28 @@ public enum UnitPathType {
             return null;
         }
         switch (parts.getElement(-1)) {
-        case "compoundUnitPattern": return "times".equals(parts.getAttributeValue(-2, "type")) ? UnitPathType.times : UnitPathType.per;
-        case "unitPrefixPattern": return UnitPathType.prefix;
-        case "compoundUnitPattern1": return UnitPathType.power;
-        case "unitPattern": return UnitPathType.unit;
-        case "perUnitPattern": return UnitPathType.perUnit;
-        case "prefix": return UnitPathType.prefix;
-        case "gender": return UnitPathType.gender;
-        case "coordinateUnitPattern": return UnitPathType.coordinate;
-        case "durationUnit": return UnitPathType.duration;
-        case "alias": return null;
-        case "displayName": return UnitPathType.displayName;
+        case "compoundUnitPattern":
+            return "times".equals(parts.getAttributeValue(-2, "type")) ? UnitPathType.times : UnitPathType.per;
+        case "unitPrefixPattern":
+            return UnitPathType.prefix;
+        case "compoundUnitPattern1":
+            return UnitPathType.power;
+        case "unitPattern":
+            return UnitPathType.unit;
+        case "perUnitPattern":
+            return UnitPathType.perUnit;
+        case "prefix":
+            return UnitPathType.prefix;
+        case "gender":
+            return UnitPathType.gender;
+        case "coordinateUnitPattern":
+            return UnitPathType.coordinate;
+        case "durationUnit":
+            return UnitPathType.duration;
+        case "alias":
+            return null;
+        case "displayName":
+            return UnitPathType.displayName;
         }
         throw new IllegalArgumentException("PathType: " + parts);
     }
@@ -112,10 +122,10 @@ public enum UnitPathType {
             longUnitId = uc.getLongId(shortUnitId);
             grammarInfo1 = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(resolvedFile.getLocaleID());
             grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo1, pathType, pluralCategory, genderVariant, caseVariant);
-            return pathPrefix + "unit[@type=\""  + longUnitId + "\"]/unitPattern" + grammaticalAttributes;
+            return pathPrefix + "unit[@type=\"" + longUnitId + "\"]/unitPattern" + grammaticalAttributes;
         case displayName:
             longUnitId = uc.getLongId(shortUnitId);
-            return pathPrefix + "unit[@type=\""  + longUnitId + "\"]/displayName";
+            return pathPrefix + "unit[@type=\"" + longUnitId + "\"]/displayName";
         case perUnit:
             longUnitId = uc.getLongId(shortUnitId);
             return pathPrefix + "unit[@type=\"" + longUnitId + "\"]/perUnitPattern";
@@ -133,7 +143,8 @@ public enum UnitPathType {
         throw new IllegalArgumentException("PathType: " + pathType);
     }
 
-    public  String getTrans(LocaleStringProvider resolvedFile, String width, String shortUnitId, String pluralCategory, String caseVariant, String genderVariant, Multimap<UnitPathType, String> partsUsed) {
+    public String getTrans(LocaleStringProvider resolvedFile, String width, String shortUnitId, String pluralCategory, String caseVariant, String genderVariant,
+        Multimap<UnitPathType, String> partsUsed) {
         UnitPathType pathType = this;
         String path = pathType.getTranslationPath(resolvedFile, width, shortUnitId, pluralCategory, caseVariant, genderVariant);
         String result = resolvedFile.getStringValue(path);
@@ -143,12 +154,11 @@ public enum UnitPathType {
 
         if (partsUsed != null) {
             CLDRFile.Status status = new CLDRFile.Status();
-            String foundLocale = resolvedFile.getSourceLocaleID(path, status );
+            String foundLocale = resolvedFile.getSourceLocaleID(path, status);
             partsUsed.put(pathType,
-                (result != null ? "«" + result + "»": "∅")
-                + (foundLocale.equals(resolvedFile.getLocaleID()) ? "" : "\n\t\tactualLocale: " + foundLocale)
-                + (status.pathWhereFound.equals(path) ? "" : "\n\t\trequestPath: " + path + "\n\t\tactualPath:  " + status.pathWhereFound)
-                );
+                (result != null ? "«" + result + "»" : "∅")
+                    + (foundLocale.equals(resolvedFile.getLocaleID()) ? "" : "\n\t\tactualLocale: " + foundLocale)
+                    + (status.pathWhereFound.equals(path) ? "" : "\n\t\trequestPath: " + path + "\n\t\tactualPath:  " + status.pathWhereFound));
         }
         return result;
     }

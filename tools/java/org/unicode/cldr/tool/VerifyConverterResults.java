@@ -44,7 +44,8 @@ public class VerifyConverterResults {
     enum SourceType {
         text,
         json,
-        rb}
+        rb
+    }
 
     public static void main(String[] args) {
         // TODO, make these arguments
@@ -56,11 +57,10 @@ public class VerifyConverterResults {
         String locale = "de";
         boolean isVerbose = false;
 
-
         String source;
         Matcher fileMatcher;
         Matcher parentMatcher = null;
-        switch(sourceType) {
+        switch (sourceType) {
         case text:
             source = textSource;
             fileMatcher = Pattern.compile(locale + ".txt").matcher("");
@@ -70,7 +70,8 @@ public class VerifyConverterResults {
             fileMatcher = Pattern.compile(".*\\.json").matcher("");
             parentMatcher = Pattern.compile(locale + "|cldr-core|supplemental").matcher("");
             break;
-        default: throw new IllegalArgumentException("No code yet for " + sourceType);
+        default:
+            throw new IllegalArgumentException("No code yet for " + sourceType);
         }
 
         Set<String> skipSupplementalFiles = ImmutableSet.of(
@@ -80,18 +81,19 @@ public class VerifyConverterResults {
             // internal to CLDR, not applicable for clients
             "attributeValueValidity.xml", "coverageLevels.xml"
 
-            // the format changes so dramatically we can't compare
+        // the format changes so dramatically we can't compare
 
-            );
+        );
 
         Set<String> converted = getConvertedData(sourceType, new File(source), fileMatcher, parentMatcher, new TreeSet<>());
         Set<String> excludeDraftStatus = ImmutableSet.of("unconfirmed", "provisional");
 
         // Now check that the data values in CLDR are contained
         for (String dir : Iterables.concat(DtdType.ldml.directories, DtdType.supplementalData.directories)) {
-            switch(dir) {
+            switch (dir) {
 
-            case "annotationsDerived": case "annotations":
+            case "annotationsDerived":
+            case "annotations":
                 if (sourceType != SourceType.text) {
                     break;
                 }
@@ -163,7 +165,7 @@ public class VerifyConverterResults {
                     }
                 }
                 filedata.print(isVerbose);
-                System.out.println(dir + "\t##Missing Paths #:\t" + (filedata.filedata.size() == 0? "NONE"
+                System.out.println(dir + "\t##Missing Paths #:\t" + (filedata.filedata.size() == 0 ? "NONE"
                     : filedata.filedata.size()));
             }
         }
@@ -171,7 +173,7 @@ public class VerifyConverterResults {
 
     static class FileData {
         Set<String> converted;
-        TreeMultimap<String, String> filedata =  TreeMultimap.create();
+        TreeMultimap<String, String> filedata = TreeMultimap.create();
         TreeMap<String, String> starredData = new TreeMap<>();
 
         public FileData(Set<String> converted) {
@@ -203,7 +205,8 @@ public class VerifyConverterResults {
         }
     }
 
-    private static Set<String> getConvertedData(SourceType sourceType, File target, Matcher fileMatcher, Matcher parentMatcher, Set<String> accummulatedValues) {
+    private static Set<String> getConvertedData(SourceType sourceType, File target, Matcher fileMatcher, Matcher parentMatcher,
+        Set<String> accummulatedValues) {
         if (target.isDirectory()) {
             for (File child : target.listFiles()) {
                 getConvertedData(sourceType, child, fileMatcher, parentMatcher, accummulatedValues);
@@ -239,7 +242,6 @@ public class VerifyConverterResults {
         }
         return accummulatedValues;
     }
-
 
     private static void processJson(File target, Set<String> accummulatedValues) {
         try (Reader reader = FileUtilities.openFile(target, Charset.forName("utf8"))) {

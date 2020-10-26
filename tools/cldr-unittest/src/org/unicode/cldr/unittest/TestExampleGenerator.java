@@ -34,17 +34,17 @@ public class TestExampleGenerator extends TestFmwk {
                 "fr",
                 "one",
                 "〖❬1,23 ❭value-one〗〖❬0,00 ❭value-one〗",
-            "〖❬1,23❭_❬dollar des États-Unis❭〗〖❬1,23❭_❬euro❭〗〖❬0,00❭_❬dollar des États-Unis❭〗〖❬0,00❭_❬euro❭〗" },
+                "〖❬1,23❭_❬dollar des États-Unis❭〗〖❬1,23❭_❬euro❭〗〖❬0,00❭_❬dollar des États-Unis❭〗〖❬0,00❭_❬euro❭〗" },
             {
                 "fr",
                 "other",
                 "〖❬2,34 ❭value-other〗〖❬3,45 ❭value-other〗",
-            "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗" },
+                "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗" },
             { "en", "one", "〖❬1 ❭Bermudan dollar〗",
-            "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗" },
+                "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗" },
             { "en", "other",
                 "〖❬1.23 ❭Bermudan dollars〗〖❬0.00 ❭Bermudan dollars〗",
-            "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗" }, };
+                "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗" }, };
         String sampleCurrencyPatternPrefix = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"";
         String sampleCurrencyPrefix = "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"";
         String sampleTemplateSuffix = "\"]";
@@ -101,8 +101,7 @@ public class TestExampleGenerator extends TestFmwk {
 
         "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
         "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
-        "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]"
-        );
+        "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]");
     // Only add to above if the example should NEVER appear.
 
     /**
@@ -162,9 +161,8 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]",
 
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
-        );
+    );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
-
 
     /**
      * Only add to this if the background should NEVER appear.
@@ -192,7 +190,6 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
         "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern");
     // Only add to above if the background should NEVER appear.
-
 
     /**
      * Add to this if the background SHOULD appear, but we don't have them yet.
@@ -409,31 +406,31 @@ public class TestExampleGenerator extends TestFmwk {
             { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
                 "LOCALE", "〖square ❬meters❭〗" }, //
             { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
-                    "LOCALE", "〖❬1 ❭square ❬meter❭〗" }, //
+                "LOCALE", "〖❬1 ❭square ❬meter❭〗" }, //
             { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
-                        "LOCALE", "〖❬1.5 ❭square ❬meters❭〗" }, //
+                "LOCALE", "〖❬1.5 ❭square ❬meters❭〗" }, //
 
             { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
-                            "LOCALE", "〖❬m❭²〗" },
+                "LOCALE", "〖❬m❭²〗" },
             { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
-                                "LOCALE", "〖❬1m❭²〗" },
+                "LOCALE", "〖❬1m❭²〗" },
             { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
-                                    "LOCALE", "〖❬1.5m❭²〗" },
+                "LOCALE", "〖❬1.5m❭²〗" },
 
             // warning, french patterns has U+00A0 in them
             { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
-                                        "Square {0}", "〖Square ❬mètres❭〗" },
+                "Square {0}", "〖Square ❬mètres❭〗" },
             { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
-                                            "square {0}", "〖❬1,5 ❭square ❬mètre❭〗" },
+                "square {0}", "〖❬1,5 ❭square ❬mètre❭〗" },
             { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
-                                                "squares {0}", "〖❬3,5 ❭squares ❬mètres❭〗" },
+                "squares {0}", "〖❬3,5 ❭squares ❬mètres❭〗" },
 
             { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
-                                                    "LOCALE", "〖❬m❭²〗" },
+                "LOCALE", "〖❬m❭²〗" },
             { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
-                                                        "LOCALE", "〖❬1,5m❭²〗" },
+                "LOCALE", "〖❬1,5m❭²〗" },
             { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
-                                                            "LOCALE", "〖❬3,5m❭²〗" },
+                "LOCALE", "〖❬3,5m❭²〗" },
         };
 
         int lineCount = 0;
@@ -544,7 +541,7 @@ public class TestExampleGenerator extends TestFmwk {
             "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>Afghanistan</span>]</div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan</span>]</div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan, Cifre indo-arabe, Fuso orario: Ora Etiopia</span>]</div>",
-                actual);
+            actual);
         actual = exampleGenerator
             .getExampleHtml(
                 "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
@@ -553,7 +550,7 @@ public class TestExampleGenerator extends TestFmwk {
             "localeSeparator example faulty",
             "<div class='cldr_example'><span class='cldr_substituted'>uzbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan)</span></div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan</span>. <span class='cldr_substituted'>Cifre indo-arabe</span>. <span class='cldr_substituted'>Fuso orario: Ora Etiopia)</span></div>",
-                actual);
+            actual);
     }
 
     public void TestCurrencyFormats() {
@@ -615,12 +612,12 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] testPairs = {
             {
                 "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]",
-            "〖❬1,23 ❭dollari delle Bermuda〗〖❬0,00 ❭dollari delle Bermuda〗" },
+                "〖❬1,23 ❭dollari delle Bermuda〗〖❬0,00 ❭dollari delle Bermuda〗" },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]",
-            "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗" },
+                "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗" },
             { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol",
-            "〖❬123.456,79 ❭BMD〗" }, };
+                "〖❬123.456,79 ❭BMD〗" }, };
 
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         for (String[] testPair : testPairs) {
@@ -636,7 +633,7 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] testPairs = {
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-            "<div class='cldr_example'><span class='cldr_substituted'>1</span> thousand</div>" },
+                "<div class='cldr_example'><span class='cldr_substituted'>1</span> thousand</div>" },
             {
                 "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                 "<div class='cldr_example'><span class='cldr_substituted'>5</span>%</div>"

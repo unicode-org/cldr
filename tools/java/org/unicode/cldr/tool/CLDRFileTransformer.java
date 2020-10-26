@@ -30,7 +30,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  */
 public class CLDRFileTransformer {
     public enum PolicyIfExisting {
-        RETAIN,  // Do not transliterate if existing output has locale content
+        RETAIN, // Do not transliterate if existing output has locale content
         DISCARD, // Replace existing output locale content
         MINIMIZE // RETAIN, plus drop values if translit is a no-op.
     }
@@ -263,7 +263,7 @@ public class CLDRFileTransformer {
             if (dir.equals("casing") // skip, field contents are keywords, not localizable content
                 || dir.equals("collation") // skip, field contents are complex, and can't be simply remapped
                 || dir.equals("annotationsDerived") // skip, derived later
-                ) {
+            ) {
                 continue;
             }
             System.out.println("\nDirectory: " + dir);

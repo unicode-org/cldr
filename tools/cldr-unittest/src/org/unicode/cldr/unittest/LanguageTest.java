@@ -81,8 +81,9 @@ public class LanguageTest extends TestFmwk {
         final HashMap<String, Map<Type, String>> language2script,
         String language, String defaultValue) {
         final Map<Type, String> bestMap = language2script.get(language);
-        return bestMap == null ? defaultValue : bestMap.values().iterator()
-            .next();
+        return bestMap == null ? defaultValue
+            : bestMap.values().iterator()
+                .next();
     }
 
     public void addMap(HashMap<String, Map<Type, String>> hashMap,
@@ -200,14 +201,17 @@ public class LanguageTest extends TestFmwk {
 
     private String getLocaleName(String input) {
         LanguageTagParser parser = new LanguageTagParser().set(input);
-        return (parser.getLanguage().isEmpty() ? "?" : getLanguageName(parser
-            .getLanguage()))
+        return (parser.getLanguage().isEmpty() ? "?"
+            : getLanguageName(parser
+                .getLanguage()))
             + "; "
-            + (parser.getScript().isEmpty() ? "?" : getScriptName(parser
-                .getScript()))
+            + (parser.getScript().isEmpty() ? "?"
+                : getScriptName(parser
+                    .getScript()))
             + "; "
-            + (parser.getRegion().isEmpty() ? "?" : testInfo.getEnglish()
-                .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
+            + (parser.getRegion().isEmpty() ? "?"
+                : testInfo.getEnglish()
+                    .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {

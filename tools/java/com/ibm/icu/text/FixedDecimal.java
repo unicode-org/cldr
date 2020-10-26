@@ -118,7 +118,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         return baseFactor;
     }
 
-    static final long MAX = (long)1E18;
+    static final long MAX = (long) 1E18;
 
     /**
      * @internal CLDR
@@ -137,7 +137,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         decimalDigits = f;
         integerValue = n > MAX
             ? MAX
-                : (long)n;
+            : (long) n;
         exponent = e;
         hasIntegerValue = source == integerValue;
         // check values. TODO make into unit test.
@@ -159,7 +159,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         } else {
             long fdwtz = f;
             int trimmedCount = v;
-            while ((fdwtz%10) == 0) {
+            while ((fdwtz % 10) == 0) {
                 fdwtz /= 10;
                 --trimmedCount;
             }
@@ -184,7 +184,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
      */
     @Deprecated
     public static FixedDecimal createWithExponent(double n, int v, int e) {
-        return new FixedDecimal(n,v,getFractionalDigits(n, v), e);
+        return new FixedDecimal(n, v, getFractionalDigits(n, v), e);
     }
 
     /**
@@ -193,7 +193,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
      */
     @Deprecated
     public FixedDecimal(double n, int v) {
-        this(n,v,getFractionalDigits(n, v));
+        this(n, v, getFractionalDigits(n, v));
     }
 
     private static int getFractionalDigits(double n, int v) {
@@ -224,10 +224,11 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
      */
     @Deprecated
     public FixedDecimal(long n) {
-        this(n,0);
+        this(n, 0);
     }
 
     private static final long MAX_INTEGER_PART = 1000000000;
+
     /**
      * Return a guess as to the number of decimals that would be displayed. This is only a guess; callers should
      * always supply the decimals explicitly if possible. Currently, it is up to 6 decimals (without trailing zeros).
@@ -249,7 +250,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
             return 0;
         }
         if (n < MAX_INTEGER_PART) {
-            long temp = (long)(n * 1000000) % 1000000; // get 6 decimals
+            long temp = (long) (n * 1000000) % 1000000; // get 6 decimals
             for (int mask = 10, digits = 6; digits > 0; mask *= 10, --digits) {
                 if ((temp % mask) != 0) {
                     return digits;
@@ -269,7 +270,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
             if (numFractionDigits < 0) {
                 return 0;
             }
-            for (int i=ePos-1; numFractionDigits > 0; --i) {
+            for (int i = ePos - 1; numFractionDigits > 0; --i) {
                 if (buf.charAt(i) != '0') {
                     break;
                 }
@@ -284,17 +285,15 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
      * @deprecated This API is ICU internal only
      */
     @Deprecated
-    private FixedDecimal (FixedDecimal other) {
+    private FixedDecimal(FixedDecimal other) {
         // Ugly, but necessary, because constructors must only call other
         // constructors in the first line of the body, and
         // FixedDecimal(String) was refactored to support exponents.
         this.source = other.source;
         this.visibleDecimalDigitCount = other.visibleDecimalDigitCount;
-        this.visibleDecimalDigitCountWithoutTrailingZeros =
-            other.visibleDecimalDigitCountWithoutTrailingZeros;
+        this.visibleDecimalDigitCountWithoutTrailingZeros = other.visibleDecimalDigitCountWithoutTrailingZeros;
         this.decimalDigits = other.decimalDigits;
-        this.decimalDigitsWithoutTrailingZeros =
-            other.decimalDigitsWithoutTrailingZeros;
+        this.decimalDigitsWithoutTrailingZeros = other.decimalDigitsWithoutTrailingZeros;
         this.integerValue = other.integerValue;
         this.hasIntegerValue = other.hasIntegerValue;
         this.isNegative = other.isNegative;
@@ -307,7 +306,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
      * @deprecated This API is ICU internal only.
      */
     @Deprecated
-    public FixedDecimal (String n) {
+    public FixedDecimal(String n) {
         // Ugly, but for samples we don't care.
         this(parseDecimalSampleRangeNumString(n));
     }
@@ -355,14 +354,14 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
                 String fractionPart = "";
                 if (decimalPos >= 0) {
                     decimalCount = fractionStr.length() - decimalPos - 1;
-                    integerPart = fractionStr.substring(0,decimalPos);
-                    fractionPart = fractionStr.substring(decimalPos+1);
+                    integerPart = fractionStr.substring(0, decimalPos);
+                    fractionPart = fractionStr.substring(decimalPos + 1);
                 }
 
                 if (decimalCount == exponent) { // 2.123e3 => 2123
                     fractionStr = integerPart + fractionPart;
-                } else if (decimalCount > exponent) {   // 2.1234e3 => 2123.4
-                    fractionStr = integerPart + fractionPart.substring(0,exponent) + "." + fractionPart.substring(exponent);
+                } else if (decimalCount > exponent) { // 2.1234e3 => 2123.4
+                    fractionStr = integerPart + fractionPart.substring(0, exponent) + "." + fractionPart.substring(exponent);
                 } else { // decimalCount < exponent //   // 2.1e3 => 2100
                     fractionStr = integerPart + padEnd(fractionPart, exponent, '0');
                 }
@@ -372,7 +371,6 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         v = getVisibleFractionCount(fractionStr);
         return new FixedDecimal(n, v, getFractionalDigits(n, v), exponent);
     }
-
 
     private static String padEnd(String string, int minLength, char c) {
         StringBuilder sb = new StringBuilder(minLength);
@@ -402,15 +400,23 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
     @Override
     @Deprecated
     public double getPluralOperand(Operand operand) {
-        switch(operand) {
-        case n: return source;
-        case i: return integerValue;
-        case f: return decimalDigits;
-        case t: return decimalDigitsWithoutTrailingZeros;
-        case v: return visibleDecimalDigitCount;
-        case w: return visibleDecimalDigitCountWithoutTrailingZeros;
-        case e: return exponent;
-        default: return source;
+        switch (operand) {
+        case n:
+            return source;
+        case i:
+            return integerValue;
+        case f:
+            return decimalDigits;
+        case t:
+            return decimalDigitsWithoutTrailingZeros;
+        case v:
+            return visibleDecimalDigitCount;
+        case w:
+            return visibleDecimalDigitCountWithoutTrailingZeros;
+        case e:
+            return exponent;
+        default:
+            return source;
         }
     }
 
@@ -466,7 +472,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
         if (!(arg0 instanceof FixedDecimal)) {
             return false;
         }
-        FixedDecimal other = (FixedDecimal)arg0;
+        FixedDecimal other = (FixedDecimal) arg0;
         return source == other.source && visibleDecimalDigitCount == other.visibleDecimalDigitCount && decimalDigits == other.decimalDigits
             && exponent == other.exponent;
     }
@@ -479,7 +485,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
     @Override
     public int hashCode() {
         // TODO Auto-generated method stub
-        return (int)(decimalDigits + 37 * (visibleDecimalDigitCount + (int)(37 * source)));
+        return (int) (decimalDigits + 37 * (visibleDecimalDigitCount + (int) (37 * source)));
     }
 
     public static String toSampleString(IFixedDecimal source) {
@@ -492,7 +498,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
             // we need to slide the exponent back
 
             int fixedV = visibleDecimalDigitCount + exponent;
-            String baseString = String.format(Locale.ROOT, "%." + fixedV + "f",n/Math.pow(10,exponent));
+            String baseString = String.format(Locale.ROOT, "%." + fixedV + "f", n / Math.pow(10, exponent));
 
             // HACK
             // However, we don't have enough information to round-trip if v == 0
@@ -502,13 +508,13 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
                 for (int i = visibleDecimalDigitCount; i < fixedV; ++i) {
                     // TODO this code could and should be optimized, but for now...
                     if (baseString.endsWith("0")) {
-                        baseString = baseString.substring(0,baseString.length()-1);
+                        baseString = baseString.substring(0, baseString.length() - 1);
                         continue;
                     }
                     break;
                 }
                 if (baseString.endsWith(".")) {
-                    baseString = baseString.substring(0,baseString.length()-1);
+                    baseString = baseString.substring(0, baseString.length() - 1);
                 }
             }
             return baseString + "e" + exponent;
@@ -643,12 +649,11 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
 
     private void writeObject(
         ObjectOutputStream out)
-            throws IOException {
+        throws IOException {
         throw new NotSerializableException();
     }
 
-    private void readObject(ObjectInputStream in
-        ) throws IOException, ClassNotFoundException {
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         throw new NotSerializableException();
     }
 

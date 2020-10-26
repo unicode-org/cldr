@@ -28,7 +28,6 @@ public class RandomStringGenerator {
     // // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); //
     // or null
 
-
     private Random random = new Random(0);
     private UnicodeSet[] sets;
     private UnicodeMap map;
@@ -52,7 +51,7 @@ public class RandomStringGenerator {
         boolean addGCStuff) {
         this(factory, factory.getProperty(propertyName).getUnicodeMap(),
             useShortName ? ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap(true) : null,
-                addGCStuff);
+            addGCStuff);
     }
 
     RandomStringGenerator(UnicodeProperty.Factory factory, UnicodeMap longNameMap, UnicodeMap shortNameMap,

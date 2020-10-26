@@ -37,6 +37,7 @@ public abstract class MatchValue implements Predicate<String> {
 
     @Override
     public abstract boolean is(String item);
+
     public abstract String getName();
 
     public String getSample() {
@@ -63,37 +64,37 @@ public abstract class MatchValue implements Predicate<String> {
                 result = AnyMatchValue.of(subargument);
                 break;
             case "set":
-                result =  SetMatchValue.of(subargument);
+                result = SetMatchValue.of(subargument);
                 break;
             case "validity":
-                result =  ValidityMatchValue.of(subargument);
+                result = ValidityMatchValue.of(subargument);
                 break;
             case "bcp47":
-                result =  Bcp47MatchValue.of(subargument);
+                result = Bcp47MatchValue.of(subargument);
                 break;
             case "range":
-                result =  RangeMatchValue.of(subargument);
+                result = RangeMatchValue.of(subargument);
                 break;
             case "literal":
-                result =  LiteralMatchValue.of(subargument);
+                result = LiteralMatchValue.of(subargument);
                 break;
             case "regex":
-                result =  RegexMatchValue.of(subargument);
+                result = RegexMatchValue.of(subargument);
                 break;
             case "metazone":
-                result =  MetazoneMatchValue.of(subargument);
+                result = MetazoneMatchValue.of(subargument);
                 break;
             case "version":
-                result =  VersionMatchValue.of(subargument);
+                result = VersionMatchValue.of(subargument);
                 break;
             case "time":
-                result =  TimeMatchValue.of(subargument);
+                result = TimeMatchValue.of(subargument);
                 break;
             case "or":
-                result =  OrMatchValue.of(subargument);
+                result = OrMatchValue.of(subargument);
                 break;
             case "unicodeset":
-                result =  UnicodeSpanMatchValue.of(subargument);
+                result = UnicodeSpanMatchValue.of(subargument);
                 break;
             default:
                 throw new IllegalArgumentException("Illegal/Unimplemented match type: " + originalArg);
@@ -135,10 +136,9 @@ public abstract class MatchValue implements Predicate<String> {
                 && (ltp.getRegion().isEmpty()
                     || region.is(ltp.getRegion()))
                 && (ltp.getVariants().isEmpty()
-                    || and(variant,ltp.getVariants()))
+                    || and(variant, ltp.getVariants()))
                 && ltp.getExtensions().isEmpty()
-                && ltp.getLocaleExtensions().isEmpty()
-                ;
+                && ltp.getLocaleExtensions().isEmpty();
         }
 
         @Override
@@ -200,6 +200,7 @@ public abstract class MatchValue implements Predicate<String> {
             }
             return ImmutableSet.copyOf(statuses);
         }
+
         private T getItem(String text) {
             try {
                 return (T) aClass.getMethod("valueOf", String.class).invoke(null, text);
@@ -209,7 +210,7 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         public String format(Set<?> set) {
-            if (set.size() > all.size()/2) {
+            if (set.size() > all.size() / 2) {
                 TreeSet<T> temp = new TreeSet<>(all);
                 temp.removeAll(set);
                 return "!" + Joiner.on(' ').join(temp);
@@ -257,7 +258,7 @@ public abstract class MatchValue implements Predicate<String> {
             int slashPos = typeName.indexOf('/');
             Set<Status> statuses = null;
             if (slashPos > 0) {
-                statuses = enumParser.parse(typeName.substring(slashPos+1));
+                statuses = enumParser.parse(typeName.substring(slashPos + 1));
                 typeName = typeName.substring(0, slashPos);
             }
             boolean shortId = typeName.startsWith("short-");
@@ -271,7 +272,7 @@ public abstract class MatchValue implements Predicate<String> {
         @Override
         public boolean is(String item) {
             // TODO handle deprecated
-            switch(type) {
+            switch (type) {
             case script:
                 if (SCRIPT_HACK.contains(item)) {
                     return true;
@@ -293,7 +294,7 @@ public abstract class MatchValue implements Predicate<String> {
                         for (Entry<String, Status> entry : Validity.getInstance().getCodeToStatus(LstrType.unit).entrySet()) {
                             String key = entry.getKey();
                             Status status = entry.getValue();
-                            final String shortKey = key.substring(key.indexOf('-')+1);
+                            final String shortKey = key.substring(key.indexOf('-') + 1);
                             Status old = _shortCodeToStatus.get(shortKey);
                             if (old == null) {
                                 _shortCodeToStatus.put(shortKey, status);
@@ -306,7 +307,8 @@ public abstract class MatchValue implements Predicate<String> {
                     final Status status = shortCodeToStatus.get(item);
                     return status != null && statuses.contains(status);
                 }
-            default: break;
+            default:
+                break;
             }
             final Status status = Validity.getInstance().getCodeToStatus(type).get(item);
             return status != null && statuses.contains(status);
@@ -354,7 +356,7 @@ public abstract class MatchValue implements Predicate<String> {
                 Set<String> subtypeList;
                 // TODO handle deprecated
                 // fix data to remove aliases, then narrow this
-                switch(key) {
+                switch (key) {
                 case "anykey":
                     keyList = keyToSubtypes.keySet();
                     valid = new TreeSet<>(keyList);
@@ -392,7 +394,7 @@ public abstract class MatchValue implements Predicate<String> {
                     for (String subtypeItem : subtypeList) {
                         addAliases(keySubtypeToAliases, key, subtypeItem);
                     }
-                    switch(key) {
+                    switch (key) {
                     case "ca":
                         valid.add("generic"); // TODO: investigate adding to bcp47 data files
                         break;
@@ -414,6 +416,7 @@ public abstract class MatchValue implements Predicate<String> {
                 valid.addAll(aliases);
             }
         }
+
         @Override
         public String getSample() {
             is("X"); // force load data
@@ -432,7 +435,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "range/" + (isInt ? (long)start + "~" + (long)end : start + "~" + end);
+            return "range/" + (isInt ? (long) start + "~" + (long) end : start + "~" + end);
         }
 
         private RangeMatchValue(String key) {
@@ -462,9 +465,10 @@ public abstract class MatchValue implements Predicate<String> {
             }
             return start <= value && value <= end;
         }
+
         @Override
         public String getSample() {
-            return String.valueOf((int)(start + end)/2);
+            return String.valueOf((int) (start + end) / 2);
         }
     }
 
@@ -607,7 +611,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "set/"+subtest.getName();
+            return "set/" + subtest.getName();
         }
 
         public static SetMatchValue of(String key) {
@@ -615,8 +619,8 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         @Override
-        public  boolean is(String items) {
-            return and(subtest,SPACE_SPLITTER.split(items));
+        public boolean is(String items) {
+            return and(subtest, SPACE_SPLITTER.split(items));
         }
 
         @Override
@@ -636,7 +640,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "or/"+ Joiner.on("||").join(subtests);
+            return "or/" + Joiner.on("||").join(subtests);
         }
 
         public static OrMatchValue of(String key) {
@@ -648,7 +652,7 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         @Override
-        public  boolean is(String item) {
+        public boolean is(String item) {
             for (MatchValue subtest : subtests) {
                 if (subtest.is(item)) {
                     return true;
@@ -656,6 +660,7 @@ public abstract class MatchValue implements Predicate<String> {
             }
             return false;
         }
+
         @Override
         public String getSample() {
             for (MatchValue subtest : subtests) {
@@ -673,7 +678,7 @@ public abstract class MatchValue implements Predicate<String> {
         final SimpleDateFormat formatter;
 
         public TimeMatchValue(String key) {
-            formatter = new SimpleDateFormat(key,ULocale.ROOT);
+            formatter = new SimpleDateFormat(key, ULocale.ROOT);
             sample = formatter.format(new Date());
         }
 
@@ -687,7 +692,7 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         @Override
-        public  boolean is(String item) {
+        public boolean is(String item) {
             try {
                 formatter.parse(item);
                 return true;
@@ -695,6 +700,7 @@ public abstract class MatchValue implements Predicate<String> {
                 return false;
             }
         }
+
         @Override
         public String getSample() {
             return sample;
@@ -720,7 +726,7 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         @Override
-        public  boolean is(String item) {
+        public boolean is(String item) {
             return uset.span(item, SpanCondition.CONTAINED) == item.length();
         }
 

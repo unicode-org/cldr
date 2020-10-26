@@ -44,10 +44,10 @@ public class GenerateDerivedAnnotations {
         .add(Annotations.MISSING_MARKER)
         .freeze();
 
-    static Map<String,String> codepointToIsoCurrencyCode;
+    static Map<String, String> codepointToIsoCurrencyCode;
     static {
         final Splitter tabSplitter = Splitter.on('\t').trimResults();
-        Map<String,String> _codepointToIsoCurrencyCode = new TreeMap<>();
+        Map<String, String> _codepointToIsoCurrencyCode = new TreeMap<>();
         for (String line : FileUtilities.in(CldrUtility.class, "data/codepointToIsoCurrencyCode.tsv")) {
             if (line.startsWith("#")) {
                 continue;

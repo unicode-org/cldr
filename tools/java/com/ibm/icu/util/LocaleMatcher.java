@@ -161,8 +161,8 @@ public class LocaleMatcher {
         if (lang2 != null || script2 != null || region2 != null) {
             return new ULocale(
                 lang2 == null ? lang : lang2,
-                    script2 == null ? script : script2,
-                        region2 == null ? region : region2);
+                script2 == null ? script : script2,
+                region2 == null ? region : region2);
         }
         return ulocale;
     }

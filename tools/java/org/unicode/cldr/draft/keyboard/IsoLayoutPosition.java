@@ -27,23 +27,27 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public enum IsoLayoutPosition {
     /* Row 1 */
     E00('E', 0, "`"), E01('E', 1, "1"), E02('E', 2, "2"), E03('E', 3, "3"), E04('E', 4, "4"), E05('E', 5, "5"), E06('E', 6, "6"), E07('E', 7, "7"), E08('E', 8,
-        "8"), E09('E', 9, "9"), E10('E', 10, "0"), E11('E', 11, "-"), E12('E', 12, "="), E13('E', 13, "(key to right of =)"), // Additional key in 106 keyboards (like Japanese
+        "8"),
+    E09('E', 9, "9"), E10('E', 10, "0"), E11('E', 11, "-"), E12('E', 12, "="), E13('E', 13, "(key to right of =)"), // Additional key in 106 keyboards (like Japanese
     // keyboards)
 
     /* Row 2 */
     D01('D', 1, "Q"), D02('D', 2, "W"), D03('D', 3, "E"), D04('D', 4, "R"), D05('D', 5, "T"), D06('D', 6, "Y"), D07('D', 7, "U"), D08('D', 8, "I"), D09('D', 9,
-        "O"), D10('D', 10, "P"), D11('D', 11, "["), D12('D', 12, "]"), D13('D', 13, "\\"),
+        "O"),
+    D10('D', 10, "P"), D11('D', 11, "["), D12('D', 12, "]"), D13('D', 13, "\\"),
 
     /* Row 3 */
     C01('C', 1, "A"), C02('C', 2, "S"), C03('C', 3, "D"), C04('C', 4, "F"), C05('C', 5, "G"), C06('C', 6, "H"), C07('C', 7, "J"), C08('C', 8, "K"), C09('C', 9,
-        "L"), C10('C', 10, ";"), C11('C', 11, "'"), C12('C', 12, "(key to right of ')"), // Additional key in 102+ layouts, typically is present
+        "L"),
+    C10('C', 10, ";"), C11('C', 11, "'"), C12('C', 12, "(key to right of ')"), // Additional key in 102+ layouts, typically is present
     // when D13 is not
 
     /* Row 4 */
     B00('B', 0, "(key to left of Z)"), // Additional key in 102 and 103 keyboards (like European
     // keyboards)
     B01('B', 1, "Z"), B02('B', 2, "X"), B03('B', 3, "C"), B04('B', 4, "V"), B05('B', 5, "B"), B06('B', 6, "N"), B07('B', 7, "M"), B08('B', 8, ","), B09('B', 9,
-        "."), B10('B', 10, "/"), B11('B', 11, "(key to right of /)"), B12('B', 12, "(2 keys to right of /)"), // Additional key for Android
+        "."),
+    B10('B', 10, "/"), B11('B', 11, "(key to right of /)"), B12('B', 12, "(2 keys to right of /)"), // Additional key for Android
 
     /* Row 5 */
     A01('A', 1, "(2 keys to left of space)"), // Additional key for Android

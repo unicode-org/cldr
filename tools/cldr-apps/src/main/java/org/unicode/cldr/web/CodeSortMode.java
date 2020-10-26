@@ -46,8 +46,10 @@ public class CodeSortMode extends SortMode {
             rbc.setNumericCollation(true);
             return rbc.freeze();
         }
+
         static final Collator COLLATOR = createCollator();
     }
+
     static final private class ComparatorHelper {
         static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
             final Collator myCollator = CollatorHelper.COLLATOR;

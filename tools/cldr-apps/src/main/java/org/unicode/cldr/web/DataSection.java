@@ -1508,10 +1508,10 @@ public class DataSection implements JSONString {
 
             /* This one is only used with non-pageID use. */
             PatternCache.get("^//ldml/localeDisplayNames.*|"
-               /* these are excluded when 'misc' is chosen. */
-               + "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
-               + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
-               + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
+                /* these are excluded when 'misc' is chosen. */
+                + "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
+                + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
+                + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
 
             /* Always excluded. Compare with PathHeader/Coverage. */
             excludeAlways = PatternCache.get("^//ldml/segmentations.*|" + "^//ldml/measurement.*|" + ".*week/minDays.*|"
@@ -1727,7 +1727,7 @@ public class DataSection implements JSONString {
 
         STFactory stf = sm.getSTFactory();
 
-         if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
+        if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
             // work on zones
             boolean isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
             boolean isSingleXPath = false;
@@ -2135,7 +2135,7 @@ public class DataSection implements JSONString {
          * Add an item for the baseline value (trunk).
          */
         if (row.baselineValue != null) {
-                row.addItem(row.baselineValue, "baseline");
+            row.addItem(row.baselineValue, "baseline");
         }
 
         row.coverageValue = coverageValue;
@@ -2177,7 +2177,7 @@ public class DataSection implements JSONString {
          * Test if this value of ourValueIsInherited is reliable and consistent with what happens in updateInheritedValue.
          */
         if (ourValueIsInherited && !isExtraPath) {
-             return;
+            return;
         }
         if (altProp != null && !ourValueIsInherited && altProp != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
             row.hasMultipleProposals = true;
@@ -2242,8 +2242,8 @@ public class DataSection implements JSONString {
      * TODO: addOurValue could be a method of DataRow instead of DataSection, then wouldn't need row, xpath as params
      */
     private void addOurValue(String ourValue, DataRow row, List<CheckStatus> checkCldrResult,
-            org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom,
-            List<CheckStatus> examplesResult) {
+        org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom,
+        List<CheckStatus> examplesResult) {
 
         /*
          * Do not add ourValue if it matches inheritedValue. Otherwise we tend to get both "hard" and "soft"
@@ -2275,7 +2275,7 @@ public class DataSection implements JSONString {
         }
 
         if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
-                && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+            && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
             row.pathWhereFound = sourceLocaleStatus.pathWhereFound;
         }
         if (setInheritFrom != null) {

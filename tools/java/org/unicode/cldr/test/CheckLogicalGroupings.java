@@ -66,7 +66,6 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         return this;
     }
 
-
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*
 
@@ -108,7 +107,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         if (paths == null || paths.size() < 2) return this; // skip if not part of a logical grouping
 
         // check the edit distances for count, gender, case
-        switch(pathType.value) {
+        switch (pathType.value) {
         case COUNT_CASE:
         case COUNT:
         case COUNT_CASE_GENDER:
@@ -125,9 +124,9 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
                 }
             }
             break;
-        default: break;
+        default:
+            break;
         }
-
 
         // TODO make this more efficient
         Set<String> paths2 = new HashSet<>(paths);
@@ -137,7 +136,6 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             }
         }
         if (paths.size() < 2) return this; // skip if not part of a logical grouping
-
 
         Set<String> missingPaths = new HashSet<>();
         boolean havePath = false;
@@ -286,6 +284,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     }
 
     private static final UnicodeMap<String> OTHER_SPACES = new UnicodeMap<String>().putAll(new UnicodeSet("[[:Z:][:S:][:whitespace:]]"), " ").freeze();
+
     public static String cleanSpaces(String pathValue) {
         return OTHER_SPACES.transform(pathValue);
     }
@@ -311,9 +310,9 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             int distance = 0;
             List<Fingerprint> fingerprints = ImmutableList.copyOf(fingerprintsIn); // The set removes duplicates
             // get the n x n comparisons (but skipping inverses, so (n x (n-1))/2). Quadratic, but most sets are small.
-            for (int i = fingerprints.size()-1; i > 0; --i) { // note the lower bound is different for i and j
+            for (int i = fingerprints.size() - 1; i > 0; --i) { // note the lower bound is different for i and j
                 final Fingerprint fingerprint_i = fingerprints.get(i);
-                for (int j = i-1; j >= 0; --j) {
+                for (int j = i - 1; j >= 0; --j) {
                     final Fingerprint fingerprints_j = fingerprints.get(j);
                     final int currentDistance = fingerprint_i.getDistanceTo(fingerprints_j);
                     distance = Math.max(distance, currentDistance);
@@ -327,7 +326,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             Set<Integer> allChars = new HashSet<>(that.codePointCounts.elementSet());
             allChars.addAll(codePointCounts.elementSet());
 
-            for (Integer element :allChars) {
+            for (Integer element : allChars) {
                 final int count = codePointCounts.count(element);
                 final int otherCount = that.codePointCounts.count(element);
                 distance += Math.abs(count - otherCount);

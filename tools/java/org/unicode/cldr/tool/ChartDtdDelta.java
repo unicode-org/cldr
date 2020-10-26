@@ -45,7 +45,6 @@ public class ChartDtdDelta extends Chart {
     private static final String ORDERED_SIGN = "⇣";
     private static final String UNORDERED_SIGN = "⇟";
 
-
     private static final Set<String> OMITTED_ATTRIBUTES = Collections.singleton("⊕");
 
     public static void main(String[] args) {
@@ -114,8 +113,8 @@ public class ChartDtdDelta extends Chart {
                 try {
                     dtdCurrent = DtdData.getInstance(type,
                         finalVersion
-                        // && ToolConstants.CHART_STATUS != ToolConstants.ChartStatus.release
-                        ? null
+                            // && ToolConstants.CHART_STATUS != ToolConstants.ChartStatus.release
+                            ? null
                             : current);
                 } catch (Exception e) {
                     if (!(e.getCause() instanceof FileNotFoundException)) {
@@ -144,12 +143,12 @@ public class ChartDtdDelta extends Chart {
 
         for (DiffElement datum : data) {
             tablePrinter.addRow()
-            .addCell(datum.getVersionString())
-            .addCell(datum.dtdType)
-            .addCell(datum.newPath)
-            .addCell(datum.newElement)
-            .addCell(datum.attributeNames)
-            .finishRow();
+                .addCell(datum.getVersionString())
+                .addCell(datum.dtdType)
+                .addCell(datum.newPath)
+                .addCell(datum.newElement)
+                .addCell(datum.attributeNames)
+                .finishRow();
         }
         pw.write(tablePrinter.toTable());
         pw.write(Utility.repeat("<br>", 50));
@@ -209,7 +208,6 @@ public class ChartDtdDelta extends Chart {
         if (DEBUG_DTD == dtdCurrent.dtdType && name.contains(DEBUG_ELEMENT)) {
             int debug = 0;
         }
-
 
         Element oldElement = null;
         boolean ordered = element.isOrdered();
@@ -273,8 +271,7 @@ public class ChartDtdDelta extends Chart {
             }
             dtdType = dtdCurrent.dtdType;
             this.newPath = fix(newPath);
-            this.attributeNames = attributeNames2.isEmpty() ? NONE :
-                START_ATTR + Joiner.on(END_ATTR + START_ATTR).join(attributeNames2) + END_ATTR;
+            this.attributeNames = attributeNames2.isEmpty() ? NONE : START_ATTR + Joiner.on(END_ATTR + START_ATTR).join(attributeNames2) + END_ATTR;
             this.newElement = newElement;
         }
 
@@ -325,47 +322,47 @@ public class ChartDtdDelta extends Chart {
         }
 
         main:
-            // we want to add a name that is new or that becomes deprecated
-            for (Attribute attribute : attributes.keySet()) {
-                String name = attribute.getName();
-                if (SKIP_ATTRIBUTES.contains(name)) {
-                    continue;
-                }
-                String match = attribute.getMatchString();
-                AttributeStatus status = attribute.attributeStatus;
-                String display = NEW_PREFIX + name;
+        // we want to add a name that is new or that becomes deprecated
+        for (Attribute attribute : attributes.keySet()) {
+            String name = attribute.getName();
+            if (SKIP_ATTRIBUTES.contains(name)) {
+                continue;
+            }
+            String match = attribute.getMatchString();
+            AttributeStatus status = attribute.attributeStatus;
+            String display = NEW_PREFIX + name;
 //            if (isDeprecated(dtdCurrent, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
 //                continue;
 //            }
-                String oldMatch = "?";
-                String pre, post;
-                Attribute attributeOld = attribute.getMatchingName(attributesOld);
-                if (attributeOld == null) {
-                    display = NEW_PREFIX + name +  " " + AttributeStatus.getShortName(status) + " " + match;
-                } else if (attribute.isDeprecated() && !attributeOld.isDeprecated()) {
-                    display = DEPRECATED_PREFIX + name;
-                } else {
-                    oldMatch = attributeOld.getMatchString();
-                    AttributeStatus oldStatus = attributeOld.attributeStatus;
+            String oldMatch = "?";
+            String pre, post;
+            Attribute attributeOld = attribute.getMatchingName(attributesOld);
+            if (attributeOld == null) {
+                display = NEW_PREFIX + name + " " + AttributeStatus.getShortName(status) + " " + match;
+            } else if (attribute.isDeprecated() && !attributeOld.isDeprecated()) {
+                display = DEPRECATED_PREFIX + name;
+            } else {
+                oldMatch = attributeOld.getMatchString();
+                AttributeStatus oldStatus = attributeOld.attributeStatus;
 
-                    boolean matchEquals = match.equals(oldMatch);
-                    if (status != oldStatus) {
-                        pre = AttributeStatus.getShortName(oldStatus);
-                        post = AttributeStatus.getShortName(status);
-                        if (!matchEquals) {
-                            pre += " " + oldMatch;
-                            post += " " + match;
-                        }
-                    } else if (!matchEquals) {
-                        pre = oldMatch;
-                        post = match;
-                    } else {
-                        continue main; // skip attribute entirely;
+                boolean matchEquals = match.equals(oldMatch);
+                if (status != oldStatus) {
+                    pre = AttributeStatus.getShortName(oldStatus);
+                    post = AttributeStatus.getShortName(status);
+                    if (!matchEquals) {
+                        pre += " " + oldMatch;
+                        post += " " + match;
                     }
-                    display = name + " " + diff(pre, post);
+                } else if (!matchEquals) {
+                    pre = oldMatch;
+                    post = match;
+                } else {
+                    continue main; // skip attribute entirely;
                 }
-                names.add(display);
+                display = name + " " + diff(pre, post);
             }
+            names.add(display);
+        }
         return names;
     }
 

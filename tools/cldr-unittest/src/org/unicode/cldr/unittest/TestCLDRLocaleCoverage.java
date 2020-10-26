@@ -43,21 +43,20 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     private static final SupplementalDataInfo SDI = CLDRCONFIG.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = CLDRCONFIG.getEnglish();
 
-
     public static void main(String[] args) {
         new TestCLDRLocaleCoverage().run(args);
     }
 
     public void TestLanguageNameCoverage() {
-        
+
         Set<String> additionsToTranslate = new TreeSet<>(Arrays.asList("zxx", "ceb", "ny", "co", "ht", "hmn", "la", "sm", "st", "sa", "mul"));
-        
+
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang = Multimaps.invertFrom(Multimaps.forMap(validity), TreeMultimap.create());
         Set<String> regular = (Set<String>) statusToLang.get(Status.regular);
-        Set<String> regularPlus = ImmutableSet.<String>builder().addAll(regular).add("und").add("zxx").add("mul").build();
+        Set<String> regularPlus = ImmutableSet.<String> builder().addAll(regular).add("und").add("zxx").add("mul").build();
         Set<String> valid = validity.keySet();
-        
+
         Factory factory = CLDRCONFIG.getCldrFactory();
         Set<String> mainLocales = new LinkedHashSet<>();
         LanguageTagParser ltp = new LanguageTagParser();
@@ -73,7 +72,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         localesForNames = ImmutableSet.copyOf(localesForNames);
 
         assertContains("regularPlus.containsAll(mainLocales)", regularPlus, localesForNames);
-        
+
         CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance("und");
         Multimap<Level, String> levelToLanguage = TreeMultimap.create();
         for (String locale : valid) {
@@ -81,7 +80,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             Level level = coverageLeveler.getLevel(path);
             levelToLanguage.put(level, locale);
         }
-        
+
         Set<String> coverageLocales = new TreeSet<>();
         for (Level level : Level.values()) {
             if (level == Level.COMPREHENSIVE) {
@@ -90,7 +89,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             //assertContains("mainLocales.containsAll(coverage:" + level + ")", localesForNames, levelToLanguage.get(level));
             coverageLocales.addAll(levelToLanguage.get(level));
         }
-        
+
         // If this fails, it is because of a mismatch between coverage and the getCLDRLanguageCodes.
         // Usually a problem with coverage.
         boolean showRegex = !assertContains("localesForNames.containsAll(coverageLocales)", localesForNames, coverageLocales);
@@ -102,8 +101,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         }
 
         coverageLocales.addAll(SDI.getCLDRLanguageCodes());
-        
-        Map<String,Integer> official1M = getOfficial1M();
+
+        Map<String, Integer> official1M = getOfficial1M();
         Set<String> official1MSet = new TreeSet<>();
         for (String locale : official1M.keySet()) {
             if (!localesForNames.contains(locale)) {
@@ -112,13 +111,12 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         }
         warnln("Official with 1M+ speakers, need investigation of literacy: " + official1MSet);
 
-
 //        assertContains("sdiLocales contains oldModernLocales", sdiLocales, oldModernLocales);
 //        assertContains("oldModernLocales contains sdiLocales", oldModernLocales, sdiLocales);
-        
+
         coverageLocales.removeAll(mainLocales);
         coverageLocales.removeAll(additionsToTranslate);
-        
+
         for (String locale : localesForNames) {
             logln("\n" + locale + "\t" + ENGLISH.getName(locale));
         }
@@ -127,8 +125,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         logln("\nadditionsToTranslate:" + composeList(additionsToTranslate, "\n\t", new StringBuilder()));
         logln("\noldModernLocales:" + composeList(coverageLocales, "\n\t", new StringBuilder()));
     }
-    
-    private Map<String,Integer> getOfficial1M() {
+
+    private Map<String, Integer> getOfficial1M() {
         Counter<String> counter = new Counter<>();
         for (String region : SDI.getTerritoriesWithPopulationData()) {
             for (String language : SDI.getLanguagesForTerritoryWithPopulationData(region)) {
@@ -145,13 +143,13 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                 counter.add(language, (int) popData.getLiteratePopulation());
             }
         }
-        Map<String,Integer> result = new TreeMap<>();
+        Map<String, Integer> result = new TreeMap<>();
         for (String language : counter.keySet()) {
             long litPop = counter.get(language);
             if (litPop >= 1_000_000) {
-                result.put(language, (int)litPop);
+                result.put(language, (int) litPop);
             }
-            
+
         }
         return ImmutableMap.copyOf(result);
     }
@@ -161,7 +159,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         for (String item : source) {
             if (prefix == null || !item.startsWith(prefix)) {
                 result.append(separator);
-                prefix = item.substring(0,1); // only ascii
+                prefix = item.substring(0, 1); // only ascii
             } else {
                 result.append(' ');
             }
@@ -184,7 +182,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         assertTrue(title, result);
         return result;
     }
-    
+
     /**
      * Test whether there are any locales for the organization CLDR
      */
@@ -207,11 +205,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     static Set<String> SKIP_SUPERSET = ImmutableSet.of("to", "fo");
-    
+
     private void checkCldrLocales(Organization organization, int warningLevel) {
         // use a union, so that items can be higher
         EnumSet<Level> modernModerate = EnumSet.of(Level.MODERATE, Level.MODERN);
-        
+
         Set<String> orgLocalesModerate = sc.getLocaleCoverageLocales(organization, modernModerate);
         Set<String> cldrLocalesModerate = sc.getLocaleCoverageLocales(Organization.cldr, modernModerate);
         Set<String> failures = checkCldrLocalesSuperset(modernModerate, cldrLocalesModerate, organization, orgLocalesModerate, warningLevel,

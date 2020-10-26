@@ -90,6 +90,7 @@ public class StandardCodes {
     private static final class StandardCodesHelper {
         static final StandardCodes SINGLETON = new StandardCodes();
     }
+
     /**
      * Get the singleton copy of the standard codes.
      */
@@ -1076,10 +1077,14 @@ public class StandardCodes {
          */
         public String toCompatString() {
             switch (this) {
-            case region: return "territory";
-            case legacy: return "language";
-            case redundant: return "language";
-            default: return toString();
+            case region:
+                return "territory";
+            case legacy:
+                return "language";
+            case redundant:
+                return "language";
+            default:
+                return toString();
             }
         }
 
@@ -1205,8 +1210,7 @@ public class StandardCodes {
                 LstrField label = LstrField.from(line.substring(0, pos2));
                 String rest = line.substring(pos2 + 1).trim();
                 if (label == LstrField.Type) {
-                    lastType = rest.equals("grandfathered") ?
-                        LstrType.legacy : LstrType.fromString(rest);
+                    lastType = rest.equals("grandfathered") ? LstrType.legacy : LstrType.fromString(rest);
                     subtagData = CldrUtility.get(result2, lastType);
                     if (subtagData == null) {
                         result2.put(lastType, subtagData = new TreeMap<>());

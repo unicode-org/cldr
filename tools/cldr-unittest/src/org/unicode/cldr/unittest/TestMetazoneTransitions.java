@@ -41,7 +41,7 @@ public class TestMetazoneTransitions {
     static final DecimalFormat threeDigits = new DecimalFormat("000");
     static final DecimalFormat twoDigits = new DecimalFormat("00");
 
-    public static final Set<Integer> allOffsets = new TreeSet<Integer>();
+    public static final Set<Integer> allOffsets = new TreeSet<>();
 
     static {
         TimeZone GMT = TimeZone.getTimeZone("Etc/GMT");
@@ -131,10 +131,10 @@ public class TestMetazoneTransitions {
 
     enum DaylightChoice {
         NO_DAYLIGHT, ONLY_DAYLIGHT
-    };
+    }
 
     private static class ZoneTransitions implements Comparable<ZoneTransitions> {
-        List<ZoneTransition> chronologicalList = new ArrayList<ZoneTransition>();
+        List<ZoneTransition> chronologicalList = new ArrayList<>();
 
         @Override
         public boolean equals(Object that) {
@@ -255,8 +255,8 @@ public class TestMetazoneTransitions {
             new TreeMap<ZoneTransitions, Set<String>>(), TreeSet.class);
         Relation<ZoneTransitions, String> daylightPartition = Relation.of(
             new TreeMap<ZoneTransitions, Set<String>>(), TreeSet.class);
-        Map<String, String> toDaylight = new TreeMap<String, String>();
-        Map<ZoneTransitions, String> daylightNames = new TreeMap<ZoneTransitions, String>();
+        Map<String, String> toDaylight = new TreeMap<>();
+        Map<ZoneTransitions, String> daylightNames = new TreeMap<>();
 
         // get the main data
         for (String zone : supplementalData.getCanonicalZones()) {
@@ -279,7 +279,7 @@ public class TestMetazoneTransitions {
             }
         }
         // get the "primary" zone for each metazone
-        Map<String, String> zoneToMeta = new TreeMap<String, String>();
+        Map<String, String> zoneToMeta = new TreeMap<>();
         Map<String, Map<String, String>> metazoneToRegionToZone = supplementalData
             .getMetazoneToRegionToZone();
         for (String meta : metazoneToRegionToZone.keySet()) {
@@ -297,9 +297,9 @@ public class TestMetazoneTransitions {
         System.out.println();
 
         count = 0;
-        Set<String> noMeta = new TreeSet<String>();
-        Set<String> multiMeta = new TreeSet<String>();
-        Set<String> stableZones = new TreeSet<String>();
+        Set<String> noMeta = new TreeSet<>();
+        Set<String> multiMeta = new TreeSet<>();
+        Set<String> stableZones = new TreeSet<>();
         for (ZoneTransitions transitions : partition.keySet()) {
 
             System.out.println();
@@ -308,7 +308,7 @@ public class TestMetazoneTransitions {
             System.out.println("Non-Daylight Partition "
                 + nonDaylightPartitionName);
             int metaCount = 0;
-            Set<String> metas = new TreeSet<String>();
+            Set<String> metas = new TreeSet<>();
             for (String zone : partition.getAll(transitions)) {
                 String daylightName = toDaylight.get(zone);
                 String meta = zoneToMeta.get(zone);
@@ -396,7 +396,7 @@ public class TestMetazoneTransitions {
     }
 
     public static <T> List<T> slice(List<T> list, int start, int limit) {
-        ArrayList<T> temp = new ArrayList<T>();
+        ArrayList<T> temp = new ArrayList<>();
         for (int i = start; i < limit; ++i) {
             temp.add(list.get(i));
         }

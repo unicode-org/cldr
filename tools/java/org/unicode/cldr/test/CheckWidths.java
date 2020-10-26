@@ -121,12 +121,12 @@ public class CheckWidths extends CheckCLDR {
                 value = value.replaceAll("[\u200E\u200F\u061C]", ""); // don't include LRM/RLM/ALM when checking length of number symbols
                 break;
             case BARS:
-                value = value.replaceAll("[^|]", "")+"|"; // Check the number of items by counting separators. Bit of a hack...
+                value = value.replaceAll("[^|]", "") + "|"; // Check the number of items by counting separators. Bit of a hack...
                 break;
             default:
             }
             double valueMeasure = measure == Measure.DISPLAY_WIDTH ? ApproximateWidth.getWidth(value)
-                : value.codePointCount(0, value.length()) ;
+                : value.codePointCount(0, value.length());
             CheckStatus.Type errorType = CheckStatus.warningType;
             switch (limit) {
             case MINIMUM:
@@ -276,11 +276,11 @@ public class CheckWidths extends CheckCLDR {
         .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"100000000000000",
             new Limit[] {
                 new Limit(4 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NUMBERFORMAT)
-        })
+            })
         .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
             new Limit[] {
                 new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NUMBERFORMAT)
-        })
+            })
         // Catch -future/past Narrow units  and allow much wider values
         .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
             new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
@@ -314,8 +314,7 @@ public class CheckWidths extends CheckCLDR {
         })
         .add("//ldml/annotations/annotation[@cp=%A]", new Limit[] {
             new Limit(WARN_COMPONENTS_PER_ANNOTATION, MAX_COMPONENTS_PER_ANNOTATION, Measure.SET_ELEMENTS, LimitType.MAXIMUM, Special.BARS) // Allow up to 5 with no warning, up to 7 with no error.
-        })
-        ;
+        });
 
 // Quell noisy printout
 //    static {

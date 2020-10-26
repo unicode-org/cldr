@@ -116,13 +116,13 @@ public class TestExampleDependencies extends TestFmwk {
             cldrFile.clearRecordedPaths();
             egTest.getExampleHtml(pathB, valueB);
             HashSet<String> pathsA = cldrFile.getRecordedPaths();
-            for (String pathA: pathsA) {
+            for (String pathA : pathsA) {
                 if (pathA.equals(pathB) || skipPathForDependencies(pathA)) {
                     continue;
                 }
                 String starredA = USE_STARRED_PATHS ? pathStarrer.set(pathA) : null;
                 dependencies.put(USE_STARRED_PATHS ? starredA : pathA,
-                                  USE_STARRED_PATHS ? starredB : pathB);
+                    USE_STARRED_PATHS ? starredB : pathB);
             }
         }
     }
@@ -351,9 +351,8 @@ public class TestExampleDependencies extends TestFmwk {
      */
     private static List<XMLSource> getParentSources(Factory factory, String localeId) {
         List<XMLSource> parents = new ArrayList<>();
-        for (String currentLocaleID = LocaleIDParser.getParent(localeId);
-            currentLocaleID != null;
-            currentLocaleID = LocaleIDParser.getParent(currentLocaleID)) {
+        for (String currentLocaleID = LocaleIDParser.getParent(localeId); currentLocaleID != null; currentLocaleID = LocaleIDParser
+            .getParent(currentLocaleID)) {
             parents.add(factory.makeSource(currentLocaleID));
         }
         return parents;

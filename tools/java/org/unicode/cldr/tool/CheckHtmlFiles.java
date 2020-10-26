@@ -83,8 +83,10 @@ public class CheckHtmlFiles {
     enum MyOptions {
 //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
         target(".*", CLDRPaths.BASE_DIRECTORY + "specs" + File.separator + "ldml" + File.separator +
-            "tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
-                + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"), verbose(".*", "none", "verbose debugging messages"),
+            "tr35(-.*)?\\.html",
+            "target data (regex); ucd for Unicode docs; "
+                + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
+        verbose(".*", "none", "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
         // /cldr-archive
         ;

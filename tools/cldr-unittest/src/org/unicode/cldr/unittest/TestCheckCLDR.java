@@ -140,7 +140,7 @@ public class TestCheckCLDR extends TestFmwk {
          * A thousand paths take about half a second to loop through twice.
          */
         int maxPathCount = (getInclusion() < 5) ? 1000 : 100000;
-        double[] deltaTime = {0, 0};
+        double[] deltaTime = { 0, 0 };
         for (int i = 0; i < 2; i++) {
             List<CheckStatus> possibleErrors = new ArrayList<>();
             int pathCount = 0;
@@ -166,7 +166,7 @@ public class TestCheckCLDR extends TestFmwk {
          * On one occasion, smoketest had times 171.0 and 5.0.
          */
         if (deltaTime[1] > deltaTime[0] / 10) {
-            errln("TestResultBundle cache should yield more benefit: times " + deltaTime[0] +  " and " + deltaTime[1]);
+            errln("TestResultBundle cache should yield more benefit: times " + deltaTime[0] + " and " + deltaTime[1]);
         }
     }
 
@@ -185,40 +185,40 @@ public class TestCheckCLDR extends TestFmwk {
     public void testPlaceholderSamples() {
         CLDRFile root = cldrFactory.make("root", true);
         String[][] tests = {
-            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "שנה"},
+            { "he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "שנה" },
             // test edge cases
             // locale, path, value, 0..n Subtype errors
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders", "gapsInPlaceholderNumbers"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "duplicatePlaceholders"},
+            { "en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}" },
+            { "en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders" },
+            { "en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders" },
+            { "en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders", "gapsInPlaceholderNumbers" },
+            { "en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders" },
+            { "en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "duplicatePlaceholders" },
 
-            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite."},
+            { "fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders" },
+            { "fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite." },
 
-            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours"},
+            { "fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders" },
+            { "fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours" },
 
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders"},
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci"},
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath"},
+            { "cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders" },
+            { "cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci" },
+            { "cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath" },
 
-            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders"},
-            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik"},
+            { "pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders" },
+            { "pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik" },
 
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}"},
+            { "fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders" },
+            { "fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}" },
 
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة"},
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة"},
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
+            { "ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة" },
+            { "ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة" },
+            { "ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders" },
 
-            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "שנה"},
-            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"two\"]", "שנתיים"},
-            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"many\"]", "שנה", "missingPlaceholders"},
-            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "שנים", "missingPlaceholders"},
+            { "he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "שנה" },
+            { "he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"two\"]", "שנתיים" },
+            { "he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"many\"]", "שנה", "missingPlaceholders" },
+            { "he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "שנים", "missingPlaceholders" },
         };
         for (String[] row : tests) {
             String localeId = row[0];
@@ -233,7 +233,7 @@ public class TestCheckCLDR extends TestFmwk {
             Set<Subtype> actual = new TreeSet<>();
             for (CheckStatus item : possibleErrors) {
                 if (PatternPlaceholders.PLACEHOLDER_SUBTYPES.contains(item.getSubtype())) {
-                    actual .add(item.getSubtype());
+                    actual.add(item.getSubtype());
                 }
             }
             if (!assertEquals(Arrays.asList(row).toString(), expected, actual)) {
@@ -251,7 +251,7 @@ public class TestCheckCLDR extends TestFmwk {
         CheckForExemplars check = new CheckForExemplars(currFactory);
 
         Options options = new Options();
-        check.setCldrFileToCheck(cldrFile , options, possibleErrors);
+        check.setCldrFileToCheck(cldrFile, options, possibleErrors);
         check.handleCheck(path, path, value, options, possibleErrors);
     }
 
@@ -300,12 +300,14 @@ public class TestCheckCLDR extends TestFmwk {
                 .getStatus(path);
             if (placeholderStatus == PlaceholderStatus.DISALLOWED) {
                 if (containsMessagePattern) {
-                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t"
+                        + path);
                     continue;
                 }
             } else { // not disallowed
                 if (!containsMessagePattern) {
-                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t"
+                        + path);
                     continue;
                 }
                 // get the set of placeholders
@@ -316,7 +318,8 @@ public class TestCheckCLDR extends TestFmwk {
 
                 if (!found.equals(placeholderInfo.keySet())) {
                     if (placeholderStatus != PlaceholderStatus.LOCALE_DEPENDENT) {
-                        errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") has different placeholders than placeholder info «" + placeholderInfo.keySet() + "»\t" + path);
+                        errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") has different placeholders than placeholder info «"
+                            + placeholderInfo.keySet() + "»\t" + path);
                     }
                 } else {
                     logln("placeholder info = " + placeholderInfo + "\t"
@@ -548,7 +551,6 @@ public class TestCheckCLDR extends TestFmwk {
         return factory;
     }
 
-
     public void TestCheckDates() {
         CheckCLDR.setDisplayInformation(testInfo.getEnglish()); // just in case
         String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
@@ -721,7 +723,7 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public void TestShowRowAction() {
-        Map<Key,Pair<Boolean,String>> actionToExamplePath = new TreeMap<>();
+        Map<Key, Pair<Boolean, String>> actionToExamplePath = new TreeMap<>();
         Counter<Key> counter = new Counter<>();
 
         for (String locale : Arrays.asList("jv", "fr", "nds")) {
@@ -767,7 +769,7 @@ public class TestCheckCLDR extends TestFmwk {
 
                         if (isVerbose()) {
                             Key key = new Key(locale, phase, status, surveyToolStatus, action);
-                            counter.add(key,1);
+                            counter.add(key, 1);
 
                             if (!actionToExamplePath.containsKey(key)) {
                                 // for debugging
@@ -800,9 +802,10 @@ public class TestCheckCLDR extends TestFmwk {
         public Key(String locale, Phase phase, CheckStatus.Type status, SurveyToolStatus stStatus, StatusAction action) {
             super(phase, status, stStatus, action, locale);
         }
+
         @Override
         public String toString() {
-            return  get0() + "\t" + get1() + "\t" + get2() + "\t" + get3() + "\t" + get4();
+            return get0() + "\t" + get1() + "\t" + get2() + "\t" + get3() + "\t" + get4();
         }
     }
 
@@ -834,6 +837,7 @@ public class TestCheckCLDR extends TestFmwk {
             public String getValue() {
                 return null;
             }
+
             @Override
             public Collection<UserInfo> getUsersVotingOn() {
                 throw new UnsupportedOperationException();
@@ -851,26 +855,32 @@ public class TestCheckCLDR extends TestFmwk {
         public Collection<? extends CandidateInfo> getValues() {
             throw new UnsupportedOperationException();
         }
+
         @Override
         public CandidateInfo getCurrentItem() {
             return candidateInfo;
         }
+
         @Override
         public String getBaselineValue() {
             return baselineValue;
         }
+
         @Override
         public Level getCoverageLevel() {
             return Level.MODERN;
         }
+
         @Override
         public boolean hadVotesSometimeThisRelease() {
             throw new UnsupportedOperationException();
         }
+
         @Override
         public CLDRLocale getLocale() {
             return locale;
         }
+
         @Override
         public String getXpath() {
             return xpath;
@@ -925,11 +935,20 @@ public class TestCheckCLDR extends TestFmwk {
         String maxScript = max == null ? null : ltp.set(max).getScript();
 
         String desiredScript = "Latn";
-        switch(language) {
-        case "mai": case "kok": desiredScript = "Deva"; break;
-        case "sat": desiredScript = "Olck"; break;
-        case "mni": desiredScript = "Beng"; break;
-        case "chr": desiredScript = "Cher"; break;
+        switch (language) {
+        case "mai":
+        case "kok":
+            desiredScript = "Deva";
+            break;
+        case "sat":
+            desiredScript = "Olck";
+            break;
+        case "mni":
+            desiredScript = "Beng";
+            break;
+        case "chr":
+            desiredScript = "Cher";
+            break;
         default:
             if (!explicitScript.isEmpty()) {
                 desiredScript = explicitScript;
@@ -946,13 +965,11 @@ public class TestCheckCLDR extends TestFmwk {
         "//ldml/annotations/annotation[@cp=\\\"√\\\"][@type=\\\"tts\\\"]",
         "//ldml/units/unitLength[@type=\\\"short\\\"]/compoundUnit[@type=\\\"10p-1\\\"]/unitPrefixPattern",
         "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]",
-        "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1"
-        );
+        "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1");
 
     final Set<String> SAMPLE_EXCEPTIONAL_PATHS = ImmutableSet.of(
         "//ldml/annotations/annotation[@cp=\"🤵\"]",
-        "//ldml/annotations/annotation[@cp=\"🤵‍♂\"][@type=\"tts\"]"
-        );
+        "//ldml/annotations/annotation[@cp=\"🤵‍♂\"][@type=\"tts\"]");
 
     final String sampleDisallowedInLimitedSubmission = "//ldml/annotations/annotation[@cp=\"🎅\"]";
 
@@ -965,11 +982,11 @@ public class TestCheckCLDR extends TestFmwk {
         }
 
         for (String path : sampleNewPaths) {
-            assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, true));
+            assertTrue(path, SubmissionLocales.allowEvenIfLimited("fr", path, false, true));
         }
 
         for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
-            assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, false));
+            assertTrue(path, SubmissionLocales.allowEvenIfLimited("fr", path, false, false));
         }
 
         assertFalse(sampleDisallowedInLimitedSubmission,
@@ -978,10 +995,10 @@ public class TestCheckCLDR extends TestFmwk {
         // test non-cldr locale
 
         for (String path : sampleNewPaths) {
-            assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, true));
+            assertFalse(path, SubmissionLocales.allowEvenIfLimited("xx", path, false, true));
         }
         for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
-            assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, false));
+            assertFalse(path, SubmissionLocales.allowEvenIfLimited("xx", path, false, false));
         }
 
         // TODO enhance to check more conditions
@@ -989,26 +1006,26 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public void TestInfohubLinks13979() {
-       CLDRFile root = cldrFactory.make("root", true);
-       List<CheckStatus> possibleErrors = new ArrayList<>();
-       String[][] tests = {
-           // test edge cases
-           // locale, path, value, expected
-           {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin",
-               "Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={GENDER}, e.g. “‹noun phrase in this gender›”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>."},
-       };
-       for (String[] row : tests) {
-           String localeId = row[0];
-           String path = row[1];
-           String value = row[2];
-           String expected = row[3];
+        CLDRFile root = cldrFactory.make("root", true);
+        List<CheckStatus> possibleErrors = new ArrayList<>();
+        String[][] tests = {
+            // test edge cases
+            // locale, path, value, expected
+            { "fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin",
+                "Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={GENDER}, e.g. “‹noun phrase in this gender›”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>." },
+        };
+        for (String[] row : tests) {
+            String localeId = row[0];
+            String path = row[1];
+            String value = row[2];
+            String expected = row[3];
 
-           checkPathValue(root, localeId, path,value, possibleErrors);
-           for (CheckStatus error : possibleErrors) {
-               if (error.getSubtype() == Subtype.missingPlaceholders) {
-                assertEquals("message", expected, error.getMessage());
-               }
-           }
-       }
+            checkPathValue(root, localeId, path, value, possibleErrors);
+            for (CheckStatus error : possibleErrors) {
+                if (error.getSubtype() == Subtype.missingPlaceholders) {
+                    assertEquals("message", expected, error.getMessage());
+                }
+            }
+        }
     }
 }

@@ -68,7 +68,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
     private void checkShow(PathHeader.Factory pathHeaders, String locale) {
         CLDRFile cldrFile = testInfo.getMainAndAnnotationsFactory().make(locale, true);
 
-        Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
+        Map<PathHeader, String> sorted = new TreeMap<>();
         logln(locale + " total outdated:\t" + outdatedPaths.countOutdated(locale));
         for (String spath : cldrFile) {
             if (outdatedPaths.isOutdated(locale, spath)) {

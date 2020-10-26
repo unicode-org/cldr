@@ -77,8 +77,10 @@ public class GenerateItemCounts {
 
     enum MyOptions {
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."), directory(".*", ".*",
-            "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"), verbose(null, null,
-                "verbose debugging messages"), rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"),;
+            "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
+        verbose(null, null,
+            "verbose debugging messages"),
+        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"),;
         // boilerplate
         final Option option;
 

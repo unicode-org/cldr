@@ -1,7 +1,6 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -91,8 +90,7 @@ public class SearchCLDR {
         .add("Verbose", null, null, "verbose output")
         .add("PathHeader", null, null, "show path header and string ID")
         .add("diff", "\\d+(\\.\\d+)?", null, "show only paths whose values changed from specified version (and were present in that version)")
-        .add("Error", ".*", null, "filter by errors, eg CheckForCopy, or CheckForCopy:sameAsCode")
-        ;
+        .add("Error", ".*", null, "filter by errors, eg CheckForCopy, or CheckForCopy:sameAsCode");
 
     private static String fileMatcher;
     private static Matcher pathMatcher;
@@ -164,8 +162,8 @@ public class SearchCLDR {
         if (errorMatcherText != null) {
             int errorSepPos = errorMatcherText.indexOf(':');
             if (errorSepPos >= 0) {
-                subtype = Subtype.valueOf(errorMatcherText.substring(errorSepPos+1));
-                errorMatcherText = errorMatcherText.substring(0,errorSepPos);
+                subtype = Subtype.valueOf(errorMatcherText.substring(errorSepPos + 1));
+                errorMatcherText = errorMatcherText.substring(0, errorSepPos);
             }
             // TODO create new object using name
             // checkCldr = new CheckForCopy(cldrFactory);
@@ -328,7 +326,7 @@ public class SearchCLDR {
                 String cleanShort = pathHeader.toString().replace('\t', '|');
                 final String resolvedSource = !resolved ? null
                     : file.getSourceLocaleID(path, status)
-                    + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
+                        + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
                 if (checkCldr != null) {
                     SearchXml.show(ConfigOption.delete, "", locale, CLDRFile.getDistinguishingXPath(fullPath, null), value, null, null, null);
                 } else {
@@ -336,9 +334,9 @@ public class SearchCLDR {
                         path, fullPath, value,
                         cleanShort,
                         !showParent ? null : english.getBaileyValue(path, null, null),
-                            english == null ? null : english.getStringValue(path),
-                                resolvedSource,
-                                Objects.toString(pathLevel));
+                        english == null ? null : english.getStringValue(path),
+                        resolvedSource,
+                        Objects.toString(pathLevel));
                 }
                 totalCount++;
                 localeCount++;
@@ -356,8 +354,8 @@ public class SearchCLDR {
             System.out.flush();
         }
         System.out
-        .println("# All Total " + totalCount + " found\n"
-            + "Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
+            .println("# All Total " + totalCount + " found\n"
+                + "Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
     }
 
     private static File[] getCorrespondingDirectories(String base, Factory cldrFactory) {

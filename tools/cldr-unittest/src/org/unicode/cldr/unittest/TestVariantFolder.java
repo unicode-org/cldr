@@ -32,7 +32,7 @@ public class TestVariantFolder {
             "[\\u0027\\u2018\\u2019\\u002e]", };
         for (String testSet : testSets) {
             UnicodeSet source = new UnicodeSet(testSet);
-            Set<String> target = new TreeSet<String>();
+            Set<String> target = new TreeSet<>();
             for (UnicodeSetIterator it = new UnicodeSetIterator(source); it
                 .next();) {
                 Set<String> closure = variantFolder.getClosure(it.getString());

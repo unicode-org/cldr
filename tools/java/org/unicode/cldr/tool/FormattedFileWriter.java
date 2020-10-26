@@ -47,7 +47,7 @@ public class FormattedFileWriter extends java.io.Writer {
                 String fileName = item[1];
                 String explanation = item[2];
                 contents
-                .append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
+                    .append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
                 if (hasExplanations) {
                     contents.append("\t<div class='chit'>" + explanation + "</div>" + Chart.LS);
                 }
@@ -160,7 +160,7 @@ public class FormattedFileWriter extends java.io.Writer {
         writeTargetWithReplacements(dir, targetFileName, templateFileName, replacements);
     }
 
-    public static void writeTargetWithReplacements(String targetdir, String targetFileName, final String templateFileName, String[] replacements)  {
+    public static void writeTargetWithReplacements(String targetdir, String targetFileName, final String templateFileName, String[] replacements) {
         try {
             PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(targetdir, targetFileName);
             FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
@@ -170,11 +170,11 @@ public class FormattedFileWriter extends java.io.Writer {
         }
     }
 
-    public static void copyIncludeHtmls (String targetDirectory) {
+    public static void copyIncludeHtmls(String targetDirectory) {
         copyIncludeHtmls(targetDirectory, false);
     }
 
-    public static void copyIncludeHtmls (String targetDirectory, boolean addPrevVersion) {
+    public static void copyIncludeHtmls(String targetDirectory, boolean addPrevVersion) {
         String[] replacements = {
             "%version%", ToolConstants.CHART_DISPLAY_VERSION + (addPrevVersion ? " – " + ToolConstants.PREV_CHART_VERSION_WITH0 : ""),
             "%date%", CldrUtility.isoFormatDateOnly(new Date())

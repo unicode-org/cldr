@@ -83,7 +83,6 @@ public class FileReaders {
         }
     }
 
-
     public static class ReadLineSimpleIterator implements SimpleIterator<String> {
         final BufferedReader bufferedReader;
 

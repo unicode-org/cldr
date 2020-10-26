@@ -121,8 +121,9 @@ public class GenerateAliases {
         }
 
         private String getDefaultContents(String localeID) {
-            String targetID = hasMultipleScripts(localeID) ? likelySubtags.maximize(localeID) : likelySubtags
-                .minimize(localeID);
+            String targetID = hasMultipleScripts(localeID) ? likelySubtags.maximize(localeID)
+                : likelySubtags
+                    .minimize(localeID);
 
             if (targetID == null) {
                 System.out.println("missingLikely" + "\t" + localeID);

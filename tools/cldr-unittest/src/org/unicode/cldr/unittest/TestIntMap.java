@@ -29,7 +29,7 @@ public class TestIntMap {
     public static void main(String[] args) {
         Object[] factories = { new BasicIntMapFactory<String>(),
             new CompactStringIntMapFactory() };
-        Set<String> samples = new TreeSet<String>();
+        Set<String> samples = new TreeSet<>();
         for (String langCode : ULocale.getISOLanguages()) {
             samples.add(ULocale.getDisplayLanguage(langCode, ULocale.JAPANESE));
         }

@@ -27,8 +27,8 @@ public class MinimizeRegex {
      * Sort  strings length-first, because (ab|abc) in regex world can stop at the first match, eg "ab".
      */
     private static final Comparator<String> LENGTH_FIRST_COMPARE = Comparator.comparingInt(String::length)
-    .reversed()
-    .thenComparing(Comparator.naturalOrder());
+        .reversed()
+        .thenComparing(Comparator.naturalOrder());
 
     public static void main(String[] args) {
         String defaultArg = "zxx|zu|zh|zgh|yue|yo|yi|yav|xog|xh|wo|wae|vun|vo|vi|vai|uz|ur|und|uk|ug|tzm|twq|tt|tr|to|tk|ti|th|tg|teo|te|ta|sw|sv|su|st|sr|sq|so|sn|smn|sm|sl|sk|si|shi|sg|ses|seh|se|sd|sbp|saq|sah|sa|rwk|rw|ru|rof|ro|rn|rm|qu|pt|ps|prg|pl|pa|os|or|om|nyn|ny|nus|nnh|nn|nmg|nl|ne|nds|nd|nb|naq|mzn|my|mul|mua|mt|ms|mr|mn|ml|mk|mi|mgo|mgh|mg|mfe|mer|mas|lv|luy|luo|lu|lt|lrc|lo|ln|lkt|lg|lb|lag|la|ky|kw|ku|ksh|ksf|ksb|ks|kok|ko|kn|km|kln|kl|kkj|kk|ki|khq|kea|kde|kam|kab|ka|jv|jmc|jgo|ja|it|is|ii|ig|id|ia|hy|hu|ht|hsb|hr|hmn|hi|he|haw|ha|gv|guz|gu|gsw|gl|gd|ga|fy|fur|fr|fo|fil|fi|ff|fa|ewo|eu|et|es|eo|en|el|ee|ebu|dz|dyo|dua|dsb|dje|de|dav|da|cy|cu|cs|co|ckb|chr|cgg|ceb|ce|ccp|ca|bs|brx|br|bo|bn|bm|bg|bez|bem|be|bas|az|ast|asa|as|ar|am|ak|agq|af";
@@ -81,7 +81,7 @@ public class MinimizeRegex {
         } catch (PatternSyntaxException e) {
             int loc = e.getIndex();
             if (loc >= 0) {
-                recompressed = recompressed.substring(0,loc) + "$$$$$" + recompressed.substring(loc);
+                recompressed = recompressed.substring(0, loc) + "$$$$$" + recompressed.substring(loc);
             }
             throw new IllegalArgumentException("Failed to parse: " + recompressed, e);
         }
@@ -123,7 +123,7 @@ public class MinimizeRegex {
         }
         Set<String> strings = new TreeSet<>(results.strings());
         results.removeAll(strings);
-        switch(results.size()) {
+        switch (results.size()) {
         case 0:
             break;
         case 1:
@@ -134,7 +134,8 @@ public class MinimizeRegex {
             break;
         }
         switch (strings.size()) {
-        case 0: throw new IllegalArgumentException();
+        case 0:
+            throw new IllegalArgumentException();
         case 1:
             isSingle.value = true;
             return strings.iterator().next() + (hasEmpty ? "?" : "");

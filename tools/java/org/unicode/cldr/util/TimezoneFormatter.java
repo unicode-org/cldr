@@ -84,8 +84,10 @@ public class TimezoneFormatter extends UFormat {
 
     public enum Format {
         VVVV(Type.GENERIC, Location.LOCATION, Length.OTHER), vvvv(Type.GENERIC, Location.NON_LOCATION, Length.LONG), v(Type.GENERIC, Location.NON_LOCATION,
-            Length.SHORT), zzzz(Type.SPECIFIC, Location.NON_LOCATION, Length.LONG), z(Type.SPECIFIC, Location.NON_LOCATION, Length.SHORT), ZZZZ(Type.GENERIC,
-                Location.GMT, Length.LONG), Z(Type.GENERIC, Location.GMT, Length.SHORT), ZZZZZ(Type.GENERIC, Location.GMT, Length.OTHER);
+            Length.SHORT),
+        zzzz(Type.SPECIFIC, Location.NON_LOCATION, Length.LONG), z(Type.SPECIFIC, Location.NON_LOCATION, Length.SHORT), ZZZZ(Type.GENERIC,
+            Location.GMT, Length.LONG),
+        Z(Type.GENERIC, Location.GMT, Length.SHORT), ZZZZZ(Type.GENERIC, Location.GMT, Length.OTHER);
         final Type type;
         final Location location;
         final Length length;
@@ -282,8 +284,9 @@ public class TimezoneFormatter extends UFormat {
             // America/Los_Angeles → "-0800"
             // Note: The digits in this case are always from the western digits, 0..9.
             if (length == Length.SHORT) {
-                return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1)) : rfc822Plus.format(new Date(
-                    gmtOffset1));
+                return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1))
+                    : rfc822Plus.format(new Date(
+                        gmtOffset1));
             }
 
             // 3. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}") with the hourFormat

@@ -31,22 +31,22 @@ public abstract class Chart {
     private static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
     public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {
-        final String dataFileList = dataFiles.length == 0 ? null :
-            ListFormatter.getInstance(ULocale.ENGLISH).format(
+        final String dataFileList = dataFiles.length == 0 ? null
+            : ListFormatter.getInstance(ULocale.ENGLISH).format(
                 Arrays.asList(dataFiles).stream()
-                .map(dataFile -> Chart.dataFileLink(dataFile))
-                .collect(Collectors.toSet()));
+                    .map(dataFile -> Chart.dataFileLink(dataFile))
+                    .collect(Collectors.toSet()));
 
         return "<p>"
-        + "<b>Warning:</b> Do not scrape this chart for production data.\n"
-        + "Instead, for the meaning of the fields and data consult the " + Chart.ldmlSpecLink(specPart)
-        + (dataFileList == null ? "" : ", and for machine-readable source data, access " + dataFileList)
-        + (testFile == null ? "" : ", and for test data, access "  + dataFileLink(testFile))
-        + ".</p>\n";
+            + "<b>Warning:</b> Do not scrape this chart for production data.\n"
+            + "Instead, for the meaning of the fields and data consult the " + Chart.ldmlSpecLink(specPart)
+            + (dataFileList == null ? "" : ", and for machine-readable source data, access " + dataFileList)
+            + (testFile == null ? "" : ", and for test data, access " + dataFileLink(testFile))
+            + ".</p>\n";
     }
 
     private static String dataFileLink(String dataFile) {
-        return "<a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile  + "'>" + dataFile + "</a>";
+        return "<a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile + "'>" + dataFile + "</a>";
     }
 
     public static String ldmlSpecLink(String specPart) {

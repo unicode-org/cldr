@@ -42,8 +42,9 @@ public class TestFmwkPlus extends TestFmwk {
     @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertRelation(
         String message, boolean expected, T arg0, R relation, V... args) {
-        boolean actual = args.length == 0 ? relation.isTrue(arg0) : relation
-            .isTrue(arg0, args);
+        boolean actual = args.length == 0 ? relation.isTrue(arg0)
+            : relation
+                .isTrue(arg0, args);
         boolean test = expected == actual;
         if (!test) {
             errln(showArgs("", message, actual, arg0, relation, args)
@@ -368,7 +369,7 @@ public class TestFmwkPlus extends TestFmwk {
     }
 
     public void TestTest() {
-        Set<String> containerA = new HashSet<String>();
+        Set<String> containerA = new HashSet<>();
         String stringA = "a";
         String stringA2 = "ab".substring(0, 1);
         containerA.add(stringA);

@@ -54,7 +54,7 @@ public class TestBcp47Transforms extends TestFmwk {
                 System.out.println(key + ", " + subtype + ", " + description);
             }
         }
-        Map<String, String> old2newName = new TreeMap<String, String>();
+        Map<String, String> old2newName = new TreeMap<>();
         for (String file : Arrays.asList(new File(CLDRTransforms.TRANSFORM_DIR)
             .list())) {
             if (!file.endsWith(".xml"))
@@ -133,8 +133,8 @@ public class TestBcp47Transforms extends TestFmwk {
 
     static Map<String, String> SPECIAL_CASES;
     static Set<String> languages = sc.getAvailableCodes("language");
-    static Set<String> scripts = new HashSet<String>();
-    static Set<String> regions = new HashSet<String>();
+    static Set<String> scripts = new HashSet<>();
+    static Set<String> regions = new HashSet<>();
     static {
 
         MBuilder<String, String, HashMap<String, String>> builder = Builder

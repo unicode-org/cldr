@@ -59,9 +59,11 @@ public class CoreCoverageInfo {
         CoreItems(Level desiredLevel) {
             this.desiredLevel = desiredLevel;
         }
+
         CoreItems() {
             this(Level.CORE);
         }
+
         @Override
         public String toString() {
             // TODO Auto-generated method stub
@@ -69,7 +71,7 @@ public class CoreCoverageInfo {
         }
     }
 
-    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Multimap<CoreItems,String> detailedErrors) {
+    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Multimap<CoreItems, String> detailedErrors) {
         if (file.isResolved()) {
             file = file.getUnresolved();
         }
@@ -195,8 +197,8 @@ public class CoreCoverageInfo {
                 detailedErrors.put(CoreItems.romanization, "//supplementalData/transforms/transform"
                     + "[@source=\"und-" + script + "\"]"
                     + "[@target=\"und-Latn\"]"
-                    //+ "[@direction=\"forward\"]"
-                    );
+                //+ "[@direction=\"forward\"]"
+                );
             }
         }
 

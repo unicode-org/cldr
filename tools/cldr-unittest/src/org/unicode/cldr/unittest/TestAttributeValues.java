@@ -81,8 +81,8 @@ public class TestAttributeValues extends TestFmwk {
 
         // short- circuits for testing. null means do all
         Set<DtdType> checkTypes = dtdTypeArg == null ? DtdType.STANDARD_SET
-            : Collections.singleton(DtdType.valueOf(dtdTypeArg)) ;
-        ImmutableSet<ValueStatus> showStatuses = null ; // ImmutableSet.of(ValueStatus.invalid, ValueStatus.unknown);
+            : Collections.singleton(DtdType.valueOf(dtdTypeArg));
+        ImmutableSet<ValueStatus> showStatuses = null; // ImmutableSet.of(ValueStatus.invalid, ValueStatus.unknown);
 
         for (DtdType dtdType : checkTypes) {
             PathChecker pathChecker = new PathChecker(this, DtdData.getInstance(dtdType));
@@ -92,8 +92,8 @@ public class TestAttributeValues extends TestFmwk {
                     addXMLFiles(dtdType, mainDirs + stringDir, files);
                     if (isVerbose())
                         synchronized (pathChecker.testLog) {
-                        warnln(mainDirs + stringDir);
-                    }
+                            warnln(mainDirs + stringDir);
+                        }
                 }
                 Stream<String> stream = SERIAL ? files.stream() : files.parallelStream();
                 stream.forEach(file -> checkFile(pathChecker, file));
@@ -117,7 +117,6 @@ public class TestAttributeValues extends TestFmwk {
 //        }
     }
 
-
     static final Set<String> CLDR_LOCALES = ImmutableSortedSet.copyOf(StandardCodes.make()
         .getLocaleCoverageLocales(Organization.cldr)
         .stream()
@@ -135,7 +134,7 @@ public class TestAttributeValues extends TestFmwk {
                 if (path.contains("/annotationsDerived/")) {
                     return;
                 }
-                String ending = path.substring(path.lastIndexOf('/')+1);
+                String ending = path.substring(path.lastIndexOf('/') + 1);
                 if (!CLDR_LOCALES.contains(ending)) {
                     return;
                 }
@@ -147,7 +146,6 @@ public class TestAttributeValues extends TestFmwk {
             }
         }
     }
-
 
     private void checkFile(PathChecker pathChecker, String fullFile) {
         if (!fullFile.endsWith(".xml")) {
@@ -168,9 +166,9 @@ public class TestAttributeValues extends TestFmwk {
             try (InputStream fis = new FileInputStream(fullFile)) {
                 XMLStreamReader r = f.createXMLStreamReader(fullFile, fis);
                 String element = null;
-                while(r.hasNext()) {
+                while (r.hasNext()) {
                     try {
-                        switch(r.next()){
+                        switch (r.next()) {
                         case XMLStreamConstants.START_ELEMENT:
                             element = r.getLocalName();
                             ++_elementCount;
@@ -206,14 +204,14 @@ public class TestAttributeValues extends TestFmwk {
     }
 
     static class PathChecker {
-        private final ChainedMap.M5<ValueStatus, String, String, String, Boolean> valueStatusInfo
-        = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
+        private final ChainedMap.M5<ValueStatus, String, String, String, Boolean> valueStatusInfo = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(),
+            new TreeMap(), Boolean.class);
         private final Set<String> seen = new HashSet<>();
-        private final Map<String,Map<String,Map<String,Boolean>>> seenEAV = new ConcurrentHashMap<>();
+        private final Map<String, Map<String, Map<String, Boolean>>> seenEAV = new ConcurrentHashMap<>();
         private final TestFmwk testLog;
         private final DtdData dtdData;
         private final Multimap<String, String> needsTesting;
-        private final Map<String,String> matchValues;
+        private final Map<String, String> matchValues;
 
         private final AtomicInteger fileCount = new AtomicInteger();
         private final AtomicInteger elementCount = new AtomicInteger();
@@ -222,7 +220,7 @@ public class TestAttributeValues extends TestFmwk {
         public PathChecker(TestFmwk testLog, DtdData dtdData) {
             this.testLog = testLog;
             this.dtdData = dtdData;
-            Map<String,String> _matchValues = new TreeMap<>();
+            Map<String, String> _matchValues = new TreeMap<>();
             needsTesting = dtdData.getNonEnumerated(_matchValues);
             matchValues = ImmutableMap.copyOf(_matchValues);
         }
@@ -332,14 +330,13 @@ public class TestAttributeValues extends TestFmwk {
                         String matchValue = matchValues.get(elementName + "\t" + attributeName);
                         out.append(
                             valueStatus
-                            + "\t" + dtdData.dtdType
-                            + "\t" + elementName
-                            + "\t" + attributeName
-                            + "\t" + (matchValue == null ? "" : matchValue)
-                            + "\t" + validFound.size()
-                            + "\t" + Joiner.on(", ").join(validFound)
-                            + "\n"
-                            );
+                                + "\t" + dtdData.dtdType
+                                + "\t" + elementName
+                                + "\t" + attributeName
+                                + "\t" + (matchValue == null ? "" : matchValue)
+                                + "\t" + validFound.size()
+                                + "\t" + Joiner.on(", ").join(validFound)
+                                + "\n");
                         if (valueStatus == ValueStatus.valid) try {
                             LstrType lstr = LstrType.fromString(elementName);
                             Map<String, Validity.Status> codeToStatus = VALIDITY.getCodeToStatus(lstr);
@@ -364,10 +361,10 @@ public class TestAttributeValues extends TestFmwk {
                                         + "\t" + ""
                                         + "\t" + ""
                                         + "\t" + Joiner.on(", ").join(missing)
-                                        + "\n"
-                                    );
+                                        + "\n");
                             }
-                        } catch (Exception e) {}
+                        } catch (Exception e) {
+                        }
                     }
                 }
             }

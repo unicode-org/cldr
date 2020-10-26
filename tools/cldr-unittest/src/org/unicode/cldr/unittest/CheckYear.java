@@ -47,7 +47,7 @@ public class CheckYear {
     static DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
 
     // mismatches between stocks
-    static Map<String, Relation<String, String>> stock2skeleton2locales = new LinkedHashMap<String, Relation<String, String>>();
+    static Map<String, Relation<String, String>> stock2skeleton2locales = new LinkedHashMap<>();
     static {
         for (String stock : STOCK) {
             stock2skeleton2locales.put("date-" + stock, Relation.of(
@@ -66,9 +66,9 @@ public class CheckYear {
             new EnumMap<Category, Set<String>>(Category.class),
             TreeSet.class);
         // collisions between baseSkeletons
-        Map<String, Relation<String, Row.R2<String, String>>> base2BasePatterns2Info = new TreeMap<String, Relation<String, Row.R2<String, String>>>();
+        Map<String, Relation<String, Row.R2<String, String>>> base2BasePatterns2Info = new TreeMap<>();
 
-        Map<String, String> skeleton2pattern = new HashMap<String, String>();
+        Map<String, String> skeleton2pattern = new HashMap<>();
 
         public void recordStockTime(String localeId, String stock,
             String dateTimePattern) {
@@ -120,8 +120,9 @@ public class CheckYear {
 
         public String getCoreSkeleton(String skeleton) {
             int slashPos = skeleton.indexOf('/');
-            String s = slashPos < 0 ? skeleton : skeleton
-                .substring(0, slashPos);
+            String s = slashPos < 0 ? skeleton
+                : skeleton
+                    .substring(0, slashPos);
             return s;
         }
 
@@ -203,8 +204,8 @@ public class CheckYear {
             int endFirstPart = -1;
             int startSecondPart = -1;
             int goodSoFar = -1;
-            Set<Integer> firstComponents = new HashSet<Integer>();
-            Set<Integer> secondComponents = new HashSet<Integer>();
+            Set<Integer> firstComponents = new HashSet<>();
+            Set<Integer> secondComponents = new HashSet<>();
             for (Object item : formatParser.set(intervalPattern).getItems()) {
                 if (item instanceof String) {
                     Object quoteLiteral = formatParser.quoteLiteral(item.toString());
@@ -268,7 +269,7 @@ public class CheckYear {
 
     }
 
-    static Map<String, LocaleInfo> data = new TreeMap<String, LocaleInfo>();
+    static Map<String, LocaleInfo> data = new TreeMap<>();
 
     // private static final Relation<String,String> digit4 = Relation.of(new
     // TreeMap<String,Set<String>>(),
@@ -285,7 +286,7 @@ public class CheckYear {
         String calendarID = "gregorian";
         System.out.println("Total locales: "
             + factory.getAvailableLanguages().size());
-        Map<String, String> sorted = new TreeMap<String, String>();
+        Map<String, String> sorted = new TreeMap<>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> defaultContent = sdi.getDefaultContentLocales();
         LanguageTagParser ltp = new LanguageTagParser();

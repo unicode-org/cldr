@@ -513,9 +513,8 @@ public class VettingViewerQueue {
 
             reviewInfo.put("notification", notificationsCount);
 
-            Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
-                = Relation.of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>,
-                    Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
+            Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = Relation
+                .of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
 
             //TODO we can prob do it in only one loop, but with that we can sort
             for (Entry<R2<SectionId, PageId>, Set<VettingViewer<Organization>.WritingInfo>> entry0 : sorted.keyValuesSet()) {
@@ -574,8 +573,9 @@ public class VettingViewerQueue {
                     //english
                     if (choicesForPath.contains(Choice.englishChanged)) {
                         String winning = englishFile.getWinningValue(path);
-                        String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML
-                            .transform(winning);
+                        String cellValue = winning == null ? "<i>missing</i>"
+                            : TransliteratorUtilities.toHTML
+                                .transform(winning);
                         String previous = VettingViewer.getOutdatedPaths().getPreviousEnglish(path);
                         if (previous != null) {
                             cellValue += "<br><span style='color:#900'><b>OLD: </b>"

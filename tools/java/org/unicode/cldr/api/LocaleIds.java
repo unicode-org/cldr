@@ -37,11 +37,10 @@ final class LocaleIds {
     // for either '-' or '_').
     //
     // The regex for unambiguously matching a valid locale ID (other than "root") for CLDR data is:
-    private static final Pattern LOCALE_ID =
-        Pattern.compile("(?:[a-z]{2,3})"
-            + "(?:_(?:[A-Z][a-z]{3}))?"
-            + "(?:_(?:[A-Z]{2}|[0-9]{3}))?"
-            + "(?:_(?:[A-Z]{5,}|[0-9][A-Z0-9]{3}))?");
+    private static final Pattern LOCALE_ID = Pattern.compile("(?:[a-z]{2,3})"
+        + "(?:_(?:[A-Z][a-z]{3}))?"
+        + "(?:_(?:[A-Z]{2}|[0-9]{3}))?"
+        + "(?:_(?:[A-Z]{5,}|[0-9][A-Z0-9]{3}))?");
 
     /**
      * Checks whether the given ID is valid for CLDR use (including case). Locale IDs for use in

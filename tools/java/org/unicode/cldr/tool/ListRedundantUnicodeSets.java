@@ -33,17 +33,16 @@ public class ListRedundantUnicodeSets {
 
     public static void main(String[] args) {
         System.out.println("LocaleID"
-            +"\tTarget Level"
-            +"\tExemplarType"
-            +"\tNo. Original"
-            +"\tNo. Remaining"
-            +"\tNot Redundant (KEEP)"
-            +"\tRedundant Exceptions (KEEP)"
-            +"\tIndexEx & Redundant"
-            +"\tCollation & Redundant"
-            +"\tOther Redundant"
-            +"\tNo. Collation clusters not in exemplars"
-            );
+            + "\tTarget Level"
+            + "\tExemplarType"
+            + "\tNo. Original"
+            + "\tNo. Remaining"
+            + "\tNot Redundant (KEEP)"
+            + "\tRedundant Exceptions (KEEP)"
+            + "\tIndexEx & Redundant"
+            + "\tCollation & Redundant"
+            + "\tOther Redundant"
+            + "\tNo. Collation clusters not in exemplars");
 
         Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -114,8 +113,7 @@ public class ListRedundantUnicodeSets {
                     + "\t" + indexSet
                     + "\t" + colAndEx
                     + "\t" + redundants
-                    + "\t" + colExemplars.size()
-                    );
+                    + "\t" + colExemplars.size());
             }
         }
     }
@@ -168,11 +166,12 @@ public class ListRedundantUnicodeSets {
     }
 
     static final UnicodeSet NUKTA = new UnicodeSet("[:Indic_Syllabic_Category=nukta:]").freeze();
-    static final Multimap<String,String> TRANSLIT_CLUSTERS = ImmutableMultimap.<String,String>builder()
+    static final Multimap<String, String> TRANSLIT_CLUSTERS = ImmutableMultimap.<String, String> builder()
         .putAll("bs", "dž", "lj", "nj")
         .putAll("hr", "dž", "lj", "nj")
         .putAll("sr_Latn", "dž", "lj", "nj")
         .build();
+
     private static boolean isForTranslit(String locale, String s) {
         boolean result = CAN_BE_COMPOSED.contains(nfkd.normalize(s));
         if (result && (NUKTA.containsSome(s)

@@ -19,7 +19,7 @@ public class ChartUnitConversions extends Chart {
         + "otherwise a repeating decimal if possible (where ˙ marks the start of the <a href='https://en.wikipedia.org/wiki/Repeating_decimal' target='wiki'>reptend</a>); "
         + "otherwise a <a href='https://en.wikipedia.org/wiki/Rational_number' target='wiki'>rational number</a> (of the form <i>numerator/denominator</i>).";
     public static final String SPEC_GENERAL_MSG = "The " + ldmlSpecLink("/tr35-general.html#Contents")
-    + " should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements";
+        + " should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements";
 
     public static void main(String[] args) {
         new ChartUnitConversions().writeChart(null);
@@ -57,7 +57,6 @@ public class ChartUnitConversions extends Chart {
         //  <convertUnit source='ounce' baseUnit='kilogram' factor='lb_to_kg/16' systems="ussystem uksystem"/>
         //  <convertUnit source='fahrenheit' baseUnit='kelvin' factor='5/9' offset='2298.35/9' systems="ussystem uksystem"/>
 
-
         TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Quantity", "class='target'", null, "class='target'", true)
             .setHidden(true)
@@ -70,8 +69,7 @@ public class ChartUnitConversions extends Chart {
             .setCellAttributes("class='target' style='text-align:right'")
             .addColumn("Target", "class='target'", null, "class='target'", true)
             .addColumn("Systems", "class='target'", null, "class='target'", true)
-            .addColumn("Quantity", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
-            ;
+            .addColumn("Quantity", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true);
 
         UnitConverter converter = SDI.getUnitConverter();
         converter.getSourceToSystems();
@@ -81,14 +79,14 @@ public class ChartUnitConversions extends Chart {
             String quantity = converter.getQuantityFromUnit(sourceUnit, false);
             TargetInfo targetInfo = entry.getValue();
             tablePrinter.addRow()
-            .addCell(quantity)
-            .addCell(sourceUnit)
-            .addCell(targetInfo.unitInfo.factor.toString(FormatStyle.repeating))
-            .addCell(targetInfo.unitInfo.offset.equals(Rational.ZERO) ? "" : targetInfo.unitInfo.offset.toString(FormatStyle.repeating))
-            .addCell(targetInfo.target)
-            .addCell(Joiner.on(", ").join(converter.getSourceToSystems().get(sourceUnit)))
-            .addCell(quantity)
-            .finishRow();
+                .addCell(quantity)
+                .addCell(sourceUnit)
+                .addCell(targetInfo.unitInfo.factor.toString(FormatStyle.repeating))
+                .addCell(targetInfo.unitInfo.offset.equals(Rational.ZERO) ? "" : targetInfo.unitInfo.offset.toString(FormatStyle.repeating))
+                .addCell(targetInfo.target)
+                .addCell(Joiner.on(", ").join(converter.getSourceToSystems().get(sourceUnit)))
+                .addCell(quantity)
+                .finishRow();
         }
         pw.write(tablePrinter.toTable());
     }

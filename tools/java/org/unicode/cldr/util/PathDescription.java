@@ -154,8 +154,9 @@ public class PathDescription {
             if (isMetazone) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String daylightType = parts.getElement(-1);
-                daylightType = daylightType.equals("daylight") ? "summer" : daylightType.equals("standard") ? "winter"
-                    : daylightType;
+                daylightType = daylightType.equals("daylight") ? "summer"
+                    : daylightType.equals("standard") ? "winter"
+                        : daylightType;
                 String length = parts.getElement(-2);
                 length = length.equals("long") ? "" : "abbreviated ";
                 code = code + ", " + length + daylightType + " form";

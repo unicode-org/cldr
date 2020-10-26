@@ -41,22 +41,21 @@ public class FindHardInheritance {
             this.constructedCountCps = constructedCountCps;
             this.coverageCountCps = coverageCountCps;
         }
+
         @Override
         public String toString() {
             return regularCount + "\t" + regularCountCps
                 + "\t" + inheritedCount + "\t" + inheritedCountCps
                 + "\t" + redundantCount + "\t" + redundantCountCps
                 //+ "\t" + constructedCount + "\t" + constructedCountCps
-                + "\t" + coverageCount + "\t" + coverageCountCps
-                ;
+                + "\t" + coverageCount + "\t" + coverageCountCps;
         }
-        static final String HEADER =
-                    "count\tcps"
-                + "\tinher.\tcps"
-                + "\tredund.\tcps"
-                //+ "\tconstr.\tcps"
-                + "\tcover.\tcps"
-                ;
+
+        static final String HEADER = "count\tcps"
+            + "\tinher.\tcps"
+            + "\tredund.\tcps"
+            //+ "\tconstr.\tcps"
+            + "\tcover.\tcps";
     }
 
     static Output<String> localeWhereFound = new Output<>();
@@ -72,15 +71,16 @@ public class FindHardInheritance {
         Map<String, Info> data = new LinkedHashMap<>();
         System.out.println(
             "dir."
-            + "\t" + "locale"
-            + "\t" + Info.HEADER
-            );
+                + "\t" + "locale"
+                + "\t" + Info.HEADER);
         Output<Info> output = new Output<>();
 
         for (String dir : DtdType.ldml.directories) {
             switch (dir) {
-            default: break;
-            case "casing": continue;
+            default:
+                break;
+            case "casing":
+                continue;
             }
             Factory factory = Factory.make(CLDRPaths.COMMON_DIRECTORY + dir, ".*");
 
@@ -88,8 +88,7 @@ public class FindHardInheritance {
                 Info info = getCounts(dir, factory, localeId, output);
                 System.out.println(dir
                     + "\t" + localeId
-                    + "\t" + info
-                    );
+                    + "\t" + info);
             }
         }
     }
@@ -121,24 +120,24 @@ public class FindHardInheritance {
             Level level = coverage.getLevel(path);
             if (unresolvedCldrFile.getStringValue(path) == null) {
                 ++inheritedCount;
-                inheritedCountCps+=cps;
+                inheritedCountCps += cps;
                 continue;
             }
             if (!Level.CORE_TO_MODERN.contains(level)) {
                 ++coverageCount;
-                coverageCountCps+=cps;
+                coverageCountCps += cps;
                 continue;
             }
             String bailey = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
             if (Objects.equal(value, bailey)) {
                 ++redundantCount;
-                redundantCountCps+=cps;
+                redundantCountCps += cps;
             } else if (allConstructed) {
                 ++constructedCount;
-                constructedCountCps+=cps;
+                constructedCountCps += cps;
             } else {
                 ++regularCount;
-                regularCountCps+=cps;
+                regularCountCps += cps;
             }
         }
         Info info = new Info(regularCount, inheritedCount, redundantCount, constructedCount, coverageCount,

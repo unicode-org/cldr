@@ -43,8 +43,7 @@ import com.google.common.collect.Multiset;
 
 /** Serializes a set of LDML XML files as a sequence of {@code CldrValue}s. */
 final class XmlDataSource implements CldrData {
-    private static final Splitter TRIMMING_LINE_SPLITTER =
-        Splitter.on('\n').trimResults().omitEmptyStrings();
+    private static final Splitter TRIMMING_LINE_SPLITTER = Splitter.on('\n').trimResults().omitEmptyStrings();
     private static final CharMatcher NOT_WHITESPACE = whitespace().negate();
 
     private final CldrDataType dtdType;
@@ -330,11 +329,10 @@ final class XmlDataSource implements CldrData {
             draftStatus = CldrDraftStatus.forString(xmlAttributes.getValue("draft"));
 
             // XML attributes are NOT necessarily ordered by DTD ordering, so we must fix that.
-            Stream<Entry<String, String>> sortedAttributes =
-                IntStream.range(0, xmlAttributes.getLength())
-                    .mapToObj(xmlAttributes::getQName)
-                    .sorted(dataType.getAttributeComparator())
-                    .map(s -> Maps.immutableEntry(s, xmlAttributes.getValue(s)));
+            Stream<Entry<String, String>> sortedAttributes = IntStream.range(0, xmlAttributes.getLength())
+                .mapToObj(xmlAttributes::getQName)
+                .sorted(dataType.getAttributeComparator())
+                .map(s -> Maps.immutableEntry(s, xmlAttributes.getValue(s)));
 
             // New variable needed because of lambdas needing "effectively final" instances.
             List<String> valueAttributes = new ArrayList<>();
@@ -359,7 +357,8 @@ final class XmlDataSource implements CldrData {
     // Handler used by the XML SAX parser to handle various events during parsing.
     private static ErrorHandler ERROR_HANDLER = new ErrorHandler() {
         @Override
-        public void warning(SAXParseException exception) { }
+        public void warning(SAXParseException exception) {
+        }
 
         @Override
         public void error(SAXParseException exception) throws SAXException {
@@ -373,5 +372,6 @@ final class XmlDataSource implements CldrData {
     };
 
     // A private exception used to allow non-matching DTDs to be ignored.
-    private static final class IncompatibleDtdException extends RuntimeException { }
+    private static final class IncompatibleDtdException extends RuntimeException {
+    }
 }

@@ -74,7 +74,8 @@ final class CldrFileDataSource implements CldrData {
                 pathPaths.getElement(n),
                 pathPaths.getAttributes(n),
                 cldrPath.getDataType(),
-                e -> {},
+                e -> {
+                },
                 attributes::put);
         }
         // This is MUCH faster if you pass the distinguishing path in. If the CLDRFile is

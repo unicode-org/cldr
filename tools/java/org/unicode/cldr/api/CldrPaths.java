@@ -45,10 +45,8 @@ final class CldrPaths {
     // A map of the ordered element names for each supported DTD.
     private static final ImmutableSetMultimap<CldrDataType, String> ORDERED_ELEMENTS_MAP;
     static {
-        ImmutableSetMultimap.Builder<CldrDataType, String> leafElementsMap =
-            ImmutableSetMultimap.builder();
-        ImmutableSetMultimap.Builder<CldrDataType, String> orderedElementsMap =
-            ImmutableSetMultimap.builder();
+        ImmutableSetMultimap.Builder<CldrDataType, String> leafElementsMap = ImmutableSetMultimap.builder();
+        ImmutableSetMultimap.Builder<CldrDataType, String> orderedElementsMap = ImmutableSetMultimap.builder();
         for (CldrDataType type : CldrDataType.values()) {
             // While at happened to be true (at the time of writing) that the getElements() method
             // returns a new, mutable set, this is completely undocumented so we cannot rely on it
@@ -69,15 +67,13 @@ final class CldrPaths {
                     // data was permitted).
                     .filter(e -> e.getChildren().keySet().stream().noneMatch(IS_NOT_DEPRECATED))
                     .map(DtdData.Element::getName)
-                    .filter(e -> !e.equals("special"))
-                    ::iterator);
+                    .filter(e -> !e.equals("special"))::iterator);
             orderedElementsMap.putAll(
                 type,
                 type.getElements()
                     .filter(IS_NOT_DEPRECATED)
                     .filter(DtdData.Element::isOrdered)
-                    .map(DtdData.Element::getName)
-                    ::iterator);
+                    .map(DtdData.Element::getName)::iterator);
         }
         // Special case "alias" is an alternate leaf element for a lot of LDML elements.
         leafElementsMap.put(LDML, "alias");
@@ -138,7 +134,7 @@ final class CldrPaths {
                 return signum != 0 ? signum : LHS_FIRST;
             } else {
                 // Flip the comparison if LHS was longer (we do this at most once per comparison).
-                return -compare(rhs,  lhs);
+                return -compare(rhs, lhs);
             }
         }
 
@@ -158,8 +154,7 @@ final class CldrPaths {
             // Element name is the same, so test attributes. Attributes are already known to be
             // ordered by the element's DTD order, so we only need to find and compare the first
             // difference.
-            int minAttributeCount =
-                Math.min(lhs.getAttributeCount(), rhs.getAttributeCount());
+            int minAttributeCount = Math.min(lhs.getAttributeCount(), rhs.getAttributeCount());
             for (int n = 0; n < minAttributeCount && signum == 0; n++) {
                 String attributeName = lhs.getLocalAttributeName(n);
                 // Important: We negate the comparison result here because we want elements with
@@ -216,8 +211,7 @@ final class CldrPaths {
 
     // This can't go further up due to static initialization ordering issues.
     // TODO: Move all reading of DTDs and setup for paths into a lazy holder.
-    private static final CldrPath LDML_VERSION =
-        CldrPath.parseDistinguishingPath("//ldml/identity/version");
+    private static final CldrPath LDML_VERSION = CldrPath.parseDistinguishingPath("//ldml/identity/version");
 
     /**
      * Returns whether this path should be emitted by a data supplier. New cases can be added
@@ -345,7 +339,8 @@ final class CldrPaths {
             //
             // TODO(dbeaumont): Fix this properly, ideally by fixing the comparator to not throw.
             CldrDraftStatus draftStatus = dtd.getAttribute(elementName, "draft") != null
-                ? CldrDraftStatus.forString(attributes.get("draft")) : null;
+                ? CldrDraftStatus.forString(attributes.get("draft"))
+                : null;
 
             if (!diverged && n < previousElements.size()) {
                 CldrPath p = previousElements.get(n);
@@ -390,7 +385,7 @@ final class CldrPaths {
         if (attributeMap != null && !attributeMap.isEmpty()) {
             processAttributes(
                 attributeMap.entrySet().stream(), elementName, collectValueAttribute, dtdType)
-                .forEach(collectElementAttribute);
+                    .forEach(collectElementAttribute);
         }
     }
 
@@ -412,5 +407,6 @@ final class CldrPaths {
             .filter(e -> dtdType.isDistinguishingAttribute(elementName, e.getKey()));
     }
 
-    private CldrPaths() {}
+    private CldrPaths() {
+    }
 }

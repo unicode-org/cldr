@@ -26,7 +26,7 @@ public class CheckLanguageCodeConverter {
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
         System.out
             .println("Input Name" + "\t" + "Std Code" + "\t" + "Std Name");
-        Set<LanguageName> names = new TreeSet<LanguageName>();
+        Set<LanguageName> names = new TreeSet<>();
         for (Entry<String, String> codeName : LanguageCodeConverter
             .getLanguageNameToCode().entrySet()) {
             String name = codeName.getKey();
@@ -51,7 +51,7 @@ public class CheckLanguageCodeConverter {
         System.out.println("Input Code" + "\t" + "Bcp47 Code" + "\t"
             + "CLDR Code" + "\t" + "Google Code" + "\t" + "Std Name");
 
-        Set<LanguageLine> lines = new TreeSet<LanguageLine>();
+        Set<LanguageLine> lines = new TreeSet<>();
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
             .getInstance();
         Map<String, R2<List<String>, String>> languageAliases = supplementalDataInfo
@@ -106,7 +106,7 @@ public class CheckLanguageCodeConverter {
         LikelySubtags likely = new LikelySubtags();
         LanguageTagParser ltp = new LanguageTagParser();
         // get targets of language aliases for macros
-        Map<String, String> macroToEncompassed = new HashMap<String, String>();
+        Map<String, String> macroToEncompassed = new HashMap<>();
         for (Entry<String, R2<List<String>, String>> languageAlias : languageAliases
             .entrySet()) {
             String reason = languageAlias.getValue().get1();

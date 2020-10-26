@@ -138,87 +138,87 @@ public class TestUnits extends TestFmwk {
     }
 
     static final String[][] COMPOUND_TESTS = {
-        {"area-square-centimeter", "square", "length-centimeter"},
-        {"area-square-foot", "square", "length-foot"},
-        {"area-square-inch", "square", "length-inch"},
-        {"area-square-kilometer", "square", "length-kilometer"},
-        {"area-square-meter", "square", "length-meter"},
-        {"area-square-mile", "square", "length-mile"},
-        {"area-square-yard", "square", "length-yard"},
-        {"digital-gigabit", "giga", "digital-bit"},
-        {"digital-gigabyte", "giga", "digital-byte"},
-        {"digital-kilobit", "kilo", "digital-bit"},
-        {"digital-kilobyte", "kilo", "digital-byte"},
-        {"digital-megabit", "mega", "digital-bit"},
-        {"digital-megabyte", "mega", "digital-byte"},
-        {"digital-petabyte", "peta", "digital-byte"},
-        {"digital-terabit", "tera", "digital-bit"},
-        {"digital-terabyte", "tera", "digital-byte"},
-        {"duration-microsecond", "micro", "duration-second"},
-        {"duration-millisecond", "milli", "duration-second"},
-        {"duration-nanosecond", "nano", "duration-second"},
-        {"electric-milliampere", "milli", "electric-ampere"},
-        {"energy-kilocalorie", "kilo", "energy-calorie"},
-        {"energy-kilojoule", "kilo", "energy-joule"},
-        {"frequency-gigahertz", "giga", "frequency-hertz"},
-        {"frequency-kilohertz", "kilo", "frequency-hertz"},
-        {"frequency-megahertz", "mega", "frequency-hertz"},
-        {"graphics-megapixel", "mega", "graphics-pixel"},
-        {"length-centimeter", "centi", "length-meter"},
-        {"length-decimeter", "deci", "length-meter"},
-        {"length-kilometer", "kilo", "length-meter"},
-        {"length-micrometer", "micro", "length-meter"},
-        {"length-millimeter", "milli", "length-meter"},
-        {"length-nanometer", "nano", "length-meter"},
-        {"length-picometer", "pico", "length-meter"},
-        {"mass-kilogram", "kilo", "mass-gram"},
-        {"mass-microgram", "micro", "mass-gram"},
-        {"mass-milligram", "milli", "mass-gram"},
-        {"power-gigawatt", "giga", "power-watt"},
-        {"power-kilowatt", "kilo", "power-watt"},
-        {"power-megawatt", "mega", "power-watt"},
-        {"power-milliwatt", "milli", "power-watt"},
-        {"pressure-hectopascal", "hecto", "pressure-pascal"},
-        {"pressure-millibar", "milli", "pressure-bar"},
-        {"pressure-kilopascal", "kilo", "pressure-pascal"},
-        {"pressure-megapascal", "mega", "pressure-pascal"},
-        {"volume-centiliter", "centi", "volume-liter"},
-        {"volume-cubic-centimeter", "cubic", "length-centimeter"},
-        {"volume-cubic-foot", "cubic", "length-foot"},
-        {"volume-cubic-inch", "cubic", "length-inch"},
-        {"volume-cubic-kilometer", "cubic", "length-kilometer"},
-        {"volume-cubic-meter", "cubic", "length-meter"},
-        {"volume-cubic-mile", "cubic", "length-mile"},
-        {"volume-cubic-yard", "cubic", "length-yard"},
-        {"volume-deciliter", "deci", "volume-liter"},
-        {"volume-hectoliter", "hecto", "volume-liter"},
-        {"volume-megaliter", "mega", "volume-liter"},
-        {"volume-milliliter", "milli", "volume-liter"},
+        { "area-square-centimeter", "square", "length-centimeter" },
+        { "area-square-foot", "square", "length-foot" },
+        { "area-square-inch", "square", "length-inch" },
+        { "area-square-kilometer", "square", "length-kilometer" },
+        { "area-square-meter", "square", "length-meter" },
+        { "area-square-mile", "square", "length-mile" },
+        { "area-square-yard", "square", "length-yard" },
+        { "digital-gigabit", "giga", "digital-bit" },
+        { "digital-gigabyte", "giga", "digital-byte" },
+        { "digital-kilobit", "kilo", "digital-bit" },
+        { "digital-kilobyte", "kilo", "digital-byte" },
+        { "digital-megabit", "mega", "digital-bit" },
+        { "digital-megabyte", "mega", "digital-byte" },
+        { "digital-petabyte", "peta", "digital-byte" },
+        { "digital-terabit", "tera", "digital-bit" },
+        { "digital-terabyte", "tera", "digital-byte" },
+        { "duration-microsecond", "micro", "duration-second" },
+        { "duration-millisecond", "milli", "duration-second" },
+        { "duration-nanosecond", "nano", "duration-second" },
+        { "electric-milliampere", "milli", "electric-ampere" },
+        { "energy-kilocalorie", "kilo", "energy-calorie" },
+        { "energy-kilojoule", "kilo", "energy-joule" },
+        { "frequency-gigahertz", "giga", "frequency-hertz" },
+        { "frequency-kilohertz", "kilo", "frequency-hertz" },
+        { "frequency-megahertz", "mega", "frequency-hertz" },
+        { "graphics-megapixel", "mega", "graphics-pixel" },
+        { "length-centimeter", "centi", "length-meter" },
+        { "length-decimeter", "deci", "length-meter" },
+        { "length-kilometer", "kilo", "length-meter" },
+        { "length-micrometer", "micro", "length-meter" },
+        { "length-millimeter", "milli", "length-meter" },
+        { "length-nanometer", "nano", "length-meter" },
+        { "length-picometer", "pico", "length-meter" },
+        { "mass-kilogram", "kilo", "mass-gram" },
+        { "mass-microgram", "micro", "mass-gram" },
+        { "mass-milligram", "milli", "mass-gram" },
+        { "power-gigawatt", "giga", "power-watt" },
+        { "power-kilowatt", "kilo", "power-watt" },
+        { "power-megawatt", "mega", "power-watt" },
+        { "power-milliwatt", "milli", "power-watt" },
+        { "pressure-hectopascal", "hecto", "pressure-pascal" },
+        { "pressure-millibar", "milli", "pressure-bar" },
+        { "pressure-kilopascal", "kilo", "pressure-pascal" },
+        { "pressure-megapascal", "mega", "pressure-pascal" },
+        { "volume-centiliter", "centi", "volume-liter" },
+        { "volume-cubic-centimeter", "cubic", "length-centimeter" },
+        { "volume-cubic-foot", "cubic", "length-foot" },
+        { "volume-cubic-inch", "cubic", "length-inch" },
+        { "volume-cubic-kilometer", "cubic", "length-kilometer" },
+        { "volume-cubic-meter", "cubic", "length-meter" },
+        { "volume-cubic-mile", "cubic", "length-mile" },
+        { "volume-cubic-yard", "cubic", "length-yard" },
+        { "volume-deciliter", "deci", "volume-liter" },
+        { "volume-hectoliter", "hecto", "volume-liter" },
+        { "volume-megaliter", "mega", "volume-liter" },
+        { "volume-milliliter", "milli", "volume-liter" },
     };
 
     static final String[][] PREFIX_NAME_TYPE = {
-        {"deci", "10p-1"},
-        {"centi", "10p-2"},
-        {"milli", "10p-3"},
-        {"micro", "10p-6"},
-        {"nano", "10p-9"},
-        {"pico", "10p-12"},
-        {"femto", "10p-15"},
-        {"atto", "10p-18"},
-        {"zepto", "10p-21"},
-        {"yocto", "10p-24"},
-        {"deka", "10p1"},
-        {"hecto", "10p2"},
-        {"kilo", "10p3"},
-        {"mega", "10p6"},
-        {"giga", "10p9"},
-        {"tera", "10p12"},
-        {"peta", "10p15"},
-        {"exa", "10p18"},
-        {"zetta", "10p21"},
-        {"yotta", "10p24"},
-        {"square", "power2"},
-        {"cubic", "power3"},
+        { "deci", "10p-1" },
+        { "centi", "10p-2" },
+        { "milli", "10p-3" },
+        { "micro", "10p-6" },
+        { "nano", "10p-9" },
+        { "pico", "10p-12" },
+        { "femto", "10p-15" },
+        { "atto", "10p-18" },
+        { "zepto", "10p-21" },
+        { "yocto", "10p-24" },
+        { "deka", "10p1" },
+        { "hecto", "10p2" },
+        { "kilo", "10p3" },
+        { "mega", "10p6" },
+        { "giga", "10p9" },
+        { "tera", "10p12" },
+        { "peta", "10p15" },
+        { "exa", "10p18" },
+        { "zetta", "10p21" },
+        { "yotta", "10p24" },
+        { "square", "power2" },
+        { "cubic", "power3" },
     };
 
     static final String PATH_UNIT_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"{1}\"]/unitPattern[@count=\"{2}\"]";
@@ -229,7 +229,6 @@ public class TestUnits extends TestFmwk {
     static final String PATH_MILLI_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/compoundUnit[@type=\"10p-3\"]/unitPrefixPattern";
     static final String PATH_SQUARE_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1";
 
-
     static final String PATH_METER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"{1}\"]";
     static final String PATH_MILLIMETER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"length-millimeter\"]/unitPattern[@count=\"{1}\"]";
     static final String PATH_SQUARE_METER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"{1}\"]";
@@ -237,7 +236,7 @@ public class TestUnits extends TestFmwk {
     public void TestCompoundUnit3() {
         Factory factory = CLDR_CONFIG.getCldrFactory();
 
-        Map<String,String> prefixToType = new LinkedHashMap<>();
+        Map<String, String> prefixToType = new LinkedHashMap<>();
         for (String[] prefixRow : PREFIX_NAME_TYPE) {
             prefixToType.put(prefixRow[0], prefixRow[1]);
         }
@@ -297,7 +296,7 @@ public class TestUnits extends TestFmwk {
     /**
      * Curated list of known exceptions. Usually because the short form of a unit is shorter when combined with a prefix or suffix
      */
-    static final Map<String,String> ALLOW_ENGLISH_EXCEPTION = ImmutableMap.<String,String>builder()
+    static final Map<String, String> ALLOW_ENGLISH_EXCEPTION = ImmutableMap.<String, String> builder()
         .put("sq ft", "ft²")
         .put("sq mi", "mi²")
         .put("ft", "′")
@@ -308,6 +307,7 @@ public class TestUnits extends TestFmwk {
         .put("B", "byte")
         .put("s", "sec")
         .build();
+
     private boolean allowEnglishException(String targetUnitPattern, String composedTargetUnitPattern) {
         for (Entry<String, String> entry : ALLOW_ENGLISH_EXCEPTION.entrySet()) {
             String mod = targetUnitPattern.replace(entry.getKey(), entry.getValue());
@@ -370,9 +370,9 @@ public class TestUnits extends TestFmwk {
 
     public void TestConversion() {
         Object[][] tests = {
-            {"foot", 12, "inch"},
-            {"gallon", 4, "quart"},
-            {"gallon", 16, "cup"},
+            { "foot", 12, "inch" },
+            { "gallon", 4, "quart" },
+            { "gallon", 16, "cup" },
         };
         for (Object[] test : tests) {
             String sourceUnit = test[0].toString();
@@ -385,7 +385,7 @@ public class TestUnits extends TestFmwk {
         // test conversions are disjoint
         Set<String> gotAlready = new HashSet<>();
         List<Set<String>> equivClasses = new ArrayList<>();
-        Map<String,String> classToId = new TreeMap<>();
+        Map<String, String> classToId = new TreeMap<>();
         for (String unit : converter.canConvert()) {
             if (gotAlready.contains(unit)) {
                 continue;
@@ -497,8 +497,8 @@ public class TestUnits extends TestFmwk {
     public void TestParseUnit() {
         Output<String> compoundBaseUnit = new Output<>();
         String[][] tests = {
-            {"kilometer-pound-per-hour", "kilogram-meter-per-second", "45359237/360000000"},
-            {"kilometer-per-hour", "meter-per-second", "5/18"},
+            { "kilometer-pound-per-hour", "kilogram-meter-per-second", "45359237/360000000" },
+            { "kilometer-per-hour", "meter-per-second", "5/18" },
         };
         for (String[] test : tests) {
             String source = test[0];
@@ -513,7 +513,7 @@ public class TestUnits extends TestFmwk {
         if (GENERATE_TESTS) System.out.println();
         Set<String> badUnits = new LinkedHashSet<>();
         Set<String> noQuantity = new LinkedHashSet<>();
-        Multimap<Pair<String,Double>, String> testPrintout = TreeMultimap.create();
+        Multimap<Pair<String, Double>, String> testPrintout = TreeMultimap.create();
 
         // checkUnitConvertability(converter, compoundBaseUnit, badUnits, "pint-metric-per-second");
 
@@ -538,8 +538,7 @@ public class TestUnits extends TestFmwk {
                     + "#   round to 4 decimal digits before comparing.\n"
                     + "# Note that certain conversions are approximate, such as degrees to radians\n"
                     + "#\n"
-                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestParseUnit results.\n"
-                );
+                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestParseUnit results.\n");
             for (Entry<Pair<String, Double>, String> entry : testPrintout.entries()) {
                 System.out.println(entry.getValue());
             }
@@ -563,9 +562,9 @@ public class TestUnits extends TestFmwk {
                 testPrintout.put(
                     new Pair<>(quantity, 1000d),
                     quantity
-                    + "\t;\t" + unit
-                    + "\t;\t" + unit
-                    + "\t;\t1 * x\t;\t1,000.00");
+                        + "\t;\t" + unit
+                        + "\t;\t" + unit
+                        + "\t;\t1 * x\t;\t1,000.00");
             }
         } else {
             ConversionInfo unitInfo = converter.getUnitInfo(unit, compoundBaseUnit);
@@ -574,7 +573,7 @@ public class TestUnits extends TestFmwk {
             }
             if (unitInfo == null) {
                 badUnits.add(unit);
-            } else if (GENERATE_TESTS){
+            } else if (GENERATE_TESTS) {
                 String quantity = converter.getQuantityFromBaseUnit(compoundBaseUnit.value);
                 if (quantity == null) {
                     noQuantity.add(compoundBaseUnit.value);
@@ -583,24 +582,24 @@ public class TestUnits extends TestFmwk {
                 testPrintout.put(
                     new Pair<>(quantity, testValue),
                     quantity
-                    + "\t;\t" + unit
-                    + "\t;\t" + compoundBaseUnit
-                    + "\t;\t" + unitInfo
-                    + "\t;\t" + testValue
+                        + "\t;\t" + unit
+                        + "\t;\t" + compoundBaseUnit
+                        + "\t;\t" + unitInfo
+                        + "\t;\t" + testValue
 //                    + "\t" + unitInfo.factor.toBigDecimal(MathContext.DECIMAL32)
 //                    + "\t" + unitInfo.factor.reciprocal().toBigDecimal(MathContext.DECIMAL32)
-                    );
+                );
             }
         }
     }
 
     public void TestRational() {
-        Rational a3_5 = Rational.of(3,5);
+        Rational a3_5 = Rational.of(3, 5);
 
-        Rational a6_10 = Rational.of(6,10);
+        Rational a6_10 = Rational.of(6, 10);
         assertEquals("", a3_5, a6_10);
 
-        Rational a5_3 = Rational.of(5,3);
+        Rational a5_3 = Rational.of(5, 3);
         assertEquals("", a3_5, a5_3.reciprocal());
 
         assertEquals("", Rational.ONE, a3_5.multiply(a3_5.reciprocal()));
@@ -612,15 +611,15 @@ public class TestUnits extends TestFmwk {
 
         assertEquals("", Rational.NaN, Rational.ZERO.divide(Rational.ZERO));
 
-        assertEquals("", BigDecimal.valueOf(2), Rational.of(2,1).toBigDecimal());
-        assertEquals("", BigDecimal.valueOf(0.5), Rational.of(1,2).toBigDecimal());
+        assertEquals("", BigDecimal.valueOf(2), Rational.of(2, 1).toBigDecimal());
+        assertEquals("", BigDecimal.valueOf(0.5), Rational.of(1, 2).toBigDecimal());
 
-        assertEquals("", BigDecimal.valueOf(100), Rational.of(100,1).toBigDecimal());
-        assertEquals("", BigDecimal.valueOf(0.01), Rational.of(1,100).toBigDecimal());
+        assertEquals("", BigDecimal.valueOf(100), Rational.of(100, 1).toBigDecimal());
+        assertEquals("", BigDecimal.valueOf(0.01), Rational.of(1, 100).toBigDecimal());
 
-        assertEquals("", Rational.of(12370,1), Rational.of(BigDecimal.valueOf(12370)));
-        assertEquals("", Rational.of(1237,10), Rational.of(BigDecimal.valueOf(1237.0/10)));
-        assertEquals("", Rational.of(1237,10000), Rational.of(BigDecimal.valueOf(1237.0/10000)));
+        assertEquals("", Rational.of(12370, 1), Rational.of(BigDecimal.valueOf(12370)));
+        assertEquals("", Rational.of(1237, 10), Rational.of(BigDecimal.valueOf(1237.0 / 10)));
+        assertEquals("", Rational.of(1237, 10000), Rational.of(BigDecimal.valueOf(1237.0 / 10000)));
 
         ConversionInfo uinfo = new ConversionInfo(Rational.of(2), Rational.of(3));
         assertEquals("", Rational.of(3), uinfo.convert(Rational.ZERO));
@@ -630,7 +629,7 @@ public class TestUnits extends TestFmwk {
     public void TestRationalParse() {
         Rational.RationalParser parser = SDI.getRationalParser();
 
-        Rational a3_5 = Rational.of(3,5);
+        Rational a3_5 = Rational.of(3, 5);
 
         assertEquals("", a3_5, parser.parse("6/10"));
 
@@ -640,12 +639,11 @@ public class TestUnits extends TestFmwk {
         assertEquals("", 6.02214076E+23d, parser.parse("6.02214076E+23").toBigDecimal().doubleValue());
         Rational temp = parser.parse("gal_to_m3");
         //System.out.println(" " + temp);
-        assertEquals("", 0.003785411784, temp.numerator.doubleValue()/temp.denominator.doubleValue());
+        assertEquals("", 0.003785411784, temp.numerator.doubleValue() / temp.denominator.doubleValue());
     }
 
-
-    static final Map<String,String> CORE_TO_TYPE;
-    static final Multimap<String,String> TYPE_TO_CORE;
+    static final Map<String, String> CORE_TO_TYPE;
+    static final Multimap<String, String> TYPE_TO_CORE;
     static {
         Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
 
@@ -653,8 +651,8 @@ public class TestUnits extends TestFmwk {
         TreeMultimap<String, String> typeToCore = TreeMultimap.create();
         for (String s : VALID_UNITS) {
             int dashPos = s.indexOf('-');
-            String unitType = s.substring(0,dashPos);
-            String coreUnit = s.substring(dashPos+1);
+            String unitType = s.substring(0, dashPos);
+            String coreUnit = s.substring(dashPos + 1);
             coreUnit = converter.fixDenormalized(coreUnit);
             coreToType.put(coreUnit, unitType);
             typeToCore.put(unitType, coreUnit);
@@ -666,7 +664,7 @@ public class TestUnits extends TestFmwk {
     public void TestUnitCategory() {
         if (SHOW_DATA) System.out.println();
 
-        Map<String,Multimap<String,String>> bad = new TreeMap<>();
+        Map<String, Multimap<String, String>> bad = new TreeMap<>();
         for (Entry<String, String> entry : TYPE_TO_CORE.entries()) {
             final String coreUnit = entry.getValue();
             final String unitType = entry.getKey();
@@ -684,47 +682,67 @@ public class TestUnits extends TestFmwk {
                 switch (unitType) {
                 case "concentr":
                     switch (quantity) {
-                    case "portion": case "mass-density": case "concentration": case "substance-amount": continue;
+                    case "portion":
+                    case "mass-density":
+                    case "concentration":
+                    case "substance-amount":
+                        continue;
                     }
                     break;
                 case "consumption":
                     switch (quantity) {
-                    case "consumption-inverse": continue;
+                    case "consumption-inverse":
+                        continue;
                     }
                     break;
                 case "duration":
                     switch (quantity) {
-                    case "year-duration": continue;
+                    case "year-duration":
+                        continue;
                     }
                     break;
                 case "electric":
                     switch (quantity) {
-                    case "electric-current": case "electric-resistance": case "voltage": continue;
+                    case "electric-current":
+                    case "electric-resistance":
+                    case "voltage":
+                        continue;
                     }
                     break;
                 case "graphics":
                     switch (quantity) {
-                    case "resolution": case "typewidth": continue;
+                    case "resolution":
+                    case "typewidth":
+                        continue;
                     }
                     break;
                 case "light":
                     switch (quantity) {
-                    case "lumen": case "luminous-flux": case "power": case "luminous-intensity": case "luminance": case "illuminance": continue;
+                    case "lumen":
+                    case "luminous-flux":
+                    case "power":
+                    case "luminous-intensity":
+                    case "luminance":
+                    case "illuminance":
+                        continue;
                     }
                     break;
                 case "mass":
                     switch (quantity) {
-                    case "energy": continue;
+                    case "energy":
+                        continue;
                     }
                     break;
                 case "torque":
                     switch (quantity) {
-                    case "energy": continue;
+                    case "energy":
+                        continue;
                     }
                     break;
                 case "pressure":
                     switch (quantity) {
-                    case "pressure-per-length": continue;
+                    case "pressure-per-length":
+                        continue;
                     }
                     break;
                 }
@@ -742,11 +760,11 @@ public class TestUnits extends TestFmwk {
 
     public void TestQuantities() {
         // put quantities in order
-        Multimap<String,String> quantityToBaseUnits = LinkedHashMultimap.create();
+        Multimap<String, String> quantityToBaseUnits = LinkedHashMultimap.create();
 
         Multimaps.invertFrom(Multimaps.forMap(BASE_UNIT_TO_QUANTITY), quantityToBaseUnits);
 
-        for ( Entry<String, Collection<String>> entry : quantityToBaseUnits.asMap().entrySet()) {
+        for (Entry<String, Collection<String>> entry : quantityToBaseUnits.asMap().entrySet()) {
             assertEquals(entry.toString(), 1, entry.getValue().size());
         }
 
@@ -990,23 +1008,23 @@ public class TestUnits extends TestFmwk {
     }
 
     public void TestSpecialCases() {
-        String [][] tests = {
-            {"50",  "foot", "xxx", "0/0"},
-            {"50",  "xxx", "mile", "0/0"},
-            {"50",  "foot", "second", "0/0"},
-            {"50",  "foot-per-xxx", "mile-per-hour", "0/0"},
-            {"50",  "foot-per-minute", "mile", "0/0"},
-            {"50",  "foot-per-ampere", "mile-per-hour", "0/0"},
+        String[][] tests = {
+            { "50", "foot", "xxx", "0/0" },
+            { "50", "xxx", "mile", "0/0" },
+            { "50", "foot", "second", "0/0" },
+            { "50", "foot-per-xxx", "mile-per-hour", "0/0" },
+            { "50", "foot-per-minute", "mile", "0/0" },
+            { "50", "foot-per-ampere", "mile-per-hour", "0/0" },
 
-            {"50",  "foot", "mile", "5 / 528"},
-            {"50",  "foot-per-minute", "mile-per-hour", "25 / 44"},
-            {"50",  "foot-per-minute", "hour-per-mile", "44 / 25"},
-            {"50",  "mile-per-gallon", "liter-per-100-kilometer", "112903 / 24000"},
-            {"50",  "celsius-per-second", "kelvin-per-second", "50"},
-            {"50",  "celsius-per-second", "fahrenheit-per-second", "90"},
-            {"50",  "pound-force", "kilogram-meter-per-square-second", "8896443230521 / 40000000000"},
+            { "50", "foot", "mile", "5 / 528" },
+            { "50", "foot-per-minute", "mile-per-hour", "25 / 44" },
+            { "50", "foot-per-minute", "hour-per-mile", "44 / 25" },
+            { "50", "mile-per-gallon", "liter-per-100-kilometer", "112903 / 24000" },
+            { "50", "celsius-per-second", "kelvin-per-second", "50" },
+            { "50", "celsius-per-second", "fahrenheit-per-second", "90" },
+            { "50", "pound-force", "kilogram-meter-per-square-second", "8896443230521 / 40000000000" },
             // Note: pound-foot-per-square-second is a pound-force divided by gravity
-            {"50",  "pound-foot-per-square-second", "kilogram-meter-per-square-second", "17281869297 / 2500000000"},
+            { "50", "pound-foot-per-square-second", "kilogram-meter-per-square-second", "17281869297 / 2500000000" },
         };
         int count = 0;
         for (String[] test : tests) {
@@ -1021,7 +1039,7 @@ public class TestUnits extends TestFmwk {
         }
     }
 
-    static Multimap<String,String> EXTRA_UNITS = ImmutableMultimap.<String,String>builder()
+    static Multimap<String, String> EXTRA_UNITS = ImmutableMultimap.<String, String> builder()
         .putAll("area", "square-foot", "square-yard", "square-mile")
         .putAll("volume", "cubic-inch", "cubic-foot", "cubic-yard")
         .build();
@@ -1032,9 +1050,10 @@ public class TestUnits extends TestFmwk {
             Set<String> systems = converter.getSystems(unit);
             if (systems.isEmpty()) {
                 systemToUnits.put("other", unit);
-            } else for (String s : systems) {
-                systemToUnits.put(s, unit);
-            }
+            } else
+                for (String s : systems) {
+                    systemToUnits.put(s, unit);
+                }
         }
         for (Entry<String, Collection<String>> systemAndUnits : systemToUnits.asMap().entrySet()) {
             String system = systemAndUnits.getKey();
@@ -1044,7 +1063,7 @@ public class TestUnits extends TestFmwk {
     }
 
     private void printSystemUnits(String system, Collection<String> units) {
-        Multimap<String,String> quantityToUnits = TreeMultimap.create();
+        Multimap<String, String> quantityToUnits = TreeMultimap.create();
         boolean metric = system.equals("metric");
         for (String unit : units) {
             quantityToUnits.put(converter.getQuantityFromUnit(unit, false), unit);
@@ -1052,7 +1071,7 @@ public class TestUnits extends TestFmwk {
         for (Entry<String, Collection<String>> entry : quantityToUnits.asMap().entrySet()) {
             String quantity = entry.getKey();
             String baseUnit = converter.getBaseUnitToQuantity().inverse().get(quantity);
-            Multimap<Rational,String> sorted = TreeMultimap.create();
+            Multimap<Rational, String> sorted = TreeMultimap.create();
             sorted.put(Rational.ONE, baseUnit);
             if (!metric) {
                 String englishBaseUnit = getEnglishBaseUnit(baseUnit);
@@ -1079,7 +1098,7 @@ public class TestUnits extends TestFmwk {
     }
 
     private void printUnits(String system, String quantity, Set<String> comparableUnits) {
-        if (SHOW_DATA) System.out.print("\n"+ system + "\t" + quantity);
+        if (SHOW_DATA) System.out.print("\n" + system + "\t" + quantity);
         for (String targetUnit : comparableUnits) {
             if (SHOW_DATA) System.out.print("\t" + targetUnit);
         }
@@ -1108,7 +1127,8 @@ public class TestUnits extends TestFmwk {
         // also test continued fractions used in deriving values
 
         Object[][] tests0 = {
-            {new ContinuedFraction(0, 1, 5, 2, 2), Rational.of(27, 32), ImmutableList.of(Rational.of(0), Rational.of(1), Rational.of(5,6), Rational.of(11, 13))},
+            { new ContinuedFraction(0, 1, 5, 2, 2), Rational.of(27, 32),
+                ImmutableList.of(Rational.of(0), Rational.of(1), Rational.of(5, 6), Rational.of(11, 13)) },
         };
         for (Object[] test : tests0) {
             ContinuedFraction source = (ContinuedFraction) test[0];
@@ -1121,18 +1141,17 @@ public class TestUnits extends TestFmwk {
             assertEquals("continued", expectedIntermediates, intermediates);
         }
         Object[][] tests = {
-            {Rational.of(3245,1000), new ContinuedFraction(3, 4, 12, 4)},
-            {Rational.of(39,10), new ContinuedFraction(3, 1, 9)},
-            {Rational.of(-3245,1000), new ContinuedFraction(-4, 1, 3, 12, 4)},
+            { Rational.of(3245, 1000), new ContinuedFraction(3, 4, 12, 4) },
+            { Rational.of(39, 10), new ContinuedFraction(3, 1, 9) },
+            { Rational.of(-3245, 1000), new ContinuedFraction(-4, 1, 3, 12, 4) },
         };
         for (Object[] test : tests) {
             Rational source = (Rational) test[0];
-            ContinuedFraction expected =(ContinuedFraction) test[1];
+            ContinuedFraction expected = (ContinuedFraction) test[1];
             ContinuedFraction actual = new ContinuedFraction(source);
             assertEquals(source.toString(), expected, actual);
             assertEquals(actual.toString(), source, actual.toRational(null));
         }
-
 
         if (SHOW_DATA) {
             ContinuedFraction actual = new ContinuedFraction(Rational.of(bigPi));
@@ -1140,8 +1159,8 @@ public class TestUnits extends TestFmwk {
             actual.toRational(intermediates);
             System.out.println("\nRational\tdec64\tdec128\tgood enough");
             System.out.println("Target\t"
-                + bigPi.round(MathContext.DECIMAL64)+"x"
-                + "\t" + bigPi.round(MathContext.DECIMAL128)+"x"
+                + bigPi.round(MathContext.DECIMAL64) + "x"
+                + "\t" + bigPi.round(MathContext.DECIMAL128) + "x"
                 + "\t" + "delta");
             int goodCount = 0;
             for (Rational item : intermediates) {
@@ -1159,10 +1178,11 @@ public class TestUnits extends TestFmwk {
             }
         }
     }
+
     public void TestUnitPreferenceSource() {
         XMLSource xmlSource = new SimpleXMLSource("units");
         xmlSource.setNonInheriting(true);
-        CLDRFile foo = new CLDRFile(xmlSource );
+        CLDRFile foo = new CLDRFile(xmlSource);
         foo.setDtdType(DtdType.supplementalData);
         UnitPreferences uprefs = new UnitPreferences();
         int order = 0;
@@ -1237,73 +1257,70 @@ public class TestUnits extends TestFmwk {
                     Collection<UnitPreference> uPrefs = entry.getValue();
                     Set<String> regions = entry.getKey();
 
-
                     // reset these for every new set of regions
                     Rational lastSize = null;
                     String lastUnit = null;
                     Rational lastgeq = null;
                     systems.clear();
                     Set<String> lastRegions = null;
-                    preferences:
-                        for (UnitPreference up : uPrefs) {
-                            String unitQuantity = null;
-                            String topUnit = null;
-                            if ("minute:second".equals(up.unit)) {
-                                int debug = 0;
-                            }
-                            String lastQuantity = null;
-                            Rational lastValue = null;
-                            Rational geq = converter.parseRational(String.valueOf(up.geq));
+                    preferences: for (UnitPreference up : uPrefs) {
+                        String unitQuantity = null;
+                        String topUnit = null;
+                        if ("minute:second".equals(up.unit)) {
+                            int debug = 0;
+                        }
+                        String lastQuantity = null;
+                        Rational lastValue = null;
+                        Rational geq = converter.parseRational(String.valueOf(up.geq));
 
-                            // where we have an 'and' unit, get its information
-                            for (String unit : SPLIT_AND.split(up.unit)) {
-                                try {
-                                    if (topUnit == null) {
-                                        topUnit = unit;
-                                    }
-                                    unitQuantity = converter.getQuantityFromUnit(unit, false);
-                                } catch (Exception e) {
-                                    errln("Unit is not covertible: " + up.unit);
-                                    continue preferences;
+                        // where we have an 'and' unit, get its information
+                        for (String unit : SPLIT_AND.split(up.unit)) {
+                            try {
+                                if (topUnit == null) {
+                                    topUnit = unit;
                                 }
-                                String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
-                                if (geq.compareTo(Rational.ZERO) < 0) {
-                                    throw new IllegalArgumentException("geq must be > 0" + geq);
-                                }
-                                Rational value = converter.convert(Rational.ONE, unit, baseUnit, false);
-                                if (lastQuantity != null) {
-                                    int diff = value.compareTo(lastValue);
-                                    if (diff >= 0) {
-                                        throw new IllegalArgumentException("Bad mixed unit; biggest unit must be first: " + up.unit);
-                                    }
-                                    if (!lastQuantity.contentEquals(quantity)) {
-                                        throw new IllegalArgumentException("Inconsistent quantities for mixed unit: " + up.unit);
-                                    }
-                                }
-                                lastValue = value;
-                                lastQuantity = quantity;
-                                systems.addAll(converter.getSystems(unit));
+                                unitQuantity = converter.getQuantityFromUnit(unit, false);
+                            } catch (Exception e) {
+                                errln("Unit is not covertible: " + up.unit);
+                                continue preferences;
                             }
                             String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
-                            Rational size = converter.convert(up.geq, topUnit, baseUnit, false);
-                            if (lastSize != null) { // ensure descending order
-                                if (!assertTrue("Successive items must be ≥ previous:\n\t" + quantityPlusUsage
-                                    + "; unit: " + up.unit
-                                    + "; size: " + size
-                                    + "; regions: " + regions
-                                    + "; lastUnit: " + lastUnit
-                                    + "; lastSize: " + lastSize
-                                    + "; lastRegions: " + lastRegions
-                                    , size.compareTo(lastSize) <= 0)) {
-                                    int debug = 0;
+                            if (geq.compareTo(Rational.ZERO) < 0) {
+                                throw new IllegalArgumentException("geq must be > 0" + geq);
+                            }
+                            Rational value = converter.convert(Rational.ONE, unit, baseUnit, false);
+                            if (lastQuantity != null) {
+                                int diff = value.compareTo(lastValue);
+                                if (diff >= 0) {
+                                    throw new IllegalArgumentException("Bad mixed unit; biggest unit must be first: " + up.unit);
+                                }
+                                if (!lastQuantity.contentEquals(quantity)) {
+                                    throw new IllegalArgumentException("Inconsistent quantities for mixed unit: " + up.unit);
                                 }
                             }
-                            lastSize = size;
-                            lastUnit = up.unit;
-                            lastgeq = geq;
-                            lastRegions = regions;
-                            if (SHOW_DATA) System.out.println(quantity + "\t" + usage + "\t" + regions + "\t" + up.geq + "\t" + up.unit + "\t" + up.skeleton);
+                            lastValue = value;
+                            lastQuantity = quantity;
+                            systems.addAll(converter.getSystems(unit));
                         }
+                        String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
+                        Rational size = converter.convert(up.geq, topUnit, baseUnit, false);
+                        if (lastSize != null) { // ensure descending order
+                            if (!assertTrue("Successive items must be ≥ previous:\n\t" + quantityPlusUsage
+                                + "; unit: " + up.unit
+                                + "; size: " + size
+                                + "; regions: " + regions
+                                + "; lastUnit: " + lastUnit
+                                + "; lastSize: " + lastSize
+                                + "; lastRegions: " + lastRegions, size.compareTo(lastSize) <= 0)) {
+                                int debug = 0;
+                            }
+                        }
+                        lastSize = size;
+                        lastUnit = up.unit;
+                        lastgeq = geq;
+                        lastRegions = regions;
+                        if (SHOW_DATA) System.out.println(quantity + "\t" + usage + "\t" + regions + "\t" + up.geq + "\t" + up.unit + "\t" + up.skeleton);
+                    }
                     // Check that last geq is ONE.
                     assertEquals(usage + " + " + regions + ": the least unit must have geq=1 (or equivalently, no geq)", Rational.ONE, lastgeq);
 
@@ -1326,7 +1343,7 @@ public class TestUnits extends TestFmwk {
 
     private void checkBcp47(String identifierType, Set<String> identifiers, UnicodeSet allowed, boolean allowHyphens) {
         Output<Integer> counter = new Output<>(0);
-        Multimap<String,String> truncatedToFullIdentifier = TreeMultimap.create();
+        Multimap<String, String> truncatedToFullIdentifier = TreeMultimap.create();
         final Set<String> simpleUnits = identifiers;
         for (String unit : simpleUnits) {
             if (!allowHyphens && unit.contains("-")) {
@@ -1336,7 +1353,8 @@ public class TestUnits extends TestFmwk {
         }
         for (Entry<String, Collection<String>> entry : truncatedToFullIdentifier.asMap().entrySet()) {
             Set<String> identifierSet = ImmutableSet.copyOf(entry.getValue());
-            assertEquals(identifierType + ": truncated identifier " + entry.getKey() + " must be unique", ImmutableSet.of(identifierSet.iterator().next()), identifierSet);
+            assertEquals(identifierType + ": truncated identifier " + entry.getKey() + " must be unique", ImmutableSet.of(identifierSet.iterator().next()),
+                identifierSet);
         }
     }
 
@@ -1346,11 +1364,12 @@ public class TestUnits extends TestFmwk {
     static final UnicodeSet lowercaseAZ = new UnicodeSet("[a-z]").freeze();
     static final UnicodeSet lowercaseAZ09 = new UnicodeSet("[a-z0-9]").freeze();
 
-    private void checkBcp47(Output<Integer> counter, String title, String identifier, UnicodeSet allowed, Multimap<String,String> truncatedToFullIdentifier) {
+    private void checkBcp47(Output<Integer> counter, String title, String identifier, UnicodeSet allowed, Multimap<String, String> truncatedToFullIdentifier) {
         StringBuilder shortIdentifer = new StringBuilder();
         boolean fail = false;
         for (String subtag : identifier.split("-")) {
-            assertTrue(++counter.value + ") " + title + " identifier=" + identifier + " subtag=" + subtag + " has right characters", allowed.containsAll(subtag));
+            assertTrue(++counter.value + ") " + title + " identifier=" + identifier + " subtag=" + subtag + " has right characters",
+                allowed.containsAll(subtag));
             if (!(subtag.length() >= MIN_SUBTAG_LENGTH && subtag.length() <= MAX_SUBTAG_LENGTH)) {
                 for (Entry<String, Rational> entry : UnitConverter.PREFIXES.entrySet()) {
                     String prefix = entry.getKey();
@@ -1377,7 +1396,8 @@ public class TestUnits extends TestFmwk {
     }
 
     public void TestUnitPreferences() {
-        System.out.println("\n\t\t If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
+        System.out
+            .println("\n\t\t If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
         UnitPreferences prefs = SDI.getUnitPreferences();
         checkUnitPreferences(prefs);
 //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);
@@ -1417,9 +1437,8 @@ public class TestUnits extends TestFmwk {
                     + "#\t\t • no formatted with the skeleton\n"
                     + "#\t\t • no suppression of zero values (for secondary -and- units such as pound in stone-and-pound)\n"
                     + "#\n"
-                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestUnitPreferences results.\n"
-                );
-            Rational ONE_TENTH = Rational.of(1,10);
+                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestUnitPreferences results.\n");
+            Rational ONE_TENTH = Rational.of(1, 10);
 
             // Note that for production usage, precomputed data like the prefs.getFastMap(converter) would be used instead of the raw data.
 
@@ -1524,7 +1543,7 @@ public class TestUnits extends TestFmwk {
                 cantConvert.add(data);
             } else {
                 final Rational symmetricDiff = externalResult.symmetricDiff(cldrResult);
-                if (symmetricDiff.abs().compareTo(Rational.of(1, 1000000)) > 0){
+                if (symmetricDiff.abs().compareTo(Rational.of(1, 1000000)) > 0) {
                     convertDiff.put(data, cldrResult);
                 } else {
                     remainingCldrUnits.remove(data.source);
@@ -1550,7 +1569,7 @@ public class TestUnits extends TestFmwk {
 //        }
         if (SHOW_DATA) {
             for (Entry<String, Collection<String>> e : NistUnits.unitToQuantity.asMap().entrySet()) {
-                System.out.println("*Quantities:"  + "\t" +  e.getKey()  + "\t" +  e.getValue());
+                System.out.println("*Quantities:" + "\t" + e.getKey() + "\t" + e.getValue());
             }
         }
 
@@ -1639,17 +1658,17 @@ public class TestUnits extends TestFmwk {
             if (baseUnit2 != null) {
                 target = baseUnit2.target;
                 endFactor = baseUnit2.unitInfo.factor;
-                mark="¹";
+                mark = "¹";
             } else {
                 ConversionInfo conversionInfo = converter.getUnitInfo(s.target, baseUnit);
                 if (conversionInfo != null && !s.target.equals(baseUnit.value)) {
                     target = baseUnit.value;
                     endFactor = conversionInfo.convert(s.info.factor);
-                    mark="²";
+                    mark = "²";
                 }
             }
             System.out.println("Could add 10^X conversion from a"
-                + "\t" +  s.source
+                + "\t" + s.source
                 + "\tto" + mark
                 + "\t" + endFactor.toString(FormatStyle.simple)
                 + "\t" + target);
@@ -1671,26 +1690,26 @@ public class TestUnits extends TestFmwk {
     public void TestRepeating() {
         Set<Rational> seen = new HashSet<>();
         String[][] tests = {
-            {"0/0", "NaN"},
-            {"1/0", "INF"},
-            {"-1/0", "-INF"},
-            {"0/1", "0"},
-            {"1/1", "1"},
-            {"1/2", "0.5"},
-            {"1/3", "0.˙3"},
-            {"1/4", "0.25"},
-            {"1/5", "0.2"},
-            {"1/6", "0.1˙6"},
-            {"1/7", "0.˙142857"},
-            {"1/8", "0.125"},
-            {"1/9", "0.˙1"},
-            {"1/10", "0.1"},
-            {"1/11", "0.˙09"},
-            {"1/12", "0.08˙3"},
-            {"1/13", "0.˙076923"},
-            {"1/14", "0.0˙714285"},
-            {"1/15", "0.0˙6"},
-            {"1/16", "0.0625"},
+            { "0/0", "NaN" },
+            { "1/0", "INF" },
+            { "-1/0", "-INF" },
+            { "0/1", "0" },
+            { "1/1", "1" },
+            { "1/2", "0.5" },
+            { "1/3", "0.˙3" },
+            { "1/4", "0.25" },
+            { "1/5", "0.2" },
+            { "1/6", "0.1˙6" },
+            { "1/7", "0.˙142857" },
+            { "1/8", "0.125" },
+            { "1/9", "0.˙1" },
+            { "1/10", "0.1" },
+            { "1/11", "0.˙09" },
+            { "1/12", "0.08˙3" },
+            { "1/13", "0.˙076923" },
+            { "1/14", "0.0˙714285" },
+            { "1/15", "0.0˙6" },
+            { "1/16", "0.0625" },
         };
         for (String[] test : tests) {
             Rational source = Rational.of(test[0]);
@@ -1714,7 +1733,8 @@ public class TestUnits extends TestFmwk {
                 String rFormat = targetInfo.factor.toString(FormatStyle.repeating);
                 String sFormat = targetInfo.factor.toString(FormatStyle.simple);
                 if (!rFormat.equals(sFormat)) {
-                    System.out.println("\t\t" + unitAndInfo.getKey() + "\t" + targetInfo2.target + "\t" + sFormat + "\t" + rFormat + "\t" + targetInfo.factor.doubleValue());
+                    System.out.println(
+                        "\t\t" + unitAndInfo.getKey() + "\t" + targetInfo2.target + "\t" + sFormat + "\t" + rFormat + "\t" + targetInfo.factor.doubleValue());
                 }
             }
         }
@@ -1756,7 +1776,8 @@ public class TestUnits extends TestFmwk {
         ImmutableSet<String> unitLongIdsEnglish = ImmutableSet.copyOf(getUnits(CLDR_CONFIG.getEnglish(), new TreeSet<>()));
 
         assertSameCollections("root unit IDs", "English", unitLongIdsRoot, unitLongIdsEnglish);
-        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds, Arrays.asList("concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg"));
+        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds,
+            Arrays.asList("concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg"));
         assertSameCollections("root unit IDs", "valid regular", unitLongIdsRoot, validLongUnitIdsMinusOddballs);
         assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validLongUnitIds);
 
@@ -1844,7 +1865,8 @@ public class TestUnits extends TestFmwk {
                 if (rawGender != null) {
                     String gender = unitId.getGender(resolvedFile, source, partsUsed);
                     if (gender != null && !shortUnitId.equals(source.value)) {
-                        assertEquals("See if computed gender = raw gender for " + locale + "/" + shortUnitId + "\n\t" + Joiner.on("\n\t\t").join(partsUsed.asMap().entrySet()), rawGender, gender);
+                        assertEquals("See if computed gender = raw gender for " + locale + "/" + shortUnitId + "\n\t"
+                            + Joiner.on("\n\t\t").join(partsUsed.asMap().entrySet()), rawGender, gender);
                     }
                 }
             }
@@ -1853,44 +1875,46 @@ public class TestUnits extends TestFmwk {
 
     public void TestFallbackNames() {
         String[][] sampleUnits = {
-            {"fr", "square-meter", "one", "nominative", "{0} mètre carré"},
-            {"fr", "square-meter", "other", "nominative", "{0} mètres carrés"},
-            {"fr", "square-decimeter", "other", "nominative", "{0} décimètres carrés"},
-            {"fr", "meter-per-square-second", "one", "nominative", "{0} mètre par seconde carrée"},
-            {"fr", "meter-per-square-second", "other", "nominative", "{0} mètres par seconde carrée"},
+            { "fr", "square-meter", "one", "nominative", "{0} mètre carré" },
+            { "fr", "square-meter", "other", "nominative", "{0} mètres carrés" },
+            { "fr", "square-decimeter", "other", "nominative", "{0} décimètres carrés" },
+            { "fr", "meter-per-square-second", "one", "nominative", "{0} mètre par seconde carrée" },
+            { "fr", "meter-per-square-second", "other", "nominative", "{0} mètres par seconde carrée" },
 
-            {"de", "square-meter", "other", "nominative", "{0} Quadratmeter"},
-            {"de", "square-decimeter", "other", "nominative", "{0} Quadratdezimeter"}, // real fail
+            { "de", "square-meter", "other", "nominative", "{0} Quadratmeter" },
+            { "de", "square-decimeter", "other", "nominative", "{0} Quadratdezimeter" }, // real fail
 
-            {"de", "per-meter", "other", "nominative", "{0} pro Meter"},
-            {"de", "per-square-meter", "other", "nominative", "{0} pro Quadratmeter"},
-            {"de", "second-per-meter", "other", "nominative", "{0} Sekunden pro Meter"},
-            {"de", "meter-per-second", "other", "nominative", "{0} Meter pro Sekunde"},
-            {"de", "meter-per-square-second", "other", "nominative", "{0} Meter pro Quadratsekunde"},
+            { "de", "per-meter", "other", "nominative", "{0} pro Meter" },
+            { "de", "per-square-meter", "other", "nominative", "{0} pro Quadratmeter" },
+            { "de", "second-per-meter", "other", "nominative", "{0} Sekunden pro Meter" },
+            { "de", "meter-per-second", "other", "nominative", "{0} Meter pro Sekunde" },
+            { "de", "meter-per-square-second", "other", "nominative", "{0} Meter pro Quadratsekunde" },
 
-            {"de", "gigasecond-per-decimeter", "other", "nominative", "{0} Gigasekunden pro Dezimeter"},
-            {"de", "decimeter-per-gigasecond", "other", "nominative", "{0} Dezimeter pro Gigasekunde"}, // real fail
+            { "de", "gigasecond-per-decimeter", "other", "nominative", "{0} Gigasekunden pro Dezimeter" },
+            { "de", "decimeter-per-gigasecond", "other", "nominative", "{0} Dezimeter pro Gigasekunde" }, // real fail
 
-            {"de", "gigasecond-milligram-per-centimeter-decisecond", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter⋅Dezisekunde"},
-            {"de", "milligram-per-centimeter-decisecond", "other", "nominative", "{0} Milligramm pro Zentimeter⋅Dezisekunde"},
-            {"de", "per-centimeter-decisecond", "other", "nominative", "{0} pro Zentimeter⋅Dezisekunde"},
-            {"de", "gigasecond-milligram-per-centimeter", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter"},
-            {"de", "gigasecond-milligram", "other", "nominative", "{0} Milligramm⋅Gigasekunden"},
+            { "de", "gigasecond-milligram-per-centimeter-decisecond", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter⋅Dezisekunde" },
+            { "de", "milligram-per-centimeter-decisecond", "other", "nominative", "{0} Milligramm pro Zentimeter⋅Dezisekunde" },
+            { "de", "per-centimeter-decisecond", "other", "nominative", "{0} pro Zentimeter⋅Dezisekunde" },
+            { "de", "gigasecond-milligram-per-centimeter", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter" },
+            { "de", "gigasecond-milligram", "other", "nominative", "{0} Milligramm⋅Gigasekunden" },
 
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "nominative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel"},
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "accusative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel"},
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "other", "dative", "{0} Imp. Dessertlöffeln pro Imp. Dessertlöffel"},
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "genitive", "{0} Imp. Dessertlöffels pro Imp. Dessertlöffel"},
+            { "de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "nominative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel" },
+            { "de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "accusative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel" },
+            { "de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "other", "dative", "{0} Imp. Dessertlöffeln pro Imp. Dessertlöffel" },
+            { "de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "genitive", "{0} Imp. Dessertlöffels pro Imp. Dessertlöffel" },
 
             // TODO: pick names (eg in Polish) that show differences in case.
             // {"de", "foebar-foobar-per-fiebar-faebar", "other", "genitive", null},
 
         };
-        ImmutableMap<String, String> frOverrides = ImmutableMap.<String, String>builder() // insufficient data in French as yet
+        ImmutableMap<String, String> frOverrides = ImmutableMap.<String, String> builder() // insufficient data in French as yet
             .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", "{0} carré") //
             .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", "{0} carrés") //
-            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]", "{0} carrée") //
-            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]", "{0} carrées") //
+            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]",
+                "{0} carrée") //
+            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]",
+                "{0} carrées") //
             .build();
 
         Multimap<UnitPathType, String> partsUsed = TreeMultimap.create();
@@ -1900,9 +1924,12 @@ public class TestUnits extends TestFmwk {
             final String locale = row[0];
             CLDRFile resolvedFileRaw = CLDR_CONFIG.getCLDRFile(locale, true);
             LocaleStringProvider resolvedFile;
-            switch(locale) {
-            case "fr":  resolvedFile = resolvedFileRaw.makeOverridingStringProvider(frOverrides); break;
-            default: resolvedFile = resolvedFileRaw;
+            switch (locale) {
+            case "fr":
+                resolvedFile = resolvedFileRaw.makeOverridingStringProvider(frOverrides);
+                break;
+            default:
+                resolvedFile = resolvedFileRaw;
             }
 
             String shortUnitId = row[1];
@@ -1911,10 +1938,12 @@ public class TestUnits extends TestFmwk {
             String expectedName = row[4];
             final UnitId unitId = converter.createUnitId(shortUnitId);
             final String actual = unitId.toString(resolvedFile, "long", pluralCategory, caseVariant, partsUsed, false);
-            assertEquals(count + ") " + Arrays.asList(row).toString() + "\n\t" + Joiner.on("\n\t").join(partsUsed.asMap().entrySet()), fixSpaces(expectedName), fixSpaces(actual));
+            assertEquals(count + ") " + Arrays.asList(row).toString() + "\n\t" + Joiner.on("\n\t").join(partsUsed.asMap().entrySet()), fixSpaces(expectedName),
+                fixSpaces(actual));
         }
 
     }
+
     public void TestFileFallbackNames() {
         Multimap<UnitPathType, String> partsUsed = TreeMultimap.create();
 
@@ -1929,13 +1958,12 @@ public class TestUnits extends TestFmwk {
             CLDRFile resolvedFile = CLDR_CONFIG.getCLDRFile(localeId, true);
             PluralInfo pluralInfo = CLDR_CONFIG.getSupplementalDataInfo().getPlurals(localeId);
             PluralRules pluralRules = pluralInfo.getPluralRules();
-            GrammarInfo grammarInfo =CLDR_CONFIG.getSupplementalDataInfo().getGrammarInfo(localeId);
+            GrammarInfo grammarInfo = CLDR_CONFIG.getSupplementalDataInfo().getGrammarInfo(localeId);
             Collection<String> caseVariants = grammarInfo == null ? null
                 : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
             if (caseVariants == null || caseVariants.isEmpty()) {
                 caseVariants = Collections.singleton("nominative");
             }
-
 
             for (Entry<String, String> entry : converter.SHORT_TO_LONG_ID.entrySet()) {
                 final String shortUnitId = entry.getKey();
@@ -1961,7 +1989,8 @@ public class TestUnits extends TestFmwk {
                                 continue;
                             }
                             partsUsed.clear();
-                            String transName = UnitPathType.unit.getTrans(resolvedFile, width, shortUnitId, pluralCategory, caseVariant, null, isVerbose() ? partsUsed : null);
+                            String transName = UnitPathType.unit.getTrans(resolvedFile, width, shortUnitId, pluralCategory, caseVariant, null,
+                                isVerbose() ? partsUsed : null);
 
                             // HACK to fix different spaces around placeholder
                             if (!Objects.equals(fixSpaces(transName), fixSpaces(composedName))) {
@@ -1970,7 +1999,7 @@ public class TestUnits extends TestFmwk {
                                     + "\t" + width
                                     + "\t" + pluralCategory
                                     + "\t" + caseVariant
-                                    + "\texpected ≠ fallback\t«" + transName + "»\t≠\t«" + composedName+ "»"
+                                    + "\texpected ≠ fallback\t«" + transName + "»\t≠\t«" + composedName + "»"
                                     + partsUsed);
                                 localeToErrorCount.add(localeId, 1);
                             }
@@ -2020,7 +2049,7 @@ public class TestUnits extends TestFmwk {
         }
     }
 
-  public void TestDerivedCase() {
+    public void TestDerivedCase() {
         // needs further work
         if (logKnownIssue("CLDR-13920", "finish this as part of unit derivation work")) {
             return;
@@ -2036,7 +2065,8 @@ public class TestUnits extends TestFmwk {
             Output<String> sourceCase = new Output<>();
             Output<String> sourcePlural = new Output<>();
 
-            M4<String, String, String, Boolean> myInfo = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
+            M4<String, String, String, Boolean> myInfo = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
+                new TreeMap<String, Object>(), Boolean.class);
 
             int count = 0;
             for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
@@ -2065,8 +2095,7 @@ public class TestUnits extends TestFmwk {
                             + ",\tdesired case/plural: " + desiredCase
                             + " / " + desiredPlural
                             + ",\tsource case/plural: " + sourceCase
-                            + " / " + sourcePlural
-                            , value, sourceValue);
+                            + " / " + sourcePlural, value, sourceValue);
                     }
                 }
             }
@@ -2077,8 +2106,10 @@ public class TestUnits extends TestFmwk {
             }
         }
     }
+
     public void TestGenderOfCompounds() {
-        Set<String> skipUnits = ImmutableSet.of("kilocalorie", "kilopascal", "terabyte", "gigabyte", "kilobyte", "gigabit", "kilobit", "megabit", "megabyte", "terabit");
+        Set<String> skipUnits = ImmutableSet.of("kilocalorie", "kilopascal", "terabyte", "gigabyte", "kilobyte", "gigabit", "kilobit", "megabit", "megabyte",
+            "terabit");
         final ImmutableSet<String> keyValues = ImmutableSet.of("length", "mass", "duration", "power");
         for (String localeID : GrammarInfo.SEED_LOCALES) {
             GrammarInfo grammarInfo = SDI.getGrammarInfo(localeID);
@@ -2092,13 +2123,15 @@ public class TestUnits extends TestFmwk {
                 continue;
             }
             CLDRFile cldrFile = info.getCldrFactory().make(localeID, true);
-            Map<String,String> shortUnitToGender = new TreeMap<>();
+            Map<String, String> shortUnitToGender = new TreeMap<>();
             Output<String> source = new Output<>();
             Multimap<UnitPathType, String> partsUsed = LinkedHashMultimap.create();
 
             Set<String> units = new HashSet<>();
-            M4<String, String, String, Boolean> quantityToGenderToUnits = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
-            M4<String, String, String, Boolean> genderToQuantityToUnits = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
+            M4<String, String, String, Boolean> quantityToGenderToUnits = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
+                new TreeMap<String, Object>(), Boolean.class);
+            M4<String, String, String, Boolean> genderToQuantityToUnits = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
+                new TreeMap<String, Object>(), Boolean.class);
 
             for (String path : cldrFile) {
                 if (!path.startsWith("//ldml/units/unitLength[@type=\"long\"]/unit[@type=")) {
@@ -2136,7 +2169,8 @@ public class TestUnits extends TestFmwk {
 
                 final boolean areEqual = Objects.equals(gender, constructedGender);
                 if (false) {
-                    final String printInfo = localeID + "\t" + unitId + "\t" + gender + "\t" + multiUnit + "\t" + quantity + "\t" + constructedGender + "\t" + areEqual;
+                    final String printInfo = localeID + "\t" + unitId + "\t" + gender + "\t" + multiUnit + "\t" + quantity + "\t" + constructedGender + "\t"
+                        + areEqual;
                     System.out.println(printInfo);
                 }
                 if (gender != null && !areEqual && !skipUnits.contains(shortId)) {
@@ -2144,7 +2178,7 @@ public class TestUnits extends TestFmwk {
                     shortUnitToGender.put(shortId, unitId + "\t" + gender + "\t" + constructedGender + "\t" + areEqual);
                 }
             }
-            for (Entry<String,String> entry : shortUnitToGender.entrySet()) {
+            for (Entry<String, String> entry : shortUnitToGender.entrySet()) {
                 errln(localeID + "\t" + entry);
             }
 
@@ -2168,7 +2202,7 @@ public class TestUnits extends TestFmwk {
         for (Entry<String, Map<String, Boolean>> entry2 : genderToUnits) {
             String gender = entry2.getKey();
             if (genderFilter != null) {
-                if(!genderFilter.contains(gender)) {
+                if (!genderFilter.contains(gender)) {
                     continue;
                 }
                 genderFilter.remove(gender);

@@ -272,7 +272,7 @@ public class OutputFileManager {
             return false;
         }
         String vp[] = { Kind.vxml.toString(), Kind.pxml.toString() };
-        for (String s: vp) {
+        for (String s : vp) {
             File destDir = new File(vetdataDir + "/" + s + "/" + DirNames.justCommon + "/" + dtdDirName);
             if (!destDir.exists() && !destDir.mkdirs()) {
                 return false;
@@ -417,7 +417,7 @@ public class OutputFileManager {
              */
             File baseDir = CLDRConfig.getInstance().getCldrBaseDirectory();
             String commonOrSeed = DirNames.justCommon;
-            for (String c: DirNames.commonAndSeed) {
+            for (String c : DirNames.commonAndSeed) {
                 String path = baseDir + "/" + c + "/" + DirNames.justMain + "/" + loc.toString() + XML_SUFFIX;
                 if (new File(path).exists()) {
                     commonOrSeed = c;
@@ -427,7 +427,7 @@ public class OutputFileManager {
             /*
              * Only create the file in "main" here; doWriteFile will then create the file in "annotations"
              */
-            String outDirName = vetDataDir + "/" + kind.toString() +  "/" + commonOrSeed + "/" + DirNames.justMain;
+            String outDirName = vetDataDir + "/" + kind.toString() + "/" + commonOrSeed + "/" + DirNames.justMain;
             File outDir = new File(outDirName);
             if (!outDir.exists() && !outDir.mkdirs()) {
                 throw new InternalError("Unable to create directory: " + outDirName);
@@ -453,7 +453,7 @@ public class OutputFileManager {
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-12016
      */
     private void removeEmptyFiles(Writer out, File vxmlDir) throws IOException {
-        for (String c: DirNames.commonAndSeed) {
+        for (String c : DirNames.commonAndSeed) {
             /*
              * Skip main. Only do common/annotations and seed/annotations.
              */
@@ -592,9 +592,9 @@ public class OutputFileManager {
      * @throws IOException
      */
     private boolean verifyNoDuplicatesInCommonAndSeed(Writer out, File vxmlDir)
-            throws IOException {
+        throws IOException {
 
-        for (String m: DirNames.mainAndAnnotations) {
+        for (String m : DirNames.mainAndAnnotations) {
             String commonDirName = vxmlDir + "/" + DirNames.justCommon + "/" + m;
             String seedDirName = vxmlDir + "/" + DirNames.justSeed + "/" + m;
             File dirFile = new File(commonDirName);
@@ -629,10 +629,10 @@ public class OutputFileManager {
      * @throws IOException
      */
     private boolean verifyParentChildSameDirectory(Writer out, File vxmlDir)
-            throws IOException {
+        throws IOException {
 
-        for (String c: DirNames.commonAndSeed) {
-            for (String m: DirNames.mainAndAnnotations) {
+        for (String c : DirNames.commonAndSeed) {
+            for (String m : DirNames.mainAndAnnotations) {
                 String dirName = vxmlDir + "/" + c + "/" + m;
                 File dirFile = new File(dirName);
                 if (!dirFile.exists()) {
@@ -698,8 +698,8 @@ public class OutputFileManager {
          * Replace "/seed/" with "/common/" in the parent path
          */
         parentPathName = parentPathName.replace(
-                "/" + DirNames.justSeed + "/",
-                "/" + DirNames.justCommon + "/");
+            "/" + DirNames.justSeed + "/",
+            "/" + DirNames.justCommon + "/");
         return new File(parentPathName).exists();
     }
 
@@ -714,23 +714,23 @@ public class OutputFileManager {
      * @throws IOException
      */
     private boolean verifyVxmlAndBaselineFilesCorrespond(Writer out, File vxmlDir)
-            throws IOException {
+        throws IOException {
 
         String bxmlDir = CLDRConfig.getInstance().getCldrBaseDirectory().toString();
         ArrayList<String> vxmlFiles = new ArrayList<>();
         ArrayList<String> bxmlFiles = new ArrayList<>(); /* bxml = baseline cldr xml */
-        for (String c: DirNames.commonAndSeed) {
-            for (String m: DirNames.mainAndAnnotations) {
+        for (String c : DirNames.commonAndSeed) {
+            for (String m : DirNames.mainAndAnnotations) {
                 File vxmlDirFile = new File(vxmlDir + "/" + c + "/" + m);
                 File bxmlDirFile = new File(bxmlDir + "/" + c + "/" + m);
                 if (vxmlDirFile.exists()) {
                     for (File file : vxmlDirFile.listFiles(xmlFileFilter)) {
-                        vxmlFiles.add(c + "/" + m  + "/" + file.getName());
+                        vxmlFiles.add(c + "/" + m + "/" + file.getName());
                     }
                 }
                 if (bxmlDirFile.exists()) {
                     for (File file : bxmlDirFile.listFiles(xmlFileFilter)) {
-                        bxmlFiles.add(c + "/" + m  + "/" + file.getName());
+                        bxmlFiles.add(c + "/" + m + "/" + file.getName());
                     }
                 }
             }
@@ -738,7 +738,7 @@ public class OutputFileManager {
         Set<String> diff = symmetricDifference(vxmlFiles, bxmlFiles);
         if (!diff.isEmpty()) {
             boolean someOnlyInVxml = false, someOnlyInBxml = false;
-            for (String name: diff) {
+            for (String name : diff) {
                 if (vxmlFiles.contains(name)) {
                     someOnlyInVxml = true;
                 } else {
@@ -753,7 +753,7 @@ public class OutputFileManager {
                  * Notification only, not a failure
                  */
                 out.write("<h2>Verification notice, file(s) present in vxml but not in baseline</h2>\n");
-                for (String name: diff) {
+                for (String name : diff) {
                     if (vxmlFiles.contains(name)) {
                         out.write(name + "<br>\n");
                     }
@@ -761,7 +761,7 @@ public class OutputFileManager {
             }
             if (someOnlyInBxml) {
                 out.write("<h2>Verification failure, file(s) present in baseline but not in vxml</h2>\n");
-                for (String name: diff) {
+                for (String name : diff) {
                     if (bxmlFiles.contains(name)) {
                         out.write(name + "<br>\n");
                     }
@@ -833,10 +833,10 @@ public class OutputFileManager {
      */
     Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of(
         "SKIP_PATH", isAnnotations.negate()
-        /***,
-        "SKIP_FILE_IF_SKIP_ALL_PATHS", true
-        ***/
-        );
+    /***,
+    "SKIP_FILE_IF_SKIP_ALL_PATHS", true
+    ***/
+    );
 
     /**
      * Write one or more files. For vxml (at least), write one in "main" and one in "annotations".

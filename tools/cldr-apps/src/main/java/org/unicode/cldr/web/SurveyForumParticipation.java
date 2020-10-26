@@ -95,7 +95,7 @@ public class SurveyForumParticipation {
         ForumStats stats = new ForumStats();
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            for (Cell cell: Cell.values()) {
+            for (Cell cell : Cell.values()) {
                 int count = queryForumDb(cell, loc);
                 stats.map.put(cell, count);
             }
@@ -157,7 +157,7 @@ public class SurveyForumParticipation {
             count = 0;
             while (rs.next()) {
                 int forumId = rs.getInt(1);
-                int postType =rs.getInt(2);
+                int postType = rs.getInt(2);
                 /*
                  * For Discuss: look at the LAST reply in the thread, and skip the item if our org was its poster
                  * For Request: look at each reply in the thread, and skip the item if our org agreed or declined
@@ -179,7 +179,7 @@ public class SurveyForumParticipation {
     }
 
     private PreparedStatement prepareForumActQuery(String loc) throws SQLException {
-        String sql = "SELECT " + forumTable + ".id, " +  forumTable + ".type"
+        String sql = "SELECT " + forumTable + ".id, " + forumTable + ".type"
             + " FROM " + forumTable
             + " JOIN " + userTable
             + " ON " + forumTable + ".poster=" + userTable + ".id"

@@ -1364,7 +1364,7 @@ public class MetazoneSortMode extends SortMode {
     }
 
     private static final class ComparatorHelper {
-        private static final Comparator<DataRow> COMPARATOR  = new Comparator<DataRow>() {
+        private static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
             final int ourKey = SortMode.SortKeyType.SORTKEY_CALENDAR.ordinal();
             final Comparator<DataRow> codeComparator = CodeSortMode.internalGetComparator();
 

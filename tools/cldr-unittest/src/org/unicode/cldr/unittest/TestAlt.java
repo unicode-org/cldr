@@ -73,31 +73,31 @@ public class TestAlt extends TestFmwk {
             System.out.println(entry.getKey() + "\t" + Joiner.on("\t").join(entry.getValue()));
         }
     }
-    
+
     public void testAlt() {
-        Output<String> pathWhereFound = new Output<String>();
-        Output<String> localeWhereFound = new Output<String>();
+        Output<String> pathWhereFound = new Output<>();
+        Output<String> localeWhereFound = new Output<>();
 
         CLDRFile testCldrFile = CLDRConfig.getInstance().getCLDRFile("fr_CA", true);
         String plain = "//ldml/localeDisplayNames/languages/language[@type=\"af\"]";
-        
+
         String expected = testCldrFile.getStringValue(plain);
         String altMedium = "[@alt=\"medium\"]";
 
-        String actual = testCldrFile.getStringValue(plain+altMedium);
-        assertEquals(plain+altMedium, expected, actual);
+        String actual = testCldrFile.getStringValue(plain + altMedium);
+        assertEquals(plain + altMedium, expected, actual);
         Status status = new Status();
-        localeWhereFound.value = testCldrFile.getSourceLocaleID(plain+altMedium, status);
+        localeWhereFound.value = testCldrFile.getSourceLocaleID(plain + altMedium, status);
         pathWhereFound.value = status.pathWhereFound;
         assertEquals("Regular, pathWhereFound", plain, pathWhereFound.value);
         assertEquals("Regular, localeWhereFound", "fr_CA", localeWhereFound.value);
 
-        String actualBailey = testCldrFile.getConstructedBaileyValue(plain+altMedium, pathWhereFound, localeWhereFound);
-        assertEquals("Bailey, " + plain+altMedium, expected, actualBailey);
-        
+        String actualBailey = testCldrFile.getConstructedBaileyValue(plain + altMedium, pathWhereFound, localeWhereFound);
+        assertEquals("Bailey, " + plain + altMedium, expected, actualBailey);
+
         assertEquals("Bailey, pathWhereFound", plain, pathWhereFound.value);
         assertEquals("Bailey, localeWhereFound", "fr_CA", localeWhereFound.value);
-        
+
         //TODO check constructed
     }
 }

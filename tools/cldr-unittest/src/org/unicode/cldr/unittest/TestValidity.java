@@ -57,8 +57,8 @@ public class TestValidity extends TestFmwkPlus {
             { LstrType.language, Validity.Status.private_use, true, "qfz" },
             { LstrType.language, Validity.Status.unknown, true, "und" },
 
-            { LstrType.script, Validity.Status.reserved, true, "Qaaa", "Qaap"},
-            { LstrType.script, Validity.Status.private_use, true, "Qaaq", "Qabx"},
+            { LstrType.script, Validity.Status.reserved, true, "Qaaa", "Qaap" },
+            { LstrType.script, Validity.Status.private_use, true, "Qaaq", "Qabx" },
 
             { LstrType.script, Validity.Status.special, true, "Zanb" },
             { LstrType.script, Validity.Status.special, true, "Zinh" },
@@ -75,8 +75,8 @@ public class TestValidity extends TestFmwkPlus {
             { LstrType.region, Validity.Status.regular, true, "XK" },
             { LstrType.region, Validity.Status.macroregion, true, "001" },
 
-            { LstrType.region, Validity.Status.reserved, true, "AA", "QM", "QZ"},
-            { LstrType.region, Validity.Status.private_use, true, "XC",  "XZ"},
+            { LstrType.region, Validity.Status.reserved, true, "AA", "QM", "QZ" },
+            { LstrType.region, Validity.Status.private_use, true, "XC", "XZ" },
 
             { LstrType.region, Validity.Status.unknown, true, "ZZ" },
 
@@ -217,7 +217,6 @@ public class TestValidity extends TestFmwkPlus {
             messages.add(string);
         }
     }
-
 
     private Status getNewStatus(LstrType type, String code) {
         Map<Status, Set<String>> info = validity.getStatusToCodes(type);
@@ -410,12 +409,11 @@ public class TestValidity extends TestFmwkPlus {
             errln("extlang not subset of language: " + setDifference(extlangItems.keySet(), languageItems.keySet()));
         }
 
-
         ImmutableSet<LstrType> LstrTypesToSkip = ImmutableSet.of(LstrType.extlang, LstrType.legacy, LstrType.redundant);
         Set<LstrType> lstrTypesToTest = EnumSet.allOf(LstrType.class);
         lstrTypesToTest.removeAll(LstrTypesToSkip);
         Set<String> missingAliases = new LinkedHashSet<>();
-        Map<String,String> changedAliases = new LinkedHashMap<>();
+        Map<String, String> changedAliases = new LinkedHashMap<>();
 
         for (LstrType lstrType : lstrTypesToTest) {
             Map<String, Map<LstrField, String>> lstrValue = lstr.get(lstrType);
@@ -423,7 +421,6 @@ public class TestValidity extends TestFmwkPlus {
                 continue;
             }
             Map<String, R2<List<String>, String>> codeToReplacement = typeToCodeToReplacement.get(lstrType.toCompatString());
-
 
             Set<String> lstrDeprecated = new TreeSet<>();
             Set<String> aliased = new TreeSet<>();
@@ -511,8 +508,8 @@ public class TestValidity extends TestFmwkPlus {
             + " replacement=\"" + lstrReplacement + "\""
             + " reason=\"" + reason + "\"/>"
             + " <!-- " + TransliteratorUtilities.toXML.transform(
-                CLDRConfig.getInstance().getEnglish().getName(code) + " ⇒ " + CLDRConfig.getInstance().getEnglish().getName(lstrReplacement)
-                ) + " -->";
+                CLDRConfig.getInstance().getEnglish().getName(code) + " ⇒ " + CLDRConfig.getInstance().getEnglish().getName(lstrReplacement))
+            + " -->";
     }
 
     private <T, U extends Collection<T>> Set<T> setDifference(U a, U b) {
@@ -536,8 +533,7 @@ public class TestValidity extends TestFmwkPlus {
                 List<String> names = diff.stream()
                     .map(code -> "\n\t\t" + code + " ⇒\t" + lstr.get(lstrType).get(code)
                         + "\n\t\tvalid.⇒\t" + CldrUtility.ifNull(validity.getCodeToStatus(lstrType), Collections.emptyMap()).get(code)
-                        + "\n\t\talias⇒\t" + CldrUtility.ifNull(typeToCodeToReplacement.get(lstrType.toCompatString()), Collections.emptyMap()).get(code)
-                        )
+                        + "\n\t\talias⇒\t" + CldrUtility.ifNull(typeToCodeToReplacement.get(lstrType.toCompatString()), Collections.emptyMap()).get(code))
                     .collect(Collectors.toList());
                 errln(title + "\n\tLstrType=\t" + lstrType + "\n\tsize=\t" + diff.size() + "\n\tcodes=\t" + diff + "\n\tnames=\t" + names);
             } else {

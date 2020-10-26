@@ -23,7 +23,7 @@ public class CheckLanguageNameCoverage {
         CLDRConfig config = CLDRConfig.getInstance();
         CoverageLevel2 coverages = CoverageLevel2.getInstance(config.getSupplementalDataInfo(), "haw"); // pick something that's not likely to pull in others
         Validity validity = Validity.getInstance();
-        Multimap<Level,String> levelToLangs = TreeMultimap.create();
+        Multimap<Level, String> levelToLangs = TreeMultimap.create();
         Map<String, Status> map = validity.getCodeToStatus(LstrType.language);
 
         Set<String> targets = new TreeSet(Arrays.asList("ceb",

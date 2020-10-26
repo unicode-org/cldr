@@ -35,7 +35,7 @@ public enum Organization {
     kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom??"),
-    longnow("The Long Now Foundation", "Long Now","PanLex"),
+    longnow("The Long Now Foundation", "Long Now", "PanLex"),
     microsoft("Microsoft"),
     mozilla("Mozilla"),
     netflix("Netflix"),

@@ -49,7 +49,7 @@ public class LikelySubtags {
         if (supplementalDataInfo != null && currencyToLikelyTerritory != null) {
             return;
         }
-        synchronized(SYNC) {
+        synchronized (SYNC) {
             supplementalDataInfo = SupplementalDataInfo.getInstance();
             currencyToLikelyTerritory = new HashMap<>();
             Date now = new Date();

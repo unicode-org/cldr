@@ -101,7 +101,7 @@ public class TestPathHeader extends TestFmwkPlus {
         assertRelation("pathheader", true, ph3, TestFmwkPlus.LEQ, ph2);
     }
 
-    static final String[] MIN_LOCALES = {"root", "en", "de", "ru", "ko"}; // choose locales with range of case/gender structures
+    static final String[] MIN_LOCALES = { "root", "en", "de", "ru", "ko" }; // choose locales with range of case/gender structures
 
     public void tempTestCompletenessLdmlDtd() {
         // List<String> failures = null;
@@ -632,7 +632,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Factory factory2 = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
         Set<String> source = factory2.getAvailable();
         for (String file : getFilesToTest(source, MIN_LOCALES)) {
-            CLDRFile nativeFile = factory2.make(file,true);
+            CLDRFile nativeFile = factory2.make(file, true);
             Map<PathHeader, String> headerToPath = new HashMap<>();
             Map<String, String> headerVisibleToPath = new HashMap<>();
             for (String path : nativeFile.fullIterable()) {
@@ -1058,8 +1058,8 @@ public class TestPathHeader extends TestFmwkPlus {
         logln("\nInternal Counter:\t" + counterData.size());
         for (PathHeader.Factory.CounterData item : counterData.keySet()) {
             logln("\t" + counterData.getCount(item) + "\t" + item.get2() // externals
-            + "\t" + item.get3() + "\t" + item.get0() // internals
-            + "\t" + item.get1());
+                + "\t" + item.get3() + "\t" + item.get0() // internals
+                + "\t" + item.get1());
         }
         logln("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {
@@ -1090,8 +1090,8 @@ public class TestPathHeader extends TestFmwkPlus {
         "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]",
         "//ldml/units/unitLength[@type=\"narrrow\"]/unit[@type=\"volume-liter\"]",
         "//ldml/numbers/minimalPairs/caseMinimalPairs",
-        "//ldml/numbers/minimalPairs/genderMinimalPairs"
-        );
+        "//ldml/numbers/minimalPairs/genderMinimalPairs");
+
     public void TestOrder() {
         String[] paths = {
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"noon\"]",
@@ -1168,7 +1168,7 @@ public class TestPathHeader extends TestFmwkPlus {
             "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]",
             "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
             "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
-            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1"};
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1" };
 
         int germanExpectedIndex = 0;
         int errorCount = 0;
@@ -1280,7 +1280,7 @@ public class TestPathHeader extends TestFmwkPlus {
 
         public void checkSubpath(String path) {
             String message = ": Can't compute path header";
-            if (path.contentEquals("//supplementalData/grammaticalData/grammaticalFeatures[@targets=\"nominal\"][@locales=\"it\"]/grammaticalGender/_values") ) {
+            if (path.contentEquals("//supplementalData/grammaticalData/grammaticalFeatures[@targets=\"nominal\"][@locales=\"it\"]/grammaticalGender/_values")) {
                 int debug = 0;
             }
             PathHeader ph = null;
@@ -1318,8 +1318,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     + "\n\tFor example, check to see if the field in PathHeader.txt is in PathHeader.PageId."
                     + "\n\tIf not, either correct PathHeader.txt or add it to PageId"
                     + "\n\tIf you have a value attribute, you will need extra _ characters. The value attribute will show at the end with prefixed _, eg [...]/_skeleton."
-                    + "If there can be a value for the path then that element will add _. "
-                    );
+                    + "If there can be a value for the path then that element will add _. ");
             }
         }
     }
@@ -1403,10 +1402,11 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
     }
+
     public void TestCLDR_11454() {
         PathHeader.Factory phf = PathHeader.getFactory();
         PathHeader century = phf.fromPath("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-century\"]/displayName");
-        PathHeader decade =  phf.fromPath("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-decade\"]/displayName");
+        PathHeader decade = phf.fromPath("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-decade\"]/displayName");
         assertEquals("Section", century.getSectionId(), decade.getSectionId());
         assertEquals("Page", century.getPageId(), decade.getPageId());
     }
@@ -1415,16 +1415,15 @@ public class TestPathHeader extends TestFmwkPlus {
         PathHeader.Factory phf = PathHeader.getFactory();
         String[] desiredOrder = {
             "🧑‍⚕", "👨‍⚕", "👩‍⚕",
-            "🧑‍⚖", "👨‍⚖", "👩‍⚖"};
+            "🧑‍⚖", "👨‍⚖", "👩‍⚖" };
         List<PathHeader> pathHeaders = new ArrayList<>();
         for (String emoji : desiredOrder) {
             String base = "//ldml/annotations/annotation[@cp=\"" + emoji + "\"]";
             pathHeaders.add(phf.fromPath(base + "[@type=\"tts\"]"));
             pathHeaders.add(phf.fromPath(base));
             logln(emoji
-                + ": getEmojiMinorOrder="+ Emoji.getEmojiMinorOrder(Emoji.getMinorCategory(emoji))
-                + ", getEmojiToOrder="+ Emoji.getEmojiToOrder(emoji)
-                );
+                + ": getEmojiMinorOrder=" + Emoji.getEmojiMinorOrder(Emoji.getMinorCategory(emoji))
+                + ", getEmojiToOrder=" + Emoji.getEmojiToOrder(emoji));
         }
         PathHeader lastItem = null;
         for (PathHeader item : pathHeaders) {

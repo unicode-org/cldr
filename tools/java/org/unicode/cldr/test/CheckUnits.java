@@ -66,16 +66,19 @@ public class CheckUnits extends CheckCLDR {
         if (pathType != null) {
             int min = 0;
             int max = 0;
-            switch(pathType) {
-            case power: case prefix:
+            switch (pathType) {
+            case power:
+            case prefix:
                 min = 1;
                 max = 1;
                 break;
-            case times: case per:
+            case times:
+            case per:
                 min = 2;
                 max = 2;
                 break;
-            case perUnit: case coordinate: // coordinateUnitPattern
+            case perUnit:
+            case coordinate: // coordinateUnitPattern
                 min = 1;
                 max = 1;
                 break;
@@ -95,7 +98,7 @@ public class CheckUnits extends CheckCLDR {
                 }
             }
             String idType;
-            switch(pathType) {
+            switch (pathType) {
             case power: {
                 final String width = parts.getAttributeValue(-3, "type");
                 if (value != null && "long".contentEquals(width)) {
@@ -104,7 +107,7 @@ public class CheckUnits extends CheckCLDR {
                         if (unresolvedValue != null) {
                             final String message = genders == null
                                 ? "Long value for power can’t use superscripts; it must be spelled out."
-                                    : "Long value for power can’t use superscripts; it must be spelled out. [NOTE: values can vary by gender.]";
+                                : "Long value for power can’t use superscripts; it must be spelled out. [NOTE: values can vary by gender.]";
                             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                                 .setSubtype(Subtype.longPowerWithSubscripts)
                                 .setMessage(message));
@@ -128,7 +131,9 @@ public class CheckUnits extends CheckCLDR {
                             unitId.toString(cldrFile, width, count, caseVariant, null, false); // for debugging
                             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.mismatchedUnitComponent)
-                                .setMessage("Mismatched component: «{0}» produces «{1}», but the explicit translation is «{2}». See http://cldr.unicode.org/translation/units-1/units#TOC-Compound-Units", value, composedPattern, explicitPattern));
+                                .setMessage(
+                                    "Mismatched component: «{0}» produces «{1}», but the explicit translation is «{2}». See http://cldr.unicode.org/translation/units-1/units#TOC-Compound-Units",
+                                    value, composedPattern, explicitPattern));
                         }
                     }
                 }

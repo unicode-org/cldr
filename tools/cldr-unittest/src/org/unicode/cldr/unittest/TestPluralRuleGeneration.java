@@ -120,22 +120,22 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         Object[][] checkItems = {
             // compare each group of items against one another, where a group is bounded by {},
             // source,  f,      v,  e,  plural (, skipString — if toString doesn't roundtrip)?
-            {"2300000", 2300000d, 0, 0, "other"},
-            {"2.3e6", 2300000d, 0, 6, "many"},
+            { "2300000", 2300000d, 0, 0, "other" },
+            { "2.3e6", 2300000d, 0, 6, "many" },
             {},
-            {"1.20050e3",1200.5d, 2, 3, "other", "skipString"},
+            { "1.20050e3", 1200.5d, 2, 3, "other", "skipString" },
             {},
-            {"1200.5", 1200.5d, 1, 0, "other"},
-            {"1.2005e3", 1200.5d, 1, 3, "other"},
+            { "1200.5", 1200.5d, 1, 0, "other" },
+            { "1.2005e3", 1200.5d, 1, 3, "other" },
             {},
-            {"1200000", 1200000d, 0, 0, "other"},
-            {"1.2e6", 1200000d, 0, 6, "many"},
-            {"1.20e6", 1200000d, 0, 6, "many", "skipString"},
+            { "1200000", 1200000d, 0, 0, "other" },
+            { "1.2e6", 1200000d, 0, 6, "many" },
+            { "1.20e6", 1200000d, 0, 6, "many", "skipString" },
             {},
-            {"1234567.8", 1234567.8, 1, 0, "other"},
-            {"123456.78e1", 1234567.8, 1, 1, "other"},
-            {"12.345678e5", 1234567.8, 1, 5, "other"},
-            {"1.2345678e6", 1234567.8, 1, 6, "many"},
+            { "1234567.8", 1234567.8, 1, 0, "other" },
+            { "123456.78e1", 1234567.8, 1, 1, "other" },
+            { "12.345678e5", 1234567.8, 1, 5, "other" },
+            { "1.2345678e6", 1234567.8, 1, 6, "many" },
         };
         String lastSource = null;
         FixedDecimal lastFromString = null;
@@ -150,11 +150,11 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             }
             String rowString = Arrays.asList(row).toString();
 
-            final String source = (String)row[0];
-            final double fExpected = (double)row[1];
-            final int vExpected = (int)row[2];
-            final int eExpected = (int)row[3];
-            final String pluralExpected = (String)row[4];
+            final String source = (String) row[0];
+            final double fExpected = (double) row[1];
+            final int vExpected = (int) row[2];
+            final int eExpected = (int) row[3];
+            final String pluralExpected = (String) row[4];
             final boolean checkString = row.length < 6 || !"skipString".equals(row[5]);
 
             // basics
@@ -175,7 +175,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
 
             Map<Operand, Double> operands = getOperandMap(fromString);
             if (lastFromString != null) {
-                if (!assertTrue(lastSource + (checkString ? " < " :  " ≤ ") + source, lastFromString.compareTo(fromString) < (checkString ? 0 : 1))) {
+                if (!assertTrue(lastSource + (checkString ? " < " : " ≤ ") + source, lastFromString.compareTo(fromString) < (checkString ? 0 : 1))) {
                     lastFromString.compareTo(fromString); // for debugging
                 }
                 assertEquals("double " + lastSource + " vs " + source, lastFromString.doubleValue(), lastFromString.doubleValue());
@@ -191,10 +191,10 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             }
             assertEquals(rowString + " double vs fromDoubleAndExponent", fExpected, fromDoubleAndExponent.doubleValue());
 
-            assertEquals(rowString + " exponent, fromString vs fromDoubleAndExponent", fromString.getPluralOperand(Operand.e), fromDoubleAndExponent.getPluralOperand(Operand.e));
+            assertEquals(rowString + " exponent, fromString vs fromDoubleAndExponent", fromString.getPluralOperand(Operand.e),
+                fromDoubleAndExponent.getPluralOperand(Operand.e));
 
             assertEquals(rowString + " fromString vs fromDoubleAndExponent", 0, fromString.compareTo(fromDoubleAndExponent));
-
 
             lastSource = source;
             lastFromString = fromString;
@@ -202,11 +202,12 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
     }
 
-    private Map<Operand,Double> getOperandMap(FixedDecimal fixedDecimal) {
-        Map<Operand,Double> result = new LinkedHashMap<>();
+    private Map<Operand, Double> getOperandMap(FixedDecimal fixedDecimal) {
+        Map<Operand, Double> result = new LinkedHashMap<>();
         for (Operand op : Operand.values()) {
             switch (op) {
-            case e: case j:
+            case e:
+            case j:
                 continue;
             }
             result.put(op, fixedDecimal.getPluralOperand(op));
@@ -233,8 +234,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             "123e6",
             "123e5",
             "1200.50",
-            "1.20050e3"
-            );
+            "1.20050e3");
 
         for (String test : tests) {
             final FixedDecimal source = new FixedDecimal(test);
@@ -248,8 +248,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
         System.out.println("locale\tsource"
             + ops
-            + "\tpluralCat"
-            );
+            + "\tpluralCat");
         for (ULocale locale : locales) {
             PluralRules pr = PluralRules.forLocale(locale);
 
@@ -257,8 +256,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 final FixedDecimal source = new FixedDecimal(test);
                 System.out.println(locale
                     + "\t" + FixedDecimal.toSampleString(source)
-                    + "\t" + pluralInfo(pr, source)
-                    );
+                    + "\t" + pluralInfo(pr, source));
             }
             System.out.println();
 
@@ -294,15 +292,14 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             "123456.78e1",
             "12.345678e5",
             "1.2345678e6",
-            "1.20050e3"
-            );
+            "1.20050e3");
 
         boolean ok;
         for (int i = 0; i < 3; ++i) {
             for (String test : tests) {
                 IFixedDecimal sourceFixedDecimal = new FixedDecimal(test);
                 DecimalQuantity_DualStorageBCD sourceDecimalQuantity = quantityFromSampleString(test);
-                switch(i) {
+                switch (i) {
                 case 0:
                     ok = assertEquals(test + " — check FixedDecimal toString", test, sourceFixedDecimal.toString());
                     if (!ok) {
@@ -334,13 +331,14 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                     result.append("; ");
                 }
                 result.append(op)
-                .append(": "
-                    + myTitle
-                    + "=").append(me.getPluralOperand(op))
-                .append(" "
-                    + otherTitle
-                    + "=").append(other.getPluralOperand(op))
-                ;
+                    .append(": "
+                        + myTitle
+                        + "=")
+                    .append(me.getPluralOperand(op))
+                    .append(" "
+                        + otherTitle
+                        + "=")
+                    .append(other.getPluralOperand(op));
             }
         }
         return result.toString();
@@ -361,7 +359,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         BigDecimal altBD = new BigDecimal(num);
         altBD = altBD.movePointRight(exponent);
         sourceQuantity = new DecimalQuantity_DualStorageBCD(altBD);
-        sourceQuantity.setMinFraction(v-exponent); //"1.20050e3" v should be 2, is 4
+        sourceQuantity.setMinFraction(v - exponent); //"1.20050e3" v should be 2, is 4
         sourceQuantity.adjustMagnitude(-exponent);
         sourceQuantity.adjustExponent(exponent);
 
@@ -372,7 +370,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
 
     public CharSequence pluralInfo(PluralRules pr, final FixedDecimal formatted) {
         StringBuilder buffer = new StringBuilder();
-        for (Operand op :orderedOperands) {
+        for (Operand op : orderedOperands) {
             double opValue = formatted.getPluralOperand(op);
             buffer.append(nf.format(opValue) + "\t");
         }

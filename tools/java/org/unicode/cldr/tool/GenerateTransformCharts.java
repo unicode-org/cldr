@@ -358,7 +358,7 @@ public class GenerateTransformCharts {
         try {
 //            SimpleEquivalenceClass ec = new SimpleEquivalenceClass(UCA);
             BiMap<String, String> availableTransliterators = getAvailableTransliterators();
-            Multimap<Pair<String,String>,String> scriptToIds = TreeMultimap.create();
+            Multimap<Pair<String, String>, String> scriptToIds = TreeMultimap.create();
 //            Set<String> scripts = new TreeSet<String>();
             for (Entry<String, String> displayToId : availableTransliterators.entrySet()) {
                 String display = displayToId.getKey();
@@ -395,14 +395,14 @@ public class GenerateTransformCharts {
 //                    continue;
 //                }
 //                scripts.add(parsedID.getTargetVariant());
-                 Pair<String,String> key = sourceScript.compareTo(targetScript) < 0 ? Pair.of(sourceScript, targetScript) :  Pair.of(targetScript, sourceScript);
+                Pair<String, String> key = sourceScript.compareTo(targetScript) < 0 ? Pair.of(sourceScript, targetScript) : Pair.of(targetScript, sourceScript);
                 scriptToIds.put(key, id);
 //                ec.add(parsedID.getSourceVariant(), UScript.getName(UScript.getCodeFromName(sourceScript)));
 //                ec.add(parsedID.getTargetVariant(), UScript.getName(UScript.getCodeFromName(targetScript)));
             }
 
 //            Set<String> alreadySeen = new HashSet<String>();
-            for (Entry<Pair<String,String>, Collection<String>> entry : scriptToIds.asMap().entrySet()) {
+            for (Entry<Pair<String, String>, Collection<String>> entry : scriptToIds.asMap().entrySet()) {
 //                Set<String> scriptSet = new TreeSet<String>(UCA);
 //                scriptSet.addAll(it.next());
 //                scriptSet.removeAll(alreadySeen);
@@ -481,7 +481,7 @@ public class GenerateTransformCharts {
         UCA = new org.unicode.cldr.util.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0));
     }
 
-    private static void showLatin(Pair<String,String> scriptChoice, Set<String> targetVariant) throws IOException {
+    private static void showLatin(Pair<String, String> scriptChoice, Set<String> targetVariant) throws IOException {
 //        if (scriptChoice.equals("Latin")) {
 //            return;
 //        }
@@ -583,9 +583,9 @@ public class GenerateTransformCharts {
             }
             if (sourceIsCased)
                 for (int c = 'A'; c <= 'Z'; ++c) {
-                String latin = UTF16.valueOf(c);
-                addToLatinMap(latinItems, latinToTaggedNonLatin, nonLatinToLatinTagged, nonLatinId, nonLatin_latin,
-                    latin_nonLatin, latin);
+                    String latin = UTF16.valueOf(c);
+                    addToLatinMap(latinItems, latinToTaggedNonLatin, nonLatinToLatinTagged, nonLatinId, nonLatin_latin,
+                        latin_nonLatin, latin);
                 }
         }
 
@@ -883,7 +883,7 @@ public class GenerateTransformCharts {
 //        return getScriptFromScriptOrLanguage(string) >= 0;
 //    }
 //
-    private static BiMap<String,String> getAvailableTransliterators() {
+    private static BiMap<String, String> getAvailableTransliterators() {
         return CLDRTransforms.getInstance().getDisplayNameToId();
     }
 

@@ -58,12 +58,13 @@ public class ToolConstants {
         "36.0",
         "36.1",
         "37.0"
-        // add to this once the release is final!
-        );
+    // add to this once the release is final!
+    );
     public static final String DEV_VERSION = "38";
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET = ImmutableSet.copyOf(ToolConstants.CLDR_VERSIONS);
-    public static final Set<String> CLDR_RELEASE_AND_DEV_VERSION_SET = ImmutableSet.<String>builder().addAll(CLDR_RELEASE_VERSION_SET).add(DEV_VERSION).build();
+    public static final Set<String> CLDR_RELEASE_AND_DEV_VERSION_SET = ImmutableSet.<String> builder().addAll(CLDR_RELEASE_VERSION_SET).add(DEV_VERSION)
+        .build();
 
     public static String previousVersion(String version) {
         String last = "";
@@ -96,7 +97,7 @@ public class ToolConstants {
 
     public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS",
         CLDR_RELEASE_VERSION_SET.contains(CHART_VERSION)
-        ? "release"
+            ? "release"
             : "beta"));
     public static final boolean BETA = CHART_STATUS == ChartStatus.beta;
 
@@ -104,10 +105,9 @@ public class ToolConstants {
 
     public static final String CHART_DISPLAY_VERSION = CHART_VI.getVersionString(2, 2) + (BETA ? "β" : "");
 
-    public static final String LAST_RELEASE_VERSION = CLDR_VERSIONS.get(CLDR_VERSIONS.size()-1);
+    public static final String LAST_RELEASE_VERSION = CLDR_VERSIONS.get(CLDR_VERSIONS.size() - 1);
     public static final VersionInfo LAST_RELEASE_VI = VersionInfo.getInstance(LAST_RELEASE_VERSION);
     public static final String LAST_RELEASE_VERSION_WITH0 = LAST_RELEASE_VI.getVersionString(2, 2); // must have 1 decimal
-
 
     //public static final String CHART_SOURCE_DIRECTORY = CLDR_VERSIONS.contains(CHART_VERSION) ? ""
 

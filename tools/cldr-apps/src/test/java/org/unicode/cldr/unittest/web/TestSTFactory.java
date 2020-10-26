@@ -461,7 +461,7 @@ public class TestSTFactory extends TestFmwk {
                     try {
                         box.voteForValue(u, xpath, value);
                         if (needException) {
-                            errln("ERR: path #" + pathCount + ", xpath="+xpath+", locale="+locale+": expected exception, didn't get one");
+                            errln("ERR: path #" + pathCount + ", xpath=" + xpath + ", locale=" + locale + ": expected exception, didn't get one");
                         }
                     } catch (InvalidXPathException e) {
                         errln("Error: invalid xpath exception " + xpath + " : " + e);
@@ -721,7 +721,7 @@ public class TestSTFactory extends TestFmwk {
         });
         final String fileName = fileBasename + ".xml";
         myReader.read(TestSTFactory.class.getResource("data/" + fileName).toString(), // for DTD resolution
-                        TestAll.getUTF8Data(fileName), -1, true);
+            TestAll.getUTF8Data(fileName), -1, true);
     }
 
     public void TestVettingWithNonDistinguishing() throws SQLException, IOException, InvalidXPathException, SurveyException {

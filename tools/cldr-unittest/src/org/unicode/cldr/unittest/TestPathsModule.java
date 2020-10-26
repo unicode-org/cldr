@@ -47,8 +47,8 @@ public class TestPathsModule extends TestFmwk {
         CldrUtility.getProperty("test", ".?")).matcher("");
 
     public void TestMain() throws IOException {
-        Map<String, Exception> cantRead = new LinkedHashMap<String, Exception>();
-        List<PathTest> tests = new ArrayList<PathTest>();
+        Map<String, Exception> cantRead = new LinkedHashMap<>();
+        List<PathTest> tests = new ArrayList<>();
         tests.add(new DistinguishingText());
         tests.add(new GatherValueCharacters());
 
@@ -197,7 +197,7 @@ public class TestPathsModule extends TestFmwk {
             .of(new TreeMap<R2<DtdType, String>, Set<String>>(),
                 TreeSet.class);
 
-        private Map<String, OrderedChildren> orderedChildrenStatus = new TreeMap<String, OrderedChildren>();
+        private Map<String, OrderedChildren> orderedChildrenStatus = new TreeMap<>();
 
         @Override
         public void test(XPathParts fullParts, String value) {
@@ -276,7 +276,7 @@ public class TestPathsModule extends TestFmwk {
             super.finish();
             for (R3<DtdType, String, String> item : nonFinalNonDistingishing
                 .keySet()) {
-                List<String> samples = new ArrayList<String>(
+                List<String> samples = new ArrayList<>(
                     nonFinalNonDistingishing.getAll(item));
                 if (samples.size() > 5)
                     samples = samples.subList(0, 4);
@@ -286,7 +286,7 @@ public class TestPathsModule extends TestFmwk {
                     + samples);
             }
             for (R2<DtdType, String> item : illFormedOrder.keySet()) {
-                List<String> samples = new ArrayList<String>(
+                List<String> samples = new ArrayList<>(
                     illFormedOrder.getAll(item));
                 if (samples.size() > 5) {
                     samples = samples.subList(0, 4);

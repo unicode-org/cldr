@@ -26,19 +26,18 @@ final public class UnicodeSets {
         }
         Set<String> result = null;
         int cp;
-        main:
-            for (String s : strings) {
-                for (int i = 0; i < s.length(); i += Character.charCount(cp)) {
-                    cp = s.codePointAt(i);
-                    if (!source.contains(cp)) {
-                        continue main;
-                    }
+        main: for (String s : strings) {
+            for (int i = 0; i < s.length(); i += Character.charCount(cp)) {
+                cp = s.codePointAt(i);
+                if (!source.contains(cp)) {
+                    continue main;
                 }
-                if (result == null) { // lazy creation
-                   result = new HashSet<>();
-                }
-                result.add(s);
             }
+            if (result == null) { // lazy creation
+                result = new HashSet<>();
+            }
+            result.add(s);
+        }
         if (result == null) {
             result = Collections.emptySet();
         }

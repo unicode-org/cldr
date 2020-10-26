@@ -120,8 +120,9 @@ public class CheckEnglishCurrencyNames {
                         } catch (Exception e1) {
                         }
                     }
-                    String symbol = nativeLanguage == null ? "N/A" : nativeLanguage.getName(CLDRFile.CURRENCY_SYMBOL,
-                        currency);
+                    String symbol = nativeLanguage == null ? "N/A"
+                        : nativeLanguage.getName(CLDRFile.CURRENCY_SYMBOL,
+                            currency);
                     System.out.println(
                         currency + "\t" + english.getName(CLDRFile.CURRENCY_NAME, currency)
                             + "\t" + territory + "\t" + english.getName(CLDRFile.TERRITORY_NAME, territory)

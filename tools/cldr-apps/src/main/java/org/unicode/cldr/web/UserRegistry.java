@@ -1761,9 +1761,12 @@ public class UserRegistry {
 
     public enum ModifyDenial {
         DENY_NULL_USER("No user specified"), DENY_LOCALE_READONLY("Locale is read-only"), DENY_PHASE_READONLY(
-            "SurveyTool is in read-only mode"), DENY_ALIASLOCALE("Locale is an alias"), DENY_DEFAULTCONTENT(
-                "Locale is the Default Content for another locale"), DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"), DENY_NO_RIGHTS(
-                    "User does not have any voting rights"), DENY_LOCALE_LIST("User does not have rights to vote for this locale");
+            "SurveyTool is in read-only mode"),
+        DENY_ALIASLOCALE("Locale is an alias"), DENY_DEFAULTCONTENT(
+            "Locale is the Default Content for another locale"),
+        DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"), DENY_NO_RIGHTS(
+            "User does not have any voting rights"),
+        DENY_LOCALE_LIST("User does not have rights to vote for this locale");
 
         ModifyDenial(String reason) {
             this.reason = reason;
@@ -1794,7 +1797,7 @@ public class UserRegistry {
         if (userIsTC(u))
             return null; // TC can modify all
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
-            // All users can modify the sandbox 
+            // All users can modify the sandbox
             return null;
         }
         if ((u.locales == null) && userIsExpert(u))
@@ -1850,7 +1853,7 @@ public class UserRegistry {
 
         // the 'und' locale and sublocales can always be modified
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
-            // All users can modify the sandbox 
+            // All users can modify the sandbox
             return null;
         }
 
@@ -2591,12 +2594,12 @@ public class UserRegistry {
                  */
                 String sql = "INSERT INTO " + CLDR_USERS
                     + "(userlevel, name, email, org, password, locales) VALUES("
-                    + ANONYMOUS + ","                // userlevel
-                    + "'anon#" + i + "',"            // name
+                    + ANONYMOUS + "," // userlevel
+                    + "'anon#" + i + "'," // name
                     + "'anon" + i + "@example.org'," // email
-                    + "'cldr',"                      // org
-                    + "'',"                          // password
-                    + "'" + ALL_LOCALES + "')";      // locales
+                    + "'cldr'," // org
+                    + "''," // password
+                    + "'" + ALL_LOCALES + "')"; // locales
                 s.execute(sql);
             }
             conn.commit();

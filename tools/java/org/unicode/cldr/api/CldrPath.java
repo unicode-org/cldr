@@ -50,8 +50,7 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
     // This is approximate and DOES NOT promise correctness, it's mainly there to catch unexpected
     // changes in the data and it can be updated or removed if needed. At the very least element
     // names must not contain '/', '[', ']', '@', '=', '#' or '"' to permit re-parsing of paths.
-    private static final CharMatcher NAME_CHARACTERS =
-        inRange('a', 'z').or(inRange('A', 'Z')).or(inRange('0', '9')).or(anyOf(":-_"));
+    private static final CharMatcher NAME_CHARACTERS = inRange('a', 'z').or(inRange('A', 'Z')).or(inRange('0', '9')).or(anyOf(":-_"));
 
     /**
      * Parses a distinguishing CLDR path string, including "distinguishing" and private "metadata"
@@ -446,8 +445,7 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
             }
             if (getAttributeCount() > 0) {
                 str = IntStream.range(0, getAttributeCount())
-                    .mapToObj(n ->
-                        String.format("[@%s=\"%s\"]", getLocalAttributeName(n), getLocalAttributeValue(n)))
+                    .mapToObj(n -> String.format("[@%s=\"%s\"]", getLocalAttributeName(n), getLocalAttributeValue(n)))
                     .collect(Collectors.joining("", str, ""));
             }
             // Overwrite only once the local string is completed (this is idempotent so we don't
@@ -469,11 +467,10 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
         if (valueAttributes.isEmpty()) {
             return out.append(getLocalToString());
         }
-        List<String> attributeNames =
-            valueAttributes.keySet().stream()
-                .filter(k -> k.getElementName().equals(getName()))
-                .map(AttributeKey::getAttributeName)
-                .collect(toCollection(ArrayList::new));
+        List<String> attributeNames = valueAttributes.keySet().stream()
+            .filter(k -> k.getElementName().equals(getName()))
+            .map(AttributeKey::getAttributeName)
+            .collect(toCollection(ArrayList::new));
         if (attributeNames.isEmpty()) {
             // No value attributes for _this_ element so can use just the local toString().
             return out.append(getLocalToString());

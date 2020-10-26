@@ -13,7 +13,8 @@ import com.google.common.collect.ImmutableSet;
 class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
-    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "grammaticalFeatures", "postalCodeData",
+    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "grammaticalFeatures",
+        "postalCodeData",
         "subdivisions", "units");
 
     /**
@@ -465,8 +466,8 @@ class LdmlConvertRules {
         // Annotations
         // If there is a type, move that into a sibling value
         new PathTransformSpec("(.*)/(annotations)/(annotation)\\[@cp=\"([^\"]*)\"\\]\\[@type=\"([^\"]*)\"\\](.*)$",
-                                "$1/$2/$4/$5$6"),
+            "$1/$2/$4/$5$6"),
         new PathTransformSpec("(.*)/(annotations)/(annotation)\\[@cp=\"([^\"]*)\"\\](.*)$",
-                                "$1/$2/$4/default$5"),
+            "$1/$2/$4/default$5"),
     };
 }

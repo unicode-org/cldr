@@ -716,15 +716,15 @@ public class CookieSession {
             for (CookieSession cs : gHash.values()) {
                 if (cs.user == null) { // guest
                     if (tooManyUsers
-                            || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_GUEST_TIMEOUT_SECS.value() * 1000)
-                            || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
+                        || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_GUEST_TIMEOUT_SECS.value() * 1000)
+                        || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
                         guests++;
                     }
                 } else {
                     if ((KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_USER_TIMEOUT_SECS.value() * 1000)
-                            || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
+                        || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
                         users++;

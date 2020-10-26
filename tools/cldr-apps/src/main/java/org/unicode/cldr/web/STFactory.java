@@ -236,7 +236,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                  * This may happen especially when resolveMorePaths is true for making vxml.
                  */
                 if (win == Status.missing) {
-                   return resolver;
+                    return resolver;
                 } else if (win == Status.approved) {
                     fullPath = baseXPath;
                 } else {
@@ -1182,11 +1182,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param xpathId
          */
         private void saveVoteToDb(final User user, final String distinguishingXpath, final String value,
-                final Integer withVote, final int xpathId) {
+            final Integer withVote, final int xpathId) {
             boolean didClearFlag = false;
             makeSource(false);
-            ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
-                + distinguishingXpath + " : " + user + " voting for '" + value);
+            ElapsedTimer et = !SurveyLog.DEBUG ? null
+                : new ElapsedTimer("{0} Recording PLD for " + locale + " "
+                    + distinguishingXpath + " : " + user + " voting for '" + value);
             Connection conn = null;
             PreparedStatement saveOld = null; // save off old value
             PreparedStatement ps = null; // all for mysql, or 1st step for
@@ -1284,7 +1285,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (pv.didLock()) {
                 User admin = sm.reg.getInfo(UserRegistry.ADMIN_ID);
                 peekXpathData(distinguishingXpath).setVoteForValue(admin, distinguishingXpath,
-                        value, VoteResolver.Level.LOCKING_VOTES, new Date());
+                    value, VoteResolver.Level.LOCKING_VOTES, new Date());
             } else if (pv.didUnlock()) {
                 peekXpathData(distinguishingXpath).removeOverrideVotes(VoteResolver.Level.LOCKING_VOTES);
             }
@@ -1941,7 +1942,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s = null; // don't close twice.
                 conn.commit();
                 System.err.println("Created table " + tableName);
-             }
+            }
         } catch (SQLException se) {
             SurveyLog.logException(se, "SQL: " + sql);
             SurveyMain.busted("Setting up DB for STFactory, SQL: " + sql, se);

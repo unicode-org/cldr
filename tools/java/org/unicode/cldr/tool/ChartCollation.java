@@ -41,8 +41,7 @@ public class ChartCollation extends Chart {
     static final String NOT_TAILORED = "notTailored";
     static final String NOT_EXEMPLARS = "notExemplars";
 
-    private static final String KNOWN_PROBLEMS =
-        "<ul>" + LS
+    private static final String KNOWN_PROBLEMS = "<ul>" + LS
         + "<li>The characters used in the illustration are:" + LS
         + "<ol>" + LS
         + "<li>those <span class='" + NOT_TAILORED + "'>not tailored</span> (added from standard exemplars for context)</li>" + LS
@@ -87,7 +86,7 @@ public class ChartCollation extends Chart {
         return "<p>Collation tailorings provide language or locale-specific modifications of the standard Unicode CLDR collation order, "
             + "which is based on <a target='_blank' href='http://unicode.org/charts/collation/'>Unicode default collation charts</a>. "
             + "Locales that just use the standard CLDR order (<a href='root.html'>Root</a>) are not listed.</p>"
-            + dataScrapeMessage("/tr35-collation.html", "common/testData/units/unitsTest.txt", "common/collation")+ LS;
+            + dataScrapeMessage("/tr35-collation.html", "common/testData/units/unitsTest.txt", "common/collation") + LS;
     }
 
     @Override
@@ -268,8 +267,7 @@ public class ChartCollation extends Chart {
                 + " The <i>search</i> order is special: it only used for comparing characters for similarity, so the order among the characters does not matter. "
                 + " Where a type is not present, such as <i>emoji</i> or <i>search</i>, it defaults to the <a href='root.html'>Root</a> type.</p>" + LS
                 + KNOWN_PROBLEMS
-                + dataScrapeMessage("/tr35-collation.html", null, "common/collation") + LS
-                ;
+                + dataScrapeMessage("/tr35-collation.html", null, "common/collation") + LS;
         }
 
         @Override
@@ -350,9 +348,9 @@ public class ChartCollation extends Chart {
                     }
                 }
                 tablePrinter
-                .addRow()
-                .addCell(type)
-                .addCell(list.toString());
+                    .addRow()
+                    .addCell(type)
+                    .addCell(list.toString());
                 tablePrinter.finishRow();
             }
             pw.write(tablePrinter.toTable());

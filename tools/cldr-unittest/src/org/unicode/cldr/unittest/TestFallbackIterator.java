@@ -45,7 +45,7 @@ public class TestFallbackIterator extends TestFmwk {
             String[] test = testString.split(",\\s*");
             FallbackIterator it = new FallbackIterator(test[0]);
             // get the fallback list
-            ArrayList<String> items = new ArrayList<String>();
+            ArrayList<String> items = new ArrayList<>();
             while (it.hasNext()) {
                 items.add(it.next());
             }

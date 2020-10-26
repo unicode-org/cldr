@@ -150,12 +150,11 @@ public class GetChanges {
                 if (verbose) {
                     System.out.println(
                         dir
-                        +";\tnew\t"
-                        + "\tlocale=" + localeID + ";"
-                        + "\taction=add;"
-                        + "\tpath=\t" + path
-                        + "\tnew_value=\t" + vxmlValue
-                        );
+                            + ";\tnew\t"
+                            + "\tlocale=" + localeID + ";"
+                            + "\taction=add;"
+                            + "\tpath=\t" + path
+                            + "\tnew_value=\t" + vxmlValue);
                 }
             } else {
                 // we do a lot of processing on the annotations, so most likely are just changes introduced by that.
@@ -167,12 +166,11 @@ public class GetChanges {
                 if (verbose) {
                     System.out.println(
                         dir
-                        + ";\ttrunk=\t" + trunkValue
-                        + "\tlocale=" + localeID + ";"
-                        + "\taction=add;"
-                        + "\tpath=\t" + path
-                        + "\tnew_value=\t" + vxmlValue
-                        );
+                            + ";\ttrunk=\t" + trunkValue
+                            + "\tlocale=" + localeID + ";"
+                            + "\taction=add;"
+                            + "\tpath=\t" + path
+                            + "\tnew_value=\t" + vxmlValue);
                 }
             }
 //            if (countNew != 0 || countChanged != 0) {
@@ -203,7 +201,6 @@ public class GetChanges {
         }
     }
 
-
     private void old() {
         boolean onlyMissing = true;
         String release = "33.1";
@@ -228,7 +225,7 @@ public class GetChanges {
         final Set<String> paths = ImmutableSet.copyOf(englishCldrFile.iterator());
         System.out.println("english paths: " + paths.size());
 
-        Multimap<String,PathHeader> missing = TreeMultimap.create();
+        Multimap<String, PathHeader> missing = TreeMultimap.create();
 
         Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, Collections.singleton(Level.MODERN));
 
@@ -323,7 +320,7 @@ public class GetChanges {
             totalCount += itemCount;
         }
         System.out.println("##Total:\t" + totalCount);
-        for ( Entry<String, PathHeader> entry : missing.entries()) {
+        for (Entry<String, PathHeader> entry : missing.entries()) {
             System.out.println(entry.getKey() + "\t" + entry.getValue());
         }
     }

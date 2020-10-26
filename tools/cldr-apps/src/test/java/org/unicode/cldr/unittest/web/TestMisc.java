@@ -92,7 +92,7 @@ public class TestMisc extends TestFmwk {
                 errln("❌ getCldrBaseDirHash is shorter than 8 chars: " + hash);
             }
         }
-        final String strings[] = {"CLDR-Apps", "CLDR-Tools"};
+        final String strings[] = { "CLDR-Apps", "CLDR-Tools" };
         for (String s : strings) {
             final String version = CLDRConfigImpl.getGitHashForSlug(s);
             assertNotNull("getting " + s + " version", version);

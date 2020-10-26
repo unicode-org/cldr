@@ -8,11 +8,11 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import com.google.common.collect.ImmutableSet;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.PathUtilities;
+
+import com.google.common.collect.ImmutableSet;
 
 @CLDRTool(alias = "CompareFilesBetweenReleases", description = "Print a report of which files changed since the last release")
 public class CompareFilesBetweenReleases2 {
@@ -28,39 +28,39 @@ public class CompareFilesBetweenReleases2 {
         Set<String> lastRelease = getFiles(lastFile, SKIP);
 
         // now, check common <-> seed
-        Set<String> stagingCommon   = getFiles(new File(stagingFile, "common"), Collections.emptySet());
-        Set<String> stagingSeed     = getFiles(new File(stagingFile, "seed"),   Collections.emptySet());
-        Set<String> lastCommon      = getFiles(new File(lastFile,    "common"), Collections.emptySet());
-        Set<String> lastSeed        = getFiles(new File(lastFile,    "seed"),   Collections.emptySet());
+        Set<String> stagingCommon = getFiles(new File(stagingFile, "common"), Collections.emptySet());
+        Set<String> stagingSeed = getFiles(new File(stagingFile, "seed"), Collections.emptySet());
+        Set<String> lastCommon = getFiles(new File(lastFile, "common"), Collections.emptySet());
+        Set<String> lastSeed = getFiles(new File(lastFile, "seed"), Collections.emptySet());
 
-        Set<String> seedToCommon    = lastSeed.stream()
-                                        .distinct()
-                                        .filter(stagingCommon::contains)
-                                        .map((String s) -> "/common" + s)
-                                        .collect(Collectors.toCollection(() -> new TreeSet<String>()));
-        Set<String> commonToSeed    = lastCommon.stream()
-                                        .distinct()
-                                        .filter(stagingSeed::contains)
-                                        .map((String s) -> "/seed" + s)
-                                        .collect(Collectors.toCollection(() -> new TreeSet<String>()));
+        Set<String> seedToCommon = lastSeed.stream()
+            .distinct()
+            .filter(stagingCommon::contains)
+            .map((String s) -> "/common" + s)
+            .collect(Collectors.toCollection(() -> new TreeSet<>()));
+        Set<String> commonToSeed = lastCommon.stream()
+            .distinct()
+            .filter(stagingSeed::contains)
+            .map((String s) -> "/seed" + s)
+            .collect(Collectors.toCollection(() -> new TreeSet<>()));
         // this is like commonToSeed but has /common in it, for exclusion
-        Set<String> commonToSeedExclude    = lastCommon.stream()
-                                        .distinct()
-                                        .filter(stagingSeed::contains)
-                                        .map((String s) -> "/common" + s)
-                                        .collect(Collectors.toCollection(() -> new TreeSet<String>()));
-        if( !seedToCommon.isEmpty() ) {
+        Set<String> commonToSeedExclude = lastCommon.stream()
+            .distinct()
+            .filter(stagingSeed::contains)
+            .map((String s) -> "/common" + s)
+            .collect(Collectors.toCollection(() -> new TreeSet<>()));
+        if (!seedToCommon.isEmpty()) {
             System.out.println("\nMoved from Seed to Common:\n");
             seedToCommon.forEach((final String f) -> System.out.println(f));
         }
-        if( !commonToSeed.isEmpty() ) {
+        if (!commonToSeed.isEmpty()) {
             System.out.println("\nMoved from Common to Seed:\n");
             commonToSeed.forEach((final String f) -> System.out.println(f));
         }
 
-        System.out.println("\nIn master, but not "+ToolConstants.LAST_RELEASE_VERSION+":\n");
+        System.out.println("\nIn master, but not " + ToolConstants.LAST_RELEASE_VERSION + ":\n");
         showDiff(staging, lastRelease, seedToCommon);
-        System.out.println("\nIn "+ToolConstants.LAST_RELEASE_VERSION+", but not master:\n");
+        System.out.println("\nIn " + ToolConstants.LAST_RELEASE_VERSION + ", but not master:\n");
         showDiff(lastRelease, staging, commonToSeedExclude);
     }
 
@@ -69,13 +69,13 @@ public class CompareFilesBetweenReleases2 {
         staging_release.removeAll(lastRelease);
         int skippedItems = 0;
         for (String file : staging_release) {
-            if(skip.contains(file)) {
+            if (skip.contains(file)) {
                 skippedItems++;
                 continue;
             }
             System.out.println(file);
         }
-        if(skippedItems > 0) {
+        if (skippedItems > 0) {
             System.out.println("(plus " + skippedItems + " skipped item(s) listed above)");
         }
     }

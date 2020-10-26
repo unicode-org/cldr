@@ -164,7 +164,7 @@ public class TestCLDRFile extends TestFmwk {
         for (String path : sorted) {
             if (DEBUG_testExtraPaths && path.equals("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"acceleration-g-force\"]/unitPattern")) {
                 List<String> failures = new ArrayList<>();
-                phf.fromPath(path, failures );
+                phf.fromPath(path, failures);
             }
             PathHeader ph = phf.fromPath(path);
             if (ph.getPageId() != PageId.Deprecated) {
@@ -301,8 +301,8 @@ public class TestCLDRFile extends TestFmwk {
                             && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]"))) // morning1, afternoon1, ...
                         || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
                             && localeInfo.locale.equals("root"))
-                        // //ldml/characters/exemplarCharacters[@type="index"][root]
-                        ) {
+                    // //ldml/characters/exemplarCharacters[@type="index"][root]
+                    ) {
                         continue;
                     }
                     String localeAndStatus = localeInfo.locale
@@ -349,11 +349,11 @@ public class TestCLDRFile extends TestFmwk {
             String engName = "en"
                 + (englishInfo.cldrFile.isHere(path) ? ""
                     : " (source_locale:"
-                    + originalLocale
-                    + (path.equals(status.pathWhereFound) ? ""
-                        : ", source_path: "
-                        + status)
-                    + ")");
+                        + originalLocale
+                        + (path.equals(status.pathWhereFound) ? ""
+                            : ", source_path: "
+                                + status)
+                        + ")");
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.contains("[@alt=\"accounting\"]")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
@@ -367,8 +367,8 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> locales = entry.getValue();
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.startsWith("//ldml/numbers/otherNumberingSystems/")
-                // || path.contains("[@alt=\"accounting\"]")
-                ) {
+            // || path.contains("[@alt=\"accounting\"]")
+            ) {
                 logln("-en, +" + locales + "\t" + path);
             } else {
                 logln("-en, +" + locales + "\t" + path);
@@ -407,7 +407,7 @@ public class TestCLDRFile extends TestFmwk {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
                 errln(cldr.getLocaleID() + "\t" + cldr.getStringValue(path)
-                + "\t" + cldr.getFullXPath(path));
+                    + "\t" + cldr.getFullXPath(path));
             }
             if (path == null) {
                 errln("Null path");

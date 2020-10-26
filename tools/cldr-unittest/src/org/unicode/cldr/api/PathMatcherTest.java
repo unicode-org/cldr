@@ -18,15 +18,13 @@ public class PathMatcherTest extends TestFmwk {
         CldrPath chineseMon2 = monthInfo("chinese", "format", "abbreviated", 2);
         CldrPath genericMon1 = monthInfo("generic", "stand-alone", "narrow", 1);
         CldrPath genericMon2 = monthInfo("generic", "stand-alone", "narrow", 2);
-        List<CldrPath> calPaths =
-            Arrays.asList(calEra, chineseMon1, chineseMon2, genericMon1, genericMon2);
+        List<CldrPath> calPaths = Arrays.asList(calEra, chineseMon1, chineseMon2, genericMon1, genericMon2);
 
         PathMatcher calendarPrefix = PathMatcher.of("//ldml/dates/calendars/calendar[@type=*]");
         assertTrue("is prefix match", calPaths.stream().allMatch(calendarPrefix::matchesPrefixOf));
         assertTrue("not full match", calPaths.stream().noneMatch(calendarPrefix::matches));
 
-        PathMatcher chineseCalendars =
-            PathMatcher.of("//ldml/dates/calendars/calendar[@type=\"chinese\"]");
+        PathMatcher chineseCalendars = PathMatcher.of("//ldml/dates/calendars/calendar[@type=\"chinese\"]");
         assertEquals("chinese data",
             calPaths.stream().filter(chineseCalendars::matchesPrefixOf).collect(toList()),
             Arrays.asList(chineseMon1, chineseMon2));

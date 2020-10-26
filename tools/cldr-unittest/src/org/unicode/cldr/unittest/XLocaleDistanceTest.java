@@ -20,7 +20,7 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Test the XLocaleDistance.
- * 
+ *
  * @author markdavis
  */
 public class XLocaleDistanceTest extends TestFmwk {
@@ -162,7 +162,7 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     class MyTestFileHandler extends DataDrivenTestHelper {
         final XLocaleDistance distance = XLocaleDistance.getDefault();
-        Output<ULocale> bestDesired = new Output<ULocale>();
+        Output<ULocale> bestDesired = new Output<>();
         private DistanceOption distanceOption = DistanceOption.NORMAL;
         private Integer threshold = distance.getDefaultScriptDistance();
 

@@ -22,7 +22,7 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Test the XLocaleMatcher.
- * 
+ *
  * @author markdavis
  */
 public class XLocaleMatcherTest extends TestFmwk {
@@ -118,7 +118,7 @@ public class XLocaleMatcherTest extends TestFmwk {
      */
     public void testExactMatches() {
         String lastBase = "";
-        TreeSet<ULocale> sorted = new TreeSet<ULocale>();
+        TreeSet<ULocale> sorted = new TreeSet<>();
         for (ULocale loc : ULocale.getAvailableLocales()) {
             String language = loc.getLanguage();
             if (!lastBase.equals(language)) {
@@ -269,7 +269,7 @@ public class XLocaleMatcherTest extends TestFmwk {
 
     class MyTestFileHandler extends DataDrivenTestHelper {
 
-        Output<ULocale> bestDesired = new Output<ULocale>();
+        Output<ULocale> bestDesired = new Output<>();
         DistanceOption distanceOption = DistanceOption.NORMAL;
         int threshold = -1;
 

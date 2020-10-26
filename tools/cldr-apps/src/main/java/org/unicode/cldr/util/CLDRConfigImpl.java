@@ -68,6 +68,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
     boolean isInitted = false;
     private Properties survprops;
+
     /**
      * Defaults to SMOKETEST for server
      * @return
@@ -186,20 +187,19 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 //        return Manifests.read(slug+"-Git-Commit");
         try {
             ClassLoader classLoader = CLDRConfigImpl.class.getClassLoader();
-            for(final Enumeration<URL> e = classLoader.getResources(JarFile.MANIFEST_NAME);
-                e.hasMoreElements();) {
+            for (final Enumeration<URL> e = classLoader.getResources(JarFile.MANIFEST_NAME); e.hasMoreElements();) {
                 final URL u = e.nextElement();
                 try (InputStream is = u.openStream()) {
                     Manifest mf = new Manifest(is);
-                    String s = mf.getMainAttributes().getValue(slug+"-Git-Commit");
-                    if(s != null && !s.isEmpty()) {
+                    String s = mf.getMainAttributes().getValue(slug + "-Git-Commit");
+                    if (s != null && !s.isEmpty()) {
                         return s;
                     }
-                } catch(Throwable t) {
+                } catch (Throwable t) {
 //                    t.printStackTrace();
                 }
             }
-        } catch(Throwable t) {
+        } catch (Throwable t) {
 //            t.printStackTrace();
         }
         return CLDRURLS.UNKNOWN_REVISION;

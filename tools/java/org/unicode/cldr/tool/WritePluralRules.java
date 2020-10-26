@@ -20,17 +20,15 @@ import com.ibm.icu.text.PluralRules;
 public class WritePluralRules {
     // Ordering by size-of-set first, and then lexicographically, with a final tie-break on the
     // string representation.
-    private static final Comparator<PluralRules> PLURAL_RULES_COMPARATOR =
-        Comparator.<PluralRules, Integer>comparing(r -> r.getKeywords().size())
-            .thenComparing(PluralRules::getKeywords,
-                Comparators.lexicographical(Comparator.<String>naturalOrder()))
-            .thenComparing(Object::toString);
+    private static final Comparator<PluralRules> PLURAL_RULES_COMPARATOR = Comparator.<PluralRules, Integer> comparing(r -> r.getKeywords().size())
+        .thenComparing(PluralRules::getKeywords,
+            Comparators.lexicographical(Comparator.<String> naturalOrder()))
+        .thenComparing(Object::toString);
 
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     public static void main(String[] args) {
-        Relation<PluralRules, String> rulesToLocales =
-            Relation.of(new TreeMap<>(PLURAL_RULES_COMPARATOR), TreeSet.class);
+        Relation<PluralRules, String> rulesToLocales = Relation.of(new TreeMap<>(PLURAL_RULES_COMPARATOR), TreeSet.class);
         for (String locale : sInfo.getPluralLocales(PluralType.cardinal)) {
             if (locale.equals("root")) {
                 continue;

@@ -30,7 +30,6 @@ public interface TestLog {
 
     void warnln(String message);
 
-
     public static final int LOG = 0;
     public static final int WARN = 1;
     public static final int ERR = 2;

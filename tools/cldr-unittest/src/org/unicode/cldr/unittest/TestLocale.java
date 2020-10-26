@@ -76,7 +76,8 @@ public class TestLocale extends TestFmwkPlus {
     public void TestLanguageRegions() {
         Set<String> missingLanguageRegion = new LinkedHashSet<>();
         // TODO This should be derived from metadata: https://unicode.org/cldr/trac/ticket/11224
-        Set<String> knownMultiScriptLanguages = new HashSet<>(Arrays.asList("az", "ff", "bs", "hi", "ks", "mni", "ms", "pa", "sat", "sd", "shi", "sr", "su", "vai", "uz", "yue", "zh"));
+        Set<String> knownMultiScriptLanguages = new HashSet<>(
+            Arrays.asList("az", "ff", "bs", "hi", "ks", "mni", "ms", "pa", "sat", "sd", "shi", "sr", "su", "vai", "uz", "yue", "zh"));
         Set<String> available = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO
@@ -148,23 +149,23 @@ public class TestLocale extends TestFmwkPlus {
                 parser.iterateThroughNodeSet(XPATH_ALIAS_STRING,
                     new XPathExpressionParser.NodeHandlingInterface() {
 
-                    // Handle gets called for every node of the node set
-                    @Override
-                    public void handle(Node result) {
-                        if (result instanceof Element) {
-                            Element el = (Element) result;
-                            // this node likely has an attribute source
-                            if (el.hasAttributes()) {
-                                String sourceAttr = el
-                                    .getAttribute("source");
-                                if (sourceAttr != null
-                                    && !sourceAttr.isEmpty()) {
-                                    localesWithAliases.add(localeName);
+                        // Handle gets called for every node of the node set
+                        @Override
+                        public void handle(Node result) {
+                            if (result instanceof Element) {
+                                Element el = (Element) result;
+                                // this node likely has an attribute source
+                                if (el.hasAttributes()) {
+                                    String sourceAttr = el
+                                        .getAttribute("source");
+                                    if (sourceAttr != null
+                                        && !sourceAttr.isEmpty()) {
+                                        localesWithAliases.add(localeName);
+                                    }
                                 }
                             }
                         }
-                    }
-                });
+                    });
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -356,21 +357,21 @@ public class TestLocale extends TestFmwkPlus {
                 "Anglish (abc)",
                 "en",
                 "Anglish [abc]",
-            "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
+                "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
             {
                 "script",
                 "Latn",
                 "Latine (def)",
                 "en_Latn",
                 "Anglish [abc] (Latine [def])",
-            "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
+                "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
             {
                 "territory",
                 "US",
                 "U.S. (ghi)",
                 "en_Latn_US",
                 "Anglish [abc] (Latine [def], U.S. [ghi])",
-            "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
+                "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
             { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
             { "variant", "FOOBAR", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null },
             { "key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=foo)", null },
@@ -462,26 +463,31 @@ public class TestLocale extends TestFmwkPlus {
                 if (line.startsWith("#") || line.isEmpty()) continue;
                 if (line.startsWith("@")) {
                     String[] parts = line.split("=");
-                    switch(parts[0]) {
+                    switch (parts[0]) {
                     case "@locale":
                         cldrFile = factory.make(parts[1], true);
                         break;
                     case "@compound":
-                        switch(parts[1]) {
-                        case "true": compound=true; break;
-                        case "false": compound=false; break;
+                        switch (parts[1]) {
+                        case "true":
+                            compound = true;
+                            break;
+                        case "false":
+                            compound = false;
+                            break;
                         }
                         break;
-                    default: throw new IllegalArgumentException("Bad line: " + line);
+                    default:
+                        throw new IllegalArgumentException("Bad line: " + line);
                     }
                     continue;
                 }
                 int semi = line.indexOf(';');
-                String localeId=line;
-                String expected="";
+                String localeId = line;
+                String expected = "";
                 if (semi >= 0) {
                     localeId = line.substring(0, semi).trim();
-                    expected = line.substring(semi+1).trim();
+                    expected = line.substring(semi + 1).trim();
                 }
                 LanguageTagParser ltp = new LanguageTagParser().set(localeId);
                 seen.add(localeId);
@@ -489,7 +495,6 @@ public class TestLocale extends TestFmwkPlus {
 //                ULocale forComparison = ULocale.forLanguageTag(localeId);
 //                String uLocaleAsBcp47 = forComparison.toLanguageTag();
 //                assertEquals("ICU roundtrips", localeId, uLocaleAsBcp47);
-
 
 //                String bcp47 = ltp.toString(OutputOption.BCP47);
 //                String icuFormat = ltp.toString(OutputOption.ICU);
@@ -504,7 +509,6 @@ public class TestLocale extends TestFmwkPlus {
 //                    .set(icuFormat);
 //                String roundTripId = ltp2.toString(OutputOption.BCP47);
 
-
 //                // check that the format roundtrips
 //                assertEquals("LTP(BCP47)=>ICU=>BCP47", bcp47, roundTripId);
 
@@ -512,11 +516,10 @@ public class TestLocale extends TestFmwkPlus {
                 String name = cldrFile.getName(ltp, true, null);
                 if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
                     formattedExamplesForSpec.append("<tr><td>")
-                    .append(TransliteratorUtilities.toHTML.transform(localeId))
-                    .append("</td><td>")
-                    .append(TransliteratorUtilities.toHTML.transform(expected))
-                    .append("</td><tr>\n")
-                    ;
+                        .append(TransliteratorUtilities.toHTML.transform(localeId))
+                        .append("</td><td>")
+                        .append(TransliteratorUtilities.toHTML.transform(expected))
+                        .append("</td><tr>\n");
                 }
             }
             if (isVerbose()) {
@@ -527,15 +530,14 @@ public class TestLocale extends TestFmwkPlus {
         }
         // generate forms
         Map<R2<String, String>, String> deprecatedMap = SUPPLEMENTAL_DATA_INFO.getBcp47Deprecated();
-        keyLoop:
-        for (Entry<String, Set<String>> keyValues : SUPPLEMENTAL_DATA_INFO.getBcp47Keys().keyValuesSet()) {
+        keyLoop: for (Entry<String, Set<String>> keyValues : SUPPLEMENTAL_DATA_INFO.getBcp47Keys().keyValuesSet()) {
             String key = keyValues.getKey();
             if ("true".equals(deprecatedMap.get(Row.of(key, "")))) {
                 continue;
             }
             String localeBase = "en-" + (LanguageTagParser.isTKey(key) ? "t-" : "u-") + key + "-";
             // abbreviate some values
-            switch(key) {
+            switch (key) {
             case "cu":
                 showName(cldrFile, seen, localeBase, "eur", "jpy", "usd", "chf");
                 continue keyLoop;
@@ -551,7 +553,7 @@ public class TestLocale extends TestFmwkPlus {
                     continue;
                 }
                 if (isSpecialBcp47Value(value)) {
-                        showName(cldrFile, seen, localeBase, getSpecialBcp47ValueSamples(value));
+                    showName(cldrFile, seen, localeBase, getSpecialBcp47ValueSamples(value));
                 } else {
                     showName(cldrFile, seen, localeBase, value);
                 }
@@ -602,7 +604,7 @@ public class TestLocale extends TestFmwkPlus {
             testInfo.getEnglish().getName("zh_Hans"));
         assertEquals("Extended language translation",
             "Simplified Chinese (Singapore)", testInfo.getEnglish()
-            .getName("zh_Hans_SG"));
+                .getName("zh_Hans_SG"));
         assertEquals("Extended language translation", "American English",
             testInfo.getEnglish().getName("en-US"));
         assertEquals("Extended language translation",
@@ -624,80 +626,78 @@ public class TestLocale extends TestFmwkPlus {
 
         Set<String> allowedNoKeyValueNameSet = ImmutableSet.of("cu", "tz");
 
-        main:
-            for (Entry<String, String> entry : extensionToKeys.entrySet()) {
-                String extension = entry.getKey();
-                String key = entry.getValue();
+        main: for (Entry<String, String> entry : extensionToKeys.entrySet()) {
+            String extension = entry.getKey();
+            String key = entry.getValue();
 
-                String dep = extKeyToDeprecated.get(Row.of(key, ""));
+            String dep = extKeyToDeprecated.get(Row.of(key, ""));
+            if ("true".equals(dep)) {
+                logln("# Deprecated: " + Row.of(extension, key));
+                // # MULTIPLE: [u, vt, CODEPOINTS]
+                continue;
+            }
+
+            boolean allowedNoKeyValueName = allowedNoKeyValueNameSet.contains(key);
+
+            String kname = english.getKeyName(key);
+            assertNotNull("Name of key: " + key, kname);
+
+            //System.out.println("\n#Key: " + key + (kname == null ? "" : " (" + kname + ")"));
+
+//            if (extension.equals("t")) {
+//                System.out.println("skipping -t- for now: " + key);
+//                continue;
+//            }
+            boolean isMultiple = "multiple".equals(keyToValueType.get(key)); // single | multiple | incremental | any
+
+            Set<String> values = keyToValues.get(key);
+            String lastValue = null;
+            int count = 0;
+            for (String value : values) {
+
+                dep = extKeyToDeprecated.get(Row.of(key, value));
                 if ("true".equals(dep)) {
                     logln("# Deprecated: " + Row.of(extension, key));
                     // # MULTIPLE: [u, vt, CODEPOINTS]
                     continue;
                 }
 
-                boolean allowedNoKeyValueName = allowedNoKeyValueNameSet.contains(key);
+                boolean specialValue = isSpecialBcp47Value(value);
 
-                String kname = english.getKeyName(key);
-                assertNotNull("Name of key: " + key, kname);
+                String kvname = english.getKeyValueName(key, value);
+                if (!allowedNoKeyValueName && !specialValue) {
+                    assertNotNull("Name of <" + key + "," + value + ">", kvname);
+                } else {
+                    // logln("Name of <" + key + "," + value + ">" + " = " + kvname);
+                }
 
-                //System.out.println("\n#Key: " + key + (kname == null ? "" : " (" + kname + ")"));
+                //System.out.println("\n#Value: " + value + (kname == null ? "" : " (" + kvname + ")"));
 
-//            if (extension.equals("t")) {
-//                System.out.println("skipping -t- for now: " + key);
-//                continue;
-//            }
-                boolean isMultiple = "multiple".equals(keyToValueType.get(key)); // single | multiple | incremental | any
-
-                Set<String> values = keyToValues.get(key);
-                String lastValue = null;
-                int count = 0;
-                for (String value : values) {
-
-                    dep = extKeyToDeprecated.get(Row.of(key, value));
-                    if ("true".equals(dep)) {
-                        logln("# Deprecated: " + Row.of(extension, key));
-                        // # MULTIPLE: [u, vt, CODEPOINTS]
-                        continue;
-                    }
-
-                    boolean specialValue = isSpecialBcp47Value(value);
-
-                    String kvname = english.getKeyValueName(key, value);
-                    if (!allowedNoKeyValueName && !specialValue) {
-                        assertNotNull("Name of <" + key + "," + value + ">", kvname);
-                    } else {
-                        // logln("Name of <" + key + "," + value + ">" + " = " + kvname);
-                    }
-
-                    //System.out.println("\n#Value: " + value + (kname == null ? "" : " (" + kvname + ")"));
-
-
-                    String gorp = key.equals(lastKey) ? "" :
-                        (key.equals("t") ? "-u-ca-persian" : "-t-hi")
+                String gorp = key.equals(lastKey) ? ""
+                    : (key.equals("t") ? "-u-ca-persian" : "-t-hi")
                         + "-a-AA-v-VV-y-YY-x-foobar";
 
-                    lastKey = key;
-                    if (++count > 4) {
-                        continue;
-                    }
+                lastKey = key;
+                if (++count > 4) {
+                    continue;
+                }
 
-                    if (specialValue) {
-                        Set<String> valuesSet = getSpecialBcp47ValueSamples(value);
-                        showItem(ltp, extension, key, gorp, valuesSet.toArray(new String[valuesSet.size()]));
+                if (specialValue) {
+                    Set<String> valuesSet = getSpecialBcp47ValueSamples(value);
+                    showItem(ltp, extension, key, gorp, valuesSet.toArray(new String[valuesSet.size()]));
 
-                        continue;
-                    }
-                    showItem(ltp, extension, key, gorp, value);
-                    if (isMultiple) {
-                        if (lastValue != null) {
-                            showItem(ltp, extension, key, gorp, value, lastValue);
-                        } else {
-                            lastValue = value;
-                        }
+                    continue;
+                }
+                showItem(ltp, extension, key, gorp, value);
+                if (isMultiple) {
+                    if (lastValue != null) {
+                        showItem(ltp, extension, key, gorp, value, lastValue);
+                    } else {
+                        lastValue = value;
                     }
                 }
             }
+        }
     }
 
     public static Set<String> getSpecialBcp47ValueSamples(String value) {
@@ -706,16 +706,16 @@ public class TestLocale extends TestFmwkPlus {
         case "PRIVATE_USE": // [t, x0, PRIVATE_USE]
             valuesSet = ImmutableSet.of("foobar2");
             break;
-        case "REORDER_CODE":    // [u, kr, REORDER_CODE]
+        case "REORDER_CODE": // [u, kr, REORDER_CODE]
             valuesSet = ImmutableSet.of("arab", "digit-deva-latn");
             break;
-        case "SCRIPT_CODE":    // [u, dx, SCRIPT_CODE]
+        case "SCRIPT_CODE": // [u, dx, SCRIPT_CODE]
             valuesSet = ImmutableSet.of("thai", "thai-laoo");
             break;
-        case "RG_KEY_VALUE":    // [u, rg, RG_KEY_VALUE]
+        case "RG_KEY_VALUE": // [u, rg, RG_KEY_VALUE]
             valuesSet = ImmutableSet.of("ustx", "gbeng");
             break;
-        case "SUBDIVISION_CODE":    // [u, sd, SUBDIVISION_CODE]
+        case "SUBDIVISION_CODE": // [u, sd, SUBDIVISION_CODE]
             valuesSet = ImmutableSet.of("usca", "gbsct", "frnor");
             break;
         default:

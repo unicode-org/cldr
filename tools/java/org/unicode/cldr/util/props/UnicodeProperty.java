@@ -90,15 +90,15 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     public static synchronized UnicodeSet getSTUFF_TO_TEST() {
         if (STUFF_TO_TEST == null) {
             STUFF_TO_TEST = new UnicodeSet(getSPECIALS()).complement()
-            .addAll(NONCHARACTERS)
-            .add(getSAMPLE_UNASSIGNED())
-            .add(SAMPLE_HIGH_SURROGATE)
-            .add(SAMPLE_HIGH_PRIVATE_USE_SURROGATE)
-            .add(SAMPLE_LOW_SURROGATE)
-            .add(SAMPLE_PRIVATE_USE_AREA)
-            .add(SAMPLE_PRIVATE_USE_AREA_A)
-            .add(SAMPLE_PRIVATE_USE_AREA_B)
-            .freeze();
+                .addAll(NONCHARACTERS)
+                .add(getSAMPLE_UNASSIGNED())
+                .add(SAMPLE_HIGH_SURROGATE)
+                .add(SAMPLE_HIGH_PRIVATE_USE_SURROGATE)
+                .add(SAMPLE_LOW_SURROGATE)
+                .add(SAMPLE_PRIVATE_USE_AREA)
+                .add(SAMPLE_PRIVATE_USE_AREA_A)
+                .add(SAMPLE_PRIVATE_USE_AREA_B)
+                .freeze();
         }
         return STUFF_TO_TEST;
     }
@@ -145,18 +145,19 @@ public abstract class UnicodeProperty extends UnicodeLabel {
      */
 
     public static final int UNKNOWN = 0, BINARY = 2, EXTENDED_BINARY = 3,
-    ENUMERATED = 4, EXTENDED_ENUMERATED = 5, CATALOG = 6,
-    EXTENDED_CATALOG = 7, MISC = 8, EXTENDED_MISC = 9, STRING = 10,
-    EXTENDED_STRING = 11, NUMERIC = 12, EXTENDED_NUMERIC = 13,
-    START_TYPE = 2, LIMIT_TYPE = 14, EXTENDED_MASK = 1,
-    CORE_MASK = ~EXTENDED_MASK, BINARY_MASK = (1 << BINARY)
-    | (1 << EXTENDED_BINARY), STRING_MASK = (1 << STRING)
-    | (1 << EXTENDED_STRING),
-    STRING_OR_MISC_MASK = (1 << STRING) | (1 << EXTENDED_STRING)
-    | (1 << MISC) | (1 << EXTENDED_MISC),
-    ENUMERATED_OR_CATALOG_MASK = (1 << ENUMERATED)
-    | (1 << EXTENDED_ENUMERATED) | (1 << CATALOG)
-    | (1 << EXTENDED_CATALOG);
+        ENUMERATED = 4, EXTENDED_ENUMERATED = 5, CATALOG = 6,
+        EXTENDED_CATALOG = 7, MISC = 8, EXTENDED_MISC = 9, STRING = 10,
+        EXTENDED_STRING = 11, NUMERIC = 12, EXTENDED_NUMERIC = 13,
+        START_TYPE = 2, LIMIT_TYPE = 14, EXTENDED_MASK = 1,
+        CORE_MASK = ~EXTENDED_MASK, BINARY_MASK = (1 << BINARY)
+            | (1 << EXTENDED_BINARY),
+        STRING_MASK = (1 << STRING)
+            | (1 << EXTENDED_STRING),
+        STRING_OR_MISC_MASK = (1 << STRING) | (1 << EXTENDED_STRING)
+            | (1 << MISC) | (1 << EXTENDED_MISC),
+        ENUMERATED_OR_CATALOG_MASK = (1 << ENUMERATED)
+            | (1 << EXTENDED_ENUMERATED) | (1 << CATALOG)
+            | (1 << EXTENDED_CATALOG);
 
     private static final String[] TYPE_NAMES = { "Unknown", "Unknown",
         "Binary", "Extended Binary", "Enumerated", "Extended Enumerated",
@@ -202,7 +203,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         if (DEBUG && CHECK_VALUE == codepoint && CHECK_NAME.equals(getName())) {
             String value = _getValue(codepoint);
             System.out.println(getName() + "(" + Utility.hex(codepoint) + "):"
-                    + (getType() == STRING ? Utility.hex(value) : value));
+                + (getType() == STRING ? Utility.hex(value) : value));
             return value;
         }
         return _getValue(codepoint);
@@ -225,8 +226,8 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         if (!result.contains(valueAlias)) { // FIX && type < NUMERIC
             result = _getValueAliases(valueAlias, result); // for debugging
             throw new IllegalArgumentException("Internal error: " + getName()
-                    + " doesn't contain " + valueAlias + ": "
-                    + new BagFormatter().join(result));
+                + " doesn't contain " + valueAlias + ": "
+                + new BagFormatter().join(result));
         }
         return result;
     }
@@ -291,12 +292,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             String first = getValueAliases(value).get(0);
             if (first == null) { // internal error
                 throw new IllegalArgumentException(
-                        "Value not in value aliases: " + value);
+                    "Value not in value aliases: " + value);
             }
             if (DEBUG && CHECK_NAME.equals(getName())) {
                 System.out.println("First Alias: " + getName() + ": " + value
-                        + " => " + first
-                        + new BagFormatter().join(getValueAliases(value)));
+                    + " => " + first
+                    + new BagFormatter().join(getValueAliases(value)));
             }
             valueToFirstValueAlias.put(value, first);
             if (value.length() > maxValueWidth) {
@@ -353,13 +354,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 }
             }
         }
-        Predicate<String> matcher = isType(STRING_OR_MISC_MASK) ?
-            new StringEqualityMatcher(propertyValue) : new NameMatcher(propertyValue);
+        Predicate<String> matcher = isType(STRING_OR_MISC_MASK) ? new StringEqualityMatcher(propertyValue) : new NameMatcher(propertyValue);
         return getSet(matcher, result);
     }
 
     private static final Boolean binaryValueOrNull(String value) {
-        if ("Yes".equals(value)) {  // fastpath
+        if ("Yes".equals(value)) { // fastpath
             return Boolean.TRUE;
         }
         if (value == null) {
@@ -406,7 +406,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         Iterator it = um.getAvailableValues(null).iterator();
         main: while (it.hasNext()) {
             String value = (String) it.next();
-            if (matcher.test(value)) {  // fastpath
+            if (matcher.test(value)) { // fastpath
                 um.keySet(value, result);
                 continue main;
             }
@@ -416,7 +416,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 String value2 = (String) it2.next();
                 // System.out.println("Values:" + value2);
                 if (matcher.test(value2)
-                        || matcher.test(toSkeleton(value2))) {
+                    || matcher.test(toSkeleton(value2))) {
                     um.keySet(value, result);
                     continue main;
                 }
@@ -549,13 +549,13 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 String resultValue = (String) result.getValue(i);
                 if (!value.equals(resultValue)) {
                     throw new RuntimeException("Value failure at: "
-                            + Utility.hex(i));
+                        + Utility.hex(i));
                 }
             }
         }
         if (DEBUG && CHECK_NAME.equals(getName())) {
             System.out.println(getName() + ":\t" + getClass().getName() + "\t"
-                    + getVersion());
+                + getVersion());
             System.out.println(getStack());
             System.out.println(result);
         }
@@ -653,26 +653,26 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         for (int i = 0; i < source.length(); ++i) {
             char ch = source.charAt(i);
             if (('0' <= ch && ch <= '9') || ('A' <= ch && ch <= 'Z')
-                    || ch == '<' || ch == '>') {
+                || ch == '<' || ch == '>') {
                 result.append(ch);
             } else if (ch == ' ') {
                 // don't copy ever
             } else if (ch == '-') {
                 // only copy non-medials AND trailing O-E
                 if (0 == i
-                        || i == source.length() - 1
-                        || source.charAt(i - 1) == ' '
-                            || source.charAt(i + 1) == ' '
-                                || (i == source.length() - 2
-                                        && source.charAt(i - 1) == 'O' && source
-                                        .charAt(i + 1) == 'E')) {
+                    || i == source.length() - 1
+                    || source.charAt(i - 1) == ' '
+                    || source.charAt(i + 1) == ' '
+                    || (i == source.length() - 2
+                        && source.charAt(i - 1) == 'O' && source
+                            .charAt(i + 1) == 'E')) {
                     System.out.println("****** EXCEPTION " + source);
                     result.append(ch);
                 }
                 // otherwise don't copy
             } else {
                 throw new IllegalArgumentException("Illegal Name Char: U+"
-                        + Utility.hex(ch) + ", " + ch);
+                    + Utility.hex(ch) + ", " + ch);
             }
         }
         return result.toString();
@@ -702,12 +702,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 haveFirstCased = true;
             int cat = Character.getType(c);
             if (lastCat == Character.LOWERCASE_LETTER
-                    && cat == Character.UPPERCASE_LETTER) {
+                && cat == Character.UPPERCASE_LETTER) {
                 result.append('_');
             }
             if (haveFirstCased
-                    && (cat == Character.LOWERCASE_LETTER
-                            || cat == Character.TITLECASE_LETTER || cat == Character.UPPERCASE_LETTER)) {
+                && (cat == Character.LOWERCASE_LETTER
+                    || cat == Character.TITLECASE_LETTER || cat == Character.UPPERCASE_LETTER)) {
                 if (titlecaseStart) {
                     c = Character.toUpperCase(c);
                 }
@@ -744,8 +744,8 @@ public abstract class UnicodeProperty extends UnicodeLabel {
      */
     public static final <T extends Object> boolean equals(T a, T b) {
         return a == null ? b == null
-                : b == null ? false
-                        : a.equals(b);
+            : b == null ? false
+                : a.equals(b);
     }
 
     /**
@@ -812,7 +812,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
         public UnicodeProperty getProperty(String propertyAlias) {
             return (UnicodeProperty) skeletonNames
-            .get(toSkeleton(propertyAlias));
+                .get(toSkeleton(propertyAlias));
         }
 
         public final List<String> getAvailableNames() {
@@ -842,7 +842,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 UnicodeProperty property = getProperty(item);
                 if (DEBUG)
                     System.out.println("Properties: " + item + ","
-                            + property.getType());
+                        + property.getType());
                 if (!property.isType(propertyTypeMask)) {
                     // System.out.println("Masking: " + property.getType() + ","
                     // + propertyTypeMask);
@@ -859,7 +859,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
          * Format is: propname ('=' | '!=') propvalue ( '|' propValue )*
          */
         public final UnicodeSet getSet(String propAndValue,
-                PatternMatcher matcher, UnicodeSet result) {
+            PatternMatcher matcher, UnicodeSet result) {
             int equalPos = propAndValue.indexOf('=');
             String prop = propAndValue.substring(0, equalPos);
             String value = propAndValue.substring(equalPos + 1);
@@ -872,8 +872,8 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             UnicodeProperty up = getProperty(prop);
             if (matcher == null) {
                 matcher = new SimpleMatcher(value, up
-                        .isType(STRING_OR_MISC_MASK) ? null
-                                : PROPERTY_COMPARATOR);
+                    .isType(STRING_OR_MISC_MASK) ? null
+                        : PROPERTY_COMPARATOR);
             }
             if (negative) {
                 inverseMatcher.set(matcher);
@@ -883,7 +883,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         public final UnicodeSet getSet(String propAndValue,
-                PatternMatcher matcher) {
+            PatternMatcher matcher) {
             return getSet(propAndValue, matcher, null);
         }
 
@@ -898,7 +898,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         private class MyXSymbolTable extends UnicodeSet.XSymbolTable {
             @Override
             public boolean applyPropertyAlias(String propertyName,
-                    String propertyValue, UnicodeSet result) {
+                String propertyValue, UnicodeSet result) {
                 if (false)
                     System.out.println(propertyName + "=" + propertyValue);
                 UnicodeProperty prop = getProperty(propertyName);
@@ -937,29 +937,29 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 int pos = s.indexOf(':', start);
                 if (pos < 0) { // should never happen
                     throw new IllegalArgumentException(
-                            "Internal Error: missing =: " + s + "\r\n");
+                        "Internal Error: missing =: " + s + "\r\n");
                 }
                 UnicodeProperty prop = getProperty(s.substring(start, pos));
                 if (prop == null) {
                     throw new IllegalArgumentException("Invalid Property in: "
-                            + s + "\r\nUse " + showSet(getAvailableNames()));
+                        + s + "\r\nUse " + showSet(getAvailableNames()));
                 }
                 String value = s.substring(pos + 1);
                 UnicodeSet set;
                 if (value.startsWith("\u00AB")) { // regex!
                     set = prop.getSet(regexMatcher.set(value.substring(1, value
-                            .length() - 1)));
+                        .length() - 1)));
                 } else {
                     set = prop.getSet(value);
                 }
                 if (set.size() == 0) {
                     throw new IllegalArgumentException(
-                            "Empty Property-Value in: " + s + "\r\nUse "
+                        "Empty Property-Value in: " + s + "\r\nUse "
                             + showSet(prop.getAvailableValues()));
                 }
                 if (DEBUG)
                     System.out.println("\t(" + prefix + ")Returning "
-                            + set.toPattern(true));
+                        + set.toPattern(true));
                 return set.toPattern(true).toCharArray(); // really ugly
             }
 
@@ -984,14 +984,14 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
             @Override
             public String parseReference(String text, ParsePosition pos,
-                    int limit) {
+                int limit) {
                 if (DEBUG)
                     System.out.println("\t(" + prefix + ")Parsing <"
-                            + text.substring(pos.getIndex(), limit) + ">");
+                        + text.substring(pos.getIndex(), limit) + ">");
                 int start = pos.getIndex();
                 // ensure that it starts with 'prefix'
                 if (!text
-                        .regionMatches(true, start, prefix, 0, prefix.length()))
+                    .regionMatches(true, start, prefix, 0, prefix.length()))
                     return null;
                 start += prefix.length();
                 // now see if it is of the form identifier:identifier
@@ -1020,27 +1020,27 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 pos.setIndex(i);
                 if (DEBUG)
                     System.out.println("\t(" + prefix + ")Parsed <" + prop
-                            + ">=<" + value + ">");
+                        + ">=<" + value + ">");
                 return prefix + prop + ":" + value;
             }
 
             private int getIdentifier(String text, int start, int limit) {
                 if (DEBUG)
                     System.out.println("\tGetID <"
-                            + text.substring(start, limit) + ">");
+                        + text.substring(start, limit) + ">");
                 int cp = 0;
                 int i;
                 for (i = start; i < limit; i += UTF16.getCharCount(cp)) {
                     cp = UTF16.charAt(text, i);
                     if (!com.ibm.icu.lang.UCharacter
-                            .isUnicodeIdentifierPart(cp)
-                            && cp != '.') {
+                        .isUnicodeIdentifierPart(cp)
+                        && cp != '.') {
                         break;
                     }
                 }
                 if (DEBUG)
                     System.out.println("\tGotID <" + text.substring(start, i)
-                            + ">");
+                        + ">");
                 return i;
             }
         }
@@ -1052,7 +1052,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         protected StringFilter filter;
 
         protected UnicodeSetIterator matchIterator = new UnicodeSetIterator(
-                new UnicodeSet(0, 0x10FFFF));
+            new UnicodeSet(0, 0x10FFFF));
 
         protected HashMap backmap;
 
@@ -1101,9 +1101,9 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                     String item = (String) it.next();
                     String mappedItem = filter.remap(item);
                     if (backmap.get(mappedItem) != null
-                            && !allowValueAliasCollisions) {
+                        && !allowValueAliasCollisions) {
                         throw new IllegalArgumentException(
-                                "Filter makes values collide! " + item + ", "
+                            "Filter makes values collide! " + item + ", "
                                 + mappedItem);
                     }
                     backmap.put(mappedItem, item);
@@ -1112,7 +1112,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             valueAlias = (String) backmap.get(valueAlias);
             temp.clear();
             return filter.addUnique(property.getValueAliases(valueAlias, temp),
-                    result);
+                result);
         }
 
         @Override
@@ -1256,7 +1256,9 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             matcher = Pattern.compile(pattern).matcher("");
             return this;
         }
+
         UFormat foo;
+
         @Override
         public boolean test(Object value) {
             matcher.reset(value.toString());
@@ -1264,17 +1266,19 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
     }
 
-    public enum AliasAddAction {IGNORE_IF_MISSING, REQUIRE_MAIN_ALIAS, ADD_MAIN_ALIAS}
+    public enum AliasAddAction {
+        IGNORE_IF_MISSING, REQUIRE_MAIN_ALIAS, ADD_MAIN_ALIAS
+    }
 
     public static abstract class BaseProperty extends UnicodeProperty {
-        private static final String[] NO_VALUES = {"No", "N", "F", "False"};
+        private static final String[] NO_VALUES = { "No", "N", "F", "False" };
 
-        private static final String[] YES_VALUES = {"Yes", "Y", "T", "True"};
+        private static final String[] YES_VALUES = { "Yes", "Y", "T", "True" };
 
         /**
          *
          */
-        private static final String[][] YES_NO_ALIASES = new String[][] {YES_VALUES, NO_VALUES};
+        private static final String[][] YES_NO_ALIASES = new String[][] { YES_VALUES, NO_VALUES };
 
         protected List propertyAliases = new ArrayList(1);
 
@@ -1283,7 +1287,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         protected String version;
 
         public BaseProperty setMain(String alias, String shortAlias,
-                int propertyType, String version) {
+            int propertyType, String version) {
             setName(alias);
             setType(propertyType);
             propertyAliases.add(shortAlias);
@@ -1307,25 +1311,27 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         public BaseProperty addValueAliases(String[][] valueAndAlternates,
-                AliasAddAction aliasAddAction) {
+            AliasAddAction aliasAddAction) {
             if (toValueAliases == null)
                 _fixValueAliases();
             for (int i = 0; i < valueAndAlternates.length; ++i) {
                 for (int j = 1; j < valueAndAlternates[0].length; ++j) {
                     addValueAlias(valueAndAlternates[i][0],
-                            valueAndAlternates[i][j], aliasAddAction);
+                        valueAndAlternates[i][j], aliasAddAction);
                 }
             }
             return this;
         }
 
         public void addValueAlias(String value, String valueAlias,
-                AliasAddAction aliasAddAction) {
+            AliasAddAction aliasAddAction) {
             List result = (List) toValueAliases.get(value);
             if (result == null) {
-                switch(aliasAddAction) {
-                case IGNORE_IF_MISSING: return;
-                case REQUIRE_MAIN_ALIAS: throw new IllegalArgumentException("Can't add alias for mising value: " + value);
+                switch (aliasAddAction) {
+                case IGNORE_IF_MISSING:
+                    return;
+                case REQUIRE_MAIN_ALIAS:
+                    throw new IllegalArgumentException("Can't add alias for mising value: " + value);
                 case ADD_MAIN_ALIAS:
                     toValueAliases.put(value, result = new ArrayList(0));
                     break;
@@ -1403,14 +1409,14 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         public SimpleProperty setValues(String[] valueAliases,
-                String[] alternateValueAliases) {
+            String[] alternateValueAliases) {
             for (int i = 0; i < valueAliases.length; ++i) {
                 if (valueAliases[i].equals(UNUSED))
                     continue;
                 _addToValues(
-                        valueAliases[i],
-                        alternateValueAliases != null ? alternateValueAliases[i]
-                                                                              : null);
+                    valueAliases[i],
+                    alternateValueAliases != null ? alternateValueAliases[i]
+                        : null);
             }
             return this;
         }
@@ -1433,7 +1439,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
         protected void _fillValues() {
             List newvalues = (List) getUnicodeMap_internal()
-            .getAvailableValues(new ArrayList());
+                .getAvailableValues(new ArrayList());
             for (Iterator it = newvalues.iterator(); it.hasNext();) {
                 _addToValues((String) it.next(), null);
             }
@@ -1506,16 +1512,16 @@ public abstract class UnicodeProperty extends UnicodeLabel {
          }
          */@Override
         protected List _getAvailableValues(List result) {
-             unicodeMap.getAvailableValues(result);
-             if (toValueAliases != null) {
-                 for (Object s : toValueAliases.keySet()) {
-                     if (!result.contains(s)) {
-                         result.add(s);
-                     }
-                 }
-             }
-             return result;
-         }
+            unicodeMap.getAvailableValues(result);
+            if (toValueAliases != null) {
+                for (Object s : toValueAliases.keySet()) {
+                    if (!result.contains(s)) {
+                        result.add(s);
+                    }
+                }
+            }
+            return result;
+        }
     }
 
     public boolean isValidValue(String propertyValue) {
@@ -1548,7 +1554,6 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         result.removeAll(values);
         return result;
     }
-
 
     public static UnicodeSet addUntested(UnicodeSet result, boolean uniformUnassigned) {
         if (uniformUnassigned && result.contains(UnicodeProperty.getSAMPLE_UNASSIGNED())) {
@@ -1618,6 +1623,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     public boolean hasUniformUnassigned() {
         return hasUniformUnassigned;
     }
+
     protected UnicodeProperty setUniformUnassigned(boolean hasUniformUnassigned) {
         this.hasUniformUnassigned = hasUniformUnassigned;
         return this;
@@ -1625,7 +1631,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     public static class UnicodeSetProperty extends BaseProperty {
         protected UnicodeSet unicodeSet;
-        private static final String[] YESNO_ARRAY = new String[]{"Yes", "No"};
+        private static final String[] YESNO_ARRAY = new String[] { "Yes", "No" };
         private static final List YESNO = Arrays.asList(YESNO_ARRAY);
 
         public UnicodeSetProperty set(UnicodeSet set) {
@@ -1673,4 +1679,3 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     //        }
     //    }
 }
-

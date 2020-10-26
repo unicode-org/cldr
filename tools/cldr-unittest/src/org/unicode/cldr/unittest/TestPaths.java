@@ -45,9 +45,9 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     public void VerifyEnglishVsRoot() {
-        HashSet<String> rootPaths = new HashSet<String>();
+        HashSet<String> rootPaths = new HashSet<>();
         testInfo.getRoot().forEach(rootPaths::add);
-        HashSet<String> englishPaths = new HashSet<String>();
+        HashSet<String> englishPaths = new HashSet<>();
         testInfo.getEnglish().forEach(englishPaths::add);
         englishPaths.removeAll(rootPaths);
         if (englishPaths.size() == 0) {
@@ -55,8 +55,8 @@ public class TestPaths extends TestFmwkPlus {
         }
         Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         Status status = new Status();
-        Set<PathHeader> suspiciousPaths = new TreeSet<PathHeader>();
-        Set<PathHeader> errorPaths = new TreeSet<PathHeader>();
+        Set<PathHeader> suspiciousPaths = new TreeSet<>();
+        Set<PathHeader> errorPaths = new TreeSet<>();
         ImmutableSet<String> SKIP_VARIANT = ImmutableSet.of(
             "ps-variant", "ug-variant", "ky-variant", "az-short",
             "Arab-variant", "am-variant", "pm-variant");
@@ -90,10 +90,10 @@ public class TestPaths extends TestFmwkPlus {
         StringBuilder b = new StringBuilder();
         for (PathHeader path : altPaths) {
             b.append("\n\t\t")
-            .append(path)
-            .append(":\t")
-            .append(testInfo.getEnglish().getStringValue(
-                path.getOriginalPath()));
+                .append(path)
+                .append(":\t")
+                .append(testInfo.getEnglish().getStringValue(
+                    path.getOriginalPath()));
         }
         return b.toString();
     }
@@ -109,7 +109,7 @@ public class TestPaths extends TestFmwkPlus {
          * locale-dependent, run it only once for each path, for the first
          * locale in which the path occurs.
          */
-        Set<String> pathsSeen = new HashSet<String>();
+        Set<String> pathsSeen = new HashSet<>();
         CLDRFile englishFile = testInfo.getCldrFactory().make("en", true);
         PathHeader.Factory phf = PathHeader.getFactory(englishFile);
         Status status = new Status();
@@ -205,8 +205,7 @@ public class TestPaths extends TestFmwkPlus {
             || path.contains("/unitPattern")
             || path.contains("/gender")
             || path.contains("/caseMinimalPairs")
-            || path.contains("/genderMinimalPairs")
-            ) {
+            || path.contains("/genderMinimalPairs")) {
             return true;
         }
         return false;
@@ -236,7 +235,7 @@ public class TestPaths extends TestFmwkPlus {
 
     private Collection<String> getLocalesToTest() {
         return params.inclusion <= 5 ? Arrays.asList("root", "en", "ja", "ar", "de", "ru")
-            : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages() 
+            : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages()
                 : testInfo.getCldrFactory().getAvailable();
     }
 
@@ -280,17 +279,17 @@ public class TestPaths extends TestFmwkPlus {
                     if (dtdData.isDeprecated(elementName, attributeName, "*")) {
                         if (attributeName.equals("draft")) {
                             testPaths.errln("Deprecated attribute in data: "
-                                            + dtdData.dtdType
-                                            + ":" + elementName
-                                            + ":" + attributeName
-                                            + " \t;" + fullName +
-                                            " - consider adding to DtdData.DRAFT_ON_NON_LEAF_ALLOWED if you are sure this is ok.");
+                                + dtdData.dtdType
+                                + ":" + elementName
+                                + ":" + attributeName
+                                + " \t;" + fullName +
+                                " - consider adding to DtdData.DRAFT_ON_NON_LEAF_ALLOWED if you are sure this is ok.");
                         } else {
                             testPaths.errln("Deprecated attribute in data: "
-                                            + dtdData.dtdType
-                                            + ":" + elementName
-                                            + ":" + attributeName
-                                            + " \t;" + fullName);
+                                + dtdData.dtdType
+                                + ":" + elementName
+                                + ":" + attributeName
+                                + " \t;" + fullName);
                         }
                         return true;
                     }
@@ -387,7 +386,7 @@ public class TestPaths extends TestFmwkPlus {
 //                    || fileName.equals("dtd")  // TODO as flat files
 //                    || fileName.equals(".project")  // TODO as flat files
 //                    //|| dir.equals("uca") // TODO as flat files
-                    ) {
+                ) {
                     continue;
                 }
 

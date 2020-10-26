@@ -42,7 +42,7 @@ public class TestMetadata extends TestFmwk {
                 + CldrUtility.LINE_SEPARATOR + "\t"
                 + CldrUtility.join(dtdAttributeOrder, " ")
                 + CldrUtility.LINE_SEPARATOR + "Differences:");
-            Differ<String> differ = new Differ<String>(200, 1);
+            Differ<String> differ = new Differ<>(200, 1);
             Iterator<String> oldIt = cldrFileOrder.iterator();
             Iterator<String> newIt = dtdAttributeOrder.iterator();
             while (oldIt.hasNext() || newIt.hasNext()) {

@@ -283,8 +283,9 @@ public class DBUtils {
 
     private static final class DBUtilsHelper {
         static DBUtils SINGLETON = new DBUtils();
+
         static void shutdown(DBUtils fromThis) {
-            if(SINGLETON != fromThis) {
+            if (SINGLETON != fromThis) {
                 throw new RuntimeException("DBUtils Shutdown with some other instance");
             } else {
                 SINGLETON = null;
@@ -598,7 +599,7 @@ public class DBUtils {
     }
 
     private DBUtils() {
-        if(CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
+        if (CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
             System.err.println("NOT initializing datasource: UNITTEST environment. Must call DBUtils.makeInstanceFrom() before DB operations will work."); //  makeInstanceFrom() must be called.
             return;
         }
@@ -630,10 +631,10 @@ public class DBUtils {
             } finally {
                 if (c != null)
                     try {
-                    c.close();
+                        c.close();
                     } catch (Throwable tt) {
-                    System.err.println("Couldn't close datasource's conn: " + tt.toString());
-                    tt.printStackTrace();
+                        System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                        tt.printStackTrace();
                     }
             }
         } catch (NamingException nc) {
@@ -649,7 +650,7 @@ public class DBUtils {
         try {
             if (datasource != null) {
                 c = datasource.getConnection();
-            } else if(curl != null && !curl.isEmpty()) {
+            } else if (curl != null && !curl.isEmpty()) {
                 this.connectionUrl = curl;
                 c = getDBConnection();
                 DatabaseMetaData dmd = c.getMetaData();
@@ -674,10 +675,10 @@ public class DBUtils {
         } finally {
             if (c != null)
                 try {
-                c.close();
+                    c.close();
                 } catch (Throwable tt) {
-                System.err.println("Couldn't close datasource's conn: " + tt.toString());
-                tt.printStackTrace();
+                    System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                    tt.printStackTrace();
                 }
         }
     }
@@ -763,7 +764,7 @@ public class DBUtils {
     private int db_max_open = 0;
 
     public Connection getDBConnection(String options) {
-        if(connectionUrl != null) {
+        if (connectionUrl != null) {
             try {
                 Connection c = DriverManager.getConnection(connectionUrl);
                 c.setAutoCommit(false);
@@ -1536,9 +1537,9 @@ public class DBUtils {
     }
 
     public static String getDbBrokenMessage() {
-        return
-            "</pre><script src='../js/cldr-setup.js'></script>" +
-            "see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>" +
+        return "</pre><script src='../js/cldr-setup.js'></script>" +
+            "see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>"
+            +
             "For MySQL, click: <button onclick='return mysqlhelp()'>MySQL Configurator</button><pre>";
     }
 

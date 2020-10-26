@@ -119,8 +119,9 @@ public class GenerateLanguageData {
             Source source = Iso639Data.getSource(languageCode);
             String prefix = Iso639Data.getMacroForEncompassed(languageCode);
             Set<String> prefixNames = prefix == null ? null : Iso639Data.getNames(prefix);
-            String prefixName = prefixNames == null || prefixNames.size() == 0 ? "" : prefixNames.iterator().next()
-                + "::\t";
+            String prefixName = prefixNames == null || prefixNames.size() == 0 ? ""
+                : prefixNames.iterator().next()
+                    + "::\t";
             String fullCode = (prefix != null ? prefix + "-" : "") + languageCode;
             String scopeString = String.valueOf(scope);
             if (Iso639Data.getEncompassedForMacro(languageCode) != null) {

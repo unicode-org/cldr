@@ -549,7 +549,7 @@ public class GenerateMaximalLocales {
 
         // also CLDR-target locales
         final Set<String> CLDRMainLanguages = new TreeSet<>(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr));
-        
+
         for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
             PopulationData territoryPop = supplementalData.getPopulationDataForTerritory(territory);
             double territoryPopulation = territoryPop.getLiteratePopulation();
@@ -744,8 +744,7 @@ public class GenerateMaximalLocales {
             "blt_VN",
             "hi_IN",
             "nv_US",
-            "doi_IN"
-            ));
+            "doi_IN"));
 
         // if any have a script, then throw out any that don't have a script (unless they're specifically included.)
         Set<String> toRemove = new TreeSet<>();

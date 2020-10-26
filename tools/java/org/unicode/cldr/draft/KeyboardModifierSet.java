@@ -248,7 +248,8 @@ public class KeyboardModifierSet {
      */
     private enum ModifierParent {
         ctrl(Modifier.ctrlL, Modifier.ctrlR), alt(Modifier.altL, Modifier.altR), opt(
-            Modifier.optL, Modifier.optR), shift(Modifier.shiftL, Modifier.shiftR);
+            Modifier.optL, Modifier.optR),
+        shift(Modifier.shiftL, Modifier.shiftR);
 
         private final Modifier leftChild;
         private final Modifier rightChild;

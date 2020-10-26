@@ -166,7 +166,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
 
             // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
@@ -196,14 +196,15 @@ abstract public class CheckCLDR {
 
             // if limited submission, and winner doesn't have an error, limit the values
 
-            if (LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(), valueStatus == ValueStatus.ERROR, pathValueInfo.getBaselineStatus() == Status.missing)) {
+            if (LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(),
+                valueStatus == ValueStatus.ERROR, pathValueInfo.getBaselineStatus() == Status.missing)) {
                 return StatusAction.FORBID_READONLY;
             }
 
             if (this == Phase.SUBMISSION) {
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
+                    : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
             // We are in vetting, not in submission
@@ -213,7 +214,7 @@ abstract public class CheckCLDR {
             if (valueStatus != ValueStatus.NONE) {
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
+                    : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 //            }
 
@@ -240,7 +241,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
             if (status != SurveyToolStatus.READ_WRITE && status != SurveyToolStatus.LTR_ALWAYS) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
@@ -536,9 +537,9 @@ abstract public class CheckCLDR {
             for (Option o : Option.values()) {
                 if (options[o.ordinal()] != null) {
                     sb.append(o)
-                    .append('=')
-                    .append(options[o.ordinal()])
-                    .append(' ');
+                        .append('=')
+                        .append(options[o.ordinal()])
+                        .append(' ');
                 }
             }
             return sb.toString();
@@ -588,8 +589,8 @@ abstract public class CheckCLDR {
             .add(new CheckWidths())
             .add(new CheckPlaceHolders())
             .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
-            // not add a message if there are any.
-            ;
+        // not add a message if there are any.
+        ;
     }
 
     /**
@@ -719,8 +720,7 @@ abstract public class CheckCLDR {
             invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods,
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
-            mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences
-            ;
+            mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences;
 
             @Override
             public String toString() {
@@ -750,7 +750,6 @@ abstract public class CheckCLDR {
             Subtype.invalidPlaceHolder,
             Subtype.missingPlaceholders,
             Subtype.shouldntHavePlaceholders);
-
 
         private Type type;
         private Subtype subtype = Subtype.none;
@@ -790,7 +789,8 @@ abstract public class CheckCLDR {
                     MessageFormat format = new MessageFormat(fixedApos);
                     message = format.format(parameters);
                     if (errorCodesPath.contains(subtype)) {
-                        message += "; see <a href='http://cldr.unicode.org/translation/error-codes#" + subtype.name() + "'  target='cldr_error_codes'>" + subtype + "</a>.";
+                        message += "; see <a href='http://cldr.unicode.org/translation/error-codes#" + subtype.name() + "'  target='cldr_error_codes'>"
+                            + subtype + "</a>.";
                     }
                 } catch (Exception e) {
                     message = messageFormat;
@@ -1016,16 +1016,16 @@ abstract public class CheckCLDR {
         public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted,
             String reparsed) {
             htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(pattern))
-            .append("'></td><td><input type='text' name='input' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(input))
-            .append("'></td><td>")
-            .append("<input type='submit' value='Test' name='Test'>")
-            .append("</td><td>" + "<input type='text' name='formatted' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(formatted))
-            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
-            .append("'></td></tr>");
+                .append(TransliteratorUtilities.toXML.transliterate(pattern))
+                .append("'></td><td><input type='text' name='input' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(input))
+                .append("'></td><td>")
+                .append("<input type='submit' value='Test' name='Test'>")
+                .append("</td><td>" + "<input type='text' name='formatted' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(formatted))
+                .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+                .append("'></td></tr>");
         }
 
         /**
@@ -1033,7 +1033,7 @@ abstract public class CheckCLDR {
          */
         public static void appendTitle(StringBuffer htmlMessage) {
             htmlMessage.append("<table border='1' cellspacing='0' cellpadding='2'" +
-                // " style='border-collapse: collapse' style='width: 100%'" +
+            // " style='border-collapse: collapse' style='width: 100%'" +
                 "><tr>" +
                 "<th>Pattern</th>" +
                 "<th>Unlocalized Input</th>" +
@@ -1110,7 +1110,7 @@ abstract public class CheckCLDR {
         if (value != null
             && !value.equals(cldrFileToCheck.getWinningValue(path))
             && cldrFileToCheck.getUnresolved().getStringValue(path) == null) {
-                return this;
+            return this;
         }
 
         // If we're being asked to run tests for an inheritance marker, then we need to change it
@@ -1267,7 +1267,7 @@ abstract public class CheckCLDR {
                 .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
                     new Object[] { item.getClass().getName(), e.getClass().getName(), e,
                         Arrays.asList(e.getStackTrace())
-                }));
+                    }));
         }
 
         @Override
@@ -1409,6 +1409,6 @@ abstract public class CheckCLDR {
     }
 
     public CharSequence fixedValueIfInherited(String value, String path) {
-        return !CldrUtility.INHERITANCE_MARKER.equals(value) ? value: getCldrFileToCheck().getStringValueWithBailey(path);
+        return !CldrUtility.INHERITANCE_MARKER.equals(value) ? value : getCldrFileToCheck().getStringValueWithBailey(path);
     }
 }

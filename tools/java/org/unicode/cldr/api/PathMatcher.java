@@ -84,8 +84,7 @@ public final class PathMatcher {
     private PathMatcher(PathMatcher parent, List<Predicate<CldrPath>> elementMatchers) {
         this.parent = Optional.ofNullable(parent);
         this.elementMatchers = ImmutableList.copyOf(elementMatchers);
-        this.totalElementCount =
-            elementMatchers.size() + (parent != null ? parent.totalElementCount : 0);
+        this.totalElementCount = elementMatchers.size() + (parent != null ? parent.totalElementCount : 0);
     }
 
     /**
@@ -179,10 +178,8 @@ public final class PathMatcher {
     @SuppressWarnings("StringOperationCanBeSimplified")
     private static final String WILDCARD = new String("*");
 
-    private static final Pattern ELEMENT_START_REGEX =
-        Pattern.compile("(\\*|[-:\\w]+)(?:/|\\[|$)");
-    private static final Pattern ATTRIBUTE_REGEX =
-        Pattern.compile("\\[@([-:\\w]+)=(?:\\*|\"([^\"]*)\")]");
+    private static final Pattern ELEMENT_START_REGEX = Pattern.compile("(\\*|[-:\\w]+)(?:/|\\[|$)");
+    private static final Pattern ATTRIBUTE_REGEX = Pattern.compile("\\[@([-:\\w]+)=(?:\\*|\"([^\"]*)\")]");
 
     // element := foo, foo[@bar="baz"], foo[@bar=*]
     // pathspec := element{/element}*

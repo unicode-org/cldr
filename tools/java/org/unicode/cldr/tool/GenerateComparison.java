@@ -67,14 +67,14 @@ public class GenerateComparison {
         // Get the args
 
         String oldDirectory = CldrUtility.getProperty("oldDirectory", PathUtilities.getNormalizedPathString(new File(
-                CLDRPaths.BASE_DIRECTORY,
+            CLDRPaths.BASE_DIRECTORY,
             "common/main")) + "/");
         String newDirectory = CldrUtility.getProperty("newDirectory", PathUtilities.getNormalizedPathString(new File(
-                CLDRPaths.BASE_DIRECTORY,
+            CLDRPaths.BASE_DIRECTORY,
             "../cldr-release-1-7/common/main")) + "/");
         String changesDirectory = CldrUtility.getProperty("changesDirectory", PathUtilities
-                .getNormalizedPathString(CLDRPaths.CHART_DIRECTORY
-            + "/changes/")
+            .getNormalizedPathString(CLDRPaths.CHART_DIRECTORY
+                + "/changes/")
             + "/");
 
         String filter = CldrUtility.getProperty("localeFilter", ".*");

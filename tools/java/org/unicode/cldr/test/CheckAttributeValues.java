@@ -553,7 +553,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         @Override
         public boolean test(String value) {
             if (legacy.test(value)) return true;
-            lip.set((String) value);
+            lip.set(value);
             String field = lip.getLanguage();
             if (!language.test(field)) return false;
             field = lip.getScript();

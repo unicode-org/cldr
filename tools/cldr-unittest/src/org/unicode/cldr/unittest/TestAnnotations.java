@@ -104,11 +104,11 @@ public class TestAnnotations extends TestFmwkPlus {
 
     public void TestNames() {
         String[][] tests = { // the expected value for keywords can use , as well as |.
-            {"👨🏻", "man: light skin tone", "adult | man | light skin tone"},
-            {"👱‍♂️", "man: blond hair", "blond, blond-haired man, hair, man, man: blond hair"},
-            {"👱🏻‍♂️", "man: light skin tone, blond hair", "blond, blond-haired man, hair, man, man: blond hair, light skin tone, blond hair"},
-            {"👨‍🦰", "man: red hair", "adult | man | red hair"},
-            { "👨🏻‍🦰", "man: light skin tone, red hair", "adult | man | light skin tone| red hair"},
+            { "👨🏻", "man: light skin tone", "adult | man | light skin tone" },
+            { "👱‍♂️", "man: blond hair", "blond, blond-haired man, hair, man, man: blond hair" },
+            { "👱🏻‍♂️", "man: light skin tone, blond hair", "blond, blond-haired man, hair, man, man: blond hair, light skin tone, blond hair" },
+            { "👨‍🦰", "man: red hair", "adult | man | red hair" },
+            { "👨🏻‍🦰", "man: light skin tone, red hair", "adult | man | light skin tone| red hair" },
             { "🇪🇺", "flag: European Union", "flag" },
             { "#️⃣", "keycap: #", "keycap" },
             { "9️⃣", "keycap: 9", "keycap" },
@@ -163,8 +163,10 @@ public class TestAnnotations extends TestFmwkPlus {
         }
 
     }
+
     static final UnicodeSet symbols = new UnicodeSet(Emoji.EXTRA_SYMBOL_MINOR_CATEGORIES.keySet())
         .freeze();
+
     /** The English name should line up with the emoji-test.txt file */
     public void TestNamesVsEmojiData() {
         for (Entry<String, Annotations> s : eng.getExplicitValues().entrySet()) {
@@ -210,8 +212,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 + "\t" + minorCategory
                 + "\t" + emoji
                 + "\t" + shortName
-                + "\t" + keywords
-                );
+                + "\t" + keywords);
         }
     }
 
@@ -252,7 +253,7 @@ public class TestAnnotations extends TestFmwkPlus {
             String name = entry.getKey();
             Collection<String> emojis = entry.getValue();
             if (emojis.size() > 1) {
-                synchronized(problems) {
+                synchronized (problems) {
                     if (problems.add("Duplicate name in " + locale + ": “" + name + "” for "
                         + Joiner.on(" & ").join(emojis))) {
                         int debug = 0;
@@ -291,8 +292,9 @@ public class TestAnnotations extends TestFmwkPlus {
             checkAMinusBIsC("(Emoji.getNamePaths - " + locale + ".xml)", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
         }
     }
+
     public void testEmojiImages() {
-        if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/"))  {
+        if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/")) {
             return; // don't bother checking production for this: the images are only in master, not production
         }
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
@@ -319,7 +321,7 @@ public class TestAnnotations extends TestFmwkPlus {
     public void testEmojiOrdering() {
         // load an array for sorting
         // and test that every order value maps to exactly one emoji
-        Map<String,String> minorToMajor = new HashMap<>();
+        Map<String, String> minorToMajor = new HashMap<>();
         Map<Long, String> orderToEmoji = new TreeMap<>();
         Collator col = CLDRConfig.getInstance().getCollatorRoot();
 
@@ -406,9 +408,8 @@ public class TestAnnotations extends TestFmwkPlus {
         if (DEBUG) System.out.println(lastMinor + "\t" + lastMinorGroup);
     }
 
-
     public void testSuperfluousAnnotationPaths() {
-        if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/"))  {
+        if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/")) {
             return; // don't bother checking production for this: root is empty
         }
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
@@ -472,18 +473,18 @@ public class TestAnnotations extends TestFmwkPlus {
 
     public void testListFormatter() {
         Object[][] tests = {
-            {"en", ListTypeLength.NORMAL, "ABC", "A, B, and C"},
-            {"en", ListTypeLength.AND_SHORT, "ABC", "A, B, & C"},
-            {"en", ListTypeLength.AND_NARROW, "ABC", "A, B, C"},
-            {"en", ListTypeLength.OR_WIDE, "ABC", "A, B, or C"}
+            { "en", ListTypeLength.NORMAL, "ABC", "A, B, and C" },
+            { "en", ListTypeLength.AND_SHORT, "ABC", "A, B, & C" },
+            { "en", ListTypeLength.AND_NARROW, "ABC", "A, B, C" },
+            { "en", ListTypeLength.OR_WIDE, "ABC", "A, B, or C" }
         };
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
         for (Object[] test : tests) {
-            CLDRFile cldrFile = factory.make((String)(test[0]), true);
-            ListTypeLength listTypeLength = (ListTypeLength)(test[1]);
-            String expected = (String)test[3];
+            CLDRFile cldrFile = factory.make((String) (test[0]), true);
+            ListTypeLength listTypeLength = (ListTypeLength) (test[1]);
+            String expected = (String) test[3];
             XListFormatter xlistFormatter = new XListFormatter(cldrFile, listTypeLength);
-            String source = (String)test[2];
+            String source = (String) test[2];
             String actual = xlistFormatter.formatCodePoints(source);
             assertEquals(test[0] + ", " + listTypeLength + ", " + source, expected, actual);
         }
@@ -491,7 +492,9 @@ public class TestAnnotations extends TestFmwkPlus {
 
     public void testCoverage() {
         UnicodeMap<Level> levels = new UnicodeMap<>();
-        UnicodeSet shouldBeComprehensive = new UnicodeSet("[‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼]").freeze();
+        UnicodeSet shouldBeComprehensive = new UnicodeSet(
+            "[‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼]")
+                .freeze();
         for (String minorCategory : Emoji.getMinorCategoriesWithExtras()) {
             for (String s : Emoji.getEmojiInMinorCategoriesWithExtras(minorCategory)) {
                 if (s.contentEquals("‾")) {
@@ -509,7 +512,7 @@ public class TestAnnotations extends TestFmwkPlus {
         for (Level level : Level.values()) {
             UnicodeSet us = levels.getSet(level);
             System.out.println(level + "\t" + us.size());
-            switch(level) {
+            switch (level) {
             case COMPREHENSIVE:
                 UnicodeSet us2 = new UnicodeSet(us).removeAll(us.strings());
                 assertEquals(level.toString(), shouldBeComprehensive.toPattern(false), us2.toPattern(false));

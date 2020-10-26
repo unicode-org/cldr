@@ -108,10 +108,10 @@ public class UTF16Util {
      */
     public static final void appendCodePoint(StringBuffer buffer, int ch) {
         if (ch <= 0xffff) {
-            buffer.append((char)ch);
+            buffer.append((char) ch);
         } else {
-            buffer.append((char)(0xd7c0 + (ch >> 10)));
-            buffer.append((char)(0xdc00 + (ch & 0x3ff)));
+            buffer.append((char) (0xd7c0 + (ch >> 10)));
+            buffer.append((char) (0xdc00 + (ch & 0x3ff)));
         }
     }
 
@@ -124,9 +124,9 @@ public class UTF16Util {
      */
     public static final void insertCodePoint(StringBuffer buffer, int i, int ch) {
         if (ch <= 0xffff) {
-            buffer.insert(i, (char)ch);
+            buffer.insert(i, (char) ch);
         } else {
-            buffer.insert(i, (char)(0xd7c0 + (ch >> 10))).insert(i + 1, (char)(0xdc00 + (ch & 0x3ff)));
+            buffer.insert(i, (char) (0xd7c0 + (ch >> 10))).insert(i + 1, (char) (0xdc00 + (ch & 0x3ff)));
         }
     }
 
@@ -142,19 +142,19 @@ public class UTF16Util {
         int cp = nextCodePoint(buffer, i);
 
         if (ch <= 0xffff && cp <= 0xffff) { // Both BMP
-            buffer.setCharAt(i, (char)ch);
+            buffer.setCharAt(i, (char) ch);
             return 0;
         } else if (ch > 0xffff && cp > 0xffff) { // Both supplementary
-            buffer.setCharAt(i, (char)(0xd7c0 + (ch >> 10)));
-            buffer.setCharAt(i+1, (char)(0xdc00 + (ch & 0x3ff)));
+            buffer.setCharAt(i, (char) (0xd7c0 + (ch >> 10)));
+            buffer.setCharAt(i + 1, (char) (0xdc00 + (ch & 0x3ff)));
             return 0;
         } else if (ch <= 0xffff && cp > 0xffff) { // putting BMP instead of supplementary, buffer shrinks
-            buffer.setCharAt(i, (char)ch);
-            buffer.deleteCharAt(i+1);
+            buffer.setCharAt(i, (char) ch);
+            buffer.deleteCharAt(i + 1);
             return -1;
         } else { //if (ch > 0xffff && cp <= 0xffff) { // putting supplementary instead of BMP, buffer grows
-            buffer.setCharAt(i, (char)(0xd7c0 + (ch >> 10)));
-            buffer.insert(i+1, (char)(0xdc00 + (ch & 0x3ff)));
+            buffer.setCharAt(i, (char) (0xd7c0 + (ch >> 10)));
+            buffer.insert(i + 1, (char) (0xdc00 + (ch & 0x3ff)));
             return 1;
         }
     }
@@ -165,22 +165,18 @@ public class UTF16Util {
      * @param source String in question.
      * @return int number of code points in this string
      */
-    public static final int countCodePoint(String source)
-    {
+    public static final int countCodePoint(String source) {
         int result = 0;
         char ch;
         boolean hadLeadSurrogate = false;
 
-        for (int i = 0; i < source.length(); ++ i)
-        {
+        for (int i = 0; i < source.length(); ++i) {
             ch = source.charAt(i);
             if (hadLeadSurrogate && 0xdc00 <= ch && ch <= 0xdfff) {
-                hadLeadSurrogate = false;           // count valid trail as zero
-            }
-            else
-            {
+                hadLeadSurrogate = false; // count valid trail as zero
+            } else {
                 hadLeadSurrogate = (0xd800 <= ch && ch <= 0xdbff);
-                ++ result;                          // count others as 1
+                ++result; // count others as 1
             }
         }
 
@@ -193,31 +189,29 @@ public class UTF16Util {
      * @param source StringBuffer in question.
      * @return int number of code points in this string
      */
-    public static final int countCodePoint(StringBuffer source)
-    {
+    public static final int countCodePoint(StringBuffer source) {
         int result = 0;
         char ch;
         boolean hadLeadSurrogate = false;
 
-        for (int i = 0; i < source.length(); ++ i)
-        {
+        for (int i = 0; i < source.length(); ++i) {
             ch = source.charAt(i);
             if (hadLeadSurrogate && 0xdc00 <= ch && ch <= 0xdfff) {
-                hadLeadSurrogate = false;           // count valid trail as zero
-            }
-            else
-            {
+                hadLeadSurrogate = false; // count valid trail as zero
+            } else {
                 hadLeadSurrogate = (0xd800 <= ch && ch <= 0xdbff);
-                ++ result;                          // count others as 1
+                ++result; // count others as 1
             }
         }
 
         return result;
     }
+
     /**
      * The minimum value for Supplementary code points
      */
-    public static final int SUPPLEMENTARY_MIN_VALUE  = 0x10000;
+    public static final int SUPPLEMENTARY_MIN_VALUE = 0x10000;
+
     /**
      * Determines how many chars this char32 requires.
      * If a validity check is required, use <code>
@@ -226,13 +220,13 @@ public class UTF16Util {
      * @param char32 the input codepoint.
      * @return 2 if is in supplementary space, otherwise 1.
      */
-    public static int getCharCount(int char32)
-    {
+    public static int getCharCount(int char32) {
         if (char32 < SUPPLEMENTARY_MIN_VALUE) {
             return 1;
         }
         return 2;
     }
+
     /**
      * Lead surrogate maximum value
      * @stable ICU 2.1
@@ -254,14 +248,14 @@ public class UTF16Util {
      * @stable ICU 2.1
      */
     public static final int TRAIL_SURROGATE_MAX_VALUE = 0xDFFF;
+
     /**
      * Determines whether the code value is a surrogate.
      * @param char16 the input character.
      * @return true iff the input character is a surrogate.
      * @stable ICU 2.1
      */
-    public static boolean isSurrogate(char char16)
-    {
+    public static boolean isSurrogate(char char16) {
         return LEAD_SURROGATE_MIN_VALUE <= char16 &&
             char16 <= TRAIL_SURROGATE_MAX_VALUE;
     }
@@ -272,10 +266,9 @@ public class UTF16Util {
      * @return true iff the input character is a trail surrogate.
      * @stable ICU 2.1
      */
-    public static boolean isTrailSurrogate(char char16)
-    {
+    public static boolean isTrailSurrogate(char char16) {
         return (TRAIL_SURROGATE_MIN_VALUE <= char16 &&
-                char16 <= TRAIL_SURROGATE_MAX_VALUE);
+            char16 <= TRAIL_SURROGATE_MAX_VALUE);
     }
 
     /**
@@ -284,11 +277,11 @@ public class UTF16Util {
      * @return true iff the input character is a lead surrogate
      * @stable ICU 2.1
      */
-    public static boolean isLeadSurrogate(char char16)
-    {
+    public static boolean isLeadSurrogate(char char16) {
         return LEAD_SURROGATE_MIN_VALUE <= char16 &&
             char16 <= LEAD_SURROGATE_MAX_VALUE;
     }
+
     /**
      * Extract a single UTF-32 value from a substring.
      * Used when iterating forwards or backwards (with
@@ -311,8 +304,7 @@ public class UTF16Util {
      * @stable ICU 2.1
      */
     public static int charAt(char source[], int start, int limit,
-                             int offset16)
-    {
+        int offset16) {
         offset16 += start;
         if (offset16 < start || offset16 >= limit) {
             throw new ArrayIndexOutOfBoundsException(offset16);
@@ -327,7 +319,7 @@ public class UTF16Util {
         // For simplicity in usage, and because the frequency of pairs is
         // low, look both directions.
         if (single <= LEAD_SURROGATE_MAX_VALUE) {
-            offset16 ++;
+            offset16++;
             if (offset16 >= limit) {
                 return single;
             }
@@ -335,18 +327,18 @@ public class UTF16Util {
             if (isTrailSurrogate(trail)) {
                 return getRawSupplementary(single, trail);
             }
-        }
-        else { // isTrailSurrogate(single), so
+        } else { // isTrailSurrogate(single), so
             if (offset16 == start) {
                 return single;
             }
-            offset16 --;
+            offset16--;
             char lead = source[offset16];
             if (isLeadSurrogate(lead))
                 return getRawSupplementary(lead, single);
         }
         return single; // return unmatched surrogate
     }
+
     /**
      * Shift value for lead surrogate to form a supplementary character.
      */
@@ -355,14 +347,11 @@ public class UTF16Util {
     /**
      * Offset to add to combined surrogate pair to avoid msking.
      */
-    private static final int SURROGATE_OFFSET_ =
-                           SUPPLEMENTARY_MIN_VALUE -
-                           (LEAD_SURROGATE_MIN_VALUE <<
-                           LEAD_SURROGATE_SHIFT_) -
-                           TRAIL_SURROGATE_MIN_VALUE;
+    private static final int SURROGATE_OFFSET_ = SUPPLEMENTARY_MIN_VALUE -
+        (LEAD_SURROGATE_MIN_VALUE << LEAD_SURROGATE_SHIFT_) -
+        TRAIL_SURROGATE_MIN_VALUE;
 
-
-   /**
+    /**
     * Forms a supplementary code point from the argument character<br>
     * Note this is for internal use hence no checks for the validity of the
     * surrogate characters are done
@@ -370,8 +359,7 @@ public class UTF16Util {
     * @param trail trailing surrogate character
     * @return code point of the supplementary character
     */
-    public static int getRawSupplementary(char lead, char trail)
-    {
+    public static int getRawSupplementary(char lead, char trail) {
         return (lead << LEAD_SURROGATE_SHIFT_) + trail + SURROGATE_OFFSET_;
     }
 

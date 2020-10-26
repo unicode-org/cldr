@@ -33,7 +33,7 @@ public class TestBcp47Numbers extends TestFmwk {
 
     public void TestScripts() {
         UnicodeSet decimals = new UnicodeSet("[[:Nd:]&[:nv=0:]-[:nfkcqc=n:]]");
-        Map<String, String> decimalSystems = new TreeMap<String, String>();
+        Map<String, String> decimalSystems = new TreeMap<>();
         for (String s : decimals) {
             final int cp = s.codePointAt(0);
             String special = specials.get(cp);
@@ -58,7 +58,7 @@ public class TestBcp47Numbers extends TestFmwk {
             .put("hanidec",
                 "Positional decimal system using Chinese number ideographs as digits");
 
-        Map<String, String> typeDescription = new TreeMap<String, String>();
+        Map<String, String> typeDescription = new TreeMap<>();
         final Map<R2<String, String>, String> keyTypeToDescription = info
             .getSupplementalDataInfo().getBcp47Descriptions();
         for (Entry<String, String> entry : info.getSupplementalDataInfo()
@@ -71,7 +71,7 @@ public class TestBcp47Numbers extends TestFmwk {
             typeDescription.put(entry.getValue(), description);
         }
         // the bcp47 codes must cover all scripts with Nd values.
-        Map<String, String> missing = new TreeMap<String, String>(
+        Map<String, String> missing = new TreeMap<>(
             decimalSystems);
         for (Entry<String, String> entry : typeDescription.entrySet()) {
             missing.remove(entry.getKey());
@@ -86,7 +86,7 @@ public class TestBcp47Numbers extends TestFmwk {
         }
 
         // check for extras
-        Map<String, String> extras = new TreeMap<String, String>(
+        Map<String, String> extras = new TreeMap<>(
             typeDescription);
         for (String code : decimalSystems.keySet()) {
             extras.remove(code);

@@ -53,7 +53,7 @@ public class OutdatedPaths {
     private static final boolean DEBUG = CldrUtility.getProperty("OutdatedPathsDebug", false);
 
     private final Map<String, Set<Long>> localeToData = new HashMap<>();
-    private final Map<Long, Pair<CldrVersion,String>> pathToBirthNPrevious = new HashMap<>();
+    private final Map<Long, Pair<CldrVersion, String>> pathToBirthNPrevious = new HashMap<>();
 
     /**
      * Creates a new OutdatedPaths, using the data file "outdated.data" in the same directory as this class.
@@ -137,7 +137,7 @@ public class OutdatedPaths {
                     System.out.println("en\t(" + previous + ")"
                         + (id2header == null ? "" : "\t" + id2header.get(pathId)));
                 }
-                pathToBirthNPrevious2.put(pathId, Pair.of(birth,previous).freeze());
+                pathToBirthNPrevious2.put(pathId, Pair.of(birth, previous).freeze());
             }
             String finalCheck = dataIn.readUTF();
             if (!finalCheck.equals("$END$")) {
@@ -164,11 +164,12 @@ public class OutdatedPaths {
     private static DataInputStream openDataInput(String directory, String filename) throws FileNotFoundException {
         String dataFileName = filename;
         InputStream fileInputStream = directory == null
-            ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName) :
-                //: new FileInputStream(new File(directory, dataFileName));
-                InputStreamFactory.createInputStream(new File(directory, dataFileName));
-            DataInputStream dataIn = new DataInputStream(fileInputStream);
-            return dataIn;
+            ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName)
+            :
+            //: new FileInputStream(new File(directory, dataFileName));
+            InputStreamFactory.createInputStream(new File(directory, dataFileName));
+        DataInputStream dataIn = new DataInputStream(fileInputStream);
+        return dataIn;
     }
 
     /**

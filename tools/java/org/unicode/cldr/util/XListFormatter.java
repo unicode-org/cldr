@@ -23,8 +23,7 @@ public class XListFormatter {
         OR_NARROW("[@type=\"or-narrow\"]"),
         UNIT_WIDE("[@type=\"unit\"]"),
         UNIT_SHORT("[@type=\"unit-short\"]"),
-        UNIT_NARROW("[@type=\"unit-narrow\"]")
-        ;
+        UNIT_NARROW("[@type=\"unit-narrow\"]");
 
         public static final ListTypeLength NORMAL = AND_WIDE;
 
@@ -35,20 +34,23 @@ public class XListFormatter {
             Map<String, ListTypeLength> _stringToEnum = new LinkedHashMap<>();
             for (ListTypeLength value : values()) {
                 if (value != NORMAL) {
-                    _stringToEnum.put(value.typeString.substring(value.typeString.indexOf('"')+1, value.typeString.lastIndexOf('"')), value);
+                    _stringToEnum.put(value.typeString.substring(value.typeString.indexOf('"') + 1, value.typeString.lastIndexOf('"')), value);
                 }
             }
             stringToEnum = ImmutableMap.copyOf(_stringToEnum);
         }
+
         private ListTypeLength(String typeString) {
             this.typeString = typeString;
         }
+
         public static ListTypeLength from(String listPatternType) {
             if (listPatternType == null) {
                 return NORMAL;
             }
             return stringToEnum.get(listPatternType);
         }
+
         public String getPath() {
             return "//ldml/listPatterns/listPattern"
                 + typeString
@@ -78,7 +80,7 @@ public class XListFormatter {
     public String formatCodePoints(String items) {
         List<String> source = new ArrayList<>();
         for (int sourceInt : CharSequences.codePoints(items)) { // TODO add utility in CharSequences
-           source.add(UTF16.valueOf(sourceInt));
+            source.add(UTF16.valueOf(sourceInt));
         }
         return listFormatter.format(source);
     }

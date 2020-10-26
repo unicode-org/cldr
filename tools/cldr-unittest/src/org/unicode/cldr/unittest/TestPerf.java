@@ -25,17 +25,17 @@ public class TestPerf extends TestFmwkPlus {
     static final int ITERATIONS = 20;
     static final Set<String> testPaths;
     static final int elementSize;
-    static final Set<String> elements = new HashSet<String>();
-    static final Set<String> attributes = new HashSet<String>();
-    static final Set<String> attributeValues = new HashSet<String>();
+    static final Set<String> elements = new HashSet<>();
+    static final Set<String> attributes = new HashSet<>();
+    static final Set<String> attributeValues = new HashSet<>();
     static final String[] sortedArray;
 
     static {
-        Set<String> testPaths_ = new HashSet<String>();
+        Set<String> testPaths_ = new HashSet<>();
         CLDRConfig.getInstance().getEnglish()
             .forEach(testPaths_::add);
         testPaths = Collections.unmodifiableSet(testPaths_);
-        Set<String> sorted = new TreeSet<String>(
+        Set<String> sorted = new TreeSet<>(
             CLDRFile.getComparator(DtdType.ldml));
         sorted.addAll(testPaths);
         sortedArray = sorted.toArray(new String[sorted.size()]);
@@ -154,7 +154,7 @@ public class TestPerf extends TestFmwkPlus {
         Comparator<String> comp = dtdData.getDtdComparator(avc);
 
         int iterations = 50;
-        Output<Integer> failures = new Output<Integer>();
+        Output<Integer> failures = new Output<>();
 
         // warmup
         checkCost(sortedArray, CLDRFile.getComparator(DtdType.ldml), 1,

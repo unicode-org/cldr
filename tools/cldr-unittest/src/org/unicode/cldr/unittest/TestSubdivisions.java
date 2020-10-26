@@ -47,10 +47,10 @@ public class TestSubdivisions extends TestFmwkPlus {
          * <subgroup type="BE" subtype="VLG" contains="VBR VWV VAN VLI VOV"/>
          */
         assertEquals("BE",
-            new HashSet<String>(Arrays.asList("bewal", "bebru", "bevlg")),
+            new HashSet<>(Arrays.asList("bewal", "bebru", "bevlg")),
             SDI.getContainedSubdivisions("BE"));
         assertEquals("BE",
-            new HashSet<String>(Arrays.asList("bewlx", "bewna", "bewht", "bewbr", "bewlg")),
+            new HashSet<>(Arrays.asList("bewlx", "bewna", "bewht", "bewbr", "bewlg")),
             SDI.getContainedSubdivisions("bewal"));
     }
 

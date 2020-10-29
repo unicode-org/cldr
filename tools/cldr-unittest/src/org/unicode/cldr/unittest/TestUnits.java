@@ -2188,4 +2188,23 @@ public class TestUnits extends TestFmwk {
         }
         assertNotEquals("hasGrammarDerivation", 0, count);
     }
+
+    public void testCategories() {
+        UnitPreferences preferences = SDI.getUnitPreferences();
+        Set<String> usages = preferences.getUsages();
+        Set<String> categories = preferences.getData().keySet();
+        System.out.println("\n@USAGES\n" + Joiner.on('\n').join(new TreeSet<>(usages)));
+        System.out.println("@CATEGORIES\n" + Joiner.on('\n').join(new TreeSet<>(categories)));
+
+        UnitConverter converter = SDI.getUnitConverter();
+        Set<String> quantities = converter.getQuantities();
+        System.out.println("@QUANTITIES\n" + Joiner.on('\n').join(new TreeSet<>(quantities)));
+
+        Multimap<String, String> nistQuantityToUnit = Multimaps.invertFrom(NistUnits.unitToQuantity, TreeMultimap.create());
+        Set<String> nistQuantities = new TreeSet<>(nistQuantityToUnit.keys());
+        System.out.println("@NIST_QUANTITIES");
+        for (String s : nistQuantities) {
+            System.out.println(s + "\t" + nistQuantityToUnit.asMap().get(s));
+        }
+    }
 }

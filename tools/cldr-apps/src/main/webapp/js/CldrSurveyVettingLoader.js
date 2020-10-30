@@ -744,6 +744,11 @@ function showV() {
 								level: 2,
 								display: !surveyOfficial
 							},
+							{
+								special: 'bulk_close_posts', /* Cf. special_bulk_close_posts */
+								level: 2,
+								display: (surveyUser && surveyUser.userlevelName === 'ADMIN')
+							},
 
 							{
 								divider: true

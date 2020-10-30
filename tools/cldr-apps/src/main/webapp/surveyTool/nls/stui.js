@@ -343,6 +343,9 @@ define({
 		special_forum_participation: "Forum Participation",
 		forum_participationGuidance: "This is the Forum Participation page. The table may take several minutes to load.",
 
+		special_bulk_close_posts: "Bulk Close Posts",
+		bulk_close_postsGuidance: "This is the Forum Bulk Close Posts page. The results may take several minutes to load.",
+
 		jsonStatus_msg: "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the Survey Tool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
 		err_what_section: "load part of this locale",
 		err_what_locmap: "load the list of locales",

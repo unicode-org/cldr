@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -522,13 +524,11 @@ public class SurveyForum {
      * @param conn the Connection
      * @return the PreparedStatement
      * @throws SQLException
-     *
-     * Called only by savePostToDb
      */
     private static PreparedStatement prepare_pCloseThread(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "pAdd", "UPDATE "
+        return DBUtils.prepareStatement(conn, "pCloseThread", "UPDATE "
             + DBUtils.Table.FORUM_POSTS.toString()
-            + " SET is_open=false WHERE id=? OR root=?");
+            + " SET is_open=FALSE WHERE id=? OR root=?");
     }
 
     private static PreparedStatement prepare_pIntUsers(Connection conn) throws SQLException {
@@ -1051,14 +1051,11 @@ public class SurveyForum {
         final String text = postInfo.getText().replaceAll("\r", "").replaceAll("\n", "<p>");
         try {
             Connection conn = null;
-            PreparedStatement pAdd = null, pCloseThread = null;
+            PreparedStatement pAdd = null;
             try {
                 conn = sm.dbUtils.getDBConnection();
                 if (type == PostType.CLOSE) {
-                    pCloseThread = prepare_pCloseThread(conn);
-                    pCloseThread.setInt(1, root);
-                    pCloseThread.setInt(2, root);
-                    pCloseThread.executeUpdate();
+                    closeThreads(conn, new ArrayList<>(Arrays.asList(root)));
                 }
                 pAdd = prepare_pAdd(conn);
                 pAdd.setInt(1, user.id);
@@ -1087,7 +1084,7 @@ public class SurveyForum {
                     throw new RuntimeException("Couldn't post to " + localeStr + " - update failed.");
                 }
             } finally {
-                DBUtils.close(pAdd, pCloseThread, conn);
+                DBUtils.close(pAdd, conn);
             }
         } catch (SQLException se) {
             String complaint = "SurveyForum:  Couldn't add post to " + localeStr + " - " + DBUtils.unchainSqlException(se)
@@ -1096,6 +1093,31 @@ public class SurveyForum {
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
         }
         return postId;
+    }
+
+    /**
+     * Close all posts in the threads with the given root ids
+     *
+     * @param conn the db connection
+     * @param rootIdList the list of post ids
+     * @return the number of posts closed
+     *
+     * @throws SQLException
+     */
+    public static synchronized int closeThreads(Connection conn, ArrayList<Integer> rootIdList) throws SQLException {
+        PreparedStatement pCloseThread = null;
+        int postCount = 0;
+        try {
+            pCloseThread = prepare_pCloseThread(conn);
+            for (Integer root : rootIdList) {
+                pCloseThread.setInt(1, root);
+                pCloseThread.setInt(2, root);
+                postCount += pCloseThread.executeUpdate();
+            }
+        } finally {
+            DBUtils.close(pCloseThread);
+        }
+        return postCount;
     }
 
     public class PostInfo {

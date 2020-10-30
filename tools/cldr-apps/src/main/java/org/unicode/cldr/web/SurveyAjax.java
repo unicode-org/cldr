@@ -243,6 +243,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_VSUMMARY = "vsummary";
     public static final String WHAT_FORUM_PARTICIPATION = "forum_participation";
+    public static final String WHAT_BULK_CLOSE_POSTS = "bulk_close_posts";
     public static final String WHAT_STATS_BYLOC = "stats_byloc";
     public static final String WHAT_STATS_BYDAY = "stats_byday";
     public static final String WHAT_STATS_BYDAYUSERLOC = "stats_bydayuserloc";
@@ -686,6 +687,15 @@ public class SurveyAjax extends HttpServlet {
                         if (UserRegistry.userCanMonitorForum(mySession.user)) {
                             String org = mySession.user.org;
                             new SurveyForumParticipation(org).getJson(r);
+                        }
+                        send(r, out);
+                    } else if (what.equals(WHAT_BULK_CLOSE_POSTS)) {
+                        mySession.userDidAction();
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+                        if (UserRegistry.userIsAdmin(mySession.user)) {
+                            boolean execute = "true".equals(request.getParameter("execute"));
+                            new SurveyBulkClosePosts(sm, execute).getJson(r);
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_COUNT)) {
@@ -1807,7 +1817,7 @@ public class SurveyAjax extends HttpServlet {
                     continue; // not allowed
                 }
                 String curValue = diskData.getValueAtDPath(xpathString);
-                boolean isWinning = equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString);
+                boolean isWinning = diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString);
                 if (oldvotes != null) {
                     String xpathStringHash = sm.xpt.getStringIDString(xp);
                     JSONObject aRow = new JSONObject()
@@ -2289,7 +2299,7 @@ public class SurveyAjax extends HttpServlet {
      * and then the "x" still got imported into an even later version.
      *
      * @param value the value in question
-     * @param curValue the current value, that is, file.getStringValue(xpathString)
+     * @param curValue the current value, that is, getValueAtDPath(xpathString)
      * @param diskData the XMLSource for getBaileyValue
      * @param xpathString the path identifier
      * @param fac the STFactory
@@ -2300,7 +2310,7 @@ public class SurveyAjax extends HttpServlet {
         if (value == null) {
             return true;
         }
-        if (!equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString)) {
+        if (!diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString)) {
             return false;
         }
         CLDRFile cldrFile = fac.make(loc, true, true);
@@ -2308,40 +2318,6 @@ public class SurveyAjax extends HttpServlet {
             return false;
         }
         return true;
-    }
-
-    /**
-     * Does the value in question either match or inherent the current value?
-     *
-     * To match, the value in question and the current value must be non-null and equal.
-     *
-     * To inherit the current value, the value in question must be INHERITANCE_MARKER
-     * and the current value must equal the bailey value.
-     *
-     * @param value the value in question
-     * @param curValue the current value, that is, file.getStringValue(xpathString)
-     * @param diskData the XMLSource for getBaileyValue
-     * @param xpathString the path identifier
-     * @return true if it matches or inherits, else false
-     */
-    private boolean equalsOrInheritsCurrentValue(String value, String curValue, XMLSource diskData, String xpathString) {
-        if (value == null || curValue == null) {
-            return false;
-        }
-        if (value.equals(curValue)) {
-            return true;
-        }
-        if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
-            String baileyValue = diskData.getBaileyValue(xpathString, null, null);
-            if (baileyValue == null) {
-                /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
-                return false;
-            }
-            if (curValue.equals(baileyValue)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**
@@ -3193,6 +3169,7 @@ public class SurveyAjax extends HttpServlet {
         out.write(prefix + "jquery.autosize.min.js" + tail);
 
         out.write(prefix + "CldrStAjax" + js);
+        out.write(prefix + "CldrStBulkClosePosts" + js);
         out.write(prefix + "CldrStForumParticipation" + js);
         out.write(prefix + "CldrStForumFilter" + js);
         out.write(prefix + "CldrStForum" + js);

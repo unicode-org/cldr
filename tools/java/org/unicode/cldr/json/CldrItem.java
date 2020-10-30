@@ -89,6 +89,15 @@ public class CldrItem implements Comparable<CldrItem> {
      */
     private String untransformedPath;
 
+    protected String getUntransformedPath() {
+        return untransformedPath;
+    }
+
+    @Override
+    public String toString() {
+        return "[CldrItem " + getUntransformedPath()+"]";
+    }
+
     /**
      * The value of this CLDR item.
      */
@@ -222,7 +231,7 @@ public class CldrItem implements Comparable<CldrItem> {
      * <calendarPreference territories="CN" ordering="gregorian chinese"/>
      * <calendarPreference territories="CX" ordering="gregorian chinese"/>
      *
-     * @return Array of CldrItem if it can be split, otherwise null.
+     * @return Array of CldrItem if it can be split, otherwise null if nothing to split.
      */
     public CldrItem[] split() {
         XPathParts xpp = XPathParts.getFrozenInstance(path);
@@ -237,6 +246,8 @@ public class CldrItem implements Comparable<CldrItem> {
                 String[] words = null;
                 words = wordString.trim().split("\\s+");
                 for (String word : words) {
+                    // TODO: Ideally, there would be a separate post-split path transform.
+
                     XPathParts newxpp = xpp.cloneAsThawed();
                     XPathParts newfullxpp = fullxpp.cloneAsThawed();
                     XPathParts untransformednewxpp = untransformedxpp.cloneAsThawed();
@@ -265,7 +276,7 @@ public class CldrItem implements Comparable<CldrItem> {
                 return list.toArray(new CldrItem[list.size()]);
             }
         }
-        return null;
+        return null; // nothing to split
     }
 
     /**

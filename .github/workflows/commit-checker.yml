@@ -30,14 +30,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: clone CLDR
-        uses: actions/checkout@v2.3.3
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.end-ref }}
           lfs: false # not needed here
           path: cldr
           fetch-depth: 0 # expensive, but needed for checker
       - name: clone ICU for tools
-        uses: actions/checkout@v2.3.3
+        uses: actions/checkout@v2
         with:
           repository: ${{ github.event.inputs.tool-repository }}
           ref: ${{ github.event.inputs.tool-ref }}

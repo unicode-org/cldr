@@ -142,8 +142,9 @@ public class CldrNode {
     public Map<String, String> getAttrAsValueMap() {
         Map<String, String> attributesAsValues = new HashMap<>();
         for (String key : distinguishingAttributes.keySet()) {
-            String keyStr = parent + ":" + name + ":" + key;
-            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr)) {
+            String keyStr = LdmlConvertRules.getKeyStr(parent, name, key);
+            String keyStr2 = LdmlConvertRules.getKeyStr(name, key);
+            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr) || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr2)) {
                 if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)) {
                     attributesAsValues.put(LdmlConvertRules.ANONYMOUS_KEY,
                         distinguishingAttributes.get(key));
@@ -157,7 +158,7 @@ public class CldrNode {
             if (LdmlConvertRules.IGNORABLE_NONDISTINGUISHING_ATTR_SET.contains(key)) {
                 continue;
             }
-            String keyStr = parent + ":" + name + ":" + key;
+            String keyStr = LdmlConvertRules.getKeyStr(parent, name, key);
             if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)) {
                 attributesAsValues.put(LdmlConvertRules.ANONYMOUS_KEY,
                     nondistinguishingAttributes.get(key));
@@ -212,12 +213,15 @@ public class CldrNode {
 
         // decide the main name
         StringBuffer strbuf = new StringBuffer();
+        String lastKey = null; // for err message
         for (String key : distinguishingAttributes.keySet()) {
-            String attrIdStr = parent + ":" + name + ":" + key;
+            String attrIdStr = LdmlConvertRules.getKeyStr(parent, name, key);
+            String attrIdStr2 = LdmlConvertRules.getKeyStr(name, key);
             if (LdmlConvertRules.IsSuppresedAttr(attrIdStr)) {
                 continue;
             }
-            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr)) {
+            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr)
+                || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr2)) { // with *
                 continue;
             }
 
@@ -226,10 +230,11 @@ public class CldrNode {
                 if (strbuf.length() != 0) {
                     throw new IllegalArgumentException(
                         "Can not have more than 1 key values in name: " +
-                            "both '" + strbuf + "' and '" + distinguishingAttributes.get(key) +
-                            "'. attrIdStr=" + attrIdStr + " - check LdmlConvertRules.java");
+                            "both '" + strbuf + "' ("+lastKey+") and '" + distinguishingAttributes.get(key) +
+                            "' ("+key+"). attrIdStr=" + attrIdStr + " - check LdmlConvertRules.java#NAME_PART_DISTINGUISHING_ATTR_SET");
                 }
                 strbuf.append(distinguishingAttributes.get(key));
+                lastKey = key;
             }
         }
         if (strbuf.length() == 0) {
@@ -238,11 +243,12 @@ public class CldrNode {
 
         // append distinguishing attributes
         for (String key : distinguishingAttributes.keySet()) {
-            String attrIdStr = parent + ":" + name + ":" + key;
+            String attrIdStr = LdmlConvertRules.getKeyStr(parent, name, key);
+            String attrIdStr2 = LdmlConvertRules.getKeyStr(name, key);
             if (LdmlConvertRules.IsSuppresedAttr(attrIdStr)) {
                 continue;
             }
-            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr)) {
+            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr) || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr2)) {
                 continue;
             }
 
@@ -297,5 +303,10 @@ public class CldrNode {
 
     public boolean isTimezoneType() {
         return LdmlConvertRules.TIMEZONE_ELEMENT_NAME_SET.contains(name);
+    }
+
+    @Override
+    public String toString() {
+        return "[CldrNode "+parent+"/"+getNodeDistinguishingName()+"]";
     }
 }

@@ -1,11 +1,16 @@
 package org.unicode.cldr.json;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.PatternCache;
 
 import com.google.common.collect.ImmutableSet;
@@ -13,8 +18,8 @@ import com.google.common.collect.ImmutableSet;
 class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
-    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "grammaticalFeatures", "postalCodeData",
-        "subdivisions", "units");
+    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData",
+        "subdivisions");
 
     /**
      * The attribute list that should become part of the name in form of
@@ -55,7 +60,18 @@ class LdmlConvertRules {
         "weekData:firstDay:territories",
         "weekData:weekendStart:territories",
         "weekData:weekendEnd:territories",
+        // units
         "unitPreferenceDataData:unitPreferences:category",
+//        // grammatical features
+        // TODO: Blocked by [CLDR-14272] - need more documentation
+//        // in common/supplemental/grammaticalFeatures.xml
+//        "grammaticalData:grammaticalFeatures:targets",
+//        "grammaticalFeatures:grammaticalCase:scope",
+//        "grammaticalDerivations:deriveCompound:structure",
+//        "grammaticalDerivations:deriveCompound:feature",
+//        "grammaticalDerivations:deriveComponent:feature",
+//        "grammaticalDerivations:deriveComponent:structure",
+        // measurement
         "measurementData:measurementSystem:category",
         "supplemental:plurals:type",
         "pluralRanges:pluralRange:start",
@@ -125,6 +141,15 @@ class LdmlConvertRules {
         // in common/supplemental/windowsZones.xml
         "mapTimezones:mapZone:other",
 
+        // in common/supplemental/units.xml
+        "*:unitPreference:geq",
+        "*:unitPreference:skeleton",
+
+//        // TODO: Blocked by [CLDR-14272] - need more documentation
+//        // in common/supplemental/grammaticalFeatures.xml
+//        "grammaticalDerivations:deriveComponent:value0",
+//        "grammaticalDerivations:deriveComponent:value1",
+
         // in common/bcp47/*.xml
         "keyword:key:alias",
         "key:type:alias",
@@ -150,13 +175,14 @@ class LdmlConvertRules {
      * element_name: { attribute: value}
      * to
      * element_name: value
-     * With a solid example,
+     * With a solid example, (likelySubtags:likelySubtag:to)
      * <likelySubtag from="zh" to="zh_Hans_CN" />
      * distinguishing attr "from" will become the key, its better to
      * omit "to" and have this simple mapping:
      * "zh" : "zh_Hans_CN",
      */
     static final ImmutableSet<String> COMPACTABLE_ATTR_AS_VALUE_SET = ImmutableSet.of(
+        // parent:element:attribute
         // common/main
         "calendars:default:choice",
         "dateFormats:default:choice",
@@ -187,7 +213,15 @@ class LdmlConvertRules {
         "identity:language:type",
         "identity:script:type",
         "identity:territory:type",
-        "identity:variant:type");
+        "identity:variant:type"
+
+//        // TODO: Blocked by [CLDR-14272] - need more documentation
+//        "grammaticalFeatures:grammaticalGender:values",
+//        "grammaticalFeatures:grammaticalDefiniteness:values",
+//        "grammaticalFeatures:grammaticalCase:values",
+//        "grammaticalDerivations:deriveCompound:value"
+
+        );
 
     /**
      * The set of attributes that should be treated as value, and reduce to
@@ -218,7 +252,7 @@ class LdmlConvertRules {
 
     /**
      * List of attributes that should be suppressed.
-     * This list comes form cldr/common/supplemental/supplementalMetadata. Each
+     * This list comes from cldr/common/supplemental/supplementalMetadata. Each
      * three of them is a group, they are for element, value and attribute.
      * If the specified attribute appears in specified element with specified =
      * value, it should be suppressed.
@@ -281,7 +315,10 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("dayPeriodRules", "locales", null),
         // new SplittableAttributeSpec("group", "contains", "group"),
         new SplittableAttributeSpec("personList", "locales", "type"),
-        new SplittableAttributeSpec("unitPreference", "regions", null)
+        new SplittableAttributeSpec("unitPreference", "regions", null),
+//        // TODO: Blocked by [CLDR-14272] - need more documentation
+//        new SplittableAttributeSpec("grammaticalFeatures", "locales", null),
+//        new SplittableAttributeSpec("grammaticalDerivations", "locales", null),
     };
 
     /**
@@ -321,6 +358,7 @@ class LdmlConvertRules {
             "|.*/rbnfrule[^/]*/" +
             "|.*/ruleset[^/]*/" +
             "|.*/languageMatching[^/]*/languageMatches[^/]*/" +
+            "|.*/unitPreferences/[^/]*/[^/]*/" +
             "|.*/windowsZones[^/]*/mapTimezones[^/]*/" +
             "|.*/metaZones[^/]*/mapTimezones[^/]*/" +
             "|.*/segmentation[^/]*/variables[^/]*/" +
@@ -334,6 +372,13 @@ class LdmlConvertRules {
             "|.*/metadata[^/]*/suppress[^/]*/" +
             "|.*/metadata[^/]*/deprecated[^/]*/" +
             ")(.*)");
+
+//    /**
+//     * These objects values should be output as arrays.
+//     */
+//    public static final Pattern VALUE_IS_SPACESEP_ARRAY = PatternCache.get(
+//        "(grammaticalCase|grammaticalGender|grammaticalDefiniteness)"
+//    );
 
     /**
      * Number elements without a numbering system are there only for compatibility purposes.
@@ -361,112 +406,157 @@ class LdmlConvertRules {
      * A simple class to hold the specification of a path transformation.
      */
     public static class PathTransformSpec {
+
+        final private boolean DEBUG_TRANSFORMS = false;
         public Pattern pattern;
         public String replacement;
+        public String patternStr;
+        public String comment = "";
+        private AtomicInteger use = new AtomicInteger();
 
-        PathTransformSpec(String patternStr, String replacement) {
+        PathTransformSpec(String patternStr, String replacement, String comment) {
+            this.patternStr = patternStr;
             pattern = PatternCache.get(patternStr);
             this.replacement = replacement;
+            this.comment = comment;
+            if(this.comment == null) this.comment = "";
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append('\n')
+            .append("# ").append(comment.replace('\n', ' ')).append('\n')
+            .append("< ").append(patternStr).append('\n')
+            .append("> ").append(replacement).append('\n');
+
+            return sb.toString();
+        }
+
+        /**
+         * Apply this rule to a string
+         * @param result input string
+         * @return result, or null if unchanged
+         */
+        public String apply(String result) {
+            Matcher m = pattern.matcher(result);
+            if (m.matches()) {
+                final String newResult = m.replaceFirst(replacement);
+                final int count = this.use.incrementAndGet();
+                if(DEBUG_TRANSFORMS) {
+                    System.err.println(result + " => " + newResult + " count " + count + " << " + this.toString());
+                }
+                return newResult;
+            }
+            return null;
+        }
+        public static void dumpAll() {
+            System.out.println("# Path Transformations");
+            for(final PathTransformSpec ts : PATH_TRANSFORMATIONS) {
+                System.out.append(ts.toString());
+            }
+            System.out.println();
+        }
+        public static final String applyAll(String result) {
+            for (int i = 0; i < PATH_TRANSFORMATIONS.length; i++) {
+                PathTransformSpec ts = PATH_TRANSFORMATIONS[i];
+                final String changed = ts.apply(result);
+                if(changed != null) {
+                    result = changed;
+                    break;
+                }
+            }
+            return result;
         }
     }
 
-    /**
-     * Some special transformation, like add an additional layer, can be easily
-     * done by transforming the path. Following rules covers these kind of
-     * transformation.
-     * Note: It is important to keep the order for these rules. Whenever a
-     * rule matches, further rules won't be applied.
-     */
-    public static final PathTransformSpec PATH_TRANSFORMATIONS[] = {
-        // Add "standard" as type attribute to exemplarCharacter element if there
-        // is none, and separate them to two layers.
-        new PathTransformSpec(
-            "(.*ldml/exemplarCharacters)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
+    public static final PathTransformSpec PATH_TRANSFORMATIONS[] =
+        PathTransformSpecHelper.INSTANCE;
 
-        // Add cldrVersion attribute
-        new PathTransformSpec("(.+)/identity/version\\[@number=\"([^\"]*)\"\\]", "$1" + "/identity/version\\[@cldrVersion=\""
-            + CLDRFile.GEN_VERSION + "\"\\]"),
-        // Add cldrVersion attribute to supplemental data
-        new PathTransformSpec("(.+)/version\\[@number=\"([^\"]*)\"\\]\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "/version\\[@cldrVersion=\""
-            + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$3" + "\\]"),
+    public static final class PathTransformSpecHelper extends FileProcessor {
+        static final PathTransformSpec INSTANCE[] = make();
 
-        // Transform underscore to hyphen-minus in language keys
-        new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\](\\[@alt=\"short\"])?)", "$1-$2"),
+        static final PathTransformSpec[] make() {
+            final PathTransformSpecHelper helper = new PathTransformSpecHelper();
+            helper.process(PathTransformSpecHelper.class, "pathTransforms.txt");
+            return helper.data.toArray(new PathTransformSpec[0]);
+        }
 
-        // Separate "ellipsis" from its type as another layer.
-        new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/$2$3"),
+        private PathTransformSpecHelper() {}
+        private List<PathTransformSpec> data = new ArrayList<>();
+        private String lastComment = "";
+        private String lastPattern = null;
+        private String lastReplacement = null;
 
-        // Remove unnecessary dateFormat/pattern
-        new PathTransformSpec(
-            "(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)Length\\[@type=\"([^\"]*)\"\\]/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)",
-            "$1/$2/$5Formats/$4$8"),
+        @Override
+        protected
+        void handleStart() {
+            // Add these to the beginning because of the dynamic version
 
-        // Separate calendar type
-        new PathTransformSpec("(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/$2$3"),
+            data.add(new PathTransformSpec("(.+)/identity/version\\[@number=\"([^\"]*)\"\\]", "$1" + "/identity/version\\[@cldrVersion=\""
+                + CLDRFile.GEN_VERSION + "\"\\]", "added by code"));
+            // Add cldrVersion attribute to supplemental data
+            data.add(new PathTransformSpec("(.+)/version\\[@number=\"([^\"]*)\"\\]\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "/version\\[@cldrVersion=\""
+                + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$3" + "\\]", "added by code"));
 
-        // Separate "metazone" from its type as another layer.
-        new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$", "$1/$2/$3"),
+        }
 
-        // Split out types into its various fields
-        new PathTransformSpec("(.*)/types/type\\[@key=\"([^\"]*)\"\\]\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/types/$2/$3$4"),
+        @Override
+        protected boolean handleLine(int lineCount, String line) {
+            if(line.isEmpty()) return true;
+            if(line.startsWith("<")) {
+                lastReplacement = null;
+                if(lastPattern != null) {
+                    throw new IllegalArgumentException("line " + lineCount+": two <'s in a row");
+                }
+                lastPattern = line.substring(1).trim();
+                if(lastPattern.isEmpty()) {
+                    throw new IllegalArgumentException("line " + lineCount+": empty < pattern");
+                }
+            } else if(line.startsWith(">")) {
+                if(lastPattern == null) {
+                    throw new IllegalArgumentException("line " + lineCount+": need < line before > line");
+                }
+                lastReplacement = line.substring(1).trim();
+                data.add(new PathTransformSpec(lastPattern, lastReplacement, lastComment));
+                reset();
+            }
+            return true;
+        }
 
-        // Typographic
-        new PathTransformSpec("(.*)/(typographicNames)/(axisName|featureName)\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/$2/$3s/$4$5"),
-        new PathTransformSpec("(.*)/(typographicNames)/(styleName)(.*)$",
-            "$1/$2/$3s/$3$4"),
+        @Override
+        protected
+        void handleEnd() {
+            if(lastPattern != null) {
+                throw new IllegalArgumentException("ended with a < but no >");
+            }
+        }
 
-        // put CharacterLabelPatterns under CharacterLabelPatterns
-        new PathTransformSpec("(.*)/(characterLabels)/(characterLabelPattern)(.*)$",
-            "$1/characterLabelPatterns/$3$4"),
+        private void reset() {
+            this.lastComment = "";
+            this.lastPattern = null;
+            this.lastReplacement = null;
+        }
 
-        new PathTransformSpec(
-            "(.*/numbers/(decimal|scientific|percent|currency)Formats\\[@numberSystem=\"([^\"]*)\"\\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\\[@type=\"standard\"]/pattern.*$",
-            "$1/standard"),
+        @Override
+        public void handleComment(String line, int commentCharPosition) {
+            lastComment = line.substring(commentCharPosition+1).trim();
+        }
+    }
 
-        new PathTransformSpec(
-            "(.*/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"\\])/currencyFormatLength/currencyFormat\\[@type=\"accounting\"]/pattern.*$",
-            "$1/accounting"),
-        // Add "type" attribute with value "standard" if there is no "type" in
-        // "decimalFormatLength".
-        new PathTransformSpec(
-            "(.*/numbers/(decimal|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|scientific|percent)FormatLength)/(.*)$",
-            "$1[@type=\"standard\"]/$5"),
 
-        new PathTransformSpec(
-            "(.*/listPattern)/(.*)$", "$1[@type=\"standard\"]/$2"),
+    public static void main(String args[]) {
+        // for debugging / verification
+        PathTransformSpec.dumpAll();
+    }
 
-        new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
-            "$1/$2$3"),
+    public final static String getKeyStr(String name, String key) {
+        String keyStr2 = "*:" + name + ":" + key;
+        return keyStr2;
+    }
 
-        new PathTransformSpec("(.*/languageAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/scriptAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/territoryAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/subdivisionAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/variantAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/zoneAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
-
-        new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
-
-        // Skip exemplar city in /etc/GMT or UTC timezones, since they don't have them.
-        new PathTransformSpec("(.*(GMT|UTC).*/exemplarCity)(.*)", ""),
-
-        new PathTransformSpec("(.*/transforms/transform[^/]*)/(.*)", "$1/tRules/$2"),
-        new PathTransformSpec("(.*)\\[@territories=\"([^\"]*)\"\\](.*)\\[@alt=\"variant\"\\](.*)", "$1\\[@territories=\"$2-alt-variant\"\\]"),
-        new PathTransformSpec("(.*)/weekData/(.*)\\[@alt=\"variant\"\\](.*)", "$1/weekData/$2$3"),
-        new PathTransformSpec("(.*)/unitPreferenceData/unitPreferences\\[@category=\"([^\"]*)\"\\]\\[@usage=\"([^\"]*)\"\\](.*)",
-            "$1/unitPreferenceData/unitPreferences/$2/$3$4"),
-
-        // Annotations
-        // If there is a type, move that into a sibling value
-        new PathTransformSpec("(.*)/(annotations)/(annotation)\\[@cp=\"([^\"]*)\"\\]\\[@type=\"([^\"]*)\"\\](.*)$",
-                                "$1/$2/$4/$5$6"),
-        new PathTransformSpec("(.*)/(annotations)/(annotation)\\[@cp=\"([^\"]*)\"\\](.*)$",
-                                "$1/$2/$4/default$5"),
-    };
+    public final static String getKeyStr(String parent, String name, String key) {
+        String keyStr = parent + ":" + name + ":" + key;
+        return keyStr;
+    }
 }

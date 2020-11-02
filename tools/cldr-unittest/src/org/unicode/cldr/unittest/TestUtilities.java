@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -711,6 +713,22 @@ public class TestUtilities extends TestFmwkPlus {
             "ast",
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]",
             4);
+     }
+
+    /**
+     * In sublocales, for a typical path, the required votes should be 4, except for
+     * the two locales pt_PT and zh_Hant
+     */
+    public void TestSublocaleRequiredVotes() {
+        final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant"));
+        final VoteResolver<String> resolver = new VoteResolver<>();
+        final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
+        for (String locale : SubmissionLocales.CLDR_LOCALES) {
+            if (locale.contains("_")) {
+                int expectedRequiredVotes = eightVoteSublocales.contains(locale) ? 8 : 4;
+                verifyRequiredVotes(resolver, locale, path, expectedRequiredVotes);
+            }
+        }
     }
 
     public void TestVoteResolver() {

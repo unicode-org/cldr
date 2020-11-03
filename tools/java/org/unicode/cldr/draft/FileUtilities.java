@@ -428,6 +428,9 @@ public final class FileUtilities {
 
     public static String getRelativeFileName(Class<?> class1, String filename) {
         URL resource = class1.getResource(filename);
+        if(resource == null) {
+            throw new NullPointerException("Resource Not found: " + filename);
+        }
         String resourceString = resource.toString();
         if (resourceString.startsWith("file:")) {
             return resourceString.substring(5);

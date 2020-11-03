@@ -22,6 +22,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Iso639Data;
@@ -51,17 +52,17 @@ public class GenerateLanguageContainment {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     static final Splitter TAB = Splitter.on('\t').trimResults();
     static final CLDRFile ENGLISH = CONFIG.getEnglish();
-    static final String relDir = "../util/data/languages/";
+    static final String relDir = "data/languages/";
     static final Map<String, R2<List<String>, String>> ALIAS_MAP = CONFIG
         .getSupplementalDataInfo()
         .getLocaleAliasInfo()
         .get("language");
-    static final Map<String, String> entityToLabel = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToLabel.tsv",
+    static final Map<String, String> entityToLabel = loadTsvPairsUnique(CldrUtility.class, relDir + "entityToLabel.tsv",
         null, null, null);
 
     static final Function<String, String> NAME = code -> code.equals("mul") ? "root" : ENGLISH.getName(code) + " (" + code + ")";
 
-    static final Map<String, String> entityToCode = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToCode.tsv",
+    static final Map<String, String> entityToCode = loadTsvPairsUnique(CldrUtility.class, relDir + "entityToCode.tsv",
         code -> {
             code = code.replace("\"", "");
             R2<List<String>, String> v = ALIAS_MAP.get(code);
@@ -77,7 +78,7 @@ public class GenerateLanguageContainment {
     static final Multimap<String, String> codeToEntity = ImmutableMultimap.copyOf(
         Multimaps.invertFrom(Multimaps.forMap(entityToCode), LinkedHashMultimap.create()));
 
-    static final Multimap<String, String> childToParent = loadTsvPairs(GenerateLanguageContainment.class, relDir + "childToParent.tsv",
+    static final Multimap<String, String> childToParent = loadTsvPairs(CldrUtility.class, relDir + "childToParent.tsv",
         code -> getEntityName(code), code -> getEntityName(code));
 
     static final Set<String> COLLECTIONS;

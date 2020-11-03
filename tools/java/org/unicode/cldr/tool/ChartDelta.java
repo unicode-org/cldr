@@ -410,9 +410,6 @@ public class ChartDelta extends Chart {
                         Output<Boolean> hasReformattedValue = new Output<>();
 
                         for (String path : paths) {
-                            if (highLevelOnly && !HighLevelPaths.pathIsHighLevel(path, locale)) {
-                                continue;
-                            }
                             if (path.startsWith("//ldml/identity")
                                 || path.endsWith("/alias")
                                 || path.startsWith("//ldml/segmentations") // do later
@@ -452,6 +449,9 @@ public class ChartDelta extends Chart {
                                     oldValue = old.getConstructedBaileyValue(path, null, null);
                                 }
                             }
+                            if (highLevelOnly && new SuspiciousChange(oldValue, currentValue, path, locale).isDisruptive() == false) {
+                                continue;
+                            }
                             // handle non-distinguishing attributes
                             addPathDiff(sourceDir, old, current, locale, ph, diff);
 
@@ -465,8 +465,6 @@ public class ChartDelta extends Chart {
             writeDiffs(diffAll);
 
             writeCounter(tsvCountFile, "Count", counts);
-            //tsvFile.println("# EOF");
-            //tsvCountFile.println("# EOF");
         }
     }
 
@@ -1105,6 +1103,102 @@ public class ChartDelta extends Chart {
     }
 
     /**
+     * Determine when changes to the values for paths should be treated as
+     * potentially "disruptive" for the purpose of "churn" reporting
+     */
+    private class SuspiciousChange {
+        /**
+         * the old and new values, such as "HH:mm–HH:mm v" and "HH:mm – HH:mm v"
+         */
+        private String oldValue, newValue;
+
+        /**
+         * the path, such as //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]
+         */
+        private String path;
+
+        /**
+         * the locale (such as "doi") in which the path was found, or null, or possibly
+         * the base file name without extension, like "xx" if the file name is "xx.xml",
+         * where "xx" may or may not be a locale; e.g., "supplementalData"
+         */
+        private String locale;
+
+        SuspiciousChange(String oldValue, String newValue, String path, String locale) {
+            this.oldValue = oldValue;
+            this.newValue = newValue;
+            this.path = path;
+            this.locale = locale;
+        }
+
+        /**
+         * Is the change from the old value to the new value, for this path and locale, potentially disruptive?
+         *
+         * @return true or false
+         */
+        public boolean isDisruptive() {
+            /*
+             * OR, not AND: certain changes in value are disruptive even for paths not
+             * otherwise treated as high-level, and changes for high-level paths are
+             * disruptive even if the changes in values themselves are not identified
+             * as disruptive.
+             */
+            return valueChangeIsDisruptive() || HighLevelPaths.pathIsHighLevel(path, locale);
+        }
+
+        /**
+         * Is the change from the old value to the current value potentially disruptive, based (primarily) on
+         * the values themselves?
+         *
+         * @return true or false
+         */
+        private boolean valueChangeIsDisruptive() {
+            if (oldValue == null || newValue == null || oldValue.equals(newValue)) {
+                return false;
+            }
+            if (valueChangeIsDisruptiveWhitespaceOnly()) {
+                return true;
+            }
+            return false;
+        }
+
+        /**
+         * Is the change disruptive whitespace only?
+         * Per design doc, "Format changes: second to none on the disruptiveness scale are changes involving spaces such as SPACE -> NBSP
+         * or NBSP -> Narrow NBSP. Or adding a space somewhere in the format where previously there was none."
+         *
+         * @return true or false
+         */
+        private boolean valueChangeIsDisruptiveWhitespaceOnly() {
+            /*
+             * annotations often have changes like "pop gorn", "popgorn", not treated as disruptive
+             */
+            if (path.startsWith("//ldml/annotations")) {
+                return false;
+            }
+            if (removeWhitespace(oldValue).equals(removeWhitespace(newValue))) {
+                return true;
+            }
+            return false;
+        }
+
+        /**
+         * Remove whitespace from the given string
+         *
+         * Remove whitespace as defined by regex \s, and also
+         * U+00A0 NO-BREAK SPACE
+         * U+2007 FIGURE SPACE
+         * U+202F NARROW NO-BREAK SPACE
+         *
+         * @param s the string
+         * @return the modified string
+         */
+        private String removeWhitespace(String s) {
+            return s.replaceAll("[\\s\\u00A0\\u2007\\u202F]", "");
+        }
+    }
+
+    /**
      * Determine which paths are considered "high-level" paths, i.e.,
      * paths for which any changes have high potential to cause disruptive "churn".
      * Whether a path is high-level sometimes depends on the locale or xml file in
@@ -1118,18 +1212,9 @@ public class ChartDelta extends Chart {
         /**
          * A set of paths to be treated as "high-level".
          * These are complete paths to be matched exactly.
-         * (Other paths are recognized by special functions like isHighLevelTerritoryName.)
+         * Other paths are recognized by special functions like isHighLevelTerritoryName.
          *
-         * The ordering and comments for are based on the design spec.
-         *
-         * Possibilities for improvement: read from file; maybe use RegexLookup;
-         *  distinguish these types:
-         *  (1) complete paths to be matched exactly;
-         *  (2) paths recognized by special functions like isHighLevelTerritoryName
-         *  (3) prefixes that could match with startsWith();
-         *  (4) RegexLookup or other regex
-         *  (5) "starred" paths
-         *  Currently we only have type (1) in this array, and all others are of type (2).
+         * The ordering and comments are based on the design spec.
          */
         final private static Set<String> highLevelPaths = new HashSet<>(Arrays.asList(
             /*
@@ -1160,8 +1245,8 @@ public class ChartDelta extends Chart {
             "//ldml/dates/fields/field[@type=\"minute\"]/displayName",
             "//ldml/dates/fields/field[@type=\"second\"]/displayName",
             /*
-             * TODO: First day of week: /supplemental.xml firstDay
-             * TODO: First week of year: /supplementalData/weekData/firstDay[not(\@alt)
+             * First day of week: firstDay in supplementalData.xml; see isHighLevelFirstDay
+             * First week of year: see isHighLevelWeekOfPreference
              */
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
@@ -1184,24 +1269,19 @@ public class ChartDelta extends Chart {
              * Currency (English and Native) -- see isHighLevelCurrencyName
              * E.g., //ldml/numbers/currencies/currency[@type=\"KRW\"]/displayName"
              *
-             * TODO: per design spec, "ISO Currency Code: SupplementalData.xml match <region iso3166>"
+             * ISO Currency Code: SupplementalData.xml match <region iso3166> -- see isHighLevelCurrencyCode
              */
             /*
              * Currency Formats
              *  a. Currency thousand separator
-             *      TODO: See pt_CV.xml example <numbers><currencies><currency><symbol>
              *  b. Currency decimal separator
-             *      TODO: See pt_CV.xml example <numbers><currencies><currency><decimal>
-             *  c. Currency Symbol//ldml/numbers/currencies/currency[@type="CNY"]/symbol
-             *  d. Currency Symbol Narrow
+             *  c. Currency Symbol //ldml/numbers/currencies/currency[@type="CNY"]/symbol
+             *  d. Currency Symbol Narrow //ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol[@alt=\"narrow\"]"
+             *
+             * See isHighLevelCurrencySeparatorOrSymbol
              */
             "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
             "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            /*
-             * Currency symbols
-             */
-            "//ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol",
-            "//ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol[@alt=\"narrow\"]",
             /*
              * Number Symbols
              */
@@ -1232,8 +1312,11 @@ public class ChartDelta extends Chart {
              * E.g., //supplementalData/territoryContainment/group[@type="003"][@contains="013 021 029"]
              */
             /*
-             * TODO: per design doc, "Format changes: second to none on the disruptiveness scale are changes involving spaces such as SPACE -> NBSP
-             *  or NBSP -> Narrow NBSP. Or adding a space somewhere in the format where previously there was none."
+             * Format changes: second to none on the disruptiveness scale are changes involving spaces such as SPACE -> NBSP
+             *  or NBSP -> Narrow NBSP. Or adding a space somewhere in the format where previously there was none.
+             *  -- see SuspiciousChange.valueChangeIsDisruptiveWhitespaceOnly
+             */
+            /*
              * TODO: per design doc, "Adding a timezone"
              * TODO: per design doc, "Changes of symbols or codes that are cross-locale in some way such as the unknown
              *  currency symbol change '???' -> '¤'."
@@ -1242,86 +1325,102 @@ public class ChartDelta extends Chart {
              */
         ));
 
+        static Pattern currencyPattern = Pattern.compile("^//ldml/numbers/currencies/currency.*/displayName.*");
+
         /**
-         * Should the given path be taken into account for generating "churn" reports?
+         * Should the given path in the given locale be taken into account for generating "churn" reports?
          *
          * @param path the path of interest
          * @param locale the locale in which the path was found, or null, or possibly
          *     the base file name without extension, like "xx" if the file name is "xx.xml",
-         *     where "xx" may or may not be a locale
+         *     where "xx" may or may not be a locale; e.g., "supplementalData"
          * @return true if it counts, else false to ignore
          */
         private static boolean pathIsHighLevel(String path, String locale) {
             if (path == null || locale == null) {
                 return false;
             }
-            if (!localeIsHighLevel(locale)) { // this should normally be caught at a higher level
-               System.out.println("locale [" + locale + "] failed localeIsHighLevel in pathIsHighLevel; path = " + path);
-               return false;
+            if (!localeIsHighLevel(locale)) { // for efficiency, this should be caught at a higher level
+                System.out.println("locale [" + locale + "] failed localeIsHighLevel in pathIsHighLevel; path = " + path);
+                return false;
             }
-            if (highLevelPaths.contains(path)) {
-                recordHighLevelMatch(path);
-                return true;
-            } else if (isHighLevelTerritoryName(path, locale)) {
+            if (pathIsReallyHighLevel(path, locale)) {
                 if (verboseHighLevelReporting) {
                     recordHighLevelMatch(path);
                 }
-                return true;
-            } else if (isHighLevelLangName(path, locale)) {
-                if (verboseHighLevelReporting) {
-                    recordHighLevelMatch(path);
-                }
-                return true;
-            } else if (isHighLevelCurrencyName(path, locale)) {
-                if (verboseHighLevelReporting) {
-                    recordHighLevelMatch(path);
-                }
-                return true;
-            } else if (isHighLevelLangAlias(path, locale)) {
-                // if (verboseHighLevelReporting) {
-                recordHighLevelMatch(path);
-                // }
-                return true;
-            } else if (isHighLevelTerritoryContainment(path, locale)) {
-                // if (verboseHighLevelReporting) {
-                recordHighLevelMatch(path);
-                // }
                 return true;
             }
             return false;
         }
 
-        private static boolean localeIsHighLevel(String locale) {
-            return SubmissionLocales.CLDR_LOCALES.contains(locale);
+        private static boolean pathIsReallyHighLevel(String path, String locale) {
+            if (highLevelPaths.contains(path)) {
+                return true;
+            } else if (isHighLevelTerritoryName(path, locale)) {
+                return true;
+            } else if (isHighLevelLangName(path, locale)) {
+                return true;
+            } else if (isHighLevelCurrencyName(path, locale)) {
+                return true;
+            } else if (isHighLevelCurrencyCode(path, locale)) {
+                return true;
+            } else if (isHighLevelCurrencySeparatorOrSymbol(path, locale)) {
+                return true;
+            } else if (isHighLevelLangAlias(path, locale)) {
+                return true;
+            } else if (isHighLevelTerritoryContainment(path, locale)) {
+                return true;
+            } else if (isHighLevelFirstDay(path, locale)) {
+                return true;
+            } else if (isHighLevelWeekOfPreference(path, locale)) {
+                return true;
+            }
+            return false;
         }
 
         /**
-         * Changes to language aliases (supplementalMetaData)
+         * Is the given locale, or base name, to be considered for "high level" churn report?
+         *
+         * @param locale the locale string, or base name like "supplementalData" as in "supplementalData.xml"
+         * @return true or false
+         */
+        private static boolean localeIsHighLevel(String locale) {
+            return SubmissionLocales.CLDR_LOCALES.contains(locale)
+                || "supplementalData".equals(locale);
+        }
+
+        /**
+         * Changes to language aliases (supplemental metadata)
          * E.g., //supplementalData/metadata/alias/languageAlias[@type="aar"]
          *
          * @param path
-         * @param locale
+         * @param locale must be "supplementalData" to match
          * @return true or false
          */
         private static boolean isHighLevelLangAlias(String path, String locale) {
-            // TODO Implement isHighLevelLangAlias
+            if ("supplementalData".equals(locale)) {
+                if (path.startsWith("//supplementalData/metadata/alias/languageAlias")) {
+                    return true;
+                }
+            }
             return false;
         }
 
         /**
-         * Changes in the containment graph -- see isHighLevelTerritoryContainment
+         * Changes in the containment graph
          * Data mostly (or entirely?) from M49 standard, thus CLDR has limited control.
          * Users use the containment graph in a variety of ways.
          * E.g., //supplementalData/territoryContainment/group[@type="003"][@contains="013 021 029"]
          *
          * @param path
-         * @param locale
+         * @param locale must be "supplementalData" to match
          * @return true or false
          */
         private static boolean isHighLevelTerritoryContainment(String path, String locale) {
-            // TODO Implement isHighLevelTerritoryContainment
-            if (path.startsWith("//supplementalData/territoryContainment")) {
-                System.out.println("isHighLevelTerritoryContainment got " + path);
+            if ("supplementalData".equals(locale)) {
+                if (path.startsWith("//supplementalData/territoryContainment")) {
+                    return true;
+                }
             }
             return false;
         }
@@ -1349,7 +1448,7 @@ public class ChartDelta extends Chart {
                 }
                 CoverageVariableInfo cvi = SUPPLEMENTAL_DATA_INFO.getCoverageVariableInfo(locale);
                 if (cvi != null) {
-                    for (String type: cvi.targetTerritories) {
+                    for (String type : cvi.targetTerritories) {
                         if (path.contains("[@type=\"" + type + "\"]")) {
                             return true;
                         }
@@ -1399,24 +1498,98 @@ public class ChartDelta extends Chart {
          * Native: check each currency type AAA corresponding to the given locale
          *
          * Do NOT exclude "alt"; e.g.,
-         * //ldml/numbers/currencies/currency[@type="KRW"]/symbol[@alt="narrow"]
+         * //ldml/numbers/currencies/currency[@type="ADP"]/displayName[@alt="proposed-u167-1"]
          *
          * @param path
          * @param locale
          * @return true or false
          */
         private static boolean isHighLevelCurrencyName(String path, String locale) {
-            if (path.startsWith("//ldml/numbers/currencies/currency")) {
+            if (currencyPattern.matcher(path).matches()) {
                 if ("en".equals(locale)) {
                     return true;
                 }
                 CoverageVariableInfo cvi = SUPPLEMENTAL_DATA_INFO.getCoverageVariableInfo(locale);
                 if (cvi != null) {
-                    for (String type: cvi.targetCurrencies) {
+                    for (String type : cvi.targetCurrencies) {
                         if (path.contains("[@type=\"" + type + "\"]")) {
                             return true;
                         }
                     }
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Is the given path a high-level currency code path in the given locale?
+         *
+         * E.g., //supplementalData/currencyData/region[@iso3166="AC"]/currency[@iso4217="SHP"][@from="1976-01-01"]
+         *
+         * @param path
+         * @param locale must be "supplementalData" to match
+         * @return true or false
+         */
+        private static boolean isHighLevelCurrencyCode(String path, String locale) {
+            if ("supplementalData".equals(locale)) {
+                if (path.contains("iso3166")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Is the given path a high-level currency thousands-separator or decimal-separator path in the given locale?
+         *
+         * E.g., //ldml/numbers/currencies/currency[@type="ESP"]/group
+         *       //ldml/numbers/currencies/currency[@type="ESP"]/decimal
+         *       //ldml/numbers/currencies/currency[@type="CNY"]/symbol
+         *       //ldml/numbers/currencies/currency[@type="CNY"]/symbol[@alt="narrow"]"
+         *
+         * @param path
+         * @param locale
+         * @return true or false
+         */
+        private static boolean isHighLevelCurrencySeparatorOrSymbol(String path, String locale) {
+            if (path.startsWith("//ldml/numbers/currencies/currency")
+                && (path.contains("group") || path.contains("decimal") || path.contains("symbol"))) {
+                return true;
+            }
+            return false;
+        }
+
+        /**
+         * Is the given path a high-level weekData/firstDay in the given locale?
+         *
+         * E.g.,//supplementalData/weekData/firstDay[@day="fri"][@territories="MV"]
+         *
+         * @param path
+         * @param locale must be "supplementalData" to match
+         * @return true or false
+         */
+        private static boolean isHighLevelFirstDay(String path, String locale) {
+            if ("supplementalData".equals(locale)) {
+                if (path.startsWith("//supplementalData/weekData/firstDay")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Is the given path a high-level weekOfPreference in the given locale?
+         *
+         * E.g., //supplementalData/weekData/weekOfPreference[@ordering="weekOfYear"][@locales="und"]
+         *
+         * @param path
+         * @param locale must be "supplementalData" to match
+         * @return true or false
+         */
+        private static boolean isHighLevelWeekOfPreference(String path, String locale) {
+            if ("supplementalData".equals(locale)) {
+                if (path.startsWith("//supplementalData/weekData/weekOfPreference")) {
+                    return true;
                 }
             }
             return false;
@@ -1439,20 +1612,21 @@ public class ChartDelta extends Chart {
          * For debugging, report on any paths in highLevelPaths that never matched
          */
         private static void reportHighLevelPathUsage() {
+            if (!verboseHighLevelReporting) {
+                return;
+            }
             if (highLevelPathMatched == null) {
                 System.out.println("Zero high-level paths were matched!");
                 return;
             }
-            for (String path: highLevelPaths) {
+            for (String path : highLevelPaths) {
                 if (!highLevelPathMatched.contains(path)) {
                     System.out.println("Unmatched high-level path: " + path);
                 }
             }
-            if (verboseHighLevelReporting || true) {
-                for (String path: highLevelPathMatched) {
-                    if (!highLevelPaths.contains(path)) {
-                        System.out.println("Special matched high-level path: " + path);
-                    }
+            for (String path : highLevelPathMatched) {
+                if (!highLevelPaths.contains(path)) {
+                    System.out.println("Special matched high-level path: " + path);
                 }
             }
         }

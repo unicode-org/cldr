@@ -1159,6 +1159,9 @@ public class ChartDelta extends Chart {
             if (valueChangeIsDisruptiveWhitespaceOnly()) {
                 return true;
             }
+            if (valueChangeInvolvesCurrencySign()) {
+                return true;
+            }
             return false;
         }
 
@@ -1180,6 +1183,17 @@ public class ChartDelta extends Chart {
                 return true;
             }
             return false;
+        }
+
+        /**
+         * Does the change involve addition or removal of "¤" U+00A4 CURRENCY SIGN?
+         * Per design doc, "Changes of symbols or codes that are cross-locale in
+         * some way such as the unknown currency symbol change 'XXX' -> '¤'."
+         *
+         * @return true or false
+         */
+        private boolean valueChangeInvolvesCurrencySign() {
+            return oldValue.contains("¤") != newValue.contains("¤");
         }
 
         /**

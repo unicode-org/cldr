@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          lfs: true
+          lfs: false
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
@@ -30,8 +30,21 @@ jobs:
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
           -DskipTests=true
+      - name: Upload cldr-apps.war
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-apps
+          path: tools/cldr-apps/target/cldr-apps.war
+      - name: Build single cldr.jar
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -pl java package assembly:single -DskipTests=true  --file tools/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload cldr.jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-tools
+          path: tools/java/target/cldr.jar
       - name: BOM check in .xml files
         run: >
           mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl java
@@ -51,4 +64,50 @@ jobs:
           '-Dorg.unicode.cldr.unittest.web.KeepDb=true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  check:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: false
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Download cldr.jar
+        uses: actions/download-artifact@v2
+        with:
+          name: cldr-tools
+          path: tools/java/target/
+      - name: run CLDR console check
+        run: java -DCLDR_DIR=$(pwd) -jar tools/java/target/cldr.jar check -S common,seed -e -z FINAL_TESTING 
+  deploy:
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs:
+      - build
+      - check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download cldr-apps.war
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-apps
+    - name: Deploy to cldr-smoke (experimental)
+      # Deploys only on push to master.
+      # Does not deploy for PRs.
+      if: ${{ github.event_name == 'push' }}
+      shell: bash
+      env:
+        # the RSA key for connecting
+        RSA_KEY_SURVEYTOOL: ${{ secrets.RSA_KEY_SURVEYTOOL }}
+        # the SSH port
+        SMOKETEST_PORT: ${{ secrets.SMOKETEST_PORT }}
+        # the SSH host
+        SMOKETEST_HOST: ${{ secrets.SMOKETEST_HOST }}
+        # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+        SMOKETEST_KNOWNHOSTS: ${{ secrets.SMOKETEST_KNOWNHOSTS }}
+      run: |
+        echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
+        echo "${SMOKETEST_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SMOKETEST_PORT} surveytool@${SMOKETEST_HOST} bash /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${GITHUB_SHA} --override

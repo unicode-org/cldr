@@ -56,6 +56,15 @@ begin with the accepted Jira ticket number.
 - Use of the ICU libraries is subject to the ICU License, included as [ICU-LICENSE](./ICU-LICENSE).
 - There must be a signed CLA before code is contributed, the PR will not be merged until the CLA is signed.
 
+## Building
+
+For setup details, see [Maven Setup][].
+Builds are done with Maven:
+
+```
+mvn test --file=tools/pom.xml
+```
+
 ## Tests
 
 For more detail, and how to run the tests locally, see [Running Tests][] on the CLDR development site.
@@ -87,6 +96,7 @@ All rights reserved. [Terms of use][]
 [Terms of use]: http://www.unicode.org/copyright.html
 [Jira]: http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket
 [Tools source]: https://github.com/unicode-org/cldr/tree/master/tools
+[Maven setup]: http://cldr.unicode.org/development/maven
 [Repository Organization]: http://cldr.unicode.org/index/downloads#Repository_Organization
 [How to contribute]: http://cldr.unicode.org/#TOC-How-to-Contribute-
 [Unicode member]: https://home.unicode.org/membership/why-join/

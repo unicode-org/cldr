@@ -1510,21 +1510,14 @@ public class Ldml2JsonConverter {
 
         if (attrAsValueMap.isEmpty()) {
             out.name(objName);
-            /*
-              TODO: for grammaticalFeatures
-              if (LdmlConvertRules.VALUE_IS_SPACESEP_ARRAY.matcher(nodeName).matches()) {
-                out.beginArray();
-                // split this, so "a b c" becomes ["a","b","c"]
-                for (final String s : value.trim().split(" ")) {
-                    out.value(s);
-                }
-                out.value(nodeName);
-                out.endArray();
-            } else
-            */
             if (value.isEmpty()) {
-                out.beginObject();
-                out.endObject();
+                if (LdmlConvertRules.VALUE_IS_SPACESEP_ARRAY.matcher(nodeName).matches()) {
+                    out.beginArray();
+                    out.endArray();
+                } else {
+                    out.beginObject();
+                    out.endObject();
+                }
             } else if (type == RunType.annotations ||
                 type == RunType.annotationsDerived) {
                 out.beginArray();
@@ -1544,7 +1537,20 @@ public class Ldml2JsonConverter {
         // simplify the output.
         if (value.isEmpty() &&
             attrAsValueMap.containsKey(LdmlConvertRules.ANONYMOUS_KEY)) {
-            out.name(objName).value(attrAsValueMap.get(LdmlConvertRules.ANONYMOUS_KEY));
+            String v = attrAsValueMap.get(LdmlConvertRules.ANONYMOUS_KEY);
+            out.name(objName);
+            if (LdmlConvertRules.VALUE_IS_SPACESEP_ARRAY.matcher(nodeName).matches()) {
+                out.beginArray();
+                // split this, so "a b c" becomes ["a","b","c"]
+                for (final String s : v.trim().split(" ")) {
+                    if(!s.isEmpty()) {
+                        out.value(s);
+                    }
+                }
+                out.endArray();
+            } else {
+                out.value(v);
+            }
             return;
         }
         if (!objName.equals("rbnfrule")) {

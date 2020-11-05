@@ -2,6 +2,8 @@ package org.unicode.cldr.json;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.json.LdmlConvertRules.SplittableAttributeSpec;
 import org.unicode.cldr.util.DtdData;
@@ -243,9 +245,13 @@ public class CldrItem implements Comparable<CldrItem> {
             if (fullxpp.containsElement(s.element) && fullxpp.containsAttribute(s.attribute)) {
                 ArrayList<CldrItem> list = new ArrayList<>();
                 String wordString = fullxpp.findAttributeValue(s.element, s.attribute);
-                String[] words = null;
-                words = wordString.trim().split("\\s+");
+                String[] words = wordString.trim().split("\\s+");
+                Set<String> hadWords = new TreeSet<>();
                 for (String word : words) {
+                    if(hadWords.add(word) == false) {
+                        System.err.println("Warning: Duplicate attribute " + word + " in " + fullPath);
+                        continue;
+                    }
                     // TODO: Ideally, there would be a separate post-split path transform.
 
                     XPathParts newxpp = xpp.cloneAsThawed();

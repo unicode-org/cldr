@@ -108,7 +108,7 @@ function showV() {
 						// could be the sandbox locale, or some other comment.
 						clickyLink.title = subInfo.special_comment;
 					}
-					
+
 					if (window.canmodify && subLoc in window.canmodify) {
 						addClass(clickyLink, "canmodify");
 					} else {
@@ -841,7 +841,7 @@ function showV() {
 													/*
 													 * Indent by creating lists within lists, each list containing only one item.
 													 * TODO: indent by a better method. Note that for valid html, ul should contain li;
-													 * ul directly containing element other than li is generally invalid. 
+													 * ul directly containing element other than li is generally invalid.
 													 */
 													let ul = document.createElement("ul");
 													let li = document.createElement("li");
@@ -1166,10 +1166,10 @@ function showV() {
 				window.insertLocaleSpecialNote = function insertLocaleSpecialNote(theDiv) {
 
 					var bund = locmap.getLocaleInfo(surveyCurrentLocale);
+					let msg = null;
 
 					if (bund) {
 						if (bund.readonly || bund.special_comment_raw) {
-							let msg = null;
 							if (bund.readonly) {
 								if (bund.special_comment_raw) {
 									msg = bund.special_comment_raw;

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Note: this is managed by Ansible, as deploy-sh.j2
-# Don't modify this file.
+# Don't modify this file if its name is deploy-to-tomcat.sh
 GITHUB_SHA=$1
 UNLOCK=$2
 WORKDIR=${TMPDIR-/tmp} # keep all random files here
@@ -50,7 +50,7 @@ dogit() {
 }
 
 # Check git first, before undeploying. Want to exit early
-(cd  /var/lib/tomcat8/cldr/cldr-trunk/ && dogit ) || exit 1
+(cd  {{ cldr_trunk_path }} && dogit ) || exit 1
 # undeploy old ST
 curl -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/undeploy?path=/cldr-apps'
 # reset last deploy status

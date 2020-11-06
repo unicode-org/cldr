@@ -61,7 +61,7 @@
     - name: stop tomcat
       become: true
       service:
-        name: tomcat8
+        name: "{{ cldr_tomcat_service }}"
         state: stopped
     - name: redact db
       # This playbook is intended to always make a change.
@@ -71,5 +71,5 @@
     - name: restart tomcat
       become: true
       service:
-        name: tomcat8
+        name: "{{ cldr_tomcat_service }}"
         state: restarted

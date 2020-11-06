@@ -9,3 +9,10 @@ mysql_databases:
 mysql_enabled_on_startup: true
 mysql_bind_address: localhost
 ansible_python_interpreter: python3
+cldr_tomcat_version: 9
+cldr_tomcat_service: tomcat
+cldr_tomcat_folder: "{{ cldr_tomcat_service }}"
+cldr_tomcat_user: "{{ cldr_tomcat_service }}"
+cldr_tomcat_group: "{{ cldr_tomcat_user }}"
+cldr_path: "/var/lib/{{ cldr_tomcat_folder }}/cldr"
+cldr_trunk_path: "{{ cldr_path }}/cldr-trunk"

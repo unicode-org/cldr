@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -140,7 +141,7 @@ public class Ldml2JsonConverter {
     // Whether we should write output files into installable packages
     private boolean writePackages;
     // Type of run for this converter: main, supplemental, or segments
-    private RunType type;
+    final private RunType type;
 
     private class JSONSection implements Comparable<JSONSection> {
         public String section;
@@ -546,60 +547,8 @@ public class Ldml2JsonConverter {
                             throw new IllegalArgumentException("empty xpath in " + filename + " section " + js.packageName + "/" + js.section);
                         }
                         if (type == RunType.rbnf) {
-                            item.setValue(item.getValue().replace('→', '>'));
-                            item.setValue(item.getValue().replace('←', '<'));
-                            if (item.getFullPath().contains("@value")) {
-                                int indexStart = item.getFullPath().indexOf("@value") + 8;
-                                int indexEnd = item.getFullPath().indexOf("]", indexStart) - 1;
-                                if (indexStart >= 0 && indexEnd >= 0 && indexEnd > indexStart) {
-                                    String sub = item.getFullPath().substring(indexStart, indexEnd);
-                                    /* System.out.println("sub: " + sub);
-                                    System.out.println("full: " + item.getFullPath());
-                                    System.out.println("val: " + item.getValue());*/
-                                    item.setFullPath(item.getFullPath().replace(sub, item.getValue()));
-                                    item.setFullPath(item.getFullPath().replaceAll("@value", "@" + sub));
-                                    //System.out.println("modifyfull: " + item.getFullPath());
-                                    item.setValue("");
-                                }
-                            }
-
+                            item.adjustRbnfPath();
                         }
-                        // ADJUST ACCESS=PRIVATE/PUBLIC BASED ON ICU RULE -- START
-                        if (type == RunType.rbnf) {
-                            String fullpath = item.getFullPath();
-                            if (fullpath.contains("/ruleset")) {
-                                int ruleStartIndex = fullpath.indexOf("/ruleset[");
-                                String checkString = fullpath.substring(ruleStartIndex);
-
-                                int ruleEndIndex = 0;
-                                if (checkString.contains("/")) {
-                                    ruleEndIndex = fullpath.indexOf("/", ruleStartIndex + 1);
-                                }
-                                if (ruleEndIndex > ruleStartIndex) {
-                                    String oldRulePath = fullpath.substring(ruleStartIndex, ruleEndIndex);
-
-                                    String newRulePath = oldRulePath;
-                                    if (newRulePath.contains("@type")) {
-                                        int typeIndexStart = newRulePath.indexOf("\"", newRulePath.indexOf("@type"));
-                                        int typeIndexEnd = newRulePath.indexOf("\"", typeIndexStart + 1);
-                                        String type = newRulePath.substring(typeIndexStart + 1, typeIndexEnd);
-
-                                        String newType = "";
-                                        if (newRulePath.contains("@access")) {
-                                            newType = "%%" + type;
-                                        } else {
-                                            newType = "%" + type;
-                                        }
-                                        newRulePath = newRulePath.replace(type, newType);
-                                        item.setPath(item.getPath().replace(type, newType));
-                                    }
-                                    fullpath = fullpath.replace(oldRulePath, newRulePath);
-                                    item.setFullPath(fullpath);
-
-                                }
-                            }
-                        }
-                        // ADJUST ACCESS=PRIVATE/PUBLIC BASED ON ICU RULE -- END
 
                         // items in the identity section of a file should only ever contain the lowest level, even if using
                         // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress
@@ -973,7 +922,6 @@ public class Ldml2JsonConverter {
         ArrayList<CldrNode> nodesForLastItem,
         ArrayList<CldrItem> arrayItems)
         throws IOException, ParseException {
-        boolean rbnfFlag = false;
         if (!arrayItems.isEmpty()) {
             CldrItem firstItem = arrayItems.get(0);
             if (firstItem.needsSort()) {
@@ -992,26 +940,16 @@ public class Ldml2JsonConverter {
                 nodesForLastItem.remove(len - 1);
                 len--;
             }
-            if (arrayItems.get(0).getFullPath().contains("rbnfrule")) {
-                rbnfFlag = true;
-                out.beginObject();
-            }
             for (CldrItem insideItem : arrayItems) {
 
                 outputArrayItem(out, insideItem, nodesForLastItem, arrayLevel);
 
             }
-            if (rbnfFlag) {
-                out.endObject();
-            }
-
             arrayItems.clear();
 
             int lastLevel = nodesForLastItem.size() - 1;
             closeNodes(out, lastLevel, arrayLevel);
-            if (!rbnfFlag) {
-                out.endArray();
-            }
+            out.endArray();
             for (int i = arrayLevel - 1; i < lastLevel; i++) {
                 nodesForLastItem.remove(i);
             }
@@ -1070,9 +1008,7 @@ public class Ldml2JsonConverter {
 
         String objName = nodesInPath.get(i).getNodeKeyName();
         out.name(objName);
-        if (!item.getFullPath().contains("rbnfrule")) {
-            out.beginArray();
-        }
+        out.beginArray();
     }
 
     /**
@@ -1252,34 +1188,16 @@ public class Ldml2JsonConverter {
 
             Map<String, String> attrAsValueMap = cldrNode.getAttrAsValueMap();
 
-            // ADJUST RADIX BASED ON ICU RULE -- BEGIN
-            if (attrAsValueMap.containsKey("radix")) {
-                String radixValue = attrAsValueMap.get("radix");
-                attrAsValueMap.remove("radix");
-                for (Map.Entry<String, String> attributes : attrAsValueMap.entrySet()) {
-                    String oldKey = attributes.getKey();
-                    String newValue = attributes.getValue();
-                    String newKey = oldKey + "/" + radixValue;
-                    attrAsValueMap.remove(oldKey);
-                    attrAsValueMap.put(newKey, newValue);
-
-                }
-            }
-            // ADJUST RADIX BASED ON ICU RULE -- END
-
             if (attrAsValueMap.isEmpty()) {
                 out.beginObject();
                 out.name(objName).value(value);
                 out.endObject();
+            } else if (objName.equals("rbnfrule")) {
+                writeRbnfLeafNode(out, item, attrAsValueMap);
             } else {
-                if (!objName.equals("rbnfrule")) {
-                    out.beginObject();
-                }
+                out.beginObject();
                 writeLeafNode(out, objName, attrAsValueMap, value, nodesNum, cldrNode.getName());
-                if (!objName.equals("rbnfrule")) {
-                    out.endObject();
-                }
-
+                out.endObject();
             }
             // the last node is closed, remove it.
             nodesInPath.remove(nodesNum - 1);
@@ -1314,6 +1232,17 @@ public class Ldml2JsonConverter {
 
         nodesForLastItem.clear();
         nodesForLastItem.addAll(nodesInPath);
+    }
+
+    private void writeRbnfLeafNode(JsonWriter out, CldrItem item, Map<String, String> attrAsValueMap) throws IOException {
+        if(attrAsValueMap.size() != 1) {
+            throw new IllegalArgumentException("Error, attributes seem wrong for RBNF " + item.getUntransformedPath());
+        }
+        Entry<String, String> entry = attrAsValueMap.entrySet().iterator().next();
+        out.beginArray()
+            .value(entry.getKey())
+            .value(entry.getValue())
+            .endArray();
     }
 
     /**
@@ -1366,6 +1295,11 @@ public class Ldml2JsonConverter {
         final int total = files.size();
         AtomicInteger readCount = new AtomicInteger(0);
         Map<String, Throwable> errs = new TreeMap<>();
+
+        // This takes a long time (minutes, in 2020), so run it in parallel forkJoinPool threads.
+        // The result of this pipeline is an array of toString()-able filenames of XML files which
+        // produced no JSON output, just as a warning.
+
         Object noOutputFiles[] = files
             .parallelStream()
             // filter these out early
@@ -1553,10 +1487,8 @@ public class Ldml2JsonConverter {
             }
             return;
         }
-        if (!objName.equals("rbnfrule")) {
-            out.name(objName);
-            out.beginObject();
-        }
+        out.name(objName);
+        out.beginObject();
 
         if (!value.isEmpty()) {
             out.name("_value").value(value);
@@ -1567,24 +1499,16 @@ public class Ldml2JsonConverter {
             // attribute is prefixed with "_" when being used as key.
             if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
                 String[] strings = attrValue.trim().split("\\s+");
-                if (type != RunType.rbnf) {
-                    out.name("_" + key);
-                } else {
-                    out.name(key);
-                }
+                out.name("_" + key);
                 out.beginArray();
                 for (String s : strings) {
                     out.value(s);
                 }
                 out.endArray();
-            } else if (type != RunType.rbnf) {
-                out.name("_" + key).value(attrValue);
             } else {
-                out.name(key).value(attrValue);
+                out.name("_" + key).value(attrValue);
             }
         }
-        if (!objName.equals("rbnfrule")) {
-            out.endObject();
-        }
+        out.endObject();
     }
 }

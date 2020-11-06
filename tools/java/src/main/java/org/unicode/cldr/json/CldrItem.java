@@ -362,7 +362,50 @@ public class CldrItem implements Comparable<CldrItem> {
         }
         result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
         return result;
-        //return CLDRFile.getLdmlComparator().compare(path, otherItem.path);
-        //return path.compareTo(otherItem.path);
+    }
+
+    void adjustRbnfPath() {
+        XPathParts xpp = XPathParts.getFrozenInstance(getFullPath());
+        final String sub = xpp.findAttributeValue("rbnfrule", "value");
+        if(sub != null){
+            xpp = xpp.cloneAsThawed();
+            final String value = getValue();
+            xpp.removeAttribute(-1, "value");
+            xpp.addAttribute(sub, value);
+            setFullPath(xpp.toString());
+            setValue("");
+        }
+        // ADJUST ACCESS=PRIVATE/PUBLIC BASED ON ICU RULE
+        String fullpath = getFullPath();
+        if (fullpath.contains("/ruleset")) {
+            int ruleStartIndex = fullpath.indexOf("/ruleset[");
+            String checkString = fullpath.substring(ruleStartIndex);
+
+            int ruleEndIndex = 0;
+            if (checkString.contains("/")) {
+                ruleEndIndex = fullpath.indexOf("/", ruleStartIndex + 1);
+            }
+            if (ruleEndIndex > ruleStartIndex) {
+                String oldRulePath = fullpath.substring(ruleStartIndex, ruleEndIndex);
+
+                String newRulePath = oldRulePath;
+                if (newRulePath.contains("@type")) {
+                    int typeIndexStart = newRulePath.indexOf("\"", newRulePath.indexOf("@type"));
+                    int typeIndexEnd = newRulePath.indexOf("\"", typeIndexStart + 1);
+                    String type = newRulePath.substring(typeIndexStart + 1, typeIndexEnd);
+
+                    String newType = "";
+                    if (newRulePath.contains("@access")) {
+                        newType = "%%" + type;
+                    } else {
+                        newType = "%" + type;
+                    }
+                    newRulePath = newRulePath.replace(type, newType);
+                    setPath(getPath().replace(type, newType));
+                }
+                fullpath = fullpath.replace(oldRulePath, newRulePath);
+                setFullPath(fullpath);
+            }
+        }
     }
 }

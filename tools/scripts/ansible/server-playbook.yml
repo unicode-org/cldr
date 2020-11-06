@@ -19,33 +19,33 @@
     - name: Setup Server Context
       template:
         src: templates/context.j2
-        dest: /etc/tomcat8/context.xml
+        dest: "/etc/{{ cldr_tomcat_folder }}/context.xml"
         owner: root
-        group: tomcat8
+        group: "{{ cldr_tomcat_group }}"
         mode: '0640'
       notify: Restart Tomcat
-    - name: Setup tomcat8/server.xml
+    - name: Setup Tomcat server.xml
       copy:
         src: templates/server.xml
-        dest: /etc/tomcat8/server.xml
+        dest: "/etc/{{ cldr_tomcat_folder }}/server.xml"
         owner: root
-        group: tomcat8
+        group: "{{ cldr_tomcat_group }}"
         mode: '0640'
       notify: Restart Tomcat
     - name: Setup Server Users
       template:
         src: templates/users.j2
-        dest: /etc/tomcat8/tomcat-users.xml
+        dest: "/etc/{{ cldr_tomcat_folder }}/tomcat-users.xml"
         owner: root
-        group: tomcat8
+        group: "{{ cldr_tomcat_group }}"
         mode: '0640'
       notify: Restart Tomcat
     - name: Create CLDR dir
       file:
-        path: /var/lib/tomcat8/cldr
+        path: "{{ cldr_path }}"
         state: directory
-        owner: tomcat8
-        group: tomcat8
+        owner: "{{ cldr_tomcat_user }}"
+        group: "{{ cldr_tomcat_group }}"
         mode: 0775
     - name: Rotate CLDR logs
       blockinfile:
@@ -53,8 +53,8 @@
         owner: root
         mode: "0644"
         block: |
-          /var/lib/tomcat8/cldr/cldrmail.log /var/lib/tomcat8/cldr/exception.log {
-            su tomcat8 tomcat8
+          {{ cldr_path }}/cldrmail.log {{ cldr_path }}/exception.log {
+            su {{ cldr_tomcat_user }} {{ cldr_tomcat_group }}
             daily
             rotate 14
             compress
@@ -66,17 +66,17 @@
         create: true
     - name: Create cldr.properties
       template:
-        dest: /var/lib/tomcat8/cldr/cldr.properties
+        dest: "{{ cldr_path }}/cldr.properties"
         src: templates/cldr-properties.j2
         force: no
-        owner: tomcat8
-        group: tomcat8
+        owner: "{{ cldr_tomcat_user }}"
+        group: "{{ cldr_tomcat_group }}"
         mode: "0644"
       notify: Restart Tomcat
     - name: Checkout CLDR trunk
       git:
         repo: https://github.com/unicode-org/cldr.git
-        dest: /var/lib/tomcat8/cldr/cldr-trunk
+        dest: "{{ cldr_trunk_path }}"
         force: no
         update: no
         version: master
@@ -115,7 +115,7 @@
         shell: /bin/bash
     - name: Give access to surveytool user
       file:
-        path: /var/lib/tomcat8/cldr/cldr-trunk
+        path: "{{ cldr_trunk_path }}"
         owner: surveytool
         recurse: yes
     - name: Setup surveytool auth
@@ -175,7 +175,7 @@
   handlers:
     - name: Restart Tomcat
       service:
-        name: tomcat8
+        name: "{{ cldr_tomcat_service }}"
         state: restarted
     - name: Restart Nginx
       service:

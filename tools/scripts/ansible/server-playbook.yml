@@ -3,86 +3,14 @@
   vars_files:
     - vars/main.yml
     - local-vars/local.yml
-  roles:
-    - { role: geerlingguy.mysql }
-    - { role: geerlingguy.nginx }
   tasks:
     - name: Install server packages
       apt:
         pkg:
-          - tomcat8
-          - tomcat8-admin # needed for deploy
           - unzip # needed for deploy
           # for monitoring
           - prometheus-mysqld-exporter
           # - prometheus-nginx-exporter # (not there yet)
-    - name: Setup Server Context
-      template:
-        src: templates/context.j2
-        dest: "/etc/{{ cldr_tomcat_folder }}/context.xml"
-        owner: root
-        group: "{{ cldr_tomcat_group }}"
-        mode: '0640'
-      notify: Restart Tomcat
-    - name: Setup Tomcat server.xml
-      copy:
-        src: templates/server.xml
-        dest: "/etc/{{ cldr_tomcat_folder }}/server.xml"
-        owner: root
-        group: "{{ cldr_tomcat_group }}"
-        mode: '0640'
-      notify: Restart Tomcat
-    - name: Setup Server Users
-      template:
-        src: templates/users.j2
-        dest: "/etc/{{ cldr_tomcat_folder }}/tomcat-users.xml"
-        owner: root
-        group: "{{ cldr_tomcat_group }}"
-        mode: '0640'
-      notify: Restart Tomcat
-    - name: Create CLDR dir
-      file:
-        path: "{{ cldr_path }}"
-        state: directory
-        owner: "{{ cldr_tomcat_user }}"
-        group: "{{ cldr_tomcat_group }}"
-        mode: 0775
-    - name: Rotate CLDR logs
-      blockinfile:
-        path: "/etc/logrotate.d/surveytool-logs"
-        owner: root
-        mode: "0644"
-        block: |
-          {{ cldr_path }}/cldrmail.log {{ cldr_path }}/exception.log {
-            su {{ cldr_tomcat_user }} {{ cldr_tomcat_group }}
-            daily
-            rotate 14
-            compress
-            missingok
-            notifempty
-            dateext
-            create
-          }
-        create: true
-    - name: Create cldr.properties
-      template:
-        dest: "{{ cldr_path }}/cldr.properties"
-        src: templates/cldr-properties.j2
-        force: no
-        owner: "{{ cldr_tomcat_user }}"
-        group: "{{ cldr_tomcat_group }}"
-        mode: "0644"
-      notify: Restart Tomcat
-    - name: Checkout CLDR trunk
-      git:
-        repo: https://github.com/unicode-org/cldr.git
-        dest: "{{ cldr_trunk_path }}"
-        force: no
-        update: no
-        version: master
-        # this is deep because we will need to keep updating
-        # it with history. It does not include LFS as that
-        # is not needed for the surveytool.
     - name: Setup index.html
       copy:
         src: templates/index.html
@@ -90,25 +18,6 @@
         owner: root
         group: root
         mode: '0644'
-    - name: Setup reverse proxy
-      blockinfile:
-        path: /etc/nginx/sites-enabled/default
-        block: |
-          # proxy /cldr-apps/ to tomcat, with generous timeouts
-          proxy_connect_timeout 60s;
-          proxy_send_timeout 500s;
-          proxy_read_timeout 500s;
-          location /cldr-apps/ {
-            rewrite ^/(.+)\._[\da-f]+_\.(js|css)$ /$1.$2 break;
-            allow all;
-            proxy_pass http://localhost:8080/cldr-apps/;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $remote_addr;
-          }
-        marker: '# {mark} ANSIBLE MANAGED BLOCK'
-        insertafter: '^[\s]*server_name' # the LAST uncommented server block
-      notify: 'Restart Nginx'
     - name: Setup surveytool user for deploy
       user:
         name: surveytool
@@ -122,13 +31,6 @@
       authorized_key:
         user: surveytool
         key: '{{ surveytooldeploy.key }}'
-    - name: Setup deploy-to-tomcat.sh
-      template:
-        src: templates/deploy-sh.j2
-        dest: /usr/local/bin/deploy-to-tomcat.sh
-        owner: root
-        group: root
-        mode: '0755'
     - name: ensure cldradmin group is there
       group:
         name: cldradmin
@@ -142,13 +44,6 @@
         append: yes # add to the groups, do not remove
         state: present
         create_home: true
-    - name: Setup /home/cldradmin/.my.cnf
-      template:
-        src: templates/mycnf.j2
-        dest: /home/cldradmin/.my.cnf
-        owner: cldradmin
-        group: cldradmin
-        mode: '0640'
     - name: make sure /home/cldradmin/.ssh/ exists
       file:
         path: /home/cldradmin/.ssh/
@@ -172,12 +67,3 @@
         group: root
         mode: '440'
         src: templates/55-cldradmin.conf
-  handlers:
-    - name: Restart Tomcat
-      service:
-        name: "{{ cldr_tomcat_service }}"
-        state: restarted
-    - name: Restart Nginx
-      service:
-        name: nginx
-        state: restarted

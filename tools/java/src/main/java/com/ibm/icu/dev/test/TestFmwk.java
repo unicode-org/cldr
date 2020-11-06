@@ -116,7 +116,7 @@ public class TestFmwk extends AbstractTestLog {
                 errln(ex.toString() + '\n' + msg);
             }
         } else {
-            errln(ex.toString() + '\n' + msg);
+            errln(sourceLocation(ex) + ex.toString() + '\n' + msg);
         }
     }
     // use this instead of new random so we get a consistent seed
@@ -1989,20 +1989,34 @@ public class TestFmwk extends AbstractTestLog {
         return obj.getClass().getName() + "<" + obj + ">";
     }
 
-    // Return the source code location of the caller located callDepth frames up the stack.
+    // Return the source code location of the calling test
+    // or "" if not found
     public static String sourceLocation() {
+        return sourceLocation(new Throwable());
+    }
+
+    // Return the source code location of the specified throwable's calling test
+    // returns "" if not found
+    public static String sourceLocation(Throwable forThrowable) {
         // Walk up the stack to the first call site outside this file
         for (StackTraceElement st : new Throwable().getStackTrace()) {
             String source = st.getFileName();
-            if (source != null && !source.equals("TestFmwk.java") && !source.equals("AbstractTestLog.java")) {
+            if(source.equals("TestShim.java")) {
+                return ""; // hit the end of helpful stack traces
+            }
+            if (source != null && !source.equals("TestFmwk.java") 
+                && !source.equals("AbstractTestLog.java")) {
                 String methodName = st.getMethodName();
+                if(methodName != null && methodName.startsWith("lambda$")) { // unpack inner lambda
+                    methodName = methodName.substring("lambda$".length()); // lambda$TestValid$0 -> TestValid$0
+                }
                 if (methodName != null &&
                        (methodName.startsWith("Test") || methodName.startsWith("test") || methodName.equals("main"))) {
-                    return "(" + source + ":" + st.getLineNumber() + ") ";
+                   return "(" + source + ":" + st.getLineNumber() + ") ";
                 }
             }
         }
-        throw new InternalError();
+        return ""; // not found
     }
 
 

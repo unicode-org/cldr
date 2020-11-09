@@ -25,7 +25,9 @@ import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import javax.mail.Authenticator;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -41,7 +43,7 @@ import org.unicode.cldr.util.CLDRLocale;
  */
 public class MailSender implements Runnable {
 
-    private long waitTill = 0;
+    // private long waitTill = 0;
     private static final String CLDR_MAIL = "cldr_mail";
 
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
@@ -117,7 +119,7 @@ public class MailSender implements Runnable {
         DBUtils db = DBUtils.getInstance();
         USER = DBUtils.db_Mysql ? "user" : "to_user";
         Connection conn = null;
-        PreparedStatement s = null, s2 = null;
+        PreparedStatement s = null, s2 = null, s3 = null;
         try {
             conn = db.getDBConnection();
             conn.setAutoCommit(false);
@@ -148,21 +150,17 @@ public class MailSender implements Runnable {
                 System.out.println("Setup " + CLDR_MAIL);
             }
             // set some defaults
+            // these getters cause the properties (e.g. mail.host) to be set in the current CLDRConfig.
+            // More docs  at: https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html
             Properties env = getProperties();
-            env.getProperty("mail.host", env.getProperty("CLDR_SMTP", null));
-            //  env.getProperty("mail.smtp.port", env.getProperty("CLDR_SMTP_PORT", "25"));
             env.getProperty("mail.smtp.connectiontimeout", "25");
             env.getProperty("mail.smtp.timeout", "25");
 
             // reap old items
             java.sql.Timestamp aWeekAgo = new java.sql.Timestamp(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 7 * 3)); // reap mail after about 3 weeks
-            /*
-             * TODO: fix leak warning here for s2; make it s3, or close s2 first?
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-13156
-             */
-            s2 = DBUtils.prepareStatementWithArgs(conn, "delete from " + CLDR_MAIL + " where queue_date < ? ", aWeekAgo);
+            s3 = DBUtils.prepareStatementWithArgs(conn, "delete from " + CLDR_MAIL + " where queue_date < ? ", aWeekAgo);
 
-            int countDeleted = s2.executeUpdate();
+            int countDeleted = s3.executeUpdate();
             conn.commit();
 
             if (countDeleted > 0) {
@@ -183,7 +181,7 @@ public class MailSender implements Runnable {
         } catch (SQLException se) {
             SurveyMain.busted("Cant set up " + CLDR_MAIL, se);
         } finally {
-            DBUtils.close(s, s2, conn);
+            DBUtils.close(s, s2, s3, conn);
         }
     }
 
@@ -399,7 +397,14 @@ public class MailSender implements Runnable {
 
                 Properties env = getProperties();
 
-                Session ourSession = Session.getInstance(env, null);
+                Session ourSession = Session.getInstance(env, new Authenticator(){
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(
+                            env.getProperty("CLDR_SMTP_USER"),
+                            env.getProperty("CLDR_SMTP_PASSWORD"));
+                    }
+                });
                 if (DEBUG) {
                     ourSession.setDebug(true);
                 }
@@ -474,12 +479,12 @@ public class MailSender implements Runnable {
                     ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"), "UTF-8");
                     ourMessage.setText(header + theFrom + DBUtils.getStringUTF8(rs, "text") + footer, "UTF-8");
 
-                    if (env.getProperty("CLDR_SMTP", null) != null) {
+                    if (env.getProperty("mail.host", null) != null) {
                         Transport.send(ourMessage);
                     } else {
                         SurveyLog
                             .warnOnce(
-                                "Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
+                                "Pretending to send mail - mail.host is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
                     }
 
                     if (DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
@@ -524,7 +529,7 @@ public class MailSender implements Runnable {
                 }
             } catch (SQLException se) {
                 SurveyLog.logException(se, "processing mail");
-                waitTill = System.currentTimeMillis() + (1000 * 60 * 5); // backoff 5 minutes
+                // waitTill = System.currentTimeMillis() + (1000 * 60 * 5); // backoff 5 minutes
             } finally {
                 DBUtils.close(rs, s, s2, conn);
             }

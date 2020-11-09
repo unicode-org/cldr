@@ -129,10 +129,6 @@
 < (.*)/weekData/(.*)\[@alt="variant"\](.*)
 > $1/weekData/$2$3
 
-# unit preferences
-#< (.*)/unitPreferenceData/unitPreferences\[@category="([^"]*)"\]\[@usage="([^"]*)"\]([^/]*)/unitPreference\[@_q="[0-9]*"\]\[@regions="([^"]*)"\](.*)
-#> $1/unitPreferenceData/unitPreferences/$2/$3$4/$5/unitPreference$6
-
 # Annotations: If there is a type, move that into a sibling value
 < (.*)/(annotations)/(annotation)\[@cp="([^"]*)"\]\[@type="([^"]*)"\](.*)$
 > $1/$2/$4/$5$6
@@ -140,4 +136,8 @@
 # Annotations: If there is a type, move that into a sibling value
 < (.*)/(annotations)/(annotation)\[@cp="([^"]*)"\](.*)$
 > $1/$2/$4/default$5
+
+# Grammar : put grammaticalGender into a separate section
+< (.*)/(grammaticalData)/(.*)/(grammaticalGender)(.*)$
+> $1/grammaticalGenderData/$3/$4$5
 

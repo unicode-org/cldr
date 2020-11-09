@@ -62,15 +62,16 @@ class LdmlConvertRules {
         "weekData:weekendEnd:territories",
         // units
         "unitPreferenceDataData:unitPreferences:category",
-//        // grammatical features
-        // TODO: Blocked by [CLDR-14272] - need more documentation
-//        // in common/supplemental/grammaticalFeatures.xml
-//        "grammaticalData:grammaticalFeatures:targets",
-//        "grammaticalFeatures:grammaticalCase:scope",
-//        "grammaticalDerivations:deriveCompound:structure",
-//        "grammaticalDerivations:deriveCompound:feature",
-//        "grammaticalDerivations:deriveComponent:feature",
-//        "grammaticalDerivations:deriveComponent:structure",
+       // grammatical features
+       // in common/supplemental/grammaticalFeatures.xml
+        "grammaticalData:grammaticalFeatures:targets",
+        "grammaticalGenderData:grammaticalFeatures:targets",
+        "grammaticalFeatures:grammaticalCase:scope",
+        "grammaticalFeatures:grammaticalGender:scope",
+        "grammaticalDerivations:deriveCompound:structure",
+        "grammaticalDerivations:deriveCompound:feature",
+        "grammaticalDerivations:deriveComponent:feature",
+        "grammaticalDerivations:deriveComponent:structure",
         // measurement
         "measurementData:measurementSystem:category",
         "supplemental:plurals:type",
@@ -145,10 +146,9 @@ class LdmlConvertRules {
         "*:unitPreference:geq",
         "*:unitPreference:skeleton",
 
-//        // TODO: Blocked by [CLDR-14272] - need more documentation
-//        // in common/supplemental/grammaticalFeatures.xml
-//        "grammaticalDerivations:deriveComponent:value0",
-//        "grammaticalDerivations:deriveComponent:value1",
+        // in common/supplemental/grammaticalFeatures.xml
+        "grammaticalDerivations:deriveComponent:value0",
+        "grammaticalDerivations:deriveComponent:value1",
 
         // in common/bcp47/*.xml
         "keyword:key:alias",
@@ -213,15 +213,14 @@ class LdmlConvertRules {
         "identity:language:type",
         "identity:script:type",
         "identity:territory:type",
-        "identity:variant:type"
+        "identity:variant:type",
 
-//        // TODO: Blocked by [CLDR-14272] - need more documentation
-//        "grammaticalFeatures:grammaticalGender:values",
-//        "grammaticalFeatures:grammaticalDefiniteness:values",
-//        "grammaticalFeatures:grammaticalCase:values",
-//        "grammaticalDerivations:deriveCompound:value"
+        "grammaticalFeatures:grammaticalGender:values",
+        "grammaticalFeatures:grammaticalDefiniteness:values",
+        "grammaticalFeatures:grammaticalCase:values",
+        "grammaticalDerivations:deriveCompound:value"
 
-        );
+    );
 
     /**
      * The set of attributes that should be treated as value, and reduce to
@@ -316,9 +315,8 @@ class LdmlConvertRules {
         // new SplittableAttributeSpec("group", "contains", "group"),
         new SplittableAttributeSpec("personList", "locales", "type"),
         new SplittableAttributeSpec("unitPreference", "regions", null),
-//        // TODO: Blocked by [CLDR-14272] - need more documentation
-//        new SplittableAttributeSpec("grammaticalFeatures", "locales", null),
-//        new SplittableAttributeSpec("grammaticalDerivations", "locales", null),
+        new SplittableAttributeSpec("grammaticalFeatures", "locales", null),
+        new SplittableAttributeSpec("grammaticalDerivations", "locales", null),
     };
 
     /**
@@ -373,12 +371,12 @@ class LdmlConvertRules {
             "|.*/metadata[^/]*/deprecated[^/]*/" +
             ")(.*)");
 
-//    /**
-//     * These objects values should be output as arrays.
-//     */
-//    public static final Pattern VALUE_IS_SPACESEP_ARRAY = PatternCache.get(
-//        "(grammaticalCase|grammaticalGender|grammaticalDefiniteness)"
-//    );
+    /**
+     * These objects values should be output as arrays.
+     */
+    public static final Pattern VALUE_IS_SPACESEP_ARRAY = PatternCache.get(
+        "(grammaticalCase|grammaticalGender|grammaticalDefiniteness)"
+    );
 
     /**
      * Number elements without a numbering system are there only for compatibility purposes.

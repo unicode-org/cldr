@@ -11,7 +11,7 @@ cd ../..
 > "${DISTFILE}"
 for item in $(git ls-files -o);
 do
-    if [[ "${item}" == "tools/java/cldr.jar" ]]; # allow this
+    if [[ "${item}" == "tools/cldr-code/cldr.jar" ]]; # allow this
     then
         true
     elif [[ -d "${item}" ]];

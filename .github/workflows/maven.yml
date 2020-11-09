@@ -35,19 +35,19 @@ jobs:
         with:
           name: cldr-apps
           path: tools/cldr-apps/target/cldr-apps.war
-      - name: Build single cldr.jar
+      - name: Build single cldr-code.jar
         run: >
-          mvn -s .github/workflows/mvn-settings.xml -pl java package assembly:single -DskipTests=true  --file tools/pom.xml
+          mvn -s .github/workflows/mvn-settings.xml -pl cldr-code package assembly:single -DskipTests=true  --file tools/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload cldr.jar
+      - name: Upload cldr-code.jar
         uses: actions/upload-artifact@v2
         with:
-          name: cldr-tools
-          path: tools/java/target/cldr.jar
+          name: cldr-code
+          path: tools/cldr-code/target/cldr-code.jar
       - name: BOM check in .xml files
         run: >
-          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl java
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
           exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
           -Dexec.cleanupDaemonThreads=false
           -Dexec.args="-q --justCheckBom exemplars seed common keyboards"
@@ -75,13 +75,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Download cldr.jar
+      - name: Download cldr-code.jar
         uses: actions/download-artifact@v2
         with:
-          name: cldr-tools
-          path: tools/java/target/
+          name: cldr-code
+          path: tools/cldr-code/target/
       - name: run CLDR console check
-        run: java -DCLDR_DIR=$(pwd) -jar tools/java/target/cldr.jar check -S common,seed -e -z FINAL_TESTING 
+        run: java -DCLDR_DIR=$(pwd) -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING 
   deploy:
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs:

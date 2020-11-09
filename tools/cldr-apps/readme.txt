@@ -23,7 +23,7 @@ to finish on the current code base.
 
 
 0. Prerequisite: General CLDR Tools issues
-  See the readme at cldr/tools/java/readme.txt
+  See the readme at cldr/tools/cldr-code/readme.txt
 
 1. Survey Tool Requirements:
 

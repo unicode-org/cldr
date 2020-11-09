@@ -30,7 +30,8 @@ For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBU
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)
 a copy of which is included as [unicode-license.txt](../blob/master/unicode-license.txt).
 
-- Some CLDR tools depend on libraries in tools/java/libs/; use of these libraries is governed by separate license agreements.  
+- Some CLDR tools depend on library dependencies managed via Maven,
+  use of these libraries is governed by separate license agreements.  
 - Use of the ICU libraries is subject to the
 [ICU License]("https://github.com/unicode-org/icu/blob/master/icu4j/main/shared/licenses/LICENSE"),
 included as [ICU-LICENSE](../../blob/master/ICU-LICENSE).

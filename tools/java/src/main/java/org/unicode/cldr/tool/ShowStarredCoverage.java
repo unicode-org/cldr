@@ -46,6 +46,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
@@ -55,8 +56,9 @@ public class ShowStarredCoverage {
     static final CLDRConfig config = CLDRConfig.getInstance();
 
     enum MyOptions {
-        language(".*", "it", "language to gather coverage data for"), tag(".*", null, "gather data on language tags"), dtdTypes(".*", "ldml",
-            "dtdTypes, comma separated."),
+        language(".*", "de", "language to gather coverage data for"), //
+        tag(".*", null, "gather data on language tags"), //
+        dtdTypes(".*", "ldml", "dtdTypes, comma separated."),
         //filter(".*", "en_001", "locale ancestor"),
         ;
 
@@ -83,6 +85,16 @@ public class ShowStarredCoverage {
     static final Factory phf = PathHeader.getFactory(config.getEnglish());
     static final SupplementalDataInfo sdi = config.getSupplementalDataInfo();
 
+    static class MyData extends M3<Level, PathHeader, Boolean> {
+        public MyData() {
+            super(
+                new TreeMap<Level, Object>(),
+                new TreeMap<PathHeader, Object>(),
+                Boolean.class
+                );
+        }
+    }
+
     public static void main(String[] args) {
         MyOptions.parse(args, true);
 
@@ -99,10 +111,7 @@ public class ShowStarredCoverage {
 
         final String fileLocale = MyOptions.language.option.getValue();
 
-        M3<Level, PathHeader, Boolean> levelToPathHeaders = ChainedMap.of(
-            new TreeMap<Level, Object>(),
-            new TreeMap<PathHeader, Object>(),
-            Boolean.class);
+        MyData levelToPathHeaders = new MyData();
 
         for (DtdType dtdType : DtdType.values()) {
             if (dtdTypes != null && !dtdTypes.contains(dtdType)) {
@@ -119,12 +128,29 @@ public class ShowStarredCoverage {
         System.out.println("№\tLevel\tSection|Page\tStarredPath");
         for (Entry<Level, Map<PathHeader, Boolean>> levelAndPathHeader : levelToPathHeaders) {
             Level level = levelAndPathHeader.getKey();
-            Map<PathHeader, Boolean> pathHeaders2 = levelAndPathHeader.getValue();
             Counter<String> codeCount = new Counter<>();
-            for (PathHeader ph : pathHeaders2.keySet()) {
-                codeCount.add(condense(ph), 1);
+            Multimap<String,String> condenseToSamples = LinkedHashMultimap.create();
+            for (PathHeader pathHeader : levelAndPathHeader.getValue().keySet()) {
+                final String condenseKey = condense(pathHeader);
+                codeCount.add(condenseKey, 1);
+                condenseToSamples.put(condenseKey, pathHeader.getCode());
             }
-            showResults("code count", level, codeCount);
+            showResults("code count", level, codeCount, condenseToSamples);
+        }
+    }
+
+    private static void showResults(String title, Level level, Counter<String> counts, Multimap<String, String> condenseToSamples) {
+        for (String key : counts.keySet()) {
+            long results = counts.get(key);
+            String samplesString = Joiner.on("; ").join(condenseToSamples.get(key));
+            if (samplesString.length() > 50) {
+                samplesString = samplesString.substring(0, 50) + "…";
+            }
+
+            System.out.println(results
+                + "\t" + level
+                + "\t" + key
+                + "\t" + samplesString);
         }
     }
 
@@ -191,16 +217,8 @@ public class ShowStarredCoverage {
         }
     }
 
-    private static void showResults(String title, Level level, Counter<String> counts) {
-        for (String key : counts.keySet()) {
-            long results = counts.get(key);
-            System.out.println(results
-                + "\t" + level
-                + "\t" + key);
-        }
-    }
 
-    private static void doNonLdml(DtdType dtdType, String dir, String fileLocale, M3<Level, PathHeader, Boolean> levelToPathHeaders) {
+    private static void doNonLdml(DtdType dtdType, String dir, String fileLocale, MyData levelToPathHeaders) {
         Matcher localeMatch = Pattern.compile("\\b" + fileLocale + "\\b").matcher("");
         // Not keyed by locale, need to dig into data for that.
         for (String file : new File(CLDRPaths.COMMON_DIRECTORY + dir).list()) {
@@ -287,7 +305,7 @@ public class ShowStarredCoverage {
         return false;
     }
 
-    private static void doLdml(String dir, String fileLocale, M3<Level, PathHeader, Boolean> levelToPathHeaders) {
+    private static void doLdml(String dir, String fileLocale, MyData levelToPathHeaders) {
         Status status = new Status();
         boolean isMain = "main".equals(dir);
         System.out.println("directory:\t" + dir);
@@ -328,11 +346,11 @@ public class ShowStarredCoverage {
             if (level.compareTo(Level.MODERN) > 0) {
                 continue;
             }
+            String starred = pathStarrer.set(path);
+            String attributes = Joiner.on("|").join(pathStarrer.getAttributes());
             levelToPathHeaders.put(level, ph, true);
             pathHeaders.add(ph);
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
-            String starred = pathStarrer.set(path);
-            String attributes = Joiner.on("|").join(pathStarrer.getAttributes());
             levelToData.put(level, starred + "|" + stStatus + "|" + requiredVotes, attributes, Boolean.TRUE);
             counter.add(level, 1);
         }
@@ -355,9 +373,9 @@ public class ShowStarredCoverage {
                         System.out.println(count
                             + "\t" + level
                             + "\t" + starredStatus[0]
-                            + "\t" + starredStatus[1]
-                            + "\t" + starredStatus[2]
-                            + "\t" + samples);
+                                + "\t" + starredStatus[1]
+                                    + "\t" + starredStatus[2]
+                                        + "\t" + samples);
                     }
                 }
             }

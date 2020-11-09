@@ -20,7 +20,7 @@ public class ChainedMap {
 
     public static class M3<K2, K1, V> extends ChainedMap implements Iterable<Map.Entry<K2, Map<K1, V>>> {
         @SuppressWarnings("unchecked")
-        private M3(Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+        protected M3(Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
             super(map2, map1);
         }
 
@@ -70,7 +70,7 @@ public class ChainedMap {
 
     public static class M4<K3, K2, K1, V> extends ChainedMap implements Iterable<Map.Entry<K3, Map<K2, Map<K1, V>>>> {
         @SuppressWarnings("unchecked")
-        private M4(Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+        protected M4(Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
             super(map3, map2, map1);
         }
 

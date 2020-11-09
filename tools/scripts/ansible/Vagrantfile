@@ -2,6 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  # increase the boot timeout
+  config.vm.boot_timeout = 600
   config.vm.box = "ubuntu/bionic64"
   config.vm.define "surveytool"
   config.vm.hostname = "surveytool"
@@ -16,3 +18,5 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "setup-playbook.yml"
   end
 end
+
+

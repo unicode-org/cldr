@@ -163,16 +163,19 @@ public class TestAttributeValues extends TestFmwk {
 
         int _elementCount = 0;
         int _attributeCount = 0;
+        String lastElement = null;
 
         try {
+            XMLStreamReader r = null;
             try (InputStream fis = new FileInputStream(fullFile)) {
-                XMLStreamReader r = f.createXMLStreamReader(fullFile, fis);
+                r = f.createXMLStreamReader(fullFile, fis);
                 String element = null;
                 while(r.hasNext()) {
                     try {
                         switch(r.next()){
                         case XMLStreamConstants.START_ELEMENT:
                             element = r.getLocalName();
+                            lastElement = element;
                             ++_elementCount;
                             int attributeSize = r.getAttributeCount();
                             for (int i = 0; i < attributeSize; ++i) {
@@ -197,8 +200,12 @@ public class TestAttributeValues extends TestFmwk {
                 } else {
                     throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFile).initCause(e);
                 }
+            } catch (Throwable e) {
+                if(r == null) throw e;
+                throw (IllegalArgumentException) new IllegalArgumentException(" at " + r.getLocation()).initCause(e);
             }
         } catch (Exception e) {
+            System.err.println("Exception occured in " + fullFile + " after parsing " + lastElement);
             throw new ICUException(fullFile, e);
         }
         pathChecker.elementCount.addAndGet(_elementCount);

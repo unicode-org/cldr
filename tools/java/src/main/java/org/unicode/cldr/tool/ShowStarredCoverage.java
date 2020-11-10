@@ -42,20 +42,24 @@ import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.LengthFirstComparator;
 import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.util.ULocale;
 
 public class ShowStarredCoverage {
     static final CLDRConfig config = CLDRConfig.getInstance();
 
     enum MyOptions {
+        basic(".*", "true", "check for languages in ICU but not at Basic"), //
         language(".*", "de", "language to gather coverage data for"), //
         tag(".*", null, "gather data on language tags"), //
         dtdTypes(".*", "ldml", "dtdTypes, comma separated."),
@@ -103,15 +107,20 @@ public class ShowStarredCoverage {
             return;
         }
 
+        if (MyOptions.basic.option.doesOccur()) {
+            doBasic();
+        }
+
+        MyData levelToPathHeaders = new MyData();
         Set<DtdType> dtdTypes = EnumSet.noneOf(DtdType.class);
         String[] values = MyOptions.dtdTypes.option.getValue().split("[, ]+");
         for (String value : values) {
             dtdTypes.add(DtdType.valueOf(value));
         }
 
+
         final String fileLocale = MyOptions.language.option.getValue();
 
-        MyData levelToPathHeaders = new MyData();
 
         for (DtdType dtdType : DtdType.values()) {
             if (dtdTypes != null && !dtdTypes.contains(dtdType)) {
@@ -136,6 +145,69 @@ public class ShowStarredCoverage {
                 condenseToSamples.put(condenseKey, pathHeader.getCode());
             }
             showResults("code count", level, codeCount, condenseToSamples);
+        }
+    }
+
+    private static void doBasic() {
+        MyData levelToPathHeaders = new MyData();
+        Status status = new Status();
+        final Set<String> defaultContentLocales = SupplementalDataInfo.getInstance().getDefaultContentLocales();
+
+        final org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        Set<ULocale> inICU = ImmutableSet.copyOf(ULocale.getAvailableLocales());
+        for (String fileLocale : cldrFactory.getAvailable()) {
+            final ULocale ulocale = new ULocale(fileLocale);
+
+            if (!inICU.contains(ulocale)) {
+                continue;
+            } else if (!ulocale.getCountry().isEmpty()) {
+                continue;
+            } else if (defaultContentLocales.contains(fileLocale)) {
+                    continue;
+            }
+
+            CLDRFile file = cldrFactory.make(fileLocale, true);
+            M4<Level, String, String, Boolean> levelToData = ChainedMap.of(
+                new TreeMap<Level, Object>(),
+                new TreeMap<String, Object>(),
+                new TreeMap<String, Object>(),
+                Boolean.class);
+
+            Counter<Level> counter = new Counter<>();
+            TreeSet<PathHeader> pathHeaders = new TreeSet<>();
+            for (String path : file) {
+                if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
+                    continue;
+                }
+                String localeFound = file.getSourceLocaleID(path, status);
+                if (!localeFound.contentEquals(XMLSource.ROOT_ID)
+                    && !localeFound.contentEquals(XMLSource.CODE_FALLBACK_ID)) {
+                    continue;
+                }
+                if (!path.equals(status.pathWhereFound)) {
+                    // path is aliased, skip
+                    continue;
+                }
+                if (config.getSupplementalDataInfo().isDeprecated(DtdType.ldml, path)) {
+                    continue;
+                }
+                PathHeader ph = phf.fromPath(path);
+                CLDRLocale loc = CLDRLocale.getInstance(fileLocale);
+                int requiredVotes = sdi.getRequiredVotes(loc, ph);
+
+                Level level = config.getSupplementalDataInfo().getCoverageLevel(path, fileLocale); // isMain ? ... : Level.UNDETERMINED;
+                if (level.compareTo(Level.BASIC) > 0) {
+                    continue;
+                }
+                System.out.println(fileLocale + "\t" + level + "\t" + path);
+//                String starred = pathStarrer.set(path);
+//                String attributes = Joiner.on("|").join(pathStarrer.getAttributes());
+//                levelToPathHeaders.put(level, ph, true);
+//                pathHeaders.add(ph);
+//                SurveyToolStatus stStatus = ph.getSurveyToolStatus();
+//                levelToData.put(level, starred + "|" + stStatus + "|" + requiredVotes, attributes, Boolean.TRUE);
+//                counter.add(level, 1);
+            }
         }
     }
 

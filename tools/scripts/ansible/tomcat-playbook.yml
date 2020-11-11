@@ -1,0 +1,47 @@
+- hosts: surveytool
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  tasks:
+    - name: Install server packages
+      apt:
+        pkg:
+          - tomcat8
+          - tomcat8-admin # needed for deploy
+    - name: Setup Server Context
+      template:
+        src: templates/context.j2
+        dest: "/etc/{{ cldr_tomcat_folder }}/context.xml"
+        owner: root
+        group: "{{ cldr_tomcat_group }}"
+        mode: '0640'
+      notify: Restart Tomcat
+    - name: Setup Tomcat server.xml
+      copy:
+        src: templates/server.xml
+        dest: "/etc/{{ cldr_tomcat_folder }}/server.xml"
+        owner: root
+        group: "{{ cldr_tomcat_group }}"
+        mode: '0640'
+      notify: Restart Tomcat
+    - name: Setup Server Users
+      template:
+        src: templates/users.j2
+        dest: "/etc/{{ cldr_tomcat_folder }}/tomcat-users.xml"
+        owner: root
+        group: "{{ cldr_tomcat_group }}"
+        mode: '0640'
+      notify: Restart Tomcat
+    - name: Setup deploy-to-tomcat.sh
+      template:
+        src: templates/deploy-sh.j2
+        dest: /usr/local/bin/deploy-to-tomcat.sh
+        owner: root
+        group: root
+        mode: '0755'
+  handlers:
+    - name: Restart Tomcat
+      service:
+        name: "{{ cldr_tomcat_service }}"
+        state: restarted

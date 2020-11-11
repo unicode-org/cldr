@@ -95,6 +95,18 @@ var surveySessionId=null;
 <%}
 SurveyMain curSurveyMain = null;
 curSurveyMain = SurveyMain.getInstance(request);
+
+
+{
+	// We can't use 'ctx' here reliably, because we _may or may not_ be called from v.jsp.
+	WebContext subCtx = (WebContext)request.getAttribute("WebContext"); // from v.jsp
+	if(subCtx != null && subCtx.session.user != null) {
+		myUser = subCtx.session.user;
+	}
+}
+
+
+
 if(myUser!=null) {%>
 var surveyUser= '<%=myUser.toJSONString()%>';
 var userEmail= '<%=myUser.email%>';
@@ -132,7 +144,8 @@ var surveyUserURL = {
 <%}%>
 
 <%} else {
-	// User session not present. Set a few things so that we don't fail.%>
+	%>
+// User session not present. Set a few things so that we don't fail.
 var surveyUser=null;
 var surveyUserURL = {};
 var organizationName =null ; 

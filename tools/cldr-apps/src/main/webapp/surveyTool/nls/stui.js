@@ -341,7 +341,9 @@ define({
 		vsContent_initial: "Click Recalculate to calculate the summary",
 
 		special_forum_participation: "Forum Participation",
+		special_vetting_participation: "Vetting Participation",
 		forum_participationGuidance: "This is the Forum Participation page. The table may take several minutes to load.",
+		vetting_participationGuidance: "This is the Vetting Participation page. Specifically assigned vetters are marked in <b>bold</b>. Asterisk (*) denotes users who may vote in any locale.",
 
 		special_bulk_close_posts: "Bulk Close Posts",
 		bulk_close_postsGuidance: "This is the Forum Bulk Close Posts page. The results may take several minutes to load.",

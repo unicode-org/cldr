@@ -369,6 +369,27 @@ public class UserRegistry {
         }
 
         /**
+         * Set of interest locales for this user.
+         * @return null for 'all', otherwise a set of CLDRLocales
+         */
+        public Set<CLDRLocale> getInterestLocales() {
+            String[] intList = getInterestList();
+            if(intList == null) {
+                return null; // all locales
+            }
+
+
+            // TODO: Need JDK9 for this:
+            // return Set.of(stringArrayToLocaleArray(intList));
+
+            final TreeSet<CLDRLocale> s = new TreeSet<>();
+            for(final CLDRLocale l : stringArrayToLocaleArray(intList)) {
+                s.add(l);
+            }
+            return s;
+        }
+
+        /**
          * @deprecated CLDR15 was a while ago.
          * @param locale
          * @return
@@ -378,24 +399,10 @@ public class UserRegistry {
             return false;
         }
 
-        // if(locale.equals("be")||locale.startsWith("be_")) {
-        // if( ( id == 315 /* V. P. */ ) || (id == 8 /* S. M. */ ) ) {
-        // return true;
-        // } else {
-        // return false;
-        // }
-        // } else if ( id == 7 ) { // Erkki
-        // return true;
-        // } else {
-        // return false;
-        // }
-
         /**
          * Convert this User to a VoteREsolver.VoterInfo. Not cached.
          */
         private VoterInfo createVoterInfo() {
-            // VoterInfo(Organization.google, Level.vetter, &quot;J.
-            // Smith&quot;) },
             Organization o = this.getOrganization();
             VoteResolver.Level l = this.getLevel();
             Set<String> localesSet = new HashSet<>();
@@ -966,25 +973,15 @@ public class UserRegistry {
 
     // ------- special things for "list" mode:
 
-    public java.sql.ResultSet list(String organization, Connection conn) throws SQLException {
-        ResultSet rs = null;
-        Statement s = null;
-        final String ORDER = " ORDER BY org,userlevel,name ";
-        // synchronized(conn) {
-        // try {
-        s = conn.createStatement();
+    public java.sql.PreparedStatement list(String organization, Connection conn) throws SQLException {
         if (organization == null) {
-            rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM " + CLDR_USERS + ORDER);
+            return DBUtils.prepareStatementForwardReadOnly(conn, "listAllUsers", "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM " + CLDR_USERS + " ORDER BY org,userlevel,name ");
         } else {
-            rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM " + CLDR_USERS
-                + " WHERE org='" + organization + "'" + ORDER);
+            PreparedStatement ps = DBUtils.prepareStatementWithArgsFRO(conn,
+                    "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM " + CLDR_USERS + " WHERE org=? ORDER BY org,userlevel,name");
+            ps.setString(1,  organization);
+            return ps;
         }
-        // } finally {
-        // s.close();
-        // }
-        // }
-
-        return rs;
     }
 
     public java.sql.ResultSet listPass(Connection conn) throws SQLException {
@@ -1007,10 +1004,13 @@ public class UserRegistry {
         Connection conn = DBUtils.getInstance().getDBConnection();
         PreparedStatement removeIntLoc = null;
         PreparedStatement updateIntLoc = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
             removeIntLoc = conn.prepareStatement(SQL_removeIntLoc);
             updateIntLoc = conn.prepareStatement(SQL_updateIntLoc);
-            ResultSet rs = list(null, conn);
+            ps = list(null, conn);
+            rs = ps.executeQuery();
             ElapsedTimer et = new ElapsedTimer();
             int count = 0;
             while (rs.next()) {
@@ -1023,7 +1023,7 @@ public class UserRegistry {
             conn.commit();
             SurveyLog.debug("update:" + count + " user's locales updated " + et);
         } finally {
-            DBUtils.close(removeIntLoc, updateIntLoc, conn);
+            DBUtils.close(removeIntLoc, updateIntLoc, conn, ps, rs);
         }
     }
 
@@ -1794,7 +1794,7 @@ public class UserRegistry {
         if (userIsTC(u))
             return null; // TC can modify all
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
-            // All users can modify the sandbox 
+            // All users can modify the sandbox
             return null;
         }
         if ((u.locales == null) && userIsExpert(u))
@@ -1850,7 +1850,7 @@ public class UserRegistry {
 
         // the 'und' locale and sublocales can always be modified
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
-            // All users can modify the sandbox 
+            // All users can modify the sandbox
             return null;
         }
 
@@ -2147,10 +2147,12 @@ public class UserRegistry {
             Map<Integer, VoterInfo> map = new TreeMap<>();
 
             ResultSet rs = null;
+            PreparedStatement ps = null;
             Connection conn = null;
             try {
                 conn = DBUtils.getInstance().getDBConnection();
-                rs = list(null, conn);
+                ps = list(null, conn);
+                rs = ps.executeQuery();
                 // id,userlevel,name,email,org,locales,intlocs,lastlogin
                 while (rs.next()) {
                     // We don't go through the cache, because not all users may
@@ -2442,10 +2444,13 @@ public class UserRegistry {
         out.println("<users generated=\"" + ourDate + "\" obscured=\"" + obscured + "\">");
         String org = null;
         Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
             synchronized (this) {
-                java.sql.ResultSet rs = list(org, conn);
+                ps = list(org, conn);
+                rs = ps.executeQuery();
                 if (rs == null) {
                     out.println("\t<!-- No results -->");
                     return 0;
@@ -2492,7 +2497,7 @@ public class UserRegistry {
                 "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
             out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
         } finally {
-            DBUtils.close(conn);
+            DBUtils.close(conn, rs, ps);
         }
         out.println("</users>");
         out.close();
@@ -2538,10 +2543,12 @@ public class UserRegistry {
     private Set<User> getAnonymousUsersFromDb() {
         Set<User> set = new HashSet<>();
         ResultSet rs = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            rs = list(null, conn);
+            ps = list(null, conn);
+            rs = ps.executeQuery();
             // id,userlevel,name,email,org,locales,intlocs,lastlogin
             while (rs.next()) {
                 int userlevel = rs.getInt(2);
@@ -2567,7 +2574,7 @@ public class UserRegistry {
             logger.log(java.util.logging.Level.SEVERE,
                 "UserRegistry: some error getting anonymous users - " + t.toString(), t);
         } finally {
-            DBUtils.close(rs, conn);
+            DBUtils.close(rs, ps, conn);
         }
         return set;
     }

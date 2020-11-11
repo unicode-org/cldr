@@ -152,6 +152,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
  --%>
  <%
  WebContext ctx = new WebContext(request,response);
+ request.setAttribute("WebContext", ctx); // for ajax_status
  String status = ctx.setSession();
 if(false) { // if we need to redirect for some reason..
 	 ctx.addAllParametersAsQuery();
@@ -203,18 +204,13 @@ if(false) { // if we need to redirect for some reason..
 <link rel="stylesheet" href="<%=request.getContextPath()%>/surveytool.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/CldrStForum.css" />
 <%
-	// TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css
+	// TODO: when v.jsp includes ajax_status.jsp, avoid redundant links for bootstrap, surveytool.css, redesign.css
+	// Note that ajax_status.jsp now reliably should output the surveyUser, so we don't need
+	// to output it again here.
 %>
 <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 <script>
-// set from incoming session
-surveySessionId = '<%=ctx.session.id%>';
 survURL = '<%=survURL%>';
-<%if(ctx.session.user == null || UserRegistry.userIsLocked(ctx.session.user)) {%>
-surveyUser = null;
-<%} else {%>
-surveyUser =  <%=ctx.session.user.toJSONString()%>;
-<%}%>
   showV();
 </script>
 </head>
@@ -227,7 +223,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
     	<div id='ariHelp'><a href='http://cldr.unicode.org/index/survey-tool#disconnected'>Help</a></div>
         <p id='ariMessage'>
             This page is still loading. 
-        </p>
+        </p> 
         <p id='ariSubMessage'>
             Please wait for this page to load. 
         </p>

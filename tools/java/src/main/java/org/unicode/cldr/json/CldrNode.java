@@ -166,6 +166,20 @@ public class CldrNode {
                 attributesAsValues.put(key, nondistinguishingAttributes.get(key));
             }
         }
+
+        // ADJUST RADIX BASED ON ICU RULE
+        final String radixValue = attributesAsValues.get("radix");
+        if(radixValue != null) {
+            attributesAsValues.remove("radix");
+            for (Map.Entry<String, String> attributes : attributesAsValues.entrySet()) {
+                String oldKey = attributes.getKey();
+                String newValue = attributes.getValue();
+                String newKey = oldKey + "/" + radixValue;
+                attributesAsValues.remove(oldKey);
+                attributesAsValues.put(newKey, newValue);
+
+            }
+        }
         return attributesAsValues;
     }
 

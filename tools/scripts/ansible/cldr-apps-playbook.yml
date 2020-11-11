@@ -1,0 +1,54 @@
+- hosts: surveytool
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  tasks:
+    - name: Create CLDR dir
+      file:
+        path: "{{ cldr_path }}"
+        state: directory
+        owner: "{{ cldr_tomcat_user }}"
+        group: "{{ cldr_tomcat_group }}"
+        mode: 0775
+    - name: Rotate CLDR logs
+      blockinfile:
+        path: "/etc/logrotate.d/surveytool-logs"
+        owner: root
+        mode: "0644"
+        block: |
+          {{ cldr_path }}/cldrmail.log {{ cldr_path }}/exception.log {
+            su {{ cldr_tomcat_user }} {{ cldr_tomcat_group }}
+            daily
+            rotate 14
+            compress
+            missingok
+            notifempty
+            dateext
+            create
+          }
+        create: true
+    - name: Create cldr.properties
+      template:
+        dest: "{{ cldr_path }}/cldr.properties"
+        src: templates/cldr-properties.j2
+        force: no
+        owner: "{{ cldr_tomcat_user }}"
+        group: "{{ cldr_tomcat_group }}"
+        mode: "0644"
+      notify: Restart Tomcat
+    - name: Checkout CLDR trunk
+      git:
+        repo: https://github.com/unicode-org/cldr.git
+        dest: "{{ cldr_trunk_path }}"
+        force: no
+        update: no
+        version: master
+        # this is deep because we will need to keep updating
+        # it with history. It does not include LFS as that
+        # is not needed for the surveytool.
+  handlers:
+    - name: Restart Tomcat
+      service:
+        name: "{{ cldr_tomcat_service }}"
+        state: restarted

@@ -68,22 +68,13 @@
 # /tools/dist.conf/
 /tools/dist.conf/distExcludes.txt
 
-# /tools/java/
-/tools/java/classes
-/tools/java/*.jar
-/tools/java/build.properties
-/tools/java/out
-/tools/java/build
-/tools/java/dist
-/tools/java/.build.properties.swp
-/tools/java/doc
+# /tools/cldr-code/
+/tools/cldr-code/classes
+/tools/cldr-code/*.jar
+/tools/cldr-code/build.properties
+/tools/cldr-code/out
+/tools/cldr-code/build
+/tools/cldr-code/dist
+/tools/cldr-code/.build.properties.swp
+/tools/cldr-code/doc
 
-# /tools/java/org/unicode/cldr/icu/
-/tools/java/org/unicode/cldr/icu/Result.java
-/tools/java/org/unicode/cldr/icu/Test.java
-/tools/java/org/unicode/cldr/icu/TestStax.java
-/tools/java/org/unicode/cldr/icu/XPathMatcherTree.java
-
-# /tools/scripts/build/bin-build/
-/tools/scripts/build/bin-build/stbitten-env.sh
-/tools/scripts/build/bin-build/config.ini

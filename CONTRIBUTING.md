@@ -51,7 +51,7 @@ begin with the accepted Jira ticket number.
 ### Licenses
 
 - Usage of CLDR data and software is governed by the Unicode [Terms of use][] a copy of which is included as [unicode-license.txt][]
-- Some CLDR tools depend on libraries in tools/java/libs/; use of these libraries is governed by separate license agreements.
+- Some CLDR tools depend on libraries in tools/cldr-code/libs/; use of these libraries is governed by separate license agreements.
   - For example, use of the Guava, Xerces, and Myanmar Tools libraries is subject to the Apache License included as [apache-license.txt](./apache-license.txt)
 - Use of the ICU libraries is subject to the ICU License, included as [ICU-LICENSE](./ICU-LICENSE).
 - There must be a signed CLA before code is contributed, the PR will not be merged until the CLA is signed.

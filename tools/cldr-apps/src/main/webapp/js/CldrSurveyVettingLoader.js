@@ -19,34 +19,34 @@ window.haveDialog = false;
 function showV() {
 	// REQUIRES
 	require([
-			"dojo/ready",
-			"dojo/dom",
-			"dojo/parser",
-			"dijit/DropDownMenu",
-			"dijit/form/DropDownButton",
-			"dijit/MenuSeparator",
-			"dijit/MenuItem",
-			"dijit/form/TextBox",
-			"dijit/form/Button",
-			"dijit/CheckedMenuItem",
-			"dijit/Dialog",
-			"dijit/registry",
-			"dijit/PopupMenuItem",
-			"dijit/form/Select",
-			"dojox/form/BusyButton",
-			"dijit/layout/StackContainer",
-			"dijit/TitlePane",
-			"dojo/hash",
-			"dojo/topic",
-			"dojo/dom-construct",
-			"dojo/number",
-			"dojo/domReady!"
-			/*
-			 * Note: there are 22 strings above, and only 21 arguments below.
-			 * No argument corresponds to the string "dojo/domReady!". This is normal.
-			 * See https://dojotoolkit.org/reference-guide/1.10/dojo/domReady.html
-			 */
-		],
+		"dojo/ready",
+		"dojo/dom",
+		"dojo/parser",
+		"dijit/DropDownMenu",
+		"dijit/form/DropDownButton",
+		"dijit/MenuSeparator",
+		"dijit/MenuItem",
+		"dijit/form/TextBox",
+		"dijit/form/Button",
+		"dijit/CheckedMenuItem",
+		"dijit/Dialog",
+		"dijit/registry",
+		"dijit/PopupMenuItem",
+		"dijit/form/Select",
+		"dojox/form/BusyButton",
+		"dijit/layout/StackContainer",
+		"dijit/TitlePane",
+		"dojo/hash",
+		"dojo/topic",
+		"dojo/dom-construct",
+		"dojo/number",
+		"dojo/domReady!"
+		/*
+		 * Note: there are 22 strings above, and only 21 arguments below.
+		 * No argument corresponds to the string "dojo/domReady!". This is normal.
+		 * See https://dojotoolkit.org/reference-guide/1.10/dojo/domReady.html
+		 */
+	],
 		// HANDLES
 		function(
 			ready,
@@ -71,7 +71,7 @@ function showV() {
 			domConstruct,
 			dojoNumber
 		) {
-			loadStui(null, function( /*stui*/ ) {
+			loadStui(null, function( /*stui*/) {
 
 				var appendLocaleLink = function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
 					var name = locmap.getRegionAndOrVariantName(subLoc);
@@ -641,141 +641,146 @@ function showV() {
 					var specialItems = new Array();
 					if (surveyUser != null) {
 						specialItems = [{
-								divider: true
-							},
+							divider: true
+						},
 
-							{
-								title: 'Admin Panel',
-								url: surveyUserURL.adminPanel,
-								display: (surveyUser && surveyUser.userlevelName === 'ADMIN')
-							},
-							{
-								divider: true,
-								display: (surveyUser && surveyUser.userlevelName === 'ADMIN')
-							},
+						{
+							title: 'Admin Panel',
+							url: surveyUserURL.adminPanel,
+							display: (surveyUser && surveyUser.userlevelName === 'ADMIN')
+						},
+						{
+							divider: true,
+							display: (surveyUser && surveyUser.userlevelName === 'ADMIN')
+						},
 
-							{
-								title: 'My Account'
-							}, // My Account section
+						{
+							title: 'My Account'
+						}, // My Account section
 
-							{
-								title: 'Settings',
-								level: 2,
-								url: surveyUserURL.myAccountSetting,
-								display: surveyUserPerms.userExist
-							},
-							{
-								title: 'Lock (Disable) My Account',
-								level: 2,
-								url: surveyUserURL.disableMyAccount,
-								display: surveyUserPerms.userExist
-							},
+						{
+							title: 'Settings',
+							level: 2,
+							url: surveyUserURL.myAccountSetting,
+							display: surveyUserPerms.userExist
+						},
+						{
+							title: 'Lock (Disable) My Account',
+							level: 2,
+							url: surveyUserURL.disableMyAccount,
+							display: surveyUserPerms.userExist
+						},
 
-							{
-								divider: true
-							},
-							{
-								title: 'My Votes'
-							}, // My Votes section
+						{
+							divider: true
+						},
+						{
+							title: 'My Votes'
+						}, // My Votes section
 
-							/*
-							 * This indirectly references "special_oldvotes" in stui.js
-							 */
-							{
-								special: 'oldvotes',
-								level: 2,
-								display: surveyUserPerms.userCanImportOldVotes
-							},
-							{
-								title: 'See My Recent Activity',
-								level: 2,
-								url: surveyUserURL.recentActivity
-							},
-							{
-								title: 'Upload XML',
-								level: 2,
-								url: surveyUserURL.xmlUpload
-							},
+						/*
+						 * This indirectly references "special_oldvotes" in stui.js
+						 */
+						{
+							special: 'oldvotes',
+							level: 2,
+							display: surveyUserPerms.userCanImportOldVotes
+						},
+						{
+							title: 'See My Recent Activity',
+							level: 2,
+							url: surveyUserURL.recentActivity
+						},
+						{
+							title: 'Upload XML',
+							level: 2,
+							url: surveyUserURL.xmlUpload
+						},
 
-							{
-								divider: true
-							},
-							{
-								title: 'My Organization(' + organizationName + ')'
-							}, // My Organization section
+						{
+							divider: true
+						},
+						{
+							title: 'My Organization(' + organizationName + ')'
+						}, // My Organization section
 
-							{
-								special: 'vsummary', /* Cf. special_vsummary */
-								level: 2,
-								display: surveyUserPerms.userCanUseVettingSummary
-							},
-							{
-								title: 'List ' + org + ' Users',
-								level: 2,
-								url: surveyUserURL.manageUser,
-								display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter)
-							},
-							{
-								special: 'forum_participation', /* Cf. special_forum_participation */
-								level: 2,
-								display: surveyUserPerms.userCanMonitorForum
-							},
-							{
-								title: 'LOCKED: Note: your account is currently locked.',
-								level: 2,
-								display: surveyUserPerms.userIsLocked,
-								bold: true
-							},
+						{
+							special: 'vsummary', /* Cf. special_vsummary */
+							level: 2,
+							display: surveyUserPerms.userCanUseVettingSummary
+						},
+						{
+							title: 'List ' + org + ' Users', // 'org' from ajax_status.jsp
+							level: 2,
+							url: surveyUserURL.manageUser,
+							display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter)
+						},
+						{
+							special: 'forum_participation', /* Cf. special_forum_participation */
+							level: 2,
+							display: surveyUserPerms.userCanMonitorForum
+						},
+						{
+							special: 'vetting_participation', /* Cf. special_vetting_participation */
+							level: 2,
+							display: surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter
+						},
+						{
+							title: 'LOCKED: Note: your account is currently locked.',
+							level: 2,
+							display: (surveyUserPerms.userIsLocked || false),
+							bold: true
+						},
 
-							{
-								divider: true
-							},
-							{
-								title: 'Forum'
-							}, // Forum section
+						{
+							divider: true
+						},
+						{
+							title: 'Forum'
+						}, // Forum section
 
-							{
-								special: 'flagged',
-								level: 2,
-								img: surveyImgInfo.flag
-							},
-							{
-								special: 'mail',
-								level: 2,
-								display: !surveyOfficial
-							},
-							{
-								special: 'bulk_close_posts', /* Cf. special_bulk_close_posts */
-								level: 2,
-								display: (surveyUser && surveyUser.userlevelName === 'ADMIN')
-							},
+						{
+							special: 'flagged',
+							level: 2,
+							img: surveyImgInfo.flag
+						},
+						{
+							special: 'mail',
+							level: 2,
+							display: !surveyOfficial
+						},
+						{
+							special: 'bulk_close_posts', /* Cf. special_bulk_close_posts */
+							level: 2,
+							display: (surveyUser && surveyUser.userlevelName === 'ADMIN')
+						},
 
-							{
-								divider: true
-							},
-							{
-								title: 'Informational'
-							}, // Informational section
+						{
+							divider: true
+						},
+						{
+							title: 'Informational'
+						}, // Informational section
 
-							{
-								special: 'statistics',
-								level: 2
-							},
-							{
-								title: 'About',
-								level: 2,
-								url: surveyUserURL.about
-							},
-							{
-								title: 'Lookup a code or xpath',
-								level: 2,
-								url: surveyUserURL.browse,
-								display: surveyUserPerms.hasDataSource
-							},
+						{
+							special: 'statistics',
+							level: 2
+						},
+						{
+							title: 'About',
+							level: 2,
+							url: surveyUserURL.about
+						},
+						{
+							title: 'Lookup a code or xpath',
+							level: 2,
+							url: surveyUserURL.browse,
+							display: surveyUserPerms.hasDataSource
+						},
 
-							{
-								divider: true
-							},
+						{
+							divider: true
+						},
 						];
 					}
 					if (!doPush) {
@@ -1185,7 +1190,7 @@ function showV() {
 								// Not readonly, could be a scratch locale
 								msg = bund.special_comment_raw;
 							}
-							if(msg) {
+							if (msg) {
 								msg = locmap.linkify(msg);
 								var theChunk = domConstruct.toDom(msg);
 								var subDiv = document.createElement("div");
@@ -1724,13 +1729,13 @@ function showV() {
 							showLoader(theDiv.loader);
 							showInPop2(stui.str("reportGuidance"), null, null, null, true, true); /* show the box the first time */
 							require([
-									"dojo/ready",
-									"dojo/dom",
-									"dojo/dom-construct",
-									"dojo/request",
-									"dojo/number",
-									"dojo/domReady!"
-								],
+								"dojo/ready",
+								"dojo/dom",
+								"dojo/dom-construct",
+								"dojo/request",
+								"dojo/number",
+								"dojo/domReady!"
+							],
 								// HANDLES
 								function(
 									ready,

@@ -229,6 +229,18 @@ public class SurveyAjax extends HttpServlet {
                 r.put("err_code", ErrorCode.E_INTERNAL);
             }
         }
+
+        public static Object wrap(Collection<CLDRLocale> allLanguages) {
+            JSONArray a = new JSONArray();
+            for(final CLDRLocale l : allLanguages) {
+                a.put(wrap(l));
+            }
+            return a;
+        }
+
+        private static String wrap(CLDRLocale l) {
+            return l.getBaseName();
+        }
     }
 
     private static final long serialVersionUID = 1L;
@@ -243,6 +255,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_VSUMMARY = "vsummary";
     public static final String WHAT_FORUM_PARTICIPATION = "forum_participation";
+    public static final String WHAT_VETTING_PARTICIPATION = "vetting_participation";
     public static final String WHAT_BULK_CLOSE_POSTS = "bulk_close_posts";
     public static final String WHAT_STATS_BYLOC = "stats_byloc";
     public static final String WHAT_STATS_BYDAY = "stats_byday";
@@ -689,6 +702,18 @@ public class SurveyAjax extends HttpServlet {
                             new SurveyForumParticipation(org).getJson(r);
                         }
                         send(r, out);
+                    } else if (what.equals(WHAT_VETTING_PARTICIPATION)) {
+                        mySession.userDidAction();
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+                        if (UserRegistry.userIsVetter(mySession.user)) {
+                            String org = mySession.user.org;
+                            if (UserRegistry.userCreateOtherOrgs(mySession.user)) {
+                                org = null; // all
+                            }
+                            new SurveyVettingParticipation(org, sm).getJson(r);
+                        }
+                        send(r, out);
                     } else if (what.equals(WHAT_BULK_CLOSE_POSTS)) {
                         mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
@@ -940,11 +965,13 @@ public class SurveyAjax extends HttpServlet {
                                 try {
                                     Connection conn = null;
                                     ResultSet rs = null;
+                                    PreparedStatement ps = null;
                                     JSONArray users = new JSONArray();
                                     final String forOrg = (UserRegistry.userIsAdmin(mySession.user)) ? null : mySession.user.org;
                                     try {
                                         conn = DBUtils.getInstance().getDBConnection();
-                                        rs = sm.reg.list(forOrg, conn);
+                                        ps = sm.reg.list(forOrg, conn);
+                                        rs = ps.executeQuery();
                                         // id,userlevel,name,email,org,locales,intlocs,lastlogin
                                         while (rs.next()) {
                                             int id = rs.getInt("id");
@@ -955,7 +982,7 @@ public class SurveyAjax extends HttpServlet {
                                                 .put("intlocs", rs.getString("intlocs")));
                                         }
                                     } finally {
-                                        DBUtils.close(rs, conn);
+                                        DBUtils.close(rs, ps, conn);
                                     }
                                     final JSONWriter r = newJSONStatusQuick(sm);
                                     r.put("what", what);

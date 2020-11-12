@@ -35,7 +35,7 @@ public enum Organization {
     kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom??"),
-    longnow("The Long Now Foundation", "Long Now","PanLex"),
+    longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilka Foundation"),
     microsoft("Microsoft"),
     mozilla("Mozilla"),
     netflix("Netflix"),
@@ -58,6 +58,9 @@ public enum Organization {
     private final String[] names;
 
     public static Organization fromString(String name) {
+        if(name == null) {
+            throw new NullPointerException("Organization.fromString(null) called");
+        }
         name = name.toLowerCase().replace('-', '_').replace('.', '_');
         Organization org = OrganizationNameMap.get(name);
         return org;

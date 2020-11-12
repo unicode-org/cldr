@@ -3560,3 +3560,72 @@ div.thinUser {
 	display: block;
 }
 
+/* vetting participation */
+#vettingParticipation .locList {
+    display: block;
+    list-style: none;
+}
+
+#vettingParticipation .locRow {
+    display: block;
+}
+
+#vettingParticipation .locId {
+    display: block;
+    padding-right: 1em;
+    border: 1px solid gray;
+    border-top: 2px solid black;
+    font-size: larger;
+    margin-top: 1em;
+    padding-top: .25em;
+    background-color: lightgray;
+}
+
+
+#vettingParticipation .count {
+	padding-left: 1em;
+    font-size: smaller;
+    font-family: monospace;
+}
+
+#vettingParticipation .locId .count {
+	float: right;
+}
+
+#vettingParticipation .missingLoc {
+    background-color: #f88;
+    margin-left: 5em;
+}
+ 
+#vettingParticipation .participatingUser {
+    border: 1px solid gray;
+     border-radius: .5em;
+     padding: .3em;
+     display: inline-flex;
+     width: 25em;
+}
+
+#vettingParticipation .participatingUser .userInfo {
+     width: 20em;
+	white-space: nowrap;
+}
+
+#vettingParticipation .participatingUsers {
+     display: block;
+    padding-top: 1em;
+    margin: 2em;
+ }
+
+ #vettingParticipation .vetter {
+     font-weight: bold;
+     padding: .1em;
+     background-color: rgb(181, 207, 199);
+ }
+
+ #vettingParticipation .noparticip {
+     color: red;
+     background-color: lightgoldenrodyellow !important;
+ }
+
+
+

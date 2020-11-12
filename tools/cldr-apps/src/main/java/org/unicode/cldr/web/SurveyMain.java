@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -89,7 +88,6 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
@@ -1701,365 +1699,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<br><a href='" + ctx.jspLink("adduser.jsp") + "&amp;defaultorg=" + defaultorg + "'>Add User</a> |");
     }
 
-    /**
-     *
-     * @param ctx
-     *
-     * This function is 356 lines long
-     */
-    private void doCoverage(WebContext ctx) {
-        boolean showCodes = false;
-        printHeader(ctx, "Locale Coverage");
-
-        if (!UserRegistry.userIsVetter(ctx.session.user)) {
-            ctx.print("Not authorized.");
-            return;
-        }
-
-        printUserTableWithHelp(ctx, "/LocaleCoverage");
-
-        showAddUser(ctx);
-
-        ctx.println("        <i>Showing only votes in the current release</i><br/>");
-        ctx.print("<br>");
-        ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool in</b></a><hr>");
-        String org = ctx.session.user.org;
-        if (UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
-            org = null; // all
-        }
-
-        StandardCodes sc = StandardCodes.make();
-
-        LocaleTree tree = getLocaleTree();
-
-        WebContext subCtx = (WebContext) ctx.clone();
-        subCtx.setQuery(QUERY_DO, "coverage");
-        boolean participation = showTogglePref(subCtx, "cov_participation", "Participation Shown (click to toggle)");
-        String missingLocalesForOrg = org;
-        if (missingLocalesForOrg == null) {
-            missingLocalesForOrg = showListPref(subCtx, PREF_COVTYP, "Coverage Type", WebContext.getLocaleCoverageOrganizations(), true);
-        }
-        if (missingLocalesForOrg == null || missingLocalesForOrg.length() == 0 || missingLocalesForOrg.equals("default")) {
-            missingLocalesForOrg = "default"; // ?!
-        }
-
-        if (org == null) {
-            ctx.println("<h4>Showing coverage for all organizations</h4>");
-        } else {
-            ctx.println("<h4>Showing coverage for: " + org + "</h4>");
-        }
-
-        if (missingLocalesForOrg != org) {
-            ctx.println("<h4> (and missing locales for " + missingLocalesForOrg + ")</h4>");
-        }
-
-        Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
-        int totalUsers = 0;
-        int allUsers = 0; // users with all
-
-        int totalSubmit = 0;
-        int totalVet = 0;
-
-        Map<CLDRLocale, Set<CLDRLocale>> intGroups = getIntGroups();
-
-        Connection conn = null;
-        Map<String, String> userMap = null;
-        Map<String, String> nullMap = null;
-        Hashtable<CLDRLocale, Hashtable<Integer, String>> localeStatus = null;
-        Hashtable<CLDRLocale, Hashtable<Integer, String>> nullStatus = null;
-
-        {
-            userMap = new TreeMap<>();
-            nullMap = new TreeMap<>();
-            localeStatus = new Hashtable<>();
-            nullStatus = new Hashtable<>();
-        }
-
-        Set<CLDRLocale> s = new TreeSet<>();
-        Set<CLDRLocale> badSet = new TreeSet<>();
-        PreparedStatement psMySubmit = null;
-        PreparedStatement psnSubmit = null;
-
-        try {
-            conn = dbUtils.getDBConnection();
-            psMySubmit = conn.prepareStatement("select COUNT(submitter) from " + DBUtils.Table.VOTE_VALUE + " where submitter=?",
-                ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            psnSubmit = conn.prepareStatement(
-                "select COUNT(submitter) from " + DBUtils.Table.VOTE_VALUE + " where submitter=? and locale=?",
-                ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-
-            synchronized (reg) {
-                java.sql.ResultSet rs = reg.list(org, conn);
-                if (rs == null) {
-                    ctx.println("<i>No results...</i>");
-                    return;
-                }
-                if (UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
-                    org = "ALL"; // all
-                }
-                while (rs.next()) {
-                    int theirId = rs.getInt(1);
-                    int theirLevel = rs.getInt(2);
-                    String theirName = DBUtils.getStringUTF8(rs, 3);// rs.getString(3);
-                    String theirEmail = rs.getString(4);
-                    //String theirOrg = rs.getString(5);
-                    String theirLocaleList = rs.getString(6);
-
-                    String nameLink = "<a href='" + ctx.url() + ctx.urlConnector() + "do=list&" + LIST_JUST + "="
-                        + URLEncoder.encode(theirEmail) + "' title='More on this user...'>" + theirName + " </a>";
-                    // setup
-
-                    if (participation && (conn != null)) {
-                        psMySubmit.setInt(1, theirId);
-                        psnSubmit.setInt(1, theirId);
-
-                        int mySubmit = DBUtils.sqlCount(ctx, conn, psMySubmit);
-
-                        String userInfo = "<tr><td>" + nameLink + "</td><td>" + "submits/votes: " + mySubmit + "</td></tr>";
-                        if ((mySubmit) == 0) {
-                            nullMap.put(theirName, userInfo);
-                        } else {
-                            userMap.put(theirName, userInfo);
-                        }
-
-                        totalSubmit += mySubmit;
-                    }
-                    if ((theirLevel > 10) || (theirLevel <= 1)) {
-                        continue;
-                    }
-                    totalUsers++;
-                    if ((theirLocaleList == null) || theirLocaleList.length() == 0) {
-                        allUsers++;
-                        continue;
-                    }
-                    if (UserRegistry.isAllLocales(theirLocaleList)) {
-                        // all.
-                        allUsers++;
-                    } else {
-                        CLDRLocale theirLocales[] = UserRegistry.tokenizeCLDRLocale(theirLocaleList);
-                        // int hitList[] = new int[theirLocales.length]; // # of
-                        // times each is used
-                        Set<CLDRLocale> theirSet = new HashSet<>(); // set
-                        // of
-                        // locales
-                        // this
-                        // vetter
-                        // has
-                        // access
-                        // to
-                        for (int j = 0; j < theirLocales.length; j++) {
-                            Set<CLDRLocale> subSet = intGroups.get(theirLocales[j]); // Is
-                            // it
-                            // an
-                            // interest
-                            // group?
-                            // (de,
-                            // fr,
-                            // ..)
-                            if (subSet != null) {
-                                theirSet.addAll(subSet); // add all sublocs
-                            } else if (allLocs.contains(theirLocales[j])) {
-                                theirSet.add(theirLocales[j]);
-                            } else {
-                                badSet.add(theirLocales[j]);
-                            }
-                        }
-                        for (CLDRLocale theLocale : theirSet) {
-                            s.add(theLocale);
-                            Hashtable<CLDRLocale, Hashtable<Integer, String>> theHash = localeStatus; // to
-                            // the
-                            // 'status'
-                            // field
-                            String userInfo = nameLink + " ";
-                            if (participation && conn != null) {
-                                psnSubmit.setString(2, theLocale.getBaseName());
-
-                                int nSubmit = DBUtils.sqlCount(ctx, conn, psnSubmit);
-
-                                if ((nSubmit) == 0) {
-                                    theHash = nullStatus; // vetter w/ no work
-                                    // done
-                                }
-
-                                if (nSubmit > 0) {
-                                    userInfo = userInfo + " submits: " + nSubmit + " ";
-                                }
-                            }
-                            Hashtable<Integer, String> oldStr = theHash.get(theLocale);
-
-                            if (oldStr == null) {
-                                oldStr = new Hashtable<>();
-                                theHash.put(theLocale, oldStr);
-                            }
-
-                            oldStr.put(new Integer(theirId), userInfo + "<!-- " + theLocale + " -->");
-
-                        }
-                    }
-                }
-                // #level $name $email $org
-                rs.close();
-            } /* end synchronized(reg) */
-        } catch (SQLException se) {
-            SurveyLog.logger.log(java.util.logging.Level.WARNING,
-                "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
-            ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
-        } finally {
-            DBUtils.close(psMySubmit, psnSubmit, conn);
-        }
-
-        // Now, calculate coverage of requested locales for this organization
-        Set<CLDRLocale> languagesNotInCLDR = new TreeSet<>();
-        Set<CLDRLocale> languagesMissing = new HashSet<>();
-        Set<CLDRLocale> allLanguages = new TreeSet<>();
-        {
-            for (String code : sc.getAvailableCodes("language")) {
-                allLanguages.add(CLDRLocale.getInstance(code));
-            }
-        }
-        for (Iterator<CLDRLocale> li = allLanguages.iterator(); li.hasNext();) {
-            CLDRLocale lang = (li.next());
-            String group = sc.getGroup(lang.getBaseName(), missingLocalesForOrg);
-            if ((group != null) &&
-                (null == getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance(group)))) {
-                if (!isValidLocale(lang)) {
-                    languagesNotInCLDR.add(lang);
-                } else {
-                    if (!s.contains(lang)) {
-                        languagesMissing.add(lang);
-                    }
-                }
-            }
-        }
-
-        ctx.println("Locales in <b>bold</b> have assigned vetters.<br><table summary='Locale Coverage' border=1 class='list'>");
-        int n = 0;
-        for (String ln : tree.getTopLocales()) {
-            n++;
-            CLDRLocale aLocale = tree.getLocaleCode(ln);
-            ctx.print("<tr class='row" + (n % 2) + "'>");
-            ctx.print(" <td valign='top'>");
-            boolean has = (s.contains(aLocale));
-            if (has) {
-                ctx.print("<span class='selected'>");
-            } else {
-                ctx.print("<span class='disabledbox' style='color:#888'>");
-            }
-            ctx.print(decoratedLocaleName(aLocale, ln.toString(), aLocale.toString()));
-            ctx.print("</span>");
-            if (languagesMissing.contains(aLocale)) {
-                ctx.println("<br>" + ctx.iconHtml("stop", "No " + missingLocalesForOrg + " vetters") + "<i>(coverage: "
-                    + sc.getGroup(aLocale.toString(), missingLocalesForOrg) + ")</i>");
-            }
-
-            if (showCodes) {
-                ctx.println("<br><tt>" + aLocale + "</tt>");
-            }
-            if (localeStatus != null && !localeStatus.isEmpty()) {
-                Hashtable<Integer, String> what = localeStatus.get(aLocale);
-                if (what != null) {
-                    ctx.println("<ul>");
-                    for (Iterator<String> i = what.values().iterator(); i.hasNext();) {
-                        ctx.println("<li>" + i.next() + "</li>");
-                    }
-                    ctx.println("</ul>");
-                }
-            }
-            boolean localeIsDefaultContent = getSupplementalDataInfo().isDefaultContent(aLocale);
-            if (localeIsDefaultContent) {
-                ctx.println(" (<i>default content</i>)");
-            } else if (participation && nullStatus != null && !nullStatus.isEmpty()) {
-                Hashtable<Integer, String> what = nullStatus.get(aLocale);
-                if (what != null) {
-                    ctx.println("<br><blockquote> <b>Did not participate:</b> ");
-                    for (Iterator<String> i = what.values().iterator(); i.hasNext();) {
-                        ctx.println(i.next().toString());
-                        if (i.hasNext()) {
-                            ctx.println(", ");
-                        }
-                    }
-                    ctx.println("</blockquote>");
-                }
-            }
-            ctx.println(" </td>");
-
-            Map<String, CLDRLocale> sm = tree.getSubLocales(aLocale); // sub
-            // locales
-
-            ctx.println("<td valign='top'>");
-            int j = 0;
-            for (Iterator<String> si = sm.keySet().iterator(); si.hasNext();) {
-                String sn = si.next().toString();
-                CLDRLocale subLocale = sm.get(sn);
-
-                has = (s.contains(subLocale));
-
-                if (j > 0) {
-                    if (localeStatus == null) {
-                        ctx.println(", ");
-                    } else {
-                        ctx.println("<br>");
-                    }
-                }
-
-                if (has) {
-                    ctx.print("<span class='selected'>");
-                } else {
-                    ctx.print("<span class='disabledbox' style='color:#888'>");
-                }
-                ctx.print(decoratedLocaleName(CLDRLocale.getInstance(subLocale.toString()), sn, subLocale.toString()));
-                ctx.print("</span>");
-                if (showCodes) {
-                    ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
-                }
-                boolean isDc = getSupplementalDataInfo().isDefaultContent(subLocale);
-
-                if (localeStatus != null && !nullStatus.isEmpty()) {
-                    Hashtable<Integer, String> what = localeStatus.get(subLocale);
-                    if (what != null) {
-                        ctx.println("<ul>");
-                        for (Iterator<String> i = what.values().iterator(); i.hasNext();) {
-                            ctx.println("<li>" + i.next() + "</li>");
-                        }
-                        ctx.println("</ul>");
-                    }
-                }
-                if (isDc) {
-                    ctx.println(" (<i>default content</i>)");
-                }
-                j++;
-            }
-            ctx.println("</td>");
-            ctx.println("</tr>");
-        }
-        ctx.println("</table> ");
-        ctx.println(totalUsers + "  users, including " + allUsers + " with 'all' privs (not counted against the locale list)<br>");
-
-        if (conn != null) {
-            if (participation) {
-                ctx.println("Selected users have submitted " + totalSubmit + " items, and voted for " + totalVet
-                    + " items (including implied votes).<br>");
-            }
-            if (participation) {
-                ctx.println("<hr>");
-                ctx.println("<h4>Participated: " + userMap.size() + "</h4><table border='1'>");
-                for (Iterator<String> i = userMap.values().iterator(); i.hasNext();) {
-                    String which = i.next();
-                    ctx.println(which);
-                }
-                ctx.println("</table><h4>Did Not Participate at all: " + nullMap.size() + "</h4><table border='1'>");
-                for (Iterator<String> i = nullMap.values().iterator(); i.hasNext();) {
-                    String which = i.next();
-                    ctx.println(which);
-                }
-                ctx.println("</table>");
-            }
-            DBUtils.closeDBConnection(conn);
-        }
-
-        printFooter(ctx);
-    }
-
     // ============= User list management
     private static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
     private static final String LIST_ACTION_NONE = "-";
@@ -2079,10 +1718,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<users host=\"" + ctx.serverHostport() + "\">");
         String org = null;
         Connection conn = null;
+        PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
         try {
             conn = dbUtils.getDBConnection();
             synchronized (reg) {
-                java.sql.ResultSet rs = reg.list(org, conn);
+                ps = reg.list(org, conn);
+                rs = ps.executeQuery();
                 if (rs == null) {
                     ctx.println("\t<!-- No results -->");
                     return;
@@ -2113,7 +1755,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
             ctx.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
         } finally {
-            DBUtils.close(conn);
+            DBUtils.close(conn, ps, rs);
         }
         ctx.println("</users>");
     }
@@ -2150,8 +1792,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
 
         printUserTableWithHelp(ctx, "/AddModifyUser");
-        ctx.print(" | ");
-        printMenu(ctx, doWhat, "coverage", "Show Vetting Participation", QUERY_DO);
 
         if (UserRegistry.userIsTC(ctx.session.user)) {
             ctx.println("| <a class='notselected' href='v#tc-emaillist'>Email Address of Users Who Participated</a>");
@@ -2210,10 +1850,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
         }
         Connection conn = null;
+        PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
         try {
             conn = dbUtils.getDBConnection();
             synchronized (reg) {
-                java.sql.ResultSet rs = reg.list(org, conn);
+                ps = reg.list(org, conn);
+                rs = ps.executeQuery();
                 if (rs == null) {
                     ctx.println("<i>No results...</i>");
                     return;
@@ -2708,7 +2351,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     }
                 }
                 // #level $name $email $org
-                rs.close();
 
                 // more 'My Account' stuff
                 if (justme) {
@@ -2781,7 +2423,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
             ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
         } finally {
-            DBUtils.close(conn);
+            DBUtils.close(conn, ps, rs);
         }
         if (just != null) {
             ctx.println("<a href='" + ctx.url() + ctx.urlConnector() + "do=list'>\u22d6 Show all users</a><br>");
@@ -3090,9 +2732,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (ctx.session.user != null) {
                 if ((doWhat.equals("list") || doWhat.equals("listu")) && (UserRegistry.userCanDoList(ctx.session.user))) {
                     doList(ctx);
-                    return;
-                } else if (doWhat.equals("coverage") && (UserRegistry.userCanDoList(ctx.session.user))) {
-                    doCoverage(ctx);
                     return;
                 } else if (doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user))) {
                     doNew(ctx);
@@ -4653,7 +4292,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * Returns a Map of all interest groups. en -> en, en_US, en_MT, ... fr ->
      * fr, fr_BE, fr_FR, ...
      */
-    private static Map<CLDRLocale, Set<CLDRLocale>> getIntGroups() {
+    static Map<CLDRLocale, Set<CLDRLocale>> getIntGroups() {
         // TODO: rewrite as iterator
         CLDRLocale[] locales = getLocales();
         Map<CLDRLocale, Set<CLDRLocale>> h = new HashMap<>();

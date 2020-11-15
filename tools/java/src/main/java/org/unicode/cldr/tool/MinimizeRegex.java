@@ -11,7 +11,9 @@ import java.util.regex.PatternSyntaxException;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
@@ -43,6 +45,10 @@ public class MinimizeRegex {
         System.out.println(recompressed + "\n");
     }
 
+    public static String compressWith(String regexString) {
+        return compressWith(regexString, new UnicodeSet().addAll(regexString), null);
+    }
+
     public static String compressWith(String regexString, UnicodeSet set) {
         return compressWith(regexString, set, null);
     }
@@ -67,6 +73,13 @@ public class MinimizeRegex {
         return compressWith(flattened, set);
     }
 
+    public static String compressWith(Set<String> flattened) {
+        UnicodeSet set = new UnicodeSet();
+        for (String f : flattened) {
+            set.addAll(f);
+        }
+        return compressWith(flattened, set);
+    }
     /**
      * Does not work with sets of strings containing regex syntax.
      * @param flattened
@@ -77,7 +90,16 @@ public class MinimizeRegex {
         String recompressed = compress(flattened, new Output<Boolean>());
         Set<String> flattened2;
         try {
-            flattened2 = flatten(Pattern.compile(recompressed), "", set);
+            final Pattern compiled = Pattern.compile(recompressed);
+            // we do a check to make sure that everything matches
+            Matcher matcher = compiled.matcher("");
+            for(String item : flattened) {
+                if (!matcher.reset(item).matches()) {
+                    compress(flattened, new Output<Boolean>());
+                    throw new IllegalArgumentException("Failed to match:\n" + item + "\n by " + recompressed);
+                }
+            }
+            flattened2 = flatten(compiled, "", set);
         } catch (PatternSyntaxException e) {
             int loc = e.getIndex();
             if (loc >= 0) {
@@ -137,20 +159,31 @@ public class MinimizeRegex {
         case 0: throw new IllegalArgumentException();
         case 1:
             isSingle.value = true;
-            return strings.iterator().next() + (hasEmpty ? "?" : "");
+            final String curr = strings.iterator().next();
+            boolean single = CharSequences.getSingleCodePoint(curr) != Integer.MAX_VALUE;
+            // TODO escape syntax characters in curr
+            return !hasEmpty ? curr
+                : single ? curr + "?+"
+                    : "(" + curr + ")?+";
         default:
-            String result = Joiner.on("|").join(strings);
+            String result = Joiner.on("|").join(strings); // TODO escape syntax characters in each of the strings
             if (hasEmpty) {
                 isSingle.value = true;
-                return '(' + result + ")?";
+                return '(' + result + ")?+";
             }
             isSingle.value = false;
             return result;
         }
     }
 
+    static final UnicodeSet SYNTAX = new UnicodeSet("[\\{\\}\\[\\]|?+*]").freeze();
+
+    public static TreeSet<String> flatten(String stringPattern) {
+        return flatten(Pattern.compile(stringPattern), "", new UnicodeSet().addAll(stringPattern).removeAll(SYNTAX));
+    }
+
     public static TreeSet<String> flatten(Pattern pattern, String prefix, UnicodeSet set) {
-        return flatten(pattern.matcher(""), prefix, set, new TreeSet<>(LENGTH_FIRST_COMPARE));
+        return flatten(pattern.matcher(""), prefix, set, new TreeSet<>(Ordering.natural().reversed()));
     }
 
     private static TreeSet<String> flatten(Matcher matcher, String prefix, UnicodeSet set, TreeSet<String> results) {
@@ -160,8 +193,8 @@ public class MinimizeRegex {
             boolean matches = matcher.matches();
             if (matches) {
                 results.add(trial);
-            }
-            if (matcher.hitEnd()) {
+                flatten(matcher, trial, set, results);
+            } else if (matcher.hitEnd()) {
                 flatten(matcher, trial, set, results);
             }
         }

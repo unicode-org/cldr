@@ -53,6 +53,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableSet;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transform;
@@ -101,7 +102,7 @@ public class CldrUtility {
      */
     public static class VariableReplacer {
         // simple implementation for now
-        private Map<String, String> m = new TreeMap<>(Collections.reverseOrder());
+        private Map<String, String> m = new TreeMap<>(Collections.reverseOrder()); // guarantee that if A = B + X, then A comes before B.
 
         public VariableReplacer add(String variable, String value) {
             m.put(variable, value);
@@ -109,24 +110,47 @@ public class CldrUtility {
         }
 
         public String replace(String source) {
+            return replace(source, null);
+        }
+
+        public String replace(String source, Set<String> usedVariables) {
+            // TODO could optimize
+            // 1. Use a StringBuilder, but only create on first instance of a match
+            // 2. If all variables start with a given character that can't otherwise occur (eg % in coverageLevels.xml), we can optimize further
+            // 3. Use a CharsTrie
             String oldSource;
             do {
                 oldSource = source;
-                for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
-                    String variable = it.next();
-                    String value = m.get(variable);
-                    source = replaceAll(source, variable, value);
+                for (Entry<String, String> entry : m.entrySet()) {
+                    String variable = entry.getKey();
+                    String value = entry.getValue();
+                    while (true) {
+                        int pos = source.indexOf(variable);
+                        if (pos < 0) {
+                            break;
+                        }
+                        source = source.substring(0, pos) + value + source.substring(pos + variable.length());
+                        if (usedVariables != null) {
+                            usedVariables.add(variable);
+                        }
+                    }
                 }
-            } while (!source.equals(oldSource));
+            } while (!source.equals(oldSource)); // This loop is probably not necessary; would only happen if the result of a replacement causes a new variable name to be formed.
             return source;
         }
 
         public String replaceAll(String source, String key, String value) {
             while (true) {
                 int pos = source.indexOf(key);
-                if (pos < 0) return source;
+                if (pos < 0) {
+                    return source;
+                }
                 source = source.substring(0, pos) + value + source.substring(pos + key.length());
             }
+        }
+
+        public Set<String> getKeys() {
+            return ImmutableSet.copyOf(m.keySet());
         }
     }
 

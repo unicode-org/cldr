@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -17,12 +18,16 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.MinimizeRegex;
+import org.unicode.cldr.tool.ToolConfig;
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Element;
@@ -32,6 +37,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathStarrer;
@@ -43,6 +49,9 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.Timer;
+import org.unicode.cldr.util.TrieMatcher;
+import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
@@ -55,12 +64,18 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.ScientificNumberFormatter;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.StringTrieBuilder.Option;
 import com.ibm.icu.util.ULocale;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
+    private static final Joiner JOINER_BAR = Joiner.on("|");
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
@@ -811,5 +826,256 @@ public class TestCoverageLevel extends TestFmwkPlus {
         bMinusA.removeAll(expected);
         result.putAll("actual-expected", bMinusA);
         return result;
+    }
+
+    public void TestQuick() {
+        if (true) return;
+        // quick test
+        // TODO convert to unit test
+        CoverageLevel2 cv2 = CoverageLevel2.getInstance("de");
+        ULocale uloc = new ULocale("de");
+        CLDRConfig testInfo = ToolConfig.getToolInstance();
+        SupplementalDataInfo supplementalDataInfo2 = testInfo.getSupplementalDataInfo();
+        CLDRFile englishPaths1 = testInfo.getEnglish();
+        Set<String> englishPaths = Builder.with(new TreeSet<String>()).addAll(englishPaths1).get();
+
+        Timer timer = new Timer();
+        timer.start();
+        for (String path : englishPaths) {
+            int oldLevel = supplementalDataInfo2.getCoverageValueOld(path, uloc);
+        }
+        long oldTime = timer.getDuration();
+        System.out.println(timer.toString(1));
+
+        timer.start();
+        for (String path : englishPaths) {
+            int newLevel = cv2.getIntLevel(path);
+        }
+        System.out.println(timer.toString(1, oldTime));
+
+        for (String path : englishPaths) {
+            int newLevel = cv2.getIntLevel(path);
+            int oldLevel = supplementalDataInfo2.getCoverageValueOld(path, uloc);
+            if (newLevel != oldLevel) {
+                newLevel = cv2.getIntLevel(path);
+                System.out.println(oldLevel + "\t" + newLevel + "\t" + path);
+            }
+        }
+    }
+
+    private enum Display {
+        /**
+         * Show the coverageVariable set to the unrolled attributes, where possible. The original is in a comment.
+         */
+        UNCOMPRESS,
+        /**
+         * Show the coverageVariable set to recompressed attributes, where possible. The original is in a comment.
+         */
+        OPTIMIZE}
+    private Display showStyle = null;
+    {
+        try {
+            showStyle = Display.valueOf(System.getProperty("TestCoverageLevel"));
+        } catch (Exception e) {}
+    }
+
+    public void TestReplacerVsTrieMatcher() {
+        System.out.println("\n\tNOTE: Set -DTestCoverageLevel:UNCOMPRESS to get coverageVariable values as plain alternates in the regex where possible. Use OPTIMIZE to get an optimized form.");
+        if (showStyle != null) {
+            System.out.println("\tExample\n"
+                + "\toriginal:\t(Bhm?v?)\n"
+                + "\tUNCOMPRESS:\t(Bhv|Bhmv|Bhm|Bh) — values are all separate alternates, for editing\n"
+                + "\tOPTIMIZE:\t\"(Bh(mv?+|v)?+) — no backup is necessary" );
+        }
+        List<Pair<String, String>> data = new ArrayList<>();
+
+        String[][] tests = {
+            {"ethiopic-amete-alem|ethiopic", "ethiopic(-amete-alem)?+"},
+            {"islamic|islamic-civil", "islamic(-civil)?+"},
+            {"(buddhist|chinese|hebrew|islamic|islamic-civil|japanese)", "buddhist|chinese|hebrew|islamic(-civil)?+|japanese"}
+        };
+        for (String[] row : tests) {
+            final String source = row[0];
+            final String expected = row[1];
+            TreeSet<String> flattened = MinimizeRegex.flatten(source);
+            String actual = MinimizeRegex.compressWith(flattened);
+            if (!actual.equals(expected)) {
+                System.out.println("FAIL, expected:\t" + expected + "\tactual:\t" + actual);
+            }
+        }
+
+        UnicodeSet skipSyntax = new UnicodeSet("[@'\"*+]").freeze();
+        VariableReplacer replacer = new VariableReplacer();
+        TrieMatcher.Builder<String> trieMatcherBuilder = TrieMatcher.<String>builder();
+        Set<String> keysUsed = new HashSet<>();
+        Set<String> coverageLevelPaths = new LinkedHashSet<>();
+
+        for (Pair<String, String> pair : XMLFileReader.loadPathValues(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY + "coverageLevels.xml", data , false)) {
+            final String path = pair.getFirst();
+            final String elementValue = pair.getSecond();
+            if (!elementValue.isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String element = parts.getElement(-1);
+            String newPath = null;
+            switch (element) {
+            case "default":
+                break;
+            case "coverageVariable":
+                //<coverageVariable key="%dateFormatItems" value="((E|d|Ed|EEEEd)|((Gy|y|yyyy|U)?(M|Md|MEd|MEEEEd|MMM|MMMd|MMMEd|MMMEEEEd|MMMM|MMMMd|MMMMEd|MMMMEEEEd))|((Gy|y|yyyy)(QQQ|QQQQ)?))"/>
+                final String value = parts.getAttributeValue(-1, "value");
+                String key = parts.getAttributeValue(-1, "key");
+                replacer.add(key, value);
+                trieMatcherBuilder.put(key, value);
+
+                if (showStyle != null && !skipSyntax.containsSome(value)) {
+                    String pattern = value
+                        .replace('\'', '"')
+                        .replace("[@", "\\[@") // make sure that attributes are quoted
+                        ;
+
+                    try {
+                        TreeSet<String> flattened = MinimizeRegex.flatten(pattern);
+                        String min = MinimizeRegex.compressWith(flattened);
+                        parts = parts.cloneAsThawed();
+                        final String newValue = showStyle == Display.UNCOMPRESS ? "(" + JOINER_BAR.join(flattened) + ")" : "(" + showStyle == Display.OPTIMIZE  + ")" ? min : value;
+                        parts.setAttribute(-1, "value", newValue);
+                        newPath = format(parts) + (newValue.contentEquals(value) ? "" : "\t <!-- " + value + " -->");
+                    } catch (Exception e) {
+                        newPath = path;
+                    }
+                    System.out.println(newPath);
+                }
+                break;
+            case "coverageLevel":
+                // <coverageLevel inLanguage="%phonebookCollationLanguages" value="minimal" match="localeDisplayNames/types/type[@key='collation'][@type='phonebook']"/>
+                coverageLevelPaths.add(path);
+                break;
+            }
+        }
+
+        // Use the real data to test the trieMatcher
+
+        TrieMatcher<String> trieMatcher = trieMatcherBuilder.build(Option.SMALL);
+
+        // test accuracy
+        for (String path : coverageLevelPaths) {
+            String expected = replacer.replace(path);
+            String actual = trieMatcher.replaceAll(path).toString();
+            assertEquals("replacer vs trieMatcher", expected, actual);
+        }
+
+        // Now test performance
+        // warmup
+        int iterations = 100;
+        String sampleMatch = "abc%compactDecimalTypesdef";
+        String sampleNoMatch = "abccompactDecimalTypesdef";
+
+        for (int i = iterations; i > 0; --i) {
+            replacer.replace(sampleMatch);
+            trieMatcher.replaceAll(sampleMatch);
+        }
+
+
+        Timer timer = new Timer();
+        timer.start();
+        for (int i = iterations; i > 0; --i)
+            for (String path : coverageLevelPaths) {
+                replacer.replace(sampleNoMatch);
+                replacer.replace(path);
+            }
+        timer.stop();
+        long replacerTime = timer.getNanoseconds();
+
+        timer.start();
+        for (int i = iterations; i > 0; --i)
+            for (String path : coverageLevelPaths) {
+                trieMatcher.replaceAll(sampleNoMatch);
+                trieMatcher.replaceAll(path);
+            }
+        timer.stop();
+        long trieTime = timer.getNanoseconds();
+
+        assertTrue("replacerTime:\t" + replacerTime + "\ntrieTime:\t" + trieTime + "\n= " + trieTime * 100d / replacerTime + "%", trieTime*4 < replacerTime); // rough test
+
+        Set<String> keysNotUsed = new TreeSet<>(replacer.getKeys());
+        keysNotUsed.removeAll(keysUsed);
+        if (showStyle != null) {
+            System.out.println("UNUSED KEYS: " + keysNotUsed);
+        }
+    }
+
+    private static String format(XPathParts parts) {
+        String result = "<" + parts.getElement(-1);
+        for (Entry<String, String> av : parts.getAttributes(-1).entrySet()) {
+            result += " " + av.getKey() + "=\"" + av.getValue() + "\"";
+        }
+        return result + "/>";
+    }
+
+    public void TestReplacer() {
+        TrieMatcher<String> trieMatcher = TrieMatcher
+            .put("abc", "ABC")
+            .put("ab", "𝐀𝐁")
+            .put("bcd", "𝐵𝐶𝐷")
+            .put("𝐀", "𝑨")
+            .build(Option.SMALL);
+
+        String[][] tests = {
+            {""},
+            {"a"},
+            {"ab", "𝐀𝐁"},
+            {"abcd ab", "ABC", "𝐀𝐁"},
+            {"bcd𝐀bcd", "𝐵𝐶𝐷", "𝑨", "𝐵𝐶𝐷"}
+        };
+
+        for (String[] row : tests) {
+            String test = row[0];
+            logln("«" + test + "»");
+            List<String> expected = new ArrayList<>(Arrays.asList(row).subList(1, row.length));
+            List<String> actual = new ArrayList<>();
+            for (int i = 0; i < test.length(); ++i) {
+                String value = trieMatcher.matchEnd(test, i);
+                logln("\t«" + test.substring(i) + "»:\t«" + trieMatcher.subsequence(test) +  "»\t" + value);
+                if (value != null) {
+                    actual.add(value);
+                    i = trieMatcher.getEnd() - 1;
+                }
+            }
+            assertEquals(test, expected, actual);
+            actual.clear();
+            for (int i = 0; ; i = trieMatcher.getValue() == null ? i + 1 : trieMatcher.getEnd()) {
+                String value = trieMatcher.nextMatch(test, i);
+                if (value == null) {
+                    break;
+                }
+                actual.add(value);
+                logln("\t" + ":\t«" + trieMatcher.subsequence(test) +  "»\t" + value);
+            }
+            assertEquals(test, expected, actual);
+        }
+
+        String[][] tests2 = {
+            {"ababcbcd𝐀𝒜ab𝒜abc𝒜bcd𝒜𝐀", "𝐀𝐁ABC𝐵𝐶𝐷𝑨𝒜𝐀𝐁𝒜ABC𝒜𝐵𝐶𝐷𝒜𝑨", "«𝐀𝐁»«ABC»«𝐵𝐶𝐷»«𝑨»𝒜«𝐀𝐁»𝒜«ABC»𝒜«𝐵𝐶𝐷»𝒜«𝑨»"}
+        };
+        for (String[] row : tests2) {
+            String source = row[0];
+            String expected1 = row[1];
+            String expected2 = row[2];
+            CharSequence actual1 = trieMatcher.replaceAll(source);
+            assertEquals(source, expected1, actual1);
+            CharSequence actual2 = trieMatcher.replaceAll(source, x -> "«" + x.toString() + "»"); // add text around each replacement to check the function mapping
+            assertEquals(source, expected2, actual2);
+        }
+
+        TrieMatcher.Builder<Double> complicatedBuilder = TrieMatcher.<Double>builder();
+        Set.of(1,2,3,4,5).iterator().forEachRemaining(x -> complicatedBuilder.put(x.toString(), x * Math.pow(10,x)));
+        TrieMatcher<Double> complicated = complicatedBuilder.build(Option.SMALL);
+        ScientificNumberFormatter snf = ScientificNumberFormatter.getSuperscriptInstance((DecimalFormat) NumberFormat.getScientificInstance(ULocale.FRENCH));
+        String source3 = "1 2 3 4 5";
+        String expected3 = "1×10¹ 2×10² 3×10³ 4×10⁴ 5×10⁵";
+        String actual3 = complicated.replaceAll(source3, x -> snf.format(x)).toString();
+        assertEquals(source3, expected3, actual3);
     }
 }

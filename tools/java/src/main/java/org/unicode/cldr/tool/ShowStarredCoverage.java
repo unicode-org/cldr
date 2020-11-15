@@ -155,6 +155,7 @@ public class ShowStarredCoverage {
 
         final org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
         Set<ULocale> inICU = ImmutableSet.copyOf(ULocale.getAvailableLocales());
+
         for (String fileLocale : cldrFactory.getAvailable()) {
             final ULocale ulocale = new ULocale(fileLocale);
 
@@ -173,9 +174,12 @@ public class ShowStarredCoverage {
                 new TreeMap<String, Object>(),
                 Boolean.class);
 
-            Counter<Level> counter = new Counter<>();
-            TreeSet<PathHeader> pathHeaders = new TreeSet<>();
-            for (String path : file) {
+            Set<PathHeader> paths = new TreeSet<>();
+            for (String path : file.fullIterable()) {
+                paths.add(phf.fromPath(path));
+            }
+            for (PathHeader ph : paths) {
+                String path = ph.getOriginalPath();
                 if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
                     continue;
                 }
@@ -185,15 +189,11 @@ public class ShowStarredCoverage {
                     continue;
                 }
                 if (!path.equals(status.pathWhereFound)) {
-                    // path is aliased, skip
                     continue;
                 }
                 if (config.getSupplementalDataInfo().isDeprecated(DtdType.ldml, path)) {
                     continue;
                 }
-                PathHeader ph = phf.fromPath(path);
-                CLDRLocale loc = CLDRLocale.getInstance(fileLocale);
-                int requiredVotes = sdi.getRequiredVotes(loc, ph);
 
                 Level level = config.getSupplementalDataInfo().getCoverageLevel(path, fileLocale); // isMain ? ... : Level.UNDETERMINED;
                 if (level.compareTo(Level.BASIC) > 0) {

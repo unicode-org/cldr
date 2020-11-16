@@ -28,16 +28,16 @@ For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBU
 ### Licenses
  
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)
-a copy of which is included as [unicode-license.txt](../blob/master/unicode-license.txt).
+a copy of which is included as [unicode-license.txt](./unicode-license.txt).
 
 - Some CLDR tools depend on library dependencies managed via Maven,
   use of these libraries is governed by separate license agreements.  
 - Use of the ICU libraries is subject to the
 [ICU License]("https://github.com/unicode-org/icu/blob/master/icu4j/main/shared/licenses/LICENSE"),
-included as [ICU-LICENSE](../../blob/master/ICU-LICENSE).
+included as [ICU-LICENSE](./ICU-LICENSE).
 - Use of the Guava, Xerces, and Myanmar Tools libraries is subject to the
 [Apache License]("http://www.apache.org/licenses/LICENSE-2.0.html")
-included as [apache-license.txt](../../blob/master/apache-license.txt).
+included as [apache-license.txt](./apache-license.txt).
 
 ### Copyright
 

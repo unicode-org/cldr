@@ -1,18 +1,21 @@
 - hosts: surveytool
   become: yes
+  gather_facts: yes
   vars_files:
     - vars/main.yml
+    - vars/tomcat.yml
     - local-vars/local.yml
+  vars:
+    tomcat_address: 127.0.0.1
+    tomcat_instances:
+      - name: "tomcat"
+  roles:
+    - role: robertdebock.tomcat
   tasks:
-    - name: Install server packages
-      apt:
-        pkg:
-          - tomcat8
-          - tomcat8-admin # needed for deploy
     - name: Setup Server Context
       template:
         src: templates/context.j2
-        dest: "/etc/{{ cldr_tomcat_folder }}/context.xml"
+        dest: "{{ cldr_tomcat_conf_path }}/context.xml"
         owner: root
         group: "{{ cldr_tomcat_group }}"
         mode: '0640'
@@ -20,7 +23,7 @@
     - name: Setup Tomcat server.xml
       copy:
         src: templates/server.xml
-        dest: "/etc/{{ cldr_tomcat_folder }}/server.xml"
+        dest: "{{ cldr_tomcat_conf_path }}/server.xml"
         owner: root
         group: "{{ cldr_tomcat_group }}"
         mode: '0640'
@@ -28,7 +31,7 @@
     - name: Setup Server Users
       template:
         src: templates/users.j2
-        dest: "/etc/{{ cldr_tomcat_folder }}/tomcat-users.xml"
+        dest: "{{ cldr_tomcat_conf_path }}/tomcat-users.xml"
         owner: root
         group: "{{ cldr_tomcat_group }}"
         mode: '0640'

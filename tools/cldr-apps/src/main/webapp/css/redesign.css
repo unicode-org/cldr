@@ -669,6 +669,26 @@ div#additional-top div.beta span#betanotice  {
 	margin-top: -18px;
 	width:500px;	
 }
+
+/* help content */
+.helpHtml {
+    
+}
+
+.helpAbstract {
+    font-size: smaller;
+    overflow: scroll;
+    height: 10em;
+    border: 1px solid gray;
+    padding: .25em;
+    font-style: italic;
+}
+
+.helpAbstract a {
+    font-size: small;
+    text-decoration: none !important;
+}
+
 .nav .popover {
 	position:fixed;
 }

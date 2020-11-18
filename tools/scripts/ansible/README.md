@@ -17,7 +17,7 @@ This is your local system, where you control the others from.
 - Install some prereqs:
 
 ```shell
-ansible-galaxy install -r roles.yml
+ansible-galaxy install -r requirements.yml
 ```
 
 - Make sure you can `ssh` into all of the needed systems. For example,

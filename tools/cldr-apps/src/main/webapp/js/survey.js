@@ -2115,8 +2115,6 @@ require(["dojo/ready"], function(ready) {
 			setLastShown(null);
 		}
 
-		var deferHelp = {};
-
 		/**
 		 * This is the actual function called to display the right-hand "info" panel.
 		 * It is defined dynamically because it depends on variables that aren't available at startup time.
@@ -2150,52 +2148,26 @@ require(["dojo/ready"], function(ready) {
 			 */
 			var fragment = document.createDocumentFragment();
 
-			// Always have help (if available).
-			var theHelp = null;
-			if (tr) {
-				var theRow = tr.theRow;
-				// this also marks this row as a 'help parent'
-				theHelp = createChunk("", "div", "alert alert-info fix-popover-help vote-help");
-
-				if (theRow.xpstrid) {
-					var deferHelpSpan = document.createElement('span');
-					theHelp.appendChild(deferHelpSpan);
-
-					if (deferHelp[theRow.xpstrid]) {
-						deferHelpSpan.innerHTML = deferHelp[theRow.xpstrid];
-					} else {
-						deferHelpSpan.innerHTML = "<i>" + stui.str("loading") + "</i>";
-
-						// load async
-						var url = contextPath + "/help?xpstrid=" + theRow.xpstrid + "&_instance=" + surveyRunningStamp;
-						var xhrArgs = {
-							url: url,
-							handleAs: "text",
-							load: function(html) {
-								deferHelp[theRow.xpstrid] = html;
-								deferHelpSpan.innerHTML = html;
-								if (isDashboard()) {
-									fixPopoverVotePos();
-								}
-							},
-						};
-						cldrStAjax.queueXhr(xhrArgs);
-						// loader.
-					}
-
-					// extra attributes
-					if (theRow.extraAttributes && Object.keys(theRow.extraAttributes).length > 0) {
-						var extraHeading = createChunk(stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
-						var extraContainer = createChunk("", "div", "extraAttributes");
-						appendExtraAttributes(extraContainer, theRow);
-						theHelp.appendChild(extraHeading);
-						theHelp.appendChild(extraContainer);
-					}
+			if(tr && tr.theRow) {
+				const {theRow} = tr;
+				const {xpstrid} = theRow;
+				if(xpstrid) {
+					deferredHelp.addDeferredHelpTo(fragment, xpstrid);
+				}
+							
+				// extra attributes
+				if (theRow.extraAttributes && Object.keys(theRow.extraAttributes).length > 0) {
+					var extraHeading = createChunk(stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
+					var extraContainer = createChunk("", "div", "extraAttributes");
+					appendExtraAttributes(extraContainer, theRow);
+					theHelp.appendChild(extraHeading);
+					theHelp.appendChild(extraContainer);
 				}
 			}
-			if (theHelp) {
-				fragment.appendChild(theHelp);
-			}
+
+	        if (isDashboard()) {
+	                fixPopoverVotePos();
+	        }
 
 			if (str) { // If a simple string, clone the string
 				var div2 = document.createElement("div");

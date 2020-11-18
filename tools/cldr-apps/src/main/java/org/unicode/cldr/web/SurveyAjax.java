@@ -58,6 +58,8 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.abstracts.AbstractCache;
+import org.unicode.cldr.util.abstracts.AbstractResult;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
@@ -154,6 +156,14 @@ public class SurveyAjax extends HttpServlet {
                     put("phase", cc.getPhase());
                 }
             };
+        }
+
+        private static JSONObject wrap(AbstractResult abstractFor) throws JSONException {
+            if(abstractFor == null) return null;
+            return new JSONObject()
+                    .put("date", abstractFor.getContentDate().toString())
+                    .put("resource", abstractFor.getResourceUri())
+                    .put("abstract", abstractFor.getContent());
         }
 
         public static JSONObject wrap(ResultSet rs) throws SQLException, IOException, JSONException {
@@ -277,6 +287,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_OLDVOTES = "oldvotes"; // CldrSurveyVettingLoader.js
     public static final String WHAT_FLAGGED = "flagged"; // CldrSurveyVettingLoader.js
     public static final String WHAT_AUTO_IMPORT = "auto_import"; // CldrSurveyVettingLoader.js
+    public static final String WHAT_ABSTRACT = "abstract";
 
     public static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
 
@@ -1039,6 +1050,8 @@ public class SurveyAjax extends HttpServlet {
                 final JSONWriter r = newJSONStatusQuick(sm);
                 r.put("locmap", getJSONLocMap(sm));
                 send(r, out);
+            } else if(what.equals(WHAT_ABSTRACT)) {
+                handleSendAbstract(response, sm, out, xpath);
             } else {
                 sendError(out, "Unknown Request: " + what, ErrorCode.E_INTERNAL);
             }
@@ -1051,6 +1064,45 @@ public class SurveyAjax extends HttpServlet {
         } catch (SQLException e) {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
+        }
+    }
+
+    /**
+     * Handle the 'abstract' request.
+     * @param response
+     * @param sm
+     * @param out
+     * @param xpath
+     * @throws IOException
+     * @throws JSONException
+     */
+    private void handleSendAbstract(HttpServletResponse response, final SurveyMain sm, PrintWriter out, String xpath) throws IOException, JSONException {
+        if(xpath == null || xpath.isEmpty()) {
+            sendError(out, "Missing xpath parameter", ErrorCode.E_INTERNAL);
+        } else {
+            if(!xpath.startsWith("//")) { // If not a string xpath
+                String xp = sm.xpt.getByStringID(xpath); // lookup by hex
+                if(xp != null) xpath = xp;
+            }
+            final JSONWriter r = newJSONStatusQuick(sm);
+            AbstractResult abstractResult = AbstractCache.getInstance().abstractFor(xpath);
+
+            String helpHtml = sm.getTranslationHintsExample().getHelpHtml(xpath, sm.getTranslationHintsFile().getStringValue(xpath));
+
+            if(abstractResult == null && helpHtml == null) {
+                response.sendError(404, "No help found for " + xpath);
+            } else {
+                response.addHeader("Cache-Control", "public, max-age=86400"); // allow to cache for 1 day
+                if(abstractResult != null) {
+                    response.setDateHeader("Last-Modified", abstractResult.getContentDate().toEpochMilli());
+                    response.addHeader("Content-Location", abstractResult.getResourceUri());
+                    r.put("abstract", JSONWriter.wrap(abstractResult));
+                }
+                if(helpHtml != null) {
+                    r.put("helpHtml", helpHtml);
+                }
+                send(r, out);
+            }
         }
     }
 
@@ -1507,8 +1559,10 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    /** Create a new JSONWriter and setup its status with the given SurveyMain.
-     *
+    /**
+     * Create a new JSONWriter and setup its status with the given SurveyMain.
+     * This is used to initialize JSON responses so that callers know
+     * whether the ST is actually running or not.
      * @param sm the SurveyMain
      * @return the JSONWriter
      */
@@ -1518,6 +1572,12 @@ public class SurveyAjax extends HttpServlet {
         return r;
     }
 
+    /**
+     * This is used to initialize JSON responses. It gives a very brief
+     * (succinct and speedy) SurveyTool status.
+     * @param sm
+     * @return
+     */
     private JSONWriter newJSONStatusQuick(SurveyMain sm) {
         JSONWriter r = newJSON();
         if (SurveyMain.isSetup && !SurveyMain.isBusted()) {
@@ -3201,6 +3261,7 @@ public class SurveyAjax extends HttpServlet {
         out.write(prefix + "CldrStForumFilter" + js);
         out.write(prefix + "CldrStForum" + js);
         out.write(prefix + "CldrStCsvFromTable" + js);
+        out.write(prefix + "CldrDeferredHelp" + js);
         out.write(prefix + "survey" + js);
         out.write(prefix + "CldrSurveyVettingLoader" + js);
         out.write(prefix + "CldrSurveyVettingTable" + js);

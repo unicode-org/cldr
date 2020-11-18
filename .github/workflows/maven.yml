@@ -30,6 +30,8 @@ jobs:
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
           -DskipTests=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload cldr-apps.war
         uses: actions/upload-artifact@v2
         with:

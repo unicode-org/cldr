@@ -83,18 +83,31 @@ const cldrStForumParticipation = (function() {
 		if (json.org) {
 			html += '<h4>Organization: ' + json.org + '</h4>\n';
 		}
-		if (json.headers && json.rows) {
+		if (json.rows && json.rows.header && json.rows.data) {
+			const myheaders = ["LOC", // headers in order
+							"FORUM_TOTAL",
+							"FORUM_ORG",
+							"FORUM_REQUEST",
+							"FORUM_DISCUSS",
+							"FORUM_ACT"];
 			html += "<h4><a onclick='" + onclick + "'>Download CSV</a></h4>\n";
 			html += "<table border='1' id='" + tableId + "'>\n";
 			html += "<tr>\n";
-			for (let header of json.headers) {
+			for (let header of [ // same order as above
+				stui.str("recentLoc"),
+				stui.str("forum_participation_TOTAL"),
+				stui.str("forum_participation_ORG"),
+				stui.str("forum_participation_REQUEST"),
+				stui.str("forum_participation_DISCUSS"),
+				stui.str("forum_participation_ACT")
+			]) {
 				html += "<th>" + header + "</th>\n";
 			}
 			html += "</tr>\n";
-			for (let row of json.rows) {
+			for (let row of json.rows.data) {
 				html += "<tr>\n";
-				for (let cell of row) {
-					html += "<td>" + cell + "</td>\n";
+				for (let header of myheaders) {
+					html += "<td>" + row[json.rows.header[header]] + "</td>\n";
 				}
 				html += "</tr>\n";
 			}

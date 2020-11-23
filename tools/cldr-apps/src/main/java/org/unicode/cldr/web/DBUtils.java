@@ -5,7 +5,10 @@ package org.unicode.cldr.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
@@ -34,6 +37,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.apache.derby.jdbc.EmbeddedDataSource;
+import org.apache.ibatis.jdbc.ScriptRunner;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -1653,6 +1657,23 @@ public class DBUtils {
             ps.setNull(i, java.sql.Types.INTEGER);
         } else {
             ps.setInt(i, withVote);
+        }
+    }
+
+    /**
+     * Run a SQL script
+     * @param sqlName path to script, will be in resource folder org.unicode.cldr.web.sql
+     * @throws IOException
+     * @throws SQLException
+     */
+    public static void execSql(String sqlName) throws IOException, SQLException {
+        System.err.println("Running SQL:  sql/"+sqlName);
+        try (Connection conn = getInstance().getDBConnection();
+            InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
+            Reader r = new InputStreamReader(s);) {
+            ScriptRunner runner = new ScriptRunner(conn);
+            runner.runScript(r);
+            System.err.println("SQL OK: sql/"+sqlName);
         }
     }
 }

@@ -341,9 +341,16 @@ define({
 		vsContent_initial: "Click Recalculate to calculate the summary",
 
 		special_forum_participation: "Forum Participation",
-		special_vetting_participation: "Vetting Participation",
-		forum_participationGuidance: "This is the Forum Participation page. The table may take several minutes to load.",
+		forum_participationGuidance: "This is the Forum Participation page.",
+		forum_participation_TOTAL: "Posts in this release",
+		forum_participation_ORG: "Posts by my org.",
+		forum_participation_REQUEST: "Open Requests",
+		forum_participation_DISCUSS: "Open Discussions",
+		forum_participation_ACT: "Needing action",
+		
+
 		vetting_participationGuidance: "This is the Vetting Participation page. Specifically assigned vetters are marked in <b>bold</b>. Asterisk (*) denotes users who may vote in any locale.",
+		special_vetting_participation: "Vetting Participation",
 
 		special_bulk_close_posts: "Bulk Close Posts",
 		bulk_close_postsGuidance: "This is the Forum Bulk Close Posts page. The results may take several minutes to load.",

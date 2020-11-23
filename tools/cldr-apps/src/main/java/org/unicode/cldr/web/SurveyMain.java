@@ -117,7 +117,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
     public static final String CLDR_LASTVOTEVERSION = "CLDR_LASTVOTEVERSION";
     public static final String CLDR_DIR = "CLDR_DIR";
-    private static final String CLDR_DIR_REPOS = "http://unicode.org/repos/cldr";
 
     private static final String NEWVERSION_EPOCH = "1970-01-01 00:00:00";
 
@@ -3195,7 +3194,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             final File list[] = getFileBases();
             CLDRConfig config = CLDRConfig.getInstance();
             // may fail at server startup time- should do this through setup mode
-            ensureOrCheckout(null, "CLDR_DIR", config.getCldrBaseDirectory(), CLDR_DIR_REPOS);
+            ensureOrCheckout(null, "CLDR_DIR", config.getCldrBaseDirectory(), CLDRURLS.CLDR_REPO_ROOT);
             // verify readable
             File root = new File(config.getCldrBaseDirectory(), "common/main");
             if (!root.isDirectory()) {

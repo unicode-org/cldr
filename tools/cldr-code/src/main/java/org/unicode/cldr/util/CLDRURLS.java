@@ -12,6 +12,7 @@ public abstract class CLDRURLS {
     public static final String DEFAULT_PATH = "/cldr-apps";
     public static final String DEFAULT_BASE = "http://" + DEFAULT_HOST + DEFAULT_PATH;
     public static final String CLDR_NEWTICKET_URL = "http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
+    public static final String CLDR_REPO_ROOT = "https://github.com/unicode-org/cldr";
     /**
      * Override this property if you want to change the absolute URL to the SurveyTool base from DEFAULT_BASE
      */

@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.text.ListFormatter;
@@ -27,7 +28,7 @@ public abstract class Chart {
     public static final String PREV_CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
     public static final String CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
 
-    private static final String GITHUB_ROOT = "https://github.com/unicode-org/cldr/blob/master/";
+    private static final String GITHUB_ROOT = CLDRURLS.CLDR_REPO_ROOT + "/blob/master/";
     private static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
     public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {

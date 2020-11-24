@@ -38,6 +38,8 @@
         mode: "0644"
       notify: Restart Tomcat
     - name: Checkout CLDR trunk
+      become: yes
+      become_user: surveytool
       git:
         repo: https://github.com/unicode-org/cldr.git
         dest: "{{ cldr_trunk_path }}"

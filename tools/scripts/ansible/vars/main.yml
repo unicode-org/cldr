@@ -1,16 +1,14 @@
+ansible_python_interpreter: python3
+
 cldr_database_name: cldrdb
 cldr_db_backup_host: corp.unicode.org
 cldr_db_backup_user: cldrbackup
 cldr_db_backup_destination: "{{ cldr_db_backup_host }}:/home/users/{{ cldr_db_backup_user }}"
-mysql_databases:
-  - name: "{{ cldr_database_name }}"
-    encoding: latin1
-    collation: latin1_bin
-mysql_enabled_on_startup: true
-mysql_bind_address: localhost
-ansible_python_interpreter: python3
-cldr_tomcat_service: tomcat8
+
+cldr_tomcat_service: tomcat
+cldr_tomcat_parent: etc
 cldr_tomcat_folder: "{{ cldr_tomcat_service }}"
+cldr_tomcat_conf_path: "/{{ cldr_tomcat_parent }}/{{ cldr_tomcat_folder }}/conf"
 cldr_tomcat_user: "{{ cldr_tomcat_service }}"
 cldr_tomcat_group: "{{ cldr_tomcat_user }}"
 cldr_path: "/var/lib/{{ cldr_tomcat_folder }}/cldr"

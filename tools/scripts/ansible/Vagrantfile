@@ -2,6 +2,10 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+    # v.cpus = 2
+  end
   # increase the boot timeout
   config.vm.boot_timeout = 600
   config.vm.box = "ubuntu/bionic64"
@@ -15,7 +19,7 @@ Vagrant.configure("2") do |config|
     apt-get install -y python3 sudo
   SHELL
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "setup-playbook.yml"
+    ansible.playbook = "vagrant-playbook.yml"
   end
 end
 

@@ -30,25 +30,14 @@
             org = sess.user.org;
         }
         response.setHeader("content-disposition", "attachment;  filename=\"SurveyTool_" + ((org == null) ? "ALL" : org) + "_list.csv" + "\"");
-
-        java.sql.Connection conn = null;
-        java.sql.ResultSet rs = null;
-        try {
-            conn = DBUtils.getInstance().getDBConnection();
-            synchronized (sm.reg) {
-                rs = sm.reg.list(org, conn);
-
+		try (java.sql.Connection conn = DBUtils.getInstance().getDBConnection();
+             java.sql.PreparedStatement ps = sm.reg.list(org, conn);
+			 java.sql.ResultSet rs = ps.executeQuery();) {
                 DBUtils.writeCsv(rs, out);
-
-            }/*
-             * end synchronized(reg)
-             */
         } catch (java.sql.SQLException se) {
             SurveyLog.logException(se, "listing users in DataExport.jsp");
             response.sendError(500, "SQL error: " + se.getMessage());
             return;
-        } finally {
-            DBUtils.close(rs, conn);
         }
     } else if (action.equals("myxml")) {
         int u = -1;

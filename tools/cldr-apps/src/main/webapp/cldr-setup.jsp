@@ -2,8 +2,6 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="org.unicode.cldr.util.VoteResolver.VoterInfo"%>
 <%@page import="com.ibm.icu.util.VersionInfo"%>
-<%@page
-	import="org.tmatesoft.sqljet.core.internal.lang.SqlParser.commit_stmt_return"%>
 <%@page import="java.util.Properties"%>
 <%@page import="java.io.InputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

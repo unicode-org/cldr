@@ -130,18 +130,12 @@
 			</dependency>
 
 			<!-- mail / rss -->
-			<dependency>
-				<groupId>rome</groupId>
-				<artifactId>rome</artifactId>
-				<version>1.0</version>
-			</dependency>
 
 			<dependency>
 				<groupId>javax.mail</groupId>
 				<artifactId>mail</artifactId>
 				<version>1.5.0-b01</version>
 			</dependency>
-
 
 			<dependency>
 				<groupId>com.sun.activation</groupId>
@@ -154,13 +148,6 @@
 				<groupId>org.json</groupId>
 				<artifactId>json</artifactId>
 				<version>20190722</version>
-			</dependency>
-
-			<!-- scm -->
-			<dependency>
-				<groupId>org.tmatesoft.svnkit</groupId>
-				<artifactId>svnkit</artifactId>
-				<version>1.7.4-v1</version>
 			</dependency>
 
 			<!-- db connectors -->

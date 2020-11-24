@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -153,6 +154,13 @@ public abstract class MatchValue implements Predicate<String> {
         "Loma", "Maya", "Moon", "Nkgb", "Phlv", "Roro", "Sara", "Syre", "Syrj", "Syrn", "Teng", "Visp", "Wole");
     static final Set<String> VARIANT_HACK = ImmutableSet.of("POSIX", "REVISED", "SAAHO");
 
+    /**
+     * Returns true if ALL items match the predicate
+     * @param <T>
+     * @param predicate predicate to check
+     * @param items items to be tested with the predicate
+     * @return
+     */
     public static <T> boolean and(Predicate<T> predicate, Iterable<T> items) {
         for (T item : items) {
             if (!predicate.is(item)) {
@@ -162,6 +170,13 @@ public abstract class MatchValue implements Predicate<String> {
         return true;
     }
 
+    /**
+     * Returns true if ANY items match the predicate
+     * @param <T>
+     * @param predicate predicate to check
+     * @param items items to be tested with the predicate
+     * @return
+     */
     public static <T> boolean or(Predicate<T> predicate, Iterable<T> items) {
         for (T item : items) {
             if (predicate.is(item)) {
@@ -616,7 +631,11 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public  boolean is(String items) {
-            return and(subtest,SPACE_SPLITTER.split(items));
+            List<String> splitItems = SPACE_SPLITTER.splitToList(items);
+            if( (new HashSet<String>(splitItems)).size() != splitItems.size() ) {
+                throw new IllegalArgumentException("Set contains duplicates: " + items);
+            }
+            return and(subtest, splitItems);
         }
 
         @Override
@@ -640,7 +659,6 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         public static OrMatchValue of(String key) {
-            IntFunction<MatchValue[]> generator = null;
             return new OrMatchValue(BARS_SPLITTER.splitToList(key)
                 .stream()
                 .map(k -> MatchValue.of(k))

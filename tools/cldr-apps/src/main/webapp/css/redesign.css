@@ -671,22 +671,28 @@ div#additional-top div.beta span#betanotice  {
 }
 
 /* help content */
-.helpHtml {
-    
-}
 
-.helpAbstract {
+div.helpAbstract {
     font-size: smaller;
-    overflow: scroll;
+    overflow: hidden;
     height: 10em;
     border: 1px solid gray;
     padding: .25em;
     font-style: italic;
+    position: relative;
 }
 
 .helpAbstract a {
     font-size: small;
     text-decoration: none !important;
+    overflow: visible !important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    width: 100%;
+    background-color: #d9edf7;
+    opacity: .7;
 }
 
 .nav .popover {

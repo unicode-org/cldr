@@ -2,16 +2,6 @@
 
 This project contains CLDR RDF tools.
 
-## Updating Abstracts
-
-Abstracts are pulled from DBPedia.
-
-You can update all abstracts with:
-
-```shell
-mvn --file=tools/pom.xml exec:java -pl cldr-rdf
-```
-
 ### License
 
 see [../../README.md](../../README.md)

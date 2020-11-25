@@ -3794,6 +3794,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             progress.update("Setup dirs..");
 
             getVetdir();
+            final File cldrHomeDir = new File(cldrHome);
+
+            // load abstracts in a separate thread.
+            startupThread.addTask(new SurveyThread.SurveyTask("load abstract") {
+                @Override
+                public void run() throws Throwable {
+                    AbstractCacheManager.getInstance().setHome(cldrHomeDir);
+                }
+            });
 
             progress.update("Setup vap and message..");
             testpw = survprops.getProperty("CLDR_TESTPW"); // Vet Access

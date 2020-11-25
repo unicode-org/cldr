@@ -1,54 +1,85 @@
+// © 2020 and later: Unicode, Inc. and others.
+// License & terms of use: http://www.unicode.org/copyright.html
+
 deferredHelp = (function() {
-	const deferHelpData = {};
+	const defaultEndpoint = 'https://dbpedia.org/sparql/';
+	const format = 'JSON';
+	const abstractLang = 'en';
 	
-	const showHelp = function showHelp(theHelp, data) {
-        theHelp = $(theHelp);
-        theHelp.empty();
-        if(data.helpHtml) {
+	/**
+	 * run a sparql query
+	 * @param query - SPARQL query
+	 * @param endpoint - endpoint, defaults to defaultEndpoint 
+  	 * @returns Promise<Object>
+ 	 */
+	const sparqlQuery = function sparqlQuery(query, endpoint) {
+		endpoint = endpoint || defaultEndpoint;
+		return $.getJSON(endpoint, {query, format});
+	}
+		
+	const subloadAbstract = function subloadAbstract(resource) {
+	    const absDiv = $('<div/>', {class: 'helpAbstract'});
+		const absContent = $('<p/>', {text: `Loading ${resource}`});
+		absDiv.append(absContent);
+		
+		// This query simply returns the abstract result for the specific resource.
+		// The query is so small that browsers persistently cache the GET request.
+		sparqlQuery(
+`PREFIX  dbo:  <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?abstract ?primaryTopic
+WHERE {
+	<${resource}> dbo:abstract ?abstract .
+	<${resource}> foaf:isPrimaryTopicOf ?primaryTopic
+    FILTER langMatches(lang(?abstract), "${abstractLang}")
+} LIMIT 1`)
+		.then(({results}) => {
+			let seeAlso = resource;
+			if(results.bindings[0].primaryTopic && results.bindings[0].primaryTopic.value) {
+				seeAlso = results.bindings[0].primaryTopic.value;
+			}
+			absContent.text(results.bindings[0].abstract.value);
+		    absDiv.append($('<a/>', {
+		        text: '(more)',
+				title: resource,
+				target: '_blank',
+		        href: seeAlso}));
+		}, (err) => {
+			// absDiv.addClass('err') ?
+			absContent.text(`Err loading ${resource}: ${err}`);
+		});
+		
+
+		return absDiv;
+	}
+	
+	/**
+	 */
+	const addDeferredHelpTo = function addDeferredHelpTo(fragment, helpHtml, resource) {
+		// Always have help (if available).
+		const theHelp = $('<div/>', {
+			class: 'alert alert-info fix-popover-help vote-help'
+		});
+		// helpHtml is loaded immediately in the DataSection, no separate query needed
+        if(helpHtml) {
             theHelp.append($('<span/>', {
-                html: data.helpHtml,
+                html: helpHtml,
                 class: 'helpHtml'
             }));
         }
-        if(data.abstract) {
-            const absDiv = $('<div/>', {class: 'helpAbstract'});
-            absDiv.append($('<p/>', {text: data.abstract.abstract}));
-            absDiv.append($('<a/>', {
-                text: 'Source: ' + data.abstract.resource,
-                href: data.abstract.resource}));
+
+		// fetch the abstract- may be cached.
+        if(resource) {
+			const absDiv = subloadAbstract(resource);
             theHelp.append(absDiv);
         }
-    };
-	/**
-	 */
-	const addDeferredHelpTo = function addDeferredHelpTo(fragment, xpath) {
-		// Always have help (if available).
-		var theHelp = null;
-        theHelp = createChunk("", "div", "alert alert-info fix-popover-help vote-help");
 
-
-		if (deferHelpData[xpath]) {
-           showHelp(theHelp, deferHelpData[xpath]);
-		} else {
-			theHelp.append($('<i>loading...</i>'));
-
-			$.ajax(`${contextPath}/SurveyAjax?what=abstract&xpath=${xpath}`)
-			.then(data => {
-				deferHelpData[xpath] = data;
-				showHelp(theHelp, data);
-			}, err => {
-				$(theHelp).empty();
-				$(theHelp).append($('</i>', {text: `error: ${e}`}));
-				});
-		}
-		if (theHelp) {
-			fragment.appendChild(theHelp);
-		}
-
+		$(fragment).append(theHelp);
 	}
 
 	return {
 		addDeferredHelpTo,
-		deferHelpData
+		defaultEndpoint,
+		sparqlQuery
 	};
 })();

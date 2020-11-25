@@ -111,7 +111,6 @@ public class DataSection implements JSONString {
      * @author srl
      */
     public class DataRow implements JSONString, PathValueInfo {
-
         /**
          * A CandidateItem represents a particular alternative item which could be chosen or voted for.
          *
@@ -1081,6 +1080,17 @@ public class DataSection implements JSONString {
                 jo.put("xpath", xpath);
                 jo.put("xpathId", xpathId);
                 jo.put("xpstrid", xpstrid);
+
+                String helpHtml =  nativeExampleGenerator.getHelpHtml(xpath, sm.getTranslationHintsFile().getStringValue(xpath));
+                if(helpHtml != null) {
+                    jo.put("helpHtml", helpHtml);
+                }
+
+                String rdfUri = AbstractCacheManager.getInstance().resourceUriForXpath(xpath);
+                if(rdfUri != null) {
+                    jo.put("rdf", rdfUri);
+                }
+
                 return jo.toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in DataRow.toJSONString of " + this);

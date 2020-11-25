@@ -40,6 +40,11 @@
 				<artifactId>cldr-code</artifactId>
 				<version>${project.version}</version> <!-- this seems to work -->
 			</dependency>
+			<dependency>
+				<groupId>org.unicode.cldr</groupId>
+				<artifactId>cldr-rdf</artifactId>
+				<version>${project.version}</version> <!-- this seems to work -->
+			</dependency>
 
 			<!-- ICU -->
 			<dependency>

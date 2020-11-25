@@ -2150,11 +2150,10 @@ require(["dojo/ready"], function(ready) {
 
 			if(tr && tr.theRow) {
 				const {theRow} = tr;
-				const {xpstrid} = theRow;
-				if(xpstrid) {
-					deferredHelp.addDeferredHelpTo(fragment, xpstrid);
+				const {helpHtml, rdf} = theRow;
+				if(helpHtml || rdf) {
+					deferredHelp.addDeferredHelpTo(fragment, helpHtml, rdf);
 				}
-							
 				// extra attributes
 				if (theRow.extraAttributes && Object.keys(theRow.extraAttributes).length > 0) {
 					var extraHeading = createChunk(stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");

@@ -2,6 +2,7 @@
   become: yes
   vars_files:
     - vars/main.yml
+    - vars/mysql.yml
     - local-vars/local.yml
   roles:
     - { role: geerlingguy.mysql }

@@ -11,8 +11,8 @@ dogit() {
     rm -f ${WORKDIR}/git-list.txt
     if [[ ${GITHUB_SHA} = "master" ]];
     then
-	echo "changing 'master' to 'origin/master' to get the latest"
-	GITHUB_SHA=origin/master
+        echo "changing 'master' to 'origin/master' to get the latest"
+        GITHUB_SHA=origin/master
     fi
     git fetch -p || exit 1
     git clean -f -d || echo 'warning: err on cleanup'
@@ -23,29 +23,29 @@ dogit() {
     git rev-parse --short "${GITHUB_SHA}" || exit 1 # fail on err
     if [[ $(git rev-parse --short HEAD) = $(git rev-parse --short "${GITHUB_SHA}") ]];
     then
-	echo "No checkout needed. Continuing with redeploy."
+        echo "No checkout needed. Continuing with redeploy."
     else
-	echo "Deploy will include these new items:"
-	echo "---"
-	(git log --oneline HEAD..${GITHUB_SHA} | tee ${WORKDIR}/git-list.txt) || exit 1
-	echo "---"
-	if [[ ! -s ${WORKDIR}/git-list.txt ]]; # if empty..
-	then
-	    echo "Note, ${GITHUB_SHA} is not ahead of HEAD"  $(git rev-parse --short HEAD)
-	    echo "Checking for items that would be REVERTED if we proceed:"
-	    echo "---"
-	    git log --oneline ${GITHUB_SHA}..HEAD
-	    echo "---"
-	    if [[ "${UNLOCK}" = "--override" ]];
-	    then
-		echo ".. continuing anyway! due to " "${UNLOCK}"
-	    else
-		echo "STOP. Check the override box if you really want to do this"
-		exit 1
-	    fi
-	fi
-	git checkout -f ${GITHUB_SHA}
-	echo "HEAD is now at" $(git rev-parse --short HEAD) "!"
+        echo "Deploy will include these new items:"
+        echo "---"
+        (git log --oneline HEAD..${GITHUB_SHA} | tee ${WORKDIR}/git-list.txt) || exit 1
+        echo "---"
+        if [[ ! -s ${WORKDIR}/git-list.txt ]]; # if empty..
+        then
+            echo "Note, ${GITHUB_SHA} is not ahead of HEAD"  $(git rev-parse --short HEAD)
+            echo "Checking for items that would be REVERTED if we proceed:"
+            echo "---"
+            git log --oneline ${GITHUB_SHA}..HEAD
+            echo "---"
+            if [[ "${UNLOCK}" = "--override" ]];
+            then
+                echo ".. continuing anyway! due to " "${UNLOCK}"
+            else
+                echo "STOP. Check the override box if you really want to do this"
+                exit 1
+            fi
+        fi
+        git checkout -f ${GITHUB_SHA}
+        echo "HEAD is now at" $(git rev-parse --short HEAD) "!"
      fi
 }
 

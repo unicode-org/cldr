@@ -752,6 +752,9 @@ function designFixPanel() {
  */
 function fixPopoverVotePos() {
 	var button = $('.fix-parent #popover-vote').closest('.fix-parent').find('.fix');
+	if (!button || !button.position()) {
+		return;
+	}
 	var popover = button.parent().find('.popover');
 	var decal = 75;
 	popover.css('top', button.position().top - decal);

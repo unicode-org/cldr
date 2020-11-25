@@ -1,0 +1,15 @@
+# This file contains variables used by robertdebock.tomcat for Survey Tool
+# Reference: https://galaxy.ansible.com/robertdebock/tomcat
+tomcat_version9: 9.0.36
+tomcat_version: 9
+tomcat_mirror: "https://archive.apache.org" # where to download Apache Tomcat
+tomcat_name: "{{ cldr_tomcat_service }}"
+tomcat_directory: "/{{ cldr_tomcat_parent }}" # /etc or /opt; as in /etc/tomcat
+tomcat_user: "{{ cldr_tomcat_user }}"
+tomcat_group: "{{ cldr_tomcat_group }}"
+
+tomcat_instances:
+  - name: "{{ tomcat_name }}"
+    version: "{{ tomcat_version }}"
+    user: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"

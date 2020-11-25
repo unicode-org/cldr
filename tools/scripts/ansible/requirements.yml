@@ -1,3 +1,17 @@
-sprylab.tomcat-ubuntu
-geerlingguy.mysql
-derjd.journald
+- src: geerlingguy.mysql
+  version: 3.3.0
+- src: geerlingguy.nginx
+  version: 2.8.0
+- src: derjd.journald
+  version: 0.0.1
+- src: robertdebock.tomcat
+  version: 4.6.2
+# The following are also required for robertdebock.tomcat
+- src: robertdebock.bootstrap
+  version: 4.3.4
+- src: robertdebock.core_dependencies
+  version: 1.5.2
+- src: robertdebock.java
+  version: 3.0.0
+- src: robertdebock.service
+  version: 2.8.2

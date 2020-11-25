@@ -47,6 +47,13 @@
         # this is deep because we will need to keep updating
         # it with history. It does not include LFS as that
         # is not needed for the surveytool.
+    - name: Change ownership of CLDR trunk to surveytool
+      file:
+        path: "{{ cldr_trunk_path }}"
+        owner: surveytool
+        group: root
+        state: directory
+        recurse: yes
   handlers:
     - name: Restart Tomcat
       service:

@@ -28,4 +28,4 @@ jobs:
     - name: Install Vagrant and Ansible
       run: brew install ansible
     - name: Try the provision
-      run: cd tools/scripts/ansible && ansible-galaxy install -r roles.yml && ln -sv test-local-vars local-vars && vagrant up
+      run: cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant up

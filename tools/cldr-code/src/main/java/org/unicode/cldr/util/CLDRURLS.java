@@ -8,9 +8,20 @@ package org.unicode.cldr.util;
  *
  */
 public abstract class CLDRURLS {
+    /**
+     * Base URL for the CLDR repository
+     */
+    public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr";
+    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE+"/commit/";
+    /**
+     * Hostname for the Survey Tool
+     */
     public static final String DEFAULT_HOST = "st.unicode.org";
     public static final String DEFAULT_PATH = "/cldr-apps";
-    public static final String DEFAULT_BASE = "http://" + DEFAULT_HOST + DEFAULT_PATH;
+    public static final String DEFAULT_BASE = "https://" + DEFAULT_HOST + DEFAULT_PATH;
+    /**
+     * URL for filing a new ticket
+     */
     public static final String CLDR_NEWTICKET_URL = "http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
     public static final String CLDR_REPO_ROOT = "https://github.com/unicode-org/cldr";
     /**
@@ -252,7 +263,7 @@ public abstract class CLDRURLS {
     public static String gitHashToLink(String hash) {
         if(!isKnownHash(hash)) return "<span class=\"githashLink\">"+hash+"</span>"; // Not linkifiable
         return "<a class=\"githashLink\" href=\"" +
-                CldrUtility.getProperty("CLDR_COMMIT_BASE", "https://github.com/unicode-org/cldr/commit/")
+                CldrUtility.getProperty("CLDR_COMMIT_BASE", DEFAULT_COMMIT_BASE)
                 + hash + "\">" + hash.substring(0, 8) + "</a>";
     }
 
@@ -263,5 +274,24 @@ public abstract class CLDRURLS {
      */
     public static boolean isKnownHash(String hash) {
         return !hash.equals(UNKNOWN_REVISION);
+    }
+
+    /**
+     * Convert a URL into an HTML link to itself
+     * @param url
+     * @param extra extra parts of the <a> tag, such as "class='someClass'"
+     * @return
+     */
+    public static final String toHTML(String url, String extra) {
+        return "<a href=\""+ url + " "+extra+" \">" + url + "</a>";
+    }
+
+    /**
+     * Convert a URL into an HTML link to itself
+     * @param url
+     * @return
+     */
+    public static final String toHTML(String url) {
+        return toHTML(url, "");
     }
 }

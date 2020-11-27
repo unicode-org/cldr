@@ -961,32 +961,32 @@ public class TestUtilities extends TestFmwkPlus {
         final String KOREAN_LANGUAGE = "//ldml/localeDisplayNames/languages/language[@type=\"ko\"]";
         final String KOREAN_LANGUAGE_STRID = "821c2a2fc5c206d";
         final CLDRLocale maltese = CLDRLocale.getInstance("mt");
-        assertEquals("base", "http://st.unicode.org/cldr-apps", CLDRConfig
+        assertEquals("base", "https://st.unicode.org/cldr-apps", CLDRConfig
             .getInstance().urls().base());
         assertEquals(
             "locales list",
-            "http://st.unicode.org/cldr-apps/v#locales///",
+            "https://st.unicode.org/cldr-apps/v#locales///",
             CLDRConfig.getInstance().urls()
                 .forSpecial(CLDRURLS.Special.Locales));
-        assertEquals("maltese", "http://st.unicode.org/cldr-apps/v#/mt//",
+        assertEquals("maltese", "https://st.unicode.org/cldr-apps/v#/mt//",
             CLDRConfig.getInstance().urls().forLocale(maltese));
         assertEquals("korean in maltese",
-            "http://st.unicode.org/cldr-apps/v#/mt//"
+            "https://st.unicode.org/cldr-apps/v#/mt//"
                 + KOREAN_LANGUAGE_STRID,
             CLDRConfig.getInstance()
                 .urls().forXpath(maltese, KOREAN_LANGUAGE));
         assertEquals("korean in maltese via stringid",
-            "http://st.unicode.org/cldr-apps/v#/mt//"
+            "https://st.unicode.org/cldr-apps/v#/mt//"
                 + KOREAN_LANGUAGE_STRID,
             CLDRConfig.getInstance()
                 .urls().forXpathHexId(maltese, KOREAN_LANGUAGE_STRID));
         assertEquals("south east asia in maltese",
-            "http://st.unicode.org/cldr-apps/v#/mt/C_SEAsia/", CLDRConfig
+            "https://st.unicode.org/cldr-apps/v#/mt/C_SEAsia/", CLDRConfig
                 .getInstance().urls().forPage(maltese, PageId.C_SEAsia));
         try {
             String ret = CLDRConfig.getInstance().urls()
                 .forXpathHexId(maltese, KOREAN_LANGUAGE);
-            errln("Error- expected forXpathHexId to choke on  an xpath but got "
+            errln("Error- expected forXpathHexId to choke on an xpath but got "
                 + ret);
         } catch (IllegalArgumentException iae) {
             logln("GOOD: forXpathHexId Caught expected " + iae);
@@ -994,14 +994,14 @@ public class TestUtilities extends TestFmwkPlus {
         try {
             String ret = CLDRConfig.getInstance().urls()
                 .forXpath(maltese, KOREAN_LANGUAGE_STRID);
-            errln("Error- expected forXpath to choke on  a hexid but got "
+            errln("Error- expected forXpath to choke on a hexid but got "
                 + ret);
         } catch (IllegalArgumentException iae) {
             logln("GOOD: forXpath Caught expected " + iae);
         }
 
         assertEquals("korean in maltese - absoluteUrl",
-            "http://st.unicode.org/cldr-apps/v#/mt//"
+            "https://st.unicode.org/cldr-apps/v#/mt//"
                 + KOREAN_LANGUAGE_STRID,
             CLDRConfig.getInstance()
                 .absoluteUrls().forXpath(maltese, KOREAN_LANGUAGE));

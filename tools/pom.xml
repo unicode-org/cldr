@@ -24,6 +24,7 @@
 		<junit.jupiter.version>5.5.1</junit.jupiter.version>
 		<maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
+                <httpcomponents-version>5.0.3</httpcomponents-version>
 	</properties>
 
 	<modules>
@@ -150,6 +151,18 @@
 				<version>20190722</version>
 			</dependency>
 
+			<!-- HTTP client -->
+			<dependency>
+				<groupId>org.apache.httpcomponents.client5</groupId>
+				<artifactId>httpclient5</artifactId>
+				<version>${httpcomponents-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>1.13.1</version>
+			</dependency>
+
 			<!-- db connectors -->
 			<dependency>
 				<groupId>org.apache.derby</groupId>
@@ -162,7 +175,6 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>8.0.21</version>
 			</dependency>
-			
 			
 			<!-- test -->
 			<dependency>

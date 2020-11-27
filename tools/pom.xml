@@ -284,4 +284,11 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>githubcldr</id>
+			<name>Maven@unicode-org/cldr</name>
+			<url>https://maven.pkg.github.com/unicode-org/cldr</url>
+		</repository>
+	</distributionManagement>
 </project>

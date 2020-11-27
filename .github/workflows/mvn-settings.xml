@@ -39,5 +39,10 @@ TODO: Remove this when ICU-21251 is completed.
       <username>${GITHUB_ACTOR}</username>
       <password>${GITHUB_TOKEN}</password>
     </server>
+    <server>
+      <id>githubcldr</id>
+      <username>${GITHUB_ACTOR}</username>
+      <password>${GITHUB_TOKEN}</password>
+    </server>
   </servers>
 </settings>

@@ -1,0 +1,28 @@
+# -*- BEGIN CheckCLDR.Subtype Mapping -*-
+# Format is URL "http..." followed by Subtype values, the latter separated by commas.
+# Each of the Subtypes is covered by documentation at that URL.
+# Comment lines must START with a #, because # is used for HTML fragments.
+
+
+
+http://cldr.unicode.org/translation/timezones#metazones
+
+noMetazoneMapping,
+
+noMetazoneMappingAfter1970,
+
+noMetazoneMappingBeforeNow,
+
+multipleMetazoneMappings,
+
+metazoneContainsDigit,
+
+extraMetazoneString,
+
+
+http://cldr.unicode.org/translation/numbers-currency/number-symbols
+
+# FAIL: No subtype for the above URL
+
+
+# -*- END CheckCLDR.Subtype Mapping -*-

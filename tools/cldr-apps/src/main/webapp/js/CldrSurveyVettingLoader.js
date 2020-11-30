@@ -777,7 +777,12 @@ function showV() {
 							url: surveyUserURL.browse,
 							display: surveyUserPerms.hasDataSource
 						},
-
+						{
+					         title: 'Error Subtypes',
+					         level: 2,
+					         url: './tc-all-errors.jsp',
+					         display: surveyUserPerms.userIsTC
+					 	},
 						{
 							divider: true
 						},

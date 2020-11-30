@@ -113,6 +113,12 @@ public class SurveyAjax extends HttpServlet {
             return j.toString();
         }
 
+        /**
+         * Converts this CheckStatus to JSON.
+         * @param status
+         * @return
+         * @throws JSONException
+         */
         public static JSONObject wrap(CheckStatus status) throws JSONException {
             final CheckStatus cs = status;
             return new JSONObject() {
@@ -123,8 +129,10 @@ public class SurveyAjax extends HttpServlet {
                     if (cs.getCause() != null) {
                         put("cause", wrap(cs.getCause()));
                     }
-                    if (cs.getSubtype() != null) {
-                        put("subType", cs.getSubtype().name());
+                    Subtype subType = cs.getSubtype();
+                    if (subType != null) {
+                        put("subType", subType.name());
+                        put("subTypeUrl", SubtypeToURLMap.forSubtype(subType)); // could be null.
                     }
                 }
             };

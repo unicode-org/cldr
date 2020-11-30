@@ -724,6 +724,7 @@ abstract public class CheckCLDR {
 
             @Override
             public String toString() {
+                // converts "thisThisThis" to "this this this"
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
             }
 

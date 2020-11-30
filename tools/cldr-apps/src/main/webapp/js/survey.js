@@ -2323,13 +2323,19 @@ function testsToHtml(tests) {
 		} else if (testItem.type == 'Error') {
 			newHtml += ' alert alert-danger fix-popover-help';
 		}
-		newHtml += "' title='" + testItem.type + "'>";
+		newHtml += "' title='" + testItem.type + ': ' + (testItem.cause || {class:'Unknown'}).class + '.'+testItem.subType + "'>";
 		if (testItem.type == 'Warning') {
 			newHtml += warnIcon;
 		} else if (testItem.type == 'Error') {
 			newHtml += stopIcon;
 		}
-		newHtml += tests[i].message;
+		newHtml += testItem.message;
+		// Add a link
+		
+		if(testItem.subTypeUrl) {
+			newHtml += " <a href=\""+testItem.subTypeUrl+"\">(how to fix…)</a>";
+		}
+		
 		newHtml += "</p>";
 	}
 	return newHtml;

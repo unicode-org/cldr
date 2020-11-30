@@ -68,12 +68,7 @@ public class CLDRPaths {
 
     /** Maintained in SVN */
 
-    public static final String SVN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("SVN_DIR", BASE_DIRECTORY + "/../"));
-
-    public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
-        CldrUtility.getPath(SVN_DIRECTORY, "cldr-aux/")));
-
-    public static final String UCD_DATA_DIRECTORY = CldrUtility.getPath(SVN_DIRECTORY + "unicodetools/unicodetools/data/");
+    public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR", "cldr-aux/"));
 
     /** Local files, not backed up on either Github or SVN **/
 

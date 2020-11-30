@@ -113,16 +113,16 @@ import com.ibm.icu.util.ULocale;
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
 
     private static final String VURL_LOCALES = "v#locales///";
-    public static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
-    public static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
-    public static final String CLDR_LASTVOTEVERSION = "CLDR_LASTVOTEVERSION";
-    public static final String CLDR_DIR = "CLDR_DIR";
+    private static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
+    private static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
+    private static final String CLDR_LASTVOTEVERSION = "CLDR_LASTVOTEVERSION";
+    public static final String CLDR_DIR = "CLDR_DIR"; // accessed by cldr-setup.jsp
 
     private static final String NEWVERSION_EPOCH = "1970-01-01 00:00:00";
 
     private static final String CLDR_NEWVERSION_AFTER = "CLDR_NEWVERSION_AFTER";
 
-    public static Stamp surveyRunningStamp = Stamp.getInstance();
+    public static Stamp surveyRunningStamp = Stamp.getInstance(); // accessed by ajax_status.jsp
 
     public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
@@ -143,29 +143,26 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static final String DEFAULT_CONTENT_LINK = "<i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i>";
 
-    /**
-     *
-     */
     private static final long serialVersionUID = -3587451989643792204L;
 
     /**
-     * This class enumerates the current phase of the survey tool
+     * This class enumerates the current phase of the survey tool.
+     * It is distinct from CheckCLDR.Phase, though related.
      *
      * @author srl
-     *
      */
     public enum Phase {
-        SUBMIT("Data Submission", CheckCLDR.Phase.SUBMISSION), // SUBMISSION
-        VETTING("Vetting", CheckCLDR.Phase.VETTING), VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.FINAL_TESTING), // closed
-        // after
-        // vetting
-        // -
-        // open
-        // for
-        // admin
-        CLOSED("Closed", CheckCLDR.Phase.FINAL_TESTING), // closed
-        DISPUTED("Dispute Resolution", CheckCLDR.Phase.VETTING), FINAL_TESTING("Final Testing", CheckCLDR.Phase.FINAL_TESTING), // FINAL_TESTING
-        READONLY("Read-Only", CheckCLDR.Phase.FINAL_TESTING), BETA("Beta", CheckCLDR.Phase.SUBMISSION);
+        SUBMIT("Data Submission", CheckCLDR.Phase.SUBMISSION),
+        VETTING("Vetting", CheckCLDR.Phase.VETTING),
+        /*
+         * VETTING_CLOSED means, "closed after vetting, while still open for admin tasks"
+         */
+        VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.FINAL_TESTING),
+        CLOSED("Closed", CheckCLDR.Phase.FINAL_TESTING),
+        DISPUTED("Dispute Resolution", CheckCLDR.Phase.VETTING),
+        FINAL_TESTING("Final Testing", CheckCLDR.Phase.FINAL_TESTING),
+        READONLY("Read-Only", CheckCLDR.Phase.FINAL_TESTING),
+        BETA("Beta", CheckCLDR.Phase.SUBMISSION);
 
         private String what;
         private CheckCLDR.Phase cphase;
@@ -353,7 +350,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String PREF_NOJAVASCRIPT = "p_nojavascript";
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
-    private static final String PREF_COVTYP = "p_covtyp"; // covtyp
 
     static final String TRANS_HINT_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918
     public static final ULocale TRANS_HINT_LOCALE = new ULocale(TRANS_HINT_ID);
@@ -1395,7 +1391,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String getCurrev(boolean asLink) {
         JSONObject currev = getCurrevJSON();
         StringBuilder output = new StringBuilder();
-        String lastLink = null;
         final Set<String> resultSet = new HashSet<>(); // If only one result ,return a single string.
 
         for(Iterator<String> i = currev.keys(); i.hasNext();) {
@@ -2470,25 +2465,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             + "&nbsp;/&nbsp;"
             + ((!val) ? "<span class='selected'>Off</span>" : "<span style='color: #ddd' class='notselected'>Off</span>"));
         ctx.println("</a><br>");
-        return val;
-    }
-
-    private String showListPref(WebContext ctx, String pref, String what, String[] list, boolean doDef) {
-        String val = ctx.pref(pref, doDef ? "default" : list[0]);
-        ctx.println("<b>" + what + "</b>: ");
-        if (doDef) {
-            WebContext nuCtx = (WebContext) ctx.clone();
-            nuCtx.addQuery(pref, "default");
-            ctx.println("<a href='" + nuCtx.url() + "' class='" + (val.equals("default") ? "selected" : "notselected") + "'>"
-                + "default" + "</a> ");
-        }
-        for (int n = 0; n < list.length; n++) {
-            WebContext nuCtx = (WebContext) ctx.clone();
-            nuCtx.addQuery(pref, list[n]);
-            ctx.println("<a href='" + nuCtx.url() + "' class='" + (val.equals(list[n]) ? "selected" : "notselected") + "'>"
-                + list[n] + "</a> ");
-        }
-        ctx.println("<br>");
         return val;
     }
 
@@ -4401,7 +4377,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     stack = "(no stack)\n";
                 }
             }
-            isBustedStack = stack + "\n" + "[" + new Date().toGMTString() + "] ";            //isBustedThrowable = t;
+            isBustedStack = stack + "\n" + "[" + new Date().toGMTString() + "] ";
             isBustedTimer = new ElapsedTimer();
         } else {
             SurveyLog.warnOnce("[was already busted, not overriding old message.]");

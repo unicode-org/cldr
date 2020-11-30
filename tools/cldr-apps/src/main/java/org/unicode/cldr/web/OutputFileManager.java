@@ -17,12 +17,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.nio.file.Files;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +35,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
@@ -60,51 +55,21 @@ public class OutputFileManager {
         this.sm = surveyMain;
     }
 
-    public enum Kind {
-        vxml("Vetted XML. This is the 'final' output from the SurveyTool."),
-
-        xml("Input XML. This is the on-disk data as read by the SurveyTool."),
-
-        rxml("Fully resolved, vetted, XML. This includes all parent data. Huge and expensive."),
-
-        pxml("Proposed XML. This data contains all possible user proposals and can be used to reconstruct the voting situation.");
-
-        Kind(String desc) {
-            this.desc = desc;
-        }
-
-        /**
-         *
-         * @return
-         * Maybe called by output-status.jsp
-         */
-        public String getDesc() {
-            return desc;
-        }
-
-        private final String desc;
+    private enum Kind {
+        vxml, // Vetted XML. This is the 'final' output from the SurveyTool.
+        xml, // Input XML. This is the on-disk data as read by the SurveyTool.
+        rxml, // Fully resolved, vetted, XML. This includes all parent data. Huge and expensive.
+        pxml // Proposed XML. This data contains all possible user proposals and can be used to reconstruct the voting situation.
     }
 
-    /**
-     * @param kind
-     * @return true if this kind is cacheable
-     */
-    private static boolean isCacheableKind(String kind) {
-        try {
-            Kind.valueOf(kind);
-            return true;
-        } catch (IllegalArgumentException iae) {
-            return false;
-        }
-    }
+    private static final String XML_PREFIX = "/xml/main";
+    private static final String ZXML_PREFIX = "/zxml/main";
+    private static final String ZVXML_PREFIX = "/zvxml/main";
+    private static final String VXML_PREFIX = "/vxml/main";
+    private static final String PXML_PREFIX = "/pxml/main";
+    private static final String TXML_PREFIX = "/txml/main";
+    private static final String RXML_PREFIX = "/rxml/main";
 
-    public static final String XML_PREFIX = "/xml/main";
-    public static final String ZXML_PREFIX = "/zxml/main";
-    public static final String ZVXML_PREFIX = "/zvxml/main";
-    public static final String VXML_PREFIX = "/vxml/main";
-    public static final String PXML_PREFIX = "/pxml/main";
-    public static final String TXML_PREFIX = "/txml/main";
-    public static final String RXML_PREFIX = "/rxml/main";
     private static final FileFilter xmlFileFilter = new FileFilter() {
         @Override
         public boolean accept(File file) {
@@ -145,10 +110,6 @@ public class OutputFileManager {
      * This function was started using code moved here from admin-OutputAllFiles.jsp.
      * Reference: CLDR-12016 and CLDR-11877
      *
-     * Compare output-status.jsp which maybe should be linked from here -- user may want to
-     * view it at the same time as this. However, that gets complicated if we create a new
-     * vetdata folder.
-     *
      * TODO: link to gear menu and use JavaScript for a front-end.
      */
     public static void outputAndVerifyAllFiles(HttpServletRequest request, Writer out) {
@@ -159,13 +120,11 @@ public class OutputFileManager {
                 return;
             }
             boolean outputFiles = "true".equals(request.getParameter("output"));
-            boolean makeSeparateDir = "true".equals(request.getParameter("separate"));
             boolean removeEmpty = "true".equals(request.getParameter("remove"));
             boolean verifyConsistent = "true".equals(request.getParameter("verify"));
-            if (!(outputFiles || makeSeparateDir || removeEmpty || verifyConsistent)) {
+            if (!(outputFiles || removeEmpty || verifyConsistent)) {
                 out.write("<p>Usage: specify at least one of these parameters (all false by default):</p>\n");
                 out.write("output=true/false<br>\n");
-                out.write("separate=true/false<br>\n");
                 out.write("remove=true/false<br>\n");
                 out.write("verify=true/false<br>\n");
                 return;
@@ -179,26 +138,20 @@ public class OutputFileManager {
                 SurveyMain sm = CookieSession.sm;
 
                 OutputFileManager ofm = sm.getOutputFileManager();
-                // top line is like "Have OFM=org.unicode.cldr.web.OutputFileManager@4d150a19" -- is this still needed?
-                out.write("Have OFM=" + ofm.toString() + "\n");
 
                 File vetdataDir = sm.getVetdir();
-                if (makeSeparateDir) {
-                    vetdataDir = createNewManualVetdataDir(vetdataDir);
-                    if (vetdataDir == null) {
-                        out.write("Directory creation for vetting data failed.");
-                        return;
-                    }
-                    out.write("<p>Created new directory: " + vetdataDir.toString() + "</p>");
-                } else {
-                    out.write("<p>Using auto directory: " + vetdataDir.toString() + "</p>");
+                vetdataDir = createNewManualVetdataDir(vetdataDir);
+                if (vetdataDir == null) {
+                    out.write("Directory creation for vetting data failed.");
+                    return;
                 }
+                out.write("<p>Created new directory: " + vetdataDir.toString() + "</p>");
 
-                if (outputFiles && !ofm.outputAllFiles(out, vetdataDir, makeSeparateDir)) {
+                if (outputFiles && !ofm.outputAllFiles(out, vetdataDir)) {
                     out.write("File output failed.");
                     return;
                 }
-                if ((makeSeparateDir || removeEmpty) && !ofm.copyDtd(vetdataDir)) {
+                if (!ofm.copyDtd(vetdataDir)) {
                     out.write("Copying DTD failed.");
                     return;
                 }
@@ -221,13 +174,12 @@ public class OutputFileManager {
     }
 
     /**
-     * Create a new directory like ".../vetdata-2019-05-28T12-34-56-789Z", as a sibling
-     * of the "automatic vetdata" directory
+     * Create a new directory like ".../vetdata-2019-05-28T12-34-56-789Z"
      *
-     * @param autoVetdataDir the File for the "automatic vetdata" directory
+     * @param vetdataDir the File that would have been the "automatic vetdata" directory when that existed
      * @return the File for the newly created directory, or null for failure
      */
-    private static File createNewManualVetdataDir(File autoVetdataDir) {
+    private static File createNewManualVetdataDir(File vetdataDir) {
         /*
          * Include in the directory name a timestamp like 2019-05-28T12-34-56-789Z,
          * which is almost standard like 2019-05-28T12:34:56.789Z,
@@ -236,7 +188,7 @@ public class OutputFileManager {
         String timestamp = Instant.now().toString();
         timestamp = timestamp.replace(':', '-');
         timestamp = timestamp.replace('.', '-');
-        String manualVetdataDirName = autoVetdataDir.getParent() + "/" + autoVetdataDir.getName() + "-" + timestamp;
+        String manualVetdataDirName = vetdataDir.getParent() + "/" + vetdataDir.getName() + "-" + timestamp;
         File manualVetdataDir = new File(manualVetdataDirName);
         if (manualVetdataDir.mkdirs() == false) {
             return null;
@@ -294,14 +246,12 @@ public class OutputFileManager {
      *
      * @param out the Writer, to receive HTML output
      * @param vetDataDir the folder in which to write
-     * @param makeSeparateDir true if vetDataDir is a newly created "manual" folder,
-     *                        false if it's the regular auto folder
      * @return true for success, false for failure
      *
      * This function was first created using code moved here from admin-OutputAllFiles.jsp.
      * Reference: CLDR-12016 and CLDR-11877 and CLDR-11850
      */
-    private boolean outputAllFiles(Writer out, File vetDataDir, boolean makeSeparateDir) {
+    private boolean outputAllFiles(Writer out, File vetDataDir) {
         try {
             long start = System.currentTimeMillis();
             ElapsedTimer overallTimer = new ElapsedTimer("overall update started " + new java.util.Date());
@@ -317,58 +267,31 @@ public class OutputFileManager {
             sortSet.remove(CLDRLocale.getInstance("en"));
             sortSet.remove(CLDRLocale.getInstance("root"));
 
-            /*
-             * If makeSeparateDir is false, only replace files if they need to be updated; use
-             * a database Connection to help determine whether files need to be updated.
-             * If makeSeparateDir is true, all files are new so there's no need for Connection.
-             */
-            Connection conn = null;
-            try {
-                if (!makeSeparateDir) {
-                    conn = sm.dbUtils.getDBConnection();
-                }
-                for (CLDRLocale loc : sortSet) {
-                    Timestamp locTime = null;
-                    if (conn != null) {
-                        locTime = this.getLocaleTime(conn, loc);
-                        out.write("<li>" + loc.getDisplayName() + " - " + locTime.toLocaleString() + "<br/>\n");
-                    } else {
-                        out.write("<li>" + loc.getDisplayName() + "<br/>\n");
-                    }
-                    for (OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
-                        /*
-                         * TODO: is there any point in outputting anything here for kind other than vxml and pxml?
-                         */
-                        boolean nu = makeSeparateDir || this.fileNeedsUpdate(locTime, loc, kind.name());
-                        String background = nu ? "#ff9999" : "green";
-                        String weight = nu ? "regular" : "bold";
-                        String color = nu ? "silver" : "black";
-                        out.write("\n\n\t<span style=' background-color: " + background + "; font-weight: " + weight + "; color: " + color + ";'>");
-                        out.write(kind.toString());
-                        if (nu && (kind == OutputFileManager.Kind.vxml || kind == OutputFileManager.Kind.pxml)) {
-                            System.err.println("Writing " + loc.getDisplayName() + ":" + kind);
-                            ElapsedTimer et = new ElapsedTimer("to write " + loc + ":" + kind);
-                            if (makeSeparateDir) {
-                                File f = writeManualOutputFile(vetDataDir, loc, kind);
-                                if (f == null) {
-                                    out.write("FILE CREATION FAILED: " + loc.toString() + kind.name());
-                                    return false;
-                                }
-                            } else {
-                                File f = this.getOutputFile(conn, loc, kind.name());
-                                out.write(" x=" + (f != null && f.exists()));
-                            }
-                            numupd++;
-                            System.err.println(et + " - upd " + numupd + "/" + (sortSet.size() + 2));
+            for (CLDRLocale loc : sortSet) {
+                out.write("<li>" + loc.getDisplayName() + "<br/>\n");
+                for (OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
+                    /*
+                     * TODO: is there any point in outputting anything here for kind other than vxml and pxml?
+                     */
+                    String background = "#ff9999";
+                    String weight = "regular";
+                    String color = "silver";
+                    out.write("\n\n\t<span style=' background-color: " + background + "; font-weight: " + weight + "; color: " + color + ";'>");
+                    out.write(kind.toString());
+                    if (kind == OutputFileManager.Kind.vxml || kind == OutputFileManager.Kind.pxml) {
+                        System.err.println("Writing " + loc.getDisplayName() + ":" + kind);
+                        ElapsedTimer et = new ElapsedTimer("to write " + loc + ":" + kind);
+                        File f = writeManualOutputFile(vetDataDir, loc, kind);
+                        if (f == null) {
+                            out.write("FILE CREATION FAILED: " + loc.toString() + kind.name());
+                            return false;
                         }
-                        out.write("</span>  &nbsp;");
+                        numupd++;
+                        System.err.println(et + " - upd " + numupd + "/" + (sortSet.size() + 2));
                     }
-                    out.write("</li>\n");
+                    out.write("</span>  &nbsp;");
                 }
-            } finally {
-                if (conn != null) {
-                    DBUtils.close(conn);
-                }
+                out.write("</li>\n");
             }
             out.write("</ol>\n");
             out.write("<hr>\n");
@@ -788,55 +711,10 @@ public class OutputFileManager {
         return diff;
     }
 
-    /**
-     * Write out the specified file.
-     *
-     * Note: this is only used for "automatic" scheduled generation of files.
-     * Compare writeManualOutputFile which is for "manually" generated files.
-     *
-     * @param loc
-     * @param kind
-     * @return
-     */
-    private File writeOutputFile(CLDRLocale loc, Kind kind) {
-        long st = System.currentTimeMillis();
-        CLDRFile file;
-        if (kind == Kind.vxml) {
-            file = sm.getSTFactory().makeVettedFile(loc);
-        } else if (kind == Kind.pxml) {
-            file = sm.getSTFactory().makeProposedFile(loc);
-        } else {
-            throw new InternalError("Don't know how to make kind " + kind + " for loc " + loc);
-        }
-        try {
-            File outFile = sm.getDataFile(kind.toString(), loc);
+    private static final Predicate<String> isAnnotations = x -> x.startsWith("//ldml/annotations");
 
-            doWriteFile(loc, file, kind, outFile);
-            SurveyLog.debug("Updater: Wrote: " + kind + "/" + loc + " - " + ElapsedTimer.elapsedTime(st));
-            return outFile;
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("IO Exception " + e.toString(), e);
-        }
-    }
-
-    static final Predicate<String> isAnnotations = x -> x.startsWith("//ldml/annotations");
-
-    Map<String, Object> OPTS_SKIP_ANNOTATIONS = ImmutableMap.of(
-        "SKIP_PATH", isAnnotations);
-    /*
-     * TODO: decide whether to keep SKIP_FILE_IF_SKIP_ALL_PATHS.
-     * If we do a separate "remove empty files" step (better due to taking
-     * inheritance into account, e.g., if sr_Cyrl_BA.xml is non-empty, then sr_Cyrl.xml
-     * will also be treated as non-empty) then we won't use SKIP_FILE_IF_SKIP_ALL_PATHS.
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-12016
-     */
-    Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of(
-        "SKIP_PATH", isAnnotations.negate()
-        /***,
-        "SKIP_FILE_IF_SKIP_ALL_PATHS", true
-        ***/
-        );
+    private Map<String, Object> OPTS_SKIP_ANNOTATIONS = ImmutableMap.of("SKIP_PATH", isAnnotations);
+    private Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of("SKIP_PATH", isAnnotations.negate());
 
     /**
      * Write one or more files. For vxml (at least), write one in "main" and one in "annotations".
@@ -855,7 +733,7 @@ public class OutputFileManager {
 
                 // output annotations, too
                 File parentDir = outFile.getParentFile().getParentFile();
-                File annotationsDir = new File(parentDir, "annotations"); // TODO: avoid hard-coding "annotations" here
+                File annotationsDir = new File(parentDir, DirNames.justAnnotations);
                 annotationsDir.mkdirs();
                 File aFile = new File(annotationsDir, outFile.getName()); // same name, different subdir
                 try (PrintWriter u8outa = new PrintWriter(new OutputStreamWriter(new FileOutputStream(aFile), "UTF8"))) {
@@ -1017,266 +895,6 @@ public class OutputFileManager {
         }
     }
 
-    /**
-     * Get the output file, creating if needed. Uses a temp Connection
-     *
-     * @param surveyMain
-     *            TODO
-     * @param loc
-     * @param kind
-     * @return
-     * @throws IOException
-     * @throws SQLException
-     */
-    File getOutputFile(SurveyMain surveyMain, CLDRLocale loc, String kind) throws IOException, SQLException {
-        /*
-         * Get a java.sql.Connection to be used by fileNeedsUpdate, getLocaleTime
-         */
-        Connection conn = null;
-        try {
-            conn = surveyMain.dbUtils.getDBConnection();
-            return getOutputFile(conn, loc, kind);
-        } finally {
-            DBUtils.close(conn);
-        }
-    }
-
-    /**
-     * Get and write the file
-     *
-     * @param conn
-     * @param loc
-     * @param kind
-     * @return
-     * @throws SQLException
-     * @throws IOException
-     */
-    public File getOutputFile(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
-        if (fileNeedsUpdate(conn, loc, kind)) {
-            if (!isCacheableKind(kind)) {
-                throw new InternalError("Can't (yet) cache kind " + kind + " for loc " + loc);
-            }
-            return writeOutputFile(loc, Kind.valueOf(kind));
-        } else {
-            return sm.getDataFile(kind, loc);
-        }
-    }
-
-    public Timestamp getLocaleTime(CLDRLocale loc) throws SQLException {
-        Connection conn = null;
-        try {
-            conn = DBUtils.getInstance().getDBConnection();
-            return getLocaleTime(conn, loc);
-        } finally {
-            DBUtils.close(conn);
-        }
-    }
-
-    boolean haveVbv = false;
-    public boolean outputDisabled = false;
-
-    /**
-     * Get a timestamp associated with the given CLDRLocale and java.sql.Connection.
-     *
-     * The timestamp may depend on
-     * (1) when the most recent vote was made for any item in the given locale
-     * (2) the modification time of a file for that locale in trunk/baseline (version control)
-     * (3) the timestamp for the parent locale, if more recent
-     *
-     * @param conn the java.sql.Connection used for querying the VOTE_VALUE table
-     * @param loc the CLDRLocale
-     * @return the Timestamp
-     * @throws SQLException
-     */
-    public Timestamp getLocaleTime(Connection conn, CLDRLocale loc) throws SQLException {
-        Timestamp theDate = null;
-        if (haveVbv || DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE.toString())) {
-            if (haveVbv == false) {
-                SurveyLog
-                    .debug("OutputFileManager: have "
-                        + DBUtils.Table.VOTE_VALUE
-                        + ", commencing  output file updates ( use CLDR_NOOUTPUT=true in cldr.properties to suppress  -  CLDR_NOOUTPUT current value = "
-                        + CldrUtility.getProperty("CLDR_NOOUTPUT", false));
-            }
-            haveVbv = true;
-            Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from " + DBUtils.Table.VOTE_VALUE + " where locale=?", loc);
-            if (o != null && o.length > 0 && o[0] != null && o[0].length > 0) {
-                theDate = (Timestamp) o[0][0];
-            }
-        }
-        CLDRLocale parLoc = loc.getParent();
-        if (parLoc != null) {
-            Timestamp parTimestamp = getLocaleTime(conn, parLoc);
-            if (theDate == null || parTimestamp.after(theDate)) {
-                theDate = parTimestamp;
-            }
-        }
-
-        return theDate;
-    }
-
-    static final boolean debugWhyUpdate = false;
-
-    /**
-     * Is an update needed for a file for the given locale and kind?
-     *
-     * @param loc the locale
-     * @param kind VXML, etc.
-     * @return true if an update is needed, else false
-     *
-     * @throws IOException
-     * @throws SQLException
-     */
-    private boolean fileNeedsUpdate(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
-        return fileNeedsUpdate(getLocaleTime(conn, loc), loc, kind);
-    }
-
-    public boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
-        File outFile = sm.getDataFile(kind, loc);
-        if (!outFile.exists()) {
-            if (debugWhyUpdate)
-                SurveyLog.debug("Out of Date: MISSING! Must output " + loc + " / " + kind);
-            return true;
-        }
-        Timestamp theFile = null;
-
-        long lastMod = outFile.lastModified();
-        if (outFile.exists()) {
-            theFile = new Timestamp(lastMod);
-        }
-        if (theDate == null) {
-            if (debugWhyUpdate) {
-                SurveyLog.debug(" .. no data.");
-            }
-            return false; // no data (?)
-        }
-        if (debugWhyUpdate)
-            SurveyLog.debug(loc + " .. exists " + theFile + " vs " + theDate);
-        if (theFile != null && !theFile.before(theDate)) {
-            if (debugWhyUpdate)
-                SurveyLog.debug(" .. OK, up to date.");
-            return false;
-        }
-        if (debugWhyUpdate)
-            SurveyLog.debug("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
-        return true;
-    }
-
-    void addUpdateTasks() {
-        if (CldrUtility.getProperty("CLDR_NOOUTPUT", false))
-            return;
-
-        System.err.println("addPeriodicTask... updater");
-        SurveyMain.addPeriodicTask(new Runnable() {
-            // Start on a different locale each time.
-            int spinner = (int) Math.round(Math.random() * SurveyMain.getLocales().length);
-
-            @Override
-            public void run() {
-                if (outputDisabled || SurveyMain.isBusted() || !SurveyMain.isSetup) {
-                    return;
-                }
-
-                final String CLDR_OUTPUT_ONLY = CldrUtility.getProperty("CLDR_OUTPUT_ONLY", null);
-
-                if (CLDR_OUTPUT_ONLY != null) {
-                    System.err.println("Only outputting -DCLDR_OUTPUT_ONLY=" + CLDR_OUTPUT_ONLY);
-                }
-
-                Connection conn = null;
-                CLDRProgressTask progress = null;
-                try {
-                    conn = DBUtils.getInstance().getDBConnection();
-                    CLDRLocale locs[] = SurveyMain.getLocales();
-                    CLDRLocale loc = null;
-
-                    for (int wrtl = 1; wrtl < locs.length; wrtl++) { // keep going while not busy
-                        for (int j = 0; j < locs.length; j++) {
-                            // Try 16 locales looking for one that doesn't exist. No more, due to load.
-                            loc = CLDR_OUTPUT_ONLY != null ? CLDRLocale.getInstance(CLDR_OUTPUT_ONLY) // DEBUGGING
-                                : locs[(spinner++) % locs.length]; // A new one each time. (normal case)
-
-                            Timestamp localeTime = getLocaleTime(conn, loc);
-                            SurveyLog.debug("Updater: Considering: " + loc + " - " + localeTime);
-                            if (!fileNeedsUpdate(localeTime, loc, "vxml")) {
-                                loc = null;
-                            } else {
-                                SurveyLog.debug("Updater: To update:: " + loc + " - " + localeTime);
-                                break; // update it.
-                            }
-                            if (j % 16 == 0) {
-                                Thread.sleep(1000);
-                                if (SurveyMain.hostBusy()) {
-                                    SurveyLog.debug("CPU busy - exitting." + SurveyMain.osmxbean.getSystemLoadAverage());
-                                    return;
-                                } else {
-                                    SurveyLog.debug("CPU not busy- continuing!" + SurveyMain.osmxbean.getSystemLoadAverage());
-                                }
-                            }
-                        }
-
-                        if (loc == null) {
-                            SurveyLog.debug("None to update.");
-                            return; // nothing to do.
-                        }
-
-                        if (progress == null) {
-                            progress = sm.openProgress("Updater", 3);
-                        }
-                        progress.update(1, "Update vxml:" + loc);
-                        SurveyLog.debug("Updater update vxml: " + loc);
-                        getOutputFile(sm, loc, "vxml");
-                        getOutputFile(sm, loc, "pxml");
-                        progress.update(3, "Done:" + loc);
-
-                        if (SurveyMain.hostBusy()) {
-                            SurveyLog.debug("Wrote " + wrtl + "locales  , but host is busy:  "
-                                + SurveyMain.osmxbean.getSystemLoadAverage());
-                            return;
-                        } else {
-                            Thread.sleep(5000);
-                            if (SurveyMain.hostBusy()) {
-                                SurveyLog.debug("Wrote " + wrtl + "locales, slept 5s , but host is now busy:  "
-                                    + SurveyMain.osmxbean.getSystemLoadAverage());
-                                return;
-                            } else {
-                                SurveyLog.debug("Wrote " + wrtl + "locales  , continuing! host is not busy:  "
-                                    + SurveyMain.osmxbean.getSystemLoadAverage());
-                            }
-                        }
-                    }
-                } catch (InterruptedException ie) {
-                    SurveyLog.logger.warning("Interrupted while running Updater - goodbye: " + ie);
-                } catch (Throwable e) {
-                    SurveyLog.logException(e, "while running updater");
-                    e.printStackTrace();
-                    outputDisabled = true;
-                } finally {
-                    if (progress != null)
-                        progress.close();
-                    DBUtils.close(conn);
-                }
-            }
-        });
-
-        SurveyMain.addDailyTask(new Runnable() {
-
-            @Override
-            public void run() {
-                SurveyMain sm = CookieSession.sm;
-                try {
-                    File usersa = sm.makeDataDir("usersa");
-                    sm.reg.writeUserFile(sm, "sometime", true, new File(usersa, "usersa.xml"));
-                    File users = sm.makeDataDir("users");
-                    sm.reg.writeUserFile(sm, "sometime", false, new File(users, "users.xml"));
-                    System.err.println("Writing users data: " + new Date());
-                } catch (Throwable t) {
-                    SurveyLog.logException(t, "writing user data");
-                }
-            }
-        });
-    }
-
     // statistics helpers
     private static Map<CLDRLocale, Pair<String, String>> localeNameCache = new ConcurrentHashMap<>();
 
@@ -1284,7 +902,7 @@ public class OutputFileManager {
     private static final String OLD_DATA_BEGIN = "<span class='olddata'>";
     private static final String OLD_DATA_END = "</span>";
 
-    public static Pair<String, String> statGetLocaleDisplayName(CLDRLocale loc) {
+    private static Pair<String, String> statGetLocaleDisplayName(CLDRLocale loc) {
         Pair<String, String> ret = localeNameCache.get(loc), toAdd = null;
         if (ret == null) {
             toAdd = ret = new Pair<>();

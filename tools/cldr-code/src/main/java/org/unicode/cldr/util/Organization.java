@@ -45,6 +45,7 @@ public enum Organization {
     pakistan("Pakistan"),
     rodakych("Rodakych", "Nigerian Pidgin"),
     rumantscha("Lia Rumantscha"),
+    sardware("Sardware", "Sardware"),
     sil("SIL", "SIL International"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),

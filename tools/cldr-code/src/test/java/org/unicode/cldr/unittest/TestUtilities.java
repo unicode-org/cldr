@@ -44,10 +44,11 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.Choice;
+import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
@@ -325,18 +326,6 @@ public class TestUtilities extends TestFmwkPlus {
         }
     }
 
-    private void showPaths(PathValueInfo pathValueInfo, String locale,
-        int basePath, final Map<Integer, CandidateInfo> itemInfo) {
-        logln(locale + " basePath:\t" + basePath + "\t"
-            + pathValueInfo.getRealPath(basePath));
-        for (int item : itemInfo.keySet()) {
-            CandidateInfo candidateInfo = itemInfo.get(item);
-            logln("\tpath:\t" + item + ", " + candidateInfo);
-            logln("\tvalue:\t" + pathValueInfo.getRealValue(item)
-                + "\tpath:\t<" + pathValueInfo.getRealPath(item) + ">");
-        }
-    }
-
     /** Test user data. Restructured to be easier to read, more typesafe */
     enum TestUser {
         guestS(801, Organization.guest, Level.street),
@@ -369,25 +358,6 @@ public class TestUtilities extends TestFmwkPlus {
                 temp.put(testUser.voterId, testUser.voterInfo);
             }
             TEST_USERS = temp.build();
-//            for (Entry<Integer, VoterInfo> entry : TEST_USERS.entrySet()) {
-//                int key = entry.getKey();
-//                VoterInfo value = entry.getValue();
-//                VoterInfo oldValue = testdata.get(key);
-//                if (!Objects.equal(value, oldValue)) {
-//                    System.out.println(key + "\t" + value + "\t" + oldValue);
-//                }
-//            }
-//            for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
-//                int key = entry.getKey();
-//                VoterInfo value = entry.getValue();
-//                VoterInfo oldValue = TEST_USERS.get(key);
-//                if (!Objects.equal(value, oldValue)) {
-//                    System.out.println(key + "\t" + value + "\t" + oldValue);
-//                }
-//            }
-//            if (TEST_USERS.size() != testdata.size()) {
-//                throw new IllegalArgumentException();
-//            }
         }
     }
 
@@ -1023,14 +993,9 @@ public class TestUtilities extends TestFmwkPlus {
 
         logln("Trying Compose");
 
-//        Map<Integer, String> map2 = new HashMap<Integer, String>();
-//        Map<Integer, String> map3 = new TreeMap<Integer, String>();
         UnicodeMap<String> composed = ((UnicodeMap) SCRIPTS.cloneAsThawed()).composeWith(GC, composer);
         String last = "";
         for (int i = 0; i < 0x10FFFF; ++i) {
-//            if (i == 888) {
-//                int debug = 0;
-//            }
             String comp = composed.getValue(i);
             String gc = GC.getValue(i);
             String sc = SCRIPTS.getValue(i);
@@ -1059,7 +1024,6 @@ public class TestUtilities extends TestFmwkPlus {
         logln("Percentage: " + pf.format(hashTime / umTime));
         treeTime = checkUnicodeMapSetTime(warmup, 3);
         logln("Percentage: " + pf.format(treeTime / umTime));
-        //logln(map1.toString());
 
         if (shortTest) {
             return;
@@ -1134,7 +1098,6 @@ public class TestUtilities extends TestFmwkPlus {
                     break;
                 case 2:
                     int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
-                    //if (enumValue <= 0) continue;
                     UCharacter.getPropertyValueName(propEnum, enumValue, UProperty.NameChoice.LONG);
                     break;
                 case 3:
@@ -1409,4 +1372,20 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("writeBulkInfoHtml", expected, out.toString());
     }
 
+    /**
+     * Verify that VettingViewer.getMissingStatus returns MissingStatus.PRESENT
+     * for a typical path in a well-populated locale
+     *
+     * Ideally we should also test for MissingStatus.DISPUTED, etc.; that's more difficult
+     */
+    public void TestMissingStatus() {
+        final String path = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-barrel\"]/displayName";
+        final String locale = "fr";
+        final CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
+        final MissingStatus expected = MissingStatus.PRESENT;
+        final MissingStatus status = VettingViewer.getMissingStatus(cldrFile, path, true /* latin */);
+        if (status != expected) {
+            errln("Got getMissingStatus = " + status.toString() + "; expected " + expected.toString());
+        }
+    }
 }

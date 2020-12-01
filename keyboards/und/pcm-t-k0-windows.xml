@@ -179,5 +179,23 @@
 		<transform from="e\u{300}" to="è"/>
 		<transform from="E\u{301}" to="É"/>
 		<transform from="o\u{300}" to="ò"/>
+		<!-- Dead key conversions -->
+		<transform from="&apos; " to="&apos;"/>
+		<transform from="&apos;a" to="á"/>
+		<transform from="&apos;A" to="Á"/>
+		<transform from="&apos;e" to="é"/>
+		<transform from="&apos;E" to="É"/>
+		<transform from="&apos;ẹ" to="ẹ́"/>
+		<transform from="&apos;Ẹ́" to="Ẹ́"/>
+		<transform from="&apos;i" to="í"/>
+		<transform from="&apos;I" to="Í"/>
+		<transform from="&apos;o" to="ó"/>
+		<transform from="&apos;O" to="Ó"/>
+		<transform from="&apos;ọ" to="ọ́"/>
+		<transform from="&apos;Ọ" to="Ọ́"/>
+		<transform from="&apos;u" to="ú"/>
+		<transform from="&apos;U" to="Ú"/>
+		<transform from="&apos;y" to="ý"/>
+		<transform from="&apos;Y" to="Ý"/>
 	</transforms>
 </keyboard>

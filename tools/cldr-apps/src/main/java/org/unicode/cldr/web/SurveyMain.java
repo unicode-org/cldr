@@ -101,10 +101,7 @@ import org.w3c.dom.Node;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.ListFormatter;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -259,17 +256,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static String isBustedStack = null;
     private static ElapsedTimer isBustedTimer = null;
     private static ServletConfig config = null;
-    public static OperatingSystemMXBean osmxbean = ManagementFactory.getOperatingSystemMXBean();
+    private static OperatingSystemMXBean osmxbean = ManagementFactory.getOperatingSystemMXBean();
     private static double nProcs = osmxbean.getAvailableProcessors();
-
-    /**
-     * Is the CPU essentially busy?
-     *
-     * @return
-     */
-    public static final boolean hostBusy() {
-        return (osmxbean.getSystemLoadAverage() * 2) >= osmxbean.getAvailableProcessors();
-    }
 
     // ===== Special bug numbers.
     private static final String URL_HOST = "http://www.unicode.org/";
@@ -353,7 +341,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String PREF_NOJAVASCRIPT = "p_nojavascript";
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
-    private static final String PREF_COVTYP = "p_covtyp"; // covtyp
 
     static final String TRANS_HINT_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918
     public static final ULocale TRANS_HINT_LOCALE = new ULocale(TRANS_HINT_ID);
@@ -3665,7 +3652,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /**
      * Main setup
      */
-    static public boolean isSetup = false;
+    public static boolean isSetup = false;
 
     private static ScheduledExecutorService surveyTimer = null;
 
@@ -3691,35 +3678,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             eachTime = 3;
         }
         return getTimer().scheduleWithFixedDelay(task, firstTime, eachTime, TimeUnit.MINUTES);
-    }
-
-    public static ScheduledFuture<?>[] addDailyTask(Runnable task) {
-        long now = System.currentTimeMillis();
-        long next = now;
-        long period = 24 * 60 * 60 * 1000; // 1 day
-        Calendar c = com.ibm.icu.util.Calendar.getInstance(TimeZone.getTimeZone(CldrUtility.getProperty("CLDR_TZ",
-            "America/Los_Angeles")));
-
-        final boolean CLDR_QUICK_DAY = CldrUtility.getProperty("CLDR_QUICK_DAY", false);
-
-        if (CLDR_QUICK_DAY && isUnofficial()) {
-            c.add(Calendar.SECOND, 85); // right away!!
-            period = 15 * 60 * 1000; // 15 min
-        } else {
-            c.add(Calendar.DATE, 1);
-            c.set(Calendar.HOUR_OF_DAY, 2);
-            c.set(Calendar.MINUTE, 0);
-            c.set(Calendar.SECOND, 0);
-        }
-        next = c.getTimeInMillis();
-        System.err.println("DailyTask- next time is " + ElapsedTimer.elapsedTime(now, next) + " and period is "
-            + ElapsedTimer.elapsedTime(now, now + period));
-
-        ScheduledFuture<?> o[] = { null, null };
-        o[0] = getTimer().schedule(task, 5, TimeUnit.MINUTES); // run one soon
-        // after startup
-        o[1] = getTimer().scheduleAtFixedRate(task, next - now, period, TimeUnit.MILLISECONDS);
-        return o;
     }
 
     /**
@@ -3888,11 +3846,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             progress.update("Making your Survey Tool happy..");
 
-            if (isBusted == null) { // don't do these if we are already busted
+            if (isBusted == null) {
                 MailSender.getInstance();
-                if (!CldrUtility.getProperty("CLDR_NOUPDATE", false)) {
-                    getOutputFileManager().addUpdateTasks();
-                }
             } else {
                 progress.update("Not loading mail or output file manager- - SurveyTool already busted.");
             }
@@ -4099,10 +4054,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return new File(makeDataDir(kind, loc), loc.toString() + ".xml");
     }
 
-    /**
-     * Accessed from output-status.jsp and locally
-     */
-    public OutputFileManager outputFileManager = null;
+    private OutputFileManager outputFileManager = null;
 
     public synchronized OutputFileManager getOutputFileManager() {
         if (outputFileManager == null) {
@@ -4706,14 +4658,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     @Override
     public void writeExternal(ObjectOutput arg0) throws IOException {
         STFactory.unimp(); // do not call
-    }
-
-    /**
-     * Format and display the system's default timezone.
-     * @return
-     */
-    public static String defaultTimezoneInfo() {
-        return new SimpleDateFormat("VVVV: ZZZZ", SurveyMain.TRANS_HINT_LOCALE).format(System.currentTimeMillis());
     }
 
     private static CLDRFile gEnglishFile = null;

@@ -10,21 +10,23 @@
 	<version>39.0-SNAPSHOT</version>
 	<name>CLDR Parent</name>
 	<packaging>pom</packaging>
-
+	<licenses>
+		<license>
+			<name>Unicode-DFS-2016</name>
+		</license>
+	</licenses>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-                <!--
-                    Note: see https://github.com/unicode-org/icu/packages/411079/versions for the
-                    icu4j.version tag to use
-                -->
+		<!-- Note: see https://github.com/unicode-org/icu/packages/411079/versions 
+			for the icu4j.version tag to use -->
 		<icu4j.version>68.1-release-68-1</icu4j.version>
 		<junit.version>4.13.1</junit.version>
 		<junit.jupiter.version>5.5.1</junit.jupiter.version>
 		<maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
-                <httpcomponents-version>5.0.3</httpcomponents-version>
+		<httpcomponents-version>5.0.3</httpcomponents-version>
 	</properties>
 
 	<modules>
@@ -180,7 +182,7 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>8.0.21</version>
 			</dependency>
-			
+
 			<!-- test -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -239,7 +241,7 @@
 					<version>${maven-surefire-plugin-version}</version>
 					<configuration>
 						<systemPropertyVariables>
-							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR> <!-- this is valid for tools/java and tools/cldr-apps-->
+							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR> <!-- this is valid for tools/java and tools/cldr-apps -->
 							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
 							<java.awt.headless>true</java.awt.headless>
 						</systemPropertyVariables>
@@ -292,6 +294,11 @@
 						<attach>true</attach>
 						<addOutputDirectoryToResources>true</addOutputDirectoryToResources>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>2.0.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

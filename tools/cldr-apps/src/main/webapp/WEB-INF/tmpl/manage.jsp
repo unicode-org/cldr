@@ -21,9 +21,6 @@ String helpName = subCtx.getString("helpName");
            
            <%
            boolean haveCookies = (subCtx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&subCtx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
-            if(false && !haveCookies && !subCtx.hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-                subCtx.println(" <a class='notselected' href='"+subCtx.url()+subCtx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'>Log me in automatically next time</a>");
-            }
             %>
             <a href='?do=listu'>My Account Settings</a>
               <a href='<%= request.getContextPath()   %>/lock.jsp?email=<%= subCtx.session.user.email %>'>Permanently disable my account! (account lock)</a>
@@ -42,7 +39,7 @@ String helpName = subCtx.getString("helpName");
                 SurveyMain.printMenu(subCtx, doWhat, "list", "Manage&nbsp;Users", SurveyMain.QUERY_DO);
             } else {
                 if(UserRegistry.userIsVetter(subCtx.session.user)) {
-                    SurveyMain.printMenu(subCtx, doWhat, "list", "List " + subCtx.session.user.org + " Users", subCtx.sm.QUERY_DO);
+                    SurveyMain.printMenu(subCtx, doWhat, "list", "List " + subCtx.session.user.org + " Users", SurveyMain.QUERY_DO);
                 } else if(UserRegistry.userIsLocked(subCtx.session.user)) {
                     subCtx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + subCtx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
@@ -55,9 +52,11 @@ String helpName = subCtx.getString("helpName");
                 subCtx.println("<br> (Note: in the Vetting phase, you may not submit new data.) ");
             } else if(SurveyMain.isPhaseClosed() && !UserRegistry.userIsTC(subCtx.session.user)) {
                 subCtx.println("<br>(SurveyTool is closed to vetting and data submissions.)");
+            } else if (SurveyMain.isPhaseFinalTesting() && !UserRegistry.userIsTC(subCtx.session.user)) {
+                subCtx.println("(SurveyTool is in the Final Testing phase; you may not vote.)");
             }
             if((subCtx.session != null) && (subCtx.session.user != null) && (SurveyMain.isPhaseVettingClosed() && subCtx.session.user.userIsSpecialForCLDR15(null))) {
-                subCtx.println("<br/><b class='selected'> you have been granted extended privileges for the CLDR "+subCtx.sm.getNewVersion()+" vetting period.</b><br>");
+                subCtx.println("<br/><b class='selected'> you have been granted extended privileges for the CLDR "+SurveyMain.getNewVersion()+" vetting period.</b><br>");
             }
             %>
          <h3>Forum</h3>

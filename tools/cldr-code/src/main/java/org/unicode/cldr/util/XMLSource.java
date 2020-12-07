@@ -291,7 +291,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return oldPath + "/" + relativePath.replace('\'', '"');
         }
 
-        // static final String ATTRIBUTE_PATTERN = "\\[@([^=]+)=\"([^\"]*)\"]";
         static final Pattern MIDDLE_OF_ATTRIBUTE_VALUE = PatternCache.get("[^\"]*\"\\]");
 
         public static String stripLastElement(String oldPath) {
@@ -310,7 +309,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         @Override
         public String toString() {
             return
-            // "oldLocaleID: " + oldLocaleID + ", " +
             "newLocaleID: " + newLocaleID + ",\t"
                 +
                 "oldPath: " + oldPath + ",\n\t"
@@ -347,22 +345,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 attributesOld.put(attribute, attributesFull.get(attribute));
             }
             String result = partsOld.toString();
-
-            // for now, just assume check that there are no goofy bits
-            // if (!fullPath.startsWith(newPath)) {
-            // if (false) {
-            // throw new IllegalArgumentException("Failure to fix path. "
-            // + Utility.LINE_SEPARATOR + "\tfullPath: " + fullPath
-            // + Utility.LINE_SEPARATOR + "\toldPath: " + oldPath
-            // + Utility.LINE_SEPARATOR + "\tnewPath: " + newPath
-            // );
-            // }
-            // String tempResult = oldPath + fullPath.substring(newPath.length());
-            // if (!result.equals(tempResult)) {
-            // System.err.println("fullPath: " + fullPath + Utility.LINE_SEPARATOR + "\toldPath: "
-            // + oldPath + Utility.LINE_SEPARATOR + "\tnewPath: " + newPath
-            // + Utility.LINE_SEPARATOR + "\tnewPath: " + result);
-            // }
             return result;
         }
 
@@ -471,21 +453,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * Clear "any internal caches" (or only aliasCache?) for this XMLSource.
      *
      * Called only by XMLSource.putValueAtPath and XMLSource.removeValueAtPath
+     *
+     * Note: this method does not affect other caches: reverseAliasCache, getFullPathAtDPathCache, getSourceLocaleIDCache
      */
     private void clearCache() {
         aliasCache = null;
-
-        /*
-         * TODO: what about the other caches: reverseAliasCache, getFullPathAtDPathCache, getSourceLocaleIDCache?
-         * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
-         */
-        if (false) {
-            reverseAliasCache = null;
-            if (false && isResolving()) {
-                ((XMLSource.ResolvingSource) this).getFullPathAtDPathCache = null;
-                ((XMLSource.ResolvingSource) this).getSourceLocaleIDCache = null;
-            }
-        }
     }
 
     /**
@@ -687,7 +659,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         StringBuffer result = new StringBuffer();
         for (Iterator<String> it = iterator(matcher); it.hasNext();) {
             String path = it.next();
-            // if (!matcher.reset(path).matches()) continue;
             String value = getValueAtDPath(path);
             String fullpath = getFullPathAtDPath(path);
             result.append(fullpath).append(" =\t ").append(value).append(CldrUtility.LINE_SEPARATOR);
@@ -757,10 +728,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 }
                 result = getSource(fullStatus).getValueAtDPath(fullStatus.pathWhereFound);
             }
-//            if (result == null && xpath.contains("[@alt=")) {
-//                String path2 = XPathParts.getPathWithoutAlt(xpath);
-//                return getValueAtDPath(path2); // recurse
-//            }
             if (TRACE_VALUE) System.out.println("\t*value: " + result);
             return result;
         }
@@ -769,30 +736,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             XMLSource source = sources.get(fullStatus.localeWhereFound);
             return source == null ? constructedItems : source;
         }
-
-        // public String _getValueAtDPath(String xpath) {
-        // XMLSource currentSource = mySource;
-        // String result;
-        // ParentAndPath parentAndPath = new ParentAndPath();
-        //
-        // parentAndPath.set(xpath, currentSource, getLocaleID()).next();
-        // while (true) {
-        // if (parentAndPath.parentID == null) {
-        // return constructedItems.getValueAtDPath(xpath);
-        // }
-        // currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
-        // if (TRACE_VALUE) System.out.println("xpath: " + parentAndPath.path
-        // + Utility.LINE_SEPARATOR + "\tsource: " + currentSource.getClass().getName()
-        // + Utility.LINE_SEPARATOR + "\tlocale: " + currentSource.getLocaleID()
-        // );
-        // result = currentSource.getValueAtDPath(parentAndPath.path);
-        // if (result != null) {
-        // if (TRACE_VALUE) System.out.println("result: " + result);
-        // return result;
-        // }
-        // parentAndPath.next();
-        // }
-        // }
 
         Map<String, String> getFullPathAtDPathCache = new HashMap<>();
 
@@ -816,14 +759,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     result = getFullPath(xpath, fullStatus, fullPathWhereFound);
                 }
             }
-            //
-            // result = getFullPathAtDPathCache.get(xpath);
-            // if (result == null) {
-            // if (getCachedKeySet().contains(xpath)) {
-            // result = _getFullPathAtDPath(xpath);
-            // getFullPathAtDPathCache.put(xpath, result);
-            // }
-            // }
             return result;
         }
 
@@ -858,7 +793,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     Map<String, String> fullAttributes = fullPathWhereFoundParts.getAttributes(i);
                     Map<String, String> attributes = pathWhereFoundParts.getAttributes(i);
                     if (!attributes.equals(fullAttributes)) { // add differences
-                        //Map<String, String> targetAttributes = xpathParts.getAttributes(i + offset);
                         for (String key : fullAttributes.keySet()) {
                             if (!attributes.containsKey(key)) {
                                 String value = fullAttributes.get(key);
@@ -909,15 +843,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             /*
              * Skip the cache in the special and relatively rare cases where skipInheritanceMarker is false.
              *
-             * TODO: consider using a cache also when skipInheritanceMarker is false.
+             * Note: we might consider using a cache also when skipInheritanceMarker is false.
              * Can't use the same cache for skipInheritanceMarker true and false.
              * Could use two caches, or add skipInheritanceMarker to the key (append 'T' or 'F' to xpath).
              * The situation is complicated by use of getSourceLocaleIDCache also in valueChanged.
              *
              * There is no caching problem with skipFirst, since that is always false here -- though
              * getBaileyValue could use a cache if there was one for skipFirst true.
-             *
-             * Reference: https://unicode.org/cldr/trac/ticket/11765
              */
             if (!skipInheritanceMarker || !cachingIsEnabled ) {
                 return getPathLocation(xpath, false /* skipFirst */, skipInheritanceMarker);
@@ -1194,8 +1126,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         private Set<String> getCachedKeySet() {
             if (cachedKeySet == null) {
                 cachedKeySet = fillKeys();
-                // System.out.println("CachedKeySet: " + cachedKeySet);
-                // cachedKeySet.addAll(constructedItems.keySet());
                 cachedKeySet = Collections.unmodifiableSet(cachedKeySet);
             }
             return cachedKeySet;
@@ -1430,18 +1360,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             Map<String, Set<String>> countries_zoneSet = sc.getCountryToZoneSet();
             Map<String, String> zone_countries = sc.getZoneToCounty();
 
-            // Set types = sc.getAvailableTypes();
             for (int typeNo = 0; typeNo <= CLDRFile.TZ_START; ++typeNo) {
                 String type = CLDRFile.getNameName(typeNo);
-                // int typeNo = typeNameToCode(type);
-                // if (typeNo < 0) continue;
                 String type2 = (typeNo == CLDRFile.CURRENCY_SYMBOL) ? CLDRFile.getNameName(CLDRFile.CURRENCY_NAME)
                     : (typeNo >= CLDRFile.TZ_START) ? "tzid"
                         : type;
                 Set<String> codes = sc.getSurveyToolDisplayCodes(type2);
-                // String prefix = CLDRFile.NameTable[typeNo][0];
-                // String postfix = CLDRFile.NameTable[typeNo][1];
-                // String prefix2 = "//ldml" + prefix.substring(6); // [@version=\"" + GEN_VERSION + "\"]
                 for (Iterator<String> codeIt = codes.iterator(); codeIt.hasNext();) {
                     String code = codeIt.next();
                     String value = code;
@@ -1452,23 +1376,14 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                             if (s != null && s.size() == 1) continue;
                         }
                         value = TimezoneFormatter.getFallbackName(value);
+                    } else if (typeNo == CLDRFile.LANGUAGE_NAME) {
+                        if (ROOT_ID.equals(value)) {
+                            continue;
+                        }
                     }
                     addFallbackCode(typeNo, code, value);
                 }
             }
-
-            // Add commonlyUsed
-            // //ldml/dates/timeZoneNames/metazone[@type="New_Zealand"]/commonlyUsed
-            // should get this from supplemental metadata, but for now...
-            // String[] metazones =
-            // "Acre Afghanistan Africa_Central Africa_Eastern Africa_FarWestern Africa_Southern Africa_Western Aktyubinsk Alaska Alaska_Hawaii Almaty Amazon America_Central America_Eastern America_Mountain America_Pacific Anadyr Aqtau Aqtobe Arabian Argentina Argentina_Western Armenia Ashkhabad Atlantic Australia_Central Australia_CentralWestern Australia_Eastern Australia_Western Azerbaijan Azores Baku Bangladesh Bering Bhutan Bolivia Borneo Brasilia British Brunei Cape_Verde Chamorro Changbai Chatham Chile China Choibalsan Christmas Cocos Colombia Cook Cuba Dacca Davis Dominican DumontDUrville Dushanbe Dutch_Guiana East_Timor Easter Ecuador Europe_Central Europe_Eastern Europe_Western Falkland Fiji French_Guiana French_Southern Frunze Gambier GMT Galapagos Georgia Gilbert_Islands Goose_Bay Greenland_Central Greenland_Eastern Greenland_Western Guam Gulf Guyana Hawaii_Aleutian Hong_Kong Hovd India Indian_Ocean Indochina Indonesia_Central Indonesia_Eastern Indonesia_Western Iran Irkutsk Irish Israel Japan Kamchatka Karachi Kashgar Kazakhstan_Eastern Kazakhstan_Western Kizilorda Korea Kosrae Krasnoyarsk Kuybyshev Kwajalein Kyrgystan Lanka Liberia Line_Islands Long_Shu Lord_Howe Macau Magadan Malaya Malaysia Maldives Marquesas Marshall_Islands Mauritius Mawson Mongolia Moscow Myanmar Nauru Nepal New_Caledonia New_Zealand Newfoundland Niue Norfolk North_Mariana Noronha Novosibirsk Omsk Oral Pakistan Palau Papua_New_Guinea Paraguay Peru Philippines Phoenix_Islands Pierre_Miquelon Pitcairn Ponape Qyzylorda Reunion Rothera Sakhalin Samara Samarkand Samoa Seychelles Shevchenko Singapore Solomon South_Georgia Suriname Sverdlovsk Syowa Tahiti Tajikistan Tashkent Tbilisi Tokelau Tonga Truk Turkey Turkmenistan Tuvalu Uralsk Uruguay Urumqi Uzbekistan Vanuatu Venezuela Vladivostok Volgograd Vostok Wake Wallis Yakutsk Yekaterinburg Yerevan Yukon".split("\\s+");
-            // for (String metazone : metazones) {
-            // constructedItems.putValueAtPath(
-            // "//ldml/dates/timeZoneNames/metazone[@type=\""
-            // + metazone
-            // + "\"]/commonlyUsed",
-            // "false");
-            // }
 
             String[] extraCodes = {
                 "ar_001",
@@ -1524,7 +1439,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNarrow/era[@type=\"0\"]", "BCE", "variant");
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNarrow/era[@type=\"1\"]", "CE", "variant");
 
-            //String defaultCurrPattern = "¤ #,##0.00"; // use root value; can't get the locale's currency pattern in this static context; "" and "∅∅∅" cause errors.
             for (int i = 0; i < keyDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/keys/key" +
@@ -1538,25 +1452,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         + "[@type=\"" + typeDisplayNames[i][0] + "\"]",
                     typeDisplayNames[i][0]);
             }
-            //            String[][] relativeValues = {
-            //                // {"Three days ago", "-3"},
-            //                { "The day before yesterday", "-2" },
-            //                { "Yesterday", "-1" },
-            //                { "Today", "0" },
-            //                { "Tomorrow", "1" },
-            //                { "The day after tomorrow", "2" },
-            //                // {"Three days from now", "3"},
-            //            };
-            //            for (int i = 0; i < relativeValues.length; ++i) {
-            //                constructedItems.putValueAtPath(
-            //                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\""
-            //                        + relativeValues[i][1] + "\"]",
-            //                        relativeValues[i][0]);
-            //            }
-
             constructedItems.freeze();
             allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
-            // System.out.println("constructedItems: " + constructedItems);
         }
 
         private static void addFallbackCode(int typeNo, String code, String value) {
@@ -1564,7 +1461,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         }
 
         private static void addFallbackCode(int typeNo, String code, String value, String alt) {
-            // String path = prefix + code + postfix;
             String fullpath = CLDRFile.getKey(typeNo, code);
             String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
             if (typeNo == CLDRFile.LANGUAGE_NAME || typeNo == CLDRFile.SCRIPT_NAME || typeNo == CLDRFile.TERRITORY_NAME) {
@@ -1582,7 +1478,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 StringBuffer fullpathBuf = new StringBuffer(fullpath);
                 fullpath = fullpathBuf.insert(fullpathBuf.lastIndexOf("]") + 1, "[@alt=\"" + alt + "\"]").toString();
             }
-            // System.out.println(fullpath + "\t=> " + code);
             return constructedItems.putValueAtPath(fullpath, value);
         }
 

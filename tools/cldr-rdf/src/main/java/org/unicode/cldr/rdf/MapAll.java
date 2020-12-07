@@ -12,6 +12,7 @@ public class MapAll implements XPathMapper {
 	public MapAll() {
 		// add all mappers here
 		mappers.add(new LanguageMapper());
+		mappers.add(new ScriptMapper());
 	}
 
 	@Override

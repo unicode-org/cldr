@@ -3,7 +3,6 @@
 
 package org.unicode.cldr.rdf;
 
-import org.apache.jena.arq.querybuilder.SelectBuilder;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
@@ -11,7 +10,6 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import org.apache.jena.sparql.lang.sparql_11.ParseException;
 
 /**
  * Class to aid in SPARQL queries
@@ -36,6 +34,7 @@ public class QueryClient {
     public static final String PREFIX_DBO = "http://dbpedia.org/ontology/";
     public static final String PREFIX_DBP = "http://dbpedia.org/property/";
     public static final String PREFIX_DBR = "http://dbpedia.org/resource/";
+    public static final String PREFIX_YAGO = "http://dbpedia.org/class/yago/";
     public static final String abstractLang = "en"; // for now
     
     public static final String getStringOrNull(final QuerySolution qs, final String k) {

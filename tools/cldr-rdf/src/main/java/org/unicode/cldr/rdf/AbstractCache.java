@@ -4,6 +4,7 @@
 package org.unicode.cldr.rdf;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -60,17 +61,22 @@ public class AbstractCache {
 
     /**
      * Load (or reload) the abstract cache.
+     * On failure, will clear this cache.
      * @return date of underlying file on successful load or null
      */
     public Instant load() {
+        final String simpleName = this.getClass().getSimpleName();
         synchronized(this) {
             try(
                 Reader xp2res = Files.newReader(xpathToResourceFile, StandardCharsets.UTF_8);
             ) {
                 xpathToResource.load(xp2res);
+                System.err.println("# " + simpleName + " read " + root.getAbsolutePath() + " count: " + size());
                 return Instant.ofEpochMilli(xpathToResourceFile.lastModified());
             } catch (IOException ioe) {
-                ioe.printStackTrace();
+            	if (!(ioe instanceof FileNotFoundException)) {
+            		ioe.printStackTrace();
+            	}
                 System.err.println("Could not read files in " + root.getAbsolutePath() + " = " + ioe);
                 xpathToResource.clear();
                 return null;
@@ -82,12 +88,12 @@ public class AbstractCache {
      * Write out the cache
      */
     public void store() {
+        final String simpleName = this.getClass().getSimpleName();
         synchronized(this) {
             root.mkdirs();
             try(
                 Writer xp2res = Files.newWriter(xpathToResourceFile, StandardCharsets.UTF_8);
             ) {
-                final String simpleName = this.getClass().getSimpleName();
                 xpathToResource.store(xp2res, "Written by " + simpleName);
                 System.err.println("# " + simpleName + " wrote to " + root.getAbsolutePath());
             } catch (IOException ioe) {
@@ -96,4 +102,8 @@ public class AbstractCache {
             }
         }
     }
+
+	public int size() {
+		return xpathToResource.size();
+	}
 }

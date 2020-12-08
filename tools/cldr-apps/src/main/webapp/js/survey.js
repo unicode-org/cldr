@@ -1022,8 +1022,7 @@ var updateParts = null;
 
 /*
  * TODO: Avoid browser console showing "ReferenceError: surveyRunningStamp is not defined" here.
- * surveyRunningStamp is undefined unless ajax_status.jsp is included.
- * submit.jsp (or SurveyAjax.handleBulkSubmit) includes survey.js but not ajax_status.jsp.
+ * submit.jsp and SurveyAjax.handleBulkSubmit have this problem.
  */
 var cacheKillStamp = surveyRunningStamp;
 

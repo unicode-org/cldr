@@ -710,7 +710,7 @@ function showV() {
 							display: surveyUserPerms.userCanUseVettingSummary
 						},
 						{
-							title: 'List ' + org + ' Users', // 'org' from ajax_status.jsp
+							title: 'List ' + org + ' Users',
 							level: 2,
 							url: surveyUserURL.manageUser,
 							display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter)

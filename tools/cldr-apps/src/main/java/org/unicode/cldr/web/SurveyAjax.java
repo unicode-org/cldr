@@ -25,6 +25,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -255,7 +256,6 @@ public class SurveyAjax extends HttpServlet {
     public static final String REQ_WHAT = "what";
     public static final String REQ_SESS = "s";
     public static final String WHAT_STATUS = "status";
-    public static final String AJAX_STATUS_SCRIPT = "ajax_status.jspf";
     public static final String WHAT_SUBMIT = "submit";
     public static final String WHAT_GETROW = "getrow";
     public static final String WHAT_GETSIDEWAYS = "getsideways";
@@ -2939,8 +2939,7 @@ public class SurveyAjax extends HttpServlet {
 
         /*
          * TODO: Avoid browser console showing "ReferenceError: surveyRunningStamp is not defined" in
-         * survey.js. surveyRunningStamp is undefined unless ajax_status.jsp is included.
-         * Here we include survey.js but not ajax_status.jsp.
+         * survey.js.
          */
         out.write("<script src='" + contextPath + "/js/survey.js'></script>\n");
         out.write("</head>\n<body>\n");
@@ -3185,24 +3184,16 @@ public class SurveyAjax extends HttpServlet {
      * @param request the HttpServletRequest
      * @param out the Writer
      * @throws IOException
-     *
-     * Some code was moved here from js_include.jsp
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13585
-     *
-     * Called from ajax_status.jsp
+     * @throws JSONException
      */
-    public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException {
-        /*
-         * TODO: investigate putting "defer" after "script"; may cause page to appear
-         * to load faster, though order of loading jquery, dojo may be problematic...
-         */
-        out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
+    public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
+        includeEvilJavaScript(request, out);
 
-        /*
-         * TODO: figure out what we're using jquery-ui for.
-         * If we don't use it, don't include it.
-         * If we don't include jquery-ui we get "TypeError: p.easing[this.easing] is not a function"
-         */
+        out.write("<script>dojoConfig = {parseOnLoad: true, async: true,};</script>");
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js';</script>");
+        out.write("<script>require([\"dojo/parser\", \"dijit/layout/ContentPane\", \"dijit/layout/BorderContainer\"]);</script>");
+
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
         out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
 
         final String prefix = "<script src='" + request.getContextPath() + "/js/";
@@ -3226,6 +3217,156 @@ public class SurveyAjax extends HttpServlet {
 
         out.write(prefix + "redesign" + js);
         out.write(prefix + "review" + js);
+    }
+
+    private static void includeEvilJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
+        out.write("<script>\n");
+
+        /*
+         * All these JavaScript var declarations append to the window (global) object.
+         * TODO: Modernize! deliver data to the client as json; and store
+         * it in our own JavaScript object(s), not the window.
+         * This is very temporary, mostly moved here from old ajax_status.jsp
+         */
+        out.write("var surveyRunningStamp = '" + SurveyMain.surveyRunningStamp.current() + "';\n");
+        out.write("var contextPath = '" + request.getContextPath() + "';\n");
+        out.write("var surveyCurrentId = '';\n");
+        out.write("var surveyCurrentPage = '';\n");
+        out.write("var surveyCurrentSpecial = null;\n");
+        out.write("var surveyRunningStamp = '" + SurveyMain.surveyRunningStamp.current() + "';\n");
+
+        String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);
+
+        // locale can have either - or _
+        surveyCurrentLocale = (surveyCurrentLocale == null) ? null : surveyCurrentLocale.replace("-", "_");
+        String surveyCurrentLocaleName = "";
+        if (surveyCurrentLocale != null) {
+            CLDRLocale aloc = CLDRLocale.getInstance(surveyCurrentLocale);
+            surveyCurrentLocaleName = aloc.getDisplayName();
+        }
+        String surveyCurrentSection = request.getParameter(SurveyMain.QUERY_SECTION);
+        if (surveyCurrentSection == null) {
+            surveyCurrentSection = "";
+        }
+        String surveyCurrentForum = request.getParameter(SurveyForum.F_XPATH);
+        if (surveyCurrentLocale != null && surveyCurrentLocale.length() > 0
+                && (surveyCurrentSection != null || surveyCurrentForum != null)) {
+            out.write("var surveyCurrentLocale = '" + surveyCurrentLocale + "';\n");
+            out.write("var surveyCurrentLocaleName = '" + surveyCurrentLocaleName + "';\n");
+            out.write("var surveyCurrentSection = '" + surveyCurrentSection + "';\n");
+        } else {
+            out.write("var surveyCurrentLocale = null;\n");
+            out.write("var surveyCurrentLocaleName = null;\n");
+            out.write("var surveyCurrentSection  = '';\n");
+        }
+
+        out.write("var surveyTransHintLocale = '" + SurveyMain.TRANS_HINT_LOCALE.getBaseName() + "';\n");
+        out.write("var surveyCurrentLocaleStamp = 0;\n");
+        out.write("var surveyCurrentLocaleStampId = '';\n");
+        out.write("var surveyVersion = '" + SurveyMain.getNewVersion() + "';\n");
+        out.write("var surveyOldVersion = '" + SurveyMain.getOldVersion() + "';\n");
+        out.write("var surveyLastVoteVersion = '" + SurveyMain.getLastVoteVersion() + "';\n");
+        out.write("var surveyOfficial = '" + !SurveyMain.isUnofficial() + "';\n");
+        out.write("var surveyCurrev = '" + SurveyMain.getCurrevJSON().toString() + "';\n");
+        out.write("var BUG_URL_BASE = '" + SurveyMain.BUG_URL_BASE + "';\n");
+        out.write("var surveyCurrentPhase = '" + SurveyMain.phase().getCPhase() + "';\n");
+        out.write("var surveyBeta = '" + SurveyMain.isPhaseBeta() + "';\n");
+
+        String sessid = request.getParameter("s");
+        if (sessid == null) {
+            HttpSession hsession = request.getSession(false);
+            if (hsession != null) {
+                sessid = hsession.getId();
+            }
+        }
+
+        CookieSession mySession = null;
+        UserRegistry.User myUser = null;
+        if (sessid != null) {
+            mySession = CookieSession.retrieveWithoutTouch(sessid);
+        }
+        if (mySession == null) {
+            sessid = null;
+        } else {
+            sessid = mySession.id;
+            myUser = mySession.user;
+        }
+        if (sessid != null) {
+            out.write("var surveySessionId = '" + sessid + "';\n");
+
+        } else {
+            out.write("var surveySessionId = null;\n");
+        }
+        SurveyMain curSurveyMain = null;
+        curSurveyMain = SurveyMain.getInstance(request);
+
+        // We can't use 'ctx' here reliably, because we _may or may not_ be called from v.jsp.
+        WebContext subCtx = (WebContext) request.getAttribute("WebContext"); // from v.jsp
+        if (subCtx != null && subCtx.session.user != null) {
+            myUser = subCtx.session.user;
+        }
+
+        if (myUser != null) {
+            out.write("var surveyUser = '" + myUser.toJSONString() + "';\n");
+            out.write("var userEmail = '" + myUser.email + "';\n");
+            out.write("var userPWD = '" + myUser.password + "';\n");
+            out.write("var userID = '" + myUser.id + "';\n");
+            out.write("var organizationName = '" + myUser.getOrganization().getDisplayName() + "';\n");
+            out.write("var org = '" + myUser.org + "';\n");
+            out.write("var surveyUserPerms = {\n");
+            out.write("  userExist: (surveyUser != null),\n");
+            out.write("  userCanImportOldVotes: " + myUser.canImportOldVotes() + ",\n");
+            out.write("  userCanUseVettingSummary: " + UserRegistry.userCanUseVettingSummary(myUser) + ",\n");
+            out.write("  userCanMonitorForum: " + UserRegistry.userCanMonitorForum(myUser) + ",\n");
+            out.write("  userIsTC: " + UserRegistry.userIsTC(myUser) + ",\n");
+            boolean userIsVetter = !UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser);
+            out.write("  userIsVetter: " + userIsVetter + ",\n");
+            out.write("  userIsLocked: " + UserRegistry.userIsLocked(myUser) + ",\n");
+            out.write("  hasDataSource: " + curSurveyMain.dbUtils.hasDataSource() + ",\n");
+            out.write("};\n");
+
+            out.write("var surveyUserURL = {\n");
+            out.write("  myAccountSetting: 'survey?do=listu',\n");
+            out.write("  disableMyAccount: \"lock.jsp?email='+userEmail\"+userEmail,\n");
+            out.write("  recentActivity: \"myvotes.jsp?user=\"+userID+\"&s=\"+surveySessionId,\n");
+            out.write("  xmlUpload: \"upload.jsp?a=/cldr-apps/survey&s=\"+surveySessionId,\n");
+            out.write("  manageUser: \"survey?do=list\",\n");
+            out.write("  flag: \"tc-flagged.jsp?s=\"+surveySessionId,\n");
+            out.write("  about: \"about.jsp\",\n");
+            out.write("  browse: \"browse.jsp\",\n");
+            out.write("};\n");
+
+            if (UserRegistry.userIsAdmin(myUser)) {
+                out.write("surveyUserURL.adminPanel = 'survey?dump=" + SurveyMain.vap + "';\n");
+            }
+        } else {
+            // User session not present. Set a few things so that we don't fail.
+            out.write("var surveyUser = null;\n");
+            out.write("var surveyUserURL = {};\n");
+            out.write("var surveyUser = null;\n");
+            out.write("var organizationName = null;\n");
+            out.write("var org = null;\n");
+            out.write("var surveyUserPerms = {userExist: false,};\n");
+        }
+        out.write("var surveyImgInfo = {\n");
+        out.write("  flag: {\n");
+        out.write("    src: \"flag.png\",\n");
+        out.write("    alt: \"flag\",\n");
+        out.write("    title: \"flag\",\n");
+        out.write("    border: 0,\n");
+        out.write("  },\n");
+        out.write("};\n");
+
+        out.write("var warnIcon = \"" + WebContext.iconHtml(request, "warn", "Test Warning") + "\";\n");
+        out.write("var stopIcon = \"" + WebContext.iconHtml(request, "stop", "Test Error") + "\";\n");
+        out.write("var WHAT_GETROW = '" + SurveyAjax.WHAT_GETROW + "';\n");
+        out.write("var WHAT_SUBMIT = '" + SurveyAjax.WHAT_SUBMIT + "';\n");
+        out.write("var TARGET_DOCS = '" + WebContext.TARGET_DOCS + "';\n");
+        out.write("var TRANS_HINT_LOCALE = '" + SurveyMain.TRANS_HINT_LOCALE + "';\n");
+        out.write("var TRANS_HINT_LANGUAGE_NAME = '" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + "';\n");
+        out.write("var WHAT_GETROW = '" + SurveyAjax.WHAT_GETROW + "';\n");
+
+        out.write("</script>\n");
     }
 
     /**

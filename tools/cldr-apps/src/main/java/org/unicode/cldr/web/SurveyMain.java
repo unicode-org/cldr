@@ -119,7 +119,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     private static final String CLDR_NEWVERSION_AFTER = "CLDR_NEWVERSION_AFTER";
 
-    public static Stamp surveyRunningStamp = Stamp.getInstance(); // accessed by ajax_status.jsp
+    public static Stamp surveyRunningStamp = Stamp.getInstance();
 
     public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
@@ -1436,8 +1436,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * or, it will include error conditions: '12345678 CLDR_TOOLS_HASH=00bad000'
      * if one component is out of sync.
      * @return
-     *
-     * Called from ajax_status.jsp
      */
     public static JSONObject getCurrevJSON() {
         final CLDRConfigImpl instance = CLDRConfigImpl.getInstance();
@@ -1446,8 +1444,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             try {
                 jo.put(p, instance.getProperty(p, CLDRURLS.UNKNOWN_REVISION));
             } catch (JSONException e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
             }
         }
         return jo;

@@ -1,7 +1,5 @@
-<%@page import="org.unicode.cldr.util.CldrUtility"%>
-<%@page import="org.unicode.cldr.util.CLDRURLS"%>
-<%@page import="org.unicode.cldr.web.DBUtils"%>
-<%@page import="org.unicode.cldr.util.CLDRConfigImpl"%>
+<%@ page import="org.unicode.cldr.web.*" %>
+<%@ page import="org.unicode.cldr.util.*" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!-- Copyright (C) 2012 IBM and Others. All Rights Reserved --> 
 <html>
@@ -9,7 +7,6 @@
 		<title>Unicode | CLDR | About the Survey Tool</title>
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
 
-         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 	</head>
     
     <body>

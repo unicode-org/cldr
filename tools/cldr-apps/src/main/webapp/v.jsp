@@ -1,5 +1,6 @@
-<%@page import="org.unicode.cldr.web.WebContext"%>
-<%@page import="com.google.common.collect.ImmutableSet"%>
+<%@ page import="org.unicode.cldr.web.*" %>
+<%@ page import="org.unicode.cldr.util.*" %>
+<%@ page import="com.google.common.collect.ImmutableSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -83,7 +84,16 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
 
 <div class="container">
  <div class="starter-template" style='margin-top: 120px;'>
-         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css" />
+
+<!-- Bootstrap core CSS -->
+<%@include file="/WEB-INF/jspf/bootstrap_css.jspf" %>
+
+<!-- Custom styles for this template -->
+<link href="<%= request.getContextPath() %>/css/redesign.css" rel="stylesheet">
+<%= VettingViewer.getHeaderStyles() %>
+
+<% SurveyAjax.includeJavaScript(request, out); %>
     	<h1>Waiting for the Survey Tool to come online<span id='dots'>...</span></h1>
         <p class="lead">The Survey Tool may be starting up.  </p>
 				  <%
@@ -152,7 +162,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
  --%>
  <%
  WebContext ctx = new WebContext(request,response);
- request.setAttribute("WebContext", ctx); // for ajax_status
+ request.setAttribute("WebContext", ctx);
  String status = ctx.setSession();
 if(false) { // if we need to redirect for some reason..
 	 ctx.addAllParametersAsQuery();
@@ -203,12 +213,18 @@ if(false) { // if we need to redirect for some reason..
 <meta name="gigabot" content="nofollow">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/surveytool.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/CldrStForum.css" />
-<%
-	// TODO: when v.jsp includes ajax_status.jsp, avoid redundant links for bootstrap, surveytool.css, redesign.css
-	// Note that ajax_status.jsp now reliably should output the surveyUser, so we don't need
-	// to output it again here.
-%>
-<%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css" />
+
+<!-- Bootstrap core CSS -->
+<%@include file="/WEB-INF/jspf/bootstrap_css.jspf" %>
+
+<!-- Custom styles for this template -->
+<link href="<%= request.getContextPath() %>/css/redesign.css" rel="stylesheet">
+<%= VettingViewer.getHeaderStyles() %>
+
+<% SurveyAjax.includeJavaScript(request, out); %>
+
 <script>
 survURL = '<%=survURL%>';
   showV();

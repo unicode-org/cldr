@@ -1760,10 +1760,15 @@ public class UserRegistry {
     }
 
     public enum ModifyDenial {
-        DENY_NULL_USER("No user specified"), DENY_LOCALE_READONLY("Locale is read-only"), DENY_PHASE_READONLY(
-            "SurveyTool is in read-only mode"), DENY_ALIASLOCALE("Locale is an alias"), DENY_DEFAULTCONTENT(
-                "Locale is the Default Content for another locale"), DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"), DENY_NO_RIGHTS(
-                    "User does not have any voting rights"), DENY_LOCALE_LIST("User does not have rights to vote for this locale");
+        DENY_NULL_USER("No user specified"),
+        DENY_LOCALE_READONLY("Locale is read-only"),
+        DENY_PHASE_READONLY("SurveyTool is in read-only mode"),
+        DENY_ALIASLOCALE("Locale is an alias"),
+        DENY_DEFAULTCONTENT("Locale is the Default Content for another locale"),
+        DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"),
+        DENY_NO_RIGHTS("User does not have any voting rights"),
+        DENY_LOCALE_LIST("User does not have rights to vote for this locale"),
+        DENY_PHASE_FINAL_TESTING("SurveyTool is in the 'final testing' phase");
 
         ModifyDenial(String reason) {
             this.reason = reason;
@@ -1891,6 +1896,9 @@ public class UserRegistry {
         if (SurveyMain.isPhaseReadonly())
             return ModifyDenial.DENY_PHASE_READONLY;
 
+        if (SurveyMain.isPhaseFinalTesting()) {
+            return ModifyDenial.DENY_PHASE_FINAL_TESTING;
+        }
         return null;
     }
 
@@ -2453,6 +2461,7 @@ public class UserRegistry {
                 rs = ps.executeQuery();
                 if (rs == null) {
                     out.println("\t<!-- No results -->");
+                    out.close();
                     return 0;
                 }
                 Organization lastOrg = null;

@@ -4591,6 +4591,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return phase() == Phase.BETA;
     }
 
+    public static boolean isPhaseFinalTesting() {
+        return phase() == Phase.FINAL_TESTING;
+    }
+
     public static final Phase phase() {
         return currentPhase;
     }

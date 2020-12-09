@@ -103,11 +103,19 @@ public class Emoji {
                 continue;
             }
             Iterator<String> it = semi.split(line).iterator();
+
             String emojiHex = it.next();
-            if (emojiHex.contains("1F6FC")) {
+            if (emojiHex.contains("1F48F")) {
                 int debug = 0;
             }
+
             String original = Utility.fromHex(emojiHex, 4, " ");
+            if (original.contains("💏")) {
+                if (false) {
+                    System.out.println(original + "\t" + Utility.hex(original));
+                }
+            }
+
             String type = it.next();
             if (type.startsWith("fully-qualified")) {
                 allRgi.add(original);

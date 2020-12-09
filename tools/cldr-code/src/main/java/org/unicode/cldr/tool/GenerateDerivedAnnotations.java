@@ -10,9 +10,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRConfig;
@@ -30,6 +34,7 @@ import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSortedSet;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -58,12 +63,39 @@ public class GenerateDerivedAnnotations {
         codepointToIsoCurrencyCode = ImmutableMap.copyOf(_codepointToIsoCurrencyCode);
     }
 
+    private enum MyOptions {
+        fileFilter(new Params().setHelp("filter files by dir/locale, eg: ^main/en$ or .*/en").setMatch(".*").setDefault(".*")),
+        missing(new Params().setHelp("only missing").setMatch("")),
+        ;
+
+        // BOILERPLATE TO COPY
+        final Option option;
+
+        private MyOptions(Params params) {
+            option = new Option(this, params);
+        }
+
+        private static Options myOptions = new Options();
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+
+        private static Set<String> parse(String[] args) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
+
     public static void main(String[] args) throws IOException {
-        boolean missingOnly = args.length > 0 && args[0].equals("missing");
+        MyOptions.parse(args);
+
+        boolean missingOnly = MyOptions.missing.option.doesOccur();
         if (missingOnly) {
             System.out.println("With the 'missing' argument files will not be written, only the missing items will be written to the console");
         }
 
+        Matcher localeMatcher = Pattern.compile(MyOptions.fileFilter.option.getValue()).matcher("");
         Joiner BAR = Joiner.on(" | ");
         AnnotationSet enAnnotations = Annotations.getDataSet("en");
         CLDRFile english = CLDR_CONFIG.getEnglish();
@@ -73,12 +105,21 @@ public class GenerateDerivedAnnotations {
             .removeAll(enAnnotations.keySet())
             .freeze();
 
+        for (String d : derivables) {
+            if (d.contains("💏🏻")) {
+                System.out.println(d + "\t" + Utility.hex(d));
+            }
+        }
+
         Map<String, UnicodeSet> localeToFailures = new LinkedHashMap<>();
         Set<String> locales = ImmutableSortedSet.copyOf(Annotations.getAvailable());
         final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
 
         for (String locale : locales) {
             if ("root".equals(locale)) {
+                continue;
+            }
+            if (!localeMatcher.reset(locale).matches()) {
                 continue;
             }
             UnicodeSet failures = new UnicodeSet(Emoji.getAllRgiNoES());
@@ -162,6 +203,9 @@ public class GenerateDerivedAnnotations {
         Factory factory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "annotationsDerived", ".*");
         for (String locale : locales) {
             if ("root".equals(locale)) {
+                continue;
+            }
+            if (!localeMatcher.reset(locale).matches()) {
                 continue;
             }
             CLDRFile cldrFileUnresolved = factory.make(locale, false);

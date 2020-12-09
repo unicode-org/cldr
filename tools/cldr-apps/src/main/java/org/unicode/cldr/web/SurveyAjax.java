@@ -3233,7 +3233,6 @@ public class SurveyAjax extends HttpServlet {
         out.write("var surveyCurrentId = '';\n");
         out.write("var surveyCurrentPage = '';\n");
         out.write("var surveyCurrentSpecial = null;\n");
-        out.write("var surveyRunningStamp = '" + SurveyMain.surveyRunningStamp.current() + "';\n");
 
         String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);
 
@@ -3293,14 +3292,12 @@ public class SurveyAjax extends HttpServlet {
         }
         if (sessid != null) {
             out.write("var surveySessionId = '" + sessid + "';\n");
-
         } else {
             out.write("var surveySessionId = null;\n");
         }
         SurveyMain curSurveyMain = null;
         curSurveyMain = SurveyMain.getInstance(request);
 
-        // We can't use 'ctx' here reliably, because we _may or may not_ be called from v.jsp.
         WebContext subCtx = (WebContext) request.getAttribute("WebContext"); // from v.jsp
         if (subCtx != null && subCtx.session.user != null) {
             myUser = subCtx.session.user;

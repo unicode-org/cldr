@@ -17,8 +17,8 @@ define("js/special/SpecialPage.js", function() {
 	 * @function parseHash
 	 */
 	SpecialPage.prototype.parseHash = function parseHash(hash, pieces) {
-		surveyCurrentPage='';
-		surveyCurrentId=''; // for now
+		cldrStatus.setCurrentPage('');;
+		cldrStatus.setCurrentId('');
 	};
 
 	/**

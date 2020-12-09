@@ -43,7 +43,6 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
-import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
@@ -1420,19 +1419,6 @@ public class WebContext implements Cloneable, Appendable {
             }
         }
         return canModify;
-    }
-
-    public void includeAjaxScript(AjaxType type) {
-        try {
-            SurveyAjax.includeAjaxScript(request, response, type);
-        } catch (Throwable t) {
-            this.println("<div class='ferrorbox'><B>Error</b> while expanding ajax template ajax_" + type.name().toLowerCase()
-                + ".jsp:<br>");
-            this.print(t);
-            this.println("</div>");
-            System.err.println("While expanding ajax: " + t.toString());
-            t.printStackTrace();
-        }
     }
 
     public SurveyMain.UserLocaleStuff getUserFile() {

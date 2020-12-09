@@ -351,7 +351,7 @@ function unpackMenuSideBar(json) {
 
 	// menu
 	$('.sidebar-chooser').click(function() {
-		window.surveyCurrentPage = $(this).attr('id');
+		cldrStatus.setCurrentPage($(this).attr('id'));
 		window.surveyCurrentSpecial = '';
 		reloadV();
 		$('#left-sidebar').removeClass('active');
@@ -367,8 +367,8 @@ function unpackMenuSideBar(json) {
 			window.location = survURL + '?' + $(this).data('url') + '&_=' + surveyCurrentLocale;
 		} else {
 			window.surveyCurrentSpecial = $(this).data('url');
-			surveyCurrentId = '';
-			surveyCurrentPage = '';
+			cldrStatus.setCurrentId('');
+			cldrStatus.setCurrentPage('');
 			reloadV();
 		}
 	});
@@ -386,8 +386,9 @@ function unpackMenuSideBar(json) {
 	}
 
 	// reopen the menu to the current page
-	if (surveyCurrentPage) {
-		var menu = $('#locale-menu #' + surveyCurrentPage);
+	const curPage = cldrStatus.getCurrentPage();
+	if (curPage) {
+		var menu = $('#locale-menu #' + curPage);
 		menu.closest('.open-menu').click();
 	}
 }

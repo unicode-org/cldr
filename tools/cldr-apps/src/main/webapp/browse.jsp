@@ -1,5 +1,4 @@
-<%@page import="org.unicode.cldr.web.SurveyMain"%>
-<%@page import="org.unicode.cldr.web.WebContext"%>
+<%@page import="org.unicode.cldr.web.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*" %>
 <!-- Copyright (C) 2012 IBM and Others. All Rights Reserved --> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,8 +6,6 @@
     <head>
         <title>Unicode | CLDR | Browse the Survey Tool</title>
         <link rel='stylesheet' type='text/css' href='./surveytool.css' />
-
-         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
     </head>
     
     <body>
@@ -32,7 +29,9 @@ if ( ovrLoc!=null&&ovrLoc.length()>0) {
 }
 CLDRLocale loc = CLDRLocale.getInstance(pageLocale);
 
+SurveyAjax.includeJavaScript(request, out);
 %>
+
 <form action="<%= request.getContextPath()+request.getServletPath() %>" method="GET">
 <label>Base Locale:
 <input name='loc' value='<%= pageLocale.toLanguageTag() %>'></label><input type='submit' value='change'></form> <br/> 

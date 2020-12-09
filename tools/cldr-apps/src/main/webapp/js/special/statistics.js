@@ -20,7 +20,7 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 		for(var k =0;k<this.sectionArray.length;k++) {
 			var aSection = this.sectionArray[k];
 			if(!aSection.url && aSection.url !== false) {
-				aSection.url = contextPath + "/SurveyAjax?&what=stats_"+aSection.name;
+				aSection.url = cldrStatus.getContextPath() + "/SurveyAjax?&what=stats_"+aSection.name;
 			}
 			this.sections[aSection.name]=aSection;
 			if(aSection.isDefault) {
@@ -35,7 +35,7 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 		{
 			isDefault: true,
 			name: "overview",
-			url: contextPath + "/SurveyAjax?&what=stats_byloc",
+			url: cldrStatus.getContextPath() + "/SurveyAjax?&what=stats_byloc",
 			show: function(json, theDiv, params) {
 				theDiv.appendChild(createChunk("For CLDR version " + surveyVersion, "h2", "helpContent" ));
 				theDiv.appendChild(createChunk("Total submitters: "  + 

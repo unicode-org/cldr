@@ -8,39 +8,13 @@
 /* Made with CSSEdit and Espresso2 */
 @charset "UTF-8";
 
-
 /* lang specific CSS */
-
-/*
-NOTE: See http://www.w3.org/International/questions/qa-css-lang
-Right now, none by default.
-
-add following to ajax_status.jsp:
->>	 <link href='//fonts.googleapis.com/css?family=UnifrakturCook:bold' rel='stylesheet' type='text/css'>
-
-The the following can work here:
-:lang(de) {
-  font-family: UnifrakturCook;
-}
-
-Color english brown
-:lang(en) {
-	color: brown !important;
-}
-*/
-
 
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {
 font-family:'MON3 Anonta 1';
 src:local('MON3 Anonta 1'),url('//mmwebfonts.comquas.com/fonts/mon3.ttf');
 }
-
-/* 
-Remove these to save load time.
-@import url('http://mmwebfonts.comquas.com/fonts/?font=padauk');
-@import url('http://mmwebfonts.comquas.com/fonts/?font=myanmar3');
-*/
 
 /*
 Use padauk or MM3 if available, otherwise Mon3.

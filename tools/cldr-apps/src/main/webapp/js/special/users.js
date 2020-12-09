@@ -27,10 +27,8 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 
 		// set up the URL to fetch users
 		
-	    var xurl = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_list"; // allow cache
+		var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=user_list"; // allow cache
 
-	    
-	    
 		$.ajax( {
 			context: ourDiv,
 			url: xurl
@@ -96,7 +94,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 					u: u // break closure
 				},	function(event) {
 						var u = event.data.u;
-						var xurl2 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
+						var xurl2 = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
 						console.log(xurl2);
 						$(u.infoSpan).removeClass('ferrbox');
 					    u.infoSpan.text('loading..');
@@ -163,7 +161,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 					}
 					
 					
-					var xurl3 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
+					var xurl3 = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
 					console.log(xurl3);
 					$(u.infoSpan).removeClass('ferrbox');
 				    u.infoSpan.text('TRANSFER FROM ' + locmap.getLocaleName(oldLocale) + " @ " + oldUser.data.email + " TO " + locmap.getLocaleName(newLocale) + " @ " + u.data.email);

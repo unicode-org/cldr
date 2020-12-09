@@ -11,7 +11,7 @@
  *
  * Dependencies on external code:
  * window.surveyCurrentLocale, window.surveySessionId, window.surveyUser, window.locmap,
- * createGravitar, stui.str, listenFor, bootstrap.js, reloadV, contextPath,
+ * createGravitar, stui.str, listenFor, bootstrap.js, reloadV,
  * surveyCurrentSpecial, showInPop2, hideLoader, ...!
  *
  * TODO: possibly move these functions here from survey.js: showForumStuff, havePosts,
@@ -117,7 +117,7 @@ const cldrStForum = (function() {
 			// No longer loading
 			hideLoader(null);
 			params.flipper.flipTo(params.pages.other, ourDiv);
-			params.special.handleIdChanged(surveyCurrentId); // rescroll.
+			params.special.handleIdChanged(cldrStatus.getCurrentId()); // rescroll.
 		};
 		const xhrArgs = {
 			url: url,
@@ -294,7 +294,7 @@ const cldrStForum = (function() {
 
 		const subj = document.getElementById('postSubject').innerHTML;
 
-		const url = contextPath + "/SurveyAjax";
+		const url = cldrStatus.getContextPath() + "/SurveyAjax";
 
 		const errorHandler = function(err) {
 			const responseText = cldrStAjax.errResponseText(err);
@@ -463,8 +463,8 @@ const cldrStForum = (function() {
 					if (post.locale && locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
 						surveyCurrentLocale = locmap.getLanguage(post.locale);
 					}
-					surveyCurrentPage = '';
-					surveyCurrentId = post.id;
+					cldrStatus.setCurrentPage('');
+					cldrStatus.setCurrentId(post.id);
 					replaceHash(false);
 					if (surveyCurrentSpecial != 'forum') {
 						surveyCurrentSpecial = 'forum';
@@ -1207,8 +1207,8 @@ const cldrStForum = (function() {
 	 */
 	function reload() {
 		window.surveyCurrentSpecial = 'forum';
-		window.surveyCurrentId = '';
-		window.surveyCurrentPage = '';
+		cldrStatus.setCurrentId('');
+		cldrStatus.setCurrentPage('');
 		reloadV();
 	}
 

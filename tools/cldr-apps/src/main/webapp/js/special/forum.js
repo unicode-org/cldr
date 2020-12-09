@@ -22,17 +22,18 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 	 * @function parseHash
 	 */
 	Page.prototype.parseHash = function parseHash(hash, pieces) {
-		surveyCurrentPage='';
+		cldrStatus.setCurrentPage('');
 		if(pieces && pieces.length>3){
 			if(!pieces[3] || pieces[3]=='') {
-				surveyCurrentId='';
+				cldrStatus.setCurrentId('');
 			} else {
 				var id = new Number(pieces[3]);
 				if(id == NaN) {
-					surveyCurrentId = '';
+					cldrStatus.setCurrentId('');
 				} else {
-					surveyCurrentId = id.toString();
-					this.handleIdChanged(surveyCurrentId);
+					const idStr = id.toString();
+					cldrStatus.setCurrentId(idStr);
+					this.handleIdChanged(idStr);
 				}
 			}
 		}
@@ -42,9 +43,9 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 		if(strid && strid != '') {
 			var id = new Number(strid);
 			if(id == NaN) {
-				surveyCurrentId = '';
+				cldrStatus.setCurrentId('');
 			} else {
-				surveyCurrentId = id.toString();
+				cldrStatus.setCurrentId(id.toString());
 			}
 			var itemid = "fp"+id;
 			var pdiv = document.getElementById(itemid);

@@ -35,12 +35,12 @@ import com.ibm.icu.util.VersionInfo;
 /**
  * Loading Normalized XMLSource
  */
-public class XMLNormalizingLoader{
+public class XMLNormalizingLoader {
 
     private static final int CACHE_LIMIT = 700;
     private static LoadingCache<XMLSourceCacheKey, XMLSource> cache = CacheBuilder.newBuilder()
         .maximumSize(CACHE_LIMIT)
-        .softValues()   // will garbage-collected in LRU manner in response to memory demand
+        .softValues() // will garbage-collected in LRU manner in response to memory demand
         .build(
             new CacheLoader<XMLSourceCacheKey, XMLSource>() {
                 @Override
@@ -51,6 +51,7 @@ public class XMLNormalizingLoader{
 
     private static final boolean LOG_PROGRESS = false;
     private static final boolean DEBUG = false;
+
     enum SupplementalStatus {
         NEVER_SET, IS_SUMPPLEMENTAL, NOT_SUPPLEMENTAL
     }
@@ -60,6 +61,7 @@ public class XMLNormalizingLoader{
         private final Set<File> dirs;
         private final DraftStatus minimalDraftStatus;
         private final int hashCode;
+
         public XMLSourceCacheKey(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
             this.localeId = localeId;
             // Parameter check: the directory/file supplied must be non-null and readable.
@@ -95,7 +97,7 @@ public class XMLNormalizingLoader{
                 return false;
             }
             XMLSourceCacheKey other = (XMLSourceCacheKey) obj;
-            if(hashCode != other.hashCode) {
+            if (hashCode != other.hashCode) {
                 return false;
             }
             if (!Objects.equals(dirs, other.dirs)) {
@@ -129,7 +131,7 @@ public class XMLNormalizingLoader{
         // so that can cache single file XMLSource as well as combined XMLSource
         List<XMLSource> list = new ArrayList<>();
         List<File> dirList = new ArrayList<>();
-        for (File dir: key.dirs) {
+        for (File dir : key.dirs) {
             dirList.clear();
             dirList.add(dir);
             XMLSourceCacheKey singleKey = new XMLSourceCacheKey(key.localeId, dirList, key.minimalDraftStatus);
@@ -150,8 +152,7 @@ public class XMLNormalizingLoader{
     public static XMLSource loadXMLFile(File f, String localeId, DraftStatus minimalDraftStatus) {
         // use try-with-resources statement
         try (
-            InputStream fis = new FileInputStream(f);
-        ) {
+            InputStream fis = new FileInputStream(f);) {
             String fullFileName = f.getCanonicalPath();
             XMLSource source = new SimpleXMLSource(localeId);
             XMLNormalizingHandler XML_HANDLER = new XMLNormalizingHandler(source, minimalDraftStatus);
@@ -214,7 +215,7 @@ public class XMLNormalizingLoader{
             for (int i = 0; i < attributes.getLength(); ++i) {
                 String attribute = attributes.getQName(i);
                 String value = attributes.getValue(i);
-                result.append( "[@" + attribute + "=\"" + value + "\"]"); // TODO quote the value??
+                result.append("[@" + attribute + "=\"" + value + "\"]"); // TODO quote the value??
             }
             return result.toString();
         }
@@ -271,7 +272,6 @@ public class XMLNormalizingLoader{
             Log.logln(LOG_PROGRESS, "currentFullXPath\t" + currentFullXPathSb.toString());
         }
 
-
         private String orderingAttribute() {
             return "[@_q=\"" + (orderedCounter[level]++) + "\"]";
         }
@@ -280,12 +280,11 @@ public class XMLNormalizingLoader{
             if (attribute.equals("draft")) {
                 if (value.equals("true")) {
                     value = "approved";
-                }
-                else if (value.equals("false")) {
+                } else if (value.equals("false")) {
                     value = "unconfirmed";
                 }
             } else if (attribute.equals("type")) {
-                if (CHANGED_TYPES.contains(element) &&  supplementalStatus!= SupplementalStatus.NOT_SUPPLEMENTAL) { // measurementSystem for example did not
+                if (CHANGED_TYPES.contains(element) && supplementalStatus != SupplementalStatus.NOT_SUPPLEMENTAL) { // measurementSystem for example did not
                     // change from 'type' to 'choice'.
                     attribute = "choice";
                 }
@@ -412,7 +411,7 @@ public class XMLNormalizingLoader{
             for (int i = input.length() - 1; i >= 0; --i) {
                 char ch = input.charAt(i);
                 switch (ch) {
-                case '\'':  // treat single and double quotes in same way
+                case '\'': // treat single and double quotes in same way
                 case '"':
                     if (inQuote == 0) {
                         inQuote = ch;
@@ -460,8 +459,8 @@ public class XMLNormalizingLoader{
                         dtdData.dtdType == DtdType.ldml
                             ? CLDRFile.getAttributeOrdering()
                             : dtdData.getAttributeComparator());
-                    supplementalStatus = source.getXMLNormalizingDtdType() == DtdType.ldml ?
-                        SupplementalStatus.IS_SUMPPLEMENTAL : SupplementalStatus.NOT_SUPPLEMENTAL;
+                    supplementalStatus = source.getXMLNormalizingDtdType() == DtdType.ldml ? SupplementalStatus.IS_SUMPPLEMENTAL
+                        : SupplementalStatus.NOT_SUPPLEMENTAL;
                 }
                 push(qName, attributes);
             } catch (RuntimeException e) {

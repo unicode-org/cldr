@@ -116,8 +116,8 @@ public class PathHeader implements Comparable<PathHeader> {
             // account for digits, and "some" future proofing.
             order = ordering < 0
                 ? source.charAt(pos)
-                    : 0x10000 + ordering;
-                mainOrder = source.substring(0, pos);
+                : 0x10000 + ordering;
+            mainOrder = source.substring(0, pos);
         }
 
         @Override
@@ -141,159 +141,74 @@ public class PathHeader implements Comparable<PathHeader> {
      * Western Asia
      */
     public enum PageId {
-        Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"),
-        Numbering_Systems(SectionId.Core_Data, "Numbering Systems"),
-        LinguisticElements(SectionId.Core_Data, "Linguistic Elements"),
+        Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"), Numbering_Systems(SectionId.Core_Data,
+            "Numbering Systems"), LinguisticElements(SectionId.Core_Data, "Linguistic Elements"),
 
-        Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"),
-        Languages_A_D(SectionId.Locale_Display_Names, "Languages (A-D)"),
-        Languages_E_J(SectionId.Locale_Display_Names, "Languages (E-J)"),
-        Languages_K_N(SectionId.Locale_Display_Names, "Languages (K-N)"),
-        Languages_O_S(SectionId.Locale_Display_Names, "Languages (O-S)"),
-        Languages_T_Z(SectionId.Locale_Display_Names, "Languages (T-Z)"),
-        Scripts(SectionId.Locale_Display_Names),
-        Territories(SectionId.Locale_Display_Names, "Geographic Regions"),
-        T_NAmerica(SectionId.Locale_Display_Names, "Territories (North America)"),
-        T_SAmerica( SectionId.Locale_Display_Names, "Territories (South America)"),
-        T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"),
-        T_Europe( SectionId.Locale_Display_Names, "Territories (Europe)"),
-        T_Asia(SectionId.Locale_Display_Names, "Territories (Asia)"),
-        T_Oceania( SectionId.Locale_Display_Names, "Territories (Oceania)"),
-        Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"),
-        Keys( SectionId.Locale_Display_Names),
+        Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"), Languages_A_D(SectionId.Locale_Display_Names,
+            "Languages (A-D)"), Languages_E_J(SectionId.Locale_Display_Names, "Languages (E-J)"), Languages_K_N(SectionId.Locale_Display_Names,
+                "Languages (K-N)"), Languages_O_S(SectionId.Locale_Display_Names, "Languages (O-S)"), Languages_T_Z(SectionId.Locale_Display_Names,
+                    "Languages (T-Z)"), Scripts(SectionId.Locale_Display_Names), Territories(SectionId.Locale_Display_Names, "Geographic Regions"), T_NAmerica(
+                        SectionId.Locale_Display_Names, "Territories (North America)"), T_SAmerica(SectionId.Locale_Display_Names,
+                            "Territories (South America)"), T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"), T_Europe(
+                                SectionId.Locale_Display_Names, "Territories (Europe)"), T_Asia(SectionId.Locale_Display_Names,
+                                    "Territories (Asia)"), T_Oceania(SectionId.Locale_Display_Names, "Territories (Oceania)"), Locale_Variants(
+                                        SectionId.Locale_Display_Names, "Locale Variants"), Keys(SectionId.Locale_Display_Names),
 
-        Fields(SectionId.DateTime),
-        Gregorian(SectionId.DateTime),
-        Generic( SectionId.DateTime),
-        Buddhist(SectionId.DateTime),
-        Chinese(SectionId.DateTime),
-        Coptic( SectionId.DateTime),
-        Dangi(SectionId.DateTime),
-        Ethiopic(SectionId.DateTime),
-        Ethiopic_Amete_Alem( SectionId.DateTime, "Ethiopic-Amete-Alem"),
-        Hebrew(SectionId.DateTime),
-        Indian( SectionId.DateTime),
-        Islamic(SectionId.DateTime),
-        Japanese(SectionId.DateTime),
-        Persian( SectionId.DateTime),
-        Minguo(SectionId.DateTime),
+        Fields(SectionId.DateTime), Gregorian(SectionId.DateTime), Generic(SectionId.DateTime), Buddhist(SectionId.DateTime), Chinese(
+            SectionId.DateTime), Coptic(SectionId.DateTime), Dangi(SectionId.DateTime), Ethiopic(SectionId.DateTime), Ethiopic_Amete_Alem(SectionId.DateTime,
+                "Ethiopic-Amete-Alem"), Hebrew(SectionId.DateTime), Indian(
+                    SectionId.DateTime), Islamic(SectionId.DateTime), Japanese(SectionId.DateTime), Persian(SectionId.DateTime), Minguo(SectionId.DateTime),
 
-        Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"),
-        NAmerica(SectionId.Timezones, "North America"),
-        SAmerica( SectionId.Timezones, "South America"),
-        Africa(SectionId.Timezones),
-        Europe( SectionId.Timezones),
-        Russia(SectionId.Timezones),
-        WAsia(SectionId.Timezones, "Western Asia"),
-        CAsia(SectionId.Timezones, "Central Asia"),
-        EAsia( SectionId.Timezones, "Eastern Asia"),
-        SAsia(SectionId.Timezones, "Southern Asia"),
-        SEAsia( SectionId.Timezones, "Southeast Asia"),
-        Australasia(SectionId.Timezones),
-        Antarctica( SectionId.Timezones),
-        Oceania(SectionId.Timezones),
-        UnknownT( SectionId.Timezones, "Unknown Region"),
-        Overrides(SectionId.Timezones),
+        Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"), NAmerica(SectionId.Timezones, "North America"), SAmerica(
+            SectionId.Timezones, "South America"), Africa(SectionId.Timezones), Europe(SectionId.Timezones), Russia(SectionId.Timezones), WAsia(
+                SectionId.Timezones, "Western Asia"), CAsia(SectionId.Timezones, "Central Asia"), EAsia(SectionId.Timezones, "Eastern Asia"), SAsia(
+                    SectionId.Timezones, "Southern Asia"), SEAsia(SectionId.Timezones, "Southeast Asia"), Australasia(SectionId.Timezones), Antarctica(
+                        SectionId.Timezones), Oceania(SectionId.Timezones), UnknownT(SectionId.Timezones, "Unknown Region"), Overrides(SectionId.Timezones),
 
-        Symbols( SectionId.Numbers),
-        Number_Formatting_Patterns( SectionId.Numbers, "Number Formatting Patterns"),
-        Compact_Decimal_Formatting( SectionId.Numbers, "Compact Decimal Formatting"),
-        Compact_Decimal_Formatting_Other( SectionId.Numbers, "Compact Decimal Formatting (Other Numbering Systems)"),
+        Symbols(SectionId.Numbers), Number_Formatting_Patterns(SectionId.Numbers, "Number Formatting Patterns"), Compact_Decimal_Formatting(SectionId.Numbers,
+            "Compact Decimal Formatting"), Compact_Decimal_Formatting_Other(SectionId.Numbers, "Compact Decimal Formatting (Other Numbering Systems)"),
 
-        Measurement_Systems( SectionId.Units, "Measurement Systems"),
-        Duration( SectionId.Units),
-        Graphics( SectionId.Units),
-        Length( SectionId.Units),
-        Area( SectionId.Units),
-        Volume( SectionId.Units),
-        SpeedAcceleration( SectionId.Units, "Speed and Acceleration"),
-        MassWeight( SectionId.Units, "Mass and Weight"),
-        EnergyPower( SectionId.Units, "Energy and Power"),
-        ElectricalFrequency( SectionId.Units, "Electrical and Frequency"),
-        Weather( SectionId.Units),
-        Digital( SectionId.Units),
-        Coordinates( SectionId.Units),
-        OtherUnits( SectionId.Units, "Other Units"),
-        CompoundUnits( SectionId.Units, "Compound Units"),
+        Measurement_Systems(SectionId.Units, "Measurement Systems"), Duration(SectionId.Units), Graphics(SectionId.Units), Length(SectionId.Units), Area(
+            SectionId.Units), Volume(SectionId.Units), SpeedAcceleration(SectionId.Units, "Speed and Acceleration"), MassWeight(SectionId.Units,
+                "Mass and Weight"), EnergyPower(SectionId.Units, "Energy and Power"), ElectricalFrequency(SectionId.Units,
+                    "Electrical and Frequency"), Weather(SectionId.Units), Digital(SectionId.Units), Coordinates(
+                        SectionId.Units), OtherUnits(SectionId.Units, "Other Units"), CompoundUnits(SectionId.Units, "Compound Units"),
 
+        Displaying_Lists(SectionId.Misc, "Displaying Lists"), MinimalPairs(SectionId.Misc, "Minimal Pairs"), Transforms(SectionId.Misc),
 
-        Displaying_Lists( SectionId.Misc, "Displaying Lists"),
-        MinimalPairs(SectionId.Misc, "Minimal Pairs"),
-        Transforms( SectionId.Misc),
+        Identity(SectionId.Special), Version(SectionId.Special), Suppress(SectionId.Special), Deprecated(SectionId.Special), Unknown(SectionId.Special),
 
-        Identity( SectionId.Special),
-        Version( SectionId.Special),
-        Suppress( SectionId.Special),
-        Deprecated( SectionId.Special),
-        Unknown( SectionId.Special),
-
-        C_NAmerica( SectionId.Currencies, "North America (C)"),
+        C_NAmerica(SectionId.Currencies, "North America (C)"),
         //need to add (C) to differentiate from Timezone territories
-        C_SAmerica(SectionId.Currencies, "South America (C)"),
-        C_NWEurope(SectionId.Currencies, "Northern/Western Europe"),
-        C_SEEurope(SectionId.Currencies, "Southern/Eastern Europe"),
-        C_NAfrica(SectionId.Currencies, "Northern Africa"),
-        C_WAfrica(SectionId.Currencies, "Western Africa"),
-        C_MAfrica( SectionId.Currencies, "Middle Africa"),
-        C_EAfrica(SectionId.Currencies, "Eastern Africa"),
-        C_SAfrica(SectionId.Currencies, "Southern Africa"),
-        C_WAsia(SectionId.Currencies, "Western Asia (C)"),
-        C_CAsia(SectionId.Currencies, "Central Asia (C)"),
-        C_EAsia( SectionId.Currencies, "Eastern Asia (C)"),
-        C_SAsia(SectionId.Currencies, "Southern Asia (C)"),
-        C_SEAsia(SectionId.Currencies, "Southeast Asia (C)"),
-        C_Oceania(SectionId.Currencies, "Oceania (C)"),
-        C_Unknown(SectionId.Currencies, "Unknown Region (C)"),
+        C_SAmerica(SectionId.Currencies, "South America (C)"), C_NWEurope(SectionId.Currencies, "Northern/Western Europe"), C_SEEurope(SectionId.Currencies,
+            "Southern/Eastern Europe"), C_NAfrica(SectionId.Currencies, "Northern Africa"), C_WAfrica(SectionId.Currencies, "Western Africa"), C_MAfrica(
+                SectionId.Currencies, "Middle Africa"), C_EAfrica(SectionId.Currencies, "Eastern Africa"), C_SAfrica(SectionId.Currencies,
+                    "Southern Africa"), C_WAsia(SectionId.Currencies, "Western Asia (C)"), C_CAsia(SectionId.Currencies, "Central Asia (C)"), C_EAsia(
+                        SectionId.Currencies, "Eastern Asia (C)"), C_SAsia(SectionId.Currencies, "Southern Asia (C)"), C_SEAsia(SectionId.Currencies,
+                            "Southeast Asia (C)"), C_Oceania(SectionId.Currencies, "Oceania (C)"), C_Unknown(SectionId.Currencies, "Unknown Region (C)"),
 
         // BCP47
-        u_Extension(SectionId.BCP47),
-        t_Extension(SectionId.BCP47),
+        u_Extension(SectionId.BCP47), t_Extension(SectionId.BCP47),
 
         // Supplemental
-        Alias(SectionId.Supplemental),
-        IdValidity(SectionId.Supplemental),
-        Locale(SectionId.Supplemental),
-        RegionMapping(SectionId.Supplemental),
-        WZoneMapping( SectionId.Supplemental),
-        Transform(SectionId.Supplemental),
-        Units(SectionId.Supplemental),
-        Likely(SectionId.Supplemental),
-        LanguageMatch( SectionId.Supplemental),
-        TerritoryInfo(SectionId.Supplemental),
-        LanguageInfo(SectionId.Supplemental),
-        LanguageGroup( SectionId.Supplemental),
-        Fallback(SectionId.Supplemental),
-        Gender(SectionId.Supplemental),
-        Grammar(SectionId.Supplemental),
-        Metazone(SectionId.Supplemental),
-        NumberSystem( SectionId.Supplemental),
-        Plural(SectionId.Supplemental),
-        PluralRange(SectionId.Supplemental),
-        Containment( SectionId.Supplemental),
-        Currency(SectionId.Supplemental),
-        Calendar(SectionId.Supplemental),
-        WeekData( SectionId.Supplemental),
-        Measurement(SectionId.Supplemental),
-        Language(SectionId.Supplemental),
-        RBNF( SectionId.Supplemental),
-        Segmentation(SectionId.Supplemental),
-        DayPeriod(SectionId.Supplemental),
+        Alias(SectionId.Supplemental), IdValidity(SectionId.Supplemental), Locale(SectionId.Supplemental), RegionMapping(SectionId.Supplemental), WZoneMapping(
+            SectionId.Supplemental), Transform(SectionId.Supplemental), Units(SectionId.Supplemental), Likely(SectionId.Supplemental), LanguageMatch(
+                SectionId.Supplemental), TerritoryInfo(SectionId.Supplemental), LanguageInfo(SectionId.Supplemental), LanguageGroup(
+                    SectionId.Supplemental), Fallback(SectionId.Supplemental), Gender(SectionId.Supplemental), Grammar(SectionId.Supplemental), Metazone(
+                        SectionId.Supplemental), NumberSystem(SectionId.Supplemental), Plural(SectionId.Supplemental), PluralRange(
+                            SectionId.Supplemental), Containment(SectionId.Supplemental), Currency(
+                                SectionId.Supplemental), Calendar(SectionId.Supplemental), WeekData(SectionId.Supplemental), Measurement(
+                                    SectionId.Supplemental), Language(SectionId.Supplemental), RBNF(
+                                        SectionId.Supplemental), Segmentation(SectionId.Supplemental), DayPeriod(SectionId.Supplemental),
 
         Category(SectionId.Characters),
 
         // [Smileys, People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags]
-        Smileys(SectionId.Characters, "Smileys & Emotion"),
-        People(SectionId.Characters, "People & Body"),
-        Animals_Nature(SectionId.Characters, "Animals & Nature"),
-        Food_Drink(SectionId.Characters, "Food & Drink"),
-        Travel_Places(SectionId.Characters, "Travel & Places"),
-        Activities(SectionId.Characters),
-        Objects( SectionId.Characters),
-        Symbols2(SectionId.Characters),
-        Flags(SectionId.Characters),
-        Component(SectionId.Characters),
-        Typography(SectionId.Characters),
-        ;
+        Smileys(SectionId.Characters, "Smileys & Emotion"), People(SectionId.Characters, "People & Body"), Animals_Nature(SectionId.Characters,
+            "Animals & Nature"), Food_Drink(SectionId.Characters, "Food & Drink"), Travel_Places(SectionId.Characters,
+                "Travel & Places"), Activities(SectionId.Characters), Objects(SectionId.Characters), Symbols2(
+                    SectionId.Characters), Flags(SectionId.Characters), Component(SectionId.Characters), Typography(SectionId.Characters),
+                    ;
 
         private final SectionId sectionId;
 
@@ -502,7 +417,7 @@ public class PathHeader implements Comparable<PathHeader> {
             + "\t" + pageId
             + "\t" + header // + "\t" + headerOrder
             + "\t" + code // + "\t" + codeOrder
-            ;
+        ;
     }
 
     @Override
@@ -732,7 +647,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         SectionId.forString(fix(data.section, 0)),
                         PageId.forString(fix(data.page, 0)),
                         fix(data.header, data.headerOrder),
-                        (int)order, // only valid after call to fix. TODO, make
+                        (int) order, // only valid after call to fix. TODO, make
                         // this cleaner
                         fix(data.code + (alt == null ? "" : ("-" + alt)), data.codeOrder),
                         order, // only valid after call to fix
@@ -806,6 +721,7 @@ public class PathHeader implements Comparable<PathHeader> {
             public int hashCode() {
                 return sectionId.hashCode() ^ pageId.hashCode();
             }
+
             @Override
             public String toString() {
                 return sectionId + " > " + pageId;
@@ -1023,8 +939,9 @@ public class PathHeader implements Comparable<PathHeader> {
         @Deprecated
         public class CounterData extends Row.R4<String, RawData, String, String> {
             public CounterData(String a, RawData b, String c) {
-                super(a, b, c == null ? "no sample" : c, c == null ? "no sample" : fromPath(c)
-                    .toString());
+                super(a, b, c == null ? "no sample" : c, c == null ? "no sample"
+                    : fromPath(c)
+                        .toString());
             }
         }
 
@@ -1052,7 +969,7 @@ public class PathHeader implements Comparable<PathHeader> {
             "Apr", "May", "Jun",
             "Jul", "Aug", "Sep",
             "Oct", "Nov", "Dec",
-        "Und" };
+            "Und" };
         static List<String> days = Arrays.asList("sun", "mon",
             "tue", "wed", "thu",
             "fri", "sat");
@@ -1287,7 +1204,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     for (int i = 0; i < languageRangeStartPoints.length; i++) {
                         if (firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i]) {
                             return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i])
-                            + ")";
+                                + ")";
                         }
                     }
                     return "Languages";
@@ -1329,14 +1246,14 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("categoryFromTerritory",
                 catFromTerritory = new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    String territory = getSubdivisionsTerritory(source, null);
-                    String container = Containment.getContainer(territory);
-                    order = Containment.getOrder(territory);
-                    return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
-                }
-            });
+                    @Override
+                    public String transform(String source) {
+                        String territory = getSubdivisionsTerritory(source, null);
+                        String container = Containment.getContainer(territory);
+                        order = Containment.getOrder(territory);
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
+                    }
+                });
             functionMap.put("territorySection", new Transform<String, String>() {
                 final Set<String> specialRegions = new HashSet<>(Arrays.asList("EZ", "EU", "QO", "UN", "ZZ"));
 
@@ -1368,15 +1285,15 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("categoryFromTimezone",
                 catFromTimezone = new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    String territory = Containment.getRegionFromZone(source0);
-                    if (territory == null) {
-                        territory = "ZZ";
+                    @Override
+                    public String transform(String source0) {
+                        String territory = Containment.getRegionFromZone(source0);
+                        if (territory == null) {
+                            territory = "ZZ";
+                        }
+                        return catFromTerritory.transform(territory);
                     }
-                    return catFromTerritory.transform(territory);
-                }
-            });
+                });
             functionMap.put("timeZonePage", new Transform<String, String>() {
                 Set<String> singlePageTerritories = new HashSet<>(Arrays.asList("AQ", "RU", "ZZ"));
 
@@ -1789,7 +1706,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 public String transform(String source) {
                     String major = Emoji.getMajorCategory(source);
                     // check that result is reasonable by running through PageId.
-                    switch(major) {
+                    switch (major) {
                     default:
                         PageId pageId2 = PageId.forString(major);
                         if (pageId2.getSectionId() != SectionId.Characters) {
@@ -1894,7 +1811,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return input;
                 }
                 int functionEnd = input.indexOf('(', functionStart);
-                int argEnd = input.indexOf(')', functionEnd+2); // we must insert at least one character
+                int argEnd = input.indexOf(')', functionEnd + 2); // we must insert at least one character
                 Transform<String, String> func = functionMap.get(input.substring(functionStart + 1,
                     functionEnd));
                 final String arg = input.substring(functionEnd + 1, argEnd);
@@ -2035,6 +1952,7 @@ public class PathHeader implements Comparable<PathHeader> {
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         return getLinkedView(baseUrl, file.getLocaleID(), path);
     }
+
     /**
      * @deprecated use CLDRConfig.urls()
      * @param baseUrl

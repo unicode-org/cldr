@@ -282,8 +282,9 @@ public class TimezoneFormatter extends UFormat {
             // America/Los_Angeles → "-0800"
             // Note: The digits in this case are always from the western digits, 0..9.
             if (length == Length.SHORT) {
-                return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1)) : rfc822Plus.format(new Date(
-                    gmtOffset1));
+                return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1))
+                    : rfc822Plus.format(new Date(
+                        gmtOffset1));
             }
 
             // 3. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}") with the hourFormat

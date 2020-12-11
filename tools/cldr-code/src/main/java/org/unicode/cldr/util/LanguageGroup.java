@@ -13,11 +13,9 @@ import com.google.common.base.Joiner;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {
-    root("und"), germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"),
-    indic("inc"), iranian("ira"), other_indo("ine_001"), caucasian("cau"), dravidian("dra"),
-    uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"),
-    turkic("trk"), afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"),
-    east_sudanic("sdv"), songhay("son"), american("und_019"), art("art"), other("und_001");
+    root("und"), germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), iranian("ira"), other_indo("ine_001"), caucasian(
+        "cau"), dravidian("dra"), uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"), afroasiatic(
+            "afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"), songhay("son"), american("und_019"), art("art"), other("und_001");
 
     public final String iso;
 

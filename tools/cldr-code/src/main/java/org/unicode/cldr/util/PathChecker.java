@@ -15,7 +15,7 @@ import com.ibm.icu.impl.Row.R3;
 public class PathChecker {
     // caches for speed
     private static final Map<XPathParts, Boolean> seen = new ConcurrentHashMap<>();
-    private static Map<DtdType, Map<String,Map<String,Map<String,ValueStatus>>>> seenEAV = new ConcurrentHashMap<>();
+    private static Map<DtdType, Map<String, Map<String, Map<String, ValueStatus>>>> seenEAV = new ConcurrentHashMap<>();
 
     /**
      * Returns true if the path is ok. The detailed errors (if any) are set only the first time the path is seen!
@@ -29,7 +29,7 @@ public class PathChecker {
      * Returns true if the path is ok. The detailed errors (if any) are set only the first time the path is seen!
      */
 
-    public boolean checkPath(String path, Map<Row.R3<String,String,String>, ValueStatus> errors) {
+    public boolean checkPath(String path, Map<Row.R3<String, String, String>, ValueStatus> errors) {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         return checkPath(parts, errors);
     }
@@ -65,14 +65,16 @@ public class PathChecker {
         // we don't need to synchronize because a miss isn't serious
         Map<String, Map<String, Map<String, ValueStatus>>> elementToAttrToAttrValueToStatus = seenEAV.get(dtdData.dtdType);
         if (elementToAttrToAttrValueToStatus == null) {
-            Map<String, Map<String, Map<String, ValueStatus>>> subAlready = seenEAV.putIfAbsent(dtdData.dtdType, elementToAttrToAttrValueToStatus = new ConcurrentHashMap<>());
+            Map<String, Map<String, Map<String, ValueStatus>>> subAlready = seenEAV.putIfAbsent(dtdData.dtdType,
+                elementToAttrToAttrValueToStatus = new ConcurrentHashMap<>());
             if (subAlready != null) {
                 elementToAttrToAttrValueToStatus = subAlready; // discards empty map
             }
         }
         Map<String, Map<String, ValueStatus>> attrToAttrValueToStatus = elementToAttrToAttrValueToStatus.get(element);
         if (attrToAttrValueToStatus == null) {
-            Map<String, Map<String, ValueStatus>> subAlready = elementToAttrToAttrValueToStatus.putIfAbsent(element, attrToAttrValueToStatus = new ConcurrentHashMap<>());
+            Map<String, Map<String, ValueStatus>> subAlready = elementToAttrToAttrValueToStatus.putIfAbsent(element,
+                attrToAttrValueToStatus = new ConcurrentHashMap<>());
             if (subAlready != null) {
                 attrToAttrValueToStatus = subAlready; // discards empty map
             }

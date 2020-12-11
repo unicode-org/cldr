@@ -108,7 +108,7 @@ abstract public class Pick {
     static public Pick.Alternation or(int[] itemWeights, Object[] items) {
         return new Alternation().or2(itemWeights, items);
     }
-
+    
     static public Pick maybe(int percent, Object item) {
         return new Repeat(0, 1, new int[]{100-percent, percent}, item);
         //return Pick.or(1.0-percent, NOTHING).or2(percent, item);
@@ -116,7 +116,7 @@ abstract public class Pick {
     static public Pick repeat(int minCount, int maxCount, int itemWeights, Object item) {
         return new Repeat(minCount, maxCount, itemWeights, item);
     }
-
+    
     static public Pick codePoint(String source) {
         return new CodePoint(new UnicodeSet(source));
     }
@@ -559,8 +559,8 @@ abstract public class Pick {
 
     /*
     public static final Pick NOTHING = new Nothing();
-
-
+    
+    
     private static class Nothing extends FinalPick {
         protected void addTo(Target target) {}
         protected boolean match(String input, Position p) {
@@ -806,7 +806,7 @@ abstract public class Pick {
         if (DEBUG) System.out.println("\"" + toAdd + "\"");
         target.append(toAdd);
     }
-
+    
     private static void appendQuoted(StringBuffer target, String toAdd, StringBuffer quoteBuffer) {
         if (DEBUG) System.out.println("\"" + toAdd + "\"");
         Utility.appendToRule(target, toAdd, false, false, quoteBuffer);
@@ -817,7 +817,7 @@ abstract public class Pick {
         public abstract void handleString(String source, int start, int limit);
         public abstract void handleSequence(String source, int start, int limit);
         public abstract void handleAlternation(String source, int start, int limit);
-
+    
     }
     */
     /*
@@ -826,7 +826,7 @@ abstract public class Pick {
     public interface Spread {
         public double spread(double value);
     }
-
+    
     // give the weight for the high end.
     // values are linearly scaled according to the weight.
     static public class SimpleSpread implements Spread {
@@ -854,7 +854,7 @@ abstract public class Pick {
     static public int pick(Spread spread, Random random, int start, int end) {
         return start + (int)(spread.spread(random.nextDouble()) * (end + 1 - start));
     }
-
+    
     */
 
 }

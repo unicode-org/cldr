@@ -35,14 +35,7 @@ public class CoreCoverageInfo {
     public enum CoreItems {
         // Drop the exemplars, since
         // main_exemplar, auxiliary_exemplar, // numbers_exemplar, punctuation_exemplar, index_exemplar(Level.MODERN)
-        orientation,
-        plurals,
-        default_content, likely_subtags,
-        country_data,
-        casing,
-        collation,
-        romanization(Level.MODERATE),
-        ordinals(Level.MODERN),
+        orientation, plurals, default_content, likely_subtags, country_data, casing, collation, romanization(Level.MODERATE), ordinals(Level.MODERN),
         ;
 
         public static Set<CoreItems> ONLY_RECOMMENDED = ImmutableSet.copyOf(
@@ -59,9 +52,11 @@ public class CoreCoverageInfo {
         CoreItems(Level desiredLevel) {
             this.desiredLevel = desiredLevel;
         }
+
         CoreItems() {
             this(Level.CORE);
         }
+
         @Override
         public String toString() {
             // TODO Auto-generated method stub
@@ -69,7 +64,7 @@ public class CoreCoverageInfo {
         }
     }
 
-    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Multimap<CoreItems,String> detailedErrors) {
+    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Multimap<CoreItems, String> detailedErrors) {
         if (file.isResolved()) {
             file = file.getUnresolved();
         }
@@ -195,8 +190,8 @@ public class CoreCoverageInfo {
                 detailedErrors.put(CoreItems.romanization, "//supplementalData/transforms/transform"
                     + "[@source=\"und-" + script + "\"]"
                     + "[@target=\"und-Latn\"]"
-                    //+ "[@direction=\"forward\"]"
-                    );
+                //+ "[@direction=\"forward\"]"
+                );
             }
         }
 

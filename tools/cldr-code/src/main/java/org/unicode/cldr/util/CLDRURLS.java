@@ -12,7 +12,7 @@ public abstract class CLDRURLS {
      * Base URL for the CLDR repository
      */
     public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr";
-    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE+"/commit/";
+    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "/commit/";
     /**
      * Hostname for the Survey Tool
      */
@@ -261,10 +261,10 @@ public abstract class CLDRURLS {
      * @return
      */
     public static String gitHashToLink(String hash) {
-        if(!isKnownHash(hash)) return "<span class=\"githashLink\">"+hash+"</span>"; // Not linkifiable
+        if (!isKnownHash(hash)) return "<span class=\"githashLink\">" + hash + "</span>"; // Not linkifiable
         return "<a class=\"githashLink\" href=\"" +
-                CldrUtility.getProperty("CLDR_COMMIT_BASE", DEFAULT_COMMIT_BASE)
-                + hash + "\">" + hash.substring(0, 8) + "</a>";
+            CldrUtility.getProperty("CLDR_COMMIT_BASE", DEFAULT_COMMIT_BASE)
+            + hash + "\">" + hash.substring(0, 8) + "</a>";
     }
 
     /**
@@ -283,7 +283,7 @@ public abstract class CLDRURLS {
      * @return
      */
     public static final String toHTML(String url, String extra) {
-        return "<a href=\""+ url + " "+extra+" \">" + url + "</a>";
+        return "<a href=\"" + url + " " + extra + " \">" + url + "</a>";
     }
 
     /**

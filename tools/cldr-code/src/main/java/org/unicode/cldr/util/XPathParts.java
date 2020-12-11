@@ -527,7 +527,6 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         }
     }
 
-
     /**
      * Varargs version of addElement.
      *  Usage:  xpp.addElements("ldml","localeDisplayNames")
@@ -734,7 +733,6 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         return dtdData.getDtdComparator().xpathComparator(this, that);
     }
 
-
     /**
      * boilerplate
      */
@@ -769,7 +767,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         }
 
         public Element(String element, Map<String, String> attributes) {
-            this.element = element.intern();  // allow fast comparison
+            this.element = element.intern(); // allow fast comparison
             if (attributes == null) {
                 this.attributes = null;
             } else {
@@ -889,8 +887,8 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
                 }
                 try {
                     result.append(prefix).append(attribute).append("=\"")
-                    .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
-                    .append(postfix);
+                        .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
+                        .append(postfix);
                 } catch (RuntimeException e) {
                     throw e; // for debugging
                 }
@@ -938,8 +936,8 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
                 // == check is ok since we intern elements
                 return element == that.element
                     && (attributes == null ? that.attributes == null
-                    : that.attributes == null ? attributes == null
-                    : attributes.equals(that.attributes));
+                        : that.attributes == null ? attributes == null
+                            : attributes.equals(that.attributes));
             } catch (ClassCastException e) {
                 return false;
             }

@@ -28,13 +28,13 @@ public class XMLUploader {
         out.write("<ul>\n");
         out.write("<li class='header'>Bulk Upload:</li>\n");
         String stages[] = { "upload", "Upload XML file",
-            "check",  "Verify valid XML",
-            "test",   "Test for CLDR errors",
-            "submit",   "Data submitted into SurveyTool"
+            "check", "Verify valid XML",
+            "test", "Test for CLDR errors",
+            "submit", "Data submitted into SurveyTool"
         };
 
         for (int i = 0; i < stages.length; i += 2) {
-            final int stageNumber = (i/2) + 1;
+            final int stageNumber = (i / 2) + 1;
             final String stageName = stages[i + 0];
             final String stageDescription = stages[i + 1];
             final boolean active = bulkStage.equals(stageName);

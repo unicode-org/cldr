@@ -449,18 +449,18 @@ public class CldrUtility {
     public static <T> T protectCollection(T source) {
         // TODO - exclude UnmodifiableMap, Set, ...
         if (source instanceof Map) {
-            Map<Object,Object> sourceMap = (Map) source;
-            ImmutableMap.Builder<Object,Object> builder = ImmutableMap.builder();
-            for (Entry<Object,Object> entry : sourceMap.entrySet()) {
+            Map<Object, Object> sourceMap = (Map) source;
+            ImmutableMap.Builder<Object, Object> builder = ImmutableMap.builder();
+            for (Entry<Object, Object> entry : sourceMap.entrySet()) {
                 final Object key = entry.getKey();
                 final Object value = entry.getValue();
                 builder.put(protectCollection(key), protectCollection(value));
             }
             return (T) builder.build();
         } else if (source instanceof Multimap) {
-            Multimap<Object,Object> sourceMap = (Multimap) source;
-            ImmutableMultimap.Builder<Object,Object> builder = ImmutableMultimap.builder();
-            for (Entry<Object,Object> entry : sourceMap.entries()) {
+            Multimap<Object, Object> sourceMap = (Multimap) source;
+            ImmutableMultimap.Builder<Object, Object> builder = ImmutableMultimap.builder();
+            for (Entry<Object, Object> entry : sourceMap.entries()) {
                 builder.put(protectCollection(entry.getKey()), protectCollection(entry.getValue()));
             }
             return (T) builder.build();
@@ -1389,7 +1389,8 @@ public class CldrUtility {
         // now do the rest
         return linePrefix + "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
             + linePrefix + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
-            + linePrefix + "Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries." + CldrUtility.LINE_SEPARATOR
+            + linePrefix + "Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries."
+            + CldrUtility.LINE_SEPARATOR
             + linePrefix + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
     }
 
@@ -1572,7 +1573,7 @@ public class CldrUtility {
      * @return the hash, like "9786e05e95a2e4f02687fa3b84126782f9f698a3"
      */
     public final static String getGitHashForDir(String dir) {
-        final String GIT_HASH_COMMANDS[] = { "git",  "rev-parse", "HEAD" };
+        final String GIT_HASH_COMMANDS[] = { "git", "rev-parse", "HEAD" };
         try {
             if (dir == null) {
                 return CLDRURLS.UNKNOWN_REVISION; // no dir
@@ -1589,7 +1590,7 @@ public class CldrUtility {
                 }
                 return str;
             }
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             // We do not expect this to be called frequently.
             System.err.println("While trying to get 'git' hash for " + dir + " : " + t.getMessage());
             t.printStackTrace();

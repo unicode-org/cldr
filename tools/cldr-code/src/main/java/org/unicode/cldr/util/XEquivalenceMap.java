@@ -18,8 +18,8 @@ import com.ibm.icu.impl.Row.R2;
 
 /**
  * Everything that maps to the same value is part of the same equivalence class
- * @author davis
  *
+ * @author davis
  */
 public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
 
@@ -65,8 +65,8 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
                 }
                 return this;
             }
-            throw new IllegalArgumentException("Same source mapping to different targets: "
-                + source + " => " + otherTarget + " & " + target);
+            throw new IllegalArgumentException(
+                    "Same source mapping to different targets: " + source + " => " + otherTarget + " & " + target);
         }
 
         Set<K> s = target_sourceSet.get(target);

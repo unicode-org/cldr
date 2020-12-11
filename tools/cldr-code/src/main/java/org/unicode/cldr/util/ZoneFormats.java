@@ -14,7 +14,9 @@ public class ZoneFormats {
     CLDRFile cldrFile;
 
     public enum Length {
-        LONG, SHORT;
+        LONG,
+        SHORT;
+
         @Override
         public String toString() {
             return name().toLowerCase(Locale.ENGLISH);
@@ -22,7 +24,10 @@ public class ZoneFormats {
     }
 
     public enum Type {
-        generic, standard, daylight, genericOrStandard
+        generic,
+        standard,
+        daylight,
+        genericOrStandard
     }
 
     public ZoneFormats set(CLDRFile cldrFile) {
@@ -37,15 +42,16 @@ public class ZoneFormats {
 
     public String formatGMT(TimeZone currentZone) {
         int tzOffset = currentZone.getRawOffset();
-        SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian",
-            hourFormatPlusMinus[tzOffset >= 0 ? 0 : 1]);
+        SimpleDateFormat dateFormat =
+                icuServiceBuilder.getDateFormat("gregorian", hourFormatPlusMinus[tzOffset >= 0 ? 0 : 1]);
         String hoursMinutes = dateFormat.format(tzOffset >= 0 ? tzOffset : -tzOffset);
         return MessageFormat.format(gmtFormat, hoursMinutes);
     }
 
     public String getExemplarCity(String timezoneString) {
-        String exemplarCity = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"" + timezoneString
-            + "\"]/exemplarCity");
+        String exemplarCity =
+                cldrFile.getWinningValue(
+                        "//ldml/dates/timeZoneNames/zone[@type=\"" + timezoneString + "\"]/exemplarCity");
         if (exemplarCity == null) {
             exemplarCity = timezoneString.substring(timezoneString.lastIndexOf('/') + 1).replace('_', ' ');
         }
@@ -54,10 +60,12 @@ public class ZoneFormats {
 
     public String getMetazoneName(String metazone, ZoneFormats.Length length, ZoneFormats.Type typeIn) {
         ZoneFormats.Type type = typeIn == Type.genericOrStandard ? Type.generic : typeIn;
-        String name = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/metazone[@type=\""
-            + metazone + "\"]/" + length + "/" + type);
+        String name =
+                cldrFile.getWinningValue(
+                        "//ldml/dates/timeZoneNames/metazone[@type=\"" + metazone + "\"]/" + length + "/" + type);
 
-        return name != null ? name : typeIn != Type.genericOrStandard ? "n/a" : getMetazoneName(metazone, length,
-            Type.standard);
+        return name != null
+                ? name
+                : typeIn != Type.genericOrStandard ? "n/a" : getMetazoneName(metazone, length, Type.standard);
     }
 }

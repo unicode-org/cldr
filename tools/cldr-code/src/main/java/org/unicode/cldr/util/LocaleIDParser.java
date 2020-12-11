@@ -20,16 +20,12 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;
 
 public class LocaleIDParser {
-    /**
-     * @return Returns the language.
-     */
+    /** @return Returns the language. */
     public String getLanguage() {
         return language;
     }
 
-    /**
-     * @return Returns the language.
-     */
+    /** @return Returns the language. */
     public String getLanguageScript() {
         if (script.length() != 0) return language + "_" + script;
         return language;
@@ -42,29 +38,23 @@ public class LocaleIDParser {
     public static Set<String> getLanguageScript(Collection<String> in, Set<String> output) {
         if (output == null) output = new TreeSet<>();
         LocaleIDParser lparser = new LocaleIDParser();
-        for (Iterator<String> it = in.iterator(); it.hasNext();) {
+        for (Iterator<String> it = in.iterator(); it.hasNext(); ) {
             output.add(lparser.set(it.next()).getLanguageScript());
         }
         return output;
     }
 
-    /**
-     * @return Returns the region.
-     */
+    /** @return Returns the region. */
     public String getRegion() {
         return region;
     }
 
-    /**
-     * @return Returns the script.
-     */
+    /** @return Returns the script. */
     public String getScript() {
         return script;
     }
 
-    /**
-     * @return Returns the variants.
-     */
+    /** @return Returns the variants. */
     public String[] getVariants() {
         return variants.clone();
     }
@@ -93,7 +83,7 @@ public class LocaleIDParser {
             if (i >= pieces.length) return this;
         }
         if (pieces[i].length() == 2 && letters.containsAll(pieces[i])
-            || pieces[i].length() == 3 && digits.containsAll(pieces[i])) {
+                || pieces[i].length() == 3 && digits.containsAll(pieces[i])) {
             region = pieces[i++];
             if (i >= pieces.length) return this;
         }
@@ -107,16 +97,15 @@ public class LocaleIDParser {
     }
 
     /**
-     * Get the parent of a locale. If the input is "root", then return null.
-     * For example, if localeName is "fr_CA", return "fr".
+     * Get the parent of a locale. If the input is "root", then return null. For example, if
+     * localeName is "fr_CA", return "fr".
      *
-     * Only works on canonical locale names (right casing, etc.)!
+     * <p>Only works on canonical locale names (right casing, etc.)!
      *
-     * Formerly this function returned an empty string when localeName was "_VETTING".
-     * Now it returns "root" where it would have returned an empty string.
-     * TODO: explain "__VETTING", somehow related to SUMMARY_LOCALE. Note that
-     * CLDRLocale.process() changes "__" to "_" before this function is called.
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
+     * <p>Formerly this function returned an empty string when localeName was "_VETTING". Now it
+     * returns "root" where it would have returned an empty string. TODO: explain "__VETTING",
+     * somehow related to SUMMARY_LOCALE. Note that CLDRLocale.process() changes "__" to "_" before
+     * this function is called. Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
      */
     public static String getParent(String localeName) {
         int pos = localeName.lastIndexOf('_');
@@ -148,7 +137,9 @@ public class LocaleIDParser {
     }
 
     /**
-     * If the locale consists of baseLanguage+script, return the position of the separator, otherwise -1.
+     * If the locale consists of baseLanguage+script, return the position of the separator,
+     * otherwise -1.
+     *
      * @param s
      */
     public static int getScriptPosition(String locale) {
@@ -163,10 +154,10 @@ public class LocaleIDParser {
     }
 
     /**
-     * Utility to get the simple parent of a locale. If the input is "root", then the output is null.
-     * This method is similar to the getParent() method above, except that it does NOT pay any attention
-     * to the explicit parent locales information. Thus, getParent("zh_Hant") will return "root",
-     * but getSimpleParent("zh_Hant") would return "zh".
+     * Utility to get the simple parent of a locale. If the input is "root", then the output is
+     * null. This method is similar to the getParent() method above, except that it does NOT pay any
+     * attention to the explicit parent locales information. Thus, getParent("zh_Hant") will return
+     * "root", but getSimpleParent("zh_Hant") would return "zh".
      */
     public static String getSimpleParent(String localeName) {
         int pos = localeName.lastIndexOf('_');
@@ -198,7 +189,11 @@ public class LocaleIDParser {
     }
 
     public enum Level {
-        Language, Script, Region, Variants, Other
+        Language,
+        Script,
+        Region,
+        Variants,
+        Other
     }
 
     /**

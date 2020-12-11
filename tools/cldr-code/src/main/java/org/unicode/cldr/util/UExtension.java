@@ -19,7 +19,8 @@ public class UExtension {
     static Pattern SEP = PatternCache.get("[-_]");
     static Pattern SPACE = PatternCache.get("\\s");
     static Pattern ALPHANUM = PatternCache.get("[0-9A-Za-z]{2,8}");
-    static Pattern CODEPOINTS = PatternCache.get("(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4}(\\s(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4})*");
+    static Pattern CODEPOINTS =
+            PatternCache.get("(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4}(\\s(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4})*");
     static Relation<String, String> validKeyTypes = data.getBcp47Keys();
 
     private boolean validating = false;

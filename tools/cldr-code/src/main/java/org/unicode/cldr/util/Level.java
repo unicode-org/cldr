@@ -6,10 +6,10 @@ import java.util.Set;
 import com.google.common.collect.ImmutableSet;
 
 /**
- * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
+ * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in
+ * the future.
  *
  * @author davis
- *
  */
 public enum Level {
     UNDETERMINED(0, "none", 0),
@@ -21,12 +21,9 @@ public enum Level {
 
     public static final Set<Level> CORE_TO_MODERN = ImmutableSet.of(CORE, BASIC, MODERATE, MODERN);
 
-    @Deprecated
-    public static final Level POSIX = BASIC;
-    @Deprecated
-    public static final Level MINIMAL = BASIC;
-    @Deprecated
-    public static final Level OPTIONAL = COMPREHENSIVE;
+    @Deprecated public static final Level POSIX = BASIC;
+    @Deprecated public static final Level MINIMAL = BASIC;
+    @Deprecated public static final Level OPTIONAL = COMPREHENSIVE;
 
     private final byte level;
     private final String altName;

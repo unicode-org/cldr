@@ -11,7 +11,6 @@ import org.unicode.cldr.util.VoteResolver.VoterInfo;
  * Provides detailed information about paths and voters
  *
  * @author markdavis
- *
  */
 public class CLDRInfo {
 

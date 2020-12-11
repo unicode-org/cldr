@@ -48,9 +48,7 @@ public abstract class Quoter {
         return output.toString();
     }
 
-    /**
-     * Implements standard ICU rule quoting
-     */
+    /** Implements standard ICU rule quoting */
     public static class RuleQuoter extends Quoter {
         private StringBuffer quoteBuffer = new StringBuffer();
 

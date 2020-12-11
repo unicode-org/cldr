@@ -1,68 +1,56 @@
 package org.unicode.cldr.util;
 
 /**
- * Generate URLs to parts of CLDR and the SurveyTool.
- * You can change the urls used with for example,  -DCLDR_SURVEY_BASE=http://st.unicode.org/smoketest
+ * Generate URLs to parts of CLDR and the SurveyTool. You can change the urls used with for example,
+ * -DCLDR_SURVEY_BASE=http://st.unicode.org/smoketest
  *
  * @author srl
- *
  */
 public abstract class CLDRURLS {
-    /**
-     * Base URL for the CLDR repository
-     */
+    /** Base URL for the CLDR repository */
     public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr";
-    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE+"/commit/";
-    /**
-     * Hostname for the Survey Tool
-     */
+
+    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "/commit/";
+    /** Hostname for the Survey Tool */
     public static final String DEFAULT_HOST = "st.unicode.org";
+
     public static final String DEFAULT_PATH = "/cldr-apps";
     public static final String DEFAULT_BASE = "https://" + DEFAULT_HOST + DEFAULT_PATH;
-    /**
-     * URL for filing a new ticket
-     */
+    /** URL for filing a new ticket */
     public static final String CLDR_NEWTICKET_URL = "http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
+
     public static final String CLDR_REPO_ROOT = "https://github.com/unicode-org/cldr";
     /**
-     * Override this property if you want to change the absolute URL to the SurveyTool base from DEFAULT_BASE
+     * Override this property if you want to change the absolute URL to the SurveyTool base from
+     * DEFAULT_BASE
      */
     public static final String CLDR_SURVEY_BASE = "CLDR_SURVEY_BASE";
     /**
-     * Override this property if you want to change the relative URL to the SurveyTool base from DEFAULT_PATH (within SurveyTool only)
+     * Override this property if you want to change the relative URL to the SurveyTool base from
+     * DEFAULT_PATH (within SurveyTool only)
      */
     public static final String CLDR_SURVEY_PATH = "CLDR_SURVEY_PATH";
 
     /**
-     *  "special" pages
-     * @author srl
+     * "special" pages
      *
+     * @author srl
      */
     public enum Special {
-        /**
-         * The 'main' view
-         */
+        /** The 'main' view */
         Survey(""),
-        /**
-         * The list of locales
-         */
+        /** The list of locales */
         Locales,
-        /**
-         * The vetting viewer (i.e. Dashboard)
-         */
+        /** The vetting viewer (i.e. Dashboard) */
         Vetting("r_vetting_json"),
-        /**
-         * Forums.  use "id" for the numeric post id
-         */
+        /** Forums. use "id" for the numeric post id */
         Forum;
 
         Special(String s) {
             this.id = s;
         }
 
-        /**
-         * Convenience - just lowercases
-         */
+        /** Convenience - just lowercases */
         Special() {
             this.id = this.name().toLowerCase();
         }
@@ -71,21 +59,19 @@ public abstract class CLDRURLS {
     }
 
     protected static String VPATH = "/v#";
-    /**
-     * Constant for an unknown git revision.
-     * Use the same in the builders.
-     */
+    /** Constant for an unknown git revision. Use the same in the builders. */
     public static final String UNKNOWN_REVISION = "(unknown)";
 
     /**
-     * Get the relative base URL for the SurveyTool.
-     * This may be "/cldr-apps", for example.
+     * Get the relative base URL for the SurveyTool. This may be "/cldr-apps", for example.
+     *
      * @return example, "/cldr-apps"
      */
     public abstract String base();
 
     /**
      * please use CLDRLocale instead
+     *
      * @param locale
      * @param xpath
      * @return
@@ -96,6 +82,7 @@ public abstract class CLDRURLS {
 
     /**
      * Get a link to a specific xpath and locale.
+     *
      * @param locale locale to view
      * @param xpath the xpath to view
      */
@@ -107,6 +94,7 @@ public abstract class CLDRURLS {
 
     /**
      * please use CLDRLocale instead
+     *
      * @param locale
      * @param hexid
      * @return
@@ -117,6 +105,7 @@ public abstract class CLDRURLS {
 
     /**
      * Get a link to a specific xpath hex ID and locale.
+     *
      * @param locale
      * @param hexid
      * @return
@@ -128,6 +117,7 @@ public abstract class CLDRURLS {
 
     /**
      * please use CLDRLocale instead
+     *
      * @param locale
      * @param hexid
      * @return
@@ -138,6 +128,7 @@ public abstract class CLDRURLS {
 
     /**
      * Get a link to a specific xpath hex ID and locale.
+     *
      * @param locale
      * @param hexid
      * @return
@@ -149,6 +140,7 @@ public abstract class CLDRURLS {
 
     /**
      * please use CLDRLocale instead
+     *
      * @param locale
      * @param page
      * @return
@@ -163,6 +155,7 @@ public abstract class CLDRURLS {
 
     /**
      * Get a link to a specific locale in the SurveyTool.
+     *
      * @param locale
      * @return
      */
@@ -184,6 +177,7 @@ public abstract class CLDRURLS {
 
     /**
      * Get a link from all of the parts.
+     *
      * @param special
      * @param locale
      * @param page
@@ -215,9 +209,10 @@ public abstract class CLDRURLS {
      * @param hexid
      * @throws IllegalArgumentException
      */
-    final public void assertIsHexId(String hexid) throws IllegalArgumentException {
+    public final void assertIsHexId(String hexid) throws IllegalArgumentException {
         if (hexid != null && hexid.startsWith("/")) {
-            throw new IllegalArgumentException("This function takes a hex StringID: perhaps you meant to use forXpath() instead.");
+            throw new IllegalArgumentException(
+                    "This function takes a hex StringID: perhaps you meant to use forXpath() instead.");
         }
     }
 
@@ -225,14 +220,16 @@ public abstract class CLDRURLS {
      * @param xpath
      * @throws IllegalArgumentException
      */
-    final public void assertIsXpath(String xpath) throws IllegalArgumentException {
+    public final void assertIsXpath(String xpath) throws IllegalArgumentException {
         if (xpath != null && !xpath.startsWith("/")) {
-            throw new IllegalArgumentException("This function takes an XPath: perhaps you meant to use forXpathHexId() instead.");
+            throw new IllegalArgumentException(
+                    "This function takes an XPath: perhaps you meant to use forXpathHexId() instead.");
         }
     }
 
     /**
      * please use CLDRLocale instead
+     *
      * @param vetting
      * @param localeID
      * @return
@@ -247,28 +244,35 @@ public abstract class CLDRURLS {
 
     /**
      * This is the preferred function for jumping to an item relatively. It will reduce blinkage.
+     *
      * @param locale
      * @param pathHeader
      * @return
      */
     public final String forPathHeader(CLDRLocale locale, PathHeader pathHeader) {
-        return forSpecial(Special.Survey, locale, pathHeader.getPageId(), StringId.getHexId(pathHeader.getOriginalPath()));
+        return forSpecial(
+                Special.Survey, locale, pathHeader.getPageId(), StringId.getHexId(pathHeader.getOriginalPath()));
     }
 
     /**
      * For a given hash, return as a link
+     *
      * @param hash
      * @return
      */
     public static String gitHashToLink(String hash) {
-        if(!isKnownHash(hash)) return "<span class=\"githashLink\">"+hash+"</span>"; // Not linkifiable
-        return "<a class=\"githashLink\" href=\"" +
-                CldrUtility.getProperty("CLDR_COMMIT_BASE", DEFAULT_COMMIT_BASE)
-                + hash + "\">" + hash.substring(0, 8) + "</a>";
+        if (!isKnownHash(hash)) return "<span class=\"githashLink\">" + hash + "</span>"; // Not linkifiable
+        return "<a class=\"githashLink\" href=\""
+                + CldrUtility.getProperty("CLDR_COMMIT_BASE", DEFAULT_COMMIT_BASE)
+                + hash
+                + "\">"
+                + hash.substring(0, 8)
+                + "</a>";
     }
 
     /**
      * Is this a 'known' git hash? Or unknown?
+     *
      * @param hash
      * @return true if known, false if (unknown)
      */
@@ -278,16 +282,18 @@ public abstract class CLDRURLS {
 
     /**
      * Convert a URL into an HTML link to itself
+     *
      * @param url
      * @param extra extra parts of the <a> tag, such as "class='someClass'"
      * @return
      */
     public static final String toHTML(String url, String extra) {
-        return "<a href=\""+ url + " "+extra+" \">" + url + "</a>";
+        return "<a href=\"" + url + " " + extra + " \">" + url + "</a>";
     }
 
     /**
      * Convert a URL into an HTML link to itself
+     *
      * @param url
      * @return
      */

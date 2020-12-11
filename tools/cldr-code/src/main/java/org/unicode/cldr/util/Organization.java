@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This list needs updating as a new organizations are added; that's by design
- * so that we know when new ones show up.
+ * This list needs updating as a new organizations are added; that's by design so that we know when
+ * new ones show up.
  */
 public enum Organization {
     // Please update Locales.txt for default coverage when adding an organization here.
@@ -32,7 +32,8 @@ public enum Organization {
     iran_hci("Iran HCI"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
-    kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
+    kunsill_malti(
+            "Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom??"),
     longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilka Foundation"),
@@ -51,14 +52,14 @@ public enum Organization {
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
     yahoo("Yahoo"),
-    // To be removed.
-    ;
+// To be removed.
+;
 
     public final String displayName;
     private final String[] names;
 
     public static Organization fromString(String name) {
-        if(name == null) {
+        if (name == null) {
             throw new NullPointerException("Organization.fromString(null) called");
         }
         name = name.toLowerCase().replace('-', '_').replace('.', '_');
@@ -71,6 +72,7 @@ public enum Organization {
     }
 
     static Map<String, Organization> OrganizationNameMap;
+
     static {
         OrganizationNameMap = new HashMap<>();
         for (Organization x : values()) {

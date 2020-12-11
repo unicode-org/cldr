@@ -22,19 +22,21 @@ public class UnicodeRelation<T> implements Freezable<UnicodeRelation<T>> {
         Set<T> make();
     }
 
-    public static SetMaker<Object> HASHSET_MAKER = new SetMaker<Object>() {
-        @Override
-        public Set<Object> make() {
-            return new HashSet<>();
-        }
-    };
+    public static SetMaker<Object> HASHSET_MAKER =
+            new SetMaker<Object>() {
+                @Override
+                public Set<Object> make() {
+                    return new HashSet<>();
+                }
+            };
 
-    public static final SetMaker<Object> LINKED_HASHSET_MAKER = new SetMaker<Object>() {
-        @Override
-        public Set<Object> make() {
-            return new LinkedHashSet<>();
-        }
-    };
+    public static final SetMaker<Object> LINKED_HASHSET_MAKER =
+            new SetMaker<Object>() {
+                @Override
+                public Set<Object> make() {
+                    return new LinkedHashSet<>();
+                }
+            };
 
     public UnicodeRelation(SetMaker<T> maker) {
         this.maker = maker;

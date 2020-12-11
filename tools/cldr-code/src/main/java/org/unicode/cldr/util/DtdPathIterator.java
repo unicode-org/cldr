@@ -23,8 +23,8 @@ import com.google.common.collect.ImmutableSet;
 
 /**
  * Walk through all the possible paths in a DTDData
- * @author markdavis
  *
+ * @author markdavis
  */
 public class DtdPathIterator {
     public DtdPathIterator(DtdData dtdData) {
@@ -38,6 +38,7 @@ public class DtdPathIterator {
 
     /**
      * Visit the generated parts. Warning: the function must not modify the XPathParts.
+     *
      * @param function
      */
     public void visit(Consumer<XPathParts> function, Function<Attribute, String> sample) {
@@ -74,8 +75,7 @@ public class DtdPathIterator {
         // get possible attributes
         List<Attribute> optionalAttributes = new ArrayList<>();
         for (Attribute attribute : parent.getAttributes().keySet()) {
-            if (attribute.isDeprecated()
-                || attribute.getStatus() != AttributeStatus.distinguished) {
+            if (attribute.isDeprecated() || attribute.getStatus() != AttributeStatus.distinguished) {
                 continue;
             }
             String attributeName = attribute.getName();
@@ -129,8 +129,8 @@ public class DtdPathIterator {
     }
 
     public static void main(String[] args) {
-        Set<XPathParts>seen = new HashSet<>();
-        Set<PathHeader>seenPh = new HashSet<>();
+        Set<XPathParts> seen = new HashSet<>();
+        Set<PathHeader> seenPh = new HashSet<>();
         DtdPathIterator dtdPathIterator = new DtdPathIterator(DtdData.getInstance(DtdType.ldml));
         Factory phf = PathHeader.getFactory();
         List<String> failures = new ArrayList<>();
@@ -144,7 +144,7 @@ public class DtdPathIterator {
             CLDRFile cfile = factory.make(locale, true);
             for (String path : cfile.fullIterable()) {
                 String starred = ps.set(path);
-                starred = starred.replace("[@alt=\"%A\"]","");
+                starred = starred.replace("[@alt=\"%A\"]", "");
                 if (!starredToSample.containsKey(starred) && !starred.endsWith("/alias") && !starred.startsWith("//ldml/identity/")) {
                     starredToSample.put(starred, path);
                 }
@@ -152,38 +152,38 @@ public class DtdPathIterator {
         }
         Set<String> starredUnseen = new TreeSet<>(starredToSample.keySet());
 
-        dtdPathIterator.visit(x -> {
-            if (seen.contains(x)) {
-                int debug = 0;
-            } else {
-                failures.clear();
-                final String xString = x.toString();
-//                PathHeader ph = null;
-//                try {
-//                    ph = phf.fromPath(xString, failures);
-//                    if (seenPh.contains(ph)) {
-//                        failures.add("NON_UNIQUE");
-//                    } else {
-//                        seenPh.add(ph);
-//                        if (ph.getPageId() == PageId.Deprecated) {
-//                            return;
-//                        }
-//                    }
-//                } catch (Exception e) {
-//                    failures.add(e.getMessage());
-//                }
-                final String sample = starredToSample.get(xString);
-                starredUnseen.remove(xString);
-                System.out.println(seen.size() + "\t" + x + "\t" + failures + "\t" + sample);
-                seen.add(x.cloneAsThawed().freeze());
-                if ((seen.size() % 25) == 0) {
-                    int debug = 0;
-                }
-            }
-        },
-//            y -> y.getSampleValue()
-            y -> "%A"
-            );
+        dtdPathIterator.visit(
+                x -> {
+                    if (seen.contains(x)) {
+                        int debug = 0;
+                    } else {
+                        failures.clear();
+                        final String xString = x.toString();
+                        //                PathHeader ph = null;
+                        //                try {
+                        //                    ph = phf.fromPath(xString, failures);
+                        //                    if (seenPh.contains(ph)) {
+                        //                        failures.add("NON_UNIQUE");
+                        //                    } else {
+                        //                        seenPh.add(ph);
+                        //                        if (ph.getPageId() == PageId.Deprecated) {
+                        //                            return;
+                        //                        }
+                        //                    }
+                        //                } catch (Exception e) {
+                        //                    failures.add(e.getMessage());
+                        //                }
+                        final String sample = starredToSample.get(xString);
+                        starredUnseen.remove(xString);
+                        System.out.println(seen.size() + "\t" + x + "\t" + failures + "\t" + sample);
+                        seen.add(x.cloneAsThawed().freeze());
+                        if ((seen.size() % 25) == 0) {
+                            int debug = 0;
+                        }
+                    }
+                },
+                //            y -> y.getSampleValue()
+                y -> "%A");
         if (!starredUnseen.isEmpty()) {
             System.out.println("ERROR: In files, not dtd");
             System.out.println(Joiner.on("\n\t").join(starredUnseen));

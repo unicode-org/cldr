@@ -55,16 +55,15 @@ public class ElementAttributeInfo {
                 if (result == null) {
                     result = new HashMap<>();
                     // pick short files that are in repository
-                    result.put(DtdType.ldml, new ElementAttributeInfo(canonicalCommonDirectory + "/main/root.xml",
-                        DtdType.ldml));
-                    result.put(DtdType.supplementalData, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/supplemental/plurals.xml", DtdType.supplementalData));
-                    result.put(DtdType.ldmlBCP47, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/bcp47/calendar.xml", DtdType.ldmlBCP47));
-                    result.put(DtdType.keyboard, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/android/ar-t-k0-android.xml", DtdType.keyboard));
-                    result.put(DtdType.platform, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/android/_platform.xml", DtdType.keyboard));
+                    result.put(DtdType.ldml, new ElementAttributeInfo(canonicalCommonDirectory + "/main/root.xml", DtdType.ldml));
+                    result.put(
+                            DtdType.supplementalData,
+                            new ElementAttributeInfo(canonicalCommonDirectory + "/supplemental/plurals.xml", DtdType.supplementalData));
+                    result.put(DtdType.ldmlBCP47, new ElementAttributeInfo(canonicalCommonDirectory + "/bcp47/calendar.xml", DtdType.ldmlBCP47));
+                    result.put(
+                            DtdType.keyboard,
+                            new ElementAttributeInfo(canonicalCommonDirectory + "/../keyboards/android/ar-t-k0-android.xml", DtdType.keyboard));
+                    result.put(DtdType.platform, new ElementAttributeInfo(canonicalCommonDirectory + "/../keyboards/android/_platform.xml", DtdType.keyboard));
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }
@@ -141,18 +140,14 @@ public class ElementAttributeInfo {
         }
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
-            if (SHOW)
-                System.out.println(myData.getDtdType() + "\tAttributeDecl\t" + eName + "\t" + aName + "\t" + type
-                    + "\t" + mode + "\t" + value);
+        public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
+            if (SHOW) System.out.println(myData.getDtdType() + "\tAttributeDecl\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
             R2<String, String> key = Row.of(eName, aName);
             Set<String> typeSet = getIdentifiers(type);
             R3<Set<String>, String, String> value2 = Row.of(typeSet, mode, value);
             R3<Set<String>, String, String> oldValue = myData.getElementAttribute2Data().get(key);
             if (oldValue != null && !oldValue.equals(value2)) {
-                throw new IllegalArgumentException("Conflict in data: " + key + "\told: " + oldValue + "\tnew: "
-                    + value2);
+                throw new IllegalArgumentException("Conflict in data: " + key + "\told: " + oldValue + "\tnew: " + value2);
             }
             myData.getElementAttribute2Data().put(key, value2);
             myData.getElement2Attributes().put(eName, aName);

@@ -18,8 +18,8 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 /**
- * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a pain to rename
- * files in CVS.
+ * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a
+ * pain to rename files in CVS.
  *
  * @author markdavis
  */
@@ -38,7 +38,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         public SimpleDictionary<T> make(Map<CharSequence, T> source) {
             return new SimpleDictionary(source);
         }
-
     }
 
     private SimpleDictionary(Map<CharSequence, T> source) {
@@ -98,10 +97,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
             return super.setOffset(offset);
         }
 
-        /**
-         * Dumb implementation.
-         *
-         */
+        /** Dumb implementation. */
         @Override
         public Status next() {
             // There are two degenerate cases: our dictionary is empty, or we are called on an empty string.
@@ -177,8 +173,8 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         }
 
         /**
-         * Returns the first matching item, if there is one, and
-         * filters the rest of the list to those that match the probe.
+         * Returns the first matching item, if there is one, and filters the rest of the list to
+         * those that match the probe.
          *
          * @param probe
          * @return
@@ -281,5 +277,4 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         }
         return true;
     }
-
 }

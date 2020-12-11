@@ -13,8 +13,7 @@ public class FileProcessor {
     private int lineCount;
     protected boolean doHash = true;
 
-    protected void handleStart() {
-    }
+    protected void handleStart() {}
 
     /**
      * Return false to abort
@@ -27,25 +26,22 @@ public class FileProcessor {
         return true;
     }
 
-    protected void handleEnd() {
-    }
+    protected void handleEnd() {}
 
     public int getLineCount() {
         return lineCount;
     }
 
-    public void handleComment(String line, int commentCharPosition) {
-    }
+    public void handleComment(String line, int commentCharPosition) {}
 
     public FileProcessor process(Class<?> classLocation, String fileName) {
         try {
-            System.err.println("# Reading config file " + classLocation.getPackage().getName() + "/"+ fileName);
+            System.err.println("# Reading config file " + classLocation.getPackage().getName() + "/" + fileName);
             BufferedReader in = FileReaders.openFile(classLocation, fileName);
             return process(in, fileName);
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0 + " - while reading" + fileName).initCause(e);
         }
-
     }
 
     public FileProcessor process(String fileName) {
@@ -75,7 +71,7 @@ public class FileProcessor {
         String line = null;
         lineCount = 1;
         try {
-            for (;; ++lineCount) {
+            for (; ; ++lineCount) {
                 line = in.readLine();
                 if (line == null) {
                     break;

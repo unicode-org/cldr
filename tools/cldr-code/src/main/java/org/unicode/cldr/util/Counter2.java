@@ -1,16 +1,14 @@
 package org.unicode.cldr.util;
 
 /**
- *******************************************************************************
- * Copyright (C) 1996-2001, Google, International Business Machines Corporation and    *
- * others. All Rights Reserved.                                                *
- *******************************************************************************
+ * ****************************************************************************** Copyright (C)
+ * 1996-2001, Google, International Business Machines Corporation and * others. All Rights Reserved.
+ * * ******************************************************************************
  *
- * $Revision$
+ * <p>$Revision$
  *
- *******************************************************************************
+ * <p>******************************************************************************
  */
-
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;

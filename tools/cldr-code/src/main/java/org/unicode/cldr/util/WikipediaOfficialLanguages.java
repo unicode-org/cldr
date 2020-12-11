@@ -24,8 +24,9 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
- * To update, copy the list from http://en.wikipedia.org/wiki/List_of_official_languages_by_state into WikipediaOfficialLanguages.txt
- * May take some code updates, since they are not consistent, so a number of tests below are hacks based on current behavior.
+ * To update, copy the list from http://en.wikipedia.org/wiki/List_of_official_languages_by_state
+ * into WikipediaOfficialLanguages.txt May take some code updates, since they are not consistent, so
+ * a number of tests below are hacks based on current behavior.
  */
 public class WikipediaOfficialLanguages {
     public static class Info implements Comparable<Info> {
@@ -57,18 +58,38 @@ public class WikipediaOfficialLanguages {
     }
 
     private static Relation<String, Info> regionToLanguageStatus = Relation.of(new TreeMap<String, Set<Info>>(), TreeSet.class);
+
     static {
         Relation<String, String> REPLACE_REGIONS = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
-        for (String s : Arrays.asList("Abkhazia", "Nagorno-Karabakh", "Northern Cyprus",
-            "Sahrawi Arab Democratic Republic", "Tamazight", "Somaliland", "Somalian", "South Ossetia", "Transnistria")) {
+        for (String s :
+                Arrays.asList(
+                        "Abkhazia",
+                        "Nagorno-Karabakh",
+                        "Northern Cyprus",
+                        "Sahrawi Arab Democratic Republic",
+                        "Tamazight",
+                        "Somaliland",
+                        "Somalian",
+                        "South Ossetia",
+                        "Transnistria")) {
             REPLACE_REGIONS.put(s, "SKIP");
         }
-        for (String s : Arrays.asList(
-            //"Akrotiri and Dhekelia",
-            "Anguilla", "Bermuda",
-            //"British Antarctic Territory",
-            "British Indian Ocean Territory", "British Virgin Islands", "Cayman Islands", "Falkland Islands", "Gibraltar",
-            "Montserrat", "Pitcairn Islands", "Saint Helena", "Ascension Island", "Tristan da Cunha")) {
+        for (String s :
+                Arrays.asList(
+                        // "Akrotiri and Dhekelia",
+                        "Anguilla",
+                        "Bermuda",
+                        // "British Antarctic Territory",
+                        "British Indian Ocean Territory",
+                        "British Virgin Islands",
+                        "Cayman Islands",
+                        "Falkland Islands",
+                        "Gibraltar",
+                        "Montserrat",
+                        "Pitcairn Islands",
+                        "Saint Helena",
+                        "Ascension Island",
+                        "Tristan da Cunha")) {
             String region = CountryCodeConverter.getCodeFromName(s, false);
             if (region == null) {
                 System.err.println("Couldn't parse region: <" + s + ">");
@@ -76,9 +97,19 @@ public class WikipediaOfficialLanguages {
                 REPLACE_REGIONS.put("United Kingdom and overseas territories", region);
             }
         }
-        for (String s : Arrays.asList("French Guiana", "French Polynesia", "Guadeloupe", "Martinique",
-            "Mayotte", "New Caledonia", "Réunion", "Saint Barthélemy", "Saint Martin", "Saint Pierre and Miquelon",
-            "Wallis and Futuna")) {
+        for (String s :
+                Arrays.asList(
+                        "French Guiana",
+                        "French Polynesia",
+                        "Guadeloupe",
+                        "Martinique",
+                        "Mayotte",
+                        "New Caledonia",
+                        "Réunion",
+                        "Saint Barthélemy",
+                        "Saint Martin",
+                        "Saint Pierre and Miquelon",
+                        "Wallis and Futuna")) {
             String region = CountryCodeConverter.getCodeFromName(s, false);
             if (region == null) {
                 System.err.println("Couldn't parse region: <" + s + ">");
@@ -131,8 +162,7 @@ public class WikipediaOfficialLanguages {
                     String[] items = commentBreak.split(line);
                     String language = LanguageCodeConverter.getCodeForName(items[0]);
                     if (language == null) {
-                        System.out.println(++count + " Couldn't parse language:\txxx ; " + items[0] + "\tfor <" + regionSet +
-                            "> in line: " + line);
+                        System.out.println(++count + " Couldn't parse language:\txxx ; " + items[0] + "\tfor <" + regionSet + "> in line: " + line);
                     } else if ("sgn".equals(language)) {
                         continue;
                     } else {
@@ -147,9 +177,7 @@ public class WikipediaOfficialLanguages {
                         Set<String> narrowRegionSet = getRegionSet(regionSet, comments);
 
                         for (String region : narrowRegionSet) {
-                            regionToLanguageStatus.put(region,
-                                new Info(language, guessStatus(comments),
-                                    comments));
+                            regionToLanguageStatus.put(region, new Info(language, guessStatus(comments), comments));
                         }
                     }
                 }
@@ -229,7 +257,7 @@ public class WikipediaOfficialLanguages {
         System.out.println("Cc\tCountry\tLc\tLanguage Name\tWiki status (heuristic)\tCLDR status\t\tWiki notes");
         Set<String> seen = new HashSet<>();
         for (String region : getRegions()) {
-            //boolean regionShown = false;
+            // boolean regionShown = false;
             Set<String> cldrLanguagesRaw = supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(region);
             Map<String, PopulationData> cldrLanguageInfo = new HashMap<>();
             for (String s : cldrLanguagesRaw) {
@@ -251,11 +279,17 @@ public class WikipediaOfficialLanguages {
                 if (!areCompatible(info.status, cldrStatus)) {
                     System.out.print(region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
 
-                    System.out.println("\t" + info.language
-                        + "\t" + english.getName(info.language)
-                        + "\t" + info.status
-                        + "\t" + (cldrStatus == null ? "NOT-IN-CLDR" : cldrStatus)
-                        + "\t-\t" + info.comments);
+                    System.out.println(
+                            "\t"
+                                    + info.language
+                                    + "\t"
+                                    + english.getName(info.language)
+                                    + "\t"
+                                    + info.status
+                                    + "\t"
+                                    + (cldrStatus == null ? "NOT-IN-CLDR" : cldrStatus)
+                                    + "\t-\t"
+                                    + info.comments);
                 }
                 seen.add(info.language);
             }
@@ -266,18 +300,15 @@ public class WikipediaOfficialLanguages {
                     if (OfficialStatus.unknown != officialStatus) {
                         System.out.print(region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
 
-                        System.out.println("\t" + r2
-                            + "\t" + english.getName(r2)
-                            + "\t" + "CLDR-ONLY"
-                            + "\t" + (sInfo == null ? "NOT-IN-CLDR" : officialStatus));
+                        System.out.println(
+                                "\t" + r2 + "\t" + english.getName(r2) + "\t" + "CLDR-ONLY" + "\t" + (sInfo == null ? "NOT-IN-CLDR" : officialStatus));
                     }
                 }
             }
         }
         Set<String> errors = LanguageCodeConverter.getParseErrors();
         for (String error : errors) {
-            if (!error.startsWith("Name Collision!")
-                && !error.startsWith("Skipping *OMIT")) {
+            if (!error.startsWith("Name Collision!") && !error.startsWith("Skipping *OMIT")) {
                 System.err.println(error);
             }
         }
@@ -290,7 +321,7 @@ public class WikipediaOfficialLanguages {
 
     private static boolean areCompatible(OfficialStatus infoStatus, OfficialStatus cldrStatus) {
         return infoStatus == cldrStatus
-            || infoStatus == OfficialStatus.official_regional && cldrStatus == OfficialStatus.official_minority
-            || infoStatus == OfficialStatus.official_minority && cldrStatus == OfficialStatus.official_regional;
+                || infoStatus == OfficialStatus.official_regional && cldrStatus == OfficialStatus.official_minority
+                || infoStatus == OfficialStatus.official_minority && cldrStatus == OfficialStatus.official_regional;
     }
 }

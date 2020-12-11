@@ -8,56 +8,38 @@ import java.util.Set;
 import com.ibm.icu.text.PluralRules;
 
 public class PluralRulesUtil {
-    /**
-     * Status of the keyword for the rules, given a set of explicit values.
-     */
+    /** Status of the keyword for the rules, given a set of explicit values. */
     public enum KeywordStatus {
-        /**
-         * The keyword is not valid for the rules.
-         */
+        /** The keyword is not valid for the rules. */
         INVALID,
-        /**
-         * The keyword is valid, but unused (it is covered by the explicit values).
-         */
+        /** The keyword is valid, but unused (it is covered by the explicit values). */
         SUPPRESSED,
-        /**
-         * The keyword is valid and used, but completely covered by the explicit values.
-         */
+        /** The keyword is valid and used, but completely covered by the explicit values. */
         UNIQUE,
-        /**
-         * The keyword is valid, used, not suppressed, and has a finite set of values.
-         */
+        /** The keyword is valid, used, not suppressed, and has a finite set of values. */
         BOUNDED,
-        /**
-         * The keyword is valid but not bounded; there are indefinitely many matching values.
-         */
+        /** The keyword is valid but not bounded; there are indefinitely many matching values. */
         UNBOUNDED
     }
 
     /**
      * Find the status for the keyword, given a certain set of explicit values.
      *
-     * @param rules
-     *            the PluralRules
-     * @param keyword
-     *            the particular keyword (call rules.getKeywords() to get the valid ones)
-     * @param offset
-     *            the offset used, or 0.0d if not. Internally, the offset is subtracted from each explicit value before
-     *            checking against the keyword values.
-     * @param explicits
-     *            a set of Doubles that are used explicitly (eg [=0], "[=1]"). May be empty or null.
-     * @param integerOnly
-     *            In circumstances where the values are known to be integers, this parameter can be set to true.
-     *            Examples: "There are 3 people in..." (integerOnly=true) vs. "There are 1.2 people per household
-     *            (integerOnly=false).
-     *            This may produce different results in languages where fractions have the same format as integers for
-     *            some keywords.
+     * @param rules the PluralRules
+     * @param keyword the particular keyword (call rules.getKeywords() to get the valid ones)
+     * @param offset the offset used, or 0.0d if not. Internally, the offset is subtracted from each
+     *     explicit value before checking against the keyword values.
+     * @param explicits a set of Doubles that are used explicitly (eg [=0], "[=1]"). May be empty or
+     *     null.
+     * @param integerOnly In circumstances where the values are known to be integers, this parameter
+     *     can be set to true. Examples: "There are 3 people in..." (integerOnly=true) vs. "There
+     *     are 1.2 people per household (integerOnly=false). This may produce different results in
+     *     languages where fractions have the same format as integers for some keywords.
      * @return the KeywordStatus
-     *         <p>
-     *         NOTE: For testing, this is a static with the first parameter being the rules. Those will disappear.
+     *     <p>NOTE: For testing, this is a static with the first parameter being the rules. Those
+     *     will disappear.
      */
-    public static KeywordStatus getKeywordStatus(PluralRules rules, String keyword, int offset, Set<Double> explicits,
-        boolean integerOnly) {
+    public static KeywordStatus getKeywordStatus(PluralRules rules, String keyword, int offset, Set<Double> explicits, boolean integerOnly) {
         if (!rules.getKeywords().contains(keyword)) {
             return KeywordStatus.INVALID;
         }

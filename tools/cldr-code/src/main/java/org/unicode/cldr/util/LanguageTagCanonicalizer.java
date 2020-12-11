@@ -37,23 +37,30 @@ public class LanguageTagCanonicalizer implements StringTransform {
     }
 
     public LanguageTagCanonicalizer(LstrType lstrType) {
-        switch(lstrType) {
-        case region: likely = LIKELY_FAVOR_REGION; break;
-        case script: likely = LIKELY_FAVOR_SCRIPT; break;
-        default: likely = null;
+        switch (lstrType) {
+            case region:
+                likely = LIKELY_FAVOR_REGION;
+                break;
+            case script:
+                likely = LIKELY_FAVOR_SCRIPT;
+                break;
+            default:
+                likely = null;
         }
     }
 
     /**
-     * Convert a locale (language tag) into the canonical form.
-     * <br>Any invalid variant code is removed.
-     * <br>TODO: map invalid language tags to <unknown>, eg ZZ; drop invalid U or T extensions, convert ICU locale extensions to BCP47
+     * Convert a locale (language tag) into the canonical form. <br>
+     * Any invalid variant code is removed. <br>
+     * TODO: map invalid language tags to <unknown>, eg ZZ; drop invalid U or T extensions, convert
+     * ICU locale extensions to BCP47
      */
     // TODO, handle variants
     @Override
     public synchronized String transform(String locale) {
-        return transform (locale, OutputOption.ICU_LCVARIANT);
+        return transform(locale, OutputOption.ICU_LCVARIANT);
     }
+
     public synchronized String transform(String locale, OutputOption oo) {
         ltp1.set(locale);
 
@@ -89,7 +96,10 @@ public class LanguageTagCanonicalizer implements StringTransform {
     }
 
     private enum LanguageTagField {
-        language("language"), script("script"), region("territory"), variant("variant");
+        language("language"),
+        script("script"),
+        region("territory"),
+        variant("variant");
 
         private final Map<String, R2<List<String>, String>> replacements;
 
@@ -99,21 +109,19 @@ public class LanguageTagCanonicalizer implements StringTransform {
 
         private String get(LanguageTagParser parser) {
             switch (this) {
-            case language:
-                return parser.getLanguage();
-            case script:
-                return parser.getScript();
-            case region:
-                return parser.getRegion();
-            default:
-                throw new UnsupportedOperationException();
-                // case variant: return parser.getVariants();
+                case language:
+                    return parser.getLanguage();
+                case script:
+                    return parser.getScript();
+                case region:
+                    return parser.getRegion();
+                default:
+                    throw new UnsupportedOperationException();
+                    // case variant: return parser.getVariants();
             }
         }
 
-        /**
-         * Get the replacements, or the empty list if there are none.
-         */
+        /** Get the replacements, or the empty list if there are none. */
         private List<String> getReplacements(String field) {
             final R2<List<String>, String> data = replacements.get(this == variant ? field.toUpperCase(Locale.ROOT) : field);
             return data == null ? Collections.emptyList() : data.get0();
@@ -121,8 +129,9 @@ public class LanguageTagCanonicalizer implements StringTransform {
     }
 
     /**
-     * Return the replacement value for the tagField (eg territory) in the field (eg "en") in languageTag.
-     * It special-cases cases where regions split, using likely subtags to get the best answer.
+     * Return the replacement value for the tagField (eg territory) in the field (eg "en") in
+     * languageTag. It special-cases cases where regions split, using likely subtags to get the best
+     * answer.
      */
     private String getReplacement(LanguageTagField tagField, String field, String languageTag) {
         String newField = null;
@@ -147,8 +156,8 @@ public class LanguageTagCanonicalizer implements StringTransform {
      * Copy fields from one language tag into another.
      *
      * @param otherField
-     * @param mainField
-     *            - for this field, force a copy. For other fields, only copy if target is empty
+     * @param mainField - for this field, force a copy. For other fields, only copy if target is
+     *     empty
      */
     private void copyFields2(LanguageTagField mainField, String otherField) {
         if (otherField == null) {

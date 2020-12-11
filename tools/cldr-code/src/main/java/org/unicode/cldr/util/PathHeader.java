@@ -35,44 +35,34 @@ import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
- * Provides a mechanism for dividing up LDML paths into understandable
- * categories, eg for the Survey tool.
+ * Provides a mechanism for dividing up LDML paths into understandable categories, eg for the Survey
+ * tool.
  */
 public class PathHeader implements Comparable<PathHeader> {
-    /**
-     * Link to a section. Commenting out the page switch for now.
-     */
-    public static final String SECTION_LINK = "<a " + /* "target='CLDR_ST-SECTION' "+*/"href='";
+    /** Link to a section. Commenting out the page switch for now. */
+    public static final String SECTION_LINK = "<a " + /* "target='CLDR_ST-SECTION' "+*/ "href='";
+
     static boolean UNIFORM_CONTINENTS = true;
     static Factory factorySingleton = null;
 
     static final boolean SKIP_ORIGINAL_PATH = true;
 
-    /**
-     * What status the survey tool should use. Can be overridden in
-     * Phase.getAction()
-     */
+    /** What status the survey tool should use. Can be overridden in Phase.getAction() */
     public enum SurveyToolStatus {
-        /**
-         * Never show.
-         */
+        /** Never show. */
         DEPRECATED,
-        /**
-         * Hide. Can be overridden in Phase.getAction()
-         */
+        /** Hide. Can be overridden in Phase.getAction() */
         HIDE,
         /**
-         * Don't allow Change box (except TC), instead show ticket. But allow
-         * votes. Can be overridden in Phase.getAction()
+         * Don't allow Change box (except TC), instead show ticket. But allow votes. Can be
+         * overridden in Phase.getAction()
          */
         READ_ONLY,
-        /**
-         * Allow change box and votes. Can be overridden in Phase.getAction()
-         */
+        /** Allow change box and votes. Can be overridden in Phase.getAction() */
         READ_WRITE,
         /**
-         * Changes are allowed as READ_WRITE, but field is always displayed as
-         * LTR, even in RTL locales (used for patterns).
+         * Changes are allowed as READ_WRITE, but field is always displayed as LTR, even in RTL
+         * locales (used for patterns).
          */
         LTR_ALWAYS
     }
@@ -80,13 +70,22 @@ public class PathHeader implements Comparable<PathHeader> {
     private static EnumNames<SectionId> SectionIdNames = new EnumNames<>();
 
     /**
-     * The Section for a path. Don't change these without committee buy-in. The
-     * 'name' may be 'Core_Data' and the toString is 'Core Data' toString gives
-     * the human name
+     * The Section for a path. Don't change these without committee buy-in. The 'name' may be
+     * 'Core_Data' and the toString is 'Core Data' toString gives the human name
      */
     public enum SectionId {
-        Core_Data("Core Data"), Locale_Display_Names("Locale Display Names"), DateTime("Date & Time"), Timezones, Numbers, Currencies, Units, Characters, Misc(
-            "Miscellaneous"), BCP47, Supplemental, Special;
+        Core_Data("Core Data"),
+        Locale_Display_Names("Locale Display Names"),
+        DateTime("Date & Time"),
+        Timezones,
+        Numbers,
+        Currencies,
+        Units,
+        Characters,
+        Misc("Miscellaneous"),
+        BCP47,
+        Supplemental,
+        Special;
 
         private SectionId(String... alternateNames) {
             SectionIdNames.add(this, alternateNames);
@@ -103,8 +102,7 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     private static EnumNames<PageId> PageIdNames = new EnumNames<>();
-    private static Relation<SectionId, PageId> SectionIdToPageIds = Relation.of(new TreeMap<SectionId, Set<PageId>>(),
-        TreeSet.class);
+    private static Relation<SectionId, PageId> SectionIdToPageIds = Relation.of(new TreeMap<SectionId, Set<PageId>>(), TreeSet.class);
 
     private static class SubstringOrder implements Comparable<SubstringOrder> {
         final String mainOrder;
@@ -114,10 +112,8 @@ public class PathHeader implements Comparable<PathHeader> {
             int pos = source.lastIndexOf('-') + 1;
             int ordering = COUNTS.indexOf(source.substring(pos));
             // account for digits, and "some" future proofing.
-            order = ordering < 0
-                ? source.charAt(pos)
-                    : 0x10000 + ordering;
-                mainOrder = source.substring(0, pos);
+            order = ordering < 0 ? source.charAt(pos) : 0x10000 + ordering;
+            mainOrder = source.substring(0, pos);
         }
 
         @Override
@@ -136,9 +132,8 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     /**
-     * The Page for a path (within a Section). Don't change these without
-     * committee buy-in. the name is for example WAsia where toString gives
-     * Western Asia
+     * The Page for a path (within a Section). Don't change these without committee buy-in. the name
+     * is for example WAsia where toString gives Western Asia
      */
     public enum PageId {
         Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"),
@@ -154,92 +149,91 @@ public class PathHeader implements Comparable<PathHeader> {
         Scripts(SectionId.Locale_Display_Names),
         Territories(SectionId.Locale_Display_Names, "Geographic Regions"),
         T_NAmerica(SectionId.Locale_Display_Names, "Territories (North America)"),
-        T_SAmerica( SectionId.Locale_Display_Names, "Territories (South America)"),
+        T_SAmerica(SectionId.Locale_Display_Names, "Territories (South America)"),
         T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"),
-        T_Europe( SectionId.Locale_Display_Names, "Territories (Europe)"),
+        T_Europe(SectionId.Locale_Display_Names, "Territories (Europe)"),
         T_Asia(SectionId.Locale_Display_Names, "Territories (Asia)"),
-        T_Oceania( SectionId.Locale_Display_Names, "Territories (Oceania)"),
+        T_Oceania(SectionId.Locale_Display_Names, "Territories (Oceania)"),
         Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"),
-        Keys( SectionId.Locale_Display_Names),
+        Keys(SectionId.Locale_Display_Names),
 
         Fields(SectionId.DateTime),
         Gregorian(SectionId.DateTime),
-        Generic( SectionId.DateTime),
+        Generic(SectionId.DateTime),
         Buddhist(SectionId.DateTime),
         Chinese(SectionId.DateTime),
-        Coptic( SectionId.DateTime),
+        Coptic(SectionId.DateTime),
         Dangi(SectionId.DateTime),
         Ethiopic(SectionId.DateTime),
-        Ethiopic_Amete_Alem( SectionId.DateTime, "Ethiopic-Amete-Alem"),
+        Ethiopic_Amete_Alem(SectionId.DateTime, "Ethiopic-Amete-Alem"),
         Hebrew(SectionId.DateTime),
-        Indian( SectionId.DateTime),
+        Indian(SectionId.DateTime),
         Islamic(SectionId.DateTime),
         Japanese(SectionId.DateTime),
-        Persian( SectionId.DateTime),
+        Persian(SectionId.DateTime),
         Minguo(SectionId.DateTime),
 
         Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"),
         NAmerica(SectionId.Timezones, "North America"),
-        SAmerica( SectionId.Timezones, "South America"),
+        SAmerica(SectionId.Timezones, "South America"),
         Africa(SectionId.Timezones),
-        Europe( SectionId.Timezones),
+        Europe(SectionId.Timezones),
         Russia(SectionId.Timezones),
         WAsia(SectionId.Timezones, "Western Asia"),
         CAsia(SectionId.Timezones, "Central Asia"),
-        EAsia( SectionId.Timezones, "Eastern Asia"),
+        EAsia(SectionId.Timezones, "Eastern Asia"),
         SAsia(SectionId.Timezones, "Southern Asia"),
-        SEAsia( SectionId.Timezones, "Southeast Asia"),
+        SEAsia(SectionId.Timezones, "Southeast Asia"),
         Australasia(SectionId.Timezones),
-        Antarctica( SectionId.Timezones),
+        Antarctica(SectionId.Timezones),
         Oceania(SectionId.Timezones),
-        UnknownT( SectionId.Timezones, "Unknown Region"),
+        UnknownT(SectionId.Timezones, "Unknown Region"),
         Overrides(SectionId.Timezones),
 
-        Symbols( SectionId.Numbers),
-        Number_Formatting_Patterns( SectionId.Numbers, "Number Formatting Patterns"),
-        Compact_Decimal_Formatting( SectionId.Numbers, "Compact Decimal Formatting"),
-        Compact_Decimal_Formatting_Other( SectionId.Numbers, "Compact Decimal Formatting (Other Numbering Systems)"),
+        Symbols(SectionId.Numbers),
+        Number_Formatting_Patterns(SectionId.Numbers, "Number Formatting Patterns"),
+        Compact_Decimal_Formatting(SectionId.Numbers, "Compact Decimal Formatting"),
+        Compact_Decimal_Formatting_Other(SectionId.Numbers, "Compact Decimal Formatting (Other Numbering Systems)"),
 
-        Measurement_Systems( SectionId.Units, "Measurement Systems"),
-        Duration( SectionId.Units),
-        Graphics( SectionId.Units),
-        Length( SectionId.Units),
-        Area( SectionId.Units),
-        Volume( SectionId.Units),
-        SpeedAcceleration( SectionId.Units, "Speed and Acceleration"),
-        MassWeight( SectionId.Units, "Mass and Weight"),
-        EnergyPower( SectionId.Units, "Energy and Power"),
-        ElectricalFrequency( SectionId.Units, "Electrical and Frequency"),
-        Weather( SectionId.Units),
-        Digital( SectionId.Units),
-        Coordinates( SectionId.Units),
-        OtherUnits( SectionId.Units, "Other Units"),
-        CompoundUnits( SectionId.Units, "Compound Units"),
+        Measurement_Systems(SectionId.Units, "Measurement Systems"),
+        Duration(SectionId.Units),
+        Graphics(SectionId.Units),
+        Length(SectionId.Units),
+        Area(SectionId.Units),
+        Volume(SectionId.Units),
+        SpeedAcceleration(SectionId.Units, "Speed and Acceleration"),
+        MassWeight(SectionId.Units, "Mass and Weight"),
+        EnergyPower(SectionId.Units, "Energy and Power"),
+        ElectricalFrequency(SectionId.Units, "Electrical and Frequency"),
+        Weather(SectionId.Units),
+        Digital(SectionId.Units),
+        Coordinates(SectionId.Units),
+        OtherUnits(SectionId.Units, "Other Units"),
+        CompoundUnits(SectionId.Units, "Compound Units"),
 
-
-        Displaying_Lists( SectionId.Misc, "Displaying Lists"),
+        Displaying_Lists(SectionId.Misc, "Displaying Lists"),
         MinimalPairs(SectionId.Misc, "Minimal Pairs"),
-        Transforms( SectionId.Misc),
+        Transforms(SectionId.Misc),
 
-        Identity( SectionId.Special),
-        Version( SectionId.Special),
-        Suppress( SectionId.Special),
-        Deprecated( SectionId.Special),
-        Unknown( SectionId.Special),
+        Identity(SectionId.Special),
+        Version(SectionId.Special),
+        Suppress(SectionId.Special),
+        Deprecated(SectionId.Special),
+        Unknown(SectionId.Special),
 
-        C_NAmerica( SectionId.Currencies, "North America (C)"),
-        //need to add (C) to differentiate from Timezone territories
+        C_NAmerica(SectionId.Currencies, "North America (C)"),
+        // need to add (C) to differentiate from Timezone territories
         C_SAmerica(SectionId.Currencies, "South America (C)"),
         C_NWEurope(SectionId.Currencies, "Northern/Western Europe"),
         C_SEEurope(SectionId.Currencies, "Southern/Eastern Europe"),
         C_NAfrica(SectionId.Currencies, "Northern Africa"),
         C_WAfrica(SectionId.Currencies, "Western Africa"),
-        C_MAfrica( SectionId.Currencies, "Middle Africa"),
+        C_MAfrica(SectionId.Currencies, "Middle Africa"),
         C_EAfrica(SectionId.Currencies, "Eastern Africa"),
         C_SAfrica(SectionId.Currencies, "Southern Africa"),
         C_WAsia(SectionId.Currencies, "Western Asia (C)"),
         C_CAsia(SectionId.Currencies, "Central Asia (C)"),
-        C_EAsia( SectionId.Currencies, "Eastern Asia (C)"),
+        C_EAsia(SectionId.Currencies, "Eastern Asia (C)"),
         C_SAsia(SectionId.Currencies, "Southern Asia (C)"),
         C_SEAsia(SectionId.Currencies, "Southeast Asia (C)"),
         C_Oceania(SectionId.Currencies, "Oceania (C)"),
@@ -254,28 +248,28 @@ public class PathHeader implements Comparable<PathHeader> {
         IdValidity(SectionId.Supplemental),
         Locale(SectionId.Supplemental),
         RegionMapping(SectionId.Supplemental),
-        WZoneMapping( SectionId.Supplemental),
+        WZoneMapping(SectionId.Supplemental),
         Transform(SectionId.Supplemental),
         Units(SectionId.Supplemental),
         Likely(SectionId.Supplemental),
-        LanguageMatch( SectionId.Supplemental),
+        LanguageMatch(SectionId.Supplemental),
         TerritoryInfo(SectionId.Supplemental),
         LanguageInfo(SectionId.Supplemental),
-        LanguageGroup( SectionId.Supplemental),
+        LanguageGroup(SectionId.Supplemental),
         Fallback(SectionId.Supplemental),
         Gender(SectionId.Supplemental),
         Grammar(SectionId.Supplemental),
         Metazone(SectionId.Supplemental),
-        NumberSystem( SectionId.Supplemental),
+        NumberSystem(SectionId.Supplemental),
         Plural(SectionId.Supplemental),
         PluralRange(SectionId.Supplemental),
-        Containment( SectionId.Supplemental),
+        Containment(SectionId.Supplemental),
         Currency(SectionId.Supplemental),
         Calendar(SectionId.Supplemental),
-        WeekData( SectionId.Supplemental),
+        WeekData(SectionId.Supplemental),
         Measurement(SectionId.Supplemental),
         Language(SectionId.Supplemental),
-        RBNF( SectionId.Supplemental),
+        RBNF(SectionId.Supplemental),
         Segmentation(SectionId.Supplemental),
         DayPeriod(SectionId.Supplemental),
 
@@ -288,7 +282,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Food_Drink(SectionId.Characters, "Food & Drink"),
         Travel_Places(SectionId.Characters, "Travel & Places"),
         Activities(SectionId.Characters),
-        Objects( SectionId.Characters),
+        Objects(SectionId.Characters),
         Symbols2(SectionId.Characters),
         Flags(SectionId.Characters),
         Component(SectionId.Characters),
@@ -350,24 +344,22 @@ public class PathHeader implements Comparable<PathHeader> {
     private final SubstringOrder codeSuborder;
 
     static final Pattern SEMI = PatternCache.get("\\s*;\\s*");
-    static final Matcher ALT_MATCHER = PatternCache.get(
-        "\\[@alt=\"([^\"]*+)\"]")
-        .matcher("");
+    static final Matcher ALT_MATCHER = PatternCache.get("\\[@alt=\"([^\"]*+)\"]").matcher("");
 
     static final Collator alphabetic = CLDRConfig.getInstance().getCollatorRoot();
 
-//    static final RuleBasedCollator alphabetic = (RuleBasedCollator) Collator
-//            .getInstance(ULocale.ENGLISH);
-//    static {
-//        alphabetic.setNumericCollation(true);
-//        alphabetic.freeze();
-//    }
+    //    static final RuleBasedCollator alphabetic = (RuleBasedCollator) Collator
+    //            .getInstance(ULocale.ENGLISH);
+    //    static {
+    //        alphabetic.setNumericCollation(true);
+    //        alphabetic.freeze();
+    //    }
 
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-    static final Map<String, String> metazoneToContinent = supplementalDataInfo
-        .getMetazoneToContinentMap();
+    static final Map<String, String> metazoneToContinent = supplementalDataInfo.getMetazoneToContinentMap();
     static final StandardCodes standardCode = StandardCodes.make();
     static final Map<String, String> metazoneToPageTerritory = new HashMap<>();
+
     static {
         Map<String, Map<String, String>> metazoneToRegionToZone = supplementalDataInfo.getMetazoneToRegionToZone();
         for (Entry<String, Map<String, String>> metazoneEntry : metazoneToRegionToZone.entrySet()) {
@@ -411,9 +403,16 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param suborder
      * @param status
      */
-    private PathHeader(SectionId sectionId, PageId pageId, String header,
-        int headerOrder, String code, long codeOrder, SubstringOrder suborder, SurveyToolStatus status,
-        String originalPath) {
+    private PathHeader(
+            SectionId sectionId,
+            PageId pageId,
+            String header,
+            int headerOrder,
+            String code,
+            long codeOrder,
+            SubstringOrder suborder,
+            SurveyToolStatus status,
+            String originalPath) {
         this.sectionId = sectionId;
         this.pageId = pageId;
         this.header = header;
@@ -426,8 +425,8 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     /**
-     * Return a factory for use in creating the headers. This is cached after first use.
-     * The calls are thread-safe. Null gets the default (CLDRConfig) english file.
+     * Return a factory for use in creating the headers. This is cached after first use. The calls
+     * are thread-safe. Null gets the default (CLDRConfig) english file.
      *
      * @param englishFile
      */
@@ -437,24 +436,20 @@ public class PathHeader implements Comparable<PathHeader> {
                 englishFile = CLDRConfig.getInstance().getEnglish();
             }
             if (!englishFile.getLocaleID().equals(ULocale.ENGLISH.getBaseName())) {
-                throw new IllegalArgumentException("PathHeader's CLDRFile must be '" +
-                    ULocale.ENGLISH.getBaseName() + "', but found '" + englishFile.getLocaleID() + "'");
+                throw new IllegalArgumentException(
+                        "PathHeader's CLDRFile must be '" + ULocale.ENGLISH.getBaseName() + "', but found '" + englishFile.getLocaleID() + "'");
             }
             factorySingleton = new Factory(englishFile);
         }
         return factorySingleton;
     }
 
-    /**
-     * Convenience method for common case. See {{@link #getFactory(CLDRFile)}}
-     */
+    /** Convenience method for common case. See {{@link #getFactory(CLDRFile)}} */
     public static Factory getFactory() {
         return getFactory(null);
     }
 
-    /**
-     * @deprecated
-     */
+    /** @deprecated */
     @Deprecated
     public String getSection() {
         return sectionId.toString();
@@ -464,9 +459,7 @@ public class PathHeader implements Comparable<PathHeader> {
         return sectionId;
     }
 
-    /**
-     * @deprecated
-     */
+    /** @deprecated */
     @Deprecated
     public String getPage() {
         return pageId.toString();
@@ -499,10 +492,13 @@ public class PathHeader implements Comparable<PathHeader> {
     @Override
     public String toString() {
         return sectionId
-            + "\t" + pageId
-            + "\t" + header // + "\t" + headerOrder
-            + "\t" + code // + "\t" + codeOrder
-            ;
+                + "\t"
+                + pageId
+                + "\t"
+                + header // + "\t" + headerOrder
+                + "\t"
+                + code // + "\t" + codeOrder
+        ;
     }
 
     @Override
@@ -596,8 +592,7 @@ public class PathHeader implements Comparable<PathHeader> {
         } catch (Exception e) {
             return false;
         }
-        return sectionId == other.sectionId && pageId == other.pageId
-            && header.equals(other.header) && code.equals(other.code);
+        return sectionId == other.sectionId && pageId == other.pageId && header.equals(other.header) && code.equals(other.code);
     }
 
     @Override
@@ -606,13 +601,10 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     public static class Factory implements Transform<String, PathHeader> {
-        static final RegexLookup<RawData> lookup = RegexLookup
-            .of(new PathHeaderTransform())
-            .setPatternTransform(
-                RegexLookup.RegexFinderTransformPath)
-            .loadFromFile(
-                PathHeader.class,
-                "data/PathHeader.txt");
+        static final RegexLookup<RawData> lookup =
+                RegexLookup.of(new PathHeaderTransform())
+                        .setPatternTransform(RegexLookup.RegexFinderTransformPath)
+                        .loadFromFile(PathHeader.class, "data/PathHeader.txt");
         // synchronized with lookup
         static final Output<String[]> args = new Output<>();
         // synchronized with lookup
@@ -625,19 +617,15 @@ public class PathHeader implements Comparable<PathHeader> {
 
         static final Map<String, PathHeader> cache = new HashMap<>();
         // synchronized with cache
-        static final Map<SectionId, Map<PageId, SectionPage>> sectionToPageToSectionPage = new EnumMap<>(
-            SectionId.class);
-        static final Relation<SectionPage, String> sectionPageToPaths = Relation
-            .of(new TreeMap<SectionPage, Set<String>>(),
-                HashSet.class);
+        static final Map<SectionId, Map<PageId, SectionPage>> sectionToPageToSectionPage = new EnumMap<>(SectionId.class);
+        static final Relation<SectionPage, String> sectionPageToPaths = Relation.of(new TreeMap<SectionPage, Set<String>>(), HashSet.class);
         private static CLDRFile englishFile;
         private Set<String> matchersFound = new HashSet<>();
 
         /**
          * Create a factory for creating PathHeaders.
          *
-         * @param englishFile
-         *            - only sets the file (statically!) if not already set.
+         * @param englishFile - only sets the file (statically!) if not already set.
          */
         private Factory(CLDRFile englishFile) {
             setEnglishCLDRFileIfNotSet(englishFile); // temporary
@@ -659,25 +647,19 @@ public class PathHeader implements Comparable<PathHeader> {
             }
         }
 
-        /**
-         * Use only when trying to find unmatched patterns
-         */
+        /** Use only when trying to find unmatched patterns */
         public void clearCache() {
             synchronized (cache) {
                 cache.clear();
             }
         }
 
-        /**
-         * Return the PathHeader for a given path. Thread-safe.
-         */
+        /** Return the PathHeader for a given path. Thread-safe. */
         public PathHeader fromPath(String path) {
             return fromPath(path, null);
         }
 
-        /**
-         * Return the PathHeader for a given path. Thread-safe.
-         */
+        /** Return the PathHeader for a given path. Thread-safe. */
         @Override
         public PathHeader transform(String path) {
             return fromPath(path, null);
@@ -685,6 +667,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         /**
          * Return the PathHeader for a given path. Thread-safe.
+         *
          * @param failures a list of failures to add to.
          */
         public PathHeader fromPath(final String path, List<String> failures) {
@@ -705,8 +688,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 if (altPos >= 0 && !cleanPath.endsWith("/symbol[@alt=\"narrow\"]")) {
                     if (ALT_MATCHER.reset(cleanPath).find()) {
                         alt = ALT_MATCHER.group(1);
-                        cleanPath = cleanPath.substring(0, ALT_MATCHER.start())
-                            + cleanPath.substring(ALT_MATCHER.end());
+                        cleanPath = cleanPath.substring(0, ALT_MATCHER.start()) + cleanPath.substring(ALT_MATCHER.end());
                         int pos = alt.indexOf("proposed");
                         if (pos >= 0 && !path.startsWith("//ldml/collations")) {
                             alt = pos == 0 ? null : alt.substring(0, pos - 1);
@@ -728,17 +710,18 @@ public class PathHeader implements Comparable<PathHeader> {
                     samples.put(data, cleanPath);
                 }
                 try {
-                    PathHeader result = new PathHeader(
-                        SectionId.forString(fix(data.section, 0)),
-                        PageId.forString(fix(data.page, 0)),
-                        fix(data.header, data.headerOrder),
-                        (int)order, // only valid after call to fix. TODO, make
-                        // this cleaner
-                        fix(data.code + (alt == null ? "" : ("-" + alt)), data.codeOrder),
-                        order, // only valid after call to fix
-                        suborder,
-                        data.status,
-                        path);
+                    PathHeader result =
+                            new PathHeader(
+                                    SectionId.forString(fix(data.section, 0)),
+                                    PageId.forString(fix(data.page, 0)),
+                                    fix(data.header, data.headerOrder),
+                                    (int) order, // only valid after call to fix. TODO, make
+                                    // this cleaner
+                                    fix(data.code + (alt == null ? "" : ("-" + alt)), data.codeOrder),
+                                    order, // only valid after call to fix
+                                    suborder,
+                                    data.status,
+                                    path);
                     synchronized (cache) {
                         PathHeader old = cache.get(path);
                         if (old == null) {
@@ -746,8 +729,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         } else {
                             result = old;
                         }
-                        Map<PageId, SectionPage> pageToPathHeaders = sectionToPageToSectionPage
-                            .get(result.sectionId);
+                        Map<PageId, SectionPage> pageToPathHeaders = sectionToPageToSectionPage.get(result.sectionId);
                         if (pageToPathHeaders == null) {
                             sectionToPageToSectionPage.put(result.sectionId, pageToPathHeaders = new EnumMap<>(PageId.class));
                         }
@@ -760,9 +742,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     return result;
                 } catch (Exception e) {
-                    throw new IllegalArgumentException(
-                        "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + path,
-                        e);
+                    throw new IllegalArgumentException("Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + path, e);
                 }
             }
         }
@@ -806,6 +786,7 @@ public class PathHeader implements Comparable<PathHeader> {
             public int hashCode() {
                 return sectionId.hashCode() ^ pageId.hashCode();
             }
+
             @Override
             public String toString() {
                 return sectionId + " > " + pageId;
@@ -813,18 +794,17 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         /**
-         * Returns a set of paths currently associated with the given section
-         * and page.
-         * <p>
-         * <b>Warning:</b>
+         * Returns a set of paths currently associated with the given section and page.
+         *
+         * <p><b>Warning:</b>
+         *
          * <ol>
-         * <li>The set may not be complete for a cldrFile unless all of paths in
-         * the file have had fromPath called. And this includes getExtraPaths().
-         * </li>
-         * <li>The set may include paths that have no value in the current
-         * cldrFile.</li>
-         * <li>The set may be empty, if the section/page aren't valid.</li>
+         *   <li>The set may not be complete for a cldrFile unless all of paths in the file have had
+         *       fromPath called. And this includes getExtraPaths().
+         *   <li>The set may include paths that have no value in the current cldrFile.
+         *   <li>The set may be empty, if the section/page aren't valid.
          * </ol>
+         *
          * Thread-safe.
          *
          * @target a collection where the paths are to be returned.
@@ -832,8 +812,7 @@ public class PathHeader implements Comparable<PathHeader> {
         public static Set<String> getCachedPaths(SectionId sectionId, PageId page) {
             Set<String> target = new HashSet<>();
             synchronized (cache) {
-                Map<PageId, SectionPage> pageToSectionPage = sectionToPageToSectionPage
-                    .get(sectionId);
+                Map<PageId, SectionPage> pageToSectionPage = sectionToPageToSectionPage.get(sectionId);
                 if (pageToSectionPage == null) {
                     return target;
                 }
@@ -848,8 +827,8 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         /**
-         * Return the Sections and Pages that are in defined, for display in
-         * menus. Both are ordered.
+         * Return the Sections and Pages that are in defined, for display in menus. Both are
+         * ordered.
          */
         public static Relation<SectionId, PageId> getSectionIdsToPageIds() {
             SectionIdToPageIds.freeze(); // just in case
@@ -868,8 +847,8 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         /**
-         * Return the names for Sections and Pages that are defined, for display
-         * in menus. Both are ordered.
+         * Return the names for Sections and Pages that are defined, for display in menus. Both are
+         * ordered.
          *
          * @deprecated Use getSectionIdsToPageIds
          */
@@ -887,9 +866,7 @@ public class PathHeader implements Comparable<PathHeader> {
             return sectionsToPages;
         }
 
-        /**
-         * @deprecated, use the filterCldr with the section/page ids.
-         */
+        /** @deprecated, use the filterCldr with the section/page ids. */
         public Iterable<String> filterCldr(String section, String page, CLDRFile file) {
             return new FilteredIterable(section, page, file);
         }
@@ -1000,11 +977,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
             @Override
             public String toString() {
-                return section + "\t"
-                    + page + "\t"
-                    + header + "\t" + headerOrder + "\t"
-                    + code + "\t" + codeOrder + "\t"
-                    + status;
+                return section + "\t" + page + "\t" + header + "\t" + headerOrder + "\t" + code + "\t" + codeOrder + "\t" + status;
             }
         }
 
@@ -1023,8 +996,7 @@ public class PathHeader implements Comparable<PathHeader> {
         @Deprecated
         public class CounterData extends Row.R4<String, RawData, String, String> {
             public CounterData(String a, RawData b, String c) {
-                super(a, b, c == null ? "no sample" : c, c == null ? "no sample" : fromPath(c)
-                    .toString());
+                super(a, b, c == null ? "no sample" : c, c == null ? "no sample" : fromPath(c).toString());
             }
         }
 
@@ -1048,516 +1020,544 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         static Map<String, Transform<String, String>> functionMap = new HashMap<>();
-        static String[] months = { "Jan", "Feb", "Mar",
-            "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep",
-            "Oct", "Nov", "Dec",
-        "Und" };
-        static List<String> days = Arrays.asList("sun", "mon",
-            "tue", "wed", "thu",
-            "fri", "sat");
+        static String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Und"};
+        static List<String> days = Arrays.asList("sun", "mon", "tue", "wed", "thu", "fri", "sat");
         static List<String> unitOrder = DtdData.unitOrder.getOrder();
-        static final MapComparator<String> dayPeriods = new MapComparator<String>().add(
-            "am", "pm", "midnight", "noon",
-            "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
+        static final MapComparator<String> dayPeriods =
+                new MapComparator<String>()
+                        .add("am", "pm", "midnight", "noon", "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2")
+                        .freeze();
         // static Map<String, String> likelySubtags =
         // supplementalDataInfo.getLikelySubtags();
         static LikelySubtags likelySubtags = new LikelySubtags();
         static HyphenSplitter hyphenSplitter = new HyphenSplitter();
         static Transform<String, String> catFromTerritory;
         static Transform<String, String> catFromTimezone;
+
         static {
             // Put any new functions used in PathHeader.txt in here.
             // To change the order of items within a section or heading, set
             // order/suborder to be the relative position of the current item.
-            functionMap.put("month", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    int m = Integer.parseInt(source);
-                    order = m;
-                    return months[m - 1];
-                }
-            });
-            functionMap.put("count", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    suborder = new SubstringOrder(source);
-                    return source;
-                }
-            });
-            functionMap.put("count2", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    int pos = source.indexOf('-');
-                    source = pos + source.substring(pos);
-                    suborder = new SubstringOrder(source); // make 10000-...
-                    // into 5-
-                    return source;
-                }
-            });
-            functionMap.put("currencySymbol", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    order = 901;
-                    if (source.endsWith("narrow")) {
-                        order = 902;
-                    }
-                    if (source.endsWith("variant")) {
-                        order = 903;
-                    }
-                    return source;
-                }
-            });
-            functionMap.put("unitCount", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    String[] unitLengths = { "long", "short", "narrow" };
-                    int pos = 9;
-                    for (int i = 0; i < unitLengths.length; i++) {
-                        if (source.startsWith(unitLengths[i])) {
-                            pos = i;
-                            continue;
+            functionMap.put(
+                    "month",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            int m = Integer.parseInt(source);
+                            order = m;
+                            return months[m - 1];
                         }
-                    }
-                    order = pos;
-                    suborder = new SubstringOrder(pos + "-" + source); //
-                    return source;
-                }
-            });
-            functionMap.put("day", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    int m = days.indexOf(source);
-                    order = m;
-                    return source;
-                }
-            });
-            functionMap.put("dayPeriod", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    try {
-                        order = dayPeriods.getNumericOrder(source);
-                    } catch (Exception e) {
-                        // if an old item is tried, like "evening", this will fail.
-                        // so that old data still works, hack this.
-                        order = Math.abs(source.hashCode() << 16);
-                    }
-                    return source;
-                }
-            });
-            functionMap.put("calendar", new Transform<String, String>() {
-                Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
-                    .put("islamicc", "Islamic Civil")
-                    .put("roc", "Minguo")
-                    .put("Ethioaa", "Ethiopic Amete Alem")
-                    .put("Gregory", "Gregorian")
-                    .put("iso8601", "ISO 8601")
-                    .freeze();
-
-                @Override
-                public String transform(String source) {
-                    String result = fixNames.get(source);
-                    return result != null ? result : UCharacter.toTitleCase(source, null);
-                }
-            });
-
-            functionMap.put("calField", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    String[] fields = source.split(":", 3);
-                    order = 0;
-                    final List<String> widthValues = Arrays.asList(
-                        "wide", "abbreviated", "short", "narrow");
-                    final List<String> calendarFieldValues = Arrays.asList(
-                        "Eras",
-                        "Quarters",
-                        "Months",
-                        "Days",
-                        "DayPeriods",
-                        "Formats");
-                    final List<String> calendarFormatTypes = Arrays.asList(
-                        "Standard",
-                        "Flexible",
-                        "Intervals");
-                    final List<String> calendarContextTypes = Arrays.asList(
-                        "none",
-                        "format",
-                        "stand-alone");
-                    final List<String> calendarFormatSubtypes = Arrays.asList(
-                        "date",
-                        "time",
-                        "time12",
-                        "time24",
-                        "dateTime",
-                        "fallback");
-
-                    Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
-                        .put("DayPeriods", "Day Periods")
-                        .put("format", "Formatting")
-                        .put("stand-alone", "Standalone")
-                        .put("none", "")
-                        .put("date", "Date Formats")
-                        .put("time", "Time Formats")
-                        .put("time12", "12 Hour Time Formats")
-                        .put("time24", "24 Hour Time Formats")
-                        .put("dateTime", "Date & Time Combination Formats")
-                        .freeze();
-
-                    if (calendarFieldValues.contains(fields[0])) {
-                        order = calendarFieldValues.indexOf(fields[0]) * 100;
-                    } else {
-                        order = calendarFieldValues.size() * 100;
-                    }
-
-                    if (fields[0].equals("Formats")) {
-                        if (calendarFormatTypes.contains(fields[1])) {
-                            order += calendarFormatTypes.indexOf(fields[1]) * 10;
-                        } else {
-                            order += calendarFormatTypes.size() * 10;
+                    });
+            functionMap.put(
+                    "count",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            suborder = new SubstringOrder(source);
+                            return source;
                         }
-                        if (calendarFormatSubtypes.contains(fields[2])) {
-                            order += calendarFormatSubtypes.indexOf(fields[2]);
-                        } else {
-                            order += calendarFormatSubtypes.size();
+                    });
+            functionMap.put(
+                    "count2",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            int pos = source.indexOf('-');
+                            source = pos + source.substring(pos);
+                            suborder = new SubstringOrder(source); // make 10000-...
+                            // into 5-
+                            return source;
                         }
-                    } else {
-                        if (widthValues.contains(fields[1])) {
-                            order += widthValues.indexOf(fields[1]) * 10;
-                        } else {
-                            order += widthValues.size() * 10;
+                    });
+            functionMap.put(
+                    "currencySymbol",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            order = 901;
+                            if (source.endsWith("narrow")) {
+                                order = 902;
+                            }
+                            if (source.endsWith("variant")) {
+                                order = 903;
+                            }
+                            return source;
                         }
-                        if (calendarContextTypes.contains(fields[2])) {
-                            order += calendarContextTypes.indexOf(fields[2]);
-                        } else {
-                            order += calendarContextTypes.size();
+                    });
+            functionMap.put(
+                    "unitCount",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            String[] unitLengths = {"long", "short", "narrow"};
+                            int pos = 9;
+                            for (int i = 0; i < unitLengths.length; i++) {
+                                if (source.startsWith(unitLengths[i])) {
+                                    pos = i;
+                                    continue;
+                                }
+                            }
+                            order = pos;
+                            suborder = new SubstringOrder(pos + "-" + source); //
+                            return source;
                         }
-                    }
-
-                    String[] fixedFields = new String[fields.length];
-                    for (int i = 0; i < fields.length; i++) {
-                        String s = fixNames.get(fields[i]);
-                        fixedFields[i] = s != null ? s : fields[i];
-                    }
-
-                    return fixedFields[0] +
-                        " - " + fixedFields[1] +
-                        (fixedFields[2].length() > 0 ? " - " + fixedFields[2] : "");
-                }
-            });
-
-            functionMap.put("titlecase", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    return UCharacter.toTitleCase(source, null);
-                }
-            });
-            functionMap.put("categoryFromScript", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    String script = hyphenSplitter.split(source);
-                    Info info = ScriptMetadata.getInfo(script);
-                    if (info == null) {
-                        info = ScriptMetadata.getInfo("Zzzz");
-                    }
-                    order = 100 - info.idUsage.ordinal();
-                    return info.idUsage.name;
-                }
-            });
-            functionMap.put("categoryFromKey", new Transform<String, String>() {
-                Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
-                    .put("lb", "Line Break")
-                    .put("hc", "Hour Cycle")
-                    .put("ms", "Measurement System")
-                    .put("cf", "Currency Format")
-                    .freeze();
-
-                @Override
-                public String transform(String source) {
-                    String fixedName = fixNames.get(source);
-                    return fixedName != null ? fixedName : source;
-                }
-            });
-            functionMap.put("languageSection", new Transform<String, String>() {
-                char[] languageRangeStartPoints = { 'A', 'E', 'K', 'O', 'T' };
-                char[] languageRangeEndPoints = { 'D', 'J', 'N', 'S', 'Z' };
-
-                @Override
-                public String transform(String source0) {
-                    char firstLetter = getEnglishFirstLetter(source0).charAt(0);
-                    for (int i = 0; i < languageRangeStartPoints.length; i++) {
-                        if (firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i]) {
-                            return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i])
-                            + ")";
+                    });
+            functionMap.put(
+                    "day",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            int m = days.indexOf(source);
+                            order = m;
+                            return source;
                         }
-                    }
-                    return "Languages";
-                }
-            });
-            functionMap.put("firstLetter", new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    return getEnglishFirstLetter(source0);
-                }
-            });
-            functionMap.put("languageSort", new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    String languageOnlyPart;
-                    int underscorePos = source0.indexOf("_");
-                    if (underscorePos > 0) {
-                        languageOnlyPart = source0.substring(0, underscorePos);
-                    } else {
-                        languageOnlyPart = source0;
-                    }
-
-                    return englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart) + " \u25BA " + source0;
-                }
-            });
-            functionMap.put("scriptFromLanguage", new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    String language = hyphenSplitter.split(source0);
-                    String script = likelySubtags.getLikelyScript(language);
-                    if (script == null) {
-                        script = likelySubtags.getLikelyScript(language);
-                    }
-                    String scriptName = englishFile.getName(CLDRFile.SCRIPT_NAME, script);
-                    return "Languages in " + (script.equals("Hans") || script.equals("Hant") ? "Han Script"
-                        : scriptName.endsWith(" Script") ? scriptName
-                            : scriptName + " Script");
-                }
-            });
-            functionMap.put("categoryFromTerritory",
-                catFromTerritory = new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    String territory = getSubdivisionsTerritory(source, null);
-                    String container = Containment.getContainer(territory);
-                    order = Containment.getOrder(territory);
-                    return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
-                }
-            });
-            functionMap.put("territorySection", new Transform<String, String>() {
-                final Set<String> specialRegions = new HashSet<>(Arrays.asList("EZ", "EU", "QO", "UN", "ZZ"));
-
-                @Override
-                public String transform(String source0) {
-                    // support subdivisions
-                    String theTerritory = getSubdivisionsTerritory(source0, null);
-                    try {
-                        if (specialRegions.contains(theTerritory)
-                            || theTerritory.charAt(0) < 'A' && Integer.valueOf(theTerritory) > 0) {
-                            return "Geographic Regions";
+                    });
+            functionMap.put(
+                    "dayPeriod",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            try {
+                                order = dayPeriods.getNumericOrder(source);
+                            } catch (Exception e) {
+                                // if an old item is tried, like "evening", this will fail.
+                                // so that old data still works, hack this.
+                                order = Math.abs(source.hashCode() << 16);
+                            }
+                            return source;
                         }
-                    } catch (NumberFormatException ex) {
-                    }
-                    String theContinent = Containment.getContinent(theTerritory);
-                    String theSubContinent;
-                    switch (theContinent) { // was Integer.valueOf
-                    case "019": // Americas - For the territorySection, we just group North America & South America
-                        final String subcontinent = Containment.getSubcontinent(theTerritory);
-                        theSubContinent = subcontinent.equals("005") ? "005" : "003"; // was Integer.valueOf(subcontinent) == 5
-                        return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent) + ")";
-                    case "001":
-                    case "ZZ":
-                        return "Geographic Regions"; // not in containment
-                    default:
-                        return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent) + ")";
-                    }
-                }
-            });
-            functionMap.put("categoryFromTimezone",
-                catFromTimezone = new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    String territory = Containment.getRegionFromZone(source0);
-                    if (territory == null) {
-                        territory = "ZZ";
-                    }
-                    return catFromTerritory.transform(territory);
-                }
-            });
-            functionMap.put("timeZonePage", new Transform<String, String>() {
-                Set<String> singlePageTerritories = new HashSet<>(Arrays.asList("AQ", "RU", "ZZ"));
+                    });
+            functionMap.put(
+                    "calendar",
+                    new Transform<String, String>() {
+                        Map<String, String> fixNames =
+                                Builder.with(new HashMap<String, String>())
+                                        .put("islamicc", "Islamic Civil")
+                                        .put("roc", "Minguo")
+                                        .put("Ethioaa", "Ethiopic Amete Alem")
+                                        .put("Gregory", "Gregorian")
+                                        .put("iso8601", "ISO 8601")
+                                        .freeze();
 
-                @Override
-                public String transform(String source0) {
-                    String theTerritory = Containment.getRegionFromZone(source0);
-                    if (theTerritory == null || theTerritory == "001") {
-                        theTerritory = "ZZ";
-                    }
-                    if (singlePageTerritories.contains(theTerritory)) {
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);
-                    }
-                    String theContinent = Containment.getContinent(theTerritory);
-                    final String subcontinent = Containment.getSubcontinent(theTerritory);
-                    String theSubContinent;
-                    switch (Integer.valueOf(theContinent)) {
-                    case 9: // Oceania - For the timeZonePage, we group Australasia on one page, and the rest of Oceania on the other.
-                        try {
-                            theSubContinent = subcontinent.equals("053") ? "053" : "009"; // was Integer.valueOf(subcontinent) == 53
-                        } catch (NumberFormatException ex) {
-                            theSubContinent = "009";
+                        @Override
+                        public String transform(String source) {
+                            String result = fixNames.get(source);
+                            return result != null ? result : UCharacter.toTitleCase(source, null);
                         }
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
-                    case 19: // Americas - For the timeZonePage, we just group North America & South America
-                        theSubContinent = Integer.valueOf(subcontinent) == 5 ? "005" : "003";
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
-                    case 142: // Asia
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, subcontinent);
-                    default:
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent);
-                    }
-                }
-            });
+                    });
 
-            functionMap.put("timezoneSorting", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    final List<String> codeValues = Arrays.asList(
-                        "generic-long",
-                        "generic-short",
-                        "standard-long",
-                        "standard-short",
-                        "daylight-long",
-                        "daylight-short");
-                    if (codeValues.contains(source)) {
-                        order = codeValues.indexOf(source);
-                    } else {
-                        order = codeValues.size();
-                    }
-                    return source;
-                }
-            });
+            functionMap.put(
+                    "calField",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            String[] fields = source.split(":", 3);
+                            order = 0;
+                            final List<String> widthValues = Arrays.asList("wide", "abbreviated", "short", "narrow");
+                            final List<String> calendarFieldValues = Arrays.asList("Eras", "Quarters", "Months", "Days", "DayPeriods", "Formats");
+                            final List<String> calendarFormatTypes = Arrays.asList("Standard", "Flexible", "Intervals");
+                            final List<String> calendarContextTypes = Arrays.asList("none", "format", "stand-alone");
+                            final List<String> calendarFormatSubtypes = Arrays.asList("date", "time", "time12", "time24", "dateTime", "fallback");
 
-            functionMap.put("tzdpField", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    Map<String, String> fieldNames = Builder.with(new HashMap<String, String>())
-                        .put("regionFormat", "Region Format - Generic")
-                        .put("regionFormat-standard", "Region Format - Standard")
-                        .put("regionFormat-daylight", "Region Format - Daylight")
-                        .put("gmtFormat", "GMT Format")
-                        .put("hourFormat", "GMT Hours/Minutes Format")
-                        .put("gmtZeroFormat", "GMT Zero Format")
-                        .put("fallbackFormat", "Location Fallback Format")
-                        .freeze();
-                    final List<String> fieldOrder = Arrays.asList(
-                        "regionFormat",
-                        "regionFormat-standard",
-                        "regionFormat-daylight",
-                        "gmtFormat",
-                        "hourFormat",
-                        "gmtZeroFormat",
-                        "fallbackFormat");
+                            Map<String, String> fixNames =
+                                    Builder.with(new HashMap<String, String>())
+                                            .put("DayPeriods", "Day Periods")
+                                            .put("format", "Formatting")
+                                            .put("stand-alone", "Standalone")
+                                            .put("none", "")
+                                            .put("date", "Date Formats")
+                                            .put("time", "Time Formats")
+                                            .put("time12", "12 Hour Time Formats")
+                                            .put("time24", "24 Hour Time Formats")
+                                            .put("dateTime", "Date & Time Combination Formats")
+                                            .freeze();
 
-                    if (fieldOrder.contains(source)) {
-                        order = fieldOrder.indexOf(source);
-                    } else {
-                        order = fieldOrder.size();
-                    }
+                            if (calendarFieldValues.contains(fields[0])) {
+                                order = calendarFieldValues.indexOf(fields[0]) * 100;
+                            } else {
+                                order = calendarFieldValues.size() * 100;
+                            }
 
-                    String result = fieldNames.get(source);
-                    return result == null ? source : result;
-                }
-            });
-            functionMap.put("unit", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    int m = unitOrder.indexOf(source);
-                    order = m;
-                    return source.substring(source.indexOf('-') + 1);
-                }
-            });
+                            if (fields[0].equals("Formats")) {
+                                if (calendarFormatTypes.contains(fields[1])) {
+                                    order += calendarFormatTypes.indexOf(fields[1]) * 10;
+                                } else {
+                                    order += calendarFormatTypes.size() * 10;
+                                }
+                                if (calendarFormatSubtypes.contains(fields[2])) {
+                                    order += calendarFormatSubtypes.indexOf(fields[2]);
+                                } else {
+                                    order += calendarFormatSubtypes.size();
+                                }
+                            } else {
+                                if (widthValues.contains(fields[1])) {
+                                    order += widthValues.indexOf(fields[1]) * 10;
+                                } else {
+                                    order += widthValues.size() * 10;
+                                }
+                                if (calendarContextTypes.contains(fields[2])) {
+                                    order += calendarContextTypes.indexOf(fields[2]);
+                                } else {
+                                    order += calendarContextTypes.size();
+                                }
+                            }
 
-            functionMap.put("numericSort", new Transform<String, String>() {
-                // Probably only works well for small values, like -5 through +4.
-                @Override
-                public String transform(String source) {
-                    Integer pos = Integer.valueOf(source) + 5;
-                    suborder = new SubstringOrder(pos.toString());
-                    return source;
-                }
-            });
+                            String[] fixedFields = new String[fields.length];
+                            for (int i = 0; i < fields.length; i++) {
+                                String s = fixNames.get(fields[i]);
+                                fixedFields[i] = s != null ? s : fields[i];
+                            }
 
-            functionMap.put("metazone", new Transform<String, String>() {
-
-                @Override
-                public String transform(String source) {
-                    if (PathHeader.UNIFORM_CONTINENTS) {
-                        String container = getMetazonePageTerritory(source);
-                        order = Containment.getOrder(container);
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
-                    } else {
-                        String continent = metazoneToContinent.get(source);
-                        if (continent == null) {
-                            continent = "UnknownT";
+                            return fixedFields[0] + " - " + fixedFields[1] + (fixedFields[2].length() > 0 ? " - " + fixedFields[2] : "");
                         }
-                        return continent;
-                    }
-                }
-            });
+                    });
+
+            functionMap.put(
+                    "titlecase",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            return UCharacter.toTitleCase(source, null);
+                        }
+                    });
+            functionMap.put(
+                    "categoryFromScript",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            String script = hyphenSplitter.split(source);
+                            Info info = ScriptMetadata.getInfo(script);
+                            if (info == null) {
+                                info = ScriptMetadata.getInfo("Zzzz");
+                            }
+                            order = 100 - info.idUsage.ordinal();
+                            return info.idUsage.name;
+                        }
+                    });
+            functionMap.put(
+                    "categoryFromKey",
+                    new Transform<String, String>() {
+                        Map<String, String> fixNames =
+                                Builder.with(new HashMap<String, String>())
+                                        .put("lb", "Line Break")
+                                        .put("hc", "Hour Cycle")
+                                        .put("ms", "Measurement System")
+                                        .put("cf", "Currency Format")
+                                        .freeze();
+
+                        @Override
+                        public String transform(String source) {
+                            String fixedName = fixNames.get(source);
+                            return fixedName != null ? fixedName : source;
+                        }
+                    });
+            functionMap.put(
+                    "languageSection",
+                    new Transform<String, String>() {
+                        char[] languageRangeStartPoints = {'A', 'E', 'K', 'O', 'T'};
+                        char[] languageRangeEndPoints = {'D', 'J', 'N', 'S', 'Z'};
+
+                        @Override
+                        public String transform(String source0) {
+                            char firstLetter = getEnglishFirstLetter(source0).charAt(0);
+                            for (int i = 0; i < languageRangeStartPoints.length; i++) {
+                                if (firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i]) {
+                                    return "Languages ("
+                                            + Character.toUpperCase(languageRangeStartPoints[i])
+                                            + "-"
+                                            + Character.toUpperCase(languageRangeEndPoints[i])
+                                            + ")";
+                                }
+                            }
+                            return "Languages";
+                        }
+                    });
+            functionMap.put(
+                    "firstLetter",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source0) {
+                            return getEnglishFirstLetter(source0);
+                        }
+                    });
+            functionMap.put(
+                    "languageSort",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source0) {
+                            String languageOnlyPart;
+                            int underscorePos = source0.indexOf("_");
+                            if (underscorePos > 0) {
+                                languageOnlyPart = source0.substring(0, underscorePos);
+                            } else {
+                                languageOnlyPart = source0;
+                            }
+
+                            return englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart) + " \u25BA " + source0;
+                        }
+                    });
+            functionMap.put(
+                    "scriptFromLanguage",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source0) {
+                            String language = hyphenSplitter.split(source0);
+                            String script = likelySubtags.getLikelyScript(language);
+                            if (script == null) {
+                                script = likelySubtags.getLikelyScript(language);
+                            }
+                            String scriptName = englishFile.getName(CLDRFile.SCRIPT_NAME, script);
+                            return "Languages in "
+                                    + (script.equals("Hans") || script.equals("Hant")
+                                            ? "Han Script"
+                                            : scriptName.endsWith(" Script") ? scriptName : scriptName + " Script");
+                        }
+                    });
+            functionMap.put(
+                    "categoryFromTerritory",
+                    catFromTerritory =
+                            new Transform<String, String>() {
+                                @Override
+                                public String transform(String source) {
+                                    String territory = getSubdivisionsTerritory(source, null);
+                                    String container = Containment.getContainer(territory);
+                                    order = Containment.getOrder(territory);
+                                    return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
+                                }
+                            });
+            functionMap.put(
+                    "territorySection",
+                    new Transform<String, String>() {
+                        final Set<String> specialRegions = new HashSet<>(Arrays.asList("EZ", "EU", "QO", "UN", "ZZ"));
+
+                        @Override
+                        public String transform(String source0) {
+                            // support subdivisions
+                            String theTerritory = getSubdivisionsTerritory(source0, null);
+                            try {
+                                if (specialRegions.contains(theTerritory) || theTerritory.charAt(0) < 'A' && Integer.valueOf(theTerritory) > 0) {
+                                    return "Geographic Regions";
+                                }
+                            } catch (NumberFormatException ex) {
+                            }
+                            String theContinent = Containment.getContinent(theTerritory);
+                            String theSubContinent;
+                            switch (theContinent) { // was Integer.valueOf
+                                case "019": // Americas - For the territorySection, we just group North America & South America
+                                    final String subcontinent = Containment.getSubcontinent(theTerritory);
+                                    theSubContinent = subcontinent.equals("005") ? "005" : "003"; // was Integer.valueOf(subcontinent) == 5
+                                    return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent) + ")";
+                                case "001":
+                                case "ZZ":
+                                    return "Geographic Regions"; // not in containment
+                                default:
+                                    return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent) + ")";
+                            }
+                        }
+                    });
+            functionMap.put(
+                    "categoryFromTimezone",
+                    catFromTimezone =
+                            new Transform<String, String>() {
+                                @Override
+                                public String transform(String source0) {
+                                    String territory = Containment.getRegionFromZone(source0);
+                                    if (territory == null) {
+                                        territory = "ZZ";
+                                    }
+                                    return catFromTerritory.transform(territory);
+                                }
+                            });
+            functionMap.put(
+                    "timeZonePage",
+                    new Transform<String, String>() {
+                        Set<String> singlePageTerritories = new HashSet<>(Arrays.asList("AQ", "RU", "ZZ"));
+
+                        @Override
+                        public String transform(String source0) {
+                            String theTerritory = Containment.getRegionFromZone(source0);
+                            if (theTerritory == null || theTerritory == "001") {
+                                theTerritory = "ZZ";
+                            }
+                            if (singlePageTerritories.contains(theTerritory)) {
+                                return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);
+                            }
+                            String theContinent = Containment.getContinent(theTerritory);
+                            final String subcontinent = Containment.getSubcontinent(theTerritory);
+                            String theSubContinent;
+                            switch (Integer.valueOf(theContinent)) {
+                                case 9: // Oceania - For the timeZonePage, we group Australasia on one page, and the rest of Oceania on the other.
+                                    try {
+                                        theSubContinent = subcontinent.equals("053") ? "053" : "009"; // was Integer.valueOf(subcontinent) == 53
+                                    } catch (NumberFormatException ex) {
+                                        theSubContinent = "009";
+                                    }
+                                    return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                                case 19: // Americas - For the timeZonePage, we just group North America & South America
+                                    theSubContinent = Integer.valueOf(subcontinent) == 5 ? "005" : "003";
+                                    return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                                case 142: // Asia
+                                    return englishFile.getName(CLDRFile.TERRITORY_NAME, subcontinent);
+                                default:
+                                    return englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent);
+                            }
+                        }
+                    });
+
+            functionMap.put(
+                    "timezoneSorting",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            final List<String> codeValues =
+                                    Arrays.asList("generic-long", "generic-short", "standard-long", "standard-short", "daylight-long", "daylight-short");
+                            if (codeValues.contains(source)) {
+                                order = codeValues.indexOf(source);
+                            } else {
+                                order = codeValues.size();
+                            }
+                            return source;
+                        }
+                    });
+
+            functionMap.put(
+                    "tzdpField",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            Map<String, String> fieldNames =
+                                    Builder.with(new HashMap<String, String>())
+                                            .put("regionFormat", "Region Format - Generic")
+                                            .put("regionFormat-standard", "Region Format - Standard")
+                                            .put("regionFormat-daylight", "Region Format - Daylight")
+                                            .put("gmtFormat", "GMT Format")
+                                            .put("hourFormat", "GMT Hours/Minutes Format")
+                                            .put("gmtZeroFormat", "GMT Zero Format")
+                                            .put("fallbackFormat", "Location Fallback Format")
+                                            .freeze();
+                            final List<String> fieldOrder =
+                                    Arrays.asList(
+                                            "regionFormat",
+                                            "regionFormat-standard",
+                                            "regionFormat-daylight",
+                                            "gmtFormat",
+                                            "hourFormat",
+                                            "gmtZeroFormat",
+                                            "fallbackFormat");
+
+                            if (fieldOrder.contains(source)) {
+                                order = fieldOrder.indexOf(source);
+                            } else {
+                                order = fieldOrder.size();
+                            }
+
+                            String result = fieldNames.get(source);
+                            return result == null ? source : result;
+                        }
+                    });
+            functionMap.put(
+                    "unit",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            int m = unitOrder.indexOf(source);
+                            order = m;
+                            return source.substring(source.indexOf('-') + 1);
+                        }
+                    });
+
+            functionMap.put(
+                    "numericSort",
+                    new Transform<String, String>() {
+                        // Probably only works well for small values, like -5 through +4.
+                        @Override
+                        public String transform(String source) {
+                            Integer pos = Integer.valueOf(source) + 5;
+                            suborder = new SubstringOrder(pos.toString());
+                            return source;
+                        }
+                    });
+
+            functionMap.put(
+                    "metazone",
+                    new Transform<String, String>() {
+
+                        @Override
+                        public String transform(String source) {
+                            if (PathHeader.UNIFORM_CONTINENTS) {
+                                String container = getMetazonePageTerritory(source);
+                                order = Containment.getOrder(container);
+                                return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
+                            } else {
+                                String continent = metazoneToContinent.get(source);
+                                if (continent == null) {
+                                    continent = "UnknownT";
+                                }
+                                return continent;
+                            }
+                        }
+                    });
 
             Object[][] ctto = {
-                { "BUK", "MM" },
-                { "CSD", "RS" },
-                { "CSK", "CZ" },
-                { "DDM", "DE" },
-                { "EUR", "ZZ" },
-                { "RHD", "ZW" },
-                { "SUR", "RU" },
-                { "TPE", "TL" },
-                { "XAG", "ZZ" },
-                { "XAU", "ZZ" },
-                { "XBA", "ZZ" },
-                { "XBB", "ZZ" },
-                { "XBC", "ZZ" },
-                { "XBD", "ZZ" },
-                { "XDR", "ZZ" },
-                { "XEU", "ZZ" },
-                { "XFO", "ZZ" },
-                { "XFU", "ZZ" },
-                { "XPD", "ZZ" },
-                { "XPT", "ZZ" },
-                { "XRE", "ZZ" },
-                { "XSU", "ZZ" },
-                { "XTS", "ZZ" },
-                { "XUA", "ZZ" },
-                { "XXX", "ZZ" },
-                { "YDD", "YE" },
-                { "YUD", "RS" },
-                { "YUM", "RS" },
-                { "YUN", "RS" },
-                { "YUR", "RS" },
-                { "ZRN", "CD" },
-                { "ZRZ", "CD" },
+                {"BUK", "MM"},
+                {"CSD", "RS"},
+                {"CSK", "CZ"},
+                {"DDM", "DE"},
+                {"EUR", "ZZ"},
+                {"RHD", "ZW"},
+                {"SUR", "RU"},
+                {"TPE", "TL"},
+                {"XAG", "ZZ"},
+                {"XAU", "ZZ"},
+                {"XBA", "ZZ"},
+                {"XBB", "ZZ"},
+                {"XBC", "ZZ"},
+                {"XBD", "ZZ"},
+                {"XDR", "ZZ"},
+                {"XEU", "ZZ"},
+                {"XFO", "ZZ"},
+                {"XFU", "ZZ"},
+                {"XPD", "ZZ"},
+                {"XPT", "ZZ"},
+                {"XRE", "ZZ"},
+                {"XSU", "ZZ"},
+                {"XTS", "ZZ"},
+                {"XUA", "ZZ"},
+                {"XXX", "ZZ"},
+                {"YDD", "YE"},
+                {"YUD", "RS"},
+                {"YUM", "RS"},
+                {"YUN", "RS"},
+                {"YUR", "RS"},
+                {"ZRN", "CD"},
+                {"ZRZ", "CD"},
             };
 
             Object[][] sctc = {
-                { "Northern America", "North America (C)" },
-                { "Central America", "North America (C)" },
-                { "Caribbean", "North America (C)" },
-                { "South America", "South America (C)" },
-                { "Northern Africa", "Northern Africa" },
-                { "Western Africa", "Western Africa" },
-                { "Middle Africa", "Middle Africa" },
-                { "Eastern Africa", "Eastern Africa" },
-                { "Southern Africa", "Southern Africa" },
-                { "Europe", "Northern/Western Europe" },
-                { "Northern Europe", "Northern/Western Europe" },
-                { "Western Europe", "Northern/Western Europe" },
-                { "Eastern Europe", "Southern/Eastern Europe" },
-                { "Southern Europe", "Southern/Eastern Europe" },
-                { "Western Asia", "Western Asia (C)" },
-                { "Central Asia", "Central Asia (C)" },
-                { "Eastern Asia", "Eastern Asia (C)" },
-                { "Southern Asia", "Southern Asia (C)" },
-                { "Southeast Asia", "Southeast Asia (C)" },
-                { "Australasia", "Oceania (C)" },
-                { "Melanesia", "Oceania (C)" },
-                { "Micronesian Region", "Oceania (C)" }, // HACK
-                { "Polynesia", "Oceania (C)" },
-                { "Unknown Region", "Unknown Region (C)" },
+                {"Northern America", "North America (C)"},
+                {"Central America", "North America (C)"},
+                {"Caribbean", "North America (C)"},
+                {"South America", "South America (C)"},
+                {"Northern Africa", "Northern Africa"},
+                {"Western Africa", "Western Africa"},
+                {"Middle Africa", "Middle Africa"},
+                {"Eastern Africa", "Eastern Africa"},
+                {"Southern Africa", "Southern Africa"},
+                {"Europe", "Northern/Western Europe"},
+                {"Northern Europe", "Northern/Western Europe"},
+                {"Western Europe", "Northern/Western Europe"},
+                {"Eastern Europe", "Southern/Eastern Europe"},
+                {"Southern Europe", "Southern/Eastern Europe"},
+                {"Western Asia", "Western Asia (C)"},
+                {"Central Asia", "Central Asia (C)"},
+                {"Eastern Asia", "Eastern Asia (C)"},
+                {"Southern Asia", "Southern Asia (C)"},
+                {"Southeast Asia", "Southeast Asia (C)"},
+                {"Australasia", "Oceania (C)"},
+                {"Melanesia", "Oceania (C)"},
+                {"Micronesian Region", "Oceania (C)"}, // HACK
+                {"Polynesia", "Oceania (C)"},
+                {"Unknown Region", "Unknown Region (C)"},
             };
 
             final Map<String, String> currencyToTerritoryOverrides = CldrUtility.asMap(ctto);
@@ -1566,272 +1566,299 @@ public class PathHeader implements Comparable<PathHeader> {
             final Set<String> offshoreCurrencies = new HashSet<>(Arrays.asList("CNH"));
             // TODO: Put this into supplementalDataInfo ?
 
-            functionMap.put("categoryFromCurrency", new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    String tenderOrNot = "";
-                    String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
-                    if (territory == null) {
-                        String tag;
-                        if (fundCurrencies.contains(source0)) {
-                            tag = " (fund)";
-                        } else if (offshoreCurrencies.contains(source0)) {
-                            tag = " (offshore)";
-                        } else {
-                            tag = " (old)";
-                        }
-                        tenderOrNot = ": " + source0 + tag;
-                    }
-                    if (currencyToTerritoryOverrides.keySet().contains(source0)) {
-                        territory = currencyToTerritoryOverrides.get(source0);
-                    } else if (territory == null) {
-                        territory = source0.substring(0, 2);
-                    }
+            functionMap.put(
+                    "categoryFromCurrency",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source0) {
+                            String tenderOrNot = "";
+                            String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
+                            if (territory == null) {
+                                String tag;
+                                if (fundCurrencies.contains(source0)) {
+                                    tag = " (fund)";
+                                } else if (offshoreCurrencies.contains(source0)) {
+                                    tag = " (offshore)";
+                                } else {
+                                    tag = " (old)";
+                                }
+                                tenderOrNot = ": " + source0 + tag;
+                            }
+                            if (currencyToTerritoryOverrides.keySet().contains(source0)) {
+                                territory = currencyToTerritoryOverrides.get(source0);
+                            } else if (territory == null) {
+                                territory = source0.substring(0, 2);
+                            }
 
-                    if (territory.equals("ZZ")) {
-                        order = 999;
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, territory) + ": " + source0;
-                    } else {
-                        return catFromTerritory.transform(territory) + ": "
-                            + englishFile.getName(CLDRFile.TERRITORY_NAME, territory)
-                            + tenderOrNot;
-                    }
-                }
-            });
-            functionMap.put("continentFromCurrency", new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    String subContinent;
-                    String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
-                    if (currencyToTerritoryOverrides.keySet().contains(source0)) {
-                        territory = currencyToTerritoryOverrides.get(source0);
-                    } else if (territory == null) {
-                        territory = source0.substring(0, 2);
-                    }
-
-                    if (territory.equals("ZZ")) {
-                        order = 999;
-                        subContinent = englishFile.getName(CLDRFile.TERRITORY_NAME, territory);
-                    } else {
-                        subContinent = catFromTerritory.transform(territory);
-                    }
-
-                    String result = subContinentToContinent.get(subContinent); //the continent is the last word in the territory representation
-                    return result;
-                }
-            });
-            functionMap.put("numberingSystem", new Transform<String, String>() {
-                @Override
-                public String transform(String source0) {
-                    if ("latn".equals(source0)) {
-                        return "";
-                    }
-                    String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@key=\"numbers\"][@type=\""
-                        + source0 + "\"]");
-                    return "using " + (displayName == null ? source0 : displayName + " (" + source0 + ")");
-                }
-            });
-
-            functionMap.put("datefield", new Transform<String, String>() {
-                private final String[] datefield = {
-                    "era", "era-short", "era-narrow",
-                    "century", "century-short", "century-narrow",
-                    "year", "year-short", "year-narrow",
-                    "quarter", "quarter-short", "quarter-narrow",
-                    "month", "month-short", "month-narrow",
-                    "week", "week-short", "week-narrow",
-                    "weekOfMonth", "weekOfMonth-short", "weekOfMonth-narrow",
-                    "day", "day-short", "day-narrow",
-                    "dayOfYear", "dayOfYear-short", "dayOfYear-narrow",
-                    "weekday", "weekday-short", "weekday-narrow",
-                    "weekdayOfMonth", "weekdayOfMonth-short", "weekdayOfMonth-narrow",
-                    "dayperiod", "dayperiod-short", "dayperiod-narrow",
-                    "zone", "zone-short", "zone-narrow",
-                    "hour", "hour-short", "hour-narrow",
-                    "minute", "minute-short", "minute-narrow",
-                    "second", "second-short", "second-narrow",
-                    "millisecond", "millisecond-short", "millisecond-narrow",
-                    "microsecond", "microsecond-short", "microsecond-narrow",
-                    "nanosecond", "nanosecond-short", "nanosecond-narrow",
-
-                };
-
-                @Override
-                public String transform(String source) {
-                    order = getIndex(source, datefield);
-                    return source;
-                }
-            });
-            // //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]
-            functionMap.put("relativeDate", new Transform<String, String>() {
-                private final String[] relativeDateField = {
-                    "year", "year-short", "year-narrow",
-                    "quarter", "quarter-short", "quarter-narrow",
-                    "month", "month-short", "month-narrow",
-                    "week", "week-short", "week-narrow",
-                    "day", "day-short", "day-narrow",
-                    "hour", "hour-short", "hour-narrow",
-                    "minute", "minute-short", "minute-narrow",
-                    "second", "second-short", "second-narrow",
-                    "sun", "sun-short", "sun-narrow",
-                    "mon", "mon-short", "mon-narrow",
-                    "tue", "tue-short", "tue-narrow",
-                    "wed", "wed-short", "wed-narrow",
-                    "thu", "thu-short", "thu-narrow",
-                    "fri", "fri-short", "fri-narrow",
-                    "sat", "sat-short", "sat-narrow",
-                };
-                private final String[] longNames = {
-                    "Year", "Year Short", "Year Narrow",
-                    "Quarter", "Quarter Short", "Quarter Narrow",
-                    "Month", "Month Short", "Month Narrow",
-                    "Week", "Week Short", "Week Narrow",
-                    "Day", "Day Short", "Day Narrow",
-                    "Hour", "Hour Short", "Hour Narrow",
-                    "Minute", "Minute Short", "Minute Narrow",
-                    "Second", "Second Short", "Second Narrow",
-                    "Sunday", "Sunday Short", "Sunday Narrow",
-                    "Monday", "Monday Short", "Monday Narrow",
-                    "Tuesday", "Tuesday Short", "Tuesday Narrow",
-                    "Wednesday", "Wednesday Short", "Wednesday Narrow",
-                    "Thursday", "Thursday Short", "Thursday Narrow",
-                    "Friday", "Friday Short", "Friday Narrow",
-                    "Saturday", "Saturday Short", "Saturday Narrow",
-                };
-
-                @Override
-                public String transform(String source) {
-                    order = getIndex(source, relativeDateField) + 100;
-                    return "Relative " + longNames[getIndex(source, relativeDateField)];
-                }
-            });
-            // Sorts numberSystem items (except for decimal formats).
-            functionMap.put("number", new Transform<String, String>() {
-                private final String[] symbols = { "decimal", "group",
-                    "plusSign", "minusSign", "approximatelySign",
-                    "percentSign", "perMille",
-                    "exponential", "superscriptingExponent",
-                    "infinity", "nan", "list", "currencies"
-                };
-
-                @Override
-                public String transform(String source) {
-                    String[] parts = source.split("-");
-                    order = getIndex(parts[0], symbols);
-                    // e.g. "currencies-one"
-                    if (parts.length > 1) {
-                        suborder = new SubstringOrder(parts[1]);
-                    }
-                    return source;
-                }
-            });
-            functionMap.put("numberFormat", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    final List<String> fieldOrder = Arrays.asList(
-                        "standard-decimal",
-                        "standard-currency",
-                        "standard-currency-accounting",
-                        "standard-percent",
-                        "standard-scientific");
-
-                    if (fieldOrder.contains(source)) {
-                        order = fieldOrder.indexOf(source);
-                    } else {
-                        order = fieldOrder.size();
-                    }
-
-                    return source;
-                }
-            });
-
-            functionMap.put("localePattern", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    // Put localeKeyTypePattern behind localePattern and
-                    // localeSeparator.
-                    if (source.equals("localeKeyTypePattern")) {
-                        order = 10;
-                    }
-                    return source;
-                }
-            });
-            functionMap.put("listOrder", new Transform<String, String>() {
-                private String[] listParts = { "2", "start", "middle", "end" };
-
-                @Override
-                public String transform(String source) {
-                    order = getIndex(source, listParts);
-                    return source;
-                }
-            });
-            functionMap.put("alphaOrder", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    order = 0;
-                    return source;
-                }
-            });
-            functionMap.put("transform", new Transform<String, String>() {
-                Splitter commas = Splitter.on(',').trimResults();
-
-                @Override
-                public String transform(String source) {
-                    List<String> parts = commas.splitToList(source);
-                    return parts.get(1)
-                        + (parts.get(0).equals("both") ? "↔︎" : "→")
-                        + parts.get(2)
-                        + (parts.size() > 3 ? "/" + parts.get(3) : "");
-                }
-            });
-            functionMap.put("major", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    String major = Emoji.getMajorCategory(source);
-                    // check that result is reasonable by running through PageId.
-                    switch(major) {
-                    default:
-                        PageId pageId2 = PageId.forString(major);
-                        if (pageId2.getSectionId() != SectionId.Characters) {
-                            if (pageId2 == PageId.Symbols) {
-                                pageId2 = PageId.Symbols2;
+                            if (territory.equals("ZZ")) {
+                                order = 999;
+                                return englishFile.getName(CLDRFile.TERRITORY_NAME, territory) + ": " + source0;
+                            } else {
+                                return catFromTerritory.transform(territory) + ": " + englishFile.getName(CLDRFile.TERRITORY_NAME, territory) + tenderOrNot;
                             }
                         }
-                        return pageId2.toString();
-                    case "Smileys & People":
-                        String minorCat = Emoji.getMinorCategory(source);
-                        if (minorCat.equals("skin-tone") || minorCat.equals("hair-style")) {
-                            return PageId.Component.toString();
-                        } else if (!minorCat.contains("face")) {
-                            return PageId.People.toString();
-                        } else {
-                            return PageId.Smileys.toString();
-                        }
-                    }
-                }
-            });
-            functionMap.put("minor", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    String minorCat = Emoji.getMinorCategory(source);
-                    order = Emoji.getEmojiMinorOrder(minorCat);
-                    return minorCat;
-                }
-            });
-            /**
-             * Use the ordering of the emoji in getEmojiToOrder rather than alphabetic,
-             * since the collator data won't be ready until the candidates are final.
-             */
-            functionMap.put("emoji", new Transform<String, String>() {
-                @Override
-                public String transform(String source) {
-                    int dashPos = source.indexOf(' ');
-                    String emoji = source.substring(0, dashPos);
-                    order = (Emoji.getEmojiToOrder(emoji) << 1) + (source.endsWith("name") ? 0 : 1);
-                    return source;
-                }
-            });
+                    });
+            functionMap.put(
+                    "continentFromCurrency",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source0) {
+                            String subContinent;
+                            String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
+                            if (currencyToTerritoryOverrides.keySet().contains(source0)) {
+                                territory = currencyToTerritoryOverrides.get(source0);
+                            } else if (territory == null) {
+                                territory = source0.substring(0, 2);
+                            }
 
+                            if (territory.equals("ZZ")) {
+                                order = 999;
+                                subContinent = englishFile.getName(CLDRFile.TERRITORY_NAME, territory);
+                            } else {
+                                subContinent = catFromTerritory.transform(territory);
+                            }
+
+                            String result = subContinentToContinent.get(subContinent); // the continent is the last word in the territory representation
+                            return result;
+                        }
+                    });
+            functionMap.put(
+                    "numberingSystem",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source0) {
+                            if ("latn".equals(source0)) {
+                                return "";
+                            }
+                            String displayName =
+                                    englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@key=\"numbers\"][@type=\"" + source0 + "\"]");
+                            return "using " + (displayName == null ? source0 : displayName + " (" + source0 + ")");
+                        }
+                    });
+
+            functionMap.put(
+                    "datefield",
+                    new Transform<String, String>() {
+                        private final String[] datefield = {
+                            "era", "era-short", "era-narrow",
+                            "century", "century-short", "century-narrow",
+                            "year", "year-short", "year-narrow",
+                            "quarter", "quarter-short", "quarter-narrow",
+                            "month", "month-short", "month-narrow",
+                            "week", "week-short", "week-narrow",
+                            "weekOfMonth", "weekOfMonth-short", "weekOfMonth-narrow",
+                            "day", "day-short", "day-narrow",
+                            "dayOfYear", "dayOfYear-short", "dayOfYear-narrow",
+                            "weekday", "weekday-short", "weekday-narrow",
+                            "weekdayOfMonth", "weekdayOfMonth-short", "weekdayOfMonth-narrow",
+                            "dayperiod", "dayperiod-short", "dayperiod-narrow",
+                            "zone", "zone-short", "zone-narrow",
+                            "hour", "hour-short", "hour-narrow",
+                            "minute", "minute-short", "minute-narrow",
+                            "second", "second-short", "second-narrow",
+                            "millisecond", "millisecond-short", "millisecond-narrow",
+                            "microsecond", "microsecond-short", "microsecond-narrow",
+                            "nanosecond", "nanosecond-short", "nanosecond-narrow",
+                        };
+
+                        @Override
+                        public String transform(String source) {
+                            order = getIndex(source, datefield);
+                            return source;
+                        }
+                    });
+            // //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]
+            functionMap.put(
+                    "relativeDate",
+                    new Transform<String, String>() {
+                        private final String[] relativeDateField = {
+                            "year", "year-short", "year-narrow",
+                            "quarter", "quarter-short", "quarter-narrow",
+                            "month", "month-short", "month-narrow",
+                            "week", "week-short", "week-narrow",
+                            "day", "day-short", "day-narrow",
+                            "hour", "hour-short", "hour-narrow",
+                            "minute", "minute-short", "minute-narrow",
+                            "second", "second-short", "second-narrow",
+                            "sun", "sun-short", "sun-narrow",
+                            "mon", "mon-short", "mon-narrow",
+                            "tue", "tue-short", "tue-narrow",
+                            "wed", "wed-short", "wed-narrow",
+                            "thu", "thu-short", "thu-narrow",
+                            "fri", "fri-short", "fri-narrow",
+                            "sat", "sat-short", "sat-narrow",
+                        };
+                        private final String[] longNames = {
+                            "Year", "Year Short", "Year Narrow",
+                            "Quarter", "Quarter Short", "Quarter Narrow",
+                            "Month", "Month Short", "Month Narrow",
+                            "Week", "Week Short", "Week Narrow",
+                            "Day", "Day Short", "Day Narrow",
+                            "Hour", "Hour Short", "Hour Narrow",
+                            "Minute", "Minute Short", "Minute Narrow",
+                            "Second", "Second Short", "Second Narrow",
+                            "Sunday", "Sunday Short", "Sunday Narrow",
+                            "Monday", "Monday Short", "Monday Narrow",
+                            "Tuesday", "Tuesday Short", "Tuesday Narrow",
+                            "Wednesday", "Wednesday Short", "Wednesday Narrow",
+                            "Thursday", "Thursday Short", "Thursday Narrow",
+                            "Friday", "Friday Short", "Friday Narrow",
+                            "Saturday", "Saturday Short", "Saturday Narrow",
+                        };
+
+                        @Override
+                        public String transform(String source) {
+                            order = getIndex(source, relativeDateField) + 100;
+                            return "Relative " + longNames[getIndex(source, relativeDateField)];
+                        }
+                    });
+            // Sorts numberSystem items (except for decimal formats).
+            functionMap.put(
+                    "number",
+                    new Transform<String, String>() {
+                        private final String[] symbols = {
+                            "decimal",
+                            "group",
+                            "plusSign",
+                            "minusSign",
+                            "approximatelySign",
+                            "percentSign",
+                            "perMille",
+                            "exponential",
+                            "superscriptingExponent",
+                            "infinity",
+                            "nan",
+                            "list",
+                            "currencies"
+                        };
+
+                        @Override
+                        public String transform(String source) {
+                            String[] parts = source.split("-");
+                            order = getIndex(parts[0], symbols);
+                            // e.g. "currencies-one"
+                            if (parts.length > 1) {
+                                suborder = new SubstringOrder(parts[1]);
+                            }
+                            return source;
+                        }
+                    });
+            functionMap.put(
+                    "numberFormat",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            final List<String> fieldOrder =
+                                    Arrays.asList(
+                                            "standard-decimal", "standard-currency", "standard-currency-accounting", "standard-percent", "standard-scientific");
+
+                            if (fieldOrder.contains(source)) {
+                                order = fieldOrder.indexOf(source);
+                            } else {
+                                order = fieldOrder.size();
+                            }
+
+                            return source;
+                        }
+                    });
+
+            functionMap.put(
+                    "localePattern",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            // Put localeKeyTypePattern behind localePattern and
+                            // localeSeparator.
+                            if (source.equals("localeKeyTypePattern")) {
+                                order = 10;
+                            }
+                            return source;
+                        }
+                    });
+            functionMap.put(
+                    "listOrder",
+                    new Transform<String, String>() {
+                        private String[] listParts = {"2", "start", "middle", "end"};
+
+                        @Override
+                        public String transform(String source) {
+                            order = getIndex(source, listParts);
+                            return source;
+                        }
+                    });
+            functionMap.put(
+                    "alphaOrder",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            order = 0;
+                            return source;
+                        }
+                    });
+            functionMap.put(
+                    "transform",
+                    new Transform<String, String>() {
+                        Splitter commas = Splitter.on(',').trimResults();
+
+                        @Override
+                        public String transform(String source) {
+                            List<String> parts = commas.splitToList(source);
+                            return parts.get(1) + (parts.get(0).equals("both") ? "↔︎" : "→") + parts.get(2) + (parts.size() > 3 ? "/" + parts.get(3) : "");
+                        }
+                    });
+            functionMap.put(
+                    "major",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            String major = Emoji.getMajorCategory(source);
+                            // check that result is reasonable by running through PageId.
+                            switch (major) {
+                                default:
+                                    PageId pageId2 = PageId.forString(major);
+                                    if (pageId2.getSectionId() != SectionId.Characters) {
+                                        if (pageId2 == PageId.Symbols) {
+                                            pageId2 = PageId.Symbols2;
+                                        }
+                                    }
+                                    return pageId2.toString();
+                                case "Smileys & People":
+                                    String minorCat = Emoji.getMinorCategory(source);
+                                    if (minorCat.equals("skin-tone") || minorCat.equals("hair-style")) {
+                                        return PageId.Component.toString();
+                                    } else if (!minorCat.contains("face")) {
+                                        return PageId.People.toString();
+                                    } else {
+                                        return PageId.Smileys.toString();
+                                    }
+                            }
+                        }
+                    });
+            functionMap.put(
+                    "minor",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            String minorCat = Emoji.getMinorCategory(source);
+                            order = Emoji.getEmojiMinorOrder(minorCat);
+                            return minorCat;
+                        }
+                    });
+            /**
+             * Use the ordering of the emoji in getEmojiToOrder rather than alphabetic, since the
+             * collator data won't be ready until the candidates are final.
+             */
+            functionMap.put(
+                    "emoji",
+                    new Transform<String, String>() {
+                        @Override
+                        public String transform(String source) {
+                            int dashPos = source.indexOf(' ');
+                            String emoji = source.substring(0, dashPos);
+                            order = (Emoji.getEmojiToOrder(emoji) << 1) + (source.endsWith("name") ? 0 : 1);
+                            return source;
+                        }
+                    });
         }
 
         private static int getIndex(String item, String[] array) {
@@ -1894,9 +1921,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     return input;
                 }
                 int functionEnd = input.indexOf('(', functionStart);
-                int argEnd = input.indexOf(')', functionEnd+2); // we must insert at least one character
-                Transform<String, String> func = functionMap.get(input.substring(functionStart + 1,
-                    functionEnd));
+                int argEnd = input.indexOf(')', functionEnd + 2); // we must insert at least one character
+                Transform<String, String> func = functionMap.get(input.substring(functionStart + 1, functionEnd));
                 final String arg = input.substring(functionEnd + 1, argEnd);
                 String temp = func.transform(arg);
                 if (temp == null) {
@@ -1909,8 +1935,7 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         /**
-         * Collect all the paths for a CLDRFile, and make sure that they have
-         * cached PathHeaders
+         * Collect all the paths for a CLDRFile, and make sure that they have cached PathHeaders
          *
          * @param file
          * @return immutable set of paths in the file
@@ -1931,6 +1956,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         /**
          * Returns those regexes that were never matched.
+         *
          * @return
          */
         public Set<String> getUnmatchedRegexes() {
@@ -1945,8 +1971,7 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     /**
-     * Return the territory used for the title of the Metazone page in the
-     * Survey Tool.
+     * Return the territory used for the title of the Metazone page in the Survey Tool.
      *
      * @param source
      * @return
@@ -1964,9 +1989,10 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     public enum BaseUrl {
-        //http://st.unicode.org/smoketest/survey?_=af&strid=55053dffac611328
-        //http://st.unicode.org/cldr-apps/survey?_=en&strid=3cd31261bf6738e1
-        SMOKE("http://st.unicode.org/smoketest/survey"), PRODUCTION("http://st.unicode.org/cldr-apps/survey");
+        // http://st.unicode.org/smoketest/survey?_=af&strid=55053dffac611328
+        // http://st.unicode.org/cldr-apps/survey?_=en&strid=3cd31261bf6738e1
+        SMOKE("http://st.unicode.org/smoketest/survey"),
+        PRODUCTION("http://st.unicode.org/cldr-apps/survey");
         final String base;
 
         private BaseUrl(String url) {
@@ -1995,7 +2021,8 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     /**
-     * Map http://st.unicode.org/smoketest/survey  to http://st.unicode.org/smoketest etc
+     * Map http://st.unicode.org/smoketest/survey to http://st.unicode.org/smoketest etc
+     *
      * @param str
      * @return
      */
@@ -2044,15 +2071,17 @@ public class PathHeader implements Comparable<PathHeader> {
      */
     @Deprecated
     public static String getLinkedView(String baseUrl, String localeId, String path) {
-//        String value = file.getStringValue(path);
-//        if (value == null) {
-//            return null;
-//        }
+        //        String value = file.getStringValue(path);
+        //        if (value == null) {
+        //            return null;
+        //        }
         return SECTION_LINK + PathHeader.getUrl(baseUrl, localeId, path) + "'><em>view</em></a>";
     }
 
     /**
-     * If a subdivision, return the (uppercased) territory and if suffix != null, the suffix. Otherwise return the input as is.
+     * If a subdivision, return the (uppercased) territory and if suffix != null, the suffix.
+     * Otherwise return the input as is.
+     *
      * @param input
      * @param suffix
      * @return

@@ -18,10 +18,14 @@ import com.google.common.base.Splitter;
 public class Validity {
 
     public enum Status {
-        regular, special, // for languages only (special codes like mul)
+        regular,
+        special, // for languages only (special codes like mul)
         macroregion, // regions only (from M.49)
-        deprecated, reserved, private_use,  // for clients of cldr with prior agreements
-        unknown, invalid; //  (anything else)
+        deprecated,
+        reserved,
+        private_use, // for clients of cldr with prior agreements
+        unknown,
+        invalid; //  (anything else)
     }
 
     private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();
@@ -113,10 +117,7 @@ public class Validity {
         typeToCodeToStatus = CldrUtility.protectCollectionX(codeToStatus);
     }
 
-    /**
-     *
-     * @deprecated Use {@link #getStatusToCodes(LstrType)}
-     */
+    /** @deprecated Use {@link #getStatusToCodes(LstrType)} */
     @Deprecated
     public Map<LstrType, Map<Status, Set<String>>> getData() {
         return typeToStatusToCodes;

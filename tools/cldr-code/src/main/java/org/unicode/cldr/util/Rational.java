@@ -25,11 +25,10 @@ import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
 
 /**
- * Very basic class for rational numbers. No attempt to optimize, since it will just
- * be used for testing within CLDR.
+ * Very basic class for rational numbers. No attempt to optimize, since it will just be used for
+ * testing within CLDR.
  *
  * @author markdavis
- *
  */
 public final class Rational implements Comparable<Rational> {
     private static final Pattern INT_POWER_10 = Pattern.compile("10*");
@@ -47,24 +46,24 @@ public final class Rational implements Comparable<Rational> {
     public static final Rational ONE = Rational.of(1);
     public static final Rational NEGATIVE_ONE = ONE.negate();
 
-    public static final Rational INFINITY = Rational.of(1,0);
+    public static final Rational INFINITY = Rational.of(1, 0);
     public static final Rational NEGATIVE_INFINITY = INFINITY.negate();
-    public static final Rational NaN = Rational.of(0,0);
+    public static final Rational NaN = Rational.of(0, 0);
 
     public static final Rational TEN = Rational.of(10, 1);
     public static final Rational TENTH = TEN.reciprocal();
 
     public static final char REPTEND_MARKER = '˙';
 
-    public static class RationalParser implements Freezable<RationalParser>{
+    public static class RationalParser implements Freezable<RationalParser> {
 
         public static RationalParser BASIC = new RationalParser().freeze();
 
         private static Splitter slashSplitter = Splitter.on('/').trimResults();
         private static Splitter starSplitter = Splitter.on('*').trimResults();
 
-        private Map<String,Rational> constants = new LinkedHashMap<>();
-        private Map<String,String> constantStatus = new LinkedHashMap<>();
+        private Map<String, Rational> constants = new LinkedHashMap<>();
+        private Map<String, String> constantStatus = new LinkedHashMap<>();
 
         public RationalParser addConstant(String id, String value, String status) {
             if (constants.put(id, parse(value)) != null) {
@@ -84,23 +83,29 @@ public final class Rational implements Comparable<Rational> {
 
         public Rational parse(String input) {
             switch (input) {
-            case "NaN" : return NaN;
-            case "INF" : return INFINITY;
-            case "-INF": return NEGATIVE_INFINITY;
+                case "NaN":
+                    return NaN;
+                case "INF":
+                    return INFINITY;
+                case "-INF":
+                    return NEGATIVE_INFINITY;
             }
             List<String> comps = slashSplitter.splitToList(input.replace(",", "")); // allow commas anywhere
             try {
                 switch (comps.size()) {
-                case 1: return process(comps.get(0));
-                case 2: return process(comps.get(0)).divide(process(comps.get(1)));
-                default: throw new IllegalArgumentException("too many slashes in " + input);
+                    case 1:
+                        return process(comps.get(0));
+                    case 2:
+                        return process(comps.get(0)).divide(process(comps.get(1)));
+                    default:
+                        throw new IllegalArgumentException("too many slashes in " + input);
                 }
             } catch (Exception e) {
                 throw new ICUException("bad input: " + input, e);
             }
         }
 
-        private  Rational process(String string) {
+        private Rational process(String string) {
             Rational result = null;
             for (String comp : starSplitter.split(string)) {
                 Rational ratComp = process2(comp);
@@ -119,12 +124,12 @@ public final class Rational implements Comparable<Rational> {
                     return Rational.of(new BigDecimal(input));
                 }
                 // handle repeating fractions
-                String reptend = input.substring(pos+1);
+                String reptend = input.substring(pos + 1);
                 int rlen = reptend.length();
-                input = input.substring(0,pos) + reptend;
+                input = input.substring(0, pos) + reptend;
 
                 BigDecimal rf = new BigDecimal(input);
-                BigDecimal rfPow = new BigDecimal(input+reptend).scaleByPowerOfTen(rlen);
+                BigDecimal rfPow = new BigDecimal(input + reptend).scaleByPowerOfTen(rlen);
                 BigDecimal num = rfPow.subtract(rf);
 
                 Rational result = Rational.of(num);
@@ -206,19 +211,15 @@ public final class Rational implements Comparable<Rational> {
     public Rational add(Rational other) {
         BigInteger gcd_den = denominator.gcd(other.denominator);
         return new Rational(
-            numerator.multiply(other.denominator).divide(gcd_den)
-            .add(other.numerator.multiply(denominator).divide(gcd_den)),
-            denominator.multiply(other.denominator).divide(gcd_den)
-            );
+                numerator.multiply(other.denominator).divide(gcd_den).add(other.numerator.multiply(denominator).divide(gcd_den)),
+                denominator.multiply(other.denominator).divide(gcd_den));
     }
 
     public Rational subtract(Rational other) {
         BigInteger gcd_den = denominator.gcd(other.denominator);
         return new Rational(
-            numerator.multiply(other.denominator).divide(gcd_den)
-            .subtract(other.numerator.multiply(denominator).divide(gcd_den)),
-            denominator.multiply(other.denominator).divide(gcd_den)
-            );
+                numerator.multiply(other.denominator).divide(gcd_den).subtract(other.numerator.multiply(denominator).divide(gcd_den)),
+                denominator.multiply(other.denominator).divide(gcd_den));
     }
 
     public Rational multiply(Rational other) {
@@ -270,7 +271,6 @@ public final class Rational implements Comparable<Rational> {
         return new BigDecimal(numerator).divide(new BigDecimal(denominator), MathContext.DECIMAL64).doubleValue();
     }
 
-
     public BigDecimal toBigDecimal() {
         return toBigDecimal(MathContext.UNLIMITED);
     }
@@ -291,7 +291,12 @@ public final class Rational implements Comparable<Rational> {
         }
     }
 
-    public enum FormatStyle {plain, simple, repeating, html}
+    public enum FormatStyle {
+        plain,
+        simple,
+        repeating,
+        html
+    }
 
     @Override
     public String toString() {
@@ -299,11 +304,10 @@ public final class Rational implements Comparable<Rational> {
         return toString(FormatStyle.plain);
     }
 
-
     public String toString(FormatStyle style) {
         switch (style) {
-        case plain:
-            return numerator + (denominator.equals(BigInteger.ONE) ? "" : " / " + denominator);
+            case plain:
+                return numerator + (denominator.equals(BigInteger.ONE) ? "" : " / " + denominator);
         }
         Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
         final BigInteger newDenominator = minimalDenominator(newNumerator, denominator);
@@ -312,19 +316,22 @@ public final class Rational implements Comparable<Rational> {
         final boolean denIsOne = newDenominator.equals(BigInteger.ONE);
 
         switch (style) {
-        case repeating:
-            String result = toRepeating(30); // limit of 30 on the repeating length, so we don't get unreasonable
-            if (result != null) {
-                return result;
-            }
-            // otherwise drop through to simple
-        case simple: {
-            return denIsOne ? numStr : numStr + "/" + denStr;
-        }
-        case html: {
-            return denIsOne ? numStr : "<sup>" + numStr + "</sup>" + "/<sub>" + denStr + "<sub>";
-        }
-        default: throw new UnsupportedOperationException();
+            case repeating:
+                String result = toRepeating(30); // limit of 30 on the repeating length, so we don't get unreasonable
+                if (result != null) {
+                    return result;
+                }
+                // otherwise drop through to simple
+            case simple:
+                {
+                    return denIsOne ? numStr : numStr + "/" + denStr;
+                }
+            case html:
+                {
+                    return denIsOne ? numStr : "<sup>" + numStr + "</sup>" + "/<sub>" + denStr + "<sub>";
+                }
+            default:
+                throw new UnsupportedOperationException();
         }
     }
 
@@ -356,12 +363,11 @@ public final class Rational implements Comparable<Rational> {
 
     @Override
     public boolean equals(Object that) {
-        return equals((Rational)that); // TODO fix later
+        return equals((Rational) that); // TODO fix later
     }
 
     public boolean equals(Rational that) {
-        return numerator.equals(that.numerator)
-            && denominator.equals(that.denominator);
+        return numerator.equals(that.numerator) && denominator.equals(that.denominator);
     }
 
     @Override
@@ -380,10 +386,11 @@ public final class Rational implements Comparable<Rational> {
     static final BigDecimal BD_TWO = BigDecimal.valueOf(2);
     static final BigDecimal BD_FIVE = BigDecimal.valueOf(5);
 
-
     /**
-     * Goal is to be able to display rationals in a short but exact form, like 1,234,567/3 or 1.234567E21/3.
-     * To do this, find the smallest denominator (excluding powers of 2 and 5), and modify the numerator in the same way.
+     * Goal is to be able to display rationals in a short but exact form, like 1,234,567/3 or
+     * 1.234567E21/3. To do this, find the smallest denominator (excluding powers of 2 and 5), and
+     * modify the numerator in the same way.
+     *
      * @param denominator TODO
      * @param current
      * @return
@@ -405,9 +412,9 @@ public final class Rational implements Comparable<Rational> {
         return newDenominator;
     }
 
-
     public static class MutableLong {
         public long value;
+
         @Override
         public String toString() {
             return String.valueOf(value);
@@ -467,13 +474,14 @@ public final class Rational implements Comparable<Rational> {
                 k1 = k2;
             }
             if (intermediates != null) {
-                Rational last = intermediates.get(intermediates.size()-1);
-                intermediates.remove(intermediates.size()-1);
+                Rational last = intermediates.get(intermediates.size() - 1);
+                intermediates.remove(intermediates.size() - 1);
                 return last;
             } else {
                 return Rational.of(h1, k1);
             }
         }
+
         @Override
         public String toString() {
             return sequence.toString();
@@ -481,8 +489,9 @@ public final class Rational implements Comparable<Rational> {
 
         @Override
         public boolean equals(Object obj) {
-            return sequence.equals(((ContinuedFraction)obj).sequence);
+            return sequence.equals(((ContinuedFraction) obj).sequence);
         }
+
         @Override
         public int hashCode() {
             return sequence.hashCode();
@@ -494,10 +503,7 @@ public final class Rational implements Comparable<Rational> {
     }
 
     public Rational symmetricDiff(Rational b) {
-        return this.subtract(b)
-            .divide(this.abs().add(b.abs()))
-            .multiply(Rational.of(2))
-            ;
+        return this.subtract(b).divide(this.abs().add(b.abs())).multiply(Rational.of(2));
     }
 
     /** Return repeating fraction, as long as the length is reasonable */
@@ -537,11 +543,11 @@ public final class Rational implements Comparable<Rational> {
         int pos = -1; // all places are right to the radix point
         Map<BigInteger, Integer> occurs = new HashMap<>();
         while (!occurs.containsKey(p)) {
-            occurs.put(p, pos);  // the position of the place with remainder p
+            occurs.put(p, pos); // the position of the place with remainder p
             BigInteger p10 = p.multiply(BigInteger.TEN);
             BigInteger z = p10.divide(q); // index z of digit within: 0 ≤ z ≤ b-1
-            p = p10.subtract(z.multiply(q));    // 0 ≤ p < q
-            s = s.append(((char)('0' + z.intValue()))); // append the character of the digit
+            p = p10.subtract(z.multiply(q)); // 0 ≤ p < q
+            s = s.append(((char) ('0' + z.intValue()))); // append the character of the digit
             if (p.equals(BigInteger.ZERO)) {
                 return s.toString();
             } else if (s.length() > stringLimit) {
@@ -549,8 +555,8 @@ public final class Rational implements Comparable<Rational> {
             }
             pos -= 1;
         }
-        int L = occurs.get(p)-pos; // the length of the reptend (being < q)
-        s.insert(s.length()-L, REPTEND_MARKER);
+        int L = occurs.get(p) - pos; // the length of the reptend (being < q)
+        s.insert(s.length() - L, REPTEND_MARKER);
         return s.toString();
     }
 

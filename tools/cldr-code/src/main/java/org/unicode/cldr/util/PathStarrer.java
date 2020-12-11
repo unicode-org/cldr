@@ -29,11 +29,12 @@ public class PathStarrer implements Transform<String, String> {
 
     public String set(String path) {
         XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed();
-        return set(parts, Collections.<String> emptySet());
+        return set(parts, Collections.<String>emptySet());
     }
 
     /**
      * Sets the path starrer attributes, and returns the string.
+     *
      * @param parts
      * @return
      */
@@ -102,9 +103,9 @@ public class PathStarrer implements Transform<String, String> {
         if (result.startsWith("^") && result.endsWith("$")) {
             result = result.substring(1, result.length() - 1);
         }
-        //System.out.println("Path in  => "+source);
-        //System.out.println("Path out => "+result);
-        //System.out.println("-----------");
+        // System.out.println("Path in  => "+source);
+        // System.out.println("Path out => "+result);
+        // System.out.println("-----------");
 
         return result;
     }

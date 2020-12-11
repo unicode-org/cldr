@@ -38,10 +38,8 @@ public class DtdDataCheck {
         HashSet<Element> seen = new HashSet<>();
         Set<Element> elementsMissingDraft = new LinkedHashSet<>();
         Set<Element> elementsMissingAlt = new LinkedHashSet<>();
-        static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList(
-            "draft", "alt", "standard", "references"));
-        static final Set<String> SKIP_ELEMENTS = new HashSet<>(Arrays.asList(
-            "alias", "special"));
+        static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList("draft", "alt", "standard", "references"));
+        static final Set<String> SKIP_ELEMENTS = new HashSet<>(Arrays.asList("alias", "special"));
         Set<Attribute> attributesWithDefaultValues = new LinkedHashSet<>();
 
         private DtdData dtdData;
@@ -173,8 +171,7 @@ public class DtdDataCheck {
             timer.start();
             DtdType type = DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
-            PrintWriter br = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dataproj/src/temp/", type
-                + "-gen.dtd");
+            PrintWriter br = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dataproj/src/temp/", type + "-gen.dtd");
             br.append(dtdData.toString());
             br.close();
             timer.stop();
@@ -191,13 +188,13 @@ public class DtdDataCheck {
                 //                }
                 //                errors.clear();
                 dtdData = DtdData.getInstance(DtdType.ldml);
-//                AttributeValueComparator avc = new AttributeValueComparator() {
-//                    @Override
-//                    public int compare(String element, String attribute, String value1, String value2) {
-//                        Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
-//                        return comp.compare(value1, value2);
-//                    }
-//                };
+                //                AttributeValueComparator avc = new AttributeValueComparator() {
+                //                    @Override
+                //                    public int compare(String element, String attribute, String value1, String value2) {
+                //                        Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
+                //                        return comp.compare(value1, value2);
+                //                    }
+                //                };
                 Comparator<String> comp = dtdData.getDtdComparator(null);
                 CLDRFile test = ToolConfig.getToolInstance().getEnglish();
                 Set<String> sorted = new TreeSet(test.getComparator());
@@ -225,8 +222,8 @@ public class DtdDataCheck {
                 // check cost
                 checkCost("DtdComparator", sortedArray, comp);
                 checkCost("DtdComparator(null)", sortedArray, dtdData.getDtdComparator(null));
-//                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.getLdmlComparator());
-                //checkCost("XPathParts", sortedArray);
+                //                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.getLdmlComparator());
+                // checkCost("XPathParts", sortedArray);
 
             }
         }
@@ -264,16 +261,23 @@ public class DtdDataCheck {
                 allElements.add(attribute);
                 continue;
             }
-            System.out.println("            <distinguishingItems"
-                + " type=\"" + type
-                + "\" elements=\"" + Joiner.on(" ").join(areDisting)
-                + "\" attributes=\"" + attribute
-                + "\"/>"
-                + "\n            <!-- NONDISTINGUISH."
-                + " TYPE=\"" + type
-                + "\" ELEMENTS=\"" + Joiner.on(" ").join(areNotDisting)
-                + "\" ATTRIBUTES=\"" + attribute
-                + "\" -->");
+            System.out.println(
+                    "            <distinguishingItems"
+                            + " type=\""
+                            + type
+                            + "\" elements=\""
+                            + Joiner.on(" ").join(areDisting)
+                            + "\" attributes=\""
+                            + attribute
+                            + "\"/>"
+                            + "\n            <!-- NONDISTINGUISH."
+                            + " TYPE=\""
+                            + type
+                            + "\" ELEMENTS=\""
+                            + Joiner.on(" ").join(areNotDisting)
+                            + "\" ATTRIBUTES=\""
+                            + attribute
+                            + "\" -->");
         }
         showAll(lastType, allElements);
         System.out.println("        </distinguishing>");
@@ -291,11 +295,8 @@ public class DtdDataCheck {
     }
 
     public static void showAll(DtdType type, Set<String> allElements) {
-        System.out.println("            <distinguishingItems"
-            + " type=\"" + type
-            + "\" elements=\"*"
-            + "\" attributes=\"" + Joiner.on(" ").join(allElements)
-            + "\"/>");
+        System.out.println(
+                "            <distinguishingItems" + " type=\"" + type + "\" elements=\"*" + "\" attributes=\"" + Joiner.on(" ").join(allElements) + "\"/>");
         allElements.clear();
         allElements.add("_q");
     }

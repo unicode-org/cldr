@@ -28,38 +28,108 @@ public class LogicalGrouping {
 
     static final SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
 
-    public static final ImmutableSet<String> metazonesDSTSet = ImmutableSet.of(
-        "Acre", "Africa_Western", "Alaska", "Almaty", "Amazon",
-        "America_Central", "America_Eastern", "America_Mountain", "America_Pacific", "Anadyr", "Apia",
-        "Aqtau", "Aqtobe", "Arabian", "Argentina", "Argentina_Western", "Armenia",
-        "Atlantic", "Australia_Central", "Australia_CentralWestern", "Australia_Eastern", "Australia_Western",
-        "Azerbaijan", "Azores", "Bangladesh", "Brasilia", "Cape_Verde",
-        "Chatham", "Chile", "China", "Choibalsan", "Colombia", "Cook", "Cuba", "Easter",
-        "Europe_Central", "Europe_Eastern", "Europe_Western", "Falkland", "Fiji", "Georgia",
-        "Greenland_Eastern", "Greenland_Western", "Hawaii_Aleutian", "Hong_Kong", "Hovd",
-        "Iran", "Irkutsk", "Israel", "Japan", "Kamchatka", "Korea", "Krasnoyarsk",
-        "Lord_Howe", "Macau", "Magadan", "Mauritius", "Mexico_Northwest", "Mexico_Pacific", "Mongolia", "Moscow", "New_Caledonia",
-        "New_Zealand", "Newfoundland", "Norfolk", "Noronha", "Novosibirsk", "Omsk", "Pakistan", "Paraguay", "Peru", "Philippines",
-        "Pierre_Miquelon", "Qyzylorda", "Sakhalin", "Samara", "Samoa",
-        "Taipei", "Tonga", "Turkmenistan", "Uruguay", "Uzbekistan",
-        "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg");
+    public static final ImmutableSet<String> metazonesDSTSet =
+            ImmutableSet.of(
+                    "Acre",
+                    "Africa_Western",
+                    "Alaska",
+                    "Almaty",
+                    "Amazon",
+                    "America_Central",
+                    "America_Eastern",
+                    "America_Mountain",
+                    "America_Pacific",
+                    "Anadyr",
+                    "Apia",
+                    "Aqtau",
+                    "Aqtobe",
+                    "Arabian",
+                    "Argentina",
+                    "Argentina_Western",
+                    "Armenia",
+                    "Atlantic",
+                    "Australia_Central",
+                    "Australia_CentralWestern",
+                    "Australia_Eastern",
+                    "Australia_Western",
+                    "Azerbaijan",
+                    "Azores",
+                    "Bangladesh",
+                    "Brasilia",
+                    "Cape_Verde",
+                    "Chatham",
+                    "Chile",
+                    "China",
+                    "Choibalsan",
+                    "Colombia",
+                    "Cook",
+                    "Cuba",
+                    "Easter",
+                    "Europe_Central",
+                    "Europe_Eastern",
+                    "Europe_Western",
+                    "Falkland",
+                    "Fiji",
+                    "Georgia",
+                    "Greenland_Eastern",
+                    "Greenland_Western",
+                    "Hawaii_Aleutian",
+                    "Hong_Kong",
+                    "Hovd",
+                    "Iran",
+                    "Irkutsk",
+                    "Israel",
+                    "Japan",
+                    "Kamchatka",
+                    "Korea",
+                    "Krasnoyarsk",
+                    "Lord_Howe",
+                    "Macau",
+                    "Magadan",
+                    "Mauritius",
+                    "Mexico_Northwest",
+                    "Mexico_Pacific",
+                    "Mongolia",
+                    "Moscow",
+                    "New_Caledonia",
+                    "New_Zealand",
+                    "Newfoundland",
+                    "Norfolk",
+                    "Noronha",
+                    "Novosibirsk",
+                    "Omsk",
+                    "Pakistan",
+                    "Paraguay",
+                    "Peru",
+                    "Philippines",
+                    "Pierre_Miquelon",
+                    "Qyzylorda",
+                    "Sakhalin",
+                    "Samara",
+                    "Samoa",
+                    "Taipei",
+                    "Tonga",
+                    "Turkmenistan",
+                    "Uruguay",
+                    "Uzbekistan",
+                    "Vanuatu",
+                    "Vladivostok",
+                    "Volgograd",
+                    "Yakutsk",
+                    "Yekaterinburg");
 
     public static final ImmutableList<String> days = ImmutableList.of("sun", "mon", "tue", "wed", "thu", "fri", "sat");
 
     public static final ImmutableSet<String> calendarsWith13Months = ImmutableSet.of("coptic", "ethiopic", "hebrew");
     public static final ImmutableSet<String> compactDecimalFormatLengths = ImmutableSet.of("short", "long");
     private static final ImmutableSet<String> ampm = ImmutableSet.of("am", "pm");
-    private static final ImmutableSet<String> nowUnits = ImmutableSet.of("second", "second-short", "second-narrow",
-        "minute", "minute-short", "minute-narrow", "hour", "hour-short", "hour-narrow");
+    private static final ImmutableSet<String> nowUnits =
+            ImmutableSet.of("second", "second-short", "second-narrow", "minute", "minute-short", "minute-narrow", "hour", "hour-short", "hour-narrow");
 
-    /**
-     * Cache from path (String) to logical group (Set<String>)
-     */
+    /** Cache from path (String) to logical group (Set<String>) */
     private static Multimap<String, String> cachePathToLogicalGroup = ArrayListMultimap.create();
 
-    /**
-     * Cache from locale and path (<Pair<String, String>), to logical group (Set<String>)
-     */
+    /** Cache from locale and path (<Pair<String, String>), to logical group (Set<String>) */
     private static ConcurrentHashMap<Pair<String, String>, Set<String>> cacheLocaleAndPathToLogicalGroup = new ConcurrentHashMap<>();
 
     /**
@@ -67,37 +137,33 @@ public class LogicalGrouping {
      * GET_TYPE_COUNTS should be false for production to maximize performance.
      */
     public static final boolean GET_TYPE_COUNTS = false;
+
     public static final ConcurrentHashMap<String, Long> typeCount = GET_TYPE_COUNTS ? new ConcurrentHashMap<>() : null;
 
     /**
-     * GET_TYPE_FROM_PARTS is more elegant when true, but performance is a little faster when it's false.
-     * This might change if XPathParts.getInstance and/or XPathParts.set are made faster.
+     * GET_TYPE_FROM_PARTS is more elegant when true, but performance is a little faster when it's
+     * false. This might change if XPathParts.getInstance and/or XPathParts.set are made faster.
      */
     private static final boolean GET_TYPE_FROM_PARTS = false;
 
     /**
      * Return a sorted set of paths that are in the same logical set as the given path
+     *
      * @param path the distinguishing xpath
      * @param pathType TODO
-     *
      * @return the set of paths, or null (to be treated as equivalent to empty set)
-     *
-     * For example, given the path
-     *
-     * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]
-     *
-     * return the set of four paths
-     *
-     * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]
-     * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]
-     * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]
-     * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]
-     *
-     * Caches: Most of the calculations are independent of the locale, and can be cached on a static basis.
-     * The paths that are locale-dependent are /dayPeriods and @count. Those can be computed on a per-locale basis;
-     * and cached (they are shared across a number of locales).
-     *
-     * Reference: https://unicode.org/cldr/trac/ticket/11854
+     *     <p>For example, given the path
+     *     <p>//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]
+     *     <p>return the set of four paths
+     *     <p>//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]
+     *     //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]
+     *     //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]
+     *     //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]
+     *     <p>Caches: Most of the calculations are independent of the locale, and can be cached on a
+     *     static basis. The paths that are locale-dependent are /dayPeriods and @count. Those can
+     *     be computed on a per-locale basis; and cached (they are shared across a number of
+     *     locales).
+     *     <p>Reference: https://unicode.org/cldr/trac/ticket/11854
      */
     public static Set<String> getPaths(CLDRFile cldrFile, String path, Output<PathType> pathTypeOut) {
         if (path == null) {
@@ -167,19 +233,15 @@ public class LogicalGrouping {
         return getPaths(cldrFile, path, null);
     }
 
-    /**
-     * Returns the plural info for a given locale.
-     */
+    /** Returns the plural info for a given locale. */
     private static PluralInfo getPluralInfo(CLDRFile cldrFile) {
-        return supplementalData.getPlurals(PluralType.cardinal,
-            cldrFile.getLocaleID());
+        return supplementalData.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
     }
 
     /**
      * @param cldrFile
      * @param path
-     * @return true if the specified path is optional in the logical grouping
-     *         that it belongs to.
+     * @return true if the specified path is optional in the logical grouping that it belongs to.
      */
     public static boolean isOptional(CLDRFile cldrFile, String path) {
         XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -197,19 +259,20 @@ public class LogicalGrouping {
         if (!path.contains("[@count=")) return false;
         String pluralType = parts.getAttributeValue(-1, "count");
         switch (pluralType) {
-        case "0": case "1":
-            return true;
-        case "zero": case "one":
-            break; // continue
-        case "many": // special case for french
-            String localeId = cldrFile.getLocaleID();
-            if (localeId.startsWith("fr")
-                && (localeId.length() == 2 || localeId.charAt(2) == '_')) {
+            case "0":
+            case "1":
                 return true;
-            }
-            return false;
-        default:
-            return false;
+            case "zero":
+            case "one":
+                break; // continue
+            case "many": // special case for french
+                String localeId = cldrFile.getLocaleID();
+                if (localeId.startsWith("fr") && (localeId.length() == 2 || localeId.charAt(2) == '_')) {
+                    return true;
+                }
+                return false;
+            default:
+                return false;
         }
 
         parts = parts.cloneAsThawed();
@@ -226,8 +289,7 @@ public class LogicalGrouping {
         if (!explicits.isEmpty()) {
             // HACK: The com.ibm.icu.text prefix is needed so that ST can find it
             // (no idea why).
-            KeywordStatus status = org.unicode.cldr.util.PluralRulesUtil.getKeywordStatus(
-                pluralRules, pluralType, 0, explicits, true);
+            KeywordStatus status = org.unicode.cldr.util.PluralRulesUtil.getKeywordStatus(pluralRules, pluralType, 0, explicits, true);
             if (status == KeywordStatus.SUPPRESSED) {
                 return true;
             }
@@ -235,9 +297,7 @@ public class LogicalGrouping {
         return false;
     }
 
-    /**
-     * Path types for logical groupings
-     */
+    /** Path types for logical groupings */
     public enum PathType {
         SINGLETON { // no logical groups for singleton paths
             @Override
@@ -366,8 +426,7 @@ public class LogicalGrouping {
                 Set<Count> pluralTypes = pluralInfo.getCounts();
                 String decimalFormatLengthType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
                 String decimalFormatPatternType = parts.size() > 5 ? parts.getAttributeValue(5, "type") : null;
-                if (decimalFormatLengthType != null && decimalFormatPatternType != null &&
-                    compactDecimalFormatLengths.contains(decimalFormatLengthType)) {
+                if (decimalFormatLengthType != null && decimalFormatPatternType != null && compactDecimalFormatLengths.contains(decimalFormatLengthType)) {
                     int numZeroes = decimalFormatPatternType.length() - 1;
                     int baseZeroes = (numZeroes / 3) * 3;
                     for (int i = 0; i < 3; i++) {
@@ -399,15 +458,13 @@ public class LogicalGrouping {
                 }
                 GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID());
                 if (grammarInfo == null
-                    || (parts.getElement(3).equals("unitLength")
-                        && GrammarInfo.SPECIAL_TRANSLATION_UNITS.contains(parts.getAttributeValue(3, "type")))) {
+                        || (parts.getElement(3).equals("unitLength") && GrammarInfo.SPECIAL_TRANSLATION_UNITS.contains(parts.getAttributeValue(3, "type")))) {
                     addCaseOnly(set, cldrFile, parts);
                     return;
                 }
                 Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
                 Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
                 setGrammarAttributes(set, parts, pluralTypes, rawCases, null);
-
             }
         },
         COUNT_CASE_GENDER {
@@ -428,9 +485,7 @@ public class LogicalGrouping {
                 Collection<String> rawGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
                 setGrammarAttributes(set, parts, pluralTypes, rawCases, rawGenders);
             }
-        }
-
-        ;
+        };
 
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
 
@@ -442,7 +497,8 @@ public class LogicalGrouping {
             }
         }
 
-        public void setGrammarAttributes(Set<String> set, XPathParts parts, Set<Count> pluralTypes, Collection<String> rawCases, Collection<String> rawGenders) {
+        public void setGrammarAttributes(
+                Set<String> set, XPathParts parts, Set<Count> pluralTypes, Collection<String> rawCases, Collection<String> rawGenders) {
             final String defaultGender = GrammaticalFeature.grammaticalGender.getDefault(rawGenders);
             final String defaultCase = GrammaticalFeature.grammaticalCase.getDefault(rawCases);
 
@@ -488,9 +544,9 @@ public class LogicalGrouping {
          *
          * @param path the path
          * @return the PathType
-         *
-         * Note: it would be more elegant and cleaner, but slower, if we used XPathParts to
-         * determine the PathType. We avoid that since XPathParts.set is a performance hot spot. (NOTE: don't know if the preceding is true anymore.)
+         *     <p>Note: it would be more elegant and cleaner, but slower, if we used XPathParts to
+         *     determine the PathType. We avoid that since XPathParts.set is a performance hot spot.
+         *     (NOTE: don't know if the preceding is true anymore.)
          */
         public static PathType getPathTypeFromPath(String path) {
             /*

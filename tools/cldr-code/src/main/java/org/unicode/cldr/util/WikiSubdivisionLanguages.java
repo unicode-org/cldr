@@ -57,13 +57,16 @@ public final class WikiSubdivisionLanguages {
 
     enum Items {
         // http://www.wikidata.org/entity/Q24260    كانيلو  AD-02   ar
-        wid, translation, subdivisionId, languageId
+        wid,
+        translation,
+        subdivisionId,
+        languageId
     }
 
-    private static ChainedMap.M3<String, String, String> SUB_LANG_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
-        String.class);
-    private static ChainedMap.M3<String, String, String> LANG_SUB_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
-        String.class);
+    private static ChainedMap.M3<String, String, String> SUB_LANG_NAME =
+            ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
+    private static ChainedMap.M3<String, String, String> LANG_SUB_NAME =
+            ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
     private static Set<String> bogus = new TreeSet<>();
     private static Multimap<Status, String> bogusStatus = TreeMultimap.create();
 
@@ -93,7 +96,7 @@ public final class WikiSubdivisionLanguages {
         return null;
     }
 
-    //static Map<String, String> WIKIDATA_TO_MID = new TreeMap<>();
+    // static Map<String, String> WIKIDATA_TO_MID = new TreeMap<>();
     static {
         Splitter TAB = Splitter.on('\t').trimResults();
         File file = new File("data/external", "wikiSubdivisionLanguages.tsv");
@@ -123,13 +126,13 @@ public final class WikiSubdivisionLanguages {
             }
             String name = NFC.normalize(data.get(Items.translation.ordinal()));
             SUB_LANG_NAME.put(subdivision, lang, name);
-//                WIKIDATA_TO_MID.put(subdivision, data.get(2));
+            //                WIKIDATA_TO_MID.put(subdivision, data.get(2));
             LANG_SUB_NAME.put(lang, subdivision, name);
         }
         // postprocess
         String oldLang = null;
         DisplayAndInputProcessor daip = null;
-        Exception[] internalException = { null };
+        Exception[] internalException = {null};
 
         for (R3<String, String, String> row : LANG_SUB_NAME.rows()) {
             String lang = row.get0();
@@ -140,10 +143,7 @@ public final class WikiSubdivisionLanguages {
                 daip = new DisplayAndInputProcessor(new ULocale(lang));
             }
             String path = getSubdivisionPath(subdivision);
-            String name2 = daip.processInput(
-                path,
-                name.replace("\u00AD", ""),
-                internalException);
+            String name2 = daip.processInput(path, name.replace("\u00AD", ""), internalException);
             if (name2.contains("'")) {
                 int debug = 0;
             }
@@ -151,12 +151,11 @@ public final class WikiSubdivisionLanguages {
             if (internalException[0] != null) {
                 throw new IllegalArgumentException(lang + "\t" + subdivision + "\t" + name, internalException[0]);
             } else if (!name.equals(name2)) {
-                //System.out.println(lang + "\t" + subdivision + "\t" + name + "\t" + name2);
+                // System.out.println(lang + "\t" + subdivision + "\t" + name + "\t" + name2);
                 SUB_LANG_NAME.put(subdivision, lang, name2);
                 LANG_SUB_NAME.put(lang, subdivision, name2);
             }
         }
-
     }
 
     private static String getSubdivisionPath(String subdivision) {
@@ -174,11 +173,8 @@ public final class WikiSubdivisionLanguages {
         CLDRFile file = null;
         UnicodeSet exemplars = null;
 
-        ChainedMap.M4<Integer, String, String, String> exemplarFailureLangSubdivisionName = ChainedMap.of(
-            new TreeMap<Integer, Object>(),
-            new TreeMap<String, Object>(),
-            new TreeMap<String, Object>(),
-            String.class);
+        ChainedMap.M4<Integer, String, String, String> exemplarFailureLangSubdivisionName =
+                ChainedMap.of(new TreeMap<Integer, Object>(), new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
 
         for (Entry<String, Map<String, String>> entry : LANG_SUB_NAME) {
             String lang = entry.getKey();
@@ -198,13 +194,15 @@ public final class WikiSubdivisionLanguages {
             UnicodeSet auxiliary = file.getExemplarSet("auxiliary", WinningChoice.WINNING);
             UnicodeSet punctuation = file.getExemplarSet("punctuation", WinningChoice.WINNING);
             UnicodeSet numbers = file.getExemplarsNumeric(NumberingSystem.defaultSystem);
-            exemplars = new UnicodeSet()
-                .addAll(main)
-                .addAll(auxiliary)
-                .addAll(scriptsFor(main)) // broad test,...
-                .addAll(punctuation)
-                .addAll(numbers)
-                .addAll(new UnicodeSet("[\\ ]")).freeze();
+            exemplars =
+                    new UnicodeSet()
+                            .addAll(main)
+                            .addAll(auxiliary)
+                            .addAll(scriptsFor(main)) // broad test,...
+                            .addAll(punctuation)
+                            .addAll(numbers)
+                            .addAll(new UnicodeSet("[\\ ]"))
+                            .freeze();
 
             for (Entry<String, String> entry2 : entry.getValue().entrySet()) {
                 String subdivision = entry2.getKey();
@@ -216,7 +214,7 @@ public final class WikiSubdivisionLanguages {
                 String oldName = fileSubdivisions.getStringValue(path);
                 if (oldName != null) {
                     if (!oldName.equals(name)) {
-                        //System.out.println("Already has translation\t" + lang + "\t" + subdivision + "\t" + name + "\t" + oldName);
+                        // System.out.println("Already has translation\t" + lang + "\t" + subdivision + "\t" + name + "\t" + oldName);
                     }
                     continue;
                 }
@@ -264,7 +262,7 @@ public final class WikiSubdivisionLanguages {
                     }
 
                     // find if any of the paths are deprecated
-                    for (Iterator<String> it = paths2.iterator(); it.hasNext();) {
+                    for (Iterator<String> it = paths2.iterator(); it.hasNext(); ) {
                         String path = it.next();
                         String sdId = getSubdivisionFromPath(path);
                         if (!regularSubdivisions.contains(sdId)) { // deprecated
@@ -279,17 +277,17 @@ public final class WikiSubdivisionLanguages {
 
                     String otherId = null;
                     for (String path : paths2) {
-//                    if (nuke) {
-//                        if (oldFileSubdivisions.getStringValue(path) == null) {
-//                            fileSubdivisions.remove(path); // get rid of new ones
-//                            System.out.println("Removing colliding " + lang + "\t" + path + "\t" + name);
-//                        }
+                        //                    if (nuke) {
+                        //                        if (oldFileSubdivisions.getStringValue(path) == null) {
+                        //                            fileSubdivisions.remove(path); // get rid of new ones
+                        //                            System.out.println("Removing colliding " + lang + "\t" + path + "\t" + name);
+                        //                        }
                         if (markerIndex == 0) {
                             otherId = getSubdivisionFromPath(path);
                         } else {
                             String fixedName = name + MARKERS.get(markerIndex);
-                            fail("Superscripting ", lang + "\t(" + otherId +")", getSubdivisionFromPath(path), fixedName, -1);
-                            //System.out.println("Superscripting colliding:\t" + lang + "\t" + path + "\t" + fixedName);
+                            fail("Superscripting ", lang + "\t(" + otherId + ")", getSubdivisionFromPath(path), fixedName, -1);
+                            // System.out.println("Superscripting colliding:\t" + lang + "\t" + path + "\t" + fixedName);
                             fileSubdivisions.add(path, fixedName); // overwrite with superscripted
                         }
                         ++markerIndex;
@@ -316,8 +314,7 @@ public final class WikiSubdivisionLanguages {
         }
         System.out.println("Bogus subdivisionIds:\t" + "*" + "\t" + bogus.size() + "\t" + bogus);
         for (Entry<Status, Collection<String>> entry : bogusStatus.asMap().entrySet()) {
-            System.out.println("SubdivisionId:\t\t"
-                + ":\t" + entry.getKey() + "\t" + entry.getValue().size() + "\t" + entry.getValue());
+            System.out.println("SubdivisionId:\t\t" + ":\t" + entry.getKey() + "\t" + entry.getValue().size() + "\t" + entry.getValue());
         }
     }
 
@@ -327,7 +324,7 @@ public final class WikiSubdivisionLanguages {
         // for fixing collisions
         // we first add existing items
         Set<String> toRemove = new HashSet<>();
-        Map<String,String> toAdd = new HashMap<>();
+        Map<String, String> toAdd = new HashMap<>();
 
         for (String path : fileSubdivisions) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -362,8 +359,12 @@ public final class WikiSubdivisionLanguages {
         return fileSubdivisions;
     }
 
-    private static void addExemplarFailures(M4<Integer, String, String, String> exemplarFailureLangSubdivisionName, UnicodeSet exemplarFailures,
-        String language, String subdivision, String name) {
+    private static void addExemplarFailures(
+            M4<Integer, String, String, String> exemplarFailureLangSubdivisionName,
+            UnicodeSet exemplarFailures,
+            String language,
+            String subdivision,
+            String name) {
         for (String s : exemplarFailures) {
             exemplarFailureLangSubdivisionName.put(s.codePointAt(0), language, subdivision, name);
         }
@@ -376,13 +377,20 @@ public final class WikiSubdivisionLanguages {
     }
 
     private static void fail(String title, String lang, String subdivision, String name, int exemplarFailure) {
-        System.out.println(title
-            + ":\t" + lang
-            + "\t" + subdivision
-            + "\t" + (exemplarFailure < 0 ? "" : "«" + UTF16.valueOf(exemplarFailure) + "»")
-            + "\t" + (exemplarFailure < 0 ? "" : "U+" + Utility.hex(exemplarFailure))
-            + "\t" + CldrUtility.ifNull(getBestWikiEnglishName(subdivision), "")
-            + "\t" + CldrUtility.ifNull(name, "").replace("\"", "&quot;"));
+        System.out.println(
+                title
+                        + ":\t"
+                        + lang
+                        + "\t"
+                        + subdivision
+                        + "\t"
+                        + (exemplarFailure < 0 ? "" : "«" + UTF16.valueOf(exemplarFailure) + "»")
+                        + "\t"
+                        + (exemplarFailure < 0 ? "" : "U+" + Utility.hex(exemplarFailure))
+                        + "\t"
+                        + CldrUtility.ifNull(getBestWikiEnglishName(subdivision), "")
+                        + "\t"
+                        + CldrUtility.ifNull(name, "").replace("\"", "&quot;"));
     }
 
     static final List<String> MARKERS = Arrays.asList("¹", "²", "³"); // if there are more than 3 of the same kind, throw exception

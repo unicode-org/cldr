@@ -23,10 +23,10 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
 
     /**
      * Special class encapsulating
-     * @author markdavis
      *
+     * @author markdavis
      */
-    public static final class UnitPreference implements Comparable<UnitPreference>{
+    public static final class UnitPreference implements Comparable<UnitPreference> {
         public final Rational geq;
         public final String unit;
         public final String skeleton;
@@ -45,25 +45,29 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
             }
             return unit.compareTo(o.unit);
         }
+
         @Override
         public boolean equals(Object obj) {
-            return compareTo((UnitPreference)obj) == 0;
+            return compareTo((UnitPreference) obj) == 0;
         }
+
         @Override
         public int hashCode() {
             return Objects.hash(geq, unit);
         }
+
         public String toString(String baseUnit) {
-            return geq + (baseUnit == null ? "": " " + baseUnit) + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
+            return geq + (baseUnit == null ? "" : " " + baseUnit) + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
         }
+
         @Override
         public String toString() {
             return toString(null);
         }
     }
 
-    static private final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
-    static public Splitter SPLIT_AND = Splitter.on("-and-");
+    private static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
+    public static Splitter SPLIT_AND = Splitter.on("-and-");
 
     public void add(String quantity, String usage, String regions, String geq, String skeleton, String unit) {
         usages.add(usage);
@@ -105,6 +109,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
 
     /**
      * quantity => usage => region => geq => [unit, skeleton]
+     *
      * @return
      */
     public Map<String, Map<String, Multimap<Set<String>, UnitPreference>>> getData() {
@@ -136,18 +141,26 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
         //      <unitPreferences category="length" usage="person" scope="small">
         // <unitPreference regions="001">centimeter</unitPreference>
         return "//supplementalData/unitPreferenceData/unitPreferences"
-        + "[@category=\"" + quantity + "\"]"
-        + "[@usage=\"" + usage + "\"]"
-        + "/unitPreference"
-        + "[@_q=\"" + order + "\"]"
-        + "[@regions=\"" + JOIN_SPACE.join(regions) + "\"]"
-        + (geq == Rational.ONE ? "" : "[@geq=\"" + geq + "\"]")
-        + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]")
-        ;
+                + "[@category=\""
+                + quantity
+                + "\"]"
+                + "[@usage=\""
+                + usage
+                + "\"]"
+                + "/unitPreference"
+                + "[@_q=\""
+                + order
+                + "\"]"
+                + "[@regions=\""
+                + JOIN_SPACE.join(regions)
+                + "\"]"
+                + (geq == Rational.ONE ? "" : "[@geq=\"" + geq + "\"]")
+                + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]");
     }
 
     /**
      * Returns the data converted to single regions, and using base units
+     *
      * @return
      */
     public Map<String, Map<String, Map<String, UnitPreference>>> getFastMap(UnitConverter converter) {

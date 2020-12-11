@@ -8,17 +8,19 @@ import java.io.InputStream;
 
 /**
  * Factory class to easily create (buffered) InputStreams
- * @author ribnitz
  *
+ * @author ribnitz
  */
 public class InputStreamFactory {
 
     /**
      * Create a Stream to read from the given fˇile
+     *
      * @param f - the file to read from
      * @return
      * @throws FileNotFoundException - if the File does not exist
-     * @throws SecurityException - if a security manager exists and its checkRead method denies read access to the file
+     * @throws SecurityException - if a security manager exists and its checkRead method denies read
+     *     access to the file
      */
     public static InputStream createInputStream(File f) throws FileNotFoundException {
         FileInputStream fis = new FileInputStream(f);
@@ -27,6 +29,7 @@ public class InputStreamFactory {
 
     /**
      * Decorate another InputStream to create a Buffering version
+     *
      * @param in -the Stream to decorate
      * @return a buffered version of the stream
      */
@@ -36,5 +39,4 @@ public class InputStreamFactory {
         }
         return new BufferedInputStream(in);
     }
-
 }

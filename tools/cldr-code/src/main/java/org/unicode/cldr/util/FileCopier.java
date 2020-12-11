@@ -17,8 +17,10 @@ import java.util.Map;
 public class FileCopier {
 
     /**
-     * Copy the contents of the reader to the Writer, performing all the replacements specified in the map. This method will close
-     * the reader, but will leave the Writer open. The contents of the reader are read one line at a time.
+     * Copy the contents of the reader to the Writer, performing all the replacements specified in
+     * the map. This method will close the reader, but will leave the Writer open. The contents of
+     * the reader are read one line at a time.
+     *
      * @param rdr
      * @param replacements
      * @param out
@@ -30,7 +32,7 @@ public class FileCopier {
             return;
         }
         PrintWriter pw = new PrintWriter(out);
-        try (BufferedReader br = new BufferedReader(rdr);) {
+        try (BufferedReader br = new BufferedReader(rdr); ) {
             String line = null;
             while ((line = br.readLine()) != null) {
                 for (String key : replacements.keySet()) {
@@ -46,8 +48,10 @@ public class FileCopier {
     }
 
     /**
-     * Copy the resource srcFile to the Writer out, using a Reader with the charset specified; Reader will be closed, Writer will be
-     * flushed and left open. The replacements as specified in the Map will be performed.
+     * Copy the resource srcFile to the Writer out, using a Reader with the charset specified;
+     * Reader will be closed, Writer will be flushed and left open. The replacements as specified in
+     * the Map will be performed.
+     *
      * @param cls
      * @param srcFile
      * @param charSet
@@ -55,14 +59,14 @@ public class FileCopier {
      * @param out
      * @throws IOException
      */
-    public static void copyAndReplace(Class<?> cls, String srcFile, Charset charSet, Map<String, String> replacements,
-        Writer out) throws IOException {
+    public static void copyAndReplace(Class<?> cls, String srcFile, Charset charSet, Map<String, String> replacements, Writer out) throws IOException {
         copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile), charSet), replacements, out);
     }
 
     /**
      * Append all the lines read from the Reader to the writer. Will close the reader, but leave the
      * writer open, flushing it
+     *
      * @param rdr
      * @param wr
      * @throws IOException
@@ -93,7 +97,7 @@ public class FileCopier {
             return;
         }
         PrintWriter pw = new PrintWriter(wr);
-        try (BufferedReader br = new BufferedReader(rdr);) {
+        try (BufferedReader br = new BufferedReader(rdr); ) {
             String line = null;
             while ((line = br.readLine()) != null) {
                 for (String key : replacements.keySet()) {
@@ -109,7 +113,9 @@ public class FileCopier {
     }
 
     /**
-     * Copy the resource denoted by sourcefile to the target directory, giving it the new name newName.
+     * Copy the resource denoted by sourcefile to the target directory, giving it the new name
+     * newName.
+     *
      * @param cls
      * @param sourceFile
      * @param targetDirectory
@@ -118,13 +124,15 @@ public class FileCopier {
      */
     public static void copy(Class<?> cls, String sourceFile, String targetDirectory, String newName) throws IOException {
         try (InputStream is = cls.getResourceAsStream(sourceFile);
-            Writer wr = new FileWriter(Paths.get(targetDirectory, newName).toFile());) {
+                Writer wr = new FileWriter(Paths.get(targetDirectory, newName).toFile()); ) {
             copy(new InputStreamReader(is), wr);
         }
     }
 
     /**
-     * Writes the resource named sourceFile to the Writer, leaving the writer open, but flushing it. UTF-8 will be used as a charSet
+     * Writes the resource named sourceFile to the Writer, leaving the writer open, but flushing it.
+     * UTF-8 will be used as a charSet
+     *
      * @param cls
      * @param sourceFile
      * @param out
@@ -135,7 +143,9 @@ public class FileCopier {
     }
 
     /**
-     * Writes the resource given as sourceFile to the Writer, using the specified CharSet. The Writer will be left open, but flushed.
+     * Writes the resource given as sourceFile to the Writer, using the specified CharSet. The
+     * Writer will be left open, but flushed.
+     *
      * @param cls
      * @param sourceFile
      * @param charset
@@ -147,7 +157,9 @@ public class FileCopier {
     }
 
     /**
-     * Copies the resource accessible as sourceFile to the TargetDirectory, also naming it sourceFile
+     * Copies the resource accessible as sourceFile to the TargetDirectory, also naming it
+     * sourceFile
+     *
      * @param cls
      * @param sourceFile
      * @param targetDirectory
@@ -157,9 +169,7 @@ public class FileCopier {
         copy(cls, sourceFile, targetDirectory, sourceFile);
     }
 
-    /**
-     * Ensure that directory exists
-     */
+    /** Ensure that directory exists */
     public static void ensureDirectoryExists(String targetDirectory) {
         final File targetDir = new File(targetDirectory);
         if (!targetDir.exists()) {
@@ -168,8 +178,6 @@ public class FileCopier {
     }
 
     public static void copyAndReplace(Class<?> cls, String srcFile, String destDir, String destFile, Map<String, String> replacements) throws IOException {
-        copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile)),
-            replacements, new FileWriter(Paths.get(destDir, destFile).toFile()));
-
+        copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile)), replacements, new FileWriter(Paths.get(destDir, destFile).toFile()));
     }
 }

@@ -132,8 +132,7 @@ public class ChainedMap {
 
         public M4<K3, K2, K1, V> get(K4 key4) {
             final Map<?, ?> submap = (Map<?, ?>) super.handleGet(key4);
-            return submap == null ? null
-                : new M4<>(submap, super.mapConstructors, super.indexStart + 2);
+            return submap == null ? null : new M4<>(submap, super.mapConstructors, super.indexStart + 2);
         }
 
         @SuppressWarnings("unchecked")
@@ -154,8 +153,8 @@ public class ChainedMap {
                 for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
                     for (Entry<Object, Object> entry2 : ((Map<Object, Object>) entry1.getValue()).entrySet()) {
                         for (Entry<Object, Object> entry3 : ((Map<Object, Object>) entry2.getValue()).entrySet()) {
-                            R5<K4, K3, K2, K1, V> item = (R5<K4, K3, K2, K1, V>) Row.of(
-                                entry0.getKey(), entry1.getKey(), entry2.getKey(), entry3.getKey(), entry3.getValue());
+                            R5<K4, K3, K2, K1, V> item =
+                                    (R5<K4, K3, K2, K1, V>) Row.of(entry0.getKey(), entry1.getKey(), entry2.getKey(), entry3.getKey(), entry3.getValue());
                             result.add(item);
                         }
                     }
@@ -189,7 +188,8 @@ public class ChainedMap {
     @SuppressWarnings("unchecked")
     private static Constructor<Map<Object, Object>>[] constructorList(Map<? extends Object, ? extends Object>... maps) {
         Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length - 1];
-        items: for (int i = 0; i < maps.length - 1; ++i) {
+        items:
+        for (int i = 0; i < maps.length - 1; ++i) {
             for (Constructor<?> constructor : maps[i + 1].getClass().getConstructors()) {
                 if (constructor.getParameterTypes().length == 0) {
                     tempMapConstructors[i] = (Constructor<Map<Object, Object>>) constructor;
@@ -219,7 +219,7 @@ public class ChainedMap {
     }
 
     public static <K4, K3, K2, K1, V> M5<K4, K3, K2, K1, V> of(
-        Map<K4, Object> map4, Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+            Map<K4, Object> map4, Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
         return new M5<>(map4, map3, map2, map1, valueClass);
     }
 
@@ -270,12 +270,13 @@ public class ChainedMap {
     }
 
     public static void main(String[] args) {
-        M5<Boolean, Byte, String, Integer, Double> foo = ChainedMap.of(
-            new TreeMap<Boolean, Object>(),
-            new HashMap<Byte, Object>(),
-            new TreeMap<String, Object>(),
-            new TreeMap<Integer, Object>(),
-            Double.class);
+        M5<Boolean, Byte, String, Integer, Double> foo =
+                ChainedMap.of(
+                        new TreeMap<Boolean, Object>(),
+                        new HashMap<Byte, Object>(),
+                        new TreeMap<String, Object>(),
+                        new TreeMap<Integer, Object>(),
+                        Double.class);
 
         System.out.println(foo.put(true, (byte) 0, "abc", 3, 1.5));
         System.out.println(foo.get(true, (byte) 0, "abc", 3));

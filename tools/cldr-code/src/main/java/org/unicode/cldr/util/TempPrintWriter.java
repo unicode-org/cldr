@@ -24,7 +24,6 @@ public class TempPrintWriter extends Writer {
     final String filename;
     boolean noReplace = false;
 
-
     public static TempPrintWriter openUTF8Writer(String filename) {
         return new TempPrintWriter(new File(filename));
     }
@@ -108,8 +107,8 @@ public class TempPrintWriter extends Writer {
             }
             System.out.println("Found difference in : " + oldFile + ", " + newFile);
             final int diff = compare(lines[0], lines[1]);
-            System.out.println(" File1: '" + lines[0].substring(0,diff) + "', '" + lines[0].substring(diff) + "'");
-            System.out.println(" File2: '" + lines[1].substring(0,diff) + "', '" + lines[1].substring(diff) + "'");
+            System.out.println(" File1: '" + lines[0].substring(0, diff) + "', '" + lines[0].substring(diff) + "'");
+            System.out.println(" File2: '" + lines[1].substring(0, diff) + "', '" + lines[1].substring(diff) + "'");
         }
         new File(newFile).renameTo(oldFile2);
         return true;
@@ -121,12 +120,12 @@ public class TempPrintWriter extends Writer {
             lines[1] = null;
             return false;
         }
-        final BufferedReader br1 = new BufferedReader(new FileReader(file1), 32*1024);
-        final BufferedReader br2 = new BufferedReader(new FileReader(file2), 32*1024);
+        final BufferedReader br1 = new BufferedReader(new FileReader(file1), 32 * 1024);
+        final BufferedReader br2 = new BufferedReader(new FileReader(file2), 32 * 1024);
         String line1 = "";
         String line2 = "";
         try {
-            for (int lineCount = 0; ; ++lineCount) {
+            for (int lineCount = 0;; ++lineCount) {
                 line1 = getLineWithoutFluff(br1, lineCount == 0, skipCopyright);
                 line2 = getLineWithoutFluff(br2, lineCount == 0, skipCopyright);
                 if (line1 == null) {

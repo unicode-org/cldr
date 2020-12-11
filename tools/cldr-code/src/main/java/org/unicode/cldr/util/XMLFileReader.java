@@ -91,14 +91,12 @@ public class XMLFileReader {
      * @return list of alternating values.
      */
     public XMLFileReader read(String fileName, int handlers, boolean validating) {
-        try (InputStream fis = new FileInputStream(fileName);
-            ) {
+        try (InputStream fis = new FileInputStream(fileName);) {
             return read(fileName, new InputSource(fis), handlers, validating);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fileName).initCause(e);
         }
     }
-
 
     /**
      * read from a CLDR resource
@@ -170,7 +168,8 @@ public class XMLFileReader {
         }
     }
 
-    private static final XMLReader createXMLReader(int handlers, boolean validating, AllHandler allHandler) throws SAXNotRecognizedException, SAXNotSupportedException {
+    private static final XMLReader createXMLReader(int handlers, boolean validating, AllHandler allHandler)
+        throws SAXNotRecognizedException, SAXNotSupportedException {
         XMLReader xmlReader = createXMLReader(validating);
         if ((handlers & CONTENT_HANDLER) != 0) {
             xmlReader.setContentHandler(allHandler);
@@ -190,7 +189,6 @@ public class XMLFileReader {
     public interface AllHandler extends ContentHandler, LexicalHandler, DeclHandler, ErrorHandler {
 
     }
-
 
     /** Basis for handlers that provides for logging, with no actions on methods
      */
@@ -471,9 +469,9 @@ public class XMLFileReader {
             try {
                 result = (testList[i].length() != 0)
                     ? XMLReaderFactory.createXMLReader(testList[i])
-                        : XMLReaderFactory.createXMLReader();
-                    result.setFeature("http://xml.org/sax/features/validation", validating);
-                    break;
+                    : XMLReaderFactory.createXMLReader();
+                result.setFeature("http://xml.org/sax/features/validation", validating);
+                break;
             } catch (SAXException e1) {
             }
         }
@@ -514,8 +512,8 @@ public class XMLFileReader {
         Function<String, String> valueFilter) {
         try {
             new XMLFileReader()
-            .setHandler(new PathValueListHandler(data, full, valueFilter))
-            .read(filename, -1, validating);
+                .setHandler(new PathValueListHandler(data, full, valueFilter))
+                .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
             throw new ICUException(filename, e);
@@ -525,8 +523,8 @@ public class XMLFileReader {
     public static void processPathValues(String filename, boolean validating, SimpleHandler simpleHandler) {
         try {
             new XMLFileReader()
-            .setHandler(simpleHandler)
-            .read(filename, -1, validating);
+                .setHandler(simpleHandler)
+                .read(filename, -1, validating);
         } catch (Exception e) {
             throw new ICUException(filename, e);
         }

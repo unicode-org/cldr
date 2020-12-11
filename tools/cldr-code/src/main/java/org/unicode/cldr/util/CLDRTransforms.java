@@ -342,7 +342,7 @@ public class CLDRTransforms {
             + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
-    private BiMap<String,String> displayNameToId = HashBiMap.create();
+    private BiMap<String, String> displayNameToId = HashBiMap.create();
 
     public BiMap<String, String> getDisplayNameToId() {
         return displayNameToId;
@@ -958,7 +958,7 @@ public class CLDRTransforms {
 
         @Override
         public void handlePathValue(String path, String value) {
-             if (first) {
+            if (first) {
                 if (path.startsWith("//supplementalData/version")) {
                     return;
                 } else if (path.startsWith("//supplementalData/generation")) {

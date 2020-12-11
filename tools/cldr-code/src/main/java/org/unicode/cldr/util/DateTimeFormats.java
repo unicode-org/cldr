@@ -84,7 +84,7 @@ public class DateTimeFormats {
 
     private static final String SAMPLE_DATE_STRING = CldrUtility.isoFormat(SAMPLE_DATE);
 
-    private static final Map<String,Date> SAMPLE_DATE_END = ImmutableMap.<String,Date>builder()
+    private static final Map<String, Date> SAMPLE_DATE_END = ImmutableMap.<String, Date> builder()
         .put("G", SAMPLE_DATE_DEFAULT_END)
         .put("y", new Date(2013 - 1900, 0, 13, 14, 45, 59))
         .put("M", new Date(2012 - 1900, 1, 13, 14, 45, 59))

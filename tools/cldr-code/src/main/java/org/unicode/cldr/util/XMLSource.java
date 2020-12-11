@@ -308,8 +308,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
         @Override
         public String toString() {
-            return
-            "newLocaleID: " + newLocaleID + ",\t"
+            return "newLocaleID: " + newLocaleID + ",\t"
                 +
                 "oldPath: " + oldPath + ",\n\t"
                 +
@@ -486,7 +485,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @return the localeID
      */
     public String getSourceLocaleIdExtended(String path, CLDRFile.Status status,
-            @SuppressWarnings("unused") boolean skipInheritanceMarker) {
+        @SuppressWarnings("unused") boolean skipInheritanceMarker) {
         return getSourceLocaleID(path, status);
     }
 
@@ -851,7 +850,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
              * There is no caching problem with skipFirst, since that is always false here -- though
              * getBaileyValue could use a cache if there was one for skipFirst true.
              */
-            if (!skipInheritanceMarker || !cachingIsEnabled ) {
+            if (!skipInheritanceMarker || !cachingIsEnabled) {
                 return getPathLocation(xpath, false /* skipFirst */, skipInheritanceMarker);
             }
             synchronized (getSourceLocaleIDCache) {
@@ -1396,7 +1395,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 "ro_MD",
                 "sw_CD",
                 "zh_Hans", "zh_Hant"
-                };
+            };
             for (String extraCode : extraCodes) {
                 addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
             }

@@ -120,6 +120,7 @@ public class SpecialLocales {
         }
         return findLocale(fromLocale.getParent(), origLocale);
     }
+
     private static boolean DEBUG = false;
 
     /**
@@ -127,8 +128,8 @@ public class SpecialLocales {
      */
     private SpecialLocales() {
         // First, read the algorithmic locales.
-        for(final LocaleTransform lt : CLDRFileTransformer.LocaleTransform.values()) {
-            if(lt.getPolicyIfExisting() != CLDRFileTransformer.PolicyIfExisting.DISCARD) {
+        for (final LocaleTransform lt : CLDRFileTransformer.LocaleTransform.values()) {
+            if (lt.getPolicyIfExisting() != CLDRFileTransformer.PolicyIfExisting.DISCARD) {
                 continue;
             }
             // Add each of these as if they were in SpecialLocales.txt
@@ -139,11 +140,11 @@ public class SpecialLocales {
             addToType(Type.readonly, outputLocale);
 
             // add similar comment to SpecialLocales.txt
-            comments.put(outputLocale, "@"+outputLocale.getBaseName()+" is generated from @"+inputLocale.getBaseName() +
-                " via transliteration, and so @@ may not be edited directly. Edit @"+inputLocale.getBaseName()+" to make changes.");
+            comments.put(outputLocale, "@" + outputLocale.getBaseName() + " is generated from @" + inputLocale.getBaseName() +
+                " via transliteration, and so @@ may not be edited directly. Edit @" + inputLocale.getBaseName() + " to make changes.");
         }
 
-        for(final DataFileRow r : DataFileRow.ROWS) {
+        for (final DataFileRow r : DataFileRow.ROWS) {
             // verify that the locale is valid
             CLDRLocale l = null;
             try {
@@ -154,7 +155,7 @@ public class SpecialLocales {
 
             addToType(r.type, l);
             if (r.includeSubLocs) {
-                if(r.type == Type.scratch) {
+                if (r.type == Type.scratch) {
                     throw new IllegalArgumentException("Scratch locales cannot include sublocales: " + l);
                 }
                 specialsWildcards.add(l);
@@ -176,12 +177,14 @@ public class SpecialLocales {
 
     private static class DataFileRow {
         public boolean includeSubLocs;
+
         public DataFileRow(String id, Type type, String comment, boolean includeSubLocs) {
             this.id = id;
             this.type = type;
             this.comment = comment;
             this.includeSubLocs = includeSubLocs;
         }
+
         public String id;
         public Type type;
         public String comment;
@@ -216,7 +219,6 @@ public class SpecialLocales {
                     String type = stuff.get(1);
                     String comment = stuff.get(2);
                     Type t = null;
-
 
                     // verify that the type is valid
                     try {
@@ -272,8 +274,8 @@ public class SpecialLocales {
      */
     public static List<String> getScratchLocaleIds() {
         List<String> ids = new ArrayList<>();
-        for(final DataFileRow r : DataFileRow.ROWS) {
-            if(r.type == Type.scratch) {
+        for (final DataFileRow r : DataFileRow.ROWS) {
+            if (r.type == Type.scratch) {
                 ids.add(r.id);
             }
         }

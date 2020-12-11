@@ -288,7 +288,7 @@ public final class WikiSubdivisionLanguages {
                             otherId = getSubdivisionFromPath(path);
                         } else {
                             String fixedName = name + MARKERS.get(markerIndex);
-                            fail("Superscripting ", lang + "\t(" + otherId +")", getSubdivisionFromPath(path), fixedName, -1);
+                            fail("Superscripting ", lang + "\t(" + otherId + ")", getSubdivisionFromPath(path), fixedName, -1);
                             //System.out.println("Superscripting colliding:\t" + lang + "\t" + path + "\t" + fixedName);
                             fileSubdivisions.add(path, fixedName); // overwrite with superscripted
                         }
@@ -327,7 +327,7 @@ public final class WikiSubdivisionLanguages {
         // for fixing collisions
         // we first add existing items
         Set<String> toRemove = new HashSet<>();
-        Map<String,String> toAdd = new HashMap<>();
+        Map<String, String> toAdd = new HashMap<>();
 
         for (String path : fileSubdivisions) {
             XPathParts parts = XPathParts.getFrozenInstance(path);

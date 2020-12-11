@@ -37,10 +37,15 @@ public class LanguageTagCanonicalizer implements StringTransform {
     }
 
     public LanguageTagCanonicalizer(LstrType lstrType) {
-        switch(lstrType) {
-        case region: likely = LIKELY_FAVOR_REGION; break;
-        case script: likely = LIKELY_FAVOR_SCRIPT; break;
-        default: likely = null;
+        switch (lstrType) {
+        case region:
+            likely = LIKELY_FAVOR_REGION;
+            break;
+        case script:
+            likely = LIKELY_FAVOR_SCRIPT;
+            break;
+        default:
+            likely = null;
         }
     }
 
@@ -52,8 +57,9 @@ public class LanguageTagCanonicalizer implements StringTransform {
     // TODO, handle variants
     @Override
     public synchronized String transform(String locale) {
-        return transform (locale, OutputOption.ICU_LCVARIANT);
+        return transform(locale, OutputOption.ICU_LCVARIANT);
     }
+
     public synchronized String transform(String locale, OutputOption oo) {
         ltp1.set(locale);
 

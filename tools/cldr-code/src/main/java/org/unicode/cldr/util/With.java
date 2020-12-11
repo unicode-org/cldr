@@ -186,7 +186,8 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      */
     public static String fromCodePoint(int... codePoints) {
         switch (codePoints.length) {
-        case 0: return "";
+        case 0:
+            return "";
         case 1: {
             return String.valueOf(Character.toChars(codePoints[0]));
         }
@@ -320,7 +321,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
             this.iterators
-            .add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
+                .add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }

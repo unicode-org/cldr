@@ -127,7 +127,7 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 				theResult.appendChild(createChunk(searchTerm, "h3"));
 				
 				if(!(searchTerm in searchCache)) {
-					   var xurl = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=search"; // allow cache
+					   var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=search"; // allow cache
 					   if(newLocale!=null&&newLocale!='') {
 						   xurl = xurl + "&_="+newLocale;
 					   }

@@ -19,7 +19,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 	 * @function parseHash
 	 */
 	Page.prototype.parseHash = function parseHash(hash, pieces) {
-		surveyCurrentPage='';
+		cldrStatus.setCurrentPage('');
 	};
 	
 	Page.prototype.handleIdChanged = function handleIdChanged(strid) {
@@ -113,7 +113,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 			// No longer loading
 			hideLoader(null);
 			params.flipper.flipTo(params.pages.other, ourDiv);
-			params.special.handleIdChanged(surveyCurrentId); // rescroll.
+			params.special.handleIdChanged(cldrStatus.getCurrentId()); // rescroll.
 
 			if(surveyUserPerms.userIsTC) {
 				// For TC, show button (includes emails, so TC only)

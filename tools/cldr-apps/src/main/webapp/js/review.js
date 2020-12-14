@@ -232,7 +232,7 @@ function showReviewPage(json, showFn) {
  * Called only by showReviewPage in this file
  */
 function getUrlReview(id) {
-	return contextPath + '/v#/' + surveyCurrentLocale + '//' + id;
+	return cldrStatus.getContextPath() + '/v#/' + surveyCurrentLocale + '//' + id;
 }
 
 /**
@@ -241,7 +241,7 @@ function getUrlReview(id) {
  * Called only by the Startup function at the top of this file
  */
 function toggleReview() {
-	var url = contextPath + "/SurveyAjax?what=review_hide&s=" + surveySessionId;
+	var url = cldrStatus.getContextPath() + "/SurveyAjax?what=review_hide&s=" + surveySessionId;
 	var path = $(this).parents('tr').data('path');
 	var choice = $(this).parents('.table-wrapper').data('type');
 	url += "&path=" + path + "&choice=" + choice + "&locale=" + surveyCurrentLocale;
@@ -310,11 +310,11 @@ function toggleFix(event) {
 	$('button.fix').popover('destroy');
 	toggleOverlay();
 	if (!isPopover) {
-		var url = contextPath + "/SurveyAjax?what=" + WHAT_GETROW +
+		var url = cldrStatus.getContextPath() + "/SurveyAjax?what=" + WHAT_GETROW +
 			"&_=" + surveyCurrentLocale +
 			"&s=" + surveySessionId +
 			"&xpath=" + tr.data('path') +
-			"&strid=" + surveyCurrentId + cacheKill() +
+			"&strid=" + cldrStatus.getCurrentId() + cacheKill() +
 			"&dashboard=true";
 		myLoad(url, "section", function(json) {
 			isLoading = false;

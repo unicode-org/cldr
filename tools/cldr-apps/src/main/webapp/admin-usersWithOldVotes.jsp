@@ -13,7 +13,7 @@
 <span id="visitors"></span><!-- needed for stnotices/ajax status -->
 <hr>
 
-<%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
+<% SurveyAjax.includeJavaScript(request, out); %>
 
 <%
 if(!SurveyMain.vap.equals(request.getParameter("vap"))) {

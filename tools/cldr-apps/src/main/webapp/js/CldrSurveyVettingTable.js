@@ -245,7 +245,7 @@ const cldrSurveyTable = (function() {
 					path: theRow.xpath,
 					ph: {
 						section: surveyCurrentSection, // Section: Timezones
-						page: surveyCurrentPage, // Page: SEAsia ( id, not name )
+						page: cldrStatus.getCurrentPage(), // Page: SEAsia ( id, not name )
 						header: curPartition.name, // Header: Borneo
 						code: theRow.code // Code: standard-long
 					}
@@ -511,7 +511,8 @@ const cldrSurveyTable = (function() {
 		 * Show the current ID.
 		 * TODO: explain.
 		 */
-		if (surveyCurrentId !== '' && surveyCurrentId === tr.id) {
+		const curId = cldrStatus.getCurrentId();
+		if (curId !== '' && curId === tr.id) {
 			window.showCurrentId(); // refresh again - to get the updated voting status.
 		}
 	}

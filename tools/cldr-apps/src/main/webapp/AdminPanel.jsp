@@ -44,7 +44,8 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 <div style='float: right; font-size: x-small;'>
 <span id="visitors"></span>
 </div>
-<%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
+
+<% SurveyAjax.includeJavaScript(request, out); %>
 
 <hr>
 

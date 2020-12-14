@@ -25,6 +25,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -255,7 +256,6 @@ public class SurveyAjax extends HttpServlet {
     public static final String REQ_WHAT = "what";
     public static final String REQ_SESS = "s";
     public static final String WHAT_STATUS = "status";
-    public static final String AJAX_STATUS_SCRIPT = "ajax_status.jspf";
     public static final String WHAT_SUBMIT = "submit";
     public static final String WHAT_GETROW = "getrow";
     public static final String WHAT_GETSIDEWAYS = "getsideways";
@@ -384,14 +384,14 @@ public class SurveyAjax extends HttpServlet {
                 addGeneralStats(r);
                 send(r, out);
             } else if (what.equals(WHAT_FLAGGED)) {
-                JSONWriter r = newJSONStatus(sm);
+                JSONWriter r = newJSONStatus(request, sm);
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 1000, "select * from " + DBUtils.Table.VOTE_FLAGGED
                     + "  order by locale asc, last_mod desc");
                 r.put(what, query);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
-                JSONWriter r = newJSONStatus(sm);
+                JSONWriter r = newJSONStatus(request, sm);
                 final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
                 final String sql = "select submitter," + day + " as day,locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE
                     + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),day order by day desc";
@@ -402,7 +402,7 @@ public class SurveyAjax extends HttpServlet {
                 send(r, out);
                 // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
             } else if (what.equals(WHAT_STATS_BYDAY)) {
-                JSONWriter r = newJSONStatus(sm);
+                JSONWriter r = newJSONStatus(request, sm);
                 {
                     final String sql = "select count(*) as count , Date(last_mod) as date from " + DBUtils.Table.VOTE_VALUE
                         + " group by date desc";
@@ -422,7 +422,7 @@ public class SurveyAjax extends HttpServlet {
                 r.put("after", "n/a");
                 send(r, out);
             } else if (what.equals(WHAT_GETXPATH)) {
-                JSONWriter r = newJSONStatus(sm);
+                JSONWriter r = newJSONStatus(request, sm);
                 try {
                     int xpid = XPathTable.NO_XPATH;
                     String xpath_path = null;
@@ -453,7 +453,7 @@ public class SurveyAjax extends HttpServlet {
                 }
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {
-                JSONWriter r = newJSONStatus(sm);
+                JSONWriter r = newJSONStatus(request, sm);
                 String q1 = "select count(*) as count, " + DBUtils.Table.VOTE_VALUE + ".locale as locale from " + DBUtils.Table.VOTE_VALUE + " WHERE "
                     + DBUtils.Table.VOTE_VALUE + ".submitter=? AND " + DBUtils.Table.VOTE_VALUE + ".value is not NULL " +
                     " group by " + DBUtils.Table.VOTE_VALUE + ".locale order by " + DBUtils.Table.VOTE_VALUE + ".locale desc";
@@ -475,7 +475,7 @@ public class SurveyAjax extends HttpServlet {
                 }
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
-                JSONWriter r = newJSONStatus(sm);
+                JSONWriter r = newJSONStatus(request, sm);
                 int limit = 15;
                 try {
                     limit = Integer.parseInt(request.getParameter("limit"));
@@ -510,7 +510,7 @@ public class SurveyAjax extends HttpServlet {
                 r.put("recent", query);
                 send(r, out);
             } else if (what.equals(WHAT_STATUS)) {
-                JSONWriter r2 = newJSONStatus(sm);
+                JSONWriter r2 = newJSONStatus(request, sm);
                 setLocaleStatus(sm, loc, r2);
 
                 if (sess != null && !sess.isEmpty()) {
@@ -559,7 +559,7 @@ public class SurveyAjax extends HttpServlet {
                         final List<CheckStatus> result = new ArrayList<>();
                         SurveyMain.UserLocaleStuff uf = null;
                         boolean dataEmpty = false;
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         synchronized (mySession) {
                             try {
                                 BallotBox<UserRegistry.User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
@@ -666,7 +666,7 @@ public class SurveyAjax extends HttpServlet {
                         mySession.userDidAction();
                         String pref = request.getParameter("pref");
 
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("pref", pref);
 
                         if (!prefsList.contains(pref)) {
@@ -686,7 +686,7 @@ public class SurveyAjax extends HttpServlet {
                         assertCanUseVettingSummary(mySession);
                         VettingViewerQueue.LoadingPolicy policy = VettingViewerQueue.LoadingPolicy.valueOf(request.getParameter("loadingpolicy"));
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
                         r.put("loadingpolicy", policy);
                         VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
@@ -703,7 +703,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_PARTICIPATION)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
                         if (UserRegistry.userCanMonitorForum(mySession.user)) {
                             String org = mySession.user.org;
@@ -712,7 +712,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_VETTING_PARTICIPATION)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
                         if (UserRegistry.userIsVetter(mySession.user)) {
                             String org = mySession.user.org;
@@ -724,7 +724,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_BULK_CLOSE_POSTS)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
                         if (UserRegistry.userIsAdmin(mySession.user)) {
                             boolean execute = "true".equals(request.getParameter("execute"));
@@ -733,14 +733,14 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_COUNT)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         int id = Integer.parseInt(xpath);
                         r.put(what, sm.fora.postCountFor(locale, id));
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_FETCH)) {
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         int id = Integer.parseInt(xpath);
                         if (mySession.user == null) {
@@ -762,7 +762,7 @@ public class SurveyAjax extends HttpServlet {
                         postToForum(request, response, out, xpath, l, mySession, sm);
                     } else if (what.equals("mail")) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         if (mySession.user == null) {
                             r.put("err", "Not logged in.");
                             r.put("err_code", ErrorCode.E_NOT_LOGGED_IN.name());
@@ -788,7 +788,7 @@ public class SurveyAjax extends HttpServlet {
                     } else if (what.equals(WHAT_GET_MENUS)) {
 
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
 
                         SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
@@ -842,13 +842,13 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_AUTO_IMPORT)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
                         doAutoImportOldWinningVotes(r, mySession.user, sm);
                         send(r, out);
                     } else if (what.equals(WHAT_POSS_PROBLEMS)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         r.put("what", what);
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -874,7 +874,7 @@ public class SurveyAjax extends HttpServlet {
                     } else if (what.equals(WHAT_OLDVOTES)) {
                         mySession.userDidAction();
                         boolean isSubmit = (request.getParameter("doSubmit") != null);
-                        JSONWriter r = newJSONStatus(sm);
+                        JSONWriter r = newJSONStatus(request, sm);
                         importOldVotes(r, mySession.user, sm, isSubmit, val, loc);
                         send(r, out);
                     } else if (what.equals(WHAT_GETSIDEWAYS)) {
@@ -1506,10 +1506,10 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private void setupStatus(SurveyMain sm, JSONWriter r) {
+    private void setupStatus(HttpServletRequest request, SurveyMain sm, JSONWriter r) {
         r.put("SurveyOK", "1");
         try {
-            r.put("status", sm.statusJSON());
+            r.put("status", sm.statusJSON(request));
         } catch (JSONException e) {
             SurveyLog.logException(e, "getting status");
         }
@@ -1522,9 +1522,9 @@ public class SurveyAjax extends HttpServlet {
      * @param sm the SurveyMain
      * @return the JSONWriter
      */
-    private JSONWriter newJSONStatus(SurveyMain sm) {
+    private JSONWriter newJSONStatus(HttpServletRequest request, SurveyMain sm) {
         JSONWriter r = newJSON();
-        setupStatus(sm, r);
+        setupStatus(request, sm, r);
         return r;
     }
 
@@ -1605,14 +1605,6 @@ public class SurveyAjax extends HttpServlet {
 
     public enum AjaxType {
         STATUS, VERIFY
-    }
-
-    /**
-     * Helper function for getting the basic AJAX status script included.
-     */
-    public static void includeAjaxScript(HttpServletRequest request, HttpServletResponse response, AjaxType type)
-        throws ServletException, IOException {
-        WebContext.includeFragment(request, response, "ajax_" + type.name().toLowerCase() + ".jsp");
     }
 
     /**
@@ -2937,12 +2929,8 @@ public class SurveyAjax extends HttpServlet {
         out.write("<title>SurveyTool File Submission | " + title + "</title>\n");
         out.write("<link rel='stylesheet' type='text/css' href='./surveytool.css' />\n");
 
-        /*
-         * TODO: Avoid browser console showing "ReferenceError: surveyRunningStamp is not defined" in
-         * survey.js. surveyRunningStamp is undefined unless ajax_status.jsp is included.
-         * Here we include survey.js but not ajax_status.jsp.
-         */
-        out.write("<script src='" + contextPath + "/js/survey.js'></script>\n");
+        SurveyAjax.includeJavaScript(request, out);
+
         out.write("</head>\n<body>\n");
         out.write("<a href=\"upload.jsp?s=" + sid + "&email=" + theirU.email + "\">Re-Upload File/Try Another</a>");
         out.write(" | ");
@@ -3185,47 +3173,177 @@ public class SurveyAjax extends HttpServlet {
      * @param request the HttpServletRequest
      * @param out the Writer
      * @throws IOException
-     *
-     * Some code was moved here from js_include.jsp
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13585
-     *
-     * Called from ajax_status.jsp
+     * @throws JSONException
      */
-    public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException {
+    public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
+        includeEvilJavaScript(request, out);
+        includeDojoJavaScript(out);
+        includeJqueryJavaScript(out);
+        includeCldrJavaScript(request, out);
+    }
+
+    private static void includeEvilJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
+        out.write("<script>\n");
+
         /*
-         * TODO: investigate putting "defer" after "script"; may cause page to appear
-         * to load faster, though order of loading jquery, dojo may be problematic...
+         * All these JavaScript var declarations unfortunately append to the window (global) object!
+         * This is very temporary, mostly moved here from old ajax_status.jsp
+         * TODO: Modernize! deliver data to the client as json; and store
+         * it in our own JavaScript object(s) (like CldrStatus.js), not the window.
+         * We should treat surveyCurrentSpecial, etc., like surveyCurrentId, etc.
          */
+        out.write("var surveyCurrentSpecial = null;\n");
+
+        String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);
+
+        // locale can have either - or _
+        surveyCurrentLocale = (surveyCurrentLocale == null) ? null : surveyCurrentLocale.replace("-", "_");
+        String surveyCurrentLocaleName = "";
+        if (surveyCurrentLocale != null) {
+            CLDRLocale aloc = CLDRLocale.getInstance(surveyCurrentLocale);
+            surveyCurrentLocaleName = aloc.getDisplayName();
+        }
+        String surveyCurrentSection = request.getParameter(SurveyMain.QUERY_SECTION);
+        if (surveyCurrentSection == null) {
+            surveyCurrentSection = "";
+        }
+        if (surveyCurrentLocale != null && surveyCurrentLocale.length() > 0) {
+            out.write("var surveyCurrentLocale = '" + surveyCurrentLocale + "';\n");
+            out.write("var surveyCurrentLocaleName = '" + surveyCurrentLocaleName + "';\n");
+            out.write("var surveyCurrentSection = '" + surveyCurrentSection + "';\n");
+        } else {
+            out.write("var surveyCurrentLocale = null;\n");
+            out.write("var surveyCurrentLocaleName = null;\n");
+            out.write("var surveyCurrentSection  = '';\n");
+        }
+
+        out.write("var surveyTransHintLocale = '" + SurveyMain.TRANS_HINT_LOCALE.getBaseName() + "';\n");
+        out.write("var surveyVersion = '" + SurveyMain.getNewVersion() + "';\n");
+        out.write("var surveyLastVoteVersion = '" + SurveyMain.getLastVoteVersion() + "';\n");
+        out.write("var surveyOfficial = '" + !SurveyMain.isUnofficial() + "';\n");
+        out.write("var BUG_URL_BASE = '" + SurveyMain.BUG_URL_BASE + "';\n");
+        out.write("var surveyBeta = '" + SurveyMain.isPhaseBeta() + "';\n");
+
+        String sessid = request.getParameter("s");
+        if (sessid == null) {
+            HttpSession hsession = request.getSession(false);
+            if (hsession != null) {
+                sessid = hsession.getId();
+            }
+        }
+
+        CookieSession mySession = null;
+        UserRegistry.User myUser = null;
+        if (sessid != null) {
+            mySession = CookieSession.retrieveWithoutTouch(sessid);
+        }
+        if (mySession == null) {
+            sessid = null;
+        } else {
+            sessid = mySession.id;
+            myUser = mySession.user;
+        }
+        if (sessid != null) {
+            out.write("var surveySessionId = '" + sessid + "';\n");
+        } else {
+            out.write("var surveySessionId = null;\n");
+        }
+        SurveyMain curSurveyMain = null;
+        curSurveyMain = SurveyMain.getInstance(request);
+
+        WebContext subCtx = (WebContext) request.getAttribute("WebContext"); // from v.jsp
+        if (subCtx != null && subCtx.session.user != null) {
+            myUser = subCtx.session.user;
+        }
+
+        if (myUser != null) {
+            out.write("var surveyUser = '" + myUser.toJSONString() + "';\n");
+            out.write("var userEmail = '" + myUser.email + "';\n");
+            out.write("var userPWD = '" + myUser.password + "';\n");
+            out.write("var userID = '" + myUser.id + "';\n");
+            out.write("var organizationName = '" + myUser.getOrganization().getDisplayName() + "';\n");
+            out.write("var org = '" + myUser.org + "';\n");
+            out.write("var surveyUserPerms = {\n");
+            out.write("  userExist: (surveyUser != null),\n");
+            out.write("  userCanImportOldVotes: " + myUser.canImportOldVotes() + ",\n");
+            out.write("  userCanUseVettingSummary: " + UserRegistry.userCanUseVettingSummary(myUser) + ",\n");
+            out.write("  userCanMonitorForum: " + UserRegistry.userCanMonitorForum(myUser) + ",\n");
+            out.write("  userIsTC: " + UserRegistry.userIsTC(myUser) + ",\n");
+            boolean userIsVetter = !UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser);
+            out.write("  userIsVetter: " + userIsVetter + ",\n");
+            out.write("  userIsLocked: " + UserRegistry.userIsLocked(myUser) + ",\n");
+            out.write("  hasDataSource: " + curSurveyMain.dbUtils.hasDataSource() + ",\n");
+            out.write("};\n");
+
+            out.write("var surveyUserURL = {\n");
+            out.write("  myAccountSetting: 'survey?do=listu',\n");
+            out.write("  disableMyAccount: \"lock.jsp?email='+userEmail\"+userEmail,\n");
+            out.write("  recentActivity: \"myvotes.jsp?user=\"+userID+\"&s=\"+surveySessionId,\n");
+            out.write("  xmlUpload: \"upload.jsp?a=/cldr-apps/survey&s=\"+surveySessionId,\n");
+            out.write("  manageUser: \"survey?do=list\",\n");
+            out.write("  flag: \"tc-flagged.jsp?s=\"+surveySessionId,\n");
+            out.write("  about: \"about.jsp\",\n");
+            out.write("  browse: \"browse.jsp\",\n");
+            out.write("};\n");
+
+            if (UserRegistry.userIsAdmin(myUser)) {
+                out.write("surveyUserURL.adminPanel = 'survey?dump=" + SurveyMain.vap + "';\n");
+            }
+        } else {
+            // User session not present. Set a few things so that we don't fail.
+            out.write("var surveyUser = null;\n");
+            out.write("var surveyUserURL = {};\n");
+            out.write("var surveyUser = null;\n");
+            out.write("var organizationName = null;\n");
+            out.write("var org = null;\n");
+            out.write("var surveyUserPerms = {userExist: false,};\n");
+        }
+        out.write("var warnIcon = \"" + WebContext.iconHtml(request, "warn", "Test Warning") + "\";\n");
+        out.write("var stopIcon = \"" + WebContext.iconHtml(request, "stop", "Test Error") + "\";\n");
+        out.write("var WHAT_GETROW = '" + SurveyAjax.WHAT_GETROW + "';\n");
+        out.write("var WHAT_SUBMIT = '" + SurveyAjax.WHAT_SUBMIT + "';\n");
+        out.write("var TARGET_DOCS = '" + WebContext.TARGET_DOCS + "';\n");
+        out.write("var TRANS_HINT_LOCALE = '" + SurveyMain.TRANS_HINT_LOCALE + "';\n");
+        out.write("var TRANS_HINT_LANGUAGE_NAME = '" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + "';\n");
+        out.write("var WHAT_GETROW = '" + SurveyAjax.WHAT_GETROW + "';\n");
+
+        out.write("</script>\n");
+    }
+
+    private static void includeDojoJavaScript(Writer out) throws IOException {
+        out.write("<script>dojoConfig = {parseOnLoad: true, async: true,};</script>");
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js';</script>");
+        out.write("<script>require([\"dojo/parser\", \"dijit/layout/ContentPane\", \"dijit/layout/BorderContainer\"]);</script>");
+    }
+
+    private static void includeJqueryJavaScript(Writer out) throws IOException {
         out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
-
-        /*
-         * TODO: figure out what we're using jquery-ui for.
-         * If we don't use it, don't include it.
-         * If we don't include jquery-ui we get "TypeError: p.easing[this.easing] is not a function"
-         */
         out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
+    }
 
+    private static void includeCldrJavaScript(HttpServletRequest request, Writer out) throws IOException {
         final String prefix = "<script src='" + request.getContextPath() + "/js/";
         final String tail = "'></script>\n";
         final String js = getCacheBustingExtension(request) + ".js" + tail;
 
-        out.write(prefix + "jquery.autosize.min.js" + tail);
+        out.write(prefix + "jquery.autosize.min.js" + tail); // exceptional
 
-        out.write(prefix + "CldrStAjax" + js);
-        out.write(prefix + "CldrStBulkClosePosts" + js);
-        out.write(prefix + "CldrStForumParticipation" + js);
-        out.write(prefix + "CldrStForumFilter" + js);
-        out.write(prefix + "CldrStForum" + js);
-        out.write(prefix + "CldrStCsvFromTable" + js);
-        out.write(prefix + "CldrDeferredHelp" + js);
-        out.write(prefix + "survey" + js);
-        out.write(prefix + "CldrSurveyVettingLoader" + js);
-        out.write(prefix + "CldrSurveyVettingTable" + js);
+        out.write(prefix + "CldrStatus" + js); // CldrStatus.js
+        out.write(prefix + "CldrStAjax" + js); // CldrStAjax.js
+        out.write(prefix + "CldrStBulkClosePosts" + js); // CldrStBulkClosePosts.js
+        out.write(prefix + "CldrStForumParticipation" + js); // CldrStForumParticipation.js
+        out.write(prefix + "CldrStForumFilter" + js); // CldrStForumFilter.js
+        out.write(prefix + "CldrStForum" + js); // CldrStForum.js
+        out.write(prefix + "CldrStCsvFromTable" + js); // CldrStCsvFromTable.js
+        out.write(prefix + "CldrDeferredHelp" + js); // CldrDeferredHelp.js
+        out.write(prefix + "survey" + js); // survey.js
+        out.write(prefix + "CldrSurveyVettingLoader" + js); // CldrSurveyVettingLoader.js
+        out.write(prefix + "CldrSurveyVettingTable" + js); // CldrSurveyVettingTable.js
 
-        out.write(prefix + "bootstrap.min.js" + tail);
+        out.write(prefix + "bootstrap.min.js" + tail); // exceptional
 
-        out.write(prefix + "redesign" + js);
-        out.write(prefix + "review" + js);
+        out.write(prefix + "redesign" + js); // redesign.js
+        out.write(prefix + "review" + js); // review.js
     }
 
     /**

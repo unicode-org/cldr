@@ -55,6 +55,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
 
 import org.json.JSONArray;
@@ -338,8 +339,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
 
-    static final String TRANS_HINT_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918
+    static final String TRANS_HINT_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918; must match TRANS_HINT_ID in JavaScript
     public static final ULocale TRANS_HINT_LOCALE = new ULocale(TRANS_HINT_ID);
+    // TRANS_HINT_LANGUAGE_NAME needs to match TRANS_HINT_LANGUAGE_NAME in JavaScript ("English")
     public static final String TRANS_HINT_LANGUAGE_NAME = TRANS_HINT_LOCALE.getDisplayLanguage(TRANS_HINT_LOCALE); // Note:
     // Only
     // shows
@@ -1308,6 +1310,28 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         double load = osmxbean.getSystemLoadAverage();
         CLDRConfig config = CLDRConfig.getInstance();
+
+        String sessid = request.getParameter("s");
+        if (sessid == null) {
+            HttpSession hsession = request.getSession(false);
+            if (hsession != null) {
+                sessid = hsession.getId();
+            }
+        }
+        CookieSession mySession = null;
+        UserRegistry.User myUser = null;
+        if (sessid != null) {
+            mySession = CookieSession.retrieveWithoutTouch(sessid);
+        }
+        if (mySession == null) {
+            sessid = null;
+        } else {
+            sessid = mySession.id;
+            myUser = mySession.user;
+        }
+        String orgName = (myUser == null) ? null : myUser.getOrganization().getDisplayName();
+        JSONObject perm = (myUser == null) ? null : myUser.getPermissionsJson();
+
         return new JSONObject().put("isBusted", isBusted).put("lockOut", lockOut != null).put("isSetup", isSetup)
             .put("isUnofficial", isUnofficial()).put("environment", config.getEnvironment().name())
             .put("specialHeader", config.getProperty("CLDR_HEADER"))
@@ -1315,10 +1339,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             .put("processing", startupThread.htmlStatus()).put("guests", CookieSession.getGuestCount())
             .put("users", CookieSession.getUserCount()).put("uptime", uptime).put("surveyRunningStamp", surveyRunningStamp.current())
             .put("memfree", free).put("memtotal", total).put("pages", pages).put("uptime", uptime).put("phase", phase())
-            .put("currev", SurveyMain.getCurrevCldrApps()) // Code only!
             .put("newVersion", newVersion).put("sysload", load).put("sysprocs", nProcs).put("dbopen", DBUtils.db_number_open)
             .put("dbused", DBUtils.db_number_used)
-            .put("contextPath", request.getContextPath());
+            .put("contextPath", request.getContextPath())
+            .put("isPhaseBeta", isPhaseBeta())
+            .put("sessionId", sessid)
+            .put("user", myUser)
+            .put("organizationName", orgName)
+            .put("permissions", perm)
+            .put("specialHeader", getSpecialHeaderText())
+        ;
     }
 
     /**

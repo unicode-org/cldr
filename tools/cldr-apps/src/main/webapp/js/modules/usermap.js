@@ -22,7 +22,7 @@ define("js/modules/usermap.js", ["dojo/request"],
 		} else {
 			console.log('Fetching user info for #'+id);
 			request
-			.get('SurveyAjax?s='+surveySessionId+'&what=user_info&u='+id, {handleAs: 'json'})
+			.get('SurveyAjax?s=' + cldrStatus.getSessionId() + '&what=user_info&u=' + id, {handleAs: 'json'})
 			.then(function(json) {
 				hash[id] = json;
 				fn(json.err, args, {entry: json, id: id}); // add err msg

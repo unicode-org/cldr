@@ -27,7 +27,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 
 	Page.prototype.show = function show(params) {
 		request
-		.get('SurveyAjax?s='+surveySessionId+'&what=flagged', {handleAs: 'json'})
+		.get('SurveyAjax?s='+cldrStatus.getSessionId()+'&what=flagged', {handleAs: 'json'})
 		.then(function(json) {
 			if(json.err) {
 	        	params.special.showError(params, json, {what: "Loading flagged data"});
@@ -100,7 +100,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 				theXpathLink.appendTo(theXpathChunk);
 				theXpathChunk.appendTo(theRow);
 				
-				if(surveyUser) {
+				if (cldrStatus.getSurveyUser()) {
 					// if logged in- try to get user info
 					var theirUserId = row[header.SUBMITTER];
 					mymap.get(theirUserId, addUserInfo, {theRow: theRow});
@@ -115,9 +115,10 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 			params.flipper.flipTo(params.pages.other, ourDiv);
 			params.special.handleIdChanged(cldrStatus.getCurrentId()); // rescroll.
 
-			if(surveyUserPerms.userIsTC) {
+			const surveyUserPerms = cldrStatus.getPermissions();
+			if (surveyUserPerms && surveyUserPerms.userIsTC) {
 				// For TC, show button (includes emails, so TC only)
-				const csvButton = $('<form></form>', {action: "DataExport.jsp?do=flagged&s=" + surveySessionId});
+				const csvButton = $('<form></form>', {action: "DataExport.jsp?do=flagged&s=" + cldrStatus.getSessionId()});
 				csvButton.append($('<input></input', {type: 'submit', value: stui.str('downloadCsvLink')}));
 				$(pucontent).append(csvButton);
 			}

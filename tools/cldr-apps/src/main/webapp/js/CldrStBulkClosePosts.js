@@ -89,11 +89,12 @@ const cldrStBulkClosePosts = (function() {
 	 * Get the URL to use for loading the Forum Bulk Close Posts page
 	 */
 	function getBulkClosePostsUrl() {
-		if (typeof surveySessionId === 'undefined') {
-			console.log('Error: surveySessionId undefined in getBulkClosePostsUrl');
+		const sessionId = cldrStatus.getSessionId();
+		if (!sessionId) {
+			console.log('Error: sessionId falsy in getBulkClosePostsUrl');
 			return '';
 		}
-		return 'SurveyAjax?what=bulk_close_posts&s=' + surveySessionId;
+		return 'SurveyAjax?what=bulk_close_posts&s=' + sessionId;
 	}
 
 	/**

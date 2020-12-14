@@ -227,11 +227,12 @@ define("js/special/vetting_participation.js", ["js/special/SpecialPage.js"], fun
 	 * Get the URL to use for loading the Vetting Participation page
 	 */
 	function getVettingParticipationUrl() {
-		if (typeof surveySessionId === 'undefined') {
-			console.log('Error: surveySessionId undefined in getVettingParticipationUrl');
+		const sessionId = cldrStatus.getSessionId();
+		if (!sessionId) {
+			console.log('Error: sessionId falsy in getVettingParticipationUrl');
 			return '';
 		}
-		return 'SurveyAjax?what=vetting_participation&s=' + surveySessionId;
+		return 'SurveyAjax?what=vetting_participation&s=' + sessionId;
 	}
 	
 	// set up the inheritance before defining other functions

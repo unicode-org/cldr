@@ -8,7 +8,11 @@
 /*
  * Startup function
  */
-$(function() {
+require(["dojo/ready"], function(ready) {
+	const priority = 2000; // after cldrGui.run (1), before cldrReviewStartup (2001); cf. default Dojo (1000)
+	ready(priority, cldrRedesignStartup);
+});
+function cldrRedesignStartup() {
 	// for locale search
 	$('body').on('click', '#show-locked', {type: "lock"}, toggleLockedRead);
 	$('body').on('click', '#show-read', {type: "read"}, toggleLockedRead);
@@ -23,13 +27,11 @@ $(function() {
 			if (!$('body').hasClass('disconnected') && !window.haveDialog) { // don't hover if another dialog is open.
 				$(this).addClass('active');
 				toggleOverlay();
-			} else {
-				// can't show sidebar - page is disconnected.
 			}
 		},
 		function() {
-			if (surveyCurrentLocale ||
-				surveyCurrentSpecial != 'locales') { // don't stick the sidebar open if we're not in the locale chooser.
+			if (cldrStatus.getCurrentLocale() ||
+				cldrStatus.getCurrentSpecial() != 'locales') { // don't stick the sidebar open if we're not in the locale chooser.
 				$(this).removeClass('active');
 				toggleOverlay();
 			}
@@ -84,7 +86,7 @@ $(function() {
 			}
 		}
 	})
-});
+}
 
 /**
  * Size the sidebar relative to the header
@@ -280,7 +282,7 @@ function unpackMenuSideBar(json) {
 	}
 
 	var html = '<ul>';
-	if (!isVisitor) {
+	if (!cldrStatus.isVisitor()) {
 		// put the dashboard out
 		var tmp = null;
 		var reportHtml = '';
@@ -352,7 +354,7 @@ function unpackMenuSideBar(json) {
 	// menu
 	$('.sidebar-chooser').click(function() {
 		cldrStatus.setCurrentPage($(this).attr('id'));
-		window.surveyCurrentSpecial = '';
+		cldrStatus.setCurrentSpecial('');
 		reloadV();
 		$('#left-sidebar').removeClass('active');
 		toggleOverlay();
@@ -364,9 +366,9 @@ function unpackMenuSideBar(json) {
 		toggleOverlay();
 		$('#OtherSection').hide();
 		if ($(this).data('query')) {
-			window.location = survURL + '?' + $(this).data('url') + '&_=' + surveyCurrentLocale;
+			window.location = cldrStatus.getSurvUrl() + '?' + $(this).data('url') + '&_=' + cldrStatus.getCurrentLocale();
 		} else {
-			window.surveyCurrentSpecial = $(this).data('url');
+			cldrStatus.setCurrentSpecial($(this).data('url'));
 			cldrStatus.setCurrentId('');
 			cldrStatus.setCurrentPage('');
 			reloadV();
@@ -380,8 +382,9 @@ function unpackMenuSideBar(json) {
 		}
 	});
 
-	if (surveyCurrentLocale) {
-		$('a[data-original-title="' + surveyCurrentLocale + '"]').click();
+	const curLocale = cldrStatus.getCurrentLocale();
+	if (curLocale) {
+		$('a[data-original-title="' + curLocale + '"]').click();
 		$('#title-coverage').show();
 	}
 
@@ -526,7 +529,7 @@ function interceptPulldownLink(event) {
  * Called a lot from several js files
  */
 function isDashboard() {
-	return surveyCurrentSpecial == "r_vetting_json";
+	return cldrStatus.getCurrentSpecial() == "r_vetting_json";
 }
 
 /**

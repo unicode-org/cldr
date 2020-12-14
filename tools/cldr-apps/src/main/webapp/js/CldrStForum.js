@@ -10,9 +10,9 @@
  * and running in strict mode.
  *
  * Dependencies on external code:
- * window.surveyCurrentLocale, window.surveySessionId, window.surveyUser, window.locmap,
+ * window.locmap,
  * createGravitar, stui.str, listenFor, bootstrap.js, reloadV,
- * surveyCurrentSpecial, showInPop2, hideLoader, ...!
+ * showInPop2, hideLoader, ...!
  *
  * TODO: possibly move these functions here from survey.js: showForumStuff, havePosts,
  * updateInfoPanelForumPosts, appendForumStuff; also some/all code from forum.js
@@ -68,7 +68,7 @@ const cldrStForum = (function() {
 	/**
 	 * Fetch the Forum data from the server, and "load" it
 	 *
-	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
+	 * @param locale the locale string, like "fr_CA" (cldrStatus.getCurrentLocale())
 	 * @param userId the id of the current user
 	 * @param forumMessage the forum message
 	 * @param params an object with various properties such as exports, special, flipper, otherSpecial, name, ...
@@ -308,7 +308,8 @@ const cldrStForum = (function() {
 			} else if (data.ret && data.ret.length > 0) {
 				const postModal = $('#post-modal');
 				postModal.modal('hide');
-				if (surveyCurrentSpecial && surveyCurrentSpecial === 'forum') {
+				const curSpecial = cldrStatus.getCurrentSpecial();
+				if (curSpecial && curSpecial === 'forum') {
 					reloadV();
 				} else {
 					updateInfoPanelForumPosts(null);
@@ -319,7 +320,7 @@ const cldrStForum = (function() {
 			}
 		};
 		const postData = {
-			s: surveySessionId,
+			s: cldrStatus.getSessionId(),
 			"_": locale,
 			replyTo: replyTo,
 			xpath: xpath,
@@ -384,7 +385,7 @@ const cldrStForum = (function() {
 					topicDiv.appendChild(topicInfo);
 					if (post.locale) {
 						const localeLink = forumCreateChunk(locmap.getLocaleName(post.locale), "a", "localeName");
-						if (post.locale != surveyCurrentLocale) {
+						if (post.locale != cldrStatus.getCurrentLocale()) {
 							localeLink.href = linkToLocale(post.locale);
 						}
 						topicInfo.appendChild(localeLink);
@@ -429,10 +430,8 @@ const cldrStForum = (function() {
 				}
 				gravitar.className = "gravitar pull-left";
 				subpost.appendChild(gravitar);
-				/*
-				 * TODO: encapsulate "surveyUser" dependency
-				 */
-				if (typeof surveyUser !== 'undefined' && post.posterInfo.id === surveyUser.id) {
+				const surveyUser = cldrStatus.getSurveyUser();
+				if (surveyUser && post.posterInfo.id === surveyUser.id) {
 					headingLine.appendChild(forumCreateChunk(forumStr("user_me"), "span", "forum-me"));
 				} else {
 					const usera = forumCreateChunk(post.posterInfo.name + ' ', "a", "");
@@ -460,14 +459,14 @@ const cldrStForum = (function() {
 					return;
 				}
 				listenFor(dateChunk, "click", function(e) {
-					if (post.locale && locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
-						surveyCurrentLocale = locmap.getLanguage(post.locale);
+					if (post.locale && locmap.getLanguage(cldrStatus.getCurrentLocale()) != locmap.getLanguage(post.locale)) {
+						cldrStatus.setCurrentLocale(locmap.getLanguage(post.locale));
 					}
 					cldrStatus.setCurrentPage('');
 					cldrStatus.setCurrentId(post.id);
 					replaceHash(false);
-					if (surveyCurrentSpecial != 'forum') {
-						surveyCurrentSpecial = 'forum';
+					if (cldrStatus.getCurrentSpecial() != 'forum') {
+						cldrStatus.setCurrentSpecial('forum');
 						reloadV();
 					}
 					return stStopPropagation(e);
@@ -853,8 +852,9 @@ const cldrStForum = (function() {
 	 * @returns true or false
 	 */
 	function userIsPoster(post) {
-		if (post && typeof surveyUser !== 'undefined') {
-			if (surveyUser.id === post.poster) {
+		if (post) {
+			const surveyUser = cldrStatus.getSurveyUser();
+			if (surveyUser && surveyUser.id === post.poster) {
 				return true;
 			}
 		}
@@ -867,10 +867,8 @@ const cldrStForum = (function() {
 	 * @return true or false
 	 */
 	function userIsTC() {
-		if (typeof surveyUserPerms !== 'undefined' && surveyUserPerms.userIsTC) {
-			return true;
-		}
-		return false;
+		const surveyUserPerms = cldrStatus.getPermissions();
+		return (surveyUserPerms && surveyUserPerms.userIsTC);
 	}
 
 	/**
@@ -1206,7 +1204,7 @@ const cldrStForum = (function() {
 	 * Load or reload the main Forum page
 	 */
 	function reload() {
-		window.surveyCurrentSpecial = 'forum';
+		cldrStatus.setCurrentSpecial('forum');
 		cldrStatus.setCurrentId('');
 		cldrStatus.setCurrentPage('');
 		reloadV();
@@ -1216,18 +1214,19 @@ const cldrStForum = (function() {
 	 * Get the URL to use for loading the Forum
 	 */
 	function getLoadForumUrl() {
-		if (typeof surveySessionId === 'undefined') {
-			console.log('Error: surveySessionId undefined in getLoadForumUrl');
+		const sessionId = cldrStatus.getSessionId();
+		if (!sessionId) {
+			console.log('Error: sessionId falsy in getLoadForumUrl');
 			return '';
 		}
-		return 'SurveyAjax?what=forum_fetch&xpath=0&_=' + forumLocale + '&s=' + surveySessionId;
+		return 'SurveyAjax?what=forum_fetch&xpath=0&_=' + forumLocale + '&s=' + sessionId;
 	}
 
 	/**
 	 * If the given locale is not the one we've already loaded, switch to it,
 	 * initializing data to avoid using data for the wrong locale
 	 *
-	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
+	 * @param locale the locale string, like "fr_CA" (cldrStatus.getCurrentLocale())
 	 */
 	function setLocale(locale) {
 		if (locale !== forumLocale) {

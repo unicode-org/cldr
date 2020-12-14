@@ -244,7 +244,7 @@ const cldrSurveyTable = (function() {
 					hex: theRow.xpstrid,
 					path: theRow.xpath,
 					ph: {
-						section: surveyCurrentSection, // Section: Timezones
+						section: cldrStatus.getCurrentSection(), // Section: Timezones
 						page: cldrStatus.getCurrentPage(), // Page: SEAsia ( id, not name )
 						header: curPartition.name, // Header: Borneo
 						code: theRow.code // Code: standard-long
@@ -656,6 +656,7 @@ const cldrSurveyTable = (function() {
 		var vr = theRow.voteResolver;
 		tr.voteDiv = document.createElement("div");
 		tr.voteDiv.className = "voteDiv";
+		const surveyUser = cldrStatus.getSurveyUser();
 		if (theRow.voteVhash &&
 			theRow.voteVhash !== '' && surveyUser) {
 			var voteForItem = theRow.items[theRow.voteVhash];
@@ -901,7 +902,7 @@ const cldrSurveyTable = (function() {
 			codeStr = codeStr + " (optional)";
 		}
 		cell.appendChild(createChunk(codeStr));
-		if (surveyUserPerms.userExist) {
+		if (cldrStatus.getSurveyUser()) {
 			cell.className = "d-code codecell";
 			if (!tr.forumDiv) {
 				tr.forumDiv = document.createElement("div");
@@ -922,7 +923,7 @@ const cldrSurveyTable = (function() {
 			var go = document.createElement("a");
 			go.className = "anch-go";
 			go.appendChild(document.createTextNode("zoom"));
-			go.href = window.location.pathname + "?_=" + surveyCurrentLocale + "&x=r_rxt&xp=" + theRow.xpathId;
+			go.href = window.location.pathname + "?_=" + cldrStatus.getCurrentLocale() + "&x=r_rxt&xp=" + theRow.xpathId;
 			cell.appendChild(go);
 			var js = document.createElement("a");
 			js.className = "anch-go";
@@ -963,9 +964,10 @@ const cldrSurveyTable = (function() {
 				theRow.displayName = theRow.displayName.substr(0, hintPos);
 			}
 			cell.appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
-			setLang(cell, surveyTransHintLocale);
+			const TRANS_HINT_ID = 'en_ZZ'; // must match SurveyMain.TRANS_HINT_ID
+			setLang(cell, TRANS_HINT_ID);
 			if (theRow.displayExample) {
-				appendExample(cell, theRow.displayExample, surveyTransHintLocale);
+				appendExample(cell, theRow.displayExample, TRANS_HINT_ID);
 			}
 			if (hintPos != -1 || hasExample) {
 				var infos = document.createElement("div");
@@ -1195,15 +1197,16 @@ const cldrSurveyTable = (function() {
 			surlink.innerHTML = '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
 			surlink.className = 'alert alert-info fix-popover-help';
 			var link = createChunk(stui.str("file_a_ticket"), "a");
+			const curLocale = cldrStatus.getCurrentLocale();
 			var newUrl = "http://unicode.org/cldr/trac" +
-				"/newticket?component=data&summary=" + surveyCurrentLocale + ":" + theRow.xpath +
-				"&locale=" + surveyCurrentLocale + "&xpath=" + theRow.xpstrid + "&version=" + surveyVersion;
+				"/newticket?component=data&summary=" + curLocale + ":" + theRow.xpath +
+				"&locale=" + curLocale + "&xpath=" + theRow.xpstrid + "&version=" + cldrStatus.getNewVersion();
 			link.href = newUrl;
 			link.target = "cldr-target-trac";
 			theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a",
 				"fnotebox");
 			theRow.proposedResults.href = newUrl;
-			if (!window.surveyOfficial) {
+			if (cldrStatus.getIsUnofficial()) {
 				link.appendChild(createChunk(
 					" (Note: this is not the production SurveyTool! Do not submit a ticket!) ", "p"));
 				link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";

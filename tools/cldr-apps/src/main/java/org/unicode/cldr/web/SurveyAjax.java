@@ -25,7 +25,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -285,6 +284,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_OLDVOTES = "oldvotes"; // CldrSurveyVettingLoader.js
     public static final String WHAT_FLAGGED = "flagged"; // CldrSurveyVettingLoader.js
     public static final String WHAT_AUTO_IMPORT = "auto_import"; // CldrSurveyVettingLoader.js
+    public static final String WHAT_ADMIN_PANEL = "admin_panel"; // CldrSurveyVettingLoader.js
 
     public static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
 
@@ -547,7 +547,14 @@ public class SurveyAjax extends HttpServlet {
                 if (mySession == null) {
                     sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, ErrorCode.E_SESSION_DISCONNECTED);
                 } else {
-                    if (what.equals(WHAT_SUBMIT)) {
+                    if (what.equals(WHAT_ADMIN_PANEL)) {
+                        mySession.userDidAction();
+                        if (UserRegistry.userIsAdmin(mySession.user)) {
+                            response.sendRedirect(request.getContextPath() + "/AdminPanel.jsp" + "?vap=" + SurveyMain.vap);
+                        } else {
+                            sendError(out, "Only Admin can access Admin Panel", ErrorCode.E_NO_PERMISSION);
+                        }
+                    } else if (what.equals(WHAT_SUBMIT)) {
                         mySession.userDidAction();
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -1447,9 +1454,6 @@ public class SurveyAjax extends HttpServlet {
         }
         locmap.put("topLocales", topLocales);
 
-        // map non-canonicalids to localeids
-        //JSONObject idmap = new JSONObject();
-        //locmap.put("idmap", idmap);
         return locmap;
     }
 
@@ -1546,7 +1550,6 @@ public class SurveyAjax extends HttpServlet {
 
     private static JSONWriter newJSON() {
         JSONWriter r = new JSONWriter();
-        r.put("progress", "(obsolete-progress)");
         r.put("visitors", "");
         r.put("uptime", "");
         r.put("err", "");
@@ -1554,7 +1557,6 @@ public class SurveyAjax extends HttpServlet {
         r.put("isSetup", "0");
         r.put("isBusted", "0");
         return r;
-
     }
 
     private static void sendNoSurveyMain(PrintWriter out) throws IOException {
@@ -1601,10 +1603,6 @@ public class SurveyAjax extends HttpServlet {
 
     private static void send(JSONWriter r, PrintWriter out) throws IOException {
         out.print(r.toString());
-    }
-
-    public enum AjaxType {
-        STATUS, VERIFY
     }
 
     /**
@@ -1764,6 +1762,7 @@ public class SurveyAjax extends HttpServlet {
         });
         JSONObject j = new JSONObject().put("header", header).put("data",  data);
         oldvotes.put("locales", j);
+        oldvotes.put("lastVoteVersion", SurveyMain.getLastVoteVersion());
     }
 
     /**
@@ -3176,144 +3175,15 @@ public class SurveyAjax extends HttpServlet {
      * @throws JSONException
      */
     public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
-        includeEvilJavaScript(request, out);
         includeDojoJavaScript(out);
         includeJqueryJavaScript(out);
         includeCldrJavaScript(request, out);
     }
 
-    private static void includeEvilJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
-        out.write("<script>\n");
-
-        /*
-         * All these JavaScript var declarations unfortunately append to the window (global) object!
-         * This is very temporary, mostly moved here from old ajax_status.jsp
-         * TODO: Modernize! deliver data to the client as json; and store
-         * it in our own JavaScript object(s) (like CldrStatus.js), not the window.
-         * We should treat surveyCurrentSpecial, etc., like surveyCurrentId, etc.
-         */
-        out.write("var surveyCurrentSpecial = null;\n");
-
-        String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);
-
-        // locale can have either - or _
-        surveyCurrentLocale = (surveyCurrentLocale == null) ? null : surveyCurrentLocale.replace("-", "_");
-        String surveyCurrentLocaleName = "";
-        if (surveyCurrentLocale != null) {
-            CLDRLocale aloc = CLDRLocale.getInstance(surveyCurrentLocale);
-            surveyCurrentLocaleName = aloc.getDisplayName();
-        }
-        String surveyCurrentSection = request.getParameter(SurveyMain.QUERY_SECTION);
-        if (surveyCurrentSection == null) {
-            surveyCurrentSection = "";
-        }
-        if (surveyCurrentLocale != null && surveyCurrentLocale.length() > 0) {
-            out.write("var surveyCurrentLocale = '" + surveyCurrentLocale + "';\n");
-            out.write("var surveyCurrentLocaleName = '" + surveyCurrentLocaleName + "';\n");
-            out.write("var surveyCurrentSection = '" + surveyCurrentSection + "';\n");
-        } else {
-            out.write("var surveyCurrentLocale = null;\n");
-            out.write("var surveyCurrentLocaleName = null;\n");
-            out.write("var surveyCurrentSection  = '';\n");
-        }
-
-        out.write("var surveyTransHintLocale = '" + SurveyMain.TRANS_HINT_LOCALE.getBaseName() + "';\n");
-        out.write("var surveyVersion = '" + SurveyMain.getNewVersion() + "';\n");
-        out.write("var surveyLastVoteVersion = '" + SurveyMain.getLastVoteVersion() + "';\n");
-        out.write("var surveyOfficial = '" + !SurveyMain.isUnofficial() + "';\n");
-        out.write("var BUG_URL_BASE = '" + SurveyMain.BUG_URL_BASE + "';\n");
-        out.write("var surveyBeta = '" + SurveyMain.isPhaseBeta() + "';\n");
-
-        String sessid = request.getParameter("s");
-        if (sessid == null) {
-            HttpSession hsession = request.getSession(false);
-            if (hsession != null) {
-                sessid = hsession.getId();
-            }
-        }
-
-        CookieSession mySession = null;
-        UserRegistry.User myUser = null;
-        if (sessid != null) {
-            mySession = CookieSession.retrieveWithoutTouch(sessid);
-        }
-        if (mySession == null) {
-            sessid = null;
-        } else {
-            sessid = mySession.id;
-            myUser = mySession.user;
-        }
-        if (sessid != null) {
-            out.write("var surveySessionId = '" + sessid + "';\n");
-        } else {
-            out.write("var surveySessionId = null;\n");
-        }
-        SurveyMain curSurveyMain = null;
-        curSurveyMain = SurveyMain.getInstance(request);
-
-        WebContext subCtx = (WebContext) request.getAttribute("WebContext"); // from v.jsp
-        if (subCtx != null && subCtx.session.user != null) {
-            myUser = subCtx.session.user;
-        }
-
-        if (myUser != null) {
-            out.write("var surveyUser = '" + myUser.toJSONString() + "';\n");
-            out.write("var userEmail = '" + myUser.email + "';\n");
-            out.write("var userPWD = '" + myUser.password + "';\n");
-            out.write("var userID = '" + myUser.id + "';\n");
-            out.write("var organizationName = '" + myUser.getOrganization().getDisplayName() + "';\n");
-            out.write("var org = '" + myUser.org + "';\n");
-            out.write("var surveyUserPerms = {\n");
-            out.write("  userExist: (surveyUser != null),\n");
-            out.write("  userCanImportOldVotes: " + myUser.canImportOldVotes() + ",\n");
-            out.write("  userCanUseVettingSummary: " + UserRegistry.userCanUseVettingSummary(myUser) + ",\n");
-            out.write("  userCanMonitorForum: " + UserRegistry.userCanMonitorForum(myUser) + ",\n");
-            out.write("  userIsTC: " + UserRegistry.userIsTC(myUser) + ",\n");
-            boolean userIsVetter = !UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser);
-            out.write("  userIsVetter: " + userIsVetter + ",\n");
-            out.write("  userIsLocked: " + UserRegistry.userIsLocked(myUser) + ",\n");
-            out.write("  hasDataSource: " + curSurveyMain.dbUtils.hasDataSource() + ",\n");
-            out.write("};\n");
-
-            out.write("var surveyUserURL = {\n");
-            out.write("  myAccountSetting: 'survey?do=listu',\n");
-            out.write("  disableMyAccount: \"lock.jsp?email='+userEmail\"+userEmail,\n");
-            out.write("  recentActivity: \"myvotes.jsp?user=\"+userID+\"&s=\"+surveySessionId,\n");
-            out.write("  xmlUpload: \"upload.jsp?a=/cldr-apps/survey&s=\"+surveySessionId,\n");
-            out.write("  manageUser: \"survey?do=list\",\n");
-            out.write("  flag: \"tc-flagged.jsp?s=\"+surveySessionId,\n");
-            out.write("  about: \"about.jsp\",\n");
-            out.write("  browse: \"browse.jsp\",\n");
-            out.write("};\n");
-
-            if (UserRegistry.userIsAdmin(myUser)) {
-                out.write("surveyUserURL.adminPanel = 'survey?dump=" + SurveyMain.vap + "';\n");
-            }
-        } else {
-            // User session not present. Set a few things so that we don't fail.
-            out.write("var surveyUser = null;\n");
-            out.write("var surveyUserURL = {};\n");
-            out.write("var surveyUser = null;\n");
-            out.write("var organizationName = null;\n");
-            out.write("var org = null;\n");
-            out.write("var surveyUserPerms = {userExist: false,};\n");
-        }
-        out.write("var warnIcon = \"" + WebContext.iconHtml(request, "warn", "Test Warning") + "\";\n");
-        out.write("var stopIcon = \"" + WebContext.iconHtml(request, "stop", "Test Error") + "\";\n");
-        out.write("var WHAT_GETROW = '" + SurveyAjax.WHAT_GETROW + "';\n");
-        out.write("var WHAT_SUBMIT = '" + SurveyAjax.WHAT_SUBMIT + "';\n");
-        out.write("var TARGET_DOCS = '" + WebContext.TARGET_DOCS + "';\n");
-        out.write("var TRANS_HINT_LOCALE = '" + SurveyMain.TRANS_HINT_LOCALE + "';\n");
-        out.write("var TRANS_HINT_LANGUAGE_NAME = '" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + "';\n");
-        out.write("var WHAT_GETROW = '" + SurveyAjax.WHAT_GETROW + "';\n");
-
-        out.write("</script>\n");
-    }
 
     private static void includeDojoJavaScript(Writer out) throws IOException {
-        out.write("<script>dojoConfig = {parseOnLoad: true, async: true,};</script>");
-        out.write("<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js';</script>");
-        out.write("<script>require([\"dojo/parser\", \"dijit/layout/ContentPane\", \"dijit/layout/BorderContainer\"]);</script>");
+        out.write("<script>dojoConfig = {parseOnLoad: false, async: true,};</script>\n");
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>\n");
     }
 
     private static void includeJqueryJavaScript(Writer out) throws IOException {
@@ -3344,6 +3214,7 @@ public class SurveyAjax extends HttpServlet {
 
         out.write(prefix + "redesign" + js); // redesign.js
         out.write(prefix + "review" + js); // review.js
+        out.write(prefix + "CldrGui" + js); // CldrGui.js
     }
 
     /**

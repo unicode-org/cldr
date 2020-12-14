@@ -114,7 +114,7 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 		
 		vsReload.disabled = true;
 		
-		var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=vsummary"; // allow cache
+		var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+cldrStatus.getSessionId()+"&what=vsummary"; // allow cache
 		
 		/**
 		 * refreshInterval: returned by setTimer, only for doReload('NOSTART'): a number, representing the

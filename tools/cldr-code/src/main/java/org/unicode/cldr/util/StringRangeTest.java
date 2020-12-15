@@ -40,36 +40,30 @@ public class StringRangeTest extends TestFmwk {
 
     public void TestSimple() {
         String[][] tests = {
-            { "a", "cd",
-                "Must have start-length ≥ end-length",
-                "", ""
-            },
-            { "a", "",
-                "Must have end-length > 0",
-                "", ""
-            },
-            { "ab", "ad",
-                "{ab}{ac}{ad}",
-                "{ab}-{ad}",
-                "{ab}-d",
-                "{ab}-{ad}",
-                "{ab}-d"
-            },
-            { "ab", "cd",
+            {"a", "cd", "Must have start-length ≥ end-length", "", ""},
+            {"a", "", "Must have end-length > 0", "", ""},
+            {"ab", "ad", "{ab}{ac}{ad}", "{ab}-{ad}", "{ab}-d", "{ab}-{ad}", "{ab}-d"},
+            {
+                "ab",
+                "cd",
                 "{ab}{ac}{ad}{bb}{bc}{bd}{cb}{cc}{cd}",
                 "{ab}-{ad} {bb}-{bd} {cb}-{cd}",
                 "{ab}-d {bb}-d {cb}-d",
                 "{ab}-{cd}",
                 "{ab}-{cd}"
             },
-            { "👦🏻", "👦🏿",
+            {
+                "👦🏻",
+                "👦🏿",
                 "{👦🏻}{👦🏼}{👦🏽}{👦🏾}{👦🏿}",
                 "{👦🏻}-{👦🏿}",
                 "{👦🏻}-🏿",
                 "{👦🏻}-{👦🏿}",
                 "{👦🏻}-🏿"
             },
-            { "qax👦🏻", "cx👦🏿",
+            {
+                "qax👦🏻",
+                "cx👦🏿",
                 "{qax👦🏻}{qax👦🏼}{qax👦🏽}{qax👦🏾}{qax👦🏿}{qbx👦🏻}{qbx👦🏼}{qbx👦🏽}{qbx👦🏾}{qbx👦🏿}{qcx👦🏻}{qcx👦🏼}{qcx👦🏽}{qcx👦🏾}{qcx👦🏿}",
                 "{qax👦🏻}-{qax👦🏿} {qbx👦🏻}-{qbx👦🏿} {qcx👦🏻}-{qcx👦🏿}",
                 "{qax👦🏻}-🏿 {qbx👦🏻}-🏿 {qcx👦🏻}-🏿",
@@ -79,18 +73,18 @@ public class StringRangeTest extends TestFmwk {
         };
         final StringBuilder b = new StringBuilder();
         Adder myAdder = new Adder() { // for testing: doesn't do quoting, etc
-            @Override
-            public void add(String start, String end) {
-                if (b.length() != 0) {
-                    b.append(' ');
-                }
-                append(b, start);
-                if (end != null) {
-                    b.append('-');
-                    append(b, end);
-                }
-            }
-        };
+                    @Override
+                    public void add(String start, String end) {
+                        if (b.length() != 0) {
+                            b.append(' ');
+                        }
+                        append(b, start);
+                        if (end != null) {
+                            b.append('-');
+                            append(b, end);
+                        }
+                    }
+                };
 
         for (String[] test : tests) {
             Set<String> output = new LinkedHashSet<>();
@@ -127,18 +121,18 @@ public class StringRangeTest extends TestFmwk {
     public void TestWithValidity() {
         final StringBuilder b = new StringBuilder();
         Adder myAdder = new Adder() { // for testing: doesn't do quoting, etc
-            @Override
-            public void add(String start, String end) {
-                if (b.length() != 0) {
-                    b.append(' ');
-                }
-                b.append(start);
-                if (end != null) {
-                    b.append('~');
-                    b.append(end);
-                }
-            }
-        };
+                    @Override
+                    public void add(String start, String end) {
+                        if (b.length() != 0) {
+                            b.append(' ');
+                        }
+                        b.append(start);
+                        if (end != null) {
+                            b.append('~');
+                            b.append(end);
+                        }
+                    }
+                };
 
         Validity validity = Validity.getInstance();
         NumberFormat pf = NumberFormat.getPercentInstance();
@@ -152,7 +146,7 @@ public class StringRangeTest extends TestFmwk {
                 for (Boolean more : Arrays.asList(false, true)) {
                     for (Boolean shorterPairs : Arrays.asList(false, true)) {
                         Status key = entry2.getKey();
-//                if (key != Status.deprecated) continue;
+                        //                if (key != Status.deprecated) continue;
                         b.setLength(0);
                         if (more) {
                             StringRange.compact(values, myAdder, shorterPairs, true);
@@ -160,8 +154,18 @@ public class StringRangeTest extends TestFmwk {
                             StringRange.compact(values, myAdder, shorterPairs);
                         }
                         String compacted2 = b.toString();
-                        logln(type + ":" + key + ":\t" + compacted2.length() + "/" + raw.length() + " = "
-                            + pf.format(compacted2.length() / rawsize - 1.00000000000001) + "\t" + compacted2);
+                        logln(
+                                type
+                                        + ":"
+                                        + key
+                                        + ":\t"
+                                        + compacted2.length()
+                                        + "/"
+                                        + raw.length()
+                                        + " = "
+                                        + pf.format(compacted2.length() / rawsize - 1.00000000000001)
+                                        + "\t"
+                                        + compacted2);
                         Set<String> restored = new HashSet<>();
                         for (String part : ONSPACE.split(compacted2)) {
                             Iterator<String> mini = ONTILDE.split(part).iterator();

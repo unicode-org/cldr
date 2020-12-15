@@ -23,10 +23,10 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
 
     /**
      * Special class encapsulating
-     * @author markdavis
      *
+     * @author markdavis
      */
-    public static final class UnitPreference implements Comparable<UnitPreference>{
+    public static final class UnitPreference implements Comparable<UnitPreference> {
         public final Rational geq;
         public final String unit;
         public final String skeleton;
@@ -45,29 +45,38 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
             }
             return unit.compareTo(o.unit);
         }
+
         @Override
         public boolean equals(Object obj) {
-            return compareTo((UnitPreference)obj) == 0;
+            return compareTo((UnitPreference) obj) == 0;
         }
+
         @Override
         public int hashCode() {
             return Objects.hash(geq, unit);
         }
+
         public String toString(String baseUnit) {
-            return geq + (baseUnit == null ? "": " " + baseUnit) + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
+            return geq
+                    + (baseUnit == null ? "" : " " + baseUnit)
+                    + ", "
+                    + unit
+                    + (skeleton.isEmpty() ? "" : ", " + skeleton);
         }
+
         @Override
         public String toString() {
             return toString(null);
         }
     }
 
-    static private final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
-    static public Splitter SPLIT_AND = Splitter.on("-and-");
+    private static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
+    public static Splitter SPLIT_AND = Splitter.on("-and-");
 
     public void add(String quantity, String usage, String regions, String geq, String skeleton, String unit) {
         usages.add(usage);
-        Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionsToInfo = quantityToUsageToRegionsToInfo.get(quantity);
+        Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionsToInfo =
+                quantityToUsageToRegionsToInfo.get(quantity);
         if (usageToRegionsToInfo == null) {
             quantityToUsageToRegionsToInfo.put(quantity, usageToRegionsToInfo = new TreeMap<>());
         }
@@ -105,6 +114,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
 
     /**
      * quantity => usage => region => geq => [unit, skeleton]
+     *
      * @return
      */
     public Map<String, Map<String, Multimap<Set<String>, UnitPreference>>> getData() {
@@ -117,14 +127,19 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
     public String toString() {
         StringBuilder buffer = new StringBuilder();
         int order = 0;
-        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 : quantityToUsageToRegionsToInfo.entrySet()) {
+        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 :
+                quantityToUsageToRegionsToInfo.entrySet()) {
             String quantity = entry1.getKey();
             for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry1.getValue().entrySet()) {
                 String usage = entry2.getKey();
                 for (Entry<Set<String>, Collection<UnitPreference>> entry : entry2.getValue().asMap().entrySet()) {
                     Set<String> regions = entry.getKey();
                     for (UnitPreference up : entry.getValue()) {
-                        buffer.append("\n" + up.unit + "\t;\t" + getPath(order++, quantity, usage, regions, up.geq, up.skeleton));
+                        buffer.append(
+                                "\n"
+                                        + up.unit
+                                        + "\t;\t"
+                                        + getPath(order++, quantity, usage, regions, up.geq, up.skeleton));
                     }
                 }
             }
@@ -132,27 +147,37 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
         return buffer.toString();
     }
 
-    public String getPath(int order, String quantity, String usage, Collection<String> regions, Rational geq, String skeleton) {
+    public String getPath(
+            int order, String quantity, String usage, Collection<String> regions, Rational geq, String skeleton) {
         //      <unitPreferences category="length" usage="person" scope="small">
         // <unitPreference regions="001">centimeter</unitPreference>
         return "//supplementalData/unitPreferenceData/unitPreferences"
-        + "[@category=\"" + quantity + "\"]"
-        + "[@usage=\"" + usage + "\"]"
-        + "/unitPreference"
-        + "[@_q=\"" + order + "\"]"
-        + "[@regions=\"" + JOIN_SPACE.join(regions) + "\"]"
-        + (geq == Rational.ONE ? "" : "[@geq=\"" + geq + "\"]")
-        + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]")
-        ;
+                + "[@category=\""
+                + quantity
+                + "\"]"
+                + "[@usage=\""
+                + usage
+                + "\"]"
+                + "/unitPreference"
+                + "[@_q=\""
+                + order
+                + "\"]"
+                + "[@regions=\""
+                + JOIN_SPACE.join(regions)
+                + "\"]"
+                + (geq == Rational.ONE ? "" : "[@geq=\"" + geq + "\"]")
+                + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]");
     }
 
     /**
      * Returns the data converted to single regions, and using base units
+     *
      * @return
      */
     public Map<String, Map<String, Map<String, UnitPreference>>> getFastMap(UnitConverter converter) {
         Map<String, Map<String, Map<String, UnitPreference>>> result = new LinkedHashMap<>();
-        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 : quantityToUsageToRegionsToInfo.entrySet()) {
+        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 :
+                quantityToUsageToRegionsToInfo.entrySet()) {
             String quantity = entry1.getKey();
             Map<String, Map<String, UnitPreference>> result2 = new LinkedHashMap<>();
             result.put(quantity, result2);

@@ -11,8 +11,8 @@ import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UTF16;
 
 /**
- * Simple cover class for converting iterators, lists of items, arrays, and
- * CharSequences into forms usable with for loops. Example:
+ * Simple cover class for converting iterators, lists of items, arrays, and CharSequences into forms
+ * usable with for loops. Example:
  *
  * <pre>
  * for (String s : With.in(someIterator)) {
@@ -29,7 +29,6 @@ import com.ibm.icu.text.UTF16;
  * </pre>
  *
  * @author markdavis
- *
  * @param <V>
  */
 public final class With<V> implements Iterable<V>, Iterator<V> {
@@ -37,12 +36,11 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     int current;
 
     /**
-     * Interface for an iterator that is simpler to implement, without 'look-ahead'.
-     * Using With.in(), this can be transformed into a regular Java iterator.
-     * The one restriction is that elements cannot be null, since that signals end of the sequence.
+     * Interface for an iterator that is simpler to implement, without 'look-ahead'. Using
+     * With.in(), this can be transformed into a regular Java iterator. The one restriction is that
+     * elements cannot be null, since that signals end of the sequence.
      *
      * @author markdavis
-     *
      * @param <T>
      */
     public interface SimpleIterator<T> {
@@ -133,8 +131,8 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     }
 
     /**
-     * Create an immutable collection from whatever is left in the iterator. For example, myCollection =
-     * With.in(anIterator).toList();
+     * Create an immutable collection from whatever is left in the iterator. For example,
+     * myCollection = With.in(anIterator).toList();
      *
      * @return
      */
@@ -161,8 +159,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     }
 
     /**
-     * Create a simple object for use in for loops, handling code points
-     * properly. Example:
+     * Create a simple object for use in for loops, handling code points properly. Example:
      *
      * <pre>
      * for (int codePoint : With.in(&quot;abc\uD800\uDC00&quot;)) {
@@ -181,29 +178,32 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Create a string from a list of code points; the inverse of codePointArray.
+     *
      * @param codePoints
      * @return string
      */
     public static String fromCodePoint(int... codePoints) {
         switch (codePoints.length) {
-        case 0: return "";
-        case 1: {
-            return String.valueOf(Character.toChars(codePoints[0]));
-        }
-        default: {
-            StringBuilder b = new StringBuilder();
-            for (int cp : codePoints) {
-                b.appendCodePoint(cp);
-            }
-            return b.toString();
-        }
+            case 0:
+                return "";
+            case 1:
+                {
+                    return String.valueOf(Character.toChars(codePoints[0]));
+                }
+            default:
+                {
+                    StringBuilder b = new StringBuilder();
+                    for (int cp : codePoints) {
+                        b.appendCodePoint(cp);
+                    }
+                    return b.toString();
+                }
         }
     }
 
     /**
-     * An alterative to With.in(CharSequence) that is better when it is likely that only a portion of the text will be
-     * looked at,
-     * such as when an iterator over codepoints is aborted partway.
+     * An alterative to With.in(CharSequence) that is better when it is likely that only a portion
+     * of the text will be looked at, such as when an iterator over codepoints is aborted partway.
      *
      * @param old
      * @return
@@ -279,8 +279,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         return new With<T>().and(sources);
     }
 
-    private With() {
-    }
+    private With() {}
 
     @SuppressWarnings("unchecked")
     public With<V> and(Iterator<V>... iterators) {
@@ -319,8 +318,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      */
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
-            this.iterators
-            .add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
+            this.iterators.add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }
@@ -363,9 +361,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         private final SimpleIterator<T> simpleIterator;
         private T current;
 
-        /**
-         * @param simpleIterator
-         */
+        /** @param simpleIterator */
         public ToIterator(SimpleIterator<T> simpleIterator) {
             this.simpleIterator = simpleIterator;
             current = simpleIterator.next();

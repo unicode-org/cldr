@@ -14,8 +14,8 @@ import java.util.Objects;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
-public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implements java.lang.Comparable<Pair<T, U>>,
-    Cloneable, Freezable<Object> {
+public final class Pair<T extends Comparable<T>, U extends Comparable<U>>
+        implements java.lang.Comparable<Pair<T, U>>, Cloneable, Freezable<Object> {
 
     private T first;
     private U second;
@@ -64,8 +64,7 @@ public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implem
         this.second = second;
     }
 
-    public Pair() {
-    }
+    public Pair() {}
 
     @Override
     public int hashCode() {
@@ -101,8 +100,11 @@ public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implem
 
     @Override
     public String toString() {
-        return '(' + (first == null ? "null" : first.toString())
-            + ',' + (second == null ? "null" : second.toString()) + ')';
+        return '('
+                + (first == null ? "null" : first.toString())
+                + ','
+                + (second == null ? "null" : second.toString())
+                + ')';
     }
 
     @Override

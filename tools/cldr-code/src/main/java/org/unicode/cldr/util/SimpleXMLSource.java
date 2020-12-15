@@ -137,7 +137,7 @@ public class SimpleXMLSource extends XMLSource {
         synchronized (VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH == null) {
                 VALUE_TO_PATH = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
-                for (Iterator<String> it = iterator(); it.hasNext();) {
+                for (Iterator<String> it = iterator(); it.hasNext(); ) {
                     String path = it.next();
                     String value1 = getValueAtDPathSkippingInheritanceMarker(path);
                     if (value1 == null) {

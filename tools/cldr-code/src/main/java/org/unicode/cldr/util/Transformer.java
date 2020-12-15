@@ -9,7 +9,6 @@ import com.ibm.icu.text.Transform;
  * Provides transforming iterator and iterable for convenience operations.
  *
  * @author markdavis
- *
  * @param <S>
  * @param <V>
  */
@@ -18,11 +17,13 @@ public final class Transformer<S, V> implements Iterator<V> {
     private final Transform<S, ? extends V> transform;
     private V nextItem;
 
-    public static <S, V> Transformer<S, V> iterator(Transform<S, ? extends V> transform, Iterator<? extends S> iterator) {
+    public static <S, V> Transformer<S, V> iterator(
+            Transform<S, ? extends V> transform, Iterator<? extends S> iterator) {
         return new Transformer<>(transform, iterator);
     }
 
-    public static <S, V> Transformer<S, V> iterator(Transform<S, ? extends V> transform, Iterable<? extends S> iterable) {
+    public static <S, V> Transformer<S, V> iterator(
+            Transform<S, ? extends V> transform, Iterable<? extends S> iterable) {
         return new Transformer<>(transform, iterable.iterator());
     }
 

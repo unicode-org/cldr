@@ -35,6 +35,7 @@ import com.ibm.icu.text.Transform;
 
 /**
  * An immutable object that contains the structure of a DTD.
+ *
  * @author markdavis
  */
 public class DtdData extends XMLFileReader.SimpleHandler {
@@ -45,7 +46,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private static final boolean DEBUG = false;
     private static final Pattern FILLER = PatternCache.get("[^-a-zA-Z0-9#_:]");
 
-    private final Relation<String, Attribute> nameToAttributes = Relation.of(new TreeMap<String, Set<Attribute>>(), LinkedHashSet.class);
+    private final Relation<String, Attribute> nameToAttributes =
+            Relation.of(new TreeMap<String, Set<Attribute>>(), LinkedHashSet.class);
     private Map<String, Element> nameToElement = new HashMap<>();
     private MapComparator<String> elementComparator;
     private MapComparator<String> attributeComparator;
@@ -61,20 +63,25 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private DtdComparator dtdComparator;
 
     public enum AttributeStatus {
-        distinguished ("§d"),
-        value ("§v"),
-        metadata ("§m︎");
+        distinguished("§d"),
+        value("§v"),
+        metadata("§m︎");
         public final String shortName;
+
         AttributeStatus(String shortName) {
             this.shortName = shortName;
         }
+
         public static String getShortName(AttributeStatus status) {
             return status == null ? "" : status.shortName;
         }
     }
 
     public enum Mode {
-        REQUIRED("#REQUIRED"), OPTIONAL("#IMPLIED"), FIXED("#FIXED"), NULL("null");
+        REQUIRED("#REQUIRED"),
+        OPTIONAL("#IMPLIED"),
+        FIXED("#FIXED"),
+        NULL("null");
 
         public final String source;
 
@@ -96,10 +103,19 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public enum AttributeType {
-        CDATA, ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, NMTOKENS, ENUMERATED_TYPE
+        CDATA,
+        ID,
+        IDREF,
+        IDREFS,
+        ENTITY,
+        ENTITIES,
+        NMTOKEN,
+        NMTOKENS,
+        ENUMERATED_TYPE
     }
 
-    static final Set<String> DRAFT_ON_NON_LEAF_ALLOWED = ImmutableSet.of("collation", "transform", "unitPreferenceData", "rulesetGrouping");
+    static final Set<String> DRAFT_ON_NON_LEAF_ALLOWED =
+            ImmutableSet.of("collation", "transform", "unitPreferenceData", "rulesetGrouping");
 
     public static class Attribute implements Named {
         private static final Joiner JOINER_COMMA_SPACE = Joiner.on(", ");
@@ -107,7 +123,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public static final String AUG_LEAD = "⟪";
         public static final String ENUM_TRAIL = "⟩";
         public static final String ENUM_LEAD = "⟨";
-        public static final Pattern LEAD_TRAIL = Pattern.compile("(.*[" + AUG_LEAD + ENUM_LEAD + "])(.*)([" + AUG_TRAIL + ENUM_TRAIL + "].*)");
+        public static final Pattern LEAD_TRAIL =
+                Pattern.compile("(.*[" + AUG_LEAD + ENUM_LEAD + "])(.*)([" + AUG_TRAIL + ENUM_TRAIL + "].*)");
         public final String name;
         public final Element element;
         public final Mode mode;
@@ -122,15 +139,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public MatchValue matchValue;
         private final Comparator<String> attributeValueComparator;
 
-        private Attribute(DtdType dtdType, Element element2, String aName, Mode mode2, String[] split, String value2, Set<String> firstComment) {
+        private Attribute(
+                DtdType dtdType,
+                Element element2,
+                String aName,
+                Mode mode2,
+                String[] split,
+                String value2,
+                Set<String> firstComment) {
             commentsPre = firstComment;
             element = element2;
             name = aName.intern();
             if (name.equals("draft") // normally never permitted on elements with children, but special cases...
-                && !DRAFT_ON_NON_LEAF_ALLOWED.contains(element.getName())) {
+                    && !DRAFT_ON_NON_LEAF_ALLOWED.contains(element.getName())) {
                 int elementChildrenCount = element.getChildren().size();
                 if (elementChildrenCount > 1
-                    || elementChildrenCount == 1 && !element.getChildren().keySet().iterator().next().getName().equals("cp")) {
+                        || elementChildrenCount == 1
+                                && !element.getChildren().keySet().iterator().next().getName().equals("cp")) {
                     isDeprecatedAttribute = true;
                     if (DEBUG) {
                         System.out.println(element.getName() + ":" + element.getChildren());
@@ -138,8 +163,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 }
             }
             mode = mode2;
-            defaultValue = value2 == null ? null
-                : value2.intern();
+            defaultValue = value2 == null ? null : value2.intern();
             AttributeType _type = AttributeType.ENUMERATED_TYPE;
             Map<String, Integer> _values = Collections.emptyMap();
             if (split.length == 1) {
@@ -169,9 +193,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public String getSampleValue() {
-            return type == AttributeType.ENUMERATED_TYPE  ? (values.containsKey("year") ? "year" : values.keySet().iterator().next())
-                : matchValue != null ? matchValue.getSample()
-                    : MatchValue.DEFAULT_SAMPLE;
+            return type == AttributeType.ENUMERATED_TYPE
+                    ? (values.containsKey("year") ? "year" : values.keySet().iterator().next())
+                    : matchValue != null ? matchValue.getSample() : MatchValue.DEFAULT_SAMPLE;
         }
 
         public StringBuilder appendDtdString(StringBuilder b) {
@@ -208,8 +232,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public String features() {
             return (type == AttributeType.ENUMERATED_TYPE ? values.keySet().toString() : type.toString())
-                + (mode == Mode.NULL ? "" : ", mode=" + mode)
-                + (defaultValue == null ? "" : ", default=" + defaultValue);
+                    + (mode == Mode.NULL ? "" : ", mode=" + mode)
+                    + (defaultValue == null ? "" : ", default=" + defaultValue);
         }
 
         @Override
@@ -223,44 +247,44 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             if (commentIn.startsWith("@")) {
                 // there are exactly 2 cases: deprecated and ordered
                 switch (commentIn) {
-                case "@METADATA":
-                    attributeStatus = AttributeStatus.metadata;
-                    break;
-                case "@VALUE":
-                    attributeStatus = AttributeStatus.value;
-                    break;
-                case "@DEPRECATED":
-                    isDeprecatedAttribute = true;
-                    break;
-                default:
-                    int colonPos = commentIn.indexOf(':');
-                    if (colonPos < 0) {
-                        throw new IllegalArgumentException("Unrecognized annotation: " + commentIn);
-                    }
-                    String command = commentIn.substring(0, colonPos);
-                    String argument = commentIn.substring(colonPos + 1);
-                    switch(command) {
-                    case "@DEPRECATED":
-                        deprecatedValues = Collections.unmodifiableSet(new HashSet<>(COMMA.splitToList(argument)));
+                    case "@METADATA":
+                        attributeStatus = AttributeStatus.metadata;
                         break;
-                    case "@MATCH":
-                        if (matchValue != null) {
-                            throw new IllegalArgumentException("Conflicting @MATCH: " + matchValue.getName() + " & " + argument);
-                        }
-                        matchValue = MatchValue.of(argument);
+                    case "@VALUE":
+                        attributeStatus = AttributeStatus.value;
+                        break;
+                    case "@DEPRECATED":
+                        isDeprecatedAttribute = true;
                         break;
                     default:
-                        throw new IllegalArgumentException("Unrecognized annotation: " + commentIn);
-                    }
+                        int colonPos = commentIn.indexOf(':');
+                        if (colonPos < 0) {
+                            throw new IllegalArgumentException("Unrecognized annotation: " + commentIn);
+                        }
+                        String command = commentIn.substring(0, colonPos);
+                        String argument = commentIn.substring(colonPos + 1);
+                        switch (command) {
+                            case "@DEPRECATED":
+                                deprecatedValues =
+                                        Collections.unmodifiableSet(new HashSet<>(COMMA.splitToList(argument)));
+                                break;
+                            case "@MATCH":
+                                if (matchValue != null) {
+                                    throw new IllegalArgumentException(
+                                            "Conflicting @MATCH: " + matchValue.getName() + " & " + argument);
+                                }
+                                matchValue = MatchValue.of(argument);
+                                break;
+                            default:
+                                throw new IllegalArgumentException("Unrecognized annotation: " + commentIn);
+                        }
                 }
                 return;
             }
             commentsPost = addUnmodifiable(commentsPost, commentIn.trim());
         }
 
-        /**
-         * Special version of identity; only considers name and name of element
-         */
+        /** Special version of identity; only considers name and name of element */
         @Override
         public boolean equals(Object obj) {
             if (!(obj instanceof Attribute)) {
@@ -268,30 +292,27 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             Attribute that = (Attribute) obj;
             return name.equals(that.name)
-                && element.name.equals(that.element.name) // don't use plain element: circularity
-                // not relevant to identity
-                //                && Objects.equals(comment, that.comment)
-                //                && mode.equals(that.mode)
-                //                && Objects.equals(defaultValue, that.defaultValue)
-                //                && type.equals(that.type)
-                //                && values.equals(that.values)
-                ;
+                    && element.name.equals(that.element.name) // don't use plain element: circularity
+            // not relevant to identity
+            //                && Objects.equals(comment, that.comment)
+            //                && mode.equals(that.mode)
+            //                && Objects.equals(defaultValue, that.defaultValue)
+            //                && type.equals(that.type)
+            //                && values.equals(that.values)
+            ;
         }
 
-        /**
-         * Special version of identity; only considers name and name of element
-         */
+        /** Special version of identity; only considers name and name of element */
         @Override
         public int hashCode() {
-            return name.hashCode() * 37
-                + element.name.hashCode() // don't use plain element: circularity
-                // not relevant to identity
-                //                ) * 37 + Objects.hashCode(comment)) * 37
-                //                + mode.hashCode()) * 37
-                //                + Objects.hashCode(defaultValue)) * 37
-                //                + type.hashCode()) * 37
-                //                + values.hashCode()
-                ;
+            return name.hashCode() * 37 + element.name.hashCode() // don't use plain element: circularity
+            // not relevant to identity
+            //                ) * 37 + Objects.hashCode(comment)) * 37
+            //                + mode.hashCode()) * 37
+            //                + Objects.hashCode(defaultValue)) * 37
+            //                + type.hashCode()) * 37
+            //                + values.hashCode()
+            ;
         }
 
         public boolean isDeprecated() {
@@ -307,17 +328,19 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public ValueStatus getValueStatus(String value) {
-            return deprecatedValues.contains(value) ? ValueStatus.invalid
-                : type == AttributeType.ENUMERATED_TYPE  ? (values.containsKey(value) ? ValueStatus.valid  : ValueStatus.invalid)
-                    : matchValue == null ? ValueStatus.unknown
-                        : matchValue.is(value) ? ValueStatus.valid
-                            : ValueStatus.invalid;
+            return deprecatedValues.contains(value)
+                    ? ValueStatus.invalid
+                    : type == AttributeType.ENUMERATED_TYPE
+                            ? (values.containsKey(value) ? ValueStatus.valid : ValueStatus.invalid)
+                            : matchValue == null
+                                    ? ValueStatus.unknown
+                                    : matchValue.is(value) ? ValueStatus.valid : ValueStatus.invalid;
         }
 
         public String getMatchString() {
-            return type == AttributeType.ENUMERATED_TYPE ? ENUM_LEAD + JOINER_COMMA_SPACE.join(values.keySet()) + ENUM_TRAIL
-                : matchValue != null ? AUG_LEAD + matchValue.toString() + AUG_TRAIL
-                    : "";
+            return type == AttributeType.ENUMERATED_TYPE
+                    ? ENUM_LEAD + JOINER_COMMA_SPACE.join(values.keySet()) + ENUM_TRAIL
+                    : matchValue != null ? AUG_LEAD + matchValue.toString() + AUG_TRAIL : "";
         }
 
         public Attribute getMatchingName(Map<Attribute, Integer> attributes) {
@@ -328,10 +351,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             return null;
         }
-
     }
 
-    public enum ValueStatus {invalid, unknown, valid}
+    public enum ValueStatus {
+        invalid,
+        unknown,
+        valid
+    }
 
     private DtdData(DtdType type, String version) {
         this.dtdType = type;
@@ -340,7 +366,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     private void addAttribute(String eName, String aName, String type, String mode, String value) {
-        Attribute a = new Attribute(dtdType, nameToElement.get(eName), aName, Mode.forString(mode), FILLER.split(type), value, preCommentCache);
+        Attribute a =
+                new Attribute(
+                        dtdType,
+                        nameToElement.get(eName),
+                        aName,
+                        Mode.forString(mode),
+                        FILLER.split(type),
+                        value,
+                        preCommentCache);
         preCommentCache = null;
         getAttributesFromName().put(aName, a);
         CldrUtility.putNew(a.element.attributes, a, a.element.attributes.size());
@@ -349,7 +383,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public enum ElementType {
-        EMPTY, ANY, PCDATA("(#PCDATA)"), CHILDREN;
+        EMPTY,
+        ANY,
+        PCDATA("(#PCDATA)"),
+        CHILDREN;
         public final String source;
 
         private ElementType(String s) {
@@ -366,7 +403,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public enum ElementStatus {
-        regular, metadata
+        regular,
+        metadata
     }
 
     public static class Element implements Named {
@@ -406,8 +444,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     }
                 }
             }
-            if ((type == ElementType.CHILDREN) == (children.size() == 0)
-                && !model.startsWith("(#PCDATA|cp")) {
+            if ((type == ElementType.CHILDREN) == (children.size() == 0) && !model.startsWith("(#PCDATA|cp")) {
                 throw new IllegalArgumentException("CLDR does not permit Mixed content. " + name + ":" + model);
             }
         }
@@ -421,9 +458,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             // x|y -> x | y
             String result = CLEANER1.matcher(model2).replaceAll("$1 ");
             result = CLEANER2.matcher(result).replaceAll(" $1");
-            return result.equals(model2)
-                ? model2
-                    : result; // for debugging
+            return result.equals(model2) ? model2 : result; // for debugging
         }
 
         public boolean containsAttribute(String string) {
@@ -483,26 +518,24 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             if (addition.startsWith("@")) {
                 // there are exactly 3 cases: deprecated, ordered, and metadata
                 switch (addition) {
-                case "@ORDERED":
-                    isOrderedElement = true;
-                    break;
-                case "@DEPRECATED":
-                    isDeprecatedElement = true;
-                    break;
-                case "@METADATA":
-                    elementStatus = ElementStatus.metadata;
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unrecognized annotation: " + addition);
+                    case "@ORDERED":
+                        isOrderedElement = true;
+                        break;
+                    case "@DEPRECATED":
+                        isDeprecatedElement = true;
+                        break;
+                    case "@METADATA":
+                        elementStatus = ElementStatus.metadata;
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unrecognized annotation: " + addition);
                 }
                 return;
             }
             commentsPost = addUnmodifiable(commentsPost, addition.trim());
         }
 
-        /**
-         * Special version of equals. Only the name is considered in the identity.
-         */
+        /** Special version of equals. Only the name is considered in the identity. */
         @Override
         public boolean equals(Object obj) {
             if (!(obj instanceof Element)) {
@@ -510,26 +543,24 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             Element that = (Element) obj;
             return name.equals(that.name)
-                // not relevant to the identity of the object
-                //                && Objects.equals(comment, that.comment)
-                //                && type == that.type
-                //                && attributes.equals(that.attributes)
-                //                && children.equals(that.children)
-                ;
+            // not relevant to the identity of the object
+            //                && Objects.equals(comment, that.comment)
+            //                && type == that.type
+            //                && attributes.equals(that.attributes)
+            //                && children.equals(that.children)
+            ;
         }
 
-        /**
-         * Special version of hashcode. Only the name is considered in the identity.
-         */
+        /** Special version of hashcode. Only the name is considered in the identity. */
         @Override
         public int hashCode() {
             return name.hashCode()
-                // not relevant to the identity of the object
-                // * 37 + Objects.hashCode(comment)
-                //) * 37 + Objects.hashCode(type)
-                //                ) * 37 + attributes.hashCode()
-                //                ) * 37 + children.hashCode()
-                ;
+            // not relevant to the identity of the object
+            // * 37 + Objects.hashCode(comment)
+            // ) * 37 + Objects.hashCode(type)
+            //                ) * 37 + attributes.hashCode()
+            //                ) * 37 + children.hashCode()
+            ;
         }
 
         public boolean isDeprecated() {
@@ -544,9 +575,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return elementStatus;
         }
 
-        /**
-         * @return the rawModel
-         */
+        /** @return the rawModel */
         public String getRawModel() {
             return rawModel;
         }
@@ -572,7 +601,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         comment = comment.trim();
         if (preCommentCache != null || comment.startsWith("#")) { // the precomments are "sticky"
             if (comment.startsWith("@")) {
-                throw new IllegalArgumentException("@ annotation comment must follow element or attribute, without intervening # comment");
+                throw new IllegalArgumentException(
+                        "@ annotation comment must follow element or attribute, without intervening # comment");
             }
             preCommentCache = addUnmodifiable(preCommentCache, comment);
         } else if (lastElement != null) {
@@ -581,30 +611,29 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             lastAttribute.addComment(comment);
         } else {
             if (comment.startsWith("@")) {
-                throw new IllegalArgumentException("@ annotation comment must follow element or attribute, without intervening # comment");
+                throw new IllegalArgumentException(
+                        "@ annotation comment must follow element or attribute, without intervening # comment");
             }
             preCommentCache = addUnmodifiable(preCommentCache, comment);
         }
     }
 
     // TODO hide this
-    /**
-     * @deprecated
-     */
+    /** @deprecated */
     @Deprecated
     @Override
     public void handleElementDecl(String name, String model) {
         if (SHOW_ALL) {
-            // <!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, annotations?, metadata?, references?, special*))) >
+            // <!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?,
+            // characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?,
+            // segmentations?, rbnf?, annotations?, metadata?, references?, special*))) >
             System.out.println(System.lineSeparator() + "<!ELEMENT " + name + " " + model + " >");
         }
         addElement(name, model);
     }
 
     // TODO hide this
-    /**
-     * @deprecated
-     */
+    /** @deprecated */
     @Deprecated
     @Override
     public void handleStartDtd(String name, String publicId, String systemId) {
@@ -614,9 +643,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     }
 
-    /**
-     * @deprecated
-     */
+    /** @deprecated */
     @Deprecated
     @Override
     public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
@@ -625,12 +652,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             // <!ATTLIST version number CDATA #REQUIRED >
             // <!ATTLIST version cldrVersion CDATA #FIXED "27" >
 
-            System.out.println("<!ATTLIST " + eName
-                + " " + aName
-                + " " + type
-                + " " + mode
-                + (value == null ? "" : " \"" + value + "\"")
-                + " >");
+            System.out.println(
+                    "<!ATTLIST "
+                            + eName
+                            + " "
+                            + aName
+                            + " "
+                            + type
+                            + " "
+                            + mode
+                            + (value == null ? "" : " \"" + value + "\"")
+                            + " >");
         }
         // HACK for 1.1.1
         if (eName.equals("draft")) {
@@ -639,9 +671,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         addAttribute(eName, aName, type, mode, value);
     }
 
-    /**
-     * @deprecated
-     */
+    /** @deprecated */
     @Deprecated
     @Override
     public void handleComment(String path, String comment) {
@@ -653,9 +683,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     // TODO hide this
-    /**
-     * @deprecated
-     */
+    /** @deprecated */
     @Deprecated
     @Override
     public void handleEndDtd() {
@@ -664,6 +692,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     /**
      * Note that it always gets the trunk version
+     *
      * @deprecated depends on static config, use {@link DtdData#getInstance(DtdType, File)} instead
      */
     @Deprecated
@@ -671,12 +700,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return getInstance(type, CLDRConfig.getInstance().getCldrBaseDirectory());
     }
 
-    /**
-     * Special form using version, used only by tests, etc.
-     */
+    /** Special form using version, used only by tests, etc. */
     public static DtdData getInstance(DtdType type, String version) {
-        File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
-            : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
+        File directory =
+                version == null
+                        ? CLDRConfig.getInstance().getCldrBaseDirectory()
+                        : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
 
         return getInstance(type, version, directory);
     }
@@ -684,8 +713,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private static final ConcurrentMap<Pair<DtdType, File>, DtdData> CACHE = new ConcurrentHashMap<>();
 
     /**
-     * Normal version of DtdData
-     * Get a DtdData, given the CLDR root directory.
+     * Normal version of DtdData Get a DtdData, given the CLDR root directory.
+     *
      * @param type which DtdType to return
      * @param directory the CLDR Root directory, which contains the "common" directory.
      * @return
@@ -707,16 +736,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         // HACK
         if (type == DtdType.ldmlICU) {
             Element special = simpleHandler.nameToElement.get("special");
-            for (String extraElementName : Arrays.asList(
-                "icu:breakIteratorData",
-                "icu:UCARules",
-                "icu:scripts",
-                "icu:transforms",
-                "icu:ruleBasedNumberFormats",
-                "icu:isLeapMonth",
-                "icu:version",
-                "icu:breakDictionaryData",
-                "icu:depends")) {
+            for (String extraElementName :
+                    Arrays.asList(
+                            "icu:breakIteratorData",
+                            "icu:UCARules",
+                            "icu:scripts",
+                            "icu:transforms",
+                            "icu:ruleBasedNumberFormats",
+                            "icu:isLeapMonth",
+                            "icu:version",
+                            "icu:breakDictionaryData",
+                            "icu:depends")) {
                 Element extraElement = simpleHandler.nameToElement.get(extraElementName);
                 special.children.put(extraElement, special.children.size());
             }
@@ -735,9 +765,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public static void readFile(DtdType type, XMLFileReader xfr, File directory) {
         File file = new File(directory, type.dtdPath);
-        StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
-            + "<!DOCTYPE " + type
-            + " SYSTEM '" + file.getAbsolutePath() + "'>");
+        StringReader s =
+                new StringReader(
+                        "<?xml version='1.0' encoding='UTF-8' ?>"
+                                + "<!DOCTYPE "
+                                + type
+                                + " SYSTEM '"
+                                + file.getAbsolutePath()
+                                + "'>");
         xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
     }
 
@@ -786,7 +821,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public enum DtdItem {
-        ELEMENT, ATTRIBUTE, ATTRIBUTE_VALUE
+        ELEMENT,
+        ATTRIBUTE,
+        ATTRIBUTE_VALUE
     }
 
     public interface AttributeValueComparator {
@@ -814,7 +851,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
             if (!ROOT.name.equals(baseA) || !ROOT.name.equals(baseB)) {
-                throw new IllegalArgumentException("Comparing different DTDs: " + ROOT.name + ", " + baseA + ", " + baseB);
+                throw new IllegalArgumentException(
+                        "Comparing different DTDs: " + ROOT.name + ", " + baseA + ", " + baseB);
             }
             int min = Math.min(a.size(), b.size());
             Element parent = ROOT;
@@ -860,7 +898,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     --countB;
                 }
 
-                attributes: for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
+                attributes:
+                for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
                     Attribute main = attr.getKey();
                     String valueA = a.getAttributeValue(i, main.name);
                     String valueB = b.getAttributeValue(i, main.name);
@@ -899,7 +938,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return attributeComparator;
     }
 
-
     public MapComparator<String> getElementComparator() {
         return elementComparator;
     }
@@ -915,8 +953,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     @Override
     public String toString() {
         StringBuilder b = new StringBuilder();
-        // <!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, metadata?, references?, special*))) >
-        // <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+        // <!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?,
+        // delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?,
+        // rbnf?, metadata?, references?, special*))) >
+        // <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!--
+        // true and false are deprecated. -->
         Seen seen = new Seen(dtdType);
         seen.seenElements.add(ANY);
         seen.seenElements.add(PCDATA);
@@ -928,10 +969,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             toString(e, b, seen);
         }
         if (currentEnd != b.length()) {
-            b.insert(currentEnd,
-                System.lineSeparator() + System.lineSeparator()
-                + "<!-- Elements not reachable from root! -->"
-                + System.lineSeparator());
+            b.insert(
+                    currentEnd,
+                    System.lineSeparator()
+                            + System.lineSeparator()
+                            + "<!-- Elements not reachable from root! -->"
+                            + System.lineSeparator());
         }
         return b.toString();
     }
@@ -980,11 +1023,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         b.append("\n\n<!ELEMENT " + current.name + " " + current.model + " >");
         if (USE_SYNTHESIZED) {
             Element aliasElement = getElementFromName().get("alias");
-            //b.append(current.rawChildren);
+            // b.append(current.rawChildren);
             if (!current.children.isEmpty()) {
                 LinkedHashSet<Element> elements = new LinkedHashSet<>(current.children.keySet());
                 boolean hasAlias = aliasElement != null && elements.remove(aliasElement);
-                //boolean hasSpecial = specialElement != null && elements.remove(specialElement);
+                // boolean hasSpecial = specialElement != null && elements.remove(specialElement);
                 if (hasAlias) {
                     b.append("(alias |");
                 }
@@ -1017,9 +1060,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
         }
         if (current.getElementStatus() != ElementStatus.regular) {
-            b.append(COMMENT_PREFIX + "<!--@"
-                + current.getElementStatus().toString().toUpperCase(Locale.ROOT)
-                + "-->");
+            b.append(COMMENT_PREFIX + "<!--@" + current.getElementStatus().toString().toUpperCase(Locale.ROOT) + "-->");
         }
         if (elementDeprecated) {
             b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
@@ -1064,9 +1105,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             b.append(" >");
             showComments(b, a.commentsPost, false);
-//            if (attributeDeprecated != deprecatedComment) {
-//                System.out.println("*** BAD DEPRECATION ***" + a);
-//            }
+            //            if (attributeDeprecated != deprecatedComment) {
+            //                System.out.println("*** BAD DEPRECATION ***" + a);
+            //            }
             if (a.matchValue != null) {
                 b.append(COMMENT_PREFIX + "<!--@MATCH:" + a.matchValue.getName() + "-->");
             }
@@ -1078,8 +1119,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             if (attributeDeprecated) {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
             } else if (!deprecatedValues.isEmpty()) {
-                b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + Joiner.on(", ")
-                    .join(deprecatedValues) + "-->");
+                b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + Joiner.on(", ").join(deprecatedValues) + "-->");
             }
         }
         if (current.children.size() > 0) {
@@ -1097,16 +1137,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             b.append(System.lineSeparator());
         }
         for (String c : comments) {
-            boolean deprecatedComment = false; // the following served its purpose... c.toLowerCase(Locale.ENGLISH).contains("deprecat");
+            boolean deprecatedComment =
+                    false; // the following served its purpose... c.toLowerCase(Locale.ENGLISH).contains("deprecat");
             if (!deprecatedComment) {
                 if (separate) {
                     // special handling for very first comment
                     if (b.length() == 0) {
                         b.append("<!--")
-                        .append(System.lineSeparator())
-                        .append(c)
-                        .append(System.lineSeparator())
-                        .append("-->");
+                                .append(System.lineSeparator())
+                                .append(c)
+                                .append(System.lineSeparator())
+                                .append("-->");
                         continue;
                     }
                     b.append(System.lineSeparator());
@@ -1119,7 +1160,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public static <T> T removeFirst(Collection<T> elements, Transform<T, Boolean> matcher) {
-        for (Iterator<T> it = elements.iterator(); it.hasNext();) {
+        for (Iterator<T> it = elements.iterator(); it.hasNext(); ) {
             T item = it.next();
             if (matcher.transform(item) == Boolean.TRUE) {
                 it.remove();
@@ -1167,15 +1208,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         @Override
         public String getMessage() {
-            return "Dtd " + dtdType
-                + " doesn’t allow "
-                + "element=" + elementName
-                + (attributeName == null ? "" : ", attribute: " + attributeName)
-                + (attributeValue == null ? "" : ", attributeValue: " + attributeValue);
+            return "Dtd "
+                    + dtdType
+                    + " doesn’t allow "
+                    + "element="
+                    + elementName
+                    + (attributeName == null ? "" : ", attribute: " + attributeName)
+                    + (attributeValue == null ? "" : ", attributeValue: " + attributeValue);
         }
     }
 
-    //@SuppressWarnings("unused")
+    // @SuppressWarnings("unused")
     public boolean isDeprecated(String elementName, String attributeName, String attributeValue) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
@@ -1230,160 +1273,329 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     // The default is a map comparator, which compares numbers as numbers, and strings with UCA
     private static MapComparator<String> valueOrdering = new MapComparator<String>().setErrorOnMissing(false).freeze();
 
-    static MapComparator<String> dayValueOrder = new MapComparator<String>().add(
-        "sun", "mon", "tue", "wed", "thu", "fri", "sat").freeze();
-    static MapComparator<String> dayPeriodOrder = new MapComparator<String>().add(
-        "midnight", "am", "noon", "pm",
-        "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2",
-        // The ones on the following line are no longer used actively. Can be removed later?
-        "earlyMorning", "morning", "midDay", "afternoon", "evening", "night", "weeHours").freeze();
-    static MapComparator<String> listPatternOrder = new MapComparator<String>().add(
-        "start", "middle", "end", "2", "3").freeze();
-    static MapComparator<String> widthOrder = new MapComparator<String>().add(
-        "abbreviated", "narrow", "short", "wide", "all").freeze();
-    static MapComparator<String> lengthOrder = new MapComparator<String>().add(
-        "full", "long", "medium", "short").freeze();
-    static MapComparator<String> dateFieldOrder = new MapComparator<String>().add(
-        "era", "era-short", "era-narrow",
-        "year", "year-short", "year-narrow",
-        "quarter", "quarter-short", "quarter-narrow",
-        "month", "month-short", "month-narrow",
-        "week", "week-short", "week-narrow",
-        "weekOfMonth", "weekOfMonth-short", "weekOfMonth-narrow",
-        "day", "day-short", "day-narrow",
-        "dayOfYear", "dayOfYear-short", "dayOfYear-narrow",
-        "weekday", "weekday-short", "weekday-narrow",
-        "weekdayOfMonth", "weekdayOfMonth-short", "weekdayOfMonth-narrow",
-        "sun", "sun-short", "sun-narrow",
-        "mon", "mon-short", "mon-narrow",
-        "tue", "tue-short", "tue-narrow",
-        "wed", "wed-short", "wed-narrow",
-        "thu", "thu-short", "thu-narrow",
-        "fri", "fri-short", "fri-narrow",
-        "sat", "sat-short", "sat-narrow",
-        "dayperiod-short", "dayperiod", "dayperiod-narrow",
-        "hour", "hour-short", "hour-narrow",
-        "minute", "minute-short", "minute-narrow",
-        "second", "second-short", "second-narrow",
-        "zone", "zone-short", "zone-narrow").freeze();
+    static MapComparator<String> dayValueOrder =
+            new MapComparator<String>().add("sun", "mon", "tue", "wed", "thu", "fri", "sat").freeze();
+    static MapComparator<String> dayPeriodOrder =
+            new MapComparator<String>()
+                    .add(
+                            "midnight",
+                            "am",
+                            "noon",
+                            "pm",
+                            "morning1",
+                            "morning2",
+                            "afternoon1",
+                            "afternoon2",
+                            "evening1",
+                            "evening2",
+                            "night1",
+                            "night2",
+                            // The ones on the following line are no longer used actively. Can be removed later?
+                            "earlyMorning",
+                            "morning",
+                            "midDay",
+                            "afternoon",
+                            "evening",
+                            "night",
+                            "weeHours")
+                    .freeze();
+    static MapComparator<String> listPatternOrder =
+            new MapComparator<String>().add("start", "middle", "end", "2", "3").freeze();
+    static MapComparator<String> widthOrder =
+            new MapComparator<String>().add("abbreviated", "narrow", "short", "wide", "all").freeze();
+    static MapComparator<String> lengthOrder =
+            new MapComparator<String>().add("full", "long", "medium", "short").freeze();
+    static MapComparator<String> dateFieldOrder =
+            new MapComparator<String>()
+                    .add(
+                            "era",
+                            "era-short",
+                            "era-narrow",
+                            "year",
+                            "year-short",
+                            "year-narrow",
+                            "quarter",
+                            "quarter-short",
+                            "quarter-narrow",
+                            "month",
+                            "month-short",
+                            "month-narrow",
+                            "week",
+                            "week-short",
+                            "week-narrow",
+                            "weekOfMonth",
+                            "weekOfMonth-short",
+                            "weekOfMonth-narrow",
+                            "day",
+                            "day-short",
+                            "day-narrow",
+                            "dayOfYear",
+                            "dayOfYear-short",
+                            "dayOfYear-narrow",
+                            "weekday",
+                            "weekday-short",
+                            "weekday-narrow",
+                            "weekdayOfMonth",
+                            "weekdayOfMonth-short",
+                            "weekdayOfMonth-narrow",
+                            "sun",
+                            "sun-short",
+                            "sun-narrow",
+                            "mon",
+                            "mon-short",
+                            "mon-narrow",
+                            "tue",
+                            "tue-short",
+                            "tue-narrow",
+                            "wed",
+                            "wed-short",
+                            "wed-narrow",
+                            "thu",
+                            "thu-short",
+                            "thu-narrow",
+                            "fri",
+                            "fri-short",
+                            "fri-narrow",
+                            "sat",
+                            "sat-short",
+                            "sat-narrow",
+                            "dayperiod-short",
+                            "dayperiod",
+                            "dayperiod-narrow",
+                            "hour",
+                            "hour-short",
+                            "hour-narrow",
+                            "minute",
+                            "minute-short",
+                            "minute-narrow",
+                            "second",
+                            "second-short",
+                            "second-narrow",
+                            "zone",
+                            "zone-short",
+                            "zone-narrow")
+                    .freeze();
 
     /* TODO: change this to be data-file driven. Can do with new Unit preferences info; also put them in a more meaningful order (metric vs other; size) */
 
-    public static final MapComparator<String> unitOrder = new MapComparator<String>().add(
-        "acceleration-g-force", "acceleration-meter-per-square-second",
-        "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
-        "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
-        "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
-        "area-dunam",
-        "concentr-karat",
-        "concentr-milligram-per-deciliter", "concentr-millimole-per-liter",
-        "concentr-item",
-        "concentr-portion",
-        "concentr-permillion", "concentr-percent", "concentr-permille", "concentr-permyriad",
-        "concentr-mole",
-        "consumption-liter-per-kilometer", "consumption-liter-per-100-kilometer",
-        "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",
-        "digital-petabyte", "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
-        "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
-        "digital-byte", "digital-bit",
-        "duration-century", "duration-decade",
-        "duration-year", "duration-year-person",
-        "duration-month", "duration-month-person",
-        "duration-week", "duration-week-person",
-        "duration-day", "duration-day-person",
-        "duration-hour", "duration-minute", "duration-second",
-        "duration-millisecond", "duration-microsecond", "duration-nanosecond",
-        "electric-ampere", "electric-milliampere", "electric-ohm", "electric-volt",
-        "energy-kilocalorie", "energy-calorie", "energy-foodcalorie", "energy-kilojoule", "energy-joule", "energy-kilowatt-hour",
-        "energy-electronvolt",
-        "energy-british-thermal-unit",
-        "energy-therm-us",
-        "force-pound-force",
-        "force-newton",
-        "frequency-gigahertz", "frequency-megahertz", "frequency-kilohertz", "frequency-hertz",
-        "graphics-em", "graphics-pixel", "graphics-megapixel",
-        "graphics-pixel-per-centimeter", "graphics-pixel-per-inch",
-        "graphics-dot-per-centimeter", "graphics-dot-per-inch",
-        "graphics-dot",
-        "length-earth-radius",
-        "length-100-kilometer",
-        "length-kilometer", "length-meter", "length-decimeter", "length-centimeter",
-        "length-millimeter", "length-micrometer", "length-nanometer", "length-picometer",
-        "length-mile", "length-yard", "length-foot", "length-inch",
-        "length-parsec", "length-light-year", "length-astronomical-unit",
-        "length-furlong", "length-fathom",
-        "length-nautical-mile", "length-mile-scandinavian",
-        "length-point",
-        "length-solar-radius",
-        "light-lux",
-        "light-candela",
-        "light-lumen",
-        "light-solar-luminosity",
-        "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",
-        "mass-ton", "mass-stone", "mass-pound", "mass-ounce",
-        "mass-ounce-troy", "mass-carat",
-        "mass-dalton",
-        "mass-earth-mass",
-        "mass-solar-mass",
+    public static final MapComparator<String> unitOrder =
+            new MapComparator<String>()
+                    .add(
+                            "acceleration-g-force",
+                            "acceleration-meter-per-square-second",
+                            "angle-revolution",
+                            "angle-radian",
+                            "angle-degree",
+                            "angle-arc-minute",
+                            "angle-arc-second",
+                            "area-square-kilometer",
+                            "area-hectare",
+                            "area-square-meter",
+                            "area-square-centimeter",
+                            "area-square-mile",
+                            "area-acre",
+                            "area-square-yard",
+                            "area-square-foot",
+                            "area-square-inch",
+                            "area-dunam",
+                            "concentr-karat",
+                            "concentr-milligram-per-deciliter",
+                            "concentr-millimole-per-liter",
+                            "concentr-item",
+                            "concentr-portion",
+                            "concentr-permillion",
+                            "concentr-percent",
+                            "concentr-permille",
+                            "concentr-permyriad",
+                            "concentr-mole",
+                            "consumption-liter-per-kilometer",
+                            "consumption-liter-per-100-kilometer",
+                            "consumption-mile-per-gallon",
+                            "consumption-mile-per-gallon-imperial",
+                            "digital-petabyte",
+                            "digital-terabyte",
+                            "digital-terabit",
+                            "digital-gigabyte",
+                            "digital-gigabit",
+                            "digital-megabyte",
+                            "digital-megabit",
+                            "digital-kilobyte",
+                            "digital-kilobit",
+                            "digital-byte",
+                            "digital-bit",
+                            "duration-century",
+                            "duration-decade",
+                            "duration-year",
+                            "duration-year-person",
+                            "duration-month",
+                            "duration-month-person",
+                            "duration-week",
+                            "duration-week-person",
+                            "duration-day",
+                            "duration-day-person",
+                            "duration-hour",
+                            "duration-minute",
+                            "duration-second",
+                            "duration-millisecond",
+                            "duration-microsecond",
+                            "duration-nanosecond",
+                            "electric-ampere",
+                            "electric-milliampere",
+                            "electric-ohm",
+                            "electric-volt",
+                            "energy-kilocalorie",
+                            "energy-calorie",
+                            "energy-foodcalorie",
+                            "energy-kilojoule",
+                            "energy-joule",
+                            "energy-kilowatt-hour",
+                            "energy-electronvolt",
+                            "energy-british-thermal-unit",
+                            "energy-therm-us",
+                            "force-pound-force",
+                            "force-newton",
+                            "frequency-gigahertz",
+                            "frequency-megahertz",
+                            "frequency-kilohertz",
+                            "frequency-hertz",
+                            "graphics-em",
+                            "graphics-pixel",
+                            "graphics-megapixel",
+                            "graphics-pixel-per-centimeter",
+                            "graphics-pixel-per-inch",
+                            "graphics-dot-per-centimeter",
+                            "graphics-dot-per-inch",
+                            "graphics-dot",
+                            "length-earth-radius",
+                            "length-100-kilometer",
+                            "length-kilometer",
+                            "length-meter",
+                            "length-decimeter",
+                            "length-centimeter",
+                            "length-millimeter",
+                            "length-micrometer",
+                            "length-nanometer",
+                            "length-picometer",
+                            "length-mile",
+                            "length-yard",
+                            "length-foot",
+                            "length-inch",
+                            "length-parsec",
+                            "length-light-year",
+                            "length-astronomical-unit",
+                            "length-furlong",
+                            "length-fathom",
+                            "length-nautical-mile",
+                            "length-mile-scandinavian",
+                            "length-point",
+                            "length-solar-radius",
+                            "light-lux",
+                            "light-candela",
+                            "light-lumen",
+                            "light-solar-luminosity",
+                            "mass-metric-ton",
+                            "mass-kilogram",
+                            "mass-gram",
+                            "mass-milligram",
+                            "mass-microgram",
+                            "mass-ton",
+                            "mass-stone",
+                            "mass-pound",
+                            "mass-ounce",
+                            "mass-ounce-troy",
+                            "mass-carat",
+                            "mass-dalton",
+                            "mass-earth-mass",
+                            "mass-solar-mass",
+                            "mass-grain",
+                            "power-gigawatt",
+                            "power-megawatt",
+                            "power-kilowatt",
+                            "power-watt",
+                            "power-milliwatt",
+                            "power-horsepower",
+                            "pressure-millimeter-ofhg",
+                            "pressure-ofhg",
+                            "pressure-pound-force-per-square-inch",
+                            "pressure-inch-ofhg",
+                            "pressure-bar",
+                            "pressure-millibar",
+                            "pressure-atmosphere",
+                            "pressure-pascal",
+                            "pressure-hectopascal",
+                            "pressure-kilopascal",
+                            "pressure-megapascal",
+                            "speed-kilometer-per-hour",
+                            "speed-meter-per-second",
+                            "speed-mile-per-hour",
+                            "speed-knot",
+                            "temperature-generic",
+                            "temperature-celsius",
+                            "temperature-fahrenheit",
+                            "temperature-kelvin",
+                            "torque-pound-force-foot",
+                            "torque-newton-meter",
+                            "volume-cubic-kilometer",
+                            "volume-cubic-meter",
+                            "volume-cubic-centimeter",
+                            "volume-cubic-mile",
+                            "volume-cubic-yard",
+                            "volume-cubic-foot",
+                            "volume-cubic-inch",
+                            "volume-megaliter",
+                            "volume-hectoliter",
+                            "volume-liter",
+                            "volume-deciliter",
+                            "volume-centiliter",
+                            "volume-milliliter",
+                            "volume-pint-metric",
+                            "volume-cup-metric",
+                            "volume-acre-foot",
+                            "volume-bushel",
+                            "volume-gallon",
+                            "volume-gallon-imperial",
+                            "volume-quart",
+                            "volume-pint",
+                            "volume-cup",
+                            "volume-fluid-ounce",
+                            "volume-fluid-ounce-imperial",
+                            "volume-tablespoon",
+                            "volume-teaspoon",
+                            "volume-barrel",
+                            "volume-dessert-spoon",
+                            "volume-dessert-spoon-imperial",
+                            "volume-drop",
+                            "volume-dram",
+                            "volume-jigger",
+                            "volume-pinch",
+                            "volume-quart-imperial"
+                            // "volume-pint-imperial"
+                            )
+                    .freeze();
 
-        "mass-grain",
-
-        "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
-        "power-horsepower",
-        "pressure-millimeter-ofhg",
-         "pressure-ofhg",
-        "pressure-pound-force-per-square-inch", "pressure-inch-ofhg", "pressure-bar", "pressure-millibar", "pressure-atmosphere",
-        "pressure-pascal",
-        "pressure-hectopascal",
-        "pressure-kilopascal",
-        "pressure-megapascal",
-        "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
-        "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
-        "torque-pound-force-foot",
-        "torque-newton-meter",
-        "volume-cubic-kilometer", "volume-cubic-meter", "volume-cubic-centimeter",
-        "volume-cubic-mile", "volume-cubic-yard", "volume-cubic-foot", "volume-cubic-inch",
-        "volume-megaliter", "volume-hectoliter", "volume-liter", "volume-deciliter", "volume-centiliter", "volume-milliliter",
-        "volume-pint-metric", "volume-cup-metric",
-        "volume-acre-foot",
-        "volume-bushel", "volume-gallon", "volume-gallon-imperial", "volume-quart", "volume-pint", "volume-cup",
-        "volume-fluid-ounce", "volume-fluid-ounce-imperial", "volume-tablespoon", "volume-teaspoon",
-        "volume-barrel",
-
-        "volume-dessert-spoon",
-        "volume-dessert-spoon-imperial",
-        "volume-drop",
-        "volume-dram",
-        "volume-jigger",
-        "volume-pinch",
-        "volume-quart-imperial"
-       // "volume-pint-imperial"
-        ).freeze();
-
-    static MapComparator<String> countValueOrder = new MapComparator<String>().add(
-        "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
-    static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(
-        "long", "short", "narrow").freeze();
-    static MapComparator<String> currencyFormatOrder = new MapComparator<String>().add(
-        "standard", "accounting").freeze();
+    static MapComparator<String> countValueOrder =
+            new MapComparator<String>().add("0", "1", "zero", "one", "two", "few", "many", "other").freeze();
+    static MapComparator<String> unitLengthOrder = new MapComparator<String>().add("long", "short", "narrow").freeze();
+    static MapComparator<String> currencyFormatOrder =
+            new MapComparator<String>().add("standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
     static final Comparator<String> COMP = (Comparator) CLDRConfig.getInstance().getCollator();
 
     // Hack for US
-    static final Comparator<String> UNICODE_SET_COMPARATOR = new Comparator<String>() {
-        @Override
-        public int compare(String o1, String o2) {
-            if (o1.contains("{")) {
-                o1 = o1.replace("{", "");
-            }
-            if (o2.contains("{")) {
-                o2 = o2.replace("{", "");
-            }
-            return COMP.compare(o1, o2);
-        }
-
-    };
+    static final Comparator<String> UNICODE_SET_COMPARATOR =
+            new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    if (o1.contains("{")) {
+                        o1 = o1.replace("{", "");
+                    }
+                    if (o2.contains("{")) {
+                        o2 = o2.replace("{", "");
+                    }
+                    return COMP.compare(o1, o2);
+                }
+            };
 
     public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
         return getAttributeValueComparator(DtdType.ldml, element, attribute);
@@ -1427,16 +1639,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return comp;
     }
 
-    /**
-     * Comparator for attributes in CLDR files
-     */
-    private static AttributeValueComparator ldmlAvc = new AttributeValueComparator() {
-        @Override
-        public int compare(String element, String attribute, String value1, String value2) {
-            Comparator<String> comp = getAttributeValueComparator(element, attribute);
-            return comp.compare(value1, value2);
-        }
-    };
+    /** Comparator for attributes in CLDR files */
+    private static AttributeValueComparator ldmlAvc =
+            new AttributeValueComparator() {
+                @Override
+                public int compare(String element, String attribute, String value1, String value2) {
+                    Comparator<String> comp = getAttributeValueComparator(element, attribute);
+                    return comp.compare(value1, value2);
+                }
+            };
 
     public boolean hasValue(String elementName) {
         return nameToElement.get(elementName).type == ElementType.PCDATA;
@@ -1458,47 +1669,48 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         final String element2 = pathPlain.getElement(2);
         final String elementN = pathPlain.getElement(-1);
         switch (dtdType2) {
-        case ldml:
-            switch (element1) {
-            case "generation":
-            case "metadata":
-                return true;
-            }
-            break;
-        case ldmlBCP47:
-            switch (element1) {
-            case "generation":
-            case "version":
-                return true;
-            }
-            break;
-            ////supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
-        case supplementalData:
-            // these are NOT under /metadata/ but are actually metadata
-            switch (element1) {
-            case "generation":
-            case "version":
-            case "validity":
-            case "references":
-            case "coverageLevels":
-                return true;
-            case "transforms":
-                return elementN.equals("comment");
-            case "metadata":
-                // these ARE under /metadata/, but many others under /metadata/ are NOT actually metadata.
-                switch (element2) {
-                case "validity":
-                case "serialElements":
-                case "suppress":
-                case "distinguishing":
-                case "blocking":
-                case "casingData":
-                    return true;
+            case ldml:
+                switch (element1) {
+                    case "generation":
+                    case "metadata":
+                        return true;
                 }
                 break;
-            }
-            break;
-        default:
+            case ldmlBCP47:
+                switch (element1) {
+                    case "generation":
+                    case "version":
+                        return true;
+                }
+                break;
+                ////
+                // supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
+            case supplementalData:
+                // these are NOT under /metadata/ but are actually metadata
+                switch (element1) {
+                    case "generation":
+                    case "version":
+                    case "validity":
+                    case "references":
+                    case "coverageLevels":
+                        return true;
+                    case "transforms":
+                        return elementN.equals("comment");
+                    case "metadata":
+                        // these ARE under /metadata/, but many others under /metadata/ are NOT actually metadata.
+                        switch (element2) {
+                            case "validity":
+                            case "serialElements":
+                            case "suppress":
+                            case "distinguishing":
+                            case "blocking":
+                            case "casingData":
+                                return true;
+                        }
+                        break;
+                }
+                break;
+            default:
         }
         return false;
     }
@@ -1519,9 +1731,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return false;
     }
 
-    public final static Splitter SPACE_SPLITTER = Splitter.on(CharMatcher.whitespace()).trimResults().omitEmptyStrings();
-    public final static Splitter BAR_SPLITTER = Splitter.on('|').trimResults().omitEmptyStrings();
-    public final static Splitter CR_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r")).trimResults().omitEmptyStrings();
+    public static final Splitter SPACE_SPLITTER =
+            Splitter.on(CharMatcher.whitespace()).trimResults().omitEmptyStrings();
+    public static final Splitter BAR_SPLITTER = Splitter.on('|').trimResults().omitEmptyStrings();
+    public static final Splitter CR_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r")).trimResults().omitEmptyStrings();
 
     private static class XPathPartsSet {
         private final Set<XPathParts> list = new LinkedHashSet<>();
@@ -1594,19 +1807,19 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 AttributeStatus status = getAttributeStatus(element, attribute);
                 final String attributeValue = pathPlain.getAttributeValue(i, attribute);
                 switch (status) {
-                case distinguished:
-                    AttributeType attrType = getAttributeType(element, attribute);
-                    if (attrType == AttributeType.NMTOKENS) {
-                        pathResult.addAttributes(attribute, SPACE_SPLITTER.splitToList(attributeValue));
-                    } else {
-                        pathResult.addAttribute(attribute, attributeValue);
-                    }
-                    break;
-                case value:
-                    valueAttributes.put(attribute, attributeValue);
-                    break;
-                case metadata:
-                    break;
+                    case distinguished:
+                        AttributeType attrType = getAttributeType(element, attribute);
+                        if (attrType == AttributeType.NMTOKENS) {
+                            pathResult.addAttributes(attribute, SPACE_SPLITTER.splitToList(attributeValue));
+                        } else {
+                            pathResult.addAttribute(attribute, attributeValue);
+                        }
+                        break;
+                    case value:
+                        valueAttributes.put(attribute, attributeValue);
+                        break;
+                    case metadata:
+                        break;
                 }
             }
             if (!valueAttributes.isEmpty()) {
@@ -1661,15 +1874,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     // TODO: add support for following to DTD annotations, and rework API
 
-    static final Set<String> SPACED_VALUES = ImmutableSet.of(
-        "idValidity",
-        "languageGroup");
+    static final Set<String> SPACED_VALUES = ImmutableSet.of("idValidity", "languageGroup");
 
     public static Splitter getValueSplitter(XPathParts pathPlain) {
         if (!Collections.disjoint(pathPlain.getElements(), SPACED_VALUES)) {
             return SPACE_SPLITTER;
-        } else if (pathPlain.getElement(-1).equals("annotation")
-            && !pathPlain.getAttributeKeys(-1).contains("tts")) {
+        } else if (pathPlain.getElement(-1).equals("annotation") && !pathPlain.getAttributeKeys(-1).contains("tts")) {
             return BAR_SPLITTER;
         }
         return CR_SPLITTER;
@@ -1691,9 +1901,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return false;
     }
 
-    /**
-     * Return the value status for an EAV
-     */
+    /** Return the value status for an EAV */
     public ValueStatus getValueStatus(String elementName, String attributeName, String value) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
@@ -1706,11 +1914,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return attr.getValueStatus(value);
     }
 
-    /**
-     * Return element-attribute pairs with non-enumerated values, for quick checks.
-     */
-    public Multimap<String, String> getNonEnumerated(Map<String,String> matchValues) {
-        Multimap<String,String> nonEnumeratedElementToAttribute = TreeMultimap.create(); // make tree for ease of debugging
+    /** Return element-attribute pairs with non-enumerated values, for quick checks. */
+    public Multimap<String, String> getNonEnumerated(Map<String, String> matchValues) {
+        Multimap<String, String> nonEnumeratedElementToAttribute =
+                TreeMultimap.create(); // make tree for ease of debugging
         for (Entry<String, Element> entry : nameToElement.entrySet()) {
             Element element = entry.getValue();
             for (Attribute attribute : element.attributes.keySet()) {

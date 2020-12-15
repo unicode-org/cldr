@@ -19,24 +19,23 @@ public class LanguageInfo {
     static final SupplementalDataInfo SDI = config.getSupplementalDataInfo();
 
     public enum CldrDir {
-        base, main, seed
+        base,
+        main,
+        seed
     }
 
     private int literatePopulation;
-    private Relation<OfficialStatus, String> statusToRegions = Relation.of(new EnumMap<OfficialStatus, Set<String>>(OfficialStatus.class), TreeSet.class);
+    private Relation<OfficialStatus, String> statusToRegions =
+            Relation.of(new EnumMap<OfficialStatus, Set<String>>(OfficialStatus.class), TreeSet.class);
     private Level level;
     private LanguageInfo.CldrDir cldrDir;
 
-    /**
-     * @return the statusToRegions
-     */
+    /** @return the statusToRegions */
     public Relation<OfficialStatus, String> getStatusToRegions() {
         return statusToRegions;
     }
 
-    /**
-     * @return the literatePopulation
-     */
+    /** @return the literatePopulation */
     public int getLiteratePopulation() {
         return literatePopulation;
     }
@@ -49,7 +48,8 @@ public class LanguageInfo {
         return cldrDir;
     }
 
-    //private M3<OfficialStatus, String, Boolean> status = ChainedMap.of(new EnumMap<OfficialStatus, Object>(OfficialStatus.class), new TreeMap<String,Object>(), Boolean.class);
+    // private M3<OfficialStatus, String, Boolean> status = ChainedMap.of(new EnumMap<OfficialStatus,
+    // Object>(OfficialStatus.class), new TreeMap<String,Object>(), Boolean.class);
     public static LanguageInfo get(String languageCode) {
         return languageCodeToInfo.get(languageCode);
     }
@@ -61,12 +61,16 @@ public class LanguageInfo {
     @Override
     public String toString() {
         return literatePopulation
-            + "\t" + CldrUtility.ifNull(cldrDir, "")
-            + "\t" + CldrUtility.ifSame(level, Level.UNDETERMINED, "")
-            + "\t" + (statusToRegions.isEmpty() ? "" : statusToRegions.toString());
+                + "\t"
+                + CldrUtility.ifNull(cldrDir, "")
+                + "\t"
+                + CldrUtility.ifSame(level, Level.UNDETERMINED, "")
+                + "\t"
+                + (statusToRegions.isEmpty() ? "" : statusToRegions.toString());
     }
 
     static final Map<String, LanguageInfo> languageCodeToInfo;
+
     static {
         TreeMap<String, LanguageInfo> temp = new TreeMap<>();
         // get population/official status
@@ -88,8 +92,7 @@ public class LanguageInfo {
         final Set<String> full_languages = config.getFullCldrFactory().getAvailableLanguages();
         for (String language : full_languages) {
             LanguageInfo foo = getRaw(temp, language);
-            foo.cldrDir = languages.contains(language) ? CldrDir.main
-                : CldrDir.seed;
+            foo.cldrDir = languages.contains(language) ? CldrDir.main : CldrDir.seed;
         }
         getRaw(temp, "und").cldrDir = CldrDir.base;
         getRaw(temp, "zxx").cldrDir = CldrDir.base;
@@ -99,7 +102,6 @@ public class LanguageInfo {
             final LanguageInfo value = entry.getValue();
             value.statusToRegions.freeze();
             value.level = sc.getLocaleCoverageLevel(Organization.cldr, entry.getKey());
-
         }
         languageCodeToInfo = Collections.unmodifiableMap(temp);
     }

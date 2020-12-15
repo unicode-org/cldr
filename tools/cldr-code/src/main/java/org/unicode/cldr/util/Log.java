@@ -15,7 +15,7 @@ import java.util.Locale;
 import org.unicode.cldr.draft.FileUtilities;
 
 public class Log {
-    static private PrintWriter log;
+    private static PrintWriter log;
 
     public static void logln(int test, String message) {
         if (log != null && test != 0) log.println(message);
@@ -29,23 +29,17 @@ public class Log {
         if (log != null) log.println(message);
     }
 
-    /**
-     * @return Returns the log.
-     */
+    /** @return Returns the log. */
     public static PrintWriter getLog() {
         return log;
     }
 
-    /**
-     * @param newlog
-     *            The log to set.
-     */
+    /** @param newlog The log to set. */
     public static void setLog(PrintWriter newlog) {
         log = newlog;
     }
 
-    /**
-     */
+    /** */
     public static void close() {
         if (log != null) log.close();
     }
@@ -81,7 +75,8 @@ public class Log {
     }
 
     /**
-     * format a line and print, in 80 character pieces. A bit dumb right now: doesn't handle strings.
+     * format a line and print, in 80 character pieces. A bit dumb right now: doesn't handle
+     * strings.
      *
      * @param format
      * @param args

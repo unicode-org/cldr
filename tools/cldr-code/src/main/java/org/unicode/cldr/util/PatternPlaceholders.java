@@ -16,28 +16,30 @@ import com.ibm.icu.text.Transform;
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED("No placeholders allowed."),//
-        REQUIRED("Specific number of placeholders allowed."),//
-        LOCALE_DEPENDENT("Some placeholders may be omitted in certain locales"),//
-        MULTIPLE("May have multiple instances of the same placeholder, eg “{0} cats and {0} dogs”.")//
-        ;
+        DISALLOWED("No placeholders allowed."), //
+        REQUIRED("Specific number of placeholders allowed."), //
+        LOCALE_DEPENDENT("Some placeholders may be omitted in certain locales"), //
+        MULTIPLE("May have multiple instances of the same placeholder, eg “{0} cats and {0} dogs”.") //
+    ;
 
         private final String message;
 
         private PlaceholderStatus(String message) {
             this.message = message;
         }
+
         @Override
         public String toString() {
             return name() + ": " + message;
         }
     }
 
-    public static final ImmutableSet<Subtype> PLACEHOLDER_SUBTYPES = ImmutableSet.of(
-        Subtype.gapsInPlaceholderNumbers,
-        Subtype.duplicatePlaceholders,
-        Subtype.missingPlaceholders,
-        Subtype.extraPlaceholders);
+    public static final ImmutableSet<Subtype> PLACEHOLDER_SUBTYPES =
+            ImmutableSet.of(
+                    Subtype.gapsInPlaceholderNumbers,
+                    Subtype.duplicatePlaceholders,
+                    Subtype.missingPlaceholders,
+                    Subtype.extraPlaceholders);
 
     private static class PlaceholderData {
         PlaceholderStatus status = PlaceholderStatus.REQUIRED;
@@ -90,30 +92,30 @@ public class PatternPlaceholders {
                 String[] parts = source.split("\\s*;\\s+");
                 for (String part : parts) {
                     switch (part) {
-                    case "locale":
-                        result.status = PlaceholderStatus.LOCALE_DEPENDENT;
-                        continue;
-                    case "multiple":
-                        result.status = PlaceholderStatus.MULTIPLE;
-                        continue;
-                    default:
-                        int equalsPos = part.indexOf('=');
-                        String id = part.substring(0, equalsPos).trim();
-                        String name = part.substring(equalsPos + 1).trim();
-                        int spacePos = name.indexOf(' ');
-                        String example;
-                        if (spacePos >= 0) {
-                            example = name.substring(spacePos + 1).trim();
-                            name = name.substring(0, spacePos).trim();
-                        } else {
-                            example = "";
-                        }
+                        case "locale":
+                            result.status = PlaceholderStatus.LOCALE_DEPENDENT;
+                            continue;
+                        case "multiple":
+                            result.status = PlaceholderStatus.MULTIPLE;
+                            continue;
+                        default:
+                            int equalsPos = part.indexOf('=');
+                            String id = part.substring(0, equalsPos).trim();
+                            String name = part.substring(equalsPos + 1).trim();
+                            int spacePos = name.indexOf(' ');
+                            String example;
+                            if (spacePos >= 0) {
+                                example = name.substring(spacePos + 1).trim();
+                                name = name.substring(0, spacePos).trim();
+                            } else {
+                                example = "";
+                            }
 
-                        PlaceholderInfo old = result.data.get(id);
-                        if (old != null) {
-                            throw new IllegalArgumentException("Key occurs twice: " + id + "=" + old + "!=" + name);
-                        }
-                        result.add(id, name, example);
+                            PlaceholderInfo old = result.data.get(id);
+                            if (old != null) {
+                                throw new IllegalArgumentException("Key occurs twice: " + id + "=" + old + "!=" + name);
+                            }
+                            result.add(id, name, example);
                     }
                 }
             } catch (Exception e) {
@@ -124,18 +126,18 @@ public class PatternPlaceholders {
             }
             return result;
         }
-
     }
 
     private final RegexLookup<PlaceholderData> patternPlaceholders;
 
     private PatternPlaceholders() {
-        patternPlaceholders = RegexLookup.of(new MapTransform())
-            .setValueMerger(new MyMerger())
-            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+        patternPlaceholders =
+                RegexLookup.of(new MapTransform())
+                        .setValueMerger(new MyMerger())
+                        .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
     }
 
-    static final private class PatternPlaceholdersHelper {
+    private static final class PatternPlaceholdersHelper {
         static final PatternPlaceholders SINGLETON = new PatternPlaceholders();
     }
 

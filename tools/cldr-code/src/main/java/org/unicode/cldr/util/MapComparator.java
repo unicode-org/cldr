@@ -28,6 +28,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         public static final Collator UCA = getUCA();
         /**
          * This does not change, so we can create one and freeze it.
+         *
          * @return
          */
         private static Collator getUCA() {
@@ -44,17 +45,12 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
     private int before = 1;
     private boolean fallback = true;
 
-    /**
-     * @return Returns the errorOnMissing.
-     */
+    /** @return Returns the errorOnMissing. */
     public boolean isErrorOnMissing() {
         return errorOnMissing;
     }
 
-    /**
-     * @param errorOnMissing
-     *            The errorOnMissing to set.
-     */
+    /** @param errorOnMissing The errorOnMissing to set. */
     public MapComparator<K> setErrorOnMissing(boolean errorOnMissing) {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         this.errorOnMissing = errorOnMissing;
@@ -81,15 +77,12 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         return this;
     }
 
-    /**
-     * @return Returns the rankToName.
-     */
+    /** @return Returns the rankToName. */
     public List<K> getOrder() {
         return Collections.unmodifiableList(rankToName);
     }
 
-    public MapComparator() {
-    }
+    public MapComparator() {}
 
     public MapComparator(K[] data) {
         add(data);
@@ -114,7 +107,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
     }
 
     public MapComparator<K> add(Collection<K> c) {
-        for (Iterator<K> it = c.iterator(); it.hasNext();) {
+        for (Iterator<K> it = c.iterator(); it.hasNext(); ) {
             add(it.next());
         }
         return this;
@@ -131,7 +124,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
     private static final UnicodeSet numbers = new UnicodeSet("[\\-0-9.]").freeze();
 
     @Override
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public int compare(K a, K b) {
         if (false && (a.equals("lines") || b.equals("lines"))) {
             System.out.println();
@@ -142,9 +135,16 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
             return aa.compareTo(bb);
         }
         if (errorOnMissing) {
-            throw new IllegalArgumentException("Missing Map Comparator value(s): "
-                + a.toString() + "(" + aa + "),\t"
-                + b.toString() + "(" + bb + "),\t");
+            throw new IllegalArgumentException(
+                    "Missing Map Comparator value(s): "
+                            + a.toString()
+                            + "("
+                            + aa
+                            + "),\t"
+                            + b.toString()
+                            + "("
+                            + bb
+                            + "),\t");
         }
         // must handle halfway case, otherwise we are not transitive!!!
         if (aa == null && bb != null) {
@@ -206,12 +206,10 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         boolean isFirst = true;
-        for (Iterator<K> it = rankToName.iterator(); it.hasNext();) {
+        for (Iterator<K> it = rankToName.iterator(); it.hasNext(); ) {
             K key = it.next();
-            if (isFirst)
-                isFirst = false;
-            else
-                buffer.append(" ");
+            if (isFirst) isFirst = false;
+            else buffer.append(" ");
             buffer.append("<").append(key).append(">");
         }
         return buffer.toString();

@@ -13,7 +13,7 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class CompactStringByteConverter extends StringByteConverter {
-    static public final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
     private boolean deltaEncoded;
     private int last;
 

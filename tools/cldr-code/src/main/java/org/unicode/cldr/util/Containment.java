@@ -17,10 +17,10 @@ import com.ibm.icu.util.TimeZone;
 
 public class Containment {
     private static final SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance();
-    static final Relation<String, String> containmentCore = supplementalData
-        .getContainmentCore();
+    static final Relation<String, String> containmentCore = supplementalData.getContainmentCore();
     static final Set<String> continents = containmentCore.get("001");
     static final Set<String> subcontinents;
+
     static {
         LinkedHashSet<String> temp = new LinkedHashSet<>();
         for (String continent : continents) {
@@ -28,19 +28,15 @@ public class Containment {
         }
         subcontinents = Collections.unmodifiableSet(temp);
     }
-    static final Relation<String, String> containmentFull = supplementalData
-        .getTerritoryToContained();
-    static final Relation<String, String> containedToContainer = Relation
-        .of(new HashMap<String, Set<String>>(),
-            HashSet.class)
-        .addAllInverted(containmentFull)
-        .freeze();
+
+    static final Relation<String, String> containmentFull = supplementalData.getTerritoryToContained();
+    static final Relation<String, String> containedToContainer =
+            Relation.of(new HashMap<String, Set<String>>(), HashSet.class).addAllInverted(containmentFull).freeze();
 
     static final Relation<String, String> leavesToContainers;
+
     static {
-        leavesToContainers = Relation
-            .of(new HashMap<String, Set<String>>(),
-                HashSet.class);
+        leavesToContainers = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
         // for each container, get all of its leaf nodes
         Set<String> containers = supplementalData.getContainers();
         for (String s : containers) {
@@ -49,19 +45,17 @@ public class Containment {
             leavesToContainers.putAll(leaves, s);
         }
         leavesToContainers.freeze();
-//        for (Entry<String, Set<String>> e : leavesToContainers.keyValuesSet()) {
-//            System.out.println(e.getKey() + " " + e.getValue());
-//        }
+        //        for (Entry<String, Set<String>> e : leavesToContainers.keyValuesSet()) {
+        //            System.out.println(e.getKey() + " " + e.getValue());
+        //        }
     }
 
-    static final Relation<String, String> containedToContainerCore = Relation
-        .of(new HashMap<String, Set<String>>(),
-            HashSet.class)
-        .addAllInverted(containmentCore)
-        .freeze();
+    static final Relation<String, String> containedToContainerCore =
+            Relation.of(new HashMap<String, Set<String>>(), HashSet.class).addAllInverted(containmentCore).freeze();
     static final Map<String, Integer> toOrder = new LinkedHashMap<>();
     static int level = 0;
     static int order;
+
     static {
         initOrder("001");
         // Special cases. Cyprus is because it is in the wrong location because it gets picked up in the EU.
@@ -103,14 +97,13 @@ public class Containment {
         if (containers == null) {
             containers = containedToContainer.get(territory);
         }
-        String container = containers != null
-            ? containers.iterator().next()
-            : territory.equals("001") ? "001" : "ZZ";
+        String container = containers != null ? containers.iterator().next() : territory.equals("001") ? "001" : "ZZ";
         return container;
     }
 
     /**
      * Return all the containers, including deprecated.
+     *
      * @param territory
      * @return
      */
@@ -125,10 +118,7 @@ public class Containment {
      */
     public static String getContinent(String territory) {
         while (true) {
-            if (territory == null
-                || territory.equals("001")
-                || territory.equals("ZZ")
-                || continents.contains(territory)) {
+            if (territory == null || territory.equals("001") || territory.equals("ZZ") || continents.contains(territory)) {
                 return territory;
             }
             String newTerritory = getContainer(territory);
@@ -147,10 +137,7 @@ public class Containment {
      */
     public static String getSubcontinent(String territory) {
         while (true) {
-            if (territory.equals("001")
-                || territory.equals("ZZ")
-                || continents.contains(territory)
-                || subcontinents.contains(territory)) {
+            if (territory.equals("001") || territory.equals("ZZ") || continents.contains(territory) || subcontinents.contains(territory)) {
                 return territory;
             }
             territory = getContainer(territory);
@@ -225,6 +212,7 @@ public class Containment {
 
     /**
      * For each leaf region (eg "CO"), return all containers [019, 419, 005, 001]
+     *
      * @param leaf
      * @return
      */

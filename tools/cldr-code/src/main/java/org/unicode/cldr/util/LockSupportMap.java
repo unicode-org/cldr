@@ -8,11 +8,11 @@ import java.util.concurrent.ConcurrentMap;
  * Different instances of the same String will return the same Object
  *
  * @author ribnitz
- *
  */
 public class LockSupportMap<E> {
     /**
-     * Map to keep the track of the locks used for single entries; these are used for synchronization
+     * Map to keep the track of the locks used for single entries; these are used for
+     * synchronization
      */
     private final ConcurrentMap<E, Object> locks = new ConcurrentHashMap<>();
 
@@ -22,6 +22,7 @@ public class LockSupportMap<E> {
 
     /**
      * Retrieve the object that is used to lock the entry for this filename
+     *
      * @param fileName
      * @return
      */
@@ -42,6 +43,7 @@ public class LockSupportMap<E> {
 
     /**
      * Remove the the object associated with the name from the map, and return it
+     *
      * @param nameToRemove
      * @return
      */

@@ -25,9 +25,9 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     // quick test
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         XEquivalenceClass<String, Integer> foo1 = new XEquivalenceClass<>(1);
-        String[][] tests = { { "b", "a1" }, { "b", "c" }, { "a1", "c" }, { "d", "e" }, { "e", "f" }, { "c", "d" } };
+        String[][] tests = {{"b", "a1"}, {"b", "c"}, {"a1", "c"}, {"d", "e"}, {"e", "f"}, {"c", "d"}};
         for (int i = 0; i < tests.length; ++i) {
             System.out.println("Adding: " + tests[i][0] + ", " + tests[i][1]);
             foo1.add(tests[i][0], tests[i][1], new Integer(i));
@@ -50,9 +50,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         Set<T> make();
     }
 
-    /**
-     * empty, as if just created
-     */
+    /** empty, as if just created */
     public XEquivalenceClass clear(R defaultReasonArg) {
         toPartitionSet.clear();
         obj_obj_reasons.clear();
@@ -60,47 +58,31 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         return this;
     }
 
-    /**
-     * Create class
-     *
-     */
-    public XEquivalenceClass() {
-    }
+    /** Create class */
+    public XEquivalenceClass() {}
 
-    /**
-     * Create class with comparator, and default reason.
-     *
-     */
+    /** Create class with comparator, and default reason. */
     public XEquivalenceClass(R defaultReason) {
         this.defaultReason = defaultReason;
     }
 
-    /**
-     * Create class with comparator, and default reason.
-     *
-     */
+    /** Create class with comparator, and default reason. */
     public XEquivalenceClass(R defaultReason, SetMaker<T> setMaker) {
         this.defaultReason = defaultReason;
         this.setMaker = setMaker;
     }
 
-    /**
-     * Add two equivalent items, with NO_REASON for the reason.
-     */
+    /** Add two equivalent items, with NO_REASON for the reason. */
     public XEquivalenceClass add(T a, T b) {
         return add(a, b, null);
     }
 
-    /**
-     * Add two equivalent items, with NO_REASON for the reason.
-     */
+    /** Add two equivalent items, with NO_REASON for the reason. */
     public XEquivalenceClass add(T a, T b, R reason) {
         return add(a, b, reason, reason);
     }
 
-    /**
-     * Add two equivalent items, plus a reason. The reason is only used for getReasons
-     */
+    /** Add two equivalent items, plus a reason. The reason is only used for getReasons */
     public XEquivalenceClass add(T a, T b, R reasonAB, R reasonBA) {
         if (a.equals(b)) return this;
         if (reasonAB == null) reasonAB = defaultReason;
@@ -130,10 +112,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         return this;
     }
 
-    /**
-     * Add all the information from the other class
-     *
-     */
+    /** Add all the information from the other class */
     public XEquivalenceClass<T, R> addAll(XEquivalenceClass<T, R> other) {
         // For now, does the simple, not optimized version
         for (T a : other.obj_obj_reasons.keySet()) {
@@ -148,9 +127,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         return this;
     }
 
-    /**
-     *
-     */
+    /** */
     private void addReason(T a, T b, R reason) {
         Map<T, Set<R>> obj_reasons = obj_obj_reasons.get(a);
         if (obj_reasons == null) obj_obj_reasons.put(a, obj_reasons = new HashMap());
@@ -162,16 +139,12 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     /**
      * Returns a set of all the explicit items in the equivalence set. (Any non-explicit items only
      * have themselves as equivalences.)
-     *
      */
     public Set<T> getExplicitItems() {
         return Collections.unmodifiableSet(toPartitionSet.keySet());
     }
 
-    /**
-     * Returns an unmodifiable set of all the equivalent objects
-     *
-     */
+    /** Returns an unmodifiable set of all the equivalent objects */
     public Set<T> getEquivalences(T a) {
         Set<T> aPartitionSet = toPartitionSet.get(a);
         if (aPartitionSet == null) { // manufacture an equivalence
@@ -194,10 +167,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         return result;
     }
 
-    /**
-     * returns true iff a is equivalent to b (or a.equals b)
-     *
-     */
+    /** returns true iff a is equivalent to b (or a.equals b) */
     public boolean isEquivalent(T a, T b) {
         if (a.equals(b)) return true;
         Set<T> aPartitionSet = toPartitionSet.get(a);
@@ -205,10 +175,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         return aPartitionSet.contains(b);
     }
 
-    /**
-     * Gets a sample object in the equivalence set for a.
-     *
-     */
+    /** Gets a sample object in the equivalence set for a. */
     public T getSample(T a) {
         Set<T> aPartitionSet = toPartitionSet.get(a);
         if (aPartitionSet == null) return a; // singleton
@@ -228,10 +195,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         return a;
     }
 
-    /**
-     * gets the set of all the samples, one from each equivalence class.
-     *
-     */
+    /** gets the set of all the samples, one from each equivalence class. */
     public Set<T> getSamples() {
         Set<T> seenAlready = new HashSet();
         Set<T> result = new HashSet();
@@ -273,8 +237,8 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     /**
-     * Returns a list of linkages, where each set of reasons to go from one obj to the next. The list does not include a and b themselves.
-     * The last linkage has a null result.<br>
+     * Returns a list of linkages, where each set of reasons to go from one obj to the next. The
+     * list does not include a and b themselves. The last linkage has a null result.<br>
      * Returns null if there is no connection.
      */
     public List<Linkage<T, R>> getReasons(T a, T b) {
@@ -326,9 +290,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         // return foundLists;
     }
 
-    /**
-     * For debugging.
-     */
+    /** For debugging. */
     @Override
     public String toString() {
         return getEquivalenceSets().toString();

@@ -1,6 +1,4 @@
-/**
- *
- */
+/** */
 package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
@@ -61,7 +59,7 @@ public class CLDRTransforms {
     final Set<String> overridden = new HashSet<>();
     final DependencyOrder dependencyOrder = new DependencyOrder();
 
-    static public class RegexFindFilenameFilter implements FilenameFilter {
+    public static class RegexFindFilenameFilter implements FilenameFilter {
         Matcher matcher;
 
         public RegexFindFilenameFilter(Matcher filter) {
@@ -75,17 +73,12 @@ public class CLDRTransforms {
     }
 
     /**
-     *
-     * @param dir
-     *            TODO
-     * @param namesMatchingRegex
-     *            TODO
-     * @param showProgress
-     *            null if no progress needed
+     * @param dir TODO
+     * @param namesMatchingRegex TODO
+     * @param showProgress null if no progress needed
      * @param skipDashTIds TODO
      * @return
      */
-
     public static void registerCldrTransforms(String dir, String namesMatchingRegex, Appendable showProgress, boolean keepDashTIds) {
         CLDRTransforms r = getInstance();
         if (dir == null) {
@@ -111,7 +104,6 @@ public class CLDRTransforms {
             r.registerTransliteratorsFromXML(dir, cldrFileName, files, keepDashTIds);
         }
         Transliterator.registerAny(); // do this last!
-
     }
 
     public static List<String> getAvailableIds() {
@@ -130,6 +122,7 @@ public class CLDRTransforms {
         // List<String> extras = new ArrayList<String>();
 
         Relation<Matcher, String> dependsOn = Relation.of(new LinkedHashMap<Matcher, Set<String>>(), LinkedHashSet.class);
+
         {
             addDependency("Latin-(Jamo|Hangul)(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
             addDependency("(Jamo|Hangul)-Latin(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
@@ -258,8 +251,7 @@ public class CLDRTransforms {
         private void addInterIndicDependency(String script) {
             addPivotDependency(script, "InterIndic");
             if (!script.equals("Arabic")) {
-                addDependency(script + "-Arabic",
-                    script + "-InterIndic", "InterIndic-Arabic");
+                addDependency(script + "-Arabic", script + "-InterIndic", "InterIndic-Arabic");
             }
         }
 
@@ -305,8 +297,7 @@ public class CLDRTransforms {
         }
 
         private void addDependenciesRecursively(String cldrFileName, Set<String> ordered, boolean hasXmlSuffix) {
-            String item = hasXmlSuffix && cldrFileName.endsWith(".xml") ? cldrFileName.substring(0,
-                cldrFileName.length() - 4) : cldrFileName;
+            String item = hasXmlSuffix && cldrFileName.endsWith(".xml") ? cldrFileName.substring(0, cldrFileName.length() - 4) : cldrFileName;
             for (Matcher m : dependsOn.keySet()) {
                 if (m.reset(item).matches()) {
                     for (String other : dependsOn.getAll(m)) {
@@ -321,7 +312,6 @@ public class CLDRTransforms {
             }
             ordered.add(item);
         }
-
     }
 
     public Transliterator getInstance(String id) {
@@ -338,11 +328,10 @@ public class CLDRTransforms {
         if (!matcher.matches()) {
             throw new IllegalArgumentException("**No transform for " + id);
         }
-        return getInstance(matcher.group(2) + "-" + matcher.group(1)
-            + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
+        return getInstance(matcher.group(2) + "-" + matcher.group(1) + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
-    private BiMap<String,String> displayNameToId = HashBiMap.create();
+    private BiMap<String, String> displayNameToId = HashBiMap.create();
 
     public BiMap<String, String> getDisplayNameToId() {
         return displayNameToId;
@@ -391,8 +380,7 @@ public class CLDRTransforms {
     /**
      * Return Icu rules, and the direction info
      *
-     * @param dir
-     *            TODO
+     * @param dir TODO
      * @param cldrFileName
      * @param directionInfo
      * @return
@@ -436,9 +424,7 @@ public class CLDRTransforms {
             // }
             // verifyNullFilter("halfwidth-fullwidth");
             if (showProgress != null) {
-                append("Registered new Transliterator: " + id
-                    + (oldTranslit == null ? "" : "\told:\t" + oldTranslit.getID())
-                    + '\n');
+                append("Registered new Transliterator: " + id + (oldTranslit == null ? "" : "\told:\t" + oldTranslit.getID()) + '\n');
                 if (id.startsWith("el-")) {
                     TestTransforms.showTransliterator("", t, 999);
                     Transliterator t2 = Transliterator.getInstance(id);
@@ -450,8 +436,7 @@ public class CLDRTransforms {
                 e.printStackTrace();
                 append("Couldn't register new Transliterator: " + id + "\t" + e.getMessage() + '\n');
             } else {
-                throw (IllegalArgumentException) new IllegalArgumentException("Couldn't register new Transliterator: "
-                    + id).initCause(e);
+                throw (IllegalArgumentException) new IllegalArgumentException("Couldn't register new Transliterator: " + id).initCause(e);
             }
         }
     }
@@ -501,13 +486,8 @@ public class CLDRTransforms {
 
         // do first, since others depend on theseregisterFromIcuFile
         /**
-         * Special aliases.
-         * Tone-Digit {
-         * alias {"Pinyin-NumericPinyin"}
-         * }
-         * Digit-Tone {
-         * alias {"NumericPinyin-Pinyin"}
-         * }
+         * Special aliases. Tone-Digit { alias {"Pinyin-NumericPinyin"} } Digit-Tone { alias
+         * {"NumericPinyin-Pinyin"} }
          */
         // registerFromIcuFile("Latin-ConjoiningJamo", directory, null);
         // registerFromIcuFile("Pinyin-NumericPinyin", directory, null);
@@ -555,8 +535,7 @@ public class CLDRTransforms {
                         }
                         checkIdFix(id, fixedIDs, oddIDs, translitID);
 
-                        final int direction = source.equals("FORWARD") ? Transliterator.FORWARD
-                            : Transliterator.REVERSE;
+                        final int direction = source.equals("FORWARD") ? Transliterator.FORWARD : Transliterator.REVERSE;
                         registerFromIcuFile(id, directory, filename, direction);
 
                         verifyNullFilter("halfwidth-fullwidth");
@@ -564,8 +543,7 @@ public class CLDRTransforms {
                         id = null;
                         filename = null;
                     } catch (RuntimeException e) {
-                        throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
-                            .initCause(e);
+                        throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source).initCause(e);
                     }
                 } else {
                     append(dir + "root.txt unhandled line:" + line);
@@ -589,7 +567,7 @@ public class CLDRTransforms {
             verifyNullFilter("halfwidth-fullwidth"); // TESTING
         }
 
-        for (Iterator<String> it = aliasMap.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = aliasMap.keySet().iterator(); it.hasNext(); ) {
             id = it.next();
             String source = aliasMap.get(id);
             Transliterator.unregister(id);
@@ -597,15 +575,14 @@ public class CLDRTransforms {
             Transliterator.registerInstance(t);
             // verifyNullFilter("halfwidth-fullwidth");
             appendln("Registered new Transliterator Alias: " + id);
-
         }
         appendln("Fixed IDs");
-        for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext(); ) {
             String id2 = it.next();
             appendln("\t" + id2 + "\t" + fixedIDs.get(id2));
         }
         appendln("Odd IDs");
-        for (Iterator<String> it = oddIDs.iterator(); it.hasNext();) {
+        for (Iterator<String> it = oddIDs.iterator(); it.hasNext(); ) {
             String id2 = it.next();
             appendln("\t" + id2);
         }
@@ -669,7 +646,7 @@ public class CLDRTransforms {
         // Remove all of the current registrations
         // first load into array, so we don't get sync problems.
         List<String> rawAvailable = new ArrayList<>();
-        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements(); ) {
             final String id = en.nextElement();
             if (filter != null && !filter.reset(id).matches()) {
                 continue;
@@ -689,7 +666,7 @@ public class CLDRTransforms {
         // deregisterIcuTransliterators(rawAvailable);
         deregisterIcuTransliterators(reversed);
 
-        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements(); ) {
             String oldId = en.nextElement();
             append("Retaining: " + oldId + "\n");
         }
@@ -713,9 +690,7 @@ public class CLDRTransforms {
                 throw e;
             }
             String className = t.getClass().getName();
-            if (className.endsWith(".CompoundTransliterator")
-                || className.endsWith(".RuleBasedTransliterator")
-                || className.endsWith(".AnyTransliterator")) {
+            if (className.endsWith(".CompoundTransliterator") || className.endsWith(".RuleBasedTransliterator") || className.endsWith(".AnyTransliterator")) {
                 appendln("REMOVING: " + oldId);
                 Transliterator.unregister(oldId);
             } else {
@@ -725,11 +700,14 @@ public class CLDRTransforms {
     }
 
     public enum Direction {
-        backward, both, forward
+        backward,
+        both,
+        forward
     }
 
     public enum Visibility {
-        external, internal
+        external,
+        internal
     }
 
     public static class ParsedTransformID {
@@ -805,8 +783,7 @@ public class CLDRTransforms {
             return getTarget() + "-" + getSource() + (getVariant() == null ? "" : "/" + getVariant());
         }
 
-        public ParsedTransformID() {
-        }
+        public ParsedTransformID() {}
 
         public ParsedTransformID set(String source, String target, String variant, Direction direction) {
             this.source = source;
@@ -958,7 +935,7 @@ public class CLDRTransforms {
 
         @Override
         public void handlePathValue(String path, String value) {
-             if (first) {
+            if (first) {
                 if (path.startsWith("//supplementalData/version")) {
                     return;
                 } else if (path.startsWith("//supplementalData/generation")) {

@@ -95,18 +95,14 @@ public class Unlocode {
             return names + ", " + locode + ", " + subdivision + ", " + north + ", " + east;
         }
 
-        /**
-         * Warning, must never have locode datas with the same locode and different other data.
-         */
+        /** Warning, must never have locode datas with the same locode and different other data. */
         @Override
         public int compareTo(LocodeData o) {
             // TODO Auto-generated method stub
             return locode.compareTo(o.locode);
         }
 
-        /**
-         * Warning, must never have locode datas with the same locode and different other data.
-         */
+        /** Warning, must never have locode datas with the same locode and different other data. */
         @Override
         public boolean equals(Object obj) {
             LocodeData other = (LocodeData) obj;
@@ -120,17 +116,13 @@ public class Unlocode {
 
         @Override
         public LocodeData merge(LocodeData other) {
-            if (locode.equals(other.locode)
-                && subdivision.equals(other.subdivision)
-                && north == other.north
-                && east == other.east) {
+            if (locode.equals(other.locode) && subdivision.equals(other.subdivision) && north == other.north && east == other.east) {
                 LinkedHashSet<String> set = new LinkedHashSet<>(names);
                 set.addAll(other.names);
                 return new LocodeData(locode, set, subdivision, north, east);
             }
             throw new IllegalArgumentException("Can't merge " + this + " with " + other);
         }
-
     }
 
     static Map<String, LocodeData> locodeToData = new HashMap<>();
@@ -148,8 +140,7 @@ public class Unlocode {
             load(3);
             // load exceptions
             try {
-                BufferedReader br = FileReaders.openFile(CldrUtility.class,
-                    "data/external/alternate_locode_name.txt");
+                BufferedReader br = FileReaders.openFile(CldrUtility.class, "data/external/alternate_locode_name.txt");
                 while (true) {
                     String line = br.readLine();
                     if (line == null) {
@@ -167,15 +158,15 @@ public class Unlocode {
                         break;
                     }
                     String[] parts = line.split("\\s*;\\s*");
-                    //System.out.println(Arrays.asList(parts));
+                    // System.out.println(Arrays.asList(parts));
                     String locode = parts[0].replace(" ", "");
                     if (locode.length() != 5) {
                         throw new IllegalArgumentException(line);
                     }
                     String alternateName = parts[1];
                     LocodeData locodeData = locodeToData.get(locode);
-                    putCheckingDuplicate(locodeToData, locode, new LocodeData(
-                        locode, alternateName, locodeData.subdivision, locodeData.north, locodeData.east));
+                    putCheckingDuplicate(
+                            locodeToData, locode, new LocodeData(locode, alternateName, locodeData.subdivision, locodeData.north, locodeData.east));
                 }
                 br.close();
             } catch (IOException e) {
@@ -239,12 +230,16 @@ public class Unlocode {
     //    }
 
     enum SubdivisionFields {
-        Subdivision_category, Code_3166_2, Subdivision_name, Language_code, Romanization_system, Parent_subdivision
+        Subdivision_category,
+        Code_3166_2,
+        Subdivision_name,
+        Language_code,
+        Romanization_system,
+        Parent_subdivision
     }
 
     public static void loadIso() throws IOException {
-        BufferedReader br = FileReaders.openFile(CldrUtility.class,
-            "data/external/subdivisionData.txt", StandardCharsets.UTF_8);
+        BufferedReader br = FileReaders.openFile(CldrUtility.class, "data/external/subdivisionData.txt", StandardCharsets.UTF_8);
         while (true) {
             // Subdivision category TAB 3166-2 code TAB Subdivision name TAB Language code TAB Romanization system TAB Parent subdivision
 
@@ -281,7 +276,7 @@ public class Unlocode {
             //                    break;
             //                }
             //            }
-//            System.out.println("\t" + locode + "\t" + bestName + "\t\t\t");
+            //            System.out.println("\t" + locode + "\t" + bestName + "\t\t\t");
 
             putCheckingDuplicate(iso3166_2Data, locode, new Iso3166_2Data(bestName));
         }
@@ -290,10 +285,8 @@ public class Unlocode {
 
     public static void load(int file) throws IOException {
         BufferedReader br =
-            //CldrUtility.getUTF8Data(
-            FileReaders.openFile(CldrUtility.class,
-                "data/external/2013-1_UNLOCODE_CodeListPart" + file + ".csv",
-                LATIN1);
+                // CldrUtility.getUTF8Data(
+                FileReaders.openFile(CldrUtility.class, "data/external/2013-1_UNLOCODE_CodeListPart" + file + ".csv", LATIN1);
         M3<String, String, Boolean> nameToAlternate = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), Boolean.class);
         Output<String> tempOutput = new Output<>();
 
@@ -407,10 +400,11 @@ public class Unlocode {
             if (temp.startsWith("ex ")) {
                 tempOutput.value = temp.substring(3);
             }
-            name = paren2 == name.length()
-                ? name.substring(0, paren).trim()
-                : (name.substring(0, paren) + name.substring(paren2 + 1)).replace("  ", " ").trim();
-            //System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
+            name =
+                    paren2 == name.length()
+                            ? name.substring(0, paren).trim()
+                            : (name.substring(0, paren) + name.substring(paren2 + 1)).replace("  ", " ").trim();
+            // System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
         }
         return name;
     }
@@ -472,8 +466,7 @@ public class Unlocode {
         loadCitiesCapitals(countryNameToCities, errors);
         loadCitiesOver1M(countryNameToCities, errors);
         SupplementalDataInfo supp = ToolConfig.getToolInstance().getSupplementalDataInfo();
-        Set<String> missing = new TreeSet<>(
-            supp.getBcp47Keys().get("tz"));
+        Set<String> missing = new TreeSet<>(supp.getBcp47Keys().get("tz"));
         Set<String> already = new TreeSet<>();
 
         for (Entry<String, LocodeData> entry : countryNameToCities.keyValueSet()) {
@@ -483,19 +476,19 @@ public class Unlocode {
             LinkedHashSet<String> remainingNames = new LinkedHashSet<>(item.names);
             remainingNames.remove(firstName);
             String lowerLocode = item.locode.toLowerCase(Locale.ENGLISH);
-            String info = countryName
-                + "\t" + (remainingNames.isEmpty() ? "" : remainingNames)
-                + "\t" + (item.subdivision.isEmpty() ? "" : "(" + item.subdivision + ")");
+            String info =
+                    countryName
+                            + "\t"
+                            + (remainingNames.isEmpty() ? "" : remainingNames)
+                            + "\t"
+                            + (item.subdivision.isEmpty() ? "" : "(" + item.subdivision + ")");
 
             if (missing.contains(lowerLocode)) {
                 missing.remove(lowerLocode);
                 already.add(lowerLocode);
                 continue;
             }
-            System.out.println("<location type=\"" + lowerLocode
-                + "\">" + firstName
-                + "</location>\t<!--" + info
-                + "-->");
+            System.out.println("<location type=\"" + lowerLocode + "\">" + firstName + "</location>\t<!--" + info + "-->");
         }
         System.out.println();
         System.out.println(Joiner.on("\n").join(errors));
@@ -519,7 +512,7 @@ public class Unlocode {
                 continue;
             }
             System.out.println((i++) + "\t" + s + "\t" + Unlocode.getLocodeData(s));
-            //if (i > 1000) break;
+            // if (i > 1000) break;
         }
 
         //        Set<String> KNOWN_ERRORS = new HashSet<String>(Arrays.asList("AR-LA", "DE-BR"));
@@ -561,7 +554,8 @@ public class Unlocode {
         int i = 1;
 
         BufferedReader br = FileReaders.openFile(CldrUtility.class, "data/external/Cities-Over1M.txt");
-        main: while (true) {
+        main:
+        while (true) {
             String line = br.readLine();
             if (line == null) {
                 break;
@@ -570,7 +564,7 @@ public class Unlocode {
                 continue;
             }
             String[] parts = line.split("\t");
-            //System.out.println(Arrays.asList(parts));
+            // System.out.println(Arrays.asList(parts));
             String cityName = parts[2];
             String subdivision = null;
             int bracket = cityName.indexOf('[');
@@ -630,7 +624,7 @@ public class Unlocode {
                 continue;
             }
             String[] parts = line.split(" *\t *");
-            //System.out.println(Arrays.asList(parts));
+            // System.out.println(Arrays.asList(parts));
             String cityName = parts[0];
             String countryName = parts[1];
             add(countryName, null, cityName, countryNameToCities, errors2);
@@ -639,9 +633,18 @@ public class Unlocode {
         return i;
     }
 
-    static final Set<String> noncountries = new HashSet<>(Arrays.asList(
-        "United States Virgin Islands", "Akrotiri and Dhekelia", "Easter Island", "Somaliland", "Northern Cyprus", "Nagorno-Karabakh Republic", "Abkhazia",
-        "Transnistria", "South Ossetia"));
+    static final Set<String> noncountries =
+            new HashSet<>(
+                    Arrays.asList(
+                            "United States Virgin Islands",
+                            "Akrotiri and Dhekelia",
+                            "Easter Island",
+                            "Somaliland",
+                            "Northern Cyprus",
+                            "Nagorno-Karabakh Republic",
+                            "Abkhazia",
+                            "Transnistria",
+                            "South Ossetia"));
 
     static final Transform<String, String> REMOVE_ACCENTS = Transliterator.getInstance("nfd;[:mn:]remove");
 
@@ -652,7 +655,7 @@ public class Unlocode {
                 return; // skip
             }
             errors2.add("**Couldn't find country " + countryName);
-            //continue;
+            // continue;
         }
         countryName = ULocale.getDisplayCountry("und-" + countryCode, ULocale.ENGLISH);
         Set<LocodeData> locodeDatas = nameToLocodeData.get(cityName);

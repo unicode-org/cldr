@@ -1,14 +1,12 @@
 /**
- *******************************************************************************
- * Copyright (C) 1996-2001, International Business Machines Corporation and    *
- * others. All Rights Reserved.                                                *
- *******************************************************************************
+ * ****************************************************************************** Copyright (C)
+ * 1996-2001, International Business Machines Corporation and * others. All Rights Reserved. *
+ * ******************************************************************************
  *
- * $Revision$
+ * <p>$Revision$
  *
- *******************************************************************************
+ * <p>******************************************************************************
  */
-
 package org.unicode.cldr.util;
 
 import java.util.Collection;
@@ -45,12 +43,13 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         }
     }
 
-    static private final class RWLong implements Comparable<RWLong> {
+    private static final class RWLong implements Comparable<RWLong> {
         // the uniqueCount ensures that two different RWIntegers will always be different
         static int uniqueCount;
         public long value;
         private final int forceUnique;
         public long time;
+
         {
             synchronized (RWLong.class) { // make thread-safe
                 forceUnique = uniqueCount++;
@@ -72,7 +71,6 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public String toString() {
             return String.valueOf(value);
         }
-
     }
 
     public Counter<T> add(T obj, long countValue) {
@@ -110,6 +108,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
 
     /**
      * Get the time, or 0
+     *
      * @param obj
      * @return the time, or 0 as a fallback
      */

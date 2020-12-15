@@ -67,11 +67,13 @@ public class Annotations {
             }
             String name = file.toString();
             String shortName = file.getName();
-            if (!shortName.endsWith(".xml") || // skip non-XML
-                shortName.startsWith("#") || // skip other junk files
-                shortName.startsWith(".")
-//                || shortName.contains("001") // skip world english for now
-                ) continue; // skip dot files (backups, etc)
+            if (!shortName.endsWith(".xml")
+                    || // skip non-XML
+                    shortName.startsWith("#")
+                    || // skip other junk files
+                    shortName.startsWith(".")
+            //                || shortName.contains("001") // skip world english for now
+            ) continue; // skip dot files (backups, etc)
             temp.add(dotSplitter.split(shortName).iterator().next());
         }
         LOCALES = temp.build();
@@ -104,10 +106,8 @@ public class Annotations {
                     } else if (myValue == null) {
                         templocaleData.put(key, parentValue);
                     } else { // need to combine
-                        String tts = myValue.tts == null
-                            ? parentValue.tts : myValue.tts;
-                        Set<String> annotations = myValue.annotations == null || myValue.annotations.isEmpty()
-                            ? parentValue.annotations : myValue.annotations;
+                        String tts = myValue.tts == null ? parentValue.tts : myValue.tts;
+                        Set<String> annotations = myValue.annotations == null || myValue.annotations.isEmpty() ? parentValue.annotations : myValue.annotations;
                         templocaleData.put(key, new Annotations(annotations, tts));
                     }
                 }
@@ -151,7 +151,7 @@ public class Annotations {
             if (alt != null) {
                 // do nothing for now
             } else if ("tts".equals(type)) {
-                addItems(localeData, us, Collections.<String> emptySet(), value);
+                addItems(localeData, us, Collections.<String>emptySet(), value);
             } else {
                 Set<String> attributes = new TreeSet<>(splitter.splitToList(value));
                 addItems(localeData, us, attributes, tts);
@@ -175,12 +175,11 @@ public class Annotations {
     }
 
     public Annotations(Set<String> attributes, String tts2) {
-        annotations = attributes == null ? Collections.<String> emptySet() : ImmutableSet.copyOf(attributes);
+        annotations = attributes == null ? Collections.<String>emptySet() : ImmutableSet.copyOf(attributes);
         for (String attr : annotations) {
             if (attr.contains(CldrUtility.INHERITANCE_MARKER)) {
                 throw new IllegalArgumentException(CldrUtility.INHERITANCE_MARKER);
             }
-
         }
         tts = tts2;
         if (tts != null && tts.contains(CldrUtility.INHERITANCE_MARKER)) {
@@ -189,8 +188,9 @@ public class Annotations {
     }
 
     public Annotations add(Set<String> attributes, String tts2) {
-        return new Annotations(getKeywords() == null ? attributes : attributes == null ? getKeywords() : union(attributes, getKeywords()),
-            getShortName() == null ? tts2 : tts2 == null ? getShortName() : throwDup());
+        return new Annotations(
+                getKeywords() == null ? attributes : attributes == null ? getKeywords() : union(attributes, getKeywords()),
+                getShortName() == null ? tts2 : tts2 == null ? getShortName() : throwDup());
     }
 
     private String throwDup() {
@@ -219,7 +219,7 @@ public class Annotations {
         static final CLDRFile ENGLISH = CONFIG.getEnglish();
         static final CLDRFile ENGLISH_ANNOTATIONS = null;
         static final SubdivisionNames englishSubdivisionIdToName = new SubdivisionNames("en", "main");
-        //CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
+        // CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
 
         private final String locale;
         private final UnicodeMap<Annotations> baseData;
@@ -233,8 +233,8 @@ public class Annotations {
         private final Set<String> keycapLabelSet;
         private final String keycapLabel;
         private final String flagLabel;
-//        private final String maleLabel;
-//        private final String femaleLabel;
+        //        private final String maleLabel;
+        //        private final String femaleLabel;
         private final Map<String, Annotations> localeCache = new ConcurrentHashMap<>();
 
         static UnicodeSetSpanner uss = new UnicodeSetSpanner(EmojiConstants.COMPONENTS); // must be sync'ed
@@ -245,24 +245,23 @@ public class Annotations {
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
             subdivisionIdToName = new SubdivisionNames(locale, "main", "subdivisions");
-// EmojiSubdivisionNames.getSubdivisionIdToName(locale);
+            // EmojiSubdivisionNames.getSubdivisionIdToName(locale);
             listPattern = new XListFormatter(cldrFile, EmojiConstants.COMPOSED_NAME_LIST);
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
-            final String regexPattern = ("\\Q" + initialPatternString.replace("{0}", "\\E.*\\Q").replace("{1}", "\\E.*\\Q") + "\\E")
-                .replace("\\Q\\E", ""); // HACK to detect use of prefix pattern
+            final String regexPattern =
+                    ("\\Q" + initialPatternString.replace("{0}", "\\E.*\\Q").replace("{1}", "\\E.*\\Q") + "\\E")
+                            .replace("\\Q\\E", ""); // HACK to detect use of prefix pattern
             initialRegexPattern = Pattern.compile(regexPattern);
             flagLabelSet = getLabelSet("flag");
             flagLabel = flagLabelSet.isEmpty() ? null : flagLabelSet.iterator().next();
             keycapLabelSet = getLabelSet("keycap");
             keycapLabel = keycapLabelSet.isEmpty() ? null : keycapLabelSet.iterator().next();
-//            maleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"male\"]");
-//            femaleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"female\"]");
+            //            maleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"male\"]");
+            //            femaleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"female\"]");
         }
 
-        /**
-         * @deprecated Use {@link #getLabelSet(String)} instead
-         */
+        /** @deprecated Use {@link #getLabelSet(String)} instead */
         @Deprecated
         private Set<String> getLabelSet() {
             return getLabelSet("flag");
@@ -270,7 +269,7 @@ public class Annotations {
 
         private Set<String> getLabelSet(String typeAttributeValue) {
             String label = getStringValue("//ldml/characterLabels/characterLabel[@type=\"" + typeAttributeValue + "\"]");
-            return label == null ? Collections.<String> emptySet() : Collections.singleton(label);
+            return label == null ? Collections.<String>emptySet() : Collections.singleton(label);
         }
 
         private String getStringValue(String xpath) {
@@ -330,10 +329,12 @@ public class Annotations {
                 localeCache.put(code, stock);
                 return stock.annotations;
             }
-            return Collections.<String> emptySet();
+            return Collections.<String>emptySet();
         }
 
-        /** Returns the set of all keys for which annotations are available. WARNING: keys have the Emoji Presentation Selector removed!
+        /**
+         * Returns the set of all keys for which annotations are available. WARNING: keys have the
+         * Emoji Presentation Selector removed!
          */
         public UnicodeSet keySet() {
             return baseData.keySet();
@@ -355,13 +356,13 @@ public class Annotations {
                     if (tempName == null) {
                         return null;
                     }
-                    return new Annotations(Collections.<String> emptySet(), tempName);
+                    return new Annotations(Collections.<String>emptySet(), tempName);
                 } else { // fall back to English if possible, but mark it.
                     tempName = getDataSet("en").getShortName(code);
                     if (tempName == null) {
                         return null;
                     }
-                    return new Annotations(Collections.<String> emptySet(), ENGLISH_MARKER + tempName);
+                    return new Annotations(Collections.<String>emptySet(), ENGLISH_MARKER + tempName);
                 }
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
@@ -372,17 +373,16 @@ public class Annotations {
                 }
                 String flagName = flagLabel == null ? regionName : initialPattern.format(flagLabel, regionName);
                 return new Annotations(flagLabelSet, flagName);
-            } else if (code.startsWith(EmojiConstants.BLACK_FLAG)
-                && code.endsWith(EmojiConstants.TAG_TERM)) {
+            } else if (code.startsWith(EmojiConstants.BLACK_FLAG) && code.endsWith(EmojiConstants.TAG_TERM)) {
                 String subdivisionCode = EmojiConstants.getTagSpec(code);
                 String subdivisionName = subdivisionIdToName.get(subdivisionCode);
                 if (subdivisionName == null) {
-//                    subdivisionName = englishSubdivisionIdToName.get(subdivisionCode);
-//                    if (subdivisionName != null) {
-//                        subdivisionName = ENGLISH_MARKER + subdivisionCode;
-//                    } else {
-                        subdivisionName = MISSING_MARKER + subdivisionCode;
-//                    }
+                    //                    subdivisionName = englishSubdivisionIdToName.get(subdivisionCode);
+                    //                    if (subdivisionName != null) {
+                    //                        subdivisionName = ENGLISH_MARKER + subdivisionCode;
+                    //                    } else {
+                    subdivisionName = MISSING_MARKER + subdivisionCode;
+                    //                    }
                 }
                 String flagName = flagLabel == null ? subdivisionName : initialPattern.format(flagLabel, subdivisionName);
                 return new Annotations(flagLabelSet, flagName);
@@ -401,17 +401,17 @@ public class Annotations {
                 }
             }
             if (code.contains(EmojiConstants.JOINER_STRING)) {
-//                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
-//                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police officer: man, medium-light skin tone"
-//                        rem = EmojiConstants.MAN + rem;
-//                        code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
-//                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
-//                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-//                    if (matchesInitialPattern(code)) { //
-//                        rem = EmojiConstants.WOMAN + rem;
-//                        code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
-//                    }
-//                } else
+                //                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
+                //                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police officer: man, medium-light skin tone"
+                //                        rem = EmojiConstants.MAN + rem;
+                //                        code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
+                //                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
+                //                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
+                //                    if (matchesInitialPattern(code)) { //
+                //                        rem = EmojiConstants.WOMAN + rem;
+                //                        code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
+                //                    }
+                //                } else
                 if (code.contains(EmojiConstants.KISS)) {
                     rem = code + rem;
                     code = "💏";
@@ -421,17 +421,17 @@ public class Annotations {
                     code = "💑";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (code.contains(EmojiConstants.HANDSHAKE)) {
-                    code = code.startsWith(EmojiConstants.MAN) ? "👬"
-                        : code.endsWith(EmojiConstants.MAN) ? "👫"
-                            : code.startsWith(EmojiConstants.WOMAN) ? "👭"
-                            : NEUTRAL_HOLDING;
+                    code =
+                            code.startsWith(EmojiConstants.MAN)
+                                    ? "👬"
+                                    : code.endsWith(EmojiConstants.MAN) ? "👫" : code.startsWith(EmojiConstants.WOMAN) ? "👭" : NEUTRAL_HOLDING;
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     rem = code + rem;
                     code = "👪";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
-//                } else {
-//                    startPattern = listPattern;
+                    //                } else {
+                    //                    startPattern = listPattern;
                 }
                 // left over is "👨🏿‍⚖","judge: man, dark skin tone"
             }
@@ -444,8 +444,8 @@ public class Annotations {
             return baseName != null && initialRegexPattern.matcher(baseName).matches();
         }
 
-        private Annotations getBasePlusRemainder(CLDRFile cldrFile, String base, String rem, UnicodeSet ignore, SimpleFormatter pattern,
-            Transform<String, String> otherSource) {
+        private Annotations getBasePlusRemainder(
+                CLDRFile cldrFile, String base, String rem, UnicodeSet ignore, SimpleFormatter pattern, Transform<String, String> otherSource) {
             String shortName = null;
             Set<String> annotations = new LinkedHashSet<>();
             boolean needMarker = true;
@@ -505,7 +505,7 @@ public class Annotations {
                     String sep = initialPattern.format("", "");
                     int splitPoint = shortName.indexOf(sep);
                     if (splitPoint >= 0) {
-                        String modName0 = shortName.substring(splitPoint+sep.length());
+                        String modName0 = shortName.substring(splitPoint + sep.length());
                         shortName = shortName.substring(0, splitPoint);
                         if (modName != null) {
                             arguments.add(modName);
@@ -528,9 +528,7 @@ public class Annotations {
             return result;
         }
 
-        /**
-         * @deprecated Use {@link #toString(String,boolean,AnnotationSet)} instead
-         */
+        /** @deprecated Use {@link #toString(String,boolean,AnnotationSet)} instead */
         @Deprecated
         public String toString(String code, boolean html) {
             return toString(code, html, null);
@@ -649,16 +647,12 @@ public class Annotations {
         return result;
     }
 
-    /**
-     * @return the annotations
-     */
+    /** @return the annotations */
     public Set<String> getKeywords() {
         return annotations;
     }
 
-    /**
-     * @return the tts
-     */
+    /** @return the tts */
     public String getShortName() {
         return tts;
     }
@@ -677,25 +671,45 @@ public class Annotations {
         final UnicodeMap<Annotations> map = eng.getUnresolvedExplicitValues();
         Set<String> keys = new TreeSet<>(ChartAnnotations.RBC);
         map.keySet().addAllTo(keys);
-//        keys.add("👩🏻‍⚖");
+        //        keys.add("👩🏻‍⚖");
         for (String key : keys) {
-            System.out.println(Utility.hex(key, 4, "_").toLowerCase(Locale.ROOT)
-                + "\t" + key
-                + "\t" + map.get(key).getShortName()
-                + "\t" + Joiner.on(" | ").join(map.get(key).getKeywords()));
+            System.out.println(
+                    Utility.hex(key, 4, "_").toLowerCase(Locale.ROOT)
+                            + "\t"
+                            + key
+                            + "\t"
+                            + map.get(key).getShortName()
+                            + "\t"
+                            + Joiner.on(" | ").join(map.get(key).getKeywords()));
         }
-        for (String s : Arrays.asList(
-            "💏", "👩‍❤️‍💋‍👩",
-            "💑", "👩‍❤️‍👩",
-            "👪", "👩‍👩‍👧",
-            "👦🏻", "👩🏿",
-            "👨‍⚖", "👨🏿‍⚖", "👩‍⚖", "👩🏼‍⚖",
-            "👮", "👮‍♂️", "👮🏼‍♂️", "👮‍♀️", "👮🏿‍♀️",
-            "🚴", "🚴🏿", "🚴‍♂️", "🚴🏿‍♂️", "🚴‍♀️", "🚴🏿‍♀️")) {
+        for (String s :
+                Arrays.asList(
+                        "💏",
+                        "👩‍❤️‍💋‍👩",
+                        "💑",
+                        "👩‍❤️‍👩",
+                        "👪",
+                        "👩‍👩‍👧",
+                        "👦🏻",
+                        "👩🏿",
+                        "👨‍⚖",
+                        "👨🏿‍⚖",
+                        "👩‍⚖",
+                        "👩🏼‍⚖",
+                        "👮",
+                        "👮‍♂️",
+                        "👮🏼‍♂️",
+                        "👮‍♀️",
+                        "👮🏿‍♀️",
+                        "🚴",
+                        "🚴🏿",
+                        "🚴‍♂️",
+                        "🚴🏿‍♂️",
+                        "🚴‍♀️",
+                        "🚴🏿‍♀️")) {
             final String shortName = eng.getShortName(s);
             final Set<String> keywords = eng.getKeywords(s);
-            System.out.println("{\"" + s + "\",\"" + shortName + "\",\"" + Joiner.on("|")
-                .join(keywords) + "\"},");
+            System.out.println("{\"" + s + "\",\"" + shortName + "\",\"" + Joiner.on("|").join(keywords) + "\"},");
         }
     }
 
@@ -711,11 +725,17 @@ public class Annotations {
             Annotations value = map.get(key);
             Annotations value100 = map100.get(key);
             Set<String> keywords100 = (value100 == null ? null : value100.getKeywords());
-            System.out.println(key + "\tname\t"
-                + "\t" + value.getShortName()
-                + "\t" + (value100 == null ? "" : value100.getShortName())
-                + "\t" + Joiner.on(" | ").join(value.getKeywords())
-                + "\t" + (keywords100 == null ? "" : Joiner.on(" | ").join(keywords100)));
+            System.out.println(
+                    key
+                            + "\tname\t"
+                            + "\t"
+                            + value.getShortName()
+                            + "\t"
+                            + (value100 == null ? "" : value100.getShortName())
+                            + "\t"
+                            + Joiner.on(" | ").join(value.getKeywords())
+                            + "\t"
+                            + (keywords100 == null ? "" : Joiner.on(" | ").join(keywords100)));
         }
     }
 }

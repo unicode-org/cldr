@@ -132,12 +132,11 @@ public abstract class Visitor {
 
     // ===== MUST BE OVERRIDEN =====
 
-    abstract protected void doBefore(Object container, Object item);
+    protected abstract void doBefore(Object container, Object item);
 
-    abstract protected void doBetween(Object container, Object lastItem, Object nextItem);
+    protected abstract void doBetween(Object container, Object lastItem, Object nextItem);
 
-    abstract protected void doAfter(Object container, Object item);
+    protected abstract void doAfter(Object container, Object item);
 
-    abstract protected void doSimpleAt(Object o);
-
+    protected abstract void doSimpleAt(Object o);
 }

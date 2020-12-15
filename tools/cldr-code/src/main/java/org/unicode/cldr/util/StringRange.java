@@ -20,31 +20,34 @@ public class StringRange {
     public interface Adder {
         /**
          * @param start
-         * @param end   may be null, for adding single string
+         * @param end may be null, for adding single string
          */
         void add(String start, String end);
     }
 
-    public static final Comparator<int[]> COMPARE_INT_ARRAYS = new Comparator<int[]>() {
-        @Override
-        public int compare(int[] o1, int[] o2) {
-            int minIndex = Math.min(o1.length, o2.length);
-            for (int i = 0; i < minIndex; ++i) {
-                int diff = o1[i] - o2[i];
-                if (diff != 0) {
-                    return diff;
+    public static final Comparator<int[]> COMPARE_INT_ARRAYS =
+            new Comparator<int[]>() {
+                @Override
+                public int compare(int[] o1, int[] o2) {
+                    int minIndex = Math.min(o1.length, o2.length);
+                    for (int i = 0; i < minIndex; ++i) {
+                        int diff = o1[i] - o2[i];
+                        if (diff != 0) {
+                            return diff;
+                        }
+                    }
+                    return o1.length - o2.length;
                 }
-            }
-            return o1.length - o2.length;
-        }
-    };
+            };
 
     /**
      * Compact the set of strings.
+     *
      * @param source
      * @param adder adds each pair to the output. See the {@link Adder} interface.
      * @param shorterPairs use abc-d instead of abc-abd
-     * @param moreCompact use a more compact form, at the expense of more processing. If false, source must be sorted.
+     * @param moreCompact use a more compact form, at the expense of more processing. If false,
+     *     source must be sorted.
      */
     public static void compact(Set<String> source, Adder adder, boolean shorterPairs, boolean moreCompact) {
         if (!moreCompact) {
@@ -63,9 +66,7 @@ public class StringRange {
                         }
                     }
                     // We failed to find continuation. Add what we have and restart
-                    adder.add(start, end == null ? null
-                        : !shorterPairs ? end
-                            : end.substring(prefixLen, end.length()));
+                    adder.add(start, end == null ? null : !shorterPairs ? end : end.substring(prefixLen, end.length()));
                 }
                 // new possible range
                 start = s;
@@ -73,9 +74,7 @@ public class StringRange {
                 lastCp = s.codePointBefore(s.length());
                 prefixLen = s.length() - Character.charCount(lastCp);
             }
-            adder.add(start, end == null ? null
-                : !shorterPairs ? end
-                    : end.substring(prefixLen, end.length()));
+            adder.add(start, end == null ? null : !shorterPairs ? end : end.substring(prefixLen, end.length()));
         } else {
             // not a fast algorithm, but ok for now
             // TODO rewire to use the first (slower) algorithm to generate the ranges, then compact them from there.
@@ -97,6 +96,7 @@ public class StringRange {
 
     /**
      * Faster but not as good compaction. Only looks at final codepoint.
+     *
      * @param source
      * @param adder
      * @param shorterPairs
@@ -109,7 +109,7 @@ public class StringRange {
         LinkedList<Ranges> ranges = new LinkedList<>(inputRanges);
         for (int i = size - 1; i >= 0; --i) {
             Ranges last = null;
-            for (Iterator<Ranges> it = ranges.iterator(); it.hasNext();) {
+            for (Iterator<Ranges> it = ranges.iterator(); it.hasNext(); ) {
                 Ranges item = it.next();
                 if (last == null) {
                     last = item;
@@ -170,9 +170,9 @@ public class StringRange {
         }
 
         public boolean merge(int pivot, Ranges other) {
-//            if (this.toString().equals("afz")) {
-//                int debug = 0;
-//            }
+            //            if (this.toString().equals("afz")) {
+            //                int debug = 0;
+            //            }
             // we will merge items if the pivot is adjacent, and all other ranges are equal
             for (int i = ranges.length - 1; i >= 0; --i) {
                 if (i == pivot) {

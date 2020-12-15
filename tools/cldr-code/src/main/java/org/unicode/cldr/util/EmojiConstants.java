@@ -18,12 +18,13 @@ public class EmojiConstants {
     public static final UnicodeSet HAIR = new UnicodeSet(0x1F9B0, 0x1F9B3).freeze();
     public static final char JOINER = '\u200D';
     public static final String JOINER_STRING = String.valueOf(JOINER);
-    public static final UnicodeSet COMPONENTS = new UnicodeSet(EmojiConstants.MODIFIERS)
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B0))
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B1))
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B2))
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B3))
-        .freeze();
+    public static final UnicodeSet COMPONENTS =
+            new UnicodeSet(EmojiConstants.MODIFIERS)
+                    .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B0))
+                    .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B1))
+                    .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B2))
+                    .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B3))
+                    .freeze();
 
     public static final String KISS = "💋";
     public static final String HEART = "❤";
@@ -40,7 +41,7 @@ public class EmojiConstants {
 
     public static final ListTypeLength COMPOSED_NAME_LIST = ListTypeLength.UNIT_SHORT;
 
-    //public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
+    // public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
     public static String getFlagCode(String s) {
         return String.valueOf((char) (s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
     }
@@ -56,7 +57,7 @@ public class EmojiConstants {
     public static final int TAG_TERM_CHAR = 0xE007F;
 
     public static String getEmojiFromSubdivisionCodes(String string) {
-        string = string.toLowerCase(Locale.ROOT).replace("-","");
+        string = string.toLowerCase(Locale.ROOT).replace("-", "");
         StringBuilder result = new StringBuilder().appendCodePoint(0x1F3F4);
         for (int cp : CharSequences.codePoints(string)) {
             result.appendCodePoint(TAG_BASE + cp);
@@ -64,20 +65,17 @@ public class EmojiConstants {
         return result.appendCodePoint(TAG_TERM_CHAR).toString();
     }
 
-    public static final UnicodeSet FAMILY_MARKERS = new UnicodeSet()
-        .add(0x1F466, 0x1F469).add(0x1F476)
-        .add(JOINER_STRING)
-        .freeze(); // boy, girl, man, woman, baby
-    public static final UnicodeSet REM_SKIP_SET = new UnicodeSet()
-        .add(JOINER_STRING)
-        .freeze();
-    public static final UnicodeSet REM_GROUP_SKIP_SET = new UnicodeSet(REM_SKIP_SET)
-        .add(EmojiConstants.HEART)
-        .add(EmojiConstants.KISS)
-        .add(EmojiConstants.HANDSHAKE)
-        .add(MALE_SIGN)
-        .add(FEMALE_SIGN)
-        .freeze();
+    public static final UnicodeSet FAMILY_MARKERS =
+            new UnicodeSet().add(0x1F466, 0x1F469).add(0x1F476).add(JOINER_STRING).freeze(); // boy, girl, man, woman, baby
+    public static final UnicodeSet REM_SKIP_SET = new UnicodeSet().add(JOINER_STRING).freeze();
+    public static final UnicodeSet REM_GROUP_SKIP_SET =
+            new UnicodeSet(REM_SKIP_SET)
+                    .add(EmojiConstants.HEART)
+                    .add(EmojiConstants.KISS)
+                    .add(EmojiConstants.HANDSHAKE)
+                    .add(MALE_SIGN)
+                    .add(FEMALE_SIGN)
+                    .freeze();
 
     public static String getTagSpec(String code) {
         StringBuilder b = new StringBuilder();

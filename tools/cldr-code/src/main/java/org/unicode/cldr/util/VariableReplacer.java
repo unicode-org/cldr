@@ -26,7 +26,7 @@ public class VariableReplacer {
         String oldSource;
         do {
             oldSource = source;
-            for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+            for (Iterator it = m.keySet().iterator(); it.hasNext(); ) {
                 String variable = (String) it.next();
                 String value = (String) m.get(variable);
                 source = replaceAll(source, variable, value);

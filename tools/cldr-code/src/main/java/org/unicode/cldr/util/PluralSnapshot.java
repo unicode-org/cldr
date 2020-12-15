@@ -26,7 +26,12 @@ import com.ibm.icu.util.ULocale;
 public class PluralSnapshot implements Comparable<PluralSnapshot> {
 
     public enum Plurals {
-        zero, one, two, few, many, other("x");
+        zero,
+        one,
+        two,
+        few,
+        many,
+        other("x");
         final String abb;
 
         Plurals(String s) {
@@ -43,12 +48,14 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
     }
 
     public enum Integral {
-        integer, fraction
+        integer,
+        fraction
     }
 
     static final int LEN = 128;
 
     static Set<Double> zeroOne = new TreeSet<>();
+
     static {
         zeroOne.add(0.0d);
         zeroOne.add(1.0d);
@@ -69,8 +76,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
     public static class SnapshotInfo implements Iterable<Entry<PluralSnapshot, Set<String>>> {
         // private Relation<String,String> rulesToLocales = Relation.of(new HashMap<String,Set<String>>(),
         // TreeSet.class);
-        private Relation<PluralSnapshot, String> snapshotToLocales = Relation.of(
-            new TreeMap<PluralSnapshot, Set<String>>(), TreeSet.class);
+        private Relation<PluralSnapshot, String> snapshotToLocales = Relation.of(new TreeMap<PluralSnapshot, Set<String>>(), TreeSet.class);
         private BitSet pluralsTransitionAt = new BitSet();
         private Integral integral;
 
@@ -117,8 +123,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                 }
                 int vnext = next == -1 ? LEN : next;
                 if (vnext > i + 1) {
-                    result.append("-").append(String.valueOf(vnext - 1)
-                        + (integral == Integral.fraction ? ".x" : ""));
+                    result.append("-").append(String.valueOf(vnext - 1) + (integral == Integral.fraction ? ".x" : ""));
                 }
                 result.append("</th>");
             }
@@ -127,12 +132,13 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
         }
     }
 
-    private static final EnumMap<PluralType, EnumMap<Integral, SnapshotInfo>> SINGLETONS = new EnumMap<>(
-        PluralType.class);
+    private static final EnumMap<PluralType, EnumMap<Integral, SnapshotInfo>> SINGLETONS = new EnumMap<>(PluralType.class);
+
     static {
         SINGLETONS.put(PluralType.cardinal, new EnumMap<Integral, SnapshotInfo>(Integral.class));
         SINGLETONS.put(PluralType.ordinal, new EnumMap<Integral, SnapshotInfo>(Integral.class));
     }
+
     private EnumSet<Plurals> found;
 
     public static SnapshotInfo getInstance(PluralType pluralType, Integral integral) {
@@ -242,8 +248,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
         if (colSpan != 1) {
             result.append(" colSpan='" + colSpan + "'");
         }
-        result.append(" title='").append(item.toString()).append("'>")
-            .append(item.abbreviated()).append("</td>");
+        result.append(" title='").append(item.toString()).append("'>").append(item.abbreviated()).append("</td>");
     }
 
     private static <T> void appendItems(StringBuilder result, T[] plurals3, double offset) {
@@ -265,19 +270,17 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
 
     public static String getDefaultStyles() {
         return "<style>\n"
-            +
-            "td.l, td.z, td.o, td.t, td.f, td.m, td.x, th.h, table.pluralComp {border: 1px solid #666; font-size: 8pt}\n"
-            +
-            "table.pluralComp {border-collapse:collapse}\n" +
-            "th.h {background-color:#EEE; border-top: 2px solid #000; border-bottom: 2px solid #000;}\n" +
-            "td.l {background-color:#C0C; border-top: 2px solid #000; color:white; font-weight: bold}\n" +
-            "td.z {background-color:#F00}\n" +
-            "td.o {background-color:#DD0}\n" +
-            "td.t {background-color:#0F0}\n" +
-            "td.f {background-color:#0DD}\n" +
-            "td.m {background-color:#99F}\n" +
-            "td.x {background-color:#CCC}\n" +
-            "td.c01 {text-decoration:underline}\n";
+                + "td.l, td.z, td.o, td.t, td.f, td.m, td.x, th.h, table.pluralComp {border: 1px solid #666; font-size: 8pt}\n"
+                + "table.pluralComp {border-collapse:collapse}\n"
+                + "th.h {background-color:#EEE; border-top: 2px solid #000; border-bottom: 2px solid #000;}\n"
+                + "td.l {background-color:#C0C; border-top: 2px solid #000; color:white; font-weight: bold}\n"
+                + "td.z {background-color:#F00}\n"
+                + "td.o {background-color:#DD0}\n"
+                + "td.t {background-color:#0F0}\n"
+                + "td.f {background-color:#0DD}\n"
+                + "td.m {background-color:#99F}\n"
+                + "td.x {background-color:#CCC}\n"
+                + "td.c01 {text-decoration:underline}\n";
     }
 
     public static void writeTables(CLDRFile english, PrintWriter out) {
@@ -291,8 +294,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                 System.out.println("\n" + integral + "\n");
                 System.out.println(info.toOverview());
 
-                String title = UCharacter.toTitleCase(pluralType.toString(), null)
-                    + "-" + UCharacter.toTitleCase(integral.toString(), null);
+                String title = UCharacter.toTitleCase(pluralType.toString(), null) + "-" + UCharacter.toTitleCase(integral.toString(), null);
                 out.println("<h3>" + CldrUtility.getDoubleLinkedText(title) + "</h3>");
                 if (integral == Integral.fraction) {
                     out.println("<p><i>This table has not yet been updated to capture the new types of plural fraction behavior.</i></p>");
@@ -319,15 +321,17 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                         String name = english.getName(localeId);
                         fullLocales.put(name, localeId);
                     }
-                    out.print("<tr><td rowSpan='2'>" + ss.count +
-                        "</td><td class='l' colSpan='121'>");
+                    out.print("<tr><td rowSpan='2'>" + ss.count + "</td><td class='l' colSpan='121'>");
                     int count = 0;
                     for (Entry<String, String> entry : fullLocales.entrySet()) {
                         String code = entry.getValue();
-                        out.print("<span title='" + code + "'>"
-                            + (count == 0 ? "" : ", ")
-                            + CldrUtility.getDoubleLinkedText(code + "-comp", entry.getKey())
-                            + "</span>");
+                        out.print(
+                                "<span title='"
+                                        + code
+                                        + "'>"
+                                        + (count == 0 ? "" : ", ")
+                                        + CldrUtility.getDoubleLinkedText(code + "-comp", entry.getKey())
+                                        + "</span>");
                         count++;
                     }
                     out.println("</td></tr>");

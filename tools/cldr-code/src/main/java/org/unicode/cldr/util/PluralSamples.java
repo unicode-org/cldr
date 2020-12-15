@@ -72,6 +72,7 @@ public class PluralSamples {
 
     /**
      * Get a set of samples for the locale.
+     *
      * @param locale
      * @return
      */
@@ -86,6 +87,7 @@ public class PluralSamples {
 
     /**
      * Return a mapping from plural category to doubles
+     *
      * @param i
      * @return
      */

@@ -37,11 +37,12 @@ public class ICUServiceBuilder {
 
     private static TimeZone utc = TimeZone.getTimeZone("GMT");
     private static DateFormat iso = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", ULocale.ENGLISH);
+
     static {
         iso.setTimeZone(utc);
     }
 
-    static public String isoDateFormat(Date date) {
+    public static String isoDateFormat(Date date) {
         return iso.format(date);
     }
 
@@ -50,7 +51,7 @@ public class ICUServiceBuilder {
         return iso.format(new Date(value));
     }
 
-    static public Date isoDateParse(String date) throws ParseException {
+    public static Date isoDateParse(String date) throws ParseException {
         return iso.parse(date);
     }
 
@@ -69,8 +70,8 @@ public class ICUServiceBuilder {
     // return this; // for chaining
     // }
 
-    private static int[] DateFormatValues = { -1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL };
-    private static String[] DateFormatNames = { "none", "short", "medium", "long", "full" };
+    private static int[] DateFormatValues = {-1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL};
+    private static String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
 
     public static String getDateNames(int i) {
         return DateFormatNames[i];
@@ -78,7 +79,7 @@ public class ICUServiceBuilder {
 
     public static int LIMIT_DATE_FORMAT_INDEX = DateFormatValues.length;
 
-    private static final String[] Days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
+    private static final String[] Days = {"sun", "mon", "tue", "wed", "thu", "fri", "sat"};
 
     // public SimpleDateFormat getDateFormat(CLDRFile cldrFile, int dateIndex, int timeIndex) {
     // //CLDRFile cldrFile = cldrFactory.make(localeID.toString(), true);
@@ -164,10 +165,8 @@ public class ICUServiceBuilder {
             rules = collationFile.getStringValue(path);
         }
         RuleBasedCollator col;
-        if (rules != null && rules.length() > 0)
-            col = new RuleBasedCollator(rules);
-        else
-            col = (RuleBasedCollator) RuleBasedCollator.getInstance();
+        if (rules != null && rules.length() > 0) col = new RuleBasedCollator(rules);
+        else col = (RuleBasedCollator) RuleBasedCollator.getInstance();
 
         return col;
     }
@@ -270,9 +269,8 @@ public class ICUServiceBuilder {
 
         String prefix = "//ldml/dates/calendars/calendar[@type=\"" + calendar + "\"]/";
 
-        formatData.setAmPmStrings(last = getArrayOfWinningValues(new String[] {
-            getDayPeriods(prefix, "format", "wide", "am"),
-            getDayPeriods(prefix, "format", "wide", "pm") }));
+        formatData.setAmPmStrings(
+                last = getArrayOfWinningValues(new String[] {getDayPeriods(prefix, "format", "wide", "am"), getDayPeriods(prefix, "format", "wide", "pm")}));
         checkFound(last);
         // if (last[0] == null && notGregorian) {
         // if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
@@ -297,19 +295,13 @@ public class ICUServiceBuilder {
         // formatData.setEraNames(last = gregorianBackup.getEraNames());
         // }
 
-        formatData.setMonths(getArray(prefix, "month", "format", "wide"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.WIDE);
-        formatData.setMonths(getArray(prefix, "month", "format", "abbreviated"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.ABBREVIATED);
-        formatData.setMonths(getArray(prefix, "month", "format", "narrow"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.NARROW);
+        formatData.setMonths(getArray(prefix, "month", "format", "wide"), DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        formatData.setMonths(getArray(prefix, "month", "format", "abbreviated"), DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        formatData.setMonths(getArray(prefix, "month", "format", "narrow"), DateFormatSymbols.FORMAT, DateFormatSymbols.NARROW);
 
-        formatData.setMonths(getArray(prefix, "month", "stand-alone", "wide"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.WIDE);
-        formatData.setMonths(getArray(prefix, "month", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.ABBREVIATED);
-        formatData.setMonths(getArray(prefix, "month", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.NARROW);
+        formatData.setMonths(getArray(prefix, "month", "stand-alone", "wide"), DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        formatData.setMonths(getArray(prefix, "month", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        formatData.setMonths(getArray(prefix, "month", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
 
         // formatData.setWeekdays(getArray(prefix, "day", "format", "wide"));
         // if (last == null && notGregorian) {
@@ -317,56 +309,36 @@ public class ICUServiceBuilder {
         // formatData.setWeekdays(gregorianBackup.getWeekdays());
         // }
 
-        formatData.setWeekdays(getArray(prefix, "day", "format", "wide"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.WIDE);
-        formatData.setWeekdays(getArray(prefix, "day", "format", "abbreviated"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.ABBREVIATED);
-        formatData.setWeekdays(getArray(prefix, "day", "format", "narrow"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.NARROW);
+        formatData.setWeekdays(getArray(prefix, "day", "format", "wide"), DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        formatData.setWeekdays(getArray(prefix, "day", "format", "abbreviated"), DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        formatData.setWeekdays(getArray(prefix, "day", "format", "narrow"), DateFormatSymbols.FORMAT, DateFormatSymbols.NARROW);
 
-        formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "wide"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.WIDE);
-        formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.ABBREVIATED);
-        formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.NARROW);
+        formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "wide"), DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
 
         // quarters
 
-        formatData.setQuarters(getArray(prefix, "quarter", "format", "wide"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.WIDE);
-        formatData.setQuarters(getArray(prefix, "quarter", "format", "abbreviated"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.ABBREVIATED);
-        formatData.setQuarters(getArray(prefix, "quarter", "format", "narrow"), DateFormatSymbols.FORMAT,
-            DateFormatSymbols.NARROW);
+        formatData.setQuarters(getArray(prefix, "quarter", "format", "wide"), DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        formatData.setQuarters(getArray(prefix, "quarter", "format", "abbreviated"), DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        formatData.setQuarters(getArray(prefix, "quarter", "format", "narrow"), DateFormatSymbols.FORMAT, DateFormatSymbols.NARROW);
 
-        formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "wide"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.WIDE);
-        formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.ABBREVIATED);
-        formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE,
-            DateFormatSymbols.NARROW);
+        formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "wide"), DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
 
         cacheDateFormatSymbols.put(key, formatData);
         return (DateFormatSymbols) formatData.clone();
     }
 
     /**
-     * Example from en.xml
-     * <dayPeriods>
-     * <dayPeriodContext type="format">
-     * <dayPeriodWidth type="wide">
-     * <dayPeriod type="am">AM</dayPeriod>
-     * <dayPeriod type="am" alt="variant">a.m.</dayPeriod>
-     * <dayPeriod type="pm">PM</dayPeriod>
-     * <dayPeriod type="pm" alt="variant">p.m.</dayPeriod>
-     * </dayPeriodWidth>
-     * </dayPeriodContext>
-     * </dayPeriods>
+     * Example from en.xml <dayPeriods> <dayPeriodContext type="format"> <dayPeriodWidth
+     * type="wide"> <dayPeriod type="am">AM</dayPeriod> <dayPeriod type="am"
+     * alt="variant">a.m.</dayPeriod> <dayPeriod type="pm">PM</dayPeriod> <dayPeriod type="pm"
+     * alt="variant">p.m.</dayPeriod> </dayPeriodWidth> </dayPeriodContext> </dayPeriods>
      */
     private String getDayPeriods(String prefix, String context, String width, String type) {
-        return prefix + "dayPeriods/dayPeriodContext[@type=\"" + context + "\"]/dayPeriodWidth[@type=\"" +
-            width + "\"]/dayPeriod[@type=\"" + type + "\"]";
+        return prefix + "dayPeriods/dayPeriodContext[@type=\"" + context + "\"]/dayPeriodWidth[@type=\"" + width + "\"]/dayPeriod[@type=\"" + type + "\"]";
     }
 
     private String[] getArrayOfWinningValues(String[] xpaths) {
@@ -392,46 +364,44 @@ public class ICUServiceBuilder {
 
     private String getPattern(String calendar, int dateIndex, int timeIndex) {
         String pattern;
-        if (DateFormatValues[timeIndex] == -1)
-            pattern = getDateTimePattern(calendar, "date", DateFormatNames[dateIndex]);
-        else if (DateFormatValues[dateIndex] == -1)
-            pattern = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
+        if (DateFormatValues[timeIndex] == -1) pattern = getDateTimePattern(calendar, "date", DateFormatNames[dateIndex]);
+        else if (DateFormatValues[dateIndex] == -1) pattern = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
         else {
             String p0 = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
             String p1 = getDateTimePattern(calendar, "date", DateFormatNames[dateIndex]);
             String datetimePat = getDateTimePattern(calendar, "dateTime", DateFormatNames[dateIndex]);
-            pattern = MessageFormat.format(datetimePat, (Object[]) new String[] { p0, p1 });
+            pattern = MessageFormat.format(datetimePat, (Object[]) new String[] {p0, p1});
         }
         return pattern;
     }
 
-    /**
-     * @param calendar
-     *            TODO
-     *
-     */
+    /** @param calendar TODO */
     private String getDateTimePattern(String calendar, String dateOrTime, String type) {
         type = "[@type=\"" + type + "\"]";
-        String key = "//ldml/dates/calendars/calendar[@type=\"" + calendar + "\"]/"
-            + dateOrTime + "Formats/"
-            + dateOrTime + "FormatLength"
-            + type + "/" + dateOrTime + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        String key =
+                "//ldml/dates/calendars/calendar[@type=\""
+                        + calendar
+                        + "\"]/"
+                        + dateOrTime
+                        + "Formats/"
+                        + dateOrTime
+                        + "FormatLength"
+                        + type
+                        + "/"
+                        + dateOrTime
+                        + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
         // change standard to a choice
 
         String value = cldrFile.getWinningValueWithBailey(key);
         if (value == null)
-            throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key
-                + CldrUtility.LINE_SEPARATOR + "value: " + value);
+            throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + CldrUtility.LINE_SEPARATOR + "value: " + value);
         return value;
     }
 
     // enum ArrayType {day, month, quarter};
 
     private String[] getArray(String key, String type, String context, String width) {
-        String prefix = key + type + "s/"
-            + type + "Context[@type=\"" + context + "\"]/"
-            + type + "Width[@type=\"" + width + "\"]/"
-            + type + "[@type=\"";
+        String prefix = key + type + "s/" + type + "Context[@type=\"" + context + "\"]/" + type + "Width[@type=\"" + width + "\"]/" + type + "[@type=\"";
         String postfix = "\"]";
         boolean isDay = type.equals("day");
         final int arrayCount = isDay ? 7 : type.equals("month") ? 12 : 4;
@@ -447,7 +417,7 @@ public class ICUServiceBuilder {
     private List<String> getArray(String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
         List<String> result = new ArrayList<>();
         String lastType;
-        for (int i = firstIndex;; ++i) {
+        for (int i = firstIndex; ; ++i) {
             lastType = itemNames != null && i < itemNames.length ? itemNames[i] : String.valueOf(i);
             String item = cldrFile.getWinningValueWithBailey(prefix + lastType + postfix);
             if (item == null) break;
@@ -456,9 +426,17 @@ public class ICUServiceBuilder {
         // the following code didn't do anything, so I'm wondering what it was there for?
         // it's to catch errors
         if (result.size() < minimumSize) {
-            throw new RuntimeException("Internal Error: ICUServiceBuilder.getArray():" + cldrFile.getLocaleID() + " "
-                + prefix + lastType + postfix + " - result.size=" + result.size() + ", less than acceptable minimum "
-                + minimumSize);
+            throw new RuntimeException(
+                    "Internal Error: ICUServiceBuilder.getArray():"
+                            + cldrFile.getLocaleID()
+                            + " "
+                            + prefix
+                            + lastType
+                            + postfix
+                            + " - result.size="
+                            + result.size()
+                            + ", less than acceptable minimum "
+                            + minimumSize);
         }
         /*
          * <months>
@@ -469,7 +447,7 @@ public class ICUServiceBuilder {
         return result;
     }
 
-    private static String[] NumberNames = { "integer", "decimal", "percent", "scientific" }; // // "standard", , "INR",
+    private static String[] NumberNames = {"integer", "decimal", "percent", "scientific"}; // // "standard", , "INR",
 
     public String getNumberNames(int i) {
         return NumberNames[i];
@@ -492,14 +470,9 @@ public class ICUServiceBuilder {
         }
 
         @Override
-        public String getName(ULocale locale,
-            int nameStyle,
-            boolean[] isChoiceFormat) {
+        public String getName(ULocale locale, int nameStyle, boolean[] isChoiceFormat) {
 
-            String result = nameStyle == 0 ? this.symbol
-                : nameStyle == 1 ? getCurrencyCode()
-                    : nameStyle == 2 ? displayName
-                        : null;
+            String result = nameStyle == 0 ? this.symbol : nameStyle == 1 ? getCurrencyCode() : nameStyle == 2 ? displayName : null;
             if (result == null) throw new IllegalArgumentException();
             // snagged from currency
             if (isChoiceFormat != null) {
@@ -520,8 +493,8 @@ public class ICUServiceBuilder {
         }
 
         /**
-         * Returns the rounding increment for this currency, or 0.0 if no
-         * rounding is done by this currency.
+         * Returns the rounding increment for this currency, or 0.0 if no rounding is done by this
+         * currency.
          *
          * @return the non-negative rounding increment, or 0.0 if none
          * @stable ICU 2.2
@@ -546,9 +519,9 @@ public class ICUServiceBuilder {
             }
             MyCurrency that = (MyCurrency) other;
             return roundingIncrement == that.roundingIncrement
-                && fractDigits == that.fractDigits
-                && symbol.equals(that.symbol)
-                && displayName.equals(that.displayName);
+                    && fractDigits == that.fractDigits
+                    && symbol.equals(that.symbol)
+                    && displayName.equals(that.displayName);
         }
 
         @Override
@@ -611,11 +584,9 @@ public class ICUServiceBuilder {
     }
 
     private DecimalFormat _getNumberFormat(String key1, int kind, String currencySymbol, String numberSystem) {
-        String localeIDString = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers="
-            + numberSystem;
+        String localeIDString = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers=" + numberSystem;
         ULocale ulocale = new ULocale(localeIDString);
-        String key = (currencySymbol == null) ? ulocale + "/" + key1 + "/" + kind : ulocale + "/" + key1 + "/" + kind
-            + "/" + currencySymbol;
+        String key = (currencySymbol == null) ? ulocale + "/" + key1 + "/" + kind : ulocale + "/" + key1 + "/" + kind + "/" + currencySymbol;
         DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
         if (result != null) {
             return (DecimalFormat) result.clone();
@@ -672,10 +643,7 @@ public class ICUServiceBuilder {
 
             CurrencyNumberInfo info = supplementalData.getCurrencyNumberInfo(key1);
 
-            mc = new MyCurrency(key1,
-                currencySymbol,
-                cldrFile.getWinningValueWithBailey(prefix + "displayName"),
-                info);
+            mc = new MyCurrency(key1, currencySymbol, cldrFile.getWinningValueWithBailey(prefix + "displayName"), info);
 
             // String possible = null;
             // possible = cldrFile.getWinningValueWithBailey(prefix + "decimal");
@@ -696,8 +664,8 @@ public class ICUServiceBuilder {
         }
 
         if (false) {
-            System.out.println("creating " + ulocale + "\tkey: " + key + "\tpattern "
-                + pattern + "\tresult: " + result.toPattern() + "\t0=>" + result.format(0));
+            System.out.println(
+                    "creating " + ulocale + "\tkey: " + key + "\tpattern " + pattern + "\tresult: " + result.toPattern() + "\t0=>" + result.format(0));
             DecimalFormat n2 = (DecimalFormat) NumberFormat.getScientificInstance(ulocale);
             System.out.println("\tresult: " + n2.toPattern() + "\t0=>" + n2.format(0));
         }
@@ -712,19 +680,17 @@ public class ICUServiceBuilder {
 
     private String fixCurrencySpacing(String pattern, String symbol) {
         int startPos = pattern.indexOf('\u00a4');
-        if (startPos > 0
-            && beforeCurrencyMatch.contains(UTF16.charAt(symbol, 0))) {
+        if (startPos > 0 && beforeCurrencyMatch.contains(UTF16.charAt(symbol, 0))) {
             int ch = UTF16.charAt(pattern, startPos - 1);
-            if (ch == '#') ch = '0';// fix pattern
+            if (ch == '#') ch = '0'; // fix pattern
             if (beforeSurroundingMatch.contains(ch)) {
                 pattern = pattern.substring(0, startPos) + beforeInsertBetween + pattern.substring(startPos);
             }
         }
         int endPos = pattern.lastIndexOf('\u00a4') + 1;
-        if (endPos < pattern.length()
-            && afterCurrencyMatch.contains(UTF16.charAt(symbol, symbol.length() - 1))) {
+        if (endPos < pattern.length() && afterCurrencyMatch.contains(UTF16.charAt(symbol, symbol.length() - 1))) {
             int ch = UTF16.charAt(pattern, endPos);
-            if (ch == '#') ch = '0';// fix pattern
+            if (ch == '#') ch = '0'; // fix pattern
             if (afterSurroundingMatch.contains(ch)) {
                 pattern = pattern.substring(0, endPos) + afterInsertBetween + pattern.substring(endPos);
             }
@@ -744,8 +710,7 @@ public class ICUServiceBuilder {
     }
 
     private DecimalFormatSymbols _getDecimalFormatSymbols(String numberSystem) {
-        String key = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers="
-            + numberSystem;
+        String key = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers=" + numberSystem;
         DecimalFormatSymbols symbols = cacheDecimalFormatSymbols.get(key);
         if (symbols != null) {
             return (DecimalFormatSymbols) symbols.clone();
@@ -829,8 +794,7 @@ public class ICUServiceBuilder {
             }
             return value;
         } catch (RuntimeException e) {
-            throw new IllegalArgumentException("Illegal value <" + value + "> at "
-                + "//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);
+            throw new IllegalArgumentException("Illegal value <" + value + "> at " + "//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);
         }
     }
 
@@ -844,26 +808,25 @@ public class ICUServiceBuilder {
     private String getPattern(String key1, int isCurrency) {
         String prefix = "//ldml/numbers/";
         String type = key1;
-        if (isCurrency == CURRENCY)
-            type = "currency";
+        if (isCurrency == CURRENCY) type = "currency";
         else if (key1.equals("integer")) type = "decimal";
-        String path = prefix
-            + type + "Formats/"
-            + type + "FormatLength/"
-            + type + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        String path = prefix + type + "Formats/" + type + "FormatLength/" + type + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
 
         String pattern = cldrFile.getWinningValueWithBailey(path);
-        if (pattern == null)
-            throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + path);
+        if (pattern == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + path);
         return pattern;
     }
 
     public enum Width {
-        wide, abbreviated, narrow
+        wide,
+        abbreviated,
+        narrow
     }
 
     public enum Context {
-        format, stand_alone;
+        format,
+        stand_alone;
+
         @Override
         public String toString() {
             return name().replace('_', '-');
@@ -872,6 +835,7 @@ public class ICUServiceBuilder {
 
     /**
      * Format a dayPeriod string. The dayPeriodOverride, if null, will be fetched from the file.
+     *
      * @param timeInDay
      * @param dayPeriodString
      * @return
@@ -898,17 +862,19 @@ public class ICUServiceBuilder {
     }
 
     public static String getDayPeriodPath(DayPeriod period, Context context, Width width) {
-        String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\""
-            + context
-            + "\"]/dayPeriodWidth[@type=\""
-            + width
-            + "\"]/dayPeriod[@type=\""
-            + period
-            + "\"]";
+        String path =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\""
+                        + context
+                        + "\"]/dayPeriodWidth[@type=\""
+                        + width
+                        + "\"]/dayPeriod[@type=\""
+                        + period
+                        + "\"]";
         return path;
     }
 
-    static final String SHORT_PATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+    static final String SHORT_PATH =
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
     static final String HM_PATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]";
     static final String BHM_PATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bhm\"]";
 

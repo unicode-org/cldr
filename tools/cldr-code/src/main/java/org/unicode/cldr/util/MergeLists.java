@@ -64,9 +64,7 @@ public class MergeLists<T> {
             if (first.size() == 0) {
                 Map<T, Collection<T>> reasons = new LinkedHashMap<>();
                 getFirsts(first, reasons);
-                throw new IllegalArgumentException(
-                    "Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: "
-                        + reasons);
+                throw new IllegalArgumentException("Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: " + reasons);
             }
             // now get first item that is in first
             T best = extractFirstOk(orderedWorkingSet, first); // removes from working set
@@ -108,7 +106,7 @@ public class MergeLists<T> {
 
     // could be optimized since we know the item will only occur at the head of a list
     private void removeFromSource(T item) {
-        for (Iterator<Collection<T>> iterator = source.iterator(); iterator.hasNext();) {
+        for (Iterator<Collection<T>> iterator = source.iterator(); iterator.hasNext(); ) {
             Collection<T> sublist = iterator.next();
             sublist.remove(item);
             if (sublist.size() == 0) {
@@ -117,11 +115,9 @@ public class MergeLists<T> {
         }
     }
 
-    /**
-     * Get the first item that is also in the ok set.
-     */
+    /** Get the first item that is also in the ok set. */
     private T extractFirstOk(Collection<T> remainingItems, Set<T> ok) {
-        for (Iterator<T> it = remainingItems.iterator(); it.hasNext();) {
+        for (Iterator<T> it = remainingItems.iterator(); it.hasNext(); ) {
             T item = it.next();
             if (ok.contains(item)) {
                 it.remove();
@@ -135,9 +131,7 @@ public class MergeLists<T> {
         getFirsts(result, null);
     }
 
-    /**
-     * Get first of each sets. Guaranteed non-empty
-     */
+    /** Get first of each sets. Guaranteed non-empty */
     public void getFirsts(Set<T> result, Map<T, Collection<T>> reasons) {
         result.clear();
         result.addAll(orderedWorkingSet);

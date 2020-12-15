@@ -17,16 +17,18 @@ import org.unicode.cldr.test.CheckCLDR;
 import com.ibm.icu.text.Transliterator;
 
 /**
- * @deprecated
- * TODO: what is supposed to replace PrettyPath? If no replacement is planned, make it no longer deprecated?
+ * @deprecated TODO: what is supposed to replace PrettyPath? If no replacement is planned, make it
+ *     no longer deprecated?
  */
 @Deprecated
 public class PrettyPath {
     private Transliterator prettyPathZoneTransform;
+
     {
         prettyPathZoneTransform = CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
         Transliterator.registerInstance(prettyPathZoneTransform);
     }
+
     private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
 
     private Map<String, String> prettyPath_path = new HashMap<>();
@@ -34,8 +36,8 @@ public class PrettyPath {
     private boolean showErrors;
 
     /**
-     * Gets sortable form of the pretty path, and caches the mapping for faster later mapping; see the two argument
-     * form.
+     * Gets sortable form of the pretty path, and caches the mapping for faster later mapping; see
+     * the two argument form.
      *
      * @param path
      * @return pretty path
@@ -45,12 +47,11 @@ public class PrettyPath {
     }
 
     /**
-     * Gets the pretty path, and caches the mapping for faster later mapping. If you use the sortable form, then later
-     * you will want to call getOutputForm.
+     * Gets the pretty path, and caches the mapping for faster later mapping. If you use the
+     * sortable form, then later you will want to call getOutputForm.
      *
      * @param path
-     * @param sortable
-     *            true if you want the sortable form
+     * @param sortable true if you want the sortable form
      * @return pretty path
      */
     public String getPrettyPath(String path, boolean sortable) {
@@ -102,7 +103,8 @@ public class PrettyPath {
     }
 
     /**
-     * Return the pretty path with the sorting gorp removed. This is the form that should be displayed to the user.
+     * Return the pretty path with the sorting gorp removed. This is the form that should be
+     * displayed to the user.
      *
      * @param prettyPath
      * @return cleaned pretty path

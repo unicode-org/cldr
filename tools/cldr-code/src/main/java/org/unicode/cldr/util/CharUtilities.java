@@ -6,7 +6,6 @@ public class CharUtilities {
      * Simple wrapper for CharSequence
      *
      * @author markdavis
-     *
      */
     public static class CharSourceWrapper<T extends CharSequence> implements CharSource {
         protected T source;
@@ -76,8 +75,8 @@ public class CharUtilities {
     }
 
     /**
-     * Return the code point order of two CharSequences.
-     * If the text has isolated surrogates, they will not sort correctly.
+     * Return the code point order of two CharSequences. If the text has isolated surrogates, they
+     * will not sort correctly.
      *
      * @param text1
      * @param text2
@@ -102,8 +101,7 @@ public class CharUtilities {
             // if they are different, do a fixup
 
             if (cp1 != cp2) {
-                return (cp1 + utf16Fixup[cp1 >> 11]) -
-                    (cp2 + utf16Fixup[cp2 >> 11]);
+                return (cp1 + utf16Fixup[cp1 >> 11]) - (cp2 + utf16Fixup[cp2 >> 11]);
             }
         }
     }
@@ -116,8 +114,8 @@ public class CharUtilities {
     };
 
     /**
-     * Return the code point order of two CharSequences.
-     * If the text has isolated surrogates, they will not sort correctly.
+     * Return the code point order of two CharSequences. If the text has isolated surrogates, they
+     * will not sort correctly.
      *
      * @param text1
      * @param text2
@@ -142,10 +140,8 @@ public class CharUtilities {
             // if they are different, do a fixup
 
             if (cp1 != cp2) {
-                return (cp1 + utf16Fixup[cp1 >> 11]) -
-                    (cp2 + utf16Fixup[cp2 >> 11]);
+                return (cp1 + utf16Fixup[cp1 >> 11]) - (cp2 + utf16Fixup[cp2 >> 11]);
             }
         }
     }
-
 }

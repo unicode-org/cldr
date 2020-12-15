@@ -26,7 +26,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
      * @author markdavis
      *
      */
-    public static final class UnitPreference implements Comparable<UnitPreference>{
+    public static final class UnitPreference implements Comparable<UnitPreference> {
         public final Rational geq;
         public final String unit;
         public final String skeleton;
@@ -45,17 +45,21 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
             }
             return unit.compareTo(o.unit);
         }
+
         @Override
         public boolean equals(Object obj) {
-            return compareTo((UnitPreference)obj) == 0;
+            return compareTo((UnitPreference) obj) == 0;
         }
+
         @Override
         public int hashCode() {
             return Objects.hash(geq, unit);
         }
+
         public String toString(String baseUnit) {
-            return geq + (baseUnit == null ? "": " " + baseUnit) + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
+            return geq + (baseUnit == null ? "" : " " + baseUnit) + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
         }
+
         @Override
         public String toString() {
             return toString(null);
@@ -136,14 +140,13 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
         //      <unitPreferences category="length" usage="person" scope="small">
         // <unitPreference regions="001">centimeter</unitPreference>
         return "//supplementalData/unitPreferenceData/unitPreferences"
-        + "[@category=\"" + quantity + "\"]"
-        + "[@usage=\"" + usage + "\"]"
-        + "/unitPreference"
-        + "[@_q=\"" + order + "\"]"
-        + "[@regions=\"" + JOIN_SPACE.join(regions) + "\"]"
-        + (geq == Rational.ONE ? "" : "[@geq=\"" + geq + "\"]")
-        + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]")
-        ;
+            + "[@category=\"" + quantity + "\"]"
+            + "[@usage=\"" + usage + "\"]"
+            + "/unitPreference"
+            + "[@_q=\"" + order + "\"]"
+            + "[@regions=\"" + JOIN_SPACE.join(regions) + "\"]"
+            + (geq == Rational.ONE ? "" : "[@geq=\"" + geq + "\"]")
+            + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]");
     }
 
     /**

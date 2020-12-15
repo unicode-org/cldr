@@ -19,10 +19,10 @@ public class EmojiConstants {
     public static final char JOINER = '\u200D';
     public static final String JOINER_STRING = String.valueOf(JOINER);
     public static final UnicodeSet COMPONENTS = new UnicodeSet(EmojiConstants.MODIFIERS)
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B0))
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B1))
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B2))
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B3))
+        .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B0))
+        .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B1))
+        .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B2))
+        .add(EmojiConstants.fromCodePoints(JOINER, 0x1F9B3))
         .freeze();
 
     public static final String KISS = "💋";
@@ -47,16 +47,16 @@ public class EmojiConstants {
 
     public static String getEmojiFromRegionCodes(String chars) {
         return new StringBuilder()
-                .appendCodePoint(chars.codePointAt(0) + FIRST_REGIONAL - 'A')
-                .appendCodePoint(chars.codePointAt(1) + FIRST_REGIONAL - 'A')
-                .toString();
+            .appendCodePoint(chars.codePointAt(0) + FIRST_REGIONAL - 'A')
+            .appendCodePoint(chars.codePointAt(1) + FIRST_REGIONAL - 'A')
+            .toString();
     }
 
     public static final int TAG_BASE = 0xE0000;
     public static final int TAG_TERM_CHAR = 0xE007F;
 
     public static String getEmojiFromSubdivisionCodes(String string) {
-        string = string.toLowerCase(Locale.ROOT).replace("-","");
+        string = string.toLowerCase(Locale.ROOT).replace("-", "");
         StringBuilder result = new StringBuilder().appendCodePoint(0x1F3F4);
         for (int cp : CharSequences.codePoints(string)) {
             result.appendCodePoint(TAG_BASE + cp);

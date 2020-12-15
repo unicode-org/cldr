@@ -16,9 +16,9 @@ import com.ibm.icu.text.Transform;
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED("No placeholders allowed."),//
-        REQUIRED("Specific number of placeholders allowed."),//
-        LOCALE_DEPENDENT("Some placeholders may be omitted in certain locales"),//
+        DISALLOWED("No placeholders allowed."), //
+        REQUIRED("Specific number of placeholders allowed."), //
+        LOCALE_DEPENDENT("Some placeholders may be omitted in certain locales"), //
         MULTIPLE("May have multiple instances of the same placeholder, eg “{0} cats and {0} dogs”.")//
         ;
 
@@ -27,6 +27,7 @@ public class PatternPlaceholders {
         private PlaceholderStatus(String message) {
             this.message = message;
         }
+
         @Override
         public String toString() {
             return name() + ": " + message;

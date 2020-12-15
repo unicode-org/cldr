@@ -61,13 +61,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private DtdComparator dtdComparator;
 
     public enum AttributeStatus {
-        distinguished ("§d"),
-        value ("§v"),
-        metadata ("§m︎");
+        distinguished("§d"), value("§v"), metadata("§m︎");
         public final String shortName;
+
         AttributeStatus(String shortName) {
             this.shortName = shortName;
         }
+
         public static String getShortName(AttributeStatus status) {
             return status == null ? "" : status.shortName;
         }
@@ -169,7 +169,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public String getSampleValue() {
-            return type == AttributeType.ENUMERATED_TYPE  ? (values.containsKey("year") ? "year" : values.keySet().iterator().next())
+            return type == AttributeType.ENUMERATED_TYPE ? (values.containsKey("year") ? "year" : values.keySet().iterator().next())
                 : matchValue != null ? matchValue.getSample()
                     : MatchValue.DEFAULT_SAMPLE;
         }
@@ -239,7 +239,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     }
                     String command = commentIn.substring(0, colonPos);
                     String argument = commentIn.substring(colonPos + 1);
-                    switch(command) {
+                    switch (command) {
                     case "@DEPRECATED":
                         deprecatedValues = Collections.unmodifiableSet(new HashSet<>(COMMA.splitToList(argument)));
                         break;
@@ -269,13 +269,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             Attribute that = (Attribute) obj;
             return name.equals(that.name)
                 && element.name.equals(that.element.name) // don't use plain element: circularity
-                // not relevant to identity
-                //                && Objects.equals(comment, that.comment)
-                //                && mode.equals(that.mode)
-                //                && Objects.equals(defaultValue, that.defaultValue)
-                //                && type.equals(that.type)
-                //                && values.equals(that.values)
-                ;
+            // not relevant to identity
+            //                && Objects.equals(comment, that.comment)
+            //                && mode.equals(that.mode)
+            //                && Objects.equals(defaultValue, that.defaultValue)
+            //                && type.equals(that.type)
+            //                && values.equals(that.values)
+            ;
         }
 
         /**
@@ -285,13 +285,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public int hashCode() {
             return name.hashCode() * 37
                 + element.name.hashCode() // don't use plain element: circularity
-                // not relevant to identity
-                //                ) * 37 + Objects.hashCode(comment)) * 37
-                //                + mode.hashCode()) * 37
-                //                + Objects.hashCode(defaultValue)) * 37
-                //                + type.hashCode()) * 37
-                //                + values.hashCode()
-                ;
+            // not relevant to identity
+            //                ) * 37 + Objects.hashCode(comment)) * 37
+            //                + mode.hashCode()) * 37
+            //                + Objects.hashCode(defaultValue)) * 37
+            //                + type.hashCode()) * 37
+            //                + values.hashCode()
+            ;
         }
 
         public boolean isDeprecated() {
@@ -308,7 +308,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public ValueStatus getValueStatus(String value) {
             return deprecatedValues.contains(value) ? ValueStatus.invalid
-                : type == AttributeType.ENUMERATED_TYPE  ? (values.containsKey(value) ? ValueStatus.valid  : ValueStatus.invalid)
+                : type == AttributeType.ENUMERATED_TYPE ? (values.containsKey(value) ? ValueStatus.valid : ValueStatus.invalid)
                     : matchValue == null ? ValueStatus.unknown
                         : matchValue.is(value) ? ValueStatus.valid
                             : ValueStatus.invalid;
@@ -331,7 +331,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     }
 
-    public enum ValueStatus {invalid, unknown, valid}
+    public enum ValueStatus {
+        invalid, unknown, valid
+    }
 
     private DtdData(DtdType type, String version) {
         this.dtdType = type;
@@ -423,7 +425,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             result = CLEANER2.matcher(result).replaceAll(" $1");
             return result.equals(model2)
                 ? model2
-                    : result; // for debugging
+                : result; // for debugging
         }
 
         public boolean containsAttribute(String string) {
@@ -510,12 +512,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             Element that = (Element) obj;
             return name.equals(that.name)
-                // not relevant to the identity of the object
-                //                && Objects.equals(comment, that.comment)
-                //                && type == that.type
-                //                && attributes.equals(that.attributes)
-                //                && children.equals(that.children)
-                ;
+            // not relevant to the identity of the object
+            //                && Objects.equals(comment, that.comment)
+            //                && type == that.type
+            //                && attributes.equals(that.attributes)
+            //                && children.equals(that.children)
+            ;
         }
 
         /**
@@ -524,12 +526,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         @Override
         public int hashCode() {
             return name.hashCode()
-                // not relevant to the identity of the object
-                // * 37 + Objects.hashCode(comment)
-                //) * 37 + Objects.hashCode(type)
-                //                ) * 37 + attributes.hashCode()
-                //                ) * 37 + children.hashCode()
-                ;
+            // not relevant to the identity of the object
+            // * 37 + Objects.hashCode(comment)
+            //) * 37 + Objects.hashCode(type)
+            //                ) * 37 + attributes.hashCode()
+            //                ) * 37 + children.hashCode()
+            ;
         }
 
         public boolean isDeprecated() {
@@ -899,7 +901,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return attributeComparator;
     }
 
-
     public MapComparator<String> getElementComparator() {
         return elementComparator;
     }
@@ -930,8 +931,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (currentEnd != b.length()) {
             b.insert(currentEnd,
                 System.lineSeparator() + System.lineSeparator()
-                + "<!-- Elements not reachable from root! -->"
-                + System.lineSeparator());
+                    + "<!-- Elements not reachable from root! -->"
+                    + System.lineSeparator());
         }
         return b.toString();
     }
@@ -1103,10 +1104,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     // special handling for very first comment
                     if (b.length() == 0) {
                         b.append("<!--")
-                        .append(System.lineSeparator())
-                        .append(c)
-                        .append(System.lineSeparator())
-                        .append("-->");
+                            .append(System.lineSeparator())
+                            .append(c)
+                            .append(System.lineSeparator())
+                            .append("-->");
                         continue;
                     }
                     b.append(System.lineSeparator());
@@ -1331,7 +1332,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
         "power-horsepower",
         "pressure-millimeter-ofhg",
-         "pressure-ofhg",
+        "pressure-ofhg",
         "pressure-pound-force-per-square-inch", "pressure-inch-ofhg", "pressure-bar", "pressure-millibar", "pressure-atmosphere",
         "pressure-pascal",
         "pressure-hectopascal",
@@ -1357,8 +1358,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-jigger",
         "volume-pinch",
         "volume-quart-imperial"
-       // "volume-pint-imperial"
-        ).freeze();
+    // "volume-pint-imperial"
+    ).freeze();
 
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
         "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
@@ -1472,7 +1473,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 return true;
             }
             break;
-            ////supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
+        ////supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
         case supplementalData:
             // these are NOT under /metadata/ but are actually metadata
             switch (element1) {
@@ -1709,8 +1710,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     /**
      * Return element-attribute pairs with non-enumerated values, for quick checks.
      */
-    public Multimap<String, String> getNonEnumerated(Map<String,String> matchValues) {
-        Multimap<String,String> nonEnumeratedElementToAttribute = TreeMultimap.create(); // make tree for ease of debugging
+    public Multimap<String, String> getNonEnumerated(Map<String, String> matchValues) {
+        Multimap<String, String> nonEnumeratedElementToAttribute = TreeMultimap.create(); // make tree for ease of debugging
         for (Entry<String, Element> entry : nameToElement.entrySet()) {
             Element element = entry.getValue();
             for (Attribute attribute : element.attributes.keySet()) {

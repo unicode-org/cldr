@@ -255,7 +255,7 @@ public class CLDRConfig extends Properties {
             new File(CLDRPaths.MAIN_DIRECTORY),
             new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
             SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY),
-                SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
+            SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
         };
         static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
@@ -267,7 +267,7 @@ public class CLDRConfig extends Properties {
     private static final class FullCldrFactoryHelper {
         private static final File[] paths = {
             new File(CLDRPaths.MAIN_DIRECTORY),
-            SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY)};
+            SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY) };
         static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
 
@@ -315,12 +315,14 @@ public class CLDRConfig extends Properties {
             return colRoot;
         }
     }
+
     public final Collator getCollatorRoot() {
         return CollatorRootHelper.SINGLETON;
     }
 
     private static final class CollatorHelper {
         static final Collator SINGLETON = make();
+
         private static final Collator make() {
             final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
             col.setStrength(Collator.IDENTICAL);
@@ -329,6 +331,7 @@ public class CLDRConfig extends Properties {
             return col;
         }
     }
+
     public Collator getCollator() {
         return CollatorHelper.SINGLETON;
     }
@@ -472,6 +475,7 @@ public class CLDRConfig extends Properties {
 
     private static class FileWrapper {
         private File cldrDir = null;
+
         private FileWrapper() {
             String dir = getInstance().getProperty("CLDR_DIR", null);
             if (dir != null) {
@@ -480,11 +484,14 @@ public class CLDRConfig extends Properties {
                 cldrDir = null;
             }
         }
+
         public File getCldrDir() {
             return this.cldrDir;
         }
+
         // singleton
         private static FileWrapper fileWrapperInstance = new FileWrapper();
+
         public static FileWrapper getFileWrapperInstance() {
             return fileWrapperInstance;
         }

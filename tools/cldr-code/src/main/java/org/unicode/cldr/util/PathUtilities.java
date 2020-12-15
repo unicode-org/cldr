@@ -97,5 +97,6 @@ public final class PathUtilities {
         return path.toAbsolutePath().normalize();
     }
 
-    private PathUtilities() {}
+    private PathUtilities() {
+    }
 }

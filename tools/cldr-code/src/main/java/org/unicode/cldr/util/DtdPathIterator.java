@@ -129,8 +129,8 @@ public class DtdPathIterator {
     }
 
     public static void main(String[] args) {
-        Set<XPathParts>seen = new HashSet<>();
-        Set<PathHeader>seenPh = new HashSet<>();
+        Set<XPathParts> seen = new HashSet<>();
+        Set<PathHeader> seenPh = new HashSet<>();
         DtdPathIterator dtdPathIterator = new DtdPathIterator(DtdData.getInstance(DtdType.ldml));
         Factory phf = PathHeader.getFactory();
         List<String> failures = new ArrayList<>();
@@ -144,7 +144,7 @@ public class DtdPathIterator {
             CLDRFile cfile = factory.make(locale, true);
             for (String path : cfile.fullIterable()) {
                 String starred = ps.set(path);
-                starred = starred.replace("[@alt=\"%A\"]","");
+                starred = starred.replace("[@alt=\"%A\"]", "");
                 if (!starredToSample.containsKey(starred) && !starred.endsWith("/alias") && !starred.startsWith("//ldml/identity/")) {
                     starredToSample.put(starred, path);
                 }
@@ -182,8 +182,7 @@ public class DtdPathIterator {
             }
         },
 //            y -> y.getSampleValue()
-            y -> "%A"
-            );
+            y -> "%A");
         if (!starredUnseen.isEmpty()) {
             System.out.println("ERROR: In files, not dtd");
             System.out.println(Joiner.on("\n\t").join(starredUnseen));

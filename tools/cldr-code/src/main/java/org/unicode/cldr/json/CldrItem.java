@@ -241,7 +241,7 @@ public class CldrItem implements Comparable<CldrItem> {
         XPathParts untransformedxpp = XPathParts.getFrozenInstance(untransformedPath);
         XPathParts untransformedfullxpp = XPathParts.getFrozenInstance(untransformedFullPath);
 
-        for (SplittableAttributeSpec s : LdmlConvertRules.SPLITTABLE_ATTRS) {
+        for (SplittableAttributeSpec s : LdmlConvertRules.getSplittableAttrs()) {
             if (fullxpp.containsElement(s.element) && fullxpp.containsAttribute(s.attribute)) {
                 ArrayList<CldrItem> list = new ArrayList<>();
                 String wordString = fullxpp.findAttributeValue(s.element, s.attribute);

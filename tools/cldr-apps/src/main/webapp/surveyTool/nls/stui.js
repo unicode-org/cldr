@@ -206,7 +206,6 @@ define({
 		StatusAction_FORBID_PERMANENT_WITHOUT_FORUM: "A forum entry is required to make a Permanent vote.",
 		StatusAction_FORBID_CODE:      "The item is the same as the code.",
 
-		// v.jsp
 		"v-title2_desc": "Locale title",
 		v_bad_special_msg:  "Bad URL (mistyped?), unknown special action: \"${special}\"",
 		v_oldvotes_title: "Old Votes",
@@ -377,7 +376,4 @@ define({
 		E_BAD_VALUE: "The vote was not accepted: ${err_data.message}",
 		E_BAD_XPATH: "This item does not exist in this locale.",
 		"": ""})
-//		"mt-MT": false
-
-		// sublocales
 });

@@ -26,12 +26,11 @@ define("js/special/vetting_participation.js", ["js/special/SpecialPage.js"], fun
 		/*
 		 * Set up the 'right sidebar'; cf. vetting_participationGuidance
 		 */
-		showInPop2(stui.str(params.name + "Guidance"), null, null, null, true);
+		showInPop2(cldrText.get(params.name + "Guidance"), null, null, null, true);
 
 		const url = getVettingParticipationUrl();
 		const errorHandler = function(err) {
-			const responseText = cldrStAjax.errResponseText(err);
-			params.special.showError(params, null, {err: err, what: "Loading vetting participation data" + responseText});
+			params.special.showError(params, null, {err: err, what: "Loading vetting participation data"});
 		};
 		
 		/**
@@ -227,11 +226,12 @@ define("js/special/vetting_participation.js", ["js/special/SpecialPage.js"], fun
 	 * Get the URL to use for loading the Vetting Participation page
 	 */
 	function getVettingParticipationUrl() {
-		if (typeof surveySessionId === 'undefined') {
-			console.log('Error: surveySessionId undefined in getVettingParticipationUrl');
+		const sessionId = cldrStatus.getSessionId();
+		if (!sessionId) {
+			console.log('Error: sessionId falsy in getVettingParticipationUrl');
 			return '';
 		}
-		return 'SurveyAjax?what=vetting_participation&s=' + surveySessionId;
+		return 'SurveyAjax?what=vetting_participation&s=' + sessionId;
 	}
 	
 	// set up the inheritance before defining other functions

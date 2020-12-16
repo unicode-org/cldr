@@ -22,7 +22,7 @@ define("js/modules/usermap.js", ["dojo/request"],
 		} else {
 			console.log('Fetching user info for #'+id);
 			request
-			.get('SurveyAjax?s='+surveySessionId+'&what=user_info&u='+id, {handleAs: 'json'})
+			.get('SurveyAjax?s=' + cldrStatus.getSessionId() + '&what=user_info&u=' + id, {handleAs: 'json'})
 			.then(function(json) {
 				hash[id] = json;
 				fn(json.err, args, {entry: json, id: id}); // add err msg
@@ -33,9 +33,7 @@ define("js/modules/usermap.js", ["dojo/request"],
 			});
 		}
 	};
-	
-	//UserMap.prototype.createUser = createUser; // re export this fcn
-	
+
 	UserMap.prototype.createGravatar = function createGravatar(user) {
 		if(user.emailHash) {
 			return $('<img></img>', {
@@ -63,7 +61,7 @@ define("js/modules/usermap.js", ["dojo/request"],
 		var div = $('<div></div>', {class: 'adminUserUser'});
 		UserMap.prototype.createGravatar(user).appendTo(div);
 		$('<i></i>', {
-			text: stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),
+			text: cldrText.get("userlevel_"+user.userlevelName.toLowerCase(0)),
 			class: "userlevel_"+user.userlevelName.toLowerCase()
 		}).appendTo(div);
 		
@@ -88,12 +86,7 @@ define("js/modules/usermap.js", ["dojo/request"],
 	// create a thinner (vertically) user
 	UserMap.prototype.createUserThin = function createUserThin(user) {
 		var div = $('<div></div>', {class: 'thinUser'});
-		UserMap.prototype.createGravatar16(user).appendTo(div);
-//		$('<i></i>', {
-//			text: stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),
-//			className: "userlevel_"+user.userlevelName.toLowerCase()
-//		}).appendTo(div);
-		
+		UserMap.prototype.createGravatar16(user).appendTo(div);		
 		$('<span></span>', {
 			text: user.name,
 			class: 'adminUserName'
@@ -105,10 +98,6 @@ define("js/modules/usermap.js", ["dojo/request"],
 			text: user.orgName + ' #'+user.id,
 			class: 'adminOrgName'
 		}).appendTo(div);
-//		$('<address></address>', {
-//			text: user.email,
-//			className: 'adminUserAddress'
-//		}).appendTo(div);
 		return div;
 	};
 	

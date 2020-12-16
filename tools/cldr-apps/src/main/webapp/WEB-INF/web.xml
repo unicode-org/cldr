@@ -60,7 +60,7 @@
 	</servlet>
 	<servlet>
 		<servlet-name>v</servlet-name>
-		<jsp-file>/v.jsp</jsp-file>
+		<servlet-class>org.unicode.cldr.web.SurveyTool</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SurveyMain</servlet-name>

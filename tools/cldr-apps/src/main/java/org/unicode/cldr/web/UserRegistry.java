@@ -526,6 +526,16 @@ public class UserRegistry {
         public boolean canImportOldVotes() {
             return UserRegistry.userIsVetter(this) && (CLDRConfig.getInstance().getPhase() == Phase.SUBMISSION);
         }
+
+        public JSONObject getPermissionsJson() throws JSONException {
+            return new JSONObject()
+                .put("userCanImportOldVotes", canImportOldVotes())
+                .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
+                .put("userCanMonitorForum", userCanMonitorForum(this))
+                .put("userIsTC", userIsTC(this))
+                .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
+                .put("userIsLocked", userIsLocked(this));
+        }
     }
 
     public static void printPasswordLink(WebContext ctx, String email, String password) {

@@ -25,7 +25,6 @@ public class FeedBack extends HttpServlet {
      */
     public FeedBack() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -33,7 +32,6 @@ public class FeedBack extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         this.createTable();
         Connection conn = DBUtils.getInstance().getDBConnection();
         try {
@@ -48,7 +46,6 @@ public class FeedBack extends HttpServlet {
             }
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -58,7 +55,6 @@ public class FeedBack extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         this.createTable();
 
         String email = request.getParameter("email");
@@ -72,7 +68,6 @@ public class FeedBack extends HttpServlet {
             ps.executeUpdate();
             conn.commit();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         response.getWriter().print("Ok");
@@ -91,7 +86,6 @@ public class FeedBack extends HttpServlet {
 
                 conn.commit();
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

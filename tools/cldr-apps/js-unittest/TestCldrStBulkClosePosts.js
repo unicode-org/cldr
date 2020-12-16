@@ -19,20 +19,14 @@
 			assert((html != null && html !== ''), "html is neither null nor empty");
 		});
 
-		const domParser = new DOMParser();
-		const serializer = new XMLSerializer();
-		const xmlDoc = domParser.parseFromString(html, 'application/xml');
-		const xmlStr = serializer.serializeToString(xmlDoc);
-
+		const xmlStr = cldrTest.parseAsMimeType(html, 'application/xml')
 		it('should return valid xml', function() {
-			assert(xmlStr.indexOf('error') === -1, 'xml does not contain error: ' + xmlStr); // as in '... parsererror ...'
+			assert(xmlStr || false, 'parses OK as xml');
 		});
 
-		const htmlDoc = domParser.parseFromString(html, 'text/html');
-		const htmlStr = serializer.serializeToString(xmlDoc);
-
+		const htmlStr = cldrTest.parseAsMimeType(html, 'text/html');
 		it('should return good html', function() {
-			assert(htmlStr.indexOf('error') === -1, 'html does not contain error: ' + htmlStr); // as in '... parsererror ...'
+			assert(htmlStr || false, 'parses OK as html');
 		});
 
 		it('should contain angle brackets', function() {

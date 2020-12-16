@@ -33,7 +33,7 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 		var theInput = document.createElement("input");
 		theDiv.appendChild(theInput);
 		
-		var theSearch = createChunk(stui.str("search"), "button");
+		var theSearch = createChunk(cldrText.get("search"), "button");
 		theDiv.appendChild(theSearch);
 		
 		var theResult = document.createElement("div");
@@ -41,19 +41,19 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 		theDiv.appendChild(theResult);
 	
 		
-		var newLocale = surveyCurrentLocale;
+		var newLocale = cldrStatus.getCurrentLocale();
 		
 		var showResults = function showResults(searchTerm) {
 			var results=searchCache[searchTerm];
 			removeAllChildNodes(theResult);
-			if(newLocale!=surveyCurrentLocale) {
+			if(newLocale != cldrStatus.getCurrentLocale()) {
 				var newName = locmap.getLocaleName(newLocale);
 				theResult.appendChild(createChunk(newName, "h4"));
 			}
 			theResult.appendChild(createChunk(searchTerm, "h3"));
 			
 			if(results.length == 0) {
-				theResult.appendChild(createChunk(stui.str("searchNoResults", "h3", "searchNoResults")));
+				theResult.appendChild(createChunk(cldrText.get("searchNoResults", "h3", "searchNoResults")));
 			} else {
 				for(var i=0;i<results.length;i++) {
 					var result = results[i];
@@ -127,7 +127,7 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 				theResult.appendChild(createChunk(searchTerm, "h3"));
 				
 				if(!(searchTerm in searchCache)) {
-					   var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=search"; // allow cache
+					   var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+cldrStatus.getSessionId()+"&what=search"; // allow cache
 					   if(newLocale!=null&&newLocale!='') {
 						   xurl = xurl + "&_="+newLocale;
 					   }
@@ -143,8 +143,8 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 				 	        	}
 					        },
 					        error: function(err){
-					 			var msg ="Error: "+err.name + " - " + err.message;
-			 	        		theResult.appendChild(createChunk(msg,"i"));
+								var msg = "Error: " + err;
+								theResult.appendChild(createChunk(msg,"i"));
 					        },
 					        postData: searchTerm
 					    });
@@ -167,8 +167,8 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 					newLocale = segs[0];
 					// goto
 					if(segs.length==1) {
-						surveyCurrentSpecial='';
-						surveyCurrentLocale=newLocale;
+						cldrStatus.setCurrentSpecial('');
+						cldrStatus.setCurrentLocale(newLocale);
 						reloadV();
 						return;
 					}
@@ -186,9 +186,9 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 	
 		params.flipper.flipTo(params.pages.other, theDiv);
 		theInput.focus();
-		surveyCurrentLocale=null;
-		surveyCurrentSpecial='search';
-		showInPop2(stui.str("searchGuidance"), null, null, null, true); /* show the box the first time */					
+		cldrStatus.setCurrentLocale(null);
+		cldrStatus.setCurrentSpecial('search');
+		showInPop2(cldrText.get("searchGuidance"), null, null, null, true); /* show the box the first time */
 	};
 	
 

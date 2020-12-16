@@ -65,18 +65,19 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 	};
 
 	Page.prototype.show = function show(params) {
-
-		if(surveyCurrentLocale=='') {
+		const curLocale = cldrStatus.getCurrentLocale();
+		if (curLocale == '') {
 			hideLoader(null);
-			params.flipper.flipTo(params.pages.other, createChunk(stui.str("generic_nolocale"),"p","helpContent"));
+			params.flipper.flipTo(params.pages.other, createChunk(cldrText.get("generic_nolocale"),"p","helpContent"));
 		} else {
-			const forumName = locmap.getLocaleName(locmap.getLanguage(surveyCurrentLocale));
-			const forumMessage = stui.sub("forum_msg", {
+			const forumName = locmap.getLocaleName(locmap.getLanguage(curLocale));
+			const forumMessage = cldrText.sub("forum_msg", {
 				forum: forumName,
-				locale: surveyCurrentLocaleName
+				locale: cldrStatus.getCurrentLocaleName()
 			});
+			const surveyUser = cldrStatus.getSurveyUser();
 			const userId = (surveyUser && surveyUser.id) ? surveyUser.id : 0;
-			cldrStForum.loadForum(surveyCurrentLocale, userId, forumMessage, params);
+			cldrStForum.loadForum(curLocale, userId, forumMessage, params);
 		}
 	};
 

@@ -55,6 +55,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
 
 import org.json.JSONArray;
@@ -338,8 +339,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
 
-    static final String TRANS_HINT_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918
+    static final String TRANS_HINT_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918; must match TRANS_HINT_ID in JavaScript
     public static final ULocale TRANS_HINT_LOCALE = new ULocale(TRANS_HINT_ID);
+    // TRANS_HINT_LANGUAGE_NAME needs to match TRANS_HINT_LANGUAGE_NAME in JavaScript ("English")
     public static final String TRANS_HINT_LANGUAGE_NAME = TRANS_HINT_LOCALE.getDisplayLanguage(TRANS_HINT_LOCALE); // Note:
     // Only
     // shows
@@ -712,9 +714,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private void showOfflinePage(HttpServletRequest request, HttpServletResponse response, PrintWriter out) throws ServletException, IOException {
         out.println(SHOWHIDE_SCRIPT);
         try {
-            SurveyAjax.includeJavaScript(request, out);
+            SurveyTool.includeJavaScript(request, out);
         } catch (JSONException e) {
-            SurveyLog.logException(e, "SurveyMain.showOfflinePage calling SurveyAjax.includeJavaScript");
+            SurveyLog.logException(e, "SurveyMain.showOfflinePage calling SurveyTool.includeJavaScript");
             out.println("<p>Error, including JavaScript failed!</p>");
         }
         // don't flood server if busted- check every minute.
@@ -794,10 +796,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<link rel='stylesheet' type='text/css' href='" + base + "/../surveytool.css'>");
             boolean jsOK = false;
             try {
-                SurveyAjax.includeJavaScript(request, out);
+                SurveyTool.includeJavaScript(request, out);
                 jsOK = true;
             } catch (JSONException e) {
-                SurveyLog.logException(e, "SurveyMain.ensureStartup calling SurveyAjax.includeJavaScript");
+                SurveyLog.logException(e, "SurveyMain.ensureStartup calling SurveyTool.includeJavaScript");
             }
             if (isUnofficial()) {
                 out.println("<script>timerSpeed = 2500;</script>");
@@ -1235,9 +1237,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<link rel='stylesheet' type='text/css' href='" + ctx.context("surveytool.css") + "'>");
 
         try {
-            SurveyAjax.includeJavaScript(ctx.request, ctx.out);
+            SurveyTool.includeJavaScript(ctx.request, ctx.out);
         } catch (JSONException | IOException e) {
-            SurveyLog.logException(e, "SurveyMain.printHeader calling SurveyAjax.includeJavaScript");
+            SurveyLog.logException(e, "SurveyMain.printHeader calling SurveyTool.includeJavaScript");
         }
 
         ctx.println("<title>CLDR " + getNewVersion() + " Survey Tool: ");
@@ -1300,6 +1302,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public JSONObject statusJSON(HttpServletRequest request) throws JSONException {
+        // StatusForFrontEnd s = new StatusForFrontEnd(this, request);
+
         Runtime r = Runtime.getRuntime();
         double total = r.totalMemory();
         total = total / 1024000.0;
@@ -1308,6 +1312,28 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         double load = osmxbean.getSystemLoadAverage();
         CLDRConfig config = CLDRConfig.getInstance();
+
+        String sessid = request.getParameter("s");
+        if (sessid == null) {
+            HttpSession hsession = request.getSession(false);
+            if (hsession != null) {
+                sessid = hsession.getId();
+            }
+        }
+        CookieSession mySession = null;
+        UserRegistry.User myUser = null;
+        if (sessid != null) {
+            mySession = CookieSession.retrieveWithoutTouch(sessid);
+        }
+        if (mySession == null) {
+            sessid = null;
+        } else {
+            sessid = mySession.id;
+            myUser = mySession.user;
+        }
+        String orgName = (myUser == null) ? null : myUser.getOrganization().getDisplayName();
+        JSONObject perm = (myUser == null) ? null : myUser.getPermissionsJson();
+
         return new JSONObject().put("isBusted", isBusted).put("lockOut", lockOut != null).put("isSetup", isSetup)
             .put("isUnofficial", isUnofficial()).put("environment", config.getEnvironment().name())
             .put("specialHeader", config.getProperty("CLDR_HEADER"))
@@ -1315,11 +1341,53 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             .put("processing", startupThread.htmlStatus()).put("guests", CookieSession.getGuestCount())
             .put("users", CookieSession.getUserCount()).put("uptime", uptime).put("surveyRunningStamp", surveyRunningStamp.current())
             .put("memfree", free).put("memtotal", total).put("pages", pages).put("uptime", uptime).put("phase", phase())
-            .put("currev", SurveyMain.getCurrevCldrApps()) // Code only!
             .put("newVersion", newVersion).put("sysload", load).put("sysprocs", nProcs).put("dbopen", DBUtils.db_number_open)
             .put("dbused", DBUtils.db_number_used)
-            .put("contextPath", request.getContextPath());
+            .put("contextPath", request.getContextPath())
+            .put("isPhaseBeta", isPhaseBeta())
+            .put("sessionId", sessid)
+            .put("user", myUser)
+            .put("organizationName", orgName)
+            .put("permissions", perm)
+            .put("specialHeader", getSpecialHeaderText())
+        ;
     }
+/****
+    private class StatusForFrontEnd {
+        private String isBusted;
+        private boolean lockOut;
+        private boolean isSetup;
+        private boolean isUnofficial;
+        private Object environment;
+        private String specialHeader;
+        private Object specialTimerRemaining;
+        private String processing;
+        private int guests;
+        private int users;
+        private ElapsedTimer uptime;
+        private long surveyRunningStamp;
+
+        public StatusForFrontEnd(SurveyMain sm, HttpServletRequest request) {
+            CLDRConfig config = CLDRConfig.getInstance();
+
+            this.isBusted = SurveyMain.isBusted;
+            this.lockOut = SurveyMain.lockOut != null;
+            this.isSetup = SurveyMain.isSetup;
+            this.isUnofficial = SurveyMain.isUnofficial();
+            this.environment = config.getEnvironment().name();
+            this.specialHeader = config.getProperty("CLDR_HEADER");
+            this.specialTimerRemaining = SurveyMain.specialTimer != 0 ? timeDiff(System.currentTimeMillis(), SurveyMain.specialTimer) : null;
+            this.processing = sm.startupThread.htmlStatus();
+            this.guests = CookieSession.getGuestCount();
+            this.users = CookieSession.getUserCount();
+            this.uptime = SurveyMain.uptime;
+            this.surveyRunningStamp = surveyRunningStamp.current();
+            this.memfree =
+
+        }
+
+    }
+    ****/
 
     /**
      * Return the entire top 'box' including progress bars, busted notices, etc.

@@ -152,7 +152,7 @@ public class XMLNormalizingLoader{
         try (
             InputStream fis = new FileInputStream(f);
         ) {
-            String fullFileName = f.getCanonicalPath();
+            String fullFileName = PathUtilities.getNormalizedPathString(f);
             XMLSource source = new SimpleXMLSource(localeId);
             XMLNormalizingHandler XML_HANDLER = new XMLNormalizingHandler(source, minimalDraftStatus);
             XMLFileReader.read(fullFileName, fis, -1, true, XML_HANDLER);

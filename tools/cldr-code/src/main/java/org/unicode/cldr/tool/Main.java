@@ -8,27 +8,29 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTool;
 
 /**
- *
- * Implement a 'main' for the CLDR jar.
+ * Implement a 'main' for the cldr-code jar.
  */
-@CLDRTool(alias = "main", description = "The 'main' class invoked when java -jar or doubleclicking the jar.", hidden = "Hidden so as not to list itself",
+@CLDRTool(alias = "main", description = "The 'main' class invoked when java -jar or double-clicking the jar.", hidden = "Hidden so as not to list itself",
     url = Main.TOOLSURL)
 class Main {
     private static final String CLASS_SUFFIX = ".class";
     private static final String MAIN = "main";
     public static final String TOOLSURL = "http://cldr.unicode.org/tools/";
+    private static final boolean DEBUG = false;
 
     public static void main(String args[]) throws Throwable {
         if (args.length == 0) {
             System.out.println("Usage:  [ -l | [class|alias] args ...]");
             System.out.println("Example usage:");
-            System.out.println(" (java -jar cldr.jar ) -l          -- prints a list of ALL tool/util/test classes with a 'main()' function.");
-            System.out.println(" (java -jar cldr.jar ) org.unicode.cldr.util.XMLValidator  somefile.xml ...");
-            System.out.println(" (java -jar cldr.jar ) validate  somefile.xml ...");
+            System.out.println(" (java -jar cldr-code.jar ) -l          -- prints a list of ALL tool/util/test classes with a 'main()' function.");
+            System.out.println(" (java -jar cldr-code.jar ) org.unicode.cldr.util.XMLValidator  somefile.xml ...");
+            System.out.println(" (java -jar cldr-code.jar ) validate  somefile.xml ...");
             System.out.println("For more info: " + TOOLSURL);
             System.out.println("CLDRFile.GEN_VERSION=" + CLDRFile.GEN_VERSION);
             System.out.println("(Use the -l option to list hidden/undocumented tools)");
             System.out.println();
+
+            // Go ahead and list out classes while we're at it
             listClasses(false, null);
         } else if (args.length == 1 && args[0].equals("-l")) {
             listClasses(true, null);
@@ -37,6 +39,17 @@ class Main {
             final String args2[] = new String[args.length - 1];
             System.arraycopy(args, 1, args2, 0, args2.length);
             Class<?> c = null;
+
+            try {
+                if(System.getProperty("CLDR_DIR") == null) {
+                    if(new java.io.File("./common/main/root.xml").exists()) {
+                        System.err.println("Note: CLDR_DIR was unset but you seem to be in a CLDR directory. Setting -DCLDR_DIR=.");
+                        System.setProperty("CLDR_DIR", ".");
+                    }
+                }
+            } catch(SecurityException t) {
+                // ignore
+            }
 
             try {
                 c = Class.forName(mainClass);
@@ -170,7 +183,7 @@ class Main {
             System.out.println("(Not inside a .jar file - no listing available.)");
             return null;
         }
-        if (false) System.out.println("Classes in " + url.getPath());
+        if (DEBUG) System.out.println("Classes in " + url.getPath());
         final java.util.jar.JarInputStream jis = new java.util.jar.JarInputStream(new java.io.FileInputStream(url.getPath()));
         java.util.jar.JarEntry je = null;
         return jis;

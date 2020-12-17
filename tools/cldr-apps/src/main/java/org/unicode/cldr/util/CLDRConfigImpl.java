@@ -165,7 +165,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
         // The git version of the cldr-apps.war file.
         survprops.put("CLDR_SURVEYTOOL_HASH", getGitHashForSlug("CLDR-Apps")); // Not available until init() is called.
-        // The git version of the cldr.jar file embedded in cldr-apps.
+        // The git version of the cldr-code.jar file embedded in cldr-apps.
         survprops.put("CLDR_UTILITIES_HASH", getGitHashForSlug("CLDR-Tools"));
         // The git version of the CLDR_DIR currently in use.
         survprops.put("CLDR_DATA_HASH", CldrUtility.getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));

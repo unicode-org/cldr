@@ -11,7 +11,8 @@ import java.lang.annotation.Target;
 /**
  * This annotation is used to mark CLDR Tools that are runnable by users.
  * All CLDR Tools should be so annotated.
- * Running "java -jar cldr.jar" will list all annotated tools.
+ * Running "java -jar cldr-code.jar" will list all annotated tools.
+ * See: http://cldr.unicode.org/development/coding-cldr-tools/documenting-cldr-tools
  *
  * @author srl
  */

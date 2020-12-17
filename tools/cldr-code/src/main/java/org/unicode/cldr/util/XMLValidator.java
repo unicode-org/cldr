@@ -67,27 +67,27 @@ public class XMLValidator {
                 File f = new File(args[i]);
                 if (f.isDirectory()) {
                     addDirectory(f, toCheck);
-                } else if(f.canRead()) {
+                } else if (f.canRead()) {
                     toCheck.add(f);
                 } else {
-                    throw(new IllegalArgumentException("Not a regular file: " + f.getAbsolutePath()));
+                    throw (new IllegalArgumentException("Not a regular file: " + f.getAbsolutePath()));
                 }
             }
         }
         if (parseonly) {
             System.err.println("# DTD Validation is disabled. Will only check for well-formed XML.");
         }
-        if(toCheck.isEmpty()) {
+        if (toCheck.isEmpty()) {
             throw new IllegalArgumentException("No files specified to check.");
         }
-        if(!quiet) {
+        if (!quiet) {
             System.err.println("# " + toCheck.size() + " file(s) to check");
         }
         int failCount = new XMLValidator(quiet, parseonly, justCheckBom).check(toCheck);
-        if(failCount != 0) {
+        if (failCount != 0) {
             System.err.println("# FAIL: " + failCount + " of " + toCheck.size() + " file(s) had errors.");
             System.exit(1);
-        } else if(!quiet) {
+        } else if (!quiet) {
             System.err.println("# " + toCheck.size() + " file(s) OK");
         }
     }
@@ -128,7 +128,7 @@ public class XMLValidator {
      * @return failure count, or 0 if all OK
      */
     public int check(List<File> toCheck) {
-       return toCheck
+        return toCheck
             .parallelStream()
             .mapToInt(f -> parse(f))
             .sum();
@@ -179,9 +179,9 @@ public class XMLValidator {
      */
     public int parse(File f) {
 
-        if(checkForBOM(f)) return 1; // had BOM - fail
+        if (checkForBOM(f)) return 1; // had BOM - fail
 
-        if(justCheckBom) return 0; // short cut
+        if (justCheckBom) return 0; // short cut
 
         final String filename = PathUtilities.getNormalizedPathString(f);
         // Force filerefs to be URI's if needed: note this is independent of any
@@ -191,7 +191,7 @@ public class XMLValidator {
             docURI = filenameToURL(filename);
             parse(new InputSource(docURI), filename);
             return 0; // OK
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             t.printStackTrace();
             System.err.println(f.getPath() + " - fail - " + t);
             return 1; // fail

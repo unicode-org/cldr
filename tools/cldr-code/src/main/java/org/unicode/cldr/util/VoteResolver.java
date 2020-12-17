@@ -111,14 +111,9 @@ public class VoteResolver<T> {
      * weight.
      */
     public enum Level {
-        locked(   0 /* votes */, 999 /* stlevel */),
-        street(   1 /* votes */, 10  /* stlevel */),
-        anonymous(0 /* votes */, 8   /* stlevel */),
-        vetter(   4 /* votes */, 5   /* stlevel */),
-        expert(   8 /* votes */, 3   /* stlevel */),
-        manager(  4 /* votes */, 2   /* stlevel */),
-        tc(      20 /* votes */, 1   /* stlevel */),
-        admin(  100 /* votes */, 0   /* stlevel */);
+        locked(0 /* votes */, 999 /* stlevel */), street(1 /* votes */, 10 /* stlevel */), anonymous(0 /* votes */, 8 /* stlevel */), vetter(4 /* votes */,
+            5 /* stlevel */), expert(8 /* votes */,
+                3 /* stlevel */), manager(4 /* votes */, 2 /* stlevel */), tc(20 /* votes */, 1 /* stlevel */), admin(100 /* votes */, 0 /* stlevel */);
 
         /**
          * PERMANENT_VOTES is used by TC voters to "lock" locale+path permanently (including future versions, until unlocked),
@@ -762,7 +757,7 @@ public class VoteResolver<T> {
      */
     public T getBaileyValue() {
         if (organizationToValueAndVote == null
-                || organizationToValueAndVote.baileySet == false) {
+            || organizationToValueAndVote.baileySet == false) {
             throw new IllegalArgumentException("setBaileyValue must be called before getBaileyValue");
         }
         return organizationToValueAndVote.baileyValue;
@@ -1019,8 +1014,8 @@ public class VoteResolver<T> {
      */
     private boolean combineInheritanceWithBaileyForVoting(Set<T> sortedValues, HashMap<T, Long> voteCount) {
         if (organizationToValueAndVote == null
-                || organizationToValueAndVote.baileySet == false
-                || organizationToValueAndVote.baileyValue == null) {
+            || organizationToValueAndVote.baileySet == false
+            || organizationToValueAndVote.baileyValue == null) {
             return false;
         }
         T hardValue = organizationToValueAndVote.baileyValue;
@@ -1051,7 +1046,7 @@ public class VoteResolver<T> {
      * @param softCount the number of votes for softValue
      */
     private void reallyCombineInheritanceWithBailey(Set<T> sortedValues, HashMap<T, Long> voteCount,
-            T hardValue, T softValue, long hardCount, long softCount) {
+        T hardValue, T softValue, long hardCount, long softCount) {
         final T combValue = (hardCount > softCount) ? hardValue : softValue;
         final T skipValue = (hardCount > softCount) ? softValue : hardValue;
         final long combinedCount = hardCount + softCount;
@@ -1135,8 +1130,7 @@ public class VoteResolver<T> {
             for (T comp : comps) {
                 if (compMap.containsKey(comp)) {
                     compMap.replace(comp, compMap.get(comp) + count);
-                }
-                else {
+                } else {
                     compMap.put(comp, count);
                 }
             }
@@ -1264,8 +1258,8 @@ public class VoteResolver<T> {
             } else {
                 Set<T> comps = new LinkedHashSet<>(splitAnnotationIntoComponentsList(value));
                 if (comps.size() <= CheckWidths.MAX_COMPONENTS_PER_ANNOTATION &&
-                        comps.containsAll(oldWinnerComps) &&
-                        rawVoteCount.get(value) >= oldWinnerRawCount + requiredGap) {
+                    comps.containsAll(oldWinnerComps) &&
+                    rawVoteCount.get(value) >= oldWinnerRawCount + requiredGap) {
                     if (superiorSupersets == null) {
                         superiorSupersets = new LinkedHashSet<>();
                     }
@@ -1354,7 +1348,7 @@ public class VoteResolver<T> {
         }
         if (weight1 > weight2 &&
             (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
-                || weight1 >= 2 && organizationToValueAndVote.getOrgCount(winningValue) >= 2) ) {
+                || weight1 >= 2 && organizationToValueAndVote.getOrgCount(winningValue) >= 2)) {
             return Status.contributed;
         }
         if (weight1 >= weight2 && weight1 >= 2) {

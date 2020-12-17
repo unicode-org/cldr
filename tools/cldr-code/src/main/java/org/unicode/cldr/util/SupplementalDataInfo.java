@@ -288,7 +288,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements Comparable<BasicLanguageData>,
-    com.ibm.icu.util.Freezable<BasicLanguageData> {
+        com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         }
@@ -309,13 +309,15 @@ public class SupplementalDataInfo {
         }
 
         public BasicLanguageData setScripts(String scriptTokens) {
-            return setScripts(scriptTokens == null ? null : Arrays
-                .asList(WHITESPACE_PATTERN.split(scriptTokens)));
+            return setScripts(scriptTokens == null ? null
+                : Arrays
+                    .asList(WHITESPACE_PATTERN.split(scriptTokens)));
         }
 
         public BasicLanguageData setTerritories(String territoryTokens) {
-            return setTerritories(territoryTokens == null ? null : Arrays
-                .asList(WHITESPACE_PATTERN.split(territoryTokens)));
+            return setTerritories(territoryTokens == null ? null
+                : Arrays
+                    .asList(WHITESPACE_PATTERN.split(territoryTokens)));
         }
 
         public BasicLanguageData setScripts(Collection<String> scriptTokens) {
@@ -363,13 +365,15 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-            + languageSubtag
-            + "\""
-            + (scripts.size() == 0 ? "" : " scripts=\""
-                + CldrUtility.join(scripts, " ") + "\"")
-            + (territories.size() == 0 ? "" : " territories=\""
-                + CldrUtility.join(territories, " ") + "\"")
-            + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+                + languageSubtag
+                + "\""
+                + (scripts.size() == 0 ? ""
+                    : " scripts=\""
+                        + CldrUtility.join(scripts, " ") + "\"")
+                + (territories.size() == 0 ? ""
+                    : " territories=\""
+                        + CldrUtility.join(territories, " ") + "\"")
+                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         @Override
@@ -574,8 +578,8 @@ public class SupplementalDataInfo {
         @Override
         public String toString() {
             return "{" + formatDate(from)
-            + ", "
-            + formatDate(to) + "}";
+                + ", "
+                + formatDate(to) + "}";
         }
 
         public static String formatDate(long date) {
@@ -841,7 +845,9 @@ public class SupplementalDataInfo {
         }
     }
 
-    public enum RBNFGroup {SpelloutRules, OrdinalRules, NumberingSystemRules}
+    public enum RBNFGroup {
+        SpelloutRules, OrdinalRules, NumberingSystemRules
+    }
 
     public static final String STAR = "*";
     public static final Set<String> STAR_SET = Builder.with(new HashSet<String>()).add("*").freeze();
@@ -929,7 +935,6 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<>();
     public Map<String, String> bcp47ValueType = new TreeMap<>();
-
 
     public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<>();
     public Map<AttributeValidityInfo, String> attributeValidityInfo = new LinkedHashMap<>();
@@ -1411,7 +1416,8 @@ public class SupplementalDataInfo {
                         throw new IllegalArgumentException("Structure not handled: " + parts);
                     }
                     break;
-                default: throw new IllegalArgumentException("Structure not handled: " + parts);
+                default:
+                    throw new IllegalArgumentException("Structure not handled: " + parts);
                 }
             }
             return true;
@@ -1504,7 +1510,6 @@ public class SupplementalDataInfo {
                 systems);
             return true;
         }
-
 
         private boolean handleTimeData(XPathParts parts) {
             /**
@@ -1636,7 +1641,7 @@ public class SupplementalDataInfo {
                     parts.getAttributeValue(3, "supported"),
                     percent != null ? Integer.parseInt(percent)
                         : 100 - Integer.parseInt(distance),
-                        "true".equals(parts.getAttributeValue(3, "oneway"))));
+                    "true".equals(parts.getAttributeValue(3, "oneway"))));
                 break;
             default:
                 throw new IllegalArgumentException("Unknown element");
@@ -1824,8 +1829,8 @@ public class SupplementalDataInfo {
                     for (String item : replacement.split("\\s+")) {
                         String cleaned = SubdivisionNames.isOldSubdivisionCode(item)
                             ? replacement.replace("-", "").toLowerCase(Locale.ROOT)
-                                : item;
-                            builder.add(cleaned);
+                            : item;
+                        builder.add(cleaned);
                     }
                     replacementList = ImmutableList.copyOf(builder);
                 }
@@ -1936,13 +1941,13 @@ public class SupplementalDataInfo {
                     .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
                     .setWritingPopulation(writingPercent * languagePopulation / 100)
                     .setOfficialStatus(officialStatus)
-                    // .setGdp(languageGdp)
-                    ;
+                // .setGdp(languageGdp)
+                ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                    .println("Internal Problem in supplementalData: multiple data items for "
-                        + language + ", " + territory + "\tSkipping " + newData);
+                        .println("Internal Problem in supplementalData: multiple data items for "
+                            + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -2066,10 +2071,10 @@ public class SupplementalDataInfo {
             String language = parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                : BasicLanguageData.Type.secondary);
+                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                    : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-            .setTerritories(parts.getAttributeValue(2, "territories"));
+                .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
                 languageToBasicLanguageData.put(language, map = new EnumMap<>(
@@ -2086,15 +2091,16 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-            .println("Internal Problem in supplementalData: range check fails for "
-                + input + ", min: " + min + ", max:" + max + "\t" + path);
+                .println("Internal Problem in supplementalData: range check fails for "
+                    + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
 
         private double parseDouble(String literacyString) {
-            return literacyString == null ? Double.NaN : Double
-                .parseDouble(literacyString);
+            return literacyString == null ? Double.NaN
+                : Double
+                    .parseDouble(literacyString);
         }
     }
 
@@ -2621,15 +2627,15 @@ public class SupplementalDataInfo {
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
             String regex = "//ldml/" + ci.match.replace('\'', '"')
-            .replaceAll("\\[", "\\\\[")
-            .replaceAll("\\]", "\\\\]")
-            .replace("${Target-Language}", targetLanguage)
-            .replace("${Target-Scripts}", targetScriptString)
-            .replace("${Target-Territories}", targetTerritoryString)
-            .replace("${Target-TimeZones}", targetTimeZoneString)
-            .replace("${Target-Currencies}", targetCurrencyString)
-            .replace("${Target-Plurals}", targetPluralsString)
-            .replace("${Calendar-List}", calendarListString);
+                .replaceAll("\\[", "\\\\[")
+                .replaceAll("\\]", "\\\\]")
+                .replace("${Target-Language}", targetLanguage)
+                .replace("${Target-Scripts}", targetScriptString)
+                .replace("${Target-Territories}", targetTerritoryString)
+                .replace("${Target-TimeZones}", targetTimeZoneString)
+                .replace("${Target-Currencies}", targetCurrencyString)
+                .replace("${Target-Plurals}", targetPluralsString)
+                .replace("${Calendar-List}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
             // to certain territories
@@ -3077,7 +3083,7 @@ public class SupplementalDataInfo {
         String locales = path.getAttributeValue(2, "locales").trim();
         DayPeriodInfo.Type type = typeString == null
             ? DayPeriodInfo.Type.format
-                : DayPeriodInfo.Type.valueOf(typeString.trim());
+            : DayPeriodInfo.Type.valueOf(typeString.trim());
         if (!locales.equals(lastDayPeriodLocales) || type != lastDayPeriodType) {
             if (lastDayPeriodLocales != null) {
                 addDayPeriodInfo();
@@ -3177,7 +3183,7 @@ public class SupplementalDataInfo {
             String result = path.getAttributeValue(-1, "result");
             lastPluralRanges.add(rangeStart == null ? null : Count.valueOf(rangeStart),
                 rangeEnd == null ? null : Count.valueOf(rangeEnd),
-                    Count.valueOf(result));
+                Count.valueOf(result));
             return true;
         } else if ("pluralRules".equals(element)) {
 
@@ -4079,7 +4085,6 @@ public class SupplementalDataInfo {
         return bcp47ValueType;
     }
 
-
     static Set<String> MainTimeZones;
 
     /**
@@ -4525,7 +4530,7 @@ public class SupplementalDataInfo {
      */
     @Deprecated
     public GrammarInfo getGrammarInfo(String locale, boolean seedOnly) {
-        for (;locale != null; locale = LocaleIDParser.getParent(locale)) {
+        for (; locale != null; locale = LocaleIDParser.getParent(locale)) {
             if (seedOnly && !GrammarInfo.SEED_LOCALES.contains(locale)) {
                 continue;
             }
@@ -4541,9 +4546,8 @@ public class SupplementalDataInfo {
         return localeToGrammarDerivation.keySet();
     }
 
-
     public GrammarDerivation getGrammarDerivation(String locale) {
-        for (;locale != null; locale = LocaleIDParser.getParent(locale)) {
+        for (; locale != null; locale = LocaleIDParser.getParent(locale)) {
             GrammarDerivation result = localeToGrammarDerivation.get(locale);
             if (result != null) {
                 return result;

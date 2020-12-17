@@ -414,7 +414,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         }
         CLDRLocale result = parentLocale;
         if (result == null) {
-            synchronized(this) {
+            synchronized (this) {
                 result = parentLocale;
                 if (result == null) {
                     parentLocale = result = CLDRLocale.getInstance(parentId);

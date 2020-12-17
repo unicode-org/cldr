@@ -45,17 +45,17 @@ public class BNF {
     + "sequence = (core quantifier*)+;"
     + "alternation = sequence (weight? ('|' sequence weight?)+)?;"
     + "rule = string '=' alternation;";
-
-
+    
+    
     *      Match 0 or more times
     +      Match 1 or more times
     ?      Match 1 or 0 times
     {n}    Match exactly n times
     {n,}   Match at least n times
     {n,m}  Match at least n but not more than m times
-
-
-
+    
+    
+    
     */
 
     public BNF(Random random, Quoter quoter) {

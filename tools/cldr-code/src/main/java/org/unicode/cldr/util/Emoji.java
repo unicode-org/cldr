@@ -126,8 +126,8 @@ public class Emoji {
             String comment = it.next();
             // The comment is now of the form:  # 😁 E0.6 beaming face with smiling eyes
             int spacePos = comment.indexOf(' ');
-            spacePos = comment.indexOf(' ', spacePos+1); // get second space
-            String name = comment.substring(spacePos+1).trim();
+            spacePos = comment.indexOf(' ', spacePos + 1); // get second space
+            String name = comment.substring(spacePos + 1).trim();
             toName.put(original, name);
 
             // add all the non-constructed values to a set for annotations
@@ -136,10 +136,10 @@ public class Emoji {
 
             // Add the order. If it is not minimal, add that also.
             if (!emojiToOrder.containsKey(original)) {
-                putUnique(emojiToOrder, original, emojiToOrder.size()*100L);
+                putUnique(emojiToOrder, original, emojiToOrder.size() * 100L);
             }
             if (!emojiToOrder.containsKey(minimal)) {
-                putUnique(emojiToOrder, minimal, emojiToOrder.size()*100L);
+                putUnique(emojiToOrder, minimal, emojiToOrder.size() * 100L);
             }
             //
             // majorPlusMinorToEmoji.put(Pair.of(majorOrder, minorOrder), minimal);
@@ -185,8 +185,7 @@ public class Emoji {
             throw new ICUException("Attempt to change value of " + map
                 + " for " + key
                 + " from " + oldValue
-                + " to " + value
-                );
+                + " to " + value);
         }
     }
 
@@ -199,17 +198,19 @@ public class Emoji {
     }
 
     public static final UnicodeMap<String> EXTRA_SYMBOL_MINOR_CATEGORIES = new UnicodeMap<>();
-    public static final Map<String,Long> EXTRA_SYMBOL_ORDER;
+    public static final Map<String, Long> EXTRA_SYMBOL_ORDER;
     private static final boolean DEBUG = false;
     static {
         String[][] data = {
-            {"arrow", "→ ↓ ↑ ← ↔ ↕ ⇆ ⇅"},
-            {"alphanum", "© ® ℗ ™ µ"},
-            {"geometric", "▼ ▶ ▲ ◀ ● ○ ◯ ◊"},
-            {"math", "× ÷ √ ∞ ∆ ∇ ⁻ ¹ ² ³ ≡ ∈ ⊂ ∩ ∪ ° + ± − = ≈ ≠ > < ≤ ≥ ¬ | ~"},
-            {"punctuation", "§ † ‡ \\u0020  , 、 ، ; : ؛ ! ¡ ? ¿ ؟ ¶ ※ / \\ & # % ‰ ′ ″ ‴ @ * ♪ ♭ ♯ ` ´ ^ ¨ ‐ ― _ - – — • · . … 。 ‧ ・ ‘ ’ ‚ ' “ ” „ » « ( ) [ ] { } 〔 〕 〈 〉 《 》 「 」 『 』 〖 〗 【 】"},
-            {"currency", "€ £ ¥ ₹ ₽ $ ¢ ฿ ₪ ₺ ₫ ₱ ₩ ₡ ₦ ₮ ৳ ₴ ₸ ₲ ₵ ៛ ₭ ֏ ₥ ₾ ₼ ₿ ؋"},
-            {"other-symbol", "‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼"},
+            { "arrow", "→ ↓ ↑ ← ↔ ↕ ⇆ ⇅" },
+            { "alphanum", "© ® ℗ ™ µ" },
+            { "geometric", "▼ ▶ ▲ ◀ ● ○ ◯ ◊" },
+            { "math", "× ÷ √ ∞ ∆ ∇ ⁻ ¹ ² ³ ≡ ∈ ⊂ ∩ ∪ ° + ± − = ≈ ≠ > < ≤ ≥ ¬ | ~" },
+            { "punctuation",
+                "§ † ‡ \\u0020  , 、 ، ; : ؛ ! ¡ ? ¿ ؟ ¶ ※ / \\ & # % ‰ ′ ″ ‴ @ * ♪ ♭ ♯ ` ´ ^ ¨ ‐ ― _ - – — • · . … 。 ‧ ・ ‘ ’ ‚ ' “ ” „ » « ( ) [ ] { } 〔 〕 〈 〉 《 》 「 」 『 』 〖 〗 【 】" },
+            { "currency", "€ £ ¥ ₹ ₽ $ ¢ ฿ ₪ ₺ ₫ ₱ ₩ ₡ ₦ ₮ ৳ ₴ ₸ ₲ ₵ ៛ ₭ ֏ ₥ ₾ ₼ ₿ ؋" },
+            { "other-symbol",
+                "‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼" },
         };
         // get the maximum suborder for each subcategory
         Map<String, Long> subcategoryToMaxSuborder = new HashMap<>();
@@ -227,7 +228,7 @@ public class Emoji {
             }
         }
         if (DEBUG) System.out.println(subcategoryToMaxSuborder);
-        Map<String,Long> _EXTRA_SYMBOL_ORDER = new LinkedHashMap<>();
+        Map<String, Long> _EXTRA_SYMBOL_ORDER = new LinkedHashMap<>();
         for (String[] row : data) {
             final String subcategory = row[0];
             final String characters = row[1];

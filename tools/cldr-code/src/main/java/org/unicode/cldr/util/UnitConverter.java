@@ -53,13 +53,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
     static final Splitter BAR_SPLITTER = Splitter.on('-');
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
 
-    public static final Set<String> HACK_SKIP_UNIT_NAMES = ImmutableSet.of("dot-per-centimeter", "dot-per-inch", "liter-per-100-kilometer", "millimeter-ofhg", "inch-ofhg");
-
+    public static final Set<String> HACK_SKIP_UNIT_NAMES = ImmutableSet.of("dot-per-centimeter", "dot-per-inch", "liter-per-100-kilometer", "millimeter-ofhg",
+        "inch-ofhg");
 
     final RationalParser rationalParser;
 
-    private Map<String,String> baseUnitToQuantity = new LinkedHashMap<>();
-    private Map<String,String> baseUnitToStatus = new LinkedHashMap<>();
+    private Map<String, String> baseUnitToQuantity = new LinkedHashMap<>();
+    private Map<String, String> baseUnitToStatus = new LinkedHashMap<>();
     private Map<String, TargetInfo> sourceToTargetInfo = new LinkedHashMap<>();
     private Multimap<String, String> quantityToSimpleUnits = LinkedHashMultimap.create();
     private Multimap<String, String> sourceToSystems = LinkedHashMultimap.create();
@@ -67,10 +67,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Multimap<String, Continuation> continuations = TreeMultimap.create();
     private Comparator<String> quantityComparator;
 
-    private Map<String,String> fixDenormalized;
+    private Map<String, String> fixDenormalized;
     private ImmutableMap<String, UnitId> idToUnitId;
 
-    public final BiMap<String,String> SHORT_TO_LONG_ID;
+    public final BiMap<String, String> SHORT_TO_LONG_ID;
 
     private boolean frozen = false;
 
@@ -91,8 +91,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         "pixel",
         "em",
         "revolution",
-        "portion"
-        );
+        "portion");
 
     public void addQuantityInfo(String baseUnit, String quantity, String status) {
         if (baseUnitToQuantity.containsKey(baseUnit)) {
@@ -105,7 +104,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         quantityToSimpleUnits.put(quantity, baseUnit);
     }
 
-    public static final Set<String> BASE_UNIT_PARTS = ImmutableSet.<String>builder()
+    public static final Set<String> BASE_UNIT_PARTS = ImmutableSet.<String> builder()
         .add("per").add("square").add("cubic").addAll(BASE_UNITS)
         .build();
 
@@ -127,7 +126,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             quantityComparator = getQuantityComparator(baseUnitToQuantity, baseUnitToStatus);
             sourceToSystems = ImmutableMultimap.copyOf(sourceToSystems);
             // other fields are frozen earlier in processing
-            Builder<String> builder = ImmutableSet.<String>builder()
+            Builder<String> builder = ImmutableSet.<String> builder()
                 .addAll(BASE_UNITS);
             for (TargetInfo s : sourceToTargetInfo.values()) {
                 builder.add(s.target);
@@ -145,7 +144,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 Output<Rational> deprefix = new Output<>();
                 for (Entry<String, Integer> entry : uid.numUnitsToPowers.entrySet()) {
                     final String unitPart = entry.getKey();
-                    UnitConverter.stripPrefix(unitPart, deprefix );
+                    UnitConverter.stripPrefix(unitPart, deprefix);
                     if (!deprefix.value.equals(Rational.ONE) || !entry.getValue().equals(INTEGER_ONE)) {
                         doTest = true;
                         break;
@@ -175,7 +174,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public UnitConverter cloneAsThawed() {
         throw new UnsupportedOperationException();
     }
-
 
     public static final class ConversionInfo implements Comparable<ConversionInfo> {
         public final Rational factor;
@@ -207,23 +205,25 @@ public class UnitConverter implements Freezable<UnitConverter> {
         public String toString() {
             return toString("x");
         }
+
         public String toString(String unit) {
             return factor.toString(FormatStyle.simple)
                 + " * " + unit
-                + (offset.equals(Rational.ZERO) ? "" :
-                    (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
-                    + offset.abs().toString(FormatStyle.simple));
+                + (offset.equals(Rational.ZERO) ? ""
+                    : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
+                        + offset.abs().toString(FormatStyle.simple));
         }
 
         public String toDecimal() {
             return toDecimal("x");
         }
+
         public String toDecimal(String unit) {
             return factor.toBigDecimal(MathContext.DECIMAL64)
-                +  " * " + unit
-                + (offset.equals(Rational.ZERO) ? "" :
-                    (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
-                    + offset.toBigDecimal(MathContext.DECIMAL64).abs());
+                + " * " + unit
+                + (offset.equals(Rational.ZERO) ? ""
+                    : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
+                        + offset.toBigDecimal(MathContext.DECIMAL64).abs());
         }
 
         @Override
@@ -234,10 +234,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
             return offset.compareTo(o.offset);
         }
+
         @Override
         public boolean equals(Object obj) {
-            return 0 == compareTo((ConversionInfo)obj);
+            return 0 == compareTo((ConversionInfo) obj);
         }
+
         @Override
         public int hashCode() {
             return Objects.hash(factor, offset);
@@ -255,10 +257,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 data.put(sourceParts.get(0), continuation);
             }
         }
+
         public Continuation(List<String> remainder, String source) {
             this.remainder = remainder;
             this.result = source;
         }
+
         /**
          * The ordering is designed to have longest continuation first so that matching works.
          * Otherwise the ordering doesn't matter, so we just use the result.
@@ -334,10 +338,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
         this.rationalParser = rationalParser;
         // we need to pass in the validity so it is for the same CLDR version as the converter
         Set<String> VALID_UNITS = validity.getStatusToCodes(LstrType.unit).get(Status.regular);
-        Map<String,String> _SHORT_TO_LONG_ID = new LinkedHashMap<>();
+        Map<String, String> _SHORT_TO_LONG_ID = new LinkedHashMap<>();
         for (String longUnit : VALID_UNITS) {
             int dashPos = longUnit.indexOf('-');
-            String coreUnit = longUnit.substring(dashPos+1);
+            String coreUnit = longUnit.substring(dashPos + 1);
             _SHORT_TO_LONG_ID.put(coreUnit, longUnit);
         }
         SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
@@ -346,7 +350,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public void addRaw(String source, String target, String factor, String offset, String systems) {
         ConversionInfo info = new ConversionInfo(
             factor == null ? Rational.ONE : rationalParser.parse(factor),
-                offset == null ? Rational.ZERO : rationalParser.parse(offset));
+            offset == null ? Rational.ZERO : rationalParser.parse(offset));
         Map<String, String> args = new LinkedHashMap<>();
         if (factor != null) {
             args.put("factor", factor);
@@ -359,27 +363,29 @@ public class UnitConverter implements Freezable<UnitConverter> {
         Continuation.addIfNeeded(source, continuations);
     }
 
-    public static class TargetInfo{
+    public static class TargetInfo {
         public final String target;
         public final ConversionInfo unitInfo;
         public final Map<String, String> inputParameters;
+
         public TargetInfo(String target, ConversionInfo unitInfo, Map<String, String> inputParameters) {
             this.target = target;
             this.unitInfo = unitInfo;
             this.inputParameters = ImmutableMap.copyOf(inputParameters);
         }
+
         @Override
         public String toString() {
             return unitInfo + " (" + target + ")";
         }
+
         public String formatOriginalSource(String source) {
             StringBuilder result = new StringBuilder()
                 .append("<convertUnit source='")
                 .append(source)
                 .append("' baseUnit='")
                 .append(target)
-                .append("'")
-                ;
+                .append("'");
             for (Entry<String, String> entry : inputParameters.entrySet()) {
                 if (entry.getValue() != null) {
                     result.append(" " + entry.getKey() + "='" + entry.getValue() + "'");
@@ -396,6 +402,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return result.toString();
         }
     }
+
     public class TargetInfoComparator implements Comparator<TargetInfo> {
         @Override
         public int compare(TargetInfo o1, TargetInfo o2) {
@@ -507,7 +514,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
      * @param showYourWork TODO
      *
      */
-    public ConversionInfo parseUnitId (String derivedUnit, Output<String> metricUnit, boolean showYourWork) {
+    public ConversionInfo parseUnitId(String derivedUnit, Output<String> metricUnit, boolean showYourWork) {
         metricUnit.value = null;
 
         UnitId outputUnit = new UnitId(UNIT_COMPARATOR);
@@ -581,7 +588,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     // Special handling for offsets. We disregard them if there are any other units.
                     if (countUnits == 1 && !it.hasNext()) {
                         offset = info.unitInfo.offset;
-                        if (showYourWork && !info.unitInfo.offset.equals(Rational.ZERO)) System.out.println(showRational("\toffset: ", info.unitInfo.offset, baseUnit));
+                        if (showYourWork && !info.unitInfo.offset.equals(Rational.ZERO))
+                            System.out.println(showRational("\toffset: ", info.unitInfo.offset, baseUnit));
                     }
                     unit = baseUnit;
                 }
@@ -597,7 +605,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         denominator = denominator.multiply(value);
                         title = "\t÷ ";
                     }
-                    if (showYourWork) System.out.println(showRational("\t× ", value, " ⟹ " + unit) + "\t" + numerator.divide(denominator) + "\t" + numerator.divide(denominator).doubleValue());
+                    if (showYourWork) System.out.println(
+                        showRational("\t× ", value, " ⟹ " + unit) + "\t" + numerator.divide(denominator) + "\t" + numerator.divide(denominator).doubleValue());
                 }
                 // create cleaned up target unitid
                 outputUnit.add(continuations, unit, inNumerator, power);
@@ -608,9 +617,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return new ConversionInfo(numerator.divide(denominator), offset);
     }
 
-
     /** Only for use for simple base unit comparison */
-    private class UnitComparator implements Comparator<String>{
+    private class UnitComparator implements Comparator<String> {
         // TODO, use order in units.xml
 
         @Override
@@ -669,9 +677,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
             // maybe refactor common parts with above code.
             for (String unitPart : Continuation.split(compoundUnit, continuations)) {
                 switch (unitPart) {
-                case "square": power = 2; break;
-                case "cubic": power = 3; break;
-                case "per": inNumerator = false; break; // sticky, ignore multiples
+                case "square":
+                    power = 2;
+                    break;
+                case "cubic":
+                    power = 3;
+                    break;
+                case "per":
+                    inNumerator = false;
+                    break; // sticky, ignore multiples
                 default:
                     if (unitPart.startsWith("pow")) {
                         power = Integer.parseInt(unitPart.substring(3));
@@ -687,6 +701,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
             return this;
         }
+
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
@@ -711,9 +726,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     case 1:
                         break;
                     case 2:
-                        builder.append("square-"); break;
+                        builder.append("square-");
+                        break;
                     case 3:
-                        builder.append("cubic-"); break;
+                        builder.append("cubic-");
+                        break;
                     default:
                         if (power > 3) {
                             builder.append("pow" + power + "-");
@@ -729,7 +746,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return builder.toString();
         }
 
-        public String toString(LocaleStringProvider resolvedFile, String width, String _pluralCategory, String caseVariant, Multimap<UnitPathType, String> partsUsed, boolean maximal) {
+        public String toString(LocaleStringProvider resolvedFile, String width, String _pluralCategory, String caseVariant,
+            Multimap<UnitPathType, String> partsUsed, boolean maximal) {
             if (partsUsed != null) {
                 partsUsed.clear();
             }
@@ -753,8 +771,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
             for (int i = 1; i >= 0; --i) { // two passes, numerator then den.
                 boolean positivePass = i > 0;
                 if (!positivePass) {
-                    switch(locale.toString()) {
-                    case "de": caseVariant = "accusative"; break; // German pro rule
+                    switch (locale.toString()) {
+                    case "de":
+                        caseVariant = "accusative";
+                        break; // German pro rule
                     }
                     numerator = result; // from now on, result ::= denominator
                     result = null;
@@ -777,13 +797,21 @@ public class UnitConverter implements Freezable<UnitConverter> {
                                 throw new UnsupportedOperationException("not yet implemented fully");
                             }
                             String fullUnit;
-                            switch(power) {
-                            case 1: fullUnit = unit; break;
-                            case 2: fullUnit = "square-" + unit; break;
-                            case 3: fullUnit = "cubic-" + unit; break;
-                            default: throw new IllegalArgumentException("powers > 3 not supported");
+                            switch (power) {
+                            case 1:
+                                fullUnit = unit;
+                                break;
+                            case 2:
+                                fullUnit = "square-" + unit;
+                                break;
+                            case 3:
+                                fullUnit = "cubic-" + unit;
+                                break;
+                            default:
+                                throw new IllegalArgumentException("powers > 3 not supported");
                             }
-                            fullPerPattern = UnitPathType.perUnit.getTrans(resolvedFile, width, fullUnit, _pluralCategory, caseVariant, genderVariant, partsUsed);
+                            fullPerPattern = UnitPathType.perUnit.getTrans(resolvedFile, width, fullUnit, _pluralCategory, caseVariant, genderVariant,
+                                partsUsed);
                             // if there is a special form, we'll use it
                             if (fullPerPattern != null) {
                                 continue;
@@ -794,7 +822,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     // handle prefix, like kilo-
                     String prefixPattern = null;
                     if (deprefix.value != 1) {
-                        prefixPattern = UnitPathType.prefix.getTrans(resolvedFile, width, "10p" + deprefix.value, _pluralCategory, caseVariant, genderVariant, partsUsed);
+                        prefixPattern = UnitPathType.prefix.getTrans(resolvedFile, width, "10p" + deprefix.value, _pluralCategory, caseVariant, genderVariant,
+                            partsUsed);
                     }
 
                     // get the core pattern. Detect and remove the the placeholder (and surrounding spaces)
@@ -876,7 +905,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return addPlaceholder(result, placeholderPattern, placeholderPosition);
         }
 
-        public String getTimesPattern(LocaleStringProvider resolvedFile, String width) {  // TODO fix hack!
+        public String getTimesPattern(LocaleStringProvider resolvedFile, String width) { // TODO fix hack!
             if (HACK && "en".equals(resolvedFile.getLocaleID())) {
                 return "{0}-{1}";
             }
@@ -890,14 +919,17 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return numUnitsToPowers.equals(other.numUnitsToPowers)
                 && denUnitsToPowers.equals(other.denUnitsToPowers);
         }
+
         @Override
         public int hashCode() {
             return Objects.hash(numUnitsToPowers, denUnitsToPowers);
         }
+
         @Override
         public boolean isFrozen() {
             return frozen;
         }
+
         @Override
         public UnitId freeze() {
             frozen = true;
@@ -905,6 +937,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             denUnitsToPowers = ImmutableMap.copyOf(denUnitsToPowers);
             return this;
         }
+
         @Override
         public UnitId cloneAsThawed() {
             throw new UnsupportedOperationException();
@@ -947,15 +980,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
          * Prefixes & powers: the gender of the whole is the same as the gender of the operand. In pseudocode:
             gender(square, meter) = gender(meter)
             gender(kilo, meter) = gender(meter)
-
+        
          * Per: the gender of the whole is the gender of the numerator. If there is no numerator, then the gender of the denominator
             gender(gram per meter) = gender(gram)
-
+        
          * Times: the gender of the whole is the gender of the last operand
             gender(gram-meter) = gender(gram)
          * @param source
          * @param partsUsed
-
+        
          * @return
          * TODO: add parameter to short-circuit the lookup if the unit is not a compound.
          */
@@ -966,8 +999,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             //Values power = gd.get(GrammaticalFeature.grammaticalGender, CompoundUnitStructure.power); no data available yet
             //Values prefix = gd.get(GrammaticalFeature.grammaticalGender, CompoundUnitStructure.prefix);
 
-
-            Map<String,Integer> determiner;
+            Map<String, Integer> determiner;
             if (numUnitsToPowers.isEmpty()) {
                 determiner = denUnitsToPowers;
             } else if (denUnitsToPowers.isEmpty()) {
@@ -1011,7 +1043,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     }
 
-    public enum PlaceholderLocation {before, middle, after, missing}
+    public enum PlaceholderLocation {
+        before, middle, after, missing
+    }
 
     public static String addPlaceholder(String result, String placeholderPattern, PlaceholderLocation placeholderPosition) {
         return placeholderPattern == null ? result
@@ -1054,13 +1088,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return unitPattern;
     }
 
-    public static class EntrySetComparator<K extends Comparable<K>,V> implements Comparator<Entry<K, V>> {
+    public static class EntrySetComparator<K extends Comparable<K>, V> implements Comparator<Entry<K, V>> {
         Comparator<K> kComparator;
         Comparator<V> vComparator;
+
         public EntrySetComparator(Comparator<K> kComparator, Comparator<V> vComparator) {
             this.kComparator = kComparator;
             this.vComparator = vComparator;
         }
+
         @Override
         public int compare(Entry<K, V> o1, Entry<K, V> o2) {
             int diff = kComparator.compare(o1.getKey(), o2.getKey());
@@ -1075,7 +1111,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
     }
 
-    public static <K extends Comparable<K>, V extends Comparable<V>, T extends Entry<K, V>> int compareEntrySets(Collection<T> o1, Collection<T> o2, Comparator<T> comparator) {
+    public static <K extends Comparable<K>, V extends Comparable<V>, T extends Entry<K, V>> int compareEntrySets(Collection<T> o1, Collection<T> o2,
+        Comparator<T> comparator) {
         Iterator<T> iterator1 = o1.iterator();
         Iterator<T> iterator2 = o2.iterator();
         while (true) {
@@ -1094,6 +1131,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     private ConcurrentHashMap<String, UnitId> UNIT_ID = new ConcurrentHashMap<>();
+
     // TODO This is safe but should use regular cache
     public final UnitId createUnitId(String unit) {
         UnitId result = UNIT_ID.get(unit);
@@ -1117,7 +1155,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     // TODO change to TRIE if the performance isn't good enough, or restructure with regex
-    public static final ImmutableMap<String, Integer> PREFIX_POWERS = ImmutableMap.<String, Integer>builder()
+    public static final ImmutableMap<String, Integer> PREFIX_POWERS = ImmutableMap.<String, Integer> builder()
         .put("yocto", -24)
         .put("zepto", -21)
         .put("atto", -18)
@@ -1151,8 +1189,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     static final Set<String> SKIP_PREFIX = ImmutableSet.of(
         "millimeter-ofhg",
-        "kilogram"
-        );
+        "kilogram");
 
     /**
      * If there is no prefix, return the unit and ONE.
@@ -1269,8 +1306,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         "arc-second", "arc-minute", "degree", "radian", "revolution",
         "electronvolt",
         // quasi-metric
-        "dunam", "mile-scandinavian", "carat", "cup-metric", "pint-metric"
-        );
+        "dunam", "mile-scandinavian", "carat", "cup-metric", "pint-metric");
 
     private void addSystems(Set<String> result, String subunit) {
         Collection<String> systems = sourceToSystems.get(subunit);
@@ -1287,7 +1323,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         if (index < 0) {
             return null;
         }
-        return value.substring(index+5) + "-per-" + value.substring(0, index);
+        return value.substring(index + 5) + "-per-" + value.substring(0, index);
     }
 
     public Rational parseRational(String source) {
@@ -1296,7 +1332,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public String showRational(String title, Rational rational, String unit) {
         String doubleString = showRational2(rational, " = ", " ≅ ");
-        final String endResult = title + rational + doubleString + (unit != null ? " " + unit: "");
+        final String endResult = title + rational + doubleString + (unit != null ? " " + unit : "");
         return endResult;
     }
 
@@ -1368,9 +1404,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
         boolean invert = false;
         if (unitQuantity.endsWith("-inverse")) {
             invert = true;
-            unitQuantity = unitQuantity.substring(0,unitQuantity.length()-8);
+            unitQuantity = unitQuantity.substring(0, unitQuantity.length() - 8);
         }
-        String bu = ((BiMap<String,String>) baseUnitToQuantity).inverse().get(unitQuantity);
+        String bu = ((BiMap<String, String>) baseUnitToQuantity).inverse().get(unitQuantity);
         if (bu == null) {
             return null;
         }
@@ -1381,12 +1417,14 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return getBaseUnitToQuantity().inverse().keySet();
     }
 
-    public enum UnitComplexity {simple, non_simple}
+    public enum UnitComplexity {
+        simple, non_simple
+    }
 
     private ConcurrentHashMap<String, UnitComplexity> COMPLEXITY = new ConcurrentHashMap<>();
     // TODO This is safe but should use regular cache
 
-    public UnitComplexity getComplexity (String longOrShortId){
+    public UnitComplexity getComplexity(String longOrShortId) {
         UnitComplexity result = COMPLEXITY.get(longOrShortId);
         if (result == null) {
             String shortId;
@@ -1406,7 +1444,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 Output<Rational> deprefix = new Output<>();
                 for (Entry<String, Integer> entry : uid.numUnitsToPowers.entrySet()) {
                     final String unitPart = entry.getKey();
-                    UnitConverter.stripPrefix(unitPart, deprefix );
+                    UnitConverter.stripPrefix(unitPart, deprefix);
                     if (!deprefix.value.equals(Rational.ONE) || !entry.getValue().equals(INTEGER_ONE)) {
                         result = UnitComplexity.non_simple;
                         break;

@@ -611,11 +611,13 @@ public class ICUServiceBuilder {
     }
 
     private DecimalFormat _getNumberFormat(String key1, int kind, String currencySymbol, String numberSystem) {
-        String localeIDString = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers="
-            + numberSystem;
+        String localeIDString = (numberSystem == null) ? cldrFile.getLocaleID()
+            : cldrFile.getLocaleID() + "@numbers="
+                + numberSystem;
         ULocale ulocale = new ULocale(localeIDString);
-        String key = (currencySymbol == null) ? ulocale + "/" + key1 + "/" + kind : ulocale + "/" + key1 + "/" + kind
-            + "/" + currencySymbol;
+        String key = (currencySymbol == null) ? ulocale + "/" + key1 + "/" + kind
+            : ulocale + "/" + key1 + "/" + kind
+                + "/" + currencySymbol;
         DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
         if (result != null) {
             return (DecimalFormat) result.clone();
@@ -744,8 +746,9 @@ public class ICUServiceBuilder {
     }
 
     private DecimalFormatSymbols _getDecimalFormatSymbols(String numberSystem) {
-        String key = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers="
-            + numberSystem;
+        String key = (numberSystem == null) ? cldrFile.getLocaleID()
+            : cldrFile.getLocaleID() + "@numbers="
+                + numberSystem;
         DecimalFormatSymbols symbols = cacheDecimalFormatSymbols.get(key);
         if (symbols != null) {
             return (DecimalFormatSymbols) symbols.clone();

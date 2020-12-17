@@ -39,7 +39,7 @@ public class FileProcessor {
 
     public FileProcessor process(Class<?> classLocation, String fileName) {
         try {
-            System.err.println("# Reading config file " + classLocation.getPackage().getName() + "/"+ fileName);
+            System.err.println("# Reading config file " + classLocation.getPackage().getName() + "/" + fileName);
             BufferedReader in = FileReaders.openFile(classLocation, fileName);
             return process(in, fileName);
         } catch (Exception e) {

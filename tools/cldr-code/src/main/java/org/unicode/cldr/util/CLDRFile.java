@@ -1448,19 +1448,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * static public class NodeValue extends Value {
      * private Node nodeValue;
      *//**
-          * Creation. WARNING, may change.
-          *
-          * @param value
-          * @param currentFullXPath
-          */
+           * Creation. WARNING, may change.
+           *
+           * @param value
+           * @param currentFullXPath
+           */
     /*
      * public NodeValue(Node value, String currentFullXPath) {
      * super(currentFullXPath);
      * this.nodeValue = value;
      * }
      *//**
-          * boilerplate
-          */
+           * boilerplate
+           */
 
     /*
      * public boolean hasSameValue(Object other) {
@@ -1468,8 +1468,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * return nodeValue.equals(((NodeValue)other).nodeValue);
      * }
      *//**
-          * boilerplate
-          */
+           * boilerplate
+           */
     /*
      * public String getStringValue() {
      * return nodeValue.toString();
@@ -3455,7 +3455,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     for (Count plural : adjustedPlurals) {
                         for (String gender : genders) {
                             for (String case1 : nomCases) {
-                                final String grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.power, plural.toString(),
+                                final String grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.power,
+                                    plural.toString(),
                                     gender, case1);
                                 toAddTo
                                     .add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1" + grammaticalAttributes);

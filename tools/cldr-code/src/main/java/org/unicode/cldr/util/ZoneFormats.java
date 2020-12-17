@@ -57,7 +57,9 @@ public class ZoneFormats {
         String name = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/metazone[@type=\""
             + metazone + "\"]/" + length + "/" + type);
 
-        return name != null ? name : typeIn != Type.genericOrStandard ? "n/a" : getMetazoneName(metazone, length,
-            Type.standard);
+        return name != null ? name
+            : typeIn != Type.genericOrStandard ? "n/a"
+                : getMetazoneName(metazone, length,
+                    Type.standard);
     }
 }

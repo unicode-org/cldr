@@ -197,9 +197,11 @@ public class LogicalGrouping {
         if (!path.contains("[@count=")) return false;
         String pluralType = parts.getAttributeValue(-1, "count");
         switch (pluralType) {
-        case "0": case "1":
+        case "0":
+        case "1":
             return true;
-        case "zero": case "one":
+        case "zero":
+        case "one":
             break; // continue
         case "many": // special case for french
             String localeId = cldrFile.getLocaleID();
@@ -442,7 +444,8 @@ public class LogicalGrouping {
             }
         }
 
-        public void setGrammarAttributes(Set<String> set, XPathParts parts, Set<Count> pluralTypes, Collection<String> rawCases, Collection<String> rawGenders) {
+        public void setGrammarAttributes(Set<String> set, XPathParts parts, Set<Count> pluralTypes, Collection<String> rawCases,
+            Collection<String> rawGenders) {
             final String defaultGender = GrammaticalFeature.grammaticalGender.getDefault(rawGenders);
             final String defaultCase = GrammaticalFeature.grammaticalCase.getDefault(rawCases);
 

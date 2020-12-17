@@ -160,8 +160,6 @@ public class VerifyCompactNumbers {
             }
             //            tablePrinter1.addColumn("View").setHeaderCell(true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
 
-
-
             ULocale locale2 = new ULocale(locale);
             ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
             NumberFormat nf = builder.getNumberFormat(1);

@@ -42,9 +42,8 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     private static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults();
 
     // If this used "getter" method references it wouldn't need so much explicit generic typing.
-    private static final Comparator<PreferredAndAllowedHour> COMPARATOR =
-        Comparator.<PreferredAndAllowedHour, HourStyle>comparing(t -> t.preferred)
-            .thenComparing(t -> t.allowed, lexicographical(Comparator.<HourStyle>naturalOrder()));
+    private static final Comparator<PreferredAndAllowedHour> COMPARATOR = Comparator.<PreferredAndAllowedHour, HourStyle> comparing(t -> t.preferred)
+        .thenComparing(t -> t.allowed, lexicographical(Comparator.<HourStyle> naturalOrder()));
 
     public final HourStyle preferred;
     /** Unique allowed styles, in the order they were specified during construction. */
@@ -77,12 +76,12 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
         this.preferred = checkNotNull(HourStyle.valueOf(preferredStyle));
         this.allowed = allowedStyles.map(HourStyle::valueOf).collect(toImmutableList());
         checkArgument(allowed.stream().distinct().count() == allowed.size(),
-                "Allowed (%s) must not contain duplicates", allowed);
+            "Allowed (%s) must not contain duplicates", allowed);
         // Note: In *some* cases the preferred style is required to be the first style in
         // the allowed set, but not always (thus we cannot do a better check here).
         // TODO: Figure out if we can enforce preferred == first(allowed) here.
         checkArgument(allowed.contains(preferred),
-                "Allowed (%s) must contain preferred (%s)", allowed, preferred);
+            "Allowed (%s) must contain preferred (%s)", allowed, preferred);
     }
 
     @Override

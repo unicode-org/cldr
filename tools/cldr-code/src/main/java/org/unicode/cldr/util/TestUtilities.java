@@ -568,7 +568,7 @@ public class TestUtilities {
             Map<String, Map<String, String>> subtagData = m.get(type);
             String oldType = type.equals("region") ? "territory" : type;
 
-            String aliasType =oldType.equals("legacy") ? "language" : oldType;
+            String aliasType = oldType.equals("legacy") ? "language" : oldType;
             Set<String> allCodes = new TreeSet<>();
             Set<String> deprecatedCodes = new TreeSet<>();
 

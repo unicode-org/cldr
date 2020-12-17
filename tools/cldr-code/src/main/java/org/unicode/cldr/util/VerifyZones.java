@@ -229,8 +229,9 @@ public class VerifyZones {
         String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();
         String timezoneFilterString = MyOptions.timezoneFilter.option.getValue();
-        Matcher timezoneFilter = timezoneFilterString == null ? null : PatternCache.get(timezoneFilterString)
-            .matcher("");
+        Matcher timezoneFilter = timezoneFilterString == null ? null
+            : PatternCache.get(timezoneFilterString)
+                .matcher("");
 
         Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);

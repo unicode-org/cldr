@@ -231,7 +231,7 @@ public class LanguageTagParser {
                     throwError(keyValue, "Invalid key/value pair");
                 }
                 List<String> valueList = SPLIT_BAR.splitToList(value);
-                switch(key.length()) {
+                switch (key.length()) {
                 case 1:
                     extensions.put(key, valueList);
                     break;
@@ -554,7 +554,7 @@ public class LanguageTagParser {
                 }
                 if (oo == OutputOption.BCP47) {
                     target.append(oo.separator).append(key)
-                    .append(oo.separator).append(value);
+                        .append(oo.separator).append(value);
                 } else {
                     if (!haveAt) {
                         target.append('@');
@@ -566,7 +566,7 @@ public class LanguageTagParser {
                         needSep = true;
                     }
                     target.append(key)
-                    .append('=').append(value);
+                        .append('=').append(value);
                 }
             }
         }
@@ -575,7 +575,7 @@ public class LanguageTagParser {
                 List<String> tValue = localeExtensions.get("t");
                 if (tValue != null) {
                     result.append(oo.separator).append('t')
-                    .append(oo.separator).append(oo.joiner.join(tValue));
+                        .append(oo.separator).append(oo.joiner.join(tValue));
                     for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
                         String key = extension.getKey();
                         if (isTKey(key)) {
@@ -613,7 +613,7 @@ public class LanguageTagParser {
                     String key = extension.getKey();
                     String value = oo.joiner.join(extension.getValue());
                     result.append(key.toUpperCase(Locale.ROOT))
-                    .append('=').append(value.toUpperCase(Locale.ROOT));
+                        .append('=').append(value.toUpperCase(Locale.ROOT));
                 }
             }
         }
@@ -745,9 +745,11 @@ public class LanguageTagParser {
         return values;
     }
 
-    public enum Format {icu("_","_"), bcp47("-","-"), structure("; ", "=");
+    public enum Format {
+        icu("_", "_"), bcp47("-", "-"), structure("; ", "=");
         public final String separator;
         public final String separator2;
+
         private Format(String separator, String separator2) {
             this.separator = separator;
             this.separator2 = separator2;
@@ -763,10 +765,10 @@ public class LanguageTagParser {
         appendField(format, result, "script", script);
         appendField(format, result, "region", region);
         appendField(format, result, "variants", variants);
-        appendField(format, result, "extensions", extensions, new UnicodeSet('a','s'));
+        appendField(format, result, "extensions", extensions, new UnicodeSet('a', 's'));
         appendField(format, result, "localeX", localeExtensions, null);
-        appendField(format, result, "extensions", extensions,  new UnicodeSet('v','w', 'y','z'));
-        appendField(format, result, "extensions", extensions, new UnicodeSet('x','x'));
+        appendField(format, result, "extensions", extensions, new UnicodeSet('v', 'w', 'y', 'z'));
+        appendField(format, result, "extensions", extensions, new UnicodeSet('x', 'x'));
         if (format == Format.structure) {
             result.append("]");
         }

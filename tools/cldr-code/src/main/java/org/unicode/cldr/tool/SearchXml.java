@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -29,6 +30,7 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
+@CLDRTool(alias = "searchxml", description = "Search CLDR XML for matching paths or values")
 public class SearchXml {
 
     // TODO Use options

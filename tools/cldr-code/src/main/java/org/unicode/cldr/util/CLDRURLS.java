@@ -32,6 +32,7 @@ public abstract class CLDRURLS {
      * Override this property if you want to change the relative URL to the SurveyTool base from DEFAULT_PATH (within SurveyTool only)
      */
     public static final String CLDR_SURVEY_PATH = "CLDR_SURVEY_PATH";
+    public static final String TOOLSURL = "http://cldr.unicode.org/tools/";
 
     /**
      *  "special" pages

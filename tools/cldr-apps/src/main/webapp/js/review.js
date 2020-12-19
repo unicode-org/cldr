@@ -18,7 +18,11 @@ function bindReviewEvents() {
 /*
  * Startup function
  */
-$(function() {
+require(["dojo/ready"], function(ready) {
+	const priority = 2001; // after cldrGui.run (1) and cldrRedesignStartup (2000); cf. default Dojo (1000)
+	ready(priority, cldrReviewStartup);
+});
+function cldrReviewStartup() {
 	var dynamic = $('#main-container');
 	dynamic.on('click', '.collapse-review', togglePart);
 	dynamic.on('click', 'button.fix', toggleFix);
@@ -43,7 +47,7 @@ $(function() {
 	$('body').on('click', '.show-examples', function() { // toggle the examples
 		$('.d-example, .vote-help').slideToggle();
 	});
-});
+}
 
 /**
  * Handle the review (Dashboard) page with the json
@@ -70,7 +74,7 @@ function showReviewPage(json, showFn) {
 	var menuRoot = $('#itemInfo');
 	var hidden = json.hidden;
 	var direction = json.direction;
-	var lastVersion = surveyVersion - 1;
+	var lastVersion = cldrStatus.getNewVersion() - 1;
 
 	// populate menu
 	var activeMenu = true;
@@ -90,10 +94,13 @@ function showReviewPage(json, showFn) {
 			element.description + '"></span></div></a></li>';
 	});
 
-	if (cldrStForum && surveyCurrentLocale && surveyUser && surveyUser.id) {
-		const forumSummary = cldrStForum.getForumSummaryHtml(surveyCurrentLocale, surveyUser.id, true /* table */);
-		sidebarHtml += "<li><a id='dashToForum' onclick='cldrStForum.reload();'>Forum</a></li>\n";
-		sidebarHtml += "<li>" + forumSummary + "</li>\n";
+	if (cldrStForum && cldrStatus.getCurrentLocale()) {
+		const surveyUser = cldrStatus.getSurveyUser();
+		if (surveyUser && surveyUser.id) {
+			const forumSummary = cldrStForum.getForumSummaryHtml(cldrStatus.getCurrentLocale(), surveyUser.id, true /* table */);
+			sidebarHtml += "<li><a id='dashToForum' onclick='cldrStForum.reload();'>Forum</a></li>\n";
+			sidebarHtml += "<li>" + forumSummary + "</li>\n";
+		}
 	}
 	const menuDom = document.createElement('ul');
 	menuDom.className = 'nav nav-pills nav-stacked affix menu-review';
@@ -125,7 +132,7 @@ function showReviewPage(json, showFn) {
 				html += '<div class="table-wrapper" data-type="' + index +
 					'"><table class="table table-responsive table-fixed-header table-review"><thead><tr><th>Code</th><th>English</th><th dir="' +
 					direction + '">Baseline</th><th dir="' + direction +
-					'">Winning ' + surveyVersion + '</th><th dir="' + direction +
+					'">Winning ' + cldrStatus.getNewVersion() + '</th><th dir="' + direction +
 					'">Action</th></tr></thead><tbody>';
 
 				$.each(element, function(index, element) {
@@ -182,7 +189,7 @@ function showReviewPage(json, showFn) {
 		html += '</tbody></table></div>';
 	});
 
-	if (surveyVersion === '37') { // TODO: get CheckCLDR.LIMITED_SUBMISSION from server
+	if (cldrStatus.getNewVersion() === '37') { // TODO: get CheckCLDR.LIMITED_SUBMISSION from server
 		html += '<p>This is a Limited-Submission release, so the list of items here is restricted. ' +
 			'For more information, see the ' +
 			'<a href="http://cldr.unicode.org/translation">Information Hub for Linguists</a></p>';
@@ -232,7 +239,7 @@ function showReviewPage(json, showFn) {
  * Called only by showReviewPage in this file
  */
 function getUrlReview(id) {
-	return cldrStatus.getContextPath() + '/v#/' + surveyCurrentLocale + '//' + id;
+	return cldrStatus.getContextPath() + '/v#/' + cldrStatus.getCurrentLocale() + '//' + id;
 }
 
 /**
@@ -241,10 +248,10 @@ function getUrlReview(id) {
  * Called only by the Startup function at the top of this file
  */
 function toggleReview() {
-	var url = cldrStatus.getContextPath() + "/SurveyAjax?what=review_hide&s=" + surveySessionId;
+	var url = cldrStatus.getContextPath() + "/SurveyAjax?what=review_hide&s=" + cldrStatus.getSessionId();
 	var path = $(this).parents('tr').data('path');
 	var choice = $(this).parents('.table-wrapper').data('type');
-	url += "&path=" + path + "&choice=" + choice + "&locale=" + surveyCurrentLocale;
+	url += "&path=" + path + "&choice=" + choice + "&locale=" + cldrStatus.getCurrentLocale();
 	$.get(url, function(data) {
 		refreshCounter();
 	});
@@ -310,9 +317,9 @@ function toggleFix(event) {
 	$('button.fix').popover('destroy');
 	toggleOverlay();
 	if (!isPopover) {
-		var url = cldrStatus.getContextPath() + "/SurveyAjax?what=" + WHAT_GETROW +
-			"&_=" + surveyCurrentLocale +
-			"&s=" + surveySessionId +
+		var url = cldrStatus.getContextPath() + "/SurveyAjax?what=getrow" +
+			"&_=" + cldrStatus.getCurrentLocale() +
+			"&s=" + cldrStatus.getSessionId() +
 			"&xpath=" + tr.data('path') +
 			"&strid=" + cldrStatus.getCurrentId() + cacheKill() +
 			"&dashboard=true";
@@ -321,7 +328,7 @@ function toggleFix(event) {
 			theDiv = document.createElement("div");
 			theDiv.id = "popover-vote";
 			if (json.section.nocontent) {
-				surveyCurrentSection = '';
+				cldrStatus.setCurrentSection('');
 			} else if (!json.section.rows) {
 				console.log("!json.section.rows");
 				handleDisconnect("while loading- no rows", json);
@@ -330,15 +337,15 @@ function toggleFix(event) {
 				if (json.dataLoadTime) {
 					updateIf("dynload", json.dataLoadTime);
 				}
-				if (!surveyUser) {
-					showInPop2(stui.str("loginGuidance"), null, null, null, true); /* show the box the first time */
+				if (!cldrStatus.getSurveyUser()) {
+					showInPop2(cldrText.get("loginGuidance"), null, null, null, true); /* show the box the first time */
 				} else if (!json.canModify) {
-					showInPop2(stui.str("readonlyGuidance"), null, null, null, true); /* show the box the first time */
+					showInPop2(cldrText.get("readonlyGuidance"), null, null, null, true); /* show the box the first time */
 				} else {
-					showInPop2(stui.str("dataPageInitialGuidance"), null, null, null, true); /* show the box the first time */
+					showInPop2(cldrText.get("dataPageInitialGuidance"), null, null, null, true); /* show the box the first time */
 				}
 
-				insertFixInfo(theDiv, json.pageId, surveySessionId, json);
+				insertFixInfo(theDiv, json.pageId, cldrStatus.getSessionId(), json);
 
 				// display the popover
 				if (button.parent().find('.popover:visible').length == 0) {
@@ -538,7 +545,7 @@ function refreshFixPanel(json) {
 	var theDiv = $('#popover-vote').get(0);
 	theDiv.innerHTML = '';
 
-	insertFixInfo(theDiv, json.pageId, surveySessionId,json);
+	insertFixInfo(theDiv, json.pageId, cldrStatus.getSessionId(), json);
 	designFixPanel();
 	fixPopoverVotePos();
 
@@ -613,7 +620,7 @@ function insertFixInfo(theDiv, xpath, session, json) {
 	var theTable = cloneLocalizeAnon(document.getElementById("proto-datafix"));
 	theTable.className = 'data dashboard';
 	updateCoverage(theDiv);
-	localizeFlyover(theTable); // Replace titles starting with $ with strings from stui
+	localizeFlyover(theTable); // Replace titles starting with $ with strings from cldrText
 
 	var toAdd = cloneLocalizeAnon(document.getElementById("proto-datarowfix")); // loaded from "hidden.html", which see.
 	theTable.toAdd = toAdd;

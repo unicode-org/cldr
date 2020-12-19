@@ -27,15 +27,15 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 
 	Page.prototype.show = function show(params) {
 		request
-		.get('SurveyAjax?s='+surveySessionId+'&what=flagged', {handleAs: 'json'})
+		.get('SurveyAjax?s='+cldrStatus.getSessionId()+'&what=flagged', {handleAs: 'json'})
 		.then(function(json) {
 			if(json.err) {
 	        	params.special.showError(params, json, {what: "Loading flagged data"});
 	        	return;
 			}
 			// set up the 'right sidebar'
-			const pucontent = showInPop2(stui.str(params.name+"Guidance"), null, null, null, true); /* show the box the first time */					
-			
+			const pucontent = showInPop2(cldrText.get(params.name+"Guidance"), null, null, null, true); /* show the box the first time */
+
 			var ourDiv = document.createElement("div");
 			ourDiv.className = 'special_'+params.name;
 
@@ -64,7 +64,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 			var totalCountChunk = $('<span></span>', 
 				{text: Number(0).toLocaleString()});
 			var totalCountHeader = $('<h3></h3>',
-				{text:stui.str('flaggedTotalCount')});
+				{text:cldrText.get('flaggedTotalCount')});
 			totalCountChunk.appendTo(totalCountHeader);
 			totalCountHeader.appendTo(ourDiv);
 			var lastCount = 0;
@@ -100,7 +100,7 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 				theXpathLink.appendTo(theXpathChunk);
 				theXpathChunk.appendTo(theRow);
 				
-				if(surveyUser) {
+				if (cldrStatus.getSurveyUser()) {
 					// if logged in- try to get user info
 					var theirUserId = row[header.SUBMITTER];
 					mymap.get(theirUserId, addUserInfo, {theRow: theRow});
@@ -115,10 +115,11 @@ define("js/special/flagged.js", ["js/special/SpecialPage.js", "dojo/request", "j
 			params.flipper.flipTo(params.pages.other, ourDiv);
 			params.special.handleIdChanged(cldrStatus.getCurrentId()); // rescroll.
 
-			if(surveyUserPerms.userIsTC) {
+			const surveyUserPerms = cldrStatus.getPermissions();
+			if (surveyUserPerms && surveyUserPerms.userIsTC) {
 				// For TC, show button (includes emails, so TC only)
-				const csvButton = $('<form></form>', {action: "DataExport.jsp?do=flagged&s=" + surveySessionId});
-				csvButton.append($('<input></input', {type: 'submit', value: stui.str('downloadCsvLink')}));
+				const csvButton = $('<form></form>', {action: "DataExport.jsp?do=flagged&s=" + cldrStatus.getSessionId()});
+				csvButton.append($('<input></input', {type: 'submit', value: cldrText.get('downloadCsvLink')}));
 				$(pucontent).append(csvButton);
 			}
 		})

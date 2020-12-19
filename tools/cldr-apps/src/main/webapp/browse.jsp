@@ -29,7 +29,7 @@ if ( ovrLoc!=null&&ovrLoc.length()>0) {
 }
 CLDRLocale loc = CLDRLocale.getInstance(pageLocale);
 
-SurveyAjax.includeJavaScript(request, out);
+SurveyTool.includeJavaScript(request, out);
 %>
 
 <form action="<%= request.getContextPath()+request.getServletPath() %>" method="GET">
@@ -45,12 +45,11 @@ SurveyAjax.includeJavaScript(request, out);
 	   r.innerHTML = '<i>Looking up ' + v + '...</i>';
 	   cldrStAjax.sendXhr({
 	        url:"<%= request.getContextPath() %>/browse_results.jsp?loc=<%= pageLocale.getBaseName() %>&q=" + v,
-/* 	        handleAs:"text",
-*/	        load: function(h){
+	        load: function(h){
 	        	  r.innerHTML = h;
 	        },
 	        error: function(err){
-	            r.innerHTML="Error: "+err.name + " <br> " + err.message;
+	            r.innerHTML = "Error: " + err;
 	        }
 	    });
 	};
@@ -85,13 +84,10 @@ SurveyAjax.includeJavaScript(request, out);
 	                  }
 	            },
 	            error: function(err){
-	                r.innerHTML="Error: "+err.name + " <br> " + err.message;
+	                r.innerHTML = "Error: " + err;
 	            }
 	        });
 	    };
-	    
-	
-	
 </script>
 <table>
 <tr>

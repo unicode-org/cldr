@@ -25,7 +25,7 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 	
 	Page.prototype.show = function show(params) {
 		// set up the 'right sidebar'
-		showInPop2(stui.str("vsummaryGuidance"), null, null, null, true); /* show  right hand side */		
+		showInPop2(cldrText.get("vsummaryGuidance"), null, null, null, true); /* show right hand side */
 
 		// overall frag
 		var ourDiv = document.createDocumentFragment();
@@ -52,14 +52,14 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 		// Reload button
 		var vsReload = document.createElement('button');
 		vsReload.className = 'glyphicon glyphicon-refresh';
-		vsReload.title = stui.str("vsReload");
+		vsReload.title = cldrText.get("vsReload");
 		vsReload.appendChild(document.createTextNode(vsReload.title));
 		vsNav.appendChild(vsReload);
 
 		// Stop button
 		var vsStop = document.createElement('button');
 		vsStop.className = 'glyphicon glyphicon-remove';
-		vsStop.title = stui.str("vsStop");
+		vsStop.title = cldrText.get("vsStop");
 		vsStop.appendChild(document.createTextNode(vsStop.title));
 		vsNav.appendChild(vsStop);
 		vsNav.appendChild(vsProgress);
@@ -71,7 +71,7 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 		
 		var vsContent = document.createElement('div');
 		vsContent.className = 'vsContent';
-		vsContent.appendChild(document.createTextNode(stui.str('vsContent_initial')));
+		vsContent.appendChild(document.createTextNode(cldrText.get('vsContent_initial')));
 		ourDiv.appendChild(vsContent);
 		
 		var startTime = new Date();
@@ -114,7 +114,7 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 		
 		vsReload.disabled = true;
 		
-		var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=vsummary"; // allow cache
+		var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+cldrStatus.getSessionId()+"&what=vsummary"; // allow cache
 		
 		/**
 		 * refreshInterval: returned by setTimer, only for doReload('NOSTART'): a number, representing the

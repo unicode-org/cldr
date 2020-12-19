@@ -9,9 +9,10 @@
   <body>
   <div style="padding-top: 48pt; padding-left: 32pt; font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;">
       <h1>CLDR SurveyTool JavaScript Tests</h1>
-      <em>Reference:</em> <a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a>
+      <p><em>Reference:</em> <a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a></p>
+      <p><em>Important:</em> open the browser console to check for errors/warnings that are otherwise invisible!</p>
     </div>
-    <div id="mocha"></div>
+    <div id="mocha" style="margin-top: 12pt;"></div>
     <script src="https://unpkg.com/chai/chai.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
     <script class="mocha-init">
@@ -24,15 +25,22 @@
     <script src="../src/main/webapp/js/CldrStForum.js"></script>
     <script src="../src/main/webapp/js/CldrSurveyVettingTable.js"></script>
     <script src="../src/main/webapp/js/CldrStCsvFromTable.js"></script>
+    <script src="../src/main/webapp/js/CldrStatus.js"></script>
+    <script src="../src/main/webapp/js/CldrGui.js"></script>
+    <script src="../src/main/webapp/js/CldrText.js"></script>
     <script src="data/forum_fr.js"></script>
     <script src="data/forum_participation_json.js"></script>
     <script src="data/bulk_close_posts_json.js"></script>
+    <script src="TestCldrTest.js"></script>
     <script src="TestCldrStForum.js"></script>
     <script src="TestCldrStForumFilter.js"></script>
     <script src="TestCldrStForumParticipation.js"></script>
     <script src="TestCldrStChecksum.js"></script>
     <script src="TestCldrStCsvFromTable.js"></script>
     <script src="TestCldrStBulkClosePosts.js"></script>
+    <script src="TestCldrStatus.js"></script>
+    <script src="TestCldrGui.js"></script>
+    <script src="TestCldrText.js"></script>
     <script class="mocha-exec">
       mocha.run();
     </script>

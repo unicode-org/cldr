@@ -910,4 +910,14 @@ public class CookieSession {
         }
         return level;
     }
+
+    private String sessionMessage = null;
+
+    public String getMessage() {
+        return sessionMessage;
+    }
+
+    public void setMessage(String s) {
+        sessionMessage = s;
+    }
 }

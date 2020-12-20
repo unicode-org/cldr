@@ -9,7 +9,7 @@
  * but not all Survey Tool JavaScript code is capable yet of being in modules
  * and running in strict mode.
  *
- * Dependencies: surveyUser.id; surveySessionId; stui.str; SpecialPage; hideLoader; showInPop2
+ * Dependencies: SpecialPage; hideLoader; showInPop2
  */
 const cldrStForumParticipation = (function() {
 	const tableId = "participationTable";
@@ -29,13 +29,11 @@ const cldrStForumParticipation = (function() {
 		/*
 		 * Set up the 'right sidebar'; cf. forum_participationGuidance
 		 */
-		showInPop2(stui.str(params.name + "Guidance"), null, null, null, true);
+		showInPop2(cldrText.get(params.name + "Guidance"), null, null, null, true);
 
-		const userId = (surveyUser && surveyUser.id) ? surveyUser.id : 0;
 		const url = getForumParticipationUrl();
 		const errorHandler = function(err) {
-			const responseText = cldrStAjax.errResponseText(err);
-			params.special.showError(params, null, {err: err, what: "Loading forum participation data" + responseText});
+			params.special.showError(params, null, {err: err, what: "Loading forum participation data"});
 		};
 		const loadHandler = function(json) {
 			if (json.err) {
@@ -65,18 +63,19 @@ const cldrStForumParticipation = (function() {
 	 * Get the URL to use for loading the Forum Participation page
 	 */
 	function getForumParticipationUrl() {
-		if (typeof surveySessionId === 'undefined') {
-			console.log('Error: surveySessionId undefined in getForumParticipationUrl');
+		const sessionId = cldrStatus.getSessionId();
+		if (!sessionId) {
+			console.log('Error: sessionId falsy in getForumParticipationUrl');
 			return '';
 		}
-		return 'SurveyAjax?what=forum_participation&s=' + surveySessionId;
+		return 'SurveyAjax?what=forum_participation&s=' + sessionId;
 	}
 
 	/**
 	 * Make the html, given the json for Forum Participation
-	 * 
+	 *
 	 * @param json
-	 * @return the html 
+	 * @return the html
 	 */
 	function makeHtmlFromJson(json) {
 		let html = '<div>\n';
@@ -94,12 +93,12 @@ const cldrStForumParticipation = (function() {
 			html += "<table border='1' id='" + tableId + "'>\n";
 			html += "<tr>\n";
 			for (let header of [ // same order as above
-				stui.str("recentLoc"),
-				stui.str("forum_participation_TOTAL"),
-				stui.str("forum_participation_ORG"),
-				stui.str("forum_participation_REQUEST"),
-				stui.str("forum_participation_DISCUSS"),
-				stui.str("forum_participation_ACT")
+				cldrText.get("recentLoc"),
+				cldrText.get("forum_participation_TOTAL"),
+				cldrText.get("forum_participation_ORG"),
+				cldrText.get("forum_participation_REQUEST"),
+				cldrText.get("forum_participation_DISCUSS"),
+				cldrText.get("forum_participation_ACT")
 			]) {
 				html += "<th>" + header + "</th>\n";
 			}

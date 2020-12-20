@@ -17,7 +17,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 		var ourDiv = createChunk("","div","");
 
 		// set up the 'right sidebar'
-		showInPop2(stui.str("users_guidance"), null, null, null, true); /* show the box the first time */					
+		showInPop2(cldrText.get("users_guidance"), null, null, null, true); /* show the box the first time */
 		
 		// No longer loading
 		hideLoader(null);
@@ -27,7 +27,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 
 		// set up the URL to fetch users
 		
-		var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=user_list"; // allow cache
+		var xurl = cldrStatus.getContextPath() + "/SurveyAjax?&s="+cldrStatus.getSessionId()+"&what=user_list"; // allow cache
 
 		$.ajax( {
 			context: ourDiv,
@@ -87,14 +87,14 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 				u.infoSpan = $('<span />');
 				u.infoSpan.appendTo(u.obj);
 
-				u.infoButton = $('<button />', {text: stui.str('users_infoVotesButton')});
+				u.infoButton = $('<button />', {text: cldrText.get('users_infoVotesButton')});
 				u.infoButton.appendTo(u.obj);
 				
 				u.infoButton.on('click',  {
 					u: u // break closure
 				},	function(event) {
 						var u = event.data.u;
-						var xurl2 = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
+						var xurl2 = cldrStatus.getContextPath() + "/SurveyAjax?&s="+cldrStatus.getSessionId()+"&what=user_oldvotes&old_user_id="+u.data.id;
 						console.log(xurl2);
 						$(u.infoSpan).removeClass('ferrbox');
 					    u.infoSpan.text('loading..');
@@ -116,7 +116,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 						});
 				});
 
-				u.loadOldVotes = $('<button />', {text: stui.str('users_loadVotesButton')});
+				u.loadOldVotes = $('<button />', {text: cldrText.get('users_loadVotesButton')});
 				u.loadOldVotes.appendTo(u.obj);
 				
 				u.loadOldVotes.on('click', {
@@ -160,8 +160,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 						return;
 					}
 					
-					
-					var xurl3 = cldrStatus.getContextPath() + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
+					var xurl3 = cldrStatus.getContextPath() + "/SurveyAjax?&s="+cldrStatus.getSessionId()+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
 					console.log(xurl3);
 					$(u.infoSpan).removeClass('ferrbox');
 				    u.infoSpan.text('TRANSFER FROM ' + locmap.getLocaleName(oldLocale) + " @ " + oldUser.data.email + " TO " + locmap.getLocaleName(newLocale) + " @ " + u.data.email);

@@ -13,7 +13,7 @@
 <span id="visitors"></span><!-- needed for stnotices/ajax status -->
 <hr>
 
-<% SurveyAjax.includeJavaScript(request, out); %>
+<% SurveyTool.includeJavaScript(request, out); %>
 
 <%
 if(!SurveyMain.vap.equals(request.getParameter("vap"))) {

@@ -516,6 +516,7 @@ public class UserRegistry {
                 .put("name", name)
                 .put("userlevel", userlevel)
                 .put("votecount", getLevel().getVotes())
+                .put("voteCountMenu", getLevel().getVoteCountMenu())
                 .put("userlevelName", UserRegistry.levelAsStr(userlevel))
                 .put("org", vrOrg().name())
                 .put("orgName", vrOrg().displayName)
@@ -525,6 +526,16 @@ public class UserRegistry {
 
         public boolean canImportOldVotes() {
             return UserRegistry.userIsVetter(this) && (CLDRConfig.getInstance().getPhase() == Phase.SUBMISSION);
+        }
+
+        public JSONObject getPermissionsJson() throws JSONException {
+            return new JSONObject()
+                .put("userCanImportOldVotes", canImportOldVotes())
+                .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
+                .put("userCanMonitorForum", userCanMonitorForum(this))
+                .put("userIsTC", userIsTC(this))
+                .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
+                .put("userIsLocked", userIsLocked(this));
         }
     }
 

@@ -2,7 +2,7 @@
 {
   const assert = chai.assert;
 
-  describe("cldrStCsvFromTable.getCsvFromTable", function () {
+  describe("cldrCsvFromTable.get", function () {
     const table = document.createElement("table");
 
     table.innerHTML =
@@ -11,7 +11,7 @@
 
     const expectedOutput = "a,b,c\nd,e,f\n";
 
-    const actualOutput = cldrStCsvFromTable.getCsvFromTable(table);
+    const actualOutput = cldrCsvFromTable.test.get(table);
 
     it("should not return null", function () {
       assert(actualOutput != null, "actualOutput should not be null.");

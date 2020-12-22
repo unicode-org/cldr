@@ -1,15 +1,16 @@
 "use strict";
 
 /**
- * cldrStForumFilter: encapsulate filtering of forum threads.
+ * cldrForumFilter: encapsulate filtering of forum threads.
+ * This is for both dojo and non-dojo versions.
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally cldrStForumFilter should be a module (in the sense of using import/export),
+ * Ideally this should be a module (in the sense of using import/export),
  * but not all Survey Tool JavaScript code is capable yet of being in modules
  * and running in strict mode.
  */
-const cldrStForumFilter = (function () {
+const cldrForumFilter = (function () {
   /**
    * The zero-based index of 'Open threads' in the filters array
    */

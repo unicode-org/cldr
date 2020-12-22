@@ -1,3 +1,5 @@
+// This is the dojo version. A non-dojo version doesn't exist yet.
+
 /*
  * TODO: rename this file to reflect its current role rather than its history.
  * Its history presumably involved redesigning some aspect(s) of Survey Tool.
@@ -436,8 +438,8 @@ function unpackMenuSideBar(json) {
 
   // forum link
   $("#forum-link").click(function () {
-    if (cldrStForum) {
-      cldrStForum.reload();
+    if (cldrForum) {
+      cldrForum.reload();
     }
   });
 

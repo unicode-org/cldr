@@ -1,5 +1,4 @@
 "use strict";
-// this file has been formatted using "npx prettier" with default settings
 
 /**
  * cldrGui: encapsulate GUI functions.
@@ -34,12 +33,10 @@ const cldrGui = (function () {
       debugElements();
     }
 
-    require(["dojo/parser"], function (parser) {
-      parser.parse(); // parseOnLoad is false; call parse() after we populate the body
-    });
+    cldrStatus.setCurrentLocale("aa"); // until we have a left sidebar locale chooser
 
-    showV(); // in CldrSurveyVettingLoader.js
-    updateStatus(); // for the first time; in survey.js
+    // showV(); // in CldrSurveyVettingLoader.js
+    cldrLoad.showV(); // for the first time
   }
 
   const vhtml1 =
@@ -190,7 +187,7 @@ const cldrGui = (function () {
     "              <div id='progress-voted' class='progress-bar progress-bar-info tip-log' title='Votes' style='width: 0%'></div>\n" +
     "              <div id='progress-abstain' class='progress-bar progress-bar-warning tip-log' title='Abstain' style='width: 0%'></div>\n" +
     "            </div>\n" +
-    "            <div class='counter-infos'><a onclick='cldrStForum.reload();'>Forum:</a>\n" +
+    "            <div class='counter-infos'><a onclick='cldrForum.reload();'>Forum:</a>\n" +
     "              <span id='vForum'>...</span> ●\n" +
     "              Votes: <span id='count-voted'></span>\n" +
     "              - Abstain: <span id='count-abstain'></span>\n" +
@@ -382,7 +379,16 @@ const cldrGui = (function () {
       html +=
         "<select id='voteLevelChanged' title='vote with a different number of votes'>\n";
       for (let n of user.voteCountMenu) {
-        html += "<option value='" + n + "'>" + n + " votes</option>\n";
+        const selectedOrNot =
+          user.votecount === n ? " selected='selected'" : "";
+        html +=
+          "<option value='" +
+          n +
+          "'" +
+          selectedOrNot +
+          ">" +
+          n +
+          " votes</option>\n";
       }
       html += "</select>\n";
     }

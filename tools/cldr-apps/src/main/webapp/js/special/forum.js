@@ -83,7 +83,7 @@ define("js/special/forum.js", [
       });
       const surveyUser = cldrStatus.getSurveyUser();
       const userId = surveyUser && surveyUser.id ? surveyUser.id : 0;
-      cldrStForum.loadForum(curLocale, userId, forumMessage, params);
+      cldrForum.loadForum(curLocale, userId, forumMessage, params);
     }
   };
 

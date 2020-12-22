@@ -19,7 +19,7 @@ define("js/special/bulk_close_posts.js", [
   _super = Page.prototype = new SpecialPage();
 
   Page.prototype.show = function show(params) {
-    cldrStBulkClosePosts.load(params);
+    cldrBulkClosePosts.load(params);
   };
 
   return Page;

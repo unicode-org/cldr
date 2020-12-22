@@ -249,7 +249,7 @@ define("js/special/vetting_participation.js", [
       load: loadHandler,
       error: errorHandler,
     };
-    cldrStAjax.sendXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   }
 
   /**

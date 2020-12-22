@@ -147,7 +147,7 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function (
           if (newLocale != null && newLocale != "") {
             xurl = xurl + "&_=" + newLocale;
           }
-          cldrStAjax.queueXhr({
+          cldrAjax.queueXhr({
             url: xurl, // allow cache
             handleAs: "json",
             load: function (h) {

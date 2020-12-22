@@ -1,3 +1,5 @@
+// This is the dojo version. A non-dojo version doesn't exist yet.
+
 /*
  * Show the "Review" page, a.k.a. the "Dashboard"
  */
@@ -102,16 +104,16 @@ function showReviewPage(json, showFn) {
       '"></span></div></a></li>';
   });
 
-  if (cldrStForum && cldrStatus.getCurrentLocale()) {
+  if (cldrForum && cldrStatus.getCurrentLocale()) {
     const surveyUser = cldrStatus.getSurveyUser();
     if (surveyUser && surveyUser.id) {
-      const forumSummary = cldrStForum.getForumSummaryHtml(
+      const forumSummary = cldrForum.getForumSummaryHtml(
         cldrStatus.getCurrentLocale(),
         surveyUser.id,
         true /* table */
       );
       sidebarHtml +=
-        "<li><a id='dashToForum' onclick='cldrStForum.reload();'>Forum</a></li>\n";
+        "<li><a id='dashToForum' onclick='cldrForum.reload();'>Forum</a></li>\n";
       sidebarHtml += "<li>" + forumSummary + "</li>\n";
     }
   }
@@ -803,7 +805,7 @@ function insertFixInfo(theDiv, xpath, session, json) {
   tr.rowHash = k;
   tr.theTable = theTable;
 
-  cldrSurveyTable.updateRow(tr, theRow);
+  cldrTable.updateRow(tr, theRow);
 
   if (!tr.forumDiv) {
     tr.forumDiv = document.createElement("div");

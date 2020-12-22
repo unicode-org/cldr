@@ -1,21 +1,22 @@
-/*
- * CldrSurveyVettingTable.js - split off from survey.js, for CLDR Survey Tool.
- *
- * Functions for populating the main table in the vetting page:
- * 		cldrSurveyTable.insertRows
- * 		cldrSurveyTable.updateRow
- *
- * cldrSurveyTable.updateRow is also used for the Dashboard (see review.js).
- *
- * TODO: identify and reduce dependencies; add unit tests that don't depend on server or browser.
- */
 "use strict";
 
-/*
- * Use an IIFE module pattern to create a namespace for the public functions,
+/**
+ * cldrText: encapsulate code related to the main Survey Tool table whose rows describe xpaths.
+ * This is the dojo version. For non-dojo, see CldrDojoTable.js
+ *
+ * Functions for populating the main table in the vetting page:
+ * 		cldrTable.insertRows
+ * 		cldrTable.updateRow
+ *
+ * cldrTable.updateRow is also used for the Dashboard.
+ *
+ * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
+ * Ideally this should be a module (in the sense of using import/export),
+ * but not all Survey Tool JavaScript code is capable yet of being in modules
+ * and running in strict mode.
  */
-const cldrSurveyTable = (function () {
+const cldrTable = (function () {
   /*
    * ALWAYS_REMOVE_ALL_CHILD_NODES and NEVER_REUSE_TABLE should both be false for efficiency,
    * but if necessary they can be made true to revert to old less efficient behavior.

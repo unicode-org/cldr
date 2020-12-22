@@ -10,6 +10,23 @@
 
 /* lang specific CSS */
 
+/*
+NOTE: See http://www.w3.org/International/questions/qa-css-lang
+Right now, none by default.
+To add fonts, add links like the following to html head:
+
+	 <link href='//fonts.googleapis.com/css?family=UnifrakturCook:bold' rel='stylesheet' type='text/css'>
+
+The the following can work here:
+:lang(de) {
+  font-family: UnifrakturCook;
+}
+Color english brown
+:lang(en) {
+	color: brown !important;
+}
+*/
+
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {
 font-family:'MON3 Anonta 1';

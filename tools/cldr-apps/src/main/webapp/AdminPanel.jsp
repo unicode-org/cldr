@@ -45,7 +45,7 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 <span id="visitors"></span>
 </div>
 
-<% SurveyAjax.includeJavaScript(request, out); %>
+<% SurveyTool.includeJavaScript(request, out); %>
 
 <hr>
 

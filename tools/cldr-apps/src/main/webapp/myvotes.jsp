@@ -26,7 +26,7 @@
 <span id="visitors"></span>
 <hr>
 
-<% SurveyAjax.includeJavaScript(request, out); %>
+<% SurveyTool.includeJavaScript(request, out); %>
 
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->

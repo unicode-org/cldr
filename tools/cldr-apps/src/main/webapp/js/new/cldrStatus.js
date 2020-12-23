@@ -2,6 +2,8 @@
 
 /**
  * cldrStatus: encapsulate data defining the current status of SurveyTool.
+ * This works with or without dojo; no dependency on dojo.
+ *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
  * Ideally this should be a module (in the sense of using import/export),
@@ -351,6 +353,19 @@ const cldrStatus = (function () {
     return getSurveyUser() === null;
   }
 
+  /**
+   * Is the ST disconnected?
+   */
+  let disconnected = false;
+
+  function isDisconnected() {
+    return disconnected;
+  }
+
+  function setIsDisconnected(d) {
+    disconnected = d;
+  }
+
   /*
    * Make only these functions accessible from other files:
    */
@@ -417,5 +432,8 @@ const cldrStatus = (function () {
     getSurvUrl: getSurvUrl,
 
     isVisitor: isVisitor,
+
+    isDisconnected: isDisconnected,
+    setIsDisconnected: setIsDisconnected,
   };
 })();

@@ -3,7 +3,7 @@
 {
   const assert = chai.assert;
 
-  describe("cldrStBulkClosePosts.makeHtmlFromJson", function () {
+  describe("cldrBulkClosePosts.makeHtmlFromJson", function () {
     /*
      * bulkClosePostsJson has been defined in bulk_close_posts_json.js
      */
@@ -13,7 +13,7 @@
       assert(json != null);
     });
 
-    const html = cldrStBulkClosePosts.test.makeHtmlFromJson(json);
+    const html = cldrBulkClosePosts.test.makeHtmlFromJson(json);
 
     it("should not return null or empty", function () {
       assert(html != null && html !== "", "html is neither null nor empty");

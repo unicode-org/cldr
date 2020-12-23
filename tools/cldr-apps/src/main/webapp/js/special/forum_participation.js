@@ -20,7 +20,7 @@ define("js/special/forum_participation.js", [
   _super = Page.prototype = new SpecialPage();
 
   Page.prototype.show = function show(params) {
-    cldrStForumParticipation.load(params);
+    cldrForumParticipation.load(params);
   };
 
   return Page;

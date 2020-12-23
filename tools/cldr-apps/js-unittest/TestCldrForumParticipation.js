@@ -3,7 +3,7 @@
 {
   const assert = chai.assert;
 
-  describe("cldrStForumParticipation.makeHtmlFromJson", function () {
+  describe("cldrForumParticipation.makeHtmlFromJson", function () {
     /*
      * forumParticipationJson has been defined in forum_participation_json.js
      */
@@ -13,7 +13,7 @@
       assert(json != null);
     });
 
-    const html = cldrStForumParticipation.test.makeHtmlFromJson(json);
+    const html = cldrForumParticipation.test.makeHtmlFromJson(json);
 
     it("should not return null or empty", function () {
       assert(html != null && html !== "", "html is neither null nor empty");

@@ -1,6 +1,8 @@
 /*
- * CldrSurveyVettingLoader.js - split off from survey.js, for CLDR Survey Tool
+ * CldrDojoLoad.js (formerly CldrSurveyVettingLoader.js) - split off from survey.js, for CLDR Survey Tool
  * showV() and reloadV() and related functions
+ * 
+ * This is the dojo version. For non-dojo, see cldrLoad.js
  */
 
 /*
@@ -28,8 +30,8 @@ function showV() {
     "dojox/form/BusyButton",
     "dojo/hash",
     "dojo/topic",
-  ], // HANDLES
-  function (
+  ], function (
+    // HANDLES
     dijitDropDownMenu,
     dijitDropDownButton,
     dijitMenuSeparator,
@@ -403,7 +405,7 @@ function showV() {
      *
      * @param doPush {Boolean} if true, do a push (instead of replace)
      *
-     * Called by cldrStForum.parseContent, as well as locally.
+     * Called by cldrForum.parseContent, as well as locally.
      *
      * TODO: avoid attaching this, or anything, to "window"! Define our own objects instead.
      */
@@ -515,7 +517,7 @@ function showV() {
         postData: postData,
         headers: headers,
       };
-      cldrStAjax.queueXhr(xhrArgs);
+      cldrAjax.queueXhr(xhrArgs);
     };
 
     /**
@@ -1738,7 +1740,7 @@ function showV() {
                 }
                 if (!isInputBusy()) {
                   showLoader(theDiv.loader, cldrText.get("loading3"));
-                  cldrSurveyTable.insertRows(
+                  cldrTable.insertRows(
                     theDiv,
                     json.pageId,
                     cldrStatus.getSessionId(),
@@ -2265,7 +2267,7 @@ function showV() {
                 load: loadHandler,
                 error: errFunction,
               };
-              cldrStAjax.queueXhr(xhrArgs);
+              cldrAjax.queueXhr(xhrArgs);
             } else {
               alert("Please login to access Dashboard");
               cldrStatus.setCurrentSpecial("");
@@ -2287,7 +2289,7 @@ function showV() {
               load: loadHandler,
               error: errFunction,
             };
-            cldrStAjax.queueXhr(xhrArgs);
+            cldrAjax.queueXhr(xhrArgs);
           }
         } else if (cldrStatus.getCurrentSpecial() == "none") {
           // for now - redirect

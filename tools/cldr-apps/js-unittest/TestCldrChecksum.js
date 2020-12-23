@@ -103,13 +103,13 @@
     '"value":"Chinesisch (traditionell)",' +
     '"example":"<div class=\'cldr_example\'>Chinesisch (traditionell)"}}}';
 
-  describe("cldrSurveyTable.test.cldrChecksum", function () {
+  describe("cldrTable.test.cldrChecksum", function () {
     const s1 = "animal=猫";
     const s2 = "animal=狗";
-    const c1 = cldrSurveyTable.test.cldrChecksum(s1);
-    const c2 = cldrSurveyTable.test.cldrChecksum(s1); // c2 should equal c1
-    const c3 = cldrSurveyTable.test.cldrChecksum(s2); // c3 should not equal c1
-    const cLong = cldrSurveyTable.test.cldrChecksum(sLong);
+    const c1 = cldrTable.test.cldrChecksum(s1);
+    const c2 = cldrTable.test.cldrChecksum(s1); // c2 should equal c1
+    const c3 = cldrTable.test.cldrChecksum(s2); // c3 should not equal c1
+    const cLong = cldrTable.test.cldrChecksum(sLong);
 
     it("should not return null or undefined", function () {
       assert(
@@ -133,7 +133,7 @@
     it("should be fast enough", function () {
       const startTime = Date.now();
       for (let i = 0; i < ITERATIONS; i++) {
-        const c = cldrSurveyTable.test.cldrChecksum(sLong);
+        const c = cldrTable.test.cldrChecksum(sLong);
         assert(c === cLong, "c should equal cLong");
       }
       const duration = Date.now() - startTime; // typically 15 ms

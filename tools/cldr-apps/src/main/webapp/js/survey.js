@@ -1,6 +1,8 @@
 /*
  * survey.js - Copyright (C) 2012,2016 IBM Corporation and Others. All Rights Reserved.
  * SurveyTool main JavaScript stuff
+ * 
+ * This is the dojo version. For non-dojo, see new/cldrSurvey.js and other new/*.js
  */
 
 /*
@@ -789,7 +791,7 @@ function unbust() {
   saidDisconnect = false;
   removeClass(document.getElementsByTagName("body")[0], "disconnected");
   wasBusted = false;
-  cldrStAjax.clearXhr();
+  cldrAjax.clearXhr();
   hideLoader();
   saidDisconnect = false;
   updateStatus(); // will restart regular status updates
@@ -817,7 +819,7 @@ function handleChangedLocaleStamp(stamp, name) {
    * For performance, postpone the all-row WHAT_GETROW update if multiple
    * requests (e.g., vote or single-row WHAT_GETROW requests) are pending.
    */
-  if (cldrStAjax.queueCount() > 1) {
+  if (cldrAjax.queueCount() > 1) {
     return;
   }
   if (Object.keys(showers).length == 0) {
@@ -1034,7 +1036,7 @@ function trySurveyLoad() {
   try {
     var url = cldrStatus.getContextPath() + "/survey?" + cacheKill();
     console.log("Attempting to restart ST at " + url);
-    cldrStAjax.sendXhr({
+    cldrAjax.sendXhr({
       url: url,
     });
   } catch (e) {}
@@ -1247,7 +1249,7 @@ function updateStatus() {
     surveySessionUrl = "&s=" + sessionId;
   }
 
-  cldrStAjax.sendXhr({
+  cldrAjax.sendXhr({
     url:
       cldrStatus.getContextPath() +
       "/SurveyAjax?what=status" +
@@ -1907,7 +1909,7 @@ function showForumStuff(frag, forumDivClone, tr) {
       theRow.voteVhash !== "" &&
       !theRow.rowFlagged;
     const myValue = theRow.hasVoted ? getUsersValue(theRow) : null;
-    cldrStForum.addNewPostButtons(
+    cldrForum.addNewPostButtons(
       frag,
       cldrStatus.getCurrentLocale(),
       couldFlag,
@@ -1964,7 +1966,7 @@ function showForumStuff(frag, forumDivClone, tr) {
         }
       },
     };
-    cldrStAjax.queueXhr(xhrArgs);
+    cldrAjax.queueXhr(xhrArgs);
   }, 1900);
 
   function getUsersValue(theRow) {
@@ -2034,7 +2036,7 @@ function updateInfoPanelForumPosts(tr) {
     try {
       if (json && json.ret) {
         const posts = json.ret;
-        const content = cldrStForum.parseContent(posts, "info");
+        const content = cldrForum.parseContent(posts, "info");
         /*
          * Reality check: the json should refer to the same path as tr, which in practice
          * always matches cldrStatus.getCurrentId(). If not, log a warning and substitute "Please reload"
@@ -2080,7 +2082,7 @@ function updateInfoPanelForumPosts(tr) {
     load: loadHandler,
     error: errorHandler,
   };
-  cldrStAjax.queueXhr(xhrArgs);
+  cldrAjax.queueXhr(xhrArgs);
 }
 
 /**
@@ -2091,7 +2093,7 @@ function updateInfoPanelForumPosts(tr) {
  * @param {Node} forumDiv
  */
 function appendForumStuff(tr, theRow, forumDiv) {
-  cldrStForum.setUserCanPost(tr.theTable.json.canModify);
+  cldrForum.setUserCanPost(tr.theTable.json.canModify);
 
   removeAllChildNodes(forumDiv); // we may be updating.
   var theForum = locmap.getLanguage(cldrStatus.getCurrentLocale());
@@ -2552,7 +2554,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       alert(str2);
 
       // show this message in a sidebar also
-      showInPop(stopIcon + str, tr, null, null, true);
+      showInPop(cldrStatus.stopIcon() + str, tr, null, null, true);
     }
     return;
   } else if (json && json.didNotSubmit) {
@@ -3310,7 +3312,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
       if (json.section.rows[tr.rowHash]) {
         theRow = json.section.rows[tr.rowHash];
         tr.theTable.json.section.rows[tr.rowHash] = theRow;
-        cldrSurveyTable.updateRow(tr, theRow);
+        cldrTable.updateRow(tr, theRow);
 
         hideLoader(tr.theTable.theDiv.loader);
         onSuccess(theRow);
@@ -3355,7 +3357,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
     load: loadHandler,
     error: errorHandler,
   };
-  cldrStAjax.queueXhr(xhrArgs);
+  cldrAjax.queueXhr(xhrArgs);
 }
 
 /**
@@ -3545,7 +3547,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
     load: loadHandler,
     error: errorHandler,
   };
-  cldrStAjax.queueXhr(xhrArgs);
+  cldrAjax.queueXhr(xhrArgs);
 }
 
 /**
@@ -3610,7 +3612,7 @@ function loadAdminPanel() {
          */
         console.log("admin get: ourUrl: " + ourUrl);
       }
-      cldrStAjax.sendXhr(xhrArgs);
+      cldrAjax.sendXhr(xhrArgs);
     }
     var panelLast = null;
     var panels = {};
@@ -4199,10 +4201,10 @@ function refreshCounterVetting() {
   document.getElementById("progress-abstain").style.width =
     (abstain * 100) / total + "%";
 
-  if (cldrStForum && cldrStatus.getCurrentLocale()) {
+  if (cldrForum && cldrStatus.getCurrentLocale()) {
     const surveyUser = cldrStatus.getSurveyUser();
     if (surveyUser && surveyUser.id) {
-      const forumSummary = cldrStForum.getForumSummaryHtml(
+      const forumSummary = cldrForum.getForumSummaryHtml(
         cldrStatus.getCurrentLocale(),
         surveyUser.id,
         false
@@ -4446,7 +4448,7 @@ function showAllItems(divName, user) {
           load: loadHandler,
           error: errorHandler,
         };
-        cldrStAjax.queueXhr(xhrArgs);
+        cldrAjax.queueXhr(xhrArgs);
       };
       div.update();
     });
@@ -4557,7 +4559,7 @@ function showRecent(divName, locale, user) {
           load: loadHandler,
           error: errorHandler,
         };
-        cldrStAjax.queueXhr(xhrArgs);
+        cldrAjax.queueXhr(xhrArgs);
       };
       div.update();
     });
@@ -4578,8 +4580,8 @@ function showUserActivity(list, tableRef) {
     "dojo/request",
     "dojo/number",
     "dojo/domReady!",
-  ], // HANDLES
-  function (ready, dom, request, dojoNumber) {
+  ], function (ready, dom, request, dojoNumber) {
+    // HANDLES
     ready(function () {
       window._userlist = list; // DEBUG
       var table = dom.byId(tableRef);

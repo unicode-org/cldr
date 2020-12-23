@@ -18,6 +18,7 @@ import org.unicode.cldr.util.VettingViewer;
 
 public class SurveyTool extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private static final boolean USE_DOJO = true;
 
     @Override
     public final void init(final ServletConfig config) throws ServletException {
@@ -133,19 +134,36 @@ public class SurveyTool extends HttpServlet {
             out.write("if (dstatus != null) {\n");
             out.write("  dstatus.appendChild(document.createElement('br'));\n");
             out.write("  dstatus.appendChild(document.createTextNode('.'));\n");
-            out.write("  require(['dojo/ready'], function(ready) {\n");
-            out.write("    ready(function() {\n");
-            out.write("      dstatus.appendChild(document.createTextNode('.'));\n");
-            out.write("      window.setTimeout(function(){\n");
+            if (USE_DOJO) {
+                out.write("  require(['dojo/ready'], function(ready) {\n");
+                out.write("    ready(function() {\n");
+            } else {
+                out.write("  $(function() {\n"); // jquery
+            }
             out.write("        dstatus.appendChild(document.createTextNode('.'));\n");
-            out.write("        cldrStAjax.sendXhr({url: survURL, load: function(data) {\n");
-            out.write("          dstatus.appendChild(document.createTextNode('Loaded ' + data.length +\n");
-            out.write("            ' bytes from SurveyTool. Reloading this page..'));\n");
-            out.write("          window.location.reload(true);\n");
-            out.write("        });\n");
-            out.write("      }, 2000) // two seconds\n");
-            out.write("    });\n");
-            out.write("  });\n");
+            out.write("        window.setTimeout(function () {\n");
+            out.write("          dstatus.appendChild(document.createTextNode('.'));\n");
+            out.write("          const load = function (data) {\n");
+            out.write("            dstatus.appendChild(\n");
+            out.write("              document.createTextNode(\n");
+            out.write("                'Loaded ' +\n");
+            out.write("                  data.length +\n");
+            out.write("                  ' bytes from SurveyTool. Reloading this page..'\n");
+            out.write("              )\n");
+            out.write("            );\n");
+            out.write("            window.location.reload(true);\n");
+            out.write("          };\n");
+            out.write("          const xhrArgs = {\n");
+            out.write("            url: survURL,\n");
+            out.write("            load: load,\n");
+            out.write("          };\n");
+            out.write("          cldrAjax.sendXhr(xhrArgs);\n");
+            out.write("        }, 2000); // two seconds\n");
+            out.write("      });\n");
+            out.write("    }\n");
+            if (USE_DOJO) {
+                out.write("  });\n");
+            }
             out.write("}\n");
             out.write("</script>\n");
         }
@@ -250,6 +268,9 @@ public class SurveyTool extends HttpServlet {
         out.write("</head>\n");
         out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
         out.write("<p id='st-run-gui'>Loading...</p>\n");
+        if (!USE_DOJO) {
+            out.write("<script>cldrGui.run()</script>\n");
+        }
         out.write("</body>\n</html>\n");
     }
 
@@ -257,7 +278,9 @@ public class SurveyTool extends HttpServlet {
         String contextPath = request.getContextPath();
         out.write("<link rel='stylesheet' href='" + contextPath + "/surveytool.css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum.css' />\n");
-        out.write("<link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css' />\n");
+        if (USE_DOJO) {
+            out.write("<link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css' />\n");
+        }
         out.write("<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/redesign.css' />\n");
     }
@@ -271,7 +294,9 @@ public class SurveyTool extends HttpServlet {
      * @throws JSONException
      */
     public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
-        includeDojoJavaScript(out);
+        if (USE_DOJO) {
+            includeDojoJavaScript(out);
+        }
         includeJqueryJavaScript(out);
         includeCldrJavaScript(request, out);
     }
@@ -293,24 +318,39 @@ public class SurveyTool extends HttpServlet {
 
         out.write(prefix + "jquery.autosize.min.js" + tail); // exceptional
 
-        out.write(prefix + "CldrText" + js); // CldrText.js
-        out.write(prefix + "CldrStatus" + js); // CldrStatus.js
-        out.write(prefix + "CldrStAjax" + js); // CldrStAjax.js
-        out.write(prefix + "CldrStBulkClosePosts" + js); // CldrStBulkClosePosts.js
-        out.write(prefix + "CldrStForumParticipation" + js); // CldrStForumParticipation.js
-        out.write(prefix + "CldrStForumFilter" + js); // CldrStForumFilter.js
-        out.write(prefix + "CldrStForum" + js); // CldrStForum.js
-        out.write(prefix + "CldrStCsvFromTable" + js); // CldrStCsvFromTable.js
-        out.write(prefix + "CldrDeferredHelp" + js); // CldrDeferredHelp.js
-        out.write(prefix + "survey" + js); // survey.js
-        out.write(prefix + "CldrSurveyVettingLoader" + js); // CldrSurveyVettingLoader.js
-        out.write(prefix + "CldrSurveyVettingTable" + js); // CldrSurveyVettingTable.js
+        out.write(prefix + "new/cldrText" + js); // new/cldrText.js -- same file for dojo and non-dojo
+        out.write(prefix + "new/cldrStatus" + js); // new/cldrStatus.js -- same file for dojo and non-dojo
+        out.write(prefix + "new/cldrAjax" + js); // new/cldrAjax.js -- same file for dojo and non-dojo
 
-        out.write(prefix + "bootstrap.min.js" + tail); // exceptional
-
-        out.write(prefix + "redesign" + js); // redesign.js
-        out.write(prefix + "review" + js); // review.js
-        out.write(prefix + "CldrGui" + js); // CldrGui.js
+        if (USE_DOJO) {
+            out.write(prefix + "CldrDojoBulkClosePosts" + js); // CldrDojoBulkClosePosts.js
+            out.write(prefix + "CldrDojoForumParticipation" + js); // CldrDojoForumParticipation.js
+            out.write(prefix + "new/cldrForumFilter" + js); // new/cldrForumFilter.js
+            out.write(prefix + "new/cldrCsvFromTable" + js); // new/cldrCsvFromTable.js
+            out.write(prefix + "CldrDojoDeferHelp" + js); // CldrDojoDeferHelp.js
+            out.write(prefix + "CldrDojoForum" + js); // CldrDojoForum.js
+            out.write(prefix + "survey" + js); // survey.js
+            out.write(prefix + "CldrDojoLoad" + js); // CldrDojoLoad.js
+            out.write(prefix + "CldrDojoTable" + js); // CldrDojoTable.js
+            out.write(prefix + "bootstrap.min.js" + tail); // exceptional
+            out.write(prefix + "redesign" + js); // redesign.js
+            out.write(prefix + "review" + js); // review.js
+            out.write(prefix + "CldrDojoGui" + js); // CldrGuiDojo.js
+        } else {
+            out.write(prefix + "new/cldrBulkClosePosts" + js); // new/cldrBulkClosePosts.js
+            out.write(prefix + "new/cldrForumParticipation" + js); // new/cldrForumParticipation.js
+            out.write(prefix + "new/cldrForumFilter" + js); // new/cldrForumFilter.js
+            out.write(prefix + "new/cldrCsvFromTable" + js); // new/cldrCsvFromTable.js
+            out.write(prefix + "new/cldrDeferHelp" + js); // new/cldrDeferHelp.js
+            out.write(prefix + "new/cldrForum" + js); // new/cldrForum.js
+            out.write(prefix + "new/cldrFlip" + js); // new/cldrFlip.js
+            out.write(prefix + "new/cldrLocaleMap" + js); // new/cldrLocaleMap.js
+            out.write(prefix + "new/cldrXpathMap" + js); // new/cldrXpathMap.js
+            out.write(prefix + "new/cldrLoad" + js); // new/cldrLoad.js
+            out.write(prefix + "new/cldrTable" + js); // new/cldrTable.js
+            out.write(prefix + "bootstrap.min.js" + tail); // exceptional
+            out.write(prefix + "new/cldrGui" + js); // new/cldrGui.js
+        }
     }
 
     /**

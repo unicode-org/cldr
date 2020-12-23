@@ -1,7 +1,8 @@
 "use strict";
 
 /**
- * cldrStCsvFromTable: enable downloading a table as a CSV file.
+ * cldrCsvFromTable: enable downloading a table as a CSV file.
+ * This works with or without dojo; no dependency on dojo.
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
@@ -9,16 +10,16 @@
  * but not all Survey Tool JavaScript code is capable yet of being in modules
  * and running in strict mode.
  */
-const cldrStCsvFromTable = (function () {
+const cldrCsvFromTable = (function () {
   /**
    * Download the table as CSV
    */
-  function downloadCsv(tableId, fileName) {
+  function download(tableId, fileName) {
     const table = document.getElementById(tableId);
     if (!table) {
       return;
     }
-    const csv = getCsvFromTable(table);
+    const csv = get(table);
     if (!csv) {
       return;
     }
@@ -29,7 +30,7 @@ const cldrStCsvFromTable = (function () {
     link.click();
   }
 
-  function getCsvFromTable(table) {
+  function get(table) {
     let csv = "";
     for (let row of table.rows) {
       let columnsRemaining = row.cells.length;
@@ -44,7 +45,12 @@ const cldrStCsvFromTable = (function () {
    * Make only these functions accessible from other files
    */
   return {
-    downloadCsv: downloadCsv,
-    getCsvFromTable: getCsvFromTable,
+    download: download,
+    /*
+     * The following are meant to be accessible for unit testing only:
+     */
+    test: {
+      get: get,
+    },
   };
 })();

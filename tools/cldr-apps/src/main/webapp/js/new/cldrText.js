@@ -1,8 +1,9 @@
 "use strict";
-// this file, unlike most of our js files, has been formatted using "npx prettier" with default settings
 
 /**
  * cldrText: encapsulate text messages for the user interface.
+ * This works with or without dojo; no dependency on dojo.
+ *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
  * Ideally this should be a module (in the sense of using import/export),

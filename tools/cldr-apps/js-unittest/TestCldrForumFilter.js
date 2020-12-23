@@ -2,22 +2,22 @@
 {
   const assert = chai.assert;
 
-  describe("cldrStForumFilter.createMenu", function () {
+  describe("cldrForumFilter.createMenu", function () {
     it("should not return null", function () {
-      cldrStForumFilter.setUserId(1);
-      const actualOutput = cldrStForumFilter.createMenu(null);
+      cldrForumFilter.setUserId(1);
+      const actualOutput = cldrForumFilter.createMenu(null);
       assert(actualOutput != null, "not null");
     });
   });
 
-  describe("cldrStForumFilter.getFilteredThreadIds", function () {
+  describe("cldrForumFilter.getFilteredThreadIds", function () {
     it("should return one thread for two related posts", function () {
       const posts = [
         { id: 1, parent: -1, poster: 100, locale: "am" },
         { id: 2, parent: 1, poster: 200, locale: "am" },
       ];
-      const threadHash = cldrStForum.test.getThreadHash(posts);
-      const actualOutput = cldrStForumFilter.getFilteredThreadIds(
+      const threadHash = cldrForum.test.getThreadHash(posts);
+      const actualOutput = cldrForumFilter.getFilteredThreadIds(
         threadHash,
         false
       );
@@ -30,8 +30,8 @@
         { id: 2, parent: 1, poster: 200, locale: "zh" },
         { id: 3, parent: 2, poster: 300, locale: "zh" },
       ];
-      const threadHash = cldrStForum.test.getThreadHash(posts);
-      const actualOutput = cldrStForumFilter.getFilteredThreadIds(
+      const threadHash = cldrForum.test.getThreadHash(posts);
+      const actualOutput = cldrForumFilter.getFilteredThreadIds(
         threadHash,
         false
       );
@@ -43,8 +43,8 @@
         { id: 1, parent: -1, poster: 100, locale: "pt_PT" },
         { id: 2, parent: -1, poster: 200, locale: "pt_PT" },
       ];
-      const threadHash = cldrStForum.test.getThreadHash(posts);
-      const actualOutput = cldrStForumFilter.getFilteredThreadIds(
+      const threadHash = cldrForum.test.getThreadHash(posts);
+      const actualOutput = cldrForumFilter.getFilteredThreadIds(
         threadHash,
         false
       );

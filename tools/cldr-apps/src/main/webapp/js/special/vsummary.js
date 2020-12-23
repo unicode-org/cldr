@@ -232,7 +232,7 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function (
       stopRefresh();
       vsReload.disabled = true;
 
-      cldrStAjax.sendXhr({
+      cldrAjax.sendXhr({
         url: xurl + "&loadingpolicy=" + policy,
         handleAs: "json",
         load: function (json) {

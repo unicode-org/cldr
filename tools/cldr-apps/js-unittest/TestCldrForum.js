@@ -3,7 +3,7 @@
 {
   const assert = chai.assert;
 
-  describe("cldrStForum.parseContent", function () {
+  describe("cldrForum.parseContent", function () {
     let json = null;
 
     it("should get json", function () {
@@ -20,9 +20,9 @@
       const posts = json.ret;
       assert(posts != null, "posts is not null");
 
-      cldrStForum.test.setDisplayUtc(true); // so test can pass regardless of time zone
+      cldrForum.test.setDisplayUtc(true); // so test can pass regardless of time zone
 
-      const content = cldrStForum.parseContent(posts, "info");
+      const content = cldrForum.parseContent(posts, "info");
       assert(content != null, "content is not null");
 
       assert.equal(
@@ -85,8 +85,8 @@
     });
   });
 
-  describe("cldrStForum.getForumSummaryHtml", function () {
-    const html = cldrStForum.getForumSummaryHtml("aa", 1, true);
+  describe("cldrForum.getForumSummaryHtml", function () {
+    const html = cldrForum.getForumSummaryHtml("aa", 1, true);
 
     it("should not return null or empty", function () {
       assert(html != null && html !== "", "html is neither null nor empty");

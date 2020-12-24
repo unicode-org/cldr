@@ -67,7 +67,7 @@ public class XPathTable {
             boolean isNew = !DBUtils.hasTable(ourConn, CLDR_XPATHS);
             XPathTable reg = new XPathTable();
             if (isNew) {
-                reg.setupDB();
+                reg.setupDB(ourConn);
             }
             reg.loadXPaths(ourConn);
 
@@ -100,26 +100,13 @@ public class XPathTable {
     }
 
     /**
-     * Called by SM to shutdown
-     *
-     * @deprecated unneeded
-     */
-    @Deprecated
-    public void shutdownDB() throws SQLException {
-
-    }
-
-    /**
      * internal - called to setup db
      */
-    private void setupDB() throws SQLException {
+    private void setupDB(Connection ourConn) throws SQLException {
         String sql = null;
-        Connection conn = null;
+        Statement s = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
-            SurveyLog.debug("XPathTable DB: initializing... conn: " + conn + ", db:" + CLDR_XPATHS + ", id:"
-                + DBUtils.DB_SQL_IDENTITY);
-            Statement s = conn.createStatement();
+            s = ourConn.createStatement();
             if (s == null) {
                 throw new InternalError("S is null");
             }
@@ -138,9 +125,10 @@ public class XPathTable {
             s.execute(sql);
             sql = null;
             s.close();
-            conn.commit();
+            s = null;
+            ourConn.commit();
         } finally {
-            DBUtils.close(conn);
+            DBUtils.close(s);
             if (sql != null) {
                 SurveyLog.logger.warning("Last SQL: " + sql);
             }
@@ -321,27 +309,6 @@ public class XPathTable {
         }
         return null; // an exception occured.
     }
-
-    //    /**
-    //     * needs a new name.. This uses the string pool and also adds it to the
-    //     * table
-    //     */
-    //    final String poolx(String x) {
-    //        if (x == null) {
-    //            return null;
-    //        }
-    //
-    //        String y = (String) xstringHash.get(x);
-    //        if (y == null) {
-    //            xstringHash.put(x, x);
-    //
-    //            // addXpath(x);
-    //
-    //            return x;
-    //        } else {
-    //            return y;
-    //        }
-    //    }
 
     /**
      * API for get by ID
@@ -641,6 +608,8 @@ public class XPathTable {
      *
      * @param path
      * @deprecated PrettyPath is deprecated.
+     *
+     * This is possibly referenced by tc-mzfix.jsp (as of 2020-12-23)
      */
     @Deprecated
     public String getPrettyPath(String path) {
@@ -656,6 +625,8 @@ public class XPathTable {
      * @deprecated PrettyPath
      * @param path
      * @return
+     *
+     * This is possibly referenced by tc-mzfix.jsp (as of 2020-12-23)
      */
     @Deprecated
     public String getPrettyPath(int path) {
@@ -665,20 +636,6 @@ public class XPathTable {
         return getPrettyPath(getById(path));
     }
 
-    /**
-     * Get original path. ONLY works if getPrettyPath was called with the
-     * original!
-     *
-     * @param prettyPath
-     * @return original path
-     * @deprecated PrettyPath
-     */
-    @Deprecated
-    public String getOriginal(String prettyPath) {
-        synchronized (ppath) {
-            return ppath.getOriginal(prettyPath);
-        }
-    }
 
     /**
      * How much is inside?

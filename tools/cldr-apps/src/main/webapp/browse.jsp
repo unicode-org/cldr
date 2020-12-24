@@ -43,7 +43,7 @@ SurveyTool.includeJavaScript(request, out);
 	   var r = document.getElementById('whatis_answer');
 	   if(v.length==0) { r.innerHTML = ''; return; }
 	   r.innerHTML = '<i>Looking up ' + v + '...</i>';
-	   cldrStAjax.sendXhr({
+	   cldrAjax.sendXhr({
 	        url:"<%= request.getContextPath() %>/browse_results.jsp?loc=<%= pageLocale.getBaseName() %>&q=" + v,
 	        load: function(h){
 	        	  r.innerHTML = h;
@@ -59,7 +59,7 @@ SurveyTool.includeJavaScript(request, out);
 	       if(v.length==0) { return; }
 	       var r = document.getElementById('xpath_answer');
 	       r.innerHTML = '<i>Looking up xpath ' + v + '...</i>';
-	       cldrStAjax.sendXhr({
+	       cldrAjax.sendXhr({
 	            url:"<%= request.getContextPath() %>/xpath_results.jsp?from="+ from + "&q=" + v,
 	           handleAs:"json",
 	           load: function(h){

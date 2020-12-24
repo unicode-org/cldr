@@ -51,7 +51,7 @@ define("js/special/tc-emaillist.js", ["js/special/SpecialPage.js"], function (
       "/SurveyAjax?&s=" +
       cldrStatus.getSessionId() +
       "&what=participating_users"; // allow cache
-    cldrStAjax.queueXhr({
+    cldrAjax.queueXhr({
       url: xurl, // allow cache
       handleAs: "json",
       load: function (h) {

@@ -1,7 +1,8 @@
 "use strict";
 
 /**
- * cldrStForumParticipation: encapsulate Survey Tool Forum Participation code.
+ * cldrForumParticipation: encapsulate Survey Tool Forum Participation code.
+ * This is the non-dojo version. For dojo, see CldrDojoForumParticipation.js
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
@@ -9,13 +10,13 @@
  * but not all Survey Tool JavaScript code is capable yet of being in modules
  * and running in strict mode.
  *
- * Dependencies: SpecialPage; hideLoader; showInPop2
+ * Dependencies: SpecialPage
  */
-const cldrStForumParticipation = (function () {
+const cldrForumParticipation = (function () {
   const tableId = "participationTable";
   const fileName = "participation.csv";
   const onclick =
-    "cldrStCsvFromTable.downloadCsv(" +
+    "cldrCsvFromTable.download(" +
     '"' +
     tableId +
     '"' +
@@ -34,7 +35,13 @@ const cldrStForumParticipation = (function () {
     /*
      * Set up the 'right sidebar'; cf. forum_participationGuidance
      */
-    showInPop2(cldrText.get(params.name + "Guidance"), null, null, null, true);
+    cldrSurvey.showInPop2(
+      cldrText.get(params.name + "Guidance"),
+      null,
+      null,
+      null,
+      true
+    );
 
     const url = getForumParticipationUrl();
     const errorHandler = function (err) {
@@ -57,7 +64,7 @@ const cldrStForumParticipation = (function () {
       ourDiv.innerHTML = html;
 
       // No longer loading
-      hideLoader(null);
+      cldrSurvey.hideLoader(null);
       params.flipper.flipTo(params.pages.other, ourDiv);
     };
     const xhrArgs = {
@@ -66,7 +73,7 @@ const cldrStForumParticipation = (function () {
       load: loadHandler,
       error: errorHandler,
     };
-    cldrStAjax.sendXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   }
 
   /**

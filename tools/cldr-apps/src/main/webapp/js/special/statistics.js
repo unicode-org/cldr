@@ -326,7 +326,7 @@ define("js/special/statistics.js", [
             );
 
             subDiv.appendChild(loading);
-            cldrStAjax.queueXhr({
+            cldrAjax.queueXhr({
               url: theSection.url,
               handleAs: "json",
               load: function (json) {

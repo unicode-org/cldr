@@ -1,7 +1,8 @@
 "use strict";
 
 /**
- * cldrStForum: encapsulate main Survey Tool Forum code.
+ * cldrForum: encapsulate main Survey Tool Forum code
+ * This is the dojo version; see cldrForum.js for non-dojo
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
@@ -17,7 +18,7 @@
  * TODO: possibly move these functions here from survey.js: showForumStuff, havePosts,
  * updateInfoPanelForumPosts, appendForumStuff; also some/all code from forum.js
  */
-const cldrStForum = (function () {
+const cldrForum = (function () {
   const FORUM_DEBUG = false;
 
   function forumDebug(s) {
@@ -109,7 +110,7 @@ const cldrStForum = (function () {
       const ourDiv = document.createElement("div");
       ourDiv.appendChild(forumCreateChunk(forumMessage, "h4", ""));
 
-      const filterMenu = cldrStForumFilter.createMenu(reloadV);
+      const filterMenu = cldrForumFilter.createMenu(reloadV);
       const summaryDiv = document.createElement("div");
       summaryDiv.innerHTML = "";
       ourDiv.appendChild(summaryDiv);
@@ -136,7 +137,7 @@ const cldrStForum = (function () {
       load: loadHandler,
       error: errorHandler,
     };
-    cldrStAjax.sendXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   }
 
   /**
@@ -387,7 +388,7 @@ const cldrStForum = (function () {
       error: errorHandler,
       postData: postData,
     };
-    cldrStAjax.sendXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   }
 
   /**
@@ -1203,7 +1204,7 @@ const cldrStForum = (function () {
     applyFilter,
     showThreadCount
   ) {
-    let filteredArray = cldrStForumFilter.getFilteredThreadIds(
+    let filteredArray = cldrForumFilter.getFilteredThreadIds(
       threadHash,
       applyFilter
     );
@@ -1275,13 +1276,13 @@ const cldrStForum = (function () {
    * Get a piece of html text summarizing the current Forum statistics
    *
    * @param locale the locale string
-   * @param userId the current user's id, for cldrStForumFilter
+   * @param userId the current user's id, for cldrForumFilter
    * @param getTable true to get a table, false to get a one-liner
    * @return the html
    */
   function getForumSummaryHtml(locale, userId, getTable) {
     setLocale(locale);
-    cldrStForumFilter.setUserId(userId);
+    cldrForumFilter.setUserId(userId);
     return reallyGetForumSummaryHtml(true /* canDoAjax */, getTable);
   }
 
@@ -1311,7 +1312,7 @@ const cldrStForum = (function () {
       if (FORUM_DEBUG && getTable) {
         html += "<p>Retrieved " + fmtDateTime(forumUpdateTime) + "</p>\n";
       }
-      const c = cldrStForumFilter.getFilteredThreadCounts();
+      const c = cldrForumFilter.getFilteredThreadCounts();
       if (getTable) {
         html += "<ul>\n";
         Object.keys(c).forEach(function (k) {
@@ -1341,7 +1342,7 @@ const cldrStForum = (function () {
    * @param getTable true to get a table, false to get a one-liner
    */
   function loadForumForSummaryOnly(locale, id, getTable) {
-    if (typeof cldrStAjax === "undefined") {
+    if (typeof cldrAjax === "undefined") {
       return;
     }
     setLocale(locale);
@@ -1374,7 +1375,7 @@ const cldrStForum = (function () {
       load: loadHandler,
       error: errorHandler,
     };
-    cldrStAjax.sendXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   }
 
   /**

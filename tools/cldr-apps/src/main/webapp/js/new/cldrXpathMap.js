@@ -1,4 +1,7 @@
-"use strict";
+// "use strict";
+// TODO: modernize, make strict, possibly a class; though it seems to be used as a singleton?
+
+const CLDR_XPATH_DEBUG = true;
 
 /**
  * @class XpathMap
@@ -69,9 +72,11 @@ XpathMap.prototype.get = function get(search, onResult) {
       result: result,
     });
   } else {
-    stdebug(
-      "XpathMap search failed for " + JSON.stringify(search) + " - doing rpc"
-    );
+    if (CLDR_XPATH_DEBUG) {
+      console.log(
+        "XpathMap search failed for " + JSON.stringify(search) + " - doing rpc"
+      );
+    }
     var querystr = null;
     if (search.hex) {
       querystr = search.hex;
@@ -84,6 +89,7 @@ XpathMap.prototype.get = function get(search, onResult) {
     }
     const loadHandler = function (json) {
       if (json.getxpath) {
+        const xpathMap = cldrSurvey.getXpathMap();
         xpathMap.put(json.getxpath); // store back first, then
         onResult({
           search: search,
@@ -120,18 +126,24 @@ XpathMap.prototype.get = function get(search, onResult) {
  */
 XpathMap.prototype.put = function put(info) {
   if (!info || !info.id || !info.path || !info.hex || !info.ph) {
-    stdebug(
-      "XpathMap: rejecting incomplete contribution " + JSON.stringify(info)
-    );
+    if (CLDR_XPATH_DEBUG) {
+      console.log(
+        "XpathMap: rejecting incomplete contribution " + JSON.stringify(info)
+      );
+    }
   } else if (this.stridToInfo[info.hex]) {
-    stdebug(
-      "XpathMap: rejecting duplicate contribution " + JSON.stringify(info)
-    );
+    if (CLDR_XPATH_DEBUG) {
+      console.log(
+        "XpathMap: rejecting duplicate contribution " + JSON.stringify(info)
+      );
+    }
   } else {
     this.stridToInfo[info.hex] = this.xpidToInfo[info.id] = this.xpathToInfo[
       info.path
     ] = info;
-    stdebug("XpathMap: adding contribution " + JSON.stringify(info));
+    if (CLDR_XPATH_DEBUG) {
+      console.log("XpathMap: adding contribution " + JSON.stringify(info));
+    }
   }
 };
 

@@ -3140,7 +3140,8 @@ public class SurveyAjax extends HttpServlet {
                 out.write("<td title='vote:' style='" + resultStyle + "'>\n");
                 if (!checkResult.isEmpty()) {
                     out.write("<script>\n");
-                    out.write("document.write(testsToHtml(" + SurveyAjax.JSONWriter.wrap(checkResult) + ")");
+                    String testsToHtml = SurveyTool.USE_DOJO ? "cldrSurvey.testsToHtml" : "testsToHtml";
+                    out.write("document.write(" + testsToHtml + "(" + SurveyAjax.JSONWriter.wrap(checkResult) + ")");
                     out.write("</script>\n");
                 }
                 out.write(WebContext.iconHtml(request, resultIcon, result) + result);

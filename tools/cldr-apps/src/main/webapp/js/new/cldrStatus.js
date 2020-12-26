@@ -114,9 +114,7 @@ const cldrStatus = (function () {
   }
 
   function setCurrentId(id) {
-    if (id || id === "") {
-      currentId = id;
-    }
+    currentId = id ? id : "";
   }
 
   /**
@@ -366,6 +364,15 @@ const cldrStatus = (function () {
     disconnected = d;
   }
 
+  /**
+   * Are we in the Dashboard or not?
+   *
+   * @return true or false
+   */
+  function isDashboard() {
+    return getCurrentSpecial() === "r_vetting_json";
+  }
+
   /*
    * Make only these functions accessible from other files:
    */
@@ -435,5 +442,7 @@ const cldrStatus = (function () {
 
     isDisconnected: isDisconnected,
     setIsDisconnected: setIsDisconnected,
+
+    isDashboard: isDashboard,
   };
 })();

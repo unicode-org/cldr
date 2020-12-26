@@ -1,4 +1,5 @@
-"use strict";
+// "use strict";
+// TODO: modernize, make strict, possibly a class
 
 /**
  * @param aLocmap the map object from json

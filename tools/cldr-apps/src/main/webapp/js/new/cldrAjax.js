@@ -228,11 +228,23 @@ const cldrAjax = (function () {
   function makeErrorMessage(request, url) {
     let msg =
       "Status " + request.status + " " + request.statusText + "; URL: " + url;
-    if (request.responseText) {
-      msg += " Response: " + request.responseText;
+    if (request.responseType === "text" || request.responseType === "") {
+      if (request.responseText) {
+        msg += " Response: " + request.responseText;
+      }
+    } else if (request.responseType === "json") {
+      if (request.response) {
+        msg += JSON.stringify(request.response);
+      }
+    } else if (ST_AJAX_DEBUG) {
+      msg += " Response type: " + request.responseType;
+      console.log(
+        "cldrAjax.makeErrorMessage got responseType=" + request.responseType
+      );
     }
     return msg;
   }
+
   /**
    * How many requests are in the queue?
    *

@@ -1,5 +1,5 @@
 section=characterFallbacks ; path=//cldr/supplemental/characters/.* ; package=core
-section=dayPeriods ; path=//cldr/supplemental/dayPeriodRuleSet/.* ; package=core
+section=dayPeriods ; path=//cldr/supplemental/(dayPeriodRuleSet).* ; package=core
 section=gender ; path=//cldr/supplemental/gender/.* ; package=core
 section=languageInfo ; path=//cldr/supplemental/languageInfo/.* ; package=core
 section=likelySubtags ; path=//cldr/supplemental/likelySubtags/.* ; package=core
@@ -20,7 +20,7 @@ section=calendarData ; path=//cldr/supplemental/calendarData/.* ; package=core
 section=calendarPreferenceData ; path=//cldr/supplemental/calendarPreferenceData/.* ; package=core
 section=unitPreferenceData ; path=//cldr/supplemental/unitPreferenceData/.* ; package=core
 section=grammaticalFeatures ; path=//cldr/supplemental/(grammaticalData)/.* ; package=core
-section=grammaticalGenderFeatures ; path=//cldr/supplemental/(grammaticalGenderData)/.* ; package=core
+section=grammaticalGenderFeatures ; path=//cldr/supplemental/(grammaticalGenderData).* ; package=core
 section=weekData ; path=//cldr/supplemental/weekData/.* ; package=core
 section=timeData ; path=//cldr/supplemental/timeData/.* ; package=core
 section=measurementData ; path=//cldr/supplemental/measurementData/.* ; package=core
@@ -30,3 +30,12 @@ section=references ; path=//cldr/supplemental/references/.* ; package=core
 section=telephoneCodeData ; path=//cldr/supplemental/telephoneCodeData/.* ; package=core
 section=windowsZones ; path=//cldr/supplemental/windowsZones/.* ; package=core
 section=aliases ; path=//cldr/supplemental/metadata/alias/(language|script|subdivision|territory|variant|zone)Alias.* ; package=core
+section=units ; path=//cldr/supplemental/(unitConstants|unitQuantities|convertUnits).* ; package=core
+section=unitsMetadata ; path=//cldr/supplemental/metadata/.*/(unitAlias|usageAlias).* ; package=core
+
+# ignored items
+section=IGNORE ; path=//cldr/supplemental/metadata/serialElements.* ; package=IGNORE
+section=IGNORE ; path=//cldr/supplemental/metadata/suppress.* ; package=IGNORE
+# defaultContent is not really ignored, but is handled by special code in Ldml2JsonConverter
+section=IGNORE ; path=//cldr/supplemental/metadata/defaultContent.* ; package=IGNORE
+#

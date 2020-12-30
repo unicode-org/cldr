@@ -142,7 +142,7 @@ public class CldrNode {
     public Map<String, String> getAttrAsValueMap() {
         Map<String, String> attributesAsValues = new HashMap<>();
         for (String key : distinguishingAttributes.keySet()) {
-            String keyStr = LdmlConvertRules.getKeyStr(parent, name, key);
+            String keyStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
             String keyStr2 = LdmlConvertRules.getKeyStr(name, key);
             if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr) || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr2)) {
                 if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)) {
@@ -158,7 +158,7 @@ public class CldrNode {
             if (LdmlConvertRules.IGNORABLE_NONDISTINGUISHING_ATTR_SET.contains(key)) {
                 continue;
             }
-            String keyStr = LdmlConvertRules.getKeyStr(parent, name, key);
+            String keyStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
             if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)) {
                 attributesAsValues.put(LdmlConvertRules.ANONYMOUS_KEY,
                     nondistinguishingAttributes.get(key));
@@ -229,7 +229,7 @@ public class CldrNode {
         StringBuffer strbuf = new StringBuffer();
         String lastKey = null; // for err message
         for (String key : distinguishingAttributes.keySet()) {
-            String attrIdStr = LdmlConvertRules.getKeyStr(parent, name, key);
+            String attrIdStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
             String attrIdStr2 = LdmlConvertRules.getKeyStr(name, key);
             if (LdmlConvertRules.IsSuppresedAttr(attrIdStr)) {
                 continue;
@@ -257,7 +257,7 @@ public class CldrNode {
 
         // append distinguishing attributes
         for (String key : distinguishingAttributes.keySet()) {
-            String attrIdStr = LdmlConvertRules.getKeyStr(parent, name, key);
+            String attrIdStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
             String attrIdStr2 = LdmlConvertRules.getKeyStr(name, key);
             if (LdmlConvertRules.IsSuppresedAttr(attrIdStr)) {
                 continue;
@@ -321,6 +321,10 @@ public class CldrNode {
 
     @Override
     public String toString() {
-        return "[CldrNode "+parent+"/"+getNodeDistinguishingName()+"]";
+        return "[CldrNode "+getParent()+"/"+getNodeDistinguishingName()+"]";
+    }
+
+    public String getParent() {
+        return parent;
     }
 }

@@ -60,6 +60,7 @@ class LdmlConvertRules {
         "weekData:firstDay:territories",
         "weekData:weekendStart:territories",
         "weekData:weekendEnd:territories",
+        "supplemental:dayPeriodRuleSet:type",
         // units
         "unitPreferenceDataData:unitPreferences:category",
        // grammatical features
@@ -298,7 +299,7 @@ class LdmlConvertRules {
      * <weekendStart day="thu" territories="AF"/>
      * <weekendStart day="thu" territories="IR"/>
      */
-    public static final SplittableAttributeSpec[] SPLITTABLE_ATTRS = {
+    private static final SplittableAttributeSpec[] SPLITTABLE_ATTRS = {
         new SplittableAttributeSpec("calendarPreference", "territories", null),
         new SplittableAttributeSpec("pluralRanges", "locales", null),
         new SplittableAttributeSpec("pluralRules", "locales", null),
@@ -306,7 +307,9 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("firstDay", "territories", "day"),
         new SplittableAttributeSpec("weekendStart", "territories", "day"),
         new SplittableAttributeSpec("weekendEnd", "territories", "day"),
+        new SplittableAttributeSpec("weekOfPreference", "locales", "ordering"),
         new SplittableAttributeSpec("measurementSystem", "territories", "type"),
+        // this is deprecated, so no need to generalize this exception.
         new SplittableAttributeSpec("measurementSystem-category-temperature", "territories", "type"),
         new SplittableAttributeSpec("paperSize", "territories", "type"),
         new SplittableAttributeSpec("parentLocale", "locales", "parent"),
@@ -331,7 +334,7 @@ class LdmlConvertRules {
      * as a single string.
      */
     public static final Set<String> ATTRVALUE_AS_ARRAY_SET = Builder.with(new HashSet<String>())
-        .add("territories").add("scripts").add("contains").freeze();
+        .add("territories").add("scripts").add("contains").add("systems").freeze();
 
     /**
      * Following is the list of elements that need to be sorted before output.
@@ -376,6 +379,10 @@ class LdmlConvertRules {
      */
     public static final Pattern VALUE_IS_SPACESEP_ARRAY = PatternCache.get(
         "(grammaticalCase|grammaticalGender|grammaticalDefiniteness)"
+    );
+    public static final Set<String> CHILD_VALUE_IS_SPACESEP_ARRAY = ImmutableSet.of(
+        "weekOfPreference",
+        "calendarPreferenceData"
     );
 
     /**
@@ -556,5 +563,14 @@ class LdmlConvertRules {
     public final static String getKeyStr(String parent, String name, String key) {
         String keyStr = parent + ":" + name + ":" + key;
         return keyStr;
+    }
+
+    public static SplittableAttributeSpec[] getSplittableAttrs() {
+        return SPLITTABLE_ATTRS;
+    }
+
+    public static final boolean valueIsSpacesepArray(final String nodeName, String parent) {
+        return VALUE_IS_SPACESEP_ARRAY.matcher(nodeName).matches()
+            || (parent!=null && CHILD_VALUE_IS_SPACESEP_ARRAY.contains(parent));
     }
 }

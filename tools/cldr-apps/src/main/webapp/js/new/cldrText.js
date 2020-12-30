@@ -289,6 +289,8 @@ const cldrText = (function () {
       "${count} old winning votes were automatically imported",
     "v-title_desc":
       "This area shows the date before which votes are considered “old”.",
+    special_admin: "Admin Panel",
+    special_createAndLogin: "Create and Login",
     special_oldvotes: "Import Old Votes",
     special_locales: "Locale List",
     section_general: "General Info",
@@ -347,6 +349,7 @@ const cldrText = (function () {
     users_infoVotesButton: "View Old Vote Stats",
     users_loadVotesButton: "Transfer Old Votes...",
 
+    special_about: "About Survey Tool",
     special_general:
       "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
     special_forum: "Forum Posts",
@@ -396,6 +399,7 @@ const cldrText = (function () {
 
     special_vsummary: "Priority Items Summary (slow)",
     special_flagged: "Flagged Items",
+
     flaggedGuidance:
       "This shows a list of items which are flagged for TC review. Items are sorted by locale and then date. ",
     flaggedTotalCount: "Total: ",

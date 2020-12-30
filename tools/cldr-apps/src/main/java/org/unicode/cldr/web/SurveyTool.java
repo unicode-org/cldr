@@ -3,6 +3,8 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.Arrays;
+import java.util.Collections;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -18,7 +20,7 @@ import org.unicode.cldr.util.VettingViewer;
 
 public class SurveyTool extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final boolean USE_DOJO = true;
+    public static final boolean USE_DOJO = true;
 
     @Override
     public final void init(final ServletConfig config) throws ServletException {
@@ -88,7 +90,7 @@ public class SurveyTool extends HttpServlet {
     }
 
     private void serveWaitingPage(HttpServletRequest request, PrintWriter out, SurveyMain sm)
-            throws IOException {
+        throws IOException {
         /*
          * TODO: simplify serveWaitingPage and/or move it to the front end.
          * This is a crude port from old v.jsp, with js inside html inside java.
@@ -183,7 +185,7 @@ public class SurveyTool extends HttpServlet {
         out.write("  window.setTimeout(function() {\n");
         out.write("    window.location.reload(true);\n");
         out.write("    //document.location='" + url
-                    + "' + document.location.search + document.location.hash;\n");
+            + "' + document.location.search + document.location.hash;\n");
         out.write("  },10000 /* ten seconds */);\n");
         out.write("</script>\n");
     }
@@ -248,7 +250,7 @@ public class SurveyTool extends HttpServlet {
     }
 
     private void serveRunnningNormallyPage(HttpServletRequest request, PrintWriter out, SurveyMain sm)
-            throws IOException {
+        throws IOException {
         String lang = SurveyMain.TRANS_HINT_LOCALE.toLanguageTag();
         out.write("<html lang='" + lang + "' class='claro'>\n");
         out.write("<head>\n");
@@ -311,6 +313,34 @@ public class SurveyTool extends HttpServlet {
         out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
     }
 
+    private static final String[] newJsFiles = {
+        "cldrText.js",
+        "cldrStatus.js",
+        "cldrAjax.js",
+        "cldrAbout.js",
+        "cldrBulkClosePosts.js",
+        "cldrCreateLogin.js",
+        "cldrDom.js",
+        "cldrForumParticipation.js",
+        "cldrForumFilter.js",
+        "cldrCsvFromTable.js",
+        "cldrDeferHelp.js",
+        "cldrForum.js",
+        "cldrForumPanel.js",
+        "cldrOtherSpecial.js",
+        "cldrFlip.js",
+        "cldrLocaleMap.js",
+        "cldrXpathMap.js",
+        "cldrSurvey.js",
+        "cldrInfo.js",
+        "cldrAdmin.js",
+        "cldrLoad.js",
+        "cldrOldVotes.js",
+        "cldrTable.js",
+        "cldrEvent.js",
+        "cldrGui.js",
+    };
+
     private static void includeCldrJavaScript(HttpServletRequest request, Writer out) throws IOException {
         final String prefix = "<script src='" + request.getContextPath() + "/js/";
         final String tail = "'></script>\n";
@@ -318,11 +348,10 @@ public class SurveyTool extends HttpServlet {
 
         out.write(prefix + "jquery.autosize.min.js" + tail); // exceptional
 
-        out.write(prefix + "new/cldrText" + js); // new/cldrText.js -- same file for dojo and non-dojo
-        out.write(prefix + "new/cldrStatus" + js); // new/cldrStatus.js -- same file for dojo and non-dojo
-        out.write(prefix + "new/cldrAjax" + js); // new/cldrAjax.js -- same file for dojo and non-dojo
-
         if (USE_DOJO) {
+            out.write(prefix + "new/cldrText" + js); // new/cldrText.js
+            out.write(prefix + "new/cldrStatus" + js); // new/cldrStatus.js
+            out.write(prefix + "new/cldrAjax" + js); // new/cldrAjax.js
             out.write(prefix + "CldrDojoBulkClosePosts" + js); // CldrDojoBulkClosePosts.js
             out.write(prefix + "CldrDojoForumParticipation" + js); // CldrDojoForumParticipation.js
             out.write(prefix + "new/cldrForumFilter" + js); // new/cldrForumFilter.js
@@ -337,19 +366,13 @@ public class SurveyTool extends HttpServlet {
             out.write(prefix + "review" + js); // review.js
             out.write(prefix + "CldrDojoGui" + js); // CldrGuiDojo.js
         } else {
-            out.write(prefix + "new/cldrBulkClosePosts" + js); // new/cldrBulkClosePosts.js
-            out.write(prefix + "new/cldrForumParticipation" + js); // new/cldrForumParticipation.js
-            out.write(prefix + "new/cldrForumFilter" + js); // new/cldrForumFilter.js
-            out.write(prefix + "new/cldrCsvFromTable" + js); // new/cldrCsvFromTable.js
-            out.write(prefix + "new/cldrDeferHelp" + js); // new/cldrDeferHelp.js
-            out.write(prefix + "new/cldrForum" + js); // new/cldrForum.js
-            out.write(prefix + "new/cldrFlip" + js); // new/cldrFlip.js
-            out.write(prefix + "new/cldrLocaleMap" + js); // new/cldrLocaleMap.js
-            out.write(prefix + "new/cldrXpathMap" + js); // new/cldrXpathMap.js
-            out.write(prefix + "new/cldrLoad" + js); // new/cldrLoad.js
-            out.write(prefix + "new/cldrTable" + js); // new/cldrTable.js
-            out.write(prefix + "bootstrap.min.js" + tail); // exceptional
-            out.write(prefix + "new/cldrGui" + js); // new/cldrGui.js
+            out.write(prefix + "bootstrap.min.js" + tail);
+            Arrays.sort(newJsFiles);
+            Arrays.sort(newJsFiles, Collections.reverseOrder());
+            for (String s: newJsFiles) {
+                String ss = s.replace(".js", "");
+                out.write(prefix + "new/" + ss + js);
+            }
         }
     }
 

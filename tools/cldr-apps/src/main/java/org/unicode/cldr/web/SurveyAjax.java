@@ -285,10 +285,11 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_USER_LIST = "user_list"; // users.js
     public static final String WHAT_USER_OLDVOTES = "user_oldvotes"; // users.js
     public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes"; // users.js
-    public static final String WHAT_OLDVOTES = "oldvotes"; // CldrSurveyVettingLoader.js
-    public static final String WHAT_FLAGGED = "flagged"; // CldrSurveyVettingLoader.js
-    public static final String WHAT_AUTO_IMPORT = "auto_import"; // CldrSurveyVettingLoader.js
-    public static final String WHAT_ADMIN_PANEL = "admin_panel"; // CldrSurveyVettingLoader.js
+    public static final String WHAT_OLDVOTES = "oldvotes"; // cldrLoad.js
+    public static final String WHAT_FLAGGED = "flagged"; // cldrLoad.js
+    public static final String WHAT_AUTO_IMPORT = "auto_import"; // cldrLoad.js
+    public static final String WHAT_ADMIN_PANEL = "admin_panel"; // cldrAdmin.js
+    public static final String WHAT_ABOUT = "about"; // cldrLoad.js, cldrAbout.js
 
     public static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
 
@@ -379,6 +380,10 @@ public class SurveyAjax extends HttpServlet {
                 getRow(request, response, out, sm, sess, l, xpath);
             } else if (what.equals(WHAT_REPORT)) {
                 generateReport(request, response, out, sm, sess, l);
+            } else if (what.equals(WHAT_ABOUT)) {
+                JSONWriter r = newJSONStatus(request, sm);
+                new AboutST().getJson(r, sm);
+                send(r, out);
             } else if (what.equals(WHAT_STATS_BYLOC)) {
                 JSONWriter r = newJSONStatusQuick(sm);
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000, StatisticsUtils.QUERY_ALL_VOTES);
@@ -554,7 +559,15 @@ public class SurveyAjax extends HttpServlet {
                     if (what.equals(WHAT_ADMIN_PANEL)) {
                         mySession.userDidAction();
                         if (UserRegistry.userIsAdmin(mySession.user)) {
-                            response.sendRedirect(request.getContextPath() + "/AdminPanel.jsp" + "?vap=" + SurveyMain.vap);
+                            if (SurveyTool.USE_DOJO) {
+                                response.sendRedirect(request.getContextPath() + "/AdminPanel.jsp" + "?vap=" + SurveyMain.vap);
+                            } else {
+                                mySession.userDidAction();
+                                JSONWriter r = newJSONStatus(request, sm);
+                                r.put("what", what);
+                                new AdminPanel().getJson(r, request, response, sm);
+                                send(r, out);
+                            }
                         } else {
                             sendError(out, "Only Admin can access Admin Panel", ErrorCode.E_NO_PERMISSION);
                         }
@@ -2686,7 +2699,6 @@ public class SurveyAjax extends HttpServlet {
         CLDRConfigImpl.setUrls(request);
         WebContext ctx = new WebContext(request, response);
         ElapsedTimer et = new ElapsedTimer();
-
         String loc = locale.toString();
         ctx.setLocale(locale);
         xpath = WebContext.decodeFieldString(xpath); // TODO: why doesn't processRequest do decodeFieldString? Not needed, all ASCII?
@@ -3140,7 +3152,8 @@ public class SurveyAjax extends HttpServlet {
                 out.write("<td title='vote:' style='" + resultStyle + "'>\n");
                 if (!checkResult.isEmpty()) {
                     out.write("<script>\n");
-                    out.write("document.write(testsToHtml(" + SurveyAjax.JSONWriter.wrap(checkResult) + ")");
+                    String testsToHtml = SurveyTool.USE_DOJO ? "cldrSurvey.testsToHtml" : "testsToHtml";
+                    out.write("document.write(" + testsToHtml + "(" + SurveyAjax.JSONWriter.wrap(checkResult) + ")");
                     out.write("</script>\n");
                 }
                 out.write(WebContext.iconHtml(request, resultIcon, result) + result);

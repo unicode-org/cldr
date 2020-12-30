@@ -1,4 +1,4 @@
-// This is the dojo version. A non-dojo version doesn't exist yet.
+// This is the dojo version. For non-dojo, see cldrEvent.js and others
 
 /*
  * TODO: rename this file to reflect its current role rather than its history.

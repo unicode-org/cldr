@@ -2,7 +2,7 @@
 
 /**
  * cldrForum: encapsulate main Survey Tool Forum code.
- * This is the new non-dojo version; it depends on cldrSurvey.createGravitar. For dojo, see CldrDojoForum.js
+ * This is the new non-dojo version; it depends on cldrSurvey.createGravatar. For dojo, see CldrDojoForum.js
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
@@ -10,12 +10,7 @@
  * but not all Survey Tool JavaScript code is capable yet of being in modules
  * and running in strict mode.
  *
- * Dependencies on external code:
- * window.locmap,
- * listenFor, bootstrap.js, reloadV,
- *
- * TODO: possibly move these functions here from survey.js: showForumStuff, havePosts,
- * updateInfoPanelForumPosts, appendForumStuff; also some/all code from forum.js
+ * Dependencies on external code: bootstrap.js
  */
 const cldrForum = (function () {
   const FORUM_DEBUG = false;
@@ -64,6 +59,33 @@ const cldrForum = (function () {
    */
   let displayUtc = false;
 
+  function load() {
+    const curLocale = cldrStatus.getCurrentLocale();
+    if (!curLocale) {
+      cldrLoad.flipToGenericNoLocale();
+    } else {
+      const locmap = cldrLoad.getTheLocaleMap();
+      const forumName = locmap.getLocaleName(locmap.getLanguage(curLocale));
+      const forumMessage = cldrText.sub("forum_msg", {
+        forum: forumName,
+        locale: cldrStatus.getCurrentLocaleName(),
+      });
+      const surveyUser = cldrStatus.getSurveyUser();
+      const userId = surveyUser && surveyUser.id ? surveyUser.id : 0;
+      const params = {
+        name: "forum",
+        exports: {
+          appendLocaleLink: cldrLoad.appendLocaleLink,
+          handleDisconnect: cldrSurvey.handleDisconnect,
+          clickToSelect: cldrDom.clickToSelect,
+        },
+        // special = ??,
+        // otherSpecial = ??,
+      };
+      loadForum(curLocale, userId, forumMessage, params);
+    }
+  }
+
   /**
    * Fetch the Forum data from the server, and "load" it
    *
@@ -98,18 +120,13 @@ const cldrForum = (function () {
       setUserCanPost(true);
 
       // set up the 'right sidebar'
-      cldrSurvey.showInPop2(
-        cldrText.get(params.name + "Guidance"),
-        null,
-        null,
-        null,
-        true
-      ); /* show the box the first time */
+      const message = cldrText.get(params.name + "Guidance");
+      cldrInfo.showMessage(message);
 
       const ourDiv = document.createElement("div");
       ourDiv.appendChild(forumCreateChunk(forumMessage, "h4", ""));
 
-      const filterMenu = cldrForumFilter.createMenu(reloadV);
+      const filterMenu = cldrForumFilter.createMenu(cldrLoad.reloadV);
       const summaryDiv = document.createElement("div");
       summaryDiv.innerHTML = "";
       ourDiv.appendChild(summaryDiv);
@@ -126,9 +143,9 @@ const cldrForum = (function () {
         summaryDiv.innerHTML = getForumSummaryHtml(forumLocale, userId, true); // after parseContent
       }
       // No longer loading
-      cldrSurvey.hideLoader(null);
-      params.flipper.flipTo(params.pages.other, ourDiv);
-      params.special.handleIdChanged(cldrStatus.getCurrentId()); // rescroll.
+      cldrSurvey.hideLoader();
+      cldrLoad.flipToOtherDiv(ourDiv);
+      handleIdChanged(cldrStatus.getCurrentId()); // rescroll.
     };
     const xhrArgs = {
       url: url,
@@ -137,6 +154,30 @@ const cldrForum = (function () {
       error: errorHandler,
     };
     cldrAjax.sendXhr(xhrArgs);
+  }
+
+  function handleIdChanged(strid) {
+    if (strid) {
+      const id = new Number(strid);
+      if (id == NaN) {
+        cldrStatus.setCurrentId("");
+      } else {
+        cldrStatus.setCurrentId(id.toString());
+      }
+      const itemid = "fp" + id;
+      const pdiv = document.getElementById(itemid);
+      if (pdiv) {
+        pdiv.scrollIntoView();
+        (function (o, itemid, pdiv) {
+          pdiv.style["background-color"] = "yellow";
+          window.setTimeout(function () {
+            pdiv.style["background-color"] = null;
+          }, 2000);
+        })(this, itemid, pdiv);
+      } else {
+        console.log("No item " + itemid);
+      }
+    }
   }
 
   /**
@@ -354,9 +395,9 @@ const cldrForum = (function () {
         postModal.modal("hide");
         const curSpecial = cldrStatus.getCurrentSpecial();
         if (curSpecial && curSpecial === "forum") {
-          reloadV();
+          cldrLoad.reloadV();
         } else {
-          updateInfoPanelForumPosts(null);
+          cldrForumPanel.updatePosts(null);
         }
       } else {
         const post = $(".post").first();
@@ -432,13 +473,14 @@ const cldrForum = (function () {
           const topicInfo = forumCreateChunk("", "h4", "postTopicInfo");
           topicDiv.appendChild(topicInfo);
           if (post.locale) {
+            const locmap = cldrLoad.getTheLocaleMap();
             const localeLink = forumCreateChunk(
               locmap.getLocaleName(post.locale),
               "a",
               "localeName"
             );
             if (post.locale != cldrStatus.getCurrentLocale()) {
-              localeLink.href = linkToLocale(post.locale);
+              localeLink.href = cldrLoad.linkToLocale(post.locale);
             }
             topicInfo.appendChild(localeLink);
           }
@@ -477,15 +519,9 @@ const cldrForum = (function () {
           forumCreateChunk("[Poster no longer active]", "span", "")
         );
       } else {
-        let gravitar;
-        if (typeof cldrSurvey !== "undefined") {
-          // cldrSurvey isn't defined if we're running mocha unit test, due to dependency on jquery
-          gravitar = cldrSurvey.createGravitar(post.posterInfo);
-        } else {
-          gravitar = document.createTextNode("");
-        }
-        gravitar.className = "gravitar pull-left";
-        subpost.appendChild(gravitar);
+        const gravatar = cldrSurvey.createGravatar(post.posterInfo);
+        gravatar.className = "gravatar pull-left";
+        subpost.appendChild(gravatar);
         const surveyUser = cldrStatus.getSurveyUser();
         if (surveyUser && post.posterInfo.id === surveyUser.id) {
           headingLine.appendChild(
@@ -524,13 +560,8 @@ const cldrForum = (function () {
         "label label-primary pull-right forumLink"
       );
       (function (post) {
-        /*
-         * TODO: encapsulate "listenFor" and "reloadV" dependencies
-         */
-        if (typeof listenFor === "undefined") {
-          return;
-        }
-        listenFor(dateChunk, "click", function (e) {
+        cldrDom.listenFor(dateChunk, "click", function (e) {
+          const locmap = cldrLoad.getTheLocaleMap();
           if (
             post.locale &&
             locmap.getLanguage(cldrStatus.getCurrentLocale()) !=
@@ -540,12 +571,12 @@ const cldrForum = (function () {
           }
           cldrStatus.setCurrentPage("");
           cldrStatus.setCurrentId(post.id);
-          replaceHash(false);
+          cldrLoad.replaceHash(false);
           if (cldrStatus.getCurrentSpecial() != "forum") {
             cldrStatus.setCurrentSpecial("forum");
-            reloadV();
+            cldrLoad.reloadV();
           }
-          return stStopPropagation(e);
+          return cldrEvent.stopPropagation(e);
         });
       })(post);
       headingLine.appendChild(dateChunk);
@@ -713,6 +744,8 @@ const cldrForum = (function () {
       "loadingMsg"
     );
     topicInfo.appendChild(loadingMsg);
+
+    const xpathMap = cldrSurvey.getXpathMap();
     xpathMap.get(
       {
         hex: rootPost.xpath,
@@ -881,8 +914,9 @@ const cldrForum = (function () {
     const newButton = forumCreateChunk(label, "button", buttonClass);
     if (postType === "Request" && value === null) {
       newButton.disabled = true;
-    } else if (typeof listenFor !== "undefined") {
-      listenFor(newButton, "click", function (e) {
+    } else {
+      cldrDom.listenFor(newButton, "click", function (e) {
+        const xpathMap = cldrSurvey.getXpathMap();
         xpathMap.get(
           {
             hex: xpstrid,
@@ -904,7 +938,7 @@ const cldrForum = (function () {
             });
           }
         );
-        stStopPropagation(e);
+        cldrEvent.stopPropagation(e);
         return false;
       });
     }
@@ -917,24 +951,19 @@ const cldrForum = (function () {
       "button",
       "addPostButton btn btn-default btn-sm"
     );
-    /*
-     * TODO: encapsulate "listenFor" dependency
-     */
-    if (typeof listenFor !== "undefined") {
-      listenFor(replyButton, "click", function (e) {
-        openPostOrReply({
-          /*
-           * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
-           * match the original post in the thread.
-           */
-          replyTo: post.id,
-          replyData: post,
-          postType: postType,
-        });
-        stStopPropagation(e);
-        return false;
+    cldrDom.listenFor(replyButton, "click", function (e) {
+      openPostOrReply({
+        /*
+         * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
+         * match the original post in the thread.
+         */
+        replyTo: post.id,
+        replyData: post,
+        postType: postType,
       });
-    }
+      cldrEvent.stopPropagation(e);
+      return false;
+    });
     return replyButton;
   }
 
@@ -1382,7 +1411,7 @@ const cldrForum = (function () {
     cldrStatus.setCurrentSpecial("forum");
     cldrStatus.setCurrentId("");
     cldrStatus.setCurrentPage("");
-    reloadV();
+    cldrLoad.reloadV();
   }
 
   /**
@@ -1429,12 +1458,14 @@ const cldrForum = (function () {
    * Make only these functions accessible from other files:
    */
   return {
-    parseContent: parseContent,
-    getForumSummaryHtml: getForumSummaryHtml,
-    loadForum: loadForum,
-    reload: reload,
     addNewPostButtons: addNewPostButtons,
+    getForumSummaryHtml: getForumSummaryHtml,
+    handleIdChanged: handleIdChanged,
+    load: load,
+    parseContent: parseContent,
+    reload: reload,
     setUserCanPost: setUserCanPost,
+
     /*
      * The following are meant to be accessible for unit testing only:
      */

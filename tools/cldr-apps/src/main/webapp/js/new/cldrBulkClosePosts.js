@@ -25,13 +25,8 @@ const cldrBulkClosePosts = (function () {
     /*
      * Set up the 'right sidebar'; cf. bulk_close_postsGuidance
      */
-    cldrSurvey.showInPop2(
-      cldrText.get(params.name + "Guidance"),
-      null,
-      null,
-      null,
-      true
-    );
+    const message = cldrText.get(params.name + "Guidance");
+    cldrInfo.showMessage(message);
 
     const url = getBulkClosePostsUrl();
     const errorHandler = function (err) {
@@ -54,7 +49,7 @@ const cldrBulkClosePosts = (function () {
       contentDiv.innerHTML = html;
 
       // No longer loading
-      cldrSurvey.hideLoader(null);
+      cldrSurvey.hideLoader();
       params.flipper.flipTo(params.pages.other, contentDiv);
     };
     const xhrArgs = {

@@ -54,7 +54,7 @@ const cldrBulkClosePosts = (function () {
       contentDiv.innerHTML = html;
 
       // No longer loading
-      cldrSurvey.hideLoader(null);
+      cldrSurvey.hideLoader();
       params.flipper.flipTo(params.pages.other, contentDiv);
     };
     const xhrArgs = {

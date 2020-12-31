@@ -18,7 +18,7 @@ import org.unicode.cldr.util.VettingViewer;
 
 public class SurveyTool extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final boolean USE_DOJO = true;
+    public static final boolean USE_DOJO = true;
 
     @Override
     public final void init(final ServletConfig config) throws ServletException {
@@ -343,12 +343,15 @@ public class SurveyTool extends HttpServlet {
             out.write(prefix + "new/cldrCsvFromTable" + js); // new/cldrCsvFromTable.js
             out.write(prefix + "new/cldrDeferHelp" + js); // new/cldrDeferHelp.js
             out.write(prefix + "new/cldrForum" + js); // new/cldrForum.js
+            out.write(prefix + "new/cldrOtherSpecial" + js); // new/cldrOtherSpecial.js
             out.write(prefix + "new/cldrFlip" + js); // new/cldrFlip.js
             out.write(prefix + "new/cldrLocaleMap" + js); // new/cldrLocaleMap.js
             out.write(prefix + "new/cldrXpathMap" + js); // new/cldrXpathMap.js
+            out.write(prefix + "new/cldrSurvey" + js); // new/cldrSurvey.js
             out.write(prefix + "new/cldrLoad" + js); // new/cldrLoad.js
             out.write(prefix + "new/cldrTable" + js); // new/cldrTable.js
             out.write(prefix + "bootstrap.min.js" + tail); // exceptional
+            out.write(prefix + "new/cldrEvent" + js); // new/cldrEvent.js
             out.write(prefix + "new/cldrGui" + js); // new/cldrGui.js
         }
     }

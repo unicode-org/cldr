@@ -64,7 +64,7 @@ const cldrForumParticipation = (function () {
       ourDiv.innerHTML = html;
 
       // No longer loading
-      cldrSurvey.hideLoader(null);
+      cldrSurvey.hideLoader();
       params.flipper.flipTo(params.pages.other, ourDiv);
     };
     const xhrArgs = {

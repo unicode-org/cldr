@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * cldrText: encapsulate code related to the main Survey Tool html table,
+ * cldrTable: encapsulate code related to the main Survey Tool html table,
  * whose rows describe xpaths.
  * This is the non-dojo version. For dojo, see CldrDojoTable.js
  *
@@ -18,6 +18,7 @@
  * and running in strict mode.
  */
 const cldrTable = (function () {
+  const CLDR_TABLE_DEBUG = false;
   /*
    * ALWAYS_REMOVE_ALL_CHILD_NODES and NEVER_REUSE_TABLE should both be false for efficiency,
    * but if necessary they can be made true to revert to old less efficient behavior.
@@ -44,11 +45,11 @@ const cldrTable = (function () {
    */
   function insertRows(theDiv, xpath, session, json) {
     if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
-      removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table
+      cldrSurvey.removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table
     }
 
     $(".warnText").remove(); // remove any pre-existing "special notes", before insertLocaleSpecialNote
-    window.insertLocaleSpecialNote(theDiv);
+    cldrLoad.insertLocaleSpecialNote(theDiv);
 
     var theTable = null;
     const reuseTable =
@@ -67,11 +68,13 @@ const cldrTable = (function () {
        * Re-create the table from scratch
        */
       // console.log('🦞🦞🦞 make new table, ' + Object.keys(json.section.rows).length + ' rows');
-      theTable = cloneLocalizeAnon(document.getElementById("proto-datatable"));
+      theTable = cldrSurvey.cloneLocalizeAnon(
+        document.getElementById("proto-datatable")
+      );
       /*
-       * Note: isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
+       * Note: cldrStatus.isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
        */
-      if (isDashboard()) {
+      if (cldrStatus.isDashboard()) {
         theTable.className += " dashboard";
       } else {
         theTable.className += " vetting-page";
@@ -91,25 +94,25 @@ const cldrTable = (function () {
        * a prototype for each row that gets added to the real (not hidden) table.
        * TODO: simplify.
        */
-      localizeFlyover(theTable); // Replace titles starting with $ with strings from cldrText
-      const headChildren = getTagChildren(
+      cldrSurvey.localizeFlyover(theTable); // Replace titles starting with $ with strings from cldrText
+      const headChildren = cldrSurvey.getTagChildren(
         theTable.getElementsByTagName("tr")[0]
       );
       var toAdd = document.getElementById("proto-datarow"); // loaded from "hidden.html", which see.
-      var rowChildren = getTagChildren(toAdd);
+      var rowChildren = cldrSurvey.getTagChildren(toAdd);
       for (var c in rowChildren) {
         rowChildren[c].title = headChildren[c].title;
       }
       theTable.toAdd = toAdd;
     }
-    updateCoverage(theDiv);
+    cldrSurvey.updateCoverage(theDiv);
     if (!json.canModify) {
       /*
        * Remove the "Abstain" column from the header since user can't modify.
        */
       const headAbstain = theTable.querySelector("th.d-no");
       if (headAbstain) {
-        setDisplayed(headAbstain, false);
+        cldrSurvey.setDisplayed(headAbstain, false);
       }
     }
     theDiv.theTable = theTable;
@@ -137,7 +140,7 @@ const cldrTable = (function () {
       theDiv.appendChild(theTable);
     }
     insertRowsIntoTbody(theTable, reuseTable);
-    hideLoader(theDiv.loader);
+    cldrSurvey.hideLoader();
   }
 
   /**
@@ -176,7 +179,7 @@ const cldrTable = (function () {
    * Called by insertRows only.
    *
    * This function is not currently used for the Dashboard, only for the main vetting table.
-   * Still we may want to keep the calls to isDashboard for future use. Also note that updateRow,
+   * Still we may want to keep the calls to cldrStatus.isDashboard for future use. Also note that updateRow,
    * which is called from here, IS also used for the Dashboard.
    */
   function insertRowsIntoTbody(theTable, reuseTable) {
@@ -186,7 +189,7 @@ const cldrTable = (function () {
     var parRow = document.getElementById("proto-parrow");
 
     if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
-      removeAllChildNodes(tbody);
+      cldrSurvey.removeAllChildNodes(tbody);
     }
 
     var theSort = theTable.json.displaySets[theTable.curSortMode]; // typically (always?) curSortMode = "ph"
@@ -198,12 +201,12 @@ const cldrTable = (function () {
       var k = rowList[i];
       var theRow = theRows[k];
       var dir = theRow.dir;
-      overridedir = dir != null ? dir : null;
+      cldrSurvey.setOverrideDir(dir != null ? dir : null);
       /*
        * There is no partition (section headings) in the Dashboard.
        * Also we don't regenerate the headings if we're re-using an existing table.
        */
-      if (!reuseTable && !isDashboard()) {
+      if (!reuseTable && !cldrStatus.isDashboard()) {
         var newPartition = findPartition(
           partitions,
           partitionList,
@@ -213,9 +216,9 @@ const cldrTable = (function () {
 
         if (newPartition != curPartition) {
           if (newPartition.name != "") {
-            var newPar = cloneAnon(parRow);
-            var newTd = getTagChildren(newPar);
-            var newHeading = getTagChildren(newTd[0]);
+            var newPar = cldrSurvey.cloneAnon(parRow);
+            var newTd = cldrSurvey.getTagChildren(newPar);
+            var newHeading = cldrSurvey.getTagChildren(newTd[0]);
             newHeading[0].innerHTML = newPartition.name;
             newHeading[0].id = newPartition.name;
             tbody.appendChild(newPar);
@@ -244,7 +247,7 @@ const cldrTable = (function () {
         ? document.getElementById("r@" + theRow.xpstrid)
         : null;
       if (!tr) {
-        tr = cloneAnon(toAdd);
+        tr = cldrSurvey.cloneAnon(toAdd);
         tbody.appendChild(tr);
         // console.log("🦞 make new table row for " + theRow.xpstrid);
       } else {
@@ -258,6 +261,7 @@ const cldrTable = (function () {
        * curPartition.name isn't defined, and anyway xpathMap shouldn't need changing.
        */
       if (!reuseTable) {
+        const xpathMap = cldrSurvey.getXpathMap();
         xpathMap.put({
           id: theRow.xpathId,
           hex: theRow.xpstrid,
@@ -326,8 +330,8 @@ const cldrTable = (function () {
    * IMPORTANT: this function is used for the Dashboard as well as the main Vetting table.
    * Mostly the Dashboard tables are currently created by review.js showReviewPage
    * (invoked through writeVettingViewerOutput);
-   * they're not created here. Nevertheless the calls here to isDashboard() do serve a purpose,
-   * isDashboard() is true here when called by insertFixInfo in review.js. To see this, put
+   * they're not created here. Nevertheless the calls here to cldrStatus.isDashboard() do serve a purpose,
+   * cldrStatus.isDashboard() is true here when called by insertFixInfo in review.js. To see this, put
    * a breakpoint in this function, go to Dashboard, and click on a "Fix" button, whose pop-up
    * window then will include portions of the item's row as well as a version of the Info Panel.
    *
@@ -396,7 +400,7 @@ const cldrTable = (function () {
       tr.voteDiv = null;
     }
 
-    tr.statusAction = parseStatusAction(theRow.statusAction);
+    tr.statusAction = cldrSurvey.parseStatusAction(theRow.statusAction);
     tr.canModify = tr.theTable.json.canModify && tr.statusAction.vote;
     tr.ticketOnly = tr.theTable.json.canModify && tr.statusAction.ticket;
     tr.canChange = tr.canModify && tr.statusAction.change;
@@ -494,17 +498,17 @@ const cldrTable = (function () {
      * If the user can make changes, add "+" button for adding new candidate item.
      *
      * This code is for Dashboard as well as the basic vetting table.
-     * This block concerns the "other" cell if isDashboard(), otherwise it concerns the "add" cell.
+     * This block concerns the "other" cell if cldrStatus.isDashboard(), otherwise it concerns the "add" cell.
      */
     if (tr.canChange) {
-      if (isDashboard()) {
+      if (cldrStatus.isDashboard()) {
         if (otherCell) {
           otherCell.appendChild(document.createElement("hr"));
           otherCell.appendChild(formAdd);
         }
       } else {
         if (addCell) {
-          removeAllChildNodes(addCell);
+          cldrSurvey.removeAllChildNodes(addCell);
           addCell.appendChild(formAdd);
         }
       }
@@ -529,7 +533,7 @@ const cldrTable = (function () {
      */
     const curId = cldrStatus.getCurrentId();
     if (curId !== "" && curId === tr.id) {
-      window.showCurrentId(); // refresh again - to get the updated voting status.
+      cldrLoad.showCurrentId(); // refresh again - to get the updated voting status.
     }
   }
 
@@ -566,7 +570,7 @@ const cldrTable = (function () {
 
     for (var k in theRow.items) {
       var item = theRow.items[k];
-      if (item.value === INHERITANCE_MARKER) {
+      if (item.value === cldrSurvey.INHERITANCE_MARKER) {
         if (!theRow.inheritedValue) {
           /*
            * In earlier implementation, essentially the same error was reported as "... there is no Bailey Target item!").
@@ -580,7 +584,7 @@ const cldrTable = (function () {
           }
         } else if (!theRow.inheritedLocale && !theRow.inheritedXpid) {
           /*
-           * It is probably a bug if item.value === INHERITANCE_MARKER but theRow.inheritedLocale and
+           * It is probably a bug if item.value === cldrSurvey.INHERITANCE_MARKER but theRow.inheritedLocale and
            * theRow.inheritedXpid are both undefined (null on server).
            * This happens with "example C" in
            *     https://unicode.org/cldr/trac/ticket/11299#comment:15
@@ -636,7 +640,7 @@ const cldrTable = (function () {
     cell.className = "d-dr-" + statusClass + " d-dr-status statuscell";
 
     if (!cell.isSetup) {
-      listenToPop("", tr, cell);
+      cldrSurvey.listenToPop("", tr, cell);
       cell.isSetup = true;
     }
 
@@ -645,7 +649,7 @@ const cldrTable = (function () {
   }
 
   /**
-   * On the client only, make further status distinctions when winning value is INHERITANCE_MARKER,
+   * On the client only, make further status distinctions when winning value is cldrSurvey.INHERITANCE_MARKER,
    * "inherited-unconfirmed" (red up-arrow icon) and "inherited-provisional" (orange up-arrow icon).
    * Reference: http://unicode.org/cldr/trac/ticket/11103
    *
@@ -654,7 +658,7 @@ const cldrTable = (function () {
   function getRowApprovalStatusClass(theRow) {
     var statusClass = theRow.confirmStatus;
 
-    if (theRow.winningValue === INHERITANCE_MARKER) {
+    if (theRow.winningValue === cldrSurvey.INHERITANCE_MARKER) {
       if (statusClass === "unconfirmed") {
         statusClass = "inherited-unconfirmed";
       } else if (statusClass === "provisional") {
@@ -694,7 +698,7 @@ const cldrTable = (function () {
         voteForItem.votes[surveyUser.id].overridedVotes
       ) {
         tr.voteDiv.appendChild(
-          createChunk(
+          cldrSurvey.createChunk(
             cldrText.sub("override_explain_msg", {
               overrideVotes: voteForItem.votes[surveyUser.id].overridedVotes,
               votes: surveyUser.votecount,
@@ -706,26 +710,28 @@ const cldrTable = (function () {
       }
       if (theRow.voteVhash !== theRow.winningVhash && theRow.canFlagOnLosing) {
         if (!theRow.rowFlagged) {
-          addIcon(tr.voteDiv, "i-stop");
+          cldrSurvey.addIcon(tr.voteDiv, "i-stop");
           tr.voteDiv.appendChild(
-            createChunk(
+            cldrSurvey.createChunk(
               cldrText.sub("mustflag_explain_msg", {}),
               "p",
               "helpContent"
             )
           );
         } else {
-          addIcon(tr.voteDiv, "i-flag");
+          cldrSurvey.addIcon(tr.voteDiv, "i-flag");
           tr.voteDiv.appendChild(
-            createChunk(cldrText.get("flag_desc", "p", "helpContent"))
+            cldrSurvey.createChunk(
+              cldrText.get("flag_desc", "p", "helpContent")
+            )
           );
         }
       }
     }
     if (!theRow.rowFlagged && theRow.canFlagOnLosing) {
-      addIcon(tr.voteDiv, "i-flag-d");
+      cldrSurvey.addIcon(tr.voteDiv, "i-flag-d");
       tr.voteDiv.appendChild(
-        createChunk(cldrText.get("flag_d_desc", "p", "helpContent"))
+        cldrSurvey.createChunk(cldrText.get("flag_d_desc", "p", "helpContent"))
       );
     }
     /*
@@ -743,43 +749,51 @@ const cldrTable = (function () {
       if (item == null) {
         continue;
       }
-      var vdiv = createChunk(
+      var vdiv = cldrSurvey.createChunk(
         null,
         "table",
         "voteInfo_perValue table table-vote"
       );
-      var valdiv = createChunk(
+      var valdiv = cldrSurvey.createChunk(
         null,
         "div",
         n > 2 ? "value-div" : "value-div first"
       );
       // heading row
-      var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_tr_heading");
+      var vrow = cldrSurvey.createChunk(
+        null,
+        "tr",
+        "voteInfo_tr voteInfo_tr_heading"
+      );
       if (
-        item.rawValue === INHERITANCE_MARKER ||
+        item.rawValue === cldrSurvey.INHERITANCE_MARKER ||
         (item.votes && Object.keys(item.votes).length > 0)
       ) {
         vrow.appendChild(
-          createChunk(
+          cldrSurvey.createChunk(
             cldrText.get("voteInfo_orgColumn"),
             "td",
             "voteInfo_orgColumn voteInfo_td"
           )
         );
       }
-      var isection = createChunk(null, "div", "voteInfo_iconBar");
+      var isection = cldrSurvey.createChunk(null, "div", "voteInfo_iconBar");
       var isectionIsUsed = false;
-      var vvalue = createChunk("User", "td", "voteInfo_valueTitle voteInfo_td");
-      var vbadge = createChunk(vote, "span", "badge");
+      var vvalue = cldrSurvey.createChunk(
+        "User",
+        "td",
+        "voteInfo_valueTitle voteInfo_td"
+      );
+      var vbadge = cldrSurvey.createChunk(vote, "span", "badge");
 
       /*
        * Note: we can't just check for item.pClass === "winner" here, since, for example, the winning value may
-       * have value = INHERITANCE_MARKER and item.pClass = "alias".
+       * have value = cldrSurvey.INHERITANCE_MARKER and item.pClass = "alias".
        */
       if (value === theRow.winningValue) {
         const statusClass = getRowApprovalStatusClass(theRow);
         const statusTitle = cldrText.get(statusClass);
-        appendIcon(
+        cldrSurvey.appendIcon(
           isection,
           "voteInfo_winningItem d-dr-" + statusClass,
           cldrText.sub("draftStatus", [statusTitle])
@@ -787,22 +801,29 @@ const cldrTable = (function () {
         isectionIsUsed = true;
       }
       if (item.isBaselineValue) {
-        appendIcon(isection, "i-star", cldrText.get("voteInfo_baseline_desc"));
+        cldrSurvey.appendIcon(
+          isection,
+          "i-star",
+          cldrText.get("voteInfo_baseline_desc")
+        );
         isectionIsUsed = true;
       }
-      setLang(valdiv);
-      if (value === INHERITANCE_MARKER) {
+      cldrSurvey.setLang(valdiv);
+      if (value === cldrSurvey.INHERITANCE_MARKER) {
         /*
          * theRow.inheritedValue can be undefined here; then do not append
          */
         if (theRow.inheritedValue) {
-          appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);
+          cldrSurvey.appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);
           valdiv.appendChild(
-            createChunk(cldrText.get("voteInfo_votesForInheritance"), "p")
+            cldrSurvey.createChunk(
+              cldrText.get("voteInfo_votesForInheritance"),
+              "p"
+            )
           );
         }
       } else {
-        appendItem(
+        cldrSurvey.appendItem(
           valdiv,
           value,
           value === theRow.winningValue ? "winner" : "value",
@@ -810,7 +831,10 @@ const cldrTable = (function () {
         );
         if (value === theRow.inheritedValue) {
           valdiv.appendChild(
-            createChunk(cldrText.get("voteInfo_votesForSpecificValue"), "p")
+            cldrSurvey.createChunk(
+              cldrText.get("voteInfo_votesForSpecificValue"),
+              "p"
+            )
           );
         }
       }
@@ -818,7 +842,7 @@ const cldrTable = (function () {
         valdiv.appendChild(isection);
       }
       vrow.appendChild(vvalue);
-      var cell = createChunk(
+      var cell = cldrSurvey.createChunk(
         null,
         "td",
         "voteInfo_voteTitle voteInfo_voteCount voteInfo_td" + ""
@@ -831,9 +855,13 @@ const cldrTable = (function () {
         itemVotesLength == 1 &&
         item.votes[Object.keys(item.votes)[0]].level === "anonymous";
       if (itemVotesLength == 0 || anon) {
-        var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
+        var vrow = cldrSurvey.createChunk(
+          null,
+          "tr",
+          "voteInfo_tr voteInfo_orgHeading"
+        );
         vrow.appendChild(
-          createChunk(
+          cldrSurvey.createChunk(
             cldrText.get("voteInfo_noVotes"),
             "td",
             "voteInfo_noVotes voteInfo_td"
@@ -841,7 +869,11 @@ const cldrTable = (function () {
         );
         const anonVoter = anon ? cldrText.get("voteInfo_anon") : null;
         vrow.appendChild(
-          createChunk(anonVoter, "td", "voteInfo_noVotes voteInfo_td")
+          cldrSurvey.createChunk(
+            anonVoter,
+            "td",
+            "voteInfo_noVotes voteInfo_td"
+          )
         );
         vdiv.appendChild(vrow);
       } else {
@@ -852,7 +884,7 @@ const cldrTable = (function () {
     }
     if (vr.valueIsLocked) {
       tr.voteDiv.appendChild(
-        createChunk(
+        cldrSurvey.createChunk(
           cldrText.get("valueIsLocked"),
           "p",
           "alert alert-warning fix-popover-help"
@@ -863,12 +895,12 @@ const cldrTable = (function () {
         requiredVotes: vr.requiredVotes,
       });
       tr.voteDiv.appendChild(
-        createChunk(msg, "p", "alert alert-warning fix-popover-help")
+        cldrSurvey.createChunk(msg, "p", "alert alert-warning fix-popover-help")
       );
     }
     // done with voteresolver table
-    if (stdebug_enabled) {
-      tr.voteDiv.appendChild(createChunk(vr.raw, "p", "debugStuff"));
+    if (CLDR_TABLE_DEBUG) {
+      tr.voteDiv.appendChild(cldrSurvey.createChunk(vr.raw, "p", "debugStuff"));
     }
   }
 
@@ -880,7 +912,7 @@ const cldrTable = (function () {
    * @param vr the vote resolver
    * @param value the value of the candidate item
    * @param item the candidate item
-   * @param vdiv a table created by the caller as vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote")
+   * @param vdiv a table created by the caller as vdiv = cldrSurvey.createChunk(null, "table", "voteInfo_perValue table table-vote")
    */
   function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
     for (let org in vr.orgs) {
@@ -943,10 +975,16 @@ const cldrTable = (function () {
          * item.pClass is "alias", "fallback_root", etc.
          */
         var baileyClass =
-          item.rawValue === INHERITANCE_MARKER ? " " + item.pClass : "";
-        var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
+          item.rawValue === cldrSurvey.INHERITANCE_MARKER
+            ? " " + item.pClass
+            : "";
+        var vrow = cldrSurvey.createChunk(
+          null,
+          "tr",
+          "voteInfo_tr voteInfo_orgHeading"
+        );
         vrow.appendChild(
-          createChunk(org, "td", "voteInfo_orgColumn voteInfo_td")
+          cldrSurvey.createChunk(org, "td", "voteInfo_orgColumn voteInfo_td")
         );
         if (item.votes[topVoter]) {
           vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
@@ -954,16 +992,18 @@ const cldrTable = (function () {
           vrow.appendChild(createVoter(null));
         }
         if (orgsVote) {
-          var cell = createChunk(
+          var cell = cldrSurvey.createChunk(
             null,
             "td",
             "voteInfo_orgsVote voteInfo_voteCount voteInfo_td" + baileyClass
           );
-          cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
+          cell.appendChild(
+            cldrSurvey.createChunk(orgVoteValue, "span", "badge")
+          );
           vrow.appendChild(cell);
         } else {
           vrow.appendChild(
-            createChunk(
+            cldrSurvey.createChunk(
               orgVoteValue,
               "td",
               "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" +
@@ -982,13 +1022,13 @@ const cldrTable = (function () {
             continue; // skip
           }
           // OTHER VOTER row
-          var vrow = createChunk(null, "tr", "voteInfo_tr");
+          var vrow = cldrSurvey.createChunk(null, "tr", "voteInfo_tr");
           vrow.appendChild(
-            createChunk("", "td", "voteInfo_orgColumn voteInfo_td")
+            cldrSurvey.createChunk("", "td", "voteInfo_orgColumn voteInfo_td")
           ); // spacer
           vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
           vrow.appendChild(
-            createChunk(
+            cldrSurvey.createChunk(
               item.votes[voter].votes,
               "td",
               "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" +
@@ -1009,9 +1049,9 @@ const cldrTable = (function () {
    */
   function createVoter(v) {
     if (v == null) {
-      return createChunk("(missing information)!", "i", "stopText");
+      return cldrSurvey.createChunk("(missing information)!", "i", "stopText");
     }
-    var div = createChunk(
+    var div = cldrSurvey.createChunk(
       v.name || cldrText.get("emailHidden"),
       "td",
       "voteInfo_voterInfo voteInfo_td"
@@ -1031,28 +1071,28 @@ const cldrTable = (function () {
    * Called by updateRow.
    */
   function updateRowCodeCell(tr, theRow, cell) {
-    removeAllChildNodes(cell);
+    cldrSurvey.removeAllChildNodes(cell);
     var codeStr = theRow.code;
-    if (theRow.coverageValue == 101 && !stdebug_enabled) {
+    if (theRow.coverageValue == 101) {
       codeStr = codeStr + " (optional)";
     }
-    cell.appendChild(createChunk(codeStr));
+    cell.appendChild(cldrSurvey.createChunk(codeStr));
     if (cldrStatus.getSurveyUser()) {
       cell.className = "d-code codecell";
       if (!tr.forumDiv) {
         tr.forumDiv = document.createElement("div");
         tr.forumDiv.className = "forumDiv";
       }
-      appendForumStuff(tr, theRow, tr.forumDiv);
+      cldrSurvey.appendForumStuff(tr, theRow, tr.forumDiv);
     }
     // extra attributes
     if (
       theRow.extraAttributes &&
       Object.keys(theRow.extraAttributes).length > 0
     ) {
-      appendExtraAttributes(cell, theRow);
+      cldrSurvey.appendExtraAttributes(cell, theRow);
     }
-    if (stdebug_enabled) {
+    if (CLDR_TABLE_DEBUG) {
       var anch = document.createElement("i");
       anch.className = "anch";
       anch.id = theRow.xpathId;
@@ -1072,16 +1112,16 @@ const cldrTable = (function () {
       js.className = "anch-go";
       js.appendChild(document.createTextNode("{JSON}"));
       js.popParent = tr;
-      listenToPop(JSON.stringify(theRow), tr, js);
+      cldrSurvey.listenToPop(JSON.stringify(theRow), tr, js);
       cell.appendChild(js);
-      cell.appendChild(createChunk(" c=" + theRow.coverageValue));
+      cell.appendChild(cldrSurvey.createChunk(" c=" + theRow.coverageValue));
     }
     if (!cell.isSetup) {
       var xpathStr = "";
-      if (stdebug_enabled) {
+      if (CLDR_TABLE_DEBUG) {
         xpathStr = "XPath: " + theRow.xpath;
       }
-      listenToPop(xpathStr, tr, cell);
+      cldrSurvey.listenToPop(xpathStr, tr, cell);
       cell.isSetup = true;
     }
   }
@@ -1110,11 +1150,13 @@ const cldrTable = (function () {
             : "");
         theRow.displayName = theRow.displayName.substr(0, hintPos);
       }
-      cell.appendChild(createChunk(theRow.displayName, "span", "subSpan"));
+      cell.appendChild(
+        cldrSurvey.createChunk(theRow.displayName, "span", "subSpan")
+      );
       const TRANS_HINT_ID = "en_ZZ"; // must match SurveyMain.TRANS_HINT_ID
-      setLang(cell, TRANS_HINT_ID);
+      cldrSurvey.setLang(cell, TRANS_HINT_ID);
       if (theRow.displayExample) {
-        appendExample(cell, theRow.displayExample, TRANS_HINT_ID);
+        cldrSurvey.appendExample(cell, theRow.displayExample, TRANS_HINT_ID);
       }
       if (hintPos != -1 || hasExample) {
         var infos = document.createElement("div");
@@ -1136,11 +1178,11 @@ const cldrTable = (function () {
     } else {
       cell.appendChild(document.createTextNode(""));
     }
-    /* The next line (listenToPop...) had been commented out, for unknown reasons.
+    /* The next line (cldrSurvey.listenToPop...) had been commented out, for unknown reasons.
      * Restored (uncommented) for http://unicode.org/cldr/trac/ticket/10573 so that
      * the right-side panel info changes when you click on the English column.
      */
-    listenToPop(null, tr, cell);
+    cldrSurvey.listenToPop(null, tr, cell);
     cell.isSetup = true;
   }
 
@@ -1155,15 +1197,15 @@ const cldrTable = (function () {
    * Called by updateRow.
    */
   function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
-    removeAllChildNodes(cell); // win
+    cldrSurvey.removeAllChildNodes(cell); // win
     if (theRow.rowFlagged) {
-      var flagIcon = addIcon(cell, "s-flag");
+      var flagIcon = cldrSurvey.addIcon(cell, "s-flag");
       flagIcon.title = cldrText.get("flag_desc");
     } else if (theRow.canFlagOnLosing) {
-      var flagIcon = addIcon(cell, "s-flag-d");
+      var flagIcon = cldrSurvey.addIcon(cell, "s-flag-d");
       flagIcon.title = cldrText.get("flag_d_desc");
     }
-    setLang(cell);
+    cldrSurvey.setLang(cell);
     tr.proposedcell = cell;
 
     /*
@@ -1172,17 +1214,17 @@ const cldrTable = (function () {
      * in that case, though the consistency checking really should happen earlier, see checkRowConsistency.
      */
     if (getValidWinningValue(theRow) !== null) {
-      addVitem(
+      cldrSurvey.addVitem(
         cell,
         tr,
         theRow,
         theRow.items[theRow.winningVhash],
-        cloneAnon(protoButton)
+        cldrSurvey.cloneAnon(protoButton)
       );
     } else {
       cell.showFn = function () {}; // nothing else to show
     }
-    listenToPop(null, tr, cell, cell.showFn);
+    cldrSurvey.listenToPop(null, tr, cell, cell.showFn);
   }
 
   /**
@@ -1198,8 +1240,8 @@ const cldrTable = (function () {
    */
   function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
     var hadOtherItems = false;
-    removeAllChildNodes(cell); // other
-    setLang(cell);
+    cldrSurvey.removeAllChildNodes(cell); // other
+    cldrSurvey.setLang(cell);
 
     if (tr.canModify) {
       formAdd.role = "form";
@@ -1225,7 +1267,7 @@ const cldrTable = (function () {
         '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
       copyWinning.onclick = function (e) {
         var theValue = getValidWinningValue(theRow);
-        if (theValue === INHERITANCE_MARKER || theValue === null) {
+        if (theValue === cldrSurvey.INHERITANCE_MARKER || theValue === null) {
           theValue = theRow.inheritedValue;
         }
         input.value = theValue || null;
@@ -1281,7 +1323,7 @@ const cldrTable = (function () {
                   tr,
                   theRow,
                   newValue,
-                  cloneAnon(protoButton)
+                  cldrSurvey.cloneAnon(protoButton)
                 );
               } else {
                 toAddVoteButton(btn);
@@ -1294,14 +1336,20 @@ const cldrTable = (function () {
           var newValue = input.value;
 
           if (newValue) {
-            addValueVote(cell, tr, theRow, newValue, cloneAnon(protoButton));
+            addValueVote(
+              cell,
+              tr,
+              theRow,
+              newValue,
+              cldrSurvey.cloneAnon(protoButton)
+            );
           } else {
             toAddVoteButton(btn);
           }
-          stStopPropagation(e);
+          cldrSurvey.stStopPropagation(e);
           return false;
         }
-        stStopPropagation(e);
+        cldrSurvey.stStopPropagation(e);
         return false;
       };
     }
@@ -1314,23 +1362,74 @@ const cldrTable = (function () {
         continue;
       }
       hadOtherItems = true;
-      addVitem(cell, tr, theRow, theRow.items[k], cloneAnon(protoButton));
+      cldrSurvey.addVitem(
+        cell,
+        tr,
+        theRow,
+        theRow.items[k],
+        cldrSurvey.cloneAnon(protoButton)
+      );
       cell.appendChild(document.createElement("hr"));
     }
 
     if (!hadOtherItems /*!onIE*/) {
-      listenToPop(null, tr, cell);
+      cldrSurvey.listenToPop(null, tr, cell);
     }
     if (
       tr.myProposal &&
       tr.myProposal.value &&
-      !findItemByValue(theRow.items, tr.myProposal.value)
+      !cldrSurvey.findItemByValue(theRow.items, tr.myProposal.value)
     ) {
       // add back my proposal
       cell.appendChild(tr.myProposal);
     } else {
       tr.myProposal = null; // not needed
     }
+  }
+
+  /**
+   * Handle new value submission
+   *
+   * @param td
+   * @param tr
+   * @param theRow
+   * @param newValue
+   * @param newButton
+   */
+  function addValueVote(td, tr, theRow, newValue, newButton) {
+    tr.inputTd = td; // cause the proposed item to show up in the right box
+    cldrSurvey.handleWiredClick(tr, theRow, "", { value: newValue }, newButton);
+  }
+
+  /**
+   * Transform input + submit button to the add button for the "add translation"
+   *
+   * @param btn
+   */
+  function toAddVoteButton(btn) {
+    btn.className = "btn btn-primary";
+    btn.title = "Add";
+    btn.type = "submit";
+    btn.innerHTML = '<span class="glyphicon glyphicon-plus"></span>';
+    $(btn).parent().popover("destroy");
+    $(btn).tooltip("destroy").tooltip();
+    $(btn).closest("form").next(".subSpan").show();
+    $(btn).parent().children("input").remove();
+  }
+
+  /**
+   * Transform the add button to a submit
+   *
+   * @param btn the button
+   * @return the transformed button (return value is ignored by caller)
+   */
+  function toSubmitVoteButton(btn) {
+    btn.innerHTML = '<span class="glyphicon glyphicon-ok-circle"></span>';
+    btn.className = "btn btn-success vote-submit";
+    btn.title = "Submit";
+    $(btn).tooltip("destroy").tooltip();
+    $(btn).closest("form").next(".subSpan").hide();
+    return btn;
   }
 
   /**
@@ -1356,25 +1455,25 @@ const cldrTable = (function () {
     protoButton
   ) {
     if (tr.canModify) {
-      removeAllChildNodes(noCell); // no opinion
-      var noOpinion = cloneAnon(protoButton);
-      wireUpButton(noOpinion, tr, theRow, null);
+      cldrSurvey.removeAllChildNodes(noCell); // no opinion
+      var noOpinion = cldrSurvey.cloneAnon(protoButton);
+      cldrSurvey.wireUpButton(noOpinion, tr, theRow, null);
       noOpinion.value = null;
-      var wrap = wrapRadio(noOpinion);
+      var wrap = cldrSurvey.wrapRadio(noOpinion);
       noCell.appendChild(wrap);
-      listenToPop(null, tr, noCell);
+      cldrSurvey.listenToPop(null, tr, noCell);
     } else if (tr.ticketOnly) {
       // ticket link
       if (!tr.theTable.json.canModify) {
         // only if hidden in the header
-        setDisplayed(noCell, false);
+        cldrSurvey.setDisplayed(noCell, false);
       }
       proposedCell.className = "d-change-confirmonly";
       var surlink = document.createElement("div");
       surlink.innerHTML =
         '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
       surlink.className = "alert alert-info fix-popover-help";
-      var link = createChunk(cldrText.get("file_a_ticket"), "a");
+      var link = cldrSurvey.createChunk(cldrText.get("file_a_ticket"), "a");
       const curLocale = cldrStatus.getCurrentLocale();
       var newUrl =
         "http://unicode.org/cldr/trac" +
@@ -1390,7 +1489,7 @@ const cldrTable = (function () {
         cldrStatus.getNewVersion();
       link.href = newUrl;
       link.target = "cldr-target-trac";
-      theRow.proposedResults = createChunk(
+      theRow.proposedResults = cldrSurvey.createChunk(
         cldrText.get("file_ticket_must"),
         "a",
         "fnotebox"
@@ -1398,7 +1497,7 @@ const cldrTable = (function () {
       theRow.proposedResults.href = newUrl;
       if (cldrStatus.getIsUnofficial()) {
         link.appendChild(
-          createChunk(
+          cldrSurvey.createChunk(
             " (Note: this is not the production SurveyTool! Do not submit a ticket!) ",
             "p"
           )
@@ -1406,7 +1505,11 @@ const cldrTable = (function () {
         link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
       }
       proposedCell.appendChild(
-        createChunk(cldrText.get("file_ticket_notice"), "i", "fnotebox")
+        cldrSurvey.createChunk(
+          cldrText.get("file_ticket_notice"),
+          "i",
+          "fnotebox"
+        )
       );
       surlink.appendChild(link);
       tr.ticketLink = surlink;
@@ -1414,7 +1517,7 @@ const cldrTable = (function () {
       // no change possible
       if (!tr.theTable.json.canModify) {
         // only if hidden in the header
-        setDisplayed(noCell, false);
+        cldrSurvey.setDisplayed(noCell, false);
       }
     }
   }

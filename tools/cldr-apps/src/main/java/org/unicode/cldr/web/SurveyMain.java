@@ -2256,7 +2256,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 ctx.println("</tbody></table>");
 
                 // now, serialize the list..
-                ctx.println("<script>var shownUsers = " + shownUsers.toString() + ";\r\nshowUserActivity(shownUsers, 'userListTable');\r\n</script>\n");
+                ctx.println("<script>var shownUsers = " + shownUsers.toString() + ";\n" +
+                		"showUserActivity(shownUsers, 'userListTable');\n</script>\n");
 
                 if (hideUserList) {
                     ctx.println("</div>");
@@ -3026,7 +3027,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             whySent = "You are being notified of the CLDR vetting account for you.\n";
         } else {
             fromId = null;
-            whySent = "Your CLDR vetting account information is being sent to you\r\n\r\n";
+            whySent = "Your CLDR vetting account information is being sent to you\n\n";
         }
         String body = whySent + "To access it, visit: \n<"
             + defaultBase + "?" + QUERY_PASSWORD + "=" + pass + "&"

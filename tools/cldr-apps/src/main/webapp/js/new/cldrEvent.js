@@ -6,9 +6,6 @@
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally this should be a module (in the sense of using import/export),
- * but not all Survey Tool JavaScript code is capable yet of being in modules
- * and running in strict mode.
  */
 const cldrEvent = (function () {
   let sentenceFilter;
@@ -201,7 +198,6 @@ const cldrEvent = (function () {
         } else {
           parent.removeClass("hide");
           parent.parent().removeClass("hide");
-          //parent.next().children('div').removeClass('hide');
         }
       } else {
         parent.addClass("hide");
@@ -497,17 +493,12 @@ const cldrEvent = (function () {
   /**
    * Show the help popup in the center of the screen
    *
-   * @param type
+   * @param type - "warning" or "danger"
    * @param content
-   * @param head
-   * @param aj
-   * @param dur
    */
-  function popupAlert(type, content, head, aj, dur) {
-    var ajax = typeof aj === "undefined" ? "" : aj;
-    var header = typeof aj === "undefined" ? "" : head;
-    var duration = typeof dur === "undefined" ? 4000 /* four seconds */ : dur;
-    var alert = $("#progress").closest(".alert");
+  function popupAlert(type, content) {
+    const duration = 4000; /* four seconds */
+    const alert = $("#progress").closest(".alert");
     alert
       .removeClass("alert-warning")
       .removeClass("alert-info")
@@ -515,13 +506,6 @@ const cldrEvent = (function () {
       .removeClass("alert-success");
     alert.addClass("alert-" + type);
     $("#progress_oneword").html(content);
-    $("#progress_ajax").html(ajax);
-    $("#specialHeader").html(header);
-    if (header != "") {
-      $("#specialHeader").show();
-    } else {
-      $("#specialHeader").hide();
-    }
 
     if (oldTypePopup != type) {
       if (!alert.is(":visible")) {
@@ -679,18 +663,44 @@ const cldrEvent = (function () {
     $("#main-row #itemInfo").hide();
   }
 
+  /**
+   * Used from within event handlers. cross platform 'stop propagation'
+   *
+   * @param e event
+   * @returns true or false
+   */
+  function stopPropagation(e) {
+    if (!e) {
+      return false;
+    } else if (e.stopPropagation) {
+      return e.stopPropagation();
+    } else if (e.cancelBubble) {
+      return e.cancelBubble();
+    } else {
+      // hope for the best
+      return false;
+    }
+  }
+
   /*
    * Make only these functions accessible from other files:
    */
   return {
-    startup: startup,
-    searchRefresh: searchRefresh,
-    unpackMenuSideBar: unpackMenuSideBar,
-    hideOverlayAndSidebar: hideOverlayAndSidebar,
-    resizeSidebar: resizeSidebar,
-    filterAllLocale: filterAllLocale,
-    forceSidebar: forceSidebar,
-    popupAlert: popupAlert,
-    hideRightPanel: hideRightPanel,
+    filterAllLocale,
+    forceSidebar,
+    hideOverlayAndSidebar,
+    hideRightPanel,
+    popupAlert,
+    resizeSidebar,
+    searchRefresh,
+    startup,
+    stopPropagation,
+    unpackMenuSideBar,
+    /*
+     * The following are meant to be accessible for unit testing only:
+     */
+    // test: {
+    // f,
+    // },
   };
 })();

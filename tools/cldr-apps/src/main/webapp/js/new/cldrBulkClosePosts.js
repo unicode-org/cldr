@@ -6,9 +6,6 @@
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally this should be a module (in the sense of using import/export),
- * but not all Survey Tool JavaScript code is capable yet of being in modules
- * and running in strict mode.
  */
 const cldrBulkClosePosts = (function () {
   let saveParamsForExecute = null;
@@ -25,13 +22,8 @@ const cldrBulkClosePosts = (function () {
     /*
      * Set up the 'right sidebar'; cf. bulk_close_postsGuidance
      */
-    cldrSurvey.showInPop2(
-      cldrText.get(params.name + "Guidance"),
-      null,
-      null,
-      null,
-      true
-    );
+    const message = cldrText.get(params.name + "Guidance");
+    cldrInfo.showMessage(message);
 
     const url = getBulkClosePostsUrl();
     const errorHandler = function (err) {
@@ -159,13 +151,13 @@ const cldrBulkClosePosts = (function () {
    * Make only these functions accessible from other files
    */
   return {
-    load: load,
-    execute: execute,
+    load,
+    execute,
     /*
      * The following are meant to be accessible for unit testing only:
      */
     test: {
-      makeHtmlFromJson: makeHtmlFromJson,
+      makeHtmlFromJson,
     },
   };
 })();

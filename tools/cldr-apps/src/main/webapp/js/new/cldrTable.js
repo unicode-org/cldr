@@ -13,9 +13,6 @@
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally this should be a module (in the sense of using import/export),
- * but not all Survey Tool JavaScript code is capable yet of being in modules
- * and running in strict mode.
  */
 const cldrTable = (function () {
   const CLDR_TABLE_DEBUG = false;
@@ -45,7 +42,7 @@ const cldrTable = (function () {
    */
   function insertRows(theDiv, xpath, session, json) {
     if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
-      cldrSurvey.removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table
+      cldrDom.removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table
     }
 
     $(".warnText").remove(); // remove any pre-existing "special notes", before insertLocaleSpecialNote
@@ -112,7 +109,7 @@ const cldrTable = (function () {
        */
       const headAbstain = theTable.querySelector("th.d-no");
       if (headAbstain) {
-        cldrSurvey.setDisplayed(headAbstain, false);
+        cldrDom.setDisplayed(headAbstain, false);
       }
     }
     theDiv.theTable = theTable;
@@ -189,7 +186,7 @@ const cldrTable = (function () {
     var parRow = document.getElementById("proto-parrow");
 
     if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
-      cldrSurvey.removeAllChildNodes(tbody);
+      cldrDom.removeAllChildNodes(tbody);
     }
 
     var theSort = theTable.json.displaySets[theTable.curSortMode]; // typically (always?) curSortMode = "ph"
@@ -508,7 +505,7 @@ const cldrTable = (function () {
         }
       } else {
         if (addCell) {
-          cldrSurvey.removeAllChildNodes(addCell);
+          cldrDom.removeAllChildNodes(addCell);
           addCell.appendChild(formAdd);
         }
       }
@@ -640,7 +637,7 @@ const cldrTable = (function () {
     cell.className = "d-dr-" + statusClass + " d-dr-status statuscell";
 
     if (!cell.isSetup) {
-      cldrSurvey.listenToPop("", tr, cell);
+      cldrInfo.listen("", tr, cell, null);
       cell.isSetup = true;
     }
 
@@ -698,7 +695,7 @@ const cldrTable = (function () {
         voteForItem.votes[surveyUser.id].overridedVotes
       ) {
         tr.voteDiv.appendChild(
-          cldrSurvey.createChunk(
+          cldrDom.createChunk(
             cldrText.sub("override_explain_msg", {
               overrideVotes: voteForItem.votes[surveyUser.id].overridedVotes,
               votes: surveyUser.votecount,
@@ -712,7 +709,7 @@ const cldrTable = (function () {
         if (!theRow.rowFlagged) {
           cldrSurvey.addIcon(tr.voteDiv, "i-stop");
           tr.voteDiv.appendChild(
-            cldrSurvey.createChunk(
+            cldrDom.createChunk(
               cldrText.sub("mustflag_explain_msg", {}),
               "p",
               "helpContent"
@@ -721,9 +718,7 @@ const cldrTable = (function () {
         } else {
           cldrSurvey.addIcon(tr.voteDiv, "i-flag");
           tr.voteDiv.appendChild(
-            cldrSurvey.createChunk(
-              cldrText.get("flag_desc", "p", "helpContent")
-            )
+            cldrDom.createChunk(cldrText.get("flag_desc", "p", "helpContent"))
           );
         }
       }
@@ -731,7 +726,7 @@ const cldrTable = (function () {
     if (!theRow.rowFlagged && theRow.canFlagOnLosing) {
       cldrSurvey.addIcon(tr.voteDiv, "i-flag-d");
       tr.voteDiv.appendChild(
-        cldrSurvey.createChunk(cldrText.get("flag_d_desc", "p", "helpContent"))
+        cldrDom.createChunk(cldrText.get("flag_d_desc", "p", "helpContent"))
       );
     }
     /*
@@ -749,18 +744,18 @@ const cldrTable = (function () {
       if (item == null) {
         continue;
       }
-      var vdiv = cldrSurvey.createChunk(
+      var vdiv = cldrDom.createChunk(
         null,
         "table",
         "voteInfo_perValue table table-vote"
       );
-      var valdiv = cldrSurvey.createChunk(
+      var valdiv = cldrDom.createChunk(
         null,
         "div",
         n > 2 ? "value-div" : "value-div first"
       );
       // heading row
-      var vrow = cldrSurvey.createChunk(
+      var vrow = cldrDom.createChunk(
         null,
         "tr",
         "voteInfo_tr voteInfo_tr_heading"
@@ -770,21 +765,21 @@ const cldrTable = (function () {
         (item.votes && Object.keys(item.votes).length > 0)
       ) {
         vrow.appendChild(
-          cldrSurvey.createChunk(
+          cldrDom.createChunk(
             cldrText.get("voteInfo_orgColumn"),
             "td",
             "voteInfo_orgColumn voteInfo_td"
           )
         );
       }
-      var isection = cldrSurvey.createChunk(null, "div", "voteInfo_iconBar");
+      var isection = cldrDom.createChunk(null, "div", "voteInfo_iconBar");
       var isectionIsUsed = false;
-      var vvalue = cldrSurvey.createChunk(
+      var vvalue = cldrDom.createChunk(
         "User",
         "td",
         "voteInfo_valueTitle voteInfo_td"
       );
-      var vbadge = cldrSurvey.createChunk(vote, "span", "badge");
+      var vbadge = cldrDom.createChunk(vote, "span", "badge");
 
       /*
        * Note: we can't just check for item.pClass === "winner" here, since, for example, the winning value may
@@ -814,9 +809,9 @@ const cldrTable = (function () {
          * theRow.inheritedValue can be undefined here; then do not append
          */
         if (theRow.inheritedValue) {
-          cldrSurvey.appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);
+          cldrSurvey.appendItem(valdiv, theRow.inheritedValue, item.pClass);
           valdiv.appendChild(
-            cldrSurvey.createChunk(
+            cldrDom.createChunk(
               cldrText.get("voteInfo_votesForInheritance"),
               "p"
             )
@@ -826,12 +821,11 @@ const cldrTable = (function () {
         cldrSurvey.appendItem(
           valdiv,
           value,
-          value === theRow.winningValue ? "winner" : "value",
-          tr
+          value === theRow.winningValue ? "winner" : "value"
         );
         if (value === theRow.inheritedValue) {
           valdiv.appendChild(
-            cldrSurvey.createChunk(
+            cldrDom.createChunk(
               cldrText.get("voteInfo_votesForSpecificValue"),
               "p"
             )
@@ -842,7 +836,7 @@ const cldrTable = (function () {
         valdiv.appendChild(isection);
       }
       vrow.appendChild(vvalue);
-      var cell = cldrSurvey.createChunk(
+      var cell = cldrDom.createChunk(
         null,
         "td",
         "voteInfo_voteTitle voteInfo_voteCount voteInfo_td" + ""
@@ -855,13 +849,13 @@ const cldrTable = (function () {
         itemVotesLength == 1 &&
         item.votes[Object.keys(item.votes)[0]].level === "anonymous";
       if (itemVotesLength == 0 || anon) {
-        var vrow = cldrSurvey.createChunk(
+        var vrow = cldrDom.createChunk(
           null,
           "tr",
           "voteInfo_tr voteInfo_orgHeading"
         );
         vrow.appendChild(
-          cldrSurvey.createChunk(
+          cldrDom.createChunk(
             cldrText.get("voteInfo_noVotes"),
             "td",
             "voteInfo_noVotes voteInfo_td"
@@ -869,11 +863,7 @@ const cldrTable = (function () {
         );
         const anonVoter = anon ? cldrText.get("voteInfo_anon") : null;
         vrow.appendChild(
-          cldrSurvey.createChunk(
-            anonVoter,
-            "td",
-            "voteInfo_noVotes voteInfo_td"
-          )
+          cldrDom.createChunk(anonVoter, "td", "voteInfo_noVotes voteInfo_td")
         );
         vdiv.appendChild(vrow);
       } else {
@@ -884,7 +874,7 @@ const cldrTable = (function () {
     }
     if (vr.valueIsLocked) {
       tr.voteDiv.appendChild(
-        cldrSurvey.createChunk(
+        cldrDom.createChunk(
           cldrText.get("valueIsLocked"),
           "p",
           "alert alert-warning fix-popover-help"
@@ -895,12 +885,12 @@ const cldrTable = (function () {
         requiredVotes: vr.requiredVotes,
       });
       tr.voteDiv.appendChild(
-        cldrSurvey.createChunk(msg, "p", "alert alert-warning fix-popover-help")
+        cldrDom.createChunk(msg, "p", "alert alert-warning fix-popover-help")
       );
     }
     // done with voteresolver table
     if (CLDR_TABLE_DEBUG) {
-      tr.voteDiv.appendChild(cldrSurvey.createChunk(vr.raw, "p", "debugStuff"));
+      tr.voteDiv.appendChild(cldrDom.createChunk(vr.raw, "p", "debugStuff"));
     }
   }
 
@@ -912,7 +902,7 @@ const cldrTable = (function () {
    * @param vr the vote resolver
    * @param value the value of the candidate item
    * @param item the candidate item
-   * @param vdiv a table created by the caller as vdiv = cldrSurvey.createChunk(null, "table", "voteInfo_perValue table table-vote")
+   * @param vdiv a table created by the caller as vdiv = cldrDom.createChunk(null, "table", "voteInfo_perValue table table-vote")
    */
   function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
     for (let org in vr.orgs) {
@@ -978,13 +968,13 @@ const cldrTable = (function () {
           item.rawValue === cldrSurvey.INHERITANCE_MARKER
             ? " " + item.pClass
             : "";
-        var vrow = cldrSurvey.createChunk(
+        var vrow = cldrDom.createChunk(
           null,
           "tr",
           "voteInfo_tr voteInfo_orgHeading"
         );
         vrow.appendChild(
-          cldrSurvey.createChunk(org, "td", "voteInfo_orgColumn voteInfo_td")
+          cldrDom.createChunk(org, "td", "voteInfo_orgColumn voteInfo_td")
         );
         if (item.votes[topVoter]) {
           vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
@@ -992,18 +982,16 @@ const cldrTable = (function () {
           vrow.appendChild(createVoter(null));
         }
         if (orgsVote) {
-          var cell = cldrSurvey.createChunk(
+          var cell = cldrDom.createChunk(
             null,
             "td",
             "voteInfo_orgsVote voteInfo_voteCount voteInfo_td" + baileyClass
           );
-          cell.appendChild(
-            cldrSurvey.createChunk(orgVoteValue, "span", "badge")
-          );
+          cell.appendChild(cldrDom.createChunk(orgVoteValue, "span", "badge"));
           vrow.appendChild(cell);
         } else {
           vrow.appendChild(
-            cldrSurvey.createChunk(
+            cldrDom.createChunk(
               orgVoteValue,
               "td",
               "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" +
@@ -1022,13 +1010,13 @@ const cldrTable = (function () {
             continue; // skip
           }
           // OTHER VOTER row
-          var vrow = cldrSurvey.createChunk(null, "tr", "voteInfo_tr");
+          var vrow = cldrDom.createChunk(null, "tr", "voteInfo_tr");
           vrow.appendChild(
-            cldrSurvey.createChunk("", "td", "voteInfo_orgColumn voteInfo_td")
+            cldrDom.createChunk("", "td", "voteInfo_orgColumn voteInfo_td")
           ); // spacer
           vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
           vrow.appendChild(
-            cldrSurvey.createChunk(
+            cldrDom.createChunk(
               item.votes[voter].votes,
               "td",
               "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" +
@@ -1049,9 +1037,9 @@ const cldrTable = (function () {
    */
   function createVoter(v) {
     if (v == null) {
-      return cldrSurvey.createChunk("(missing information)!", "i", "stopText");
+      return cldrDom.createChunk("(missing information)!", "i", "stopText");
     }
-    var div = cldrSurvey.createChunk(
+    var div = cldrDom.createChunk(
       v.name || cldrText.get("emailHidden"),
       "td",
       "voteInfo_voterInfo voteInfo_td"
@@ -1071,19 +1059,19 @@ const cldrTable = (function () {
    * Called by updateRow.
    */
   function updateRowCodeCell(tr, theRow, cell) {
-    cldrSurvey.removeAllChildNodes(cell);
+    cldrDom.removeAllChildNodes(cell);
     var codeStr = theRow.code;
     if (theRow.coverageValue == 101) {
       codeStr = codeStr + " (optional)";
     }
-    cell.appendChild(cldrSurvey.createChunk(codeStr));
+    cell.appendChild(cldrDom.createChunk(codeStr));
     if (cldrStatus.getSurveyUser()) {
       cell.className = "d-code codecell";
       if (!tr.forumDiv) {
         tr.forumDiv = document.createElement("div");
         tr.forumDiv.className = "forumDiv";
       }
-      cldrSurvey.appendForumStuff(tr, theRow, tr.forumDiv);
+      cldrForumPanel.appendForumStuff(tr, theRow, tr.forumDiv);
     }
     // extra attributes
     if (
@@ -1112,16 +1100,16 @@ const cldrTable = (function () {
       js.className = "anch-go";
       js.appendChild(document.createTextNode("{JSON}"));
       js.popParent = tr;
-      cldrSurvey.listenToPop(JSON.stringify(theRow), tr, js);
+      cldrInfo.listen(JSON.stringify(theRow), tr, js, null);
       cell.appendChild(js);
-      cell.appendChild(cldrSurvey.createChunk(" c=" + theRow.coverageValue));
+      cell.appendChild(cldrDom.createChunk(" c=" + theRow.coverageValue));
     }
     if (!cell.isSetup) {
       var xpathStr = "";
       if (CLDR_TABLE_DEBUG) {
         xpathStr = "XPath: " + theRow.xpath;
       }
-      cldrSurvey.listenToPop(xpathStr, tr, cell);
+      cldrInfo.listen(xpathStr, tr, cell, null);
       cell.isSetup = true;
     }
   }
@@ -1151,7 +1139,7 @@ const cldrTable = (function () {
         theRow.displayName = theRow.displayName.substr(0, hintPos);
       }
       cell.appendChild(
-        cldrSurvey.createChunk(theRow.displayName, "span", "subSpan")
+        cldrDom.createChunk(theRow.displayName, "span", "subSpan")
       );
       const TRANS_HINT_ID = "en_ZZ"; // must match SurveyMain.TRANS_HINT_ID
       cldrSurvey.setLang(cell, TRANS_HINT_ID);
@@ -1178,11 +1166,7 @@ const cldrTable = (function () {
     } else {
       cell.appendChild(document.createTextNode(""));
     }
-    /* The next line (cldrSurvey.listenToPop...) had been commented out, for unknown reasons.
-     * Restored (uncommented) for http://unicode.org/cldr/trac/ticket/10573 so that
-     * the right-side panel info changes when you click on the English column.
-     */
-    cldrSurvey.listenToPop(null, tr, cell);
+    cldrInfo.listen(null, tr, cell, null);
     cell.isSetup = true;
   }
 
@@ -1197,7 +1181,7 @@ const cldrTable = (function () {
    * Called by updateRow.
    */
   function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
-    cldrSurvey.removeAllChildNodes(cell); // win
+    cldrDom.removeAllChildNodes(cell); // win
     if (theRow.rowFlagged) {
       var flagIcon = cldrSurvey.addIcon(cell, "s-flag");
       flagIcon.title = cldrText.get("flag_desc");
@@ -1224,7 +1208,7 @@ const cldrTable = (function () {
     } else {
       cell.showFn = function () {}; // nothing else to show
     }
-    cldrSurvey.listenToPop(null, tr, cell, cell.showFn);
+    cldrInfo.listen(null, tr, cell, cell.showFn);
   }
 
   /**
@@ -1240,7 +1224,7 @@ const cldrTable = (function () {
    */
   function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
     var hadOtherItems = false;
-    cldrSurvey.removeAllChildNodes(cell); // other
+    cldrDom.removeAllChildNodes(cell); // other
     cldrSurvey.setLang(cell);
 
     if (tr.canModify) {
@@ -1346,10 +1330,10 @@ const cldrTable = (function () {
           } else {
             toAddVoteButton(btn);
           }
-          cldrSurvey.stStopPropagation(e);
+          cldrEvent.stopPropagation(e);
           return false;
         }
-        cldrSurvey.stStopPropagation(e);
+        cldrEvent.stopPropagation(e);
         return false;
       };
     }
@@ -1373,7 +1357,7 @@ const cldrTable = (function () {
     }
 
     if (!hadOtherItems /*!onIE*/) {
-      cldrSurvey.listenToPop(null, tr, cell);
+      cldrInfo.listen(null, tr, cell);
     }
     if (
       tr.myProposal &&
@@ -1455,25 +1439,25 @@ const cldrTable = (function () {
     protoButton
   ) {
     if (tr.canModify) {
-      cldrSurvey.removeAllChildNodes(noCell); // no opinion
+      cldrDom.removeAllChildNodes(noCell); // no opinion
       var noOpinion = cldrSurvey.cloneAnon(protoButton);
       cldrSurvey.wireUpButton(noOpinion, tr, theRow, null);
       noOpinion.value = null;
       var wrap = cldrSurvey.wrapRadio(noOpinion);
       noCell.appendChild(wrap);
-      cldrSurvey.listenToPop(null, tr, noCell);
+      cldrInfo.listen(null, tr, noCell);
     } else if (tr.ticketOnly) {
       // ticket link
       if (!tr.theTable.json.canModify) {
         // only if hidden in the header
-        cldrSurvey.setDisplayed(noCell, false);
+        cldrDom.setDisplayed(noCell, false);
       }
       proposedCell.className = "d-change-confirmonly";
       var surlink = document.createElement("div");
       surlink.innerHTML =
         '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
       surlink.className = "alert alert-info fix-popover-help";
-      var link = cldrSurvey.createChunk(cldrText.get("file_a_ticket"), "a");
+      var link = cldrDom.createChunk(cldrText.get("file_a_ticket"), "a");
       const curLocale = cldrStatus.getCurrentLocale();
       var newUrl =
         "http://unicode.org/cldr/trac" +
@@ -1489,7 +1473,7 @@ const cldrTable = (function () {
         cldrStatus.getNewVersion();
       link.href = newUrl;
       link.target = "cldr-target-trac";
-      theRow.proposedResults = cldrSurvey.createChunk(
+      theRow.proposedResults = cldrDom.createChunk(
         cldrText.get("file_ticket_must"),
         "a",
         "fnotebox"
@@ -1497,7 +1481,7 @@ const cldrTable = (function () {
       theRow.proposedResults.href = newUrl;
       if (cldrStatus.getIsUnofficial()) {
         link.appendChild(
-          cldrSurvey.createChunk(
+          cldrDom.createChunk(
             " (Note: this is not the production SurveyTool! Do not submit a ticket!) ",
             "p"
           )
@@ -1505,11 +1489,7 @@ const cldrTable = (function () {
         link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
       }
       proposedCell.appendChild(
-        cldrSurvey.createChunk(
-          cldrText.get("file_ticket_notice"),
-          "i",
-          "fnotebox"
-        )
+        cldrDom.createChunk(cldrText.get("file_ticket_notice"), "i", "fnotebox")
       );
       surlink.appendChild(link);
       tr.ticketLink = surlink;
@@ -1517,7 +1497,7 @@ const cldrTable = (function () {
       // no change possible
       if (!tr.theTable.json.canModify) {
         // only if hidden in the header
-        cldrSurvey.setDisplayed(noCell, false);
+        cldrDom.setDisplayed(noCell, false);
       }
     }
   }
@@ -1555,13 +1535,13 @@ const cldrTable = (function () {
    * Make only these functions accessible from other files:
    */
   return {
-    insertRows: insertRows,
-    updateRow: updateRow,
+    insertRows,
+    updateRow,
     /*
      * The following are meant to be accessible for unit testing only:
      */
     test: {
-      cldrChecksum: cldrChecksum,
+      cldrChecksum,
     },
   };
 })();

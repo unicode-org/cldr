@@ -52,9 +52,7 @@ showRecent('submitItems',null,'<%= user %>');
 ...
 
 <script>
-<% if (SurveyTool.USE_DOJO) %>
 showAllItems('allMyItems','<%= user %>');
-<% else %>
 cldrSurvey.showAllItems('allMyItems','<%= user %>');
 </script>
 

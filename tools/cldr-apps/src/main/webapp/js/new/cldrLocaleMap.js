@@ -1,5 +1,6 @@
-// "use strict";
-// TODO: modernize, make strict, possibly a class
+"use strict";
+// TODO: modernize; possibly make into a class
+// though it seems we currently only have one instance at a time?
 
 /**
  * @param aLocmap the map object from json
@@ -33,17 +34,6 @@ LocaleMap.prototype.canonicalizeLocaleId = function canonicalizeLocaleId(
   return locid;
 };
 
-window.linkToLocale = function linkToLocale(subLoc) {
-  return (
-    "#/" +
-    subLoc +
-    "/" +
-    cldrStatus.getCurrentPage() +
-    "/" +
-    cldrStatus.getCurrentId()
-  );
-};
-
 /**
  * Linkify text like '@de' into some link to German.
  *
@@ -65,7 +55,7 @@ LocaleMap.prototype.linkify = function linkify(str) {
         out =
           out +
           "<a href='" +
-          linkToLocale(match[1]) +
+          cldrLoad.linkToLocale(match[1]) +
           "' title='" +
           match[1] +
           "'>" +

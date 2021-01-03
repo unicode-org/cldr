@@ -6,9 +6,6 @@
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally this should be a module (in the sense of using import/export),
- * but not all Survey Tool JavaScript code is capable yet of being in modules
- * and running in strict mode.
  */
 const cldrStatus = (function () {
   function updateAll(status) {
@@ -152,6 +149,10 @@ const cldrStatus = (function () {
   /**
    * A string such as 'en', 'fr', etc., identifying a locale
    * a.k.a. surveyCurrentLocale
+   * Caution: cldrLoad.updateHashAndMenus makes a distinction between null and
+   * empty string "" for getCurrentLocale, seemingly with the assumption that
+   * null is the original value. Later it may become empty string "", and
+   * cldrLoad.updateHashAndMenus doesn't treat that the same way.
    */
   let currentLocale = null;
 
@@ -248,13 +249,24 @@ const cldrStatus = (function () {
    * a.k.a. surveySessionId
    */
   let sessionId = null;
+  let sessionIdChangeCallback = null;
 
   function getSessionId() {
     return sessionId;
   }
 
   function setSessionId(i) {
-    sessionId = i;
+    if (i !== sessionId) {
+      sessionId = i;
+      if (sessionIdChangeCallback) {
+        sessionIdChangeCallback(sessionId);
+        sessionIdChangeCallback = null;
+      }
+    }
+  }
+
+  function setSessionIdChangeCallback(func) {
+    sessionIdChangeCallback = func;
   }
 
   /**
@@ -343,6 +355,15 @@ const cldrStatus = (function () {
     );
   }
 
+  function logoIcon() {
+    const src = cldrStatus.getContextPath() + "/STLogo.png";
+    return (
+      "<img src='" +
+      src +
+      "' align='right' border='0' title='[logo]' alt='[logo]' />"
+    );
+  }
+
   function getSurvUrl() {
     return getContextPath() + "/survey";
   }
@@ -377,72 +398,51 @@ const cldrStatus = (function () {
    * Make only these functions accessible from other files:
    */
   return {
-    updateAll: updateAll,
-
-    getRunningStamp: getRunningStamp,
-    runningStampChanged: runningStampChanged,
-
-    getContextPath: getContextPath,
-    setContextPath: setContextPath,
-
-    getCurrentId: getCurrentId,
-    setCurrentId: setCurrentId,
-
-    getCurrentPage: getCurrentPage,
-    setCurrentPage: setCurrentPage,
-
-    getCurrentSpecial: getCurrentSpecial,
-    setCurrentSpecial: setCurrentSpecial,
-
-    getCurrentLocale: getCurrentLocale,
-    setCurrentLocale: setCurrentLocale,
-
-    getCurrentLocaleName: getCurrentLocaleName,
-    setCurrentLocaleName: setCurrentLocaleName,
-
-    getCurrentSection: getCurrentSection,
-    setCurrentSection: setCurrentSection,
-
-    getNewVersion: getNewVersion,
-    setNewVersion: setNewVersion,
-
-    getIsUnofficial: getIsUnofficial,
-    setIsUnofficial: setIsUnofficial,
-
-    getPhase: getPhase,
-    setPhase: setPhase,
-
-    getIsPhaseBeta: getIsPhaseBeta,
-    setIsPhaseBeta: setIsPhaseBeta,
-
-    getSessionId: getSessionId,
-    setSessionId: setSessionId,
-
-    getSessionMessage: getSessionMessage,
-    setSessionMessage: setSessionMessage,
-
-    getSurveyUser: getSurveyUser,
-    setSurveyUser: setSurveyUser,
-
-    getOrganizationName: getOrganizationName,
-    setOrganizationName: setOrganizationName,
-
-    getSpecialHeader: getSpecialHeader,
-    setSpecialHeader: setSpecialHeader,
-
-    getPermissions: getPermissions,
-    setPermissions: setPermissions,
-
-    stopIcon: stopIcon,
-    warnIcon: warnIcon,
-
-    getSurvUrl: getSurvUrl,
-
-    isVisitor: isVisitor,
-
-    isDisconnected: isDisconnected,
-    setIsDisconnected: setIsDisconnected,
-
-    isDashboard: isDashboard,
+    getContextPath,
+    getCurrentId,
+    getCurrentLocale,
+    getCurrentLocaleName,
+    getCurrentPage,
+    getCurrentSection,
+    getCurrentSpecial,
+    getIsPhaseBeta,
+    getIsUnofficial,
+    getNewVersion,
+    getOrganizationName,
+    getPermissions,
+    getPhase,
+    getRunningStamp,
+    getSessionId,
+    getSessionMessage,
+    getSpecialHeader,
+    getSurvUrl,
+    getSurveyUser,
+    isDashboard,
+    isDisconnected,
+    isVisitor,
+    logoIcon,
+    runningStampChanged,
+    setContextPath,
+    setCurrentId,
+    setCurrentLocale,
+    setCurrentLocaleName,
+    setCurrentPage,
+    setCurrentSection,
+    setCurrentSpecial,
+    setIsDisconnected,
+    setIsPhaseBeta,
+    setIsUnofficial,
+    setNewVersion,
+    setOrganizationName,
+    setPermissions,
+    setPhase,
+    setSessionId,
+    setSessionIdChangeCallback,
+    setSessionMessage,
+    setSpecialHeader,
+    setSurveyUser,
+    stopIcon,
+    updateAll,
+    warnIcon,
   };
 })();

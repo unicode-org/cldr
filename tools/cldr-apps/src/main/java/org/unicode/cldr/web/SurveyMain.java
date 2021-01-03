@@ -592,8 +592,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
             }
 
-            if (isUnofficial() && (ctx.hasTestPassword() || ctx.hasAdminPassword())
-                && ctx.field("action").equals("new_and_login")) { // accessed from createAndLogin.jsp
+            if (isUnofficial() && ctx.field("action").equals("new_and_login") &&
+                    (ctx.hasTestPassword() || ctx.hasAdminPassword() || requestIsByAdmin(request))) {
+                // accessed from createAndLogin.jsp or cldrCreateLogin.js
                 ctx.println("<hr>");
                 String real = ctx.field("real").trim();
                 if (real.isEmpty() || real.equals("REALNAME")) {
@@ -673,6 +674,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             Thread.currentThread().setName(baseThreadName);
             ctx.close();
         }
+    }
+
+    private boolean requestIsByAdmin(HttpServletRequest request) {
+        String sess = request.getParameter(SurveyMain.QUERY_SESSION);
+        if (sess != null) {
+            CookieSession.checkForExpiredSessions();
+            CookieSession mySession = CookieSession.retrieve(sess);
+            if (mySession != null && UserRegistry.userIsAdmin(mySession.user)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -1743,6 +1756,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param ctx
      *
      * TODO: this function is over 666 lines long. Shorten it with subroutines.
+     * Move it to a new class, maybe "UserList.java". Separate the model (data)
+     * from the presentation (html). Generate the presentation on the front end.
+     * Generate only the data on the back end, and deliver it as json.
      */
     private void doList(WebContext ctx) {
         int n = 0;
@@ -2256,9 +2272,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 ctx.println("</tbody></table>");
 
                 // now, serialize the list..
-                ctx.println("<script>var shownUsers = " + shownUsers.toString() + ";\n" +
-                		"showUserActivity(shownUsers, 'userListTable');\n</script>\n");
+                /*
+                 * TODO: implement this with strict js, without using java to write js!
+                 * ...this function SurveyMain.doList() is over 666 lines long...
+                 */
+                if (SurveyTool.USE_DOJO) {
+                    ctx.println("<script>var shownUsers = " + shownUsers.toString() + ";\n" +
+                        "showUserActivity(shownUsers, 'userListTable');\n</script>\n");
 
+                } else {
+                    ctx.println("<script>var shownUsers = " + shownUsers.toString() + ";\n" +
+                        "cldrSurvey.showUserActivity(shownUsers, 'userListTable');\n</script>\n");
+                }
                 if (hideUserList) {
                     ctx.println("</div>");
                 }

@@ -70,12 +70,12 @@
     });
   });
 
-  describe("cldrText.subVerbose", function () {
+  describe("subVerbose", function () {
     it("should return same as sub for any arguments", function () {
       let key = "StatusAction_popupmsg";
       let map = ["too goofy", "🤪"];
       let result = cldrText.sub(key, map);
-      let resultV = cldrText.test.subVerbose(key, map);
+      let resultV = subVerbose(key, map);
       assert(
         result === resultV,
         "[" + result + "]" + " should equal [" + resultV + "]"
@@ -86,7 +86,7 @@
         requiredVotes: 2468,
       };
       result = cldrText.sub(key, map);
-      resultV = cldrText.test.subVerbose(key, map);
+      resultV = subVerbose(key, map);
       assert(
         result === resultV,
         "[" + result + "]" + " should equal [" + resultV + "]"
@@ -98,11 +98,85 @@
         votes: 3,
       };
       result = cldrText.sub(key, map);
-      resultV = cldrText.test.subVerbose(key, map);
+      resultV = subVerbose(key, map);
       assert(
         result === resultV,
         "[" + result + "]" + " should equal [" + resultV + "]"
       );
     });
   });
+
+  const CLDR_TEXT_DEBUG = false;
+
+  /**
+   * Same as sub(), but more verbose, with subroutines, for unit testing and debugging
+   */
+  function subVerbose(k, map) {
+    const template = cldrText.get(k);
+    if (!template) {
+      console.log("subVerbose: missing template for k = " + k);
+      return "";
+    }
+    if (map instanceof Array) {
+      return fillInBlanksWithArray(template, map);
+    } else if (map instanceof Object) {
+      return fillInBlanksWithObject(template, map);
+    } else {
+      return "";
+    }
+  }
+
+  /**
+   * Get the string that results from filling in blanks in the given template
+   *
+   * @param template a string like "Sorry, your vote for '${1}' could not be submitted: ${0}"
+   * @param map an array like ["too goofy", "🤪"]
+   * @return a string like "Sorry, your vote for '🤪' could not be submitted: too goofy"
+   */
+  function fillInBlanksWithArray(template, map) {
+    const result = template.replace(/\${(\d)}/g, function (blank, index) {
+      const replacement = map[index];
+      if (CLDR_TEXT_DEBUG) {
+        // index = 1; blank = ${1}; replacement = 🤪
+        console.log(
+          "Array: index= " +
+            index +
+            "; blank= " +
+            blank +
+            "; replacement = " +
+            replacement
+        );
+      }
+      return replacement ? replacement : "";
+    });
+    return result;
+  }
+
+  /**
+   * Get the string that results from filling in blanks in the given template
+   *
+   * @param template a string like "Changes to this item require ${requiredVotes} votes."
+   * @param map an object like {requiredVotes: 2468}
+   * @return a string like "Changes to this item require 2468 votes."
+   *
+   * Note: placeholders of the form "${a.b}" are NOT supported (unlike old stui.js using dojo/string)
+   */
+  function fillInBlanksWithObject(template, map) {
+    const result = template.replace(/\${([^}]+)}/g, function (blank, key) {
+      const replacement = map[key];
+      if (CLDR_TEXT_DEBUG) {
+        // key = requiredVotes; blank = ${requiredVotes}; replacement = 2468
+        console.log(
+          "Object: key = " +
+            key +
+            "; blank = " +
+            blank +
+            "; replacement = " +
+            replacement
+        );
+      }
+      return replacement ? replacement : "";
+    });
+    return result;
+  }
 }

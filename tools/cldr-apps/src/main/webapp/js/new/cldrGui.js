@@ -4,9 +4,6 @@
  * cldrGui: encapsulate GUI functions.
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally this should be a module (in the sense of using import/export),
- * but not all Survey Tool JavaScript code is capable yet of being in modules
- * and running in strict mode.
  */
 const cldrGui = (function () {
   const GUI_DEBUG = true;
@@ -40,30 +37,7 @@ const cldrGui = (function () {
     cldrEvent.startup();
   }
 
-  const vhtml1 =
-    "<div data-dojo-type='dijit/Dialog' data-dojo-id='ariDialog' title='CLDR Survey Tool'\n" +
-    '    data-dojo-props=\'onHide: function(){ariReload.style.display="";ariRetry.style.display="none";\n' +
-    "      if (cldrStatus.isDisconnected()) {cldrSurvey.unbust();}}'>\n" +
-    "\n" +
-    "  <div id='ariContent' class='dijitDialogPaneContentArea'>\n" +
-    "    <div id='ariHelp'><a href='http://cldr.unicode.org/index/survey-tool#disconnected'>Help</a></div>\n" +
-    "    <p id='ariMessage'>This page is still loading.</p>\n" +
-    "    <p id='ariSubMessage'>Please wait for this page to load.</p>\n" +
-    "    <div id='ariDetails' data-dojo-type='dijit/TitlePane' data-dojo-props='title: \"Details\", open: false '>\n" +
-    "      <p id='ariScroller'></p>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
-    "  <div class='dijitDialogPaneActionBar'>\n" +
-    "    <button id='ariMain' style='display: none; margin-right: 2em;' data-dojo-type='dijit/form/Button'\n" +
-    "        type='button' onClick='window.location = /cldr-apps/survey;'>\n" +
-    "        Back to Locales\n" +
-    "    </button>\n" +
-    "    <button id='ariRetryBtn' data-dojo-type='dijit/form/Button' type='button' onClick='cldrLoad.ariRetry()'>\n" +
-    "      <b>Reload</b>\n" +
-    "    </button>\n" +
-    "  </div>\n" +
-    "</div>\n";
-  const vhtml2 =
+  const navbar =
     "<div class='navbar navbar-fixed-top' role='navigation'>\n" +
     "  <div class='container-fluid'>\n" +
     "    <div class='collapse navbar-collapse'>\n" +
@@ -71,12 +45,7 @@ const cldrGui = (function () {
     "      <ul class='nav navbar-nav'>\n" +
     "        <li class='pull-menu'>\n" +
     "          <a href='#'><span class='glyphicon glyphicon-cog'></span> <b class='caret'></b></a>\n" +
-    "          <ul id='manage-list' class='nav nav-pills nav-stacked' style='display:none'>\n" +
-    "            <li>\n" +
-    "              <button type='button' class='btn btn-default toggle-right'>Toggle Sidebar\n" +
-    "                <span class='glyphicon glyphicon-align-right'></span></button>\n" +
-    "            </li>\n" +
-    "          </ul>\n" +
+    "          <ul id='manage-list' class='nav nav-pills nav-stacked' style='display:none'></ul>\n" +
     "        </li>\n" +
     "        <li class='dropdown' id='title-coverage' style='display:none'>\n" +
     "          <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Coverage: <span id='coverage-info'></span></a>\n" +
@@ -101,7 +70,8 @@ const cldrGui = (function () {
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n";
-  const vhtml3 =
+
+  const leftSidebar =
     "<div id='left-sidebar'>\n" +
     "  <div id='content-sidebar'>\n" +
     "    <div id='locale-info'>\n" +
@@ -156,7 +126,7 @@ const cldrGui = (function () {
     "          </div>\n";
   /* end stnotices.jspf */
 
-  const vhtml4 =
+  const mainContainer =
     "<div class='container-fluid' id='main-container'>\n" +
     "  <div class='row menu-position'>\n" +
     "    <div class='col-md-12'>\n" +
@@ -215,15 +185,15 @@ const cldrGui = (function () {
     "      </div>\n" +
     "    </div>\n" +
     "    <div class='col-md-3'>\n" +
-    "      <div id='itemInfo' class='right-info' data-dojo-type='dijit/layout/ContentPane' data-dojo-props=\"splitter:true, region:'trailing'\" ></div>\n" +
+    "      <div id='itemInfo' class='right-info' style='overflow-y: auto' data-dojo-type='dijit/layout/ContentPane' data-dojo-props=\"splitter:true, region:'trailing'\" ></div>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "  <div id='ressources' style='display:none'></div>\n" +
     "</div>\n";
 
-  const vhtml5 = "<div id='overlay'></div>\n";
+  const overlay = "<div id='overlay'></div>\n";
 
-  const vhtml6 =
+  const postModal =
     "<div class='modal fade' id='post-modal' tabindex='-1' role='dialog' aria-hidden='true'>\n" +
     "  <div class='modal-dialog modal-lg'>\n" +
     "    <div class='modal-content'>\n" +
@@ -319,7 +289,9 @@ const cldrGui = (function () {
     "</div>\n";
 
   function getBodyHtml() {
-    return vhtml1 + vhtml2 + vhtml3 + vhtml4 + vhtml5 + vhtml6 + hiddenHtml;
+    return (
+      navbar + leftSidebar + mainContainer + overlay + postModal + hiddenHtml
+    );
   }
 
   function updateWithStatus() {
@@ -413,12 +385,11 @@ const cldrGui = (function () {
 
   function debugParse() {
     for (let h of [
-      vhtml1,
-      vhtml2,
-      vhtml3,
-      vhtml4,
-      vhtml5,
-      vhtml6,
+      navbar,
+      leftSidebar,
+      mainContainer,
+      overlay,
+      postModal,
       hiddenHtml,
     ]) {
       if (!parseAsMimeType(h, "text/html")) {
@@ -458,7 +429,6 @@ const cldrGui = (function () {
 
   function debugElements() {
     for (let id of [
-      "ariContent",
       "DynamicDataSection",
       "nav-page",
       "progress",
@@ -481,13 +451,13 @@ const cldrGui = (function () {
    * Make only these functions accessible from other files:
    */
   return {
-    run: run,
-    updateWithStatus: updateWithStatus,
+    run,
+    updateWithStatus,
     /*
      * The following are meant to be accessible for unit testing only:
      */
     test: {
-      getBodyHtml: getBodyHtml,
+      getBodyHtml,
     },
   };
 })();

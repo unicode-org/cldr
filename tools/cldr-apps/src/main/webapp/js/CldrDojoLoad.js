@@ -377,6 +377,10 @@ function showV() {
               cldrStatus.setCurrentPage("");
               cldrStatus.setCurrentId("");
             }
+          } else if ("oldvotes" === cldrStatus.getCurrentSpecial()) {
+              // avoid error in otherSpecial
+              cldrStatus.setCurrentPage("");
+              cldrStatus.setCurrentId("");
           } else {
             otherSpecial.parseHash(
               cldrStatus.getCurrentSpecial(),

@@ -6,9 +6,6 @@
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally this should be a module (in the sense of using import/export),
- * but not all Survey Tool JavaScript code is capable yet of being in modules
- * and running in strict mode.
  */
 const cldrForumFilter = (function () {
   /**
@@ -302,9 +299,15 @@ const cldrForumFilter = (function () {
    * Make only these functions accessible from other files
    */
   return {
-    setUserId: setUserId,
-    createMenu: createMenu,
-    getFilteredThreadIds: getFilteredThreadIds,
-    getFilteredThreadCounts: getFilteredThreadCounts,
+    createMenu,
+    getFilteredThreadCounts,
+    getFilteredThreadIds,
+    setUserId,
+    /*
+     * The following are meant to be accessible for unit testing only:
+     */
+    // test: {
+    // f,
+    // },
   };
 })();

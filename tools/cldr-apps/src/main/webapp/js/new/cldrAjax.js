@@ -6,9 +6,6 @@
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
- * Ideally this should be a module (in the sense of using import/export),
- * but not all Survey Tool JavaScript code is capable yet of being in modules
- * and running in strict mode.
  */
 const cldrAjax = (function () {
   const ST_AJAX_DEBUG = true;
@@ -236,11 +233,13 @@ const cldrAjax = (function () {
       if (request.response) {
         msg += JSON.stringify(request.response);
       }
-    } else if (ST_AJAX_DEBUG) {
+    } else {
       msg += " Response type: " + request.responseType;
-      console.log(
-        "cldrAjax.makeErrorMessage got responseType=" + request.responseType
-      );
+      if (ST_AJAX_DEBUG) {
+        console.log(
+          "cldrAjax.makeErrorMessage got responseType=" + request.responseType
+        );
+      }
     }
     return msg;
   }
@@ -262,9 +261,15 @@ const cldrAjax = (function () {
    * Make only these functions accessible from other files:
    */
   return {
-    queueXhr: queueXhr,
-    clearXhr: clearXhr,
-    sendXhr: sendXhr,
-    queueCount: queueCount,
+    clearXhr,
+    sendXhr,
+    queueCount,
+    queueXhr,
+    /*
+     * The following are meant to be accessible for unit testing only:
+     */
+    // test: {
+    // f,
+    // },
   };
 })();

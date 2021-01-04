@@ -2,14 +2,14 @@ package org.unicode.cldr.web;
 
 import java.io.File;
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 
 import org.apache.jena.sparql.lang.sparql_11.ParseException;
 import org.unicode.cldr.rdf.AbstractCache;
 import org.unicode.cldr.rdf.MapAll;
-import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRCacheDir;
 
 class AbstractCacheManager {
+    static final int DEFAULT_DAYS = 5;
     static final AbstractCacheManager getInstance() {
         return AbstractCacheHelper.INSTANCE;
     }
@@ -27,22 +27,22 @@ class AbstractCacheManager {
 
     public boolean setup = false;
     private AbstractCache cache = null;
+    private CLDRCacheDir cacheDir;
 
     /**
      * Set the CLDR Home so we can setup.
      * @param cldrHome
      */
-    public void setHome(File cldrHome) {
-        final File subroot = new File(cldrHome, "abstracts");
-        subroot.mkdirs();
+    public void setup() {
+        this.cacheDir = CLDRCacheDir.getInstance(CLDRCacheDir.CacheType.abstracts);
+        final File subroot = cacheDir.getEmptyDir();
         AbstractCache c = new AbstractCache(subroot);
         Instant d = c.load();
-        Instant now = Instant.now();
         // Expire the URL mapping every 90 days.
-        Instant expireIfBefore = now.minus(CLDRConfig.getInstance().getProperty("CLDR_ABSTRACT_EXPIRE_DAYS", 15), ChronoUnit.DAYS);
+        final Instant latestGoodInstant = cacheDir.getType().getLatestGoodInstant(DEFAULT_DAYS);
         System.err.println("AbstractCacheManager: Loaded abstracts (last calculated at " + d+")");
-        if(d == null || d.isBefore(expireIfBefore)) {
-            System.out.println("Will reload abstracts: " + d + " with expiry " + expireIfBefore);
+        if(d == null || d.isBefore(latestGoodInstant)) {
+            System.out.println("Will reload abstracts: " + d + " with expiry " + latestGoodInstant);
 
             int count;
             try {
@@ -61,6 +61,6 @@ class AbstractCacheManager {
     }
 
     public static final void main(String args[]) {
-        getInstance().setHome(new File(args[0]));
+        getInstance().setup();
     }
 }

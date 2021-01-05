@@ -1216,6 +1216,7 @@ const cldrTable = (function () {
       var popup;
       input.className = "form-control input-add";
       input.placeholder = "Add a translation";
+      setLang(input);
       var copyWinning = document.createElement("button");
       copyWinning.className = "copyWinning btn btn-info btn-xs";
       copyWinning.title = "Copy Winning";

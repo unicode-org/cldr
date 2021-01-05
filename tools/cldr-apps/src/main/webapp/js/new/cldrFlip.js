@@ -1,5 +1,5 @@
-// "use strict";
-// TODO: modernize, make strict, possibly a class
+"use strict";
+// TODO: modernize, possibly a class
 /**
  * Section flipping class
  * @class Flipper
@@ -14,7 +14,7 @@ function Flipper(ids) {
     // TODO if node==null throw
     if (this._panes.length > 0) {
       if (typeof cldrSurvey !== "undefined") {
-        cldrSurvey.setDisplayed(node, false); // hide it
+        cldrDom.setDisplayed(node, false); // hide it
       }
     } else {
       this._visible = id;
@@ -36,14 +36,14 @@ Flipper.prototype.flipTo = function (id, node) {
     return; // noop - unless adding s'thing
   }
   if (typeof cldrSurvey !== "undefined") {
-    cldrSurvey.setDisplayed(this._map[this._visible], false);
+    cldrDom.setDisplayed(this._map[this._visible], false);
   }
   for (var k in this._killfn) {
     this._killfn[k]();
   }
   this._killfn = []; // pop?
   if (node !== null && node !== undefined) {
-    cldrSurvey.removeAllChildNodes(this._map[id]);
+    cldrDom.removeAllChildNodes(this._map[id]);
     if (node.nodeType > 0) {
       this._map[id].appendChild(node);
     } else {
@@ -54,7 +54,7 @@ Flipper.prototype.flipTo = function (id, node) {
     }
   }
   if (typeof cldrSurvey !== "undefined") {
-    cldrSurvey.setDisplayed(this._map[id], true);
+    cldrDom.setDisplayed(this._map[id], true);
   }
   this._visible = id;
   return this._map[id];

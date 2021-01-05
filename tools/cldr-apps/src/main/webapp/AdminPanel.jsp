@@ -132,14 +132,10 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 </div>
 <script>
 var vap='<%= vap %>';
-<% if (SurveyTool.USE_DOJO) { %>
 require(["dojo/ready"], function(ready) {
 	ready(loadAdminPanel);
 });
-<% } else { %>
-$(cldrSurvey.loadAdminPanel());
 </script>
-<% } %>
 
 <div id='adminStuff'></div>
 

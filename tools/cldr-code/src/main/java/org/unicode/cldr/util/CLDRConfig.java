@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -319,18 +320,36 @@ public class CLDRConfig extends Properties {
         return CollatorRootHelper.SINGLETON;
     }
 
+    @SuppressWarnings("unchecked")
+    public final Comparator<String> getComparatorRoot() {
+        return (Comparator)(getCollatorRoot());
+    }
+
     private static final class CollatorHelper {
-        static final Collator SINGLETON = make();
-        private static final Collator make() {
+        static final Collator EMOJI_COLLATOR = makeEmojiCollator();
+        private static final Collator makeEmojiCollator() {
             final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
             col.setStrength(Collator.IDENTICAL);
             col.setNumericCollation(true);
             col.freeze();
             return col;
         }
+
+        static final Collator ROOT_NUMERIC = makeRootNumeric();
+
+        private static final Collator makeRootNumeric() {
+            RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+            _ROOT_COL.setNumericCollation(true);
+            _ROOT_COL.freeze();
+            return _ROOT_COL;
+        }
     }
     public Collator getCollator() {
-        return CollatorHelper.SINGLETON;
+        return CollatorHelper.EMOJI_COLLATOR;
+    }
+
+    public Collator getRootNumeric() {
+        return CollatorHelper.ROOT_NUMERIC;
     }
 
     public synchronized Phase getPhase() {

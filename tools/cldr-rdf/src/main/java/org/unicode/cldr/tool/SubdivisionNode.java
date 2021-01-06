@@ -35,7 +35,6 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
-import org.unicode.cldr.util.WikiSubdivisionLanguages;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
@@ -46,13 +45,12 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.CaseMap;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 
 public class SubdivisionNode {
+    private static final Comparator<String> COMPARATOR_ROOT = CLDRConfig.getInstance().getComparatorRoot();
     static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     static final Map<String, R2<List<String>, String>> territoryAliases = SDI.getLocaleAliasInfo().get("territory");
     static final Set<String> containment = SDI.getContainers();
@@ -61,13 +59,6 @@ public class SubdivisionNode {
     static LocaleDisplayNames ENGLISH_ICU = LocaleDisplayNames.getInstance(ULocale.ENGLISH);
 
     static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();
-    static final Comparator<String> ROOT_COL;
-    static {
-        RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-        _ROOT_COL.setNumericCollation(true);
-        _ROOT_COL.freeze();
-        ROOT_COL = (Comparator) _ROOT_COL;
-    }
     static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
     static final Normalizer2 nfc = Normalizer2.getNFCInstance();
@@ -81,7 +72,7 @@ public class SubdivisionNode {
     final String code;
     final int level;
     final SubdivisionNode parent;
-    final Map<String, SubdivisionNode> children = new TreeMap<>(ROOT_COL);
+    final Map<String, SubdivisionNode> children = new TreeMap<>(COMPARATOR_ROOT);
 
     public SubdivisionNode(String code, SubdivisionNode parent, SubdivisionSet sset) {
         this.code = code;
@@ -98,7 +89,7 @@ public class SubdivisionNode {
 
     static class SubdivisionSet {
 
-        final M3<String, String, String> NAMES = ChainedMap.of(
+		final M3<String, String, String> NAMES = ChainedMap.of(
             new TreeMap<String, Object>(),
             new TreeMap<String, Object>(),
             String.class);
@@ -238,7 +229,7 @@ public class SubdivisionNode {
         }
 
         private static void addChildren(Set<SubdivisionNode> ordered, Map<String, SubdivisionNode> children2) {
-            TreeMap<String, SubdivisionNode> temp = new TreeMap<>(ROOT_COL);
+            TreeMap<String, SubdivisionNode> temp = new TreeMap<>(COMPARATOR_ROOT);
             temp.putAll(children2);
             ordered.addAll(temp.values());
             for (SubdivisionNode n : temp.values()) {
@@ -523,7 +514,7 @@ public class SubdivisionNode {
 
             // Get the old validity data
             Map<Status, Set<String>> oldSubdivisionData = validityFormer.getStatusToCodes(LstrType.subdivision);
-            Set<String> missing = new TreeSet<>(ROOT_COL);
+            Set<String> missing = new TreeSet<>(COMPARATOR_ROOT);
             missing.addAll(sdset.TO_COUNTRY_CODE.keySet());
             Set<String> nowValid = sdset.ID_TO_NODE.keySet();
             for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {

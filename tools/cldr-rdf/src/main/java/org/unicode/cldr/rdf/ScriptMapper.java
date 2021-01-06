@@ -37,7 +37,7 @@ public class ScriptMapper implements XPathMapper {
         XPathParts xpp = XPathParts.getFrozenInstance("//ldml/localeDisplayNames/scripts/script").cloneAsThawed();
         while(rs.hasNext()) {
             final QuerySolution qs = rs.next();
-            String code = QueryClient.getStringOrNull(qs, O_ISO.substring(1));
+            String code = QueryClient.getLiteralOrNull(qs, O_ISO.substring(1));
             final String res = QueryClient.getResourceOrNull(qs, O_RESOURCE.substring(1));
             if(code.length() != 4) {
                 if(DEBUG) System.out.println("!!!" + rs.getRowNumber() + " - " + code + " " + res);

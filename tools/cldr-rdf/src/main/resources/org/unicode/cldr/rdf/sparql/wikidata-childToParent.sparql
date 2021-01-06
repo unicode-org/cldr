@@ -1,0 +1,26 @@
+
+# from https://en.wikibooks.org/wiki/SPARQL/Prefixes
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+
+
+SELECT DISTINCT ?child ?parent WHERE {
+  ?child p:P279/ps:P279 ?parent.    #child is subclass of parent
+  {
+    ?parent wdt:P31 wd:Q25295. #parent is language family, OR
+  } UNION {
+    ?child wdt:P31 wd:Q25295.  #child is language family, OR
+  } UNION {
+    ?parent wdt:P31 wd:Q34770. #parent is language, OR
+  } UNION {
+    ?child wdt:P31 wd:Q34770.  #child is language
+  }
+}

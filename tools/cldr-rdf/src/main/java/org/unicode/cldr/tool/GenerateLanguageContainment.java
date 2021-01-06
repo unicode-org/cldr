@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -18,7 +19,11 @@ import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.rdf.QueryClient;
+import org.unicode.cldr.rdf.TsvWriter;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -49,6 +54,8 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 public class GenerateLanguageContainment {
     private static final boolean ONLY_LIVING = false;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+    private static final QueryClient queryClient = QueryClient.getInstance();
+    
     static final Splitter TAB = Splitter.on('\t').trimResults();
     static final CLDRFile ENGLISH = CONFIG.getEnglish();
     static final String relDir = "../util/data/languages/";
@@ -56,29 +63,77 @@ public class GenerateLanguageContainment {
         .getSupplementalDataInfo()
         .getLocaleAliasInfo()
         .get("language");
-    static final Map<String, String> entityToLabel = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToLabel.tsv",
-        null, null, null);
+    
+    /**
+     * We load the SparQL queries using this helper object, to be able to catch exceptions…
+     */
+    final static class QueryHelper {
+        final public Map<String, String> entityToLabel;
+        final public Map<String, String> entityToCode;
+        final public ImmutableMultimap<String, String> codeToEntity;
+        final public Multimap<String, String> childToParent;
+        
+        QueryHelper() {
+            try {
+                entityToLabel = loadQueryPairsUnique(GenerateLanguageContainment.class, "wikidata-entityToLabel",
+                null, null, null);
+                
+                entityToCode = loadQueryPairsUnique(GenerateLanguageContainment.class,  "wikidata-entityToCode",
+                        code -> {
+                            code = code.replace("\"", "");
+                            R2<List<String>, String> v = ALIAS_MAP.get(code);
+                            String result = v == null
+                                ? code : v.get0().get(0);
+                            result = result.contains("_")
+                                ? code
+                                : result;
+                            return result;
+                        },
+                        null, NAME);
+                
+                codeToEntity = ImmutableMultimap.copyOf(
+                        Multimaps.invertFrom(Multimaps.forMap(entityToCode), LinkedHashMultimap.create()));
+                
+                childToParent = loadQueryPairs(GenerateLanguageContainment.class, "wikidata-childToParent",
+                        code -> getEntityName(code), code -> getEntityName(code));
+                
+            } catch(Throwable t) {
+                t.printStackTrace();
+                throw new RuntimeException(t);
+            }
+        }
+        
+        String getEntityName(String key) {
+            String code = entityToCode.get(key);
+            if (code != null) {
+                try {
+                    String name = NAME.apply(code);
+                    if (name != null) {
+                        return name;
+                    }
+                } catch (Exception e) {
+                    // TODO: Why would NAME.apply throw?
+                    // TODO: Need better handling here?
+                }
+            }
+    		String name = entityToLabel.get(key);
+            if (name != null) {
+                return name;
+            }
+            int last = key.lastIndexOf('/');
+            return key.substring(last + 1, key.length() - 1);
+        }
 
+        public void writeTsvs() throws IOException {
+            TsvWriter.writeTsv("childToParent.tsv", childToParent, "child", "parent");
+            TsvWriter.writeTsv("entityToCode.tsv", entityToCode, "lang", "langCode");
+            TsvWriter.writeTsv("entityToLabel.tsv", entityToLabel, "lang", "langLabel");
+        }
+
+    }
+    static final QueryHelper QUERY_HELPER = new QueryHelper();
+    
     static final Function<String, String> NAME = code -> code.equals("mul") ? "root" : ENGLISH.getName(code) + " (" + code + ")";
-
-    static final Map<String, String> entityToCode = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToCode.tsv",
-        code -> {
-            code = code.replace("\"", "");
-            R2<List<String>, String> v = ALIAS_MAP.get(code);
-            String result = v == null
-                ? code : v.get0().get(0);
-            result = result.contains("_")
-                ? code
-                : result;
-            return result;
-        },
-        null, NAME);
-
-    static final Multimap<String, String> codeToEntity = ImmutableMultimap.copyOf(
-        Multimaps.invertFrom(Multimaps.forMap(entityToCode), LinkedHashMultimap.create()));
-
-    static final Multimap<String, String> childToParent = loadTsvPairs(GenerateLanguageContainment.class, relDir + "childToParent.tsv",
-        code -> getEntityName(code), code -> getEntityName(code));
 
     static final Set<String> COLLECTIONS;
     static {
@@ -157,12 +212,15 @@ public class GenerateLanguageContainment {
         .put("ine", "grc")
         .build();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        new GenerateLanguageContainment().run(args);
+    }
+    void run(String[] args) throws IOException {
         if (true) {
             // check on items
             for (String check : Arrays.asList("sw", "km", "ksh", "wae", "kea", "mfe", "th", "lo")) {
                 System.out.println("Checking " + ENGLISH.getName(check) + "[" + check + "]");
-                Collection<String> entities = codeToEntity.get(check);
+                Collection<String> entities = QUERY_HELPER.codeToEntity.get(check);
                 if (entities.isEmpty()) {
                     System.out.println("no code for " + check + ": " + entities);
                     continue;
@@ -192,12 +250,12 @@ public class GenerateLanguageContainment {
 //            if (COLLECTIONS.contains(code)) {
 //                continue;
 //            }
-            Collection<String> entities = codeToEntity.get(code);
+            Collection<String> entities = QUERY_HELPER.codeToEntity.get(code);
             if (entities.isEmpty()) {
                 continue;
             }
             for (String entity : entities) {
-                if (childToParent.get(entity).isEmpty()) {
+                if (QUERY_HELPER.childToParent.get(entity).isEmpty()) {
                     continue;
                 }
                 Set<Set<String>> chains = getAncestors(entity);
@@ -243,7 +301,7 @@ public class GenerateLanguageContainment {
 
         PrintWriter out = new PrintWriter(System.out);
         print(out, parentToChild, new ArrayList<>(Arrays.asList("mul")));
-        System.out.println(out);
+        out.println();
         SimpleXMLSource xmlSource = new SimpleXMLSource("languageGroup");
         xmlSource.setNonInheriting(true); // should be gotten from DtdType...
         CLDRFile newFile = new CLDRFile(xmlSource);
@@ -262,6 +320,7 @@ public class GenerateLanguageContainment {
 //            String parentNames = getName(entityToCode, entityToLabel, entry.getValue());
 //            System.out.println(entry.getKey() + "\t" + entry.getValue() + "\t" + childNames + "\t" + parentNames);
 //        }
+        QUERY_HELPER.writeTsvs();
     }
 
     private static void showEntityLists(String title, Set<List<String>> ancestors) {
@@ -271,7 +330,7 @@ public class GenerateLanguageContainment {
                 item.forEach(new Consumer<String>() {
                     @Override
                     public void accept(String t) {
-                        System.out.println(t + "\t" + entityToCode.get(t) + "\t" + entityToLabel.get(t));
+                        System.out.println(t + "\t" + QUERY_HELPER.entityToCode.get(t) + "\t" + QUERY_HELPER.entityToLabel.get(t));
                     }
                 });
                 System.out.println();
@@ -323,12 +382,12 @@ public class GenerateLanguageContainment {
     }
 
     private static Set<Set<String>> getAncestors(String leaf) {
-        Set<List<String>> items = Containment.getAllDirected(childToParent, leaf);
+        Set<List<String>> items = Containment.getAllDirected(QUERY_HELPER.childToParent, leaf);
         Set<Set<String>> itemsFixed = new LinkedHashSet<>();
         main: for (List<String> item : items) {
             Set<String> chain = new LinkedHashSet<>();
             for (String id : item) {
-                String code = entityToCode.get(id);
+                String code = QUERY_HELPER.entityToCode.get(id);
                 if (code == null) {
                     continue;
                 }
@@ -372,6 +431,7 @@ public class GenerateLanguageContainment {
             itemsFixed.removeAll(removals);
         }
         return itemsFixed;
+// TODO: delete this commented-out code?
 //        while (true) {
 //            String code = entityToCode.get(leaf);
 //            if (code != null) {
@@ -418,68 +478,73 @@ public class GenerateLanguageContainment {
 //        }
     }
 
-    private static String getBest(Collection<String> parents) {
-        for (String parent : parents) {
-            String code = entityToCode.get(parent);
-            if (code == null) continue;
-            Type type = Iso639Data.getType(code);
-            if (type != Type.Living) {
-                continue;
-            }
-            return parent;
-        }
-        // failed
-        return parents.iterator().next();
-    }
+// TODO: This function is only called by other commented-out code above.
+//    private static String getBest(Collection<String> parents) {
+//        for (String parent : parents) {
+//            String code = QUERY_HELPER.entityToCode.get(parent);
+//            if (code == null) continue;
+//            Type type = Iso639Data.getType(code);
+//            if (type != Type.Living) {
+//                continue;
+//            }
+//            return parent;
+//        }
+//        // failed
+//        return parents.iterator().next();
+//    }
 
-    private static String getEntityName(String key) {
-        String code = entityToCode.get(key);
-        if (code != null) {
-            try {
-                String name = NAME.apply(code);
-                if (name != null) {
-                    return name;
-                }
-            } catch (Exception e) {
-            }
-        }
-        String name = entityToLabel.get(key);
-        if (name != null) {
-            return name;
-        }
-        int last = key.lastIndexOf('/');
-        return key.substring(last + 1, key.length() - 1);
-    }
-
-    private static Multimap<String, String> loadTsvPairs(Class<?> class1, String file,
-        Function<String, String> keyMapper, Function<String, String> valueMapper) {
-        String rel = FileUtilities.getRelativeFileName(class1, file);
-        System.out.println(rel);
+    private static Multimap<String, String> loadQueryPairs(Class<?> class1, String file,
+        Function<String, String> keyMapper, Function<String, String> valueMapper) throws IOException {
+        System.out.println("QUERY: " + file);
+        ResultSet rs = queryClient.execSelectFromSparql(file, QueryClient.WIKIDATA_SPARQL_SERVER);
+        // the query must return exactly two variables.
+        List<String> resultVars = rs.getResultVars();
+		assertTwoVars(resultVars);
+        final String keyName = resultVars.get(0);
+        final String valueName = resultVars.get(1);
+        
         ImmutableMultimap.Builder<String, String> _keyToValues = ImmutableMultimap.builder();
-        for (String line : FileUtilities.in(class1, file)) {
-            if (line.startsWith("?") || line.isEmpty()) continue;
-            List<String> parts = TAB.splitToList(line);
-            String key = parts.get(0);
-            String value = parts.get(1);
+        for (;rs.hasNext();) {
+        	final QuerySolution qs = rs.next();
+            String key = QueryClient.getStringOrNull(qs, keyName);
+            String value = QueryClient.getStringOrNull(qs, valueName);
             _keyToValues.put(key, value);
         }
         ImmutableMultimap<String, String> result = _keyToValues.build();
         showDups(file, result, keyMapper, valueMapper);
+        System.out.println("LOADED: " + file + " with rows " + rs.getRowNumber());
         return result;
     }
 
-    private static Map<String, String> loadTsvPairsUnique(Class<?> class1, String file,
+    /**
+     * Assuming that the SPARQL query returns exactly 2 results, treat them as Key=Value.
+     * @param class1
+     * @param file name of a sparql query, such as 'wikidata-childToParent'
+     * @param fixValue
+     * @param keyMapper
+     * @param valueMapper
+     * @return
+     * @throws IOException
+     */
+    private static Map<String, String> loadQueryPairsUnique(Class<?> class1, String file,
         Function<String, String> fixValue,
-        Function<String, String> keyMapper, Function<String, String> valueMapper) {
-        String rel = FileUtilities.getRelativeFileName(class1, file);
-        System.out.println(rel);
+        Function<String, String> keyMapper, Function<String, String> valueMapper) throws IOException {
+
+        System.out.println("QUERY: " + file);
+        ResultSet rs = queryClient.execSelectFromSparql(file, QueryClient.WIKIDATA_SPARQL_SERVER);
+
+        // the query must return exactly two variables.
+        List<String> resultVars = rs.getResultVars();
+		assertTwoVars(resultVars);
+        final String keyName = resultVars.get(0);
+        final String valueName = resultVars.get(1);
+        
         Map<String, String> _keyToValue = new TreeMap<>();
         Multimap<String, String> _keyToValues = TreeMultimap.create();
-        for (String line : FileUtilities.in(class1, file)) {
-            if (line.startsWith("?") || line.isEmpty()) continue;
-            List<String> parts = TAB.splitToList(line);
-            String key = parts.get(0);
-            String value = parts.get(1);
+        for (;rs.hasNext();) {
+        	final QuerySolution qs = rs.next();
+            String key = QueryClient.getStringOrNull(qs, keyName);
+            String value = QueryClient.getStringOrNull(qs, valueName);
             if (fixValue != null) {
                 value = fixValue.apply(value);
             }
@@ -491,10 +556,16 @@ public class GenerateLanguageContainment {
         }
         _keyToValue = ImmutableMap.copyOf(_keyToValue);
         showDups(file, _keyToValues, keyMapper, valueMapper);
+        System.out.println("LOADED: " + file + " with rows " + rs.getRowNumber());
         return _keyToValue;
     }
+	private static void assertTwoVars(List<String> resultVars) {
+		if(resultVars.size() != 2) {
+        	throw new IllegalArgumentException("expected 2 result vars but got " + resultVars.size() + ": " + resultVars);
+        }
+	}
 
-    private static void showDups(String file, Multimap<String, String> _keyToValues,
+	private static void showDups(String file, Multimap<String, String> _keyToValues,
         Function<String, String> keyMapper, Function<String, String> valueMapper) {
         for (Entry<String, Collection<String>> entry : _keyToValues.asMap().entrySet()) {
             Collection<String> valueSet = entry.getValue();
@@ -512,6 +583,6 @@ public class GenerateLanguageContainment {
     }
 
     static Set<List<String>> getAllAncestors(String lang) {
-        return Containment.getAllDirected(childToParent, lang);
+        return Containment.getAllDirected(QUERY_HELPER.childToParent, lang);
     }
 }

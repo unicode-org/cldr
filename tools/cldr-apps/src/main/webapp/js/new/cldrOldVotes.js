@@ -7,8 +7,9 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrOldVotes = (function () {
-  // TODO: shorten this function by means of subroutines
+  // called as special.load
   function load() {
+    // TODO: shorten this function by means of subroutines
     const curLocale = cldrStatus.getCurrentLocale();
     const url =
       cldrStatus.getContextPath() +

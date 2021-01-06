@@ -9,6 +9,8 @@
  */
 
 const cldrLoad = (function () {
+  const CLDR_LOAD_DEBUG = false;
+
   /**
    * haveDialog: when true, it means a "dialog" of some kind is displayed.
    * Used for inhibiting $('#left-sidebar').hover in redesign.js.
@@ -16,14 +18,7 @@ const cldrLoad = (function () {
    */
   let haveDialog = false;
 
-  /**
-   * copy of menu data
-   */
-  let _thePages = null;
-
   let locmap = null;
-
-  let canmodify = {};
 
   let isLoading = false;
 
@@ -36,46 +31,7 @@ const cldrLoad = (function () {
     other: "OtherSection",
   };
 
-  /**
-   * List of buttons/titles to set.
-   */
-  const menubuttons = {
-    locale: "title-locale",
-    section: "title-section",
-    page: "title-page",
-    dcontent: "title-dcontent",
-
-    // menubuttons.set is called by updateLocaleMenu and updateHashAndMenus
-    set: function (x, y) {
-      var cnode = document.getElementById(x + "-container");
-      var wnode = pseudoDijitRegistryById(x);
-      var dnode = document.getElementById(x);
-      if (!cnode) {
-        cnode = dnode; // for Elements that do their own stunts
-      }
-      if (y && y !== "-") {
-        if (wnode) {
-          wnode.set("label", y);
-        } else {
-          cldrDom.updateIf(x, y); // non widget
-        }
-        cldrDom.setDisplayed(cnode, true);
-      } else {
-        cldrDom.setDisplayed(cnode, false);
-        if (wnode) {
-          wnode.set("label", "-");
-        } else {
-          cldrDom.updateIf(x, "-"); // non widget
-        }
-      }
-    },
-  };
-
   let flipper = null;
-
-  // TODO: implement things like these without using dojo/dijit
-  const dijitMenuSeparator = null;
-  const dijitButton = null;
 
   /**************************/
 
@@ -84,14 +40,13 @@ const cldrLoad = (function () {
    */
   function showV() {
     locmap = new LocaleMap(null); // TODO: is it really a singleton?
-    // it may be modified below with locmap = new LocaleMap(json.locmap)
+    // locmap will be modified later with locmap = new LocaleMap(json.locmap)
 
     flipper = new Flipper([pages.loading, pages.data, pages.other]);
 
     const pucontent = document.getElementById("itemInfo");
     const theDiv = flipper.get(pages.data);
     theDiv.pucontent = pucontent;
-
     pucontent.appendChild(
       cldrDom.createChunk(cldrText.get("itemInfoBlank"), "i")
     );
@@ -99,200 +54,25 @@ const cldrLoad = (function () {
       "title-dcontent-link",
       cldrText.get("defaultContent_titleLink")
     );
-
     /*
      * Arrange for getInitialMenusEtc to be called soon after we've gotten the session id.
      * Add a short timeout to avoid interrupting the code that sets the session id.
      */
     cldrStatus.setSessionIdChangeCallback(function (sessionId) {
       setTimeout(function () {
-        getInitialMenusEtc(sessionId);
+        parseHashAndUpdate(getHash());
+        cldrMenu.getInitialMenusEtc(sessionId);
       }, 100 /* one tenth of a second */);
     });
   }
 
-  function getInitialMenusEtc(sessionId) {
-    parseHashAndUpdate(getHash()); // get the initial settings
-
-    let theLocale = cldrStatus.getCurrentLocale();
-    if (!theLocale) {
-      theLocale = "root"; // Default.
-    }
-    const xurl =
-      cldrStatus.getContextPath() +
-      "/SurveyAjax?what=menus&_=" +
-      theLocale +
-      "&locmap=" +
-      true +
-      "&s=" +
-      sessionId +
-      cldrSurvey.cacheKill();
-
-    myLoad(xurl, "initial menus for " + theLocale, function (json) {
-      loadInitialMenusFromJson(json, theLocale);
-    });
-  }
-
-  function loadInitialMenusFromJson(json, theLocale) {
-    if (!verifyJson(json, "locmap")) {
-      return;
-    }
-    locmap = new LocaleMap(json.locmap);
-    if (cldrStatus.getCurrentLocale() === "USER" && json.loc) {
-      cldrStatus.setCurrentLocale(json.loc);
-    }
-    // make this into a hashmap.
-    if (json.canmodify) {
-      for (let k in json.canmodify) {
-        canmodify[json.canmodify[k]] = true;
-      }
-    }
-    // update left sidebar with locale data
-    var theDiv = document.createElement("div");
-    theDiv.className = "localeList";
-
-    addTopLocale("root", theDiv);
-    // top locales
-    for (let n in locmap.locmap.topLocales) {
-      const topLoc = locmap.locmap.topLocales[n];
-      addTopLocale(topLoc, theDiv);
-    }
-    $("#locale-list").html(theDiv.innerHTML);
-
-    if (cldrStatus.isVisitor()) {
-      $("#show-read").prop("checked", true);
-    }
-    // tooltip locale
-    $("a.locName").tooltip();
-
-    cldrEvent.filterAllLocale();
-    // end of adding the locale data
-
-    cldrSurvey.updateCovFromJson(json);
-    // setup coverage level
-    const surveyLevels = json.menus.levels;
-    cldrSurvey.setSurveyLevels(surveyLevels);
-
-    let levelNums = []; // numeric levels
-    for (let k in surveyLevels) {
-      levelNums.push({
-        num: parseInt(surveyLevels[k].level),
-        level: surveyLevels[k],
-      });
-    }
-    levelNums.sort(function (a, b) {
-      return a.num - b.num;
-    });
-
-    let store = [];
-
-    store.push({
-      label: "Auto",
-      value: "auto",
-      title: cldrText.get("coverage_auto_desc"),
-    });
-
-    store.push({
-      type: "separator",
-    });
-
-    for (let j in levelNums) {
-      // use given order
-      if (levelNums[j].num == 0) {
-        continue; // none - skip
-      }
-      if (levelNums[j].num < cldrSurvey.covValue("minimal")) {
-        continue; // don't bother showing these
-      }
-      if (cldrStatus.getIsUnofficial() === false && levelNums[j].num == 101) {
-        continue; // hide Optional in production
-      }
-      const level = levelNums[j].level;
-      store.push({
-        label: cldrText.get("coverage_" + level.name),
-        value: level.name,
-        title: cldrText.get("coverage_" + level.name + "_desc"),
-      });
-    }
-    //coverage menu
-    let patternCoverage = $("#title-coverage .dropdown-menu");
-    if (store[0].value) {
-      $("#coverage-info").text(store[0].label);
-    }
-    for (let index = 0; index < store.length; ++index) {
-      const data = store[index];
-      if (data.value) {
-        var html =
-          '<li><a class="coverage-list" data-value="' +
-          data.value +
-          '"href="#">' +
-          data.label +
-          "</a></li>";
-        patternCoverage.append(html);
-      }
-    }
-    patternCoverage.find("li a").click(function (event) {
-      patternCoverageClick(event, theLocale, $(this));
-    });
-    if (json.canAutoImport) {
+  function continueInitializing(canAutoImport) {
+    if (canAutoImport) {
       doAutoImport();
     }
-
     reloadV();
 
-    // watch for hashchange to make other changes; cf. old "/dojo/hashchange"
     window.addEventListener("hashchange", doHashChange);
-  }
-
-  function patternCoverageClick(event, theLocale, clickedElement) {
-    event.stopPropagation();
-    event.preventDefault();
-    var newValue = clickedElement.data("value");
-    var setUserCovTo = null;
-    if (newValue == "auto") {
-      setUserCovTo = null; // auto
-    } else {
-      setUserCovTo = newValue;
-    }
-    if (setUserCovTo === cldrSurvey.getSurveyUserCov()) {
-      console.log("No change in user cov: " + setUserCovTo);
-    } else {
-      cldrSurvey.setSurveyUserCov(setUserCovTo);
-      const updurl =
-        cldrStatus.getContextPath() +
-        "/SurveyAjax?what=pref&_=" +
-        theLocale +
-        "&pref=p_covlev&_v=" +
-        cldrSurvey.getSurveyUserCov() +
-        "&s=" +
-        cldrStatus.getSessionId() +
-        cldrSurvey.cacheKill(); // SurveyMain.PREF_COVLEV
-      myLoad(
-        updurl,
-        "updating covlev to  " + cldrSurvey.getSurveyUserCov(),
-        function (json) {
-          if (verifyJson(json, "pref")) {
-            cldrEvent.unpackMenuSideBar(json);
-            if (
-              cldrStatus.getCurrentSpecial() &&
-              isReport(cldrStatus.getCurrentSpecial())
-            ) {
-              reloadV();
-            }
-            console.log("Server set covlev successfully.");
-          }
-        }
-      );
-    }
-    // still update these.
-    cldrSurvey.updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
-    updateHashAndMenus(false); // TODO: why? Maybe to show an item?
-    $("#coverage-info").text(ucFirst(newValue));
-    clickedElement.parents(".dropdown-menu").dropdown("toggle");
-    if (!cldrStatus.isDashboard()) {
-      cldrSurvey.refreshCounterVetting();
-    }
-    return false;
   }
 
   function doHashChange(event) {
@@ -333,26 +113,6 @@ const cldrLoad = (function () {
     }
   }
 
-  function addTopLocale(topLoc, theDiv) {
-    var topLocInfo = locmap.getLocaleInfo(topLoc);
-
-    var topLocRow = document.createElement("div");
-    topLocRow.className = "topLocaleRow";
-
-    var topLocDiv = document.createElement("div");
-    topLocDiv.className = "topLocale";
-    appendLocaleLink(topLocDiv, topLoc, topLocInfo);
-
-    var topLocList = document.createElement("div");
-    topLocList.className = "subLocaleList";
-
-    addSubLocales(topLocList, topLocInfo);
-
-    topLocRow.appendChild(topLocDiv);
-    topLocRow.appendChild(topLocList);
-    theDiv.appendChild(topLocRow);
-  }
-
   /**
    * Parse the hash string into setCurrent___ variables.
    * Expected to update document.title also.
@@ -369,22 +129,7 @@ const cldrLoad = (function () {
       }
       const curLocale = cldrStatus.getCurrentLocale();
       if (pieces[0].length == 0 && curLocale) {
-        if (pieces.length > 2) {
-          cldrStatus.setCurrentPage(pieces[2]);
-          if (pieces.length > 3) {
-            let id = pieces[3];
-            if (id.substr(0, 2) == "x@") {
-              id = id.substr(2);
-            }
-            cldrStatus.setCurrentId(id);
-          } else {
-            cldrStatus.setCurrentId("");
-          }
-        } else {
-          cldrStatus.setCurrentPage("");
-          cldrStatus.setCurrentId("");
-        }
-        cldrStatus.setCurrentSpecial(null);
+        localeParseHash(pieces);
       } else {
         const curSpec = pieces[0] ? pieces[0] : "locales";
         cldrStatus.setCurrentSpecial(curSpec);
@@ -392,8 +137,7 @@ const cldrLoad = (function () {
         if (special && special.parseHash && special.parseHash(pieces)) {
           // current page and id have been set by special.parseHash
         } else {
-          cldrStatus.setCurrentPage("");
-          cldrStatus.setCurrentId("");
+          unspecialParseHash();
         }
       }
     } else {
@@ -409,6 +153,30 @@ const cldrLoad = (function () {
     if (!cldrStatus.getCurrentLocale()) {
       cldrEvent.searchRefresh();
     }
+  }
+
+  function localeParseHash(pieces) {
+    if (pieces.length > 2) {
+      cldrStatus.setCurrentPage(pieces[2]);
+      if (pieces.length > 3) {
+        let id = pieces[3];
+        if (id.substr(0, 2) == "x@") {
+          id = id.substr(2);
+        }
+        cldrStatus.setCurrentId(id);
+      } else {
+        cldrStatus.setCurrentId("");
+      }
+    } else {
+      cldrStatus.setCurrentPage("");
+      cldrStatus.setCurrentId("");
+    }
+    cldrStatus.setCurrentSpecial(null);
+  }
+
+  function unspecialParseHash() {
+    cldrStatus.setCurrentPage("");
+    cldrStatus.setCurrentId("");
   }
 
   function updateWindowTitle() {
@@ -538,35 +306,35 @@ const cldrLoad = (function () {
         special.handleIdChanged(curSpecial, showCurrentId);
       }
     } else {
-      const curId = cldrStatus.getCurrentId();
-      if (curId) {
-        var xtr = document.getElementById("r@" + curId);
-        if (!xtr) {
-          console.log("Warning could not load id " + curId + " does not exist");
-          updateCurrentId(null);
-        } else if (xtr.proposedcell && xtr.proposedcell.showFn) {
-          // TODO: visible? coverage?
-          cldrInfo.showRowObjFunc(
-            xtr,
-            xtr.proposedcell,
-            xtr.proposedcell.showFn
-          );
-          console.log("Changed to " + cldrStatus.getCurrentId());
-          if (!cldrStatus.isDashboard()) {
-            scrollToItem();
-          }
-        } else {
-          console.log(
-            "Warning could not load id " +
-              curId +
-              " - not setup - " +
-              xtr.toString() +
-              " pc=" +
-              xtr.proposedcell +
-              " sf = " +
-              xtr.proposedcell.showFn
-          );
+      unspecialHandleIdChanged();
+    }
+  }
+
+  function unspecialHandleIdChanged() {
+    const curId = cldrStatus.getCurrentId();
+    if (curId) {
+      var xtr = document.getElementById("r@" + curId);
+      if (!xtr) {
+        console.log("Warning could not load id " + curId + " does not exist");
+        updateCurrentId(null);
+      } else if (xtr.proposedcell && xtr.proposedcell.showFn) {
+        // TODO: visible? coverage?
+        cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
+        console.log("Changed to " + cldrStatus.getCurrentId());
+        if (!cldrStatus.isDashboard()) {
+          scrollToItem();
         }
+      } else {
+        console.log(
+          "Warning could not load id " +
+            curId +
+            " - not setup - " +
+            xtr.toString() +
+            " pc=" +
+            xtr.proposedcell +
+            " sf = " +
+            xtr.proposedcell.showFn
+        );
       }
     }
   }
@@ -582,21 +350,6 @@ const cldrLoad = (function () {
         console.log("Scrolling to " + curId);
         xtr.scrollIntoView({ block: "center" });
       }
-    }
-  }
-
-  function updateCoverageMenuTitle() {
-    const cov = cldrSurvey.getSurveyUserCov();
-    if (cov) {
-      $("#cov-info").text(cldrText.get("coverage_" + cov));
-    } else {
-      $("#coverage-info").text(
-        cldrText.sub("coverage_auto_msg", {
-          surveyOrgCov: cldrText.get(
-            "coverage_" + cldrSurvey.getSurveyOrgCov()
-          ),
-        })
-      );
     }
   }
 
@@ -657,60 +410,11 @@ const cldrLoad = (function () {
     }
   }
 
-  function updateLocaleMenu() {
-    const curLocale = cldrStatus.getCurrentLocale();
-    if (curLocale != null && curLocale != "" && curLocale != "-") {
-      cldrStatus.setCurrentLocaleName(locmap.getLocaleName(curLocale));
-      var bund = locmap.getLocaleInfo(curLocale);
-      if (bund) {
-        if (bund.readonly) {
-          cldrDom.addClass(
-            document.getElementById(menubuttons.locale),
-            "locked"
-          );
-        } else {
-          cldrDom.removeClass(
-            document.getElementById(menubuttons.locale),
-            "locked"
-          );
-        }
-
-        if (bund.dcChild) {
-          menubuttons.set(
-            menubuttons.dcontent,
-            cldrText.sub("defaultContent_header_msg", {
-              info: bund,
-              locale: cldrStatus.getCurrentLocale(),
-              dcChild: locmap.getLocaleName(bund.dcChild),
-            })
-          );
-        } else {
-          menubuttons.set(menubuttons.dcontent);
-        }
-      } else {
-        cldrDom.removeClass(
-          document.getElementById(menubuttons.locale),
-          "locked"
-        );
-        menubuttons.set(menubuttons.dcontent);
-      }
-    } else {
-      cldrStatus.setCurrentLocaleName("");
-      cldrDom.removeClass(
-        document.getElementById(menubuttons.locale),
-        "locked"
-      );
-      menubuttons.set(menubuttons.dcontent);
-    }
-    menubuttons.set(menubuttons.locale, cldrStatus.getCurrentLocaleName());
-  }
-
   function reloadV() {
     if (cldrStatus.isDisconnected()) {
       cldrSurvey.unbust();
     }
-
-    document.getElementById("DynamicDataSection").innerHTML = ""; //reset the data
+    document.getElementById("DynamicDataSection").innerHTML = "";
     $("#nav-page").hide();
     $("#nav-page-footer").hide();
     isLoading = false;
@@ -753,8 +457,6 @@ const cldrLoad = (function () {
       cldrDom.createChunk(cldrText.get("loading"), "i", "loadingMsg")
     );
 
-    const itemLoadInfo = cldrDom.createChunk("", "div", "itemLoadInfo");
-
     // Create a little spinner to spin "..." so the user knows we are doing something..
     var spinChunk = cldrDom.createChunk("...", "i", "loadingMsgSpin");
     var spin = 0;
@@ -787,6 +489,9 @@ const cldrLoad = (function () {
         window.clearInterval(timerToKill);
       }
     );
+
+    const itemLoadInfo = cldrDom.createChunk("", "div", "itemLoadInfo");
+    itemLoadInfo.setAttribute("id", "itemLoadInfo");
 
     shower(itemLoadInfo); // first load
 
@@ -823,7 +528,23 @@ const cldrLoad = (function () {
       }
     }
     cldrSurvey.showLoader(cldrText.get("loading"));
+    const curSpecial = cldrStatus.getCurrentSpecial();
+    if (curSpecial === "none") {
+      // TODO: clarify when and why this would happen
+      cldrSurvey.hideLoader();
+      isLoading = false;
+      window.location = cldrStatus.getSurvUrl(); // redirect home
+    } else {
+      const special = getSpecial(curSpecial);
+      if (special && special.load) {
+        special.load();
+      } else {
+        unspecialLoad(itemLoadInfo, theDiv);
+      }
+    }
+  }
 
+  function unspecialLoad(itemLoadInfo, theDiv) {
     const curSpecial = cldrStatus.getCurrentSpecial();
     const curLocale = cldrStatus.getCurrentLocale();
     if (curLocale && !curSpecial) {
@@ -832,34 +553,50 @@ const cldrLoad = (function () {
       if (!curPage && !curId) {
         loadGeneral(itemLoadInfo);
       } else if (curId === "!") {
+        // TODO: clarify when and why this would happen
         loadExclamationPoint();
       } else if (!cldrSurvey.isInputBusy()) {
         /*
          * Make “all rows” requests only when !isInputBusy, to avoid wasted requests
          * if the user leaves the input box open for an extended time.
-         * Common case: this is an actual locale data page.
          */
         loadAllRows(itemLoadInfo, theDiv);
       }
-    } else if (curSpecial === "none") {
-      cldrSurvey.hideLoader();
-      isLoading = false;
-      window.location = cldrStatus.getSurvUrl(); // redirect home
-    } else {
-      const special = getSpecial(curSpecial);
-      if (special) {
-        special.load();
-      } else {
-        console.log("No special js found for " + curSpecial);
-      }
+    } else if (curSpecial) {
+      console.log("No special js found for " + curSpecial);
     }
   }
 
+  /**
+   * Given a string like "about", return a "special" object like cldrAbout.
+   * These objects share in common that they may define methods:
+   *  - load
+   *  - handleIdChanged
+   *  - parseHash
+   *
+   * called as special.load, etc.
+   *
+   * TODO: replace this mechanism with something object-oriented.
+   * Currently there is "inheritance" only in the crude form of fallback functions:
+   *  - unspecialLoad
+   *  - unspecialHandleIdChanged
+   *  - unspecialParseHash
+   *
+   * Also these, which don't fit the fallback pattern:
+   *  - loadExclamationPoint
+   *  - loadGeneral
+   *  - loadAllRows
+   *  - localeParseHash
+   *
+   * @param {string} str
+   * @return the special object, or null if no such object
+   */
   function getSpecial(str) {
-    const map = {
+    const specials = {
       about: cldrAbout,
       createAndLogin: cldrCreateLogin,
       forum: cldrForum,
+      forum_participation: cldrForumParticipation,
       locales: cldrLocales,
       mail: cldrMail,
       oldvotes: cldrOldVotes,
@@ -870,8 +607,8 @@ const cldrLoad = (function () {
       recent_activity: cldrRecentActivity,
       retry: cldrRetry,
     };
-    if (str in map) {
-      return map[str];
+    if (str in specials) {
+      return specials[str];
     } else {
       return null;
     }
@@ -1052,645 +789,7 @@ const cldrLoad = (function () {
       doPush = false;
     }
     replaceHash(doPush); // update the hash
-    updateLocaleMenu();
-
-    const curLocale = cldrStatus.getCurrentLocale();
-    if (curLocale == null) {
-      /* Do this for null, but not for empty string ""; it's originally null, later may be "".
-         Note that ("" == null) is false. */
-      menubuttons.set(menubuttons.section);
-      const curSpecial = cldrStatus.getCurrentSpecial();
-      if (curSpecial != null) {
-        const specialId = "special_" + curSpecial;
-        menubuttons.set(menubuttons.page, cldrText.get(specialId));
-      } else {
-        menubuttons.set(menubuttons.page);
-      }
-      return; // nothing to do.
-    }
-
-    const specialItems = makeMenuArray();
-    if (_thePages == null || _thePages.loc != curLocale) {
-      getMenusFromServer(specialItems);
-    } else {
-      // go ahead and update
-      updateMenus(_thePages, specialItems);
-    }
-  }
-
-  function makeMenuArray() {
-    const aboutMenu = {
-      title: "About",
-      special: "about",
-      level: 2, // TODO: no indent if !surveyUser; refactor to obviate "level"; make valid html
-    };
-    const surveyUser = cldrStatus.getSurveyUser();
-    if (!surveyUser) {
-      return [aboutMenu]; // TODO: enable more menu items when not logged in, e.g., browse
-    }
-    const sessionId = cldrStatus.getSessionId();
-    const userID = surveyUser.id ? surveyUser.id : 0;
-    const surveyUserPerms = cldrStatus.getPermissions();
-    const surveyUserURL = {
-      // TODO: make these all like #about -- no url or jsp here
-      myAccountSetting: "survey?do=listu",
-      disableMyAccount: "lock.jsp",
-      xmlUpload: "upload.jsp?a=/cldr-apps/survey&s=" + sessionId,
-      manageUser: "survey?do=list",
-      flag: "tc-flagged.jsp?s=" + sessionId,
-      browse: "browse.jsp",
-    };
-
-    /**
-     * 'name' - the js/special/___.js name
-     * 'hidden' - true to hide the item
-     * 'title' - override of menu name
-     */
-    return [
-      {
-        title: "Admin Panel",
-        special: "admin",
-        display: surveyUser && surveyUser.userlevelName === "ADMIN",
-      },
-      {
-        divider: true,
-        display: surveyUser && surveyUser.userlevelName === "ADMIN",
-      },
-
-      {
-        title: "My Account",
-      }, // My Account section
-
-      {
-        title: "Settings",
-        level: 2,
-        url: surveyUserURL.myAccountSetting,
-        display: surveyUser && true,
-      },
-      {
-        title: "Lock (Disable) My Account",
-        level: 2,
-        url: surveyUserURL.disableMyAccount,
-        display: surveyUser && true,
-      },
-
-      {
-        divider: true,
-      },
-      {
-        title: "My Votes",
-      }, // My Votes section
-
-      /*
-       * This indirectly references "special_oldvotes" in cldrText.js
-       */
-      {
-        special: "oldvotes",
-        level: 2,
-        display: surveyUserPerms && surveyUserPerms.userCanImportOldVotes,
-      },
-      {
-        special: "recent_activity",
-        level: 2,
-      },
-      {
-        title: "Upload XML",
-        level: 2,
-        url: surveyUserURL.xmlUpload,
-      },
-
-      {
-        divider: true,
-      },
-      {
-        title: "My Organization(" + cldrStatus.getOrganizationName() + ")",
-      }, // My Organization section
-
-      {
-        special: "vsummary" /* Cf. special_vsummary */,
-        level: 2,
-        display: surveyUserPerms && surveyUserPerms.userCanUseVettingSummary,
-      },
-      {
-        title: "List " + cldrStatus.getOrganizationName() + " Users",
-        level: 2,
-        url: surveyUserURL.manageUser,
-        display:
-          surveyUserPerms &&
-          (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter),
-      },
-      {
-        special: "forum_participation" /* Cf. special_forum_participation */,
-        level: 2,
-        display: surveyUserPerms && surveyUserPerms.userCanMonitorForum,
-      },
-      {
-        special:
-          "vetting_participation" /* Cf. special_vetting_participation */,
-        level: 2,
-        display:
-          surveyUserPerms &&
-          (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter),
-      },
-      {
-        title: "LOCKED: Note: your account is currently locked.",
-        level: 2,
-        display: surveyUserPerms && surveyUserPerms.userIsLocked,
-        bold: true,
-      },
-
-      {
-        divider: true,
-      },
-      {
-        title: "Forum",
-      }, // Forum section
-
-      {
-        special: "flagged",
-        level: 2,
-        hasFlag: true,
-      },
-      {
-        special: "mail",
-        level: 2,
-        display: cldrStatus.getIsUnofficial(),
-      },
-      {
-        special: "bulk_close_posts" /* Cf. special_bulk_close_posts */,
-        level: 2,
-        display: surveyUser && surveyUser.userlevelName === "ADMIN",
-      },
-
-      {
-        divider: true,
-      },
-      {
-        title: "Informational",
-      }, // Informational section
-
-      {
-        special: "statistics",
-        level: 2,
-      },
-
-      aboutMenu,
-
-      {
-        title: "Lookup a code or xpath",
-        level: 2,
-        url: surveyUserURL.browse,
-      },
-      {
-        title: "Error Subtypes",
-        level: 2,
-        url: "./tc-all-errors.jsp",
-        display: surveyUserPerms && surveyUserPerms.userIsTC,
-      },
-    ];
-  }
-
-  function getMenusFromServer(specialItems) {
-    // show the raw IDs while loading.
-    updateMenuTitles(null, specialItems);
-    const curLocale = cldrStatus.getCurrentLocale();
-    if (!curLocale) {
-      return;
-    }
-    const url =
-      cldrStatus.getContextPath() +
-      "/SurveyAjax?what=menus&_=" +
-      curLocale +
-      "&locmap=" +
-      false +
-      "&s=" +
-      cldrStatus.getSessionId() +
-      cldrSurvey.cacheKill();
-    myLoad(url, "menus", function (json) {
-      if (!verifyJson(json, "menus")) {
-        console.log("JSON verification failed for menus in cldrLoad");
-        return; // busted?
-      }
-      if (json.locmap) {
-        locmap = new LocaleMap(locmap); // overwrite with real data
-      }
-      // make this into a hashmap.
-      if (json.canmodify) {
-        for (let k in json.canmodify) {
-          canmodify[json.canmodify[k]] = true;
-        }
-      }
-      cldrSurvey.updateCovFromJson(json);
-      updateCoverageMenuTitle();
-      cldrSurvey.updateCoverage(flipper.get(pages.data)); // update CSS and auto menu title
-      unpackMenus(json);
-      cldrEvent.unpackMenuSideBar(json);
-      updateMenus(_thePages, specialItems);
-    });
-  }
-
-  /**
-   * Update the menus
-   */
-  function updateMenus(menuMap, specialItems) {
-    if (!menuMap) {
-      console.log("❌ menuMap is FALSY in updateMenus!");
-    }
-    if (!specialItems) {
-      console.log("❌ specialItems is FALSY in updateMenus!");
-    }
-    // initialize menus
-    if (!menuMap.menusSetup) {
-      menuMap.menusSetup = true;
-      menuMap.setCheck = function (menu, checked, disabled) {
-        if (menu) {
-          menu.set(
-            "iconClass",
-            checked ? "dijitMenuItemIcon menu-x" : "dijitMenuItemIcon menu-o"
-          );
-          menu.set("disabled", disabled);
-        }
-      };
-      var menuSection = pseudoDijitRegistryById("menu-section");
-      menuMap.section_general = newPseudoDijitMenuItem({
-        label: cldrText.get("section_general"),
-        iconClass: "dijitMenuItemIcon ",
-        disabled: true,
-        onClick: function () {
-          if (
-            cldrStatus.getCurrentPage() != "" ||
-            (cldrStatus.getCurrentSpecial() != "" &&
-              cldrStatus.getCurrentSpecial() != null)
-          ) {
-            cldrStatus.setCurrentId(""); // no id if jumping pages
-            cldrStatus.setCurrentPage("");
-            cldrStatus.setCurrentSection("");
-            cldrStatus.setCurrentSpecial("");
-            updateMenuTitles(menuMap, specialItems);
-            reloadV();
-          }
-        },
-      });
-      if (menuSection) {
-        menuSection.addChild(menuMap.section_general);
-      }
-      for (let j in menuMap.sections) {
-        (function (aSection) {
-          aSection.menuItem = newPseudoDijitMenuItem({
-            label: aSection.name,
-            iconClass: "dijitMenuItemIcon",
-            onClick: function () {
-              cldrStatus.setCurrentId("!"); // no id if jumping pages
-              cldrStatus.setCurrentPage(aSection.id);
-              cldrStatus.setCurrentSpecial("");
-              updateMenus(menuMap, specialItems);
-              updateMenuTitles(menuMap, specialItems);
-              reloadV();
-            },
-            disabled: true,
-          });
-          if (menuSection) {
-            menuSection.addChild(aSection.menuItem);
-          }
-        })(menuMap.sections[j]);
-      }
-
-      if (menuSection) {
-        menuSection.addChild(new dijitMenuSeparator());
-      }
-      menuMap.forumMenu = newPseudoDijitMenuItem({
-        label: cldrText.get("section_forum"),
-        iconClass: "dijitMenuItemIcon", // menu-chat
-        disabled: true,
-        onClick: function () {
-          cldrStatus.setCurrentId("!"); // no id if jumping pages
-          cldrStatus.setCurrentPage("");
-          cldrStatus.setCurrentSpecial("forum");
-          updateMenus(menuMap, specialItems);
-          updateMenuTitles(menuMap, specialItems);
-          reloadV();
-        },
-      });
-      if (menuSection) {
-        menuSection.addChild(menuMap.forumMenu);
-      }
-    }
-
-    updateMenuTitles(menuMap, specialItems);
-
-    var myPage = null;
-    var mySection = null;
-    const curSpecial = cldrStatus.getCurrentSpecial();
-    if (curSpecial == null || curSpecial == "") {
-      // first, update display names
-      const curPage = cldrStatus.getCurrentPage();
-      if (menuMap.sectionMap[curPage]) {
-        // page is really a section
-        mySection = menuMap.sectionMap[curPage];
-        myPage = null;
-      } else if (menuMap.pageToSection[curPage]) {
-        mySection = menuMap.pageToSection[curPage];
-        myPage = mySection.pageMap[curPage];
-      }
-      if (mySection !== null) {
-        const titlePageContainer = document.getElementById(
-          "title-page-container"
-        );
-
-        // update menus under 'page' - peer pages
-        if (!titlePageContainer.menus) {
-          titlePageContainer.menus = {};
-        }
-
-        // hide all. TODO use a foreach model?
-        for (var zz in titlePageContainer.menus) {
-          var aMenu = titlePageContainer.menus[zz];
-          if (aMenu) {
-            aMenu.set("label", "-");
-          } else {
-            console.log("warning: aMenu is falsy in updateMenus");
-          }
-        }
-
-        var showMenu = titlePageContainer.menus[mySection.id];
-
-        if (!showMenu) {
-          // doesn't exist - add it.
-          var menuPage = newPseudoDijitDropDownMenu();
-          for (var k in mySection.pages) {
-            // use given order
-            (function (aPage) {
-              var pageMenu = (aPage.menuItem = newPseudoDijitMenuItem({
-                label: aPage.name,
-                iconClass:
-                  aPage.id == cldrStatus.getCurrentPage()
-                    ? "dijitMenuItemIcon menu-x"
-                    : "dijitMenuItemIcon menu-o",
-                onClick: function () {
-                  cldrStatus.setCurrentId(""); // no id if jumping pages
-                  cldrStatus.setCurrentPage(aPage.id);
-                  updateMenuTitles(menuMap, specialItems);
-                  reloadV();
-                },
-                disabled:
-                  cldrSurvey.effectiveCoverage() <
-                  parseInt(aPage.levs[cldrStatus.getCurrentLocale()]),
-              }));
-            })(mySection.pages[k]);
-          }
-
-          showMenu = newPseudoDijitDropDownButton({
-            label: "-",
-            dropDown: menuPage,
-          });
-
-          titlePageContainer.menus[
-            mySection.id
-          ] = mySection.pagesMenu = showMenu;
-        }
-
-        if (myPage !== null) {
-          $("#title-page-container")
-            .html("<h1>" + myPage.name + "</h1>")
-            .show();
-        } else {
-          $("#title-page-container").html("").hide();
-        }
-        cldrDom.setDisplayed(showMenu, true);
-        cldrDom.setDisplayed(titlePageContainer, true); // will fix title later
-      }
-    }
-
-    menuMap.setCheck(
-      menuMap.section_general,
-      cldrStatus.getCurrentPage() == "" &&
-        (cldrStatus.getCurrentSpecial() == "" ||
-          cldrStatus.getCurrentSpecial() == null),
-      false
-    );
-
-    // Update the status of the items in the Section menu
-    for (var j in menuMap.sections) {
-      var aSection = menuMap.sections[j];
-      // need to see if any items are visible @ current coverage
-      const curLocale = cldrStatus.getCurrentLocale();
-      const curSection = cldrStatus.getCurrentSection();
-      menuMap.setCheck(
-        aSection.menuItem,
-        curSection == aSection.id,
-        cldrSurvey.effectiveCoverage() < aSection.minLev[curLocale]
-      );
-
-      // update the items in that section's Page menu
-      if (curSection == aSection.id) {
-        for (var k in aSection.pages) {
-          var aPage = aSection.pages[k];
-          if (!aPage.menuItem) {
-            console.log("Odd - " + aPage.id + " has no menuItem");
-          } else {
-            menuMap.setCheck(
-              aPage.menuItem,
-              aPage.id == cldrStatus.getCurrentPage(),
-              cldrSurvey.effectiveCoverage() < parseInt(aPage.levs[curLocale])
-            );
-          }
-        }
-      }
-    }
-    menuMap.setCheck(
-      menuMap.forumMenu,
-      cldrStatus.getCurrentSpecial() == "forum",
-      cldrStatus.getSurveyUser() === null
-    );
-    cldrEvent.resizeSidebar();
-  }
-
-  /**
-   * Just update the titles of the menus
-   */
-  function updateMenuTitles(menuMap, specialItems) {
-    if (menubuttons.lastspecial === undefined) {
-      menubuttons.lastspecial = null;
-
-      // Set up the menu here?
-      var parMenu = document.getElementById("manage-list");
-      for (var k = 0; k < specialItems.length; k++) {
-        var item = specialItems[k];
-        (function (item) {
-          if (item.display != false) {
-            var subLi = document.createElement("li");
-            if (item.special) {
-              // special items so look up in cldrText.js
-              item.title = cldrText.get("special_" + item.special);
-              item.url = "#" + item.special;
-              item.blank = false;
-            }
-            if (item.url) {
-              var subA = document.createElement("a");
-
-              if (item.hasFlag) {
-                // forum may need images attached to it
-                var Img = document.createElement("img");
-                Img.setAttribute("src", "flag.png");
-                Img.setAttribute("alt", "flag");
-                Img.setAttribute("title", "flag.png");
-                Img.setAttribute("border", 0);
-
-                subA.appendChild(Img);
-              }
-              subA.appendChild(document.createTextNode(item.title + " "));
-              subA.href = item.url;
-
-              if (item.blank != false) {
-                subA.target = "_blank";
-                subA.appendChild(
-                  cldrDom.createChunk(
-                    "",
-                    "span",
-                    "glyphicon glyphicon-share manage-list-icon"
-                  )
-                );
-              }
-
-              if (item.level) {
-                // append it to appropriate levels
-                var level = item.level;
-                for (var i = 0; i < level - 1; i++) {
-                  /*
-                   * Indent by creating lists within lists, each list containing only one item.
-                   * TODO: indent by a better method. Note that for valid html, ul should contain li;
-                   * ul directly containing element other than li is generally invalid.
-                   */
-                  let ul = document.createElement("ul");
-                  let li = document.createElement("li");
-                  ul.setAttribute("style", "list-style-type:none");
-                  ul.appendChild(li);
-                  li.appendChild(subA);
-                  subA = ul;
-                }
-              }
-              subLi.appendChild(subA);
-            }
-            if (!item.url && !item.divider) {
-              // if it is pure text/html & not a divider
-              if (!item.level) {
-                subLi.appendChild(document.createTextNode(item.title + " "));
-              } else {
-                var subA = null;
-                if (item.bold) {
-                  subA = document.createElement("b");
-                } else if (item.italic) {
-                  subA = document.createElement("i");
-                } else {
-                  subA = document.createElement("span");
-                }
-                subA.appendChild(document.createTextNode(item.title + " "));
-
-                var level = item.level;
-                for (var i = 0; i < level - 1; i++) {
-                  let ul = document.createElement("ul");
-                  let li = document.createElement("li");
-                  ul.setAttribute("style", "list-style-type:none");
-                  ul.appendChild(li);
-                  li.appendChild(subA);
-                  subA = ul;
-                }
-                subLi.appendChild(subA);
-              }
-              if (item.divider) {
-                subLi.className = "nav-divider";
-              }
-              parMenu.appendChild(subLi);
-            }
-            if (item.divider) {
-              subLi.className = "nav-divider";
-            }
-            parMenu.appendChild(subLi);
-          }
-        })(item);
-      }
-    }
-
-    if (menubuttons.lastspecial) {
-      cldrDom.removeClass(menubuttons.lastspecial, "selected");
-    }
-
-    updateLocaleMenu(menuMap);
-
-    const curSpecial = cldrStatus.getCurrentSpecial();
-    const titlePageContainer = document.getElementById("title-page-container");
-
-    if (curSpecial != null && curSpecial != "") {
-      const specialId = "special_" + curSpecial;
-      $("#section-current").html(cldrText.get(specialId));
-      cldrDom.setDisplayed(titlePageContainer, false);
-    } else if (!menuMap) {
-      cldrDom.setDisplayed(titlePageContainer, false);
-    } else {
-      const curPage = cldrStatus.getCurrentPage();
-      if (menuMap.sectionMap[curPage]) {
-        const curSection = curPage; // section = page
-        cldrStatus.setCurrentSection(curSection);
-        $("#section-current").html(menuMap.sectionMap[curSection].name);
-        cldrDom.setDisplayed(titlePageContainer, false); // will fix title later
-      } else if (menuMap.pageToSection[curPage]) {
-        const mySection = menuMap.pageToSection[curPage];
-        cldrStatus.setCurrentSection(mySection.id);
-        $("#section-current").html(mySection.name);
-        cldrDom.setDisplayed(titlePageContainer, false); // will fix title later
-      } else {
-        $("#section-current").html(cldrText.get("section_general"));
-        cldrDom.setDisplayed(titlePageContainer, false);
-      }
-    }
-  }
-
-  function unpackMenus(json) {
-    const menus = json.menus;
-
-    if (_thePages) {
-      for (let k in menus.sections) {
-        const oldSection = _thePages.sectionMap[menus.sections[k].id];
-        for (let j in menus.sections[k].pages) {
-          const oldPage = oldSection.pageMap[menus.sections[k].pages[j].id];
-
-          // copy over levels
-          oldPage.levs[json.loc] = menus.sections[k].pages[j].levs[json.loc];
-        }
-      }
-    } else {
-      // set up some hashes
-      menus.haveLocs = {};
-      menus.sectionMap = {};
-      menus.pageToSection = {};
-      for (let k in menus.sections) {
-        menus.sectionMap[menus.sections[k].id] = menus.sections[k];
-        menus.sections[k].pageMap = {};
-        menus.sections[k].minLev = {};
-        for (let j in menus.sections[k].pages) {
-          menus.sections[k].pageMap[menus.sections[k].pages[j].id] =
-            menus.sections[k].pages[j];
-          menus.pageToSection[menus.sections[k].pages[j].id] =
-            menus.sections[k];
-        }
-      }
-      _thePages = menus;
-    }
-
-    for (let k in _thePages.sectionMap) {
-      let min = 200;
-      for (let j in _thePages.sectionMap[k].pageMap) {
-        const thisLev = parseInt(
-          _thePages.sectionMap[k].pageMap[j].levs[json.loc]
-        );
-        if (min > thisLev) {
-          min = thisLev;
-        }
-      }
-      _thePages.sectionMap[k].minLev[json.loc] = min;
-    }
-
-    _thePages.haveLocs[json.loc] = true;
+    cldrMenu.update();
   }
 
   function trimNull(x) {
@@ -1703,14 +802,6 @@ const cldrLoad = (function () {
       // do nothing
     }
     return x;
-  }
-
-  /**
-   * Uppercase the first letter of a sentence
-   * @return {String} string with first letter uppercase
-   */
-  function ucFirst(s) {
-    return s.charAt(0).toUpperCase() + s.slice(1);
   }
 
   /**
@@ -1792,7 +883,7 @@ const cldrLoad = (function () {
       );
       try {
         handler(json);
-        //resize height
+        // resize height
         $("#main-row").css({
           height: $("#main-row>div").height(),
         });
@@ -1822,22 +913,6 @@ const cldrLoad = (function () {
       headers: headers,
     };
     cldrAjax.queueXhr(xhrArgs);
-  }
-
-  function addSubLocales(parLocDiv, subLocInfo) {
-    if (subLocInfo.sub) {
-      for (let n in subLocInfo.sub) {
-        const subLoc = subLocInfo.sub[n];
-        addSubLocale(parLocDiv, subLoc);
-      }
-    }
-  }
-
-  function addSubLocale(parLocDiv, subLoc) {
-    const subLocInfo = locmap.getLocaleInfo(subLoc);
-    const subLocDiv = cldrDom.createChunk(null, "div", "subLocale");
-    appendLocaleLink(subLocDiv, subLoc, subLocInfo);
-    parLocDiv.appendChild(subLocDiv);
   }
 
   function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
@@ -1876,7 +951,7 @@ const cldrLoad = (function () {
       clickyLink.title = subInfo.special_comment;
     }
 
-    if (canmodify && subLoc in canmodify) {
+    if (cldrMenu.canModifyLoc(subLoc)) {
       cldrDom.addClass(clickyLink, "canmodify");
     } else {
       cldrDom.addClass(subLocDiv, "hide"); // not modifiable
@@ -1884,12 +959,12 @@ const cldrLoad = (function () {
     return clickyLink;
   }
 
-  function getThePages() {
-    return _thePages;
-  }
-
   function getTheLocaleMap() {
     return locmap;
+  }
+
+  function setTheLocaleMap(lm) {
+    locmap = lm;
   }
 
   // getHash and setHash are replacements for dojo/hash
@@ -1902,40 +977,46 @@ const cldrLoad = (function () {
    * For example, if the current URL is "https:...#bar", return "bar".
    *
    * Typically the first value we return is "locales///"
+   *
+   * References: https://developer.mozilla.org/en-US/docs/Web/API/URL/hash
+   * https://developer.mozilla.org/en-US/docs/Web/API/Window/location
    */
   function getHash() {
-    // https://developer.mozilla.org/en-US/docs/Web/API/URL/hash
-    // https://developer.mozilla.org/en-US/docs/Web/API/Window/location
-    let hash = sliceHash(window.location.hash);
-    console.log("getHash returning " + hash);
+    const hash = sliceHash(window.location.hash);
+    if (CLDR_LOAD_DEBUG) {
+      console.log("getHash returning " + hash);
+    }
     return hash;
   }
 
   /**
    * Set the window location hash
    *
-   * ... TODO: implement setHash with "replace"
+   * TODO: implement setHash with "replace"
+   *
+   * This is a replacement for dojo/hash
+   *
+   * "To manipulate the value of the hash, simply call dojo/hash with the new value.
+   * It will be added to the browser history stack and it will publish a /dojo/hashchange topic,
+   * triggering anything subscribed ...
+   * In order to not to add to the history stack, pass true as the second parameter (replace).
+   * This will update the current browser URL and replace the current history state"
    */
   function setHash(newHash, replace) {
-    // To manipulate the value of the hash, simply call dojo/hash with the new value.
-    // It will be added to the browser history stack and it will publish a /dojo/hashchange topic,
-    // triggering anything subscribed
-
-    // In order to not to add to the history stack, pass true as the second parameter (replace).
-    // This will update the current browser URL and replace the current history state
-
     newHash = sliceHash(newHash);
     if (newHash !== sliceHash(window.location.hash)) {
       const oldUrl = window.location.href;
       const newUrl = oldUrl.split("#")[0] + "#" + newHash;
-      console.log(
-        "setHash going to " +
-          newUrl +
-          " - Called with: " +
-          newHash +
-          " - " +
-          replace
-      );
+      if (CLDR_LOAD_DEBUG) {
+        console.log(
+          "setHash going to " +
+            newUrl +
+            " - Called with: " +
+            newHash +
+            " - " +
+            replace
+        );
+      }
       window.location.href = newUrl;
     }
   }
@@ -1949,39 +1030,46 @@ const cldrLoad = (function () {
     return haveDialog;
   }
 
-  function pseudoDijitRegistryById(id) {
-    // TODO: implement a replacement for dijit/Registry byId()
-    // https://dojotoolkit.org/reference-guide/1.10/dijit/registry.html
-    console.log("pseudoDijitRegistryById not implemented yet! id = " + id);
-    return null;
-  }
-
   function newProgressDialog(args) {
     // TODO: implement a replacement for dijit/Dialog (or something simpler)
+    // This is used only for doAutoImport
     console.log("newProgressDialog not implemented yet! args = " + args);
     return null;
   }
 
-  function newPseudoDijitMenuItem(args) {
-    // TODO: implement a replacement for dijit/MenuItem (or something simpler)
-    console.log("newPseudoDijitMenuItem not implemented yet! args = " + args);
-    return null;
+  function flipToOtherDiv(div) {
+    flipper.flipTo(pages.other, div);
   }
 
-  function newPseudoDijitDropDownMenu(args) {
-    // TODO: implement a replacement for dijit/DropDownMenu (or something simpler)
-    console.log(
-      "newPseudoDijitDropDownMenu not implemented yet! args = " + args
+  function flipToGenericNoLocale() {
+    cldrSurvey.hideLoader();
+    flipper.flipTo(
+      pages.other,
+      cldrDom.createChunk(cldrText.get("generic_nolocale"), "p", "helpContent")
     );
-    return null;
   }
 
-  function newPseudoDijitDropDownButton(args) {
-    // TODO: implement a replacement for dijit/DropDownButton (or something simpler)
-    console.log(
-      "newPseudoDijitDropDownButton not implemented yet! args = " + args
+  function flipToEmptyOther() {
+    return flipper.flipToEmpty(pages.other);
+  }
+
+  function coverageUpdate() {
+    cldrSurvey.updateCoverage(flipper.get(pages.data));
+  }
+
+  function setLoading(loading) {
+    isLoading = loading;
+  }
+
+  function linkToLocale(subLoc) {
+    return (
+      "#/" +
+      subLoc +
+      "/" +
+      cldrStatus.getCurrentPage() +
+      "/" +
+      cldrStatus.getCurrentId()
     );
-    return null;
   }
 
   function flipToOtherDiv(div) {
@@ -2018,20 +1106,21 @@ const cldrLoad = (function () {
    * Make only these functions accessible from other files:
    */
   return {
-    addTopLocale,
     appendLocaleLink,
+    continueInitializing,
+    coverageUpdate,
     dialogIsOpen,
     flipToEmptyOther,
     flipToGenericNoLocale,
     flipToOtherDiv,
     getTheLocaleMap,
-    getThePages,
     insertLocaleSpecialNote,
     linkToLocale,
     myLoad,
     reloadV,
     replaceHash,
     setLoading,
+    setTheLocaleMap,
     showCurrentId,
     showV,
     updateCurrentId,

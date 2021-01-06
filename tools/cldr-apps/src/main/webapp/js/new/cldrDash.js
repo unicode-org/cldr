@@ -8,6 +8,7 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrDash = (function () {
+  // called as special.load
   function load() {
     cldrSurvey.showLoader(null);
     const message = cldrText.get("reportGuidance");
@@ -67,6 +68,7 @@ const cldrDash = (function () {
     cldrLoad.flipToOtherDiv(frag);
   }
 
+  // called as special.parseHash
   function parseHash(pieces) {
     if (pieces.length > 2) {
       cldrStatus.setCurrentPage(pieces[2]);
@@ -86,6 +88,7 @@ const cldrDash = (function () {
    */
   return {
     load,
+    parseHash,
     /*
      * The following are meant to be accessible for unit testing only:
      */

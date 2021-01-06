@@ -127,6 +127,8 @@ const cldrGui = (function () {
   /* end stnotices.jspf */
 
   const mainContainer =
+    /* Caution: "-container" is added to various strings by menubuttons.set()
+       in cldrMenu.js, so be careful not to assume such attributes are unused! */
     "<div class='container-fluid' id='main-container'>\n" +
     "  <div class='row menu-position'>\n" +
     "    <div class='col-md-12'>\n" +

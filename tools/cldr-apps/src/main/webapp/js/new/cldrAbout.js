@@ -26,6 +26,7 @@ const cldrAbout = (function () {
     "os.version",
   ];
 
+  // called as special.load
   function load() {
     cldrInfo.showNothing();
     const xhrArgs = {

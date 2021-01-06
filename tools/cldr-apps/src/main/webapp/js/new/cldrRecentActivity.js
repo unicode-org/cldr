@@ -7,6 +7,7 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrRecentActivity = (function () {
+  // called as special.load
   function load() {
     const surveyUser = cldrStatus.getSurveyUser();
     if (!surveyUser || !surveyUser.id) {

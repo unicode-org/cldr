@@ -44,6 +44,7 @@ const cldrRetry = (function () {
     window.location.href = "#retry"; // load() will be called
   }
 
+  // called as special.load
   function load() {
     cldrInfo.showNothing();
     cldrEvent.hideOverlayAndSidebar();

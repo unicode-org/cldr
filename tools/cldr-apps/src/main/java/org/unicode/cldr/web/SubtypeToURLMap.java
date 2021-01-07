@@ -19,7 +19,6 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -34,7 +33,7 @@ import java.util.stream.Collectors;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRTool;
 
 import com.ibm.icu.text.MessageFormat;
@@ -377,9 +376,11 @@ public class SubtypeToURLMap {
     private static String CACHE_SUBTYPE_FILE = "urlmap-cache.txt";
 
     private final static class SubtypeToURLMapHelper {
+        private static final int EXPIRE_DAYS = 1;
+        static CLDRCacheDir cacheDir = CLDRCacheDir.getInstance(CLDRCacheDir.CacheType.urlmap);
         static File cacheFile = getCacheFile();
         private static File getCacheFile() {
-            return new File(CLDRConfig.getInstance().get("CLDRHOME"), CACHE_SUBTYPE_FILE);
+            return new File(cacheDir.getEmptyDir(), CACHE_SUBTYPE_FILE);
         }
         static SubtypeToURLMap INSTANCE = make(); // not final, may be reloaded.
         static SubtypeToURLMap make() {
@@ -418,7 +419,7 @@ public class SubtypeToURLMap {
          * @return
          */
         private static Instant getExpirationDate() {
-            return Instant.now().minus(CLDRConfig.getInstance().getProperty("CLDR_SUBTYPE_EXPIRY_DAYS", 1), ChronoUnit.DAYS);
+            return cacheDir.getType().getLatestGoodInstant(EXPIRE_DAYS);
         }
         private static void writeToCache(SubtypeToURLMap map) {
             try (PrintWriter pw = new PrintWriter(cacheFile, StandardCharsets.UTF_8.name())) {

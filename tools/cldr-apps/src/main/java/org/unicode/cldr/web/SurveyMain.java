@@ -66,6 +66,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.HelpMessages;
+import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
@@ -916,7 +917,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         synchronized(SurveyMain.class) {
             if(sandbox == null) {
                 try {
-                    sandbox = new SandboxLocales(new File(getSurveyHome(), "sandbox"));
+                    sandbox = new SandboxLocales(CLDRCacheDir.getInstance(CLDRCacheDir.CacheType.sandbox).getEmptyDir());
                 } catch (IOException e) {
                     SurveyMain.busted("Could not initialize sandbox locales", e);
                     /** NOTREACHED **/
@@ -3459,23 +3460,24 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ElapsedTimer et = new ElapsedTimer();
         CLDRProgressTask progress = openProgress("Parse locales from XML", locales.size());
         try {
-            File vetdir = getVetdir();
-            File xmlCache = new File(vetdir, XML_CACHE_PROPERTIES);
-            File xmlCacheBack = new File(vetdir, XML_CACHE_PROPERTIES + ".backup");
+            File xmlCacheDir = CLDRCacheDir.getInstance(CLDRCacheDir.CacheType.xmlCache).getEmptyDir();
+            File xmlCache = new File(xmlCacheDir, XML_CACHE_PROPERTIES);
+            File xmlCacheBack = new File(xmlCacheDir, XML_CACHE_PROPERTIES + ".backup");
             Properties xmlCacheProps = new java.util.Properties();
             Properties xmlCachePropsNew = new java.util.Properties();
-            if (useCache && xmlCache.exists())
+            if (useCache && xmlCache.exists()) {
                 try {
-                java.io.FileInputStream is = new java.io.FileInputStream(xmlCache);
-                xmlCacheProps.load(is);
-                is.close();
+                    java.io.FileInputStream is = new java.io.FileInputStream(xmlCache);
+                    xmlCacheProps.load(is);
+                    is.close();
                 } catch (java.io.IOException ioe) {
-                /* throw new UnavailableException */
-                SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't load XML Cache file from '" + "(home)" + "/"
-                    + XML_CACHE_PROPERTIES + ": ", ioe);
-                busted("Couldn't load XML Cache file from '" + "(home)" + "/" + XML_CACHE_PROPERTIES + ": ", ioe);
-                return;
+                    /* throw new UnavailableException */
+                    SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't load XML Cache file from '" + "(home)" + "/"
+                        + XML_CACHE_PROPERTIES + ": ", ioe);
+                    busted("Couldn't load XML Cache file from '" + "(home)" + "/" + XML_CACHE_PROPERTIES + ": ", ioe);
+                    return;
                 }
+            }
 
             int n = 0;
             int cachehit = 0;
@@ -3551,26 +3553,27 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
             }
 
-            if (useCache)
+            if (useCache) {
                 try {
-                // delete old stuff
-                if (xmlCacheBack.exists()) {
-                xmlCacheBack.delete();
-                }
-                if (xmlCache.exists()) {
-                xmlCache.renameTo(xmlCacheBack);
-                }
-                java.io.FileOutputStream os = new java.io.FileOutputStream(xmlCache);
-                xmlCachePropsNew.store(os, "YOU MAY DELETE THIS CACHE. Cache updated at " + new Date());
-                progress.update(n++, "Loading configuration..");
-                os.close();
+                    // delete old stuff
+                    if (xmlCacheBack.exists()) {
+                        xmlCacheBack.delete();
+                    }
+                    if (xmlCache.exists()) {
+                        xmlCache.renameTo(xmlCacheBack);
+                    }
+                    java.io.FileOutputStream os = new java.io.FileOutputStream(xmlCache);
+                    xmlCachePropsNew.store(os, "YOU MAY DELETE THIS CACHE. Cache updated at " + new Date());
+                    progress.update(n++, "Loading configuration..");
+                    os.close();
                 } catch (java.io.IOException ioe) {
-                /* throw new UnavailableException */
-                SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't write " + xmlCache + " file from '" + cldrHome
-                    + "': ", ioe);
-                busted("Couldn't write " + xmlCache + " file from '" + cldrHome + "': ", ioe);
-                return;
+                    /* throw new UnavailableException */
+                    SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't write " + xmlCache + " file from '" + cldrHome
+                        + "': ", ioe);
+                    busted("Couldn't write " + xmlCache + " file from '" + cldrHome + "': ", ioe);
+                    return;
                 }
+            }
 
             if (!failedSuppTest.isEmpty()) {
                 busted("Supplemental Data Test failed on startup for: " + ListFormatter.getInstance().format(failedSuppTest));
@@ -3749,18 +3752,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
             lastVoteVersion = survprops.getProperty(CLDR_LASTVOTEVERSION, oldVersion);
-            progress.update("Setup dirs..");
 
-            getVetdir();
-            final File cldrHomeDir = new File(cldrHome);
-
-            // load abstracts in a separate thread.
-            startupThread.addTask(new SurveyThread.SurveyTask("load abstract") {
-                @Override
-                public void run() throws Throwable {
-                    AbstractCacheManager.getInstance().setHome(cldrHomeDir);
-                }
-            });
+            setupHomeDir(progress);
 
             progress.update("Setup vap and message..");
             testpw = survprops.getProperty("CLDR_TESTPW"); // Vet Access
@@ -3880,6 +3873,29 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             SurveyLog.logger.info("------- SurveyTool FAILED TO STARTUP, " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
                 + "----------------------------\n\n\n");
         }
+    }
+
+    /**
+     * Setup things that are dependent on the CLDR home directory being set.
+     * @param progress
+     */
+    private void setupHomeDir(CLDRProgressTask progress) {
+        progress.update("Setup the Home dir..");
+
+        // load abstracts in a separate thread.
+        startupThread.addTask(new SurveyThread.SurveyTask("load abstract") {
+            @Override
+            public void run() throws Throwable {
+                AbstractCacheManager.getInstance().setup();
+            }
+        });
+
+        // we could setup the url subtype mapper here, but instead we leave that
+        // to be lazily loaded.
+
+        // Ensure that the vetdata/ directory is present.
+        progress.update("Setup vetdata/..");
+        getVetdir();
     }
 
     private static void stopIfMaintenance() {

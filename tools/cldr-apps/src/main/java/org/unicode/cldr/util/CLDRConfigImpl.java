@@ -56,15 +56,48 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         }
     }
 
-    public static final String CLDR_PROPERTIES = "cldr.properties";
     /**
-     *
+     * Name of the main config file for the servlet.
      */
+    public static final String CLDR_PROPERTIES = "cldr.properties";
+
     private static final long serialVersionUID = 7292884997931046214L;
+
     static String cldrHome = null;
     static boolean cldrHomeSet = false;
+    static File homeFile = null;
 
-    public static File homeFile = null;
+    /**
+     * Notify CLDRConfig that cldrHome is available. This also has the
+     * effect of initializing CLDRConfigImpl.
+     * Not called within the test environment such as TestAll
+     * Called by {@link SurveyMain#init(javax.servlet.ServletConfig)}
+     * @param newHome the path to the CLDR Home, usually a subdirectory of the well
+     * known servlet location.
+     * @see {@link #getHomeFile()}
+     */
+    public static void setCldrHome(String newHome) {
+        cldrHome = newHome;
+        cldrHomeSet = true;
+
+        // Now, initialize it.
+        getInstance().init();
+    }
+
+    /**
+     * Fetches the File pointing at the Survey Tool's home. This is something like /var/lib/tomcat/cldr
+     * and is either a subdirectory of the server's home, or some static location.
+     * If {@link #setCldrHome(String)} was not called, this will return null.
+     * Note that this is not CLDR_DIR, it is unrelated to
+     * {@link CLDRConfig#getCldrBaseDirectory()} which is the root of CLDR data.
+     * @return
+     */
+    public File getHomeFile() {
+        return homeFile;
+        // TODO: we could have a sort of notification queue for services
+        // waiting on setCldrHome() being called. For now, we expect the callers
+        // to be called at the appropriate time.
+    }
 
     boolean isInitted = false;
     private Properties survprops;
@@ -90,16 +123,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     }
 
     /**
-     *
-     * @param initParameter
-     *
-     * Never called for cldr-apps TestAll.java.
+     * Lazy setup of this object.
      */
-    public static void setCldrHome(String initParameter) {
-        cldrHome = initParameter;
-        cldrHomeSet = true;
-    }
-
     private synchronized void init() {
         if (isInitted)
             return;
@@ -153,6 +178,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             propFile = new File(homeFile, CLDR_PROPERTIES);
         }
 
+        // Set anything that needs access to the homedir here.
         SurveyLog.setDir(homeFile);
 
         System.out.println("CLDRConfig: reading " + propFile.getAbsolutePath()); // make it explicit where this comes from

@@ -13,6 +13,7 @@ public class MapAll implements XPathMapper {
 		// add all mappers here
 		mappers.add(new LanguageMapper());
 		mappers.add(new ScriptMapper());
+		mappers.add(new CurrencyMapper());
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -39,7 +40,7 @@ public class ExtractIsoCurrencyData {
         // NOTE: UTIL_DATA_DIR is required here because it is used as an output directory.
         final String outputFile = CldrUtility.getProperty("output", CLDRPaths.UTIL_DATA_DIR
             + "/currencycodeslist.txt");
-        PrintWriter out = FileUtilities.openUTF8Writer(null, outputFile);
+        PrintWriter out = FileUtilities.openUTF8Writer((File)null, outputFile);
         try {
             String version = null;
             String[][] parts = new String[5][5];

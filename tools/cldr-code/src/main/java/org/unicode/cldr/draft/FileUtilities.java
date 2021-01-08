@@ -61,10 +61,14 @@ public final class FileUtilities {
     }
 
     public static PrintWriter openUTF8Writer(String dir, String filename) throws IOException {
-        return openWriter(dir, filename, "UTF-8");
+        return openWriter(dir, filename, StandardCharsets.UTF_8);
     }
 
-    public static PrintWriter openWriter(String dir, String filename, String encoding) throws IOException {
+    public static PrintWriter openUTF8Writer(File dir, String filename) throws IOException {
+        return openWriter(dir, filename, StandardCharsets.UTF_8);
+    }
+
+    public static PrintWriter openWriter(File dir, String filename, Charset encoding) throws IOException {
         File file = new File(dir, filename);
         if (SHOW_FILES && log != null) {
             log.println("Creating File: " + getNormalizedPathString(file));
@@ -80,6 +84,14 @@ public final class FileUtilities {
                     new FileOutputStream(file),
                     encoding),
                 4 * 1024));
+    }
+
+    public static PrintWriter openWriter(String dir, String filename, String encoding) throws IOException {
+        return openWriter(new File(dir), filename, Charset.forName(encoding));
+    }
+
+    public static PrintWriter openWriter(String dir, String filename, Charset encoding) throws IOException {
+        return openWriter(new File(dir), filename, encoding);
     }
 
     public static abstract class SemiFileReader extends FileProcessor {

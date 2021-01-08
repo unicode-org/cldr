@@ -45,7 +45,7 @@ public class GenerateSubdivisions {
 
         static final Validity VALIDITY_FORMER = Validity.getInstance(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/validity/");
 
-        static final Relation<String, String> formerRegionToSubdivisions = Relation.of(new HashMap<String, Set<String>>(), TreeSet.class, SubdivisionNode.ROOT_COL);
+        static final Relation<String, String> formerRegionToSubdivisions = Relation.of(new HashMap<String, Set<String>>(), TreeSet.class, CLDRConfig.getInstance().getComparatorRoot());
         static {
             Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getStatusToCodes(LstrType.subdivision);
             for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {

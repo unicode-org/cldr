@@ -41,9 +41,9 @@ public class LanguageMapper implements XPathMapper {
         XPathParts xpp = XPathParts.getFrozenInstance("//ldml/localeDisplayNames/languages/language").cloneAsThawed();
         while(rs.hasNext()) {
             final QuerySolution qs = rs.next();
-            String code = QueryClient.getStringOrNull(qs, "iso6391");
+            String code = QueryClient.getLiteralOrNull(qs, "iso6391");
             if(code == null) {
-                code = QueryClient.getStringOrNull(qs, "iso6392");
+                code = QueryClient.getLiteralOrNull(qs, "iso6392");
             }
             final String res = QueryClient.getResourceOrNull(qs, "language");
 //            final String abs = QueryClient.getStringOrNull(qs, "abstract");

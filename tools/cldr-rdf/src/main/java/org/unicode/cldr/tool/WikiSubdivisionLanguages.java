@@ -1,4 +1,4 @@
-package org.unicode.cldr.util;
+package org.unicode.cldr.tool;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,11 +16,27 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.rdf.QueryClient;
+import org.unicode.cldr.rdf.TsvWriter;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.SubdivisionNode;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity.Status;
@@ -42,6 +58,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 public final class WikiSubdivisionLanguages {
+    private static final String WIKI_SUBDIVISION_LANGUAGES_TSV = "wikiSubdivisionLanguages.tsv";
     static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     static final Set<String> regularSubdivisions = Validity.getInstance().getStatusToCodes(LstrType.subdivision).get(Status.regular);
 
@@ -54,11 +71,6 @@ public final class WikiSubdivisionLanguages {
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Normalizer2 NFC = Normalizer2.getNFCInstance();
-
-    enum Items {
-        // http://www.wikidata.org/entity/Q24260    كانيلو  AD-02   ar
-        wid, translation, subdivisionId, languageId
-    }
 
     private static ChainedMap.M3<String, String, String> SUB_LANG_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
         String.class);
@@ -92,40 +104,50 @@ public final class WikiSubdivisionLanguages {
         }
         return null;
     }
+    
+    private static final String QUERY_NAME = "wikidata-wikisubdivisionLanguages";
 
     //static Map<String, String> WIKIDATA_TO_MID = new TreeMap<>();
-    static {
-        Splitter TAB = Splitter.on('\t').trimResults();
-        File file = new File("data/external", "wikiSubdivisionLanguages.tsv");
-        try {
-            System.out.println(file.getCanonicalFile());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    static void init() throws IOException {
+        
+        QueryClient queryClient = QueryClient.getInstance();
+        
+        System.out.println("QUERY: " + QUERY_NAME);
+        ResultSet rs = queryClient.execSelectFromSparql(QUERY_NAME, QueryClient.WIKIDATA_SPARQL_SERVER);
+        
         Map<String, Status> codeToStatus = Validity.getInstance().getCodeToStatus(LstrType.subdivision);
+        try(PrintWriter tsv = FileUtilities.openUTF8Writer(TsvWriter.getTsvDir(), WIKI_SUBDIVISION_LANGUAGES_TSV)) {
+            TsvWriter.writeRow(tsv, "item", "label", "code", "codeLabel");
+            for (;rs.hasNext();) {
+                final QuerySolution qs = rs.next();
+                
+                String item = QueryClient.getResourceOrNull(qs, "item");
+                String label = NFC.normalize(QueryClient.getStringOrNull(qs, "label"));
+                String code = QueryClient.getStringOrNull(qs,  "code");
+                String codeLabel = QueryClient.getStringOrNull(qs, "codeLabel");
 
-        for (String line : FileUtilities.in(WikiSubdivisionLanguages.class, "data/external/wikiSubdivisionLanguages.tsv")) {
-
-            List<String> data = TAB.splitToList(line);
-            String subdivision = SubdivisionNode.convertToCldr(data.get(Items.subdivisionId.ordinal()));
-            if (!regularSubdivisions.contains(subdivision)) {
-                Status status = codeToStatus.get(subdivision);
-                if (status == null) {
-                    bogus.add(subdivision);
-                } else {
-                    bogusStatus.put(status, subdivision);
+                TsvWriter.writeRow(tsv, item, label, code, codeLabel);
+                
+                String subdivision = SubdivisionNode.convertToCldr(code);
+                if (!regularSubdivisions.contains(subdivision)) {
+                    Status status = codeToStatus.get(subdivision);
+                    if (status == null) {
+                        bogus.add(subdivision);
+                    } else {
+                        bogusStatus.put(status, subdivision);
+                    }
+                    continue;
                 }
-                continue;
+                if (DEBUG_LANG_FILTER != null && !DEBUG_LANG_FILTER.equals(codeLabel)) {
+                    continue;
+                }
+                SUB_LANG_NAME.put(subdivision, codeLabel, label);
+    //                WIKIDATA_TO_MID.put(subdivision, data.get(2));
+                LANG_SUB_NAME.put(codeLabel, subdivision, label);
             }
-            String lang = data.get(Items.languageId.ordinal());
-            if (DEBUG_LANG_FILTER != null && !DEBUG_LANG_FILTER.equals(lang)) {
-                continue;
-            }
-            String name = NFC.normalize(data.get(Items.translation.ordinal()));
-            SUB_LANG_NAME.put(subdivision, lang, name);
-//                WIKIDATA_TO_MID.put(subdivision, data.get(2));
-            LANG_SUB_NAME.put(lang, subdivision, name);
+            System.out.println("Queried " + QUERY_NAME + " at row count " + rs.getRowNumber());
         }
+        System.out.println("Wrote to " + WIKI_SUBDIVISION_LANGUAGES_TSV);
         // postprocess
         String oldLang = null;
         DisplayAndInputProcessor daip = null;
@@ -167,7 +189,9 @@ public final class WikiSubdivisionLanguages {
         return path.substring(BEFORE_TYPE.length(), path.indexOf('"', BEFORE_TYPE.length()));
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        init();
+        
         Counter<String> counter = new Counter<>();
         Factory cldrFactory = CLDR_CONFIG.getCldrFactory();
         Factory cldrFactorySubdivisions = Factory.make(CLDRPaths.SUBDIVISIONS_DIRECTORY, ".*");

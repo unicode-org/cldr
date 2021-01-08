@@ -8,6 +8,7 @@
 
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
@@ -56,12 +57,12 @@ public class Log {
     }
 
     public static void setLog(String file) throws IOException {
-        log = FileUtilities.openUTF8Writer(null, file);
+        log = FileUtilities.openUTF8Writer((File)null, file);
         log.print('\uFEFF');
     }
 
     public static void setLogNoBOM(String file) throws IOException {
-        log = FileUtilities.openUTF8Writer(null, file);
+        log = FileUtilities.openUTF8Writer((File)null, file);
     }
 
     public static void setLogNoBOM(String dir, String file) throws IOException {

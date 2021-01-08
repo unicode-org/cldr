@@ -8,6 +8,7 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrReportNumbers = (function () {
+  // called as special.load
   function load() {
     cldrSurvey.showLoader(null);
     const message = cldrText.get("reportGuidance");

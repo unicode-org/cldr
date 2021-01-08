@@ -8,7 +8,7 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrAjax = (function () {
-  const ST_AJAX_DEBUG = true;
+  const ST_AJAX_DEBUG = false;
 
   /**
    * xhrQueueTimeout is a constant, 3 milliseconds, used only by

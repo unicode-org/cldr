@@ -41,8 +41,6 @@ public class AdminPanel {
             showSettings(r);
         } else if (action.equals("settings_set")) {
             setSettings(r, request);
-        } else if (action.equals("rawload")) {
-            doRawLoad(r, request);
         } else if (action.equals("create_login")) {
             createAndLogin(r, request, response, sm);
         } else {
@@ -161,23 +159,6 @@ public class AdminPanel {
             settings.put("err", t.toString());
         }
         r.put("settings_set", settings);
-    }
-
-    private void doRawLoad(JSONWriter r, HttpServletRequest request) {
-        if (CLDRConfig.getInstance().getEnvironment() != CLDRConfig.Environment.SMOKETEST) {
-            r.put("err", "Only available in SMOKETEST context.");
-        } else {
-            String users = request.getParameter("users");
-            String pxml = request.getParameter("pxml");
-            if (users != null && pxml != null && !users.isEmpty() && !pxml.isEmpty()) {
-                // TODO: see AdminPanel.jsp
-                // <h3>Starting import org.unicode.cldr.web.SurveyAjax.JSONWriter;
-                // import from <%= users %></h3>
-                // int usersRead = CookieSession.sm.reg.readUserFile(CookieSession.sm, new java.io.File(users));
-                // ...
-            }
-            r.put("err", "rawload not yet implemented without jsp");
-        }
     }
 
     /**

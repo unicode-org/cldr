@@ -14,6 +14,7 @@ const cldrAdmin = (function () {
   let exceptions = [];
   let exceptionNames = {};
 
+  // called as special.load
   function load() {
     cldrInfo.showNothing();
 
@@ -39,7 +40,6 @@ const cldrAdmin = (function () {
       "<h2>Survey Tool Administration | " +
       window.location.hostname +
       "</h2>\n" +
-      // TODO: "raw SQL"
       "<a href='#createAndLogin'>CreateAndLogin</a>\n" +
       "<div style='float: right; font-size: x-small;'>" +
       "<span id='visitors'></span></div>\n" +
@@ -65,7 +65,6 @@ const cldrAdmin = (function () {
     addAdminPanel("admin_threads", adminThreads, list, content);
     addAdminPanel("admin_exceptions", adminExceptions, list, content);
     addAdminPanel("admin_settings", adminSettings, list, content);
-    addAdminPanel("admin_ops", adminOps, list, content);
 
     // last panel loaded.
     // If it's in the hashtag, use it, otherwise first.
@@ -126,7 +125,7 @@ const cldrAdmin = (function () {
     frag.appendChild(u);
     cldrDom.removeAllChildNodes(div);
     div.appendChild(frag);
-    loadOrFail("do=users", u, function (json) {
+    loadOrFail("do=users", function (json) {
       loadAdminUsers(json, u);
     });
   }
@@ -148,7 +147,7 @@ const cldrAdmin = (function () {
     cldrDom.removeAllChildNodes(div);
     div.appendChild(c2s);
     div.appendChild(frag);
-    loadOrFail("do=threads", u, function (json) {
+    loadOrFail("do=threads", function (json) {
       loadAdminThreads(json, u, stack);
     });
   }
@@ -158,7 +157,7 @@ const cldrAdmin = (function () {
     div.className = "adminSettings";
     const u = cldrDom.createChunk("Loading...", "div", "adminSettingsList");
     frag.appendChild(u);
-    loadOrFail("do=settings", u, function (json) {
+    loadOrFail("do=settings", function (json) {
       loadAdminSettings(json, u);
     });
     cldrDom.removeAllChildNodes(div);
@@ -214,7 +213,7 @@ const cldrAdmin = (function () {
         unlinkButton.onclick = function (e) {
           unlinkButton.className = "deactivated";
           unlinkButton.onclick = null;
-          loadOrFail("do=unlink&s=" + cs.id, unlinkButton, function (json) {
+          loadOrFail("do=unlink&s=" + cs.id, function (json) {
             cldrDom.removeAllChildNodes(unlinkButton);
             if (json.removing == null) {
               unlinkButton.appendChild(
@@ -349,7 +348,7 @@ const cldrAdmin = (function () {
     }
     console.log("Loading: " + append);
     const u = document.getElementById("admin_u");
-    loadOrFail(append, u, function (json) {
+    loadOrFail(append, function (json) {
       loadAdminExceptions(json, u, from);
     });
   }
@@ -564,7 +563,6 @@ const cldrAdmin = (function () {
             setHeader.stChange = function (onOk, onErr) {
               loadOrFail(
                 "do=settings_set&setting=" + theHeader,
-                u,
                 function (json) {
                   if (!json || !json.settings_set || !json.settings_set.ok) {
                     onErr(cldrText.get("failed"));
@@ -584,7 +582,7 @@ const cldrAdmin = (function () {
                     onOk(cldrText.get("changed"));
                   }
                 },
-                setHeader.value /* postData = 4th arg to loadOrFail */
+                setHeader.value /* postData = last arg to loadOrFail */
               );
               return false;
             };
@@ -605,33 +603,7 @@ const cldrAdmin = (function () {
     }
   }
 
-  function adminOps(div) {
-    const frag = document.createDocumentFragment();
-    div.className = "adminThreads";
-    const sessionId = cldrStatus.getSessionId();
-
-    const baseUrl =
-      cldrStatus.getContextPath() +
-      "/SurveyAjax?what=admin_panel&s=" +
-      sessionId +
-      "&do=";
-
-    const actions = ["rawload"];
-    for (let k in actions) {
-      const action = actions[k];
-      const newUrl = baseUrl + action;
-      const b = cldrDom.createChunk(cldrText.get(action), "button");
-      b.onclick = function () {
-        window.location = newUrl;
-        return false;
-      };
-      frag.appendChild(b);
-    }
-    cldrDom.removeAllChildNodes(div);
-    div.appendChild(frag);
-  }
-
-  function loadOrFail(urlAppend, theDiv, loadHandler, postData) {
+  function loadOrFail(urlAppend, loadHandler, postData) {
     const ourUrl =
       cldrStatus.getContextPath() +
       "/SurveyAjax?what=admin_panel&" +
@@ -666,8 +638,9 @@ const cldrAdmin = (function () {
   }
 
   function loadOrFailErrorHandler(err) {
-    theDiv.className = "ferrbox";
-    theDiv.innerHTML =
+    const el = document.getElementById("adminStuff");
+    el.className = "ferrbox";
+    el.innerHTML =
       "Error while loading: <div style='border: 1px solid red;'>" +
       err +
       "</div>";
@@ -757,6 +730,22 @@ const cldrAdmin = (function () {
     cldrDom.listenFor(cancel, "click", cancelFn);
     cldrDom.listenFor(input, "keypress", keypressFn);
     return input;
+  }
+
+  function hideAfter(whom, when) {
+    if (!when) {
+      when = 10000;
+    }
+    setTimeout(function () {
+      whom.style.opacity = "0.8";
+    }, when / 3);
+    setTimeout(function () {
+      whom.style.opacity = "0.5";
+    }, when / 2);
+    setTimeout(function () {
+      cldrDom.setDisplayed(whom, false);
+    }, when);
+    return whom;
   }
 
   /*

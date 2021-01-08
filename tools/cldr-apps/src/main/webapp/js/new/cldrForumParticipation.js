@@ -24,39 +24,12 @@ const cldrForumParticipation = (function () {
   /**
    * Fetch the Forum Participation data from the server, and "load" it
    *
-   * @param params an object with various properties
+   * Called as special.load
    */
-  function load(params) {
-    /*
-     * Set up the 'right sidebar'; cf. forum_participationGuidance
-     */
-    const message = cldrText.get(params.name + "Guidance");
-    cldrInfo.showMessage(message);
+  function load() {
+    cldrInfo.showMessage(cldrText.get("forum_participationGuidance"));
 
     const url = getForumParticipationUrl();
-    const errorHandler = function (err) {
-      params.special.showError(params, null, {
-        err: err,
-        what: "Loading forum participation data",
-      });
-    };
-    const loadHandler = function (json) {
-      if (json.err) {
-        if (params.special) {
-          params.special.showError(params, json, {
-            what: "Loading forum participation data",
-          });
-        }
-        return;
-      }
-      const html = makeHtmlFromJson(json);
-      const ourDiv = document.createElement("div");
-      ourDiv.innerHTML = html;
-
-      // No longer loading
-      cldrSurvey.hideLoader();
-      params.flipper.flipTo(params.pages.other, ourDiv);
-    };
     const xhrArgs = {
       url: url,
       handleAs: "json",
@@ -64,6 +37,32 @@ const cldrForumParticipation = (function () {
       error: errorHandler,
     };
     cldrAjax.sendXhr(xhrArgs);
+  }
+
+  function loadHandler(json) {
+    if (json.err) {
+      cldrRetry.handleDisconnect(
+        json.err,
+        json,
+        "",
+        "Loading forum participation data"
+      );
+      return;
+    }
+    const html = makeHtmlFromJson(json);
+    const ourDiv = document.createElement("div");
+    ourDiv.innerHTML = html;
+    cldrSurvey.hideLoader();
+    cldrLoad.flipToOtherDiv(ourDiv);
+  }
+
+  function errorHandler(err) {
+    cldrRetry.handleDisconnect(
+      err,
+      json,
+      "",
+      "Loading forum participation data"
+    );
   }
 
   /**

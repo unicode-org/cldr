@@ -7,6 +7,7 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrCreateLogin = (function () {
+  // called as special.load
   function load() {
     cldrInfo.showNothing();
 

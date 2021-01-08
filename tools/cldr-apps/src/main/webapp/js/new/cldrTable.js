@@ -1242,6 +1242,7 @@ const cldrTable = (function () {
       var input = document.createElement("input");
       var popup;
       input.className = "form-control input-add";
+      cldrSurvey.setLang(input);
       input.placeholder = "Add a translation";
       var copyWinning = document.createElement("button");
       copyWinning.className = "copyWinning btn btn-info btn-xs";

@@ -26,6 +26,16 @@ const cldrAbout = (function () {
     "os.version",
   ];
 
+  const testCldrRetry = false; // danger, must not be true for production
+  const testVue = false;
+
+  /**
+   * Temporary test to confirm interpolation works
+   * -- really we'll use .vue files rather than use js to write html
+   */
+  const vueTestHtml =
+    "<h3 id='vue-test' style='color: orange;'> {{ message }} </h3>\n";
+
   // called as special.load
   function load() {
     cldrInfo.showNothing();
@@ -37,8 +47,6 @@ const cldrAbout = (function () {
     };
     cldrAjax.sendXhr(xhrArgs);
   }
-
-  const testCldrRetry = false;
 
   function loadHandler(json) {
     if (testCldrRetry && Math.random() > 0.5) {
@@ -53,6 +61,15 @@ const cldrAbout = (function () {
     ourDiv.innerHTML = getHtml(json);
     cldrSurvey.hideLoader();
     cldrLoad.flipToOtherDiv(ourDiv);
+
+    if (testVue) {
+      new Vue({
+        el: "#vue-test",
+        data: {
+          message: "Hello Vue! ICU_VERSION: " + json["ICU_VERSION"],
+        },
+      });
+    }
   }
 
   function errorHandler(err) {
@@ -64,6 +81,9 @@ const cldrAbout = (function () {
 
   function getHtml(json) {
     let html = cldrStatus.logoIcon();
+    if (testVue) {
+      html += vueTestHtml;
+    }
     html += javaVersions(json) + otherVersions(json) + stInfo(json);
     if (json["hasDataSource"]) {
       html += dbInfo(json);

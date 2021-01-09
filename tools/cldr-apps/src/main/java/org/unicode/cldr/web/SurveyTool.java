@@ -296,6 +296,9 @@ public class SurveyTool extends HttpServlet {
     public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
         if (USE_DOJO) {
             includeDojoJavaScript(out);
+        } else {
+            // Enable hello world with Vue!
+            out.write("<script src=\"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js\"></script>\n");
         }
         includeJqueryJavaScript(out);
         includeCldrJavaScript(request, out);
@@ -307,8 +310,26 @@ public class SurveyTool extends HttpServlet {
     }
 
     private static void includeJqueryJavaScript(Writer out) throws IOException {
-        out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
-        out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
+        // For compatibility with old Dojo, use old jquery, otherwise use newest jquery
+        // Per https://en.wikipedia.org/wiki/JQuery#Release_history --
+        // jquery 1.11: January 24, 2014
+        // jquery 3.5.1: May 4, 2020
+        if (USE_DOJO) {
+            out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
+        } else {
+            out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>\n");
+        }
+
+        // For compatibility with old Dojo, use old jquery-ui, otherwise use newest jquery-ui
+        // Per https://en.wikipedia.org/wiki/JQuery_UI#Release_history --
+        // jquery-ui 1.10.4: Jan 17, 2014
+        // jquery-ui 1.12.1: Sep 14, 2016 -- that's the newest
+        // Per https://jqueryui.com/ -- Current stable "v1.12.1 jQuery 1.7+"
+        if (USE_DOJO) {
+            out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
+        } else {
+            out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>\n");
+        }
     }
 
     private static final String[] newJsFiles = {

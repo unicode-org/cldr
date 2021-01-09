@@ -1482,7 +1482,13 @@ function localizeAnon(o) {
         const key = k.id.slice(5); // e.g., 'htmlvorg'
         const str = cldrText.get(key); // e.g., "Org"
         if (str) {
-          k.innerHTML = str;
+          if (str.indexOf("$") == 0) { // unique case: "$TRANS_HINT_LANGUAGE_NAME"
+            const key2 = str.slice(1); // key2 = "TRANS_HINT_LANGUAGE_NAME"
+            const str2 = cldrText.get(key2); // str2 = "English"
+            k.innerHTML = str2;
+         } else {
+           k.innerHTML = str;
+          }
         }
         k.removeAttribute("id");
       } else {

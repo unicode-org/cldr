@@ -6,14 +6,26 @@
  */
 package org.unicode.cldr.util;
 
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.Comparator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
 public class VariableReplacer {
     // simple implementation for now
-    private Map m = new TreeMap(Collections.reverseOrder());
+    Comparator<String> LONGEST_FIRST = new Comparator<String>() {
+        @Override
+        public int compare(String o1, String o2) {
+            int result = (o2.length() - o1.length());
+            if (result != 0) {
+                return result;
+            }
+            return o1.compareTo(o2);
+        }
+
+    };
+
+    private Map<String,String> m = new TreeMap<>(LONGEST_FIRST);
 
     // TODO - fix to do streams also, clean up implementation
 
@@ -26,9 +38,9 @@ public class VariableReplacer {
         String oldSource;
         do {
             oldSource = source;
-            for (Iterator it = m.keySet().iterator(); it.hasNext();) {
-                String variable = (String) it.next();
-                String value = (String) m.get(variable);
+            for (Entry<String, String> entry : m.entrySet()) {
+                String variable = entry.getKey();
+                String value = entry.getValue();
                 source = replaceAll(source, variable, value);
             }
         } while (!source.equals(oldSource));
@@ -36,9 +48,12 @@ public class VariableReplacer {
     }
 
     public String replaceAll(String source, String key, String value) {
+        // TODO optimize
         while (true) {
             int pos = source.indexOf(key);
-            if (pos < 0) return source;
+            if (pos < 0) {
+                return source;
+            }
             source = source.substring(0, pos) + value + source.substring(pos + key.length());
         }
     }

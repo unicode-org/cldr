@@ -382,9 +382,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<languageMatch desired="uz_Latn"	supported="ru_Cyrl"	distance="10"	oneway="true"/>	<!-- uz; Latn ⇒ ru; Cyrl -->
 			<languageMatch desired="yi_Hebr"	supported="en_Latn"	distance="10"	oneway="true"/>	<!-- yi; Hebr ⇒ en; Latn -->
 			<languageMatch desired="sr_Latn"	supported="sr_Cyrl"	distance="5"/>	<!-- sr; Latn ⇒ sr; Cyrl -->
-			<languageMatch desired="zh_Hans"	supported="zh_Hant"	distance="15"	oneway="true"/>	<!-- zh; Hans ⇒ zh; Hant -->
-			<languageMatch desired="zh_Hant"	supported="zh_Hans"	distance="19"	oneway="true"/>	<!-- zh; Hant ⇒ zh; Hans -->
-			<!-- zh_Hani: Slightly bigger distance than zh_Hant->zh_Hans -->
+			<!-- zh_Hani: Slightly bigger distance than zh_Hant->zh_Hans was before CLDR-14355 -->
 			<languageMatch desired="zh_Hani"	supported="zh_Hans"	distance="20"	oneway="true"/>
 			<languageMatch desired="zh_Hani"	supported="zh_Hant"	distance="20"	oneway="true"/>
 			<!-- Latin transliterations of some languages, initially from CLDR-13577 -->

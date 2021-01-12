@@ -13,12 +13,52 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONException;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.VettingViewer;
 
 public class SurveyTool extends HttpServlet {
+    private static final String USE_DOJO_VAR = "USE_DOJO";
     private static final long serialVersionUID = 1L;
-    public static final boolean USE_DOJO = true;
+    private static final boolean USE_DOJO_DEFAULT = true;
+
+    /**
+     * Is dojo enabled by default?
+     * Better to use the other variants taking a WebContext or an HttpServletRequest
+     * Making this private unless there is a good reason to use the default
+     * from another caller
+     * @deprecated this will be going away
+     * @return
+     */
+    @Deprecated
+    private static final boolean defaultUseDojo() {
+        return CLDRConfig.getInstance().getProperty(USE_DOJO_VAR, USE_DOJO_DEFAULT);
+    }
+
+    /**
+     * Is dojo enabled?
+     * @param ctx request context
+     * @deprecated this will be going away
+     * @return
+     */
+    @Deprecated
+    public static final boolean useDojo(WebContext ctx) {
+        return useDojo(ctx.request);
+    }
+    /**
+     * do we use Dojo?
+     * @param ctx request context
+     * @deprecated this will be going away
+     * @return
+     */
+    @Deprecated
+    public static final boolean useDojo(HttpServletRequest ctx) {
+        String param = ctx.getParameter(USE_DOJO_VAR);
+        if(param != null && !param.isEmpty()) {
+            return Boolean.parseBoolean(param); // override
+        }
+        return defaultUseDojo();
+    }
 
     @Override
     public final void init(final ServletConfig config) throws ServletException {
@@ -134,7 +174,7 @@ public class SurveyTool extends HttpServlet {
             out.write("if (dstatus != null) {\n");
             out.write("  dstatus.appendChild(document.createElement('br'));\n");
             out.write("  dstatus.appendChild(document.createTextNode('.'));\n");
-            if (USE_DOJO) {
+            if (useDojo(request)) {
                 out.write("  require(['dojo/ready'], function(ready) {\n");
                 out.write("    ready(function() {\n");
             } else {
@@ -160,7 +200,7 @@ public class SurveyTool extends HttpServlet {
             out.write("          cldrAjax.sendXhr(xhrArgs);\n");
             out.write("        }, 2000); // two seconds\n");
             out.write("      });\n");
-            if (USE_DOJO) {
+            if (useDojo(request)) {
                 out.write("    }\n");
                 out.write("  });\n");
             }
@@ -268,7 +308,7 @@ public class SurveyTool extends HttpServlet {
         out.write("</head>\n");
         out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
         out.write("<p id='st-run-gui'>Loading...</p>\n");
-        if (!USE_DOJO) {
+        if (!useDojo(request)) {
             out.write("<script>cldrGui.run()</script>\n");
         }
         out.write("</body>\n</html>\n");
@@ -278,7 +318,7 @@ public class SurveyTool extends HttpServlet {
         String contextPath = request.getContextPath();
         out.write("<link rel='stylesheet' href='" + contextPath + "/surveytool.css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum.css' />\n");
-        if (USE_DOJO) {
+        if (useDojo(request)) {
             out.write("<link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css' />\n");
         }
         out.write("<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
@@ -294,13 +334,13 @@ public class SurveyTool extends HttpServlet {
      * @throws JSONException
      */
     public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
-        if (USE_DOJO) {
+        if (useDojo(request)) {
             includeDojoJavaScript(out);
         } else {
             // Enable hello world with Vue!
             out.write("<script src=\"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js\"></script>\n");
         }
-        includeJqueryJavaScript(out);
+        includeJqueryJavaScript(request, out);
         includeCldrJavaScript(request, out);
     }
 
@@ -309,12 +349,13 @@ public class SurveyTool extends HttpServlet {
         out.write("<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>\n");
     }
 
-    private static void includeJqueryJavaScript(Writer out) throws IOException {
+    private static void includeJqueryJavaScript(HttpServletRequest request, Writer out) throws IOException {
         // For compatibility with old Dojo, use old jquery, otherwise use newest jquery
         // Per https://en.wikipedia.org/wiki/JQuery#Release_history --
         // jquery 1.11: January 24, 2014
         // jquery 3.5.1: May 4, 2020
-        if (USE_DOJO) {
+        final boolean doUseDojo = useDojo(request);
+        if (doUseDojo) {
             out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
         } else {
             out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>\n");
@@ -325,7 +366,7 @@ public class SurveyTool extends HttpServlet {
         // jquery-ui 1.10.4: Jan 17, 2014
         // jquery-ui 1.12.1: Sep 14, 2016 -- that's the newest
         // Per https://jqueryui.com/ -- Current stable "v1.12.1 jQuery 1.7+"
-        if (USE_DOJO) {
+        if (doUseDojo) {
             out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
         } else {
             out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>\n");
@@ -377,7 +418,9 @@ public class SurveyTool extends HttpServlet {
 
         out.write(prefix + "jquery.autosize.min.js" + tail); // exceptional
 
-        if (USE_DOJO) {
+        final Boolean doUseDojo = useDojo(request);
+        out.write(String.format("<script>const %s=%s;</script>\n", USE_DOJO_VAR, doUseDojo.toString()));
+        if (doUseDojo) {
             out.write(prefix + "new/cldrText" + js); // new/cldrText.js
             out.write(prefix + "new/cldrStatus" + js); // new/cldrStatus.js
             out.write(prefix + "new/cldrAjax" + js); // new/cldrAjax.js

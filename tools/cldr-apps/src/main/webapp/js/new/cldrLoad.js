@@ -607,6 +607,7 @@ const cldrLoad = (function () {
       r_vetting_json: cldrDash,
       recent_activity: cldrRecentActivity,
       retry: cldrRetry,
+      admin: cldrAdmin,
     };
     if (str in specials) {
       return specials[str];

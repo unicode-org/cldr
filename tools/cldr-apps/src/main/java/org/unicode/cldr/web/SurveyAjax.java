@@ -291,6 +291,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_ADMIN_PANEL = "admin_panel"; // cldrAdmin.js
     public static final String WHAT_ABOUT = "about"; // cldrAbout.js
     public static final String WHAT_RECENT_ACTIVITY = "recent_activity"; // cldrRecentActivity.js
+    public static final String WHAT_ERROR_SUBTYPES = "error_subtypes"; // cldrErrorSubtyes.js
 
     public static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
 
@@ -388,6 +389,10 @@ public class SurveyAjax extends HttpServlet {
             } else if (what.equals(WHAT_RECENT_ACTIVITY)) {
                 JSONWriter r = newJSONStatus(request, sm);
                 RecentActivity.getJson(r, request, response);
+                send(r, out);
+            } else if (what.equals(WHAT_ERROR_SUBTYPES)) {
+                JSONWriter r = newJSONStatus(request, sm);
+                ErrorSubtypes.getJson(r, request);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYLOC)) {
                 JSONWriter r = newJSONStatusQuick(sm);

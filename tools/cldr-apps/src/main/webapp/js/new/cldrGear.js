@@ -165,9 +165,8 @@ const cldrGear = (function () {
         url: surveyUserURL.browse,
       },
       {
-        title: "Error Subtypes",
+        special: "error_subtypes",
         level: 2,
-        url: "./tc-all-errors.jsp",
         display: surveyUserPerms && surveyUserPerms.userIsTC,
       },
     ];

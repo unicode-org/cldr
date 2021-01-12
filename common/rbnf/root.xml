@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2014 Unicode, Inc.
+Copyright © 1991-2021 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -484,12 +484,12 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="61">ס״→%hebrew-item→;</rbnfrule>
                 <rbnfrule value="70">״ע;</rbnfrule>
                 <rbnfrule value="71">ע״→%hebrew-item→;</rbnfrule>
-                <rbnfrule value="80">״פ;</rbnfrule>
+                <rbnfrule value="80">״ף;</rbnfrule>
                 <rbnfrule value="81">פ״→%hebrew-item→;</rbnfrule>
                 <rbnfrule value="90">״צ;</rbnfrule>
                 <rbnfrule value="91">צ״→%hebrew-item→;</rbnfrule>
             </ruleset>
-            <ruleset type="hebrew-item">
+            <ruleset type="hebrew-item-hundreds" access="private">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">״;</rbnfrule>
@@ -512,7 +512,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="50">נ[→→];</rbnfrule>
                 <rbnfrule value="60">ס[→→];</rbnfrule>
                 <rbnfrule value="70">ע[→→];</rbnfrule>
-                <rbnfrule value="80">פ[→→];</rbnfrule>
+                <rbnfrule value="80">ף;</rbnfrule>
+                <rbnfrule value="81">פ[→→];</rbnfrule>
                 <rbnfrule value="90">צ[→→];</rbnfrule>
                 <rbnfrule value="100">ק[→→];</rbnfrule>
                 <rbnfrule value="200">ר[→→];</rbnfrule>
@@ -545,6 +546,33 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1900" radix="100">תתתתש[→→];</rbnfrule>
                 <rbnfrule value="2000" radix="100">תתתתת[→→];</rbnfrule>
                 <rbnfrule value="2100">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="hebrew-item">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
+                <rbnfrule value="0">״;</rbnfrule>
+                <rbnfrule value="1">א;</rbnfrule>
+                <rbnfrule value="2">ב;</rbnfrule>
+                <rbnfrule value="3">ג;</rbnfrule>
+                <rbnfrule value="4">ד;</rbnfrule>
+                <rbnfrule value="5">ה;</rbnfrule>
+                <rbnfrule value="6">ו;</rbnfrule>
+                <rbnfrule value="7">ז;</rbnfrule>
+                <rbnfrule value="8">ח;</rbnfrule>
+                <rbnfrule value="9">ט;</rbnfrule>
+                <rbnfrule value="10">י[→→];</rbnfrule>
+                <rbnfrule value="15">טו;</rbnfrule>
+                <rbnfrule value="16">טז;</rbnfrule>
+                <rbnfrule value="17">י→→;</rbnfrule>
+                <rbnfrule value="20">כ[→→];</rbnfrule>
+                <rbnfrule value="30">ל[→→];</rbnfrule>
+                <rbnfrule value="40">מ[→→];</rbnfrule>
+                <rbnfrule value="50">נ[→→];</rbnfrule>
+                <rbnfrule value="60">ס[→→];</rbnfrule>
+                <rbnfrule value="70">ע[→→];</rbnfrule>
+                <rbnfrule value="80">פ[→→];</rbnfrule>
+                <rbnfrule value="90">צ[→→];</rbnfrule>
+                <rbnfrule value="100">=%%hebrew-item-hundreds=;</rbnfrule>
             </ruleset>
             <ruleset type="roman-lower">
                 <rbnfrule value="-x">−→→;</rbnfrule>

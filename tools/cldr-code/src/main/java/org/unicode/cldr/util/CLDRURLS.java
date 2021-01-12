@@ -280,19 +280,9 @@ public abstract class CLDRURLS {
     /**
      * Convert a URL into an HTML link to itself
      * @param url
-     * @param extra extra parts of the <a> tag, such as "class='someClass'"
-     * @return
-     */
-    public static final String toHTML(String url, String extra) {
-        return "<a href=\""+ url + " "+extra+" \">" + url + "</a>";
-    }
-
-    /**
-     * Convert a URL into an HTML link to itself
-     * @param url
      * @return
      */
     public static final String toHTML(String url) {
-        return toHTML(url, "");
+        return "<a href=\""+ url + "\">" + url + "</a>";
     }
 }

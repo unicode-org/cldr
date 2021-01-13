@@ -8,47 +8,14 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrBulkClosePosts = (function () {
-  let saveParamsForExecute = null;
-
   let contentDiv = null;
 
   /**
    * Fetch the Bulk Close Posts data from the server, and "load" it
-   *
-   * @param params an object with various properties; see SpecialPage.js
    */
-  function load(params) {
-    saveParamsForExecute = params;
-    /*
-     * Set up the 'right sidebar'; cf. bulk_close_postsGuidance
-     */
-    const message = cldrText.get(params.name + "Guidance");
-    cldrInfo.showMessage(message);
-
+  function load() {
+    cldrInfo.showMessage(cldrText.get("bulk_close_postsGuidance"));
     const url = getBulkClosePostsUrl();
-    const errorHandler = function (err) {
-      params.special.showError(params, null, {
-        err: err,
-        what: "Loading Forum Bulk Close Posts data",
-      });
-    };
-    const loadHandler = function (json) {
-      if (json.err) {
-        if (params.special) {
-          params.special.showError(params, json, {
-            what: "Loading Forum Bulk Close Posts data",
-          });
-        }
-        return;
-      }
-      const html = makeHtmlFromJson(json);
-      contentDiv = document.createElement("div");
-      contentDiv.innerHTML = html;
-
-      // No longer loading
-      cldrSurvey.hideLoader();
-      params.flipper.flipTo(params.pages.other, contentDiv);
-    };
     const xhrArgs = {
       url: url,
       handleAs: "json",
@@ -58,37 +25,57 @@ const cldrBulkClosePosts = (function () {
     cldrAjax.sendXhr(xhrArgs);
   }
 
+  function loadHandler(json) {
+    if (json.err) {
+      cldrRetry.handleDisconnect(
+        json.err,
+        json,
+        "",
+        "Loading Forum Bulk Close Posts data"
+      );
+      return;
+    }
+    const html = makeHtmlFromJson(json);
+    contentDiv = document.createElement("div");
+    contentDiv.innerHTML = html;
+    cldrSurvey.hideLoader();
+    cldrLoad.flipToOtherDiv(contentDiv);
+  }
+
+  function errorHandler(err) {
+    const ourDiv = document.createElement("div");
+    ourDiv.innerHTML = err;
+    cldrSurvey.hideLoader();
+    cldrLoad.flipToOtherDiv(ourDiv);
+  }
+
   /**
    * Respond to button press
    */
   function execute() {
-    const params = saveParamsForExecute;
-
     contentDiv.innerHTML = "<div><p>Bulk closing, in progress...</p></div>";
 
     const url = getBulkClosePostsUrl() + "&execute=true";
-    const errorHandler = function (err) {
-      params.special.showError(params, null, {
-        err: err,
-        what: "Executing Forum Bulk Close Posts",
-      });
-    };
-    const loadHandler = function (json) {
-      if (json.err) {
-        params.special.showError(params, json, {
-          what: "Executing Forum Bulk Close Posts",
-        });
-        return;
-      }
-      contentDiv.innerHTML = makeHtmlFromJson(json);
-    };
     const xhrArgs = {
       url: url,
       handleAs: "json",
-      load: loadHandler,
+      load: executeLoadHandler,
       error: errorHandler,
     };
     cldrAjax.sendXhr(xhrArgs);
+  }
+
+  function executeLoadHandler(json) {
+    if (json.err) {
+      cldrRetry.handleDisconnect(
+        json.err,
+        json,
+        "",
+        "Executing Forum Bulk Close Posts data"
+      );
+      return;
+    }
+    contentDiv.innerHTML = makeHtmlFromJson(json);
   }
 
   /**

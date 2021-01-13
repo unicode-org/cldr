@@ -594,6 +594,8 @@ const cldrLoad = (function () {
   function getSpecial(str) {
     const specials = {
       about: cldrAbout,
+      admin: cldrAdmin,
+      bulk_close_posts: cldrBulkClosePosts,
       createAndLogin: cldrCreateLogin,
       error_subtypes: cldrErrorSubtypes,
       forum: cldrForum,
@@ -607,7 +609,6 @@ const cldrLoad = (function () {
       r_vetting_json: cldrDash,
       recent_activity: cldrRecentActivity,
       retry: cldrRetry,
-      admin: cldrAdmin,
     };
     if (str in specials) {
       return specials[str];

@@ -1098,25 +1098,36 @@ public class SurveyForum {
     /**
      * Close all posts in the threads with the given root ids
      *
+     * This is a long-running process (several minutes) if the number of posts is large. There is no
+     * progress feedback on the front end, unfortunately. As a work-around, print progress to Java log.
+     * Only Admin can use this feature. Admin should be able to watch log even on production server.
+     *
+     * This feature could probably be made a hundred times faster by using an sql stored procedure!
+     *
      * @param conn the db connection
-     * @param rootIdList the list of post ids
+     * @param rootIdList the list of post ids (typically about 4 thousand)
      * @return the number of posts closed
      *
      * @throws SQLException
      */
     public static synchronized int closeThreads(Connection conn, ArrayList<Integer> rootIdList) throws SQLException {
         PreparedStatement pCloseThread = null;
-        int postCount = 0;
+        int postCount = 0, rootCount = 0;
+        System.out.println("closeThreads starting: rootIdList.size = " + rootIdList.size());
         try {
             pCloseThread = prepare_pCloseThread(conn);
             for (Integer root : rootIdList) {
                 pCloseThread.setInt(1, root);
                 pCloseThread.setInt(2, root);
                 postCount += pCloseThread.executeUpdate();
+                if ((++rootCount % 500) == 0) {
+                    System.out.println("closeThreads progress: rootCount = " + rootCount);
+                }
             }
         } finally {
             DBUtils.close(pCloseThread);
         }
+        System.out.println("closeThreads finished: rootCount = " + rootCount + "; postCount = " + postCount);
         return postCount;
     }
 

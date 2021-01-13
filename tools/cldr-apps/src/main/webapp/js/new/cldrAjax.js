@@ -18,12 +18,6 @@ const cldrAjax = (function () {
   const xhrQueueTimeout = 3;
 
   /**
-   * Used for XMLHttpRequest = the number of milliseconds a request can take before being terminated.
-   * Zero (the default unless we set it) means there is no timeout.
-   */
-  const ajaxTimeout = 120000; // 2 minutes
-
-  /**
    * Queue of XHR requests waiting to go out
    */
   let queueOfXhr = [];
@@ -46,7 +40,8 @@ const cldrAjax = (function () {
    *   error: errorHandler,
    *   postData: postData, (or sometimes "content" instead of "postData")
    *   content: ourContent,
-   *   headers: headers, (rarely used, but in loadOrFail it's {"Content-Type": "text/plain"})
+   *   headers: headers, (rarely used, but in loadOrFail it's {"Content-Type": "text/plain"}),
+   *   timeout: cldrAjax.mediumTimeout(),
    * }
    */
   function queueXhr(xhrArgs) {
@@ -159,20 +154,17 @@ const cldrAjax = (function () {
       options.method = "GET";
     }
     const request = new XMLHttpRequest();
-    if(xhrArgs.url.indexOf('?') == -1) {
-      xhrArgs.url += '?USE_DOJO='+USE_DOJO;
+    if (xhrArgs.url.indexOf("?") == -1) {
+      xhrArgs.url += "?USE_DOJO=" + USE_DOJO;
     } else {
-      xhrArgs.url += '&USE_DOJO='+USE_DOJO;
+      xhrArgs.url += "&USE_DOJO=" + USE_DOJO;
     }
     request.open(options.method, xhrArgs.url);
     request.responseType = options.handleAs ? options.handleAs : "text";
-    request.timeout = ajaxTimeout;
+    request.timeout = xhrArgs.timeout ? xhrArgs.timeout : 0;
     request.onreadystatechange = function () {
       if (request.readyState === XMLHttpRequest.DONE) {
-        if (
-          request.status === 0 ||
-          (request.status >= 200 && request.status < 400)
-        ) {
+        if (request.status >= 200 && request.status < 400) {
           if (xhrArgs.load) {
             xhrArgs.load(request.response);
           }
@@ -229,7 +221,9 @@ const cldrAjax = (function () {
   function makeErrorMessage(request, url) {
     let msg =
       "Status " + request.status + " " + request.statusText + "; URL: " + url;
-    if (request.responseType === "text" || request.responseType === "") {
+    if (!request.status) {
+      msg += " Status zero -- no response; timed out?";
+    } else if (request.responseType === "text" || request.responseType === "") {
       if (request.responseText) {
         msg += " Response: " + request.responseText;
       }
@@ -261,11 +255,20 @@ const cldrAjax = (function () {
     return count;
   }
 
+  /**
+   * Used for XMLHttpRequest = the number of milliseconds a request can take before being terminated.
+   * Zero (the default unless we set it) means there is no timeout.
+   */
+  function mediumTimeout() {
+    return 120000; // 2 minutes
+  }
+
   /*
    * Make only these functions accessible from other files:
    */
   return {
     clearXhr,
+    mediumTimeout,
     sendXhr,
     queueCount,
     queueXhr,

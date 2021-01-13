@@ -1257,6 +1257,7 @@ function updateStatus() {
       surveySessionUrl +
       cacheKill(),
     handleAs: "json",
+    timeout: cldrAjax.mediumTimeout(),
     load: function (json) {
       if (json == null || (json.status && json.status.isBusted)) {
         wasBusted = true;
@@ -3362,6 +3363,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
     handleAs: "json",
     load: loadHandler,
     error: errorHandler,
+    timeout: cldrAjax.mediumTimeout(),
   };
   cldrAjax.queueXhr(xhrArgs);
 }
@@ -3552,6 +3554,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
     content: ourContent,
     load: loadHandler,
     error: errorHandler,
+    timeout: cldrAjax.mediumTimeout(),
   };
   cldrAjax.queueXhr(xhrArgs);
 }

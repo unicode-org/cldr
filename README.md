@@ -1,6 +1,6 @@
 # Unicode CLDR Project
 
-Latest Release: [v37.0](http://cldr.unicode.org/index/downloads/cldr-37#TOC-V37) published 2020-04-23
+Latest Release: [v39.0](http://cldr.unicode.org/index/downloads/cldr-39) published 2021-03-31
 
 ## Build Status
 
@@ -41,7 +41,7 @@ included as [apache-license.txt](./apache-license.txt).
 
 ### Copyright
 
-Copyright &copy; 1991-2020 Unicode, Inc.
+Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved.
 [Terms of use](http://www.unicode.org/copyright.html)
 

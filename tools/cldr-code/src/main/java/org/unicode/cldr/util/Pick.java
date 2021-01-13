@@ -12,6 +12,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import com.google.common.collect.LinkedHashMultiset;
+import com.google.common.collect.Multiset;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -21,9 +23,13 @@ abstract public class Pick {
     // for using to get strings
 
     static class Target {
+
+        static int MAX_COUNT = 5;
+
         private Pick pick;
         private Random random;
         private Quoter quoter;
+        private Multiset<Pick> stack = LinkedHashMultiset.create();
 
         public static Target make(Pick pick, Random random, Quoter quoter) {
             Target result = new Target();
@@ -35,8 +41,18 @@ abstract public class Pick {
 
         public String next() {
             quoter.clear();
-            pick.addTo(this);
-            return get();
+            stack.clear();
+            while (true) {
+                try {
+                    pick.addTo(this);
+                    return get();
+                } catch (DepthExceededException e) {
+                    for (Pick pick : e.target.stack.elementSet()) {
+                        System.out.println(pick.name + ": " + e.target.stack.count(pick));
+                    }
+                    int debug = 0;
+                }
+            }
         }
 
         public String get() {
@@ -55,11 +71,17 @@ abstract public class Pick {
             return quoter.length();
         }*/
         private Target append(int codepoint) {
+            if (codepoint == '-') {
+                int debug = 0;
+            }
             quoter.append(codepoint);
             return this;
         }
 
         private Target append(String s) {
+            if (s.contains("-")) {
+                int debug = 0;
+            }
             quoter.append(s);
             return this;
         }
@@ -67,6 +89,18 @@ abstract public class Pick {
         // must return value between 0 (inc) and 1 (exc)
         private double nextDouble() {
             return random.nextDouble();
+        }
+
+        public void exitStack(Pick pick) {
+            stack.remove(pick);
+        }
+
+        public void enterStack(Pick pick) {
+            int count = stack.count(pick);
+            if (count > MAX_COUNT) {
+                throw new DepthExceededException(this, pick);
+            }
+            stack.add(pick);
         }
     }
 
@@ -120,7 +154,7 @@ abstract public class Pick {
     static public Pick codePoint(String source) {
         return new CodePoint(new UnicodeSet(source));
     }
-    */
+     */
 
     static public Pick repeat(int minCount, int maxCount, int[] itemWeights, Pick item) {
         return new Repeat(minCount, maxCount, itemWeights, item);
@@ -140,7 +174,7 @@ abstract public class Pick {
     static public Pick string(int minLength, int maxLength, Pick item) {
         return new Morph(item, minLength, maxLength);
     }
-    */
+     */
 
     public abstract String getInternal(int depth, Set alreadySeen);
     // Internals
@@ -150,6 +184,17 @@ abstract public class Pick {
     protected abstract void addTo(Target target);
 
     public abstract boolean match(String input, Position p);
+
+    static class DepthExceededException extends RuntimeException {
+        private static final long serialVersionUID = -2478735802169169979L;
+        private final Target target;
+        private final Pick pick;
+
+        public DepthExceededException(Target target, Pick pick) {
+            this.target = target;
+            this.pick = pick;
+        }
+    }
 
     public static class Sequence extends ListPick {
         public Sequence and2(Pick item) {
@@ -236,7 +281,30 @@ abstract public class Pick {
 
         @Override
         protected void addTo(Target target) {
-            items[weightedIndex.toIndex(target.nextDouble())].addTo(target);
+            final int index = weightedIndex.toIndex(target.nextDouble());
+            int last = index - 1;
+            if (last < weightedIndex.minCount) {
+                last -= weightedIndex.minCount;
+                last += weightedIndex.weights.length;
+            }
+            for (int i = index; ;) {
+                try {
+                    target.enterStack(this);
+                    items[index].addTo(target); // may cause exception if stack overflows
+                    // no exception, continue normally
+                    target.exitStack(this);
+                    return;
+                } catch (DepthExceededException e) {
+                    target.exitStack(this);
+                    if (i == last) {
+                        throw e; // we tried all the options, and none of them work.
+                    }
+                    i ++;
+                    if (i >= weightedIndex.weights.length) {
+                        i -= weightedIndex.weights.length - weightedIndex.minCount;
+                    }
+                }
+            }
         }
 
         @Override
@@ -293,11 +361,12 @@ abstract public class Pick {
             this.item = convert(item);
             weightedIndex = new WeightedIndex(minCount).add(maxCount-minCount+1, 1);
         }
-        */
+         */
         @Override
         protected void addTo(Target target) {
             //int count ;
-            for (int i = weightedIndex.toIndex(target.nextDouble()); i > 0; --i) {
+            final int count = weightedIndex.toIndex(target.nextDouble());
+            for (int i = count; i > 0; --i) {
                 item.addTo(target);
             }
         }
@@ -421,8 +490,8 @@ abstract public class Pick {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
             return indent(depth) + result + "MORPH("
-                + item.getInternal(depth + 1, alreadySeen)
-                + ")";
+            + item.getInternal(depth + 1, alreadySeen)
+            + ")";
         }
 
         /* (non-Javadoc)
@@ -453,7 +522,7 @@ abstract public class Pick {
             source = swapTemp;
         }
     }
-    */
+     */
 
     static class Quote extends ItemPick {
         Quote(Pick item) {
@@ -477,7 +546,7 @@ abstract public class Pick {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
             return indent(depth) + result + "QUOTE(" + item.getInternal(depth + 1, alreadySeen)
-                + ")";
+            + ")";
         }
     }
 
@@ -570,7 +639,7 @@ abstract public class Pick {
             return indent(depth) + "\u00F8";
         }
     }
-    */
+     */
 
     // intermediates
 
@@ -754,7 +823,7 @@ abstract public class Pick {
         if (obj instanceof Pick) return (Pick)obj;
         return new Literal(obj.toString(), false);
     }
-    */
+     */
     // Useful statics
 
     static public int pick(Random random, int start, int end) {
@@ -819,7 +888,7 @@ abstract public class Pick {
         public abstract void handleAlternation(String source, int start, int limit);
 
     }
-    */
+     */
     /*
     // redistributes random value
     // values are still between 0 and 1, but with a different distribution
@@ -855,6 +924,6 @@ abstract public class Pick {
         return start + (int)(spread.spread(random.nextDouble()) * (end + 1 - start));
     }
 
-    */
+     */
 
 }

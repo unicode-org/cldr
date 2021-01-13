@@ -482,8 +482,9 @@ public class CldrUtility {
                         : (T) Collections.unmodifiableCollection(sourceCollection);
         } else if (source instanceof Freezable) {
             Freezable freezableSource = (Freezable) source;
-            if (freezableSource.isFrozen()) return source;
-            return (T) ((Freezable) (freezableSource.cloneAsThawed())).freeze();
+            return (T) freezableSource.freeze();
+//            if (freezableSource.isFrozen()) return source;
+//            return (T) ((Freezable) (freezableSource.cloneAsThawed())).freeze();
         } else {
             return source; // can't protect
         }

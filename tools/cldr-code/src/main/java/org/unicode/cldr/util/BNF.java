@@ -146,16 +146,27 @@ public class BNF {
 
     private boolean addRule() {
         int type = t.next();
-        if (type == Tokenizer.DONE) return false;
-        if (type != Tokenizer.STRING) error("missing weight");
+        //System.out.println(type + "t.getString " + t.getString());
+        if (type == Tokenizer.DONE) {
+            return false;
+        }
+        if (type != Tokenizer.STRING) {
+            error("missing weight");
+        }
         String s = t.getString();
-        if (s.length() == 0 || s.charAt(0) != '$') error("missing $ in variable");
-        if (t.next() != '=') error("missing =");
+        if (s.length() == 0 || s.charAt(0) != '$') {
+            error("missing $ in variable");
+        }
+        if (t.next() != '=') {
+            error("missing =");
+        }
         int startBody = t.index;
         Pick rule = getAlternation();
         if (rule == null) error("missing expression");
         t.addSymbol(s, t.getSource(), startBody, t.index);
-        if (t.next() != ';') error("missing ;");
+        if (t.next() != ';') {
+            error("missing ;");
+        }
         return addPick(s, rule);
     }
 
@@ -246,7 +257,7 @@ public class BNF {
             if (item == null) {
                 if (result != null) return result;
                 if (last != null) return last;
-                error("missing item");
+                error("missing item in sequence");
             }
             // qualify it as many times as possible
             Pick oldItem;

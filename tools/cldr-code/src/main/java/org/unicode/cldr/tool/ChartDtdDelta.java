@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.tool.ToolConstants.ChartStatus;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
@@ -101,7 +102,7 @@ public class ChartDtdDelta extends Chart {
 
         String last = null;
 
-        for (String current : ToolConstants.CLDR_RELEASE_AND_DEV_VERSION_SET) {
+        for (String current : ToolConstants.CHART_STATUS == ChartStatus.beta ? ToolConstants.CLDR_RELEASE_AND_DEV_VERSION_SET : ToolConstants.CLDR_RELEASE_VERSION_SET) {
             System.out.println("DTD delta: " + current);
             final boolean finalVersion = current.equals(ToolConstants.DEV_VERSION);
             String currentName = finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current;

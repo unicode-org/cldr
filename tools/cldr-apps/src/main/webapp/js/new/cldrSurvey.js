@@ -496,6 +496,7 @@ const cldrSurvey = (function () {
       handleAs: "json",
       load: updateStatusLoadHandler,
       error: updateStatusErrHandler,
+      timeout: cldrAjax.mediumTimeout(),
     };
 
     cldrAjax.sendXhr(xhrArgs);
@@ -1560,6 +1561,7 @@ const cldrSurvey = (function () {
       handleAs: "json",
       load: loadHandler,
       error: errorHandler,
+      timeout: cldrAjax.mediumTimeout(),
     };
     cldrAjax.queueXhr(xhrArgs);
   }
@@ -1752,6 +1754,7 @@ const cldrSurvey = (function () {
       content: ourContent,
       load: loadHandler,
       error: errorHandler,
+      timeout: cldrAjax.mediumTimeout(),
     };
     cldrAjax.queueXhr(xhrArgs);
   }

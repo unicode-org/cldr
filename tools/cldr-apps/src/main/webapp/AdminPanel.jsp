@@ -9,6 +9,11 @@ if(vap==null ||
 	response.sendRedirect("http://cldr.unicode.org"); // Get out.
 	return;
 }
+if (SurveyTool.useDojo(request) == false) {
+    // AdminPanel.jsp is the dojo version. Redirect to the new one.
+    response.sendRedirect("./v?USE_DOJO=false#admin///");
+    return;
+}
 
 String action  = request.getParameter("do");
 

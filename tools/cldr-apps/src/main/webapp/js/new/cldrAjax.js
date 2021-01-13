@@ -158,8 +158,12 @@ const cldrAjax = (function () {
     } else {
       options.method = "GET";
     }
-
     const request = new XMLHttpRequest();
+    if(xhrArgs.url.indexOf('?') == -1) {
+      xhrArgs.url += '?USE_DOJO='+USE_DOJO;
+    } else {
+      xhrArgs.url += '&USE_DOJO='+USE_DOJO;
+    }
     request.open(options.method, xhrArgs.url);
     request.responseType = options.handleAs ? options.handleAs : "text";
     request.timeout = ajaxTimeout;

@@ -569,7 +569,7 @@ public class SurveyAjax extends HttpServlet {
                     if (what.equals(WHAT_ADMIN_PANEL)) {
                         mySession.userDidAction();
                         if (UserRegistry.userIsAdmin(mySession.user)) {
-                            if (SurveyTool.USE_DOJO) {
+                            if (SurveyTool.useDojo(request)) {
                                 response.sendRedirect(request.getContextPath() + "/AdminPanel.jsp" + "?vap=" + SurveyMain.vap);
                             } else {
                                 mySession.userDidAction();
@@ -3163,7 +3163,7 @@ public class SurveyAjax extends HttpServlet {
                 out.write("<td title='vote:' style='" + resultStyle + "'>\n");
                 if (!checkResult.isEmpty()) {
                     out.write("<script>\n");
-                    String testsToHtml = SurveyTool.USE_DOJO ? "cldrSurvey.testsToHtml" : "testsToHtml";
+                    String testsToHtml = SurveyTool.useDojo(request) ? "cldrSurvey.testsToHtml" : "testsToHtml";
                     out.write("document.write(" + testsToHtml + "(" + SurveyAjax.JSONWriter.wrap(checkResult) + ")");
                     out.write("</script>\n");
                 }

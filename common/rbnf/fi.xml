@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2021 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -326,6 +326,31 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000">←← miljardille[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←← biljoonalle[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←← biljoonalle[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-plural">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">←← pilkku →→;</rbnfrule>
+                <rbnfrule value="0">nollat;</rbnfrule>
+                <rbnfrule value="1">yhdet;</rbnfrule>
+                <rbnfrule value="2">kahdet;</rbnfrule>
+                <rbnfrule value="3">kolmet;</rbnfrule>
+                <rbnfrule value="4">neljät;</rbnfrule>
+                <rbnfrule value="5">viidet;</rbnfrule>
+                <rbnfrule value="6">kuudet;</rbnfrule>
+                <rbnfrule value="7">seitsemät;</rbnfrule>
+                <rbnfrule value="8">kahdeksat;</rbnfrule>
+                <rbnfrule value="9">yhdeksät;</rbnfrule>
+                <rbnfrule value="10">kymmenet;</rbnfrule>
+                <rbnfrule value="11">→→toista;</rbnfrule>
+                <rbnfrule value="20">←←-kymmenet[­→→];</rbnfrule>
+                <rbnfrule value="100">sadat[­→→];</rbnfrule>
+                <rbnfrule value="200">←←-sadat[­→→];</rbnfrule>
+                <rbnfrule value="1000">tuhannet[­→→];</rbnfrule>
+                <rbnfrule value="2000">←←­tuhannet[­→→];</rbnfrule>
+                <rbnfrule value="1000000">←← miljoonat[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← miljardit[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← biljoonat[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-genitive-plural">
@@ -991,6 +1016,41 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000">←%%spellout-ordinal-allative-larger←­miljardinnelle[­→→];</rbnfrule>
                 <rbnfrule value="1000000000000">biljoonannelle[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←%%spellout-ordinal-allative-larger←­biljoonannelle[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-larger" access="private">
+                <rbnfrule value="0">;</rbnfrule>
+                <rbnfrule value="2">kahdennet;</rbnfrule>
+                <rbnfrule value="3">=%spellout-ordinal-plural=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">nollannet;</rbnfrule>
+                <rbnfrule value="1">ensimmäiset;</rbnfrule>
+                <rbnfrule value="2">toiset;</rbnfrule>
+                <rbnfrule value="3">kolmannet;</rbnfrule>
+                <rbnfrule value="4">neljännet;</rbnfrule>
+                <rbnfrule value="5">viidennet;</rbnfrule>
+                <rbnfrule value="6">kuudennet;</rbnfrule>
+                <rbnfrule value="7">seitsemännet;</rbnfrule>
+                <rbnfrule value="8">kahdeksannet;</rbnfrule>
+                <rbnfrule value="9">yhdeksännet;</rbnfrule>
+                <rbnfrule value="10">kymmenennet;</rbnfrule>
+                <rbnfrule value="11">yhdennettoista;</rbnfrule>
+                <rbnfrule value="12">kahdennettoista;</rbnfrule>
+                <rbnfrule value="13">→→toista;</rbnfrule>
+                <rbnfrule value="20">←%%spellout-ordinal-plural-larger←­kymmenennet[­→→];</rbnfrule>
+                <rbnfrule value="100">sadannet[­→→];</rbnfrule>
+                <rbnfrule value="200">←%%spellout-ordinal-plural-larger←­sadannet[­→→];</rbnfrule>
+                <rbnfrule value="1000">tuhannennet[­→→];</rbnfrule>
+                <rbnfrule value="2000">←%%spellout-ordinal-plural-larger←­tuhannennet[­→→];</rbnfrule>
+                <rbnfrule value="1000000">miljoonannet[­→→];</rbnfrule>
+                <rbnfrule value="2000000">←%%spellout-ordinal-plural-larger←­miljoonannet[­→→];</rbnfrule>
+                <rbnfrule value="1000000000">miljardinnet[­→→];</rbnfrule>
+                <rbnfrule value="2000000000">←%%spellout-ordinal-plural-larger←­miljardinnet[­→→];</rbnfrule>
+                <rbnfrule value="1000000000000">biljoonannet[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%%spellout-ordinal-plural-larger←­biljoonannet[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-genitive-plural-larger" access="private">

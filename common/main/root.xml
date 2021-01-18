@@ -4606,8 +4606,7 @@ for derived annotations.
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Cal</displayName>
-				<unitPattern count="other">{0} Cal</unitPattern>
+				<alias source="locale" path="../unit[@type='energy-kilocalorie']"/>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -4678,16 +4677,13 @@ for derived annotations.
 				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="other">{0} dpcm</unitPattern>
+				<alias source="locale" path="../unit[@type='graphics-pixel-per-centimeter']"/>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="other">{0} dpi</unitPattern>
+				<alias source="locale" path="../unit[@type='graphics-pixel-per-inch']"/>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>dot</displayName>
-				<unitPattern count="other">{0} dot</unitPattern>
+				<alias source="locale" path="../unit[@type='graphics-pixel']"/>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>

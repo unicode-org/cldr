@@ -281,11 +281,11 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         final String xpath_a = "//ldml/localeDisplayNames/types/type[@type=\"hant\"][@key=\"numbers\"]";
         final String TEST_DATA[] = {
             xpath_a,         // xpath
-            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲'𞤣𞤫",  // src 
+            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲'𞤣𞤫",  // src
             "{0} 𞤸𞤭𞤼𞤢𞥄𞤲"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤣𞤫",   // dst
 
             xpath_a,         // xpath
-            "𞤐‘𞤄𞤵𞥅𞤯𞤭",  // src 
+            "𞤐‘𞤄𞤵𞥅𞤯𞤭",  // src
             "𞤐"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤄𞤵𞥅𞤯𞤭",   // dst
 
             xpath_a,
@@ -391,5 +391,20 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"fr\"]";
         String value = daip.processInput(xpath, "\btest\bTEST\b", null);
         assertEquals("Backspaces are filtered out", "testTEST", value);
+    }
+
+    /**
+     * Test whether DisplayAndInputProcessor.processInput normalizes whitespace.
+     * This depends very much on the xpath, since for most xpaths NBSP is normalized to
+     * ordinary space which, if initial or final, is then removed by trim(). But for some
+     * xpaths, NBSP is retained and then the standard trim() function doesn't apply.
+     */
+    public void TestWhitespaceNormalization() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
+        String xpath = "//ldml/numbers/currencies/currency/group";
+        String value = daip.processInput(xpath, " \t TEST \t", null);
+        assertEquals("Leading/trailing spaces/tabs are filtered out", "TEST", value);
+        String value2 = daip.processInput(xpath, "\u00A0\u00A0 TEST2 \u00A0\u00A0", null);
+        assertEquals("NBSP are filtered out", "TEST2", value2);
     }
 }

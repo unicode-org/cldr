@@ -47,7 +47,7 @@ import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class UnitConverter implements Freezable<UnitConverter> {
-
+    public static boolean DEBUG = false;
     public static final Integer INTEGER_ONE = Integer.valueOf(1);
 
     static final Splitter BAR_SPLITTER = Splitter.on('-');
@@ -61,6 +61,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Map<String,String> baseUnitToQuantity = new LinkedHashMap<>();
     private Map<String,String> baseUnitToStatus = new LinkedHashMap<>();
     private Map<String, TargetInfo> sourceToTargetInfo = new LinkedHashMap<>();
+    private Map<String,String> sourceToStandard;
     private Multimap<String, String> quantityToSimpleUnits = LinkedHashMultimap.create();
     private Multimap<String, String> sourceToSystems = LinkedHashMultimap.create();
     private Set<String> baseUnits;
@@ -123,8 +124,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
             frozen = true;
             rationalParser.freeze();
             sourceToTargetInfo = ImmutableMap.copyOf(sourceToTargetInfo);
+            sourceToStandard = buildSourceToStandard();
             quantityToSimpleUnits = ImmutableMultimap.copyOf(quantityToSimpleUnits);
             quantityComparator = getQuantityComparator(baseUnitToQuantity, baseUnitToStatus);
+
             sourceToSystems = ImmutableMultimap.copyOf(sourceToSystems);
             // other fields are frozen earlier in processing
             Builder<String> builder = ImmutableSet.<String>builder()
@@ -169,6 +172,32 @@ public class UnitConverter implements Freezable<UnitConverter> {
             idToUnitId = ImmutableMap.copyOf(_idToUnitId);
         }
         return this;
+    }
+
+    /**
+     * Return the 'standard unit' for the source.
+     * @return
+     */
+    private Map<String, String> buildSourceToStandard() {
+        Map<String, String> unitToStandard = new TreeMap<>();
+        for (Entry<String, TargetInfo> entry : sourceToTargetInfo.entrySet()) {
+            String source = entry.getKey();
+            TargetInfo targetInfo = entry.getValue();
+            if (targetInfo.unitInfo.factor.equals(Rational.ONE) && targetInfo.unitInfo.offset.equals(Rational.ZERO)) {
+                final String target = targetInfo.target;
+                String old = unitToStandard.get(target);
+                if (old == null) {
+                    unitToStandard.put(target, source);
+                    if (DEBUG) System.out.println(target + " ⟹ " + source);
+                } else if (old.length() > source.length()) {
+                    unitToStandard.put(target, source);
+                    if (DEBUG) System.out.println("TWO STANDARDS: " + target + " ⟹ " + source + "; was " + old);
+                } else {
+                    if (DEBUG) System.out.println("TWO STANDARDS: " + target + " ⟹ " + old + ", was " + source);
+                }
+            }
+        }
+        return ImmutableMap.copyOf(unitToStandard);
     }
 
     @Override
@@ -290,7 +319,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return remainder + " 🢣 " + result;
         }
 
-        public static Iterable<String> split(String derivedUnit, Multimap<String, Continuation> continuations) {
+        public static UnitIterator split(String derivedUnit, Multimap<String, Continuation> continuations) {
             return new UnitIterator(derivedUnit, continuations);
         }
 
@@ -309,6 +338,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 return nextIndex < parts.size();
             }
 
+            public String peek() {
+                return parts.size() <= nextIndex ? null : parts.get(nextIndex);
+            }
+
             @Override
             public String next() {
                 String result = parts.get(nextIndex++);
@@ -323,7 +356,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
 
             @Override
-            public Iterator<String> iterator() {
+            public UnitIterator iterator() {
                 return this;
             }
 
@@ -433,16 +466,23 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     private Comparator<String> getQuantityComparator(Map<String, String> baseUnitToQuantity2, Map<String, String> baseUnitToStatus2) {
         // We want to sort all the quantities so that we have a natural ordering within compound units. So kilowatt-hour, not hour-kilowatt.
-        // For simple quantities, just use the ordering from baseUnitToStatus
-        MapComparator<String> simpleBaseUnitComparator = new MapComparator<>(baseUnitToStatus2.keySet()).freeze();
-        // For non-symbol quantities, use the ordering of the UnitIds
-        Map<UnitId, String> unitIdToQuantity = new TreeMap<>();
-        for (Entry<String, String> buq : baseUnitToQuantity2.entrySet()) {
-            UnitId uid = new UnitId(simpleBaseUnitComparator).add(continuations, buq.getKey(), true, 1).freeze();
-            unitIdToQuantity.put(uid, buq.getValue());
+        Collection<String> values;
+        if (true) {
+            values = baseUnitToQuantity2.values();
+        } else {
+            // For simple quantities, just use the ordering from baseUnitToStatus
+            MapComparator<String> simpleBaseUnitComparator = new MapComparator<>(baseUnitToStatus2.keySet()).freeze();
+            // For non-symbol quantities, use the ordering of the UnitIds
+            Map<UnitId, String> unitIdToQuantity = new TreeMap<>();
+            for (Entry<String, String> buq : baseUnitToQuantity2.entrySet()) {
+                UnitId uid = new UnitId(simpleBaseUnitComparator).add(continuations, buq.getKey(), true, 1).freeze();
+                unitIdToQuantity.put(uid, buq.getValue());
+            }
+            // System.out.println(Joiner.on("\n").join(unitIdToQuantity.values()));
+            values = unitIdToQuantity.values();
         }
-        // System.out.println(Joiner.on("\n").join(unitIdToQuantity.values()));
-        return new MapComparator<>(unitIdToQuantity.values()).freeze();
+        if (DEBUG) System.out.println(values);
+        return new MapComparator<>(values).freeze();
     }
 
     public Set<String> canConvertBetween(String unit) {
@@ -499,6 +539,18 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return null;
         }
         return targetToInfo.target;
+    }
+
+    /**
+     * Return the standard unit, eg newton for kilogram-meter-per-square-second
+     * @param simpleUnit
+     * @return
+     */
+    public String getStandardUnit(String unit) {
+        Output<String>  metricUnit = new Output<>();
+        parseUnitId(unit, metricUnit, false);
+        String result = sourceToStandard.get(metricUnit.value);
+        return result == null ? metricUnit.value : result;
     }
 
     /**
@@ -1439,5 +1491,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public String getShortId(String longUnitId) {
         return CldrUtility.ifNull(SHORT_TO_LONG_ID.inverse().get(longUnitId), longUnitId);
+    }
+
+    public Multimap<String, Continuation> getContinuations() {
+        return continuations;
+    }
+
+    public Map<String, String> getBaseUnitToStatus() {
+        return baseUnitToStatus;
     }
 }

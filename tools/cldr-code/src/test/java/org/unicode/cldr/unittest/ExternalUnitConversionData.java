@@ -112,6 +112,9 @@ final class ExternalUnitConversionData {
         source = source.replace("inch to the fourth power", "pow4-inch");
         source = source.replace("meter to the fourth power", "pow4-meter");
 
+        source = source.replace("Britsh", "british");
+        source = source.replace("reciprocal", "per");
+
         source = replaceWhole(oldSource, source, changes);
 
         final Matcher match = firstPart.matcher(source);

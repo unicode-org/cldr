@@ -1,4 +1,5 @@
 #From https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9
+#Fixed perm from (Pa · s · m2) to (Pa · m2 · s)
 ACCELERATION
 To convert from	to	Multiply by
 acceleration of free fall, standard (gn)	meter per second squared (m/s2)	9.806 65	E+00
@@ -414,10 +415,10 @@ Return to top
 PERMEABILITY
 To convert from	to	Multiply by
 darcy 14	meter squared (m2)	9.869 233	E-13
-perm (0 °C)	kilogram per pascal second square meter [kg/(Pa · s · m2)]	5.721 35	E-11
-perm (23 °C)	kilogram per pascal second square meter [kg/(Pa · s · m2)]	5.745 25	E-11
-perm inch (0 °C)	kilogram per pascal second meter [kg/(Pa · s · m)]	1.453 22	E-12
-perm inch (23 °C)	kilogram per pascal second meter [kg/(Pa · s · m)]	1.459 29	E-12
+perm (0 °C)	kilogram per pascal square meter second [kg/(Pa · m2 · s)]	5.721 35	E-11
+perm (23 °C)	kilogram per pascal square meter second [kg/(Pa · m2 · s)]	5.745 25	E-11
+perm inch (0 °C)	kilogram per pascal meter second [kg/(Pa · m · s)]	1.453 22	E-12
+perm inch (23 °C)	kilogram per pascal meter second [kg/(Pa · m · s)]	1.459 29	E-12
 Return to top
 
 POWER

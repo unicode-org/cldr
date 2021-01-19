@@ -81,14 +81,30 @@ public class DisplayAndInputProcessor {
         + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
     private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
     private static final Pattern NON_DECIMAL_PERIOD = PatternCache.get("(?<![0#'])\\.(?![0#'])");
-    private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = PatternCache.get("\\s+"); // string of whitespace not
-    // including NBSP, i.e. [
-    // \t\n\r]+
-    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0]+"); // string of
-    // whitespace
-    // including NBSP,
-    // i.e. [
-    // \u00A0\t\n\r]+
+
+    /**
+     * string of whitespace not including NBSP, i.e. [\t\n\r]+
+     */
+    private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = PatternCache.get("\\s+"); //
+
+    /**
+     * string of whitespace including NBSP, i.e. [\u00A0\t\n\r]+
+     */
+    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0]+");
+
+    /**
+     * one or more NBSP followed by one or more regular spaces
+     */
+    private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE = PatternCache.get("\\u00A0+\\u0020+");
+
+    /**
+     * one or more regular spaces followed by one or more NBSP
+     */
+    private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE = PatternCache.get("\\u0020+\\u00A0+");
+
+    private static final Pattern INITIAL_NBSP = PatternCache.get("^[\\u00A0]+");
+    private static final Pattern FINAL_NBSP = PatternCache.get("[\\u00A0]+$");
+
     private static final UnicodeSet UNICODE_WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
 
     private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
@@ -581,37 +597,6 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
-    private String normalizeWhitespace(String path, String value) {
-        // turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
-        // into a single space or a single NBSP depending on path.
-        if ((path.contains("/dateFormatLength") && path.contains("/pattern")) ||
-            path.contains("/availableFormats/dateFormatItem") ||
-            (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
-            path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
-            path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
-            path.startsWith("//ldml/localeDisplayNames/languages/language") ||
-            path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
-            path.startsWith("//ldml/localeDisplayNames/types/type") ||
-            (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
-            (path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
-            path.startsWith("//ldml/posix/messages") ||
-            (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
-            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
-        } else if ((path.contains("/currencies/currency") && (path.contains("/group") || path.contains("/pattern")))
-            ||
-            (path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
-            (path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
-            (path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
-            (path.contains("/percentFormatLength") && path.contains("/pattern")) ||
-            (path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan")))) {
-            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0"); // replace with NBSP
-        } else {
-            // in this case don't normalize away NBSP
-            value = WHITESPACE_NO_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
-        }
-        return value;
-    }
-
     private String normalizeCurrencyDisplayName(String value) {
         StringBuilder result = new StringBuilder();
         boolean inParentheses = false;
@@ -1011,6 +996,100 @@ public class DisplayAndInputProcessor {
 
         public int[] getPosixDigitCount() {
             return posixDigitCount;
+        }
+    }
+
+    /**
+     * Turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
+     * into a single space or a single NBSP depending on path.
+     * Also trim initial/final NBSP, unless the value is only the one character, "\u00A0"
+     *
+     * @param path
+     * @param value
+     * @return the normalized value
+     */
+    private String normalizeWhitespace(String path, String value) {
+        PathSpaceType pst = PathSpaceType.get(path);
+        if (pst == PathSpaceType.allowSp) {
+            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+        } else if (pst == PathSpaceType.allowNbsp) {
+            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0"); // replace with NBSP
+            value = trimNBSP(value);
+        } else if (pst == PathSpaceType.allowSpOrNbsp) {
+            /*
+             * in this case don't normalize away NBSP
+             */
+            value = WHITESPACE_NO_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+            /*
+             * if any NBSP and regular space are adjacent, replace with NBSP
+             */
+            value = NBSP_PLUS_SPACE_TO_NORMALIZE.matcher(value).replaceAll("\u00A0");
+            value = SPACE_PLUS_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0");
+            value = trimNBSP(value);
+        } else {
+            throw new IllegalArgumentException("Unknown PathSpaceType " + pst);
+        }
+        return value;
+    }
+
+    /**
+     * Delete any initial or final NBSP, unless the value is just NBSP
+     *
+     * @param value
+     * @return the trimmed value
+     */
+    private String trimNBSP(String value) {
+        if (!"\u00A0".equals(value)) {
+            value = INITIAL_NBSP.matcher(value).replaceAll("");
+            value = FINAL_NBSP.matcher(value).replaceAll("");
+        }
+        return value;
+    }
+
+    /**
+     * Categorize xpaths according to whether they allow space, NBSP, or both
+     */
+    public enum PathSpaceType {
+        allowSp, allowNbsp, allowSpOrNbsp;
+
+        public static PathSpaceType get(String path) {
+            if (wantsRegularSpace(path)) {
+                return allowSp;
+            } else if (wantsNBSP(path)) {
+                return allowNbsp;
+            } else {
+                return allowSpOrNbsp;
+            }
+        }
+
+        private static boolean wantsRegularSpace(String path) {
+            if ((path.contains("/dateFormatLength") && path.contains("/pattern")) ||
+                path.contains("/availableFormats/dateFormatItem") ||
+                (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
+                path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
+                path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
+                path.startsWith("//ldml/localeDisplayNames/languages/language") ||
+                path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
+                path.startsWith("//ldml/localeDisplayNames/types/type") ||
+                (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
+                (path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
+                path.startsWith("//ldml/posix/messages") ||
+                (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
+                return true;
+            }
+            return false;
+        }
+
+        private static boolean wantsNBSP(String path) {
+            if ((path.contains("/currencies/currency") && (path.contains("/group") || path.contains("/pattern"))) ||
+                (path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
+                (path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
+                (path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
+                (path.contains("/percentFormatLength") && path.contains("/pattern")) ||
+                (path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan")))) {
+                return true;
+            }
+            return false;
         }
     }
 }

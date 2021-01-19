@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.util.Set;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
@@ -281,11 +282,11 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         final String xpath_a = "//ldml/localeDisplayNames/types/type[@type=\"hant\"][@key=\"numbers\"]";
         final String TEST_DATA[] = {
             xpath_a,         // xpath
-            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲'𞤣𞤫",  // src 
+            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲'𞤣𞤫",  // src
             "{0} 𞤸𞤭𞤼𞤢𞥄𞤲"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤣𞤫",   // dst
 
             xpath_a,         // xpath
-            "𞤐‘𞤄𞤵𞥅𞤯𞤭",  // src 
+            "𞤐‘𞤄𞤵𞥅𞤯𞤭",  // src
             "𞤐"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤄𞤵𞥅𞤯𞤭",   // dst
 
             xpath_a,
@@ -391,5 +392,82 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"fr\"]";
         String value = daip.processInput(xpath, "\btest\bTEST\b", null);
         assertEquals("Backspaces are filtered out", "testTEST", value);
+    }
+
+    /**
+     * Test whether DisplayAndInputProcessor.processInput normalizes whitespace.
+     * This depends very much on the xpath, since for most xpaths NBSP is normalized to
+     * ordinary space which, if initial or final, is then removed by trim(). But for some
+     * xpaths, NBSP is retained and then the standard trim() function doesn't apply.
++     *
++     * Each of the 3 types of paths, and for each, samples with
++     * A0 20
++     * 20 A0
++     * 20 A0 20
++     * 20 20
+     */
+    public void TestWhitespaceNormalization() {
+       DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
+       PathSpaceData[] a = PathSpaceData.getArray();
+       for (int i = 0; i < a.length; i++) {
+           PathSpaceType pst = PathSpaceType.get(a[i].xpath);
+           assertEquals("Path has expected type for i = " + i, a[i].pst, pst);
+           String val = daip.processInput(a[i].xpath, a[i].rawValue, null);
+           assertEquals("Whitespace is normalized for i = " + i, a[i].normValue, val);
+       }
+    }
+
+    private static class PathSpaceData {
+        private String xpath;
+        private String rawValue, normValue;
+        private PathSpaceType pst;
+
+        public PathSpaceData(String xpath, String rawValue, String normValue, PathSpaceType pst) {
+            this.xpath = xpath;
+            this.rawValue = rawValue;
+            this.normValue = normValue;
+            this.pst = pst;
+        }
+
+        public static PathSpaceData[] getArray() {
+            PathSpaceData[] a = {
+                new PathSpaceData("//ldml/localeDisplayNames/types/type",
+                    " \u00A0  TEST \u00A0 ", "TEST", PathSpaceType.allowSp),
+                new PathSpaceData("//ldml/localeDisplayNames/languages/language[@type=\"ab\"]",
+                    "\u00A0  FOO \u00A0\u00A0 BAR \u00A0", "FOO BAR", PathSpaceType.allowSp),
+                new PathSpaceData("//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
+                    "\u00A0  DUCK \u00A0  GOOSE \u00A0", "DUCK GOOSE", PathSpaceType.allowSp),
+
+                new PathSpaceData("//ldml/numbers/currencies/currency/group",
+                    " \u00A0  ፊደል \u00A0 ", "ፊደል", PathSpaceType.allowNbsp),
+                new PathSpaceData("//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
+                    "\u00A0  ding \u00A0\u00A0 dong \u00A0", "ding\u00A0dong", PathSpaceType.allowNbsp),
+                new PathSpaceData("//ldml/numbers/symbols/nan",
+                    "\u00A0  HA   HU \u00A0", "HA\u00A0HU", PathSpaceType.allowNbsp),
+
+                new PathSpaceData("//ldml/numbers/symbols[@numberSystem=\"telu\"]/approximatelySign",
+                    " \u00A0  试 \u00A0 ", "试", PathSpaceType.allowSpOrNbsp),
+                new PathSpaceData(
+                    "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMM\"]/greatestDifference[@id=\"M\"]",
+                    "\u00A0  X \u00A0 Y \u00A0", "X\u00A0Y", PathSpaceType.allowSpOrNbsp),
+                new PathSpaceData(
+                    "//ldml/dates/calendars/calendar[@type=\"islamic-civil\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"MEd\"]/greatestDifference[@id=\"M\"]",
+                    "\u00A0  Marvin   Gaye \u00A0", "Marvin Gaye", PathSpaceType.allowSpOrNbsp),
+                /*
+                 * The following path is an exception in which regular space is changed to NBSP
+                 * in spite of the path being allowSpOrNbsp; see comment "fix grouping separator if space"
+                 */
+                new PathSpaceData("//ldml/numbers/symbols[@numberSystem=\"telu\"]/approximatelySign",
+                    "\u00A0  P   Q \u00A0", "P\u00A0Q", PathSpaceType.allowSpOrNbsp),
+                /*
+                 * The following path is an exception in which NBSP is changed to regular space
+                 * in spite of the path being allowSpOrNbsp; see DisplayAndInputProcessor.annotationsForDisplay
+                 */
+                new PathSpaceData("//ldml/annotations/annotation[@cp=\"🍊\"]",
+                    "\u00A0  fruit   |   orange   | \u00A0  tangerine \u00A0", "fruit | orange | tangerine",
+                    PathSpaceType.allowSpOrNbsp),
+            };
+            return a;
+        }
     }
 }

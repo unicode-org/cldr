@@ -67,6 +67,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.Continuation;
+import org.unicode.cldr.util.UnitConverter.Continuation.UnitIterator;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitComplexity;
@@ -83,6 +84,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.BiMap;
+import com.google.common.collect.Comparators;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -91,6 +93,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
+import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
@@ -117,6 +120,8 @@ public class TestUnits extends TestFmwk {
     static final Splitter SPLIT_AND = Splitter.on("-and-").trimResults().omitEmptyStrings();
 
     static final Rational R1000 = Rational.of(1000);
+
+    static Map<String,String> normalizationCache = new TreeMap<>();
 
     public static void main(String[] args) {
         new TestUnits().run(args);
@@ -838,7 +843,15 @@ public class TestUnits extends TestFmwk {
             final String unit = entry.getValue();
             if (lastUnit != null) {
                 if (!(conversionOrder.compare(lastUnit, unit) < 0)) {
-                    warnln("Expected " + lastUnit + " < " + unit);
+                    Output<String> metricUnit = new Output<>();
+                    ConversionInfo lastInfo = converter.parseUnitId(lastUnit, metricUnit, false);
+                    String lastMetric = metricUnit.value;
+                    ConversionInfo info = converter.parseUnitId(unit, metricUnit, false);
+                    String metric = metricUnit.value;
+                    if (metric.equals(lastMetric)) {
+                        warnln("Expected " + lastUnit + " < " + unit
+                            + "\t" + lastMetric + " " + lastInfo + " < " + metric + " " + info);
+                    }
                 }
             }
             lastUnit = unit;
@@ -1648,13 +1661,16 @@ public class TestUnits extends TestFmwk {
                     mark="²";
                 }
             }
-            System.out.println("Could add 10^X conversion from a"
+            logln("Could add 10^X conversion from a"
                 + "\t" +  s.source
                 + "\tto" + mark
                 + "\t" + endFactor.toString(FormatStyle.simple)
                 + "\t" + target);
         }
+        if (!DEBUG_ADD) System.out.println("\n\t\tSet -v to show units we could add");
     }
+
+    static final boolean DEBUG_ADD = false;
 
     private Rational showDelta(String firstUnit, String secondUnit, boolean showYourWork) {
         Rational x = converter.convert(Rational.ONE, firstUnit, secondUnit, showYourWork);
@@ -2020,7 +2036,7 @@ public class TestUnits extends TestFmwk {
         }
     }
 
-  public void TestDerivedCase() {
+    public void TestDerivedCase() {
         // needs further work
         if (logKnownIssue("CLDR-13920", "finish this as part of unit derivation work")) {
             return;
@@ -2159,7 +2175,7 @@ public class TestUnits extends TestFmwk {
                 showData(localeID, missing, quantity, genderToUnits);
             }
             for (String gender : missing) {
-                System.out.println(localeID + "\t" + "?" + "\t" + gender + "\t?");
+                warnln("Missing values: " + localeID + "\t" + "?" + "\t" + gender + "\t?");
             }
         }
     }
@@ -2174,18 +2190,320 @@ public class TestUnits extends TestFmwk {
                 genderFilter.remove(gender);
             }
             for (String unit : entry2.getValue().keySet()) {
-                System.out.println(localeID + "\t" + quantity + "\t" + gender + "\t" + unit);
+                logln(localeID + "\t" + quantity + "\t" + gender + "\t" + unit);
             }
         }
     }
+
+    static final boolean DEBUG_DERIVATION = false;
 
     public void testDerivation() {
         int count = 0;
         for (String locale : SDI.hasGrammarDerivation()) {
             GrammarDerivation gd = SDI.getGrammarDerivation(locale);
-            System.out.println(locale + " => " + gd);
+            if (DEBUG_DERIVATION) System.out.println(locale + " => " + gd);
             ++count;
         }
         assertNotEquals("hasGrammarDerivation", 0, count);
+    }
+
+    static final boolean DEBUG_ORDER = false;
+
+    public void TestUnitOrder() {
+        if (DEBUG_ORDER) {
+            System.out.println();
+            for (Entry<String, Collection<Continuation>> entry : converter.getContinuations().asMap().entrySet()) {
+                System.out.println(entry);
+            }
+        }
+
+        for (Entry<String, String> entry : converter.getBaseUnitToQuantity().entrySet()) {
+            checkNormalization("base-quantity, " + entry.getValue(), entry.getKey());
+        }
+
+        // check root list
+        // crucial that this is stable!!
+        checkCldrFileUnits("root unit", CLDRConfig.getInstance().getRoot());
+        checkCldrFileUnits("en unit", CLDRConfig.getInstance().getEnglish());
+
+        for (String unit : converter.canConvert()) {
+            checkNormalization("convertable", unit);
+            String baseUnitId = converter.getBaseUnit(unit);
+            checkNormalization("convertable base", baseUnitId);
+        }
+
+
+
+        checkNormalization("test case", "foot-acre", "acre-foot");
+        checkNormalization("test case", "meter-newton", "newton-meter");
+
+        checkNormalization("test case", "newton-meter");
+        checkNormalization("test case", "acre-foot");
+
+        String stdAcre = converter.getStandardUnit("acre");
+
+        UnitOrdering unitOrdering = new UnitOrdering();
+        List<String> simpleBaseUnits = new ArrayList<>();
+
+        for (ExternalUnitConversionData data : NistUnits.externalConversionData) {
+            // unitOrdering.add(data.source);
+            final String source = data.source;
+            final String target = data.target;
+            unitOrdering.add(target);
+            checkNormalization("nist core, " + source, target);
+        }
+        for (Entry<String, TargetInfo> data : NistUnits.derivedUnitToConversion.entrySet()) {
+            if (DEBUG_ORDER) {
+                System.out.println(data);
+            }
+            final String target = data.getValue().target;
+            unitOrdering.add(target);
+            simpleBaseUnits.add(data.getKey());
+            checkNormalization("nist derived", target);
+        }
+
+        if (DEBUG_ORDER) {
+            System.out.println("Pass 1\n" + unitOrdering.orderingData);
+        }
+
+        for (String baseUnit : converter.getBaseUnitToQuantity().keySet()) {
+            unitOrdering.add(baseUnit);
+            String status = converter.getBaseUnitToStatus().get(baseUnit);
+            if ("simple".equals(status)) {
+                simpleBaseUnits.add(baseUnit);
+            }
+        }
+        if (DEBUG_ORDER) {
+            System.out.println("Pass 2\n" + unitOrdering.orderingData);
+        }
+
+        if (DEBUG_ORDER) System.out.println("Extracted data\n" + Joiner.on('\n').join(unitOrdering.orderingData.asMap().entrySet()));
+        if (DEBUG_ORDER) System.out.println("Building data");
+
+        // check the builder first
+        TotalOrderBuilder<String> totalOrderBuilder = new TotalOrderBuilder<>();
+
+        if (false) {
+            totalOrderBuilder.add("meter", "second").add("kilogram", "meter");
+            totalOrderBuilder.build();
+
+            totalOrderBuilder.add("meter", "second").add("kilogram", "meter").add("second", "kilogram");
+            try {
+                totalOrderBuilder.build();
+            } catch (Exception e) {
+                errln("Problem in TotalOrderBuilder");
+            }
+        }
+        if (DEBUG_ORDER)System.out.println("Show ordering");
+        // now all the units
+        for (List<String> orderedUnits : unitOrdering.orderingData.asMap().keySet()) {
+            List<String> baseUnits = new ArrayList<>();
+            for (String orderedUnit : orderedUnits) {
+                baseUnits.add(unitOrdering.getId(orderedUnit, unitOrdering.rejects));
+            }
+            if (DEBUG_ORDER)System.out.println(orderedUnits + "\t" + baseUnits);
+            totalOrderBuilder.add(baseUnits);
+        }
+        for (String simpleBaseUnit : simpleBaseUnits) {
+            totalOrderBuilder.add(Collections.singletonList(simpleBaseUnit));
+        }
+        if (DEBUG_ORDER)System.out.println(totalOrderBuilder);
+
+        if (DEBUG_ORDER)System.out.println("Rejects: " + unitOrdering.rejects);
+        if (DEBUG_ORDER)System.out.println("Ordering: " + totalOrderBuilder.build());
+
+//        for (Entry<String, Collection<String>> entry : piecesToOccurences.asMap().entrySet()) {
+//            System.out.println(entry.getKey() + "\t" + entry.getValue());
+//        }
+    }
+
+    public void checkCldrFileUnits(String title, final CLDRFile cldrFile) {
+        for (String path : cldrFile) {
+            if (!path.startsWith("//ldml/units/unitLength")) {
+                continue;
+            }
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String longUnitId = parts.findAttributeValue("unit", "type");
+            if (longUnitId == null) {
+                continue;
+            }
+            String shortUnitId = converter.getShortId(longUnitId);
+            checkNormalization(title, shortUnitId);
+        }
+    }
+
+    public void checkNormalization(String title, String source, String expected) {
+        String oldExpected = normalizationCache.get(source);
+        if (oldExpected != null) {
+            if (!oldExpected.equals(expected)) {
+                assertEquals(title + ", consistent expected results for " + source, oldExpected, expected);
+            }
+            return;
+        }
+        normalizationCache.put(source, expected);
+        UnitId unitId = converter.createUnitId(source);
+        assertEquals(title + ", unit order", expected, unitId.toString());
+    }
+
+    public void checkNormalization(String title, String source) {
+        checkNormalization(title, source, source);
+    }
+
+    static class UnitOrdering {
+        boolean SKIP_POWERS = true;
+        Set<String> SKIP_UNITS = ImmutableSet.of(
+            "kilogram-per-pascal-second-square-meter",
+            "kilogram-per-pascal-second-meter"
+            );
+
+        final Set<String> SUFFIXES = ImmutableSet.of(
+            "0c",
+            "15c",
+            "20c",
+            "23c",
+            "32f",
+            "365",
+            "392f",
+            "39f",
+            "4c",
+            "59f",
+            "60f",
+            "survey",
+            "assay",
+            "imperial",
+            "long",
+            "of",
+            "capacitance",
+            "inductance",
+            "current",
+            "electric",
+            "potential",
+            "electric",
+            "inductance,",
+            "resistance",
+            "water",
+            "troy",
+            "tnt",
+            "sidereal",
+            "unitth",
+            "unitit",
+            "mean",
+            "nutrition",
+            "tropical",
+            "pole",
+            "boiler",
+            "mil",
+            "force",
+            "printer",
+            "refrigeration",
+            "register",
+            "technical",
+            "thermal",
+            "metric",
+            "dry"
+            );
+
+        final Set<String> POWERS = ImmutableSet.of(
+            "square",
+            "cubic",
+            "pow4");
+        // mil-inch, perm-inch
+
+
+        Set<String> seen = new HashSet<>();
+        Multimap<String, String> piecesToOccurences = TreeMultimap.create();
+        Multimap<String, Continuation> continuations = converter.getContinuations();
+        TreeMultimap<List<String>, String> orderingData = TreeMultimap.create(Comparators.lexicographical(Ordering.natural()), Ordering.natural());
+        TreeSet<String> rejects = new TreeSet<>();
+
+        void add(String unitId) {
+            if (!unitId.contains("-")
+                || !seen.add(unitId)
+                || SKIP_UNITS.contains(unitId)) {
+                return;
+            }
+            if (unitId.contains("square-meter-kilogram")) {
+                int debug = 0;
+            }
+            List<String> pieces = new ArrayList<>();
+            ArrayList<String> orderedNumerator = new ArrayList<>();
+            ArrayList<String> orderedDenominator = new ArrayList<>();
+            ArrayList<String> current = orderedNumerator;
+            for (UnitIterator it = Continuation.split(unitId, continuations).iterator(); it.hasNext();) {
+                String unit = it.next();
+                if (unit.equals("per")) {
+                    if (current == orderedDenominator) {
+                        throw new IllegalArgumentException();
+                    }
+                    handleOrdering(current, unitId);
+                    current = orderedDenominator;
+                    continue;
+                }
+                if (POWERS.contains(unit)) {
+                    if (SKIP_POWERS) {
+                        continue;
+                    }
+                    String nextUnit = it.next();
+                    nextUnit = UnitConverter.stripPrefix(nextUnit, null);
+                    unit += "-" + nextUnit; // should never overrun
+                } else {
+                    unit = UnitConverter.stripPrefix(unit, null);
+                }
+                String peek = it.peek();
+                while (peek != null && SUFFIXES.contains(peek)) {
+                    unit += "-" + peek;
+                    it.next();
+                    peek = it.peek();
+                }
+                current.add(unit);
+                pieces.add(unit);
+                piecesToOccurences.put(unit, unitId);
+            }
+            handleOrdering(current, unitId);
+            //System.out.println(pieces + "\t=>\t" + data.target);
+        }
+
+
+        Map<String, String> EXTRA_BASES = ImmutableMap.<String,String>builder()
+            .put("british-thermal-unitit", "joule")
+            .put("british-thermal-unitth", "joule")
+            .put("centimeter", "meter")
+            .put("circular-mil", "meter")
+            //.put("dry", "???")
+            .put("dyne", "newton")
+            .put("foot-survey", "meter")
+            .put("inch-0c", "meter")
+            .put("inch-23c", "meter")
+            .put("kilogram-force", "newton")
+            .put("kilowatt", "watt")
+            //.put("mil", "???")
+            .put("millimeter", "meter")
+            .put("ofhg-0c", "ofhg")
+            .put("ofhg-32f", "ofhg")
+            .put("ofhg-60f", "ofhg")
+            .put("ounce-force", "newton")
+            .put("perm", "kilogram-per-second-per-square-meter-per-pascal")
+            .put("poundal", "newton")
+            .put("rankine", "celcius")
+            .build();
+
+        public String getId(String orderedUnit, Set<String> rejects) {
+            String result = converter.getStandardUnit(orderedUnit);
+            if (result == null) {
+                result = EXTRA_BASES.get(orderedUnit);
+                if (result == null) {
+                    rejects.add(orderedUnit);
+                    return "???";
+                }
+            }
+            return result;
+        }
+
+        private void handleOrdering(ArrayList<String> current, String source) {
+            if (current.size() < 2) {
+                return;
+            }
+            orderingData.put(current, source);
+        }
     }
 }

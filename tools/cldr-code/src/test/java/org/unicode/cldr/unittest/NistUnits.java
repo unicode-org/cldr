@@ -31,6 +31,8 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 final class NistUnits {
+    private static final boolean DEBUG = false;
+
     final static Multimap<String,String> unitToQuantity;
     final static Map<String, TargetInfo> derivedUnitToConversion;
     final static List<ExternalUnitConversionData> externalConversionData;
@@ -54,7 +56,7 @@ final class NistUnits {
                 String quantity = null;
                 try (Stream<String> s = in.lines()) {
                     for (String line : (Iterable<String>) s::iterator) {
-                        if (line.startsWith("#") 
+                        if (line.startsWith("#")
                             || line.equals("To convert from\tto\tMultiply by")
                             || line.startsWith("degree Fahrenheit hour square foot per British thermal unitth inch") // bad NIST data
                             ) {
@@ -62,15 +64,15 @@ final class NistUnits {
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
                         switch(parts.size()) {
-                        case 1: 
+                        case 1:
                             quantity = parts.get(0);
                             break;
-                        case 4: 
+                        case 4:
                             Rational factor = Rational.of((parts.get(2) + parts.get(3)).replace(" ", ""));
                             ExternalUnitConversionData data = new ExternalUnitConversionData(quantity, parts.get(0), parts.get(1), factor, line, _idChanges);
                             _externalConversionData.add(data);
                             break;
-                        default: 
+                        default:
                             _skipping.add(line);
                         }
                     }
@@ -109,36 +111,36 @@ final class NistUnits {
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
                         // #Quantity   Special Name    Special symbol  Expression in terms of other SI units   Expression in terms of SI base units
-                        
+
                         String quantity = parts.get(0);
                         List<String> quantities = SPLIT_COMMAS.splitToList(quantity).stream()
                             .map(x ->  SPLIT_PARENS.split(parts.get(0)).iterator().next())
                             .collect(Collectors.toList());
                         quantity = Joiner.on(", ").join(quantities);
-                        
+
                         String name = SPLIT_PARENS.split(parts.get(1)).iterator().next();
                         if (name.equals("degree Celsius")) {
                             name = "celsius";
                         }
-                        
+
                         String symbol = parts.get(2);
                         String expressionInOtherSymbols = parts.get(4);
                         String expressionInBaseSymbols = parts.get(4);
                         _symbolToUnit.put(symbol, name);
                         _unitToQuantity.putAll(name, quantities);
-                        
+
                         final String targetUnit = getUnitFromSymbols(expressionInBaseSymbols, _symbolToUnit);
                         unitToTargetInfo.put(name, new TargetInfo(targetUnit, new ConversionInfo(Rational.ONE, Rational.ZERO), Collections.emptyMap()));
-                        
+
                         ExternalUnitConversionData data = new ExternalUnitConversionData(quantity, name, targetUnit, Rational.ONE, line, _idChanges);
                         _externalConversionData.add(data);
 
                     }
                 }
             }
-            
+
             // Protect everything
-            
+
             skipping = ImmutableSet.copyOf(_skipping);
             idChanges = ImmutableMultimap.copyOf(_idChanges);
             externalConversionData = ImmutableList.copyOf(_externalConversionData);
@@ -150,43 +152,49 @@ final class NistUnits {
     }
 
     public static String getUnitFromSymbols(String expressionInBaseSymbols, Map<String, String> symbolToUnit) {
-        // handle the irregualar formats
+        String result;
+        // handle the irregular formats
         if (expressionInBaseSymbols.equals("m/m")) {
-            return "meter-per-meter";
+            result = "meter-per-meter";
         } else if (expressionInBaseSymbols.equals("m2/m2")) {
-            return "square-meter-per-square-meter";
-        }
-        // m2 · kg · s-3 · A-1
-        StringBuilder numerator = new StringBuilder();
-        StringBuilder denominator = new StringBuilder();
-        for (String part : SPLIT_MIDDOT.split(expressionInBaseSymbols)) {
-            final Matcher parts = flatExponent.matcher(part);
-            if (!parts.matches()) {
-                throw new IllegalArgumentException("bad symbol: " + part);
-            }
-            String unit = symbolToUnit.get(parts.group(1));
-            String pow = null;
-            int power = 0;
-            final String exponent = parts.group(2);
-            if (exponent != null) {
-                power = Integer.parseInt(exponent);
-                switch(Math.abs(power)) {
-                case 0: case 1: break;// skip
-                case 2: pow = "square-"; break;
-                case 3: pow = "cubic-"; break;
-                default: pow = "pow" + Math.abs(power) + "-"; break;
+            result = "square-meter-per-square-meter";
+        } else {
+            // m2 · kg · s-3 · A-1
+            StringBuilder numerator = new StringBuilder();
+            StringBuilder denominator = new StringBuilder();
+            for (String part : SPLIT_MIDDOT.split(expressionInBaseSymbols)) {
+                final Matcher parts = flatExponent.matcher(part);
+                if (!parts.matches()) {
+                    throw new IllegalArgumentException("bad symbol: " + part);
                 }
+                String unit = symbolToUnit.get(parts.group(1));
+                String pow = null;
+                int power = 0;
+                final String exponent = parts.group(2);
+                if (exponent != null) {
+                    power = Integer.parseInt(exponent);
+                    switch(Math.abs(power)) {
+                    case 0: case 1: break;// skip
+                    case 2: pow = "square-"; break;
+                    case 3: pow = "cubic-"; break;
+                    default: pow = "pow" + Math.abs(power) + "-"; break;
+                    }
+                }
+                StringBuilder target = power >= 0 ? numerator : denominator;
+                if (target.length() != 0) {
+                    target.append('-');
+                }
+                if (pow != null) {
+                    target.append(pow);
+                }
+                target.append(unit);
             }
-            StringBuilder target = power >= 0 ? numerator : denominator;
-            if (target.length() != 0) {
-                target.append('-');
-            }
-            if (pow != null) {
-                target.append(pow);
-            }
-            target.append(unit);
+            result = (numerator.length() == 0 ? "" : numerator)
+                + (denominator.length() == 0 ? "" :
+                    (numerator.length() == 0 ? "per-" : "-per-") + denominator);
         }
-        return (numerator.length() == 0 ? "1" : numerator) + (denominator.length() == 0 ? "" : "-per-" + denominator);
+        if (DEBUG) System.out.println(expressionInBaseSymbols + " => " + result);
+        return result;
     }
 
 }

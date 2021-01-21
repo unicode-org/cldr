@@ -299,8 +299,16 @@ public class TestCLDRFile extends TestFmwk {
                         || path.contains("[@alt=\"formal\"]")
                         || (path.contains("dayPeriod[@type=")
                             && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]"))) // morning1, afternoon1, ...
-                        || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
-                            && localeInfo.locale.equals("root"))
+                        || (localeInfo.locale.equals("root") &&
+                            (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
+                                || (path.startsWith("//ldml/units/unitLength") // two aliased paths in root
+                                    && (path.contains("[@type=\"energy-foodcalorie")
+                                        || path.contains("[@type=\"graphics-dot"
+                                            )
+                                        )
+                                    )
+                                )
+                            )
                         // //ldml/characters/exemplarCharacters[@type="index"][root]
                         ) {
                         continue;

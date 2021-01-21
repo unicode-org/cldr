@@ -24,9 +24,7 @@ import org.unicode.cldr.util.GrammarDerivation.Values;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.Rational.RationalParser;
-import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
-import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.BiMap;
@@ -71,7 +69,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Map<String,String> fixDenormalized;
     private ImmutableMap<String, UnitId> idToUnitId;
 
-    public final BiMap<String,String> SHORT_TO_LONG_ID;
+    public final BiMap<String,String> SHORT_TO_LONG_ID = Units.LONG_TO_SHORT.inverse();
 
     private boolean frozen = false;
 
@@ -365,15 +363,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public UnitConverter(RationalParser rationalParser, Validity validity) {
         this.rationalParser = rationalParser;
-        // we need to pass in the validity so it is for the same CLDR version as the converter
-        Set<String> VALID_UNITS = validity.getStatusToCodes(LstrType.unit).get(Status.regular);
-        Map<String,String> _SHORT_TO_LONG_ID = new LinkedHashMap<>();
-        for (String longUnit : VALID_UNITS) {
-            int dashPos = longUnit.indexOf('-');
-            String coreUnit = longUnit.substring(dashPos+1);
-            _SHORT_TO_LONG_ID.put(coreUnit, longUnit);
-        }
-        SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
+//        // we need to pass in the validity so it is for the same CLDR version as the converter
+//        Set<String> VALID_UNITS = validity.getStatusToCodes(LstrType.unit).get(Status.regular);
+//        Map<String,String> _SHORT_TO_LONG_ID = new LinkedHashMap<>();
+//        for (String longUnit : VALID_UNITS) {
+//            int dashPos = longUnit.indexOf('-');
+//            String coreUnit = longUnit.substring(dashPos+1);
+//            _SHORT_TO_LONG_ID.put(coreUnit, longUnit);
+//        }
+//        SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
     }
 
     public void addRaw(String source, String target, String factor, String offset, String systems) {
@@ -456,7 +454,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         sourceToTargetInfo.put(source, new TargetInfo(target, info, inputParameters));
         String targetQuantity = baseUnitToQuantity.get(target);
         if (targetQuantity == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("No quantity for baseUnit: " + target);
         }
         quantityToSimpleUnits.put(targetQuantity, source);
         if (systems != null) {
@@ -498,6 +496,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return sourceToTargetInfo.keySet();
     }
 
+    /**
+     * Converts between units, but ONLY if they are both base units
+     */
     public Rational convertDirect(Rational source, String sourceUnit, String targetUnit) {
         if (sourceUnit.equals(targetUnit)) {
             return source;
@@ -816,7 +817,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 int unitsLeft = target.size();
                 for (Entry<String, Integer> entry : target.entrySet()) {
                     String possiblyPrefixedUnit = entry.getKey();
-                    String unit = stripPrefixInt(possiblyPrefixedUnit, deprefix);
+                    String unit = stripPrefixPower(possiblyPrefixedUnit, deprefix);
                     String genderVariant = UnitPathType.gender.getTrans(resolvedFile, "long", unit, null, null, null, partsUsed);
 
                     int power = entry.getValue();
@@ -1053,7 +1054,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     }
                 }
             }
-            String strippedUnit = stripPrefixInt(bestMeasure.getKey(), null);
+            String strippedUnit = stripPrefix(bestMeasure.getKey(), null);
             String gender = UnitPathType.gender.getTrans(resolvedFile, "long", strippedUnit, null, null, null, partsUsed);
             if (gender != null && source != null) {
                 source.value = strippedUnit;
@@ -1206,6 +1207,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         "kilogram"
         );
 
+    static final Rational RATIONAL1000 = Rational.of(1000);
     /**
      * If there is no prefix, return the unit and ONE.
      * If there is a prefix return the unit (with prefix stripped) and the prefix factor
@@ -1218,10 +1220,22 @@ public class UnitConverter implements Freezable<UnitConverter> {
         for (Entry<String, V> entry : unitMap.entrySet()) {
             String prefix = entry.getKey();
             if (unit.startsWith(prefix)) {
+                String result = unit.substring(prefix.length());
+                // We have to do a special hack for kilogram, but only for the Rational case.
+                // The Integer case is used for name construction, so that is ok.
+                final boolean isRational = deprefix != null && deprefix.value instanceof Rational;
+                boolean isGramHack = isRational && result.equals("gram");
+                if (isGramHack) {
+                    result = "kilogram";
+                }
                 if (deprefix != null) {
                     deprefix.value = entry.getValue();
+                    if (isGramHack) {
+                        final Rational ratValue = (Rational) deprefix.value;
+                        deprefix.value = (V) ratValue.divide(RATIONAL1000);
+                    }
                 }
-                return unit.substring(prefix.length());
+                return result;
             }
         }
         return unit;
@@ -1234,7 +1248,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return stripPrefixCommon(unit, deprefix, PREFIXES);
     }
 
-    public static String stripPrefixInt(String unit, Output<Integer> deprefix) {
+    public static String stripPrefixPower(String unit, Output<Integer> deprefix) {
         if (deprefix != null) {
             deprefix.value = Integer.valueOf(1);
         }
@@ -1249,7 +1263,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         Output<String> metricUnit = new Output<>();
         unit = fixDenormalized(unit);
         ConversionInfo unitInfo = parseUnitId(unit, metricUnit, showYourWork);
-        return metricUnit == null ? null : getQuantityFromBaseUnit(metricUnit.value);
+        return metricUnit.value == null ? null : getQuantityFromBaseUnit(metricUnit.value);
     }
 
     public String getQuantityFromBaseUnit(String baseUnit) {

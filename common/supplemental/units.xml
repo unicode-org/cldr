@@ -16,6 +16,9 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitConstant constant="in3_to_m3" value="ft3_to_m3/12*12*12"/>
         <unitConstant constant="gal_to_m3" value="231*in3_to_m3"/>
         <unitConstant constant="gal_imp_to_m3" value="0.00454609"/>
+        <unitConstant constant="glucose_molar_mass" value="180.1557" description="derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"/>
+        <unitConstant constant="item_per_mole" value="6.02214076E+23"/>
+        
         
         <unitConstant constant="gravity" value="9.80665"/>
         <unitConstant constant="PI" value="411557987 / 131002976" status='approximate'/>
@@ -75,6 +78,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitQuantity baseUnit='revolution-per-second' quantity='frequency'/>
 
         <unitQuantity baseUnit='item' quantity='substance-amount' status='simple'/> <!-- use instead of mole -->
+        <unitQuantity baseUnit='item-per-kilogram' quantity='concentration-mass'/>
         <unitQuantity baseUnit='item-per-cubic-meter' quantity='concentration'/>
 
         <unitQuantity baseUnit='portion' quantity='portion' status='simple'/>
@@ -193,7 +197,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <!-- substance-amount -->
         <convertUnit source='item' baseUnit='item'/>
-        <convertUnit source='mole' baseUnit='item' factor='6.02214076E+23'/>
+        <convertUnit source='mole' baseUnit='item' factor='item_per_mole'/>
         
         <!-- portion -->
         <convertUnit source='permillion' baseUnit='portion' factor='1/1000000'/>
@@ -260,6 +264,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 
         <!-- luminous-flux -->
         <convertUnit source='lumen' baseUnit='candela-square-meter-per-square-meter'/>
+        
+        <!-- concentration-mass -->
+        <convertUnit source='ofglucose' baseUnit='item-per-kilogram' factor='1000*item_per_mole/glucose_molar_mass'/>
+        
     </convertUnits>
     <unitPreferenceData draft="contributed">
         <unitPreferences category="area" usage="default">
@@ -282,6 +290,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         </unitPreferences>
         <unitPreferences category="concentration" usage="blood-glucose">
             <unitPreference regions="AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA">millimole-per-liter</unitPreference>
+            <unitPreference regions="001">milligram-ofglucose-per-deciliter</unitPreference>
         </unitPreferences>
         <unitPreferences category="concentration" usage="default">
             <unitPreference regions="001">item-per-cubic-meter</unitPreference>
@@ -399,9 +408,6 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="GB">pound-and-ounce</unitPreference>
             <unitPreference regions="HK">pound-and-ounce</unitPreference>
         </unitPreferences>
-        <unitPreferences category="mass-density" usage="blood-glucose">
-            <unitPreference regions="001">milligram-per-deciliter</unitPreference>
-        </unitPreferences>
         <unitPreferences category="mass-density" usage="default">
             <unitPreference regions="001">kilogram-per-cubic-meter</unitPreference>
         </unitPreferences>
@@ -489,6 +495,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitAlias type="part-per-million" replacement="permillion" reason="deprecated"/>
             <unitAlias type="pound-foot" replacement="pound-force-foot" reason="deprecated"/>
             <unitAlias type="pound-per-square-inch" replacement="pound-force-per-square-inch" reason="deprecated"/>
+            <unitAlias type="milligram-per-deciliter" replacement="milligram-ofglucose-per-deciliter" reason="deprecated"/>
             <usageAlias type="music-track" replacement="media" reason="deprecated"/>
             <usageAlias type="tv-program" replacement="media" reason="deprecated"/>
        </alias>

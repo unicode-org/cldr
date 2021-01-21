@@ -374,17 +374,17 @@ public class TestUnits extends TestFmwk {
     static final boolean DEBUG = false;
 
     public void TestConversion() {
-        Object[][] tests = {
-            {"foot", 12, "inch"},
-            {"gallon", 4, "quart"},
-            {"gallon", 16, "cup"},
+        String[][] tests = {
+            {"foot", "12", "inch"},
+            {"gallon", "4", "quart"},
+            {"gallon", "16", "cup"},
         };
-        for (Object[] test : tests) {
-            String sourceUnit = test[0].toString();
-            String targetUnit = test[2].toString();
-            int numerator = (Integer) test[1];
+        for (String[] test : tests) {
+            String sourceUnit = test[0];
+            Rational factor = Rational.of(test[1]);
+            String targetUnit = test[2];
             final Rational convert = converter.convertDirect(Rational.ONE, sourceUnit, targetUnit);
-            assertEquals(sourceUnit + " to " + targetUnit, Rational.of(numerator, 1), convert);
+            assertEquals(sourceUnit + " to " + targetUnit, factor, convert);
         }
 
         // test conversions are disjoint
@@ -689,7 +689,7 @@ public class TestUnits extends TestFmwk {
                 switch (unitType) {
                 case "concentr":
                     switch (quantity) {
-                    case "portion": case "mass-density": case "concentration": case "substance-amount": continue;
+                    case "portion": case "mass-density": case "concentration": case "substance-amount": case "concentration-mass": continue;
                     }
                     break;
                 case "consumption":
@@ -1004,6 +1004,9 @@ public class TestUnits extends TestFmwk {
 
     public void TestSpecialCases() {
         String [][] tests = {
+            {"1", "millimole-per-liter", "milligram-ofglucose-per-deciliter", "18.01557"},
+            {"1", "millimole-per-liter", "item-per-cubic-meter", "602214076000000000000000"},
+
             {"50",  "foot", "xxx", "0/0"},
             {"50",  "xxx", "mile", "0/0"},
             {"50",  "foot", "second", "0/0"},
@@ -1750,7 +1753,11 @@ public class TestUnits extends TestFmwk {
     public void testDistinguishedSetsOfUnits() {
         Set<String> comparatorUnitIds = new LinkedHashSet<>(DtdData.unitOrder.getOrder());
         Set<String> validLongUnitIds = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
+
         final BiMap<String, String> shortToLong = Units.LONG_TO_SHORT.inverse();
+        assertSuperset("converter short-long", "units short-long", converter.SHORT_TO_LONG_ID.entrySet(), shortToLong.entrySet());
+        assertSuperset("units short-long", "converter short-long", shortToLong.entrySet(), converter.SHORT_TO_LONG_ID.entrySet());
+
         Set<String> errors = new LinkedHashSet<>();
         Set<String> unitsConvertibleLongIds = converter.canConvert().stream()
             .map(x -> {
@@ -1772,8 +1779,12 @@ public class TestUnits extends TestFmwk {
         ImmutableSet<String> unitLongIdsEnglish = ImmutableSet.copyOf(getUnits(CLDR_CONFIG.getEnglish(), new TreeSet<>()));
 
         assertSameCollections("root unit IDs", "English", unitLongIdsRoot, unitLongIdsEnglish);
-        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds, Arrays.asList("concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg"));
-        assertSameCollections("root unit IDs", "valid regular", unitLongIdsRoot, validLongUnitIdsMinusOddballs);
+
+        final Set<String> validRootUnitIdsMinusOddballs = unitLongIdsRoot;
+        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds,
+            "concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg", "concentr-ofglucose");
+        assertSameCollections("root unit IDs", "valid regular", validRootUnitIdsMinusOddballs, validLongUnitIdsMinusOddballs);
+
         assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validLongUnitIds);
 
         assertSuperset("valid regular", "specials", validLongUnitIds, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
@@ -1804,15 +1815,21 @@ public class TestUnits extends TestFmwk {
         assertSuperset(title2, title1, c2, c1);
     }
 
-    public void assertSuperset(String title1, String title2, Collection<String> c1, Collection<String> c2) {
+    public <V> void assertSuperset(String title1, String title2, Collection<V> c1, Collection<V> c2) {
         if (!assertEquals(title1 + " ⊇ " + title2, Collections.emptySet(), minus(c2, c1))) {
             int debug = 0;
         }
     }
 
-    public Set<String> minus(Collection<String> a, Collection<String> b) {
-        Set<String> result = new LinkedHashSet<>(a);
+    public <V> Set<V> minus(Collection<V> a, Collection<V> b) {
+        Set<V> result = new LinkedHashSet<>(a);
         result.removeAll(b);
+        return result;
+    }
+
+    public <V> Set<V> minus(Collection<V> a, V... b) {
+        Set<V> result = new LinkedHashSet<>(a);
+        result.removeAll(Arrays.asList(b));
         return result;
     }
 
@@ -1892,6 +1909,9 @@ public class TestUnits extends TestFmwk {
             {"de", "per-centimeter-decisecond", "other", "nominative", "{0} pro Zentimeter⋅Dezisekunde"},
             {"de", "gigasecond-milligram-per-centimeter", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter"},
             {"de", "gigasecond-milligram", "other", "nominative", "{0} Milligramm⋅Gigasekunden"},
+            {"de", "gigasecond-gram", "other", "nominative", "{0} Gramm⋅Gigasekunden"},
+            {"de", "gigasecond-kilogram", "other", "nominative", "{0} Kilogramm⋅Gigasekunden"},
+            {"de", "gigasecond-megagram", "other", "nominative", "{0} Megagramm⋅Gigasekunden"},
 
             {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "nominative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel"},
             {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "accusative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel"},
@@ -1918,13 +1938,16 @@ public class TestUnits extends TestFmwk {
             LocaleStringProvider resolvedFile;
             switch(locale) {
             case "fr":  resolvedFile = resolvedFileRaw.makeOverridingStringProvider(frOverrides); break;
-            default: resolvedFile = resolvedFileRaw;
+            default: resolvedFile = resolvedFileRaw; break;
             }
 
             String shortUnitId = row[1];
             String pluralCategory = row[2];
             String caseVariant = row[3];
             String expectedName = row[4];
+            if (shortUnitId.equals("gigasecond-milligram")) {
+                int debug = 0;
+            }
             final UnitId unitId = converter.createUnitId(shortUnitId);
             final String actual = unitId.toString(resolvedFile, "long", pluralCategory, caseVariant, partsUsed, false);
             assertEquals(count + ") " + Arrays.asList(row).toString() + "\n\t" + Joiner.on("\n\t").join(partsUsed.asMap().entrySet()), fixSpaces(expectedName), fixSpaces(actual));
@@ -2122,11 +2145,16 @@ public class TestUnits extends TestFmwk {
                 }
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 final String shortId = converter.getShortId(parts.getAttributeValue(-2, "type"));
-                String quantity;
+                if (NOT_CONVERTABLE.contains(shortId)) {
+                    continue;
+                }
+                String quantity = null;
                 try {
                     quantity = converter.getQuantityFromUnit(shortId, false);
-                } catch (Exception e) {
-                    continue;
+                } catch (Exception e) {}
+
+                if (quantity == null) {
+                    throw new IllegalArgumentException("No quantity for " + shortId);
                 }
 
                 //ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/gender

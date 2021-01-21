@@ -78,4 +78,7 @@ public class Units {
     public static String getShort(String longUnit) {
         return LONG_TO_SHORT.get(longUnit);
     }
+    public static String getLong(String shortId) {
+        return LONG_TO_SHORT.inverse().get(shortId);
+    }
 }

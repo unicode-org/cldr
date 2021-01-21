@@ -567,4 +567,29 @@ public final class Rational implements Comparable<Rational> {
         }
         return false;
     }
+
+    public String getIntPowerOfTen() {
+        // HACK, figure out better later
+        if (numerator.compareTo(BigInteger.ZERO) < 0) {
+            throw new IllegalArgumentException("Prefix label must be positive: " + this);
+        }
+        if (!numerator.equals(BigInteger.ONE) && !denominator.equals(BigInteger.ONE)) {
+            throw new IllegalArgumentException("Prefix label must be power of 10: " + this);
+        }
+        BigInteger value;
+        int sign;
+        if (numerator.equals(BigInteger.ONE)) {
+            value = denominator;
+            sign = -1;
+        } else {
+            value = numerator;
+            sign = 1;
+        }
+        String str = value.toString();
+        if (!INT_POWER_10.matcher(str).matches()) {
+            throw new IllegalArgumentException("Prefix label must be power of 10: " + this);
+        }
+        int result = str.length()-1;
+        return String.valueOf(result * sign);
+    }
 }

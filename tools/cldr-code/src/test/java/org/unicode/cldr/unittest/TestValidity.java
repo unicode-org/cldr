@@ -25,6 +25,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
@@ -301,7 +302,15 @@ public class TestValidity extends TestFmwkPlus {
             LstrType lstrType = e1.getKey();
             for (Entry<Status, Set<String>> e2 : e1.getValue().entrySet()) {
                 Status status = e2.getKey();
-                for (String code : e2.getValue()) {
+                for (String codeLong : e2.getValue()) {
+                    String code = codeLong;
+                    if (lstrType == LstrType.unit) {
+                        Units.getShort(codeLong);
+                        if (code == null) {
+                            errln("No short form of " + codeLong);
+                            continue;
+                        }
+                    }
                     StringBuilder fixed = new StringBuilder();
                     for (String subcode : HYPHEN_SPLITTER.split(code)) {
                         if (fixed.length() > 0) {

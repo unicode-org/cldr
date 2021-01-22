@@ -201,7 +201,6 @@ public class SurveyTool extends HttpServlet {
             out.write("        }, 2000); // two seconds\n");
             out.write("      });\n");
             if (useDojo(request)) {
-                out.write("    }\n");
                 out.write("  });\n");
             }
             out.write("}\n");

@@ -57,7 +57,7 @@ public class TestCLDRUtils extends TestFmwk {
         checkNames(english, "en_GB", "British English", "UK English",
             "English (United Kingdom)", "English (UK)");
 
-        checkNames(english, "eo_001", "Esperanto (World)");
+        checkNames(english, "eo_001", "Esperanto (world)");
 
         checkNames(english, "el_POLYTON", "Greek (Polytonic)");
 

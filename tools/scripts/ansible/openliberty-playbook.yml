@@ -1,0 +1,87 @@
+- hosts: surveytool
+  become: yes
+  gather_facts: yes
+  vars_files:
+    - vars/main.yml
+    - vars/openliberty.yml
+    - local-vars/local.yml
+  roles:
+    - role: adoptopenjdk_role
+    - role: openliberty  # local version of devopstoolbox.openliberty
+  tasks:
+    # we don't want the defaultServer, we are going to install our own
+    - name: "Disable openliberty@defaultServer"
+      ansible.builtin.systemd:
+        name: openliberty@defaultServer
+        enabled: no
+    # this is to make sure openliberty@cldr can startup ok.
+    - name: setup perms on cldr/
+      file:
+        path: /var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/
+        state: directory
+        mode: '0770'
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
+    - name: "Copy defaultServer to cldr if needed"
+      ansible.builtin.copy:
+        force: no
+        remote_src: true
+        src: /var/lib/openliberty/usr/servers/defaultServer/server.xml
+        dest: /var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/server.xml
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
+        mode: '0660'
+      notify: Restart OpenLiberty
+    - name: set up cldr/server.env
+      template:
+        src: templates/server-env.j2
+        dest: "/var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/server.env"
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
+        mode: '0640'
+      notify: Restart OpenLiberty
+    - name: set up cldr/bootstrap.properties
+      template:
+        src: templates/bootstrap-properties.j2
+        dest: "/var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/bootstrap.properties"
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
+        mode: '0640'
+      notify: Restart OpenLiberty
+    - name: setup perms on cldr/jdbc
+      file:
+        path: /var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/jdbc/
+        state: directory
+        mode: '0770'
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
+    - name: setup perms on cldr/apps
+      file:
+        path: /var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/apps/
+        state: directory
+        mode: '0770'
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
+    - name: "Enable openliberty@cldr"
+      ansible.builtin.systemd:
+        name: "{{ cldr_openliberty_service }}"
+        enabled: yes # won't have SurveyTool but will be blank until first deploy
+    - name: Setup deploy-to-tomcat.sh
+      template:
+        src: templates/deploy-sh.j2
+        dest: /usr/local/bin/deploy-to-openliberty.sh
+        owner: root
+        group: root
+        mode: '0755'
+    - name: add surveytool to sudoers
+      template:
+        dest: /etc/sudoers.d/56-surveytool
+        owner: root
+        group: root
+        mode: '440'
+        src: templates/56-surveytool.j2
+  handlers:
+    - name: Restart OpenLiberty
+      service:
+        name: "{{ cldr_openliberty_service }}"
+        state: restarted

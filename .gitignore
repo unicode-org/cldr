@@ -78,3 +78,9 @@
 /tools/cldr-code/.build.properties.swp
 /tools/cldr-code/doc
 
+# ignore temporary config files here
+/tools/cldr-apps/src/main/liberty/config/server.env
+/tools/cldr-apps/src/main/liberty/config/bootstrap.properties
+
+
+org.eclipse.wst.common.project.facet.core.xml

@@ -5,11 +5,21 @@ cldr_db_backup_host: corp.unicode.org
 cldr_db_backup_user: cldrbackup
 cldr_db_backup_destination: "{{ cldr_db_backup_host }}:/home/users/{{ cldr_db_backup_user }}"
 
-cldr_tomcat_service: tomcat
-cldr_tomcat_parent: etc
-cldr_tomcat_folder: "{{ cldr_tomcat_service }}"
-cldr_tomcat_conf_path: "/{{ cldr_tomcat_parent }}/{{ cldr_tomcat_folder }}/conf"
-cldr_tomcat_user: "{{ cldr_tomcat_service }}"
-cldr_tomcat_group: "{{ cldr_tomcat_user }}"
-cldr_path: "/{{ cldr_tomcat_parent }}/{{ cldr_tomcat_folder }}/cldr"
-cldr_trunk_path: "{{ cldr_path }}/cldr-trunk"
+cldr_openliberty_user: openliberty
+cldr_openliberty_group: "{{ cldr_openliberty_user }}"
+# the name of the server
+cldr_openliberty_server: cldr
+cldr_openliberty_service: openliberty@{{ cldr_openliberty_server }}
+
+cldr_surveytool_user: surveytool
+cldr_surveytool_group: "{{ cldr_openliberty_group }}"
+
+# this is the path to the server config
+cldr_st_path: /srv/st
+cldr_path: "{{ cldr_st_path }}/config"
+# this is the path to the CLDR checkout
+cldr_trunk_path: "{{ cldr_st_path }}/src/cldr"
+
+# Java
+adoptopenjdk_package: adoptopenjdk-11-openj9
+adoptopenjdk_state: present

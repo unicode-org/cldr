@@ -78,6 +78,8 @@ public class FileReaders {
             return resourceString.substring(5);
         } else if (resourceString.startsWith("jar:file:")) {
             return resourceString.substring(9);
+        } else if (resourceString.startsWith("wsjar:file:")) {
+            return resourceString.substring(11);
         } else {
             throw new IllegalArgumentException("File not found: " + resourceString);
         }

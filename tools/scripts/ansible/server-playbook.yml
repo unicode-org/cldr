@@ -13,8 +13,9 @@
           # - prometheus-nginx-exporter # (not there yet)
     - name: Setup surveytool user for deploy
       user:
-        name: surveytool
+        name: "{{ cldr_surveytool_user }}"
         shell: /bin/bash
+        group: "{{ cldr_surveytool_group }}"
     - name: Give access to surveytool user
       file:
         path: "{{ cldr_trunk_path }}"

@@ -3,9 +3,11 @@ package org.unicode.cldr.util;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,10 +16,10 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.util.GrammarDerivation.CompoundUnitStructure;
 import org.unicode.cldr.util.GrammarDerivation.Values;
@@ -551,7 +553,24 @@ public class UnitConverter implements Freezable<UnitConverter> {
         Output<String>  metricUnit = new Output<>();
         parseUnitId(unit, metricUnit, false);
         String result = sourceToStandard.get(metricUnit.value);
+        if (result == null) {
+            UnitId mUnit = createUnitId(metricUnit.value);
+            mUnit = mUnit.resolve();
+            result = sourceToStandard.get(mUnit.toString());
+        }
         return result == null ? metricUnit.value : result;
+    }
+
+    public String getSpecialBaseUnit(String quantity, Set<UnitSystem> unitSystem) {
+        if (unitSystem.contains(UnitSystem.ussystem) || unitSystem.contains(UnitSystem.uksystem)) {
+            switch(quantity) {
+            case "volume": return unitSystem.contains(UnitSystem.uksystem) ? "gallon-imperial" : "gallon";
+            case "mass": return "pound";
+            case "length": return "foot";
+            case "area": return "square-foot";
+            }
+        }
+        return null;
     }
 
     /**
@@ -1313,37 +1332,55 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return sourceToSystems;
     }
 
-    public Set<String> getSystems(String unit) {
-        Set<String> result = new TreeSet<>();
-        UnitId id = createUnitId(unit);
-        for (String subunit : id.denUnitsToPowers.keySet()) {
-            addSystems(result, subunit);
+    public enum UnitSystem {  // TODO convert getSystems and SupplementalDataInfo to use natively
+        si,
+        metric,
+        ussystem,
+        uksystem,
+        other;
+        public static Set<UnitSystem> fromStringCollection(Collection<String> stringUnitSystems) {
+            return stringUnitSystems.stream().map(x -> UnitSystem.valueOf(x)).collect(Collectors.toSet());
         }
-        for (String subunit : id.numUnitsToPowers.keySet()) {
-            addSystems(result, subunit);
+        public static Set<String> toStringSet(Collection<UnitSystem> stringUnitSystems) {
+            return stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toSet());
         }
-        return result;
     }
 
-    public static final Set<String> OTHER_SYSTEM = ImmutableSet.of(
-        "g-force", "dalton", "calorie", "earth-radius",
-        "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass",
-        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "ofhg", "atmosphere",
-        "pixel", "dot", "permillion", "permyriad", "permille", "percent", "karat", "portion",
-        "minute", "hour", "day", "day-person", "week", "week-person",
-        "year", "year-person", "decade", "month", "month-person", "century",
-        "arc-second", "arc-minute", "degree", "radian", "revolution",
-        "electronvolt",
-        // quasi-metric
-        "dunam", "mile-scandinavian", "carat", "cup-metric", "pint-metric"
-        );
+    public Set<String> getSystems(String unit) {
+        return UnitSystem.toStringSet(getSystemsEnum(unit));
+    }
+
+    public Set<UnitSystem> getSystemsEnum(String unit) {
+        Set<UnitSystem> result = null;
+        UnitId id = createUnitId(unit);
+
+        // we walk through all the units in the numerator and denominator, and keep the *intersection* of
+        // the units. So {ussystem} and {ussystem, uksystem} => ussystem
+        // Special case: {dmetric} intersect {metric} => {dmetric}. We do that by adding dmetric to any set with metric, then removing dmetric if there is a metric
+        main:
+            for (Map<String, Integer> unitsToPowers : Arrays.asList(id.denUnitsToPowers, id.numUnitsToPowers)) {
+                for (String subunit : unitsToPowers.keySet()) {
+                    subunit = UnitConverter.stripPrefix(subunit, null);
+                    Set<UnitSystem> systems = UnitSystem.fromStringCollection(sourceToSystems.get(subunit));
+
+                    if (result == null) {
+                        result = systems;
+                    } else {
+                        result.retainAll(systems);
+                    }
+                    if (result.isEmpty()) {
+                        break main;
+                    }
+                }
+            }
+        return result == null || result.isEmpty() ? ImmutableSet.of(UnitSystem.other) : ImmutableSet.copyOf(EnumSet.copyOf(result));
+    }
+
 
     private void addSystems(Set<String> result, String subunit) {
         Collection<String> systems = sourceToSystems.get(subunit);
         if (!systems.isEmpty()) {
             result.addAll(systems);
-        } else if (!OTHER_SYSTEM.contains(subunit)) {
-            result.add("metric");
         }
     }
 

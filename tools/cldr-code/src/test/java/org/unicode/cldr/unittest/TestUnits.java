@@ -72,6 +72,7 @@ import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitComplexity;
 import org.unicode.cldr.util.UnitConverter.UnitId;
+import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.UnitPreferences;
 import org.unicode.cldr.util.UnitPreferences.UnitPreference;
@@ -96,13 +97,16 @@ import com.google.common.collect.Multimaps;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
+    private static final Set<String> VALID_REGULAR_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Integer INTEGER_ONE = Integer.valueOf(1);
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false); // set for verbose debugging information
@@ -913,8 +917,8 @@ public class TestUnits extends TestFmwk {
         assertTrue(fluid_imperial + " vs " + fluid, fluid_imperial.compareTo(fluid) < 0);
     }
 
-    static final Pattern usSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_to_m3|cup_to_m3)\\b");
-    static final Pattern ukSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_imp_to_m3)\\b");
+    private static final Pattern usSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_to_m3|cup_to_m3)\\b");
+    private static final Pattern ukSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_imp_to_m3)\\b");
 
     static final Set<String> OK_BOTH = ImmutableSet.of(
         "ounce-troy", "nautical-mile", "fahrenheit", "inch-ofhg",
@@ -929,36 +933,77 @@ public class TestUnits extends TestFmwk {
     static final Set<String> NOT_UK = ImmutableSet.of(
         "therm-us", "bushel", "barrel");
 
+    public static final Set<String> OTHER_SYSTEM = ImmutableSet.of(
+        "g-force", "dalton", "calorie", "earth-radius",
+        "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass",
+        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "ofhg", "atmosphere",
+        "pixel", "dot", "permillion", "permyriad", "permille", "percent", "karat", "portion",
+        "minute", "hour", "day", "day-person", "week", "week-person",
+        "year", "year-person", "decade", "month", "month-person", "century",
+        "arc-second", "arc-minute", "degree", "radian", "revolution",
+        "electronvolt",
+        // quasi-metric
+        "dunam", "mile-scandinavian", "carat", "cup-metric", "pint-metric"
+        );
+
     public void TestSystems() {
-        Multimap<String, String> toSystems = converter.getSourceToSystems();
-
-        Map<String, TargetInfo> data = converter.getInternalConversionData();
-        for (Entry<String, TargetInfo> entry : data.entrySet()) {
-            String unit = entry.getKey();
-            TargetInfo value = entry.getValue();
-            String inputFactor = value.inputParameters.get("factor");
-            if (inputFactor == null) {
-                inputFactor = "";
+//        Map<String, TargetInfo> data = converter.getInternalConversionData();
+        Output<String> metricUnit = new Output<>();
+        Multimap<Set<UnitSystem>, R3<String, ConversionInfo, String>> systemsToUnits = TreeMultimap.create(Comparators.lexicographical(Ordering.natural()), Ordering.natural());
+        for (String longUnit : VALID_REGULAR_UNITS) {
+            String unit = Units.getShort(longUnit);
+            if (unit.equals("generic")) {
+                continue;
             }
-            boolean usSystem = !NOT_US.contains(unit) &&
-                (OK_BOTH.contains(unit)
-                    || OK_US.contains(unit)
-                    || usSystemPattern.matcher(inputFactor).find());
-
-            boolean ukSystem = !NOT_UK.contains(unit) &&
-                (OK_BOTH.contains(unit)
-                    || OK_UK.contains(unit)
-                    || ukSystemPattern.matcher(inputFactor).find());
-
-            Collection<String> systems = toSystems.get(unit);
-            if (systems == null) {
-                systems = Collections.emptySet();
-            }
-            if (!assertEquals(unit + ": US? (" + inputFactor + ")", usSystem, systems.contains("ussystem"))) {
+            if (unit.contentEquals("centiliter")) {
                 int debug = 0;
             }
-            if (!assertEquals(unit + ": UK? (" + inputFactor + ")", ukSystem, systems.contains("uksystem"))) {
-                int debug = 0;
+            Set<UnitSystem> systems = converter.getSystemsEnum(unit);
+            ConversionInfo parseInfo = converter.parseUnitId(unit, metricUnit, false);
+            String mUnit = metricUnit.value;
+            final R3<String, ConversionInfo, String> row = Row.of(mUnit, parseInfo, unit);
+            systemsToUnits.put(systems, row);
+//            if (systems.isEmpty()) {
+//                Rational factor = parseInfo.factor;
+//                if (factor.isPowerOfTen()) {
+//                    log("System should be 'metric': " + unit);
+//                } else {
+//                    log("System should be ???: " + unit);
+//                }
+//            }
+        }
+        String std = converter.getStandardUnit("kilogram-meter-per-square-meter-square-second");
+        System.out.println();
+        Output<Rational> outFactor = new Output<>();
+        for (Entry<Set<UnitSystem>, Collection<R3<String, ConversionInfo, String>>> systemsAndUnits : systemsToUnits.asMap().entrySet()) {
+            Set<UnitSystem> systems = systemsAndUnits.getKey();
+            for (R3<String, ConversionInfo, String> unitInfo : systemsAndUnits.getValue()) {
+                String unit = unitInfo.get2();
+                switch (unit) {
+                case "gram": continue;
+                case "kilogram": break;
+                default:
+                    String paredUnit = UnitConverter.stripPrefix(unit, outFactor);
+                    if (!paredUnit.equals(unit)) {
+                        continue;
+                    }
+                }
+                final String metric = unitInfo.get0();
+                String standard = converter.getStandardUnit(metric);
+                final String quantity = converter.getQuantityFromUnit(unit, false);
+                final Rational factor = unitInfo.get1().factor;
+                // show non-metric relations
+                String specialRef = "";
+                String specialUnit = converter.getSpecialBaseUnit(quantity, systems);
+                if (specialUnit != null) {
+                    Rational specialFactor = converter.convert(Rational.ONE, unit, specialUnit, false);
+                    specialRef = "\t" + specialFactor + "\t" + specialUnit;
+                }
+                System.out.println(systems + "\t" + quantity
+                    + "\t" + unit
+                    + "\t" + factor
+                    + "\t" + standard
+                    + specialRef);
             }
         }
     }
@@ -1260,9 +1305,10 @@ public class TestUnits extends TestFmwk {
                     Rational lastgeq = null;
                     systems.clear();
                     Set<String> lastRegions = null;
+                    String unitQuantity = null;
+
                     preferences:
                         for (UnitPreference up : uPrefs) {
-                            String unitQuantity = null;
                             String topUnit = null;
                             if ("minute:second".equals(up.unit)) {
                                 int debug = 0;
@@ -1324,14 +1370,15 @@ public class TestUnits extends TestFmwk {
                     assertEquals(usage + " + " + regions + ": the least unit must have geq=1 (or equivalently, no geq)", Rational.ONE, lastgeq);
 
                     // Check that each set has a consistent system.
-                    assertTrue(usage + " + " + regions + " has mixed systems: " + systems + "\n\t" + uPrefs, areConsistent(systems));
+                    assertTrue(usage + " + " + regions + " has mixed systems: " + systems + "\n\t" + uPrefs, areConsistent(systems, unitQuantity));
                 }
             }
         }
     }
 
-    private boolean areConsistent(Set<String> systems) {
-        return !(systems.contains("metric") && (systems.contains("ussystem") || systems.contains("uksystem")));
+    private boolean areConsistent(Set<String> systems, String unitQuantity) {
+        return unitQuantity.equals("duration")
+            || !(systems.contains("metric") && (systems.contains("ussystem") || systems.contains("uksystem")));
     }
 
     public void TestBcp47() {
@@ -1752,7 +1799,7 @@ public class TestUnits extends TestFmwk {
     /** Check that units to be translated are as expected. */
     public void testDistinguishedSetsOfUnits() {
         Set<String> comparatorUnitIds = new LinkedHashSet<>(DtdData.unitOrder.getOrder());
-        Set<String> validLongUnitIds = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
+        Set<String> validLongUnitIds = VALID_REGULAR_UNITS;
 
         final BiMap<String, String> shortToLong = Units.LONG_TO_SHORT.inverse();
         assertSuperset("converter short-long", "units short-long", converter.SHORT_TO_LONG_ID.entrySet(), shortToLong.entrySet());

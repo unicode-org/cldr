@@ -550,13 +550,8 @@ public class ZoneParser {
 
         @Override
         public int compare(String s1, String s2) {
-            List<String> data1 = data.get(s1);
-            if (data1 == null)
-                data1 = errorData;
-            List<String> data2 = data.get(s2);
-            if (data2 == null)
-                data2 = errorData;
-
+            List<String> data1 = getData(s1);
+            List<String> data2 = getData(s2);
             int result;
             // country
             String country1 = data1.get(2);
@@ -576,6 +571,30 @@ public class ZoneParser {
                 return result;
             // name
             return s1.compareTo(s2);
+        }
+
+        /**
+         * Get timezone data for the given location
+         * Include work-arounds for missing time zones
+         *
+         * @param s the string like "Australia/Currie"
+         * @return a list of 4 strings for latitude, longitude, country, city
+         *
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-14428
+         */
+        private List<String> getData(String s) {
+            List<String> d = data.get(s);
+            if (d == null) {
+                if ("Australia/Currie".equals(s)) {
+                    // 39°55′52″S 143°51′02″E per https://en.wikipedia.org/wiki/Currie,_Tasmania
+                    // Converted with https://www.latlong.net/degrees-minutes-seconds-to-decimal-degrees
+                    d = Arrays.asList("-39.93", "143.85", "AU", "Currie");
+                } else {
+                    // TODO: "America/Santa_Isabel", "Pacific/Honolulu"?
+                    d = errorData;
+                }
+            }
+            return d;
         }
     };
 

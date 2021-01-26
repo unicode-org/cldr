@@ -2001,10 +2001,9 @@ public class TestFmwk extends AbstractTestLog {
         // Walk up the stack to the first call site outside this file
         for (StackTraceElement st : new Throwable().getStackTrace()) {
             String source = st.getFileName();
-            if(source.equals("TestShim.java")) {
+            if(source == null || source.equals("TestShim.java")) {
                 return ""; // hit the end of helpful stack traces
-            }
-            if (source != null && !source.equals("TestFmwk.java") 
+            } else if (source != null && !source.equals("TestFmwk.java") 
                 && !source.equals("AbstractTestLog.java")) {
                 String methodName = st.getMethodName();
                 if(methodName != null && methodName.startsWith("lambda$")) { // unpack inner lambda

@@ -10,6 +10,12 @@ for CLDR.
 
 Please use the parent [CLDR/tools/pom.xml](../pom.xml) with maven to build and run.
 
+- Copy `src/main/liberty/config/server.env.sample` to `src/main/liberty/config/server.env`
+- Edit that `server.env` file to contain the MySQL credentials for the ST database
+- Use `mvn --file=tools/pom.xml -pl cldr-apps liberty:dev` to run a development
+web server, listening on port 9080
+- Navigate to http://localhost:9080/cldr-apps to view the app
+
 See <http://cldr.unicode.org/development/running-survey-tool> for further information
 about the Survey Tool.
 
@@ -22,6 +28,6 @@ For more details, see the main [README.md](../../README.md).
 
 ### Copyright
 
-Copyright &copy; 1991-2020 Unicode, Inc.
+Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved.
 [Terms of use](http://www.unicode.org/copyright.html)

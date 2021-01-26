@@ -141,9 +141,25 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         survprops.put("CLDR_SURVEY_URL", "survey"); // default to relative URL.
 
         File propFile;
+        
+        // Try to use org.unicode.cldr.util.CLDRConfigImpl.cldrHome as a property
+        // Note that this specifies the entire path, not just the "parent"
+        try {
+            cldrHome = System.getProperty(CLDRConfigImpl.class.getName() + ".cldrHome", null);
+            if (!new File(cldrHome).isDirectory()) {
+                System.err.println(cldrHome + " is not a directory");
+                cldrHome = null;
+            }
+        } catch(Throwable t) {
+            t.printStackTrace();
+            cldrHome = null;
+        }
+
         System.err.println(CLDRConfigImpl.class.getName() + ".init(), cldrHome=" + cldrHome);
         if (cldrHome == null) {
             String homeParent = null;
+            // all of these properties specify the "parent", i.e. the parent of a "cldr" dir.
+            // Deprecated, these are fallbacks for old behavior.
             String props[] = { "cldr.home", "catalina.base", "websphere.base", "catalina.home", "websphere.home", "user.dir" };
             for (String prop : props) {
                 if (homeParent == null) {

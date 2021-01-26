@@ -8,8 +8,8 @@
       file:
         path: "{{ cldr_path }}"
         state: directory
-        owner: "{{ cldr_tomcat_user }}"
-        group: "{{ cldr_tomcat_group }}"
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
         mode: 0775
     - name: Rotate CLDR logs
       blockinfile:
@@ -18,7 +18,7 @@
         mode: "0644"
         block: |
           {{ cldr_path }}/cldrmail.log {{ cldr_path }}/exception.log {
-            su {{ cldr_tomcat_user }} {{ cldr_tomcat_group }}
+            su {{ cldr_openliberty_user }} {{ cldr_openliberty_group }}
             daily
             rotate 14
             compress
@@ -28,18 +28,26 @@
             create
           }
         create: true
+    - name: create st/README.md
+      template:
+        dest: "{{ cldr_st_path }}/README.md"
+        src: templates/st-readme.j2
+        force: yes # want this to reflect the latest
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
+        mode: "0644"
     - name: Create cldr.properties
       template:
         dest: "{{ cldr_path }}/cldr.properties"
         src: templates/cldr-properties.j2
         force: no
-        owner: "{{ cldr_tomcat_user }}"
-        group: "{{ cldr_tomcat_group }}"
+        owner: "{{ cldr_openliberty_user }}"
+        group: "{{ cldr_openliberty_group }}"
         mode: "0644"
-      notify: Restart Tomcat
+      notify: Restart OpenLiberty
     - name: Checkout CLDR trunk
       become: yes
-      become_user: surveytool
+      become_user: "{{ cldr_surveytool_user }}"
       git:
         repo: https://github.com/unicode-org/cldr.git
         dest: "{{ cldr_trunk_path }}"
@@ -50,7 +58,7 @@
         # it with history. It does not include LFS as that
         # is not needed for the surveytool.
   handlers:
-    - name: Restart Tomcat
+    - name: Restart OpenLiberty
       service:
-        name: "{{ cldr_tomcat_service }}"
+        name: "{{ cldr_openliberty_service }}"
         state: restarted

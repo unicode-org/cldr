@@ -31,12 +31,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.annotation.Resource;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -145,8 +145,8 @@ public class DBUtils {
                 tracker.remove(conn);
             }
             try {
-                if (db_Derby &&
-                    datasource instanceof EmbeddedDataSource &&
+                if (db_Derby /*&&
+                    datasource instanceof EmbeddedDataSource*/ &&
                     !conn.isClosed() &&
                     !conn.getAutoCommit()) {
                     // commit on close if we are using Derby directly
@@ -598,8 +598,16 @@ public class DBUtils {
     static String dbInfo = null;
 
     public boolean isBogus() {
-        return (datasource == null);
+        return !hasDataSource();
     }
+
+    private static final class ResourceHelper {
+        @Resource
+        public DataSource myDB;
+    }
+
+    private static final ResourceHelper RESOURCE_HELPER = new ResourceHelper();
+
 
     private DBUtils() {
         if(CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
@@ -609,41 +617,57 @@ public class DBUtils {
         // Initialize DB context
         System.err.println("Loading datasource: java:comp/env " + JDBC_SURVEYTOOL);
         ElapsedTimer et = new ElapsedTimer();
-        try {
-            Context initialContext = new InitialContext();
-            Context eCtx = (Context) initialContext.lookup("java:comp/env");
-            datasource = (DataSource) eCtx.lookup(JDBC_SURVEYTOOL);
 
-            if (datasource != null) {
-                System.err.println("Got datasource: " + datasource.toString() + " in " + et);
-            }
-            Connection c = null;
+
+        if (RESOURCE_HELPER.myDB != null) {
+            datasource = RESOURCE_HELPER.myDB;
+            System.err.println("Got default datasource: " + datasource.toString());
+        } else {
+            System.err.println("myDB was null..");
             try {
-                if (datasource != null) {
-                    c = datasource.getConnection();
-                    DatabaseMetaData dmd = c.getMetaData();
-                    dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion() + " " +
-                        "driver " + dmd.getDriverName() + " ver " + dmd.getDriverVersion();
-                    setupSqlForServerType();
-                    SurveyLog.debug("Metadata: " + dbInfo);
+                final DataSource myOtherDB = InitialContext.doLookup("java:comp/DefaultDataSource");
+
+                if(myOtherDB != null) {
+                    System.err.println("DefaultDataSource was ok");
+                    datasource = myOtherDB;
+                } else {
+                    System.err.println("DefaultDataSource was not OK");
+                    Context initialContext = new InitialContext();
+                    Context eCtx = (Context) initialContext.lookup("java:comp/env");
+                    datasource = (DataSource) eCtx.lookup(JDBC_SURVEYTOOL);
                 }
-            } catch (SQLException t) {
-                datasource = null;
-                throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
-                    + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
-            } finally {
-                if (c != null)
-                    try {
-                    c.close();
-                    } catch (Throwable tt) {
-                    System.err.println("Couldn't close datasource's conn: " + tt.toString());
-                    tt.printStackTrace();
+
+                if (datasource != null) {
+                    System.err.println("Got datasource: " + datasource.toString() + " in " + et);
+                }
+                Connection c = null;
+                try {
+                    if (datasource != null) {
+                        c = datasource.getConnection();
+                        DatabaseMetaData dmd = c.getMetaData();
+                        dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion() + " " +
+                            "driver " + dmd.getDriverName() + " ver " + dmd.getDriverVersion();
+                        setupSqlForServerType();
+                        SurveyLog.debug("Metadata: " + dbInfo);
                     }
+                } catch (SQLException t) {
+                    datasource = null;
+                    throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
+                        + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
+                } finally {
+                    if (c != null)
+                        try {
+                        c.close();
+                        } catch (Throwable tt) {
+                        System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                        tt.printStackTrace();
+                        }
+                }
+            } catch (NamingException nc) {
+                nc.printStackTrace();
+                datasource = null;
+                throw new Error("Couldn't load context " + JDBC_SURVEYTOOL + " - not using datasource.", nc);
             }
-        } catch (NamingException nc) {
-            nc.printStackTrace();
-            datasource = null;
-            throw new Error("Couldn't load context " + JDBC_SURVEYTOOL + " - not using datasource.", nc);
         }
     }
 

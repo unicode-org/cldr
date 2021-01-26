@@ -17,7 +17,15 @@
           location /cldr-apps/ {
             rewrite ^/(.+)\._[\da-f]+_\.(js|css)$ /$1.$2 break;
             allow all;
-            proxy_pass http://localhost:8080/cldr-apps/;
+            proxy_pass http://localhost:9080/cldr-apps/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
+          }
+          location /openapi/ {
+            rewrite ^/(.+)\._[\da-f]+_\.(js|css)$ /$1.$2 break;
+            allow all;
+            proxy_pass http://localhost:9080/openapi/;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $remote_addr;

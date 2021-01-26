@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "surveytool"
   # forward http and https
   config.vm.network "forwarded_port", guest: 80,   host: 8880
+  config.vm.network "forwarded_port", guest: 9080,   host: 9081
   # Just the minimum to get ansible going
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update

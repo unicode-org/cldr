@@ -58,18 +58,18 @@
       command: bash /home/cldradmin/fetch-db.sh # noqa 301
       become: yes
       become_user: cldradmin
-    - name: stop tomcat
+    - name: stop openliberty
       become: true
       service:
-        name: "{{ cldr_tomcat_service }}"
+        name: "{{ cldr_openliberty_service }}"
         state: stopped
     - name: redact db
       # This playbook is intended to always make a change.
       command: bash /home/cldradmin/redact-db.sh # noqa 301
       become: yes
       become_user: cldradmin
-    - name: restart tomcat
+    - name: restart openliberty
       become: true
       service:
-        name: "{{ cldr_tomcat_service }}"
+        name: "{{ cldr_openliberty_service }}"
         state: restarted

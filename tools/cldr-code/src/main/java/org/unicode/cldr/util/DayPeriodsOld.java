@@ -209,7 +209,7 @@ public class DayPeriodsOld {
             .add("NIGHT", "nat", 0, 1, 2, 3, 4)
             .build();
 
-        make("nb")
+        make("no")
             .add("EARLY_MORNING", "morgen", 6, 7, 8, 9)
             .add("MORNING", "formiddag", 10, 11)
             .add("AFTERNOON", "ettermiddag", 12, 13, 14, 15, 16, 17)

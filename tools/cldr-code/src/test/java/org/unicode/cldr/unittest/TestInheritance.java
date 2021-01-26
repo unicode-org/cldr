@@ -341,11 +341,12 @@ public class TestInheritance extends TestFmwk {
     public void TestParentLocaleInvariants() {
         // Testing invariant relationships in parent locales - See
         // http://unicode.org/cldr/trac/ticket/7887
+        // Per CLDR-2698 we allow nn to have an explicit parent no which is a different language code.
         LocaleIDParser lp = new LocaleIDParser();
         for (String loc : availableLocales) {
             String parentLocale = dataInfo.getExplicitParentLocale(loc);
             if (parentLocale != null) {
-                if (!"root".equals(parentLocale)
+                if (!"root".equals(parentLocale) && !"nn".equals(loc)
                     && !lp.set(loc).getLanguage()
                     .equals(lp.set(parentLocale).getLanguage())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
@@ -358,7 +359,7 @@ public class TestInheritance extends TestFmwk {
                         + loc + "] cannot be a different script code.");
                 }
                 lp.set(loc);
-                if (lp.getScript().length() == 0 && lp.getRegion().length() == 0) {
+                if (lp.getScript().length() == 0 && lp.getRegion().length() == 0 && !"nn".equals(loc)) {
                     errln("Base language locale [" + loc + "] cannot have an explicit parent.");
                 }
 

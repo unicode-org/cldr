@@ -14,7 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<matchVariable id="$cnsar" value="HK+MO"/>
 			<matchVariable id="$americas" value="019"/>
 			<matchVariable id="$maghreb" value="MA+DZ+TN+LY+MR+EH"/>
-			<languageMatch desired="no"	supported="nb"	distance="1"/>	<!-- no ⇒ nb -->
+			<languageMatch desired="nb"	supported="no"	distance="1"/>	<!-- nb ⇒ no -->
 			<!-- languageMatch desired="ku"	supported="ckb"	distance="4" oneway="true"/ -->	<!-- ku ⇒ ckb -->
 			<!-- languageMatch desired="ckb" supported="ku" percent="8" oneway="true"/ --> <!-- ckb ⇒ ku -->
 			<languageMatch desired="hr"	supported="bs"	distance="4"/>	<!-- hr ⇒ bs -->

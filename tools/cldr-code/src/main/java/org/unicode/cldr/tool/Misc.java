@@ -274,7 +274,7 @@ public class Misc {
 
     static Set<String> priorities = new TreeSet<>(Arrays.asList(new String[] { "en", "zh_Hans",
         "zh_Hant", "da", "nl", "fi", "fr", "de", "it",
-        "ja", "ko", "nb", "pt_BR", "ru", "es", "sv", "ar", "bg", "ca",
+        "ja", "ko", "no", "pt_BR", "ru", "es", "sv", "ar", "bg", "ca",
         "hr", "cs", "et", "el", "he", "hi", "hu", "is", "id", "lv", "lt",
         "pl", "ro", "sr", "sk", "sl", "tl", "th", "tr", "uk", "ur", "vi"
         // // "en_GB",

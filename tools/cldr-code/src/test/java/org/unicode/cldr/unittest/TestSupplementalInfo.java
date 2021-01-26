@@ -908,7 +908,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // 24 hour time ONLY:
         Set<String> only24lang = new TreeSet<>(
             Arrays.asList(("sq, br, bu, ca, hr, cs, da, de, nl, et, eu, fi, "
-                + "fr, gl, he, is, id, it, nb, pt, ro, ru, sr, sk, sl, sv, tr, hy")
+                + "fr, gl, he, is, id, it, no, pt, ro, ru, sr, sk, sl, sv, tr, hy")
                 .split(",\\s*")));
         // With the new preferences, this is changed
         Set<String> only24region = new TreeSet<>();

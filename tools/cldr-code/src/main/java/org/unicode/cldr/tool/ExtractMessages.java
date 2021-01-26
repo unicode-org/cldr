@@ -271,7 +271,6 @@ class ExtractMessages {
         { "in", "id" },
         { "iw", "he" },
         { "jw", "jv" },
-        { "no", "nb" },
         { "ku", "ku_Arab" },
     });
 

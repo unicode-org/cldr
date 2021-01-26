@@ -410,7 +410,7 @@ public class ConvertXTB {
         // HACKETY HACK: The wsb files use old langauge codes with hyphens
         // instead of CLDR's underscores.
         // The xtb files use hyphens but differ yet again from the CLDR and xtb
-        // language codes, e.g. xtb and wsb use "no" but CLDR uses "nb", and
+        // language codes, e.g. 
         // wsb uses "iw" but xtb and CLDR use "he". This means that we can't
         // convert the locale to the CLDR standard until after reading in the
         // xtb/wsb files. Sigh.

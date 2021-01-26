@@ -1696,7 +1696,7 @@ public class ConvertLanguageData {
 
     static Set<String> languagesNeeded = new TreeSet<>(
         Arrays
-            .asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na nb rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv"
+            .asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na no rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv"
                 .split("\\s")));
 
     static void generateIso639_2Data() {
@@ -1883,7 +1883,7 @@ public class ConvertLanguageData {
     private static boolean checkCode(LstrType type, String code, List<String> sourceLine) {
         Status validity = VALIDITY.getCodeToStatus(type).get(code);
         if (validity == Status.regular) {
-            if (type == LstrType.language && code.equals("no")) {
+            if (type == LstrType.language && code.equals("nb")) {
                 validity = Status.invalid;
             } else {
                 return true;

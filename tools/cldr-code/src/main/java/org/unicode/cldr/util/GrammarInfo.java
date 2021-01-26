@@ -277,7 +277,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     /**
      * TODO: change this to be data-file driven
      */
-    public static final Set<String> SEED_LOCALES = ImmutableSet.of("pl", "ru", "da", "de", "nb", "sv", "hi", "id", "es", "fr", "it", "nl", "pt", "en", "ja", "th", "vi", "zh", "zh_TW", "ko", "yue");
+    public static final Set<String> SEED_LOCALES = ImmutableSet.of("pl", "ru", "da", "de", "no", "sv", "hi", "id", "es", "fr", "it", "nl", "pt", "en", "ja", "th", "vi", "zh", "zh_TW", "ko", "yue");
 
     /**
      * TODO: change this to be data-file driven

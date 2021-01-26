@@ -1273,7 +1273,7 @@ public class GenerateMaximalLocales {
     }
 
     public static String minimize(String input, Map<String, String> toMaximized, boolean favorRegion) {
-        if (input.equals("nb_Latn_SJ")) {
+        if (input.equals("no_Latn_SJ")) {
             System.out.print(""); // debug
         }
         String maximized = maximize(input, toMaximized);
@@ -1646,8 +1646,8 @@ public class GenerateMaximalLocales {
     }
 
     private static final String[][] ALT_REVERSAL = {
-        { "nb", "no" },
         { "no", "nb" },
+        { "nb", "no" },
         { "he", "iw" },
         { "iw", "he" },
     };

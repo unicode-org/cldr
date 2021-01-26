@@ -359,18 +359,21 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="length" usage="road">
             <unitPreference regions="001" geq="0.9">kilometer</unitPreference>
             <unitPreference regions="001" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
-            <unitPreference regions="001" skeleton="precision-increment/10">meter</unitPreference>
-            <unitPreference regions="001">meter</unitPreference>
+            <unitPreference regions="001" geq="10" skeleton="precision-increment/10">meter</unitPreference>
+            <unitPreference regions="001" skeleton="precision-increment/1">meter</unitPreference>
             <unitPreference regions="US" geq="0.5">mile</unitPreference>
             <unitPreference regions="US" geq="100.0" skeleton="precision-increment/50">foot</unitPreference>
-            <unitPreference regions="US" skeleton="precision-increment/10">foot</unitPreference>
+            <unitPreference regions="US" geq="10" skeleton="precision-increment/10">foot</unitPreference>
+            <unitPreference regions="US" skeleton="precision-increment/1">foot</unitPreference>
             <unitPreference regions="GB" geq="0.5">mile</unitPreference>
             <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
-            <unitPreference regions="GB">yard</unitPreference>
+            <unitPreference regions="GB" geq="10" skeleton="precision-increment/10">yard</unitPreference>
+            <unitPreference regions="GB" skeleton="precision-increment/1">yard</unitPreference>
             <unitPreference regions="SE">mile-scandinavian</unitPreference>
             <unitPreference regions="SE">kilometer</unitPreference>
             <unitPreference regions="SE" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
-            <unitPreference regions="SE" skeleton="precision-increment/10">meter</unitPreference>
+            <unitPreference regions="SE" geq="10" skeleton="precision-increment/10">meter</unitPreference>
+            <unitPreference regions="SE" skeleton="precision-increment/1">meter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="snowfall">
             <unitPreference regions="001">centimeter</unitPreference>

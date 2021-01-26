@@ -59,34 +59,72 @@ SurveyTool.includeJavaScript(request, out);
 	       if(v.length==0) { return; }
 	       var r = document.getElementById('xpath_answer');
 	       r.innerHTML = '<i>Looking up xpath ' + v + '...</i>';
-	       cldrAjax.sendXhr({
-	            url:"<%= request.getContextPath() %>/xpath_results.jsp?from="+ from + "&q=" + v,
-	           handleAs:"json",
-	           load: function(h){
-	                  r.innerHTML = h.err;
+	       const apiMap = {
+    		   strid: 'hex',
+    		   xpathid: 'dec'
+      		 };
+	       if(apiMap[from]) { // new API
+		       cldrAjax.sendXhr({
+		            url:"<%= request.getContextPath() %>/api/xpath/"+ apiMap[from] + "/" + v,
+		           handleAs:"json",
+		           load: function(h){
+		                  	if(h.err) { 
+		                  		r.innerHTML = h.message;
+		                  	} else {
+		
+			                  function updateIf(id, txt) {
+			                	    var something = document.getElementById(id);
+			                	    if(!txt || txt==-1) {
+			                	    	txt = '';
+			                	    }
+			                	    if(something != null) {
+			                	    	something.value = txt;
+		//	                	        something.innerHTML = txt;  // TODO shold only use for plain text
+			                	    }
+			                	}
+		
+		                          updateIf('xpathid', 	h.decimalId);
+		                          updateIf('xpath', 	h.xpath);
+		                          updateIf('strid', 	h.hexId);
+		                          updateIf('pathheader', h.pathheader);
 
-	                  function updateIf(id, txt) {
-	                	    var something = document.getElementById(id);
-	                	    if(!txt || txt==-1) {
-	                	    	txt = '';
-	                	    }
-	                	    if(something != null) {
-	                	    	something.value = txt;
-//	                	        something.innerHTML = txt;  // TODO shold only use for plain text
-	                	    }
-	                	}
-
-	                  if(h.paths) {
-                          updateIf('xpathid', h.paths.xpathid);
-                          updateIf('xpath', h.paths.xpath);
-                          updateIf('strid', h.paths.strid);
-                          updateIf('pathheader', h.paths.pathheader);
-	                  }
-	            },
-	            error: function(err){
-	                r.innerHTML = "Error: " + err;
-	            }
-	        });
+		                  	}
+		            },
+		            error: function(err){
+		                r.innerHTML = "Error: " + err;
+		            }
+		       });
+            } else {
+		       // old JSP
+            	cldrAjax.sendXhr({
+		    	   url:"<%= request.getContextPath() %>/xpath_results.jsp?from="+ from + "&q=" + v,
+		           handleAs:"json",
+		           load: function(h){
+		                  r.innerHTML = h.err;
+	
+		                  function updateIf(id, txt) {
+		                	    var something = document.getElementById(id);
+		                	    if(!txt || txt==-1) {
+		                	    	txt = '';
+		                	    }
+		                	    if(something != null) {
+		                	    	something.value = txt;
+	//	                	        something.innerHTML = txt;  // TODO shold only use for plain text
+		                	    }
+		                	}
+	
+		                  if(h.paths) {
+	                          updateIf('xpathid', h.paths.xpathid);
+	                          updateIf('xpath', h.paths.xpath);
+	                          updateIf('strid', h.paths.strid);
+	                          updateIf('pathheader', h.paths.pathheader);
+		                  }
+		            },
+		            error: function(err){
+		                r.innerHTML = "Error: " + err;
+		            }
+		        });
+	       }
 	    };
 </script>
 <table>

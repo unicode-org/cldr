@@ -2280,6 +2280,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight" draft="unconfirmed">{0} (Akud n unebdu)</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} Akud amezday</regionFormat>
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
+			<zone type="Australia/Currie">
+				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
+			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
 			</zone>
@@ -2401,9 +2404,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity draft="unconfirmed">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity draft="unconfirmed">Malburn</exemplarCity>

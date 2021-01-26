@@ -34,7 +34,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), true);
         Exception[] internalException = new Exception[1];
 
-        for (String s : new UnicodeSet("[!-#%-\\]_a-~¡§ª-¬±-³ µ-·¹-þ؉٠-٬۰-۹०-९০-৯੦-੯ ૦-૯୦-୯௦-௯౦-౯೦-೯൦-൯༠-༩ ၀-၉\\‎\\‏’‰−〇一七三九二五八六四]")) {
+        for (String s : new UnicodeSet("[!-#%-\\\\_a-~¡§ª-¬±-³ ¶·¹-þ؉٠-٬۰-۹०-९০-৯੦-੯ ૦-૯୦-୯௦-௯౦-౯೦-೯൦-൯༠-༩ ၀-၉’‰−〇一七三九二五八六四]")) {
             if (s.contentEquals("-")) {
                 continue; // special case because of non-breaking processing
             }
@@ -281,11 +281,11 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         final String xpath_a = "//ldml/localeDisplayNames/types/type[@type=\"hant\"][@key=\"numbers\"]";
         final String TEST_DATA[] = {
             xpath_a,         // xpath
-            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲'𞤣𞤫",  // src 
+            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲'𞤣𞤫",  // src
             "{0} 𞤸𞤭𞤼𞤢𞥄𞤲"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤣𞤫",   // dst
 
             xpath_a,         // xpath
-            "𞤐‘𞤄𞤵𞥅𞤯𞤭",  // src 
+            "𞤐‘𞤄𞤵𞥅𞤯𞤭",  // src
             "𞤐"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤄𞤵𞥅𞤯𞤭",   // dst
 
             xpath_a,

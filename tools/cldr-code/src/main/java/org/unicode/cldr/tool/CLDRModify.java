@@ -428,7 +428,8 @@ public class CLDRModify {
                     // TODO parameterize the directory and filter
                     // System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 
-                    CLDRFile k = cldrFactory.make(test, makeResolved).cloneAsThawed();
+                    final CLDRFile originalCldrFile = cldrFactory.make(test, makeResolved);
+                    CLDRFile k = originalCldrFile.cloneAsThawed();
                     // HashSet<String> set = Builder.with(new HashSet<String>()).addAll(k).get();
                     // System.out.format("Locale\t%s, Size\t%s\n", test, set.size());
                     // if (k.isNonInheriting()) continue; // for now, skip supplementals
@@ -549,6 +550,15 @@ public class CLDRModify {
                     k.write(pw);
                     // pw.println();
                     pw.close();
+
+                    File oldFile = new File(sourceDir, test + ".xml");
+                    File newFile = new File(targetDir, test + ".xml");
+                    if (!oldFile.equals(newFile) // only skip if the source & target are different.
+                        && equalsSkippingCopyright(oldFile, newFile)) {
+                        newFile.delete();
+                        continue;
+                    }
+
                     if (options[CHECK].doesOccur) {
                         QuickCheck.check(new File(targetDir, test + ".xml"));
                     }
@@ -580,6 +590,29 @@ public class CLDRModify {
                 // Log.close();
                 System.out.println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0)
                     + " minutes");
+            }
+        }
+    }
+
+    public static boolean equalsSkippingCopyright(File oldFile, File newFile) {
+        Iterator<String> oldIterator = FileUtilities.in(oldFile).iterator();
+        Iterator<String> newIterator = FileUtilities.in(newFile).iterator();
+        while (true) {
+            boolean oldHasNext = oldIterator.hasNext();
+            boolean newHasNext = newIterator.hasNext();
+            if (oldHasNext != newHasNext) {
+                return false;
+            }
+            if (!oldHasNext) {
+                return true;
+            }
+            String oldLine = oldIterator.next();
+            String newLine = newIterator.next();
+            if (!oldLine.equals(newLine)) {
+                if (oldLine.startsWith("<!-- Copyright ©") && newLine.startsWith("<!-- Copyright ©")) {
+                    continue;
+                }
+                return false;
             }
         }
     }

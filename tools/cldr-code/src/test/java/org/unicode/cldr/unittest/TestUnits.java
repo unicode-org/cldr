@@ -961,43 +961,33 @@ public class TestUnits extends TestFmwk {
             Set<UnitSystem> systems = converter.getSystemsEnum(unit);
             ConversionInfo parseInfo = converter.parseUnitId(unit, metricUnit, false);
             String mUnit = metricUnit.value;
-//            String inputFactor = parseInfo.factor;
-//            if (inputFactor == null) {
-//                inputFactor = "";
-//            }
-//            boolean usSystem = !NOT_US.contains(unit) &&
-//                (OK_BOTH.contains(unit)
-//                    || OK_US.contains(unit)
-//                    || usSystemPattern.matcher(inputFactor).find());
-//
-//            boolean ukSystem = !NOT_UK.contains(unit) &&
-//                (OK_BOTH.contains(unit)
-//                    || OK_UK.contains(unit)
-//                    || ukSystemPattern.matcher(inputFactor).find());
-
             final R3<String, ConversionInfo, String> row = Row.of(mUnit, parseInfo, unit);
             systemsToUnits.put(systems, row);
-            if (systems.isEmpty()) {
-                Rational factor = parseInfo.factor;
-                if (factor.isPowerOfTen()) {
-                    errln("System should be 'metric': " + unit);
-                } else {
-                    errln("System should be ???: " + unit);
-                }
-            }
-//            if (!assertEquals(unit + ": US? (" + inputFactor + ")", usSystem, systems.contains("ussystem"))) {
-//                int debug = 0;
-//            }
-//            if (!assertEquals(unit + ": UK? (" + inputFactor + ")", ukSystem, systems.contains("uksystem"))) {
-//                int debug = 0;
+//            if (systems.isEmpty()) {
+//                Rational factor = parseInfo.factor;
+//                if (factor.isPowerOfTen()) {
+//                    log("System should be 'metric': " + unit);
+//                } else {
+//                    log("System should be ???: " + unit);
+//                }
 //            }
         }
         String std = converter.getStandardUnit("kilogram-meter-per-square-meter-square-second");
         System.out.println();
+        Output<Rational> outFactor = new Output<>();
         for (Entry<Set<UnitSystem>, Collection<R3<String, ConversionInfo, String>>> systemsAndUnits : systemsToUnits.asMap().entrySet()) {
             Set<UnitSystem> systems = systemsAndUnits.getKey();
             for (R3<String, ConversionInfo, String> unitInfo : systemsAndUnits.getValue()) {
                 String unit = unitInfo.get2();
+                switch (unit) {
+                case "gram": continue;
+                case "kilogram": break;
+                default:
+                    String paredUnit = UnitConverter.stripPrefix(unit, outFactor);
+                    if (!paredUnit.equals(unit)) {
+                        continue;
+                    }
+                }
                 final String metric = unitInfo.get0();
                 String standard = converter.getStandardUnit(metric);
                 final String quantity = converter.getQuantityFromUnit(unit, false);
@@ -1315,9 +1305,10 @@ public class TestUnits extends TestFmwk {
                     Rational lastgeq = null;
                     systems.clear();
                     Set<String> lastRegions = null;
+                    String unitQuantity = null;
+
                     preferences:
                         for (UnitPreference up : uPrefs) {
-                            String unitQuantity = null;
                             String topUnit = null;
                             if ("minute:second".equals(up.unit)) {
                                 int debug = 0;
@@ -1379,14 +1370,15 @@ public class TestUnits extends TestFmwk {
                     assertEquals(usage + " + " + regions + ": the least unit must have geq=1 (or equivalently, no geq)", Rational.ONE, lastgeq);
 
                     // Check that each set has a consistent system.
-                    assertTrue(usage + " + " + regions + " has mixed systems: " + systems + "\n\t" + uPrefs, areConsistent(systems));
+                    assertTrue(usage + " + " + regions + " has mixed systems: " + systems + "\n\t" + uPrefs, areConsistent(systems, unitQuantity));
                 }
             }
         }
     }
 
-    private boolean areConsistent(Set<String> systems) {
-        return !(systems.contains("metric") && (systems.contains("ussystem") || systems.contains("uksystem")));
+    private boolean areConsistent(Set<String> systems, String unitQuantity) {
+        return unitQuantity.equals("duration")
+            || !(systems.contains("metric") && (systems.contains("ussystem") || systems.contains("uksystem")));
     }
 
     public void TestBcp47() {

@@ -101,16 +101,16 @@ For terms of use, see http://www.unicode.org/copyright.html
          -->
 
         <!-- luminous-intensity -->
-        <convertUnit source='candela' baseUnit='candela' systems="metric"/>
+        <convertUnit source='candela' baseUnit='candela' systems="metric si"/>
         
         <!-- mass -->
         <convertUnit source='grain' baseUnit='kilogram' factor='lb_to_kg/7000' systems="ussystem uksystem"/>
-        <convertUnit source='carat' baseUnit='kilogram' factor='0.0002'/>
-        <convertUnit source='gram' baseUnit='kilogram' factor='0.001' systems="metric"/>
+        <convertUnit source='carat' baseUnit='kilogram' factor='0.0002' systems="metric"/>
+        <convertUnit source='gram' baseUnit='kilogram' factor='0.001' systems="metric si"/>
         <convertUnit source='ounce' baseUnit='kilogram' factor='lb_to_kg/16' systems="ussystem uksystem"/>
         <convertUnit source='ounce-troy' baseUnit='kilogram' factor='0.03110348' systems="ussystem uksystem"/>
         <convertUnit source='pound' baseUnit='kilogram' factor='lb_to_kg' systems="ussystem uksystem"/>
-        <convertUnit source='kilogram' baseUnit='kilogram' systems="metric"/>
+        <convertUnit source='kilogram' baseUnit='kilogram' systems="metric si"/>
         <convertUnit source='stone' baseUnit='kilogram' factor='lb_to_kg*14' systems="uksystem"/>
         <convertUnit source='ton' baseUnit='kilogram' factor='lb_to_kg*2000' systems="ussystem uksystem"/>
         <convertUnit source='metric-ton' baseUnit='kilogram' factor='1000' systems="metric"/>
@@ -150,12 +150,12 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='inch' baseUnit='meter' factor='ft_to_m/12' systems="ussystem uksystem"/>
         <convertUnit source='foot' baseUnit='meter' factor='ft_to_m' systems="ussystem uksystem"/>
         <convertUnit source='yard' baseUnit='meter' factor='ft_to_m*3' systems="ussystem uksystem"/>
-        <convertUnit source='meter' baseUnit='meter' systems="metric"/>
+        <convertUnit source='meter' baseUnit='meter' systems="metric si"/>
         <convertUnit source='fathom' baseUnit='meter' factor='ft_to_m * 6' systems="ussystem uksystem"/>
         <convertUnit source='furlong' baseUnit='meter' factor='ft_to_m*660' systems="ussystem uksystem"/>
         <convertUnit source='mile' baseUnit='meter' factor='ft_to_m*5280' systems="ussystem uksystem"/>
         <convertUnit source='nautical-mile' baseUnit='meter' factor='1852' systems="ussystem uksystem"/>
-        <convertUnit source='mile-scandinavian' baseUnit='meter' factor='10000'/>
+        <convertUnit source='mile-scandinavian' baseUnit='meter' factor='10000' systems="metric"/>
         <convertUnit source='100-kilometer' baseUnit='meter' factor='100000' systems="metric"/>
         <convertUnit source='earth-radius' baseUnit='meter' factor='6.3781E6'/>
         <convertUnit source='solar-radius' baseUnit='meter' factor='695700000'/>
@@ -164,11 +164,11 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='parsec' baseUnit='meter' factor='30856780000000000'/>
         
         <!-- time -->
-        <convertUnit source='second' baseUnit='second' systems="metric"/>
-        <convertUnit source='minute' baseUnit='second' factor='60'/>
-        <convertUnit source='hour' baseUnit='second' factor='3600'/>
-        <convertUnit source='day' baseUnit='second' factor='86400'/>
-        <convertUnit source='day-person' baseUnit='second' factor='86400'/>
+        <convertUnit source='second' baseUnit='second' systems="si metric ussystem uksystem"/>
+        <convertUnit source='minute' baseUnit='second' factor='60' systems="metric ussystem uksystem"/>
+        <convertUnit source='hour' baseUnit='second' factor='3600' systems="metric ussystem uksystem"/>
+        <convertUnit source='day' baseUnit='second' factor='86400' systems="metric ussystem uksystem"/>
+        <convertUnit source='day-person' baseUnit='second' factor='86400' systems="metric ussystem uksystem"/>
         <convertUnit source='week' baseUnit='second' factor='604800'/>
         <convertUnit source='week-person' baseUnit='second' factor='604800'/>
         
@@ -181,23 +181,23 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='century' baseUnit='year' factor='100'/>
         
         <!-- electric-current -->
-        <convertUnit source='ampere' baseUnit='ampere' systems="metric"/>
+        <convertUnit source='ampere' baseUnit='ampere' systems="metric si"/>
         
         <!-- temperature -->
         <convertUnit source='fahrenheit' baseUnit='kelvin' factor='5/9' offset='2298.35/9' systems="ussystem uksystem"/>
-        <convertUnit source='kelvin' baseUnit='kelvin' systems="metric"/>
+        <convertUnit source='kelvin' baseUnit='kelvin' systems="metric si"/>
         <convertUnit source='celsius' baseUnit='kelvin' offset='273.15' systems="metric"/>
         
         <!-- angle -->
         <convertUnit source='arc-second' baseUnit='revolution' factor='1/360*60*60'/>
         <convertUnit source='arc-minute' baseUnit='revolution' factor='1/360*60'/>
         <convertUnit source='degree' baseUnit='revolution' factor='1/360'/>
-        <convertUnit source='radian' baseUnit='revolution' factor='1/2*PI' systems="metric"/>
+        <convertUnit source='radian' baseUnit='revolution' factor='1/2*PI' systems="metric si"/>
         <convertUnit source='revolution' baseUnit='revolution'/>
         
         <!-- substance-amount -->
         <convertUnit source='item' baseUnit='item'/>
-        <convertUnit source='mole' baseUnit='item' factor='item_per_mole' systems="metric"/>
+        <convertUnit source='mole' baseUnit='item' factor='item_per_mole' systems="metric si"/>
         
         <!-- portion -->
         <convertUnit source='permillion' baseUnit='portion' factor='1/1000000'/>
@@ -219,14 +219,14 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='em' baseUnit='em'/>
         
         <!-- frequency -->
-        <convertUnit source='hertz' baseUnit='revolution-per-second' systems="metric"/>
+        <convertUnit source='hertz' baseUnit='revolution-per-second' systems="metric si"/>
         
         <!-- force -->
-        <convertUnit source='newton' baseUnit='kilogram-meter-per-square-second' systems="metric"/>
+        <convertUnit source='newton' baseUnit='kilogram-meter-per-square-second' systems="metric si"/>
         <convertUnit source='pound-force' baseUnit='kilogram-meter-per-square-second' factor='lb_to_kg * gravity' systems="ussystem uksystem"/>
         
         <!-- pressure -->
-        <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second' systems="metric"/>
+        <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second' systems="metric si"/>
         <convertUnit source='bar' baseUnit='kilogram-per-meter-square-second' factor='100000' systems="metric"/>
         <convertUnit source='atmosphere' baseUnit='kilogram-per-meter-square-second' factor='101325'/>
 
@@ -236,22 +236,22 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- energy -->
         <convertUnit source='electronvolt' baseUnit='kilogram-square-meter-per-square-second' factor='1.602177E-19'/>
         <convertUnit source='dalton' baseUnit='kilogram-square-meter-per-square-second' factor='1.49241808560E-10'/>
-        <convertUnit source='joule' baseUnit='kilogram-square-meter-per-square-second' systems="metric"/>
+        <convertUnit source='joule' baseUnit='kilogram-square-meter-per-square-second' systems="metric si"/>
         <convertUnit source='calorie' baseUnit='kilogram-square-meter-per-square-second' factor='4.184'/> <!-- th -->
         <convertUnit source='british-thermal-unit' baseUnit='kilogram-square-meter-per-square-second' factor='4.184*2267.96185/9' systems="ussystem uksystem"/> <!-- th -->
         <convertUnit source='foodcalorie' baseUnit='kilogram-square-meter-per-square-second' factor='4184' systems="ussystem uksystem"/> <!-- th -->
         <convertUnit source='therm-us' baseUnit='kilogram-square-meter-per-square-second' factor='105480400' systems="ussystem"/>
 
         <!-- power -->
-        <convertUnit source='watt' baseUnit='kilogram-square-meter-per-cubic-second' systems="metric"/>
+        <convertUnit source='watt' baseUnit='kilogram-square-meter-per-cubic-second' systems="metric si"/>
         <convertUnit source='horsepower' baseUnit='kilogram-square-meter-per-cubic-second' factor='ft_to_m * lb_to_kg * gravity * 550' systems="ussystem uksystem"/>
         <convertUnit source='solar-luminosity' baseUnit='kilogram-square-meter-per-cubic-second' factor='3.828E+26'/>
         
         <!-- voltage -->
-        <convertUnit source='volt' baseUnit='kilogram-square-meter-per-cubic-second-ampere' systems="metric"/>
+        <convertUnit source='volt' baseUnit='kilogram-square-meter-per-cubic-second-ampere' systems="metric si"/>
         
         <!-- electric-resistance -->
-        <convertUnit source='ohm' baseUnit='kilogram-square-meter-per-cubic-second-square-ampere' systems="metric"/>
+        <convertUnit source='ohm' baseUnit='kilogram-square-meter-per-cubic-second-square-ampere' systems="metric si"/>
         
         <!-- speed -->
         <convertUnit source='knot' baseUnit='meter-per-second' factor='1852/3600' systems="ussystem uksystem"/>
@@ -260,10 +260,10 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='g-force' baseUnit='meter-per-square-second' factor='gravity'/>
         
         <!-- luminance -->
-        <convertUnit source='lux' baseUnit='candela-per-square-meter' systems="metric"/>
+        <convertUnit source='lux' baseUnit='candela-per-square-meter' systems="metric si"/>
 
         <!-- luminous-flux -->
-        <convertUnit source='lumen' baseUnit='candela-square-meter-per-square-meter' systems="metric"/>
+        <convertUnit source='lumen' baseUnit='candela-square-meter-per-square-meter' systems="metric si"/>
         
         <!-- concentration-mass -->
         <convertUnit source='ofglucose' baseUnit='item-per-kilogram' factor='1000*item_per_mole/glucose_molar_mass'/>

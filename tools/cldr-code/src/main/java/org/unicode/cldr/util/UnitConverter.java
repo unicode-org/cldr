@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -15,7 +16,6 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -1332,38 +1332,48 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return sourceToSystems;
     }
 
-    public enum UnitSystem {metric, ussystem, uksystem, other} // TODO convert getSystems and SupplementalDataInfo to use natively
-
-    public Set<UnitSystem> getSystemsEnum(String unit) {
-        Set<String> result = getSystems(unit);
-        if (result.isEmpty()) {
-            return ImmutableSet.of(UnitSystem.other);
+    public enum UnitSystem {  // TODO convert getSystems and SupplementalDataInfo to use natively
+        si,
+        metric,
+        ussystem,
+        uksystem,
+        other;
+        public static Set<UnitSystem> fromStringCollection(Collection<String> stringUnitSystems) {
+            return stringUnitSystems.stream().map(x -> UnitSystem.valueOf(x)).collect(Collectors.toSet());
         }
-        return result.stream().map(x -> UnitSystem.valueOf(x)).collect(Collectors.toSet());
+        public static Set<String> toStringSet(Collection<UnitSystem> stringUnitSystems) {
+            return stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toSet());
+        }
     }
 
     public Set<String> getSystems(String unit) {
-        Set<String> result = null;
+        return UnitSystem.toStringSet(getSystemsEnum(unit));
+    }
+
+    public Set<UnitSystem> getSystemsEnum(String unit) {
+        Set<UnitSystem> result = null;
         UnitId id = createUnitId(unit);
 
         // we walk through all the units in the numerator and denominator, and keep the *intersection* of
         // the units. So {ussystem} and {ussystem, uksystem} => ussystem
+        // Special case: {dmetric} intersect {metric} => {dmetric}. We do that by adding dmetric to any set with metric, then removing dmetric if there is a metric
         main:
-        for (Map<String, Integer> unitsToPowers : Arrays.asList(id.denUnitsToPowers, id.numUnitsToPowers)) {
-            for (String subunit : unitsToPowers.keySet()) {
-                subunit = UnitConverter.stripPrefix(subunit, null);
-                Collection<String> systems = sourceToSystems.get(subunit);
-                if (result == null) {
-                    result = new TreeSet<>(systems);
-                } else {
-                    result.retainAll(systems);
-                }
-                if (result.isEmpty()) {
-                    break main;
+            for (Map<String, Integer> unitsToPowers : Arrays.asList(id.denUnitsToPowers, id.numUnitsToPowers)) {
+                for (String subunit : unitsToPowers.keySet()) {
+                    subunit = UnitConverter.stripPrefix(subunit, null);
+                    Set<UnitSystem> systems = UnitSystem.fromStringCollection(sourceToSystems.get(subunit));
+
+                    if (result == null) {
+                        result = systems;
+                    } else {
+                        result.retainAll(systems);
+                    }
+                    if (result.isEmpty()) {
+                        break main;
+                    }
                 }
             }
-        }
-        return result == null ? ImmutableSet.of() : ImmutableSet.copyOf(result);
+        return result == null || result.isEmpty() ? ImmutableSet.of(UnitSystem.other) : ImmutableSet.copyOf(EnumSet.copyOf(result));
     }
 
 

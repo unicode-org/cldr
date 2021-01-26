@@ -2298,9 +2298,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ</regionFormat>
 			<regionFormat type="standard">{0} ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Australia/Currie">
-				<exemplarCity>ᎫᎵ</exemplarCity>
-			</zone>
 			<zone type="Pacific/Honolulu">
 				<short>
 					<generic>HST</generic>
@@ -2427,6 +2424,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ᎤᏲᏨᎯ ᎦᏚᏏ</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ᎫᎵ</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ᎺᎵᏉᏁ</exemplarCity>

@@ -2191,9 +2191,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} डेलायट वेळ</regionFormat>
 			<regionFormat type="standard">{0} प्रमाणित वेळ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Australia/Currie">
-				<exemplarCity>क्युरी</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>समन्वित वैश्विक वेळ</standard>
@@ -2312,6 +2309,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ब्रोकन हिल</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>क्युरी</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>मेलबर्न</exemplarCity>

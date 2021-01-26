@@ -1285,9 +1285,6 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<regionFormat type="daylight">{0} Oras sa Tag-init</regionFormat>
 			<regionFormat type="standard">{0} Tamdanang Oras</regionFormat>
 			<fallbackFormat>{1} {0}</fallbackFormat>
-			<zone type="Australia/Currie">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Gikoordinar nga Kinatibuk-ang Oras</standard>
@@ -1405,6 +1402,9 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Australia/Broken_Hill">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">

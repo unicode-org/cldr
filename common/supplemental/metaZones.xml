@@ -95,7 +95,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Africa/Juba">
 				<usesMetazone to="2000-01-15 10:00" mzone="Africa_Central"/>
-				<usesMetazone from="2000-01-15 10:00" mzone="Africa_Eastern"/>
+				<usesMetazone to="2021-01-31 21:00" from="2000-01-15 10:00" mzone="Africa_Eastern"/>
+				<usesMetazone from="2021-01-31 21:00" mzone="Africa_Central"/>
 			</timezone>
 			<timezone type="Africa/Kampala">
 				<usesMetazone mzone="Africa_Eastern"/>

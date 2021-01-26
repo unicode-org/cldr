@@ -316,6 +316,8 @@ public class DisplayAndInputProcessor {
         String original = value;
         value = stripProblematicControlCharacters(value);
         value = Normalizer.compose(value, false); // Always normalize all input to NFC.
+        value = value.replace('\u00B5', '\u03BC'); // use the right Greek mu character
+
         if (internalException != null) {
             internalException[0] = null;
         }

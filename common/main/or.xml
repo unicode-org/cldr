@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2508,6 +2508,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ଦିବାଲୋକ ସମୟ</regionFormat>
 			<regionFormat type="standard">{0} ମାନାଙ୍କ ସମୟ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Australia/Currie">
+				<exemplarCity>କ୍ୟୁରୀ</exemplarCity>
+			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>ହୋନୋଲୁଲୁ</exemplarCity>
 			</zone>
@@ -2629,9 +2632,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ବ୍ରୋକେନ୍‌ ହିଲ୍‌</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>କ୍ୟୁରୀ</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ମେଲବୋର୍ଣ୍ଣ</exemplarCity>
@@ -7563,9 +7563,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ମିମି</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>µମିଟର୍</displayName>
-				<unitPattern count="one">{0} µମି</unitPattern>
-				<unitPattern count="other">{0} µମି</unitPattern>
+				<displayName>μମିଟର୍</displayName>
+				<unitPattern count="one">{0} μମି</unitPattern>
+				<unitPattern count="other">{0} μମି</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName>ନାମି</displayName>
@@ -7687,9 +7687,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ମିଗ୍ରା</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>µg</displayName>
-				<unitPattern count="one">{0} µg</unitPattern>
-				<unitPattern count="other">{0} µg</unitPattern>
+				<displayName>μg</displayName>
+				<unitPattern count="one">{0} μg</unitPattern>
+				<unitPattern count="other">{0} μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>ଟନ୍</displayName>

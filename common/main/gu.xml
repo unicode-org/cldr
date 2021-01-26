@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3338,6 +3338,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>સાંતા ઇસાબેલ</exemplarCity>
 			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ક્યુરી</exemplarCity>
+			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>હોનોલુલુ</exemplarCity>
 			</zone>
@@ -3459,9 +3462,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>બ્રોકન હિલ</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ક્યુરી</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>મેલબોર્ન</exemplarCity>
@@ -8451,8 +8451,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>માઇક્રોમીટર</displayName>
-				<unitPattern count="one">{0} µમી</unitPattern>
-				<unitPattern count="other">{0} µમી</unitPattern>
+				<unitPattern count="one">{0} μમી</unitPattern>
+				<unitPattern count="other">{0} μમી</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName>નેનોમીટર</displayName>
@@ -8574,9 +8574,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} મિગ્રા</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>µગ્રામ</displayName>
-				<unitPattern count="one">{0} µગ્રામ</unitPattern>
-				<unitPattern count="other">{0} µગ્રામ</unitPattern>
+				<displayName>μગ્રામ</displayName>
+				<unitPattern count="one">{0} μગ્રામ</unitPattern>
+				<unitPattern count="other">{0} μગ્રામ</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>ટન</displayName>

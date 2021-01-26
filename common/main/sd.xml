@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2611,6 +2611,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ڏينهن جو وقت</regionFormat>
 			<regionFormat type="standard">{0} معياري وقت</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Australia/Currie">
+				<exemplarCity>ڪري</exemplarCity>
+			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>هونو لولو</exemplarCity>
 			</zone>
@@ -2735,9 +2738,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>بروڪن هل</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ڪري</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ميلبورن</exemplarCity>
@@ -7041,7 +7041,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPrefixPattern>m{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>µ{0}</unitPrefixPattern>
+				<unitPrefixPattern>μ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>n{0}</unitPrefixPattern>
@@ -7697,8 +7697,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} µg</unitPattern>
-				<unitPattern count="other">{0} µg</unitPattern>
+				<unitPattern count="one">{0} μg</unitPattern>
+				<unitPattern count="other">{0} μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>ٽن</displayName>
@@ -8076,7 +8076,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPrefixPattern>m{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>µ{0}</unitPrefixPattern>
+				<unitPrefixPattern>μ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>n{0}</unitPrefixPattern>

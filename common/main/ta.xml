@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3288,6 +3288,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>சான்டா இசபெல்</exemplarCity>
 			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>கியூரி</exemplarCity>
+			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>ஹோனோலூலூ</exemplarCity>
 			</zone>
@@ -3409,9 +3412,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>புரோக்கன் ஹில்</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>கியூரி</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>மெல்போர்ன்</exemplarCity>
@@ -8393,9 +8393,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} மி.மீ.</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>µமீ.</displayName>
-				<unitPattern count="one">{0} µமீ.</unitPattern>
-				<unitPattern count="other">{0} µமீ.</unitPattern>
+				<displayName>μமீ.</displayName>
+				<unitPattern count="one">{0} μமீ.</unitPattern>
+				<unitPattern count="other">{0} μமீ.</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName>நா.மீ.</displayName>
@@ -8517,9 +8517,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} மி.கி.</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>µகி</displayName>
-				<unitPattern count="one">{0} µகி</unitPattern>
-				<unitPattern count="other">{0} µகி</unitPattern>
+				<displayName>μகி</displayName>
+				<unitPattern count="one">{0} μகி</unitPattern>
+				<unitPattern count="other">{0} μகி</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>டன்</displayName>

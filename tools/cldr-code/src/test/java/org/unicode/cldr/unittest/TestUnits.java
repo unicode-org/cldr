@@ -107,6 +107,7 @@ import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
     private static final Set<String> VALID_REGULAR_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
+    private static final Set<String> DEPRECATED_REGULAR_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.deprecated);
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Integer INTEGER_ONE = Integer.valueOf(1);
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false); // set for verbose debugging information
@@ -1800,6 +1801,7 @@ public class TestUnits extends TestFmwk {
     public void testDistinguishedSetsOfUnits() {
         Set<String> comparatorUnitIds = new LinkedHashSet<>(DtdData.unitOrder.getOrder());
         Set<String> validLongUnitIds = VALID_REGULAR_UNITS;
+        Set<String> validAndDeprecatedLongUnitIds = ImmutableSet.<String>builder().addAll(VALID_REGULAR_UNITS).addAll(DEPRECATED_REGULAR_UNITS).build();
 
         final BiMap<String, String> shortToLong = Units.LONG_TO_SHORT.inverse();
         assertSuperset("converter short-long", "units short-long", converter.SHORT_TO_LONG_ID.entrySet(), shortToLong.entrySet());
@@ -1832,7 +1834,7 @@ public class TestUnits extends TestFmwk {
             "concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg", "concentr-ofglucose");
         assertSameCollections("root unit IDs", "valid regular", validRootUnitIdsMinusOddballs, validLongUnitIdsMinusOddballs);
 
-        assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validLongUnitIds);
+        assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validAndDeprecatedLongUnitIds);
 
         assertSuperset("valid regular", "specials", validLongUnitIds, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
 

@@ -1271,19 +1271,25 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public static final MapComparator<String> unitOrder = new MapComparator<String>().add(
         "acceleration-g-force", "acceleration-meter-per-square-second",
+        "acceleration-meter-per-second-squared", // deprecated
         "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
         "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
         "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
         "area-dunam",
         "concentr-karat",
+        "proportion-karat",  // deprecated
         "concentr-milligram-ofglucose-per-deciliter",
+        "concentr-milligram-per-deciliter",
         "concentr-millimole-per-liter",
         "concentr-item",
         "concentr-portion",
-        "concentr-permillion", "concentr-percent", "concentr-permille", "concentr-permyriad",
+        "concentr-permillion",
+        "concentr-part-per-million",  // deprecated
+        "concentr-percent", "concentr-permille", "concentr-permyriad",
         "concentr-mole",
         "concentr-ofglucose",
         "consumption-liter-per-kilometer", "consumption-liter-per-100-kilometer",
+        "consumption-liter-per-100kilometers", // deprecated
         "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",
         "digital-petabyte", "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
         "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
@@ -1333,8 +1339,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
         "power-horsepower",
         "pressure-millimeter-ofhg",
-         "pressure-ofhg",
-        "pressure-pound-force-per-square-inch", "pressure-inch-ofhg", "pressure-bar", "pressure-millibar", "pressure-atmosphere",
+        "pressure-millimeter-of-mercury", // deprecated
+        "pressure-ofhg",
+        "pressure-pound-force-per-square-inch",
+        "pressure-pound-per-square-inch", // deprecated
+        "pressure-inch-ofhg",
+        "pressure-inch-hg",  // deprecated
+        "pressure-bar", "pressure-millibar", "pressure-atmosphere",
         "pressure-pascal",
         "pressure-hectopascal",
         "pressure-kilopascal",
@@ -1342,6 +1353,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
         "torque-pound-force-foot",
+        "torque-pound-foot", // deprecated
         "torque-newton-meter",
         "volume-cubic-kilometer", "volume-cubic-meter", "volume-cubic-centimeter",
         "volume-cubic-mile", "volume-cubic-yard", "volume-cubic-foot", "volume-cubic-inch",

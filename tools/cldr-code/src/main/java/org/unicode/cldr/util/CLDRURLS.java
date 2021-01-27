@@ -24,6 +24,12 @@ public abstract class CLDRURLS {
      */
     public static final String CLDR_NEWTICKET_URL = "http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
     public static final String CLDR_REPO_ROOT = "https://github.com/unicode-org/cldr";
+    public static final String CLDR_HOMEPAGE = "http://cldr.unicode.org";
+    public static final String UNICODE_CONSORTIUM = "The Unicode Consortium";
+    /**
+     * Our license, in SPDX format
+     */
+    public static final String UNICODE_SPDX = "Unicode-DFS-2016";
     /**
      * Override this property if you want to change the absolute URL to the SurveyTool base from DEFAULT_BASE
      */
@@ -33,7 +39,6 @@ public abstract class CLDRURLS {
      */
     public static final String CLDR_SURVEY_PATH = "CLDR_SURVEY_PATH";
     public static final String TOOLSURL = "http://cldr.unicode.org/tools/";
-
     /**
      *  "special" pages
      * @author srl

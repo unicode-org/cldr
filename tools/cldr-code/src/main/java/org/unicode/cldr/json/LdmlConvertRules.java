@@ -2,6 +2,7 @@ package org.unicode.cldr.json;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -434,7 +435,6 @@ class LdmlConvertRules {
             .append("# ").append(comment.replace('\n', ' ')).append('\n')
             .append("< ").append(patternStr).append('\n')
             .append("> ").append(replacement).append('\n');
-
             return sb.toString();
         }
 
@@ -457,14 +457,14 @@ class LdmlConvertRules {
         }
         public static void dumpAll() {
             System.out.println("# Path Transformations");
-            for(final PathTransformSpec ts : PATH_TRANSFORMATIONS) {
+            for (final PathTransformSpec ts : getPathTransformations()) {
                 System.out.append(ts.toString());
             }
             System.out.println();
         }
+
         public static final String applyAll(String result) {
-            for (int i = 0; i < PATH_TRANSFORMATIONS.length; i++) {
-                PathTransformSpec ts = PATH_TRANSFORMATIONS[i];
+            for (final PathTransformSpec ts : getPathTransformations()) {
                 final String changed = ts.apply(result);
                 if(changed != null) {
                     result = changed;
@@ -475,16 +475,27 @@ class LdmlConvertRules {
         }
     }
 
-    public static final PathTransformSpec PATH_TRANSFORMATIONS[] =
-        PathTransformSpecHelper.INSTANCE;
+    public static final Iterable<PathTransformSpec> getPathTransformations() {
+        return PathTransformSpecHelper.INSTANCE;
+    }
 
-    public static final class PathTransformSpecHelper extends FileProcessor {
-        static final PathTransformSpec INSTANCE[] = make();
+    /**
+     * Add a path transform for the //ldml/identity/version element to the specific number
+     * @param version
+     */
+    public static final void addVersionHandler(String version) {
+        if(!CLDRFile.GEN_VERSION.equals(version)) {
+            PathTransformSpecHelper.INSTANCE.prependVersionTransforms(version);
+        }
+    }
 
-        static final PathTransformSpec[] make() {
+    public static final class PathTransformSpecHelper extends FileProcessor implements Iterable<PathTransformSpec> {
+        static final PathTransformSpecHelper INSTANCE = make();
+
+        static final PathTransformSpecHelper make() {
             final PathTransformSpecHelper helper = new PathTransformSpecHelper();
             helper.process(PathTransformSpecHelper.class, "pathTransforms.txt");
-            return helper.data.toArray(new PathTransformSpec[0]);
+            return helper;
         }
 
         private PathTransformSpecHelper() {}
@@ -497,13 +508,21 @@ class LdmlConvertRules {
         protected
         void handleStart() {
             // Add these to the beginning because of the dynamic version
+            String version = CLDRFile.GEN_VERSION;
+            prependVersionTransforms(version);
+        }
 
-            data.add(new PathTransformSpec("(.+)/identity/version\\[@number=\"([^\"]*)\"\\]", "$1" + "/identity/version\\[@cldrVersion=\""
-                + CLDRFile.GEN_VERSION + "\"\\]", "added by code"));
+        /**
+         * Prepend version transform.
+         * If called twice, the LAST caller will be used.
+         * @param version
+         */
+        public void prependVersionTransforms(String version) {
+            data.add(0, new PathTransformSpec("(.+)/identity/version\\[@number=\"([^\"]*)\"\\]", "$1" + "/identity/version\\[@cldrVersion=\""
+                + version + "\"\\]", "added by code"));
             // Add cldrVersion attribute to supplemental data
-            data.add(new PathTransformSpec("(.+)/version\\[@number=\"([^\"]*)\"\\]\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "/version\\[@cldrVersion=\""
-                + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$3" + "\\]", "added by code"));
-
+            data.add(0, new PathTransformSpec("(.+)/version\\[@number=\"([^\"]*)\"\\]\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "/version\\[@cldrVersion=\""
+                + version + "\"\\]" + "\\[@unicodeVersion=\"" + "$3" + "\\]", "added by code"));
         }
 
         @Override
@@ -546,6 +565,11 @@ class LdmlConvertRules {
         @Override
         public void handleComment(String line, int commentCharPosition) {
             lastComment = line.substring(commentCharPosition+1).trim();
+        }
+
+        @Override
+        public Iterator<PathTransformSpec> iterator() {
+            return data.iterator();
         }
     }
 

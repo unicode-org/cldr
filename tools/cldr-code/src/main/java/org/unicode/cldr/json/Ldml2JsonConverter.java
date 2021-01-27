@@ -31,6 +31,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.DtdData;
@@ -201,6 +202,8 @@ public class Ldml2JsonConverter {
         this.writePackages = writePackages;
         this.coverageValue = Level.get(coverage).getLevel();
         this.pkgVersion = pkgVersion;
+
+        LdmlConvertRules.addVersionHandler(pkgVersion.split("\\.")[0]);
 
         sections = new ArrayList<>();
         packages = new TreeSet<>();
@@ -868,23 +871,23 @@ public class Ldml2JsonConverter {
         JsonArray maintainers = new JsonArray();
         JsonObject primaryMaintainer = new JsonObject();
 
-        obj.addProperty("homepage", "http://cldr.unicode.org");
-        obj.addProperty("author", "The Unicode Consortium");
+        obj.addProperty("homepage", CLDRURLS.CLDR_HOMEPAGE);
+        obj.addProperty("author", CLDRURLS.UNICODE_CONSORTIUM);
 
         primaryMaintainer.addProperty("name", "John Emmons");
         primaryMaintainer.addProperty("email", "emmo@us.ibm.com");
         primaryMaintainer.addProperty("url", "https://github.com/JCEmmons");
+
         maintainers.add(primaryMaintainer);
         obj.add("maintainers", maintainers);
 
         JsonObject repository = new JsonObject();
         repository.addProperty("type", "git");
-        repository.addProperty("url", "git://github.com/unicode-cldr/cldr-json.git"); // Prospective
+        repository.addProperty("url", "git://github.com/unicode-cldr/cldr-json.git");
         obj.add("repository", repository);
 
-        obj.addProperty("license", "Unicode-DFS-2016");
-
-        obj.addProperty("bugs", "https://unicode-org.atlassian.net/projects/CLDR/issues");
+        obj.addProperty("license", CLDRURLS.UNICODE_SPDX);
+        obj.addProperty("bugs", CLDRURLS.CLDR_NEWTICKET_URL);
 
         outf.println(gson.toJson(obj));
         outf.close();
@@ -912,6 +915,7 @@ public class Ldml2JsonConverter {
         ignorePaths.add(new JsonPrimitive(".gitattributes"));
         ignorePaths.add(new JsonPrimitive("README.md"));
         obj.add("ignore", ignorePaths);
+        obj.addProperty("license", CLDRURLS.UNICODE_SPDX);
 
         outf.println(gson.toJson(obj));
         outf.close();

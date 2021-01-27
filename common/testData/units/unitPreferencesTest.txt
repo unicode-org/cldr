@@ -1,5 +1,5 @@
 # Test data for unit preferences
-#  Copyright © 1991-2020 Unicode, Inc.
+#  Copyright © 1991-2021 Unicode, Inc.
 #  For terms of use, see http://www.unicode.org/copyright.html
 #  Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 #  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -62,6 +62,10 @@ area;	land;	GB;	1422722961 / 390625;	3642.17078016;	square-meter;	9 / 10;	0.9;	a
 concentration;	blood-glucose;	AG;	662435483600000000000000;	6.624354836E23;	item-per-cubic-meter;	11 / 10;	1.1;	millimole-per-liter
 concentration;	blood-glucose;	AG;	602214076000000000000000;	6.02214076E23;	item-per-cubic-meter;	1;	1.0;	millimole-per-liter
 concentration;	blood-glucose;	AG;	541992668400000000000000;	5.419926684E23;	item-per-cubic-meter;	9 / 10;	0.9;	millimole-per-liter
+
+concentration;	blood-glucose;	001;	66243548360000000000000000000 / 1801557;	3.67701651182838E22;	item-per-cubic-meter;	11 / 10;	1.1;	milligram-ofglucose-per-deciliter
+concentration;	blood-glucose;	001;	60221407600000000000000000000 / 1801557;	3.342742283480345E22;	item-per-cubic-meter;	1;	1.0;	milligram-ofglucose-per-deciliter
+concentration;	blood-glucose;	001;	6022140760000000000000000000 / 200173;	3.008468055132311E22;	item-per-cubic-meter;	9 / 10;	0.9;	milligram-ofglucose-per-deciliter
 
 concentration;	default;	001;	11 / 10;	1.1;	item-per-cubic-meter;	11 / 10;	1.1;	item-per-cubic-meter
 concentration;	default;	001;	1;	1.0;	item-per-cubic-meter;	1;	1.0;	item-per-cubic-meter
@@ -296,10 +300,6 @@ mass;	person;	GB;	408233133 / 1000000000;	0.408233133;	kilogram;	0;	pound;	72 / 
 mass;	person;	HK;	498951607 / 1000000000;	0.498951607;	kilogram;	1;	pound;	8 / 5;	1.6;	ounce
 mass;	person;	HK;	45359237 / 100000000;	0.45359237;	kilogram;	1;	pound;	0;	0.0;	ounce
 mass;	person;	HK;	408233133 / 1000000000;	0.408233133;	kilogram;	0;	pound;	72 / 5;	14.4;	ounce
-
-mass-density;	blood-glucose;	001;	11 / 1000;	0.011;	kilogram-per-cubic-meter;	11 / 10;	1.1;	milligram-per-deciliter
-mass-density;	blood-glucose;	001;	1 / 100;	0.01;	kilogram-per-cubic-meter;	1;	1.0;	milligram-per-deciliter
-mass-density;	blood-glucose;	001;	9 / 1000;	0.009;	kilogram-per-cubic-meter;	9 / 10;	0.9;	milligram-per-deciliter
 
 mass-density;	default;	001;	11 / 10;	1.1;	kilogram-per-cubic-meter;	11 / 10;	1.1;	kilogram-per-cubic-meter
 mass-density;	default;	001;	1;	1.0;	kilogram-per-cubic-meter;	1;	1.0;	kilogram-per-cubic-meter

@@ -1276,6 +1276,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
         "area-dunam",
         "concentr-karat",
+        "concentr-milligram-per-deciliter", "concentr-millimole-per-liter", // Compatibility with CLDR ≤38.1
         "concentr-milligram-ofglucose-per-deciliter",
         "concentr-millimole-per-liter",
         "concentr-item",

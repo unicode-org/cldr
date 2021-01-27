@@ -585,12 +585,11 @@ public class ZoneParser {
         private List<String> getData(String s) {
             List<String> d = data.get(s);
             if (d == null) {
-                if ("Australia/Currie".equals(s)) {
-                    // 39°55′52″S 143°51′02″E per https://en.wikipedia.org/wiki/Currie,_Tasmania
-                    // Converted with https://www.latlong.net/degrees-minutes-seconds-to-decimal-degrees
-                    d = Arrays.asList("-39.93", "143.85", "AU", "Currie");
-                } else {
-                    // TODO: "America/Santa_Isabel", "Pacific/Honolulu"?
+                String sNew = linkold_new.get(s);
+                if (sNew != null) {
+                    d = data.get(sNew);
+                }
+                if (d == null) {
                     d = errorData;
                 }
             }
@@ -618,11 +617,6 @@ public class ZoneParser {
         "southamerica" };
 
     private static Map<String, String> FIX_UNSTABLE_TZIDS;
-
-    private static Set<String> SKIP_LINKS = new HashSet<>(Arrays.asList(
-        new String[] {
-            "America/Montreal", "America/Toronto",
-            "America/Santa_Isabel", "America/Tijuana" }));
 
     private static Set<String> PREFERRED_BASES = new HashSet<>(Arrays.asList(new String[] { "Europe/London" }));
 
@@ -841,16 +835,7 @@ public class ZoneParser {
                     } else if (items[0].equals("Link")) {
                         String old = items[2];
                         String newOne = items[1];
-                        if (!(SKIP_LINKS.contains(old) && SKIP_LINKS.contains(newOne))) {
-                            //System.out.println("Original " + old + "\t=>\t" + newOne);
-                            linkedItems.add(old, newOne);
-                        }
-                        /*
-                         * String conflict = (String) linkold_new.get(old); if (conflict !=
-                         * null) { System.out.println("Conflict with old: " + old + " => " +
-                         * conflict + ", " + newOne); } System.out.println(old + "\t=>\t" +
-                         * newOne); linkold_new.put(old, newOne);
-                         */
+                        linkedItems.add(old, newOne);
                     } else {
                         if (DEBUG)
                             System.out.println("Unknown zone line: " + line);

@@ -585,12 +585,11 @@ public class ZoneParser {
         private List<String> getData(String s) {
             List<String> d = data.get(s);
             if (d == null) {
-                if ("Australia/Currie".equals(s)) {
-                    // 39°55′52″S 143°51′02″E per https://en.wikipedia.org/wiki/Currie,_Tasmania
-                    // Converted with https://www.latlong.net/degrees-minutes-seconds-to-decimal-degrees
-                    d = Arrays.asList("-39.93", "143.85", "AU", "Currie");
-                } else {
-                    // TODO: "America/Santa_Isabel", "Pacific/Honolulu"?
+                String sNew = linkold_new.get(s);
+                if (sNew != null) {
+                    d = data.get(sNew);
+                }
+                if (d == null) {
                     d = errorData;
                 }
             }

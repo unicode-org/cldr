@@ -129,7 +129,7 @@ public class TestBasic extends TestFmwkPlus {
 
     private final ImmutableSet<String> eightPointLocales = ImmutableSet.of(
         "ar", "ca", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
-        "it", "ja", "ko", "lt", "lv", "nb", "nl", "pl", "pt", "pt_PT", "ro", "ru", "sk", "sl", "sr", "sv",
+        "it", "ja", "ko", "lt", "lv", "nl", "no", "pl", "pt", "pt_PT", "ro", "ru", "sk", "sl", "sr", "sv",
         "th", "tr", "uk", "vi", "zh", "zh_Hant");
 
     // private final boolean showForceZoom = Utility.getProperty("forcezoom",

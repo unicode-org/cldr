@@ -27,11 +27,11 @@ public class TestFallbackIterator extends TestFmwk {
             "zh-US-foobar, zh-Hans-US-foobar, zh-Hans-US, zh-Hans, zh",
             "zh-foobar-variant, zh-foobar, zh",
             "en-Latn-US-foobar, en-Latn-US, en-Latn, en",
-            "no-NO, nb-NO, nb, no",
-            "nb-NO, no-NO, nb, no",
-            "no-bok, nb, no", // note, "nb-bok" is not legal, but doesn't
+            "no-NO, no",
+            "no-NO, no",
+            "no-bok, no", // note, "nb-bok" is not legal, but doesn't
             // hurt
-            "no-YU, nb-CS, no-CS, nb-YU, nb, no",
+            "no-YU, no-CS, no",
             "sh-CS, sh-YU, sr-Latn-CS, sr-Latn-YU, sr-Latn, sr",
             "sh-Cyrl-CS, sh-Cyrl-YU, sr-Cyrl-CS, sr-Cyrl-YU, sr-Cyrl, sr",
             "cmn, zh", "zh-cmn, zh",

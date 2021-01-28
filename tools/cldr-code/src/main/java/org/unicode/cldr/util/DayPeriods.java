@@ -210,7 +210,7 @@ public class DayPeriods {
             .add("EVENING1", "aften", 18, 19, 20, 21, 22, 23)
             .build();
 
-        make("nb")
+        make("no")
             .add("NIGHT1", "natt", 0, 1, 2, 3, 4, 5)
             .add("MORNING1", "morgen", 6, 7, 8, 9)
             .add("MORNING2", "formiddag", 10, 11)

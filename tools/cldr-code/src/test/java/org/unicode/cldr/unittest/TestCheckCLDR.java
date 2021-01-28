@@ -71,7 +71,7 @@ import com.ibm.icu.text.UnicodeSet;
 public class TestCheckCLDR extends TestFmwk {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private final Set<String> eightPointLocales = new TreeSet<>(
-        Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
+        Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nl no pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
 
     public static void main(String[] args) {
         new TestCheckCLDR().run(args);

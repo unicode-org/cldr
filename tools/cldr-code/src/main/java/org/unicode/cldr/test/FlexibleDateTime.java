@@ -144,7 +144,6 @@ public class FlexibleDateTime {
             }
             // special hack for OpenOffice
             territoryAlias.put("CB", "029");
-            languageAlias.put("no", "nb");
         }
         LocaleIDParser lip = new LocaleIDParser();
 

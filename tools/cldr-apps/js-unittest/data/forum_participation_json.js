@@ -577,14 +577,6 @@ const forumParticipationJson =
       "0"
     ],
     [
-      "nb",
-      "37",
-      "2",
-      "0",
-      "2",
-      "17"
-    ],
-    [
       "ne",
       "73",
       "60",
@@ -607,6 +599,14 @@ const forumParticipationJson =
       "2",
       "0",
       "4"
+    ],
+    [
+      "no",
+      "37",
+      "2",
+      "0",
+      "2",
+      "17"
     ],
     [
       "or",

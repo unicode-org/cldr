@@ -155,9 +155,9 @@ public class FallbackIterator implements Iterator<String> {
             "cmn(-.*)?;zh$1",
             "uzn(-.*)?;uz$1",
 
-            // special cases: no, sh
+            // special cases: nb, sh
 
-            "no(-.*)?;nb$1",
+            "nb(-.*)?;no$1",
             "sh(?!-[a-zA-Z]{4}(?:-.*)?)(-.*)?;sr-Latn$1", // insert if no script
             "sh(-[a-zA-Z]{4}-.*);sr$1",
 
@@ -183,7 +183,7 @@ public class FallbackIterator implements Iterator<String> {
             //"zh-Hant-HK(-.*)?;zh-HK$1",
             //"zh-Hans;zh-CN",
             //"zh-CN;zh-Hans",
-            "nb(-.*)?;no$1",
+            //"no(-.*)?;nb$1",
 
         };
         // do this way to emulate reading from file

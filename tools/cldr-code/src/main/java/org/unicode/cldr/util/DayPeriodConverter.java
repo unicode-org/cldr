@@ -423,7 +423,7 @@ public class DayPeriodConverter {
             "nl|middernacht|N/A",
             "de|Mitternacht|N/A",
             "da|midnat|N/A",
-            "nb|midnatt|N/A",
+            "no|midnatt|N/A",
             "sv|midnatt|N/A",
             "is|miðnætti|hádegi",
             "pt|meia-noite|meio-dia",

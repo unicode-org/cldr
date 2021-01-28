@@ -273,8 +273,8 @@ public class TestSTFactory extends TestFmwk {
             }
         }
         {
-            CLDRLocale locale2 = CLDRLocale.getInstance("nb");
-            //CLDRFile nb = fac.make(locale2, false);
+            CLDRLocale locale2 = CLDRLocale.getInstance("no");
+            //CLDRFile no = fac.make(locale2, false);
             BallotBox<User> box = fac.ballotBoxForLocale(locale2);
             final String bad_xpath = "//ldml/units/unitLength[@type=\"format\"]/unit[@type=\"murray\"]/unitPattern[@count=\"many\"]";
 

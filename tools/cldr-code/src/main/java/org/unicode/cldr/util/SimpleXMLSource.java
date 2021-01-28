@@ -184,7 +184,7 @@ public class SimpleXMLSource extends XMLSource {
             String result = replace(NON_ALPHANUM, normalizer2.normalize(temp), "");
             return result.replace('\uFFFF','\u202F');
         }
-        return replace(NON_ALPHANUM, normalizer2.normalize(valueToMatch.replace('\u202F', '\u00A0')), "");
+        return replace(NON_ALPHANUM, normalizer2.normalize(valueToMatch), "");
     }
 
     public static String replace(UnicodeSet unicodeSet, String valueToMatch, String substitute) {

@@ -168,7 +168,7 @@ public class SimpleXMLSource extends XMLSource {
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
 
     // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
-    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:][\\u202F\uFFFF _ ¡ « ( ) \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]").freeze();
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:][\\u202F\uFFFF _ ¡ « ( ) \\- \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]").freeze();
 
     public static String normalize(String valueToMatch) {
         return normalize2(valueToMatch, NFKCCF);
@@ -181,7 +181,7 @@ public class SimpleXMLSource extends XMLSource {
     public static String normalize2(String valueToMatch, Normalizer2 normalizer2) {
         if (valueToMatch.indexOf('\u202F') >= 0) { // special hack to allow \u202f, which is otherwise removed by NFKC
             String temp = valueToMatch.replace('\u202F', '\uFFFF');
-            String result = replace(NON_ALPHANUM, NFKCCF.normalize(temp), "");
+            String result = replace(NON_ALPHANUM, normalizer2.normalize(temp), "");
             return result.replace('\uFFFF','\u202F');
         }
         return replace(NON_ALPHANUM, normalizer2.normalize(valueToMatch.replace('\u202F', '\u00A0')), "");

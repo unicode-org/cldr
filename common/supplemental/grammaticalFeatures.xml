@@ -51,6 +51,10 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     <grammaticalFeatures targets="nominal" locales="ta">
       <grammaticalCase values="nominative genitive accusative dative locative instrumental ablative vocative"/>
     </grammaticalFeatures>
+    <grammaticalFeatures targets="nominal" locales="hu">
+      <grammaticalCase values="nominative ablative accusative adessive allative causal dative delative elative essive illative inessive instrumental sublative superessive terminative translative"/>
+      <!-- Hungarian nouns also inflect in possessives, with agreement on number and person. -->
+    </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="kk tr">
       <grammaticalCase values="nominative genitive dative accusative instrumental ablative locative"/>
       <grammaticalCase scope="units"/>

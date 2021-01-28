@@ -168,9 +168,14 @@ public class SimpleXMLSource extends XMLSource {
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
 
     // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
-    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]/+\\-°′″%‰‱٪؉−⍰()⊕☉]").freeze();
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:][\\u00A0\\u202F\\uFFFF _ ¡ « ( ) \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]").freeze();
 
     public static String normalize(String valueToMatch) {
+        if (valueToMatch.indexOf('\u202F') >= 0) { // special hack to allow \u202f, which is otherwise removed by NFKC
+            String temp = valueToMatch.replace('\u202F', '\uFFFF');
+            String result = replace(NON_ALPHANUM, NFKCCF.normalize(temp), "");
+            return result.replace('\uFFFF','\u202F');
+        }
         return replace(NON_ALPHANUM, NFKCCF.normalize(valueToMatch), "");
     }
 

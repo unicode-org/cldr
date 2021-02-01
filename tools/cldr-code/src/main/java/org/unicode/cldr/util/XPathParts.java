@@ -1293,12 +1293,9 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         return xppClone;
     }
 
-    public static synchronized XPathParts getFrozenInstance(String path) {
-        XPathParts result = cache.get(path);
-        if (result == null) {
-            result = new XPathParts().addInternal(path, true).freeze();
-            cache.put(path, result);
-        }
+    public static XPathParts getFrozenInstance(String path) {
+        XPathParts result = cache.computeIfAbsent(path,
+            (String forPath) -> new XPathParts().addInternal(forPath, true).freeze());
         return result;
     }
 

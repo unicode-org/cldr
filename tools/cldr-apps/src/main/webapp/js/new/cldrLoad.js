@@ -594,12 +594,14 @@ const cldrLoad = (function () {
   function getSpecial(str) {
     const specials = {
       about: cldrAbout,
+      account: cldrAccount,
       admin: cldrAdmin,
       bulk_close_posts: cldrBulkClosePosts,
       createAndLogin: cldrCreateLogin,
       error_subtypes: cldrErrorSubtypes,
       forum: cldrForum,
       forum_participation: cldrForumParticipation,
+      list_users: cldrListUsers,
       locales: cldrLocales,
       mail: cldrMail,
       oldvotes: cldrOldVotes,

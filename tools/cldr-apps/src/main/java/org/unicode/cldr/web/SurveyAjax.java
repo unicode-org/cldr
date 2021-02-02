@@ -22,6 +22,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -83,7 +85,11 @@ import com.ibm.icu.util.Output;
  * also use a POST instead of the _v parameter ) Note, add the preference to the
  * settablePrefsList
  *
+ * The @MultipartConfig annotation enables getting request parameters from a POST request
+ * that has "multipart/form-data" as its content-type, as needed for WHAT_USER_LIST.
  */
+@WebServlet
+@MultipartConfig
 public class SurveyAjax extends HttpServlet {
     final boolean DEBUG = false; //  || SurveyLog.isDebug();
     public final static String WHAT_MY_LOCALES = "mylocales";
@@ -282,7 +288,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_REVIEW_HIDE = "review_hide";
     public static final String WHAT_PARTICIPATING_USERS = "participating_users"; // tc-emaillist.js
     public static final String WHAT_USER_INFO = "user_info"; // usermap.js
-    public static final String WHAT_USER_LIST = "user_list"; // users.js
+    public static final String WHAT_USER_LIST = "user_list"; // (old) users.js; (new) cldrListUsers.js
     public static final String WHAT_USER_OLDVOTES = "user_oldvotes"; // users.js
     public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes"; // users.js
     public static final String WHAT_OLDVOTES = "oldvotes"; // cldrLoad.js
@@ -318,6 +324,15 @@ public class SurveyAjax extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         setup(request, response);
+        if (!SurveyTool.useDojo(request) && WHAT_USER_LIST.equals(request.getParameter("what"))) {
+            // Bypass the "value", "request.getReader" code below, otherwise calling
+            // getParameter later fails for our FormData "multipart/form-data"
+            processRequest(request, response, null);
+            return;
+        }
+        // TODO: explain/remove this qs/value business; shouldn't be necessary?
+        // Modern code can use request.getParameter without worrying whether
+        // the params are in the query string or the post body or both
         final String qs = request.getQueryString();
         String value;
         if (qs != null && !qs.isEmpty()) {
@@ -1003,7 +1018,11 @@ public class SurveyAjax extends HttpServlet {
                         }
                             break;
                         case WHAT_USER_LIST: {
-                            if (mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
+                            if (!SurveyTool.useDojo(request)) {
+                                final JSONWriter r = newJSONStatusQuick(sm);
+                                new UserList().getJson(r, request, response, mySession, sm);
+                                send(r, out);
+                            } else if (mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
                                 try {
                                     Connection conn = null;
                                     ResultSet rs = null;
@@ -2861,6 +2880,9 @@ public class SurveyAjax extends HttpServlet {
                 }
 
                 try {
+                    /*
+                     * TODO: why use org.json.JSONWriter here but SurveyAjax.JSONWriter elsewhere?
+                     */
                     org.json.JSONWriter r = new org.json.JSONWriter(out).object()
                         .key("stro").value(STFactory.isReadOnlyLocale(locale))
                         .key("baseXpath").value(baseXp)

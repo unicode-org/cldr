@@ -374,6 +374,7 @@ public class SurveyTool extends HttpServlet {
 
     private static final String[] newJsFiles = {
         "cldrAbout.js",
+        "cldrAccount.js",
         "cldrAdmin.js",
         "cldrAjax.js",
         "cldrBulkClosePosts.js",
@@ -392,6 +393,7 @@ public class SurveyTool extends HttpServlet {
         "cldrGear.js",
         "cldrGui.js",
         "cldrInfo.js",
+        "cldrListUsers.js",
         "cldrLoad.js",
         "cldrLocaleMap.js",
         "cldrLocales.js",

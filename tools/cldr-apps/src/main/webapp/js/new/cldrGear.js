@@ -6,6 +6,13 @@
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
+ *
+ * TODO: "Avoid dropdown menus": "Usability studies show that dropdown menus are annoying";
+ * "difficult for search engines to crawl" https://www.orbitmedia.com/blog/website-navigation/
+ * Survey Tool's current dropdown gear menu is also problematic in terms of library dependencies,
+ * invalid html, inability to scroll (e.g., when console log is open and screen is small),
+ * and failure to close immediately when some items are clicked on. It would be cleaner to
+ * open a new special page ("#gear"), with a list of items, when the gear menu is clicked on.
  */
 const cldrGear = (function () {
   function getItems() {
@@ -22,10 +29,8 @@ const cldrGear = (function () {
     const surveyUserPerms = cldrStatus.getPermissions();
     // TODO: eliminate surveyUserURL, make these all "specials" like #about -- no url or jsp here
     const surveyUserURL = {
-      myAccountSetting: "survey?do=listu",
       disableMyAccount: "lock.jsp",
       xmlUpload: "upload.jsp?a=/cldr-apps/survey&s=" + sessionId,
-      manageUser: "survey?do=list",
       flag: "tc-flagged.jsp?s=" + sessionId,
       browse: "browse.jsp",
     };
@@ -45,9 +50,8 @@ const cldrGear = (function () {
       }, // My Account section
 
       {
-        title: "Settings",
+        special: "account",
         level: 2,
-        url: surveyUserURL.myAccountSetting,
         display: surveyUser && true,
       },
       {
@@ -86,7 +90,7 @@ const cldrGear = (function () {
         divider: true,
       },
       {
-        title: "My Organization(" + cldrStatus.getOrganizationName() + ")",
+        title: "My Organization (" + cldrStatus.getOrganizationName() + ")",
       }, // My Organization section
 
       {
@@ -96,8 +100,8 @@ const cldrGear = (function () {
       },
       {
         title: "List " + cldrStatus.getOrganizationName() + " Users",
+        special: "list_users",
         level: 2,
-        url: surveyUserURL.manageUser,
         display:
           surveyUserPerms &&
           (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter),
@@ -182,10 +186,12 @@ const cldrGear = (function () {
         const item = gearMenuItems[k];
         (function (item) {
           if (item.display != false) {
-            var subLi = document.createElement("li");
+            const subLi = document.createElement("li");
+            let title = item.title;
             if (item.special) {
-              // special items so look up in cldrText.js
-              item.title = cldrText.get("special_" + item.special);
+              if (!title) {
+                title = cldrText.get("special_" + item.special);
+              }
               item.url = "#" + item.special;
               item.blank = false;
             }
@@ -195,7 +201,7 @@ const cldrGear = (function () {
               if (item.hasFlag) {
                 addFlagIcon(subA);
               }
-              subA.appendChild(document.createTextNode(item.title + " "));
+              subA.appendChild(document.createTextNode(title + " "));
               subA.href = item.url;
 
               if (item.blank != false) {
@@ -231,7 +237,7 @@ const cldrGear = (function () {
             if (!item.url && !item.divider) {
               // if it is pure text/html & not a divider
               if (!item.level) {
-                subLi.appendChild(document.createTextNode(item.title + " "));
+                subLi.appendChild(document.createTextNode(title + " "));
               } else {
                 let subA = null;
                 if (item.bold) {
@@ -241,7 +247,7 @@ const cldrGear = (function () {
                 } else {
                   subA = document.createElement("span");
                 }
-                subA.appendChild(document.createTextNode(item.title + " "));
+                subA.appendChild(document.createTextNode(title + " "));
 
                 const level = item.level;
                 for (let i = 0; i < level - 1; i++) {

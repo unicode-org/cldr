@@ -1894,7 +1894,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
                         ctx.println("<option class='user" + UserRegistry.ALL_LEVELS[i] + "' ");
                         ctx.println(" value='" + UserRegistry.ALL_LEVELS[i] + "'>"
-                            + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]) + "</option>");
+                            + UserRegistry.levelToStr(UserRegistry.ALL_LEVELS[i]) + "</option>");
                     }
                     ctx.println("</select></label> <br>");
                     ctx.println(" <label>to");
@@ -2030,7 +2030,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                     } else {
                                         msg = reg.setUserLevel(ctx, theirId, theirEmail, UserRegistry.ALL_LEVELS[i]);
                                         ctx.println("Set user level to "
-                                            + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]));
+                                            + UserRegistry.levelToStr(UserRegistry.ALL_LEVELS[i]));
                                         ctx.println(": " + msg);
                                         theirLevel = UserRegistry.ALL_LEVELS[i];
                                         if (theUser != null) {
@@ -2163,7 +2163,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                     // org, level
                     ctx.println("    <td>" + theirOrg + "<br>" + "&nbsp; <span style='font-size: 80%' align='right'>"
-                        + UserRegistry.levelToStr(ctx, theirLevel).replaceAll(" ", "&nbsp;") + "</span></td>");
+                        + UserRegistry.levelToStr(theirLevel).replaceAll(" ", "&nbsp;") + "</span></td>");
 
                     ctx.println("    <td valign='top'><font size='-1'>#" + theirId + " </font> <a name='u_" + theirEmail + "'>"
                         + theirName + "</a>");
@@ -2449,9 +2449,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private void doChangeUserOption(WebContext ctx, int newLevel, int theirLevel, boolean selected) {
         if (ctx.session.user.getLevel().canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(newLevel))) {
             ctx.println("    <option " + /* (selected?" SELECTED ":"") + */"value='" + LIST_ACTION_SETLEVEL + newLevel
-                + "'>Make " + UserRegistry.levelToStr(ctx, newLevel) + "</option>");
+                + "'>Make " + UserRegistry.levelToStr(newLevel) + "</option>");
         } else {
-            ctx.println("    <option disabled " + ">Make " + UserRegistry.levelToStr(ctx, newLevel) + "</option>");
+            ctx.println("    <option disabled " + ">Make " + UserRegistry.levelToStr(newLevel) + "</option>");
         }
     }
 
@@ -2613,7 +2613,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @throws IOException
      * @throws SurveyException
      *
-     * Called only by doGet. Called when user logs in or logs out, also when choose Settings from gear menu.
+     * Called only by doGet. Called when user logs in or logs out, also when choose some commands
+     * from gear menu, such as "Settings" and "List [org] Users"
      */
     private void doSession(WebContext ctx) throws IOException, SurveyException {
         String which = ctx.field(QUERY_SECTION); // may be empty string ""
@@ -2716,7 +2717,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             // these items are only for users.
             if (ctx.session.user != null) {
                 if ((doWhat.equals("list") || doWhat.equals("listu")) && (UserRegistry.userCanDoList(ctx.session.user))) {
-                    doList(ctx);
+                    if (SurveyTool.useDojo(ctx)) {
+                        doList(ctx);
+                    } else {
+                        throw new RuntimeException("doList is obsolete for new code without Dojo; see WHAT_USER_LIST");
+                    }
                     return;
                 } else if (doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user))) {
                     doNew(ctx);
@@ -4116,7 +4121,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             surveyTimer = null;
                         }
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }

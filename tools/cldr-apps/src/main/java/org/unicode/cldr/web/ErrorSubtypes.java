@@ -11,11 +11,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 
 public class ErrorSubtypes {
 
-    public static void getJson(JSONWriter r, HttpServletRequest request) throws MalformedURLException, JSONException {
+    public static void getJson(SurveyJSONWrapper r, HttpServletRequest request) throws MalformedURLException, JSONException {
         final String recheck = request.getParameter("flush");
         if (recheck != null) {
             getRecheck(r, recheck);
@@ -28,7 +27,7 @@ public class ErrorSubtypes {
         getMap(r);
     }
 
-    private static void getMap(JSONWriter r) throws MalformedURLException, JSONException {
+    private static void getMap(SurveyJSONWrapper r) throws MalformedURLException, JSONException {
         SubtypeToURLMap map = SubtypeToURLMap.getInstance();
         if (map == null) {
             return;
@@ -37,7 +36,7 @@ public class ErrorSubtypes {
         getUnhandledTypes(r, map);
     }
 
-    private static void getUrlStatus(JSONWriter r, SubtypeToURLMap map) throws JSONException, MalformedURLException {
+    private static void getUrlStatus(SurveyJSONWrapper r, SubtypeToURLMap map) throws JSONException, MalformedURLException {
         List<JSONObject> uList = new ArrayList<>();
         for (final String u : map.getUrls()) {
             Integer checkStatus = HttpStatusCache.check(new URL(u));
@@ -59,7 +58,7 @@ public class ErrorSubtypes {
         r.put("urls", uList);
     }
 
-    private static void getUnhandledTypes(JSONWriter r, SubtypeToURLMap map) throws JSONException {
+    private static void getUnhandledTypes(SurveyJSONWrapper r, SubtypeToURLMap map) throws JSONException {
         if (!map.getUnhandledTypes().isEmpty()) {
             JSONObject unhandled = new JSONObject();
             List<String> strings = new ArrayList<>();
@@ -74,7 +73,7 @@ public class ErrorSubtypes {
         }
     }
 
-    private static void getRecheck(JSONWriter r, String recheck) throws MalformedURLException {
+    private static void getRecheck(SurveyJSONWrapper r, String recheck) throws MalformedURLException {
         if (recheck.startsWith("MAP")) {
             try {
                 SubtypeToURLMap map = SubtypeToURLMap.reload();

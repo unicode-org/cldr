@@ -18,7 +18,6 @@ import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 import org.unicode.cldr.web.UserRegistry.User;
 
 
@@ -36,7 +35,7 @@ public class SurveyVettingParticipation {
         this.missingLocalesForOrg = org; // TODO
     }
 
-    public void getJson(JSONWriter r) throws SQLException, JSONException {
+    public void getJson(SurveyJSONWrapper r) throws SQLException, JSONException {
        final StandardCodes sc = StandardCodes.make();
 
        final LocaleTree tree = sm.getLocaleTree();
@@ -103,7 +102,7 @@ public class SurveyVettingParticipation {
                    ) {
                    continue;
                }
-               final JSONObject json = JSONWriter.wrap(theUser);
+               final JSONObject json = SurveyJSONWrapper.wrap(theUser);
                userObj.put(json);
                totalUsers++;
 
@@ -170,8 +169,8 @@ public class SurveyVettingParticipation {
                    }
                }
            }
-           r.put("languagesNotInCLDR", JSONWriter.wrap(languagesNotInCLDR));
-           r.put("languagesMissing", JSONWriter.wrap(languagesMissing));
+           r.put("languagesNotInCLDR", SurveyJSONWrapper.wrap(languagesNotInCLDR));
+           r.put("languagesMissing", SurveyJSONWrapper.wrap(languagesMissing));
        }
     }
 }

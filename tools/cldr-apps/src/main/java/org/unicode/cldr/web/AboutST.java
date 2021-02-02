@@ -5,12 +5,11 @@ import javax.servlet.ServletContext;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 
 import com.ibm.icu.util.VersionInfo;
 
 public class AboutST {
-    public static void getJson(JSONWriter r, SurveyMain sm) {
+    public static void getJson(SurveyJSONWrapper r, SurveyMain sm) {
         String props[] = {
             "java.version", "java.vendor", "java.vm.version", "java.vm.vendor",
             "java.vm.name", "os.name", "os.arch", "os.version"};

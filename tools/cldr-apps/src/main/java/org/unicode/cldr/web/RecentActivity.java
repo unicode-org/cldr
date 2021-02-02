@@ -5,10 +5,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
-
 public class RecentActivity {
-    public static void getJson(JSONWriter r, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public static void getJson(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String user = request.getParameter("user");
         if (user == null) {
             response.sendRedirect("survey");

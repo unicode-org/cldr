@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONWriter;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -851,7 +852,7 @@ public class SurveyAjax extends HttpServlet {
                             break;
                         case WHAT_USER_LIST: {
                             if (!SurveyTool.useDojo(request)) {
-                                final JSONWriter r = newJSONStatusQuick(sm);
+                                final SurveyJSONWrapper r = newJSONStatusQuick(sm);
                                 new UserList().getJson(r, request, response, mySession, sm);
                                 send(r, out);
                             } else if (mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
@@ -1398,11 +1399,11 @@ public class SurveyAjax extends HttpServlet {
     }
 
     /**
-     * Create a new JSONWriter and setup its status with the given SurveyMain.
+     * Create a new SurveyJSONWrapper and setup its status with the given SurveyMain.
      * This is used to initialize JSON responses so that callers know
      * whether the ST is actually running or not.
      * @param sm the SurveyMain
-     * @return the JSONWriter
+     * @return the SurveyJSONWrapper
      */
     private SurveyJSONWrapper newJSONStatus(HttpServletRequest request, SurveyMain sm) {
         SurveyJSONWrapper r = newJSON();
@@ -1486,7 +1487,7 @@ public class SurveyAjax extends HttpServlet {
     /**
      * Import old votes.
      *
-     * @param r the JSONWriter in which to write
+     * @param r the SurveyJSONWrapper in which to write
      * @param user the User (see UserRegistry.java)
      * @param sm the SurveyMain instance
      * @param isSubmit false when just showing options to user, true when user clicks "Vote for selected Winning/Losing Votes"
@@ -1512,7 +1513,7 @@ public class SurveyAjax extends HttpServlet {
     /**
      * Import old votes, having confirmed user has permission.
      *
-     * @param r the JSONWriter in which to write
+     * @param r the SurveyJSONWrapper in which to write
      * @param user the User
      * @param sm the SurveyMain instance
      * @param isSubmit false when just showing options to user, true when user clicks "Vote for selected Winning/Losing Votes"
@@ -2043,7 +2044,7 @@ public class SurveyAjax extends HttpServlet {
      * as though the user had chosen to select all their old winning votes in viewOldVotes, and
      * submit them as in submitOldVotes.
      *
-     * @param r the JSONWriter in which to write
+     * @param r the SurveyJSONWrapper in which to write
      * @param user the User
      * @param sm the SurveyMain instance
      * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
@@ -2249,7 +2250,7 @@ public class SurveyAjax extends HttpServlet {
      * @param request the HttpServletRequest, for parameters from_user_id, to_user_id, from_locale, to_locale
      * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
      * @param user the current User, who needs admin rights
-     * @param r the JSONWriter to be written to
+     * @param r the SurveyJSONWrapper to be written to
      * @throws SurveyException
      * @throws SQLException
      * @throws JSONException
@@ -2282,7 +2283,7 @@ public class SurveyAjax extends HttpServlet {
      *
      * Loop thru multiple old votes tables in reverse chronological order.
      *
-     * @param r the JSONWriter to be written to
+     * @param r the SurveyJSONWrapper to be written to
      * @param from_user_id the id of the user from which to transfer
      * @param to_user_id the id of the user to which to transfer
      * @param from_locale the locale from which to transfer
@@ -2348,7 +2349,7 @@ public class SurveyAjax extends HttpServlet {
      * @param request the HttpServletRequest, for parameter old_user_id
      * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
      * @param user the current User, who needs admin rights
-     * @param r the JSONWriter to be written to
+     * @param r the SurveyJSONWrapper to be written to
      * @throws SQLException
      * @throws JSONException
      * @throws SurveyException
@@ -2374,7 +2375,7 @@ public class SurveyAjax extends HttpServlet {
      *
      * Check multiple old votes tables.
      *
-     * @param r the JSONWriter to be written to
+     * @param r the SurveyJSONWrapper to be written to
      * @throws SQLException
      * @throws JSONException
      * @throws IOException
@@ -2406,7 +2407,7 @@ public class SurveyAjax extends HttpServlet {
     /**
      * Handle the user's submission of a vote, or an abstention if val is null.
      *
-     * @param r the JSONWriter to be written to
+     * @param r the SurveyJSONWrapper to be written to
      * @param val the string value voted for, or null for abstention
      * @param mySession the CookieSession
      * @param locale the CLDRLocale
@@ -2585,7 +2586,7 @@ public class SurveyAjax extends HttpServlet {
             curThread.setName(request.getServletPath() + ":" + loc + ":" + xpath);
 
             if (mySession == null) {
-                new org.json.JSONWriter(out).object().key("err")
+                new JSONWriter(out).object().key("err")
                     .value("Your session has timed out or the SurveyTool has restarted.").endObject();
                 return;
             }
@@ -2622,7 +2623,7 @@ public class SurveyAjax extends HttpServlet {
                 try {
                     xp = sm.xpt.getByStringID(strid);
                 } catch (Throwable t) {
-                    new org.json.JSONWriter(out).object().key("err").value("Exception getting stringid " + strid)
+                    new JSONWriter(out).object().key("err").value("Exception getting stringid " + strid)
                         .key("err_code").value("E_BAD_SECTION").endObject();
                     return;
                 }
@@ -2643,7 +2644,7 @@ public class SurveyAjax extends HttpServlet {
             SupplementalDataInfo sdi = ctx.sm.getSupplementalDataInfo();
             CLDRLocale dcParent = sdi.getBaseFromDefaultContent(locale);
             if (dcParent != null) {
-                new org.json.JSONWriter(out).object().key("section")
+                new JSONWriter(out).object().key("section")
                     .value(new JSONObject().put("nocontent", "Default Content, see " + dcParent.getBaseName())).endObject();
                 return; // short circuit.
             }
@@ -2677,14 +2678,14 @@ public class SurveyAjax extends HttpServlet {
                         baseXp = XPathTable.xpathToBaseXpath(xp);
                         section = ctx.getDataSection(baseXp /* prefix */, matcher, null /* pageId */);
                     } else {
-                        new org.json.JSONWriter(out).object().key("err")
+                        new JSONWriter(out).object().key("err")
                             .value("Could not understand that section, xpath, or ID. Bad URL?")
                             .key("err_code").value("E_BAD_SECTION").endObject();
                         return;
                     }
                 } catch (Throwable t) {
                     SurveyLog.logException(t, "on loading " + locale + ":" + baseXp);
-                    new org.json.JSONWriter(out).object().key("err").value("Exception on getSection:" + t.toString())
+                    new JSONWriter(out).object().key("err").value("Exception on getSection:" + t.toString())
                         .key("err_code").value("E_BAD_SECTION").endObject();
                     return;
                 }
@@ -2704,7 +2705,7 @@ public class SurveyAjax extends HttpServlet {
 
                 if (pageId != null) {
                     if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
-                        new org.json.JSONWriter(out).object().key("err")
+                        new JSONWriter(out).object().key("err")
                             .value("Items not visible - page " + pageId + " section " + pageId.getSectionId()).key("err_code").value("E_SPECIAL_SECTION")
                             .endObject();
                         return;
@@ -2712,10 +2713,7 @@ public class SurveyAjax extends HttpServlet {
                 }
 
                 try {
-                    /*
-                     * TODO: why use org.json.JSONWriter here but SurveyAjax.JSONWriter elsewhere?
-                     */
-                    org.json.JSONWriter r = new org.json.JSONWriter(out).object()
+                    JSONWriter r = new JSONWriter(out).object()
                         .key("stro").value(STFactory.isReadOnlyLocale(locale))
                         .key("baseXpath").value(baseXp)
                         .key("pageId").value((pageId != null) ? pageId.name() : null)
@@ -2733,7 +2731,7 @@ public class SurveyAjax extends HttpServlet {
                     r.endObject();
                 } catch (Throwable t) {
                     SurveyLog.logException(t, "RefreshRow write");
-                    new org.json.JSONWriter(out).object().key("err").value("Exception on writeSection:" + t.toString()).endObject();
+                    new JSONWriter(out).object().key("err").value("Exception on writeSection:" + t.toString()).endObject();
                 }
             }
         } finally {
@@ -3117,7 +3115,7 @@ public class SurveyAjax extends HttpServlet {
              */
             SurveyLog.logException(t, "when loading the Dashboard", ctx);
             try {
-                new org.json.JSONWriter(out).object().key("err").value("Exception: " + t.getMessage()
+                new JSONWriter(out).object().key("err").value("Exception: " + t.getMessage()
                     + " while loading the Dashboard").key("err_code").value("E_INTERNAL").endObject();
             } catch (JSONException e) {
                 SurveyLog.logException(e, "when loading the Dashboard", ctx);

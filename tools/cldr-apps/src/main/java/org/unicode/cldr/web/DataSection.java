@@ -410,7 +410,7 @@ public class DataSection implements JSONString {
                     .put("example", getExample())
                     .put("isBaselineValue", isBaselineValue)
                     .put("pClass", getPClass())
-                    .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));
+                    .put("tests", SurveyJSONWrapper.wrap(this.tests));
                 if (USE_CANDIDATE_HISTORY) {
                     j.put("history", history);
                 }
@@ -1022,7 +1022,7 @@ public class DataSection implements JSONString {
                 }
 
                 VoteResolver<String> resolver = ballotBox.getResolver(xpath);
-                JSONObject voteResolver = SurveyAjax.JSONWriter.wrap(resolver);
+                JSONObject voteResolver = SurveyJSONWrapper.wrap(resolver);
 
                 boolean rowFlagged = sm.getSTFactory().getFlag(locale, xpathId);
 

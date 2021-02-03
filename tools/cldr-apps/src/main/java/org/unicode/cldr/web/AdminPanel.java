@@ -17,10 +17,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 
 public class AdminPanel {
-    public void getJson(JSONWriter r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) throws JSONException, IOException {
+    public void getJson(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) throws JSONException, IOException {
         /*
          * Assume caller has already confirmed UserRegistry.userIsAdmin
          */
@@ -48,12 +47,12 @@ public class AdminPanel {
         }
     }
 
-    private void listUsers(JSONWriter r) throws JSONException {
+    private void listUsers(SurveyJSONWrapper r) throws JSONException {
         JSONObject users = new JSONObject();
         for (CookieSession cs : CookieSession.getAllSet()) {
             JSONObject sess = new JSONObject();
             if (cs.user != null) {
-                sess.put("user", SurveyAjax.JSONWriter.wrap(cs.user));
+                sess.put("user", SurveyJSONWrapper.wrap(cs.user));
             }
             sess.put("id", cs.id);
             sess.put("ip", cs.ip);
@@ -65,13 +64,13 @@ public class AdminPanel {
         r.put("users", users);
     }
 
-    private void unlinkUser(JSONWriter r, HttpServletRequest request) throws JSONException {
+    private void unlinkUser(SurveyJSONWrapper r, HttpServletRequest request) throws JSONException {
         String s = request.getParameter("s");
         CookieSession cs = CookieSession.retrieveWithoutTouch(s);
         if (cs != null) {
             JSONObject sess = new JSONObject();
             if (cs.user != null) {
-                sess.put("user", SurveyAjax.JSONWriter.wrap(cs.user));
+                sess.put("user", SurveyJSONWrapper.wrap(cs.user));
             }
             sess.put("id", cs.id);
             sess.put("ip", cs.ip);
@@ -87,7 +86,7 @@ public class AdminPanel {
         }
     }
 
-    private void showThreads(JSONWriter r) throws JSONException {
+    private void showThreads(SurveyJSONWrapper r) throws JSONException {
         JSONObject threads = new JSONObject();
         ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
         long deadlockedThreads[] = threadBean.findDeadlockedThreads();
@@ -117,7 +116,7 @@ public class AdminPanel {
         r.put("threads", threads);
     }
 
-    private void showExceptions(JSONWriter r, HttpServletRequest request) throws JSONException, IOException {
+    private void showExceptions(SurveyJSONWrapper r, HttpServletRequest request) throws JSONException, IOException {
         JSONObject exceptions = new JSONObject();
         ChunkyReader cr = SurveyLog.getChunkyReader();
         exceptions.put("lastTime", cr.getLastTime());
@@ -134,13 +133,13 @@ public class AdminPanel {
         r.put("exceptions", exceptions);
     }
 
-    private void showSettings(JSONWriter r) throws JSONException {
+    private void showSettings(SurveyJSONWrapper r) throws JSONException {
         CLDRConfigImpl cci = (CLDRConfigImpl) (CLDRConfig.getInstance());
         JSONObject all = new JSONObject().put("all", cci.toJSONObject());
         r.put("settings", all);
     }
 
-    private void setSettings(JSONWriter r, HttpServletRequest request) throws JSONException {
+    private void setSettings(SurveyJSONWrapper r, HttpServletRequest request) throws JSONException {
         JSONObject settings = new JSONObject();
         try {
             String setting = request.getParameter("setting");
@@ -171,7 +170,7 @@ public class AdminPanel {
      *
      * Earlier version was in createAndLogin.jsp
      */
-    private void createAndLogin(JSONWriter r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) {
+    private void createAndLogin(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) {
         if (SurveyMain.isSetup == false) {
             r.put("isSetup", false);
             return;

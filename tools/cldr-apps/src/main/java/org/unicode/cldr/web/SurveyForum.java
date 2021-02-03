@@ -688,7 +688,7 @@ public class SurveyForum {
                             }
                             UserRegistry.User posterUser = sm.reg.getInfo(poster);
                             if (posterUser != null) {
-                                JSONObject posterInfoJson = SurveyAjax.JSONWriter.wrap(posterUser);
+                                JSONObject posterInfoJson = SurveyJSONWrapper.wrap(posterUser);
                                 if (posterInfoJson != null) {
                                     post.put("posterInfo", posterInfoJson);
                                 }

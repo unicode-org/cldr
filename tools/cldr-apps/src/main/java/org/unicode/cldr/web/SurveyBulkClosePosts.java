@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import org.json.JSONException;
 import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 
 public class SurveyBulkClosePosts {
 
@@ -73,7 +72,7 @@ public class SurveyBulkClosePosts {
         }
     }
 
-    public void getJson(JSONWriter r) throws JSONException, SQLException {
+    public void getJson(SurveyJSONWrapper r) throws JSONException, SQLException {
         if (errCode != null) {
             r.put("status", "error");
             r.put("err", errCode);

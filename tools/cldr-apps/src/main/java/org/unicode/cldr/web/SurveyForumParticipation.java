@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.json.JSONException;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 
 public class SurveyForumParticipation {
 
@@ -34,7 +33,7 @@ public class SurveyForumParticipation {
         orgLocales = StandardCodes.make().getLocaleCoverageLocales(org);
     }
 
-    public void getJson(JSONWriter r) throws JSONException, SQLException, IOException {
+    public void getJson(SurveyJSONWrapper r) throws JSONException, SQLException, IOException {
         Throwable t = SurveyForumParticipationHelper.INSTANCE.err;
         if(t != null) {
             if(t instanceof SQLException) {

@@ -2,7 +2,6 @@ package org.unicode.cldr.web;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 
 /**
  * An exception class that has an err_code that the ST client understands.
@@ -28,7 +27,7 @@ public class SurveyException extends Exception {
     private final ErrorCode err_code;
     JSONObject err_data = null;
 
-    public void addDataTo(JSONWriter r) throws JSONException {
+    public void addDataTo(SurveyJSONWrapper r) throws JSONException {
         if (err_data != null) {
             r.put("err_data", r);
         } else {

@@ -20,7 +20,6 @@ import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -44,7 +43,7 @@ public class UserList {
 
     private static final String GET_ORGS = "get_orgs";
 
-    public void getJson(JSONWriter r, HttpServletRequest request,
+    public void getJson(SurveyJSONWrapper r, HttpServletRequest request,
             HttpServletResponse response, CookieSession mySession, SurveyMain sm) throws JSONException, SurveyException, IOException {
         if (!mySession.user.isAdminForOrg(mySession.user.org)) {
             r.put("err", "You do not have permission to list users.");
@@ -107,7 +106,7 @@ public class UserList {
         return userPerms;
     }
 
-    private void doList(JSONWriter r, WebContext ctx, SurveyMain sm, String justOrg) throws JSONException {
+    private void doList(SurveyJSONWrapper r, WebContext ctx, SurveyMain sm, String justOrg) throws JSONException {
         boolean justme = false; // "my account" mode
         String just = ctx.field(LIST_JUST);
         if (just != null) {

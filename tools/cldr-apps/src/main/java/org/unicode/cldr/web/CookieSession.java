@@ -193,10 +193,8 @@ public class CookieSession {
                     return 0; // same age
                 }
             });
-            // sessSet.addAll(uHash.values()); // all users (reg'd)
             sessSet.addAll(gHash.values()); // ALL sessions
             return sessSet;
-            // return uHash.values().iterator();
         }
     }
 
@@ -847,20 +845,6 @@ public class CookieSession {
             return getSpecialGuest();
         } else {
             return null; // OK.
-        }
-    }
-
-    public String banIn(Hashtable<String, Object> BAD_IPS) {
-        synchronized (gHash) {
-            BadUserRecord bur = (BadUserRecord) BAD_IPS.get(this.ip);
-            if (bur == null) {
-                bur = new BadUserRecord(this.ip);
-                BAD_IPS.put(this.ip, bur);
-            } else {
-                bur.hit("(Banned by Admin)");
-            }
-            this.remove();
-            return "banned and kicked this session";
         }
     }
 

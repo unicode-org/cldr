@@ -8,7 +8,7 @@
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrAjax = (function () {
-  const ST_AJAX_DEBUG = false;
+  const ST_AJAX_DEBUG = true;
 
   /**
    * xhrQueueTimeout is a constant, 3 milliseconds, used only by
@@ -163,17 +163,7 @@ const cldrAjax = (function () {
     request.responseType = options.handleAs ? options.handleAs : "text";
     request.timeout = xhrArgs.timeout ? xhrArgs.timeout : 0;
     request.onreadystatechange = function () {
-      if (request.readyState === XMLHttpRequest.DONE) {
-        if (request.status >= 200 && request.status < 400) {
-          if (xhrArgs.load) {
-            xhrArgs.load(request.response);
-          }
-        } else {
-          if (xhrArgs.error) {
-            xhrArgs.error(makeErrorMessage(request, xhrArgs.url));
-          }
-        }
-      }
+      onChange(request, xhrArgs);
     };
     if (options.method === "POST") {
       setPostDataAndHeader(request, options);
@@ -181,7 +171,24 @@ const cldrAjax = (function () {
     request.send(options.data);
   }
 
+  function onChange(request, xhrArgs) {
+    if (request.readyState !== XMLHttpRequest.DONE) {
+      return;
+    }
+    if (request.status >= 200 && request.status < 400 && request.response) {
+      if (xhrArgs.load) {
+        xhrArgs.load(request.response);
+      }
+    } else if (xhrArgs.error) {
+      xhrArgs.error(makeErrorMessage(request, xhrArgs.url));
+    }
+  }
+
   function setPostDataAndHeader(request, options) {
+    if (options.data instanceof FormData) {
+      // content-type header automatically gets set to "multipart/form-data" by the browser
+      return;
+    }
     if (typeof options.data === "string") {
       request.setRequestHeader("content-type", "text/plain");
     } else if (typeof options.data === "object") {
@@ -190,9 +197,6 @@ const cldrAjax = (function () {
         "content-type",
         "application/x-www-form-urlencoded"
       );
-      // this doesn't work with SurveyAjax:
-      // options.data = JSON.stringify(options.data);
-      // request.setRequestHeader("content-type", "application/json");
     } else {
       console.log(
         "Error in cldrAjax.setPostDataAndHeader: unexpected typeof options.data: " +
@@ -223,6 +227,13 @@ const cldrAjax = (function () {
       "Status " + request.status + " " + request.statusText + "; URL: " + url;
     if (!request.status) {
       msg += " Status zero -- no response; timed out?";
+    } else if (
+      request.status >= 200 &&
+      request.status < 400 &&
+      !request.response
+    ) {
+      // this happens if server does ctx.println(msg) before sending json
+      msg += " Missing response; responseType = " + request.responseType;
     } else if (request.responseType === "text" || request.responseType === "") {
       if (request.responseText) {
         msg += " Response: " + request.responseText;

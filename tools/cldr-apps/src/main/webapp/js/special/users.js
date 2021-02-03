@@ -69,7 +69,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function (
         var locked = [];
 
         var byEmail = {}; // email -> u:{}
-        var byId = {}; // id -> u:{}
+        var byId = {}; // id -> u:{} -- UNUSED!
 
         showLocked.on("change", function () {
           for (var k in locked) {
@@ -88,7 +88,7 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function (
             data: data.users[k],
           };
           byEmail[u.data.email] = u;
-          byId[u.data.id] = u;
+          byId[u.data.id] = u; // UNUSED!
           if (!lastHead || lastHead !== u.data.org) {
             $("<h1>", { text: u.data.org }).appendTo(this);
             lastHead = u.data.org;

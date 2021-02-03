@@ -198,7 +198,7 @@ public class UserRegistry {
     /**
      * get a level as a string - presentation form
      **/
-    public static String levelToStr(WebContext ctx, int level) {
+    public static String levelToStr(int level) {
         return level + ": (" + levelAsStr(level) + ")";
     }
 
@@ -432,13 +432,8 @@ public class UserRegistry {
         }
 
         public synchronized VoteResolver.Level getLevel() {
-            if (vr_level == null) {
-                vr_level = VoteResolver.Level.fromSTLevel(this.userlevel);
-            }
-            return vr_level;
+            return VoteResolver.Level.fromSTLevel(this.userlevel);
         }
-
-        private VoteResolver.Level vr_level = null;
 
         public synchronized Organization getOrganization() {
             if (vr_org == null) {
@@ -533,6 +528,7 @@ public class UserRegistry {
                 .put("userCanImportOldVotes", canImportOldVotes())
                 .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
                 .put("userCanMonitorForum", userCanMonitorForum(this))
+                .put("userIsAdmin", userIsAdmin(this))
                 .put("userIsTC", userIsTC(this))
                 .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
                 .put("userIsLocked", userIsLocked(this));
@@ -748,24 +744,15 @@ public class UserRegistry {
         if (id < 0) {
             return null;
         }
-        // System.err.println("Fetching info for id " + id);
         synchronized (infoArray) {
             User ret = null;
             try {
-                // System.err.println("attempting array lookup for id " + id);
-                // ret = (User)infoArray.get(id);
                 ret = infoArray[id];
             } catch (IndexOutOfBoundsException ioob) {
-                // System.err.println("Index out of bounds for id " + id + " - "
-                // + ioob);
                 ret = null; // not found
             }
 
             if (ret == null) { // synchronized(conn) {
-                // System.err.println("go fish for id " + id);
-                // queryIdStmt =
-                // conn.prepareStatement("SELECT name,org,email from "
-                // + CLDR_USERS +" where id=?");
                 ResultSet rs = null;
                 PreparedStatement pstmt = null;
                 Connection conn = DBUtils.getInstance().getDBConnection();
@@ -775,12 +762,11 @@ public class UserRegistry {
                     // First, try to query it back from the DB.
                     rs = pstmt.executeQuery();
                     if (!rs.next()) {
-                        // System.err.println("Unknown user#:" + id);
                         return null;
                     }
                     User u = new UserRegistry.User(id);
                     // from params:
-                    u.name = DBUtils.getStringUTF8(rs, 1);// rs.getString(1);
+                    u.name = DBUtils.getStringUTF8(rs, 1);
                     u.org = rs.getString(2);
                     u.getOrganization(); // verify
 
@@ -790,18 +776,10 @@ public class UserRegistry {
                     u.locales = normalizeLocaleList(rs.getString(6));
                     u.last_connect = rs.getTimestamp(7);
                     u.password = rs.getString(8);
-                    // queryIdStmt =
-                    // conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,lastlogin,password from "
-                    // + CLDR_USERS +" where id=?",
-
-                    // System.err.println("SQL Loaded info for U#"+u.id +
-                    // " - "+u.name +"/"+u.org+"/"+u.email);
                     ret = u; // let it finish..
 
                     if (id >= arraySize) {
                         int newchunk = (((id + 1) / CHUNKSIZE) + 1) * CHUNKSIZE;
-                        // System.err.println("UR: userInfo resize from " +
-                        // infoArray.length + " to " + newchunk);
                         infoArray = new UserRegistry.User[newchunk];
                         arraySize = newchunk;
                     }
@@ -826,10 +804,6 @@ public class UserRegistry {
                     DBUtils.close(rs, pstmt, conn);
                 } // end try
             }
-            // /*srl*/ if(ret==null) { System.err.println("returning NULL for "
-            // + id); } else { User u = ret;
-            // System.err.println("Returned info for U#"+u.id + " - "+u.name
-            // +"/"+u.org+"/"+u.email); }
             return ret;
         } // end synch array
     }
@@ -1151,7 +1125,6 @@ public class UserRegistry {
             Statement s = conn.createStatement();
             String theSql = "UPDATE " + CLDR_USERS + " SET userlevel=" + newLevel + " WHERE id=" + theirId + " AND email='"
                 + theirEmail + "' " + orgConstraint;
-            // msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
             logger.info("Attempt user update by " + ctx.session.user.email + ": " + theSql);
             int n = s.executeUpdate(theSql);
             conn.commit();
@@ -2057,11 +2030,9 @@ public class UserRegistry {
         if (isAllLocales(localeList)) {
             return ("* (<i title='" + localeList + "'>all locales</i>)");
         }
-        // System.err.println("TKL: ppl - " + localeList);
         Set<CLDRLocale> localeArray = tokenizeValidCLDRLocale(localeList);
         String ret = "";
         if ((localeList == null) || (localeList.isEmpty())) {
-            // System.err.println("TKL: null output");
             ret = ("<i title='" + localeList + "'>all locales</i>");
         } else if (localeArray.isEmpty()) {
             if (localeList.equals("all")) {
@@ -2074,7 +2045,6 @@ public class UserRegistry {
                 ret = ret + " <tt class='codebox' title='" + l.getDisplayName() + "'>" + l.getBaseName() + "</tt> ";
             }
         }
-        // return ret + " [" + localeList + "]";
         return ret;
     }
 
@@ -2216,14 +2186,21 @@ public class UserRegistry {
     private Map<Integer, VoterInfo> voterInfo = null;
 
     /**
-     * Not yet implemented.
+     * The list of organizations
      *
-     * TODO: get rid of this code, or document its purpose, referencing a ticket.
-     *
-     * @return
+     * It is necessary to call setOrgList (or resetOrgList) to initialize this list
      */
     private static String[] orgList = new String[0];
 
+    /**
+     * Get the list of organization names
+     *
+     * @return the String array
+     *
+     * It is necessary first to call setOrgList (or resetOrgList) to initialize the list
+     * This is called for the "List ... Users" command, if the user is Admin, for choosing
+     * which organization's users should be listed
+     */
     public static String[] getOrgList() {
         return orgList;
     }

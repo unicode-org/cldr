@@ -19,8 +19,9 @@ const cldrRecentActivity = (function () {
       "&s=" +
       cldrStatus.getSessionId() +
       "&user=" +
-      surveyUser.id;
-    "&" + cldrSurvey.cacheKill();
+      surveyUser.id +
+      "&" +
+      cldrSurvey.cacheKill();
 
     cldrLoad.myLoad(url, "(loading recent activity)", loadWithJson);
   }

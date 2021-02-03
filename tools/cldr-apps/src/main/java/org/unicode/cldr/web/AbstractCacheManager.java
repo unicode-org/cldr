@@ -40,6 +40,8 @@ class AbstractCacheManager {
         Instant d = c.load();
         // Expire the URL mapping every 90 days.
         final Instant latestGoodInstant = cacheDir.getType().getLatestGoodInstant(DEFAULT_DAYS);
+        // TODO: use SurveyLog.logger.info() instead of System.err.println
+        // -- cf. "...ready for requests..." in SurveyMain called later but printed sooner
         System.err.println("AbstractCacheManager: Loaded abstracts (last calculated at " + d+")");
         if(d == null || d.isBefore(latestGoodInstant)) {
             System.out.println("Will reload abstracts: " + d + " with expiry " + latestGoodInstant);

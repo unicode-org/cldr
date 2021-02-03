@@ -131,9 +131,6 @@ public class ShowLanguages {
             new ChartUnitConversions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
             new ChartUnitPreferences().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         }
-        if (ToolConstants.CHART_VERSION.compareTo("37") >= 0) {
-            new ChartGrammaticalForms().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        }
         // since we don't want these listed on the supplemental page, use null
 
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);

@@ -117,5 +117,8 @@
 		<a href="./survey">Return to Survey Tool</a> |
 		<a href="./index.jsp">Return to CLDR Applications</a> |
 		<a target="_new" href="http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyToolHelp/About">Help on this page (in a new window)</a>
+
+		<!--  load bundle.js from webpack -->
+		<script src="./dist/bundle.js"></script>
 	</body>
 </html>

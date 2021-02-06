@@ -179,99 +179,100 @@ const cldrGear = (function () {
   let alreadySet = false;
 
   function set(gearMenuItems) {
-    if (!alreadySet) {
-      alreadySet = true;
-      const parMenu = document.getElementById("manage-list");
-      for (let k = 0; k < gearMenuItems.length; k++) {
-        const item = gearMenuItems[k];
-        (function (item) {
-          if (item.display != false) {
-            const subLi = document.createElement("li");
-            let title = item.title;
-            if (item.special) {
-              if (!title) {
-                title = cldrText.get("special_" + item.special);
-              }
-              item.url = "#" + item.special;
-              item.blank = false;
+    if (alreadySet) {
+      return;
+    }
+    alreadySet = true;
+    const parMenu = document.getElementById("manage-list");
+    for (let k = 0; k < gearMenuItems.length; k++) {
+      const item = gearMenuItems[k];
+      (function (item) {
+        if (item.display != false) {
+          const subLi = document.createElement("li");
+          let title = item.title;
+          if (item.special) {
+            if (!title) {
+              title = cldrText.get("special_" + item.special);
             }
-            if (item.url) {
-              let subA = document.createElement("a");
+            item.url = "#" + item.special;
+            item.blank = false;
+          }
+          if (item.url) {
+            let subA = document.createElement("a");
 
-              if (item.hasFlag) {
-                addFlagIcon(subA);
+            if (item.hasFlag) {
+              addFlagIcon(subA);
+            }
+            subA.appendChild(document.createTextNode(title + " "));
+            subA.href = item.url;
+
+            if (item.blank != false) {
+              subA.target = "_blank";
+              subA.appendChild(
+                cldrDom.createChunk(
+                  "",
+                  "span",
+                  "glyphicon glyphicon-share manage-list-icon"
+                )
+              );
+            }
+
+            if (item.level) {
+              // append it to appropriate levels
+              const level = item.level;
+              for (let i = 0; i < level - 1; i++) {
+                /*
+                 * Indent by creating lists within lists, each list containing only one item.
+                 * TODO: indent by a better method. Note that for valid html, ul should contain li;
+                 * ul directly containing element other than li is generally invalid.
+                 */
+                const ul = document.createElement("ul");
+                const li = document.createElement("li");
+                ul.setAttribute("style", "list-style-type:none");
+                ul.appendChild(li);
+                li.appendChild(subA);
+                subA = ul;
+              }
+            }
+            subLi.appendChild(subA);
+          }
+          if (!item.url && !item.divider) {
+            // if it is pure text/html & not a divider
+            if (!item.level) {
+              subLi.appendChild(document.createTextNode(title + " "));
+            } else {
+              let subA = null;
+              if (item.bold) {
+                subA = document.createElement("b");
+              } else if (item.italic) {
+                subA = document.createElement("i");
+              } else {
+                subA = document.createElement("span");
               }
               subA.appendChild(document.createTextNode(title + " "));
-              subA.href = item.url;
 
-              if (item.blank != false) {
-                subA.target = "_blank";
-                subA.appendChild(
-                  cldrDom.createChunk(
-                    "",
-                    "span",
-                    "glyphicon glyphicon-share manage-list-icon"
-                  )
-                );
-              }
-
-              if (item.level) {
-                // append it to appropriate levels
-                const level = item.level;
-                for (let i = 0; i < level - 1; i++) {
-                  /*
-                   * Indent by creating lists within lists, each list containing only one item.
-                   * TODO: indent by a better method. Note that for valid html, ul should contain li;
-                   * ul directly containing element other than li is generally invalid.
-                   */
-                  const ul = document.createElement("ul");
-                  const li = document.createElement("li");
-                  ul.setAttribute("style", "list-style-type:none");
-                  ul.appendChild(li);
-                  li.appendChild(subA);
-                  subA = ul;
-                }
+              const level = item.level;
+              for (let i = 0; i < level - 1; i++) {
+                const ul = document.createElement("ul");
+                const li = document.createElement("li");
+                ul.setAttribute("style", "list-style-type:none");
+                ul.appendChild(li);
+                li.appendChild(subA);
+                subA = ul;
               }
               subLi.appendChild(subA);
-            }
-            if (!item.url && !item.divider) {
-              // if it is pure text/html & not a divider
-              if (!item.level) {
-                subLi.appendChild(document.createTextNode(title + " "));
-              } else {
-                let subA = null;
-                if (item.bold) {
-                  subA = document.createElement("b");
-                } else if (item.italic) {
-                  subA = document.createElement("i");
-                } else {
-                  subA = document.createElement("span");
-                }
-                subA.appendChild(document.createTextNode(title + " "));
-
-                const level = item.level;
-                for (let i = 0; i < level - 1; i++) {
-                  const ul = document.createElement("ul");
-                  const li = document.createElement("li");
-                  ul.setAttribute("style", "list-style-type:none");
-                  ul.appendChild(li);
-                  li.appendChild(subA);
-                  subA = ul;
-                }
-                subLi.appendChild(subA);
-              }
-              if (item.divider) {
-                subLi.className = "nav-divider";
-              }
-              parMenu.appendChild(subLi);
             }
             if (item.divider) {
               subLi.className = "nav-divider";
             }
             parMenu.appendChild(subLi);
           }
-        })(item);
-      }
+          if (item.divider) {
+            subLi.className = "nav-divider";
+          }
+          parMenu.appendChild(subLi);
+        }
+      })(item);
     }
   }
 

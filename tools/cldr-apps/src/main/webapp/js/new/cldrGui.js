@@ -37,6 +37,21 @@ const cldrGui = (function () {
     cldrEvent.startup();
   }
 
+  /**
+   * The "navigation bar" at the top of the window
+   *
+   * The implementation depends on bootstrap for "navbar", etc.:
+   *
+   * Bootstrap v3.1.1 (http://getbootstrap.com)
+   * Copyright 2011-2014 Twitter, Inc.
+   * (as of 2021-02-06)
+   *
+   * -- especially for the gear menu ("pull-menu", "nav-pills", ...)
+   * we might do better to implement the gear menu (id='manage-list') in a more
+   * straightforward way (as its own special page, maybe with hash #gear)
+   * without the clunky overlapping gui -- see cldrGear.js
+   * -- and/or upgrade to more recent Bootstrap
+   */
   const navbar =
     "<div class='navbar navbar-fixed-top' role='navigation'>\n" +
     "  <div class='container-fluid'>\n" +

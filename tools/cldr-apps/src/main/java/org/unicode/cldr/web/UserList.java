@@ -87,7 +87,9 @@ public class UserList {
     private static JSONObject getUserPerms(User me) throws JSONException {
         JSONObject userPerms = new JSONObject();
         final boolean canCreateUsers = UserRegistry.userCanCreateUsers(me);
+        final boolean canModifyUsers = UserRegistry.userCanModifyUsers(me);
         userPerms.put("canCreateUsers", canCreateUsers);
+        userPerms.put("canModifyUsers", canModifyUsers);
         if (canCreateUsers) {
             final VoteResolver.Level myLevel = VoteResolver.Level.fromSTLevel(me.userlevel);
             final Organization myOrganization = me.getOrganization();
@@ -154,11 +156,8 @@ public class UserList {
         Connection conn = null;
         PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-
         UserRegistry reg = sm.reg;
-
         int n = 0;
-
         try {
             conn = sm.dbUtils.getDBConnection();
             synchronized (reg) {
@@ -168,7 +167,7 @@ public class UserList {
                     return;
                 }
                 if (org == null) {
-                    org = "ALL"; // all
+                    org = "ALL";
                 }
                 // Preset box
                 boolean preFormed = false;
@@ -182,38 +181,6 @@ public class UserList {
                     ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + "(<b>- hide userlist</b>)</a><br>");
                      ***/
                 }
-
-                if ((just == null) && UserRegistry.userCanModifyUsers(ctx.session.user) && !justme) {
-                    /***
-                    ctx.println("<div class='pager' style='align: right; float: right; margin-left: 4px;'>");
-                    ctx.println("<form method=POST action='" + ctx.base() + "'>");
-                    ctx.printUrlAsHiddenFields();
-                    ctx.println("Set menus:<br><label>all ");
-                    ctx.println("<select name='preset_from'>");
-                    ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                    for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
-                        ctx.println("<option class='user" + UserRegistry.ALL_LEVELS[i] + "' ");
-                        ctx.println(" value='" + UserRegistry.ALL_LEVELS[i] + "'>"
-                            + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]) + "</option>");
-                    }
-                    ctx.println("</select></label> <br>");
-                    ctx.println(" <label>to");
-                    ctx.println("<select name='preset_do'>");
-                    ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-
-                    ctx.println("   <option value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password URL...</option>");
-                    ctx.println("   <option value='" + LIST_ACTION_SEND_PASSWORD + "'>Resend password...</option>");
-                    ctx.println("</select></label> <br>");
-                    ctx.println("<input type='submit' name='do' value='" + listName + "'></form>");
-                    if ((ctx.field("preset_from").length() > 0) && !ctx.field("preset_from").equals(LIST_ACTION_NONE)) {
-                        ctx.println("<hr><i><b>Menus have been pre-filled. <br> Confirm your choices and click Change.</b></i>");
-                        ctx.println("<form method=POST action='" + ctx.base() + "'>");
-                        ctx.println("<input type='submit' name='doBtn' value='Change'>");
-                        preFormed = true;
-                    }
-                    ctx.println("</div>");
-                    ***/
-                }
                 int preset_fromint = ctx.fieldInt("preset_from", -1);
                 String preset_do = ctx.field("preset_do");
                 if (preset_do.equals(LIST_ACTION_NONE)) {
@@ -221,28 +188,6 @@ public class UserList {
                 }
                 r.put("preset_fromint", preset_fromint);
                 r.put("preset_do", preset_do);
-                if (/* (just==null)&& */((UserRegistry.userCanModifyUsers(ctx.session.user))) && !preFormed) { // form
-                    // was
-                    // already
-                    // started,
-                    // above
-                    /// ctx.println("<form method=POST action='" + ctx.base() + "'>");
-                }
-                if (just != null) {
-                    /// ctx.print("<input type='hidden' name='" + LIST_JUST + "' value='" + just + "'>");
-                }
-                if (justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                    /***
-                    ctx.printUrlAsHiddenFields();
-                    ctx.println("<input type='hidden' name='do' value='" + listName + "'>");
-                    ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
-                    ***/
-                }
-                /***
-                ctx.println("<table id='userListTable' summary='User List' class='userlist' border='2'>");
-                ctx.println(
-                    "<thead> <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Action</th><th>Locales</th><th>Seen</th></tr></thead><tbody>");
-                    ***/
                 String oldOrg = null;
                 int locked = 0;
                 JSONArray shownUsers = new JSONArray();
@@ -250,14 +195,8 @@ public class UserList {
                     // SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin
                     int theirId = rs.getInt(1);
                     int theirLevel = rs.getInt(2);
-                    /*
-                     * In this context always silently skip anonymous users. Don't send email to anon20@example.org.
-                     * This interface could be changed to treat anonymous users more like locked users, if there is
-                     * ever motivation; but anonymous users should never be sent email.
-                     * Reference: https://unicode.org/cldr/trac/ticket/11517
-                     */
                     if (theirLevel == UserRegistry.ANONYMOUS) {
-                        continue;
+                        continue; // never list or email anonymous users
                     }
                     if (!showLocked
                         && theirLevel >= UserRegistry.LOCKED
@@ -265,7 +204,7 @@ public class UserList {
                         locked++;
                         continue;
                     }
-                    String theirName = DBUtils.getStringUTF8(rs, 3);// rs.getString(3);
+                    String theirName = DBUtils.getStringUTF8(rs, 3);
                     String theirEmail = rs.getString(4);
                     String theirOrg = rs.getString(5);
                     String theirLocales = rs.getString(6);
@@ -274,27 +213,15 @@ public class UserList {
                     UserRegistry.User theirInfo = reg.getInfo(theirId);
                     boolean havePermToChange = ctx.session.user.isAdminFor(theirInfo);
 
-                    String theirTag = theirId + "_" + theirEmail; // ID+email -
-                    // prevents
-                    // stale
-                    // data.
-                    // (i.e.
-                    // delete of
-                    // user 3 if
-                    // the rows
-                    // change..)
+                    // theirTag: prevents stale data (such as delete of user 3 if the rows change)
+                    String theirTag = theirId + "_" + theirEmail;
                     String action = ctx.field(theirTag);
-                    if (action != null && !action.isEmpty()) {
-                        System.out.println("Got action = " + action + " for user " + theirTag);
-                    }
                     CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
-
                     if (just != null && !just.equals(theirEmail)) {
                         continue;
                     }
                     n++;
                     UserActions ua = new UserActions();
-
                     if ((just == null) && (!justme) && (!theirOrg.equals(oldOrg))) {
                         oldOrg = theirOrg;
                     }
@@ -315,11 +242,7 @@ public class UserList {
                             else if (action.equals(LIST_ACTION_SHOW_PASSWORD)) {
                                 showPassword(ctx, theirId, reg, ua);
                             } else if (action.equals(LIST_ACTION_SEND_PASSWORD)) {
-                                String pass = reg.getPassword(ctx, theirId);
-                                if (pass != null && theirLevel < UserRegistry.LOCKED) {
-                                    ua.put (action, pass);
-                                    sm.notifyUser(ctx, theirEmail, pass);
-                                }
+                                sendPassword(ctx, theirId, theirLevel, theirEmail, sm, reg, ua);
                             } else if (action.equals(LIST_ACTION_DELETE0)) {
                                 ua.put(action, "Ensure that 'confirm delete' is chosen at right and click Do Action to delete");
                             } else if ((UserRegistry.userCanDeleteUser(ctx.session.user, theirId, theirLevel))
@@ -332,18 +255,18 @@ public class UserList {
                                 if (theirLocales == null) {
                                     theirLocales = "";
                                 }
-                                // TODO: LIST_ACTION_SETLOCALES -- compare above "LIST_ACTION_SETLOCALES + theirTag"???
-                                /***
-                                ctx.println("<label>Locales: (space separated) <input id='" + LIST_ACTION_SETLOCALES + theirTag + "' name='"
+                                String s = "<label>Locales: (space separated) <input id='"
+                                    + LIST_ACTION_SETLOCALES + theirTag + "' name='"
                                     + LIST_ACTION_SETLOCALES + theirTag
-                                    + "' value='" + theirLocales + "'></label>");
-                                ctx.println("<button onclick=\"{document.getElementById('" + LIST_ACTION_SETLOCALES + theirTag
-                                    + "').value='*'; return false;}\" >All Locales</button>");
-                                    ***/
+                                    + "' value='" + theirLocales + "'></label>"
+                                    + "<button onclick=\"{document.getElementById('"
+                                    + LIST_ACTION_SETLOCALES + theirTag
+                                    + "').value='*'; return false;}\" >All Locales</button>";
+                                ua.put(action, s);
                             } else if (UserRegistry.userCanDeleteUser(ctx.session.user, theirId, theirLevel)) {
                                 // change of other stuff.
                                 UserRegistry.InfoType type = UserRegistry.InfoType.fromAction(action);
-
+                                // e.g., action = CHANGE_INFO_PASSWORD
                                 if (UserRegistry.userIsAdmin(ctx.session.user) && type == UserRegistry.InfoType.INFO_PASSWORD) {
                                     String what = "password";
 
@@ -414,9 +337,11 @@ public class UserList {
                                     }
                                 }
                             } else if (theirId == ctx.session.user.id) {
-                                /// ctx.println("<i>You can't change that setting on your own account.</i>");
+                                String s = "<i>You can't change that setting on your own account.</i>";
+                                ua.put(action, s);
                             } else {
-                                /// ctx.println("<i>No changes can be made to this user.</i>");
+                                String s = "<i>No changes can be made to this user.</i>";
+                                ua.put(action, s);
                             }
                             // ctx.println("Change to " + action);
                         }
@@ -435,37 +360,7 @@ public class UserList {
                     ***/
                     if (havePermToChange) {
                         // Was something requested?
-
-                        { // PRINT MENU
-                            /***
-                            ctx.print("<select name='" + theirTag + "'  ");
-                            if (just != null) {
-                                ctx.print(" onchange=\"this.form.submit()\" ");
-                            }
-                            ctx.print(">");
-
-                            // set user to VETTER
-                            ctx.println("   <option value=''>" + LIST_ACTION_NONE + "</option>");
-                            for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
-                                int lev = UserRegistry.ALL_LEVELS[i];
-                                if (just == null && lev != UserRegistry.LOCKED) {
-                                    continue; // only allow mass LOCK (for now)
-                                }
-                                doChangeUserOption(ctx, lev, theirLevel, false);
-                            }
-                            ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");
-                            ctx.println("   <option ");
-                            if ((preset_fromint == theirLevel) && preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
-                                ctx.println(" SELECTED ");
-                            }
-                            ctx.println(" value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password...</option>");
-                            ctx.println("   <option ");
-                            if ((preset_fromint == theirLevel) && preset_do.equals(LIST_ACTION_SEND_PASSWORD)) {
-                                ctx.println(" SELECTED ");
-                            }
-                            ctx.println(" value='" + LIST_ACTION_SEND_PASSWORD + "'>Send password...</option>");
-                            ***/
-
+                        {
                             if (just != null) {
                                 /***
                                 if (havePermToChange) {
@@ -503,7 +398,6 @@ public class UserList {
                                 }
                                 ***/
                             }
-                            /// ctx.println("    </select>");
                         } // end menu
                     }
                     /***
@@ -542,20 +436,7 @@ public class UserList {
 
                     putShownUser(shownUsers, ctx.session.user, theirInfo, theUser, theirLocales, theirIntLocs, theirLast, ua);
                 }
-                /// ctx.println("</tbody></table>");
-
-                // now, serialize the list..
-
-                /***
-                ctx.println("<script>var shownUsers = " + shownUsers.toString() + ";\n" +
-                        "cldrSurvey.showUserActivity(shownUsers, 'userListTable');\n</script>\n");
-                        ***/
-
                 r.put("shownUsers", shownUsers);
-
-                if (hideUserList) {
-                    /// ctx.println("</div>");
-                }
                 if (!justme) {
                     /***
                     ctx.println("<div style='font-size: 70%'>Number of users shown: " + n + "</div><br>");
@@ -710,6 +591,14 @@ public class UserList {
         String pass = reg.getPassword(ctx, theirId);
         if (pass != null) {
             ua.put(LIST_ACTION_SHOW_PASSWORD, pass);
+        }
+    }
+
+    private void sendPassword(WebContext ctx, int theirId, int theirLevel, String theirEmail, SurveyMain sm, UserRegistry reg, UserActions ua) {
+        String pass = reg.getPassword(ctx, theirId);
+        if (pass != null && theirLevel < UserRegistry.LOCKED) {
+            ua.put (LIST_ACTION_SEND_PASSWORD, pass);
+            sm.notifyUser(ctx, theirEmail, pass);
         }
     }
 

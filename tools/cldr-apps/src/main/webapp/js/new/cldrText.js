@@ -286,7 +286,7 @@ const cldrText = (function () {
       "${count} old winning votes were automatically imported",
     "v-title_desc":
       "This area shows the date before which votes are considered “old”.",
-    special_account: "Settings",
+    special_account: "Account Settings",
     special_admin: "Admin Panel",
     special_createAndLogin: "Create and Login",
     special_error_subtypes: "Error Subtypes",

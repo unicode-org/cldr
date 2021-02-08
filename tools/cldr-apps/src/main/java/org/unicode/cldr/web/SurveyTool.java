@@ -320,6 +320,7 @@ public class SurveyTool extends HttpServlet {
         if (useDojo(request)) {
             out.write("<link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css' />\n");
         }
+        // bootstrap.min.css -- cf. bootstrap.min.js elsewhere in this file
         out.write("<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/redesign.css' />\n");
     }
@@ -439,6 +440,12 @@ public class SurveyTool extends HttpServlet {
             out.write(prefix + "review" + js); // review.js
             out.write(prefix + "CldrDojoGui" + js); // CldrGuiDojo.js
         } else {
+            /*
+             * bootstrap.min.js -- cf. bootstrap.min.css elsewhere in this file
+             * Currently we serve our own antiquated copy of Bootstrap v3.1.1, Copyright 2011-2014 Twitter, Inc.
+             * TODO: experiment with upgrading to v4.1.3
+             * per https://getbootstrap.com/docs/4.1/getting-started/introduction/
+             */
             out.write(prefix + "bootstrap.min.js" + tail);
             // Arrays.sort(newJsFiles);
             // Arrays.sort(newJsFiles, Collections.reverseOrder());

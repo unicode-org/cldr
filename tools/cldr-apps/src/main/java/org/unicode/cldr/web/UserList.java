@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -134,10 +135,9 @@ public class UserList {
         boolean areSendingDisp = (ctx.field(LIST_MAILUSER + "_d").length()) > 0;
         String mailBody = null;
         String mailSubj = null;
-        boolean hideUserList = false;
         if (UserRegistry.userCanEmailUsers(ctx.session.user)) {
             if (ctx.field(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)) {
-                /// ctx.println("<h1>sending mail to users...</h4>");
+                r.put("emailSendingMessage", true);
                 didConfirmMail = true;
                 mailBody = "SurveyTool Message ---\n" + sendWhat
                     + "\n--------\n\nSurvey Tool: http://st.unicode.org" + ctx.base() + "\n\n";
@@ -146,11 +146,12 @@ public class UserList {
                     areSendingMail = true; // we are ready to go ahead and mail..
                 }
             } else if (ctx.hasField(LIST_MAILUSER_CONFIRM)) {
-                r.put("email_mismatch", true);
+                r.put("emailMismatchWarning", true);
             }
 
             if (!areSendingMail && !areSendingDisp && ctx.hasField(LIST_MAILUSER)) {
-                hideUserList = true; // hide the user list temporarily.
+                // hide the user list temporarily.
+                r.put("hideUserList", true);
             }
         }
         Connection conn = null;
@@ -171,16 +172,6 @@ public class UserList {
                 }
                 // Preset box
                 boolean preFormed = false;
-
-                if (hideUserList) {
-                    String warnHash = "userlist";
-                    /***
-                    ctx.println("<div id='h_" + warnHash + "'><a href='javascript:show(\"" + warnHash + "\")'>"
-                        + "<b>+</b> Click here to show the user list...</a></div>");
-                    ctx.println("<!-- <noscript>Warning: </noscript> -->" + "<div style='display: none' id='" + warnHash + "'>");
-                    ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + "(<b>- hide userlist</b>)</a><br>");
-                     ***/
-                }
                 int preset_fromint = ctx.fieldInt("preset_from", -1);
                 String preset_do = ctx.field("preset_do");
                 if (preset_do.equals(LIST_ACTION_NONE)) {
@@ -343,168 +334,14 @@ public class UserList {
                                 String s = "<i>No changes can be made to this user.</i>";
                                 ua.put(action, s);
                             }
-                            // ctx.println("Change to " + action);
                         }
                     }
-                    /***
-                    ctx.println("</td>");
-
-                    // org, level
-                    ctx.println("    <td>" + theirOrg + "<br>" + "&nbsp; <span style='font-size: 80%' align='right'>"
-                        + UserRegistry.levelToStr(ctx, theirLevel).replaceAll(" ", "&nbsp;") + "</span></td>");
-
-                    ctx.println("    <td valign='top'><font size='-1'>#" + theirId + " </font> <a name='u_" + theirEmail + "'>"
-                        + theirName + "</a>");
-                    ctx.println("    <a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>");
-                    ctx.print("</td><td>");
-                    ***/
-                    if (havePermToChange) {
-                        // Was something requested?
-                        {
-                            if (just != null) {
-                                /***
-                                if (havePermToChange) {
-                                    ctx.println("   <option ");
-                                    ctx.println(" value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
-                                }
-                                if (UserRegistry.userCanDeleteUser(ctx.session.user, theirId, theirLevel)) {
-                                    ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                                    if ((action != null) && action.equals(LIST_ACTION_DELETE0)) {
-                                        ctx.println("   <option value='" + LIST_ACTION_DELETE1
-                                            + "' SELECTED>Confirm delete</option>");
-                                    } else {
-                                        ctx.println("   <option ");
-                                        if ((preset_fromint == theirLevel) && preset_do.equals(LIST_ACTION_DELETE0)) {
-                                            // ctx.println(" SELECTED ");
-                                        }
-                                        ctx.println(" value='" + LIST_ACTION_DELETE0 + "'>Delete user..</option>");
-                                    }
-                                }
-                                if (just != null) { // only do these in 'zoomin'
-                                    // view.
-                                    ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");
-
-                                    InfoType current = InfoType.fromAction(action);
-                                    for (InfoType info : InfoType.values()) {
-                                        if (info == InfoType.INFO_ORG && !(ctx.session.user.userlevel == UserRegistry.ADMIN)) {
-                                            continue;
-                                        }
-                                        ctx.print(" <option ");
-                                        if (info == current) {
-                                            ctx.print(" SELECTED ");
-                                        }
-                                        ctx.println(" value='" + info.toAction() + "'>Change " + info.toString() + "...</option>");
-                                    }
-                                }
-                                ***/
-                            }
-                        } // end menu
-                    }
-                    /***
-                    if (ctx.session.user.isAdminFor(reg.getInfo(theirId))) {
-                        ctx.println("<br><a href='" + ctx.context("upload.jsp?s=" + ctx.session.id + "&email=" + theirEmail)
-                            + "'>Upload XML...</a>");
-                    }
-                    ctx.println("<br><a class='recentActivity' href='" + ctx.context("myvotes.jsp?user=" + theirId) + "'>User Activity</a>");
-                    ctx.println("</td>");
-
-                    if (theirLevel <= UserRegistry.MANAGER) {
-                        ctx.println(" <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
-                    } else {
-                        ctx.println(" <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
-                    }
-
-                    // are they logged in?
-                    if ((theUser != null) && UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                        ctx.println("<td>");
-                        ctx.println("<b>active: " + SurveyMain.timeDiff(theUser.getLastBrowserCallMillisSinceEpoch()) + " ago</b>");
-                        if (UserRegistry.userIsAdmin(ctx.session.user)) {
-                            ctx.print("<br/>");
-                            printLiveUserMenu(ctx, theUser);
-                        }
-                        ctx.println("</td>");
-                    } else if (theirLast != null) {
-                        ctx.println("<td>");
-                        ctx.println("<b>seen: " + SurveyMain.timeDiff(theirLast.getTime()) + " ago</b>");
-                        ctx.print("<br/><font size='-2'>");
-                        ctx.print(theirLast.toString());
-                        ctx.println("</font></td>");
-                    }
-
-                    ctx.println("  </tr>");
-                    ***/
-
                     putShownUser(shownUsers, ctx.session.user, theirInfo, theUser, theirLocales, theirIntLocs, theirLast, ua);
                 }
                 r.put("shownUsers", shownUsers);
-                if (!justme) {
-                    /***
-                    ctx.println("<div style='font-size: 70%'>Number of users shown: " + n + "</div><br>");
-
-                    if (n == 0 && just != null && !just.isEmpty()) {
-                        UserRegistry.User u = reg.get(just);
-                        if (u == null) {
-                            ctx.println("<h3 class='ferrbox'>" + ctx.iconHtml("stop", "Not Found Error") + " User '" + just
-                                + "' does not exist.</h3>");
-                        } else {
-                            ctx.println("<h3 class='ferrbox'>" + ctx.iconHtml("stop", "Not Found Error") + " User '" + just
-                                + "' from organization " + u.org + " is not visible to you. Ask an administrator.</h3>");
-                        }
-                    }
-                    ***/
-                    if ((UserRegistry.userIsExactlyManager(ctx.session.user) || UserRegistry.userIsTC(ctx.session.user))
-                        && locked > 0) {
-                        /*** TODO
-                        sm.showTogglePref(subCtx, PREF_SHOWLOCKED, "Show " + locked + " locked users:");
-                        ***/
-                    }
-                }
                 if (!justme && UserRegistry.userCanModifyUsers(ctx.session.user)) {
                     if ((n > 0) && UserRegistry.userCanEmailUsers(ctx.session.user)) {
-                        /*
-                         * send a mass email to users
-                         */
-                        /***
-                        if (ctx.field(LIST_MAILUSER).length() == 0) {
-                            ctx.println("<label><input type='checkbox' value='y' name='" + LIST_MAILUSER
-                                + "'>Check this box to compose a message to these " + n
-                                + " users (excluding LOCKED users).</label>");
-                        } else {
-                            ctx.println("<p><div class='pager'>");
-                            ctx.println("<h4>Mailing " + n + " users</h4>");
-                            if (didConfirmMail) {
-                                if (areSendingDisp) {
-                                    throw new InternalError("Not implemented - see DisputePageManager");
-                                } else {
-                                    ctx.println("<b>Mail sent.</b><br>");
-                                }
-                            } else { // dont' allow resend option
-                                ctx.println("<input type='hidden' name='" + LIST_MAILUSER + "' value='y'>");
-                            }
-                            ctx.println("From: <b>(depends on recipient organization)</b><br>");
-                            if (sendWhat.length() > 0) {
-                                ctx.println("<div class='odashbox'>"
-                                    + TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n", "<br>")
-                                    + "</div>");
-                                if (!didConfirmMail) {
-                                    ctx.println("<input type='hidden' name='" + LIST_MAILUSER_WHAT + "' value='"
-                                        + sendWhat.replaceAll("&", "&amp;").replaceAll("'", "&quot;") + "'>");
-                                    if (!ctx.field(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)
-                                        && (ctx.field(LIST_MAILUSER_CONFIRM).length() > 0)) {
-                                        ctx.println("<strong>" + ctx.iconHtml("stop", "confirmation did not match")
-                                            + "That confirmation didn't match. Try again.</strong><br>");
-                                    }
-                                    ctx.println("To confirm sending, type the confirmation code <tt class='codebox'>"
-                                        + LIST_MAILUSER_CONFIRM_CODE
-                                        + "</tt> in this box : <input name='" + LIST_MAILUSER_CONFIRM + "'>");
-                                }
-                            } else {
-                                ctx.println("<textarea NAME='" + LIST_MAILUSER_WHAT
-                                    + "' id='body' ROWS='15' COLS='85' style='width:100%'></textarea>");
-                            }
-                            ctx.println("</div>");
-                        }
-                        ***/
+                        putEmailStatus(r, ctx, n, didConfirmMail, areSendingDisp, sendWhat);
                     }
                 }
                 // #level $name $email $org
@@ -584,6 +421,31 @@ public class UserList {
             /// ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
         } finally {
             DBUtils.close(conn, ps, rs);
+        }
+    }
+
+    private void putEmailStatus(SurveyJSONWrapper r, WebContext ctx, int n, boolean didConfirmMail, boolean areSendingDisp, String sendWhat) {
+        if (ctx.field(LIST_MAILUSER).length() == 0) {
+            r.put("emailStatus", "start");
+        } else {
+            String sendWhatTranslit = "";
+            boolean mismatch = false;
+            if (sendWhat.length() > 0) {
+                sendWhatTranslit = TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n", "<br>");
+                if (!didConfirmMail) {
+                    if (!ctx.field(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)
+                        && (ctx.field(LIST_MAILUSER_CONFIRM).length() > 0)) {
+                        mismatch = true;
+                    }
+                }
+            }
+            r.put("emailStatus", "continue");
+            r.put("emailUserCount", n);
+            r.put("emailDidConfirm", didConfirmMail);
+            r.put("emailSendingDisp", areSendingDisp);
+            r.put("emailSendWhat", sendWhat);
+            r.put("emailSendWhatTranslit", sendWhatTranslit);
+            r.put("emailConfirmationMismatch", mismatch);
         }
     }
 

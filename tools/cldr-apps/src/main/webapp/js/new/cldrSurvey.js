@@ -1366,22 +1366,6 @@ const cldrSurvey = (function () {
     surveyUserCov = cov;
   }
 
-  function getSurveyOrgCov() {
-    return surveyOrgCov;
-  }
-
-  function setSurveyOrgCov(cov) {
-    surveyOrgCov = cov;
-  }
-
-  function getSurveyUserCov() {
-    return surveyUserCov;
-  }
-
-  function setSurveyUserCov(cov) {
-    surveyUserCov = cov;
-  }
-
   function updateCovFromJson(json) {
     if (json.covlev_user && json.covlev_user != "default") {
       setSurveyUserCov(json.covlev_user);

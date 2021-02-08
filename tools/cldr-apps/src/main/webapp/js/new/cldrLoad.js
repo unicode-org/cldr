@@ -1077,36 +1077,6 @@ const cldrLoad = (function () {
     );
   }
 
-  function flipToOtherDiv(div) {
-    flipper.flipTo(pages.other, div);
-  }
-
-  function flipToGenericNoLocale() {
-    cldrSurvey.hideLoader();
-    flipper.flipTo(
-      pages.other,
-      cldrDom.createChunk(cldrText.get("generic_nolocale"), "p", "helpContent")
-    );
-  }
-
-  function flipToEmptyOther() {
-    return flipper.flipToEmpty(pages.other);
-  }
-
-  function setLoading(loading) {
-    isLoading = loading;
-  }
-
-  function linkToLocale(subLoc) {
-    return (
-      "#/" +
-      subLoc +
-      "/" +
-      cldrStatus.getCurrentPage() +
-      "/" +
-      cldrStatus.getCurrentId()
-    );
-  }
   /*
    * Make only these functions accessible from other files:
    */

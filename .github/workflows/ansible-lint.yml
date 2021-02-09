@@ -10,8 +10,8 @@ jobs:
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Lint Ansible Playbook
-      # the hash here is a specific version of that repo, since there is not a later commit.
-      uses: ansible/ansible-lint-action@6c8c14186662e43effbe39a678950896a46799ad
+      # the hash here is a specific version of that repo
+      uses: ansible/ansible-lint-action@c37fb7b4bda2c8cb18f4942716bae9f11b0dc9bc
       with:
         targets: tools/scripts/ansible/*-playbook.yml
     - name: Lint Markdown

@@ -17,14 +17,15 @@ const cldrGui = (function () {
       debugParse();
     }
 
-    if (!document.getElementById("st-run-gui")) {
+    const guiContainer = document.getElementById("st-run-gui");
+    if (!guiContainer) {
       if (GUI_DEBUG) {
         console.log("cldrGui.run doing nothing since 'st-run-gui' not found");
       }
       return;
     }
 
-    document.body.innerHTML = getBodyHtml();
+    guiContainer.innerHTML = getBodyHtml();
 
     if (GUI_DEBUG) {
       debugElements();

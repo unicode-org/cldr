@@ -1,16 +1,14 @@
 import "./style.css";
 // This is the entrypoint for the new SurveyTool app
 
-const Helloer = require("./helloer").default;
+import { createApp } from "vue";
+import About from "./views/About.vue";
 
-function component() {
-  const element = document.createElement("div");
-
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = Helloer.getHello();
-  element.classList.add("hello");
-
-  return element;
+function showAbout(el) {
+  return createApp(About).mount(el);
 }
 
-document.body.appendChild(component());
+// The following will show up in the cldrBundle global
+export default {
+  showAbout
+};

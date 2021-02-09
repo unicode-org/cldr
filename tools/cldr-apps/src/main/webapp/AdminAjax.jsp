@@ -19,7 +19,7 @@
 		for (CookieSession cs : CookieSession.getAllSet()) {
 			JSONObject sess = new JSONObject();
 			if (cs.user != null) {
-				sess.put("user", SurveyAjax.JSONWriter.wrap(cs.user));
+				sess.put("user", SurveyJSONWrapper.wrap(cs.user));
 			}
 			sess.put("id", cs.id);
 			sess.put("ip", cs.ip);
@@ -36,7 +36,7 @@
 		if(cs != null) {
 			JSONObject sess = new JSONObject();
 			if (cs.user != null) {
-				sess.put("user", SurveyAjax.JSONWriter.wrap(cs.user));
+				sess.put("user", SurveyJSONWrapper.wrap(cs.user));
 			}
 			sess.put("id", cs.id);
 			sess.put("ip", cs.ip);

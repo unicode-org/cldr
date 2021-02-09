@@ -198,7 +198,7 @@ const cldrAccount = (function () {
 
   function getHtml(json) {
     let html = "";
-    html += emailMismatchWarning(json);
+    html += getEmailNotification(json);
     if (!isJustMe) {
       html += getParticipatingUsersLink() + "<br />\n";
       html += getAddUserLink() + "<br />\n";
@@ -217,6 +217,15 @@ const cldrAccount = (function () {
       html += getLockedUsersControl();
       html += cautionSessionDestruction;
       html += getBulkActionMenu(json);
+    }
+    if (json.hideUserList) { // TODO
+      /***
+       String warnHash = "userlist";
+      ctx.println("<div id='h_" + warnHash + "'><a href='javascript:show(\"" + warnHash + "\")'>"
+          + "<b>+</b> Click here to show the user list...</a></div>");
+      ctx.println("<div style='display: none' id='" + warnHash + "'>");
+      ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + "(<b>- hide userlist</b>)</a><br>");
+       ***/
     }
     html += getTable(json);
     html += getDownloadCsvForm(json);
@@ -244,7 +253,7 @@ const cldrAccount = (function () {
       }
       html += getUserTableRow(u, json);
     }
-    html += getTableEnd();
+    html += getTableEnd(json);
     return html;
   }
 
@@ -259,12 +268,13 @@ const cldrAccount = (function () {
     );
   }
 
-  function getTableEnd() {
+  function getTableEnd(json) {
     let html = "</tbody></table>" + "<br />\n";
     if (justUser) {
       html += listMultipleUsersButton;
-    } else if (!isJustMe) {
+    } else {
       html += numberOfUsersShown(shownUsers.length);
+      html += getEmailControls(json);
     }
     html += doActionButton + "</form>\n";
     return html;
@@ -276,6 +286,86 @@ const cldrAccount = (function () {
       number +
       "</div>\n"
     );
+  }
+
+  function getEmailNotification(json) {
+    if (json.emailSendingMessage) {
+      return "<h1>sending mail to users...</h4>\n";
+    } else if (json.emailMismatchWarning) {
+      return (
+        "<h1 class='ferrbox'>" +
+        cldrStatus.stopIcon() +
+        " not sending mail - you did not confirm the email address. See form at bottom of page.</h1>\n"
+      );
+    } else {
+      return "";
+    }
+  }
+
+  function getEmailControls(json) {
+    let html = "";
+    if (json.emailStatus === "start") {
+      html +=
+        "<label><input type='checkbox' value='y' name='" +
+        LIST_MAILUSER +
+        "'>Check this box to compose a message to these " +
+        json.emailUserCount +
+        " users (excluding LOCKED users).</label>";
+    } else if (json.emailStatus === "continue") {
+      html += detailedEmailControls(json);
+    }
+    return html;
+  }
+
+  function detailedEmailControls(json) {
+    let html = "<p><div class='pager'>";
+    html += "<h4>Mailing " + json.emailUserCount + " users</h4>";
+    if (json.emailDidConfirm) {
+      if (json.emailSendingDisp) {
+        html += "[Not implemented - see DisputePageManager]";
+        return;
+      } else {
+        html += "<b>Mail sent.</b><br>";
+      }
+    } else {
+      html += "<input type='hidden' name='" + LIST_MAILUSER + "' value='y'>";
+    }
+    html += "From: <b>(depends on recipient organization)</b><br>";
+    if (json.emailSendWhat) {
+      html += "<div class='odashbox'>" + json.emailSendWhatTranslit + "</div>";
+      if (!json.emailDidConfirm) {
+        html += emailPleaseConfirm(json);
+      }
+    } else {
+      html +=
+        "<textarea NAME='" +
+        LIST_MAILUSER_WHAT +
+        "' id='body' rows='15' cols='85' style='width:100%'></textarea>";
+    }
+    html += "</div>\n";
+    return html;
+  }
+
+  function emailPleaseConfirm(json) {
+    html =
+      "<input type='hidden' name='" +
+      LIST_MAILUSER_WHAT +
+      "' value='" +
+      json.emailSendWhat.replaceAll("&", "&amp;").replaceAll("'", "&quot;") +
+      "'>";
+    if (json.emailConfirmationMismatch) {
+      html +=
+        "<strong>" +
+        cldrStatus.stopIcon() +
+        "That confirmation didn't match. Try again.</strong><br>";
+    }
+    html +=
+      "To confirm sending, type the confirmation code <tt class='codebox'>" +
+      LIST_MAILUSER_CONFIRM_CODE +
+      "</tt> in this box : <input name='" +
+      LIST_MAILUSER_CONFIRM +
+      "'>";
+    return html;
   }
 
   function submitTableForm(event) {
@@ -729,18 +819,6 @@ const cldrAccount = (function () {
       ))
     );
     return div;
-  }
-
-  function emailMismatchWarning(json) {
-    if (json.email_mismatch) {
-      return (
-        "<h1 class='ferrbox'>" +
-        cldrStatus.stopIcon() +
-        " not sending mail - you did not confirm the email address. See form at bottom of page.</h1>\n"
-      );
-    } else {
-      return "";
-    }
   }
 
   function getLockedUsersControl() {

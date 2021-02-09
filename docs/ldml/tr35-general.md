@@ -1,4 +1,4 @@
-﻿## Unicode Technical Standard #35
+## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
 
@@ -2548,13 +2548,13 @@ Feature that classifies nouns in classes. This is grammatical gender, which may 
 
 | Value     | Definition | References |
 | --------- | ---------- | ---------- |
-| animate   | In an animate/inanimate gender system, gender that denotes human or animate entities | description adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/AnimateGender](http://linguistics-ontology.org/gold/2010/AnimateGender) |
-| inanimate | In an animate/inanimate gender system, gender that denotes object or inanimate entities | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/InanimateGender](http://linguistics-ontology.org/gold/2010/InanimateGender) |
-| personal  | In an animate/inanimate gender system in some languages, gender that specifies the masculine gender of animate entities | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/HumanGender](http://linguistics-ontology.org/gold/2010/HumanGender) |
-| common    | In a common–neuter gender system, gender that denotes human entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) |
+| animate   | In an animate/inanimate gender system, gender that denotes human or animate entities. | description adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/AnimateGender](http://linguistics-ontology.org/gold/2010/AnimateGender) |
+| inanimate | In an animate/inanimate gender system, gender that denotes object or inanimate entities .| adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/InanimateGender](http://linguistics-ontology.org/gold/2010/InanimateGender) |
+| personal  | In an animate/inanimate gender system in some languages, gender that specifies the masculine gender of animate entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/HumanGender](http://linguistics-ontology.org/gold/2010/HumanGender) |
+| common    | In a common/neuter gender system, gender that denotes human entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) |
 | feminine  | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object. | adapted from: wikipedia.org/wiki/Grammatical_gender [linguistics-ontology.org/gold/2010/FeminineGender](http://linguistics-ontology.org/gold/2010/FeminineGender) |
 | masculine | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/MasculineGender](http://linguistics-ontology.org/gold/2010/MasculineGender) |
-| neuter    | In a masculine/feminine/neuter or common-neuter gender system, gender that generally denotes an object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/NeuterGender](http://linguistics-ontology.org/gold/2010/NeuterGender) |
+| neuter    | In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) [linguistics-ontology.org/gold/2010/NeuterGender](http://linguistics-ontology.org/gold/2010/NeuterGender) |
 
 ### 15.2 <a name="Case" href="#Case">Case</a>
 
@@ -2573,13 +2573,21 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 
 | Value              | Definition | References |
 | ------------------ | ---------- | ---------- |
-| ablative           | Ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'. | [purl.org/olia/olia.owl#AblativeCase](https://purl.org/olia/olia.owl#AblativeCase) [linguistics-ontology.org/gold/2010/AblativeCase](http://linguistics-ontology.org/gold/2010/AblativeCase) |
+| ablative           | The ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'. | [purl.org/olia/olia.owl#AblativeCase](https://purl.org/olia/olia.owl#AblativeCase) [linguistics-ontology.org/gold/2010/AblativeCase](http://linguistics-ontology.org/gold/2010/AblativeCase) |
 | accusative         | Accusative case marks certain syntactic functions, usually direct objects. | [purl.org/olia/olia.owl#Accusative](https://purl.org/olia/olia.owl#Accusative) [linguistics-ontology.org/gold/2010/AccusativeCase](http://linguistics-ontology.org/gold/2010/AccusativeCase) |
+| adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | purl.org/olia/olia.owl#AdessiveCase linguistics-ontology.org/gold/2010/AdessiveCase |
+| allative | The allative case expresses motion to or toward the referent of the noun it marks. | purl.org/olia/olia.owl#AllativeCase linguistics-ontology.org/gold/2010/AllativeCase |
+| causal | The causal (causal-final, not causative) case expresses that the marked noun is the objective or reason for something. It carries the meaning of 'for the purpose of'. | en.wikipedia.org/wiki/Causative#Causal-final_case www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx |
 | comitative         | Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by'. | [purl.org/olia/olia.owl#ComitativeCase](https://purl.org/olia/olia.owl#ComitativeCase) [linguistics-ontology.org/gold/2010/ComitativeCase](http://linguistics-ontology.org/gold/2010/ComitativeCase) |
 | dative             | Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item. | [purl.org/olia/olia.owl#DativeCase](https://purl.org/olia/olia.owl#DativeCase) [linguistics-ontology.org/gold/2010/DativeCase](http://linguistics-ontology.org/gold/2010/DativeCase) |
+| delative | The delative case expresses motion downward from the referent of the noun it marks. | purl.org/olia/olia.owl#DelativeCase linguistics-ontology.org/gold/2010/DelativeCase |
+| elative | The elative case expresses that the referent of the noun it marks is the location out of which another referent is moving. It has the meaning 'out of'. | purl.org/olia/olia.owl#ElativeCase linguistics-ontology.org/gold/2010/ElativeCase |
 | ergative           | In ergative-absolutive languages, the ergative case identifies the subject of a transitive verb. | [purl.org/olia/olia.owl#ErgativeCase](https://purl.org/olia/olia.owl#ErgativeCase) [linguistics-ontology.org/gold/2010/ErgativeCase](http://linguistics-ontology.org/gold/2010/ErgativeCase) |
+| essive | The essive case expresses that the referent of the noun it marks is the location at which another referent exists. | purl.org/olia/olia.owl#EssiveCase linguistics-ontology.org/gold/2010/EssiveCase |
 | genitive           | Genitive case signals that the referent of the marked noun is the possessor of the referent of another noun, e.g. "the man's foot". In some languages, genitive case may express an associative relation between the marked noun and another noun. | [purl.org/olia/olia.owl#GenitiveCase](https://purl.org/olia/olia.owl#GenitiveCase) [linguistics-ontology.org/gold/2010/GenitiveCase](http://linguistics-ontology.org/gold/2010/GenitiveCase) |
-| instrumental       | InstrumentalCase indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause. | [purl.org/olia/olia.owl#InstrumentalCase](https://purl.org/olia/olia.owl#InstrumentalCase) [linguistics-ontology.org/gold/2010/InstrumentalCase](http://linguistics-ontology.org/gold/2010/InstrumentalCase) |
+| illative | The illative case expresses that the referent of the noun it marks is the location into which another referent is moving. It has the meaning 'into'. | purl.org/olia/olia.owl#IllativeCase linguistics-ontology.org/gold/2010/IllativeCase |
+| inessive  | The inessive case expresses that the referent of the noun it marks is the location within which another referent exists. It has the meaning of 'within' or 'inside'.  | purl.org/olia/olia.owl#InessiveCase linguistics-ontology.org/gold/2010/InessiveCase |
+| instrumental       | The instrumental case indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause. | [purl.org/olia/olia.owl#InstrumentalCase](https://purl.org/olia/olia.owl#InstrumentalCase) [linguistics-ontology.org/gold/2010/InstrumentalCase](http://linguistics-ontology.org/gold/2010/InstrumentalCase) |
 | locative           | Case that indicates a final location of action or a time of the action. | [purl.org/olia/olia.owl#LocativeCase](https://purl.org/olia/olia.owl#LocativeCase) [linguistics-ontology.org/gold/2010/LocativeCase](http://linguistics-ontology.org/gold/2010/LocativeCase) |
 | locativecopulative | Copulative Case marker that indicates a location. | TBD Add reference, example |
 | nominative         | In nominative-accusative languages, nominative case marks clausal subjects and is applied to nouns in isolation | [purl.org/olia/olia.owl#Nominative](https://purl.org/olia/olia.owl#Nominative) [linguistics-ontology.org/gold/2010/NominativeCase](http://linguistics-ontology.org/gold/2010/NominativeCase) |
@@ -2587,6 +2595,11 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 | partitive          | The partitive case is a grammatical case which denotes "partialness", "without result", or "without specific identity". | [purl.org/olia/olia.owl#PartitiveCase](https://purl.org/olia/olia.owl#PartitiveCase) [linguistics-ontology.org/gold/2010/PartitiveCase](http://linguistics-ontology.org/gold/2010/PartitiveCase) |
 | prepositional      | Prepositional case refers to case marking that only occurs in combination with prepositions. | [purl.org/olia/olia.owl#PrepositionalCase](https://purl.org/olia/olia.owl#PrepositionalCase) |
 | sociative          | Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action. | [purl.org/olia/olia.owl#SociativeCase](https://purl.org/olia/olia.owl#SociativeCase) |
+| sociative | Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action.  | purl.org/olia/olia.owl#SociativeCase | 
+| sublative  | The sublative case expresses that the referent of the noun it marks is the location under which another referent is moving toward. It has the meaning 'towards the underneath of'. | purl.org/olia/olia.owl#SublativeCase linguistics-ontology.org/gold/2010/SublativeCase |
+| superessive  | The superessive case expresses that the referent of the noun it marks is the location on which another referent exists. It has the meaning of 'on' or 'upon'. | purl.org/olia/olia.owl#SuperessiveCase linguistics-ontology.org/gold/2010/SuperessiveCase |
+| terminative  | The terminative case expresses the motion of something into but not further than (ie, not through) the referent of the noun it marks. It has the meaning 'into but not through'.  | purl.org/olia/olia.owl#TerminativeCase linguistics-ontology.org/gold/2010/TerminativeCase |
+| translative  | The translative case expresses that the referent of the noun that it marks is the result of a process of change. It has the meaning of 'becoming' or 'changing into'.  |  purl.org/olia/olia.owl#TranslativeCase linguistics-ontology.org/gold/2010/TranslativeCase |
 | vocative           | Vocative case marks a noun whose referent is being addressed. | [purl.org/olia/olia.owl#VocativeCase](https://purl.org/olia/olia.owl#VocativeCase) [linguistics-ontology.org/gold/2010/VocativeCase](http://linguistics-ontology.org/gold/2010/VocativeCase) |
 
 ### Definiteness
@@ -2599,8 +2612,8 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 | ----------- | ---------- | ---------- |
 | definite    | Value referring to the capacity of identification of an entity. | [purl.org/olia/olia.owl#Definite](https://purl.org/olia/olia.owl#Definite) |
 | indefinite  | An entity is specified as indefinite when it refers to a non-particularized individual of the species denoted by the noun. | [purl.org/olia/olia.owl#Indefinite](https://purl.org/olia/olia.owl#Indefinite) |
-| construct   | State of the first noun in a genitive phrase of a possessed noun followed by a possessor noun. | no direct linked, but explained under: [purl.org/olia/olia-top.owl#DefinitenessFeature](https://purl.org/olia/olia-top.owl#DefinitenessFeature) |
-| unspecified | Noun without any definiteness marking in some specific construction (specific to Danish) |   |
+| construct   | The state of the first noun in a genitive phrase of a possessed noun followed by a possessor noun. | Not directly linked, but explained under: [purl.org/olia/olia-top.owl#DefinitenessFeature](https://purl.org/olia/olia-top.owl#DefinitenessFeature) |
+| unspecified | Noun without any definiteness marking in some specific construction (specific to Danish). |   |
 
 
 ## 16 <a name="Grammatical_Derivations" href="#Grammatical_Derivations">Grammatical Derivations</a>

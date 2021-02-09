@@ -137,7 +137,7 @@ public class SurveyTool extends HttpServlet {
          * the front end could be in charge of the JavaScript.
          */
         String url = request.getContextPath() + request.getServletPath();
-        out.write("<html lang='" + SurveyMain.TRANS_HINT_LOCALE.toLanguageTag() + " class='claro'>\n");
+        out.write("<html lang='" + SurveyMain.TRANS_HINT_LOCALE.toLanguageTag() + "' class='claro'>\n");
         out.write("<head>\n");
         out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
         out.write("<title>CLDR Survey Tool | Starting</title>\n");
@@ -306,7 +306,7 @@ public class SurveyTool extends HttpServlet {
         }
         out.write("</head>\n");
         out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
-        out.write("<p id='st-run-gui'>Loading...</p>\n");
+        out.write("<div id='st-run-gui'>Loading...</div>\n");
         if (!useDojo(request)) {
             out.write("<script>cldrGui.run()</script>\n");
         }
@@ -337,8 +337,8 @@ public class SurveyTool extends HttpServlet {
         if (useDojo(request)) {
             includeDojoJavaScript(out);
         } else {
-            // Enable hello world with Vue!
-            out.write("<script src=\"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js\"></script>\n");
+            // Load the big bundle
+            out.write("<script src=\"dist/bundle.js\"></script>\n");
         }
         includeJqueryJavaScript(request, out);
         includeCldrJavaScript(request, out);

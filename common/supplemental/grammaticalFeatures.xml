@@ -165,6 +165,14 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
       <grammaticalGender values="masculine feminine neuter"/>
     </grammaticalFeatures>
+    <grammaticalFeatures targets="nominal" locales="lv">
+      <grammaticalCase values="nominative genitive dative accusative vocative locative"/>
+      <grammaticalGender values="masculine feminine"/>
+    </grammaticalFeatures>
+    <grammaticalFeatures targets="nominal" locales="lt">
+      <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
+      <grammaticalGender values="masculine feminine"/>
+    </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="cs hr sk sr">
       <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
       <grammaticalGender values="animate inanimate feminine neuter"/>

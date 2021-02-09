@@ -1126,34 +1126,33 @@ endif
 
 For example, consider the word Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:
 
-| name | _ka_ | _asat_ | _wa_ | _o_  | _t2_ |
-|------|------|--------|------|------|------|
-| code | 1A21 | 1A60   | 1A45 | 1A6B | 1A76 |
-| ccc  | 0    | 9      | 0    | 0    | 230  |
+| name | _kha_ | _sakot_ | _wa_ | _o_  | _t2_ |
+|------|-------|---------|------|------|------|
+| code | 1A21  | 1A60    | 1A45 | 1A6B | 1A76 |
+| ccc  | 0     | 9       | 0    | 0    | 230  |
 
 (That sequence is already in NFC format.)
 
 Some users may type the upper component of the vowel first, and the tone before or after the lower component. Thus someone might type it as:
 
-| name | _ka_ | _o_  | _t2_ | _asat_ | _wa_ |
-|------|------|------|------|--------|------|
-| code | 1A21 | 1A6B | 1A76 | 1A60   | 1A45 |
-| ccc  | 0    | 0    | 230  | 9      | 0    |
+| name | _kha_ | _o_  | _t2_ | _sakot_ | _wa_ |
+|------|-------|------|------|---------|------|
+| code | 1A21  | 1A6B | 1A76 | 1A60    | 1A45 |
+| ccc  | 0     | 0    | 230  | 9       | 0    |
 
 The Unicode NFC format of that typed value reorders to:
 
-| name | _ka_ | _o_  | _asat_ | _t2_ | _wa_ |
-|------|------|------|--------|------|------|
-| code | 1A21 | 1A6B | 1A60   | 1A76 | 1A45 |
-| ccc  | 0    | 0    | 9      | 230  | 0    |
+| name | _kha_ | _o_  | _sakot_ | _t2_ | _wa_ |
+|------|-------|------|---------|------|------|
+| code | 1A21  | 1A6B | 1A60    | 1A76 | 1A45 |
+| ccc  | 0     | 0    | 9       | 230  | 0    |
 
 Finally, the user might also type in the sequence with the tone _after_ the lower component.
 
-
-| name | _ka_ | _o_  | _asat_ | _wa_ | _t2_ |
-|------|------|------|--------|------|------|
-| code | 1A21 | 1A6B | 1A60   | 1A45 | 1A76 |
-| ccc  | 0    | 0    | 9      | 0    | 230  |
+| name | _kha_ | _o_  | _sakot_ | _wa_ | _t2_ |
+|------|-------|------|---------|------|------|
+| code | 1A21  | 1A6B | 1A60    | 1A45 | 1A76 |
+| ccc  | 0     | 0    | 9       | 0    | 230  |
 
 (That sequence is already in NFC format.)
 
@@ -1162,13 +1161,13 @@ We want all of these sequences to end up ordered as the first. To do this, we us
 ```xml
 <reorder from="\u1A60" order="127" />      <!-- max possible order -->
 <reorder from="\u1A6B" order="42" />
-<reorder from="[\u1A75-\u1A7C]" order="55" />  
+<reorder from="[\u1A75-\u1A79]" order="55" />
 <reorder before="\u1A6B" from="\u1A60\u1A45" order="10" />  
-<reorder before="\u1A6B[\u1A75-\u1A7C]" from="\u1A60\u1A45" order="10" />  
-<reorder before="\u1A6B" from="\u1A60[\u1A75-\u1A7C]\u1A45" order="10 55 10" />
+<reorder before="\u1A6B[\u1A75-\u1A79]" from="\u1A60\u1A45" order="10" />  
+<reorder before="\u1A6B" from="\u1A60[\u1A75-\u1A79]\u1A45" order="10 55 10" />
 ```
 
-The first reorder is the default ordering for the _asat_ which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the _asat_ and _wa_ characters a primary order that places them before the _o_. Notice particularly the final reorder rule where the _asat_+_wa_ is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.
+The first reorder is the default ordering for the _sakot_ which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the _sakot_ and _wa_ characters a primary order that places them before the _o_. Notice particularly the final reorder rule where the _sakot_+_wa_ is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.
 
 `<reorder>` elements are priority ordered based first on the length of string their `@from` attribute matches and then the sum of the lengths of the strings their `@before` and `@after` attributes match.
 

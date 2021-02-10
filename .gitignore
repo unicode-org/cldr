@@ -2,6 +2,7 @@
 .DS_Store
 
 # Maven output directories
+/target
 /tools/target
 /tools/*/target
 
@@ -84,3 +85,5 @@
 
 
 org.eclipse.wst.common.project.facet.core.xml
+/.settings
+/tools/cldr-rdf/.settings/org.eclipse.m2e.core.prefs

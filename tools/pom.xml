@@ -8,7 +8,7 @@
 	<groupId>org.unicode.cldr</groupId>
 	<artifactId>cldr-all</artifactId>
 	<version>39.0-SNAPSHOT</version>
-	<name>CLDR Parent</name>
+	<name>CLDR All Tools</name>
 	<packaging>pom</packaging>
 	<licenses>
 		<license>
@@ -20,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<!-- Note: see https://github.com/unicode-org/icu/packages/411079/versions 
+		<!-- Note: see https://github.com/unicode-org/icu/packages/411079/versions
 			for the icu4j.version tag to use -->
 		<icu4j.version>68.1-release-68-1</icu4j.version>
 		<junit.version>4.13.1</junit.version>
@@ -116,7 +116,7 @@
 				<artifactId>commons-io</artifactId>
 				<version>2.4</version>
 			</dependency>
-			
+
 			<!-- mail / rss -->
 
 			<dependency>

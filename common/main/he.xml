@@ -3672,9 +3672,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>סנטה איזבל</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>הונולולו</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>זמן אוניברסלי מתואם</standard>
@@ -3794,11 +3791,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ברוקן היל</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>קרי</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>מלבורן</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>קרי</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>הוברט</exemplarCity>
@@ -4831,6 +4828,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>נום</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>הונולולו</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ג׳ונסטון</exemplarCity>
@@ -7673,7 +7673,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק CFA מערב אפריקני</displayName>
 				<displayName count="many">פרנק CFA מערב אפריקני</displayName>
 				<displayName count="other">פרנק CFA מערב אפריקני</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">פלדיום</displayName>

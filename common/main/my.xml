@@ -2323,9 +2323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>ဆန်တာ အစ္ဇဘဲလ်</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ဟိုနိုလူလူ</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ညှိထားသည့် ကမ္ဘာ့ စံတော်ချိန်</standard>
@@ -2445,11 +2442,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ဘရိုကင်ဟီးလ်</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ကာရီ</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>မဲလ်ဘုန်း</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ကာရီ</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ဟိုးဘားတ်</exemplarCity>
@@ -3482,6 +3479,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>နိုမီ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ဟိုနိုလူလူ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ဂျွန်စတန်</exemplarCity>
@@ -5592,7 +5592,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>အနောက် အာဖရိက CFA ဖရန့်</displayName>
 				<displayName count="other">အနောက် အာဖရိက CFA ဖရန့်</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP ဖရန့်</displayName>

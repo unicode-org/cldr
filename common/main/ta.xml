@@ -3288,9 +3288,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>சான்டா இசபெல்</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ஹோனோலூலூ</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ஒருங்கிணைந்த சர்வதேச நேரம்</standard>
@@ -3410,11 +3407,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>புரோக்கன் ஹில்</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>கியூரி</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>மெல்போர்ன்</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>கியூரி</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ஹோபர்ட்</exemplarCity>
@@ -4447,6 +4444,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>நோம்</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ஹோனோலூலூ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ஜோன்ஸ்டன்</exemplarCity>
@@ -6766,7 +6766,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>மேற்கு ஆப்பிரிக்க CFA ஃப்ராங்க்</displayName>
 				<displayName count="one">மேற்கு ஆப்பிரிக்க CFA ஃப்ராங்க்</displayName>
 				<displayName count="other">மேற்கு ஆப்பிரிக்க CFA ஃப்ராங்க்குகள்</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>ஃப்ராங்க் (CFP)</displayName>

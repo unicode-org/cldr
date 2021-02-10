@@ -2501,9 +2501,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>𑄥𑄚𑄴𑄖 𑄃𑄨𑄥𑄝𑄬𑄣𑄴</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>𑄦𑄧𑄚𑄮𑄣𑄪𑄣𑄪</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>𑄘𑄇𑄴𑄘𑄨𑄠 𑄛𑄨𑄖𑄴𑄗𑄨𑄟𑄨𑄢𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</standard>
@@ -2623,11 +2620,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>𑄝𑄳𑄢𑄮𑄇𑄬𑄚𑄴 𑄦𑄨𑄣𑄴</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>𑄇𑄨𑄃𑄪𑄢𑄨</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>𑄟𑄬𑄣𑄴𑄝𑄢𑄴𑄚𑄴</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>𑄇𑄨𑄃𑄪𑄢𑄨</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>𑄦𑄮𑄝𑄢𑄴𑄑𑄴</exemplarCity>
@@ -3645,6 +3642,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>𑄚𑄮𑄟𑄴</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>𑄦𑄧𑄚𑄮𑄣𑄪𑄣𑄪</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>𑄎𑄧𑄚𑄴𑄥𑄳𑄑𑄧𑄚𑄴</exemplarCity>
@@ -6128,7 +6128,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𑄛𑄧𑄎𑄨𑄟𑄴 𑄃𑄜𑄳𑄢𑄨𑄇𑄚𑄴 [CFA] 𑄜𑄳𑄢𑄳𑄠𑄋𑄳𑄇𑄴</displayName>
 				<displayName count="one">𑄛𑄧𑄎𑄨𑄟𑄴 𑄃𑄜𑄳𑄢𑄨𑄇𑄚𑄴 [CFA] 𑄜𑄳𑄢𑄳𑄠𑄋𑄳𑄇𑄴</displayName>
 				<displayName count="other">𑄛𑄧𑄎𑄨𑄟𑄴 𑄃𑄜𑄳𑄢𑄨𑄇𑄚𑄴 [CFA] 𑄜𑄳𑄢𑄳𑄠𑄋𑄳𑄇𑄴</displayName>
-				<symbol>F&#x202f;CFA</symbol>
+				<symbol>F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>𑄛𑄳𑄠𑄣𑄬𑄓𑄨𑄠𑄟𑄴</displayName>

@@ -2508,9 +2508,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ଦିବାଲୋକ ସମୟ</regionFormat>
 			<regionFormat type="standard">{0} ମାନାଙ୍କ ସମୟ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ହୋନୋଲୁଲୁ</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ସମନ୍ୱିତ ସାର୍ବଜନୀନ ସମୟ</standard>
@@ -2630,11 +2627,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ବ୍ରୋକେନ୍‌ ହିଲ୍‌</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>କ୍ୟୁରୀ</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ମେଲବୋର୍ଣ୍ଣ</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>କ୍ୟୁରୀ</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ହୋବାର୍ଟ୍‌</exemplarCity>
@@ -3667,6 +3664,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ନୋମେ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ହୋନୋଲୁଲୁ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ଜନଷ୍ଟନ୍</exemplarCity>
@@ -5959,7 +5959,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ପଶ୍ଚିମ ଆଫ୍ରିକିୟ CFA ଫ୍ରାଙ୍କ୍</displayName>
 				<displayName count="one">ପଶ୍ଚିମ ଆଫ୍ରିକିୟ CFA ଫ୍ରାଙ୍କ୍</displayName>
 				<displayName count="other">ପଶ୍ଚିମ ଆଫ୍ରିକିୟ CFA ଫ୍ରାଙ୍କ୍</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP ଫ୍ରାଙ୍କ୍</displayName>

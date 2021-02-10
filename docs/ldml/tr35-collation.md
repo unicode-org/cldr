@@ -112,7 +112,7 @@ For example, when sorting names in a database, a sortable string can be formed w
 
 For backwards secondary level sorting, text _segments_ separated by U+FFFE are processed in forward segment order, and _within_ each segment the secondary weights are compared backwards. This is so that such combined strings are processed consistently with merging their sort keys (for example, by concatenating them level by level with a low separator).
 
-Note: With unique, low weights on _all_ levels it is possible to achieve `sortkey(str1 + "\uFFFE" + str2) == mergeSortkeys(sortkey(str1), sortkey(str2))` . When that is not necessary, then code can be a little simpler (no special handling for U+FFFE except for backwards-secondary), sort keys can be a little shorter (when using compressible common non-primary weights for U+FFFE), and another low weight can be used in tailorings.
+> :point_right: **Note**: With unique, low weights on _all_ levels it is possible to achieve `sortkey(str1 + "\uFFFE" + str2) == mergeSortkeys(sortkey(str1), sortkey(str2))` . When that is not necessary, then code can be a little simpler (no special handling for U+FFFE except for backwards-secondary), sort keys can be a little shorter (when using compressible common non-primary weights for U+FFFE), and another low weight can be used in tailorings.
 
 #### 1.1.2 <a name="Context_Sensitive_Mappings" href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a>
 
@@ -127,7 +127,7 @@ A prefix mapping for p|x behaves mostly like the contraction px, except when the
 *   With mappings for "op" and "px", only the first contraction matches in text "opx". (It consumes the "op" characters, and there is no context-sensitive mapping for x.)
 *   With mappings for "op" and "p|x", both the contraction and the prefix rule match in text "opx". (The prefix always matches already-consumed characters, regardless of whether they mapped as part of contractions.)
 
-Note: Matching of discontiguous contractions should be implemented without rewriting the text (unlike in the [[UCA](https://www.unicode.org/reports/tr41/#UTS10)] algorithm specification), so that prefix matching is predictable. (It should also help with contraction matching performance.) An implementation that does rewrite the text, as in the UCA, will get different results for some (unusual) combinations of contractions, prefix rules, and input text.
+> :point_right: **Note**: Matching of discontiguous contractions should be implemented without rewriting the text (unlike in the [[UCA](https://www.unicode.org/reports/tr41/#UTS10)] algorithm specification), so that prefix matching is predictable. (It should also help with contraction matching performance.) An implementation that does rewrite the text, as in the UCA, will get different results for some (unusual) combinations of contractions, prefix rules, and input text.
 
 Prefix matching uses a simple longest-match algorithm (op|c wins over p|c). It is recommended that prefix rules be limited to mappings where both the prefix string and the mapped string begin with an NFC boundary (that is, with a normalization starter that does not combine backwards). (In op|ch both o and c should be starters (ccc=0) and NFC_QC=Yes.) Otherwise, prefix matching would be affected by canonical reordering and discontiguous matching, like contractions. Prefix matching is thus always contiguous.
 
@@ -203,7 +203,7 @@ The following table shows the differences. When emoji ordering is supported, the
 
 <!-- HTML: no header row, jagged -->
 <table><tbody>
-<tr><td>code point order</td><td>,</td><td></td><td></td><td>Z</td><td>a</td><td>y</td><td>ü</td><td>☹️</td><td>✈️️</td><td>글</td><td>😀</td></tr>
+<tr><td>code point order</td><td>,</td><td>Z</td><td>a</td><td>y</td><td>ü</td><td>☹️</td><td>✈️️</td><td>글</td><td>😀</td></tr>
 <tr><td>en</td><td>,</td><td>☹️</td><td>✈️️</td><td>😀</td><td>a</td><td>ü</td><td>y</td><td>Z</td><td>글</td></tr>
 <tr><td>en-u-co-emoji</td><td>,</td><td>😀</td><td>☹️</td><td>✈️️</td><td>a</td><td>ü</td><td>y</td><td>Z</td><td>글</td></tr>
 <tr><td>da</td><td>,</td><td>☹️</td><td>✈️️</td><td>😀</td><td>a</td><td>y</td><td><strong><u>ü</u></strong></td><td>Z</td><td>글</td></tr>
@@ -235,11 +235,11 @@ What the regrouping allows is for users to parametrically reorder the groups. Fo
 The relative order within each of these groups still matches the DUCET. Symbols, punctuation, and numbers that are grouped with a particular script stay with that script. The differences between CLDR and the DUCET order are:
 
 1. CLDR groups the numbers together after currency symbols, instead of splitting them with some before and some after. Thus the following are put _after_ currencies and just before all the other numbers.
-    
+
     U+09F4 ( ৴ ) [No] BENGALI CURRENCY NUMERATOR ONE  
     ...  
     U+1D371 ( 𝍱 ) [No] COUNTING ROD TENS DIGIT NINE
-    
+
 2. CLDR handles a few other characters differently
    1. U+10A7F ( 𐩿 ) [Po] OLD SOUTH ARABIAN NUMERIC INDICATOR is put with punctuation, not symbols
    2. U+20A8 ( ₨ ) [Sc] RUPEE SIGN and U+FDFC ( ﷼ ) [Sc] RIAL SIGN are put with currency signs, not with R and REH.
@@ -262,7 +262,7 @@ Ten contractions are added for Tibetan: Two to fulfill [well-formedness conditio
 U+FFFE and U+FFFF have special tailorings:
 
 > **U+FFFF:** This code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as “Sch” ≤ X ≤ “Sch\\uFFFF”, to include all strings starting with "sch" or equivalent.
-> 
+>
 > **U+FFFE:** This code point produces a CE with minimal, unique weights on primary and identical levels. For details see the _[CLDR Collation Algorithm](#Algorithm_FFFE)_ above.
 
 UCA (beginning with version 6.3) also maps **U+FFFD** to a special collation element with a very high primary weight, so that it is reliably non-[variable](https://www.unicode.org/reports/tr10/#Variable_Weighting), for use with [ill-formed code unit sequences](https://www.unicode.org/reports/tr10/#Handling_Illformed).
@@ -277,9 +277,7 @@ In CLDR, so as to maintain the special collation elements, **U+FFFD..U+FFFF** ar
 &x <\uFFFF
 ```
 
-**Note:**
-
-* Java uses an early version of this collation syntax, but has not been updated recently. It does not support any of the syntax marked with [...], and its default table is not the DUCET nor the CLDR root collation.
+> :point_right: **Note**: Java uses an early version of this collation syntax, but has not been updated recently. It does not support any of the syntax marked with [...], and its default table is not the DUCET nor the CLDR root collation.
 
 ### 2.5 <a name="Root_Data_Files" href="#Root_Data_Files">Root Collation Data Files</a>
 
@@ -294,7 +292,10 @@ Comments with DUCET-style weights in files other than allkeys_CLDR.txt and allke
 * **FractionalUCA** - A file that provides a remapping of UCA DUCET weights for use with CLDR. The weight values are modified:
   * The weights have variable length, with 1..4 bytes each. Each secondary or tertiary weight currently uses at most 2 bytes.
   * There are tailoring gaps between adjacent weights, so that a number of characters can be tailored to sort between any two root collation elements.
-  * There are collation elements with primary weights at the boundaries between reordering groups and Unicode scripts, so that tailoring around the first or last primary of a group/script results in new collation elements that sort and reorder together with that group or script. These boundary weights also define the primary weight ranges for parametric group and script reordering.An implementation may modify the weights further to fit the needs of its data structures.
+  * There are collation elements with primary weights at the boundaries between reordering groups and Unicode scripts, so that tailoring around the first or last primary of a group/script results in new collation elements that sort and reorder together with that group or script. These boundary weights also define the primary weight ranges for parametric group and script reordering.
+
+  An implementation may modify the weights further to fit the needs of its data structures.
+
 * **UCA_Rules** - A file that specifies the root collation order in the form of [tailoring rules](#Collation_Tailorings). This is only an approximation of the FractionalUCA data, since the rule syntax cannot express every detail of the collation elements. For example, in the DUCET and in FractionalUCA, tertiary differences are usually expressed with special tertiary weights on all collation elements of an expansion, while a typical from-rules builder will modify the tertiary weight of only one of the collation elements.
 * **CollationTest_CLDR** - The CLDR versions of the CollationTest files, which use the tailorings for CLDR. For information on the format, see [CollationTest.html](https://www.unicode.org/Public/UCA/latest/CollationTest.html) in the [UCA data directory](https://www.unicode.org/reports/tr10/#Data10).
   * CollationTest_CLDR_NON_IGNORABLE.txt
@@ -508,7 +509,7 @@ This table is informational, providing the top bytes, scripts, and primaries ass
 
 The final table gives certain hard-coded byte values. The "trail" area is provided for implementation of the "trailing weights" as described in the UCA.
 
-Note: The particular primary lead bytes for Hani vs. IMPLICIT vs. TRAILING are only an example. An implementation is free to move them if it also moves the explicit TRAILING weights. This affects only a small number of explicit mappings in FractionalUCA.txt, such as for U+FFFD, U+FFFF, and the “unassigned first primary”. It is possible to use no SPECIAL bytes at all, and to use only the one primary lead byte FF for TRAILING weights.
+> :point_right: **Note**: The particular primary lead bytes for Hani vs. IMPLICIT vs. TRAILING are only an example. An implementation is free to move them if it also moves the explicit TRAILING weights. This affects only a small number of explicit mappings in FractionalUCA.txt, such as for U+FFFD, U+FFFF, and the “unassigned first primary”. It is possible to use no SPECIAL bytes at all, and to use only the one primary lead byte FF for TRAILING weights.
 
 #### 2.6.3 <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a>
 
@@ -522,13 +523,13 @@ The format for this file uses the CLDR collation syntax, see _Section 3, [Collat
 <!ELEMENT defaultCollation ( #PCDATA ) >
 ```
 
-This element of the LDML format contains one or more collation elements, distinguished by type. Each collation contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
+This element of the LDML format contains one or more `collation` elements, distinguished by type. Each `collation` contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
 
-Note: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](http://cldr.unicode.org/index/cldr-spec/collation-guidelines).
+> :point_right: **Note**: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](http://cldr.unicode.org/index/cldr-spec/collation-guidelines).
 
 ### 3.1 <a name="Collation_Types" href="#Collation_Types">Collation Types</a>
 
-Each locale may have multiple sort orders (types). The defaultCollation element defines the default tailoring for a locale and its sublocales. For example:
+Each locale may have multiple sort orders (types). The `defaultCollation` element defines the default tailoring for a locale and its sublocales. For example:
 
 * root.xml: `<defaultCollation>standard</defaultCollation>`
 * zh.xml: `<defaultCollation>pinyin</defaultCollation>`
@@ -538,10 +539,8 @@ To allow implementations in reduced memory environments to use CJK sorting, ther
 
 A collation type name that starts with "private-", for example, "private-kana", indicates an incomplete tailoring that is only intended for import into one or more other tailorings (usually for sharing common rules). It does not establish a complete sort order. An implementation should not build data tables for a private collation type, and should not include a private collation type in a list of available types.
 
-**Note:**
-
-* There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
-* In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](https://www.unicode.org/reports/tr35/tr35-31/tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
+> :point_right: **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
+> :point_right: **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](https://www.unicode.org/reports/tr35/tr35-31/tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
 
 #### 3.1.1 <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a>
 
@@ -555,7 +554,7 @@ When loading a requested tailoring from its data file and the parent file chain,
 6. If it does not exist, and the type is not "standard", then set the type to "standard" and use that `<collation>` element.
 7. If it does not exist, then use the CLDR root collation.
 
-Note that the CLDR collation/root.xml contains `<defaultCollation>standard</defaultCollation>`, `<collation type="standard">` (with an empty tailoring, so this is the same as the CLDR root collation), and `<collation type="search">`.
+> :point_right: **Note**: that the CLDR collation/root.xml contains `<defaultCollation>standard</defaultCollation>`, `<collation type="standard">` (with an empty tailoring, so this is the same as the CLDR root collation), and `<collation type="search">`.
 
 For example, assume that we have collation data for the following tailorings. ("da/search" is shorthand for "da-u-co-search".)
 
@@ -591,7 +590,7 @@ For example, assume that we have collation data for the following tailorings. ("
 
 The `version` attribute is used in case a specific version of the UCA is to be specified. It is optional, and is specified if the results are to be identical on different systems. If it is not supplied, then the version is assumed to be the same as the Unicode version for the system as a whole.
 
-> **Note:** For version 3.1.1 of the UCA, the version of Unicode must also be specified with any versioning information; an example would be "3.1.1/3.2" for version 3.1.1 of the UCA, for version 3.2 of Unicode. This was changed by decision of the UTC, so that dual versions were no longer necessary. So for UCA 4.0 and beyond, the version just has a single number.
+> :point_right: **Note**: For version 3.1.1 of the UCA, the version of Unicode must also be specified with any versioning information; an example would be "3.1.1/3.2" for version 3.1.1 of the UCA, for version 3.2 of Unicode. This was changed by decision of the UTC, so that dual versions were no longer necessary. So for UCA 4.0 and beyond, the version just has a single number.
 
 ### 3.3 <a name="Collation_Element" href="#Collation_Element">Collation Element</a>
 
@@ -861,7 +860,7 @@ The CLDR table (based on UCA) has the following overall structure for weights, g
 
 Each of the above Names can be used with a reset to position characters relative to that logical position. That allows characters to be ordered before or after a _logical_ position rather than a specific character.
 
-> **Note:** The reason for this is so that tailorings can be more stable. A future version of the UCA might add characters at any point in the above list. Suppose that you set character X to be after Y. It could be that you want X to come after Y, no matter what future characters are added; or it could be that you just want Y to come after a given logical position, for example, after the last primary ignorable.
+> :point_right: **Note**: The reason for this is so that tailorings can be more stable. A future version of the UCA might add characters at any point in the above list. Suppose that you set character X to be after Y. It could be that you want X to come after Y, no matter what future characters are added; or it could be that you just want Y to come after a given logical position, for example, after the last primary ignorable.
 
 Each of these special reset positions always maps to a single collation element.
 
@@ -1057,7 +1056,7 @@ Compute a new collation element according to the following table. The notation _
 <tr><td rowspan="3"><strong>secondary<br></strong> or higher</td><td><code>0.0.T</code></td> <td><code>0.0.0.T</code></td><td rowspan="3">ignore case level weights of secondary-ignorable CEs</td></tr>
     <tr><td><code>0.S.t</code></td><td><code>0.S.c.t</code></td></tr>
     <tr><td><code>p.s.t</code></td><td><code>p.s.c.t</code></td></tr>
-    
+
 <tr><td rowspan="4"><strong>off</strong></td><td rowspan="4">any</td><td><code>0.0.0</code></td><td><code>0.0.00</code></td><td rowspan="4">ignore case level weights of tertiary-ignorable CEs</td></tr>
     <tr><td><code>0.0.T</code></td><td><code>0.0.3T</code></td></tr>
     <tr><td><code>0.S.t</code></td><td><code>0.S.ct</code></td></tr>
@@ -1086,7 +1085,7 @@ Characters and strings that are tailored have case values computed from their ro
 6. Tertiary CEs 0.0.t must get uppercase bits.
 7. Tertiary-ignorable CEs 0.0.0 must get ignorable-case=lowercase bits.
 
-Note: Almost all Cased characters have primary (non-ignorable) root collation CEs, except for U+0345 Combining Ypogegrammeni which is Lowercase. All Uppercase characters have primary root collation CEs.
+> :point_right: **Note**: Almost all Cased characters have primary (non-ignorable) root collation CEs, except for U+0345 Combining Ypogegrammeni which is Lowercase. All Uppercase characters have primary root collation CEs.
 
 ### 3.15 <a name="Visibility" href="#Visibility">Visibility</a>
 

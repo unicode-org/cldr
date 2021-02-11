@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -421,6 +421,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">закатывает глаза</annotation>
 		<annotation cp="😬">гримаса | зубы | лицо | рожа</annotation>
 		<annotation cp="😬" type="tts">гримаса</annotation>
+		<annotation cp="😮‍💨">вздох | выдох | выдыхает | облегчение | одышка | свист | шепот</annotation>
+		<annotation cp="😮‍💨" type="tts">выдыхает</annotation>
 		<annotation cp="🤥">буратино | врать | длинный нос | лжец | обманывать</annotation>
 		<annotation cp="🤥" type="tts">лжец</annotation>
 		<annotation cp="😌">испытывает облегчение | лицо | минуло | облегчение | обошло | спокойствие | стороной</annotation>
@@ -479,8 +481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">грустит</annotation>
 		<annotation cp="😮">лицо | открытый | рот | удивление</annotation>
 		<annotation cp="😮" type="tts">удивление</annotation>
-		<annotation cp="😮‍💨">вздох | выдох | выдыхает | облегчение | одышка | свист | шепот</annotation>
-		<annotation cp="😮‍💨" type="tts">выдыхает</annotation>
 		<annotation cp="😯">лицо | молчание | неприятно | неприятный сюрприз | сюрприз | удивление</annotation>
 		<annotation cp="😯" type="tts">неприятный сюрприз</annotation>
 		<annotation cp="😲">в шоке | лицо | потрясение | удивление | шок</annotation>
@@ -599,12 +599,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">восклицательный знак в виде сердца</annotation>
 		<annotation cp="💔">разбитое | разочарование | сердце | части</annotation>
 		<annotation cp="💔" type="tts">разбитое сердце</annotation>
-		<annotation cp="❤">алое | красное | сердце | чувства</annotation>
-		<annotation cp="❤" type="tts">алое сердце</annotation>
 		<annotation cp="❤‍🔥">горящее сердце | любовь | огонь | пламенное сердце | пламя | страсть</annotation>
 		<annotation cp="❤‍🔥" type="tts">горящее сердце</annotation>
 		<annotation cp="❤‍🩹">выздоровление | заживающее сердце | излечение | поправка | улучшение | хорошо</annotation>
 		<annotation cp="❤‍🩹" type="tts">заживающее сердце</annotation>
+		<annotation cp="❤">алое | красное | сердце | чувства</annotation>
+		<annotation cp="❤" type="tts">алое сердце</annotation>
 		<annotation cp="🧡">оранжевое | сердце</annotation>
 		<annotation cp="🧡" type="tts">оранжевое сердце</annotation>
 		<annotation cp="💛">желтое | сердце</annotation>
@@ -767,14 +767,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">мужчина</annotation>
 		<annotation cp="🧔">борода | бородатый человек | бородач | мужчина</annotation>
 		<annotation cp="🧔" type="tts">бородатый человек</annotation>
-		<annotation cp="👱‍♂">блондин | мужчина | мужчина со светлыми волосами | светлые волосы | человек со светлыми волосами</annotation>
-		<annotation cp="👱‍♂" type="tts">блондин</annotation>
-		<annotation cp="🧔‍♀" draft="provisional">борода | бородатая женщина | женщина</annotation>
-		<annotation cp="🧔‍♀" type="tts">бородатая женщина</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">борода | бородатый мужчина | мужчина</annotation>
 		<annotation cp="🧔‍♂" type="tts">бородатый мужчина</annotation>
+		<annotation cp="👱‍♂">блондин | мужчина | мужчина со светлыми волосами | светлые волосы | человек со светлыми волосами</annotation>
+		<annotation cp="👱‍♂" type="tts">блондин</annotation>
 		<annotation cp="👩">взрослая | волосы | длинные | женщина | человек</annotation>
 		<annotation cp="👩" type="tts">женщина</annotation>
+		<annotation cp="🧔‍♀" draft="provisional">борода | бородатая женщина | женщина</annotation>
+		<annotation cp="🧔‍♀" type="tts">бородатая женщина</annotation>
 		<annotation cp="👱‍♀">блондинка | женщина | женщина со светлыми волосами | светлые волосы | человек со светлыми волосами</annotation>
 		<annotation cp="👱‍♀" type="tts">блондинка</annotation>
 		<annotation cp="🧓">в возрасте | гендерно нейтральный | пожилой | пожилой человек | старый</annotation>

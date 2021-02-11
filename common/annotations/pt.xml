@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -367,6 +367,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">rosto com olhos revirados</annotation>
 		<annotation cp="😬">fazendo careta | rosto | rosto expressando desagrado | rosto fazendo careta</annotation>
 		<annotation cp="😬" type="tts">rosto expressando desagrado</annotation>
+		<annotation cp="😮‍💨">alívio | assobio | assovio | choque | exalar | rosto exalando</annotation>
+		<annotation cp="😮‍💨" type="tts">rosto exalando</annotation>
 		<annotation cp="🤥">mentindo | mentira | mentiroso | pinóquio | rosto de mentiroso</annotation>
 		<annotation cp="🤥" type="tts">rosto de mentiroso</annotation>
 		<annotation cp="😌">alívio | rosto | rosto aliviado</annotation>
@@ -425,8 +427,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">rosto descontente</annotation>
 		<annotation cp="😮">boca | boca aberta | empatia | rosto | rosto com boca aberta</annotation>
 		<annotation cp="😮" type="tts">rosto com boca aberta</annotation>
-		<annotation cp="😮‍💨">alívio | assobio | assovio | choque | exalar | rosto exalando</annotation>
-		<annotation cp="😮‍💨" type="tts">rosto exalando</annotation>
 		<annotation cp="😯">espantado | rosto | surpreso</annotation>
 		<annotation cp="😯" type="tts">rosto surpreso</annotation>
 		<annotation cp="😲">chocado | estupefato | rosto | rosto espantado | totalmente chocado</annotation>
@@ -545,12 +545,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">exclamação de coração</annotation>
 		<annotation cp="💔">coração | coração partido | decepção amorosa | emoção | rompimento</annotation>
 		<annotation cp="💔" type="tts">coração partido</annotation>
-		<annotation cp="❤">amor | coração | coração vermelho</annotation>
-		<annotation cp="❤" type="tts">coração vermelho</annotation>
 		<annotation cp="❤‍🔥">amor | chamas | coração | coração em chamas | coração sagrado | fogo | luxúria</annotation>
 		<annotation cp="❤‍🔥" type="tts">coração em chamas</annotation>
 		<annotation cp="❤‍🩹">bem | bom | coração remendado | curando | mais saudável | melhorando | recuperação</annotation>
 		<annotation cp="❤‍🩹" type="tts">coração remendado</annotation>
+		<annotation cp="❤">amor | coração | coração vermelho</annotation>
+		<annotation cp="❤" type="tts">coração vermelho</annotation>
 		<annotation cp="🧡">coração | emoção | laranja</annotation>
 		<annotation cp="🧡" type="tts">coração laranja</annotation>
 		<annotation cp="💛">amarelo | coração | emoção</annotation>
@@ -713,14 +713,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">homem</annotation>
 		<annotation cp="🧔">barba | barbudo | homem | homem: barba | pessoa</annotation>
 		<annotation cp="🧔" type="tts">homem: barba</annotation>
-		<annotation cp="👱‍♂">cabelo | homem | homem: cabelo loiro | loiro | louro</annotation>
-		<annotation cp="👱‍♂" type="tts">homem: cabelo loiro</annotation>
-		<annotation cp="🧔‍♀">barba | mulher | mulher: barba</annotation>
-		<annotation cp="🧔‍♀" type="tts">mulher: barba</annotation>
 		<annotation cp="🧔‍♂">barba | homem | homem: barba | homem: barbudo</annotation>
 		<annotation cp="🧔‍♂" type="tts">homem: barbudo</annotation>
+		<annotation cp="👱‍♂">cabelo | homem | homem: cabelo loiro | loiro | louro</annotation>
+		<annotation cp="👱‍♂" type="tts">homem: cabelo loiro</annotation>
 		<annotation cp="👩">adulta | mulher</annotation>
 		<annotation cp="👩" type="tts">mulher</annotation>
+		<annotation cp="🧔‍♀">barba | mulher | mulher: barba</annotation>
+		<annotation cp="🧔‍♀" type="tts">mulher: barba</annotation>
 		<annotation cp="👱‍♀">loira | loura | mulher | mulher: cabelo loiro</annotation>
 		<annotation cp="👱‍♀" type="tts">mulher: cabelo loiro</annotation>
 		<annotation cp="🧓">adulto | idoso</annotation>

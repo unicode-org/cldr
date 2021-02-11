@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -335,6 +335,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">የሚሽከረከሩ ዓይኖች ያሉት ፊት</annotation>
 		<annotation cp="😬">ታሞ የተጨማደደ | ታሞ የተጨማደደ ፊት | ፊት</annotation>
 		<annotation cp="😬" type="tts">ታሞ የተጨማደደ ፊት</annotation>
+		<annotation cp="😮‍💨" draft="contributed">ወደ ውጭ የሚተነፍስ ገጽ</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">ወደ ውጭ የሚተነፍስ ገጽ</annotation>
 		<annotation cp="🤥">ውሸት | የሚዋሽ ፊት | ፊት | ፒኖኪዮ</annotation>
 		<annotation cp="🤥" type="tts">የሚዋሽ ፊት</annotation>
 		<annotation cp="😌">እፎይ ያለ | እፎይ ያለ ፊት | ፊት</annotation>
@@ -393,8 +395,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">የተኮሳተረ ፊት</annotation>
 		<annotation cp="😮">ሐዘኔታ | አፍ | አፍ የከፈተ ፊት | ክፍት | ፊት</annotation>
 		<annotation cp="😮" type="tts">አፍ የከፈተ ፊት</annotation>
-		<annotation cp="😮‍💨" draft="contributed">ወደ ውጭ የሚተነፍስ ገጽ</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">ወደ ውጭ የሚተነፍስ ገጽ</annotation>
 		<annotation cp="😯">ተደመመ | ተገረመ | አንሾካሾከ | አንሾካሿኪ ፊት | ፊት</annotation>
 		<annotation cp="😯" type="tts">አንሾካሿኪ ፊት</annotation>
 		<annotation cp="😲">ሙሉ በሙሉ | የተገረመ | የደነገጠ | ፊት</annotation>
@@ -513,12 +513,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">በልብ ቅርፅ የተዘጋጀ የቃለ አጋኖ ምልክት</annotation>
 		<annotation cp="💔">ልብ | ሰበረ | የተሰበረ</annotation>
 		<annotation cp="💔" type="tts">የተሰበረ ልብ</annotation>
-		<annotation cp="❤">ልብ | ቀይ ልብ</annotation>
-		<annotation cp="❤" type="tts">ቀይ ልብ</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">በበስጭት ላይ ያለ ልብ</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">በበስጭት ላይ ያለ ልብ</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">የተጠገነ ልብ</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">የተጠገነ ልብ</annotation>
+		<annotation cp="❤">ልብ | ቀይ ልብ</annotation>
+		<annotation cp="❤" type="tts">ቀይ ልብ</annotation>
 		<annotation cp="🧡">ብርቱካናማ ልብ</annotation>
 		<annotation cp="🧡" type="tts">ብርቱካናማ ልብ</annotation>
 		<annotation cp="💛">ልብ | ቢጫ</annotation>
@@ -681,14 +681,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">ሰው</annotation>
 		<annotation cp="🧔">ጺማም ሰው</annotation>
 		<annotation cp="🧔" type="tts">ጺማም ሰው</annotation>
-		<annotation cp="👱‍♂">ሰው | ወርቃማ | ወርቃማ ጸጉር ያለው ወንድ | ወንድ</annotation>
-		<annotation cp="👱‍♂" type="tts">ወርቃማ ጸጉር ያለው ወንድ</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">ሴት: ጺም</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">ሴት: ጺም</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">ሰው: ጺም</annotation>
 		<annotation cp="🧔‍♂" type="tts" draft="contributed">ሰው: ጺም</annotation>
+		<annotation cp="👱‍♂">ሰው | ወርቃማ | ወርቃማ ጸጉር ያለው ወንድ | ወንድ</annotation>
+		<annotation cp="👱‍♂" type="tts">ወርቃማ ጸጉር ያለው ወንድ</annotation>
 		<annotation cp="👩">ሴት | እንስት</annotation>
 		<annotation cp="👩" type="tts">ሴት</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">ሴት: ጺም</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">ሴት: ጺም</annotation>
 		<annotation cp="👱‍♀">ሰው | ሴት | ወርቃማ | ወርቃማ ጸጉር ያላት ሴት</annotation>
 		<annotation cp="👱‍♀" type="tts">ወርቃማ ጸጉር ያላት ሴት</annotation>
 		<annotation cp="🧓">ያረጀ ጎልማሳ</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -597,6 +597,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">көзі алару</annotation>
 		<annotation cp="😬">бет | бет-аузын қисайту</annotation>
 		<annotation cp="😬" type="tts">бет-аузын қисайту</annotation>
+		<annotation cp="😮‍💨" draft="contributed">ауаны шығарып тұрған бет</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">ауаны шығарып тұрған бет</annotation>
 		<annotation cp="🤥">өтірік | өтірікші | Пиноккио</annotation>
 		<annotation cp="🤥" type="tts">өтірікші</annotation>
 		<annotation cp="😌">бет | жеңілдеп қалу</annotation>
@@ -655,8 +657,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">тұнжырау</annotation>
 		<annotation cp="😮">аң-таң болу | аузы ашылу | бет | таңдану</annotation>
 		<annotation cp="😮" type="tts">таңдану</annotation>
-		<annotation cp="😮‍💨" draft="contributed">ауаны шығарып тұрған бет</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">ауаны шығарып тұрған бет</annotation>
 		<annotation cp="😯">бет | таңғалу | таңдану | таңырқату</annotation>
 		<annotation cp="😯" type="tts">таңғалу</annotation>
 		<annotation cp="😲">аң-таң | аң-таң болу | бет | таң қалу</annotation>
@@ -775,12 +775,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">леп белгісі тәрізді жүрек</annotation>
 		<annotation cp="💔">жүрек | сынған | сыну</annotation>
 		<annotation cp="💔" type="tts">сынған жүрек</annotation>
-		<annotation cp="❤">жүрек | қызыл жүрек</annotation>
-		<annotation cp="❤" type="tts">қызыл жүрек</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">лаулап тұрған жүрек</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">лаулап тұрған жүрек</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">жаралы жүрек</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">жаралы жүрек</annotation>
+		<annotation cp="❤">жүрек | қызыл жүрек</annotation>
+		<annotation cp="❤" type="tts">қызыл жүрек</annotation>
 		<annotation cp="🧡">қызғылт-сары жүрек</annotation>
 		<annotation cp="🧡" type="tts">қызғылт-сары жүрек</annotation>
 		<annotation cp="💛">жүрек | сары</annotation>
@@ -943,14 +943,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">ер адам</annotation>
 		<annotation cp="🧔">сақалды адам | сақалды ер адам</annotation>
 		<annotation cp="🧔" type="tts">сақалды ер адам</annotation>
-		<annotation cp="👱‍♂">аққұба | аққұба ер адам | ер</annotation>
-		<annotation cp="👱‍♂" type="tts">аққұба ер адам</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">әйел адам: сақал</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">әйел адам: сақал</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">ер адам: сақал</annotation>
 		<annotation cp="🧔‍♂" type="tts" draft="contributed">ер адам: сақал</annotation>
+		<annotation cp="👱‍♂">аққұба | аққұба ер адам | ер</annotation>
+		<annotation cp="👱‍♂" type="tts">аққұба ер адам</annotation>
 		<annotation cp="👩">әйел | әйел адам</annotation>
 		<annotation cp="👩" type="tts">әйел</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">әйел адам: сақал</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">әйел адам: сақал</annotation>
 		<annotation cp="👱‍♀">аққұба | әйел</annotation>
 		<annotation cp="👱‍♀" type="tts">аққұба әйел</annotation>
 		<annotation cp="🧓">ересек | қарт адам</annotation>

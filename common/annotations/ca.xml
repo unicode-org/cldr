@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -383,6 +383,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">cara amb els ulls en blanc</annotation>
 		<annotation cp="😬">cara | cara que fa una ganyota amb les dents | dents | ganyota</annotation>
 		<annotation cp="😬" type="tts">cara que fa una ganyota amb les dents</annotation>
+		<annotation cp="😮‍💨">alleujament | cara que exhala | exhalar | xiulet | xiuxiueig</annotation>
+		<annotation cp="😮‍💨" type="tts">cara que exhala</annotation>
 		<annotation cp="🤥">cara | cara de mentider | mentider | nas | Pinotxo</annotation>
 		<annotation cp="🤥" type="tts">cara de mentider</annotation>
 		<annotation cp="😌">alleujament | cara | cara d’alleujament</annotation>
@@ -441,8 +443,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">cara arrufada</annotation>
 		<annotation cp="😮">boca oberta | cara | cara amb la boca oberta</annotation>
 		<annotation cp="😮" type="tts">cara amb la boca oberta</annotation>
-		<annotation cp="😮‍💨">alleujament | cara que exhala | exhalar | xiulet | xiuxiueig</annotation>
-		<annotation cp="😮‍💨" type="tts">cara que exhala</annotation>
 		<annotation cp="😯">cara | cara de sorpresa | sorpresa</annotation>
 		<annotation cp="😯" type="tts">cara de sorpresa</annotation>
 		<annotation cp="😲">cara | estupefacta | estupefacte</annotation>
@@ -561,12 +561,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">exclamació en forma de cor</annotation>
 		<annotation cp="💔">cor | trencar | trencat</annotation>
 		<annotation cp="💔" type="tts">cor trencat</annotation>
-		<annotation cp="❤">cor | cor vermell</annotation>
-		<annotation cp="❤" type="tts">cor vermell</annotation>
 		<annotation cp="❤‍🔥">amor | cor | cor en flames | cor sagrat | foc | luxúria</annotation>
 		<annotation cp="❤‍🔥" type="tts">cor en flames</annotation>
 		<annotation cp="❤‍🩹">cor | cor embenat | millor | millora | recuperació | salut</annotation>
 		<annotation cp="❤‍🩹" type="tts">cor embenat</annotation>
+		<annotation cp="❤">cor | cor vermell</annotation>
+		<annotation cp="❤" type="tts">cor vermell</annotation>
 		<annotation cp="🧡">cor taronja | taronja</annotation>
 		<annotation cp="🧡" type="tts">cor taronja</annotation>
 		<annotation cp="💛">cor | cor groc</annotation>
@@ -729,14 +729,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">home</annotation>
 		<annotation cp="🧔">barba | persona | persona: barba</annotation>
 		<annotation cp="🧔" type="tts">persona: barba</annotation>
-		<annotation cp="👱‍♂">cabell | home | home: cabell ros | ros</annotation>
-		<annotation cp="👱‍♂" type="tts">home: cabell ros</annotation>
-		<annotation cp="🧔‍♀">barba | dona | dona: barba</annotation>
-		<annotation cp="🧔‍♀" type="tts">dona: barba</annotation>
 		<annotation cp="🧔‍♂">barba | home | home: barba</annotation>
 		<annotation cp="🧔‍♂" type="tts">home: barba</annotation>
+		<annotation cp="👱‍♂">cabell | home | home: cabell ros | ros</annotation>
+		<annotation cp="👱‍♂" type="tts">home: cabell ros</annotation>
 		<annotation cp="👩">dona | femení</annotation>
 		<annotation cp="👩" type="tts">dona</annotation>
+		<annotation cp="🧔‍♀">barba | dona | dona: barba</annotation>
+		<annotation cp="🧔‍♀" type="tts">dona: barba</annotation>
 		<annotation cp="👱‍♀">cabell | dona | dona: cabell ros | rossa</annotation>
 		<annotation cp="👱‍♀" type="tts">dona: cabell ros</annotation>
 		<annotation cp="🧓">adult | gran | persona</annotation>

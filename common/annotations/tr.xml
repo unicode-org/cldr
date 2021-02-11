@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">gözlerini deviren yüz</annotation>
 		<annotation cp="😬">dişlerini gösteren yüz | yüz</annotation>
 		<annotation cp="😬" type="tts">dişlerini gösteren yüz</annotation>
+		<annotation cp="😮‍💨">fısıldama | ıslık | nefes veren yüz | nefes verme | rahatlama | sızlanma</annotation>
+		<annotation cp="😮‍💨" type="tts">nefes veren yüz</annotation>
 		<annotation cp="🤥">pinokyo | yalan söyleme | yalan söyleyen yüz | yüz</annotation>
 		<annotation cp="🤥" type="tts">yalan söyleyen yüz</annotation>
 		<annotation cp="😌">rahatlamış | yüz</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">asık surat</annotation>
 		<annotation cp="😮">ağız | ağzı açık | ağzı açık yüz | yüz</annotation>
 		<annotation cp="😮" type="tts">ağzı açık yüz</annotation>
-		<annotation cp="😮‍💨">fısıldama | ıslık | nefes veren yüz | nefes verme | rahatlama | sızlanma</annotation>
-		<annotation cp="😮‍💨" type="tts">nefes veren yüz</annotation>
 		<annotation cp="😯">şaşırmış | şaşkın yüz | şok olmuş | yüz</annotation>
 		<annotation cp="😯" type="tts">şaşkın yüz</annotation>
 		<annotation cp="😲">afallamış | şoke olmuş | tamamen şoke olmuş | yüz</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">kalp şeklinde ünlem işareti</annotation>
 		<annotation cp="💔">duygu | kalp | kırık kalp | kırılmış | kırma</annotation>
 		<annotation cp="💔" type="tts">kırık kalp</annotation>
-		<annotation cp="❤">kalp | kırmızı kalp</annotation>
-		<annotation cp="❤" type="tts">kırmızı kalp</annotation>
 		<annotation cp="❤‍🔥">alev | arzu | aşk | ateşli kalp | kalp | kutsal kalp | tutku</annotation>
 		<annotation cp="❤‍🔥" type="tts">ateşli kalp</annotation>
 		<annotation cp="❤‍🩹">daha sağlıklı | iyi | iyileşen | iyileşen kalp | onarılan</annotation>
 		<annotation cp="❤‍🩹" type="tts">iyileşen kalp</annotation>
+		<annotation cp="❤">kalp | kırmızı kalp</annotation>
+		<annotation cp="❤" type="tts">kırmızı kalp</annotation>
 		<annotation cp="🧡">portakal | turuncu kalp</annotation>
 		<annotation cp="🧡" type="tts">turuncu kalp</annotation>
 		<annotation cp="💛">duygu | kalp | sarı</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">erkek</annotation>
 		<annotation cp="🧔">sakal | sakallı kişi</annotation>
 		<annotation cp="🧔" type="tts">sakallı kişi</annotation>
-		<annotation cp="👱‍♂">adam | erkek | sarışın</annotation>
-		<annotation cp="👱‍♂" type="tts">sarışın erkek</annotation>
-		<annotation cp="🧔‍♀">kadın | kadın: sakal | sakal</annotation>
-		<annotation cp="🧔‍♀" type="tts">kadın: sakal</annotation>
 		<annotation cp="🧔‍♂">erkek | erkek: sakal | sakal</annotation>
 		<annotation cp="🧔‍♂" type="tts">erkek: sakal</annotation>
+		<annotation cp="👱‍♂">adam | erkek | sarışın</annotation>
+		<annotation cp="👱‍♂" type="tts">sarışın erkek</annotation>
 		<annotation cp="👩">kadın | kişiler</annotation>
 		<annotation cp="👩" type="tts">kadın</annotation>
+		<annotation cp="🧔‍♀">kadın | kadın: sakal | sakal</annotation>
+		<annotation cp="🧔‍♀" type="tts">kadın: sakal</annotation>
 		<annotation cp="👱‍♀">bayan | kadın | sarışın</annotation>
 		<annotation cp="👱‍♀" type="tts">sarışın kadın</annotation>
 		<annotation cp="🧓">kişi | yaşlı | yaşlı yetişkin</annotation>

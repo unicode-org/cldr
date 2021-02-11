@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -468,6 +468,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">pööritavate silmadega nägu</annotation>
 		<annotation cp="😬">grimass | grimassitav nägu | nägu</annotation>
 		<annotation cp="😬" type="tts">grimassitav nägu</annotation>
+		<annotation cp="😮‍💨">kergendus | ohkamine | sosistamine | väljahingamine | väljahingav nägu | vilistamine</annotation>
+		<annotation cp="😮‍💨" type="tts">väljahingav nägu</annotation>
 		<annotation cp="🤥">nägu | vale | valetav nägu</annotation>
 		<annotation cp="🤥" type="tts">valetav nägu</annotation>
 		<annotation cp="😌">kergendus | kergendust tundev nägu | nägu</annotation>
@@ -526,8 +528,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">kulmu kortsutav nägu</annotation>
 		<annotation cp="😮">avatud | avatud suuga nägu | kaastunne | lahti | nägu | suu</annotation>
 		<annotation cp="😮" type="tts">avatud suuga nägu</annotation>
-		<annotation cp="😮‍💨">kergendus | ohkamine | sosistamine | väljahingamine | väljahingav nägu | vilistamine</annotation>
-		<annotation cp="😮‍💨" type="tts">väljahingav nägu</annotation>
 		<annotation cp="😯">hämmingus | nägu | üllatunud | vaigistatud</annotation>
 		<annotation cp="😯" type="tts">vaigistatud nägu</annotation>
 		<annotation cp="😲">ehmunud | hämmastunud nägu | hämmastus | löödud | nägu</annotation>
@@ -646,12 +646,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">südamega hüüumärk</annotation>
 		<annotation cp="💔">murtud | süda</annotation>
 		<annotation cp="💔" type="tts">murtud süda</annotation>
-		<annotation cp="❤">punane süda | süda</annotation>
-		<annotation cp="❤" type="tts">punane süda</annotation>
 		<annotation cp="❤‍🔥">armastus | kirg | leegitsev süda | põlev | püha süda | süda</annotation>
 		<annotation cp="❤‍🔥" type="tts">leegitsev süda</annotation>
 		<annotation cp="❤‍🩹">hästi | kosumine | paranemine | taastumine | tervem | tervenemine | tervenev süda</annotation>
 		<annotation cp="❤‍🩹" type="tts">tervenev süda</annotation>
+		<annotation cp="❤">punane süda | süda</annotation>
+		<annotation cp="❤" type="tts">punane süda</annotation>
 		<annotation cp="🧡">oranž | oranž süda</annotation>
 		<annotation cp="🧡" type="tts">oranž süda</annotation>
 		<annotation cp="💛">kollane | süda</annotation>
@@ -814,14 +814,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">mees</annotation>
 		<annotation cp="🧔">habe | habemega isik | mees: habemega</annotation>
 		<annotation cp="🧔" type="tts">mees: habemega</annotation>
-		<annotation cp="👱‍♂">blond | blondiin | mees | mees: blond</annotation>
-		<annotation cp="👱‍♂" type="tts">mees: blond</annotation>
-		<annotation cp="🧔‍♀">habe | habemega naine | naine</annotation>
-		<annotation cp="🧔‍♀" type="tts">habemega naine</annotation>
 		<annotation cp="🧔‍♂">habe | habemega mees | mees</annotation>
 		<annotation cp="🧔‍♂" type="tts">habemega mees</annotation>
+		<annotation cp="👱‍♂">blond | blondiin | mees | mees: blond</annotation>
+		<annotation cp="👱‍♂" type="tts">mees: blond</annotation>
 		<annotation cp="👩">naine</annotation>
 		<annotation cp="👩" type="tts">naine</annotation>
+		<annotation cp="🧔‍♀">habe | habemega naine | naine</annotation>
+		<annotation cp="🧔‍♀" type="tts">habemega naine</annotation>
 		<annotation cp="👱‍♀">blond | blondiin | naine | naine: blond</annotation>
 		<annotation cp="👱‍♀" type="tts">naine: blond</annotation>
 		<annotation cp="🧓">eakas | sooliselt neutraalne | vana</annotation>

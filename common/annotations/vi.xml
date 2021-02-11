@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -507,6 +507,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">mặt có mắt đu đưa</annotation>
 		<annotation cp="😬">mặt | mặt nhăn nhó | nhăn nhó</annotation>
 		<annotation cp="😬" type="tts">mặt nhăn nhó</annotation>
+		<annotation cp="😮‍💨">huýt sáo | mặt thở ra | rên rỉ | thì thầm | thở hổn hển | thở ra</annotation>
+		<annotation cp="😮‍💨" type="tts">mặt thở ra</annotation>
 		<annotation cp="🤥">mặt | mặt nói dối | nói dối | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">mặt nói dối</annotation>
 		<annotation cp="😌">mặt | mặt nhẹ nhõm | nhẹ nhõm</annotation>
@@ -565,8 +567,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">mặt cau mày</annotation>
 		<annotation cp="😮">mặt | mặt có miệng há | miệng | mở | thông cảm</annotation>
 		<annotation cp="😮" type="tts">mặt có miệng há</annotation>
-		<annotation cp="😮‍💨">huýt sáo | mặt thở ra | rên rỉ | thì thầm | thở hổn hển | thở ra</annotation>
-		<annotation cp="😮‍💨" type="tts">mặt thở ra</annotation>
 		<annotation cp="😯">choáng váng | làm thinh | mặt | mặt làm thinh | ngạc nhiên</annotation>
 		<annotation cp="😯" type="tts">mặt làm thinh</annotation>
 		<annotation cp="😲">hoàn toàn | kinh ngạc | mặt | mặt kinh ngạc | sốc</annotation>
@@ -685,12 +685,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">dấu chấm than hình trái tim đậm</annotation>
 		<annotation cp="💔">bị vỡ | trái tim tan vỡ | vỡ</annotation>
 		<annotation cp="💔" type="tts">trái tim tan vỡ</annotation>
-		<annotation cp="❤">trái tim | trái tim màu đỏ</annotation>
-		<annotation cp="❤" type="tts">trái tim màu đỏ</annotation>
 		<annotation cp="❤‍🔥">bốc lửa | cháy | thèm khát | tình yêu | trái tim | trái tim bốc lửa | trái tim linh thiêng</annotation>
 		<annotation cp="❤‍🔥" type="tts">trái tim bốc lửa</annotation>
 		<annotation cp="❤‍🩹">cải thiện | đang lành | hồi phục | khỏe mạnh hơn | phục hồi | trái tim đang lành</annotation>
 		<annotation cp="❤‍🩹" type="tts">trái tim đang lành</annotation>
+		<annotation cp="❤">trái tim | trái tim màu đỏ</annotation>
+		<annotation cp="❤" type="tts">trái tim màu đỏ</annotation>
 		<annotation cp="🧡">màu cam | trái tim màu cam</annotation>
 		<annotation cp="🧡" type="tts">trái tim màu cam</annotation>
 		<annotation cp="💛">màu vàng | trái tim màu vàng</annotation>
@@ -853,14 +853,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">đàn ông</annotation>
 		<annotation cp="🧔">người | người có râu | người đàn ông có râu | râu</annotation>
 		<annotation cp="🧔" type="tts">người có râu</annotation>
-		<annotation cp="👱‍♂">đàn ông | đàn ông: tóc vàng hoe | người đàn ông tóc vàng hoe | tóc vàng hoe</annotation>
-		<annotation cp="👱‍♂" type="tts">người đàn ông tóc vàng hoe</annotation>
-		<annotation cp="🧔‍♀">người phụ nữ | người phụ nữ có râu | râu</annotation>
-		<annotation cp="🧔‍♀" type="tts">người phụ nữ có râu</annotation>
 		<annotation cp="🧔‍♂">người đàn ông | người đàn ông có râu | râu</annotation>
 		<annotation cp="🧔‍♂" type="tts">người đàn ông có râu</annotation>
+		<annotation cp="👱‍♂">đàn ông | đàn ông: tóc vàng hoe | người đàn ông tóc vàng hoe | tóc vàng hoe</annotation>
+		<annotation cp="👱‍♂" type="tts">người đàn ông tóc vàng hoe</annotation>
 		<annotation cp="👩">người lớn | phụ nữ</annotation>
 		<annotation cp="👩" type="tts">phụ nữ</annotation>
+		<annotation cp="🧔‍♀">người phụ nữ | người phụ nữ có râu | râu</annotation>
+		<annotation cp="🧔‍♀" type="tts">người phụ nữ có râu</annotation>
 		<annotation cp="👱‍♀">người phụ nữ tóc vàng hoe | nữ | phụ nữ | tóc vàng hoe</annotation>
 		<annotation cp="👱‍♀" type="tts">người phụ nữ tóc vàng hoe</annotation>
 		<annotation cp="🧓">già | giới tính không xác định | giới tính trung lập | người lớn tuổi</annotation>

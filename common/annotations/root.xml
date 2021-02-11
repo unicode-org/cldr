@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -803,6 +803,8 @@ for derived annotations.
 		<annotation cp="🙄" type="tts">E10-904</annotation>
 		<annotation cp="😬">E10-880</annotation>
 		<annotation cp="😬" type="tts">E10-880</annotation>
+		<annotation cp="😮‍💨">E13.1-001</annotation> <!-- 1F62E 200D 1F4A8: face exhaling -->
+		<annotation cp="😮‍💨" type="tts">E13.1-001</annotation>
 		<annotation cp="🤥">E10-1031</annotation>
 		<annotation cp="🤥" type="tts">E10-1031</annotation>
 		<annotation cp="😌">E10-848</annotation>
@@ -861,8 +863,6 @@ for derived annotations.
 		<annotation cp="☹" type="tts">E10-060</annotation>
 		<annotation cp="😮">E10-882</annotation>
 		<annotation cp="😮" type="tts">E10-882</annotation>
-		<annotation cp="😮‍💨">E13.1-001</annotation> <!-- 1F62E 200D 1F4A8: face exhaling -->
-		<annotation cp="😮‍💨" type="tts">E13.1-001</annotation>
 		<annotation cp="😯">E10-883</annotation>
 		<annotation cp="😯" type="tts">E10-883</annotation>
 		<annotation cp="😲">E10-886</annotation>
@@ -981,12 +981,12 @@ for derived annotations.
 		<annotation cp="❣" type="tts">E10-146</annotation>
 		<annotation cp="💔">E10-593</annotation>
 		<annotation cp="💔" type="tts">E10-593</annotation>
-		<annotation cp="❤">E10-147</annotation>
-		<annotation cp="❤" type="tts">E10-147</annotation>
 		<annotation cp="❤‍🔥">E13.1-003</annotation> <!-- 2764 200D 1F525: heart on fire -->
 		<annotation cp="❤‍🔥" type="tts">E13.1-003</annotation>
 		<annotation cp="❤‍🩹">E13.1-004</annotation> <!-- 2764 200D 1FA79: mending heart -->
 		<annotation cp="❤‍🩹" type="tts">E13.1-004</annotation>
+		<annotation cp="❤">E10-147</annotation>
+		<annotation cp="❤" type="tts">E10-147</annotation>
 		<annotation cp="🧡">E10-1138</annotation>
 		<annotation cp="🧡" type="tts">E10-1138</annotation>
 		<annotation cp="💛">E10-600</annotation>
@@ -1149,14 +1149,14 @@ for derived annotations.
 		<annotation cp="👨" type="tts">E10-549</annotation>
 		<annotation cp="🧔">E10-1125</annotation>
 		<annotation cp="🧔" type="tts">E10-1125</annotation>
-		<annotation cp="👱‍♂">E10-1195</annotation>
-		<annotation cp="👱‍♂" type="tts">E10-1195</annotation>
-		<annotation cp="🧔‍♀">E13.1-006</annotation>
-		<annotation cp="🧔‍♀" type="tts">E13.1-006</annotation>
 		<annotation cp="🧔‍♂">E13.1-005</annotation>
 		<annotation cp="🧔‍♂" type="tts">E13.1-005</annotation>
+		<annotation cp="👱‍♂">E10-1195</annotation>
+		<annotation cp="👱‍♂" type="tts">E10-1195</annotation>
 		<annotation cp="👩">E10-550</annotation>
 		<annotation cp="👩" type="tts">E10-550</annotation>
+		<annotation cp="🧔‍♀">E13.1-006</annotation>
+		<annotation cp="🧔‍♀" type="tts">E13.1-006</annotation>
 		<annotation cp="👱‍♀">E10-1194</annotation>
 		<annotation cp="👱‍♀" type="tts">E10-1194</annotation>
 		<annotation cp="🧓">E10-1124</annotation>

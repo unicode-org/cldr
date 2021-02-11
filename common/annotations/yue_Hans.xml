@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -334,6 +334,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">圆碌碌大眼嘅脸</annotation>
 		<annotation cp="😬">痛苦 | 痛苦嘅脸 | 脸</annotation>
 		<annotation cp="😬" type="tts">痛苦嘅脸</annotation>
+		<annotation cp="😮‍💨">叹气嘅脸 | 吹口哨 | 呻吟 | 呼气 | 喘气 | 松一口气 | 耳语</annotation>
+		<annotation cp="😮‍💨" type="tts">叹气嘅脸</annotation>
 		<annotation cp="🤥">木偶奇遇记 | 脸 | 讲大话 | 讲大话嘅脸</annotation>
 		<annotation cp="🤥" type="tts">讲大话嘅脸</annotation>
 		<annotation cp="😌">放松 | 放松嘅脸 | 脸</annotation>
@@ -392,8 +394,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">皱眉嘅脸</annotation>
 		<annotation cp="😮">同情 | 嘴 | 开口嘅脸 | 打开 | 脸</annotation>
 		<annotation cp="😮" type="tts">开口嘅脸</annotation>
-		<annotation cp="😮‍💨">叹气嘅脸 | 吹口哨 | 呻吟 | 呼气 | 喘气 | 松一口气 | 耳语</annotation>
-		<annotation cp="😮‍💨" type="tts">叹气嘅脸</annotation>
 		<annotation cp="😯">吓惊 | 惊讶 | 沉默 | 沉默嘅脸 | 脸</annotation>
 		<annotation cp="😯" type="tts">沉默嘅脸</annotation>
 		<annotation cp="😲">吓亲 | 完全 | 惊讶 | 惊讶嘅脸 | 脸</annotation>
@@ -512,12 +512,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">沉重嘅感叹嘅</annotation>
 		<annotation cp="💔">破碎 | 破碎嘅心 | 碎</annotation>
 		<annotation cp="💔" type="tts">破碎嘅心</annotation>
-		<annotation cp="❤">心 | 红色心</annotation>
-		<annotation cp="❤" type="tts">红色心</annotation>
 		<annotation cp="❤‍🔥">心 | 情欲 | 有疤痕嘅心 | 烧 | 烧紧嘅心 | 爱</annotation>
 		<annotation cp="❤‍🔥" type="tts">烧紧嘅心</annotation>
 		<annotation cp="❤‍🩹">修补 | 健康 | 包紥嘅心 | 复原紧 | 好 | 改善 | 疗伤</annotation>
 		<annotation cp="❤‍🩹" type="tts">包紥嘅心</annotation>
+		<annotation cp="❤">心 | 红色心</annotation>
+		<annotation cp="❤" type="tts">红色心</annotation>
 		<annotation cp="🧡">橙色 | 橙色心</annotation>
 		<annotation cp="🧡" type="tts">橙色心</annotation>
 		<annotation cp="💛">黄色 | 黄色心</annotation>
@@ -680,14 +680,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">男人</annotation>
 		<annotation cp="🧔">留须嘅人 | 须</annotation>
 		<annotation cp="🧔" type="tts">留须嘅人</annotation>
-		<annotation cp="👱‍♂">男 | 金色头发 | 金色头发嘅男人</annotation>
-		<annotation cp="👱‍♂" type="tts">金色头发嘅男人</annotation>
-		<annotation cp="🧔‍♀">女人 | 女人：胡须 | 胡须</annotation>
-		<annotation cp="🧔‍♀" type="tts">女人：胡须</annotation>
 		<annotation cp="🧔‍♂">男人 | 男人：胡须 | 胡须</annotation>
 		<annotation cp="🧔‍♂" type="tts">男人：胡须</annotation>
+		<annotation cp="👱‍♂">男 | 金色头发 | 金色头发嘅男人</annotation>
+		<annotation cp="👱‍♂" type="tts">金色头发嘅男人</annotation>
 		<annotation cp="👩">女人</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
+		<annotation cp="🧔‍♀">女人 | 女人：胡须 | 胡须</annotation>
+		<annotation cp="🧔‍♀" type="tts">女人：胡须</annotation>
 		<annotation cp="👱‍♀">女 | 金色头发 | 金色头发嘅女人</annotation>
 		<annotation cp="👱‍♀" type="tts">金色头发嘅女人</annotation>
 		<annotation cp="🧓">中性 | 老人 | 老年</annotation>

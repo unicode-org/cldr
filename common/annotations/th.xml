@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">กลอกตา</annotation>
 		<annotation cp="😬">เบะปาก | ยิงฟัน | หน้า</annotation>
 		<annotation cp="😬" type="tts">เบะปาก</annotation>
+		<annotation cp="😮‍💨" draft="contributed">หน้าหายใจออก</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">หน้าหายใจออก</annotation>
 		<annotation cp="🤥">ขี้โกหก | ขี้จุ๊ | จมูกยาว | พิน็อคคิโอ | หน้า</annotation>
 		<annotation cp="🤥" type="tts">ขี้โกหก</annotation>
 		<annotation cp="😌">โล่งใจ | หน้า</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">หน้าบึ้ง</annotation>
 		<annotation cp="😮">ตกใจ | หน้า | อ้าปาก</annotation>
 		<annotation cp="😮" type="tts">อ้าปาก</annotation>
-		<annotation cp="😮‍💨" draft="contributed">หน้าหายใจออก</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">หน้าหายใจออก</annotation>
 		<annotation cp="😯">หน้า | หน้าจุ๊ๆ | ห่อปาก</annotation>
 		<annotation cp="😯" type="tts">หน้าจุ๊ๆ</annotation>
 		<annotation cp="😲">ประหลาดใจ | หน้า | หน้าประหลาดใจ</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">เครื่องหมายอัศเจรีย์รูปหัวใจ</annotation>
 		<annotation cp="💔">หัวใจ | อกหัก</annotation>
 		<annotation cp="💔" type="tts">อกหัก</annotation>
-		<annotation cp="❤">หัวใจ | หัวใจแดง | หัวใจสีแดง</annotation>
-		<annotation cp="❤" type="tts">หัวใจสีแดง</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">ไฟไหม้หัวใจ</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">ไฟไหม้หัวใจ</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">หัวใจที่มีการซ่อมแซม</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">หัวใจที่มีการซ่อมแซม</annotation>
+		<annotation cp="❤">หัวใจ | หัวใจแดง | หัวใจสีแดง</annotation>
+		<annotation cp="❤" type="tts">หัวใจสีแดง</annotation>
 		<annotation cp="🧡">สีส้ม | หัวใจสีส้ม</annotation>
 		<annotation cp="🧡" type="tts">หัวใจสีส้ม</annotation>
 		<annotation cp="💛">หัวใจ | หัวใจสีเหลือง</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">ผู้ชาย</annotation>
 		<annotation cp="🧔">คน | ผู้ชาย | ผู้ชายมีเครา | มีเครา | หนวดเครา</annotation>
 		<annotation cp="🧔" type="tts">ผู้ชายมีเครา</annotation>
-		<annotation cp="👱‍♂">ผม | ผมทอง | ผู้ชาย | ผู้ชายผมทอง</annotation>
-		<annotation cp="👱‍♂" type="tts">ผู้ชายผมทอง</annotation>
-		<annotation cp="🧔‍♀">ผู้หญิง | ผู้หญิงมีเครา | มีเครา</annotation>
-		<annotation cp="🧔‍♀" type="tts">ผู้หญิงมีเครา</annotation>
 		<annotation cp="🧔‍♂">ชายมีเครา | ผู้ชาย | ผู้ชายมีเครา | มีเครา</annotation>
 		<annotation cp="🧔‍♂" type="tts">ชายมีเครา</annotation>
+		<annotation cp="👱‍♂">ผม | ผมทอง | ผู้ชาย | ผู้ชายผมทอง</annotation>
+		<annotation cp="👱‍♂" type="tts">ผู้ชายผมทอง</annotation>
 		<annotation cp="👩">คน | ผู้หญิง</annotation>
 		<annotation cp="👩" type="tts">ผู้หญิง</annotation>
+		<annotation cp="🧔‍♀">ผู้หญิง | ผู้หญิงมีเครา | มีเครา</annotation>
+		<annotation cp="🧔‍♀" type="tts">ผู้หญิงมีเครา</annotation>
 		<annotation cp="👱‍♀">ผม | ผมทอง | ผู้หญิง | ผู้หญิงผมทอง</annotation>
 		<annotation cp="👱‍♀" type="tts">ผู้หญิงผมทอง</annotation>
 		<annotation cp="🧓">แก่ | คนชรา | เป็นกลางทางเพศ | ผู้ใหญ่ | ไม่ระบุเพศ</annotation>

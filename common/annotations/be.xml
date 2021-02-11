@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -413,6 +413,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">закочвае вочы</annotation>
 		<annotation cp="😬">грымаса | перакошаны | скрыўлены | скрыўлены твар</annotation>
 		<annotation cp="😬" type="tts">скрыўлены твар</annotation>
+		<annotation cp="😮‍💨">выдых | палёгка | перахапіла дыханне | свіст | твар выдыхае | уздых | шэпт</annotation>
+		<annotation cp="😮‍💨" type="tts">твар выдыхае</annotation>
 		<annotation cp="🤥">пінокіа | твар | твар хлуса | хлусня</annotation>
 		<annotation cp="🤥" type="tts">твар хлуса</annotation>
 		<annotation cp="😌">адчувае палёгку | палёгка | як добра</annotation>
@@ -471,8 +473,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">засмучаны твар</annotation>
 		<annotation cp="😮">адкрыты | рот | спачуванне | твар з адкрытым ротам</annotation>
 		<annotation cp="😮" type="tts">твар з адкрытым ротам</annotation>
-		<annotation cp="😮‍💨">выдых | палёгка | перахапіла дыханне | свіст | твар выдыхае | уздых | шэпт</annotation>
-		<annotation cp="😮‍💨" type="tts">твар выдыхае</annotation>
 		<annotation cp="😯">ашаломлены | здзіўлены | змоўклы | твар</annotation>
 		<annotation cp="😯" type="tts">ашаломлены твар</annotation>
 		<annotation cp="😲">здзіўлены | здзіўлены твар | цалкам | шакіраваны</annotation>
@@ -591,12 +591,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">клічнік у форме сэрца</annotation>
 		<annotation cp="💔">разбітае | расчараванне | сэрца</annotation>
 		<annotation cp="💔" type="tts">разбітае сэрца</annotation>
-		<annotation cp="❤">сэрца | чырвонае сэрца</annotation>
-		<annotation cp="❤" type="tts">чырвонае сэрца</annotation>
 		<annotation cp="❤‍🔥">агонь | жаданне | каханне | святое сэрца | сэрца | сэрца ў агні</annotation>
 		<annotation cp="❤‍🔥" type="tts">сэрца ў агні</annotation>
 		<annotation cp="❤‍🩹">аднаўленне | выздараўленне | загойванне | лепей | паляпшэнне | папраўленне | сэрца загойваецца</annotation>
 		<annotation cp="❤‍🩹" type="tts">сэрца загойваецца</annotation>
+		<annotation cp="❤">сэрца | чырвонае сэрца</annotation>
+		<annotation cp="❤" type="tts">чырвонае сэрца</annotation>
 		<annotation cp="🧡">аранжавае сэрца | аранжавы</annotation>
 		<annotation cp="🧡" type="tts">аранжавае сэрца</annotation>
 		<annotation cp="💛">жоўтае сэрца | жоўты | сэрца</annotation>
@@ -759,14 +759,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">мужчына</annotation>
 		<annotation cp="🧔">барада | чалавек з барадой</annotation>
 		<annotation cp="🧔" type="tts">чалавек з барадой</annotation>
-		<annotation cp="👱‍♂">бландзін | бялявы | мужчына</annotation>
-		<annotation cp="👱‍♂" type="tts">бялявы мужчына</annotation>
-		<annotation cp="🧔‍♀">барада | жанчына | жанчына: барада</annotation>
-		<annotation cp="🧔‍♀" type="tts">жанчына: барада</annotation>
 		<annotation cp="🧔‍♂">барада | мужчына | мужчына: барада</annotation>
 		<annotation cp="🧔‍♂" type="tts">мужчына: барада</annotation>
+		<annotation cp="👱‍♂">бландзін | бялявы | мужчына</annotation>
+		<annotation cp="👱‍♂" type="tts">бялявы мужчына</annotation>
 		<annotation cp="👩">жанчына</annotation>
 		<annotation cp="👩" type="tts">жанчына</annotation>
+		<annotation cp="🧔‍♀">барада | жанчына | жанчына: барада</annotation>
+		<annotation cp="🧔‍♀" type="tts">жанчына: барада</annotation>
 		<annotation cp="👱‍♀">бландзінка | бялявая | жанчына</annotation>
 		<annotation cp="👱‍♀" type="tts">бялявая жанчына</annotation>
 		<annotation cp="🧓">няпэўнага полу | у гадах | чалавек сталага ўзросту</annotation>

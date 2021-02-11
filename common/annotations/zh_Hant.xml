@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -502,6 +502,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">翻白眼</annotation>
 		<annotation cp="😬">咬牙 | 咬牙切齒</annotation>
 		<annotation cp="😬" type="tts">咬牙</annotation>
+		<annotation cp="😮‍💨">倒抽一口氣 | 呻吟 | 鬆一口氣</annotation>
+		<annotation cp="😮‍💨" type="tts">鬆一口氣</annotation>
 		<annotation cp="🤥">小木偶 | 變 | 長 | 鼻 | 鼻子變長了</annotation>
 		<annotation cp="🤥" type="tts">鼻子變長了</annotation>
 		<annotation cp="😌">放鬆 | 鬆了口氣</annotation>
@@ -560,8 +562,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">不滿意</annotation>
 		<annotation cp="😮">啊 | 驚訝</annotation>
 		<annotation cp="😮" type="tts">驚訝</annotation>
-		<annotation cp="😮‍💨">倒抽一口氣 | 呻吟 | 鬆一口氣</annotation>
-		<annotation cp="😮‍💨" type="tts">鬆一口氣</annotation>
 		<annotation cp="😯">哦 | 驚訝</annotation>
 		<annotation cp="😯" type="tts">哦</annotation>
 		<annotation cp="😲">震驚 | 驚</annotation>
@@ -680,12 +680,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">心嘆號</annotation>
 		<annotation cp="💔">心碎 | 破碎的心</annotation>
 		<annotation cp="💔" type="tts">心碎</annotation>
-		<annotation cp="❤">心型 | 愛心</annotation>
-		<annotation cp="❤" type="tts">愛心</annotation>
 		<annotation cp="❤‍🔥">奉獻 | 心型 | 愛 | 慾望 | 火熱的心</annotation>
 		<annotation cp="❤‍🔥" type="tts">火熱的心</annotation>
 		<annotation cp="❤‍🩹">健康 | 恢復 | 療傷 | 療心</annotation>
 		<annotation cp="❤‍🩹" type="tts">療心</annotation>
+		<annotation cp="❤">心型 | 愛心</annotation>
+		<annotation cp="❤" type="tts">愛心</annotation>
 		<annotation cp="🧡">心型 | 橘心</annotation>
 		<annotation cp="🧡" type="tts">橘心</annotation>
 		<annotation cp="💛">心型 | 黃心</annotation>
@@ -848,14 +848,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">男人</annotation>
 		<annotation cp="🧔">蓄鬍的人</annotation>
 		<annotation cp="🧔" type="tts">蓄鬍的人</annotation>
-		<annotation cp="👱‍♂">男 | 金髮 | 金髮男</annotation>
-		<annotation cp="👱‍♂" type="tts">金髮男</annotation>
-		<annotation cp="🧔‍♀">女人 | 女人: 蓄鬍的人 | 鬍子</annotation>
-		<annotation cp="🧔‍♀" type="tts">女人: 蓄鬍的人</annotation>
 		<annotation cp="🧔‍♂">男人 | 男人: 蓄鬍的人 | 鬍子</annotation>
 		<annotation cp="🧔‍♂" type="tts">男人: 蓄鬍的人</annotation>
+		<annotation cp="👱‍♂">男 | 金髮 | 金髮男</annotation>
+		<annotation cp="👱‍♂" type="tts">金髮男</annotation>
 		<annotation cp="👩">女 | 女人 | 女性</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
+		<annotation cp="🧔‍♀">女人 | 女人: 蓄鬍的人 | 鬍子</annotation>
+		<annotation cp="🧔‍♀" type="tts">女人: 蓄鬍的人</annotation>
 		<annotation cp="👱‍♀">女 | 金髮 | 金髮女</annotation>
 		<annotation cp="👱‍♀" type="tts">金髮女</annotation>
 		<annotation cp="🧓">長者</annotation>

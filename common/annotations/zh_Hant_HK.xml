@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -463,6 +463,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">反白眼嘅表情</annotation>
 		<annotation cp="😬">依起棚牙 | 咬牙 | 咬牙切齒 | 繃緊</annotation>
 		<annotation cp="😬" type="tts">依起棚牙</annotation>
+		<annotation cp="😮‍💨" draft="contributed">↑↑↑</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🤥">講大話嘅表情 | 鼻子變長了</annotation>
 		<annotation cp="🤥" type="tts">↑↑↑</annotation>
 		<annotation cp="😌">放鬆 | 鬆了口氣</annotation>
@@ -521,8 +523,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">不滿意</annotation>
 		<annotation cp="😮">啊 | 擘大口嘅表情</annotation>
 		<annotation cp="😮" type="tts">擘大口嘅表情</annotation>
-		<annotation cp="😮‍💨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😯">哦 | 驚訝嘅表情</annotation>
 		<annotation cp="😯" type="tts">驚訝嘅表情</annotation>
 		<annotation cp="😲">震驚 | 驚</annotation>
@@ -641,12 +641,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">↑↑↑</annotation>
 		<annotation cp="💔">↑↑↑</annotation>
 		<annotation cp="💔" type="tts">↑↑↑</annotation>
-		<annotation cp="❤">↑↑↑</annotation>
-		<annotation cp="❤" type="tts">↑↑↑</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">↑↑↑</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">↑↑↑</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="❤">↑↑↑</annotation>
+		<annotation cp="❤" type="tts">↑↑↑</annotation>
 		<annotation cp="🧡">心型 | 橙心</annotation>
 		<annotation cp="🧡" type="tts">橙心</annotation>
 		<annotation cp="💛">↑↑↑</annotation>
@@ -809,14 +809,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">留鬚嘅人 | 鬍鬚 | 鬚</annotation>
 		<annotation cp="🧔" type="tts">留鬚嘅人</annotation>
-		<annotation cp="👱‍♂">男 | 金髮 | 金髮男人</annotation>
-		<annotation cp="👱‍♂" type="tts">金髮男人</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🧔‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🧔‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="👱‍♂">男 | 金髮 | 金髮男人</annotation>
+		<annotation cp="👱‍♂" type="tts">金髮男人</annotation>
 		<annotation cp="👩">↑↑↑</annotation>
 		<annotation cp="👩" type="tts">↑↑↑</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🧔‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="👱‍♀">女 | 金髮 | 金髮女人</annotation>
 		<annotation cp="👱‍♀" type="tts">金髮女人</annotation>
 		<annotation cp="🧓">老人家 | 老年人 | 長者</annotation>

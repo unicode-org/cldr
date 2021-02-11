@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -789,6 +789,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">itinitirik ang mga mata</annotation>
 		<annotation cp="😬">mukha | nagngingitngit | nagtitiis | nakangiwi | nandidiri | nasasaktan | ngiwi</annotation>
 		<annotation cp="😬" type="tts">nakangiwi</annotation>
+		<annotation cp="😮‍💨" draft="contributed">mukhang humihinga palabas</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">mukhang humihinga palabas</annotation>
 		<annotation cp="🤥">mukha | nagsisinungaling | pinocchio | sinungaling</annotation>
 		<annotation cp="🤥" type="tts">nagsisinungaling</annotation>
 		<annotation cp="😌">buntung-hininga | mukha | nakahinga nang maluwag | whew</annotation>
@@ -847,8 +849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">nakasimangot</annotation>
 		<annotation cp="😮">bibig | mukha | nabigla | nagulat | nakanganga</annotation>
 		<annotation cp="😮" type="tts">nakanganga</annotation>
-		<annotation cp="😮‍💨" draft="contributed">mukhang humihinga palabas</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">mukhang humihinga palabas</annotation>
 		<annotation cp="😯">mukha | naghihintay | nakanganga | tahimik | tahimik na naghihintay</annotation>
 		<annotation cp="😯" type="tts">tahimik na naghihintay</annotation>
 		<annotation cp="😲">gulat na gulat | mukha | nabigla | nagulat</annotation>
@@ -967,12 +967,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">malaking tandang padamdam na hugis-puso</annotation>
 		<annotation cp="💔">bigo | broken heart | durog na puso | pag-ibig | puso</annotation>
 		<annotation cp="💔" type="tts">durog na puso</annotation>
-		<annotation cp="❤">pag-ibig | pulang puso | puso</annotation>
-		<annotation cp="❤" type="tts">pulang puso</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">pusong nasa apoy</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">pusong nasa apoy</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">pag-ayos sa puso</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">pag-ayos sa puso</annotation>
+		<annotation cp="❤">pag-ibig | pulang puso | puso</annotation>
+		<annotation cp="❤" type="tts">pulang puso</annotation>
 		<annotation cp="🧡">dalandan | pusong dalandan</annotation>
 		<annotation cp="🧡" type="tts">pusong dalandan</annotation>
 		<annotation cp="💛">dilaw | dilaw na puso | puso</annotation>
@@ -1135,14 +1135,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">lalaki</annotation>
 		<annotation cp="🧔">balbas | lalaki: balbas | tao | taong may balbas</annotation>
 		<annotation cp="🧔" type="tts">taong may balbas</annotation>
-		<annotation cp="👱‍♂">blonde | lalaki | lalaking blonde</annotation>
-		<annotation cp="👱‍♂" type="tts">lalaking blonde</annotation>
-		<annotation cp="🧔‍♀">babae | babae: balbas | balbas</annotation>
-		<annotation cp="🧔‍♀" type="tts">babae: balbas</annotation>
 		<annotation cp="🧔‍♂">balbas | lalaki | lalaki: balbas</annotation>
 		<annotation cp="🧔‍♂" type="tts">lalaki: balbas</annotation>
+		<annotation cp="👱‍♂">blonde | lalaki | lalaking blonde</annotation>
+		<annotation cp="👱‍♂" type="tts">lalaking blonde</annotation>
 		<annotation cp="👩">babae | matanda</annotation>
 		<annotation cp="👩" type="tts">babae</annotation>
+		<annotation cp="🧔‍♀">babae | babae: balbas | balbas</annotation>
+		<annotation cp="🧔‍♀" type="tts">babae: balbas</annotation>
 		<annotation cp="👱‍♀">babae | babae: blond na buhok | babaeng blond ang buhok | blonde</annotation>
 		<annotation cp="👱‍♀" type="tts">babae: blond na buhok</annotation>
 		<annotation cp="🧓">hindi tinukoy na kasarian | kasarian-neutral | magulang | mas matandang tao | matanda</annotation>

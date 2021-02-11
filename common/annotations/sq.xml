@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -565,6 +565,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">fytyrë me sytë që rrotullohen</annotation>
 		<annotation cp="😬">e ngërdheshur | fytyrë | fytyrë e ngërdheshur</annotation>
 		<annotation cp="😬" type="tts">fytyrë e ngërdheshur</annotation>
+		<annotation cp="😮‍💨">fishkëllimë | fytyrë me shfryrje | lehtësim | psherëtimë | rënkim | shfryrje</annotation>
+		<annotation cp="😮‍💨" type="tts">fytyrë me shfryrje</annotation>
 		<annotation cp="🤥">fytyrë | fytyrë mashtrimi | gënjeshtar | mashtrim | pinok</annotation>
 		<annotation cp="🤥" type="tts">fytyrë mashtrimi</annotation>
 		<annotation cp="😌">e lehtësuar | fytyrë | fytyrë e lehtësuar</annotation>
@@ -623,8 +625,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">fytyrë e vrenjtur</annotation>
 		<annotation cp="😮">e hapur | fytyrë | fytyrë me gojën e hapur | gojë | simpati</annotation>
 		<annotation cp="😮" type="tts">fytyrë me gojën e hapur</annotation>
-		<annotation cp="😮‍💨">fishkëllimë | fytyrë me shfryrje | lehtësim | psherëtimë | rënkim | shfryrje</annotation>
-		<annotation cp="😮‍💨" type="tts">fytyrë me shfryrje</annotation>
 		<annotation cp="😯">e çuditur | e habitur | e heshtur | fytyrë | fytyrë e heshtur</annotation>
 		<annotation cp="😯" type="tts">fytyrë e heshtur</annotation>
 		<annotation cp="😲">e çuditur | e tronditur | fytyrë | fytyrë e çuditur | plotësisht</annotation>
@@ -743,12 +743,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">zbukurim i trashë me pikëçuditje me zemër</annotation>
 		<annotation cp="💔">e thyer | i thyer | thyej | zemër | zemër e thyer</annotation>
 		<annotation cp="💔" type="tts">zemër e thyer</annotation>
-		<annotation cp="❤">zemër | zemër e kuqe</annotation>
-		<annotation cp="❤" type="tts">zemër e kuqe</annotation>
 		<annotation cp="❤‍🔥">dashuri | djegie | epsh | zemër | zemër e shenjtë | zemër në flakë</annotation>
 		<annotation cp="❤‍🔥" type="tts">zemër në flakë</annotation>
 		<annotation cp="❤‍🩹">kurim | më shëndetshëm | mirë | përmirësim | rikuperim | shërim | zemër në shërim</annotation>
 		<annotation cp="❤‍🩹" type="tts">zemër në shërim</annotation>
+		<annotation cp="❤">zemër | zemër e kuqe</annotation>
+		<annotation cp="❤" type="tts">zemër e kuqe</annotation>
 		<annotation cp="🧡">portokalli | zemër ngjyrë portokalli</annotation>
 		<annotation cp="🧡" type="tts">zemër ngjyrë portokalli</annotation>
 		<annotation cp="💛">e verdhë | zemër | zemër e verdhë</annotation>
@@ -911,14 +911,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">burrë</annotation>
 		<annotation cp="🧔">mjekër | njëri me mjekër</annotation>
 		<annotation cp="🧔" type="tts">njëri me mjekër</annotation>
-		<annotation cp="👱‍♂">biond | burrë | mashkull</annotation>
-		<annotation cp="👱‍♂" type="tts">burrë biond</annotation>
-		<annotation cp="🧔‍♀">grua | grua: mjekër | mjekër</annotation>
-		<annotation cp="🧔‍♀" type="tts">grua: mjekër</annotation>
 		<annotation cp="🧔‍♂">burrë | burrë: mjekër | mjekër</annotation>
 		<annotation cp="🧔‍♂" type="tts">burrë: mjekër</annotation>
+		<annotation cp="👱‍♂">biond | burrë | mashkull</annotation>
+		<annotation cp="👱‍♂" type="tts">burrë biond</annotation>
 		<annotation cp="👩">femër | grua</annotation>
 		<annotation cp="👩" type="tts">grua</annotation>
+		<annotation cp="🧔‍♀">grua | grua: mjekër | mjekër</annotation>
+		<annotation cp="🧔‍♀" type="tts">grua: mjekër</annotation>
 		<annotation cp="👱‍♀">bionde | femër | grua</annotation>
 		<annotation cp="👱‍♀" type="tts">grua bionde</annotation>
 		<annotation cp="🧓">i ri | i rritur</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -437,6 +437,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">翻白眼</annotation>
 		<annotation cp="😬">咬牙切齿 | 脸 | 露齿 | 鬼脸 | 龇牙咧嘴</annotation>
 		<annotation cp="😬" type="tts">龇牙咧嘴</annotation>
+		<annotation cp="😮‍💨" draft="contributed">呼气</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">呼气</annotation>
 		<annotation cp="🤥">匹诺曹 | 脸 | 说谎 | 长鼻子</annotation>
 		<annotation cp="🤥" type="tts">说谎</annotation>
 		<annotation cp="😌">如释重负 | 松了口气 | 松口气 | 脸</annotation>
@@ -495,8 +497,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">不满</annotation>
 		<annotation cp="😮">吃惊 | 同情 | 啊 | 脸</annotation>
 		<annotation cp="😮" type="tts">吃惊</annotation>
-		<annotation cp="😮‍💨" draft="contributed">呼气</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">呼气</annotation>
 		<annotation cp="😯">吃惊 | 缄默 | 脸</annotation>
 		<annotation cp="😯" type="tts">缄默</annotation>
 		<annotation cp="😲">惊 | 惊讶 | 脸 | 震惊</annotation>
@@ -615,12 +615,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">心叹号</annotation>
 		<annotation cp="💔">伤心 | 心碎</annotation>
 		<annotation cp="💔" type="tts">心碎</annotation>
-		<annotation cp="❤">心 | 爱 | 红心</annotation>
-		<annotation cp="❤" type="tts">红心</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">火上之心</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">火上之心</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">修复受伤的心灵</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">修复受伤的心灵</annotation>
+		<annotation cp="❤">心 | 爱 | 红心</annotation>
+		<annotation cp="❤" type="tts">红心</annotation>
 		<annotation cp="🧡">橙 | 橙心</annotation>
 		<annotation cp="🧡" type="tts">橙心</annotation>
 		<annotation cp="💛">黄 | 黄心</annotation>
@@ -783,14 +783,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">男人</annotation>
 		<annotation cp="🧔">人 | 有胡子的人 | 男 | 络腮胡 | 胡子 | 胡须</annotation>
 		<annotation cp="🧔" type="tts">有胡子的人</annotation>
-		<annotation cp="👱‍♂">男 | 金发 | 金发男</annotation>
-		<annotation cp="👱‍♂" type="tts">金发男</annotation>
-		<annotation cp="🧔‍♀">女人 | 有络腮胡子的女人 | 胡子</annotation>
-		<annotation cp="🧔‍♀" type="tts">有络腮胡子的女人</annotation>
 		<annotation cp="🧔‍♂">有络腮胡子的男人 | 男人 | 胡子</annotation>
 		<annotation cp="🧔‍♂" type="tts">有络腮胡子的男人</annotation>
+		<annotation cp="👱‍♂">男 | 金发 | 金发男</annotation>
+		<annotation cp="👱‍♂" type="tts">金发男</annotation>
 		<annotation cp="👩">女 | 女人</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
+		<annotation cp="🧔‍♀">女人 | 有络腮胡子的女人 | 胡子</annotation>
+		<annotation cp="🧔‍♀" type="tts">有络腮胡子的女人</annotation>
 		<annotation cp="👱‍♀">女 | 金发 | 金发女</annotation>
 		<annotation cp="👱‍♀" type="tts">金发女</annotation>
 		<annotation cp="🧓">性别不明 | 性别中性 | 成人 | 老人 | 老年人</annotation>

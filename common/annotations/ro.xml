@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -513,6 +513,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">față care dă ochii peste cap</annotation>
 		<annotation cp="😬">față | față cu grimasă | grimasă</annotation>
 		<annotation cp="😬" type="tts">față cu grimasă</annotation>
+		<annotation cp="😮‍💨">expirare | față care expiră | fluierat | oftat | răsuflare | șoptit | ușurare</annotation>
+		<annotation cp="😮‍💨" type="tts">față care expiră</annotation>
 		<annotation cp="🤥">față | fața mincinoasă | minciună | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">fața mincinoasă</annotation>
 		<annotation cp="😌">față | față ușurată | relaxare | ușurare</annotation>
@@ -571,8 +573,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">față tristă</annotation>
 		<annotation cp="😮">față | față cu gura deschisă | gură deschisă | surpriză | uimire</annotation>
 		<annotation cp="😮" type="tts">față cu gura deschisă</annotation>
-		<annotation cp="😮‍💨">expirare | față care expiră | fluierat | oftat | răsuflare | șoptit | ușurare</annotation>
-		<annotation cp="😮‍💨" type="tts">față care expiră</annotation>
 		<annotation cp="😯">amuțit | față | față amuțită | surprins | uimit</annotation>
 		<annotation cp="😯" type="tts">față amuțită</annotation>
 		<annotation cp="😲">față | față uimită | șoc | uimire | uluire</annotation>
@@ -691,12 +691,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">semnul exclamării cu inimioară</annotation>
 		<annotation cp="💔">durere | inimă | inimă zdrobită</annotation>
 		<annotation cp="💔" type="tts">inimă zdrobită</annotation>
-		<annotation cp="❤">inimă | inimă roșie</annotation>
-		<annotation cp="❤" type="tts">inimă roșie</annotation>
 		<annotation cp="❤‍🔥">arde | dorință | inimă | inimă în flăcări | inimă sacră | iubire | pasiune</annotation>
 		<annotation cp="❤‍🔥" type="tts">inimă în flăcări</annotation>
 		<annotation cp="❤‍🩹">ameliorare | bine | inimă în convalescență | însănătoșire | mai sănătos | recuperare</annotation>
 		<annotation cp="❤‍🩹" type="tts">inimă în convalescență</annotation>
+		<annotation cp="❤">inimă | inimă roșie</annotation>
+		<annotation cp="❤" type="tts">inimă roșie</annotation>
 		<annotation cp="🧡">inimă | inimă portocalie | portocaliu</annotation>
 		<annotation cp="🧡" type="tts">inimă portocalie</annotation>
 		<annotation cp="💛">galben | inimă | inimă galbenă</annotation>
@@ -859,14 +859,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">bărbat</annotation>
 		<annotation cp="🧔">barbă | bărbat | bărbat cu barbă | persoană</annotation>
 		<annotation cp="🧔" type="tts">bărbat cu barbă</annotation>
-		<annotation cp="👱‍♂">bărbat | bărbat cu păr blond | blond | păr</annotation>
-		<annotation cp="👱‍♂" type="tts">bărbat blond</annotation>
-		<annotation cp="🧔‍♀">barbă | femeie | femeie: barbă</annotation>
-		<annotation cp="🧔‍♀" type="tts">femeie: barbă</annotation>
 		<annotation cp="🧔‍♂">barbă | bărbat | bărbat: barbă</annotation>
 		<annotation cp="🧔‍♂" type="tts">bărbat: barbă</annotation>
+		<annotation cp="👱‍♂">bărbat | bărbat cu păr blond | blond | păr</annotation>
+		<annotation cp="👱‍♂" type="tts">bărbat blond</annotation>
 		<annotation cp="👩">adultă | femeie</annotation>
 		<annotation cp="👩" type="tts">femeie</annotation>
+		<annotation cp="🧔‍♀">barbă | femeie | femeie: barbă</annotation>
+		<annotation cp="🧔‍♀" type="tts">femeie: barbă</annotation>
 		<annotation cp="👱‍♀">blondă | femeie | femeie cu păr blond | păr</annotation>
 		<annotation cp="👱‍♀" type="tts">femeie blondă</annotation>
 		<annotation cp="🧓">adult | bătrân | neutru | persoană în vârstă | vârstnic</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -463,6 +463,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">وجه بعينين تدوران</annotation>
 		<annotation cp="😬">عبوس | وجه متجهم</annotation>
 		<annotation cp="😬" type="tts">وجه متجهم</annotation>
+		<annotation cp="😮‍💨">راحة | زفير | صفير | همس | وجه يزفر الهواء | يتلهث</annotation>
+		<annotation cp="😮‍💨" type="tts">وجه يزفر الهواء</annotation>
 		<annotation cp="🤥">كذب | وجه | وجه كاذب</annotation>
 		<annotation cp="🤥" type="tts">وجه كاذب</annotation>
 		<annotation cp="😌">مطمئن | وجه مرتاح</annotation>
@@ -521,8 +523,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">وجه عابس</annotation>
 		<annotation cp="😮">فم مفتوح | وجه بفم مفتوح</annotation>
 		<annotation cp="😮" type="tts">وجه بفم مفتوح</annotation>
-		<annotation cp="😮‍💨">راحة | زفير | صفير | همس | وجه يزفر الهواء | يتلهث</annotation>
-		<annotation cp="😮‍💨" type="tts">وجه يزفر الهواء</annotation>
 		<annotation cp="😯">متفاجئ | مدهوش | مكتوم الصوت | وجه | وجه مخفوت الصوت</annotation>
 		<annotation cp="😯" type="tts">وجه مخفوت الصوت</annotation>
 		<annotation cp="😲">مصدوم | مندهش | مندهش تمامًا | وجه مندهش</annotation>
@@ -641,12 +641,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">قلب على شكل علامة تعجب</annotation>
 		<annotation cp="💔">انكسار | قلب | قلب مكسور | مشاعر</annotation>
 		<annotation cp="💔" type="tts">قلب مكسور</annotation>
-		<annotation cp="❤">قلب | قلب أحمر</annotation>
-		<annotation cp="❤" type="tts">قلب أحمر</annotation>
 		<annotation cp="❤‍🔥">القلب المقدس | حب | حريق | عشق | قلب | قلب يحترق</annotation>
 		<annotation cp="❤‍🔥" type="tts">قلب يحترق</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">قلب يتعافى</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">قلب يتعافى</annotation>
+		<annotation cp="❤">قلب | قلب أحمر</annotation>
+		<annotation cp="❤" type="tts">قلب أحمر</annotation>
 		<annotation cp="🧡">برتقالة | قلب برتقالي</annotation>
 		<annotation cp="🧡" type="tts">قلب برتقالي</annotation>
 		<annotation cp="💛">أصفر | قلب | مشاعر</annotation>
@@ -809,14 +809,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">رجل</annotation>
 		<annotation cp="🧔">شخص بلحية | شخص مع لحية</annotation>
 		<annotation cp="🧔" type="tts">شخص بلحية</annotation>
-		<annotation cp="👱‍♂">أشقر | رجل | رجل أشقر الشعر</annotation>
-		<annotation cp="👱‍♂" type="tts">رجل أشقر</annotation>
-		<annotation cp="🧔‍♀">امرأة | امرأة بلحية | امرأة مع لحية | لحية</annotation>
-		<annotation cp="🧔‍♀" type="tts">امرأة بلحية</annotation>
 		<annotation cp="🧔‍♂">رجل | رجل بلحية | رجل مع لحية | لحية</annotation>
 		<annotation cp="🧔‍♂" type="tts">رجل بلحية</annotation>
+		<annotation cp="👱‍♂">أشقر | رجل | رجل أشقر الشعر</annotation>
+		<annotation cp="👱‍♂" type="tts">رجل أشقر</annotation>
 		<annotation cp="👩">أنثى | أنسة | بالغة | سيدة | شخص | كبيرة</annotation>
 		<annotation cp="👩" type="tts">سيدة</annotation>
+		<annotation cp="🧔‍♀">امرأة | امرأة بلحية | امرأة مع لحية | لحية</annotation>
+		<annotation cp="🧔‍♀" type="tts">امرأة بلحية</annotation>
 		<annotation cp="👱‍♀">امرأة | امرأة شقراء الشعر | شقراء</annotation>
 		<annotation cp="👱‍♀" type="tts">امرأة شقراء</annotation>
 		<annotation cp="🧓">بالغ أكبر في السن | عجوز | كبير في السن</annotation>

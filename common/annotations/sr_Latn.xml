@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -430,6 +430,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">lice koje koluta očima</annotation>
 		<annotation cp="😬">grimasa | lice | lice sa grimasom</annotation>
 		<annotation cp="😬" type="tts">lice sa grimasom</annotation>
+		<annotation cp="😮‍💨" draft="contributed">lice izdiše</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">lice izdiše</annotation>
 		<annotation cp="🤥">laž | lažljivac | lica | nos | pinokio</annotation>
 		<annotation cp="🤥" type="tts">lažljivac</annotation>
 		<annotation cp="😌">lice | olakšanje | spokoj | spokojno lice</annotation>
@@ -488,8 +490,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">namršteno lice</annotation>
 		<annotation cp="😮">iznenađenje | lice | lice sa otvorenim ustima | otvoreno | saosećanje | usta</annotation>
 		<annotation cp="😮" type="tts">lice sa otvorenim ustima</annotation>
-		<annotation cp="😮‍💨" draft="contributed">lice izdiše</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">lice izdiše</annotation>
 		<annotation cp="😯">iznenađenje | iznenađeno lice | lice | ućutkano | zapanjeno</annotation>
 		<annotation cp="😯" type="tts">iznenađeno lice</annotation>
 		<annotation cp="😲">lice | šok | zapanjeno lice | zapanjenost</annotation>
@@ -608,12 +608,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">ukrasni uzvičnik u obliku velikog srca</annotation>
 		<annotation cp="💔">slomljeno | srce</annotation>
 		<annotation cp="💔" type="tts">slomljeno srce</annotation>
-		<annotation cp="❤">crveno srce | srce</annotation>
-		<annotation cp="❤" type="tts">crveno srce</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">zapaljeno srce</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">zapaljeno srce</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">ranjeno srce</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">ranjeno srce</annotation>
+		<annotation cp="❤">crveno srce | srce</annotation>
+		<annotation cp="❤" type="tts">crveno srce</annotation>
 		<annotation cp="🧡">narandžasto | srce</annotation>
 		<annotation cp="🧡" type="tts">narandžasto srce</annotation>
 		<annotation cp="💛">srce | žuto</annotation>
@@ -776,14 +776,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">muškarac</annotation>
 		<annotation cp="🧔">brada | osoba sa bradom</annotation>
 		<annotation cp="🧔" type="tts">osoba sa bradom</annotation>
-		<annotation cp="👱‍♂">muškarac | plav muškarac | plava kosa</annotation>
-		<annotation cp="👱‍♂" type="tts">plav muškarac</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">žena: brada</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">žena: brada</annotation>
 		<annotation cp="🧔‍♂">brada | čovek | čovek: brada | muškarac: brada</annotation>
 		<annotation cp="🧔‍♂" type="tts">muškarac: brada</annotation>
+		<annotation cp="👱‍♂">muškarac | plav muškarac | plava kosa</annotation>
+		<annotation cp="👱‍♂" type="tts">plav muškarac</annotation>
 		<annotation cp="👩">žena</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">žena: brada</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">žena: brada</annotation>
 		<annotation cp="👱‍♀">plava kosa | plavuša | žena</annotation>
 		<annotation cp="👱‍♀" type="tts">plavuša</annotation>
 		<annotation cp="🧓">neutralan pol | starija odrasla osoba | starost</annotation>

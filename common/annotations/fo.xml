@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -105,6 +105,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">andlit við rullandi eygum</annotation>
 		<annotation cp="😬">andlit | andlit ið vísur tenn | snerkja | tenn</annotation>
 		<annotation cp="😬" type="tts">andlit ið vísur tenn</annotation>
+		<annotation cp="😮‍💨">anda út | andlit andar út | bríksla | floyta | suffa</annotation>
+		<annotation cp="😮‍💨" type="tts">andlit andar út</annotation>
 		<annotation cp="🤥">andlit | andlit sum lýgur | lygn | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">andlit sum lýgur</annotation>
 		<annotation cp="😌">andlit | lætna</annotation>
@@ -163,8 +165,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">illbrýnt andlit</annotation>
 		<annotation cp="😮">andlit | andlit við opnum munni | munn | opin</annotation>
 		<annotation cp="😮" type="tts">andlit við opnum munni</annotation>
-		<annotation cp="😮‍💨">anda út | andlit andar út | bríksla | floyta | suffa</annotation>
-		<annotation cp="😮‍💨" type="tts">andlit andar út</annotation>
 		<annotation cp="😯">andlit | bilsi andlit | ovfari | undrandi</annotation>
 		<annotation cp="😯" type="tts">bilsi andlit</annotation>
 		<annotation cp="😲">andlit | bilsi | ovfari andlit | undrandi</annotation>
@@ -283,12 +283,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">hjarta rópitekn</annotation>
 		<annotation cp="💔">brotið | hjarta | sorgarbundin</annotation>
 		<annotation cp="💔" type="tts">brotið hjarta</annotation>
-		<annotation cp="❤">hjarta | reytt</annotation>
-		<annotation cp="❤" type="tts">reytt hjarta</annotation>
 		<annotation cp="❤‍🔥">brennur | girnd | hjarta | hjarta sum brennur | kærleiki</annotation>
 		<annotation cp="❤‍🔥" type="tts">hjarta sum brennur</annotation>
 		<annotation cp="❤‍🩹">hjarta | hjarta sum er lappa | lappa | umvæling</annotation>
 		<annotation cp="❤‍🩹" type="tts">hjarta sum er lappa</annotation>
+		<annotation cp="❤">hjarta | reytt</annotation>
+		<annotation cp="❤" type="tts">reytt hjarta</annotation>
 		<annotation cp="🧡">appilsingult | hjarta</annotation>
 		<annotation cp="🧡" type="tts">appilsingult hjarta</annotation>
 		<annotation cp="💛">gult | hjarta</annotation>
@@ -451,14 +451,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">maður</annotation>
 		<annotation cp="🧔">persónur | persónur við skeggi | skegg</annotation>
 		<annotation cp="🧔" type="tts">persónur við skeggi</annotation>
-		<annotation cp="👱‍♂">ljóshærdur | maður</annotation>
-		<annotation cp="👱‍♂" type="tts">ljóshærdur maður</annotation>
-		<annotation cp="🧔‍♀">kona | kona við skeggi | konufólk | kvinna | skegg</annotation>
-		<annotation cp="🧔‍♀" type="tts">kona við skeggi</annotation>
 		<annotation cp="🧔‍♂">maður | maður við skeggi | skegg</annotation>
 		<annotation cp="🧔‍♂" type="tts">maður við skeggi</annotation>
+		<annotation cp="👱‍♂">ljóshærdur | maður</annotation>
+		<annotation cp="👱‍♂" type="tts">ljóshærdur maður</annotation>
 		<annotation cp="👩">kona | konufólk | kvinna | vaksin</annotation>
 		<annotation cp="👩" type="tts">kona</annotation>
+		<annotation cp="🧔‍♀">kona | kona við skeggi | konufólk | kvinna | skegg</annotation>
+		<annotation cp="🧔‍♀" type="tts">kona við skeggi</annotation>
 		<annotation cp="👱‍♀">kona | kvinna | ljóshærd</annotation>
 		<annotation cp="👱‍♀" type="tts">ljóshærd kvinna</annotation>
 		<annotation cp="🧓">eldri | tilkomin</annotation>

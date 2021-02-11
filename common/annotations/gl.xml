@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -453,6 +453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">cara cos ollos en branco</annotation>
 		<annotation cp="😬">cara | cara apertando os dentes | dentes | nervios</annotation>
 		<annotation cp="😬" type="tts">cara apertando os dentes</annotation>
+		<annotation cp="😮‍💨">alivio | asubiar | bafexar | cara exhalando | folguexar | resollar | respirar</annotation>
+		<annotation cp="😮‍💨" type="tts">cara exhalando</annotation>
 		<annotation cp="🤥">cara de mentirán | mentirán | mentireiro | nariz | Pinocchio</annotation>
 		<annotation cp="🤥" type="tts">cara de mentirán</annotation>
 		<annotation cp="😌">alivio | cara | cara de alivio</annotation>
@@ -511,8 +513,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">cara moi triste</annotation>
 		<annotation cp="😮">boca aberta | cara | cara coa boca aberta</annotation>
 		<annotation cp="😮" type="tts">cara coa boca aberta</annotation>
-		<annotation cp="😮‍💨">alivio | asubiar | bafexar | cara exhalando | folguexar | resollar | respirar</annotation>
-		<annotation cp="😮‍💨" type="tts">cara exhalando</annotation>
 		<annotation cp="😯">cara estupefacta | estupefacto | pasmo</annotation>
 		<annotation cp="😯" type="tts">cara estupefacta</annotation>
 		<annotation cp="😲">abraiado | abraio | asombro | cara abraiada</annotation>
@@ -631,12 +631,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">exclamación en forma de corazón</annotation>
 		<annotation cp="💔">corazón | desamor | romper o corazón | roto</annotation>
 		<annotation cp="💔" type="tts">corazón roto</annotation>
-		<annotation cp="❤">amor | corazón</annotation>
-		<annotation cp="❤" type="tts">corazón</annotation>
 		<annotation cp="❤‍🔥">amor | chamas | corazón en chamas | desexo | luxuria | paixón</annotation>
 		<annotation cp="❤‍🔥" type="tts">corazón en chamas</annotation>
 		<annotation cp="❤‍🩹">corazón curándose | curar | desamor | mellorar | recuperación | sandar</annotation>
 		<annotation cp="❤‍🩹" type="tts">corazón curándose</annotation>
+		<annotation cp="❤">amor | corazón</annotation>
+		<annotation cp="❤" type="tts">corazón</annotation>
 		<annotation cp="🧡">corazón | laranxa</annotation>
 		<annotation cp="🧡" type="tts">corazón laranxa</annotation>
 		<annotation cp="💛">amarelo | corazón</annotation>
@@ -799,14 +799,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">home</annotation>
 		<annotation cp="🧔">barba | barbudo | persoa con barba</annotation>
 		<annotation cp="🧔" type="tts">persoa con barba</annotation>
-		<annotation cp="👱‍♂">home | loiro | louro</annotation>
-		<annotation cp="👱‍♂" type="tts">home louro</annotation>
-		<annotation cp="🧔‍♀">barba | barbuda | muller con barba</annotation>
-		<annotation cp="🧔‍♀" type="tts">muller con barba</annotation>
 		<annotation cp="🧔‍♂">barba | barbudo | home con barba</annotation>
 		<annotation cp="🧔‍♂" type="tts">home con barba</annotation>
+		<annotation cp="👱‍♂">home | loiro | louro</annotation>
+		<annotation cp="👱‍♂" type="tts">home louro</annotation>
 		<annotation cp="👩">adulta | muller</annotation>
 		<annotation cp="👩" type="tts">muller</annotation>
+		<annotation cp="🧔‍♀">barba | barbuda | muller con barba</annotation>
+		<annotation cp="🧔‍♀" type="tts">muller con barba</annotation>
 		<annotation cp="👱‍♀">loira | loura | muller</annotation>
 		<annotation cp="👱‍♀" type="tts">muller loura</annotation>
 		<annotation cp="🧓">ancián | persoa maior | vello | xénero neutro</annotation>

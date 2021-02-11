@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -113,6 +113,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">uya muyusqa ñawikunawan</annotation>
 		<annotation cp="😬">muesca | uya | uya muecaswan | uya muescaswan</annotation>
 		<annotation cp="😬" type="tts">uya muecaswan</annotation>
+		<annotation cp="😮‍💨">anchhiy | ansaqiy | jinchuy | llamsayay | samay | uya samachkan</annotation>
+		<annotation cp="😮‍💨" type="tts">uya samachkan</annotation>
 		<annotation cp="🤥">llullakusqa uya | llullakuy | pinocho | uya</annotation>
 		<annotation cp="🤥" type="tts">llullakusqa uya</annotation>
 		<annotation cp="😌">llamsayasqa | uya</annotation>
@@ -171,8 +173,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">sipʼusqa uya</annotation>
 		<annotation cp="😮">kichay | kʼacha | simi | uya | uya kichasqa simiwan</annotation>
 		<annotation cp="😮" type="tts">uya kichasqa simiwan</annotation>
-		<annotation cp="😮‍💨">anchhiy | ansaqiy | jinchuy | llamsayay | samay | uya samachkan</annotation>
-		<annotation cp="😮‍💨" type="tts">uya samachkan</annotation>
 		<annotation cp="😯">chʼin kasqa uya | kakka | manchachisqa | p’inqakusqa | uya</annotation>
 		<annotation cp="😯" type="tts">chʼin kasqa uya</annotation>
 		<annotation cp="😲">añasqa | chaqrusqa | llapan | uya</annotation>
@@ -291,12 +291,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">sunqu exclamasion</annotation>
 		<annotation cp="💔">pakasqa | pakasqa sunqu | pakay</annotation>
 		<annotation cp="💔" type="tts">pakasqa sunqu</annotation>
-		<annotation cp="❤">puka sunqu | sunqu</annotation>
-		<annotation cp="❤" type="tts">puka sunqu</annotation>
 		<annotation cp="❤‍🔥">munay | ñuqi | ruphay | sunqu | sunqu ninapi | wakʼa sunqu</annotation>
 		<annotation cp="❤‍🔥" type="tts">sunqu ninapi</annotation>
 		<annotation cp="❤‍🩹">allichachkan | allichasqa | allichasqa sunqu | allichay kay | allin | qhali kay | qhali kaynin</annotation>
 		<annotation cp="❤‍🩹" type="tts">allichasqa sunqu</annotation>
+		<annotation cp="❤">puka sunqu | sunqu</annotation>
+		<annotation cp="❤" type="tts">puka sunqu</annotation>
 		<annotation cp="🧡">willapi | willapi sunqu</annotation>
 		<annotation cp="🧡" type="tts">willapi sunqu</annotation>
 		<annotation cp="💛">qʼillu | qʼillu sunqu</annotation>
@@ -459,14 +459,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">tata</annotation>
 		<annotation cp="🧔">kʼaki | runa | runa: kʼaki</annotation>
 		<annotation cp="🧔" type="tts">runa: kʼaki</annotation>
-		<annotation cp="👱‍♂">chukcha | qʼillu | runa | runa: qillu chukcha | runa:qillu chukcha</annotation>
-		<annotation cp="👱‍♂" type="tts">runa: qillu chukcha</annotation>
-		<annotation cp="🧔‍♀">kʼaki | warmi | warmi: kʼaki</annotation>
-		<annotation cp="🧔‍♀" type="tts">warmi: kʼaki</annotation>
 		<annotation cp="🧔‍♂">kaki | runa | runa: kaki</annotation>
 		<annotation cp="🧔‍♂" type="tts">runa: kaki</annotation>
+		<annotation cp="👱‍♂">chukcha | qʼillu | runa | runa: qillu chukcha | runa:qillu chukcha</annotation>
+		<annotation cp="👱‍♂" type="tts">runa: qillu chukcha</annotation>
 		<annotation cp="👩">puriq runa | warmi</annotation>
 		<annotation cp="👩" type="tts">warmi</annotation>
+		<annotation cp="🧔‍♀">kʼaki | warmi | warmi: kʼaki</annotation>
+		<annotation cp="🧔‍♀" type="tts">warmi: kʼaki</annotation>
 		<annotation cp="👱‍♀">chukcha | qʼillo chukcha warmi | qʼillu | warmi | warmi: qʼillu chukcha</annotation>
 		<annotation cp="👱‍♀" type="tts">warmi: qʼillu chukcha</annotation>
 		<annotation cp="🧓">genero | genero neutral | hatun | mana akllasqa | ñawpa runa | puriq runa</annotation>

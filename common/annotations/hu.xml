@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -521,6 +521,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">szemét forgató arc</annotation>
 		<annotation cp="😬">arc | grimasz | grimaszoló arc</annotation>
 		<annotation cp="😬" type="tts">grimaszoló arc</annotation>
+		<annotation cp="😮‍💨" draft="contributed">levegőt kifújó arc</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">levegőt kifújó arc</annotation>
 		<annotation cp="🤥">arc | hazudik | hazudó | hazudós | pinokkió</annotation>
 		<annotation cp="🤥" type="tts">hazudó arc</annotation>
 		<annotation cp="😌">arc | megkönnyebbült</annotation>
@@ -579,8 +581,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">rosszalló arc</annotation>
 		<annotation cp="😮">arc | arc nyitott szájjal | csodálkozás | nyitott száj</annotation>
 		<annotation cp="😮" type="tts">arc nyitott szájjal</annotation>
-		<annotation cp="😮‍💨" draft="contributed">levegőt kifújó arc</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">levegőt kifújó arc</annotation>
 		<annotation cp="😯">arc | döbbent | meglepett | meglepődött</annotation>
 		<annotation cp="😯" type="tts">meglepődött arc</annotation>
 		<annotation cp="😲">arc | csodálkozó | lenyűgözött</annotation>
@@ -699,12 +699,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">nagy szív alakú felkiáltójel</annotation>
 		<annotation cp="💔">összetört | szív</annotation>
 		<annotation cp="💔" type="tts">összetört szív</annotation>
-		<annotation cp="❤">piros | szív | vörös szív</annotation>
-		<annotation cp="❤" type="tts">vörös szív</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">égő | lángoló | szerelem | szív | vágy</annotation>
 		<annotation cp="❤‍🔥" type="tts">lángoló szív</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">gyógyuló szív</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">gyógyuló szív</annotation>
+		<annotation cp="❤">piros | szív | vörös szív</annotation>
+		<annotation cp="❤" type="tts">vörös szív</annotation>
 		<annotation cp="🧡">narancssárga | narancssárga szív</annotation>
 		<annotation cp="🧡" type="tts">narancssárga szív</annotation>
 		<annotation cp="💛">sárga | szív</annotation>
@@ -867,14 +867,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">férfi</annotation>
 		<annotation cp="🧔">szakáll | szakállas ember</annotation>
 		<annotation cp="🧔" type="tts">szakállas ember</annotation>
-		<annotation cp="👱‍♂">férfi | szőke</annotation>
-		<annotation cp="👱‍♂" type="tts">szőke férfi</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">nő: szakáll</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">nő: szakáll</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">férfi: szakáll</annotation>
 		<annotation cp="🧔‍♂" type="tts" draft="contributed">férfi: szakáll</annotation>
+		<annotation cp="👱‍♂">férfi | szőke</annotation>
+		<annotation cp="👱‍♂" type="tts">szőke férfi</annotation>
 		<annotation cp="👩">nő</annotation>
 		<annotation cp="👩" type="tts">nő</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">nő: szakáll</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">nő: szakáll</annotation>
 		<annotation cp="👱‍♀">nő | szőke</annotation>
 		<annotation cp="👱‍♀" type="tts">szőke nő</annotation>
 		<annotation cp="🧓">idős | idősebb felnőtt | nemi szempontból semleges</annotation>

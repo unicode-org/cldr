@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -491,6 +491,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">פרצוף מגלגל עיניים</annotation>
 		<annotation cp="😬">חיוך | מחייך | פרצוף | פרצוף עם חיוך מלא שיניים | שיניים</annotation>
 		<annotation cp="😬" type="tts">פרצוף עם חיוך מלא שיניים</annotation>
+		<annotation cp="😮‍💨">הפתעה | לוחש | משתנק | מתנשם | נושף | פרצוף נושף</annotation>
+		<annotation cp="😮‍💨" type="tts">פרצוף נושף</annotation>
 		<annotation cp="🤥">אף ארוך | פינוקיו | פרצוף עם אף פינוקיו | שקר | שקרן</annotation>
 		<annotation cp="🤥" type="tts">פרצוף עם אף פינוקיו</annotation>
 		<annotation cp="😌">הקלה | מחייך | עיניים | עצומות | פרצוף | פרצוף של אנחת רווחה | רגוע</annotation>
@@ -549,8 +551,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">פרצוף עצוב</annotation>
 		<annotation cp="😮">פה | פרצוף | פרצוף עם פה פתוח | פתוח</annotation>
 		<annotation cp="😮" type="tts">פרצוף עם פה פתוח</annotation>
-		<annotation cp="😮‍💨">הפתעה | לוחש | משתנק | מתנשם | נושף | פרצוף נושף</annotation>
-		<annotation cp="😮‍💨" type="tts">פרצוף נושף</annotation>
 		<annotation cp="😯">המום | מופתע | פרצוף</annotation>
 		<annotation cp="😯" type="tts">פרצוף מופתע</annotation>
 		<annotation cp="😲">המום | נדהם | פה | פרצוף | פתוח</annotation>
@@ -669,12 +669,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">סימן קריאה בצורת לב</annotation>
 		<annotation cp="💔">אכזבה | לב | שבור</annotation>
 		<annotation cp="💔" type="tts">לב שבור</annotation>
-		<annotation cp="❤">אדום | לב</annotation>
-		<annotation cp="❤" type="tts">לב אדום</annotation>
 		<annotation cp="❤‍🔥">לב | לב בלהבות | עולה באש | שורף | תשוקה</annotation>
 		<annotation cp="❤‍🔥" type="tts">לב בלהבות</annotation>
 		<annotation cp="❤‍🩹">בריא יותר | לב שמשתקם | מחלים | משתפר | נרפא</annotation>
 		<annotation cp="❤‍🩹" type="tts">לב שמשתקם</annotation>
+		<annotation cp="❤">אדום | לב</annotation>
+		<annotation cp="❤" type="tts">לב אדום</annotation>
 		<annotation cp="🧡">כתום | לב כתום</annotation>
 		<annotation cp="🧡" type="tts">לב כתום</annotation>
 		<annotation cp="💛">לב | צהוב</annotation>
@@ -837,14 +837,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">איש</annotation>
 		<annotation cp="🧔">אדם מזוקן | זקן | מזוקן</annotation>
 		<annotation cp="🧔" type="tts">אדם מזוקן</annotation>
-		<annotation cp="👱‍♂">איש | בלונדיני | גבר</annotation>
-		<annotation cp="👱‍♂" type="tts">בלונדיני</annotation>
-		<annotation cp="🧔‍♀">אישה עם זקן | אישה, זקן, אישה עם זקן</annotation>
-		<annotation cp="🧔‍♀" type="tts">אישה עם זקן</annotation>
 		<annotation cp="🧔‍♂">גבר עם זקן | גבר, זקן, גבר עם זקן</annotation>
 		<annotation cp="🧔‍♂" type="tts">גבר עם זקן</annotation>
+		<annotation cp="👱‍♂">איש | בלונדיני | גבר</annotation>
+		<annotation cp="👱‍♂" type="tts">בלונדיני</annotation>
 		<annotation cp="👩">אישה | בחורה | בת</annotation>
 		<annotation cp="👩" type="tts">אישה</annotation>
+		<annotation cp="🧔‍♀">אישה עם זקן | אישה, זקן, אישה עם זקן</annotation>
+		<annotation cp="🧔‍♀" type="tts">אישה עם זקן</annotation>
 		<annotation cp="👱‍♀">אישה | בלונדינית</annotation>
 		<annotation cp="👱‍♀" type="tts">בלונדינית</annotation>
 		<annotation cp="🧓">איש מבוגר | מבוגר | מבוגרת | מגדר נייטרלי</annotation>

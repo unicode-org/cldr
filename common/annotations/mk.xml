@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -503,6 +503,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">лице што превртува очи</annotation>
 		<annotation cp="😬">гримаса | лице | лице со гримаса</annotation>
 		<annotation cp="😬" type="tts">лице со гримаса</annotation>
+		<annotation cp="😮‍💨">восклик | издишување | лице издишува | олеснување | свиркање | стенкање | шепот</annotation>
+		<annotation cp="😮‍💨" type="tts">лице издишува</annotation>
 		<annotation cp="🤥">лаже | лажење | лице | пинокио</annotation>
 		<annotation cp="🤥" type="tts">лажење</annotation>
 		<annotation cp="😌">лице | лице со олеснување | олеснување</annotation>
@@ -561,8 +563,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">намуртено лице</annotation>
 		<annotation cp="😮">лице | лице со отворена уста | отворена | уста</annotation>
 		<annotation cp="😮" type="tts">лице со отворена уста</annotation>
-		<annotation cp="😮‍💨">восклик | издишување | лице издишува | олеснување | свиркање | стенкање | шепот</annotation>
-		<annotation cp="😮‍💨" type="tts">лице издишува</annotation>
 		<annotation cp="😯">замолчено | зачудено | изненадено | лице</annotation>
 		<annotation cp="😯" type="tts">замолчено лице</annotation>
 		<annotation cp="😲">вчудовидено лице | вчудоневидено | лице | шокирано</annotation>
@@ -681,12 +681,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">извичник во вид на срце</annotation>
 		<annotation cp="💔">крши | скршено | срце</annotation>
 		<annotation cp="💔" type="tts">скршено срце</annotation>
-		<annotation cp="❤">срце | црвено</annotation>
-		<annotation cp="❤" type="tts">црвено срце</annotation>
 		<annotation cp="❤‍🔥">гори | запалено срце | љубов | свето срце | сладострастие | срце</annotation>
 		<annotation cp="❤‍🔥" type="tts">запалено срце</annotation>
 		<annotation cp="❤‍🩹">добро | закрепнува | залечено срце | поздраво | се залекува | се подобрува</annotation>
 		<annotation cp="❤‍🩹" type="tts">залечено срце</annotation>
+		<annotation cp="❤">срце | црвено</annotation>
+		<annotation cp="❤" type="tts">црвено срце</annotation>
 		<annotation cp="🧡">портокал | портокалово срце</annotation>
 		<annotation cp="🧡" type="tts">портокалово срце</annotation>
 		<annotation cp="💛">жолто | срце</annotation>
@@ -849,14 +849,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">маж</annotation>
 		<annotation cp="🧔">брада | забраден човек</annotation>
 		<annotation cp="🧔" type="tts">забраден човек</annotation>
-		<annotation cp="👱‍♂">маж | руса коса | русокос маж</annotation>
-		<annotation cp="👱‍♂" type="tts">русокос маж</annotation>
-		<annotation cp="🧔‍♀">брада | жена | жена: брада</annotation>
-		<annotation cp="🧔‍♀" type="tts">жена: брада</annotation>
 		<annotation cp="🧔‍♂">брада | маж | маж: брада</annotation>
 		<annotation cp="🧔‍♂" type="tts">маж: брада</annotation>
+		<annotation cp="👱‍♂">маж | руса коса | русокос маж</annotation>
+		<annotation cp="👱‍♂" type="tts">русокос маж</annotation>
 		<annotation cp="👩">жена | женско</annotation>
 		<annotation cp="👩" type="tts">жена</annotation>
+		<annotation cp="🧔‍♀">брада | жена | жена: брада</annotation>
+		<annotation cp="🧔‍♀" type="tts">жена: брада</annotation>
 		<annotation cp="👱‍♀">жена | руса коса | русокоса жена</annotation>
 		<annotation cp="👱‍♀" type="tts">русокоса жена</annotation>
 		<annotation cp="🧓">пол-неутрален | постаро возрасно лице | старо</annotation>

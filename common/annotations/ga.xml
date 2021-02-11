@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -483,6 +483,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">straoiseog le súile ag casadh</annotation>
 		<annotation cp="😬">aghaidh | grainc | straoiseog le cár uirthi</annotation>
 		<annotation cp="😬" type="tts">straoiseog le cár uirthi</annotation>
+		<annotation cp="😮‍💨">aghaidh ag análú | anáil | cnead | cogar | faoiseamh | ochlán | séideadh</annotation>
+		<annotation cp="😮‍💨" type="tts">aghaidh ag análú</annotation>
 		<annotation cp="🤥">aghaidh | bréaga | pinocchio | straoiseog ag insint bréag</annotation>
 		<annotation cp="🤥" type="tts">straoiseog ag insint bréag</annotation>
 		<annotation cp="😌">aghaidh | faoiseamh | straoiseog a bhfuil faoiseamh uirthi</annotation>
@@ -541,8 +543,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">straoiseog le grainc uirthi</annotation>
 		<annotation cp="😮">béal ar oscailt | straoiseog le béal oscailte</annotation>
 		<annotation cp="😮" type="tts">straoiseog le béal oscailte</annotation>
-		<annotation cp="😮‍💨">aghaidh ag análú | anáil | cnead | cogar | faoiseamh | ochlán | séideadh</annotation>
-		<annotation cp="😮‍💨" type="tts">aghaidh ag análú</annotation>
 		<annotation cp="😯">ionadh | iontas | straoiseog ina tost | straoiseog thostach</annotation>
 		<annotation cp="😯" type="tts">straoiseog ina tost</annotation>
 		<annotation cp="😲">ionadh | iontas | straoiseog iontais</annotation>
@@ -661,12 +661,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">comhartha uaillbhreasa croí</annotation>
 		<annotation cp="💔">brón | croí | croíbhriste</annotation>
 		<annotation cp="💔" type="tts">croíbhriste</annotation>
-		<annotation cp="❤">croí | croí dearg</annotation>
-		<annotation cp="❤" type="tts">croí dearg</annotation>
 		<annotation cp="❤‍🔥">croí | croí naofa | croí trí thine | dó | drúis | grá</annotation>
 		<annotation cp="❤‍🔥" type="tts">croí trí thine</annotation>
 		<annotation cp="❤‍🩹">ag feabhsú | ag teacht ar ais chugat féin | croí deisithe | go maith | níos sláintiúla</annotation>
 		<annotation cp="❤‍🩹" type="tts">croí deisithe</annotation>
+		<annotation cp="❤">croí | croí dearg</annotation>
+		<annotation cp="❤" type="tts">croí dearg</annotation>
 		<annotation cp="🧡">croí | flannbhuí | oráiste</annotation>
 		<annotation cp="🧡" type="tts">croí flannbhuí</annotation>
 		<annotation cp="💛">croí | croí buí</annotation>
@@ -829,14 +829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">fear</annotation>
 		<annotation cp="🧔">duine | duine: feasóg | fear | fear: feasóg | feasóg</annotation>
 		<annotation cp="🧔" type="tts">duine: feasóg</annotation>
-		<annotation cp="👱‍♂">fear | fear: gruaig fhionn | fearr le gruaig fhionn | fionn | gruaig</annotation>
-		<annotation cp="👱‍♂" type="tts">fear: gruaig fhionn</annotation>
-		<annotation cp="🧔‍♀">bean | bean: feasóg | feasóg</annotation>
-		<annotation cp="🧔‍♀" type="tts">bean: feasóg</annotation>
 		<annotation cp="🧔‍♂">fear | fear: feasóg | feasóg</annotation>
 		<annotation cp="🧔‍♂" type="tts">fear: feasóg</annotation>
+		<annotation cp="👱‍♂">fear | fear: gruaig fhionn | fearr le gruaig fhionn | fionn | gruaig</annotation>
+		<annotation cp="👱‍♂" type="tts">fear: gruaig fhionn</annotation>
 		<annotation cp="👩">bean</annotation>
 		<annotation cp="👩" type="tts">bean</annotation>
+		<annotation cp="🧔‍♀">bean | bean: feasóg | feasóg</annotation>
+		<annotation cp="🧔‍♀" type="tts">bean: feasóg</annotation>
 		<annotation cp="👱‍♀">bean | bean le gruaig fhionn | bean: gruaig fhionn | duine</annotation>
 		<annotation cp="👱‍♀" type="tts">bean: gruaig fhionn</annotation>
 		<annotation cp="🧓">neodrach ó thaobh inscne de | sean | seanduine</annotation>

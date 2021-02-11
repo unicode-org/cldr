@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">պտտվող աչքերով դեմք</annotation>
 		<annotation cp="😬">դեմք | ծամածռություն | ծամածռվող դեմք</annotation>
 		<annotation cp="😬" type="tts">ծամածռվող դեմք</annotation>
+		<annotation cp="😮‍💨">արտաշնչել | արտաշնչող դեմք | թեթևություն | հևալ | հևոց | հոգոց</annotation>
+		<annotation cp="😮‍💨" type="tts">արտաշնչող դեմք</annotation>
 		<annotation cp="🤥">դեմք | խաբող դեմք | պինոկիո | սուտ</annotation>
 		<annotation cp="🤥" type="tts">խաբող դեմք</annotation>
 		<annotation cp="😌">դեմք | թեթևացած</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">խոժոռված դեմք</annotation>
 		<annotation cp="😮">բաց | բաց բերանով դեմք | բերան | դեմք | համակրանք</annotation>
 		<annotation cp="😮" type="tts">բաց բերանով դեմք</annotation>
-		<annotation cp="😮‍💨">արտաշնչել | արտաշնչող դեմք | թեթևություն | հևալ | հևոց | հոգոց</annotation>
-		<annotation cp="😮‍💨" type="tts">արտաշնչող դեմք</annotation>
 		<annotation cp="😯">ապշած | դեմք | զարմացած | սաստված</annotation>
 		<annotation cp="😯" type="tts">սաստված դեմք</annotation>
 		<annotation cp="😲">ամբողջովին | ապշահար | դեմք | ցնցված</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">բացականչական նշանի տեսքով սիրտ</annotation>
 		<annotation cp="💔">կոտրել | կոտրված | սիրտ</annotation>
 		<annotation cp="💔" type="tts">կոտրված սիրտ</annotation>
-		<annotation cp="❤">կարմիր | սիրտ</annotation>
-		<annotation cp="❤" type="tts">կարմիր սիրտ</annotation>
 		<annotation cp="❤‍🔥">այրոց | այրվող սիրտ | կիրք | կրակ | սեր | սիրտ</annotation>
 		<annotation cp="❤‍🔥" type="tts">այրվող սիրտ</annotation>
 		<annotation cp="❤‍🩹">առողջ | բարելավում | լավանալ | լավացող սիրտ | սիրտ</annotation>
 		<annotation cp="❤‍🩹" type="tts">լավացող սիրտ</annotation>
+		<annotation cp="❤">կարմիր | սիրտ</annotation>
+		<annotation cp="❤" type="tts">կարմիր սիրտ</annotation>
 		<annotation cp="🧡">նարնջագույն | սիրտ</annotation>
 		<annotation cp="🧡" type="tts">նարնջագույն սիրտ</annotation>
 		<annotation cp="💛">դեղին | սիրտ</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">տղամարդ</annotation>
 		<annotation cp="🧔">մորուք | մորուքով մարդ</annotation>
 		<annotation cp="🧔" type="tts">մորուքով մարդ</annotation>
-		<annotation cp="👱‍♂">շեկ | շիկահեր | տղամարդ</annotation>
-		<annotation cp="👱‍♂" type="tts">շիկահեր տղամարդ</annotation>
-		<annotation cp="🧔‍♀">կին | մորուք | մորուքավոր | մորուքով կին</annotation>
-		<annotation cp="🧔‍♀" type="tts">մորուքավոր կին</annotation>
 		<annotation cp="🧔‍♂">մորուք | մորուքավոր | մորուքով տղամարդ | տղամարդ</annotation>
 		<annotation cp="🧔‍♂" type="tts">մորուքավոր տղամարդ</annotation>
+		<annotation cp="👱‍♂">շեկ | շիկահեր | տղամարդ</annotation>
+		<annotation cp="👱‍♂" type="tts">շիկահեր տղամարդ</annotation>
 		<annotation cp="👩">կին</annotation>
 		<annotation cp="👩" type="tts">կին</annotation>
+		<annotation cp="🧔‍♀">կին | մորուք | մորուքավոր | մորուքով կին</annotation>
+		<annotation cp="🧔‍♀" type="tts">մորուքավոր կին</annotation>
 		<annotation cp="👱‍♀">կին | մազեր | շեկ | շիկահեր | վարսեր</annotation>
 		<annotation cp="👱‍♀" type="tts">շիկահեր կին</annotation>
 		<annotation cp="🧓">ծեր | չեզոք սեռ | տարեց | տարեց մարդ</annotation>

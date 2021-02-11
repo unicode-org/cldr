@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -257,6 +257,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">waji indho wareegayo leh</annotation>
 		<annotation cp="😬">naxdin | waji | waji naxdin leh</annotation>
 		<annotation cp="😬" type="tts">waji naxdin leh</annotation>
+		<annotation cp="😮‍💨">foodhyid | hawo qadasho | nafisid | neefsasho | taah | waji afka kala qaday | xanshaashaq</annotation>
+		<annotation cp="😮‍💨" type="tts">waji afka kala qaday</annotation>
 		<annotation cp="🤥">jiif | qashin | waji | waji jiifo</annotation>
 		<annotation cp="🤥" type="tts">waji jiifo</annotation>
 		<annotation cp="😌">caawin | waji | waji niyad jabn</annotation>
@@ -315,8 +317,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">waji macbuus</annotation>
 		<annotation cp="😮">af | furan | naxariis | waji | waji af furan leh</annotation>
 		<annotation cp="😮" type="tts">waji af furan leh</annotation>
-		<annotation cp="😮‍💨">foodhyid | hawo qadasho | nafisid | neefsasho | taah | waji afka kala qaday | xanshaashaq</annotation>
-		<annotation cp="😮‍💨" type="tts">waji afka kala qaday</annotation>
 		<annotation cp="😯">la yaabay | nadiif ah | waji | waji iftiimaayo</annotation>
 		<annotation cp="😯" type="tts">waji iftiimaayo</annotation>
 		<annotation cp="😲">amkaag | guud ahaan | la yaab | waji | waji amakaagsan</annotation>
@@ -435,12 +435,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">claamad ujeedka wadnaha</annotation>
 		<annotation cp="💔">jabay | jabis | wadno jaban</annotation>
 		<annotation cp="💔" type="tts">wadno jaban</annotation>
-		<annotation cp="❤">wadno | wadno cas</annotation>
-		<annotation cp="❤" type="tts">wadno cas</annotation>
 		<annotation cp="❤‍🔥">gubasho | jacayl | lahasho | wadne | wadne ololaya | wadne xurmaysan</annotation>
 		<annotation cp="❤‍🔥" type="tts">wadne ololaya</annotation>
 		<annotation cp="❤‍🩹">caafimad qaba | fiican | karan | soo boqsanaya | soo kabanaya | wadne dhaawacan</annotation>
 		<annotation cp="❤‍🩹" type="tts">wadne dhaawacan</annotation>
+		<annotation cp="❤">wadno | wadno cas</annotation>
+		<annotation cp="❤" type="tts">wadno cas</annotation>
 		<annotation cp="🧡">oranji | wadno oranji ah</annotation>
 		<annotation cp="🧡" type="tts">wadno oranji ah</annotation>
 		<annotation cp="💛">jaalle | wadno jaalle ah</annotation>
@@ -603,14 +603,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">ninka</annotation>
 		<annotation cp="🧔">gar | nin | nin: gar | qof</annotation>
 		<annotation cp="🧔" type="tts">nin: gar</annotation>
-		<annotation cp="👱‍♂">nin | nin timo cad | nin: timo cad | timo | timo cad</annotation>
-		<annotation cp="👱‍♂" type="tts">nin: timo cad</annotation>
-		<annotation cp="🧔‍♀">gabadh | gabadh: gadh | gadh</annotation>
-		<annotation cp="🧔‍♀" type="tts">gabadh: gadh</annotation>
 		<annotation cp="🧔‍♂">gadh | nin | nin: gadh</annotation>
 		<annotation cp="🧔‍♂" type="tts">nin: gadh</annotation>
+		<annotation cp="👱‍♂">nin | nin timo cad | nin: timo cad | timo | timo cad</annotation>
+		<annotation cp="👱‍♂" type="tts">nin: timo cad</annotation>
 		<annotation cp="👩">naag | qof weyn</annotation>
 		<annotation cp="👩" type="tts">naag</annotation>
+		<annotation cp="🧔‍♀">gabadh | gabadh: gadh | gadh</annotation>
+		<annotation cp="🧔‍♀" type="tts">gabadh: gadh</annotation>
 		<annotation cp="👱‍♀">naag | naag timo cad | naag: timo cad | timo | timo cad</annotation>
 		<annotation cp="👱‍♀" type="tts">naag: timo cad</annotation>
 		<annotation cp="🧓">dhexdehexaadnimada jinsiga | jansiga aan la sheegin | qof weyn | weyn</annotation>

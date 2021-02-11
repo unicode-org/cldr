@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -465,6 +465,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">cara revoleando los ojos</annotation>
 		<annotation cp="😬">cara | cara haciendo una mueca</annotation>
 		<annotation cp="😬" type="tts">↑↑↑</annotation>
+		<annotation cp="😮‍💨">↑↑↑</annotation>
+		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="🤥">cara | cara de mentiroso | mentira | nariz | pinocho</annotation>
 		<annotation cp="🤥" type="tts">↑↑↑</annotation>
 		<annotation cp="😌">aliviado | alivio | cara | cara de alivio</annotation>
@@ -523,8 +525,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">↑↑↑</annotation>
 		<annotation cp="😮">abierta | boca | cara | cara con boca abierta | empatía | sorpresa</annotation>
 		<annotation cp="😮" type="tts">cara con boca abierta</annotation>
-		<annotation cp="😮‍💨">↑↑↑</annotation>
-		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="😯">cara | cara estupefacta | sorprendido | sorpresa</annotation>
 		<annotation cp="😯" type="tts">↑↑↑</annotation>
 		<annotation cp="😲">asombro | cara | cara asombrada | horrorizado | sorprendido</annotation>
@@ -643,12 +643,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">exclamación con forma de corazón</annotation>
 		<annotation cp="💔">corazón roto</annotation>
 		<annotation cp="💔" type="tts">corazón roto</annotation>
-		<annotation cp="❤">corazón rojo</annotation>
-		<annotation cp="❤" type="tts">corazón rojo</annotation>
 		<annotation cp="❤‍🔥">↑↑↑</annotation>
 		<annotation cp="❤‍🔥" type="tts">↑↑↑</annotation>
 		<annotation cp="❤‍🩹">↑↑↑</annotation>
 		<annotation cp="❤‍🩹" type="tts">↑↑↑</annotation>
+		<annotation cp="❤">corazón rojo</annotation>
+		<annotation cp="❤" type="tts">corazón rojo</annotation>
 		<annotation cp="🧡">↑↑↑</annotation>
 		<annotation cp="🧡" type="tts">↑↑↑</annotation>
 		<annotation cp="💛">corazón amarillo</annotation>
@@ -811,14 +811,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">↑↑↑</annotation>
 		<annotation cp="🧔" type="tts">↑↑↑</annotation>
-		<annotation cp="👱‍♂">↑↑↑</annotation>
-		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
-		<annotation cp="🧔‍♀">barba | mujer | mujer: barba</annotation>
-		<annotation cp="🧔‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔‍♂">barba | hombre: barba</annotation>
 		<annotation cp="🧔‍♂" type="tts">hombre: barba</annotation>
+		<annotation cp="👱‍♂">↑↑↑</annotation>
+		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="👩">cara | mujer | persona | señora</annotation>
 		<annotation cp="👩" type="tts">↑↑↑</annotation>
+		<annotation cp="🧔‍♀">barba | mujer | mujer: barba</annotation>
+		<annotation cp="🧔‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="👱‍♀">↑↑↑</annotation>
 		<annotation cp="👱‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧓">adulto mayor | género | maduro | mayor | neutro | persona adulta madura</annotation>

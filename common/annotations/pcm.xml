@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -333,6 +333,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">Fes De Tọ́n Im Ai-dẹm</annotation>
 		<annotation cp="😬">Fes | Ọ́glí Fes Wé Sọ́mtin De Pen | To Skíz Yọ Fes</annotation>
 		<annotation cp="😬" type="tts">Ọ́glí Fes Wé Sọ́mtin De Pen</annotation>
+		<annotation cp="😮‍💨">Brít Ea Kọmọt | Fes Wé De Brít Ea Kọmọt | Gasp | Gron | To Fíl Hápi | Tọ́k Sọ́fli Fọ Pẹ́sin Mék Ónlí Am Hia | Wíspa | Wísul</annotation>
+		<annotation cp="😮‍💨" type="tts">Fes Wé De Brít Ea Kọmọt</annotation>
 		<annotation cp="🤥">Fes | Lai | lai Laí Fes | Lai-laí Fes | Pinókio</annotation>
 		<annotation cp="🤥" type="tts">Lai-laí Fes</annotation>
 		<annotation cp="😌">Fes | Fes Wé Riláks Wẹ́l | To Fíl Hapí</annotation>
@@ -391,8 +393,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">Fes Wé De Fraun</annotation>
 		<annotation cp="😮">Fes | Fes Wé Gẹt Ópún Maut | Maut | Ópún | Píti</annotation>
 		<annotation cp="😮" type="tts">Fes Wé Gẹt Ópún Maut</annotation>
-		<annotation cp="😮‍💨">Brít Ea Kọmọt | Fes Wé De Brít Ea Kọmọt | Gasp | Gron | To Fíl Hápi | Tọ́k Sọ́fli Fọ Pẹ́sin Mék Ónlí Am Hia | Wíspa | Wísul</annotation>
-		<annotation cp="😮‍💨" type="tts">Fes Wé De Brít Ea Kọmọt</annotation>
 		<annotation cp="😯">Fes | Fes Wé Dé Kwáyẹt | Kwáyẹt | Shọk | Sọpraiz | Sọpraiz Wẹ́l Wẹl</annotation>
 		<annotation cp="😯" type="tts">Fes Wé Dé Kwáyẹt</annotation>
 		<annotation cp="😲">Fes | Fes Wé Sọpraiz Fúl Am | Kọmplit | Shọk | Sọpraiz Wẹ́l Wẹl</annotation>
@@ -511,12 +511,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">Hat Wé Dẹm Ték Mék Ẹsklaméshọ́n Mak</annotation>
 		<annotation cp="💔">Brẹk | Dọ́n Brẹk | Hat Wé Dọ́n Brẹk</annotation>
 		<annotation cp="💔" type="tts">Hat Wé Dọ́n Brẹk</annotation>
-		<annotation cp="❤">Hat | Rẹ́d Hat</annotation>
-		<annotation cp="❤" type="tts">Rẹ́d Hat</annotation>
 		<annotation cp="❤‍🔥">Bọn | Hat | Hat Wé De Bọ́n Wít Fáya | Lọv | Pẹ́sin To Họ́ngrí Wẹ́l Wẹl To Slíp Wit Sọ́mbọdi Bọt I Nó Lọ́v Di Pẹ́sin | Sékrẹ́d Hat</annotation>
 		<annotation cp="❤‍🔥" type="tts">Hat Wé De Bọ́n Wít Fáya</annotation>
 		<annotation cp="❤‍🩹">Pẹ́sin Bọdí Dọn De Wẹl | Pẹ́sin Dọ́n De Gẹ́t Bák Im Páwa Áftá Síknẹs | Pẹ́sin Dọ́n De Wẹ́l Agen | Síknẹs Dọ́n De Gò | To Ripiá Hat Wé Dọn Brẹk | Wẹl</annotation>
 		<annotation cp="❤‍🩹" type="tts">To Ripiá Hat Wé Dọn Brẹk</annotation>
+		<annotation cp="❤">Hat | Rẹ́d Hat</annotation>
+		<annotation cp="❤" type="tts">Rẹ́d Hat</annotation>
 		<annotation cp="🧡">Ọ́renj | Ọ́renj Kọ́lọ Hat | Ọ́rénj Kọ́lọ Hat</annotation>
 		<annotation cp="🧡" type="tts">Ọ́rénj Kọ́lọ Hat</annotation>
 		<annotation cp="💛">Hat | Yẹ́ló Hat</annotation>
@@ -679,14 +679,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">Man</annotation>
 		<annotation cp="🧔">Biabiá | Pẹ́sin | Pẹ́sin Wé Gẹ́t Biabiá</annotation>
 		<annotation cp="🧔" type="tts">Pẹ́sin Wé Gẹ́t Biabiá</annotation>
-		<annotation cp="👱‍♂">Blọnd | Hea | Man | Man Wé Gẹ́t Blọ́nd Hea | Man: Blọ́nd Hea</annotation>
-		<annotation cp="👱‍♂" type="tts">Man Wé Gẹ́t Blọ́nd Hea</annotation>
-		<annotation cp="🧔‍♀">Biabiá | Wúman | Wúman Wé Gẹ́t Biabiá</annotation>
-		<annotation cp="🧔‍♀" type="tts">Wúman Wé Gẹ́t Biabiá</annotation>
 		<annotation cp="🧔‍♂">Biabiá | Man | Man Wé Gẹ́t Biabiá</annotation>
 		<annotation cp="🧔‍♂" type="tts">Man Wé Gẹ́t Biabiá</annotation>
+		<annotation cp="👱‍♂">Blọnd | Hea | Man | Man Wé Gẹ́t Blọ́nd Hea | Man: Blọ́nd Hea</annotation>
+		<annotation cp="👱‍♂" type="tts">Man Wé Gẹ́t Blọ́nd Hea</annotation>
 		<annotation cp="👩">Machọ́ Pẹ́sin | Wúman</annotation>
 		<annotation cp="👩" type="tts">Wúman</annotation>
+		<annotation cp="🧔‍♀">Biabiá | Wúman | Wúman Wé Gẹ́t Biabiá</annotation>
+		<annotation cp="🧔‍♀" type="tts">Wúman Wé Gẹ́t Biabiá</annotation>
 		<annotation cp="👱‍♀">Blọnd Hea | Wúman Wé Gẹ́t Blọ́nd Hea | Wúman: Blọ́nd Hea</annotation>
 		<annotation cp="👱‍♀" type="tts">Wúman Wé Gẹ́t Blọ́nd Hea</annotation>
 		<annotation cp="🧓">Machọ́ Pẹ́sin | Old | Pẹ́sin Wé Dẹm Nó Tọk Wẹ́dá Na Man Ọ Wúman | Pẹ́sin Wé Nọ́ Bi Man Ọ Wúman | Síniọ́ Pẹ́sin</annotation>

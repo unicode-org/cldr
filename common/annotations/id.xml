@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -459,6 +459,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">wajah dengan mata ke atas</annotation>
 		<annotation cp="😬">menyeringai | muka | seringai | wajah</annotation>
 		<annotation cp="😬" type="tts">wajah menyeringai</annotation>
+		<annotation cp="😮‍💨" draft="contributed">wajah mengembuskan napas</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">wajah mengembuskan napas</annotation>
 		<annotation cp="🤥">bohong | muka | pinokio | wajah</annotation>
 		<annotation cp="🤥" type="tts">bohong</annotation>
 		<annotation cp="😌">lega | muka | wajah</annotation>
@@ -517,8 +519,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">wajah cemberut</annotation>
 		<annotation cp="😮">muka | mulut | simpati | terbuka | wajah | wajah dengan mulut terbuka</annotation>
 		<annotation cp="😮" type="tts">wajah dengan mulut terbuka</annotation>
-		<annotation cp="😮‍💨" draft="contributed">wajah mengembuskan napas</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">wajah mengembuskan napas</annotation>
 		<annotation cp="😯">kaget | muka | terdiam | terkejut | wajah | wajah hening</annotation>
 		<annotation cp="😯" type="tts">wajah hening</annotation>
 		<annotation cp="😲">kaget | muka | takjub | terkejut | terpukau | wajah</annotation>
@@ -637,12 +637,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">tanda seru berbentuk hati</annotation>
 		<annotation cp="💔">hati | patah | putus</annotation>
 		<annotation cp="💔" type="tts">patah hati</annotation>
-		<annotation cp="❤">hati | hati merah</annotation>
-		<annotation cp="❤" type="tts">hati merah</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">hati berapi-api</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">hati berapi-api</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">mengobati hati terluka</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">mengobati hati terluka</annotation>
+		<annotation cp="❤">hati | hati merah</annotation>
+		<annotation cp="❤" type="tts">hati merah</annotation>
 		<annotation cp="🧡">hati | oranye</annotation>
 		<annotation cp="🧡" type="tts">hati oranye</annotation>
 		<annotation cp="💛">hati | kuning</annotation>
@@ -805,14 +805,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">pria</annotation>
 		<annotation cp="🧔">janggut | orang | orang: janggut</annotation>
 		<annotation cp="🧔" type="tts">orang: janggut</annotation>
-		<annotation cp="👱‍♂">laki-laki | pirang | pria berambut pirang | pria: rambut pirang | rambut</annotation>
-		<annotation cp="👱‍♂" type="tts">pria berambut pirang</annotation>
-		<annotation cp="🧔‍♀">janggut | wanita | wanita: janggut</annotation>
-		<annotation cp="🧔‍♀" type="tts">wanita: janggut</annotation>
 		<annotation cp="🧔‍♂">janggut | pria | pria: janggut</annotation>
 		<annotation cp="🧔‍♂" type="tts">pria: janggut</annotation>
+		<annotation cp="👱‍♂">laki-laki | pirang | pria berambut pirang | pria: rambut pirang | rambut</annotation>
+		<annotation cp="👱‍♂" type="tts">pria berambut pirang</annotation>
 		<annotation cp="👩">ibu | perempuan | wanita</annotation>
 		<annotation cp="👩" type="tts">wanita</annotation>
+		<annotation cp="🧔‍♀">janggut | wanita | wanita: janggut</annotation>
+		<annotation cp="🧔‍♀" type="tts">wanita: janggut</annotation>
 		<annotation cp="👱‍♀">perempuan | pirang | rambut | wanita berambut pirang | wanita: rambut pirang</annotation>
 		<annotation cp="👱‍♀" type="tts">wanita berambut pirang</annotation>
 		<annotation cp="🧓">lanjut usia | netral gender | tua</annotation>

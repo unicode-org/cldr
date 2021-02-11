@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -336,6 +336,8 @@ terms of use, see http://www.unicode.org/copyright.html
 		<annotation cp="🙄" type="tts">rai matane mlerok</annotation>
 		<annotation cp="😬">mbatek | rai | rai mringis mbatek</annotation>
 		<annotation cp="😬" type="tts">rai mringis mbatek</annotation>
+		<annotation cp="😮‍💨">ambegan | lega | mbisiki | megap-megap | nglenguh | rai ambegan lego | singsot</annotation>
+		<annotation cp="😮‍💨" type="tts">rai ambegan lego</annotation>
 		<annotation cp="🤥">ngapusi | pinokio | rai</annotation>
 		<annotation cp="🤥" type="tts">rai ngapusi</annotation>
 		<annotation cp="😌">lega | rai</annotation>
@@ -394,8 +396,6 @@ terms of use, see http://www.unicode.org/copyright.html
 		<annotation cp="☹" type="tts">rai nelangsa</annotation>
 		<annotation cp="😮">cangkem | menga | rai | rai mlongo | simpati</annotation>
 		<annotation cp="😮" type="tts">rai mlongo</annotation>
-		<annotation cp="😮‍💨">ambegan | lega | mbisiki | megap-megap | nglenguh | rai ambegan lego | singsot</annotation>
-		<annotation cp="😮‍💨" type="tts">rai ambegan lego</annotation>
 		<annotation cp="😯">dumadakan meneng | kaget | ora nyana | rai | rai dumadakan meneng</annotation>
 		<annotation cp="😯" type="tts">rai dumadakan meneng</annotation>
 		<annotation cp="😲">babar pisan | gumun | kaget | rai</annotation>
@@ -514,12 +514,12 @@ terms of use, see http://www.unicode.org/copyright.html
 		<annotation cp="❣" type="tts">tandha penthung wujude ati</annotation>
 		<annotation cp="💔">kelaran | lara | lara ati</annotation>
 		<annotation cp="💔" type="tts">lara ati</annotation>
-		<annotation cp="❤">ati | ati abang</annotation>
-		<annotation cp="❤" type="tts">ati abang</annotation>
 		<annotation cp="❤‍🔥">ati | ati kasmaran | ati resik | kobong | pepinginan | tresna</annotation>
 		<annotation cp="❤‍🔥" type="tts">ati kasmaran</annotation>
 		<annotation cp="❤‍🩹">luwih waras | mbalekake | mulehake awak | ndandani | ndandani ati | ningkatake | waras</annotation>
 		<annotation cp="❤‍🩹" type="tts">ndandani ati</annotation>
+		<annotation cp="❤">ati | ati abang</annotation>
+		<annotation cp="❤" type="tts">ati abang</annotation>
 		<annotation cp="🧡">ati kunir | kunir</annotation>
 		<annotation cp="🧡" type="tts">ati kunir</annotation>
 		<annotation cp="💛">ati kuning | kuning</annotation>
@@ -682,14 +682,14 @@ terms of use, see http://www.unicode.org/copyright.html
 		<annotation cp="👨" type="tts">wong lanang</annotation>
 		<annotation cp="🧔">jenggot | wong | wong: jenggot</annotation>
 		<annotation cp="🧔" type="tts">wong: jenggot</annotation>
-		<annotation cp="👱‍♂">pirang | rambut | wong lanang | wong lanang arambut pirang | wong lanang: rambut pirang</annotation>
-		<annotation cp="👱‍♂" type="tts">wong lanang: rambut pirang</annotation>
-		<annotation cp="🧔‍♀">jenggot | wong wadon | wong wadon: jenggot</annotation>
-		<annotation cp="🧔‍♀" type="tts">wong wadon: jenggot</annotation>
 		<annotation cp="🧔‍♂">jenggot | wong lanang | wong lanang: jenggot</annotation>
 		<annotation cp="🧔‍♂" type="tts">wong lanang: jenggot</annotation>
+		<annotation cp="👱‍♂">pirang | rambut | wong lanang | wong lanang arambut pirang | wong lanang: rambut pirang</annotation>
+		<annotation cp="👱‍♂" type="tts">wong lanang: rambut pirang</annotation>
 		<annotation cp="👩">wadon | wong diwasa | wong wadon</annotation>
 		<annotation cp="👩" type="tts">wong wadon</annotation>
+		<annotation cp="🧔‍♀">jenggot | wong wadon | wong wadon: jenggot</annotation>
+		<annotation cp="🧔‍♀" type="tts">wong wadon: jenggot</annotation>
 		<annotation cp="👱‍♀">pirang | rambut | wong wadon | wong wadon arambut pirang | wong wadon: rambut pirang</annotation>
 		<annotation cp="👱‍♀" type="tts">wong wadon: rambut pirang</annotation>
 		<annotation cp="🧓">jender netral | ora tamtu lanang wadone | tuwa | wong diwasa | wong tuwa</annotation>

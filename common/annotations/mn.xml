@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">нүдээ эргэлдүүлэх царай</annotation>
 		<annotation cp="😬">царай | ярвалзсан</annotation>
 		<annotation cp="😬" type="tts">ярвалзсан царай</annotation>
+		<annotation cp="😮‍💨">аахилах | амьсгаа гаргах | амьсгалж буй царай | исгэрэх | санаа алдах | санаа амрах | шүгэлдэх</annotation>
+		<annotation cp="😮‍💨" type="tts">амьсгалж буй царай</annotation>
 		<annotation cp="🤥">пиноккио | худалч | царай</annotation>
 		<annotation cp="🤥" type="tts">худалч царай</annotation>
 		<annotation cp="😌">тайвширсан | царай</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">баргар царай</annotation>
 		<annotation cp="😮">царай | цочирдох | цочирдсон царай</annotation>
 		<annotation cp="😮" type="tts">цочирдсон царай</annotation>
-		<annotation cp="😮‍💨">аахилах | амьсгаа гаргах | амьсгалж буй царай | исгэрэх | санаа алдах | санаа амрах | шүгэлдэх</annotation>
-		<annotation cp="😮‍💨" type="tts">амьсгалж буй царай</annotation>
 		<annotation cp="😯">гайхширсан | царай</annotation>
 		<annotation cp="😯" type="tts">гайхширсан царай</annotation>
 		<annotation cp="😲">мэл гайхсан | мэл гайхсан царай | царай</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">зүрхэн хэлбэртэй анхааруулгын тэмдэг</annotation>
 		<annotation cp="💔">зүрх | шархалсан зүрх | шархлах</annotation>
 		<annotation cp="💔" type="tts">шархалсан зүрх</annotation>
-		<annotation cp="❤">зүрх | улаан | хайр</annotation>
-		<annotation cp="❤" type="tts">улаан зүрх</annotation>
 		<annotation cp="❤‍🔥">ариун зүрх | зүрх | тачаал | хайр | шатаж буй зүрх | шатах</annotation>
 		<annotation cp="❤‍🔥" type="tts">шатаж буй зүрх</annotation>
 		<annotation cp="❤‍🩹">засарч буй | сайжирч буй | сайн | сэргэж буй | эдгэж буй | эрүүл</annotation>
 		<annotation cp="❤‍🩹" type="tts">засарч буй</annotation>
+		<annotation cp="❤">зүрх | улаан | хайр</annotation>
+		<annotation cp="❤" type="tts">улаан зүрх</annotation>
 		<annotation cp="🧡">улбар шар | улбар шар зүрх</annotation>
 		<annotation cp="🧡" type="tts">улбар шар зүрх</annotation>
 		<annotation cp="💛">зүрх | шар</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">эрэгтэй хүн</annotation>
 		<annotation cp="🧔">сахал | сахалтай хүн</annotation>
 		<annotation cp="🧔" type="tts">сахалтай хүн</annotation>
-		<annotation cp="👱‍♂">цайвар шар үс | шар үстэй эрэгтэй | эр | эрэгтэй</annotation>
-		<annotation cp="👱‍♂" type="tts">шар үстэй эрэгтэй</annotation>
-		<annotation cp="🧔‍♀">сахал | эмэгтэй | эмэгтэй: сахал</annotation>
-		<annotation cp="🧔‍♀" type="tts">эмэгтэй: сахал</annotation>
 		<annotation cp="🧔‍♂">сахал | эрэгтэй | эрэгтэй: сахал</annotation>
 		<annotation cp="🧔‍♂" type="tts">эрэгтэй: сахал</annotation>
+		<annotation cp="👱‍♂">цайвар шар үс | шар үстэй эрэгтэй | эр | эрэгтэй</annotation>
+		<annotation cp="👱‍♂" type="tts">шар үстэй эрэгтэй</annotation>
 		<annotation cp="👩">хүн | эмэгтэй</annotation>
 		<annotation cp="👩" type="tts">эмэгтэй хүн</annotation>
+		<annotation cp="🧔‍♀">сахал | эмэгтэй | эмэгтэй: сахал</annotation>
+		<annotation cp="🧔‍♀" type="tts">эмэгтэй: сахал</annotation>
 		<annotation cp="👱‍♀">цайвар шар үс | шар үстэй эмэгтэй | эм | эмэгтэй</annotation>
 		<annotation cp="👱‍♀" type="tts">шар үстэй эмэгтэй</annotation>
 		<annotation cp="🧓">жендер-саармаг | настай хүн | хөгшин</annotation>

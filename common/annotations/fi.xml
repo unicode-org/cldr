@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -384,6 +384,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">silmien pyöritys</annotation>
 		<annotation cp="😬">irvistävä | irvistys | naama</annotation>
 		<annotation cp="😬" type="tts">irvistävä</annotation>
+		<annotation cp="😮‍💨">hämmästyä | hämmästynyt | haukkoa henkeään | helpotus | kuiskaus | puhaltaa | vihellys</annotation>
+		<annotation cp="😮‍💨" type="tts">hämmästynyt</annotation>
 		<annotation cp="🤥">kasvot | valehdella | valehteleva | valehtelija</annotation>
 		<annotation cp="🤥" type="tts">valehteleva</annotation>
 		<annotation cp="😌">helpottunut | helpotus | naama</annotation>
@@ -442,8 +444,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">surullinen</annotation>
 		<annotation cp="😮">auki | empatia | naama | suu | yllättynyt</annotation>
 		<annotation cp="😮" type="tts">yllättynyt</annotation>
-		<annotation cp="😮‍💨">hämmästyä | hämmästynyt | haukkoa henkeään | helpotus | kuiskaus | puhaltaa | vihellys</annotation>
-		<annotation cp="😮‍💨" type="tts">hämmästynyt</annotation>
 		<annotation cp="😯">järkyttynyt | naama | sanaton | yllättynyt</annotation>
 		<annotation cp="😯" type="tts">järkyttynyt</annotation>
 		<annotation cp="😲">ällistynyt | ihmetys | järkyttynyt | naama | tosi</annotation>
@@ -562,12 +562,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">sydänhuutomerkki</annotation>
 		<annotation cp="💔">särkyä | särkynyt | sydän</annotation>
 		<annotation cp="💔" type="tts">särkynyt sydän</annotation>
-		<annotation cp="❤">punainen sydän | sydän</annotation>
-		<annotation cp="❤" type="tts">punainen sydän</annotation>
 		<annotation cp="❤‍🔥">himo | liekki | palaa | palava sydän | pyhä sydän | rakkaus | sydän</annotation>
 		<annotation cp="❤‍🔥" type="tts">palava sydän</annotation>
 		<annotation cp="❤‍🩹">elpyvä | hyvinvoiva | parantuminen | parantuva | parantuva sydän | tervehtyvä | toipuminen</annotation>
 		<annotation cp="❤‍🩹" type="tts">parantuva sydän</annotation>
+		<annotation cp="❤">punainen sydän | sydän</annotation>
+		<annotation cp="❤" type="tts">punainen sydän</annotation>
 		<annotation cp="🧡">oranssi | sydän</annotation>
 		<annotation cp="🧡" type="tts">oranssi sydän</annotation>
 		<annotation cp="💛">keltainen | sydän</annotation>
@@ -730,14 +730,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">mies</annotation>
 		<annotation cp="🧔">karvainen | parrakas henkilö | parta | pulisongit | sänki | viikset</annotation>
 		<annotation cp="🧔" type="tts">parrakas henkilö</annotation>
-		<annotation cp="👱‍♂">blondi | hiukset | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
-		<annotation cp="👱‍♂" type="tts">vaaleatukkainen mies</annotation>
-		<annotation cp="🧔‍♀">nainen | parrakas nainen | parta</annotation>
-		<annotation cp="🧔‍♀" type="tts">parrakas nainen</annotation>
 		<annotation cp="🧔‍♂">mies | parrakas mies | parta</annotation>
 		<annotation cp="🧔‍♂" type="tts">parrakas mies</annotation>
+		<annotation cp="👱‍♂">blondi | hiukset | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
+		<annotation cp="👱‍♂" type="tts">vaaleatukkainen mies</annotation>
 		<annotation cp="👩">nainen | naispuolinen</annotation>
 		<annotation cp="👩" type="tts">nainen</annotation>
+		<annotation cp="🧔‍♀">nainen | parrakas nainen | parta</annotation>
+		<annotation cp="🧔‍♀" type="tts">parrakas nainen</annotation>
 		<annotation cp="👱‍♀">blondi | hiukset | nainen | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
 		<annotation cp="👱‍♀" type="tts">vaaleatukkainen nainen</annotation>
 		<annotation cp="🧓">ikäihminen | seniori | sukupuolineutraali | vanha | vanhus</annotation>

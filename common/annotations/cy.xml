@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -514,6 +514,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">wyneb â llygaid yn rholio</annotation>
 		<annotation cp="😬">wyneb | wyneb ag ystum | ystum</annotation>
 		<annotation cp="😬" type="tts">wyneb ag ystum</annotation>
+		<annotation cp="😮‍💨">anadlu allan | chwiban | ebychu | griddfan | rhyddhad | sibrwd | wyneb anadlu allan</annotation>
+		<annotation cp="😮‍💨" type="tts">wyneb anadlu allan</annotation>
 		<annotation cp="🤥">celwydd | pinocchio | wyneb</annotation>
 		<annotation cp="🤥" type="tts">wyneb celwydd</annotation>
 		<annotation cp="😌">rhyddhad | wyneb | wyneb o ryddhad</annotation>
@@ -572,8 +574,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">wyneb gwgus</annotation>
 		<annotation cp="😮">agored | ceg | cydymdeimlad | wyneb | wyneb â cheg agored</annotation>
 		<annotation cp="😮" type="tts">wyneb â cheg agored</annotation>
-		<annotation cp="😮‍💨">anadlu allan | chwiban | ebychu | griddfan | rhyddhad | sibrwd | wyneb anadlu allan</annotation>
-		<annotation cp="😮‍💨" type="tts">wyneb anadlu allan</annotation>
 		<annotation cp="😯">distewi | syfrdanu | wyneb</annotation>
 		<annotation cp="😯" type="tts">wyneb distewi</annotation>
 		<annotation cp="😲">hollol | rhyfeddu | syfrdanu | wyneb | wyneb wedi rhyfeddu</annotation>
@@ -692,12 +692,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ebychiad trwm galon</annotation>
 		<annotation cp="💔">calon | calon wedi torri | torri</annotation>
 		<annotation cp="💔" type="tts">calon wedi torri</annotation>
-		<annotation cp="❤">calon | calon goch</annotation>
-		<annotation cp="❤" type="tts">calon goch</annotation>
 		<annotation cp="❤‍🔥">calon | calon ar dân | calon gysegredig | cariad | chwant | llosgi</annotation>
 		<annotation cp="❤‍🔥" type="tts">calon ar dân</annotation>
 		<annotation cp="❤‍🩹">gwella | iach | iachach | trwsio | trwsio calon</annotation>
 		<annotation cp="❤‍🩹" type="tts">trwsio calon</annotation>
+		<annotation cp="❤">calon | calon goch</annotation>
+		<annotation cp="❤" type="tts">calon goch</annotation>
 		<annotation cp="🧡">calon oren | oren</annotation>
 		<annotation cp="🧡" type="tts">calon oren</annotation>
 		<annotation cp="💛">calon | calon felen | melyn</annotation>
@@ -860,14 +860,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">dyn</annotation>
 		<annotation cp="🧔">barf | dyn â barf | person barfog | person: barf</annotation>
 		<annotation cp="🧔" type="tts">person: barf</annotation>
-		<annotation cp="👱‍♂">blond | dyn | dyn â gwallt golau | gwallt golau</annotation>
-		<annotation cp="👱‍♂" type="tts">dyn â gwallt golau</annotation>
-		<annotation cp="🧔‍♀">barf | fenyw | menyw: barf</annotation>
-		<annotation cp="🧔‍♀" type="tts">menyw: barf</annotation>
 		<annotation cp="🧔‍♂">barf | dyn | dyn: barf</annotation>
 		<annotation cp="🧔‍♂" type="tts">dyn: barf</annotation>
+		<annotation cp="👱‍♂">blond | dyn | dyn â gwallt golau | gwallt golau</annotation>
+		<annotation cp="👱‍♂" type="tts">dyn â gwallt golau</annotation>
 		<annotation cp="👩">menyw | oedolyn</annotation>
 		<annotation cp="👩" type="tts">menyw</annotation>
+		<annotation cp="🧔‍♀">barf | fenyw | menyw: barf</annotation>
+		<annotation cp="🧔‍♀" type="tts">menyw: barf</annotation>
 		<annotation cp="👱‍♀">blonde | gwallt golau | menyw | menyw â gwallt golau</annotation>
 		<annotation cp="👱‍♀" type="tts">menyw â gwallt golau</annotation>
 		<annotation cp="🧓">hen | niwtral o ran rhyw | oedolyn oedranus</annotation>

@@ -3424,9 +3424,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>സാന്ത ഇസബേൽ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ഹോണലൂലു</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>കോർഡിനേറ്റഡ് യൂണിവേഴ്‌സൽ ടൈം</standard>
@@ -3546,11 +3543,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ബ്രോക്കൺ ഹിൽ</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ക്യൂറി</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>മെൽബൺ</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ക്യൂറി</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ഹൊബാർട്ട്</exemplarCity>
@@ -4583,6 +4580,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>നോം</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ഹോണലൂലു</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ജോൺസ്റ്റൺ</exemplarCity>
@@ -7370,7 +7370,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>പശ്ചിമ ആഫ്രിക്കൻ [CFA] ഫ്രാങ്ക്</displayName>
 				<displayName count="one">പശ്ചിമ ആഫ്രിക്കൻ [CFA] ഫ്രാങ്ക്</displayName>
 				<displayName count="other">പശ്ചിമ ആഫ്രിക്കൻ [CFA] ഫ്രാങ്ക്</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>പലാഡിയം</displayName>

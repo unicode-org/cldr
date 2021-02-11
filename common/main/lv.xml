@@ -3124,9 +3124,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santaisabela</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Universālais koordinētais laiks</standard>
@@ -3246,11 +3243,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>Brokenhila</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Kari</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Melburna</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Kari</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Hobārta</exemplarCity>
@@ -4283,6 +4280,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Noma</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Džonstona atols</exemplarCity>
@@ -6863,7 +6863,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="zero">Rietumāfrikas CFA franki</displayName>
 				<displayName count="one">Rietumāfrikas CFA franks</displayName>
 				<displayName count="other">Rietumāfrikas CFA franki</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>pallādijs</displayName>

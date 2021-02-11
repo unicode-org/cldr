@@ -4421,9 +4421,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>圣伊萨贝尔</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>檀香山</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>协调世界时间</standard>
@@ -4543,11 +4540,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>布罗肯希尔</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>克黎</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>墨尔本</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>克黎</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>荷巴特</exemplarCity>
@@ -5580,6 +5577,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>诺姆</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>檀香山</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>强斯顿</exemplarCity>
@@ -8307,7 +8307,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XOF">
 				<displayName>法郎 (CFA–BCEAO)</displayName>
 				<displayName count="other">法郎 (CFA–BCEAO)</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">帕拉狄昂</displayName>

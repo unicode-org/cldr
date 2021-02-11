@@ -4847,9 +4847,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>サンタイサベル</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ホノルル</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>協定世界時</standard>
@@ -4969,11 +4966,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ブロークンヒル</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>カリー</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>メルボルン</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>カリー</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ホバート</exemplarCity>
@@ -6006,6 +6003,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ノーム</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ホノルル</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ジョンストン島</exemplarCity>
@@ -8706,7 +8706,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>西アフリカ CFA フラン</displayName>
 				<displayName count="other">西アフリカ CFA フラン</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>パラジウム</displayName>

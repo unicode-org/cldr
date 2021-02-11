@@ -3399,9 +3399,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Σάντα Ιζαμπέλ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Χονολουλού</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Συντονισμένη Παγκόσμια Ώρα</standard>
@@ -3521,11 +3518,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>Μπρόκεν Χιλ</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Κάρι</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Μελβούρνη</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Κάρι</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Χόμπαρτ</exemplarCity>
@@ -4558,6 +4555,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Νόμε</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Χονολουλού</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Τζόνστον</exemplarCity>
@@ -7353,7 +7353,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Φράγκο CFA Δυτικής Αφρικής</displayName>
 				<displayName count="one">φράγκο CFA Δυτικής Αφρικής</displayName>
 				<displayName count="other">φράγκα CFA Δυτικής Αφρικής</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Φράγκο CFP</displayName>

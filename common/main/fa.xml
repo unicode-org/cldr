@@ -3744,9 +3744,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>سانتا ایزابل</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>هونولولو</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>زمان هماهنگ جهانی</standard>
@@ -3866,11 +3863,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>بروکن‌هیل</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>کوری</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ملبورن</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>کوری</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>هوبارت</exemplarCity>
@@ -4903,6 +4900,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>هونولولو</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>جانستون</exemplarCity>
@@ -7521,7 +7521,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>فرانک CFA غرب افریقا</displayName>
 				<displayName count="one">فرانک CFA غرب افریقا</displayName>
 				<displayName count="other">فرانک CFA غرب افریقا</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>پالادیم</displayName>

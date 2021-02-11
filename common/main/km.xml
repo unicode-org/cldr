@@ -2293,9 +2293,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>សាន់តាអ៊ីសាប៊ែល</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ហូណូលូលូ</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ម៉ោងសកលដែលមានការសម្រួល</standard>
@@ -2415,11 +2412,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ប្រូកខិនហីល</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ខូរៀ</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ម៉េលប៊ន</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ខូរៀ</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ហូបាត</exemplarCity>
@@ -3452,6 +3449,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ណូម</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ហូណូលូលូ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ចនស្តុន</exemplarCity>
@@ -5451,7 +5451,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>ហ្វ្រង់ CFA អាហ្វ្រិកខាងលិច</displayName>
 				<displayName count="other">ហ្វ្រង់ CFA អាហ្វ្រិកខាងលិច</displayName>
-				<symbol>F&#x202f;CFA</symbol>
+				<symbol>F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>ហ្វ្រង់ CFP</displayName>

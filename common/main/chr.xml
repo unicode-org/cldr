@@ -2298,14 +2298,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ</regionFormat>
 			<regionFormat type="standard">{0} ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-				<exemplarCity>ᎭᏃᎷᎷ</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ᎢᎩᏠᏱ ᏂᎦᏓ ᎠᏟᎢᎵᏒ</standard>
@@ -2425,11 +2417,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ᎤᏲᏨᎯ ᎦᏚᏏ</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ᎫᎵ</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ᎺᎵᏉᏁ</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ᎫᎵ</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ᎰᏆᏘ</exemplarCity>
@@ -3462,6 +3454,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ᏃᎺ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+				<exemplarCity>ᎭᏃᎷᎷ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ᏣᏂᏏᏂ</exemplarCity>
@@ -5677,7 +5677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ᏭᏕᎵᎬ ᎬᎿᎨᏍᏛ CFA ᎠᏕᎳ</displayName>
 				<displayName count="one">ᏭᏕᎵᎬ ᎬᎿᎨᏍᏛ CFA ᎠᏕᎳ</displayName>
 				<displayName count="other">ᏭᏕᎵᎬ ᎬᎿᎨᏍᏛ CFA ᎠᏕᎳ</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP ᎠᏕᎳ</displayName>

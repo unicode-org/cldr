@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -5808,9 +5808,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>圣伊萨贝尔</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>檀香山</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>协调世界时</standard>
@@ -5933,11 +5930,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>布罗肯希尔</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>库利</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>墨尔本</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>库利</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>霍巴特</exemplarCity>
@@ -6970,6 +6967,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>诺姆</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>檀香山</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>约翰斯顿</exemplarCity>
@@ -10195,7 +10195,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>西非法郎</displayName>
 				<displayName count="other">西非法郎</displayName>
-				<symbol draft="contributed">F&#x202f;CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>钯</displayName>

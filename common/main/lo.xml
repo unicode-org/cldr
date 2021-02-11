@@ -3693,9 +3693,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>ຊານຕາ ອິດຊາເບວ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ໂຮໂນລູລູ</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ເວລາສາກົນເຊີງພິກັດ</standard>
@@ -3818,11 +3815,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ໂບຣກເຄນ ຮິວ</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ກູຣີ</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ເມວເບິນ</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ກູຣີ</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ໂຮບາດ</exemplarCity>
@@ -4855,6 +4852,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ນອມ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ໂຮໂນລູລູ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ຈອນສະໂຕນ</exemplarCity>
@@ -7309,7 +7309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>ຟັງເຊຟານ ອາຟຣິກາຕາເວັນຕົກ</displayName>
 				<displayName count="other">ຟັງເຊຟານ ອາຟຣິກາຕາເວັນຕົກ</displayName>
-				<symbol>F&#x202f;CFA</symbol>
+				<symbol>F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>ແພເລດຽມ</displayName>

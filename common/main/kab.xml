@@ -2280,9 +2280,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight" draft="unconfirmed">{0} (Akud n unebdu)</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} Akud amezday</regionFormat>
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard draft="unconfirmed">Akud agraɣlan imyuddsen</standard>
@@ -2402,11 +2399,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity draft="unconfirmed">Broken Hill</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity draft="unconfirmed">Malburn</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity draft="unconfirmed">Hobart</exemplarCity>
@@ -3439,6 +3436,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity draft="unconfirmed">Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity draft="unconfirmed">Ankuraj</exemplarCity>
@@ -6279,7 +6279,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Afrank BCEAO CFA</displayName>
 				<displayName count="one" draft="unconfirmed">Afrank CFA (BCEAO)</displayName>
 				<displayName count="other" draft="unconfirmed">Ifranken CFA (BCEAO)</displayName>
-				<symbol draft="unconfirmed">F&#x202f;CFA</symbol>
+				<symbol draft="unconfirmed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="unconfirmed">Palladium</displayName>

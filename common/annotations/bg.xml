@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -389,6 +389,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">Лице с извъртени нагоре очи</annotation>
 		<annotation cp="😬">гримаса | лице | Лице с гримаса</annotation>
 		<annotation cp="😬" type="tts">Лице с гримаса</annotation>
+		<annotation cp="😮‍💨">въздъхвам | издишвам | издишващо лице | охкам | пъшкам | шепна</annotation>
+		<annotation cp="😮‍💨" type="tts">издишващо лице</annotation>
 		<annotation cp="🤥">лице | лъжа | лъжещо лице | пинокио</annotation>
 		<annotation cp="🤥" type="tts">лъжещо лице</annotation>
 		<annotation cp="😌">лице | облекчен | Облекчено лице</annotation>
@@ -447,8 +449,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">Намръщено лице</annotation>
 		<annotation cp="😮">лице | Лице с отворена уста | отворен | съчувствие | уста</annotation>
 		<annotation cp="😮" type="tts">Лице с отворена уста</annotation>
-		<annotation cp="😮‍💨">въздъхвам | издишвам | издишващо лице | охкам | пъшкам | шепна</annotation>
-		<annotation cp="😮‍💨" type="tts">издишващо лице</annotation>
 		<annotation cp="😯">впечатлен | изненадан | Изненадано лице | лице</annotation>
 		<annotation cp="😯" type="tts">Изненадано лице</annotation>
 		<annotation cp="😲">изумен | лице | учуден | Учудено лице | шокиран</annotation>
@@ -567,12 +567,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">Плътен орнамент от сърце – удивителна</annotation>
 		<annotation cp="💔">разбито | Разбито сърце | сърце</annotation>
 		<annotation cp="💔" type="tts">Разбито сърце</annotation>
-		<annotation cp="❤">сърце | Червено сърце</annotation>
-		<annotation cp="❤" type="tts">Червено сърце</annotation>
 		<annotation cp="❤‍🔥">любов | огън | свещено сърце | страст | сърце | сърце в пламъци</annotation>
 		<annotation cp="❤‍🔥" type="tts">сърце в пламъци</annotation>
 		<annotation cp="❤‍🩹">възстановяване | добре | оздравяване | по-здрав | подобрение | превързано сърце</annotation>
 		<annotation cp="❤‍🩹" type="tts">превързано сърце</annotation>
+		<annotation cp="❤">сърце | Червено сърце</annotation>
+		<annotation cp="❤" type="tts">Червено сърце</annotation>
 		<annotation cp="🧡">оранжево | оранжево сърце</annotation>
 		<annotation cp="🧡" type="tts">оранжево сърце</annotation>
 		<annotation cp="💛">жълто | Жълто сърце | сърце</annotation>
@@ -735,14 +735,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">мъж</annotation>
 		<annotation cp="🧔">брада | човек с брада</annotation>
 		<annotation cp="🧔" type="tts">човек с брада</annotation>
-		<annotation cp="👱‍♂">блондин | рус мъж | руса коса</annotation>
-		<annotation cp="👱‍♂" type="tts">блондин</annotation>
-		<annotation cp="🧔‍♀">брада | жена | жена: брада</annotation>
-		<annotation cp="🧔‍♀" type="tts">жена: брада</annotation>
 		<annotation cp="🧔‍♂">брада | мъж | мъж: брада</annotation>
 		<annotation cp="🧔‍♂" type="tts">мъж: брада</annotation>
+		<annotation cp="👱‍♂">блондин | рус мъж | руса коса</annotation>
+		<annotation cp="👱‍♂" type="tts">блондин</annotation>
 		<annotation cp="👩">жена</annotation>
 		<annotation cp="👩" type="tts">жена</annotation>
+		<annotation cp="🧔‍♀">брада | жена | жена: брада</annotation>
+		<annotation cp="🧔‍♀" type="tts">жена: брада</annotation>
 		<annotation cp="👱‍♀">блондинка | руса жена | руса коса</annotation>
 		<annotation cp="👱‍♀" type="tts">блондинка</annotation>
 		<annotation cp="🧓">без определен пол | възрастен | неопределен пол | по-възрастен човек</annotation>

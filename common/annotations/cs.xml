@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -421,6 +421,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">obličej s očima v sloup</annotation>
 		<annotation cp="😬">grimasa | grimasa s vyceněnými zuby | smajlík | tvář | výraz</annotation>
 		<annotation cp="😬" type="tts">grimasa s vyceněnými zuby</annotation>
+		<annotation cp="😮‍💨">lapání po dechu | oddechnutí | pískání | šepot | úleva | výdech | vydechnutí | vydechující obličej</annotation>
+		<annotation cp="😮‍💨" type="tts">vydechující obličej</annotation>
 		<annotation cp="🤥">lhát | obličej lháře | pinocchio | smajlík | tvář | výraz</annotation>
 		<annotation cp="🤥" type="tts">obličej lháře</annotation>
 		<annotation cp="😌">obličej s výrazem úlevy | smajlík | tvář | úleva | výraz</annotation>
@@ -479,8 +481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">zamračený obličej</annotation>
 		<annotation cp="😮">obličej s otevřenou pusou | otevřený | smajlík | soucit | tvář | ústa | výraz</annotation>
 		<annotation cp="😮" type="tts">obličej s otevřenou pusou</annotation>
-		<annotation cp="😮‍💨">lapání po dechu | oddechnutí | pískání | šepot | úleva | výdech | vydechnutí | vydechující obličej</annotation>
-		<annotation cp="😮‍💨" type="tts">vydechující obličej</annotation>
 		<annotation cp="😯">obličej se zaraženým výrazem | překvapený | smajlík | tichý | tvář | výraz | zaražený</annotation>
 		<annotation cp="😯" type="tts">obličej se zaraženým výrazem</annotation>
 		<annotation cp="😲">naprosto | ohromený | smajlík | šok | tvář | úplně | úžas | užaslý obličej | výraz</annotation>
@@ -599,12 +599,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">srdce jako vykřičník</annotation>
 		<annotation cp="💔">srdce | zlomené srdce | zlomený | zlomit</annotation>
 		<annotation cp="💔" type="tts">zlomené srdce</annotation>
-		<annotation cp="❤">rudé srdce | srdce</annotation>
-		<annotation cp="❤" type="tts">rudé srdce</annotation>
 		<annotation cp="❤‍🔥">hořet | hořící srdce | láska | nejsvětější srdce | plamen | srdce | vášeň</annotation>
 		<annotation cp="❤‍🔥" type="tts">hořící srdce</annotation>
 		<annotation cp="❤‍🩹">náplast | uzdravit | vyléčit | záplata | záplatované srdce | zdraví | zlepšení | zotavení</annotation>
 		<annotation cp="❤‍🩹" type="tts">záplatované srdce</annotation>
+		<annotation cp="❤">rudé srdce | srdce</annotation>
+		<annotation cp="❤" type="tts">rudé srdce</annotation>
 		<annotation cp="🧡">oranžová | oranžové srdce | srdce</annotation>
 		<annotation cp="🧡" type="tts">oranžové srdce</annotation>
 		<annotation cp="💛">srdce | žlutá | žluté srdce</annotation>
@@ -767,14 +767,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">muž</annotation>
 		<annotation cp="🧔">osoba s plnovousem | plnovous | vous | vousáč</annotation>
 		<annotation cp="🧔" type="tts">osoba s plnovousem</annotation>
-		<annotation cp="👱‍♂">blond | blonďák | muž | plavovlasý | světlovlasý</annotation>
-		<annotation cp="👱‍♂" type="tts">blonďák</annotation>
-		<annotation cp="🧔‍♀">plnovous | vous | vousatá žena | žena | žena s plnovousem</annotation>
-		<annotation cp="🧔‍♀" type="tts">žena s plnovousem</annotation>
 		<annotation cp="🧔‍♂">muž s plnovousem | plnovous | vous | vousáč</annotation>
 		<annotation cp="🧔‍♂" type="tts">muž s plnovousem</annotation>
+		<annotation cp="👱‍♂">blond | blonďák | muž | plavovlasý | světlovlasý</annotation>
+		<annotation cp="👱‍♂" type="tts">blonďák</annotation>
 		<annotation cp="👩">žena</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
+		<annotation cp="🧔‍♀">plnovous | vous | vousatá žena | žena | žena s plnovousem</annotation>
+		<annotation cp="🧔‍♀" type="tts">žena s plnovousem</annotation>
 		<annotation cp="👱‍♀">blond | blondýna | blondýnka | plavovláska | světlovláska | žena</annotation>
 		<annotation cp="👱‍♀" type="tts">blondýna</annotation>
 		<annotation cp="🧓">člověk | neutrální | osoba | stará | starší dospělý člověk | starý</annotation>

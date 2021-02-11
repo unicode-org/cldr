@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -566,6 +566,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">gezicht met rollende ogen</annotation>
 		<annotation cp="😬">gezicht | gezicht met grimas | grimas</annotation>
 		<annotation cp="😬" type="tts">gezicht met grimas</annotation>
+		<annotation cp="😮‍💨">fluisteren | fluiten | gezicht dat uitademt | kreunen | naar adem snakken | opgelucht | uitademen</annotation>
+		<annotation cp="😮‍💨" type="tts">gezicht dat uitademt</annotation>
 		<annotation cp="🤥">gezicht | liegen | liegend gezicht | pinokkio</annotation>
 		<annotation cp="🤥" type="tts">liegend gezicht</annotation>
 		<annotation cp="😌">gezicht | opgelucht</annotation>
@@ -624,8 +626,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">fronsend gezicht</annotation>
 		<annotation cp="😮">gezicht | gezicht met open mond | mond | open | sympathie</annotation>
 		<annotation cp="😮" type="tts">gezicht met open mond</annotation>
-		<annotation cp="😮‍💨">fluisteren | fluiten | gezicht dat uitademt | kreunen | naar adem snakken | opgelucht | uitademen</annotation>
-		<annotation cp="😮‍💨" type="tts">gezicht dat uitademt</annotation>
 		<annotation cp="😯">gezicht | verbaasd | verrast | verstomd</annotation>
 		<annotation cp="😯" type="tts">verstomd gezicht</annotation>
 		<annotation cp="😲">gechoqueerd | geschokt | gezicht | totaal gechoqueerd | verbaasd gezicht</annotation>
@@ -744,12 +744,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">hart als uitroepteken</annotation>
 		<annotation cp="💔">breken | gebroken | gebroken hart</annotation>
 		<annotation cp="💔" type="tts">gebroken hart</annotation>
-		<annotation cp="❤">hart | rood hart</annotation>
-		<annotation cp="❤" type="tts">rood hart</annotation>
 		<annotation cp="❤‍🔥">branden | hart | hart in vuur en vlam | heilig hart | liefde | lust</annotation>
 		<annotation cp="❤‍🔥" type="tts">hart in vuur en vlam</annotation>
 		<annotation cp="❤‍🩹">gezond | gezonder | helend | helend hart | herstellend | verbeterend</annotation>
 		<annotation cp="❤‍🩹" type="tts">helend hart</annotation>
+		<annotation cp="❤">hart | rood hart</annotation>
+		<annotation cp="❤" type="tts">rood hart</annotation>
 		<annotation cp="🧡">oranje | oranje hart</annotation>
 		<annotation cp="🧡" type="tts">oranje hart</annotation>
 		<annotation cp="💛">geel | geel hart</annotation>
@@ -912,14 +912,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">baard | persoon | persoon: baard</annotation>
 		<annotation cp="🧔" type="tts">persoon: baard</annotation>
-		<annotation cp="👱‍♂">blond | haar | man | man met blond haar</annotation>
-		<annotation cp="👱‍♂" type="tts">man met blond haar</annotation>
-		<annotation cp="🧔‍♀">baard + vrouw: baard | vrouw | vrouw: baard</annotation>
-		<annotation cp="🧔‍♀" type="tts">vrouw: baard</annotation>
 		<annotation cp="🧔‍♂">baard | man | man: baard</annotation>
 		<annotation cp="🧔‍♂" type="tts">man: baard</annotation>
+		<annotation cp="👱‍♂">blond | haar | man | man met blond haar</annotation>
+		<annotation cp="👱‍♂" type="tts">man met blond haar</annotation>
 		<annotation cp="👩">vrouw</annotation>
 		<annotation cp="👩" type="tts">vrouw</annotation>
+		<annotation cp="🧔‍♀">baard + vrouw: baard | vrouw | vrouw: baard</annotation>
+		<annotation cp="🧔‍♀" type="tts">vrouw: baard</annotation>
 		<annotation cp="👱‍♀">blond | haar | vrouw | vrouw met blond haar</annotation>
 		<annotation cp="👱‍♀" type="tts">vrouw met blond haar</annotation>
 		<annotation cp="🧓">genderneutraal | oud | oudere persoon | oudere volwassene</annotation>

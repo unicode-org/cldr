@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -443,6 +443,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">begiak bueltaka dituen aurpegia</annotation>
 		<annotation cp="😬">aurpegi | imintzio | imintzio-aurpegia</annotation>
 		<annotation cp="😬" type="tts">imintzio-aurpegia</annotation>
+		<annotation cp="😮‍💨">arnasa botatzen ari den aurpegia | arnasa hartu | arnasestua | hasperena | lasaitua | marmarra | txistua</annotation>
+		<annotation cp="😮‍💨" type="tts">arnasa botatzen ari den aurpegia</annotation>
 		<annotation cp="🤥">aurpegi | aurpegi gezurtia | gezur | pinotxo</annotation>
 		<annotation cp="🤥" type="tts">aurpegi gezurtia</annotation>
 		<annotation cp="😌">aurpegi | lasaitasun | lasaitasun-aurpegia</annotation>
@@ -501,8 +503,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">kopeta ilunduta duen aurpegia</annotation>
 		<annotation cp="😮">aho | ahoa irekita duen aurpegia | aurpegi | ireki | poza</annotation>
 		<annotation cp="😮" type="tts">ahoa irekita duen aurpegia</annotation>
-		<annotation cp="😮‍💨">arnasa botatzen ari den aurpegia | arnasa hartu | arnasestua | hasperena | lasaitua | marmarra | txistua</annotation>
-		<annotation cp="😮‍💨" type="tts">arnasa botatzen ari den aurpegia</annotation>
 		<annotation cp="😯">aurpegi | harridura | harridura-aurpegia | harrituta | zur eta lur</annotation>
 		<annotation cp="😯" type="tts">harridura-aurpegia</annotation>
 		<annotation cp="😲">aurpegi | guztiz | harridura | harritu-aurpegia | sorpresa</annotation>
@@ -621,12 +621,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">bihotz-itxurako harridura-marka</annotation>
 		<annotation cp="💔">bihotz | bihotz hautsia | hautsi | hautsita</annotation>
 		<annotation cp="💔" type="tts">bihotz hautsia</annotation>
-		<annotation cp="❤">bihotz | bihotz gorria</annotation>
-		<annotation cp="❤" type="tts">bihotz gorria</annotation>
 		<annotation cp="❤‍🔥">bihotz sakratua | bihotza | erre | lizunkeria | maitasuna | sutan dagoen bihotza</annotation>
 		<annotation cp="❤‍🔥" type="tts">sutan dagoen bihotza</annotation>
 		<annotation cp="❤‍🩹">hobetzen | leheneratzen | ondo | osasuntsuago | sendatzen | sendatzen ari den bihotza | suspertzen</annotation>
 		<annotation cp="❤‍🩹" type="tts">sendatzen ari den bihotza</annotation>
+		<annotation cp="❤">bihotz | bihotz gorria</annotation>
+		<annotation cp="❤" type="tts">bihotz gorria</annotation>
 		<annotation cp="🧡">bihotz laranja | laranja</annotation>
 		<annotation cp="🧡" type="tts">bihotz laranja</annotation>
 		<annotation cp="💛">bihotz | bihotz horia | hori</annotation>
@@ -789,14 +789,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">gizona</annotation>
 		<annotation cp="🧔">bizar | pertsona bizarduna</annotation>
 		<annotation cp="🧔" type="tts">pertsona bizarduna</annotation>
-		<annotation cp="👱‍♂">gizon | gizon ilehoria | gizonezko | ilehori</annotation>
-		<annotation cp="👱‍♂" type="tts">gizon ilehoria</annotation>
-		<annotation cp="🧔‍♀">bizarra | emakumea | emakumea: bizarra</annotation>
-		<annotation cp="🧔‍♀" type="tts">emakumea: bizarra</annotation>
 		<annotation cp="🧔‍♂">bizarra | gizona | gizona: bizarra</annotation>
 		<annotation cp="🧔‍♂" type="tts">gizona: bizarra</annotation>
+		<annotation cp="👱‍♂">gizon | gizon ilehoria | gizonezko | ilehori</annotation>
+		<annotation cp="👱‍♂" type="tts">gizon ilehoria</annotation>
 		<annotation cp="👩">emakume | emakumea | emakumezko</annotation>
 		<annotation cp="👩" type="tts">emakumea</annotation>
+		<annotation cp="🧔‍♀">bizarra | emakumea | emakumea: bizarra</annotation>
+		<annotation cp="🧔‍♀" type="tts">emakumea: bizarra</annotation>
 		<annotation cp="👱‍♀">emakume | emakume ilehoria | emakumezko | ilehori</annotation>
 		<annotation cp="👱‍♀" type="tts">emakume ilehoria</annotation>
 		<annotation cp="🧓">adineko | agure | genero neutroko</annotation>

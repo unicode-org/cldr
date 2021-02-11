@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -483,6 +483,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">βλέμμα αποδοκιμασίας</annotation>
 		<annotation cp="😬">γκριμάτσα | πρόσωπο</annotation>
 		<annotation cp="😬" type="tts">γκριμάτσα</annotation>
+		<annotation cp="😮‍💨">ανακούφιση | αναστενάζω | εκπνέω | ξεφυσάω | πρόσωπο που ξεφυσάει | σφυρίζω | ψιθυρίζω</annotation>
+		<annotation cp="😮‍💨" type="tts">πρόσωπο που ξεφυσάει</annotation>
 		<annotation cp="🤥">πινόκιο | πρόσωπο | φάτσα ψεύτη | ψέμα</annotation>
 		<annotation cp="🤥" type="tts">φάτσα ψεύτη</annotation>
 		<annotation cp="😌">ανακούφιση | ανακουφισμένος | πρόσωπο</annotation>
@@ -541,8 +543,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">κατσούφιασμα</annotation>
 		<annotation cp="😮">ανοικτό στόμα | ανοιχτό | πρόσωπο | στόμα | συμπόνια</annotation>
 		<annotation cp="😮" type="tts">ανοικτό στόμα</annotation>
-		<annotation cp="😮‍💨">ανακούφιση | αναστενάζω | εκπνέω | ξεφυσάω | πρόσωπο που ξεφυσάει | σφυρίζω | ψιθυρίζω</annotation>
-		<annotation cp="😮‍💨" type="tts">πρόσωπο που ξεφυσάει</annotation>
 		<annotation cp="😯">άφωνος | έκπληκτο βλέμμα | έκπληκτος | πρόσωπο | συγκλονισμένος</annotation>
 		<annotation cp="😯" type="tts">έκπληκτο βλέμμα</annotation>
 		<annotation cp="😲">έκπληκτος | εντελώς | ξάφνιασμα | ξαφνιασμένος | πρόσωπο</annotation>
@@ -661,12 +661,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">καρδιά θαυμαστικό</annotation>
 		<annotation cp="💔">καρδιά | ραγισμένη καρδιά | σπασμένος | σπάω</annotation>
 		<annotation cp="💔" type="tts">ραγισμένη καρδιά</annotation>
-		<annotation cp="❤">καρδιά | κόκκινη καρδιά</annotation>
-		<annotation cp="❤" type="tts">κόκκινη καρδιά</annotation>
 		<annotation cp="❤‍🔥">αγάπη | καίω | καρδιά | καρδιά που καίγεται | πόθος</annotation>
 		<annotation cp="❤‍🔥" type="tts">καρδιά που καίγεται</annotation>
 		<annotation cp="❤‍🩹">ανάκαμψη | ανάρρωση | αποκατάσταση | βελτίωση | καρδιά που αναρρώνει | υγιέστερος</annotation>
 		<annotation cp="❤‍🩹" type="tts">καρδιά που αναρρώνει</annotation>
+		<annotation cp="❤">καρδιά | κόκκινη καρδιά</annotation>
+		<annotation cp="❤" type="tts">κόκκινη καρδιά</annotation>
 		<annotation cp="🧡">πορτοκαλί καρδιά | ποστοκάλι</annotation>
 		<annotation cp="🧡" type="tts">πορτοκαλί καρδιά</annotation>
 		<annotation cp="💛">καρδιά | κίτρινη</annotation>
@@ -829,14 +829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">άντρας</annotation>
 		<annotation cp="🧔">άτομο | άτομο: μούσι | μούσι</annotation>
 		<annotation cp="🧔" type="tts">άτομο: μούσι</annotation>
-		<annotation cp="👱‍♂">άντρας | άντρας: ξανθά μαλλιά | μαλλιά | ξανθός</annotation>
-		<annotation cp="👱‍♂" type="tts">άντρας: ξανθά μαλλιά</annotation>
-		<annotation cp="🧔‍♀">γυναίκα | γυναίκα: μούσι | μούσι</annotation>
-		<annotation cp="🧔‍♀" type="tts">γυναίκα: μούσι</annotation>
 		<annotation cp="🧔‍♂">άντρας | άντρας: μούσι | μούσι</annotation>
 		<annotation cp="🧔‍♂" type="tts">άντρας: μούσι</annotation>
+		<annotation cp="👱‍♂">άντρας | άντρας: ξανθά μαλλιά | μαλλιά | ξανθός</annotation>
+		<annotation cp="👱‍♂" type="tts">άντρας: ξανθά μαλλιά</annotation>
 		<annotation cp="👩">γυναίκα | ενήλικας</annotation>
 		<annotation cp="👩" type="tts">γυναίκα</annotation>
+		<annotation cp="🧔‍♀">γυναίκα | γυναίκα: μούσι | μούσι</annotation>
+		<annotation cp="🧔‍♀" type="tts">γυναίκα: μούσι</annotation>
 		<annotation cp="👱‍♀">γυναίκα | γυναίκα: ξανθά μαλλιά | μαλλιά | ξανθιά</annotation>
 		<annotation cp="👱‍♀" type="tts">γυναίκα: ξανθά μαλλιά</annotation>
 		<annotation cp="🧓">άφυλος | ηλικιωμένος | μεγαλύτερος ενήλικας</annotation>

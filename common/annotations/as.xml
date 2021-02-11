@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -421,6 +421,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">চকু পকাই থকা মুখ</annotation>
 		<annotation cp="😬">বিকৃত মুখ | মুখ | মুখ বিকৃত কৰা</annotation>
 		<annotation cp="😬" type="tts">বিকৃত মুখ</annotation>
+		<annotation cp="😮‍💨">আৰাম | গেঁথনি | নিশাহ | নিশাহ এৰা মুখ | ফুচ-ফুচনি | ফোফা | সুহুৰি</annotation>
+		<annotation cp="😮‍💨" type="tts">নিশাহ এৰা মুখ</annotation>
 		<annotation cp="🤥">পিনোচিয়ো | মিছা | মিছা কোৱা মুখ | মুখ</annotation>
 		<annotation cp="🤥" type="tts">মিছা কোৱা মুখ</annotation>
 		<annotation cp="😌">মুখ | স্বস্তি | স্বস্তিৰ মুখ</annotation>
@@ -479,8 +481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">ভ্ৰু উঠোৱা মুখ</annotation>
 		<annotation cp="😮">খোলা | খোলা মুখৰ চেহেৰা | মুখ | সহানুভূতি</annotation>
 		<annotation cp="😮" type="tts">খোলা মুখৰ চেহেৰা</annotation>
-		<annotation cp="😮‍💨">আৰাম | গেঁথনি | নিশাহ | নিশাহ এৰা মুখ | ফুচ-ফুচনি | ফোফা | সুহুৰি</annotation>
-		<annotation cp="😮‍💨" type="tts">নিশাহ এৰা মুখ</annotation>
 		<annotation cp="😯">নিস্তব্ধ | নিস্তব্ধ চেহেৰা | বিষ্মিত | মুখ | হতভম্ব</annotation>
 		<annotation cp="😯" type="tts">নিস্তব্ধ চেহেৰা</annotation>
 		<annotation cp="😲">আচম্বিত | বিস্মিত | মুখ | সম্পূৰ্ণৰূপে</annotation>
@@ -599,12 +599,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">হৃদয়ৰ চিত্ৰ সম্বলিত ভাববোধক চিন</annotation>
 		<annotation cp="💔">ভগ্ন হৃদয় | ভঙা | ভাঙি যোৱা</annotation>
 		<annotation cp="💔" type="tts">ভগ্ন হৃদয়</annotation>
-		<annotation cp="❤">ৰঙা হৃদয় | হাৰ্ট</annotation>
-		<annotation cp="❤" type="tts">ৰঙা হৃদয়</annotation>
 		<annotation cp="❤‍🔥">কামভাৱ | জুইত থকা হৃদয় | জ্বলা | পবিত্ৰ হৃদয় | প্ৰেম | হৃদয়</annotation>
 		<annotation cp="❤‍🔥" type="tts">জুইত থকা হৃদয়</annotation>
 		<annotation cp="❤‍🩹">আৰোগ্য হোৱা | উদ্ধাৰ হোৱা | ঠিক হোৱা | সকাহ পোৱা | স্বাস্থ্য ঠিক হোৱা | স্বাস্থ্যকৰ | হৃদয় আৰোগ্য হোৱা</annotation>
 		<annotation cp="❤‍🩹" type="tts">হৃদয় আৰোগ্য হোৱা</annotation>
+		<annotation cp="❤">ৰঙা হৃদয় | হাৰ্ট</annotation>
+		<annotation cp="❤" type="tts">ৰঙা হৃদয়</annotation>
 		<annotation cp="🧡">কমলাৰঙী | কমলাৰঙী হৃদয়</annotation>
 		<annotation cp="🧡" type="tts">কমলাৰঙী হৃদয়</annotation>
 		<annotation cp="💛">হালধীয়া | হালধীয়া হৃদয়</annotation>
@@ -767,14 +767,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">মুনিহ</annotation>
 		<annotation cp="🧔">দাঢ়ি | পুৰুষ | পুৰুষ: দাঢ়ি | ব্যক্তি</annotation>
 		<annotation cp="🧔" type="tts">পুৰুষ: দাঢ়ি</annotation>
-		<annotation cp="👱‍♂">চুলি | পুৰুষ | পুৰুষ: সোণালী চুলি | সোণালী চুলিৰ পুৰুষ | স্বৰ্ণকেশী</annotation>
-		<annotation cp="👱‍♂" type="tts">পুৰুষ: সোণালী চুলি</annotation>
-		<annotation cp="🧔‍♀">দাড়ি | মহিলা | মহিলা: দাড়ি</annotation>
-		<annotation cp="🧔‍♀" type="tts">মহিলা: দাড়ি</annotation>
 		<annotation cp="🧔‍♂">দাড়ি | পুৰুষ | পুৰুষ: দাড়ি</annotation>
 		<annotation cp="🧔‍♂" type="tts">পুৰুষ: দাড়ি</annotation>
+		<annotation cp="👱‍♂">চুলি | পুৰুষ | পুৰুষ: সোণালী চুলি | সোণালী চুলিৰ পুৰুষ | স্বৰ্ণকেশী</annotation>
+		<annotation cp="👱‍♂" type="tts">পুৰুষ: সোণালী চুলি</annotation>
 		<annotation cp="👩">তিৰোতা | মহিলা</annotation>
 		<annotation cp="👩" type="tts">তিৰোতা</annotation>
+		<annotation cp="🧔‍♀">দাড়ি | মহিলা | মহিলা: দাড়ি</annotation>
+		<annotation cp="🧔‍♀" type="tts">মহিলা: দাড়ি</annotation>
 		<annotation cp="👱‍♀">চুলি | মহিলা | মহিলা: সোণালী চুলি | সোণালী চুলিৰ মহিলা | স্বৰ্ণকেশী</annotation>
 		<annotation cp="👱‍♀" type="tts">মহিলা: সোণালী চুলি</annotation>
 		<annotation cp="🧓">বয়স্ক | বয়স্ক প্ৰাপ্তবয়স্ক | লিংগ নিউট্ৰেল</annotation>

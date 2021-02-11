@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -443,6 +443,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ऊपर देखती आँखों वाला चेहरा</annotation>
 		<annotation cp="😬">खिसियाता चेहरा | चेहरा | दांत निकालना | मुंह बनाता चेहरा | मुंह बनाना</annotation>
 		<annotation cp="😬" type="tts">मुंह बनाता चेहरा</annotation>
+		<annotation cp="😮‍💨" draft="contributed">सांस छोड़ता हुआ चेहरा</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">सांस छोड़ता हुआ चेहरा</annotation>
 		<annotation cp="🤥">चेहरा | झूठ | झूठ बोलता चेहरा | पिनोकिओ</annotation>
 		<annotation cp="🤥" type="tts">झूठ बोलता चेहरा</annotation>
 		<annotation cp="😌">चिंतामुक्त | चेहरा</annotation>
@@ -501,8 +503,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">अधिक क्रोधित चेहरा</annotation>
 		<annotation cp="😮">खुला मुंह | खुले मुँह वाला चेहरा | चेहरा | मुंह</annotation>
 		<annotation cp="😮" type="tts">खुले मुँह वाला चेहरा</annotation>
-		<annotation cp="😮‍💨" draft="contributed">सांस छोड़ता हुआ चेहरा</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">सांस छोड़ता हुआ चेहरा</annotation>
 		<annotation cp="😯">अचंभित | अवाक | आश्चर्यचकित | चेहरा | निस्तब्ध चेहरा</annotation>
 		<annotation cp="😯" type="tts">आश्चर्यचकित चेहरा</annotation>
 		<annotation cp="😲">चेहरा | झटका | पूरी तरह स्तंभित | पूरी तरह स्तंभित चेहरा | भौंचक | हैरान चेहरा</annotation>
@@ -621,12 +621,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">विस्मय चिह्न वाला दिल</annotation>
 		<annotation cp="💔">टूटना | टूटा दिल | टूटा हुआ | दिल | भावना</annotation>
 		<annotation cp="💔" type="tts">टूटा दिल</annotation>
-		<annotation cp="❤">दिल | लाल दिल</annotation>
-		<annotation cp="❤" type="tts">लाल दिल</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">दिल जलना</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">दिल जलना</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">दिल बहलाना</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">दिल बहलाना</annotation>
+		<annotation cp="❤">दिल | लाल दिल</annotation>
+		<annotation cp="❤" type="tts">लाल दिल</annotation>
 		<annotation cp="🧡">नारंगी दिल</annotation>
 		<annotation cp="🧡" type="tts">नारंगी दिल</annotation>
 		<annotation cp="💛">दिल | पीला | भावना</annotation>
@@ -789,14 +789,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">पुरुष</annotation>
 		<annotation cp="🧔">दाढ़ी | दाढ़ी वाला आदमी</annotation>
 		<annotation cp="🧔" type="tts">दाढ़ी वाला आदमी</annotation>
-		<annotation cp="👱‍♂">आदमी | गोरा | पुरुष | सुनहरे बालों वाला पुरुष</annotation>
-		<annotation cp="👱‍♂" type="tts">सुनहरे बालों वाला पुरुष</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">दाढ़ी | महिला | महिला: दाढ़ी</annotation>
-		<annotation cp="🧔‍♀" type="tts">महिला: दाढ़ी</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">आदमी | आदमी: दाढ़ी | दाढ़ी</annotation>
 		<annotation cp="🧔‍♂" type="tts">आदमी: दाढ़ी</annotation>
+		<annotation cp="👱‍♂">आदमी | गोरा | पुरुष | सुनहरे बालों वाला पुरुष</annotation>
+		<annotation cp="👱‍♂" type="tts">सुनहरे बालों वाला पुरुष</annotation>
 		<annotation cp="👩">महिला | वयस्क</annotation>
 		<annotation cp="👩" type="tts">महिला</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">दाढ़ी | महिला | महिला: दाढ़ी</annotation>
+		<annotation cp="🧔‍♀" type="tts">महिला: दाढ़ी</annotation>
 		<annotation cp="👱‍♀">गोरी | महिला | सुनहरे बालों वाली औरत</annotation>
 		<annotation cp="👱‍♀" type="tts">सुनहरे बालों वाली औरत</annotation>
 		<annotation cp="🧓">लैंगिक रूप से निष्पक्ष | वृद्ध | वृद्ध व्यक्ति</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -499,6 +499,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">himler med øynene</annotation>
 		<annotation cp="😬">fjes | grimase</annotation>
 		<annotation cp="😬" type="tts">grimase</annotation>
+		<annotation cp="😮‍💨">fjes | gispe | hviske | lettet | plystre | puste ut | puster ut | sukke</annotation>
+		<annotation cp="😮‍💨" type="tts">puster ut</annotation>
 		<annotation cp="🤥">fjes | løgn | lyver | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">lyver</annotation>
 		<annotation cp="😌">fjes | lettet</annotation>
@@ -557,8 +559,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">surt fjes</annotation>
 		<annotation cp="😮">åpen munn | fjes | forbauset</annotation>
 		<annotation cp="😮" type="tts">forbauset</annotation>
-		<annotation cp="😮‍💨">fjes | gispe | hviske | lettet | plystre | puste ut | puster ut | sukke</annotation>
-		<annotation cp="😮‍💨" type="tts">puster ut</annotation>
 		<annotation cp="😯">fjes | overrasket | stum</annotation>
 		<annotation cp="😯" type="tts">overrasket</annotation>
 		<annotation cp="😲">fjes | overrasket | sjokkert | stum</annotation>
@@ -677,12 +677,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">utropstegn med hjerte</annotation>
 		<annotation cp="💔">brudd | følelser | hjerte | knust hjerte</annotation>
 		<annotation cp="💔" type="tts">knust hjerte</annotation>
-		<annotation cp="❤">hjerte | rødt hjerte</annotation>
-		<annotation cp="❤" type="tts">rødt hjerte</annotation>
 		<annotation cp="❤‍🔥">brann | hellig hjerte | hjerte | hjerte i brann | ild | kjærlighet | lidenskap</annotation>
 		<annotation cp="❤‍🔥" type="tts">hjerte i brann</annotation>
 		<annotation cp="❤‍🩹">bedre | bra | forbedring | komme seg | lindret hjerte | lindring | sterkere</annotation>
 		<annotation cp="❤‍🩹" type="tts">lindret hjerte</annotation>
+		<annotation cp="❤">hjerte | rødt hjerte</annotation>
+		<annotation cp="❤" type="tts">rødt hjerte</annotation>
 		<annotation cp="🧡">følelser | hjerte | oransje</annotation>
 		<annotation cp="🧡" type="tts">oransje hjerte</annotation>
 		<annotation cp="💛">følelser | gul | gult hjerte | hjerte</annotation>
@@ -845,14 +845,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">mann</annotation>
 		<annotation cp="🧔">mann | mann med skjegg | mann: skjegg | person | person: skjegg | skjegg</annotation>
 		<annotation cp="🧔" type="tts">person: skjegg</annotation>
-		<annotation cp="👱‍♂">blond | hår | mann | mann: blond</annotation>
-		<annotation cp="👱‍♂" type="tts">mann: blond</annotation>
-		<annotation cp="🧔‍♀">kvinne | kvinne: skjegg | skjegg</annotation>
-		<annotation cp="🧔‍♀" type="tts">kvinne: skjegg</annotation>
 		<annotation cp="🧔‍♂">mann | mann: skjegg | skjegg</annotation>
 		<annotation cp="🧔‍♂" type="tts">mann: skjegg</annotation>
+		<annotation cp="👱‍♂">blond | hår | mann | mann: blond</annotation>
+		<annotation cp="👱‍♂" type="tts">mann: blond</annotation>
 		<annotation cp="👩">kvinne | menneske | voksen</annotation>
 		<annotation cp="👩" type="tts">kvinne</annotation>
+		<annotation cp="🧔‍♀">kvinne | kvinne: skjegg | skjegg</annotation>
+		<annotation cp="🧔‍♀" type="tts">kvinne: skjegg</annotation>
 		<annotation cp="👱‍♀">blond | blondine | hår | kvinne | kvinne: blond</annotation>
 		<annotation cp="👱‍♀" type="tts">kvinne: blond</annotation>
 		<annotation cp="🧓">eldre voksen | gammel | kjønnsnøytral | menneske | voksen</annotation>

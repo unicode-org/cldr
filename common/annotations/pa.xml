@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -518,6 +518,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ਅੱਖਾਂ ਘੁਮਾਉਂਦਾ ਚਿਹਰਾ</annotation>
 		<annotation cp="😬">ਕਚੀਚੀਆਂ ਲੈਂਦਾ ਚਿਹਰਾ | ਚਿਹਰਾ | ਬਦਸੂਰਤ</annotation>
 		<annotation cp="😬" type="tts">ਕਚੀਚੀਆਂ ਲੈਂਦਾ ਚਿਹਰਾ</annotation>
+		<annotation cp="😮‍💨">ਸਾਹ ਬਾਹਰ ਕੱਢਣਾ । ਸਿਸਕੀ | ਸਾਹ ਭਰਦਾ | ਸਾਹ ਭਰਦਾ ਚਿਹਰਾ | ਸੀਟੀ | ਹੂੰਗ | ਘੁਸਰ-ਮੁਸਰ | ਰਾਹਤ</annotation>
+		<annotation cp="😮‍💨" type="tts">ਸਾਹ ਭਰਦਾ ਚਿਹਰਾ</annotation>
 		<annotation cp="🤥">ਚਿਹਰਾ | ਝੂਠ | ਝੂਠਾ ਚਿਹਰਾ</annotation>
 		<annotation cp="🤥" type="tts">ਝੂਠਾ ਚਿਹਰਾ</annotation>
 		<annotation cp="😌">ਚਿਹਰਾ | ਰਾਹਤ | ਰਾਹਤ ਵਾਲਾ ਚਿਹਰਾ</annotation>
@@ -576,8 +578,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">ਨਰਾਜ਼ ਚਿਹਰਾ</annotation>
 		<annotation cp="😮">ਖੁੱਲਾ ਮੂੰਹ | ਖੁੱਲਿਆ ਮੂੰਹ ਚਿਹਰਾ | ਖੁੱਲ੍ਹੇ ਮੂੰਹ ਵਾਲਾ ਚਿਹਰਾ | ਚਿਹਰਾ | ਮੂੰਹ</annotation>
 		<annotation cp="😮" type="tts">ਖੁੱਲ੍ਹੇ ਮੂੰਹ ਵਾਲਾ ਚਿਹਰਾ</annotation>
-		<annotation cp="😮‍💨">ਸਾਹ ਬਾਹਰ ਕੱਢਣਾ । ਸਿਸਕੀ | ਸਾਹ ਭਰਦਾ | ਸਾਹ ਭਰਦਾ ਚਿਹਰਾ | ਸੀਟੀ | ਹੂੰਗ | ਘੁਸਰ-ਮੁਸਰ | ਰਾਹਤ</annotation>
-		<annotation cp="😮‍💨" type="tts">ਸਾਹ ਭਰਦਾ ਚਿਹਰਾ</annotation>
 		<annotation cp="😯">ਸਾਂਤ ਚਿਹਰਾ | ਹੈਰਾਨ | ਚਿਹਰਾ</annotation>
 		<annotation cp="😯" type="tts">ਹੈਰਾਨ ਚਿਹਰਾ</annotation>
 		<annotation cp="😲">ਹੈਰਤ ਵਾਲਾ ਚਿਹਰਾ | ਹੈਰਾਨ | ਹੈਰਾਨੀ | ਚਿਹਰਾ | ਪੂਰੀ ਤਰ੍ਹਾਂ ਹੈਰਾਨ</annotation>
@@ -696,12 +696,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ਸਜਾਵਟੀ ਹੈਰਾਨੀਵਾਚਕ ਚਿੰਨ੍ਹ</annotation>
 		<annotation cp="💔">ਜਜ਼ਬਾਤ | ਟੁੱਟਣਾ | ਟੁੱਟਿਆ ਹੋਇਆ ਦਿਲ | ਟੁੱਟਿਆ ਦਿਲ | ਦਿਲ ਟੁਟਿਆ ਹੋਇਆ | ਦਿਲ ਤੋੜਨਾ</annotation>
 		<annotation cp="💔" type="tts">ਟੁੱਟਿਆ ਦਿਲ</annotation>
-		<annotation cp="❤">ਦਿਲ | ਪਿਆਰ | ਲਾਲ ਦਿਲ</annotation>
-		<annotation cp="❤" type="tts">ਲਾਲ ਦਿਲ</annotation>
 		<annotation cp="❤‍🔥">ਸਾੜ | ਜਲਦਾ ਦਿਲ | ਦਿਲ | ਪਵਿੱਤਰ ਦਿਲ | ਪਿਆਰ | ਲਾਲਸਾ</annotation>
 		<annotation cp="❤‍🔥" type="tts">ਜਲਦਾ ਦਿਲ</annotation>
 		<annotation cp="❤‍🩹">ਸਿਹਤਮੰਦ | ਸੁਧਾਰ | ਸੁਧਾਰਨ | ਖੈਰ | ਤੰਦਰੁਸਤ ਹੁੰਦਾ ਦਿਲ | ਤੰਦਰੁਸਤੀ | ਮੁਰੰਮਤ</annotation>
 		<annotation cp="❤‍🩹" type="tts">ਤੰਦਰੁਸਤ ਹੁੰਦਾ ਦਿਲ</annotation>
+		<annotation cp="❤">ਦਿਲ | ਪਿਆਰ | ਲਾਲ ਦਿਲ</annotation>
+		<annotation cp="❤" type="tts">ਲਾਲ ਦਿਲ</annotation>
 		<annotation cp="🧡">ਸੰਤਰੀ | ਸੰਤਰੀ ਦਿਲ</annotation>
 		<annotation cp="🧡" type="tts">ਸੰਤਰੀ ਦਿਲ</annotation>
 		<annotation cp="💛">ਜਜ਼ਬਾਤ | ਦਿਲ | ਪੀਲਾ</annotation>
@@ -864,14 +864,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">ਆਦਮੀ</annotation>
 		<annotation cp="🧔">ਦਾੜ੍ਹੀ | ਦਾੜ੍ਹੀ ਵਾਲਾ ਬੰਦਾ</annotation>
 		<annotation cp="🧔" type="tts">ਦਾੜ੍ਹੀ ਵਾਲਾ ਬੰਦਾ</annotation>
-		<annotation cp="👱‍♂">ਕੱਕੇ ਵਾਲਾਂ ਵਾਲਾ ਪੁਰਸ਼ | ਪੁਰਸ਼ | ਬੰਦਾ</annotation>
-		<annotation cp="👱‍♂" type="tts">ਕੱਕੇ ਵਾਲਾਂ ਵਾਲਾ ਪੁਰਸ਼</annotation>
-		<annotation cp="🧔‍♀">ਔਰਤ | ਔਰਤ: ਦਾੜ੍ਹੀ | ਦਾੜ੍ਹੀ</annotation>
-		<annotation cp="🧔‍♀" type="tts">ਔਰਤ: ਦਾੜ੍ਹੀ</annotation>
 		<annotation cp="🧔‍♂">ਆਦਮੀ | ਆਦਮੀ: ਦਾੜ੍ਹੀ | ਦਾੜ੍ਹੀ</annotation>
 		<annotation cp="🧔‍♂" type="tts">ਆਦਮੀ: ਦਾੜ੍ਹੀ</annotation>
+		<annotation cp="👱‍♂">ਕੱਕੇ ਵਾਲਾਂ ਵਾਲਾ ਪੁਰਸ਼ | ਪੁਰਸ਼ | ਬੰਦਾ</annotation>
+		<annotation cp="👱‍♂" type="tts">ਕੱਕੇ ਵਾਲਾਂ ਵਾਲਾ ਪੁਰਸ਼</annotation>
 		<annotation cp="👩">ਔਰਤ | ਜ਼ਨਾਨੀ | ਲੋਕ</annotation>
 		<annotation cp="👩" type="tts">ਔਰਤ</annotation>
+		<annotation cp="🧔‍♀">ਔਰਤ | ਔਰਤ: ਦਾੜ੍ਹੀ | ਦਾੜ੍ਹੀ</annotation>
+		<annotation cp="🧔‍♀" type="tts">ਔਰਤ: ਦਾੜ੍ਹੀ</annotation>
 		<annotation cp="👱‍♀">ਔਰਤ | ਇਸਤਰੀ | ਕੱਕੇ ਵਾਲਾਂ ਵਾਲੀ ਇਸਤਰੀ</annotation>
 		<annotation cp="👱‍♀" type="tts">ਕੱਕੇ ਵਾਲਾਂ ਵਾਲੀ ਇਸਤਰੀ</annotation>
 		<annotation cp="🧓">ਬਜ਼ੁਰਗ | ਵੱਡੀ ਉਮਰ ਦਾ ਆਦਮੀ</annotation>

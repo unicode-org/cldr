@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -511,6 +511,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">కళ్లు తిప్పుతున్న ముఖం</annotation>
 		<annotation cp="😬">కోపం | కోపంతో పళ్లు కొరుకుతున్న ముఖం | పళ్లు | ముఖం</annotation>
 		<annotation cp="😬" type="tts">కోపంతో పళ్లు కొరుకుతున్న ముఖం</annotation>
+		<annotation cp="😮‍💨" draft="contributed">ఉచ్ఛ్వాస తీసుకుంటున్న ముఖం</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">ఉచ్ఛ్వాస తీసుకుంటున్న ముఖం</annotation>
 		<annotation cp="🤥">అబద్ధం | అబద్ధమాడుతున్న ముఖం | పీకియో | ముఖం</annotation>
 		<annotation cp="🤥" type="tts">అబద్ధమాడుతున్న ముఖం</annotation>
 		<annotation cp="😌">ఉపశమనం | ఉపశమనం పొందిన ముఖం | ముఖం</annotation>
@@ -569,8 +571,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">కోపంగా ఉన్న ముఖం</annotation>
 		<annotation cp="😮">ఆశ్చర్యం | నోరు | నోరు తెరిచి ఉన్న ముఖం | ముఖం</annotation>
 		<annotation cp="😮" type="tts">నోరు తెరిచి ఉన్న ముఖం</annotation>
-		<annotation cp="😮‍💨" draft="contributed">ఉచ్ఛ్వాస తీసుకుంటున్న ముఖం</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">ఉచ్ఛ్వాస తీసుకుంటున్న ముఖం</annotation>
 		<annotation cp="😯">ఆశ్చర్యం | నిశ్శబ్దం | నిశ్శబ్దంగా చూస్తున్న ముఖం | ముఖం</annotation>
 		<annotation cp="😯" type="tts">నిశ్శబ్దంగా చూస్తున్న ముఖం</annotation>
 		<annotation cp="😲">ఆశ్చర్యం | ఆశ్చర్యంతో నోరు తెరిచిన ముఖం | నోరు | ముఖం</annotation>
@@ -689,12 +689,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ఆశ్చర్యార్థకం గుర్తుతో ఉన్న భారమైన నగ</annotation>
 		<annotation cp="💔">గాయం | గాయపడిన హృదయం | హృదయం</annotation>
 		<annotation cp="💔" type="tts">గాయపడిన హృదయం</annotation>
-		<annotation cp="❤">ఎరుపు | ఎరుపు రంగు హృదయం | హృదయం</annotation>
-		<annotation cp="❤" type="tts">ఎరుపు రంగు హృదయం</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">మండుతున్న హృదయం</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">మండుతున్న హృదయం</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">కట్టుతో ఉన్న హృదయం</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">కట్టుతో ఉన్న హృదయం</annotation>
+		<annotation cp="❤">ఎరుపు | ఎరుపు రంగు హృదయం | హృదయం</annotation>
+		<annotation cp="❤" type="tts">ఎరుపు రంగు హృదయం</annotation>
 		<annotation cp="🧡">ఆరెంజ్ | నారింజ రంగు హృదయం</annotation>
 		<annotation cp="🧡" type="tts">నారింజ రంగు హృదయం</annotation>
 		<annotation cp="💛">పసుపు పచ్చ | పసుపు పచ్చ రంగు హృదయం | హృదయం</annotation>
@@ -857,14 +857,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">పురుషుడు</annotation>
 		<annotation cp="🧔">గడ్డం | గడ్డం గల వ్యక్తి | పురుషుడు | పురుషుడు; గడ్డం</annotation>
 		<annotation cp="🧔" type="tts">పురుషుడు; గడ్డం</annotation>
-		<annotation cp="👱‍♂">తెల్లని జుట్టు | తెల్లని జుట్టు గల పురుషుడు | పురుషుడు | మగాడు</annotation>
-		<annotation cp="👱‍♂" type="tts">తెల్లని జుట్టు గల పురుషుడు</annotation>
-		<annotation cp="🧔‍♀">గెడ్డం | స్త్రీ | స్త్రీ: గెడ్డం</annotation>
-		<annotation cp="🧔‍♀" type="tts">స్త్రీ: గెడ్డం</annotation>
 		<annotation cp="🧔‍♂">గెడ్డం | పురుషుడు | పురుషుడు: గెడ్డం</annotation>
 		<annotation cp="🧔‍♂" type="tts">పురుషుడు: గెడ్డం</annotation>
+		<annotation cp="👱‍♂">తెల్లని జుట్టు | తెల్లని జుట్టు గల పురుషుడు | పురుషుడు | మగాడు</annotation>
+		<annotation cp="👱‍♂" type="tts">తెల్లని జుట్టు గల పురుషుడు</annotation>
 		<annotation cp="👩">ఆడది | మహిళ | స్త్రీ</annotation>
 		<annotation cp="👩" type="tts">మహిళ</annotation>
+		<annotation cp="🧔‍♀">గెడ్డం | స్త్రీ | స్త్రీ: గెడ్డం</annotation>
+		<annotation cp="🧔‍♀" type="tts">స్త్రీ: గెడ్డం</annotation>
 		<annotation cp="👱‍♀">తెల్లని జుట్టు | తెల్లని జుట్టు గల స్త్రీ | మహిళ | స్త్రీ</annotation>
 		<annotation cp="👱‍♀" type="tts">తెల్లని జుట్టు గల స్త్రీ</annotation>
 		<annotation cp="🧓">లింగం-తటస్థ | వృద్ధ | వృద్ధులు</annotation>

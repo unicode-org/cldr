@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -421,6 +421,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">faccina con occhi al cielo</annotation>
 		<annotation cp="😬">faccina | faccina con smorfia</annotation>
 		<annotation cp="😬" type="tts">faccina con smorfia</annotation>
+		<annotation cp="😮‍💨" draft="contributed">faccina che espira</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">faccina che espira</annotation>
 		<annotation cp="🤥">bugia | bugiardo | faccina bugiarda | naso lungo | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">faccina bugiarda</annotation>
 		<annotation cp="😌">faccina | faccina sollevata</annotation>
@@ -479,8 +481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">faccina imbronciata</annotation>
 		<annotation cp="😮">bocca | faccina | faccina con bocca aperta | sorpreso | stupito</annotation>
 		<annotation cp="😮" type="tts">faccina con bocca aperta</annotation>
-		<annotation cp="😮‍💨" draft="contributed">faccina che espira</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">faccina che espira</annotation>
 		<annotation cp="😯">faccina | sbalordita | sorpresa</annotation>
 		<annotation cp="😯" type="tts">faccina sorpresa</annotation>
 		<annotation cp="😲">faccina | scioccata | stupita</annotation>
@@ -599,12 +599,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">punto esclamativo a cuore</annotation>
 		<annotation cp="💔">cuore | emozione | infranto | spezzato</annotation>
 		<annotation cp="💔" type="tts">cuore infranto</annotation>
-		<annotation cp="❤">amore | cuore rosso | rosso</annotation>
-		<annotation cp="❤" type="tts">cuore rosso</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">cuore in fiamme</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">cuore in fiamme</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">cuore guarito</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">cuore guarito</annotation>
+		<annotation cp="❤">amore | cuore rosso | rosso</annotation>
+		<annotation cp="❤" type="tts">cuore rosso</annotation>
 		<annotation cp="🧡">arancione | cuore | emozione</annotation>
 		<annotation cp="🧡" type="tts">cuore arancione</annotation>
 		<annotation cp="💛">cuore | emozione | giallo</annotation>
@@ -767,14 +767,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">uomo</annotation>
 		<annotation cp="🧔">barba | persona | persona con la barba</annotation>
 		<annotation cp="🧔" type="tts">persona con la barba</annotation>
-		<annotation cp="👱‍♂">biondo | maschio | uomo</annotation>
-		<annotation cp="👱‍♂" type="tts">uomo biondo</annotation>
-		<annotation cp="🧔‍♀">barba | donna | donna con la barba</annotation>
-		<annotation cp="🧔‍♀" type="tts">donna con la barba</annotation>
 		<annotation cp="🧔‍♂">barba | uomo | uomo con la barba</annotation>
 		<annotation cp="🧔‍♂" type="tts">uomo con la barba</annotation>
+		<annotation cp="👱‍♂">biondo | maschio | uomo</annotation>
+		<annotation cp="👱‍♂" type="tts">uomo biondo</annotation>
 		<annotation cp="👩">donna | femmina | persone</annotation>
 		<annotation cp="👩" type="tts">donna</annotation>
+		<annotation cp="🧔‍♀">barba | donna | donna con la barba</annotation>
+		<annotation cp="🧔‍♀" type="tts">donna con la barba</annotation>
 		<annotation cp="👱‍♀">bionda | donna | femmina</annotation>
 		<annotation cp="👱‍♀" type="tts">donna bionda</annotation>
 		<annotation cp="🧓">adulto anziano | anziano | persona anziana</annotation>

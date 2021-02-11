@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">gesig met oë wat rol</annotation>
 		<annotation cp="😬">gesig | grynsend | grynsende gesig</annotation>
 		<annotation cp="😬" type="tts">grynsende gesig</annotation>
+		<annotation cp="😮‍💨">asem uit | fluister | fluit | gesig asem uit | kreun | snak | verlig</annotation>
+		<annotation cp="😮‍💨" type="tts">gesig asem uit</annotation>
 		<annotation cp="🤥">gesig | gesig wat jok | jok | leuen | lieg | onwaar</annotation>
 		<annotation cp="🤥" type="tts">gesig wat jok</annotation>
 		<annotation cp="😌">gesig | verlig | verligte gesig</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">gesig wat frons</annotation>
 		<annotation cp="😮">gesig | gesig met oop mond | mond | oop | simpatie</annotation>
 		<annotation cp="😮" type="tts">gesig met oop mond</annotation>
-		<annotation cp="😮‍💨">asem uit | fluister | fluit | gesig asem uit | kreun | snak | verlig</annotation>
-		<annotation cp="😮‍💨" type="tts">gesig asem uit</annotation>
 		<annotation cp="😯">gedemp | gedempte gesig | gesig | stil | verbaas</annotation>
 		<annotation cp="😯" type="tts">gedempte gesig</annotation>
 		<annotation cp="😲">gesig | geskok | verbaas | verstom | verstomde gesig</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">dik hartuitroepteken</annotation>
 		<annotation cp="💔">breek | gebroke | gebroke hartjie | hart</annotation>
 		<annotation cp="💔" type="tts">gebroke hartjie</annotation>
-		<annotation cp="❤">hart | rooi | rooi hartjie</annotation>
-		<annotation cp="❤" type="tts">rooi hartjie</annotation>
 		<annotation cp="❤‍🔥">brand | hart | hart wat brand | liefde | lus</annotation>
 		<annotation cp="❤‍🔥" type="tts">hart wat brand</annotation>
 		<annotation cp="❤‍🩹">beter | gesonder | helend | helende hart | herstel</annotation>
 		<annotation cp="❤‍🩹" type="tts">helende hart</annotation>
+		<annotation cp="❤">hart | rooi | rooi hartjie</annotation>
+		<annotation cp="❤" type="tts">rooi hartjie</annotation>
 		<annotation cp="🧡">oranje | oranje hartjie</annotation>
 		<annotation cp="🧡" type="tts">oranje hartjie</annotation>
 		<annotation cp="💛">geel | geel hartjie | hart</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">baard | bebaarde persoon | man</annotation>
 		<annotation cp="🧔" type="tts">bebaarde persoon</annotation>
-		<annotation cp="👱‍♂">blond | blonde man | hare | man</annotation>
-		<annotation cp="👱‍♂" type="tts">blonde man</annotation>
-		<annotation cp="🧔‍♀">baard | vrou | vrou: baard</annotation>
-		<annotation cp="🧔‍♀" type="tts">vrou: baard</annotation>
 		<annotation cp="🧔‍♂">baard | baard: man | man | man: baard</annotation>
 		<annotation cp="🧔‍♂" type="tts">man: baard</annotation>
+		<annotation cp="👱‍♂">blond | blonde man | hare | man</annotation>
+		<annotation cp="👱‍♂" type="tts">blonde man</annotation>
 		<annotation cp="👩">volwassene | vrou</annotation>
 		<annotation cp="👩" type="tts">vrou</annotation>
+		<annotation cp="🧔‍♀">baard | vrou | vrou: baard</annotation>
+		<annotation cp="🧔‍♀" type="tts">vrou: baard</annotation>
 		<annotation cp="👱‍♀">blond | blonde vrou | blondine | hare | vrou</annotation>
 		<annotation cp="👱‍♀" type="tts">blondine</annotation>
 		<annotation cp="🧓">geslagneutraal | ongespesifiseerde geslag | oud | ouer persoon | ouer volwassene | volwassene</annotation>

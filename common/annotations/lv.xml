@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -612,6 +612,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">seja ar pārgrieztām acīm</annotation>
 		<annotation cp="😬">grimase | saviebta seja | seja</annotation>
 		<annotation cp="😬" type="tts">saviebta seja</annotation>
+		<annotation cp="😮‍💨">atvieglojums | čuksti | izelpa | nopūta | seja nopūšas | svilpošana | vaids</annotation>
+		<annotation cp="😮‍💨" type="tts">seja nopūšas</annotation>
 		<annotation cp="🤥">meli | melojoša seja | pinokio | seja</annotation>
 		<annotation cp="🤥" type="tts">melojoša seja</annotation>
 		<annotation cp="😌">atvieglojums | seja | seja ar atvieglojuma izteiksmi</annotation>
@@ -670,8 +672,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">bēdīga seja</annotation>
 		<annotation cp="😮">atvērts | mute | pārsteigt | seja | seja ar atvērtu muti</annotation>
 		<annotation cp="😮" type="tts">seja ar atvērtu muti</annotation>
-		<annotation cp="😮‍💨">atvieglojums | čuksti | izelpa | nopūta | seja nopūšas | svilpošana | vaids</annotation>
-		<annotation cp="😮‍💨" type="tts">seja nopūšas</annotation>
 		<annotation cp="😯">apklusināt | pārsteigt | pārsteigta seja | seja</annotation>
 		<annotation cp="😯" type="tts">pārsteigta seja</annotation>
 		<annotation cp="😲">pārsteigts | seja | šokēta seja | šokēts</annotation>
@@ -790,12 +790,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">izsaukuma zīme sirds formā</annotation>
 		<annotation cp="💔">salauzt | salauzta sirds | sirds</annotation>
 		<annotation cp="💔" type="tts">salauzta sirds</annotation>
-		<annotation cp="❤">sarkana sirds | sarkans | sirds</annotation>
-		<annotation cp="❤" type="tts">sarkana sirds</annotation>
 		<annotation cp="❤‍🔥">degoša sirds | kaisle | liesmas | mīla | sirds | svēta sirds</annotation>
 		<annotation cp="❤‍🔥" type="tts">degoša sirds</annotation>
 		<annotation cp="❤‍🩹">atkopties | atspirgt | labi | pārsiet | pārsieta sirds | uzlabot | veselību</annotation>
 		<annotation cp="❤‍🩹" type="tts">pārsieta sirds</annotation>
+		<annotation cp="❤">sarkana sirds | sarkans | sirds</annotation>
+		<annotation cp="❤" type="tts">sarkana sirds</annotation>
 		<annotation cp="🧡">oranža sirds | oranžs | sirds</annotation>
 		<annotation cp="🧡" type="tts">oranža sirds</annotation>
 		<annotation cp="💛">dzeltena sirds | dzeltens | sirds</annotation>
@@ -958,14 +958,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">vīrietis</annotation>
 		<annotation cp="🧔">bārda | bārdaina persona | bārdains vīrietis | persona</annotation>
 		<annotation cp="🧔" type="tts">bārdains vīrietis</annotation>
-		<annotation cp="👱‍♂">blondīns | vīrietis</annotation>
-		<annotation cp="👱‍♂" type="tts">blondīns</annotation>
-		<annotation cp="🧔‍♀">bārda | sieviete | sieviete ar bārdu</annotation>
-		<annotation cp="🧔‍♀" type="tts">sieviete ar bārdu</annotation>
 		<annotation cp="🧔‍♂">bārda | vīrietis | vīrietis ar bārdu</annotation>
 		<annotation cp="🧔‍♂" type="tts">vīrietis ar bārdu</annotation>
+		<annotation cp="👱‍♂">blondīns | vīrietis</annotation>
+		<annotation cp="👱‍♂" type="tts">blondīns</annotation>
 		<annotation cp="👩">dāma | kundze | seja | sieviete</annotation>
 		<annotation cp="👩" type="tts">sieviete</annotation>
+		<annotation cp="🧔‍♀">bārda | sieviete | sieviete ar bārdu</annotation>
+		<annotation cp="🧔‍♀" type="tts">sieviete ar bārdu</annotation>
 		<annotation cp="👱‍♀">blonda | blondi mati | blondīne | sieviete</annotation>
 		<annotation cp="👱‍♀" type="tts">blondīne</annotation>
 		<annotation cp="🧓">bezdzimuma | dzimumneitrāls | vecāks pieaugušais | vecs</annotation>

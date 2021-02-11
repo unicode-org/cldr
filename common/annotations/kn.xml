@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ತಿರುಗುತ್ತಿರುವ ಕಣ್ಣುಗಳ ಮುಖ</annotation>
 		<annotation cp="😬">ಗಂಟುಮೋರೆ ಮುಖ | ಸೊಟ್ಟ ಮುಖ</annotation>
 		<annotation cp="😬" type="tts">ಸೊಟ್ಟ ಮುಖ</annotation>
+		<annotation cp="😮‍💨" draft="provisional">ನಿಟ್ಟುಸಿರು ಇಡುತ್ತಿರುವ ಮುಖ</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="provisional">ನಿಟ್ಟುಸಿರು ಇಡುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="🤥">ಪಿನಾಷಿಯೋ | ಮುಖ | ಸುಳ್ಳು | ಸುಳ್ಳುಗಾರ ಮುಖ</annotation>
 		<annotation cp="🤥" type="tts">ಸುಳ್ಳುಗಾರ ಮುಖ</annotation>
 		<annotation cp="😌">ನಿರಾಳತೆ | ನಿರಾಳತೆಯ ಮುಖ | ಮುಖ</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">ಗಂಟಿಕ್ಕಿರುವ ಮುಖ</annotation>
 		<annotation cp="😮">ತೆರೆದ ಬಾಯಿಯ ಮುಖ | ತೆರೆದಿರುವುದು | ಬಾಯಿ | ಮುಖ | ಸಹಾನುಭೂತಿ</annotation>
 		<annotation cp="😮" type="tts">ತೆರೆದ ಬಾಯಿಯ ಮುಖ</annotation>
-		<annotation cp="😮‍💨" draft="provisional">ನಿಟ್ಟುಸಿರು ಇಡುತ್ತಿರುವ ಮುಖ</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="provisional">ನಿಟ್ಟುಸಿರು ಇಡುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="😯">ಆಶ್ಚರ್ಯವಾಗಿರುವುದು | ಗಾಬರಿಯಾಗಿರುವುದು | ಗೋಪ್ಯವಾಗಿರಿಸಿದ | ಮುಖ</annotation>
 		<annotation cp="😯" type="tts">ಗೋಪ್ಯವಾಗಿರಿಸಿದ ಮುಖ</annotation>
 		<annotation cp="😲">ಆಘಾತವಾಗಿರುವುದು | ಆಶ್ಚರ್ಯಚಕಿತ ಮುಖ | ಆಶ್ಚರ್ಯಚಕಿತವಾಗಿರುವುದು | ಮುಖ | ಸಂಪೂರ್ಣ</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ಹೃದಯ ಆಶ್ಚರ್ಯ ಗುರುತು</annotation>
 		<annotation cp="💔">ಒಡೆದ ಹೃದಯ | ಒಡೆದಿರುವ ಹೃದಯ | ಹೃದಯ ಮುರಿಯುವಿಕೆ</annotation>
 		<annotation cp="💔" type="tts">ಒಡೆದಿರುವ ಹೃದಯ</annotation>
-		<annotation cp="❤">ಕೆಂಪು ಹೃದಯ | ಹೃದಯ</annotation>
-		<annotation cp="❤" type="tts">ಕೆಂಪು ಹೃದಯ</annotation>
 		<annotation cp="❤‍🔥">ಕಾಮ | ಪವಿತ್ರ ಹೃದಯ | ಪ್ರೀತಿ | ಬೆಂಕಿಯಲ್ಲಿ ಹೃದಯ | ಸುಡುವುದು | ಹೃದಯ</annotation>
 		<annotation cp="❤‍🔥" type="tts">ಬೆಂಕಿಯಲ್ಲಿ ಹೃದಯ</annotation>
 		<annotation cp="❤‍🩹">ಆರಾಮಾಗುತ್ತಿರುವುದು | ಆರೋಗ್ಯವಂತ | ಒಳ್ಳೆಯದು | ಚೇತರಿಕೆ | ಸುಧಾರಿಸುವುದು | ಹತೋಟಿಯಲ್ಲಿಡುವುದು | ಹೃದಯ ಹತೋಟಿಯಲ್ಲಿಡುವುದು</annotation>
 		<annotation cp="❤‍🩹" type="tts">ಹೃದಯ ಹತೋಟಿಯಲ್ಲಿಡುವುದು</annotation>
+		<annotation cp="❤">ಕೆಂಪು ಹೃದಯ | ಹೃದಯ</annotation>
+		<annotation cp="❤" type="tts">ಕೆಂಪು ಹೃದಯ</annotation>
 		<annotation cp="🧡">ಕಿತ್ತಳೆ | ಕಿತ್ತಳೆ ಹೃದಯ</annotation>
 		<annotation cp="🧡" type="tts">ಕಿತ್ತಳೆ ಹೃದಯ</annotation>
 		<annotation cp="💛">ಹಳದಿ | ಹಳದಿ ಹೃದಯ</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">ಪುರುಷ</annotation>
 		<annotation cp="🧔">ಗಡ್ಡ | ಗಡ್ಡಧಾರಿ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="🧔" type="tts">ಗಡ್ಡಧಾರಿ ವ್ಯಕ್ತಿ</annotation>
-		<annotation cp="👱‍♂">ಪುರುಷ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಪುರುಷ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ವ್ಯಕ್ತಿ</annotation>
-		<annotation cp="👱‍♂" type="tts">ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಪುರುಷ</annotation>
-		<annotation cp="🧔‍♀">ಗಡ್ಡ | ಮಹಿಳೆ | ಮಹಿಳೆ: ಗಡ್ಡ</annotation>
-		<annotation cp="🧔‍♀" type="tts">ಮಹಿಳೆ: ಗಡ್ಡ</annotation>
 		<annotation cp="🧔‍♂">ಗಡ್ಡ | ಪುರುಷ | ಪುರುಷ: ಗಡ್ಡ</annotation>
 		<annotation cp="🧔‍♂" type="tts">ಪುರುಷ: ಗಡ್ಡ</annotation>
+		<annotation cp="👱‍♂">ಪುರುಷ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಪುರುಷ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ವ್ಯಕ್ತಿ</annotation>
+		<annotation cp="👱‍♂" type="tts">ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಪುರುಷ</annotation>
 		<annotation cp="👩">ಮಹಿಳೆ | ಸ್ತ್ರೀ</annotation>
 		<annotation cp="👩" type="tts">ಮಹಿಳೆ</annotation>
+		<annotation cp="🧔‍♀">ಗಡ್ಡ | ಮಹಿಳೆ | ಮಹಿಳೆ: ಗಡ್ಡ</annotation>
+		<annotation cp="🧔‍♀" type="tts">ಮಹಿಳೆ: ಗಡ್ಡ</annotation>
 		<annotation cp="👱‍♀">ಮಹಿಳೆ | ಸ್ತ್ರೀ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಮಹಿಳೆ</annotation>
 		<annotation cp="👱‍♀" type="tts">ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಮಹಿಳೆ</annotation>
 		<annotation cp="🧓">ಲಿಂಗ-ತಟಸ್ಥ | ಹಿರಿಯ | ಹಿರಿಯ ವಯಸ್ಕರು</annotation>

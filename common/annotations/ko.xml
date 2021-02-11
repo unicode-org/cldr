@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -479,6 +479,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">눈을 굴리고 있는 얼굴</annotation>
 		<annotation cp="😬">얼굴 | 찌푸린 얼굴 | 찡그림</annotation>
 		<annotation cp="😬" type="tts">찌푸린 얼굴</annotation>
+		<annotation cp="😮‍💨">날숨 | 날숨 쉬는 얼굴 | 속삭임 | 안도 | 한숨 | 휘파람</annotation>
+		<annotation cp="😮‍💨" type="tts">날숨 쉬는 얼굴</annotation>
 		<annotation cp="🤥">거짓말 | 거짓말쟁이 | 거짓말하는 얼굴 | 얼굴 | 피노키오</annotation>
 		<annotation cp="🤥" type="tts">거짓말하는 얼굴</annotation>
 		<annotation cp="😌">안도 | 안심한 얼굴 | 얼굴 | 표정</annotation>
@@ -537,8 +539,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">찡그린 얼굴</annotation>
 		<annotation cp="😮">얼굴 | 입벌린 얼굴 | 입벌림</annotation>
 		<annotation cp="😮" type="tts">입벌린 얼굴</annotation>
-		<annotation cp="😮‍💨">날숨 | 날숨 쉬는 얼굴 | 속삭임 | 안도 | 한숨 | 휘파람</annotation>
-		<annotation cp="😮‍💨" type="tts">날숨 쉬는 얼굴</annotation>
 		<annotation cp="😯">숨죽인 얼굴 | 숨죽임 | 얼굴</annotation>
 		<annotation cp="😯" type="tts">숨죽인 얼굴</annotation>
 		<annotation cp="😲">깜짝 놀란 얼굴 | 놀라움 | 놀란 얼굴 | 얼굴 | 충격</annotation>
@@ -657,12 +657,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">하트 모양 느낌표</annotation>
 		<annotation cp="💔">결별 | 깨진 하트 | 이별 | 이별의 고통 | 이별의 아픔 | 헤어짐</annotation>
 		<annotation cp="💔" type="tts">깨진 하트</annotation>
-		<annotation cp="❤">마음 | 빨간색 하트 | 하트</annotation>
-		<annotation cp="❤" type="tts">빨간색 하트</annotation>
 		<annotation cp="❤‍🔥">마음 | 불 난 하트 | 불타는 사랑 | 사랑 | 하트</annotation>
 		<annotation cp="❤‍🔥" type="tts">불 난 하트</annotation>
 		<annotation cp="❤‍🩹">개선 | 건강 | 낫고 있는 하트 | 치유 | 회복 | 힐링</annotation>
 		<annotation cp="❤‍🩹" type="tts">낫고 있는 하트</annotation>
+		<annotation cp="❤">마음 | 빨간색 하트 | 하트</annotation>
+		<annotation cp="❤" type="tts">빨간색 하트</annotation>
 		<annotation cp="🧡">주황색 하트</annotation>
 		<annotation cp="🧡" type="tts">주황색 하트</annotation>
 		<annotation cp="💛">노란 하트 | 노란색 하트 | 사랑 | 하트</annotation>
@@ -825,14 +825,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">남자</annotation>
 		<annotation cp="🧔">사람 | 수염 | 수염 난 사람</annotation>
 		<annotation cp="🧔" type="tts">수염 난 사람</annotation>
-		<annotation cp="👱‍♂">금발 | 남성 | 남자</annotation>
-		<annotation cp="👱‍♂" type="tts">금발 남자</annotation>
-		<annotation cp="🧔‍♀">수염 | 수염 난 여자 | 여자</annotation>
-		<annotation cp="🧔‍♀" type="tts">수염 난 여자</annotation>
 		<annotation cp="🧔‍♂">남자 | 수염 | 수염 난 남자</annotation>
 		<annotation cp="🧔‍♂" type="tts">수염 난 남자</annotation>
+		<annotation cp="👱‍♂">금발 | 남성 | 남자</annotation>
+		<annotation cp="👱‍♂" type="tts">금발 남자</annotation>
 		<annotation cp="👩">성인 | 여성 | 여자</annotation>
 		<annotation cp="👩" type="tts">여자</annotation>
+		<annotation cp="🧔‍♀">수염 | 수염 난 여자 | 여자</annotation>
+		<annotation cp="🧔‍♀" type="tts">수염 난 여자</annotation>
 		<annotation cp="👱‍♀">금발 | 여성 | 여자</annotation>
 		<annotation cp="👱‍♀" type="tts">금발 여자</annotation>
 		<annotation cp="🧓">노인 | 성별 없음 | 성인</annotation>

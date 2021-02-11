@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -389,6 +389,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">cara con ojos en blanco</annotation>
 		<annotation cp="😬">cara | cara haciendo una mueca | mueca</annotation>
 		<annotation cp="😬" type="tts">cara haciendo una mueca</annotation>
+		<annotation cp="😮‍💨">cara | cara exhalando | exhalar | resoplido | respirar | silbato | silbido</annotation>
+		<annotation cp="😮‍💨" type="tts">cara exhalando</annotation>
 		<annotation cp="🤥">cara | cara de mentiroso | mentiroso | nariz | pinocho</annotation>
 		<annotation cp="🤥" type="tts">cara de mentiroso</annotation>
 		<annotation cp="😌">aliviado | cara | cara de alivio</annotation>
@@ -447,8 +449,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">cara con el ceño fruncido</annotation>
 		<annotation cp="😮">boca | cara | cara con la boca abierta</annotation>
 		<annotation cp="😮" type="tts">cara con la boca abierta</annotation>
-		<annotation cp="😮‍💨">cara | cara exhalando | exhalar | resoplido | respirar | silbato | silbido</annotation>
-		<annotation cp="😮‍💨" type="tts">cara exhalando</annotation>
 		<annotation cp="😯">alucinado | cara | cara estupefacta | estupefacto | sorprendido</annotation>
 		<annotation cp="😯" type="tts">cara estupefacta</annotation>
 		<annotation cp="😲">alucinado | asombrado | cara | cara asombrada | pasmado</annotation>
@@ -567,12 +567,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">exclamación de corazón</annotation>
 		<annotation cp="💔">corazón | emoción | partido | roto</annotation>
 		<annotation cp="💔" type="tts">corazón roto</annotation>
-		<annotation cp="❤">corazón | emoción | rojo</annotation>
-		<annotation cp="❤" type="tts">corazón rojo</annotation>
 		<annotation cp="❤‍🔥">amor | corazón | corazón en llamas | fuego | llamas | lujuria | pasión</annotation>
 		<annotation cp="❤‍🔥" type="tts">corazón en llamas</annotation>
 		<annotation cp="❤‍🩹">bien | corazón curándose | cura | mejor | mejora | recuperación | salud</annotation>
 		<annotation cp="❤‍🩹" type="tts">corazón curándose</annotation>
+		<annotation cp="❤">corazón | emoción | rojo</annotation>
+		<annotation cp="❤" type="tts">corazón rojo</annotation>
 		<annotation cp="🧡">corazón | emoción | naranja</annotation>
 		<annotation cp="🧡" type="tts">corazón naranja</annotation>
 		<annotation cp="💛">amarillo | corazón | emoción</annotation>
@@ -735,14 +735,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">hombre</annotation>
 		<annotation cp="🧔">barbas | barbudo | hombre | hombre con barba | persona</annotation>
 		<annotation cp="🧔" type="tts">hombre con barba</annotation>
-		<annotation cp="👱‍♂">hombre | rubiales | rubio</annotation>
-		<annotation cp="👱‍♂" type="tts">hombre rubio</annotation>
-		<annotation cp="🧔‍♀">barba | mujer | mujer: barba</annotation>
-		<annotation cp="🧔‍♀" type="tts">mujer: barba</annotation>
 		<annotation cp="🧔‍♂">barba | hombre | hombre: barba</annotation>
 		<annotation cp="🧔‍♂" type="tts">hombre: barba</annotation>
+		<annotation cp="👱‍♂">hombre | rubiales | rubio</annotation>
+		<annotation cp="👱‍♂" type="tts">hombre rubio</annotation>
 		<annotation cp="👩">adulta | mujer</annotation>
 		<annotation cp="👩" type="tts">mujer</annotation>
+		<annotation cp="🧔‍♀">barba | mujer | mujer: barba</annotation>
+		<annotation cp="🧔‍♀" type="tts">mujer: barba</annotation>
 		<annotation cp="👱‍♀">mujer | rubia | rubiales</annotation>
 		<annotation cp="👱‍♀" type="tts">mujer rubia</annotation>
 		<annotation cp="🧓">género | maduro | mayor | neutro | persona adulta madura | persona mayor</annotation>

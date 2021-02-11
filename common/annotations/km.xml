@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">មុខធ្វើភ្នែកក្រឡេបក្រឡាប់</annotation>
 		<annotation cp="😬">ញេញធ្មេញ | ធ្មេញ | មុខស្អេញស្អូញ | ស្អេញ</annotation>
 		<annotation cp="😬" type="tts">មុខស្អេញស្អូញ</annotation>
+		<annotation cp="😮‍💨">ខួច | ខ្សឹប | ដកដង្ហើមចេញ | ដង្ហក់ | ថ្ងូរ | ធូរចិត្ត | មុខដកដង្ហើមចេញ</annotation>
+		<annotation cp="😮‍💨" type="tts">មុខដកដង្ហើមចេញ</annotation>
 		<annotation cp="🤥">pinocchio | កុហក | មុខ | មុខកុហក</annotation>
 		<annotation cp="🤥" type="tts">មុខកុហក</annotation>
 		<annotation cp="😌">ធូរស្រាល | មុខធូរស្រាលរឿងអ្វីមួយ</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">មុខក្រម៉ូវ</annotation>
 		<annotation cp="😮">ចំហ | បើកមាត់ | មាត់ | មុខចំហមាត់បើកភ្នែក</annotation>
 		<annotation cp="😮" type="tts">មុខចំហមាត់បើកភ្នែក</annotation>
-		<annotation cp="😮‍💨">ខួច | ខ្សឹប | ដកដង្ហើមចេញ | ដង្ហក់ | ថ្ងូរ | ធូរចិត្ត | មុខដកដង្ហើមចេញ</annotation>
-		<annotation cp="😮‍💨" type="tts">មុខដកដង្ហើមចេញ</annotation>
 		<annotation cp="😯">ភាំង | មុខចំហមាត់់ចិញ្ចើមងើបទៅលើលក្ខណៈភាំង</annotation>
 		<annotation cp="😯" type="tts">មុខចំហមាត់់ចិញ្ចើមងើបទៅលើលក្ខណៈភាំង</annotation>
 		<annotation cp="😲">ភ្ញាក់ផ្អើល | មុខភ្ជាក់ផ្អើល</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">សញ្ញាឧទានរូបបេះដូង</annotation>
 		<annotation cp="💔">បេះដូងបែកជាពីរ | បេះដូងប្រេះស្រាំ | បែកបេះដូង</annotation>
 		<annotation cp="💔" type="tts">បេះដូងបែកជាពីរ</annotation>
-		<annotation cp="❤">បេះដូង | ស្រឡាញ់</annotation>
-		<annotation cp="❤" type="tts">បេះដូង</annotation>
 		<annotation cp="❤‍🔥">ឆេះ | តណ្ហា | បេះដូង | បេះដូងពិសិដ្ឋ | បេះដូងពុះកញ្ជ្រោល | ស្រឡាញ់</annotation>
 		<annotation cp="❤‍🔥" type="tts">បេះដូងពុះកញ្ជ្រោល</annotation>
 		<annotation cp="❤‍🩹">ជាសះស្បើយ | ជួសជុល | ធូរស្បើយ | បេះដូងរុំរបួស | ប្រសើរឡើង | សុខភាពល្អ | សុខភាពល្អជាងមុន</annotation>
 		<annotation cp="❤‍🩹" type="tts">បេះដូងរុំរបួស</annotation>
+		<annotation cp="❤">បេះដូង | ស្រឡាញ់</annotation>
+		<annotation cp="❤" type="tts">បេះដូង</annotation>
 		<annotation cp="🧡">បេះដូងពណ៌ទឹកក្រូច | ពណ៌ទឹកក្រូច</annotation>
 		<annotation cp="🧡" type="tts">បេះដូងពណ៌ទឹកក្រូច</annotation>
 		<annotation cp="💛">បេះដូង | បេះដូងពណ៌លឿង | លឿង</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">បុរស</annotation>
 		<annotation cp="🧔">បុរស | បុរសមានពុកចង្កា | ពុកចង្កា | មនុស្ស | មនុស្សមានពុកចង្កា</annotation>
 		<annotation cp="🧔" type="tts">មនុស្សមានពុកចង្កា</annotation>
-		<annotation cp="👱‍♂">ទង់ដែង | បុរស | បុរសសក់ទង់ដែង | ប្រុស | សក់</annotation>
-		<annotation cp="👱‍♂" type="tts">បុរសសក់ទង់ដែង</annotation>
-		<annotation cp="🧔‍♀">ពុកចង្កា | ស្ត្រី | ស្ត្រី៖ ពុកចង្កា</annotation>
-		<annotation cp="🧔‍♀" type="tts">ស្ត្រី៖ ពុកចង្កា</annotation>
 		<annotation cp="🧔‍♂">បុរស | បុរស៖ ពុកចង្កា | ពុកចង្កា</annotation>
 		<annotation cp="🧔‍♂" type="tts">បុរស៖ ពុកចង្កា</annotation>
+		<annotation cp="👱‍♂">ទង់ដែង | បុរស | បុរសសក់ទង់ដែង | ប្រុស | សក់</annotation>
+		<annotation cp="👱‍♂" type="tts">បុរសសក់ទង់ដែង</annotation>
 		<annotation cp="👩">នារី | មនុស្សធំ | មុខស្រ្តី | ស្ត្រី | ស្រី | ស្រ្តី</annotation>
 		<annotation cp="👩" type="tts">ស្រ្តី</annotation>
+		<annotation cp="🧔‍♀">ពុកចង្កា | ស្ត្រី | ស្ត្រី៖ ពុកចង្កា</annotation>
+		<annotation cp="🧔‍♀" type="tts">ស្ត្រី៖ ពុកចង្កា</annotation>
 		<annotation cp="👱‍♀">ទង់ដែង | នារី | នារីសក់ទង់ដែង | សក់ | ស្រី</annotation>
 		<annotation cp="👱‍♀" type="tts">នារីសក់ទង់ដែង</annotation>
 		<annotation cp="🧓">ចាស់ | មនុស្សចាស់ | មនុស្សធំ | មិនបញ្ជាក់ភេទ | អភេទ</annotation>

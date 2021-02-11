@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -647,6 +647,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ansigt med rullende øjne</annotation>
 		<annotation cp="😬">ansigt | lave grimasse | sammenbidt ansigt</annotation>
 		<annotation cp="😬" type="tts">sammenbidt ansigt</annotation>
+		<annotation cp="😮‍💨">ånde ud | ansigt | ekshalerende | fløjt | hvisken | lettelse | pift | pyha | udåndende ansigt | udånding</annotation>
+		<annotation cp="😮‍💨" type="tts">udåndende ansigt</annotation>
 		<annotation cp="🤥">ansigt | lang næse | løgn | løgneransigt | lyver | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">løgneransigt</annotation>
 		<annotation cp="😌">ansigt | lettelse | lettet ansigt</annotation>
@@ -705,8 +707,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">trist ansigt</annotation>
 		<annotation cp="😮">ansigt | ansigt med åben mund</annotation>
 		<annotation cp="😮" type="tts">ansigt med åben mund</annotation>
-		<annotation cp="😮‍💨">ånde ud | ansigt | ekshalerende | fløjt | hvisken | lettelse | pift | pyha | udåndende ansigt | udånding</annotation>
-		<annotation cp="😮‍💨" type="tts">udåndende ansigt</annotation>
 		<annotation cp="😯">stille ansigt | tavst ansigt</annotation>
 		<annotation cp="😯" type="tts">tavst ansigt</annotation>
 		<annotation cp="😲">chokeret | overrasket ansigt</annotation>
@@ -825,12 +825,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">hjerte som udråbstegn</annotation>
 		<annotation cp="💔">knust hjerte | ulykkelig kærlighed</annotation>
 		<annotation cp="💔" type="tts">knust hjerte</annotation>
-		<annotation cp="❤">hjerte | rødt hjerte</annotation>
-		<annotation cp="❤" type="tts">rødt hjerte</annotation>
 		<annotation cp="❤‍🔥">brændende hjerte | brændende kærlighed | hjerte med ild i | ild | kærlighed | passion</annotation>
 		<annotation cp="❤‍🔥" type="tts">brændende hjerte</annotation>
 		<annotation cp="❤‍🩹">bedring | helende hjerte | hjerte | plaster | plaster på hjerte | rask | sundere</annotation>
 		<annotation cp="❤‍🩹" type="tts">helende hjerte</annotation>
+		<annotation cp="❤">hjerte | rødt hjerte</annotation>
+		<annotation cp="❤" type="tts">rødt hjerte</annotation>
 		<annotation cp="🧡">følelser | hjerte | orange</annotation>
 		<annotation cp="🧡" type="tts">orange hjerte</annotation>
 		<annotation cp="💛">følelser | gul | gult hjerte | hjerte</annotation>
@@ -993,14 +993,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">mand</annotation>
 		<annotation cp="🧔">fuldskæg | person | person med skæg | skæg</annotation>
 		<annotation cp="🧔" type="tts">person med skæg</annotation>
-		<annotation cp="👱‍♂">blond | lyshåret | mand</annotation>
-		<annotation cp="👱‍♂" type="tts">blond mand</annotation>
-		<annotation cp="🧔‍♀">fuldskæg | kvinde | kvinde med skæg | skæg</annotation>
-		<annotation cp="🧔‍♀" type="tts">kvinde med skæg</annotation>
 		<annotation cp="🧔‍♂">fuldskæg | mand | mand med skæg | skæg</annotation>
 		<annotation cp="🧔‍♂" type="tts">mand med skæg</annotation>
+		<annotation cp="👱‍♂">blond | lyshåret | mand</annotation>
+		<annotation cp="👱‍♂" type="tts">blond mand</annotation>
 		<annotation cp="👩">kvinde | menneske | person</annotation>
 		<annotation cp="👩" type="tts">kvinde</annotation>
+		<annotation cp="🧔‍♀">fuldskæg | kvinde | kvinde med skæg | skæg</annotation>
+		<annotation cp="🧔‍♀" type="tts">kvinde med skæg</annotation>
 		<annotation cp="👱‍♀">blond kvinde | blondine | kvinde | lyshåret</annotation>
 		<annotation cp="👱‍♀" type="tts">blond kvinde</annotation>
 		<annotation cp="🧓">ældre menneske | gammel person | voksen</annotation>

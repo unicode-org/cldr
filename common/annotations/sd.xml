@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -349,6 +349,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">ڦرندڙ اکين سان چهرو</annotation>
 		<annotation cp="😬">بدصورت بڻائڻ | بناوٽي صورت ٺاهيندڙ چهرو | چهرو</annotation>
 		<annotation cp="😬" type="tts">بناوٽي صورت ٺاهيندڙ چهرو</annotation>
+		<annotation cp="😮‍💨">آرام | ساه ٻاهر ڪڍڻ | ساه ڇڏڻ وارو چهرو | سس پس ڪرڻ | سهڪڻ | سيٽي وڄائڻ | ڪرڪڻ</annotation>
+		<annotation cp="😮‍💨" type="tts">ساه ڇڏڻ وارو چهرو</annotation>
 		<annotation cp="🤥">چهرو | ڪوڙ | ڪوڙ ڳالهائيندڙ چهرو</annotation>
 		<annotation cp="🤥" type="tts">ڪوڙ ڳالهائيندڙ چهرو</annotation>
 		<annotation cp="😌">آجو | آجو ٿيل چهرو | چهرو</annotation>
@@ -407,8 +409,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">لٿل چهرو</annotation>
 		<annotation cp="😮">چهرو | کليل | کليل وات سان چهرو | همدردي | وات</annotation>
 		<annotation cp="😮" type="tts">کليل وات سان چهرو</annotation>
-		<annotation cp="😮‍💨">آرام | ساه ٻاهر ڪڍڻ | ساه ڇڏڻ وارو چهرو | سس پس ڪرڻ | سهڪڻ | سيٽي وڄائڻ | ڪرڪڻ</annotation>
-		<annotation cp="😮‍💨" type="tts">ساه ڇڏڻ وارو چهرو</annotation>
 		<annotation cp="😯">چپ ٿيل چهرو | چهرو | حيران ڪيل | ششدر | مخفي</annotation>
 		<annotation cp="😯" type="tts">چپ ٿيل چهرو</annotation>
 		<annotation cp="😲">بدحواس | پورو | چهرو | حيران | حيران ٿيل چهرو</annotation>
@@ -691,14 +691,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">ماڻهو</annotation>
 		<annotation cp="🧔">ڏاڙهي | شخص: ڏاڙهي | ماڻهو | ماڻهو: ڏاڙهي</annotation>
 		<annotation cp="🧔" type="tts">شخص: ڏاڙهي</annotation>
-		<annotation cp="👱‍♂">ڀورا وار | ڀورن وارن وارو ماڻهو | ماڻهو | ماڻهو: ڀورا وار | وار</annotation>
-		<annotation cp="👱‍♂" type="tts">ماڻهو: ڀورا وار</annotation>
-		<annotation cp="🧔‍♀">ڏاڙهي | عورت | عورت: ڏاڙهي</annotation>
-		<annotation cp="🧔‍♀" type="tts">عورت: ڏاڙهي</annotation>
 		<annotation cp="🧔‍♂">ڏاڙهي | ماڻهو | ماڻهو: ڏاڙهي</annotation>
 		<annotation cp="🧔‍♂" type="tts">ماڻهو: ڏاڙهي</annotation>
+		<annotation cp="👱‍♂">ڀورا وار | ڀورن وارن وارو ماڻهو | ماڻهو | ماڻهو: ڀورا وار | وار</annotation>
+		<annotation cp="👱‍♂" type="tts">ماڻهو: ڀورا وار</annotation>
 		<annotation cp="👩">عورت</annotation>
 		<annotation cp="👩" type="tts">عورت</annotation>
+		<annotation cp="🧔‍♀">ڏاڙهي | عورت | عورت: ڏاڙهي</annotation>
+		<annotation cp="🧔‍♀" type="tts">عورت: ڏاڙهي</annotation>
 		<annotation cp="👱‍♀">ڀورا وار | ڀورن وارن واري عورت | عورت | عورت: ڀورا وار</annotation>
 		<annotation cp="👱‍♀" type="tts">عورت: ڀورا وار</annotation>
 		<annotation cp="🧓">غيرجانبدرا، وڏو | وڏي عمر جو بالغ</annotation>

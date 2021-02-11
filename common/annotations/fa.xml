@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -665,6 +665,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">نگاه کلافه</annotation>
 		<annotation cp="😬">ادا و اصول | دهن‌کجی | شکلک | صورت | منزجر</annotation>
 		<annotation cp="😬" type="tts">دهن‌کجی</annotation>
+		<annotation cp="😮‍💨">بازدم | سوت زدن | صورتک در حال بازدم | فوت کردن | نالیدن | نجوا کردن | نفس زدن</annotation>
+		<annotation cp="😮‍💨" type="tts">صورتک در حال بازدم</annotation>
 		<annotation cp="🤥">پینوکیو | دروغ | دروغگو | دماغ دراز | دماغ‌دراز | صورت دروغگو</annotation>
 		<annotation cp="🤥" type="tts">صورت دروغگو</annotation>
 		<annotation cp="😌">آسوده‌خاطر | خیال راحت | صورت</annotation>
@@ -723,8 +725,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">اخمو</annotation>
 		<annotation cp="😮">باز | تعجب | دهان | دهان باز از تعجب | صورت | غافلگیری | همدردی</annotation>
 		<annotation cp="😮" type="tts">دهان باز از تعجب</annotation>
-		<annotation cp="😮‍💨">بازدم | سوت زدن | صورتک در حال بازدم | فوت کردن | نالیدن | نجوا کردن | نفس زدن</annotation>
-		<annotation cp="😮‍💨" type="tts">صورتک در حال بازدم</annotation>
 		<annotation cp="😯">حیرت‌زده | صورت | غافلگیر | مات | مات و مبهوت | مبهوت | متعجب</annotation>
 		<annotation cp="😯" type="tts">مات و مبهوت</annotation>
 		<annotation cp="😲">بهت‌زده | شوکه‌شده | صورت | کاملاً | مبهوت | هاج‌وواج</annotation>
@@ -843,12 +843,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">علامت تعجب قلبی</annotation>
 		<annotation cp="💔">شکستن | شکسته | قلب</annotation>
 		<annotation cp="💔" type="tts">قلب شکسته</annotation>
-		<annotation cp="❤">قلب | قلب قرمز</annotation>
-		<annotation cp="❤" type="tts">قلب قرمز</annotation>
 		<annotation cp="❤‍🔥">سوزاندن | شهوت | عشق | قلب | قلب در آتش | قلب مقدس</annotation>
 		<annotation cp="❤‍🔥" type="tts">قلب در آتش</annotation>
 		<annotation cp="❤‍🩹">التیام‌یافته | تندرست | خوب شدن | در حال بازیابی | در حال بهبود | سالم‌تر | قلب التیام‌یافته</annotation>
 		<annotation cp="❤‍🩹" type="tts">قلب التیام‌یافته</annotation>
+		<annotation cp="❤">قلب | قلب قرمز</annotation>
+		<annotation cp="❤" type="tts">قلب قرمز</annotation>
 		<annotation cp="🧡">قلب | نارنجی</annotation>
 		<annotation cp="🧡" type="tts">قلب نارنجی</annotation>
 		<annotation cp="💛">زرد | قلب</annotation>
@@ -1011,14 +1011,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">مرد</annotation>
 		<annotation cp="🧔">آدم | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
 		<annotation cp="🧔" type="tts">مرد: ریش‌دار</annotation>
-		<annotation cp="👱‍♂">بلوند | بور | طلایی | مرد بلوند | مرد بور | مرد: مو بور</annotation>
-		<annotation cp="👱‍♂" type="tts">مرد: مو بور</annotation>
-		<annotation cp="🧔‍♀">ریش | زن | زن: ریش</annotation>
-		<annotation cp="🧔‍♀" type="tts">زن: ریش</annotation>
 		<annotation cp="🧔‍♂">ریش | مرد | مرد: ریش</annotation>
 		<annotation cp="🧔‍♂" type="tts">مرد: ریش</annotation>
+		<annotation cp="👱‍♂">بلوند | بور | طلایی | مرد بلوند | مرد بور | مرد: مو بور</annotation>
+		<annotation cp="👱‍♂" type="tts">مرد: مو بور</annotation>
 		<annotation cp="👩">خانم | زن</annotation>
 		<annotation cp="👩" type="tts">زن</annotation>
+		<annotation cp="🧔‍♀">ریش | زن | زن: ریش</annotation>
+		<annotation cp="🧔‍♀" type="tts">زن: ریش</annotation>
 		<annotation cp="👱‍♀">بلوند | بور | زن بلوند | زن بور | زن: موبور | موطلایی</annotation>
 		<annotation cp="👱‍♀" type="tts">زن: موبور</annotation>
 		<annotation cp="🧓">پیر | جنس خنثی | مسن | میان‌سال</annotation>

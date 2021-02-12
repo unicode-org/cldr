@@ -155,9 +155,9 @@ public class FallbackIterator implements Iterator<String> {
             "cmn(-.*)?;zh$1",
             "uzn(-.*)?;uz$1",
 
-            // special cases: nb, sh
+            // special cases: sh (no longer for nb/no)
 
-            "nb(-.*)?;no$1",
+            //"nb(-.*)?;no$1",
             "sh(?!-[a-zA-Z]{4}(?:-.*)?)(-.*)?;sr-Latn$1", // insert if no script
             "sh(-[a-zA-Z]{4}-.*);sr$1",
 

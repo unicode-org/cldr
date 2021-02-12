@@ -1029,7 +1029,7 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     static final Set<String> YgLanguages = new HashSet<>(Arrays.asList(
-        "ar", "cs", "da", "de", "en", "es", "fa", "fi", "fr", "he", "hr", "id", "it", "no", "nl", "pt", "ru", "sv", "tr"));
+        "ar", "cs", "da", "de", "en", "es", "fa", "fi", "fr", "he", "hr", "id", "it", "nl", "no", "pt", "ru", "sv", "tr"));
 
     private GyState getExpectedGy(String localeID) {
         // hack for now

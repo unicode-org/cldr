@@ -1642,7 +1642,7 @@ public class IdToPath {
             { "6975719401355475710", "//ldml/localeDisplayNames/languages/language[@type=\"ms\"]", "Malay" },
             { "1379022090747041849", "//ldml/localeDisplayNames/languages/language[@type=\"mt\"]", "Maltese" },
             { "382298639414141611", "//ldml/localeDisplayNames/languages/language[@type=\"my\"]", "Burmese" },
-            { "2695122373745130774", "//ldml/localeDisplayNames/languages/language[@type=\"no\"]", "Norwegian (Bokmål)" },
+            { "2695122373745130774", "//ldml/localeDisplayNames/languages/language[@type=\"nb\"]", "Norwegian (Bokmål)" },
             { "3652620070491093951", "//ldml/localeDisplayNames/languages/language[@type=\"ne\"]", "Nepali" },
             { "4723956394995438352", "//ldml/localeDisplayNames/languages/language[@type=\"nl\"]", "Dutch" },
             { "4516896518115501034", "//ldml/localeDisplayNames/languages/language[@type=\"nl_BE\"]", "Flemish" },

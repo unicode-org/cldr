@@ -50,12 +50,12 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
     public void TestLanguageNameCoverage() {
         
-        Set<String> additionsToTranslate = new TreeSet<>(Arrays.asList("zxx", "ceb", "nb", "ny", "co", "ht", "hmn", "la", "sm", "st", "sa", "mul"));
+        Set<String> additionsToTranslate = new TreeSet<>(Arrays.asList("zxx", "ceb", "ny", "co", "ht", "hmn", "la", "sm", "st", "sa", "mul"));
         
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang = Multimaps.invertFrom(Multimaps.forMap(validity), TreeMultimap.create());
         Set<String> regular = (Set<String>) statusToLang.get(Status.regular);
-        Set<String> regularPlus = ImmutableSet.<String>builder().addAll(regular).add("und").add("zxx").add("mul").add("nb").build(); // why need to add nb specifically?
+        Set<String> regularPlus = ImmutableSet.<String>builder().addAll(regular).add("und").add("zxx").add("mul").build();
         Set<String> valid = validity.keySet();
         
         Factory factory = CLDRCONFIG.getCldrFactory();

@@ -1883,11 +1883,7 @@ public class ConvertLanguageData {
     private static boolean checkCode(LstrType type, String code, List<String> sourceLine) {
         Status validity = VALIDITY.getCodeToStatus(type).get(code);
         if (validity == Status.regular) {
-            if (type == LstrType.language && code.equals("nb")) {
-                validity = Status.invalid;
-            } else {
-                return true;
-            }
+            return true;
         } else if (validity == Status.unknown && type == LstrType.region) {
             return true;
         }

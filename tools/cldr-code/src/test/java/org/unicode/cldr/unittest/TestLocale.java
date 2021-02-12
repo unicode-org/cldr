@@ -334,8 +334,8 @@ public class TestLocale extends TestFmwkPlus {
 
     public void TestCanonicalizer() {
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
-        String[][] tests = { { "iw", "he" }, { "nb-YU", "no_RS" },
-            { "nb", "no" }, { "eng-833", "en_IM" }, { "mo", "ro" },
+        String[][] tests = { { "iw", "he" }, { "nb-YU", "nb_RS" }, { "no-YU", "no_RS" },
+            { "nb", "nb" }, { "no", "no" }, { "eng-833", "en_IM" }, { "mo", "ro" },
             { "mo_Cyrl", "ro_Cyrl" }, { "mo_US", "ro_US" },
             { "mo_Cyrl_US", "ro_Cyrl_US" }, { "sh", "sr_Latn" },
             { "sh_US", "sr_Latn_US" }, { "sh_Cyrl", "sr" },

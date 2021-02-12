@@ -279,7 +279,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
             parts = new LocaleIDParser();
             parts.set(str);
             fullname = parts.toString();
-            parentId = LocaleIDParser.getParent(str);
+            parentId = LocaleIDParser.getParent(str); // Note, this does now handle explicit parentLocales
             if (DEBUG) System.out.println(str + " par = " + parentId);
         }
         basename = fullname;

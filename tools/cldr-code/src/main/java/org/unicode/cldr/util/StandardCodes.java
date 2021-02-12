@@ -1454,8 +1454,6 @@ public class StandardCodes {
     public static String fixLanguageTag(String languageSubtag) {
         if (languageSubtag.equals("mo")) { // fix special cases
             return "ro";
-        } else if (languageSubtag.equals("nb")) {
-            return "no";
         }
         return languageSubtag;
     }

@@ -119,13 +119,13 @@ public class LocaleIDParser {
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
      */
     public static String getParent(String localeName) {
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+        String explicitParent = sdi.getExplicitParentLocale(localeName);
+        if (explicitParent != null) {
+            return explicitParent;
+        }
         int pos = localeName.lastIndexOf('_');
         if (pos >= 0) {
-            SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-            String explicitParent = sdi.getExplicitParentLocale(localeName);
-            if (explicitParent != null) {
-                return explicitParent;
-            }
             String truncated = localeName.substring(0, pos);
             // if the final item is a script, and it is not the default content, then go directly to root
             int pos2 = getScriptPosition(localeName);

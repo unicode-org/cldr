@@ -868,7 +868,7 @@ public class ShowLanguages {
             localeAliasInfo.put("unit", new TreeMap<String, String>());
             localeAliasInfo.put("usage", new TreeMap<String, String>());
 
-            localeAliasInfo.get("language").put("nb", "no");
+            //localeAliasInfo.get("language").put("nb", "no");
             localeAliasInfo.get("language").put("zh_CN", "zh_Hans_CN");
             localeAliasInfo.get("language").put("zh_SG", "zh_Hans_SG");
             localeAliasInfo.get("language").put("zh_TW", "zh_Hant_TW");

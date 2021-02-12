@@ -272,9 +272,9 @@ public class TestInheritance extends TestFmwk {
         // get default contents
         for (String localeID : defaultContents) {
             checkLocale(localeID, false);
-            String simpleParent = LocaleIDParser.getSimpleParent(localeID);
-            parent2default.put(simpleParent, localeID);
-            default2parent.put(localeID, simpleParent);
+            String parent = LocaleIDParser.getParent(localeID); // was using getSimpleParent, not sure why
+            parent2default.put(parent, localeID);
+            default2parent.put(localeID, parent);
             // if (!available.contains(simpleParent)) {
             // // verify that base language has locale in CLDR (we don't want
             // others)
@@ -292,7 +292,7 @@ public class TestInheritance extends TestFmwk {
         }
         Map<String, String> exceptionDcLikely = new HashMap<>();
         Map<String, String> exceptionLikelyDc = new HashMap<>();
-        for (String[] s : new String[][] { { "ar_001", "ar_Arab_EG" }, }) {
+        for (String[] s : new String[][] { { "ar_001", "ar_Arab_EG" }, { "nb", "no_Latn_NO" }, }) {
             exceptionDcLikely.put(s[0], s[1]);
             exceptionLikelyDc.put(s[1], s[0]);
         }
@@ -341,12 +341,12 @@ public class TestInheritance extends TestFmwk {
     public void TestParentLocaleInvariants() {
         // Testing invariant relationships in parent locales - See
         // http://unicode.org/cldr/trac/ticket/7887
-        // Per CLDR-2698 we allow nn to have an explicit parent no which is a different language code.
+        // Per CLDR-2698/14493 we allow nb,nn to have an explicit parent no which is a different language code.
         LocaleIDParser lp = new LocaleIDParser();
         for (String loc : availableLocales) {
             String parentLocale = dataInfo.getExplicitParentLocale(loc);
             if (parentLocale != null) {
-                if (!"root".equals(parentLocale) && !"nn".equals(loc)
+                if (!"root".equals(parentLocale) && !"nb".equals(loc) && !"nn".equals(loc)
                     && !lp.set(loc).getLanguage()
                     .equals(lp.set(parentLocale).getLanguage())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
@@ -359,7 +359,7 @@ public class TestInheritance extends TestFmwk {
                         + loc + "] cannot be a different script code.");
                 }
                 lp.set(loc);
-                if (lp.getScript().length() == 0 && lp.getRegion().length() == 0 && !"nn".equals(loc)) {
+                if (lp.getScript().length() == 0 && lp.getRegion().length() == 0 && !"nb".equals(loc) && !"nn".equals(loc)) {
                     errln("Base language locale [" + loc + "] cannot have an explicit parent.");
                 }
 
@@ -394,6 +394,7 @@ public class TestInheritance extends TestFmwk {
             .addAll("root", "und")
             .freeze();
         Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<>(Arrays.asList("bm", "ha", "hi", "ms", "iu", "mn"));
+        Set<String> baseLanguagesWhoseDefaultContentHasNoRegion = new HashSet<>(Arrays.asList("no"));
         // for each base we have to have,
         // if multiscript, we have default contents for base+script,
         // base+script+region;
@@ -422,7 +423,7 @@ public class TestInheritance extends TestFmwk {
                     errln("Script should be empty in default content for: "
                         + base + "," + defaultContent);
                 }
-                if (region.isEmpty()) {
+                if (region.isEmpty() && !baseLanguagesWhoseDefaultContentHasNoRegion.contains(base)) {
                     errln("Region must not be empty in default content for: "
                         + base + "," + defaultContent);
                 }

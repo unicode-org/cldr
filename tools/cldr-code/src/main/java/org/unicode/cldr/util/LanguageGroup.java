@@ -47,7 +47,7 @@ public enum LanguageGroup {
         LANGUAGE_GROUP = Collections.unmodifiableMap(temp);
         add(temp, root, "root");
         add(temp, germanic, "en", "fy", "nl", "af", "de", "gsw", "wae", "ksh", "lb", "sv", "da",
-            "no", "nn", "fo", "is", "yi", "nds");
+            "no", "nb", "nn", "fo", "is", "yi", "nds");
         add(temp, celtic, "ga", "gd", "cy", "gv", "kw", "br");
         add(temp, romance, "fr", "pt", "gl", "es", "ca", "ast", "it", "rm", "ro", "fur", "an",
             "co", "oc", "sc", "scn", "wa");

@@ -806,7 +806,7 @@ public class TestBasic extends TestFmwkPlus {
             String localeParent = LocaleIDParser.getParent(locale);
             String maxLocaleParent = LikelySubtags.maximize(localeParent,
                 likelyData);
-            if (locale.equals("ar_001")) {
+            if (locale.equals("ar_001") || locale.equals("nb")) {
                 logln("Known exception to likelyMax(locale=" + locale + ")"
                     + " == " + "likelyMax(defaultContent=" + localeParent
                     + ")");

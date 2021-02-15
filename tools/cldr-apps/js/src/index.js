@@ -10,5 +10,5 @@ function showAbout(el) {
 
 // The following will show up in the cldrBundle global
 export default {
-  showAbout
+  showAbout,
 };

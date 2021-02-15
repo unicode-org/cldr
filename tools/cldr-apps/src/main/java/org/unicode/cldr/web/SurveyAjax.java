@@ -2,7 +2,6 @@ package org.unicode.cldr.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Reader;
 import java.io.Writer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +21,6 @@ import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -88,7 +86,7 @@ import com.ibm.icu.util.Output;
  * The @MultipartConfig annotation enables getting request parameters from a POST request
  * that has "multipart/form-data" as its content-type, as needed for WHAT_USER_LIST.
  */
-@WebServlet
+// @WebServlet("/SurveyAjax")
 @MultipartConfig
 public class SurveyAjax extends HttpServlet {
     final boolean DEBUG = false; //  || SurveyLog.isDebug();
@@ -157,31 +155,12 @@ public class SurveyAjax extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         setup(request, response);
-        if (!SurveyTool.useDojo(request) && WHAT_USER_LIST.equals(request.getParameter("what"))) {
-            // Bypass the "value", "request.getReader" code below, otherwise calling
-            // getParameter later fails for our FormData "multipart/form-data"
-            processRequest(request, response, null);
-            return;
-        }
-        // TODO: explain/remove this qs/value business; shouldn't be necessary?
-        // Modern code can use request.getParameter without worrying whether
-        // the params are in the query string or the post body or both
-        final String qs = request.getQueryString();
-        String value;
-        if (qs != null && !qs.isEmpty()) {
-            StringBuilder sb = new StringBuilder();
-            Reader r = request.getReader();
-            int ch;
-            while ((ch = r.read()) > -1) {
-                if (DEBUG)
-                    System.err.println(" POST >> " + Integer.toHexString(ch));
-                sb.append((char) ch);
-            }
-            value = sb.toString();
-        } else {
-            value = request.getParameter("value"); // POST based value.
-        }
-        processRequest(request, response, value);
+        /*
+         * TODO: is request.getParameter("value") always sufficient? Maybe add a
+         * check that request.getCharacterEncoding() always returns “UTF-8” (as it does
+         * for me currently on localhost) and throw an exception if it doesn’t
+         */
+        processRequest(request, response, request.getParameter("value"));
     }
 
     /**
@@ -191,6 +170,12 @@ public class SurveyAjax extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         setup(request, response);
+        /*
+         * TODO: check whether this ...decodeFieldString... is still needed/appropriate; what is QUERY_VALUE_SUFFIX for?
+         * See related TODO in doPost
+         * processRequest uses val for unrelated (?) purposes WHAT_SUBMIT, WHAT_PREF, WHAT_OLDVOTES, WHAT_SEARCH
+         * some of which are doPost, and some of which are doGet
+         */
         processRequest(request, response, WebContext.decodeFieldString(request.getParameter(SurveyMain.QUERY_VALUE_SUFFIX)));
     }
 
@@ -202,6 +187,9 @@ public class SurveyAjax extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response, String val) throws ServletException,
         IOException {
+        if (!"UTF-8".equals(request.getCharacterEncoding())) {
+            throw new InternalError("Request is not UTF-8 but: " + request.getCharacterEncoding());
+        }
         CLDRConfigImpl.setUrls(request);
         final SurveyMain sm = SurveyMain.getInstance(request);
         PrintWriter out = response.getWriter();
@@ -853,7 +841,7 @@ public class SurveyAjax extends HttpServlet {
                         case WHAT_USER_LIST: {
                             if (!SurveyTool.useDojo(request)) {
                                 final SurveyJSONWrapper r = newJSONStatusQuick(sm);
-                                new UserList().getJson(r, request, response, mySession, sm);
+                                new UserList(request, response, mySession, sm).getJson(r);
                                 send(r, out);
                             } else if (mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
                                 try {

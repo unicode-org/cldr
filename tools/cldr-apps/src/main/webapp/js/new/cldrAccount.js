@@ -30,6 +30,8 @@ const cldrAccount = (function () {
   const PREF_JUSTORG = "p_justorg";
   const GET_ORGS = "get_orgs";
 
+  const userListTableId = "userListTable";
+
   const cautionSessionDestruction =
     "<div class='fnotebox'>Changing user level or locales while a user is active will " +
     "result in destruction of their session. Check if they have been working recently.</div>\n";
@@ -83,7 +85,7 @@ const cldrAccount = (function () {
   let isJustMe = false;
 
   /**
-   * The email address of the "zoomed" or "My Acccount" user, or null if neither zoomed nor My Account.
+   * The email address of the "zoomed" or "My Account" user, or null if neither zoomed nor My Account.
    * The "List Users" table may be "zoomed" to display only a single user. In general,
    * zooming a user in the "List Users" page is not the same as a user's "My Account" view, since
    * one may zoom in on someone else's account. Zooming in on one's own account is essentially the
@@ -96,6 +98,8 @@ const cldrAccount = (function () {
   let shownUsers = null;
   let justOrg = null;
   let byEmail = {};
+
+  let hideAllUsers = false;
 
   let loadListMultipleOnce = false;
 
@@ -122,8 +126,6 @@ const cldrAccount = (function () {
    * if loadListMultipleOnce has been set to true
    */
   function load() {
-    cldrEvent.hideRightPanel();
-    cldrInfo.showNothing();
     const me = cldrStatus.getSurveyUser();
     if (!me || !me.email) {
       pleaseLogIn();
@@ -168,6 +170,8 @@ const cldrAccount = (function () {
   }
 
   function reallyLoad() {
+    cldrEvent.hideRightPanel();
+    cldrInfo.showNothing();
     const xhrArgs = {
       url: getUrl(),
       handleAs: "json",
@@ -214,21 +218,16 @@ const cldrAccount = (function () {
     } else {
       const org = json.org ? json.org : "ALL";
       html += "<h2>Users for " + org + "</h2>\n";
-      html += getLockedUsersControl();
+      html += getLockedUsersControl(json);
       html += cautionSessionDestruction;
       html += getBulkActionMenu(json);
-    }
-    if (json.hideUserList) { // TODO
-      /***
-       String warnHash = "userlist";
-      ctx.println("<div id='h_" + warnHash + "'><a href='javascript:show(\"" + warnHash + "\")'>"
-          + "<b>+</b> Click here to show the user list...</a></div>");
-      ctx.println("<div style='display: none' id='" + warnHash + "'>");
-      ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + "(<b>- hide userlist</b>)</a><br>");
-       ***/
+      html += getListHiderControls(json);
     }
     html += getTable(json);
     html += getDownloadCsvForm(json);
+    if (json.exception) {
+      html += "<p><i>Failure: " + json.exception + "</i></p>\n";
+    }
     return html;
   }
 
@@ -261,7 +260,9 @@ const cldrAccount = (function () {
     return (
       "<form id='tableForm' method='POST' onsubmit='cldrAccount.submitTableForm(event)'>\n" +
       doActionButton +
-      "<table id='userListTable' summary='User List' class='userlist' border='2'>\n" +
+      "<table id='" +
+      userListTableId +
+      "' summary='User List' class='userlist' border='2'>\n" +
       "<thead><tr><th></th><th style='display: none;'>Organization / Level</th><th>Name/Email</th>" +
       "<th>Action</th><th>Locales</th><th>Seen</th></tr></thead>\n" +
       "<tbody>\n"
@@ -286,86 +287,6 @@ const cldrAccount = (function () {
       number +
       "</div>\n"
     );
-  }
-
-  function getEmailNotification(json) {
-    if (json.emailSendingMessage) {
-      return "<h1>sending mail to users...</h4>\n";
-    } else if (json.emailMismatchWarning) {
-      return (
-        "<h1 class='ferrbox'>" +
-        cldrStatus.stopIcon() +
-        " not sending mail - you did not confirm the email address. See form at bottom of page.</h1>\n"
-      );
-    } else {
-      return "";
-    }
-  }
-
-  function getEmailControls(json) {
-    let html = "";
-    if (json.emailStatus === "start") {
-      html +=
-        "<label><input type='checkbox' value='y' name='" +
-        LIST_MAILUSER +
-        "'>Check this box to compose a message to these " +
-        json.emailUserCount +
-        " users (excluding LOCKED users).</label>";
-    } else if (json.emailStatus === "continue") {
-      html += detailedEmailControls(json);
-    }
-    return html;
-  }
-
-  function detailedEmailControls(json) {
-    let html = "<p><div class='pager'>";
-    html += "<h4>Mailing " + json.emailUserCount + " users</h4>";
-    if (json.emailDidConfirm) {
-      if (json.emailSendingDisp) {
-        html += "[Not implemented - see DisputePageManager]";
-        return;
-      } else {
-        html += "<b>Mail sent.</b><br>";
-      }
-    } else {
-      html += "<input type='hidden' name='" + LIST_MAILUSER + "' value='y'>";
-    }
-    html += "From: <b>(depends on recipient organization)</b><br>";
-    if (json.emailSendWhat) {
-      html += "<div class='odashbox'>" + json.emailSendWhatTranslit + "</div>";
-      if (!json.emailDidConfirm) {
-        html += emailPleaseConfirm(json);
-      }
-    } else {
-      html +=
-        "<textarea NAME='" +
-        LIST_MAILUSER_WHAT +
-        "' id='body' rows='15' cols='85' style='width:100%'></textarea>";
-    }
-    html += "</div>\n";
-    return html;
-  }
-
-  function emailPleaseConfirm(json) {
-    html =
-      "<input type='hidden' name='" +
-      LIST_MAILUSER_WHAT +
-      "' value='" +
-      json.emailSendWhat.replaceAll("&", "&amp;").replaceAll("'", "&quot;") +
-      "'>";
-    if (json.emailConfirmationMismatch) {
-      html +=
-        "<strong>" +
-        cldrStatus.stopIcon() +
-        "That confirmation didn't match. Try again.</strong><br>";
-    }
-    html +=
-      "To confirm sending, type the confirmation code <tt class='codebox'>" +
-      LIST_MAILUSER_CONFIRM_CODE +
-      "</tt> in this box : <input name='" +
-      LIST_MAILUSER_CONFIRM +
-      "'>";
-    return html;
   }
 
   function submitTableForm(event) {
@@ -628,7 +549,7 @@ const cldrAccount = (function () {
 
   function showUserActivity(json) {
     const shownUsers = json.shownUsers;
-    const table = document.getElementById("userListTable");
+    const table = document.getElementById(userListTableId);
     const rows = [];
     const theadChildren = cldrSurvey.getTagChildren(
       table.getElementsByTagName("thead")[0].getElementsByTagName("tr")[0]
@@ -821,7 +742,10 @@ const cldrAccount = (function () {
     return div;
   }
 
-  function getLockedUsersControl() {
+  function getLockedUsersControl(json) {
+    if (!json.canShowLocked) {
+      return "";
+    }
     const ch = showLockedUsers ? " checked='checked'" : "";
     return (
       "<input type='checkbox' id='showLocked' onclick='cldrAccount.toggleShowLocked();'" +
@@ -952,6 +876,109 @@ const cldrAccount = (function () {
   }
 
   /*
+   * Email-related functions
+   */
+
+  function getEmailNotification(json) {
+    if (json.emailSendingMessage) {
+      return "<h1>sending mail to users...</h4>\n";
+    } else if (json.emailMismatchWarning) {
+      return (
+        "<h1 class='ferrbox'>" +
+        cldrStatus.stopIcon() +
+        " not sending mail - you did not confirm the email address. See form at bottom of page.</h1>\n"
+      );
+    } else {
+      return "";
+    }
+  }
+
+  function getEmailControls(json) {
+    let html = "";
+    if (json.emailStatus === "start") {
+      html +=
+        "<label><input type='checkbox' value='y' name='" +
+        LIST_MAILUSER +
+        "'>Check this box to compose a message to these " +
+        json.emailUserCount +
+        " users (excluding LOCKED users).</label><br />\n";
+    } else if (json.emailStatus === "continue") {
+      html += detailedEmailControls(json);
+    }
+    return html;
+  }
+
+  function detailedEmailControls(json) {
+    let html = "<p><div class='pager'>";
+    html += "<h4>Mailing " + json.emailUserCount + " users</h4>";
+    if (json.emailDidConfirm) {
+      if (json.emailSendingDisp) {
+        html += "[Not implemented - see DisputePageManager]";
+        return;
+      } else {
+        html += "<b>Mail sent.</b><br>";
+      }
+    } else {
+      html += "<input type='hidden' name='" + LIST_MAILUSER + "' value='y'>";
+    }
+    html += "From: <b>(depends on recipient organization)</b><br>";
+    if (json.emailSendWhat) {
+      html += "<div class='odashbox'>" + json.emailSendWhatTranslit + "</div>";
+      if (!json.emailDidConfirm) {
+        html += emailPleaseConfirm(json);
+      }
+    } else {
+      html +=
+        "<textarea NAME='" +
+        LIST_MAILUSER_WHAT +
+        "' id='body' rows='15' cols='85' style='width:100%'></textarea>";
+    }
+    html += "</div>\n";
+    return html;
+  }
+
+  function emailPleaseConfirm(json) {
+    let html =
+      "<input type='hidden' name='" +
+      LIST_MAILUSER_WHAT +
+      "' value='" +
+      json.emailSendWhat.replaceAll("&", "&amp;").replaceAll("'", "&quot;") +
+      "'>";
+    if (json.emailConfirmationMismatch) {
+      html +=
+        "<strong>" +
+        cldrStatus.stopIcon() +
+        "That confirmation didn't match. Try again.</strong><br>";
+    }
+    html +=
+      "To confirm sending, type the confirmation code <tt class='codebox'>" +
+      LIST_MAILUSER_CONFIRM_CODE +
+      "</tt> in this box : <input name='" +
+      LIST_MAILUSER_CONFIRM +
+      "'>";
+    return html;
+  }
+
+  function getListHiderControls(json) {
+    if (!json.hideUserList) {
+      return "";
+    }
+    const ch = hideAllUsers ? " checked='checked'" : "";
+    return (
+      "<input type='checkbox' id='hideAllUsers' onclick='cldrAccount.toggleHideAllUsers();'" +
+      ch +
+      " /> <label for='hideAllUsers'>Hide the user list</label><br />\n"
+    );
+  }
+
+  function toggleHideAllUsers() {
+    hideAllUsers = !hideAllUsers;
+    document.getElementById(userListTableId).style.display = hideAllUsers
+      ? "none"
+      : "block";
+  }
+
+  /*
    * URL-related functions
    */
 
@@ -966,6 +993,9 @@ const cldrAccount = (function () {
     const allowCache = false;
     const p = new URLSearchParams();
     p.append("what", WHAT_USER_LIST);
+    if (CLDR_ACCOUNT_DEBUG) {
+      p.append("乒 pīng", "乓 pāng"); // test UTF-8 support
+    }
     if (needOrgList()) {
       p.append(GET_ORGS, true);
     }
@@ -1034,7 +1064,7 @@ const cldrAccount = (function () {
   }
 
   function getDownloadCsvForm(json) {
-    if (!json.userPerms.canModifyUsers) {
+    if (!json.userPerms || !json.userPerms.canModifyUsers) {
       return "";
     }
     // TODO: not jsp; also, DataExport.jsp is broken, see https://unicode-org.atlassian.net/browse/CLDR-14475
@@ -1059,6 +1089,7 @@ const cldrAccount = (function () {
     showUserActivity,
     submitBulkAction,
     submitTableForm,
+    toggleHideAllUsers,
     toggleShowLocked,
     /*
      * The following are meant to be accessible for unit testing only:

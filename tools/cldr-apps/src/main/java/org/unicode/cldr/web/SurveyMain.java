@@ -3801,6 +3801,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             progress.update("Setup supplemental..");
             getSupplementalDataInfo();
+            progress.update("Checking if startup completed..");
 
             try {
                 // spin up the gears

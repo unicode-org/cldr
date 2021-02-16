@@ -30,12 +30,5 @@
         "does contain angle brackets"
       );
     });
-
-    const label = "ICU";
-    const value = json.ICU_VERSION;
-    it("should contain " + label + " and " + value, function () {
-      assert(html.indexOf(label) !== -1, label + " does occur in " + html);
-      assert(html.indexOf(value) !== -1, value + " does occur in " + html);
-    });
   });
 }

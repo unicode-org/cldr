@@ -33,8 +33,12 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
 <supplementalData>
   <version number="$Revision: 1 $"/>
   <grammaticalData>
-    <grammaticalFeatures targets="nominal" locales="af en fil ja ko lo ms my ne th vi zh">
+    <grammaticalFeatures targets="nominal" locales="af en fil ja ko lo ms my ne sw th vi zh zu">
       <!-- No grammatical features (number is not considered). -->
+      <!-- Zulu and Swahili, like other Bantu languages, has a notion
+	   of noun class governing agreement of nouns and other
+	   forms; since it is fixed for a given noun, we don't
+	   consider it as an independent grammaticalFeature here. -->
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="ca es fr it lij pt">
       <grammaticalGender values="masculine feminine"/>
@@ -50,6 +54,10 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="ta">
       <grammaticalCase values="nominative genitive accusative dative locative instrumental ablative vocative"/>
+    </grammaticalFeatures>
+    <grammaticalFeatures targets="nominal" locales="fi">
+      <grammaticalCase values="nominative abessive ablative adessive allative comitative elative essive genitive illative inessive instrumental partitive translative"/>
+      <!-- Finnish nouns also inflect in possessives, with agreement on number and person. -->
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="hu">
       <grammaticalCase values="nominative ablative accusative adessive allative causal dative delative elative essive illative inessive instrumental sublative superessive terminative translative"/>

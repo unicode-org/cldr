@@ -177,7 +177,7 @@ const cldrAdmin = (function () {
           cldrDom.createChunk("Session: " + sess, "span", "adminUserSession")
         );
         if (cs.user) {
-          user.appendChild(cldrAdmin.createUser(cs.user));
+          user.appendChild(cldrAccount.createUser(cs.user));
         } else {
           user.appendChild(
             cldrDom.createChunk("(anonymous)", "div", "adminUserUser")

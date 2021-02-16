@@ -125,7 +125,6 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_FLAGGED = "flagged"; // cldrLoad.js
     public static final String WHAT_AUTO_IMPORT = "auto_import"; // cldrLoad.js
     public static final String WHAT_ADMIN_PANEL = "admin_panel"; // cldrAdmin.js
-    public static final String WHAT_ABOUT = "about"; // cldrAbout.js
     public static final String WHAT_RECENT_ACTIVITY = "recent_activity"; // cldrRecentActivity.js
     public static final String WHAT_ERROR_SUBTYPES = "error_subtypes"; // cldrErrorSubtyes.js
 
@@ -217,10 +216,6 @@ public class SurveyAjax extends HttpServlet {
                 getRow(request, response, out, sm, sess, l, xpath);
             } else if (what.equals(WHAT_REPORT)) {
                 generateReport(request, response, out, sm, sess, l);
-            } else if (what.equals(WHAT_ABOUT)) {
-                SurveyJSONWrapper r = newJSONStatus(request, sm);
-                AboutST.getJson(r, sm);
-                send(r, out);
             } else if (what.equals(WHAT_RECENT_ACTIVITY)) {
                 SurveyJSONWrapper r = newJSONStatus(request, sm);
                 RecentActivity.getJson(r, request, response);

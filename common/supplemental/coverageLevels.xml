@@ -816,15 +816,15 @@ For terms of use, see http://www.unicode.org/copyright.html
         <coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/gender"/>
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
 		
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@gender='%anyAttribute'][@case='%anyAttribute']"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@gender='%anyAttribute']"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@case='%anyAttribute']"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute']"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute']"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%anyAttribute']/displayName"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%anyAttribute']/gender"/>
-        <coverageLevel value="modern" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%anyAttribute']/perUnitPattern"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@gender='%anyAttribute'][@case='%anyAttribute']"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@gender='%anyAttribute']"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@case='%anyAttribute']"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute']"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute']"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/displayName"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/gender"/>
+        <coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/perUnitPattern"/>
 
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80']"/>
 		

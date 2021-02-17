@@ -338,7 +338,7 @@ const cldrForum = (function () {
       postHolder[0].appendChild(forumDiv);
     }
     postModal.modal();
-    postModal.find("textarea").autosize();
+    autosize(postModal.find("textarea"));
     postModal.find(".submit-post").click(submitPost);
     setTimeout(function () {
       postModal.find("textarea").focus();

@@ -1010,7 +1010,7 @@ const cldrAccount = (function () {
     if (!allowCache) {
       p.append("cacheKill", cldrSurvey.cacheBuster());
     }
-    return cldrStatus.getContextPath() + "/SurveyAjax?" + p.toString();
+    return cldrAjax.makeUrl(p);
   }
 
   function needOrgList() {
@@ -1026,13 +1026,14 @@ const cldrAccount = (function () {
     const p = new URLSearchParams();
     p.append("email", email);
     p.append("uid", password);
+    // CAUTION: this is /survey not /SurveyAjax -- don't use cldrAjax.makeUrl until this is changed
     return cldrStatus.getContextPath() + "/survey?" + p.toString();
   }
 
   function getUserActivityUrl() {
     const p = new URLSearchParams();
     p.append("what", "stats_bydayuserloc");
-    return cldrStatus.getContextPath() + "/SurveyAjax?" + p.toString();
+    return cldrAjax.makeUrl(p);
   }
 
   function getParticipatingUsersLink() {
@@ -1054,13 +1055,9 @@ const cldrAccount = (function () {
   }
 
   function getUserActivityLink(u) {
-    return (
-      // TODO: not jsp
-      // "<a class='recentActivity' href='/cldr-apps/myvotes.jsp?user=" +
-      // u.data.id +
-      // "'>User Activity</a>"
-      "<a class='recentActivity' href='?'>[TODO:] User Activity</a>"
-    );
+    // TODO: generalize to the "List Users" (not "My Account") case where (zoomed) user
+    // of interest is NOT the current user
+    return "<a class='recentActivity' href='v#recent_activity'>User Activity</a>";
   }
 
   function getDownloadCsvForm(json) {

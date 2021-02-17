@@ -417,11 +417,17 @@ public class SurveyTool extends HttpServlet {
         final String prefix = "<script src='" + request.getContextPath() + "/js/";
         final String tail = "'></script>\n";
         final String js = getCacheBustingExtension(request) + ".js" + tail;
-
-        out.write(prefix + "jquery.autosize.min.js" + tail); // exceptional
-
         final Boolean doUseDojo = useDojo(request);
         out.write(String.format("<script>const %s=%s;</script>\n", USE_DOJO_VAR, doUseDojo.toString()));
+
+        if (doUseDojo) {
+            // Autosize 1.18.6 - 2014-03-13
+            out.write(prefix + "jquery.autosize.min.js" + tail);
+        } else {
+            // Autosize 4.0.2 (2018-04-30 per changelog.md), see http://www.jacklmoore.com/autosize
+            out.write(prefix + "autosize.min.js" + tail);
+        }
+
         if (doUseDojo) {
             out.write(prefix + "new/cldrText" + js); // new/cldrText.js
             out.write(prefix + "new/cldrStatus" + js); // new/cldrStatus.js

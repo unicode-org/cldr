@@ -82,8 +82,13 @@ const cldrRetry = (function () {
   }
 
   function retry() {
-    window.location.href = errInfo.location;
-    errInfo = {};
+    if( !errInfo ) {
+      // No error info. just refresh the current page
+      window.location.reload();
+    } else {
+      window.location.href = errInfo.location;
+      errInfo = {};
+    }
   }
 
   function format(json, subkey) {

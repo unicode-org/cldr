@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class FileProcessor {
+    private final static boolean DEBUG = false;
     private int lineCount;
     protected boolean doHash = true;
 
@@ -39,7 +40,7 @@ public class FileProcessor {
 
     public FileProcessor process(Class<?> classLocation, String fileName) {
         try {
-            System.err.println("# Reading config file " + classLocation.getPackage().getName() + "/"+ fileName);
+            if (DEBUG) System.err.println("# FileProcessor reading " + classLocation.getPackage().getName() + "/"+ fileName);
             BufferedReader in = FileReaders.openFile(classLocation, fileName);
             return process(in, fileName);
         } catch (Exception e) {

@@ -381,10 +381,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * Initialize servlet
+     * Initialize servlet. Will fail (with null) if startup was not attempted.
      *
      * @param req
      * @return the SurveyMain instance
+     * @see {@link #triedToStartUp()
      */
     public static SurveyMain getInstance(HttpServletRequest req) {
         if (config == null) {
@@ -397,6 +398,28 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         config.getServletContext().setAttribute(SurveyMain.class.getName(), this);
     }
 
+    private static boolean initCalled = false;
+    /**
+     * Was init() called on the servlet? This is called very early in server startup,
+     * but should be noted here.
+     * @see {@link #init(ServletConfig)
+     * @return
+     */
+    public static boolean wasInitCalled() {
+        return initCalled;
+    }
+    private static boolean didTryToStartUp = false;
+    /**
+     * Did SurveyMain try to startup? Need to call GET /cldr-apps/survey for this to happen
+     * if GET has not been called, then we don't have a SurveyMain instance yet and getInstance() will fail.
+     * @see {@link #ensureStartup(HttpServletRequest, HttpServletResponse)}
+     * @see {@link #getInstance(HttpServletRequest)n
+     * @return
+     */
+    public static boolean triedToStartUp() {
+        return didTryToStartUp;
+    }
+
     /**
      * This function overrides GenericServlet.init.
      * Called by StandardWrapper.initServlet automatically.
@@ -404,6 +427,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     @Override
     public final void init(final ServletConfig config) throws ServletException {
+        initCalled = true;
         System.out.println("\n\n\n------------------- SurveyMain.init() ------------ " + uptime);
         try {
             new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is
@@ -779,6 +803,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @throws ServletException
      */
     private boolean ensureStartup(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        didTryToStartUp = true;
         setInstance(request);
         if (!isSetup) {
 
@@ -843,9 +868,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             } else if (isBusted != null) {
                 showOfflinePage(request, response, out);
             } else {
-                out.print(sysmsg("startup_header"));
-                out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>" + getTopBox() + "</span>");
-                out.print(sysmsg("startup_wait"));
+                if(!SurveyTool.useDojo(request)) {
+                    // New: use the Vue retry page.
+                    response.sendRedirect("v#retry");
+                } else {
+                    // Old "startup" page.
+                    out.print(sysmsg("startup_header"));
+                    out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>" + getTopBox() + "</span>");
+                    out.print(sysmsg("startup_wait"));
+                }
             }
             out.println("<br><i id='uptime'> " + getGuestsAndUsers() + "</i><br>");
             // TODO: on up, goto <base>
@@ -3800,19 +3831,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 return;
             }
             progress.update("Setup supplemental..");
-            getSupplementalDataInfo();
+            verifySupplementalData();
 
-            try {
-                // spin up the gears
-                /*
-                 * TODO: delete this unless it has required side-effects. Formerly assigned to unused variable dcParent.
-                 */
-                getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance("mt_MT"));
-            } catch (InternalError ie) {
-                SurveyLog.logger.warning("can't do SupplementalData.defaultContentToParent() - " + ie);
-                ie.printStackTrace();
-                busted("can't do SupplementalData.defaultContentToParent() - " + ie, ie);
-            }
             progress.update("Checking if startup completed..");
 
             if (isBusted != null) {
@@ -3877,6 +3897,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         } else {
             SurveyLog.logger.info("------- SurveyTool FAILED TO STARTUP, " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
                 + "----------------------------\n\n\n");
+        }
+    }
+
+    /*
+     * Make sure that the singleton SupplementalDataInfo
+     * gets constructed and is functional.
+     */
+    private void verifySupplementalData() {
+        try {
+            getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance("mt_MT"));
+        } catch (InternalError ie) {
+            SurveyLog.logger.warning("can't do SupplementalData.defaultContentToParent() - " + ie);
+            ie.printStackTrace();
+            busted("can't do SupplementalData.defaultContentToParent() - " + ie, ie);
         }
     }
 
@@ -4140,6 +4174,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             progress.close();
             System.out.println("------------------- end of SurveyMain.destroy() ------------" + uptime + destroyTimer);
         }
+        initCalled=false;
     }
 
     private static FileFilter getXmlFileFilter() {

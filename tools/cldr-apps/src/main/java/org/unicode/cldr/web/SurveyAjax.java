@@ -1371,6 +1371,16 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
+    /**
+     * Add the wasInitCalled param.
+     * @see {@link SurveyMain#wasInitCalled()}
+     * @param r
+     */
+    static private void setupWasInitCalled(SurveyJSONWrapper r) {
+        r.put("wasInitCalled", SurveyMain.wasInitCalled());    // if false: we are extremely early in Server setup
+        r.put("triedToStartUp", SurveyMain.triedToStartUp());  // if false: need to call GET /cldr-apps/survey
+    }
+
     private void setupStatus(HttpServletRequest request, SurveyMain sm, SurveyJSONWrapper r) {
         r.put("SurveyOK", "1");
         try {
@@ -1417,6 +1427,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("SurveyOK", "0");
         r.put("isSetup", "0");
         r.put("isBusted", "0");
+        setupWasInitCalled(r);
         return r;
     }
 

@@ -194,7 +194,7 @@ const cldrGear = (function () {
             if (!title) {
               title = cldrText.get("special_" + item.special);
             }
-            item.url = "#" + item.special;
+            item.url = getSpecialUrl(item.special);
             item.blank = false;
           }
           if (item.url) {
@@ -274,6 +274,18 @@ const cldrGear = (function () {
         }
       })(item);
     }
+  }
+
+  function getSpecialUrl(special) {
+    let url = "#" + special;
+    if ("recent_activity" === special) {
+      // cf. cldrAccount.getUserActivityLink
+      const surveyUser = cldrStatus.getSurveyUser();
+      if (surveyUser && surveyUser.id) {
+        url += "///" + surveyUser.id;
+      }
+    }
+    return url;
   }
 
   function addFlagIcon(el) {

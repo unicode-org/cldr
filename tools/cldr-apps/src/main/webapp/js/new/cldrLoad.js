@@ -122,6 +122,7 @@ const cldrLoad = (function () {
   function parseHashAndUpdate(hash) {
     if (hash) {
       const pieces = hash.substr(0).split("/");
+      // pieces[1] is ALWAYS assumed to be locale or empty
       if (pieces.length > 1) {
         cldrStatus.setCurrentLocale(pieces[1]); // could be null
       } else {

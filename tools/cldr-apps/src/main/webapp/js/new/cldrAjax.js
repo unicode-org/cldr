@@ -274,11 +274,22 @@ const cldrAjax = (function () {
     return 120000; // 2 minutes
   }
 
+  /**
+   * Make an AJAX URL for Survey Tool using the given URLSearchParams
+   *
+   * @param {URLSearchParams} p
+   * @return the URL string
+   */
+  function makeUrl(p) {
+    return cldrStatus.getContextPath() + "/SurveyAjax?" + p.toString();
+  }
+
   /*
    * Make only these functions accessible from other files:
    */
   return {
     clearXhr,
+    makeUrl,
     mediumTimeout,
     sendXhr,
     queueCount,

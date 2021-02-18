@@ -90,7 +90,7 @@ const cldrRetry = (function () {
     if (!subkey) {
       subkey = "unknown";
     }
-    const theCode =
+    let theCode =
       json && json.session_err ? "E_SESSION_DISCONNECTED" : "E_UNKNOWN";
     let msg_str = theCode;
     if (json && json.err_code) {

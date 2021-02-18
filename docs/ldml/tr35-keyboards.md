@@ -319,21 +319,34 @@ A single name given to the layout by the platform.
 Syntax
 
 ```xml
-<name value="..">  
+<name value=".." [type="{usage}"] />
 ```
 
 _Attribute:_ `value` (required)
 
 > The name of the layout.
 
+_Attribute:_ `type="full"` (optional)
+
+> This attribute indicates the context of an alternative name. Valid values are: 
+> 
+> `layout` The `value` attribute describes the layout pattern, such as QWERTY, INSCRIPT, etc. typically used to distinguish various layouts of the same language. 
+> 
+> `indicator` The `value` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc. 
+> 
+> `normalization` The `value` attribute describes the intended normalization form of the keyboard layout output, and can be either `C`, `D` or `mixed`.
+
 Example
 
 ```xml
-<keyboard locale="bg-t-k0-windows-phonetic-trad">
+<keyboard locale="el-Latn-t-k0-windows-el220">
     …
-    <names>
-        <name value="Bulgarian (Phonetic Traditional)" />
-    </names>
+    <names> 
+        <name value="Greek (220) Latin" /> 
+        <name type="layout" value="QWERTY" /> 
+        <name type="indicator" value="220L" /> 
+        <name type="normalization" value="C" /> 
+    </names> 
     …
 </keyboard>
 ```

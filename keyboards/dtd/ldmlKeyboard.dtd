@@ -34,6 +34,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT names ( name+ ) >
 
 <!ELEMENT name EMPTY >
+<!ATTLIST name type (full) #IMPLIED > 
+    <!--@MATCH:literal/full, layout, indicator, normalization--> 
 <!ATTLIST name value CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->

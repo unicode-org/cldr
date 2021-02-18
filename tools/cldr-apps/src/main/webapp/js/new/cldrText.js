@@ -298,7 +298,7 @@ const cldrText = (function () {
     section_subpages: "Subpages",
     special_search: "Search",
     special_mail: "Notifications (SMOKETEST ONLY)",
-    special_recent_activity: "See My Recent Activity",
+    special_recent_activity: "Recent Activity",
     special_statistics: "Statistics",
     special_users: "Users",
     special_r_compact: "Numbers",

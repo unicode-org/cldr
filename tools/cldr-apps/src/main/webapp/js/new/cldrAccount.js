@@ -1055,9 +1055,12 @@ const cldrAccount = (function () {
   }
 
   function getUserActivityLink(u) {
-    // TODO: generalize to the "List Users" (not "My Account") case where (zoomed) user
-    // of interest is NOT the current user
-    return "<a class='recentActivity' href='v#recent_activity'>User Activity</a>";
+    // cf. cldrGear.getSpecialUrl
+    return (
+      "<a class='recentActivity' href='v#recent_activity///" +
+      u.data.id +
+      "'>User Activity</a>"
+    );
   }
 
   function getDownloadCsvForm(json) {

@@ -101,7 +101,8 @@ const cldrStatus = (function () {
   }
 
   /**
-   * A string such as '' (empty), or '821c2a2fc5c206d' (identifying an xpath)
+   * A string such as '' (empty), or '821c2a2fc5c206d' (identifying an xpath),
+   * or '12345' (identifying a user)
    * a.k.a. surveyCurrentId
    */
   let currentId = "";

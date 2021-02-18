@@ -1,51 +1,76 @@
 "use strict";
 
 /**
- * cldrRecentActivity: encapsulate the "Recent Activity" feature, a.k.a. "myvotes".
+ * cldrRecentActivity: encapsulate the "Recent Activity" feature
  *
  * This feature is reached in three ways:
- *  (1) "My Recent Activity" from the gear menu
- *  (2) "My Account Settings" from the gear menu,
+ *  (1) "My Votes, Recent Activity" from the gear menu
+ *  (2) "My Account, Settings" from the gear menu,
  *      then click the "User Activity" link in the table
- *  (3) "List ... Users" from the gear menu, then zoom in on a single user,
- *      and click the "User Activity" link in the table; the user in
- *      question may not be the current user
+ *  (3) "List ... Users" from the gear menu,
+ *      then click one of the "User Activity" links in the table
+ *      -- the user in question might not be the current user
  *
  * Use an IIFE pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.
  */
 const cldrRecentActivity = (function () {
+  /**
+   * The id of the user in question; not necessarily the current user
+   */
+  let userId = Number.NaN;
+
   // called as special.load
   function load() {
-    const surveyUser = cldrStatus.getSurveyUser();
-    if (!surveyUser || !surveyUser.id) {
+    const me = cldrStatus.getSurveyUser();
+    if (!me || !me.id) {
+      pleaseLogIn();
       return;
     }
-    const url = getUrl(surveyUser.id);
-    cldrLoad.myLoad(url, "(loading recent activity)", loadWithJson);
+    // normally userId will have been set by handleIdChanged
+    if (!userId) {
+      userId = Number(me.id);
+    }
+    cldrLoad.myLoad(getUrl(), "(loading recent activity)", loadWithJson);
   }
 
-  function getUrl(id) {
-    const p = new URLSearchParams();
-    p.append("what", "recent_activity");
-    p.append("user", id);
-    p.append("s", cldrStatus.getSessionId());
-    p.append("cacheKill", cldrSurvey.cacheBuster());
-    return cldrAjax.makeUrl(p);
+  function pleaseLogIn() {
+    const ourDiv = document.createElement("div");
+    ourDiv.innerHTML = "Please log in to access account settings";
+    cldrSurvey.hideLoader();
+    cldrLoad.flipToOtherDiv(ourDiv);
   }
 
   function loadWithJson(json) {
     cldrSurvey.hideLoader();
     cldrLoad.setLoading(false);
+    cldrEvent.hideRightPanel();
     const frag = cldrDom.construct(getHtml(json));
     cldrLoad.flipToOtherDiv(frag);
-    cldrEvent.hideRightPanel();
-    showRecent("submitItems", null, json.user);
-    showAllItems("allMyItems", json.user);
+    if (Number(json.user) === Number(userId)) {
+      showRecent();
+      showAllItems();
+    }
   }
 
   function getHtml(json) {
-    let html =
+    if (Number(json.user) !== Number(userId)) {
+      return "ERROR: user id mismatch " + json.user + " vs. " + userId;
+    }
+    let html = getItemsAndLocales(json);
+    const me = cldrStatus.getSurveyUser();
+    if (me && Number(me.id) === Number(userId)) {
+      html += getDownloadMyVotesForm();
+    }
+    return html;
+  }
+
+  function getItemsAndLocales(json) {
+    let who = userId;
+    if (json.status.user.name) {
+      who += " " + json.status.user.name;
+    }
+    return (
       "<i>All items shown are for the current release, CLDR " +
       json.newVersion +
       ". Votes before " +
@@ -53,55 +78,40 @@ const cldrRecentActivity = (function () {
       " are not shown.</i>\n" +
       "<hr />\n" +
       "<h3>The most recently submitted items for user " +
-      json.user +
+      who +
       "</h3>\n" +
       "<div id='submitItems'></div>\n" +
       "<hr />\n" +
       "<h3>All active locales for user " +
-      json.user +
+      who +
       "</h3>\n" +
-      "<div id='allMyItems'></div>\n" +
+      "<div id='allMyItems'></div>\n"
+    );
+  }
+
+  function getDownloadMyVotesForm() {
+    return (
       "<hr />\n" +
       "<form method='POST' action='DataExport.jsp'>\n" +
       "  <input type='hidden' name='s' value='" +
       cldrStatus.getSessionId() +
       "'>\n" +
       "  <input type='hidden' name='user' value='" +
-      json.user +
+      userId +
       "'>\n" +
       "  <input type='hidden' name='do' value='mydata'>\n" +
       "  <input type='submit' class='csvDownload' value='Download all of my votes as .csv'>\n" +
-      "</form>\n";
-
-    return html;
+      "</form>\n"
+    );
   }
 
-  function showRecent(divName, locale, user) {
-    if (!locale) {
-      locale = "";
-    }
-    if (!user) {
-      user = "";
-    }
-    let div;
-    if (divName.nodeType > 0) {
-      div = divName;
-    } else {
-      div = document.getElementById(divName);
-    }
+  function showRecent() {
+    const div = document.getElementById("submitItems");
     div.className = "recentList";
     div.update = function () {
-      let ourUrl =
-        cldrStatus.getContextPath() +
-        "/SurveyAjax?what=recent_items&_=" +
-        locale +
-        "&user=" +
-        user +
-        "&limit=" +
-        15;
       cldrSurvey.showLoader("Loading recent items");
       const xhrArgs = {
-        url: ourUrl,
+        url: getRecentItemsUrl(),
         handleAs: "json",
         load: loadHandler,
         error: errorHandler,
@@ -145,23 +155,20 @@ const cldrRecentActivity = (function () {
               const org = row[header.ORG];
               const last_mod = row[header.LAST_MOD];
               const xpath = row[header.XPATH];
-              let xpath_code = row[header.XPATH_CODE];
+              const xpath_code = row[header.XPATH_CODE].replace(/\t/g, " / ");
               const xpath_hash = row[header.XPATH_STRHASH];
               const value = row[header.VALUE];
 
               const rowDiv = document.createElement("div");
               frag.appendChild(rowDiv);
               rowDiv.appendChild(createLocLink(loc, locname, "recentLoc"));
-              let xpathItem;
-              xpath_code = xpath_code.replace(/\t/g, " / ");
-              rowDiv.appendChild(
-                (xpathItem = cldrDom.createChunk(
-                  xpath_code,
-                  "a",
-                  "recentXpath"
-                ))
+              const xpathItem = cldrDom.createChunk(
+                xpath_code,
+                "a",
+                "recentXpath"
               );
-              xpathItem.href = "survey?_=" + loc + "&strid=" + xpath_hash;
+              rowDiv.appendChild(xpathItem);
+              xpathItem.href = getXpathUrl(loc, xpath_hash);
               rowDiv.appendChild(
                 cldrDom.createChunk(value, "span", "value recentValue")
               );
@@ -194,16 +201,13 @@ const cldrRecentActivity = (function () {
     }
   }
 
-  function showAllItems(divName, user) {
-    const div = document.getElementById(divName);
+  function showAllItems() {
+    const div = document.getElementById("allMyItems");
     div.className = "recentList";
     div.update = function () {
-      const ourUrl =
-        cldrStatus.getContextPath() + "/SurveyAjax?what=mylocales&user=" + user;
       cldrSurvey.showLoader("Loading recent items");
-
       const xhrArgs = {
-        url: ourUrl,
+        url: getAllItemsUrl(),
         handleAs: "json",
         load: loadHandler,
         error: errorHandler,
@@ -254,13 +258,7 @@ const cldrRecentActivity = (function () {
                   "a",
                   "notselected"
                 );
-                dlLink.href =
-                  "DataExport.jsp?do=myxml&_=" +
-                  loc +
-                  "&user=" +
-                  user +
-                  "&s=" +
-                  sessionId;
+                dlLink.href = getMyXmlUrl(loc);
                 dlLink.target = "STDownload";
                 rowDiv.appendChild(dlLink);
               }
@@ -282,7 +280,7 @@ const cldrRecentActivity = (function () {
     }
 
     function errorHandler(err) {
-      cldrRetry.handleDisconnect("Error in showrecent: " + err);
+      cldrRetry.handleDisconnect("Error in showAllItems: " + err);
     }
   }
 
@@ -293,16 +291,89 @@ const cldrRecentActivity = (function () {
     return cl;
   }
 
-  /*
-   * Make only these functions accessible from other files:
-   */
+  // called as special.parseHash
+  function parseHash(pieces) {
+    cldrStatus.setCurrentPage("");
+    // example: "v#recent_activity///12345"
+    // pieces[0] = recent_activity
+    // pieces[1] = empty = locale, unused
+    // pieces[2] = empty = ???, unused; somehow this seems required
+    // pieces[3] = userId
+    if (pieces && pieces.length > 3) {
+      if (!pieces[3] || pieces[3] == "") {
+        cldrStatus.setCurrentId("");
+      } else {
+        const id = new Number(pieces[3]);
+        if (Number.isNaN(id)) {
+          cldrStatus.setCurrentId("");
+        } else {
+          const idStr = id.toString();
+          cldrStatus.setCurrentId(idStr);
+          handleIdChanged(idStr);
+        }
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // called as special.handleIdChanged
+  function handleIdChanged(idStr) {
+    if (idStr) {
+      const id = new Number(idStr);
+      if (Number.isNaN(id)) {
+        cldrStatus.setCurrentId("");
+      } else {
+        cldrStatus.setCurrentId(id.toString());
+        userId = Number(id);
+      }
+    }
+  }
+
+  function getUrl() {
+    const p = new URLSearchParams();
+    p.append("what", "recent_activity");
+    p.append("user", userId);
+    p.append("s", cldrStatus.getSessionId());
+    p.append("cacheKill", cldrSurvey.cacheBuster());
+    return cldrAjax.makeUrl(p);
+  }
+
+  function getRecentItemsUrl() {
+    const p = new URLSearchParams();
+    p.append("what", "recent_items");
+    p.append("user", userId);
+    p.append("limit", "15");
+    return cldrAjax.makeUrl(p);
+  }
+
+  function getAllItemsUrl() {
+    const p = new URLSearchParams();
+    p.append("what", "mylocales");
+    p.append("user", userId);
+    return cldrAjax.makeUrl(p);
+  }
+
+  function getMyXmlUrl(loc) {
+    const p = new URLSearchParams();
+    p.append("do", "myxml");
+    p.append("_", loc);
+    p.append("user", userId);
+    p.append("s", cldrStatus.getSessionId());
+    return "DataExport.jsp?" + p.toString();
+  }
+
+  function getXpathUrl(loc, xpath_hash) {
+    const p = new URLSearchParams();
+    p.append("_", loc);
+    p.append("strid", xpath_hash);
+    return "survey?" + p.toString();
+  }
+
   return {
+    handleIdChanged,
     load,
-    /*
-     * The following are meant to be accessible for unit testing only:
-     */
-    // test: {
-    //   f,
-    // },
+    parseHash,
   };
 })();

@@ -20,6 +20,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -41,13 +42,13 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     static class Tags {
-        final Set<String> languages = new TreeSet<String>();
-        final Set<String> scripts = new TreeSet<String>();
-        final Set<String> regions = new TreeSet<String>();
-        final Set<String> scriptRegion = new TreeSet<String>();
-        final Set<String> languageScript = new TreeSet<String>();
-        final Set<String> languageRegion = new TreeSet<String>();
-        final Set<String> all = new TreeSet<String>();
+        final Set<String> languages = new TreeSet<>();
+        final Set<String> scripts = new TreeSet<>();
+        final Set<String> regions = new TreeSet<>();
+        final Set<String> scriptRegion = new TreeSet<>();
+        final Set<String> languageScript = new TreeSet<>();
+        final Set<String> languageRegion = new TreeSet<>();
+        final Set<String> all = new TreeSet<>();
         final ChainedMap.M4<String, String, String, Boolean> languageToScriptToRegions = ChainedMap
             .of(new TreeMap<String, Object>(),
                 new TreeMap<String, Object>(),
@@ -79,11 +80,11 @@ public class LikelySubtagsTest extends TestFmwk {
                 languageToScriptToRegions.put(lang, firstScriptNotIn,
                     firstRegionNotIn, Boolean.TRUE);
                 // clone for safety before iterating
-                for (String script : new HashSet<String>(scriptsFor)) {
+                for (String script : new HashSet<>(scriptsFor)) {
                     languageToScriptToRegions.put(lang, script,
                         firstRegionNotIn, Boolean.TRUE);
                 }
-                for (String region : new HashSet<String>(regionsFor)) {
+                for (String region : new HashSet<>(regionsFor)) {
                     languageToScriptToRegions.put(lang, firstScriptNotIn,
                         region, Boolean.TRUE);
                 }
@@ -240,7 +241,7 @@ public class LikelySubtagsTest extends TestFmwk {
         }
     }
 
-    static Set<String> exceptions = new HashSet<String>(Arrays.asList("Zyyy",
+    static Set<String> exceptions = new HashSet<>(Arrays.asList("Zyyy",
         "Zinh", "Zzzz", "Brai"));
 
     public void TestStability() {
@@ -276,7 +277,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestForMissingScriptMetadata() {
-        TreeSet<String> metadataScripts = new TreeSet<String>(
+        TreeSet<String> metadataScripts = new TreeSet<>(
             ScriptMetadata.getScripts());
         UnicodeSet current = new UnicodeSet(0, 0x10FFFF);
         UnicodeSet toRemove = new UnicodeSet();
@@ -365,11 +366,13 @@ public class LikelySubtagsTest extends TestFmwk {
         }
     }
 
+    static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS = ImmutableSet.of("Hatr");
+
     public void TestMissingInfoForScript() {
         VersionInfo icuUnicodeVersion = UCharacter.getUnicodeVersion();
-        TreeSet<String> sorted = new TreeSet<String>(
+        TreeSet<String> sorted = new TreeSet<>(
             ScriptMetadata.getScripts());
-        Set<String> exceptions2 = new HashSet<String>(
+        Set<String> exceptions2 = new HashSet<>(
             Arrays.asList("zh_Hans_CN"));
         for (String script : sorted) {
             if (exceptions.contains(script) || script.equals("Latn")
@@ -385,15 +388,17 @@ public class LikelySubtagsTest extends TestFmwk {
             String langScript = likelyLanguage + "_" + script + "_";
             String likelyExpansion = likely.get(undScript);
             if (likelyExpansion == null) {
-                String msg = "Missing likely language for script (und_" + script
-                    + ")  should be something like:\t "
-                    + showOverride(script, originCountry, langScript);
-                if (i.age.compareTo(icuUnicodeVersion) <= 0) {
-                    // Error: Missing data for a script in ICU's Unicode version.
-                    errln(msg);
-                } else {
-                    // Warning: Missing data for a script in a future Unicode version.
-                    warnln(msg);
+                if (!KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS.contains(script)) {
+                    String msg = "Missing likely language for script (und_" + script
+                        + ")  should be something like:\t "
+                        + showOverride(script, originCountry, langScript);
+                    if (i.age.compareTo(icuUnicodeVersion) <= 0) {
+                        // Error: Missing data for a script in ICU's Unicode version.
+                        errln(msg);
+                    } else {
+                        // Warning: Missing data for a script in a future Unicode version.
+                        warnln(msg);
+                    }
                 }
             } else if (!exceptions2.contains(likelyExpansion)
                 && !likelyExpansion.startsWith(langScript)) {

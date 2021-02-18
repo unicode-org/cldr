@@ -49,6 +49,7 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Relation;
@@ -1227,6 +1228,35 @@ public class GenerateMaximalLocales {
         // add overrides
         for (String key : LANGUAGE_OVERRIDES.keySet()) {
             add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE", LocaleOverride.REPLACE_EXISTING, true);
+        }
+
+        // Make sure that the mapping is Idempotent. If we have A ==> B, we must never have B ==> C
+        // We run this check until we get no problems.
+        Set<List<String>> problems = new HashSet<>();
+
+        while (true) {
+            problems.clear();
+            for (Entry<String, String> entry : toMaximized.entrySet()) {
+                String source = entry.getKey();
+                String target = entry.getValue();
+                if (target.contains("_Zzzz") || target.contains("_ZZ")) { // these are special cases
+                    continue;
+                }
+                String idempotentCandidate = LikelySubtags.maximize(target, toMaximized);
+
+                if (idempotentCandidate == null) {
+                    System.out.println("Can't maximize " + target);
+                } else if (!idempotentCandidate.equals(target)) {
+                    problems.add(ImmutableList.of(source, target, idempotentCandidate));
+                }
+            }
+            if (problems.isEmpty()) {
+                break;
+            }
+            for (List<String> row : problems) {
+                System.out.println("Idempotence: dropping mapping " + row.get(0) + " to " + row.get(1) + " since the target maps further to " + row.get(2));
+                toMaximized.remove(row.get(0));
+            }
         }
     }
 

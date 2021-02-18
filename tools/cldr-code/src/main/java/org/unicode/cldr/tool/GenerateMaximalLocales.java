@@ -39,13 +39,17 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Relation;
@@ -70,6 +74,8 @@ import com.ibm.icu.util.ULocale;
  *
  */
 public class GenerateMaximalLocales {
+
+    private static final Map<String, Status> LANGUAGE_CODE_TO_STATUS = Validity.getInstance().getCodeToStatus(LstrType.language);
 
     private static final String TEMP_UNKNOWN_REGION = "XZ";
 
@@ -286,7 +292,7 @@ public class GenerateMaximalLocales {
 //        {"bsq", "bsq_Bass_LR"},
 //        {"ccp", "ccp_Cakm_BD"},
 //        {"blt", "blt_Tavt_VN"},
-        { "mis_Medf", "mis_Medf_NG" },
+//        { "mis_Medf", "mis_Medf_NG" },
 
         { "ku_Yezi", "ku_Yezi_GE" },
         { "und_EU", "en_Latn_IE" },
@@ -708,6 +714,22 @@ public class GenerateMaximalLocales {
         set.add(new RowData(status, territory, population));
     }
 
+    /**
+     * In computing the defaultContents, no and nb require special handling.
+     */
+    static final Map<String, String> SPECIAL_CHILD_TO_PARENT = ImmutableMap.of("nb", "no", "nb_NO", "nb");
+
+    /*
+     * Compute the defaultContent values for supplemental data.
+     * It uses the maximization data and the simpleParent (truncation).
+     * We can't use the normal "getParent" because that messes up the logic
+     * used to handle inconsistencies in scripts in CLDR.<br>
+     * That is, there are three situations: <ul>
+     * <li>all children have explicit scripts; </li>
+     * <li>no children have scripts; and </li>
+     * <li>some do and some don't</li></ul>
+     */
+
     private static void printDefaultContent(Map<String, String> toMaximized) throws IOException {
 
         Set<String> defaultLocaleContent = new TreeSet<>();
@@ -715,11 +737,11 @@ public class GenerateMaximalLocales {
         // go through all the cldr locales, and add default contents
         // now computed from toMaximized
         Set<String> available = factory.getAvailable();
-        Relation<String, String> toChildren = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> toSimpleChildren = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
 
         // System.out.println(maximize("az_Latn_AZ", toMaximized));
-        Set<String> hasScript = new TreeSet<>();
+        Set<String> hasSimpleChildWithScript = new TreeSet<>();
 
         // first get a mapping to children
         for (String locale : available) {
@@ -729,14 +751,18 @@ public class GenerateMaximalLocales {
             if (ltp.set(locale).getVariants().size() != 0) {
                 continue;
             }
-            String parent = LocaleIDParser.getSimpleParent(locale);
+            String parent = SPECIAL_CHILD_TO_PARENT.get(locale);
+            if (parent == null) {
+                parent = LocaleIDParser.getSimpleParent(locale); // we can't use the regular getParent (see above)
+            }
+
             if (ltp.getScript().length() != 0) {
-                hasScript.add(parent);
+                hasSimpleChildWithScript.add(parent);
             }
             if (parent.equals("root")) {
                 continue;
             }
-            toChildren.put(parent, locale);
+            toSimpleChildren.put(parent, locale);
         }
 
         // Suppress script for locales for which we only have one locale in common/main. See ticket #7834.
@@ -751,9 +777,9 @@ public class GenerateMaximalLocales {
 
         // if any have a script, then throw out any that don't have a script (unless they're specifically included.)
         Set<String> toRemove = new TreeSet<>();
-        for (String locale : hasScript) {
+        for (String locale : hasSimpleChildWithScript) {
             toRemove.clear();
-            Set<String> children = toChildren.getAll(locale);
+            Set<String> children = toSimpleChildren.getAll(locale);
             for (String child : children) {
                 if (ltp.set(child).getScript().length() == 0 && !suppressScriptLocales.contains(child)) {
                     toRemove.add(child);
@@ -761,18 +787,18 @@ public class GenerateMaximalLocales {
             }
             if (toRemove.size() != 0) {
                 System.out.println("\tRemoving:\t" + locale + "\t" + toRemove + "\tfrom\t" + children);
-                toChildren.removeAll(locale, toRemove);
+                toSimpleChildren.removeAll(locale, toRemove);
             }
         }
 
         // we add a child as a default locale if it has the same maximization
-        main: for (String locale : toChildren.keySet()) {
+        main: for (String locale : toSimpleChildren.keySet()) {
             String maximized = maximize(locale, toMaximized);
             if (maximized == null) {
                 if (SHOW_ADD) System.out.println("Missing maximized:\t" + locale);
                 continue;
             }
-            Set<String> children = toChildren.getAll(locale);
+            Set<String> children = toSimpleChildren.getAll(locale);
             Map<String, String> debugStuff = new TreeMap<>();
             for (String child : children) {
                 String maximizedChild = maximize(child, toMaximized);
@@ -786,6 +812,9 @@ public class GenerateMaximalLocales {
                 + "\tin\t" + debugStuff);
         }
 
+        for (String specialChild : SPECIAL_CHILD_TO_PARENT.keySet()) {
+            defaultLocaleContent.add(specialChild);
+        }
         defaultLocaleContent.remove("und_ZZ"); // und_ZZ isn't ever a real locale. (old sandbox)
         defaultLocaleContent.remove("mul_ZZ"); // mul_ZZ isn't ever a real locale.
 
@@ -886,7 +915,7 @@ public class GenerateMaximalLocales {
          * @param order
          */
         void add(String language, String script, String region, Double order) {
-            if (language.equals("cpp")) {
+            if (SHOW_ADD && language.equals("mis")) {
                 System.out.println(language + "\t" + script + "\t" + region + "\t" + -order);
             }
             languages.put(language, Row.of(order, script, region));
@@ -1180,10 +1209,14 @@ public class GenerateMaximalLocales {
 
         // get the script info from metadata as fallback
 
+
         TreeSet<String> sorted = new TreeSet<>(ScriptMetadata.getScripts());
         for (String script : sorted) {
             Info i = ScriptMetadata.getInfo(script);
             String likelyLanguage = i.likelyLanguage;
+            if (LANGUAGE_CODE_TO_STATUS.get(likelyLanguage) == Status.special) {
+                likelyLanguage = "und";
+            }
             String originCountry = i.originCountry;
             final String result = likelyLanguage + "_" + script + "_" + originCountry;
             add("und_" + script, result, toMaximized, "S->LR•",
@@ -1195,6 +1228,35 @@ public class GenerateMaximalLocales {
         // add overrides
         for (String key : LANGUAGE_OVERRIDES.keySet()) {
             add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE", LocaleOverride.REPLACE_EXISTING, true);
+        }
+
+        // Make sure that the mapping is Idempotent. If we have A ==> B, we must never have B ==> C
+        // We run this check until we get no problems.
+        Set<List<String>> problems = new HashSet<>();
+
+        while (true) {
+            problems.clear();
+            for (Entry<String, String> entry : toMaximized.entrySet()) {
+                String source = entry.getKey();
+                String target = entry.getValue();
+                if (target.contains("_Zzzz") || target.contains("_ZZ")) { // these are special cases
+                    continue;
+                }
+                String idempotentCandidate = LikelySubtags.maximize(target, toMaximized);
+
+                if (idempotentCandidate == null) {
+                    System.out.println("Can't maximize " + target);
+                } else if (!idempotentCandidate.equals(target)) {
+                    problems.add(ImmutableList.of(source, target, idempotentCandidate));
+                }
+            }
+            if (problems.isEmpty()) {
+                break;
+            }
+            for (List<String> row : problems) {
+                System.out.println("Idempotence: dropping mapping " + row.get(0) + " to " + row.get(1) + " since the target maps further to " + row.get(2));
+                toMaximized.remove(row.get(0));
+            }
         }
     }
 
@@ -1353,6 +1415,9 @@ public class GenerateMaximalLocales {
 
     private static void add(String key, String value, Map<String, String> toAdd, String kind, LocaleOverride override,
         boolean showAction) {
+        if (SHOW_ADD && key.startsWith("mis")) {
+            int debug = 1;
+        }
         if (key.equals(DEBUG_ADD_KEY)) {
             System.out.println("*debug*");
         }

@@ -160,8 +160,10 @@ public class LanguageTest extends TestFmwk {
             if (likely == null) {
                 final String data = script2likely.get(script);
                 if (data == null) {
-                    errln("Script without likely language:\t" + script + "\t"
-                        + getScriptName(script));
+                    if (!LikelySubtagsTest.KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS.contains(script)) {
+                        errln("Script without likely language:\t" + script + "\t"
+                            + getScriptName(script));
+                    }
                 } else {
                     needTransfer.add(script);
                 }

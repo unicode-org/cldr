@@ -155,6 +155,8 @@ public class GenerateMaximalLocales {
         "blt_Tavt_VN",
         "rhg_Arab_MM",
         "rhg_Rohg_MM",
+
+        "no_Latn_NO",
     };
 
     /**
@@ -549,7 +551,7 @@ public class GenerateMaximalLocales {
 
         // also CLDR-target locales
         final Set<String> CLDRMainLanguages = new TreeSet<>(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr));
-        
+
         for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
             PopulationData territoryPop = supplementalData.getPopulationDataForTerritory(territory);
             double territoryPopulation = territoryPop.getLiteratePopulation();

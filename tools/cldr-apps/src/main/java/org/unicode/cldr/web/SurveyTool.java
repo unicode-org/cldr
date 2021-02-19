@@ -21,6 +21,7 @@ public class SurveyTool extends HttpServlet {
     private static final String USE_DOJO_VAR = "USE_DOJO";
     private static final long serialVersionUID = 1L;
     private static final boolean USE_DOJO_DEFAULT = true;
+    private static final boolean USE_ESM = false;
 
     /**
      * Is dojo enabled by default?
@@ -308,7 +309,12 @@ public class SurveyTool extends HttpServlet {
         out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
         out.write("<div id='st-run-gui'>Loading...</div>\n");
         if (!useDojo(request)) {
-            out.write("<script>cldrGui.run()</script>\n");
+            if (USE_ESM) {
+                out.write("<script type='module'>import * as cldrGui from './js/esm/cldrGui.js'\n" +
+                    "cldrGui.run()</script>\n");
+            } else {
+                out.write("<script>cldrGui.run()</script>\n");
+            }
         }
         out.write("</body>\n</html>\n");
     }
@@ -445,16 +451,10 @@ public class SurveyTool extends HttpServlet {
             out.write(prefix + "redesign" + js); // redesign.js
             out.write(prefix + "review" + js); // review.js
             out.write(prefix + "CldrDojoGui" + js); // CldrGuiDojo.js
-        } else {
-            /*
-             * bootstrap.min.js -- cf. bootstrap.min.css elsewhere in this file
-             * Currently we serve our own antiquated copy of Bootstrap v3.1.1, Copyright 2011-2014 Twitter, Inc.
-             * TODO: experiment with upgrading to v4.1.3
-             * per https://getbootstrap.com/docs/4.1/getting-started/introduction/
-             */
+        } else if (USE_ESM) {
             out.write(prefix + "bootstrap.min.js" + tail);
-            // Arrays.sort(newJsFiles);
-            // Arrays.sort(newJsFiles, Collections.reverseOrder());
+        } else {
+            out.write(prefix + "bootstrap.min.js" + tail);
             for (String s: newJsFiles) {
                 String ss = s.replace(".js", "");
                 out.write(prefix + "new/" + ss + js);

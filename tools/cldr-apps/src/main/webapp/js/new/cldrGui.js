@@ -30,12 +30,22 @@ const cldrGui = (function () {
     if (GUI_DEBUG) {
       debugElements();
     }
+    setOnClicks();
 
     cldrSurvey.updateStatus();
 
     cldrLoad.showV();
 
     cldrEvent.startup();
+  }
+
+  function setOnClicks() {
+    for (let id of ["chgPagePrevTop", "chgPagePrevBot"]) {
+      document.getElementById(id).onclick = () => cldrSurvey.chgPage(-1);
+    }
+    for (let id of ["chgPageNextTop", "chgPageNextBot"]) {
+      document.getElementById(id).onclick = () => cldrSurvey.chgPage(1);
+    }
   }
 
   /**
@@ -168,8 +178,8 @@ const cldrGui = (function () {
     "        <div class='row' id='nav-page'>\n" +
     "          <div class='col-md-9'>\n" +
     "            <p class='nav-button'>\n" +
-    "              <button type='button' class='btn btn-primary btn-xs' onclick='cldrSurvey.chgPage(-1)'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
-    "              <button type='button' class='btn btn-primary btn-xs' onclick='cldrSurvey.chgPage(1)'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
+    "              <button id='chgPagePrevTop' type='button' class='btn btn-primary btn-xs'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
+    "              <button id='chgPageNextTop' type='button' class='btn btn-primary btn-xs'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
     "              <button type='button' class='btn btn-default btn-xs toggle-right'>Toggle Sidebar <span class='glyphicon glyphicon-align-right'></span></button>\n" +
     "            </p>\n" +
     "            <div class='progress nav-progress'>\n" +
@@ -194,8 +204,8 @@ const cldrGui = (function () {
     "        <div id='DynamicDataSection'></div>\n" +
     "        <div id='nav-page-footer'>\n" +
     "          <p class='nav-button'>\n" +
-    "            <button type='button' class='btn btn-primary btn-xs' onclick='cldrSurvey.chgPage(-1)'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
-    "            <button type='button' class='btn btn-primary btn-xs' onclick='cldrSurvey.chgPage(1)'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
+    "            <button id='chgPagePrevBot' type='button' class='btn btn-primary btn-xs'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
+    "            <button id='chgPageNextBot' type='button' class='btn btn-primary btn-xs'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
     "            <button type='button' class='btn btn-default btn-xs toggle-right'>Toggle Sidebar <span class='glyphicon glyphicon-align-right'></span></button>\n" +
     "          </p>\n" +
     "        </div>\n" +

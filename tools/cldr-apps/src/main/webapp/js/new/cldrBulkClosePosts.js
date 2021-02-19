@@ -40,6 +40,7 @@ const cldrBulkClosePosts = (function () {
     contentDiv.innerHTML = html;
     cldrSurvey.hideLoader();
     cldrLoad.flipToOtherDiv(contentDiv);
+    setOnClicks();
   }
 
   function errorHandler(err) {
@@ -47,6 +48,10 @@ const cldrBulkClosePosts = (function () {
     ourDiv.innerHTML = err;
     cldrSurvey.hideLoader();
     cldrLoad.flipToOtherDiv(ourDiv);
+  }
+
+  function setOnClicks() {
+    document.getElementById("bulkCloseThreads").onclick = () => execute();
   }
 
   /**
@@ -115,8 +120,7 @@ const cldrBulkClosePosts = (function () {
         json.threadCount +
         "</p>\n";
       if (json.threadCount > 0) {
-        html +=
-          "<h4><a onclick='cldrBulkClosePosts.execute()'>Close Threads!</a></h4>\n";
+        html += "<h4><a id='bulkCloseThreads'>Close Threads!</a></h4>\n";
         html += "<p>This action cannot be undone.</p>";
         html +=
           "<p>It should normally be done after a new version of CLDR is published, before opening Survey Tool.</p>\n";
@@ -139,7 +143,6 @@ const cldrBulkClosePosts = (function () {
    */
   return {
     load,
-    execute,
     /*
      * The following are meant to be accessible for unit testing only:
      */

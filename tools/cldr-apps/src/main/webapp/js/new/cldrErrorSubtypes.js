@@ -44,6 +44,7 @@ const cldrErrorSubtypes = (function () {
     ourDiv.innerHTML = getHtml(json);
     cldrSurvey.hideLoader();
     cldrLoad.flipToOtherDiv(ourDiv);
+    setOnClicks();
   }
 
   function errorHandler(err) {
@@ -55,7 +56,7 @@ const cldrErrorSubtypes = (function () {
 
   function getHtml(json) {
     let html = "<p><b>CLDR_SUBTYPE_URL</b> " + json.CLDR_SUBTYPE_URL + "</p>\n";
-    html += "<p><a onclick='cldrErrorSubtypes.reloadMap()'>🔄 Reload Map</a>\n";
+    html += "<p><a id='reloadErrorSubtypeMap'>🔄 Reload Map</a>\n";
     html += json.urls
       ? "Map OK! (may be cached)"
       : "<b>Could not load map.</b>";
@@ -64,8 +65,7 @@ const cldrErrorSubtypes = (function () {
       return html;
     }
     html += instructions;
-    html +=
-      "<p><a onclick='cldrErrorSubtypes.recheckAll()'>🔄 Recheck all URLs</a></p>\n";
+    html += "<p><a id='recheckAllUrls'>🔄 Recheck all URLs</a></p>\n";
     html += "<hr />\n";
     html += "<pre>" + json.COMMENT + " " + json.BEGIN_MARKER + "</pre>\n";
     for (let i in json.urls) {
@@ -96,9 +96,9 @@ const cldrErrorSubtypes = (function () {
       html +=
         "# URL failed to fetch: " +
         stat.status +
-        " <a onclick='cldrErrorSubtypes.recheckOneUrl(\"" +
+        " <a class='recheckOneUrl' title='" +
         stat.url +
-        "\")'>🔄</a><br/>\n";
+        "'>🔄</a><br/>\n";
     }
     return html;
   }
@@ -118,7 +118,6 @@ const cldrErrorSubtypes = (function () {
     return html;
   }
 
-  // called from an onclick
   function reloadMap() {
     const el = getMainEl();
     if (el) {
@@ -152,7 +151,21 @@ const cldrErrorSubtypes = (function () {
     window.setTimeout(load, coupleSeconds);
   }
 
-  // called from an onclick
+  function setOnClicks() {
+    document.getElementById("reloadErrorSubtypeMap").onclick = () =>
+      reloadMap();
+    document.getElementById("recheckAllUrls").onclick = () => recheckAll();
+
+    const recheckOneUrlElements = document.getElementsByClassName(
+      "recheckOneUrl"
+    );
+    for (let i = 0; i < recheckOneUrlElements.length; i++) {
+      const el = recheckOneUrlElements[i];
+      // el.title === stat.url
+      el.onclick = () => recheckOneUrl(el.title);
+    }
+  }
+
   function recheckAll() {
     const el = getMainEl();
     if (el) {
@@ -167,7 +180,6 @@ const cldrErrorSubtypes = (function () {
     cldrAjax.sendXhr(xhrArgs);
   }
 
-  // called from an onclick
   function recheckOneUrl(oneUrl) {
     const el = getMainEl();
     if (el) {
@@ -199,14 +211,8 @@ const cldrErrorSubtypes = (function () {
     return el;
   }
 
-  /*
-   * Make only these functions accessible from other files:
-   */
   return {
     load,
-    recheckAll,
-    recheckOneUrl,
-    reloadMap,
 
     /*
      * The following are meant to be accessible for unit testing only:

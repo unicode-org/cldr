@@ -10,16 +10,6 @@
 const cldrForumParticipation = (function () {
   const tableId = "participationTable";
   const fileName = "participation.csv";
-  const onclick =
-    "cldrCsvFromTable.download(" +
-    '"' +
-    tableId +
-    '"' +
-    ", " +
-    '"' +
-    fileName +
-    '"' +
-    ")";
 
   /**
    * Fetch the Forum Participation data from the server, and "load" it
@@ -54,6 +44,7 @@ const cldrForumParticipation = (function () {
     ourDiv.innerHTML = html;
     cldrSurvey.hideLoader();
     cldrLoad.flipToOtherDiv(ourDiv);
+    setOnClicks();
   }
 
   function errorHandler(err) {
@@ -97,7 +88,7 @@ const cldrForumParticipation = (function () {
         "FORUM_DISCUSS",
         "FORUM_ACT",
       ];
-      html += "<h4><a onclick='" + onclick + "'>Download CSV</a></h4>\n";
+      html += "<h4><a id='forumPartCsv'>Download CSV</a></h4>\n";
       html += "<table border='1' id='" + tableId + "'>\n";
       html += "<tr>\n";
       for (let header of [
@@ -123,6 +114,11 @@ const cldrForumParticipation = (function () {
     }
     html += "</div>";
     return html;
+  }
+
+  function setOnClicks() {
+    document.getElementById("forumPartCsv").onclick = () =>
+      cldrCsvFromTable.download(tableId, fileName);
   }
 
   /*

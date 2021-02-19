@@ -435,13 +435,13 @@ public class SurveyTool extends HttpServlet {
         }
 
         if (doUseDojo) {
-            out.write(prefix + "new/cldrText" + js); // new/cldrText.js
-            out.write(prefix + "new/cldrStatus" + js); // new/cldrStatus.js
-            out.write(prefix + "new/cldrAjax" + js); // new/cldrAjax.js
+            out.write(prefix + "CldrDojoText" + js); // CldrDojoText.js
+            out.write(prefix + "CldrDojoStatus" + js); // CldrDojoStatus.js
+            out.write(prefix + "CldrDojoAjax" + js); // CldrDojoAjax.js
             out.write(prefix + "CldrDojoBulkClosePosts" + js); // CldrDojoBulkClosePosts.js
             out.write(prefix + "CldrDojoForumParticipation" + js); // CldrDojoForumParticipation.js
-            out.write(prefix + "new/cldrForumFilter" + js); // new/cldrForumFilter.js
-            out.write(prefix + "new/cldrCsvFromTable" + js); // new/cldrCsvFromTable.js
+            out.write(prefix + "CldrDojoForumFilter" + js); // CldrDojoForumFilter.js
+            out.write(prefix + "CldrDojoCsvFromTable" + js); // CldrDojoCsvFromTable.js
             out.write(prefix + "CldrDojoDeferHelp" + js); // CldrDojoDeferHelp.js
             out.write(prefix + "CldrDojoForum" + js); // CldrDojoForum.js
             out.write(prefix + "survey" + js); // survey.js

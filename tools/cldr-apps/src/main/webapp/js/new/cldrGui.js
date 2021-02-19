@@ -46,6 +46,7 @@ const cldrGui = (function () {
     for (let id of ["chgPageNextTop", "chgPageNextBot"]) {
       document.getElementById(id).onclick = () => cldrSurvey.chgPage(1);
     }
+    document.getElementById("reloadForum").onclick = () => cldrForum.reload();
   }
 
   /**
@@ -147,7 +148,7 @@ const cldrGui = (function () {
     "              <span style='display:none' id='specialHeader'>(Your message here)</span>\n" +
     "              <span id='progress_oneword' class='oneword'>Online</span>\n" +
     "              <span id='progress_ajax' class='ajaxword'>&#xA0;</span>\n" +
-    "              <button id='progress-refresh' onclick='javascript:window.location.reload(true);'>Refresh</button>\n" +
+    "              <button id='progress-refresh' onclick='window.location.reload(true);'>Refresh</button>\n" +
     "            </div>\n" +
     "          </div>\n";
   /* end stnotices.jspf */
@@ -186,7 +187,7 @@ const cldrGui = (function () {
     "              <div id='progress-voted' class='progress-bar progress-bar-info tip-log' title='Votes' style='width: 0%'></div>\n" +
     "              <div id='progress-abstain' class='progress-bar progress-bar-warning tip-log' title='Abstain' style='width: 0%'></div>\n" +
     "            </div>\n" +
-    "            <div class='counter-infos'><a onclick='cldrForum.reload();'>Forum:</a>\n" +
+    "            <div class='counter-infos'><a id='reloadForum'>Forum:</a>\n" +
     "              <span id='vForum'>...</span> ●\n" +
     "              Votes: <span id='count-voted'></span>\n" +
     "              - Abstain: <span id='count-abstain'></span>\n" +

@@ -37,7 +37,7 @@ const cldrAccount = (function () {
     "result in destruction of their session. Check if they have been working recently.</div>\n";
 
   const listMultipleUsersButton =
-    "<button type='button' onclick='cldrAccount.listMultipleUsers()'>⋖ Show all users</button>\n";
+    "<button id='listMultipleUsers' type='button'>⋖ Show all users</button>\n";
 
   const doActionButton =
     "<input type='submit' name='doBtn' value='Do Action' />\n";
@@ -58,7 +58,7 @@ const cldrAccount = (function () {
   };
 
   const bulkActionListButton =
-    "<button type='button' onclick='cldrAccount.submitBulkAction(event)'>list</button>\n";
+    "<button id='bulkActionListButton' type='button'>list</button>\n";
 
   // TODO: should this button be renamed from "Change" to "Do Action", for consistency, given that
   // its effect is the same as the "Do Action" buttons?
@@ -66,7 +66,7 @@ const cldrAccount = (function () {
     "<div id='changeButton' style='display: none;'>" +
     "<hr /><i><b>Menus have been pre-filled.<br />" +
     "Confirm your choices and click Change.</b></i><br />" +
-    "<button type='button' onclick='cldrAccount.submitTableForm(event)'>Change</button>\n" +
+    "<button id='submitTableForm' type='button'>Change</button>\n" +
     "</div>\n";
 
   const infoType = {
@@ -191,6 +191,7 @@ const cldrAccount = (function () {
     cldrSurvey.hideLoader();
     cldrLoad.flipToOtherDiv(ourDiv);
     showUserActivity(json);
+    setOnClicks();
   }
 
   function errorHandler(err) {
@@ -348,9 +349,9 @@ const cldrAccount = (function () {
     }
     if (!justUser) {
       html +=
-        "<a onclick='cldrAccount.listSingleUser(\"" +
+        "<a class='zoomUserButton' title='" +
         u.data.email +
-        "\")'>" +
+        "'>" +
         zoomImage +
         "</a>";
     }
@@ -381,11 +382,7 @@ const cldrAccount = (function () {
 
   function getUserActionMenu(u, json) {
     const theirTag = u.data.id + "_" + u.data.email;
-    let html = "<select name='" + theirTag + "'";
-    if (justUser) {
-      // submit immediately on change; don't wait for user to press "Do Action" button
-      html += " onchange='cldrAccount.submitTableForm(event)'";
-    }
+    let html = "<select class='userActionMenuSelect' name='" + theirTag + "'";
     html += ">\n";
     const theirLevel = u.data.userlevel;
     html += "<option value=''>" + LIST_ACTION_NONE + "</option>\n";
@@ -748,7 +745,7 @@ const cldrAccount = (function () {
     }
     const ch = showLockedUsers ? " checked='checked'" : "";
     return (
-      "<input type='checkbox' id='showLocked' onclick='cldrAccount.toggleShowLocked();'" +
+      "<input type='checkbox' id='showLocked'" +
       ch +
       " /> <label for='showLocked'>Show locked users</label><br />\n"
     );
@@ -765,7 +762,7 @@ const cldrAccount = (function () {
     }
     let html =
       "<label class='menutop-active'>Filter Organization " +
-      "<select class='menutop-other' onchange='cldrAccount.filterOrg(this.value);'>\n" +
+      "<select id='filterOrgSelect' class='menutop-other'>\n" +
       "<option value='all'>Show All</option>\n";
     orgList.forEach(function (org) {
       const sel = org === justOrg ? " selected='selected'" : "";
@@ -965,7 +962,7 @@ const cldrAccount = (function () {
     }
     const ch = hideAllUsers ? " checked='checked'" : "";
     return (
-      "<input type='checkbox' id='hideAllUsers' onclick='cldrAccount.toggleHideAllUsers();'" +
+      "<input type='checkbox' id='hideAllUsers'" +
       ch +
       " /> <label for='hideAllUsers'>Hide the user list</label><br />\n"
     );
@@ -1075,22 +1072,52 @@ const cldrAccount = (function () {
     );
   }
 
+  function setOnClicks() {
+    document.getElementById("listMultipleUsers").onclick = () =>
+      listMultipleUsers();
+
+    document.getElementById("bulkActionListButton").onclick = (event) =>
+      submitBulkAction(event);
+
+    document.getElementById("submitTableForm").onclick = (event) =>
+      submitTableForm(event);
+
+    document.getElementById("showLocked").onclick = () => toggleShowLocked();
+
+    document.getElementById("hideAllUsers").onclick = () =>
+      toggleHideAllUsers();
+
+    const zoomElements = document.getElementsByClassName("zoomUserButton");
+    for (let i = 0; i < zoomElements.length; i++) {
+      const el = zoomElements[i];
+      el.onclick = () => listSingleUser(el.title);
+    }
+
+    // onchange, not onclick
+    document.getElementById("filterOrgSelect").onchange = (event) =>
+      filterOrg(event.target.value);
+
+    if (justUser) {
+      // submit immediately on change; don't wait for user to press "Do Action" button
+      const theirTagElements = document.getElementsByClassName(
+        "userActionMenuSelect"
+      );
+      for (let i = 0; i < theirTagElements.length; i++) {
+        const el = theirTagElements[i];
+        // onchange, not onclick
+        el.onchange = (event) => cldrAccount.submitTableForm(event);
+      }
+    }
+  }
+
   /*
    * Make only these functions accessible from other files
    */
   return {
     createUser,
     filterOrg,
-    getTable,
-    listSingleUser,
     load,
     loadListUsers,
-    listMultipleUsers,
-    showUserActivity,
-    submitBulkAction,
-    submitTableForm,
-    toggleHideAllUsers,
-    toggleShowLocked,
     /*
      * The following are meant to be accessible for unit testing only:
      */

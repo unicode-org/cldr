@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
@@ -188,6 +189,7 @@ public class CLDRFileTransformer {
 
         outputParent = factory.make(localeTransform.getInputLocale(), false);
         XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(output, true);
         for (String xpath : input) {
             String value = input.getStringValue(xpath);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
@@ -201,6 +203,7 @@ public class CLDRFileTransformer {
             String parentValue = outputParent.getStringValue(xpath);
             value = transformValue(transliterator, localeTransform, xpath, value, oldValue, parentValue);
             if (value != null && !CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                value = daip.processInput(xpath, value, null);
                 outputSource.putValueAtPath(fullPath, value);
             }
         }

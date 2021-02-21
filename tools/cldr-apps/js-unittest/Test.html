@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <title>JavaScript Tests for CLDR SurveyTool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
   </head>
   <body>
-  <div style="padding-top: 48pt; padding-left: 32pt; font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+    <div style="padding-top: 48pt; padding-left: 32pt; font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;">
       <h1>CLDR SurveyTool JavaScript Tests</h1>
-      <p><em>Reference:</em> <a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a></p>
-      <p><em>Important:</em> open the browser console to check for errors/warnings that are otherwise invisible!</p>
+      <script>
+        if (location.protocol === "file:") {
+          document.write("<h1>Error</h1><p>The protocol should be <b>html:</b>, not <b>file:</b><br />A server is required; see <b>run.sh</b></p>")
+        }
+      </script>
+      <p><em>Important:</em> run with run.sh; open the browser console to check for errors/warnings that are otherwise invisible!</p>
+      <p><em>References:</em></p>
+      <ul>
+        <li><a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a></li>
+        <li><a href="https://medium.com/dailyjs/running-mocha-tests-as-native-es6-modules-in-a-browser-882373f2ecb0">running-mocha-tests-as-native-es6-modules-in-a-browser</a></li>
+      </ul>
     </div>
     <div id="mocha" style="margin-top: 12pt;"></div>
     <script src="https://unpkg.com/chai/chai.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
     <script class="mocha-init">
       mocha.setup('bdd');
-      mocha.checkLeaks();
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../src/main/webapp/js/new/cldrAbout.js"></script>
-    <script src="../src/main/webapp/js/new/cldrAccount.js"></script>
-    <script src="../src/main/webapp/js/new/cldrAdmin.js"></script>
-    <script src="../src/main/webapp/js/new/cldrBulkClosePosts.js"></script>
-    <script src="../src/main/webapp/js/new/cldrCreateLogin.js"></script>
-    <script src="../src/main/webapp/js/new/cldrCsvFromTable.js"></script>
-    <script src="../src/main/webapp/js/new/cldrDom.js"></script>
-    <script src="../src/main/webapp/js/new/cldrErrorSubtypes.js"></script>
-    <script src="../src/main/webapp/js/new/cldrForum.js"></script>
-    <script src="../src/main/webapp/js/new/cldrForumFilter.js"></script>
-    <script src="../src/main/webapp/js/new/cldrForumParticipation.js"></script>
-    <script src="../src/main/webapp/js/new/cldrGui.js"></script>
-    <script src="../src/main/webapp/js/new/cldrInfo.js"></script>
-    <script src="../src/main/webapp/js/new/cldrListUsers.js"></script>
-    <script src="../src/main/webapp/js/new/cldrStatus.js"></script>
-    <script src="../src/main/webapp/js/new/cldrSurvey.js"></script>
-    <script src="../src/main/webapp/js/new/cldrTable.js"></script>
-    <script src="../src/main/webapp/js/new/cldrText.js"></script>
-    <script src="../src/main/webapp/js/new/cldrXpathMap.js"></script>
     <script src="data/forum_fr.js"></script>
     <script src="data/forum_participation_json.js"></script>
     <script src="data/bulk_close_posts_json.js"></script>
-    <script src="TestCldrTest.js"></script>
-    <script src="TestCldrAbout.js"></script>
-    <script src="TestCldrAccount.js"></script>
-    <script src="TestCldrAdmin.js"></script>
-    <script src="TestCldrBulkClosePosts.js"></script>
-    <script src="TestCldrChecksum.js"></script>
-    <script src="TestCldrCreateLogin.js"></script>
-    <script src="TestCldrCsvFromTable.js"></script>
-    <script src="TestCldrErrorSubtypes.js"></script>
-    <script src="TestCldrForum.js"></script>
-    <script src="TestCldrForumFilter.js"></script>
-    <script src="TestCldrForumParticipation.js"></script>
-    <script src="TestCldrGui.js"></script>
-    <script src="TestCldrListUsers.js"></script>
-    <script src="TestCldrStatus.js"></script>
-    <script src="TestCldrText.js"></script>
-    <script class="mocha-exec">
+    <script type="module" src="TestCldrTest.js"></script>
+    <script type="module" src="TestCldrAbout.js"></script>
+    <script type="module" src="TestCldrAccount.js"></script>
+    <script type="module" src="TestCldrAdmin.js"></script>
+    <script type="module" src="TestCldrBulkClosePosts.js"></script>
+    <script type="module" src="TestCldrChecksum.js"></script>
+    <script type="module" src="TestCldrCreateLogin.js"></script>
+    <script type="module" src="TestCldrCsvFromTable.js"></script>
+    <script type="module" src="TestCldrErrorSubtypes.js"></script>
+    <script type="module" src="TestCldrForum.js"></script>
+    <script type="module" src="TestCldrForumFilter.js"></script>
+    <script type="module" src="TestCldrForumParticipation.js"></script>
+    <script type="module" src="TestCldrGui.js"></script>
+    <script type="module" src="TestCldrListUsers.js"></script>
+    <script type="module" src="TestCldrStatus.js"></script>
+    <script type="module" src="TestCldrText.js"></script>
+    <script type="module" class="mocha-exec">
+      mocha.checkLeaks();
       mocha.run();
     </script>
   </body>

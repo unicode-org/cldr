@@ -1,28 +1,29 @@
-"use strict";
-{
-  const assert = chai.assert;
+import * as cldrTest from "./TestCldrTest.js";
 
-  describe("cldrCsvFromTable.get", function () {
-    const table = document.createElement("table");
+import * as cldrCsvFromTable from "../src/main/webapp/js/esm/cldrCsvFromTable.js";
 
-    table.innerHTML =
-      "<tr><td>a</td><td>b</td><td>c</td></tr>" +
-      "<tr><td>d</td><td>e</td><td>f</td></tr>";
+const assert = chai.assert;
 
-    const expectedOutput = "a,b,c\nd,e,f\n";
+describe("cldrCsvFromTable.get", function () {
+  const table = document.createElement("table");
 
-    const actualOutput = cldrCsvFromTable.test.get(table);
+  table.innerHTML =
+    "<tr><td>a</td><td>b</td><td>c</td></tr>" +
+    "<tr><td>d</td><td>e</td><td>f</td></tr>";
 
-    it("should not return null", function () {
-      assert(actualOutput != null, "actualOutput should not be null.");
-    });
+  const expectedOutput = "a,b,c\nd,e,f\n";
 
-    it("should return expected CSV", function () {
-      assert.deepEqual(
-        actualOutput,
-        expectedOutput,
-        "actualOutput should match expectedOutput"
-      );
-    });
+  const actualOutput = cldrCsvFromTable.get(table);
+
+  it("should not return null", function () {
+    assert(actualOutput != null, "actualOutput should not be null.");
   });
-}
+
+  it("should return expected CSV", function () {
+    assert.deepEqual(
+      actualOutput,
+      expectedOutput,
+      "actualOutput should match expectedOutput"
+    );
+  });
+});

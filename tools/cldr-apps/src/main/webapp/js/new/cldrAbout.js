@@ -35,7 +35,7 @@ const cldrAbout = (function () {
     // add Vue-based about box
     const app = document.createElement("div");
     ourDiv.appendChild(app);
-    cldrBundle.showAbout(app);
+    cldrBundle.showPanel('about', app);
   }
 
   function errorHandler(err) {

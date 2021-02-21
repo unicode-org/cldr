@@ -26,12 +26,12 @@ function showPanel(type, el) {
     lastMounted.unmount();
     lastMounted = null;
   }
-  if ('about' == type) {
+  if ("about" == type) {
     lastMounted = show(AboutPanel, el);
-  } else if('retry' == type) {
+  } else if ("retry" == type) {
     lastMounted = show(WaitingPanel, el);
   } else {
-    console.log('showPanel: Ignoring unknown type=' + type);
+    console.log("showPanel: Ignoring unknown type=" + type);
     // Do nothing here
   }
   return lastMounted;

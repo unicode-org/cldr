@@ -19,7 +19,6 @@ public class SurveyTool extends HttpServlet {
     private static final String USE_DOJO_VAR = "USE_DOJO";
     private static final long serialVersionUID = 1L;
     private static final boolean USE_DOJO_DEFAULT = true;
-    private static final boolean USE_ESM = false;
 
     /**
      * Is dojo enabled by default?
@@ -329,18 +328,16 @@ public class SurveyTool extends HttpServlet {
         out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
         out.write("<div id='st-run-gui'>Loading...</div>\n");
         if (!useDojo(request)) {
-            if (USE_ESM) {
-                out.write("<script type='module'>import * as cldrGui from './js/esm/cldrGui.js'\n" +
-                    "cldrGui.run()</script>\n");
-            } else {
-                out.write("<script>cldrGui.run()</script>\n");
-            }
+            out.write("<script type='module'>import * as cldrGui from '" +
+                request.getContextPath() + "/js/esm/cldrGui.js'\n" +
+                "cldrGui.run()</script>\n");
         }
         out.write("</body>\n</html>\n");
     }
 
     private void includeCss(HttpServletRequest request, PrintWriter out) {
         String contextPath = request.getContextPath();
+        // TODO: use getCacheBustingExtension, or something like it, for our .css files
         out.write("<link rel='stylesheet' href='" + contextPath + "/surveytool.css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum.css' />\n");
         if (useDojo(request)) {
@@ -364,6 +361,7 @@ public class SurveyTool extends HttpServlet {
             includeDojoJavaScript(out);
         } else {
             // Load the big bundle
+            // TODO: use getCacheBustingExtension, or something like it, for bundle.js
             out.write("<script src=\"dist/bundle.js\"></script>\n");
         }
         includeJqueryJavaScript(request, out);
@@ -399,46 +397,6 @@ public class SurveyTool extends HttpServlet {
         }
     }
 
-    private static final String[] newJsFiles = {
-        "cldrAbout.js",
-        "cldrAccount.js",
-        "cldrAdmin.js",
-        "cldrAjax.js",
-        "cldrBulkClosePosts.js",
-        "cldrCreateLogin.js",
-        "cldrCsvFromTable.js",
-        "cldrDash.js",
-        "cldrDeferHelp.js",
-        "cldrDom.js",
-        "cldrErrorSubtypes.js",
-        "cldrEvent.js",
-        "cldrFlip.js",
-        "cldrForum.js",
-        "cldrForumFilter.js",
-        "cldrForumPanel.js",
-        "cldrForumParticipation.js",
-        "cldrGear.js",
-        "cldrGui.js",
-        "cldrInfo.js",
-        "cldrListUsers.js",
-        "cldrLoad.js",
-        "cldrLocaleMap.js",
-        "cldrLocales.js",
-        "cldrMail.js",
-        "cldrMenu.js",
-        "cldrOldVotes.js",
-        "cldrRecentActivity.js",
-        "cldrReportDates.js",
-        "cldrReportNumbers.js",
-        "cldrReportZones.js",
-        "cldrRetry.js",
-        "cldrStatus.js",
-        "cldrSurvey.js",
-        "cldrTable.js",
-        "cldrText.js",
-        "cldrXpathMap.js",
-    };
-
     private static void includeCldrJavaScript(HttpServletRequest request, Writer out) throws IOException {
         final String prefix = "<script src='" + request.getContextPath() + "/js/";
         final String tail = "'></script>\n";
@@ -455,13 +413,13 @@ public class SurveyTool extends HttpServlet {
         }
 
         if (doUseDojo) {
-            out.write(prefix + "new/cldrText" + js); // new/cldrText.js
-            out.write(prefix + "new/cldrStatus" + js); // new/cldrStatus.js
-            out.write(prefix + "new/cldrAjax" + js); // new/cldrAjax.js
+            out.write(prefix + "CldrDojoText" + js); // CldrDojoText.js
+            out.write(prefix + "CldrDojoStatus" + js); // CldrDojoStatus.js
+            out.write(prefix + "CldrDojoAjax" + js); // CldrDojoAjax.js
             out.write(prefix + "CldrDojoBulkClosePosts" + js); // CldrDojoBulkClosePosts.js
             out.write(prefix + "CldrDojoForumParticipation" + js); // CldrDojoForumParticipation.js
-            out.write(prefix + "new/cldrForumFilter" + js); // new/cldrForumFilter.js
-            out.write(prefix + "new/cldrCsvFromTable" + js); // new/cldrCsvFromTable.js
+            out.write(prefix + "CldrDojoForumFilter" + js); // CldrDojoForumFilter.js
+            out.write(prefix + "CldrDojoCsvFromTable" + js); // CldrDojoCsvFromTable.js
             out.write(prefix + "CldrDojoDeferHelp" + js); // CldrDojoDeferHelp.js
             out.write(prefix + "CldrDojoForum" + js); // CldrDojoForum.js
             out.write(prefix + "survey" + js); // survey.js
@@ -471,14 +429,8 @@ public class SurveyTool extends HttpServlet {
             out.write(prefix + "redesign" + js); // redesign.js
             out.write(prefix + "review" + js); // review.js
             out.write(prefix + "CldrDojoGui" + js); // CldrGuiDojo.js
-        } else if (USE_ESM) {
-            out.write(prefix + "bootstrap.min.js" + tail);
         } else {
             out.write(prefix + "bootstrap.min.js" + tail);
-            for (String s: newJsFiles) {
-                String ss = s.replace(".js", "");
-                out.write(prefix + "new/" + ss + js);
-            }
         }
     }
 

@@ -1,12 +1,12 @@
-"use strict";
+import * as cldrTest from "./TestCldrTest.js";
 
-{
-  const assert = chai.assert;
+import * as cldrListUsers from "../src/main/webapp/js/esm/cldrListUsers.js";
 
-  describe("cldrListUsers.test.ping", function () {
-    const result = cldrListUsers.test.ping();
-    it("should return pong", function () {
-      assert(result === "pong", "result equals pong");
-    });
+const assert = chai.assert;
+
+describe("cldrListUsers.ping", function () {
+  const result = cldrListUsers.ping();
+  it("should return pong", function () {
+    assert(result === "pong", "result equals pong");
   });
-}
+});

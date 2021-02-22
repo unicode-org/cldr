@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
@@ -169,8 +168,9 @@ public class AdminPanel {
      * @param sm
      *
      * Earlier version was in createAndLogin.jsp
+     * @throws JSONException
      */
-    private void createAndLogin(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) {
+    private void createAndLogin(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) throws JSONException {
         if (SurveyMain.isSetup == false) {
             r.put("isSetup", false);
             return;
@@ -191,22 +191,20 @@ public class AdminPanel {
         sm.reg.setOrgList();
         String orgs[] = UserRegistry.getOrgList();
         String myorg = orgs[(int) Math.rint(Math.random() * (orgs.length - 1))];
-        String defaultLevel = "";
-        ArrayList<String> levelStr = new ArrayList<>();
-        for (int lev : UserRegistry.ALL_LEVELS) {
+        JSONObject levels = new JSONObject();
+        for (int lev : UserRegistry.ALL_LEVELS) { // like 999
             if (lev != UserRegistry.ADMIN) {
-                String s = String.valueOf(lev) + " (" + UserRegistry.levelAsStr(lev) + ")";
-                levelStr.add(s);
-                if (lev == UserRegistry.TC) {
-                    defaultLevel = s;
-                }
+                JSONObject jo = new JSONObject();
+                jo.put("name", UserRegistry.levelToStr(lev)); // like "locked"
+                jo.put("string", UserRegistry.levelToStr(lev)); // like "999: (LOCKED)"
+                levels.put(String.valueOf(lev), jo);
             }
         }
         r.put("name", randomName());
         r.put("orgs", orgs);
         r.put("defaultOrg", myorg);
-        r.put("levels", levelStr.toArray());
-        r.put("defaultLevel", defaultLevel);
+        r.put("levels", levels);
+        r.put("defaultLevel", UserRegistry.TC);
     }
 
     private String randomName() {

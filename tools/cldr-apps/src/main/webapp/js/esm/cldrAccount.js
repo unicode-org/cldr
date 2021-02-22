@@ -38,8 +38,9 @@ const cautionSessionDestruction =
   "<div class='fnotebox'>Changing user level or locales while a user is active will " +
   "result in destruction of their session. Check if they have been working recently.</div>\n";
 
+// use class not id since this button is shown twice
 const listMultipleUsersButton =
-  "<button id='listMultipleUsers' type='button'>⋖ Show all users</button>\n";
+  "<button class='listMultipleUsers' type='button'>⋖ Show all users</button>\n";
 
 const doActionButton =
   "<input type='submit' name='doBtn' value='Do Action' />\n";
@@ -185,15 +186,21 @@ function reallyLoad() {
 
 function loadHandler(json) {
   const ourDiv = document.createElement("div");
-  if (json.orgList) {
-    orgList = json.orgList;
+  if (json.err) {
+    ourDiv.innerHTML = json.err;
+  } else {
+    if (json.orgList) {
+      orgList = json.orgList;
+    }
+    shownUsers = json.shownUsers;
+    ourDiv.innerHTML = getHtml(json);
   }
-  shownUsers = json.shownUsers;
-  ourDiv.innerHTML = getHtml(json);
   cldrSurvey.hideLoader();
   cldrLoad.flipToOtherDiv(ourDiv);
-  showUserActivity(json);
-  setOnClicks();
+  if (!json.err) {
+    showUserActivity(json);
+    setOnClicks();
+  }
 }
 
 function errorHandler(err) {
@@ -277,7 +284,7 @@ function getTableEnd(json) {
   if (justUser) {
     html += listMultipleUsersButton;
   } else {
-    html += numberOfUsersShown(shownUsers.length);
+    html += numberOfUsersShown(shownUsers ? shownUsers.length : 0);
     html += getEmailControls(json);
   }
   html += doActionButton + "</form>\n";
@@ -784,7 +791,7 @@ function filterOrg(org) {
  * Provide a menu enabling the user to select an action for all the users of a chosen level
  */
 function getBulkActionMenu(json) {
-  if (justUser || !json.userPerms.canModifyUsers) {
+  if (justUser || !(json.userPerms && json.userPerms.canModifyUsers)) {
     return "";
   }
   let html =
@@ -1069,11 +1076,7 @@ function getDownloadCsvForm(json) {
 }
 
 function setOnClicks() {
-  let el = document.getElementById("listMultipleUsers");
-  if (el) {
-    el.onclick = () => listMultipleUsers();
-  }
-  el = document.getElementById("bulkActionListButton");
+  let el = document.getElementById("bulkActionListButton");
   if (el) {
     el.onclick = (event) => submitBulkAction(event);
   }
@@ -1089,27 +1092,39 @@ function setOnClicks() {
   if (el) {
     el.onclick = () => toggleHideAllUsers();
   }
-  const zoomElements = document.getElementsByClassName("zoomUserButton");
-  for (let i = 0; i < zoomElements.length; i++) {
-    const el = zoomElements[i];
-    el.onclick = () => listSingleUser(el.title);
-  }
-
   el = document.getElementById("filterOrgSelect");
   if (el) {
     // onchange, not onclick
     el.onchange = (event) => filterOrg(event.target.value);
   }
+  setZoomOnClicks();
+  setMultipleUsersOnClicks();
+  setActionMenuOnChange();
+}
 
+function setZoomOnClicks() {
+  const els = document.getElementsByClassName("zoomUserButton");
+  for (let i = 0; i < els.length; i++) {
+    const el = els[i];
+    el.onclick = () => listSingleUser(el.title);
+  }
+}
+
+function setMultipleUsersOnClicks() {
+  const els = document.getElementsByClassName("listMultipleUsers");
+  for (let i = 0; i < els.length; i++) {
+    els[i].onclick = () => listMultipleUsers();
+  }
+}
+
+function setActionMenuOnChange() {
   if (justUser) {
     // submit immediately on change; don't wait for user to press "Do Action" button
-    const theirTagElements = document.getElementsByClassName(
-      "userActionMenuSelect"
-    );
-    for (let i = 0; i < theirTagElements.length; i++) {
-      const el = theirTagElements[i];
+    const els = document.getElementsByClassName("userActionMenuSelect");
+    // actually there's only one such element, since justUser is true
+    for (let i = 0; i < els.length; i++) {
       // onchange, not onclick
-      el.onchange = (event) => submitTableForm(event);
+      els[i].onchange = (event) => submitTableForm(event);
     }
   }
 }

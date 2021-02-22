@@ -654,7 +654,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     u.password = randomPass;
                     u.userlevel = ctx.fieldInt("new_userlevel", -1);
                     if (u.userlevel <= 0) {
-                        u.userlevel = 999; // nice try
+                        u.userlevel = UserRegistry.LOCKED; // nice try
                     }
                     UserRegistry.User registeredUser = reg.newUser(ctx, u);
                     ctx.println("<i>" + ctx.iconHtml("okay", "added") + "'" + u.name

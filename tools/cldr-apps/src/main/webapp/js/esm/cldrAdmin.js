@@ -351,13 +351,13 @@ function loadNext(from) {
     append = append + "&before=" + from;
   }
   console.log("Loading: " + append);
-  const u = document.getElementById("admin_u");
   loadOrFail(append, function (json) {
-    loadAdminExceptions(json, u, from);
+    loadAdminExceptions(json, from);
   });
 }
 
-function loadAdminExceptions(json, u, from) {
+function loadAdminExceptions(json, from) {
+  const u = document.getElementById("admin_u");
   const v = document.getElementById("admin_v");
   const loading = document.getElementById("admin_loading");
   const stack = document.getElementById("admin_stack");

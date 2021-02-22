@@ -160,11 +160,17 @@ function setupChooseLevel(json) {
     return;
   }
   let html = "<option value='' selected='selected'>Choose...</option>\n";
-  for (let i in json.levels) {
-    const level = json.levels[i];
-    const selected = level === json.defaultLevel ? " selected='true'" : "";
+  for (let number in json.levels) {
+    const selected =
+      Number(number) === Number(json.defaultLevel) ? " selected='true'" : "";
     html +=
-      "<option value='" + level + "'" + selected + ">" + level + "</option>\n";
+      "<option value='" +
+      number +
+      "'" +
+      selected +
+      ">" +
+      json.levels[number].string +
+      "</option>\n";
   }
   el.innerHTML = html;
 }

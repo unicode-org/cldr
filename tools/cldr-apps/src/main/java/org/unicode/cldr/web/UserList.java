@@ -76,6 +76,9 @@ public class UserList {
         ctx.sm = sm;
         request.setAttribute(WebContext.CLDR_WEBCONTEXT, ctx); // is this needed?
         justOrg = getParam(PREF_JUSTORG);
+        if (justOrg != null && justOrg.isEmpty()) {
+            justOrg = null;
+        }
         just = getParam(LIST_JUST);
         if (just != null && just.isEmpty()) {
             just = null;

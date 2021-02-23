@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -32,22 +33,41 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
 
     public enum GrammaticalTarget {nominal}
 
+    /**
+     * The ordering of these values is intended to put the default values first, and to group values together that tend to have similar forms.
+     */
+    public enum CaseValues {nominative, vocative, accusative, oblique, genitive, dative, locative, instrumental, prepositional,
+        ablative, adessive, allative, causal, delative, elative, essive, illative, inessive, sublative, superessive, terminative, translative;
+        public static Comparator<String> COMPARATOR = EnumComparator.create(CaseValues.class);
+    }
+    public enum GenderValues {neuter, masculine, inanimate, animate, common, personal, feminine;
+        public static Comparator<String> COMPARATOR = EnumComparator.create(GenderValues.class);
+    }
+    public enum DefinitenessValues {indefinite, definite, construct;
+        public static Comparator<String> COMPARATOR = EnumComparator.create(DefinitenessValues.class);
+    }
+    public enum PluralValues {zero, one, two, few, many, other;
+        public static Comparator<String> COMPARATOR = EnumComparator.create(PluralValues.class);
+    }
+
     public enum GrammaticalFeature {
-        grammaticalNumber("plural", "Ⓟ", "other"),
-        grammaticalCase("case", "Ⓒ", "nominative"),
-        grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite"),
-        grammaticalGender("gender", "Ⓖ", "neuter");
+        grammaticalNumber("plural", "Ⓟ", "other", PluralValues.COMPARATOR),
+        grammaticalCase("case", "Ⓒ", "nominative", CaseValues.COMPARATOR),
+        grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite", DefinitenessValues.COMPARATOR),
+        grammaticalGender("gender", "Ⓖ", "neuter", GenderValues.COMPARATOR);
 
         private final String shortName;
         private final String symbol;
         private final String defaultValue;
+        private final Comparator<String> comparator;
 
         public static final Pattern PATH_HAS_FEATURE = Pattern.compile("\\[@(count|case|gender|definiteness)=");
 
-        GrammaticalFeature(String shortName, String symbol, String defaultValue) {
+        GrammaticalFeature(String shortName, String symbol, String defaultValue, Comparator<String> comparator) {
             this.shortName = shortName;
             this.symbol = symbol;
             this.defaultValue = defaultValue;
+            this.comparator = comparator;
         }
         public String getShortName() {
             return shortName;
@@ -64,12 +84,15 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         }
         static final Map<String, GrammaticalFeature> shortNameToEnum =
             ImmutableMap.copyOf(Arrays.asList(GrammaticalFeature.values())
-            .stream()
-            .collect(Collectors.toMap(e -> e.shortName, e -> e)));
+                .stream()
+                .collect(Collectors.toMap(e -> e.shortName, e -> e)));
 
         public static GrammaticalFeature fromName(String name) {
             GrammaticalFeature result = shortNameToEnum.get(name);
             return result != null ? result : valueOf(name);
+        }
+        public Comparator getValueComparator() {
+            return comparator;
         }
     }
 
@@ -226,6 +249,19 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
             ? usageToValues.get(GrammaticalScope.general)
                 : result;
     }
+
+    public Map<GrammaticalScope, Set<String>> get(GrammaticalTarget target, GrammaticalFeature feature) {
+        Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
+        if (featureToUsageToValues == null) {
+            return Collections.emptyMap();
+        }
+        Map<GrammaticalScope,Set<String>> usageToValues = featureToUsageToValues.get(feature);
+        if (usageToValues == null) {
+            return Collections.emptyMap();
+        }
+        return usageToValues;
+    }
+
 
     public boolean hasInfo(GrammaticalTarget target) {
         return targetToFeatureToUsageToValues.containsKey(target);

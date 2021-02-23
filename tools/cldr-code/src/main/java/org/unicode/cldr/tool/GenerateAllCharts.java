@@ -6,6 +6,11 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.VerifyCompactNumbers;
 import org.unicode.cldr.util.VerifyZones;
 
+/**
+ * Use -DCHART_VERSION=38.1 (for example) to get a specific version
+ * @author markdavis
+ *
+ */
 public class GenerateAllCharts {
     public static void main(String[] args) throws Exception {
         FileCopier.copy(GenerateAllCharts.class, "index.css", CLDRPaths.CHART_DIRECTORY);
@@ -13,6 +18,10 @@ public class GenerateAllCharts {
         FormattedFileWriter.copyIncludeHtmls(CLDRPaths.CHART_DIRECTORY);
 
         ShowLanguages.main(args);
+
+        if (ToolConstants.CHART_VERSION.compareTo("37") >= 0) {
+            new ChartGrammaticalForms().writeChart(null);
+        }
 
         new ChartAnnotations().writeChart(null);
         new ChartSubdivisionNames().writeChart(null);

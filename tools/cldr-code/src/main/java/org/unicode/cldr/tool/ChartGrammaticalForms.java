@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -29,12 +30,10 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -45,6 +44,7 @@ import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.Validity;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
@@ -100,6 +100,80 @@ public class ChartGrammaticalForms extends Chart {
         writeSubcharts(anchors);
         pw.setIndex("Main Chart Index", "../index.html");
         pw.write(anchors.toString());
+        showInfo(pw);
+    }
+
+    private void showInfo(FormattedFileWriter pw) throws IOException {
+        pw.append("<h2>Grammatical Features Info</h2>");
+        pw.append("<p>The following lists the available information about grammatical features for locales. "
+            + "Note that only the above locales have localized data, at this time. "
+            + "Current information is only for nominal forms. "
+            + "For the meanings of the values, see "
+            + "<a target='spec' href='https://unicode.org/reports/tr35/tr35-general.html#Grammatical_Features'>LDML Grammatical Features</a>.</p>");
+        if (GrammaticalTarget.values().length > 1) {
+            throw new IllegalArgumentException("Needs adjustment for additional GrammaticalTarget.values()");
+        }
+
+        TablePrinter tablePrinter = new TablePrinter()
+            .addColumn("Locale", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSortPriority(0)
+            .setBreakSpans(true)
+            .addColumn("Feature", "class='source' width='1%'", null, "class='source'", true)
+            .setSortPriority(1)
+            .setBreakSpans(true)
+            .addColumn("Usage", "class='source'", null, "class='source'", true)
+            .addColumn("Values", "class='source'", null, "class='source'", true)
+            ;
+        for (String locale : SDI.hasGrammarInfo()) {
+            GrammarInfo grammarInfo = SDI.getGrammarInfo(locale, false);
+            for (GrammaticalFeature feature : GrammaticalFeature.values()) {
+                Map<GrammaticalScope, Set<String>> scopeToValues = grammarInfo.get(GrammaticalTarget.nominal, feature);
+                if (scopeToValues.isEmpty()) {
+                    continue;
+                }
+
+                Set<String> values = null;
+                boolean multiline = false;
+                for (Entry<GrammaticalScope, Set<String>> entry : scopeToValues.entrySet()) {
+                    if (values == null) {
+                        values = entry.getValue();
+                    } else if (!values.equals(entry.getValue())) {
+                        multiline = true;
+                        break;
+                    }
+                }
+                Set<String> sortedValues = new TreeSet(feature.getValueComparator());
+                if (multiline) {
+                    for (GrammaticalScope usage : GrammaticalScope.values()) {
+                        values = scopeToValues.get(usage);
+                        if (values.isEmpty())  {
+                            continue;
+                        }
+                        sortedValues.clear();
+                        sortedValues.addAll(values);
+                        addRow(tablePrinter, locale, feature, usage.toString(), Joiner.on(", ").join(sortedValues));
+                    }
+                } else {
+                    try {
+                        sortedValues.addAll(values);
+                        addRow(tablePrinter, locale, feature, Joiner.on(", ").join(scopeToValues.keySet()),
+                            Joiner.on(", ").join(sortedValues));
+                    } catch (Exception e) {
+                        int debug = 0;
+                    }
+                }
+            }
+        }
+        pw.append(tablePrinter.toString());
+    }
+
+    public void addRow(TablePrinter tablePrinter, String locale, GrammaticalFeature feature, String usage, final String valueString) {
+        tablePrinter.addRow()
+        .addCell(locale)
+        .addCell(feature)
+        .addCell(usage)
+        .addCell(valueString)
+        .finishRow();
     }
 
     static final UnitConverter uc = SDI.getUnitConverter();
@@ -198,13 +272,10 @@ public class ChartGrammaticalForms extends Chart {
         //ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
 
-        MapComparator<String> caseOrder = new MapComparator<>(new String[] {
-            "nominative", "vocative", "accusative", "oblique",
-            "genitive", "dative", "locative", "instrumental"});
+        Comparator<String> caseOrder = GrammarInfo.CaseValues.COMPARATOR;
         Set<String> sortedCases = new TreeSet<>(caseOrder);
 
-        MapComparator<String> genderOrder = new MapComparator<>(new String[] {
-            "masculine", "inanimate", "animate", "common", "feminine", "neuter"});
+        Comparator<String> genderOrder = GrammarInfo.GenderValues.COMPARATOR;
         Set<String> sortedGenders = new TreeSet<>(genderOrder);
 
         Output<Double> sizeInBaseUnits = new Output<>();
@@ -244,7 +315,7 @@ public class ChartGrammaticalForms extends Chart {
             if (!region.isEmpty()) {
                 continue;
             }
-            GrammarInfo grammarInfo = SupplementalDataInfo.getInstance().getGrammarInfo(locale, true);
+            GrammarInfo grammarInfo = SDI.getGrammarInfo(locale, true);
             if (grammarInfo == null || !grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
                 continue;
             }
@@ -266,7 +337,7 @@ public class ChartGrammaticalForms extends Chart {
 
             //Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
 
-            PluralInfo plurals = SupplementalDataInfo.getInstance().getPlurals(PluralType.cardinal, locale);
+            PluralInfo plurals = SDI.getPlurals(PluralType.cardinal, locale);
             if (plurals == null) {
                 System.err.println("No " + PluralType.cardinal + "  plurals for " + locale);
             }
@@ -341,7 +412,7 @@ public class ChartGrammaticalForms extends Chart {
                 }
                 info.put("Unit Case Info", new TablePrinterWithHeader(
                     "<p>This table has rows contains unit forms appropriate for different grammatical cases and plural forms. "
-                        + "Each plural form has a sample value such as <i>(1.2)</i> or <i>2</i>. "
+                        + "Each plural form has a sample value such as <i>(1.2)</i> or <i>(2)</i>. "
                         + "That value is used with the localized unit pattern to form a formatted measure, such as “2,0 Stunden”. "
                         + "That formatted measure is in turn substituted into a "
                         + "<b><a target='doc-minimal-pairs' href='http://cldr.unicode.org/translation/grammatical-inflection#TOC-Miscellaneous-Minimal-Pairs'>case minimal pair pattern</a></b>. "
@@ -426,10 +497,10 @@ public class ChartGrammaticalForms extends Chart {
                                         try {
                                             combined = UnitConverter.combineLowercasing(new ULocale(locale), "long", localizedPowerPattern, localizedUnitPattern);
                                         } catch (Exception e) {
-                                           throw new IllegalArgumentException(locale + ") Can't combine "
-                                               + "localizedPowerPattern=«" + localizedPowerPattern
-                                               + "» with localizedUnitPattern=«"+ localizedUnitPattern + "»"
-                                               );
+                                            throw new IllegalArgumentException(locale + ") Can't combine "
+                                                + "localizedPowerPattern=«" + localizedPowerPattern
+                                                + "» with localizedUnitPattern=«"+ localizedUnitPattern + "»"
+                                                );
                                         }
                                         String combinedWithPlaceholder = UnitConverter.addPlaceholder(combined, placeholderPattern, placeholderPosition);
 

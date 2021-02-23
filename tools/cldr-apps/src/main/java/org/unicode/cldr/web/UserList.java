@@ -391,23 +391,6 @@ public class UserList {
                         ctx.println("</ul>");
                         ***/
                     } // end intlocs
-                    /// ctx.println("<br>");
-                }
-                if (isJustMe || UserRegistry.userCanModifyUsers(mySession.user)) {
-                    /***
-                    if (!isJustMe && UserRegistry.userCanModifyUsers(mySession.user)) {
-                        WebContext subsubCtx = new WebContext(ctx);
-                        subsubCtx.addQuery("s", mySession.id);
-                        if (org != null) {
-                            subsubCtx.addQuery("org", org);
-                        }
-                        subsubCtx.addQuery("do", "list");
-                        subsubCtx.println("<hr><form method='POST' action='" + subsubCtx.context("DataExport.jsp") + "'>");
-                        subsubCtx.printUrlAsHiddenFields();
-                        subsubCtx.print("<input type='submit' class='csvDownload' value='Download .csv (including LOCKED)'>");
-                        subsubCtx.println("</form>");
-                    }
-                    ***/
                 }
             } /* end synchronized(reg) */
         } catch (SQLException se) {

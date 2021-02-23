@@ -19,6 +19,13 @@ public class SurveyTool extends HttpServlet {
     private static final String USE_DOJO_VAR = "USE_DOJO";
     private static final long serialVersionUID = 1L;
     private static final boolean USE_DOJO_DEFAULT = true;
+    /**
+     * Normally we want to run all js from a bundle, for performance,
+     * especially in production. This can made false for testing and
+     * development, in which case the browser will load and run the
+     * individual cldr*.js modules directly.
+     */
+    private static final boolean RUN_ALL_JS_FROM_BUNDLE = true;
 
     /**
      * Is dojo enabled by default?
@@ -328,9 +335,13 @@ public class SurveyTool extends HttpServlet {
         out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
         out.write("<div id='st-run-gui'>Loading...</div>\n");
         if (!useDojo(request)) {
-            out.write("<script type='module'>import * as cldrGui from '" +
-                request.getContextPath() + "/js/esm/cldrGui.js'\n" +
-                "cldrGui.run()</script>\n");
+            if (RUN_ALL_JS_FROM_BUNDLE) {
+                out.write("<script>cldrBundle.runGui()</script>\n");
+            } else {
+                out.write("<script type='module'>import * as cldrGui from '" +
+                    request.getContextPath() + "/js/esm/cldrGui.js'\n" +
+                    "cldrGui.run()</script>\n");
+            }
         }
         out.write("</body>\n</html>\n");
     }

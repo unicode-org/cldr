@@ -6,13 +6,13 @@ import { createApp } from "vue";
 import AboutPanel from "./views/AboutPanel.vue";
 import WaitingPanel from "./views/WaitingPanel.vue";
 
-function show(component, el) {
-  const app = createApp(component);
-  app.mount(el);
-  return app;
-}
+import * as cldrGui from "../../src/main/webapp/js/esm/cldrGui.js";
 
 let lastMounted = null;
+
+function runGui() {
+  cldrGui.run();
+}
 
 /**
  * Mount a Vue component.
@@ -37,7 +37,14 @@ function showPanel(type, el) {
   return lastMounted;
 }
 
+function show(component, el) {
+  const app = createApp(component);
+  app.mount(el);
+  return app;
+}
+
 // The following will show up in the cldrBundle global
 export default {
+  runGui,
   showPanel,
 };

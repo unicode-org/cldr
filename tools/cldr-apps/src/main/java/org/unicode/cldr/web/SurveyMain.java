@@ -41,10 +41,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Future;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.regex.Pattern;
@@ -458,17 +455,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             cconfig.getSupplementalDataInfo(); // will fail if CLDR_DIR is broken.
 
-            PathHeader.PageId.forString(PathHeader.PageId.Africa.name()); // Make
-            // sure
-            // cldr-tools
-            // is
-            // functioning.
-            startupThread.addTask(new SurveyThread.SurveyTask("startup") {
-                @Override
-                public void run() throws Throwable {
-                    doStartup();
-                }
-            });
+            // make sure cldr-tools is functioning
+            PathHeader.PageId.forString(PathHeader.PageId.Africa.name());
+
+            startupFuture = SurveyThreadManager.getExecutorService().submit(() -> doStartup());
         } catch (Throwable t) {
             SurveyLog.logException(t, "Initializing SurveyTool");
             SurveyMain.busted("Error initializing SurveyTool.", t);
@@ -483,15 +473,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             String dbBroken = DBUtils.getDbBrokenMessage();
 
             SurveyMain.busted("Error starting up database - " + dbBroken, t);
-            return;
-        }
-
-        try {
-            startupThread.start();
-            SurveyLog.logger.warning("Startup thread launched");
-        } catch (Throwable t) {
-            SurveyLog.logException(t, "Starting up startupThread");
-            SurveyMain.busted("Error starting up startupThread", t);
             return;
         }
     }
@@ -597,6 +578,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // set up users context object
 
         WebContext ctx = new WebContext(request, response);
+
         ctx.reqTimer = reqTimer;
         ctx.sm = this;
         if (defaultServletPath == null) {
@@ -1320,17 +1302,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
             }
             out.append("<br>");
-            String threadInfo = startupThread.htmlStatus();
-            if (threadInfo != null) {
-                out.append("<b>Processing:" + threadInfo + "</b><br>");
-            }
             out.append(getProgress());
             out.append("</div><br>");
         } else {
-            String threadInfo = startupThread.htmlStatus();
-            if (threadInfo != null) {
-                out.append("<b>Processing:" + threadInfo + "</b><br>");
-            }
             out.append(getProgress());
         }
         return out.toString();
@@ -3689,40 +3663,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static int xpages = 0;
 
     /**
-     * Main setup
+     * Main setup flag. Should use startupFuture, but it is called by many JSPs.
+     * @deprecated see {@link #startupFuture}
      */
+    @Deprecated
     public static boolean isSetup = false;
 
-    private static ScheduledExecutorService surveyTimer = null;
-
-    public static synchronized ScheduledExecutorService getTimer() {
-        if (surveyTimer == null) {
-            surveyTimer = Executors.newScheduledThreadPool(2);
-        }
-        return surveyTimer;
-    }
-
     /**
-     * Periodic task for file output
-     * @param task
-     * @return
+     * Check on whether startup has happened or not.
      */
-    public static ScheduledFuture<?> addPeriodicTask(Runnable task) {
-        final boolean CLDR_QUICK_DAY = CldrUtility.getProperty("CLDR_QUICK_DAY", false);
-        int firstTime = isUnofficial() ? 15 : 30;
-        int eachTime = isUnofficial() ? 15 : 15;
-
-        if (CLDR_QUICK_DAY && isUnofficial()) {
-            firstTime = 1;
-            eachTime = 3;
-        }
-        return getTimer().scheduleWithFixedDelay(task, firstTime, eachTime, TimeUnit.MINUTES);
-    }
+    private Future<?> startupFuture = null;
 
     /**
      * Class to startup ST in background and perform background operations.
      */
-    public transient SurveyThread startupThread = new SurveyThread(this);
+    public transient SurveyThreadManager startupThread = new SurveyThreadManager();
 
     /**
      * Progress bar manager
@@ -3732,14 +3687,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private String cldrHome;
 
     /**
-     * Startup function. Called from another thread.
+     * Startup function. Called in a separate thread.
      *
      * @throws ServletException
      */
-    public synchronized void doStartup() {
-        if (isSetup == true) {
-            return;
-        }
+    private void doStartup() {
         ElapsedTimer setupTime = new ElapsedTimer();
         CLDRProgressTask progress = openProgress("Main Startup");
         try {
@@ -3757,9 +3709,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             stopIfMaintenance();
 
-            progress.update("Setup DB config");
-            // set up DB properties
-            dbUtils.setupDBProperties(this, survprops);
             progress.update("Setup phase..");
 
             // phase
@@ -3893,6 +3842,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (!isBusted()) {
             SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
                 + "----------------------------\n\n\n");
+            // TODO: use a Future instead
             isSetup = true;
         } else {
             SurveyLog.logger.info("------- SurveyTool FAILED TO STARTUP, " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
@@ -3922,12 +3872,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         progress.update("Setup the Home dir..");
 
         // load abstracts in a separate thread.
-        startupThread.addTask(new SurveyThread.SurveyTask("load abstract") {
-            @Override
-            public void run() throws Throwable {
-                AbstractCacheManager.getInstance().setup();
-            }
-        });
+        SurveyThreadManager.getExecutorService().submit(
+            () -> AbstractCacheManager.getInstance().setup());
 
         // we could setup the url subtype mapper here, but instead we leave that
         // to be lazily loaded.
@@ -4128,40 +4074,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         CLDRProgressTask progress = openProgress("shutting down");
         try {
             SurveyLog.logger.warning("SurveyTool shutting down.. r" + getCurrevCldrApps());
-            if (startupThread != null) {
-                progress.update("Attempting clean shutdown...");
-                startupThread.attemptCleanShutdown();
-            }
             progress.update("shutting down mail... " + destroyTimer);
             MailSender.shutdown();
-            if (surveyTimer != null) {
-                progress.update("Shutting down timer...");
-                int patience = 20;
-                surveyTimer.shutdown();
-                Thread.yield();
-                while (surveyTimer != null && !surveyTimer.isTerminated()) {
-                    try {
-                        System.err.println("Still Shutting down timer.. " + surveyTimer.toString() + destroyTimer);
-                        if (surveyTimer.awaitTermination(2, TimeUnit.SECONDS)) {
-                            System.err.println("Timer thread is down." + destroyTimer);
-                            surveyTimer = null;
-                        } else {
-                            System.err.println("Timer thread is still running. Attempting TerminateNow." + destroyTimer);
-                            surveyTimer.shutdownNow();
-                        }
-                        Thread.yield();
-                        if (--patience < 0) {
-                            System.err.println("=========== patience exceeded. ignoring errant surveyTimer. ==========\n");
-                            surveyTimer = null;
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                surveyTimer = null;
-                System.err.println("Timer thread cancelled." + destroyTimer);
-                Thread.yield();
-            }
+            progress.update("shutting down SurveyThreadManager... " + destroyTimer);
+            startupThread.shutdown();
             progress.update("Shutting down database..." + destroyTimer);
             doShutdownDB();
             outputFileManager = null;
@@ -4493,6 +4409,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public DBUtils dbUtils = null;
 
+    /**
+     * Setup some Database items.
+     */
     private void doStartupDB() {
         if (isMaintenance()) {
             throw new InternalError("SurveyTool is in setup mode.");
@@ -4500,7 +4419,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         CLDRProgressTask progress = openProgress("Database Setup");
         try {
             progress.update("begin.."); // restore
-            dbUtils.startupDB(this, progress);
+            dbUtils.validateDatasourceExists(this, progress);
             SurveyMain.isDbSetup  = true;
             // now other tables..
             progress.update("Setup databases "); // restore
@@ -4513,8 +4432,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 return;
             }
             progress.update("Create XPT"); // restore
-            try {
-                xpt = XPathTable.createTable(dbUtils.getDBConnection());
+            try (Connection conn = dbUtils.getAConnection()) {
+                xpt = XPathTable.createTable(conn);
             } catch (SQLException e) {
                 busted("On XPathTable startup", e);
                 return;

@@ -8,6 +8,7 @@
 		<feature>mpOpenAPI-1.1</feature>
 		<feature>mpConfig-1.4</feature>
 		<feature>localConnector-1.0</feature>
+		<feature>concurrent-1.0</feature>
 	</featureManager>
 	<!-- end::featureManager[] -->
 
@@ -21,7 +22,7 @@
 		contextRoot="/cldr-apps" />
 	<!-- end::webApplication[] -->
 
-	<!-- TO SET UP: Create a "server.env" file next to this xml (that is, tools/cldr-apps/src/main/liberty/config/server.env) 
+	<!-- TO SET UP: Create a "server.env" file next to this xml (that is, tools/cldr-apps/src/main/liberty/config/server.env)
 		with the following:
 			MYSQL_USER=surveytool
 			MYSQL_PASSWORD=yourpassword

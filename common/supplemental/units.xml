@@ -343,7 +343,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="001">centimeter</unitPreference>
             <unitPreference regions="CA GB IN US" geq="3.0">foot-and-inch</unitPreference>
             <unitPreference regions="CA GB IN US">inch</unitPreference>
-            <unitPreference regions="AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN">meter-and-centimeter</unitPreference>
+            <unitPreference regions="AT BE DZ EG ES FR HK ID IL IT JO MY SA SE TR VN">meter-and-centimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="rainfall">
             <unitPreference regions="BR">centimeter</unitPreference>
@@ -376,7 +376,6 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="length" usage="vehicle">
             <unitPreference regions="GB US">foot-and-inch</unitPreference>
             <unitPreference regions="001">meter</unitPreference>
-            <unitPreference regions="MX">meter-and-centimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="visiblty">
             <unitPreference regions="001" geq="0.1">kilometer</unitPreference>
@@ -398,7 +397,6 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="mass" usage="person">
             <unitPreference regions="001">kilogram</unitPreference>
             <unitPreference regions="001">gram</unitPreference>
-            <unitPreference regions="DZ EG ES JO SA">kilogram-and-gram</unitPreference>
             <unitPreference regions="US">pound</unitPreference>
             <unitPreference regions="US">pound-and-ounce</unitPreference>
             <unitPreference regions="GB">stone-and-pound</unitPreference>

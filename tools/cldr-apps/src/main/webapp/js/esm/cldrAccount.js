@@ -1048,7 +1048,7 @@ function getAddUserLink() {
 
 function getXmlUploadLink(u) {
   return (
-    // TODO: not jsp
+    // TODO: not jsp; see https://unicode-org.atlassian.net/browse/CLDR-14385
     // /cldr-apps/upload.jsp?s=" + cldrStatus.getSessionId() + "&email=" + u.data.email
     "<a href='?'>[TODO:] Upload XML...</a>"
   );
@@ -1063,15 +1063,21 @@ function getUserActivityLink(u) {
   );
 }
 
+// cf. cldrRecentActivity.getDownloadMyVotesForm
 function getDownloadCsvForm(json) {
-  if (!json.userPerms || !json.userPerms.canModifyUsers) {
+  if (isJustMe || !json.userPerms || !json.userPerms.canModifyUsers) {
     return "";
   }
-  // TODO: not jsp; also, DataExport.jsp is broken, see https://unicode-org.atlassian.net/browse/CLDR-14475
+  // TODO: not jsp; see https://unicode-org.atlassian.net/browse/CLDR-14475
   return (
-    "<hr /><form method='POST' action='.../DataExport.jsp'>\n" +
-    "<input type='submit' class='csvDownload' value='Download .csv (including LOCKED)' />\n" +
-    "</form>"
+    "<hr />\n" +
+    "<form method='POST' action='DataExport.jsp'>\n" +
+    "  <input type='hidden' name='s' value='" +
+    cldrStatus.getSessionId() +
+    "'>\n" +
+    "  <input type='hidden' name='do' value='list'>\n" +
+    "  <input type='submit' class='csvDownload' value='Download .csv (including LOCKED)'>\n" +
+    "</form>\n"
   );
 }
 

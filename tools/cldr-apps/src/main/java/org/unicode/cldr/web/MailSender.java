@@ -174,7 +174,7 @@ public class MailSender implements Runnable {
             } else {
                 int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
                 int eachTime = 60; /* Check for outbound mail every 60 seconds */
-                periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
+                periodicThis = SurveyThreadManager.getScheduledExecutorService().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
                 System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = "
                     + DBUtils.sqlCount(COUNTLEFTSQL));
             }
@@ -539,6 +539,6 @@ public class MailSender implements Runnable {
     }
 
     private void processMail() {
-        SurveyMain.getTimer().submit(this); // Cause a quick retry.
+        SurveyThreadManager.getScheduledExecutorService().submit(this); // Cause a quick retry.
     }
 }

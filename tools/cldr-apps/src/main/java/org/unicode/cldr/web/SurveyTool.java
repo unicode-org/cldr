@@ -232,12 +232,6 @@ public class SurveyTool extends HttpServlet {
                 out.write("}\n");
                 out.write("</script>\n");
             }
-            if (sm != null) {
-                String htmlStatus = sm.startupThread.htmlStatus();
-                if (htmlStatus != null) {
-                    out.write(htmlStatus);
-                }
-            }
             out.write("<hr>\n");
             out.write("<div id='st_err'></div>\n</div>\n</div>\n");
             out.write("</body>\n</html>\n");

@@ -20,16 +20,20 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 
 import com.ibm.icu.text.CompactDecimalFormat;
 
 /**
+ * This is only used by exception log readers
+ *
  * Reads 'chunked' format as follows:
  *
  * <RECORDSEP>record header\n <fieldsep><fieldname1>field1 ...\n ... \n
@@ -138,7 +142,22 @@ public class ChunkyReader implements Runnable {
     private void init() {
         nudge();
 
-        SurveyMain.addPeriodicTask(this);
+        // We check every few minutes for updated log messages.
+        // These parameters used to be used for the OutputFileManager, and don't make
+        // a lot of sense for a logfile reader.
+        //
+        // Best would be to replace the CLDR logging, see CLDR-8581
+        //
+        final boolean CLDR_QUICK_DAY = CldrUtility.getProperty("CLDR_QUICK_DAY", false);
+        int firstTime = SurveyMain.isUnofficial() ? 15 : 30;
+        int eachTime = SurveyMain.isUnofficial() ? 15 : 15;
+
+        if (CLDR_QUICK_DAY && SurveyMain.isUnofficial()) {
+            firstTime = 1;
+            eachTime = 3;
+        }
+
+        SurveyThreadManager.getScheduledExecutorService().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.MINUTES);
     }
 
     @Override

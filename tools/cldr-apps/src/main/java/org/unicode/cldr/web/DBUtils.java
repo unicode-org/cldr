@@ -31,7 +31,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.annotation.Resource;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -50,15 +49,13 @@ import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.SurveyMain.Phase;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Singleton utility class for simple(r) DB access.
  */
 public class DBUtils {
-    private static final boolean DEBUG = false;// CldrUtility.getProperty("TEST",
-    // false);
-    private static final boolean DEBUG_QUICKLY = false;// CldrUtility.getProperty("TEST",
+    private static final String DEFAULT_DATA_SOURCE = "java:comp/DefaultDataSource";
+    private static final boolean DEBUG = true;// CldrUtility.getProperty("TEST",
     // false);
 
     private static final boolean DEBUG_SQL = false; // show "all" SQL
@@ -73,8 +70,6 @@ public class DBUtils {
     public static String cldrdb_u = null;
     public static String CLDR_DB;
     // public static String cldrdb = null;
-    public static String CLDR_DB_CREATESUFFIX = null;
-    public static String CLDR_DB_SHUTDOWNSUFFIX = null;
     public static boolean db_Derby = false;
     public static boolean db_Mysql = false;
 
@@ -120,16 +115,11 @@ public class DBUtils {
                                                                 * see
                                                                 * java.sql.Types
                                                                 */
-    private static final StackTracker tracker = DEBUG ? new StackTracker() : null; // new
-
-    // StackTracker();
-    // -
-    // enable,
-    // to
-    // track
-    // unclosed
-    // connections
-
+    /**
+     * the StackTracker can track unclosed connections
+     */
+    private static final StackTracker tracker = DEBUG
+        ? new StackTracker() : null;
     public Appendable stats(Appendable output) throws IOException {
         return output.append("DBUtils: currently open: " + db_number_open).append(", max open: " + db_max_open)
             .append(", total used: " + db_number_used);
@@ -139,18 +129,23 @@ public class DBUtils {
         return output.append("" + db_number_open).append("/" + db_max_open);
     }
 
+    /**
+     * Close a connection.
+     * Note that Connection is AutoClosable, so Connnections may be closed without going through this
+     * function. In other words, with newer call sites, the db_number_open metrics may be off.
+     * @param conn
+     */
     public static void closeDBConnection(Connection conn) {
         if (conn != null) {
             if (SurveyMain.isUnofficial() && tracker != null) {
                 tracker.remove(conn);
             }
             try {
-                if (db_Derby /*&&
-                    datasource instanceof EmbeddedDataSource*/ &&
+                if (db_Derby &&
                     !conn.isClosed() &&
                     !conn.getAutoCommit()) {
-                    // commit on close if we are using Derby directly
                     conn.commit();
+                    // commit on close if we are using Derby directly
                 }
                 conn.close();
             } catch (SQLException e) {
@@ -272,7 +267,7 @@ public class DBUtils {
         return out.toString();
     }
 
-    public static DBUtils getInstance() {
+    public final static DBUtils getInstance() {
         return DBUtilsHelper.SINGLETON;
     }
 
@@ -346,28 +341,63 @@ public class DBUtils {
     }
 
     public static boolean hasTable(Connection conn, String table) {
+        getInstance();
+        return DBUtils.hasTable(table);
+    }
+
+    @Deprecated
+    private boolean hasTableDerby(String table) {
         String canonName = canonTableName(table);
+        // TODO: OLD TO REMOVE
         try {
+            Connection conn = getDBConnection();
             ResultSet rs = null;
             Statement s = null;
             try {
-                if (db_Derby) {
-                    DatabaseMetaData dbmd = conn.getMetaData();
-                    rs = dbmd.getTables(null, null, canonName, null);
-                } else {
-                    s = conn.createStatement();
-                    rs = s.executeQuery("show tables like '" + canonName + "'");
-                }
+                DatabaseMetaData dbmd = conn.getMetaData();
+                rs = dbmd.getTables(null, null, canonName, null);
 
                 if (rs.next() == true) {
-                    SurveyLog.warnOnce("table " + canonName + " did exist.");
+                    if (DEBUG) SurveyLog.warnOnce("table " + canonName + " already existed.");
                     return true;
                 } else {
                     SurveyLog.warnOnce("table " + canonName + " did not exist.");
                     return false;
                 }
             } finally {
-                DBUtils.close(s, rs);
+                DBUtils.close(s, rs, conn);
+            }
+        } catch (SQLException se) {
+            SurveyMain.busted("While looking for table '" + table + "': ", se);
+            return false; // NOTREACHED
+        }
+        // TODO: OLD TO REMOVE
+    }
+
+    public final static boolean hasTable(String table) {
+        return getInstance().tableExists(table);
+    }
+
+    public boolean tableExists(String table) {
+        if (db_Derby) return hasTableDerby(table);
+
+        String canonName = canonTableName(table);
+        try (Connection conn = DBUtils.getInstance().getAConnection();
+            ResultSet rs = conn.getMetaData().getTables(null, null, canonName, null)) {
+            final boolean hadTable = (rs.next() == true);
+
+            if (hadTable) {
+                // flush remaining rows
+                while (rs.next())
+                    ;
+            }
+
+            if (hadTable) {
+                if (DEBUG) SurveyLog.warnOnce("table " + canonName + " already existed.");
+                return true;
+            } else {
+                SurveyLog.warnOnce("table " + canonName + " did not exist.");
+                return false;
             }
         } catch (SQLException se) {
             SurveyMain.busted("While looking for table '" + table + "': ", se);
@@ -447,12 +477,11 @@ public class DBUtils {
      * @return
      */
     public static int sqlCount(String sql, Object... args) {
-        Connection conn = null;
-        try {
-            conn = DBUtils.getInstance().getDBConnection();
+        try (Connection conn = DBUtils.getInstance().getAConnection()) {
             return sqlCount(conn, sql, args);
-        } finally {
-            DBUtils.close(conn);
+        } catch (SQLException e) {
+            SurveyMain.busted("sqlCount", e);
+            return -1;
         }
     }
 
@@ -467,16 +496,6 @@ public class DBUtils {
             return -1;
         } finally {
             DBUtils.close(ps);
-        }
-    }
-
-    public static boolean hasTable(String table) {
-        Connection conn = null;
-        try {
-            conn = DBUtils.getInstance().getDBConnection();
-            return hasTable(conn, table);
-        } finally {
-            DBUtils.close(conn);
         }
     }
 
@@ -601,12 +620,20 @@ public class DBUtils {
         return !hasDataSource();
     }
 
-    private static final class ResourceHelper {
-        @Resource
-        public DataSource myDB;
+    /**
+     * Wrapper for getting InitialContext
+     * @return
+     */
+    static InitialContext getInitialContext() {
+        InitialContext context;
+        try {
+            context = new InitialContext();
+            return context;
+        } catch (NamingException e) {
+            SurveyMain.busted("Could not get InitialContext", e);
+            throw new RuntimeException("Cannot Get InitialContext", e);
+        }
     }
-
-    private static final ResourceHelper RESOURCE_HELPER = new ResourceHelper();
 
 
     private DBUtils() {
@@ -618,59 +645,57 @@ public class DBUtils {
         System.err.println("Loading datasource: java:comp/env " + JDBC_SURVEYTOOL);
         ElapsedTimer et = new ElapsedTimer();
 
+        try {
+            final DataSource myOtherDB = InitialContext.doLookup(DEFAULT_DATA_SOURCE);
 
-        if (RESOURCE_HELPER.myDB != null) {
-            datasource = RESOURCE_HELPER.myDB;
-            System.err.println("Got default datasource: " + datasource.toString());
-        } else {
-            System.err.println("myDB was null..");
+            if(myOtherDB != null) {
+                System.out.println("DefaultDataSource was ok");
+                datasource = myOtherDB;
+            } else {
+                System.err.println("DefaultDataSource was not OK");
+                Context initialContext = getInitialContext();
+                Context eCtx = (Context) initialContext.lookup("java:comp/env");
+                datasource = (DataSource) eCtx.lookup(JDBC_SURVEYTOOL);
+            }
+
+            if (datasource != null) {
+                System.out.println("Got datasource: " + datasource.toString() + " in " + et);
+            }
+            Connection c = null;
             try {
-                final DataSource myOtherDB = InitialContext.doLookup("java:comp/DefaultDataSource");
-
-                if(myOtherDB != null) {
-                    System.err.println("DefaultDataSource was ok");
-                    datasource = myOtherDB;
-                } else {
-                    System.err.println("DefaultDataSource was not OK");
-                    Context initialContext = new InitialContext();
-                    Context eCtx = (Context) initialContext.lookup("java:comp/env");
-                    datasource = (DataSource) eCtx.lookup(JDBC_SURVEYTOOL);
-                }
-
                 if (datasource != null) {
-                    System.err.println("Got datasource: " + datasource.toString() + " in " + et);
+                    c = datasource.getConnection();
+                    DatabaseMetaData dmd = c.getMetaData();
+                    dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion() + " " +
+                        "driver " + dmd.getDriverName() + " ver " + dmd.getDriverVersion();
+                    setupSqlForServerType();
+                    SurveyLog.debug("Metadata: " + dbInfo);
                 }
-                Connection c = null;
-                try {
-                    if (datasource != null) {
-                        c = datasource.getConnection();
-                        DatabaseMetaData dmd = c.getMetaData();
-                        dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion() + " " +
-                            "driver " + dmd.getDriverName() + " ver " + dmd.getDriverVersion();
-                        setupSqlForServerType();
-                        SurveyLog.debug("Metadata: " + dbInfo);
-                    }
-                } catch (SQLException t) {
-                    datasource = null;
-                    throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
-                        + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
-                } finally {
-                    if (c != null)
-                        try {
+            } catch (SQLException t) {
+                datasource = null;
+                throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
+                    + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
+            } finally {
+                if (c != null)
+                    try {
                         c.close();
-                        } catch (Throwable tt) {
+                    } catch (Throwable tt) {
                         System.err.println("Couldn't close datasource's conn: " + tt.toString());
                         tt.printStackTrace();
-                        }
-                }
-            } catch (NamingException nc) {
-                nc.printStackTrace();
-                datasource = null;
-                throw new Error("Couldn't load context " + JDBC_SURVEYTOOL + " - not using datasource.", nc);
+                    }
             }
+        } catch (NamingException nc) {
+            nc.printStackTrace();
+            datasource = null;
+            throw new Error("Couldn't load context " + JDBC_SURVEYTOOL + " - not using datasource.", nc);
         }
     }
 
+    /**
+     * Constructor for DBUtils.
+     * @param dataSource2 DataSource to be used
+     * @param curl For TESTS ONLY: URL for connection
+     */
     public DBUtils(DataSource dataSource2, String curl) {
         datasource = dataSource2;
         Connection c = null;
@@ -702,23 +727,23 @@ public class DBUtils {
         } finally {
             if (c != null)
                 try {
-                c.close();
+                    c.close();
                 } catch (Throwable tt) {
-                System.err.println("Couldn't close datasource's conn: " + tt.toString());
-                tt.printStackTrace();
+                    System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                    tt.printStackTrace();
                 }
         }
     }
 
     private void setupSqlForServerType() {
         SurveyLog.debug("setting up SQL for database type " + dbInfo);
-        System.err.println("setting up SQL for database type " + dbInfo);
+        System.out.println("setting up SQL for database type " + dbInfo);
         if (dbInfo.contains("Derby")) {
             db_Derby = true;
-            System.err.println("Note: Derby (embedded) mode. ** some features may not work as expected **");
+            System.out.println("Note: Derby (embedded) mode. ** some features may not work as expected **");
             db_UnicodeType = java.sql.Types.VARCHAR;
         } else if (dbInfo.contains("MySQL")) {
-            System.err.println("Note: MySQL mode");
+            System.out.println("Note: MySQL mode");
             db_Mysql = true;
             DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
             DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
@@ -756,102 +781,73 @@ public class DBUtils {
             }
         }
         if (DBUtils.db_number_open > 0) {
-            System.err.println("DBUtils: removing my instance. " + DBUtils.db_number_open + " still open?\n" + tracker);
+            System.out.println("DBUtils: removing my instance. " + DBUtils.db_number_open + " connections still open?\n" + tracker);
+            System.out.println("(Note: AutoClosed connections may not be calculated properly.)");
         }
         if (tracker != null)
             tracker.clear();
         DBUtilsHelper.shutdown(this);
     }
 
-    /**
-     * @deprecated Use {@link #getDBConnection()} instead
-     */
-    @Deprecated
-    public final Connection getDBConnection(SurveyMain surveyMain) {
-        return getDBConnection();
-    }
+    long lastMsg = -1;
+    private int db_max_open = 0;
+
 
     /**
+     * Returns an AutoCommit=false connection.
      * This connection MAY NOT be held in an object. Hold it and then close it ( DBUtils.close() )
      * @return
      */
     public final Connection getDBConnection() {
-        return getDBConnection("");
-    }
-
-    /**
-     * @deprecated Use {@link #getDBConnection(String)} instead
-     */
-    @Deprecated
-    public final Connection getDBConnection(SurveyMain surveyMain, String options) {
-        return getDBConnection(options);
-    }
-
-    long lastMsg = -1;
-    private int db_max_open = 0;
-
-    public Connection getDBConnection(String options) {
-        if(connectionUrl != null) {
-            try {
-                Connection c = DriverManager.getConnection(connectionUrl);
-                c.setAutoCommit(false);
-                return c;
-            } catch (SQLException e) {
-                throw new RuntimeException("getConnection() failed for url", e);
-            }
-        }
+        Connection c = getAConnection();
         try {
-            db_max_open = Math.max(db_max_open, db_number_open++);
-            db_number_used++;
-
-            if (DEBUG) {
-                long now = System.currentTimeMillis();
-                if (now - lastMsg > (DEBUG_QUICKLY ? 6000 : 3600000) /*
-                                                                     * || (
-                                                                     * db_number_used
-                                                                     * ==5000)
-                                                                     */) {
-                    lastMsg = now;
-                    System.err.println("DBUtils: " + db_number_open + " open, " + db_max_open + " max,  " + db_number_used
-                        + " used. " + StackTracker.currentStack());
-                }
-            }
-
-            Connection c = datasource.getConnection();
             c.setAutoCommit(false);
-            if (SurveyMain.isUnofficial() && tracker != null)
-                tracker.add(c);
-            return c;
         } catch (SQLException se) {
             se.printStackTrace();
             SurveyMain.busted("Fatal in getDBConnection", se);
             return null;
         }
+        return c;
     }
 
-    void setupDBProperties(SurveyMain surveyMain, CLDRConfig survprops) {
-        // db_driver = cldrprops.getProperty("CLDR_DB_DRIVER",
-        // "org.apache.derby.jdbc.EmbeddedDriver");
-        // db_protocol = cldrprops.getProperty("CLDR_DB_PROTOCOL",
-        // "jdbc:derby:");
-        // CLDR_DB_U = cldrprops.getProperty("CLDR_DB_U", null);
-        // CLDR_DB_P = cldrprops.getProperty("CLDR_DB_P", null);
-        // CLDR_DB = survprops.getProperty("CLDR_DB", "cldrdb");
-        // dbDir = new File(SurveyMain.cldrHome, CLDR_DB);
-        // cldrdb = survprops.getProperty("CLDR_DB_LOCATION",
-        // dbDir.getAbsolutePath());
-        CLDR_DB_CREATESUFFIX = survprops.getProperty("CLDR_DB_CREATESUFFIX", ";create=true");
-        CLDR_DB_SHUTDOWNSUFFIX = survprops.getProperty("CLDR_DB_SHUTDOWNSUFFIX", "jdbc:derby:;shutdown=true");
+    /**
+     * Get an Autocommit Connection. Will be AutoCommit=true
+     * @return
+     */
+    public final Connection getAConnection() {
+        try {
+            if(connectionUrl != null) {
+                Connection c = getDBConnectionFor(connectionUrl);
+                c.setAutoCommit(true);
+                return c;
+            }
+            return datasource.getConnection();
+        } catch (SQLException se) {
+            se.printStackTrace();
+            SurveyMain.busted("Fatal in getConnection()", se);
+            return null;
+        }
     }
 
-    public void startupDB(SurveyMain sm, CLDRProgressIndicator.CLDRProgressTask progress) {
+    /**
+     * For TESTS only
+     * @param connectionUrl
+     * @return
+     */
+    private static Connection getDBConnectionFor(final String connectionUrl) {
+        try {
+            return DriverManager.getConnection(connectionUrl);
+        } catch (SQLException e) {
+            throw new RuntimeException("getConnection() failed for url", e);
+        }
+    }
+
+    public void validateDatasourceExists(SurveyMain sm, CLDRProgressIndicator.CLDRProgressTask progress) {
         System.err.println("StartupDB: datasource=" + datasource);
         if (datasource == null) {
             throw new RuntimeException(" - JNDI required:  " + getDbBrokenMessage());
         }
-
         progress.update("Using datasource..." + dbInfo); // restore
-
     }
 
     /**
@@ -955,9 +951,15 @@ public class DBUtils {
                 } else if (o instanceof DBCloseable) {
                     ((DBCloseable) o).close();
                 } else {
-                    final Class theClass = o.getClass();
+                    // Here's the problem.
+                    // https://commons.apache.org/proper/commons-dbcp/api-1.2.2/org/apache/commons/dbcp/BasicDataSource.html#close()
+                    // We do NOT link to this library directly, but Derby may use it.
+                    // It's not AutoClosable.
+                    // But, we want to be able to close it if possible.
+                    final Class<? extends Object> theClass = o.getClass();
                     final String simpleName = theClass.getSimpleName();
                     if (simpleName.equals("BasicDataSource")) { // could expand this later, if we want to generically call close()
+                        // We check the class name to verify that we aren't
                         try {
                             // try to find a "close"
                             final Method m = theClass.getDeclaredMethod("close");
@@ -967,11 +969,11 @@ public class DBUtils {
                             }
                         } catch (Exception nsm) {
                             nsm.printStackTrace();
-                            System.err.println("Caught exception " + nsm + " - so, don't know how to close " + an(simpleName) + " "
+                            System.err.println("Caught exception " + nsm + " - so, don't know how to close " + simpleName + " "
                                 + theClass.getName());
                         }
                     } else {
-                        throw new IllegalArgumentException("Don't know how to close " + an(simpleName) + " "
+                        throw new IllegalArgumentException("Don't know how to close " + simpleName + " "
                             + theClass.getName());
                     }
                 }
@@ -979,19 +981,6 @@ public class DBUtils {
                 System.err.println(unchainSqlException(e));
             }
         }
-    }
-
-    private static final UnicodeSet vowels = new UnicodeSet("[aeiouAEIOUhH]");
-
-    /**
-     * Print A or AN appropriately.
-     *
-     * @param str
-     * @return
-     */
-    private static String an(String str) {
-        boolean isVowel = vowels.contains(str.charAt(0));
-        return isVowel ? "an" : "a";
     }
 
     public boolean hasDataSource() {
@@ -1009,9 +998,6 @@ public class DBUtils {
         PreparedStatement ps;
         ps = conn.prepareStatement(sql);
 
-        // while (args!=null&&args.length==1&&args[0] instanceof Object[]) {
-        // System.err.println("Unwrapping " + args + " to " + args[0]);
-        // }
         setArgs(ps, args);
         return ps;
     }

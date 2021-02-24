@@ -573,6 +573,7 @@ public class VettingViewer<T> {
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID,
             T user, Level usersLevel, boolean quick, String xpath) {
+            if(progressCallback.isStopped()) throw new RuntimeException("Requested to stop");
             final DefaultErrorStatus errorChecker = new DefaultErrorStatus(cldrFactory);
 
             errorChecker.initErrorStatus(sourceFile);
@@ -933,10 +934,7 @@ public class VettingViewer<T> {
             if(length == 0) {
                 return;
             } else if(length <= context.configChunkSize) {
-                // do this many at once
-                for(int n=start;n<(start+length);n++) {
-                    computeOne(n);
-                }
+                computeAll();
             } else {
                 int split = length / 2;
                 // subdivide
@@ -946,10 +944,22 @@ public class VettingViewer<T> {
         }
 
         /**
+         * Compute this entire task.
+         * Can call this to run this step as a single thread.
+         */
+        public void computeAll() {
+            // do this many at once
+            for(int n=start;n<(start+length);n++) {
+                computeOne(n);
+            }
+        }
+
+        /**
          * Calculate the VettingViewer output for one locale
          * @param n
          */
         void computeOne(int n) {
+            if(progressCallback.isStopped()) throw new RuntimeException("Requested to stop");
             final String name = context.localeNames.get(n);
             final String localeID = context.localeIds.get(n);
             if(DEBUG_THREADS) System.err.println("writeAction.compute("+n+") - " + name + ": "+ localeID);
@@ -1037,7 +1047,12 @@ public class VettingViewer<T> {
         WriteContext context = this.new WriteContext(entrySet, choices, organization, totals, localeNameToFileInfo, header);
 
         WriteAction writeAction = this.new WriteAction(context);
-        ForkJoinPool.commonPool().invoke(writeAction);
+        if (USE_FORKJOIN) {
+            ForkJoinPool.commonPool().invoke(writeAction);
+        } else {
+            System.err.println("WARNING: calling writeAction.computeAll(), as the ForkJoinPool is disabled.");
+            writeAction.computeAll();
+        }
         context.appendTo(output); // write all of the results together
         output.append(header);  // add one header at the bottom
         writeSummaryRow(output, choices, totals.problemCounter, "Total", null);
@@ -1047,6 +1062,8 @@ public class VettingViewer<T> {
             showSubtypes(output, sortedNames, localeNameToFileInfo, totals, false);
         }
     }
+
+    private final boolean USE_FORKJOIN = false;
 
     private void showSubtypes(Appendable output, Map<String, String> sortedNames,
         Map<String, FileInfo> localeNameToFileInfo,
@@ -1328,6 +1345,14 @@ public class VettingViewer<T> {
          * Called when all operations are complete.
          */
         public void done() {
+        }
+
+        /**
+         * Return true to cause an early stop.
+         * @return
+         */
+        public boolean isStopped() {
+            return false;
         }
     }
 

@@ -21,7 +21,7 @@ public class SurveyTool extends HttpServlet {
     private static final boolean USE_DOJO_DEFAULT = true;
     /**
      * Normally we want to run all js from a bundle, for performance,
-     * especially in production. This can made false for testing and
+     * especially in production. This can be made false for testing and
      * development, in which case the browser will load and run the
      * individual cldr*.js modules directly.
      */
@@ -341,10 +341,10 @@ public class SurveyTool extends HttpServlet {
     }
 
     private void includeCss(HttpServletRequest request, PrintWriter out) {
-        String contextPath = request.getContextPath();
-        // TODO: use getCacheBustingExtension, or something like it, for our .css files
-        out.write("<link rel='stylesheet' href='" + contextPath + "/surveytool.css' />\n");
-        out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum.css' />\n");
+        final String contextPath = request.getContextPath();
+        final String cb = getCacheBustingExtension(request);
+        out.write("<link rel='stylesheet' href='" + contextPath + "/surveytool" + cb + ".css' />\n");
+        out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum" + cb + ".css' />\n");
         if (useDojo(request)) {
             out.write("<link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css' />\n");
         }
@@ -366,8 +366,7 @@ public class SurveyTool extends HttpServlet {
             includeDojoJavaScript(out);
         } else {
             // Load the big bundle
-            // TODO: use getCacheBustingExtension, or something like it, for bundle.js
-            out.write("<script src=\"dist/bundle.js\"></script>\n");
+            out.write("<script src=\"dist/bundle" + getCacheBustingExtension(request) + ".js\"></script>\n");
         }
         includeJqueryJavaScript(request, out);
         includeCldrJavaScript(request, out);
@@ -405,7 +404,6 @@ public class SurveyTool extends HttpServlet {
     private static void includeCldrJavaScript(HttpServletRequest request, Writer out) throws IOException {
         final String prefix = "<script src='" + request.getContextPath() + "/js/";
         final String tail = "'></script>\n";
-        final String js = getCacheBustingExtension(request) + ".js" + tail;
         final Boolean doUseDojo = useDojo(request);
         out.write(String.format("<script>const %s=%s;</script>\n", USE_DOJO_VAR, doUseDojo.toString()));
 
@@ -418,6 +416,7 @@ public class SurveyTool extends HttpServlet {
         }
 
         if (doUseDojo) {
+            final String js = getCacheBustingExtension(request) + ".js" + tail;
             out.write(prefix + "CldrDojoText" + js); // CldrDojoText.js
             out.write(prefix + "CldrDojoStatus" + js); // CldrDojoStatus.js
             out.write(prefix + "CldrDojoAjax" + js); // CldrDojoAjax.js

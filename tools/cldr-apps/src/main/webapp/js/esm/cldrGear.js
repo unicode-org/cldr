@@ -3,8 +3,9 @@
  *
  * TODO: "Avoid dropdown menus": "Usability studies show that dropdown menus are annoying";
  * "difficult for search engines to crawl" https://www.orbitmedia.com/blog/website-navigation/
- * Survey Tool's current dropdown gear menu is also problematic in terms of library dependencies,
- * invalid html, inability to scroll (e.g., when console log is open and screen is small),
+ * Survey Tool's current dropdown gear menu is also problematic in terms of library dependencies
+ * (outdated version of bootstrap), invalid html, inability to scroll (e.g., when console log is
+ * open and screen is small),
  * and failure to close immediately when some items are clicked on. It would be cleaner to
  * open a new special page ("#gear"), with a list of items, when the gear menu is clicked on.
  */
@@ -273,6 +274,8 @@ function set(gearMenuItems) {
 }
 
 function getSpecialUrl(special) {
+  // This ought to be encapsulated as part of each special, which could have its own special.getHash
+  // function, falling back on (or inheriting from) default ("#" + special)
   let url = "#" + special;
   if ("recent_activity" === special) {
     // cf. cldrAccount.getUserActivityLink

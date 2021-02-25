@@ -30,6 +30,7 @@ import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrVettingParticipation from "./cldrVettingParticipation.js";
 
 const CLDR_LOAD_DEBUG = false;
 
@@ -634,6 +635,7 @@ function getSpecial(str) {
     r_vetting_json: cldrDash,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
+    vetting_participation: cldrVettingParticipation,
   };
   if (str in specials) {
     return specials[str];

@@ -1,7 +1,6 @@
 /*
  * cldrLoad: encapsulate functions for loading GUI content for Survey Tool
  */
-import * as cldrAbout from "./cldrAbout.js";
 import * as cldrAccount from "./cldrAccount.js";
 import * as cldrAdmin from "./cldrAdmin.js";
 import * as cldrAjax from "./cldrAjax.js";
@@ -14,6 +13,7 @@ import * as cldrEvent from "./cldrEvent.js";
 import { Flipper } from "./cldrFlip.js";
 import * as cldrForum from "./cldrForum.js";
 import * as cldrForumParticipation from "./cldrForumParticipation.js";
+import * as cldrGenericVue from "./cldrGenericVue.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrListUsers from "./cldrListUsers.js";
 import { LocaleMap } from "./cldrLocaleMap.js";
@@ -560,7 +560,7 @@ function shower(itemLoadInfo) {
   } else {
     const special = getSpecial(curSpecial);
     if (special && special.load) {
-      special.load();
+      special.load(curSpecial); // pass the special name to the loader
     } else {
       unspecialLoad(itemLoadInfo, theDiv);
     }
@@ -616,7 +616,12 @@ function unspecialLoad(itemLoadInfo, theDiv) {
  */
 function getSpecial(str) {
   const specials = {
-    about: cldrAbout,
+    // These are handled by Vue.
+    about: cldrGenericVue,
+    vsummary: cldrGenericVue,
+    default: cldrGenericVue, // Add this here for testing the '/v#default' page.
+
+    // Other special pages.
     account: cldrAccount,
     admin: cldrAdmin,
     bulk_close_posts: cldrBulkClosePosts,

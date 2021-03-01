@@ -1618,6 +1618,9 @@ public class SurveyAjax extends HttpServlet {
          */
         JSONObject oldVotesNull = null;
         localeCount.forEach((loc, count) -> {
+            if ("und".equals(loc)) {
+                return;
+            }
             /*
              * We may get realCount <= count due to filtering. If we catch an exception here thrown in
              * viewOldVotes, use the value already in count, still enabling the user to select the locale.

@@ -45,6 +45,4 @@ function errorHandler(err) {
   cldrLoad.flipToOtherDiv(ourDiv);
 }
 
-export {
-  load,
-};
+export { load };

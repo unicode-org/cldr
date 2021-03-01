@@ -1074,9 +1074,9 @@ function getDownloadCsvForm(json) {
     "<form method='POST' action='DataExport.jsp'>\n" +
     "  <input type='hidden' name='s' value='" +
     cldrStatus.getSessionId() +
-    "'>\n" +
-    "  <input type='hidden' name='do' value='list'>\n" +
-    "  <input type='submit' class='csvDownload' value='Download .csv (including LOCKED)'>\n" +
+    "' />\n" +
+    "  <input type='hidden' name='do' value='list' />\n" +
+    "  <input type='submit' class='csvDownload' value='Download .csv (including LOCKED)' />\n" +
     "</form>\n"
   );
 }

@@ -1,4 +1,4 @@
-/**
+/*
  * cldrForumParticipation: encapsulate Survey Tool Forum Participation code.
  */
 import * as cldrAjax from "./cldrAjax.js";

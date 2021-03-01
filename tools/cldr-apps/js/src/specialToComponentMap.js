@@ -1,5 +1,6 @@
 import AboutPanel from "./views/AboutPanel.vue";
 import UnknownPanel from "./views/UnknownPanel.vue";
+import VettingSummary from "./views/VettingSummary.vue";
 import WaitingPanel from "./views/WaitingPanel.vue";
 
 /**
@@ -8,6 +9,7 @@ import WaitingPanel from "./views/WaitingPanel.vue";
 const specialToComponentMap = {
   about: AboutPanel,
   retry: WaitingPanel,
+  vsummary: VettingSummary,
   // If no match, end up here
   default: UnknownPanel,
 };

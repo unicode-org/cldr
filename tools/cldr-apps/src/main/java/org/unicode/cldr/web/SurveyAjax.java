@@ -547,6 +547,7 @@ public class SurveyAjax extends HttpServlet {
                         r.put(SurveyMain.QUERY_VALUE_SUFFIX, mySession.settings().get(pref, null));
                         send(r, out);
                     } else if (what.equals(WHAT_VSUMMARY)) {
+                        // TODO: obviated by org.unicode.cldr.web.api.PriorityItems
                         assertCanUseVettingSummary(mySession);
                         VettingViewerQueue.LoadingPolicy policy = VettingViewerQueue.LoadingPolicy.valueOf(request.getParameter("loadingpolicy"));
                         mySession.userDidAction();

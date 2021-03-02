@@ -124,6 +124,14 @@ public class SurveyTool extends HttpServlet {
         }
     }
 
+    /**
+     * Allow POST as well, used for login
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        doGet(request, response);
+    }
+
     private void serveBustedPage(HttpServletRequest request, PrintWriter out) {
         out.write("<html>\n<head>\n");
         out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");

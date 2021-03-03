@@ -38,11 +38,4 @@ function loadHandler(json, specialPage) {
   });
 }
 
-function errorHandler(err) {
-  const ourDiv = document.createElement("div");
-  ourDiv.innerHTML = err;
-  cldrSurvey.hideLoader();
-  cldrLoad.flipToOtherDiv(ourDiv);
-}
-
 export { load };

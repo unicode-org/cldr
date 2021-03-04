@@ -145,14 +145,14 @@ function sendXhr(xhrArgs) {
   if (xhrArgs.postData || xhrArgs.content) {
     options.method = "POST";
     options.data = xhrArgs.postData ? xhrArgs.postData : xhrArgs.content;
-    if (typeof options.data === "object" && xhrArgs.url.includes("/api/")) {
+    if (typeof options.data === "object" && xhrArgs.url.includes("api/")) {
       options.makeJsonPost = true;
     }
   } else {
     options.method = "GET";
   }
   const request = new XMLHttpRequest();
-  if (typeof USE_DOJO !== "undefined") {
+  if (typeof USE_DOJO !== "undefined" && !xhrArgs.url.includes("api/")) {
     if (xhrArgs.url.indexOf("?") == -1) {
       xhrArgs.url += "?USE_DOJO=" + USE_DOJO;
     } else {

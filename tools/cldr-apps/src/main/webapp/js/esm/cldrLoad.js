@@ -619,6 +619,7 @@ function getSpecial(str) {
   const specials = {
     // These are handled by Vue.
     about: cldrGenericVue,
+    lookup_path: cldrGenericVue,
     vsummary: cldrGenericVue,
     default: cldrGenericVue, // Add this here for testing the '/v#default' page.
 

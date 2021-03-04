@@ -1833,10 +1833,7 @@ public class WebContext implements Cloneable, Appendable {
                 System.err.println("logout() of session " + session.getId() + " and cookieSession " + sessionId);
             }
             if (sessionId != null) {
-                CookieSession sess = CookieSession.retrieveWithoutTouch(sessionId);
-                if (sess != null) {
-                    sess.remove(); // forcibly remove session
-                }
+                CookieSession.remove(sessionId);
             }
             session.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
         }
@@ -1878,7 +1875,7 @@ public class WebContext implements Cloneable, Appendable {
      */
     public void loginRemember(User user) {
         addCookie(SurveyMain.QUERY_EMAIL, user.email, SurveyMain.TWELVE_WEEKS);
-        addCookie(SurveyMain.QUERY_PASSWORD, user.password, SurveyMain.TWELVE_WEEKS);
+        addCookie(SurveyMain.QUERY_PASSWORD, user.getPassword(), SurveyMain.TWELVE_WEEKS);
     }
 
     private String sessionMessage = null;

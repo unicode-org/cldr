@@ -30,7 +30,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import javax.json.bind.annotation.JsonbProperty;
+
 import org.apache.commons.codec.digest.DigestUtils;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
@@ -242,17 +245,28 @@ public class UserRegistry {
      * have all fields filled out, if it is simply from the cache.
      */
     public class User implements Comparable<User>, UserInfo, JSONString {
+        @Schema( description = "User ID")
         public int id; // id number
+        @Schema( description = "numeric userlevel")
         public int userlevel = LOCKED; // user level
-        public String password; // password
+        @Schema( hidden = true )
+        private String password; // password
+        @Schema( description = "User email")
         public String email; //
+        @Schema( description = "User org")
         public String org; // organization
+        @Schema( description = "User name")
         public String name; // full name
+        @Schema( name = "time", implementation = java.util.Date.class )
         public java.sql.Timestamp last_connect;
+        @Schema( hidden = true )
         public String locales;
+        @Schema( hidden = true )
         public String intlocs = null;
+        @Schema( hidden = true )
         public String ip;
 
+        @Schema( hidden = true )
         private String emailmd5 = null;
 
         public String getEmailHash() {
@@ -303,7 +317,7 @@ public class UserRegistry {
         }
 
         public void printPasswordLink(WebContext ctx) {
-            UserRegistry.printPasswordLink(ctx, email, password);
+            UserRegistry.printPasswordLink(ctx, email, getPassword());
         }
 
         @Override
@@ -349,6 +363,7 @@ public class UserRegistry {
          * @return list of locales, or null for ALL locales, or a 0-length list
          *         for NO locales.
          */
+        @Schema( hidden = true )
         public String[] getInterestList() {
             if (userIsExpert(this)) {
                 if (intlocs == null || intlocs.length() == 0) {
@@ -372,6 +387,7 @@ public class UserRegistry {
          * Set of interest locales for this user.
          * @return null for 'all', otherwise a set of CLDRLocales
          */
+        @Schema( hidden = true )
         public Set<CLDRLocale> getInterestLocales() {
             String[] intList = getInterestList();
             if(intList == null) {
@@ -431,8 +447,19 @@ public class UserRegistry {
             return getVoterToInfo(id);
         }
 
+        @Schema( name = "userLevelName", description = "VoteREsolver.Level user level" )
         public synchronized VoteResolver.Level getLevel() {
             return VoteResolver.Level.fromSTLevel(this.userlevel);
+        }
+
+        String getPassword() {
+            return password;
+        }
+
+        /** here to allow one JSP to get at the password, but otherwise keep the field hidden */
+        @Deprecated
+        public String internalGetPassword() {
+            return getPassword();
         }
 
         public synchronized Organization getOrganization() {
@@ -503,6 +530,7 @@ public class UserRegistry {
 
         /**
          * Doesn't send the password, does send other info
+         * TODO: remove this in favor of jax-rs serialization
          */
         @Override
         public String toJSONString() throws JSONException {
@@ -523,7 +551,22 @@ public class UserRegistry {
             return UserRegistry.userIsVetter(this) && (CLDRConfig.getInstance().getPhase() == Phase.SUBMISSION);
         }
 
-        public JSONObject getPermissionsJson() throws JSONException {
+        @Schema( description="how much this user’s vote counts for")
+        // @JsonbProperty("votecount")
+        public int getVoteCount() {
+            return getLevel().getVotes();
+        }
+
+        @Schema( description="how much this user’s vote counts for")
+        // @JsonbProperty("voteCountMenu")
+        public Integer[] getVoteCountMenu() {
+            return getLevel().getVoteCountMenu().toArray(new Integer[0]);
+        }
+
+        /**
+         * This one is hidden because it uses JSONObject and can't be serialized
+         */
+        JSONObject getPermissionsJson() throws JSONException {
             return new JSONObject()
                 .put("userCanImportOldVotes", canImportOldVotes())
                 .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
@@ -532,6 +575,30 @@ public class UserRegistry {
                 .put("userIsTC", userIsTC(this))
                 .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
                 .put("userIsLocked", userIsLocked(this));
+        }
+
+        /**
+         * this property is called permissionsJson for compatiblity
+         * @return
+         */
+        @JsonbProperty( "permissionsJson" )
+        @Schema( description = "array of permissions for this user" )
+        public Map<String, Boolean> getPermissions() {
+            Map<String, Boolean> m = new HashMap<>();
+
+            m.put("userCanImportOldVotes", canImportOldVotes());
+            m.put("userCanUseVettingSummary", userCanUseVettingSummary(this));
+            m.put("userCanMonitorForum", userCanMonitorForum(this));
+            m.put("userIsAdmin", userIsAdmin(this));
+            m.put("userIsTC", userIsTC(this));
+            m.put("userIsVetter", userIsVetter(this) && !userIsTC(this));
+            m.put("userIsLocked", userIsLocked(this));
+
+            return m;
+        }
+
+        public void setPassword(String randomPass) {
+            this.password = randomPass;
         }
     }
 
@@ -1524,6 +1591,12 @@ public class UserRegistry {
         // SurveyMain.vap.hashCode());
     }
 
+    /**
+     * Get a new User object
+     * @param ctx - webcontext if available
+     * @param u prototype - used for user information
+     * @return
+     */
     public User newUser(WebContext ctx, User u) {
         final boolean hushUserMessages = CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST;
         u.email = normalizeEmail(u.email);
@@ -1543,14 +1616,14 @@ public class UserRegistry {
             // u.name);
             insertStmt.setString(3, u.org);
             insertStmt.setString(4, u.email);
-            insertStmt.setString(5, u.password);
+            insertStmt.setString(5, u.getPassword());
             insertStmt.setString(6, normalizeLocaleList(u.locales));
             if (!insertStmt.execute()) {
                 if (!hushUserMessages) logger.info("Added.");
                 conn.commit();
                 if (ctx != null)
                     ctx.println("<p>Added user.<p>");
-                User newu = get(u.password, u.email, FOR_ADDING); // throw away
+                User newu = get(u.getPassword(), u.email, FOR_ADDING); // throw away
                 // old user
                 updateIntLocs(newu.id, conn);
                 resetOrgList(); // update with new org spelling.
@@ -2642,5 +2715,28 @@ public class UserRegistry {
         } finally {
             DBUtils.close(s, conn);
         }
+    }
+
+    /**
+     * Used for testing only.
+     * @param name
+     * @param org
+     * @param locales
+     * @param level
+     * @param email
+     * @return
+     */
+    public User createTestUser(String name, String org, String locales, Level level, String email) {
+        UserRegistry.User proto = getEmptyUser();
+        proto.email = email;
+        proto.name = name;
+        proto.org = org;
+        proto.setPassword(UserRegistry.makePassword(proto.email));
+        proto.userlevel = level.getSTLevel();
+        proto.locales = UserRegistry.normalizeLocaleList(locales);
+
+        User u = newUser(null, proto);
+        return u;
+
     }
 }

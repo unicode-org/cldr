@@ -633,14 +633,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     String newLocales = ctx.field("new_locales").trim();
                     newLocales = UserRegistry.normalizeLocaleList(newLocales);
                     u.locales = newLocales;
-                    u.password = randomPass;
+                    u.setPassword(randomPass);
                     u.userlevel = ctx.fieldInt("new_userlevel", -1);
                     if (u.userlevel <= 0) {
                         u.userlevel = UserRegistry.LOCKED; // nice try
                     }
                     UserRegistry.User registeredUser = reg.newUser(ctx, u);
                     ctx.println("<i>" + ctx.iconHtml("okay", "added") + "'" + u.name
-                        + "'. <br>Email: " + u.email + "  <br>Password: " + u.password + " <br>userlevel: " + u.getLevel() + "<br>");
+                        + "'. <br>Email: " + u.email + "  <br>Password: " + u.getPassword() + " <br>userlevel: " + u.getLevel() + "<br>");
                     if (autoProceed) {
                         ctx.print("You should be logged in shortly, otherwise click this link:");
                     } else {
@@ -652,12 +652,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("<br><br><br><br><i>Note: this is a test account, and may be removed at any time.</i>");
                     if (stayLoggedIn) {
                         ctx.addCookie(QUERY_EMAIL, u.email, TWELVE_WEEKS);
-                        ctx.addCookie(QUERY_PASSWORD, u.password, TWELVE_WEEKS);
+                        ctx.addCookie(QUERY_PASSWORD, u.getPassword(), TWELVE_WEEKS);
                     } else {
                         WebContext.removeLoginCookies(request, response);
                     }
                     if (autoProceed) {
-                        ctx.println("<script>window.setTimeout(function(){document.location = '" + ctx.base() + "/v?email=" + u.email + "&pw=" + u.password
+                        ctx.println("<script>window.setTimeout(function(){document.location = '" + ctx.base() + "/v?email=" + u.email + "&pw=" + u.getPassword()
                             + "';},3000);</script>");
                     }
                     ctx.println("</div>");
@@ -1641,7 +1641,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             u.email = new_email;
             u.org = new_org;
             u.locales = new_locales;
-            u.password = UserRegistry.makePassword(u.email + u.org + ctx.session.user.email);
+            u.setPassword(UserRegistry.makePassword(u.email + u.org + ctx.session.user.email));
 
             SurveyLog.debug("UR: Attempt newuser by " + ctx.session.user.email + ": of " + u.email + " @ " + ctx.userIP());
             UserRegistry.User registeredUser = reg.newUser(ctx, u);

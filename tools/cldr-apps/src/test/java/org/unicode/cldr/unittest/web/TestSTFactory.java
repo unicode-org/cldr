@@ -421,15 +421,7 @@ public class TestSTFactory extends TestFmwk {
                     String email = name + "@" + org + ".example.com";
                     UserRegistry.User u = fac.sm.reg.get(email);
                     if (u == null) {
-                        UserRegistry.User proto = fac.sm.reg.getEmptyUser();
-                        proto.email = email;
-                        proto.name = name;
-                        proto.org = org;
-                        proto.password = UserRegistry.makePassword(proto.email);
-                        proto.userlevel = level.getSTLevel();
-                        proto.locales = UserRegistry.normalizeLocaleList(locales);
-                        if (false) System.err.println("locale list was  " + proto.locales);
-                        u = fac.sm.reg.newUser(null, proto);
+                        u = fac.sm.reg.createTestUser(name, org, locales, level, email);
                     }
                     if (u == null) {
                         throw new InternalError("Couldn't find/register user " + name);

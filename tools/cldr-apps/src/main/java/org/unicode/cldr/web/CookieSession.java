@@ -26,6 +26,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.web.UserRegistry.User;
 
 /**
  * Instances of this class represent the session-persistent data kept on a
@@ -261,6 +262,30 @@ public class CookieSession {
         }
     }
 
+
+    /**
+     * Retrieve the session for a user
+     * @param user
+     * @return
+     */
+    public static CookieSession retrieveUser(User user) {
+        return retrieveUser(user.email);
+    }
+
+
+    /**
+     * Create a new session for this user.
+     * Will return an existing valid session if one is available.
+     * @param user the user to create
+     * @param ip the user's IP
+     * @return
+     */
+    public static CookieSession newSession(User user, final String ip) {
+        CookieSession session = CookieSession.newSession((user == null), ip);
+        session.setUser(user);
+        return session;
+    }
+
     /**
      * Associate this session with a user
      *
@@ -268,6 +293,7 @@ public class CookieSession {
      *            user
      */
     public void setUser(UserRegistry.User u) {
+        if(u == null) return;
         user = u;
         settings = null;
         synchronized (gHash) {
@@ -299,6 +325,10 @@ public class CookieSession {
         }
     }
 
+    public static CookieSession newSession(boolean isGuest, String ip) {
+        return newSession(isGuest, ip, CookieSession.newId(isGuest));
+    }
+
     public static CookieSession newSession(boolean isGuest, String ip, String fromId) {
         CookieSession rv = null;
         synchronized (gHash) {
@@ -320,7 +350,7 @@ public class CookieSession {
     /**
      * mark this session as recently updated and shouldn't expire
      */
-    protected void touch() {
+    public void touch() {
         lastBrowserCallMillisSinceEpoch = System.currentTimeMillis();
         if (DEBUG_INOUT) System.out.println("S: touch " + id + " - " + user);
     }
@@ -345,6 +375,17 @@ public class CookieSession {
         // clear out any database sessions in use
         DBUtils.closeDBConnection(conn);
         if (DEBUG_INOUT) System.out.println("S: Removing session: " + id + " - " + user);
+    }
+
+    /**
+     * Remove a specific session
+     * @param sessionId
+     */
+    public static void remove(String sessionId) {
+        CookieSession sess = CookieSession.retrieveWithoutTouch(sessionId);
+        if (sess != null) {
+            sess.remove(); // forcibly remove session
+        }
     }
 
     /**

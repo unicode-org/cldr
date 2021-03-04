@@ -81,6 +81,7 @@ public final class SurveyJSONWrapper {
      *
      * This function threw NullPointerException for u == null from sm.reg.getInfo(poster),
      * now fixed in SurveyForum.java. Maybe this function should check for u == null.
+     * TODO: remove this in favor of jax-rs serialization
      */
     public static JSONObject wrap(UserRegistry.User u) throws JSONException {
         return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)

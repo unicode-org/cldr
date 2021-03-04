@@ -43,7 +43,7 @@ const listMultipleUsersButton =
   "<button class='listMultipleUsers' type='button'>⋖ Show all users</button>\n";
 
 const doActionButton =
-  "<input type='submit' name='doBtn' value='Do Action' />\n";
+  "<button type='button' class='doActionButton'>Do Action</button>\n";
 
 const zoomImage =
   "<img alt='[zoom]' style='width: 16px; height: 16px; border: 0;' src='/cldr-apps/zoom.png' title='More on this user...' />";
@@ -63,13 +63,11 @@ const bulkActions = {
 const bulkActionListButton =
   "<button id='bulkActionListButton' type='button'>list</button>\n";
 
-// TODO: should this button be renamed from "Change" to "Do Action", for consistency, given that
-// its effect is the same as the "Do Action" buttons?
 const bulkActionChangeButtonDiv =
   "<div id='changeButton' style='display: none;'>" +
   "<hr /><i><b>Menus have been pre-filled.<br />" +
-  "Confirm your choices and click Change.</b></i><br />" +
-  "<button id='submitTableForm' type='button'>Change</button>\n" +
+  "Confirm your choices and click Do Action.</b></i><br />" +
+  doActionButton +
   "</div>\n";
 
 const infoType = {
@@ -234,6 +232,7 @@ function getHtml(json) {
     html += getListHiderControls(json);
   }
   html += getTable(json);
+  html += getInterestLocalesHtml(json);
   html += getDownloadCsvForm(json);
   if (json.exception) {
     html += "<p><i>Failure: " + json.exception + "</i></p>\n";
@@ -268,7 +267,7 @@ function getTable(json) {
 
 function getTableStart() {
   return (
-    "<form id='tableForm' method='POST' onsubmit='submitTableForm(event)'>\n" +
+    "<form id='tableForm' action=''>\n" +
     doActionButton +
     "<table id='" +
     userListTableId +
@@ -297,7 +296,7 @@ function numberOfUsersShown(number) {
   );
 }
 
-function submitTableForm(event) {
+function submitTableForm() {
   event.preventDefault();
   const formEl = document.getElementById("tableForm"); // maybe not event.target
   const data = new FormData(formEl);
@@ -330,7 +329,7 @@ function getUserTableRow(u, json) {
     "</td>" +
     // 5th column: "Locales"
     "<td>" +
-    getUserLocales(u, json) +
+    getUserLocales(u) +
     "</td>" +
     // 6th column: "Seen"
     "<td>" +
@@ -496,7 +495,7 @@ function getDeleteUserOptions(u, json) {
   return html;
 }
 
-function getUserLocales(u, json) {
+function getUserLocales(u) {
   const UserRegistry_MANAGER = 2; // TODO -- get from json.userPerms.levels? See UserRegistry.MANAGER in java
   const theirLevel = u.data.userlevel;
   if (
@@ -513,6 +512,94 @@ function getUserLocales(u, json) {
   }
 }
 
+function getInterestLocalesHtml(json) {
+  if (!isJustMe || !json.canSetInterestLocales || !byEmail[justUser]) {
+    return "";
+  }
+  const u = byEmail[justUser];
+  let html =
+    "<hr /><h4>Notify me about these locale groups (just the language names, no underscores or dashes):</h4>\n";
+  html += "<p id='changeInterestLocalesControls'>\n";
+  if (json.changedLocalesMessage) {
+    html += json.changedLocalesMessage;
+  }
+  html += getUserInterestLocales(u);
+  html += " <a id='changeInterestLocales'>[Change this]</a>\n";
+  html += "</p>\n";
+  return html;
+}
+
+function changeInterestLocales(result) {
+  if (!isJustMe || !byEmail[justUser]) {
+    return;
+  }
+  const u = byEmail[justUser];
+  const el = document.getElementById("changeInterestLocalesControls");
+  if (!el) {
+    return;
+  }
+  let html = "";
+  if (result) {
+    html += "Result: " + result + "<br />";
+  }
+  html += "<label>Locales: <input id='intLocs' ";
+  if (u.data.intlocs) {
+    html += "value='" + u.data.intlocs + "' ";
+  }
+  html +=
+    "></input></label><button id='intLocsButton' type='button'>Set</button><br />\n";
+  if (u.data.intlocs) {
+    html += getUserInterestLocales(u);
+  } else {
+    html +=
+      "<i>List languages only, separated by spaces. Example: <tt class='codebox'>en fr zh</tt>. Leave blank for 'all locales'.</i>\n";
+  }
+  el.innerHTML = html;
+  const button = document.getElementById("intLocsButton");
+  button.onclick = (event) => reallyChangeInterestLocales(event);
+}
+
+function getUserInterestLocales(u) {
+  if (u.data.intlocs) {
+    return prettyLocaleList(u.data.intlocs);
+  }
+  return "(no locales)";
+}
+
+function reallyChangeInterestLocales(event) {
+  const el = document.getElementById("intLocs");
+  if (!el) {
+    return;
+  }
+  const interestLocales = el.value;
+  const xhrArgs = {
+    url: getInterestLocalesUrl(),
+    handleAs: "json",
+    postData: getInterestLocalesPostData(interestLocales),
+    load: intLocsLoadHandler,
+    error: intLocsErrorHandler,
+  };
+  cldrAjax.sendXhr(xhrArgs);
+}
+
+function intLocsLoadHandler(json) {
+  if (json.email && json.email === justUser) {
+    const u = byEmail[justUser];
+    if (u) {
+      u.data.intlocs = json.intlocs;
+    }
+  }
+  if (!json.status) {
+    json.status = "(no status)";
+  }
+  changeInterestLocales(json.status);
+}
+
+function intLocsErrorHandler(err) {
+  changeInterestLocales("Error: " + err);
+}
+
+// locales could be either u.data.locales or u.data.intlocs
 function prettyLocaleList(locales) {
   const map = cldrLoad.getTheLocaleMap();
   let html = "";
@@ -1036,6 +1123,18 @@ function getUserActivityUrl() {
   return cldrAjax.makeUrl(p);
 }
 
+function getInterestLocalesUrl() {
+  return cldrStatus.getContextPath() + "/api/intlocs";
+}
+
+function getInterestLocalesPostData(interestLocales) {
+  return {
+    sessionString: cldrStatus.getSessionId(),
+    email: justUser,
+    intlocs: interestLocales,
+  };
+}
+
 function getParticipatingUsersLink() {
   // TODO: "Users Who Participated": see https://unicode-org.atlassian.net/browse/CLDR-14432
   return "<a class='notselected' href='v#tc-emaillist'>[TODO:] Email Address of Users Who Participated</a>";
@@ -1086,10 +1185,6 @@ function setOnClicks() {
   if (el) {
     el.onclick = (event) => submitBulkAction(event);
   }
-  el = document.getElementById("submitTableForm");
-  if (el) {
-    el.onclick = (event) => submitTableForm(event);
-  }
   el = document.getElementById("showLocked");
   if (el) {
     el.onclick = () => toggleShowLocked();
@@ -1098,14 +1193,26 @@ function setOnClicks() {
   if (el) {
     el.onclick = () => toggleHideAllUsers();
   }
+  el = document.getElementById("changeInterestLocales");
+  if (el) {
+    el.onclick = () => changeInterestLocales(null);
+  }
   el = document.getElementById("filterOrgSelect");
   if (el) {
     // onchange, not onclick
     el.onchange = (event) => filterOrg(event.target.value);
   }
+  setDoActionClicks();
   setZoomOnClicks();
   setMultipleUsersOnClicks();
   setActionMenuOnChange();
+}
+
+function setDoActionClicks() {
+  const els = document.getElementsByClassName("doActionButton");
+  for (let i = 0; i < els.length; i++) {
+    els[i].onclick = () => submitTableForm();
+  }
 }
 
 function setZoomOnClicks() {
@@ -1130,7 +1237,7 @@ function setActionMenuOnChange() {
     // actually there's only one such element, since justUser is true
     for (let i = 0; i < els.length; i++) {
       // onchange, not onclick
-      els[i].onchange = (event) => submitTableForm(event);
+      els[i].onchange = () => submitTableForm();
     }
   }
 }

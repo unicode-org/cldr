@@ -714,7 +714,7 @@ public class UserRegistry {
      *
      * @param id
      */
-    void userModified(int id) {
+    public void userModified(int id) {
         synchronized (infoArray) {
             try {
                 infoArray[id] = null;
@@ -1154,11 +1154,35 @@ public class UserRegistry {
         return setLocales(ctx, theirId, theirEmail, newLocales, false);
     }
 
+    /**
+     * Set the authorized locales, or the interest locales, for the specified user
+     *
+     * @param ctx the WebContext, used only for ctx.session
+     * @param theirId the user id
+     * @param theirEmail the user email
+     * @param newLocales the set of locales, as a string like "am fr zh"
+     * @param intLocs true to set interest locales, false to set authorized locales
+     * @return a message string describing the result
+     */
     String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales, boolean intLocs) {
-        if (!intLocs && !ctx.session.user.isAdminFor(getInfo(theirId))) { // will make sure other user is at or below userlevel
+        return setLocales(ctx.session, theirId, theirEmail, newLocales, intLocs);
+    }
+
+    /**
+     * Set the authorized locales, or the interest locales, for the specified user
+     *
+     * @param session the CookieSession
+     * @param theirId the user id
+     * @param theirEmail the user email
+     * @param newLocales the set of locales, as a string like "am fr zh"
+     * @param intLocs true to set interest locales, false to set authorized locales
+     * @return a message string describing the result
+     */
+    public String setLocales(CookieSession session, int theirId, String theirEmail, String newLocales, boolean intLocs) {
+        // make sure other user is at or below userlevel
+        if (!intLocs && !session.user.isAdminFor(getInfo(theirId))) {
             return ("[Permission Denied]");
         }
-
         if (!intLocs) {
             newLocales = normalizeLocaleList(newLocales);
         } else {
@@ -1166,10 +1190,10 @@ public class UserRegistry {
         }
         String orgConstraint = null;
         String msg = "";
-        if (ctx.session.user.userlevel == ADMIN) {
+        if (session.user.userlevel == ADMIN) {
             orgConstraint = ""; // no constraint
         } else {
-            orgConstraint = " AND org='" + ctx.session.user.org + "' ";
+            orgConstraint = " AND org='" + session.user.org + "' ";
         }
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1179,25 +1203,19 @@ public class UserRegistry {
             String theSql = "UPDATE " + CLDR_USERS + " SET " + (intLocs ? "intlocs" : "locales") + "=? WHERE id=" + theirId
                 + " AND email='" + theirEmail + "' " + orgConstraint;
             ps = conn.prepareStatement(theSql);
-            // msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
-            logger.info("Attempt user locales update by " + ctx.session.user.email + ": " + theSql + " - " + newLocales);
+            logger.info("Attempt user locales update by " + session.user.email + ": " + theSql + " - " + newLocales);
             ps.setString(1, normalizedLocales);
             int n = ps.executeUpdate();
             conn.commit();
             userModified(theirId);
             if (n == 0) {
-                msg = msg + " [Error: no users were updated!] ";
+                msg += " [Error: no users were updated!] ";
                 logger.severe("Error: 0 records updated.");
             } else if (n != 1) {
-                msg = msg + " [Error in updating users!] ";
+                msg += " [Error in updating users!] ";
                 logger.severe("Error: " + n + " records updated!");
             } else {
-                msg = msg + " [locales set]";
-
-                msg = msg + updateIntLocs(theirId, conn);
-                /*
-                 * if(intLocs) { return updateIntLocs(theirId); }
-                 */
+                msg += " [locales set]" + updateIntLocs(theirId, conn);
             }
         } catch (SQLException se) {
             msg = msg + " exception: " + DBUtils.unchainSqlException(se);
@@ -1205,17 +1223,17 @@ public class UserRegistry {
             msg = msg + " exception: " + t.toString();
         } finally {
             try {
-                if (ps != null)
+                if (ps != null) {
                     ps.close();
-                if (conn != null)
+                }
+                if (conn != null) {
                     conn.close();
+                }
             } catch (SQLException se) {
                 logger.log(java.util.logging.Level.SEVERE,
                     "UserRegistry: SQL error trying to close. " + DBUtils.unchainSqlException(se), se);
             }
         }
-        // }
-
         return msg;
     }
 
@@ -1705,11 +1723,12 @@ public class UserRegistry {
 
     /**
      * Can the user use the vetting summary page?
-     * @param u
-     * @return
+     *
+     * @param u the user
+     * @return true or false
      */
     public static final boolean userCanUseVettingSummary(User u) {
-        return (u != null) && ( /* userIsExactlyManager(u) || */userIsTC(u));
+        return userIsTC(u);
     }
 
     /**
@@ -1720,6 +1739,16 @@ public class UserRegistry {
      */
     public static final boolean userCanMonitorForum(User u) {
         return userIsTC(u) || userIsExactlyManager(u);
+    }
+
+    /**
+     * Can the user set their interest locales (intlocs)?
+     *
+     * @param u the user
+     * @return true or false
+     */
+    public static boolean userCanSetInterestLocales(User u) {
+        return userIsExpert(u);
     }
 
     static boolean localeMatchesLocaleList(String localeArray[], CLDRLocale locale) {

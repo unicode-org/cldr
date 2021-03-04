@@ -53,6 +53,9 @@ function load() {
             var li = document.createElement("li");
 
             var link = cldrDom.createChunk(data[k][header.LOCALE_NAME], "a");
+
+            // TODO: this href doesn't work
+            // reference: https://unicode-org.atlassian.net/browse/CLDR-14564
             link.href = "#" + data[k][header.LOCALE];
             (function (loc, link) {
               return function () {

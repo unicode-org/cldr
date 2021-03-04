@@ -145,6 +145,9 @@ function sendXhr(xhrArgs) {
   if (xhrArgs.postData || xhrArgs.content) {
     options.method = "POST";
     options.data = xhrArgs.postData ? xhrArgs.postData : xhrArgs.content;
+    if (typeof options.data === "object" && xhrArgs.url.includes("/api/")) {
+      options.makeJsonPost = true;
+    }
   } else {
     options.method = "GET";
   }
@@ -189,11 +192,16 @@ function setPostDataAndHeader(request, options) {
   if (typeof options.data === "string") {
     request.setRequestHeader("content-type", "text/plain");
   } else if (typeof options.data === "object") {
-    options.data = objToQuery(options.data);
-    request.setRequestHeader(
-      "content-type",
-      "application/x-www-form-urlencoded"
-    );
+    if (options.makeJsonPost) {
+      options.data = JSON.stringify(options.data);
+      request.setRequestHeader("content-type", "application/json");
+    } else {
+      options.data = objToQuery(options.data);
+      request.setRequestHeader(
+        "content-type",
+        "application/x-www-form-urlencoded"
+      );
+    }
   } else {
     console.log(
       "Error in setPostDataAndHeader: unexpected typeof options.data: " +

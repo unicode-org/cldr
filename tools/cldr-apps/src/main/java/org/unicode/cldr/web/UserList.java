@@ -187,6 +187,7 @@ public class UserList {
                     }
                 }
                 r.put("canSetInterestLocales", isJustMe && UserRegistry.userCanSetInterestLocales(me));
+                r.put("canGetEmailList", (!isJustMe) && UserRegistry.userCanGetEmailList(me));
             }
         } catch (SQLException se) {
             SurveyLog.logger.log(java.util.logging.Level.WARNING,

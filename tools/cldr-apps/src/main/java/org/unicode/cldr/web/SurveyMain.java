@@ -1792,7 +1792,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         printUserTableWithHelp(ctx, "/AddModifyUser");
 
-        if (UserRegistry.userIsTC(ctx.session.user)) {
+        if (UserRegistry.userCanGetEmailList(ctx.session.user)) {
             ctx.println("| <a class='notselected' href='v#tc-emaillist'>Email Address of Users Who Participated</a>");
             ctx.print(" | ");
         }

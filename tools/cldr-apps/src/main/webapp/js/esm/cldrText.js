@@ -276,26 +276,10 @@ const strings = {
     "${count} old winning votes were automatically imported",
   "v-title_desc":
     "This area shows the date before which votes are considered “old”.",
-  special_account: "Account Settings",
-  special_admin: "Admin Panel",
-  special_createAndLogin: "Create and Login",
-  special_error_subtypes: "Error Subtypes",
-  special_oldvotes: "Import Old Votes",
-  special_list_users: "List Users",
-  special_locales: "Locale List",
-  section_general: "General Info",
   section_forum: "Forum",
+  section_general: "General Info",
   section_subpages: "Subpages",
-  special_search: "Search",
-  special_mail: "Notifications (SMOKETEST ONLY)",
-  special_recent_activity: "Recent Activity",
-  special_statistics: "Statistics",
-  special_users: "Users",
-  special_r_compact: "Numbers",
-  special_r_datetime: "Datetime",
-  special_r_zones: "Zones",
-  special_r_vetting_json: "Dashboard",
-  special_retry: "Retry",
+
   searchNoResults: "No results found.",
   searchGuidance:
     "This is a basic search facility. An exact word such as 'Monday' or 'Montag' can be entered, or an XPath or string ID like 'eeaf1f975877a5d'.  An optional locale ID can be prefixed to any search term, so 'mt:Monday' or 'mt:eeaf1f975877a5d'.",
@@ -341,11 +325,6 @@ const strings = {
   users_infoVotesButton: "View Old Vote Stats",
   users_loadVotesButton: "Transfer Old Votes...",
 
-  special_default: "Missing Page",
-  special_about: "About Survey Tool",
-  special_general:
-    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
-  special_forum: "Forum Posts",
   forum_noposts: "No posts in this forum.",
   forum_item: "Item",
   forum_reply: "Reply",
@@ -390,9 +369,6 @@ const strings = {
 
   section_mail: "Messages",
 
-  special_vsummary: "Priority Items Summary (slow)",
-  special_flagged: "Flagged Items",
-
   flaggedGuidance:
     "This shows a list of items which are flagged for TC review. Items are sorted by locale and then date. ",
   flaggedTotalCount: "Total: ",
@@ -402,7 +378,6 @@ const strings = {
   vsStop: "Stop",
   vsContent_initial: "Click Recalculate to calculate the summary",
 
-  special_forum_participation: "Forum Participation",
   forum_participationGuidance: "This is the Forum Participation page.",
   forum_participation_TOTAL: "Posts in this release",
   forum_participation_ORG: "Posts by my org.",
@@ -412,9 +387,7 @@ const strings = {
 
   vetting_participationGuidance:
     "This is the Vetting Participation page. Specifically assigned vetters are marked in <b>bold</b>. Asterisk (*) denotes users who may vote in any locale.",
-  special_vetting_participation: "Vetting Participation",
 
-  special_bulk_close_posts: "Bulk Close Posts",
   bulk_close_postsGuidance:
     "This is the Forum Bulk Close Posts page. The results may take several minutes to load.",
 
@@ -451,6 +424,35 @@ const strings = {
   E_BAD_XPATH: "This item does not exist in this locale.",
 
   TRANS_HINT_LANGUAGE_NAME: "English", // must match SurveyMain.TRANS_HINT_LANGUAGE_NAME
+
+  special_about: "About Survey Tool",
+  special_account: "Account Settings",
+  special_admin: "Admin Panel",
+  special_bulk_close_posts: "Bulk Close Posts",
+  special_createAndLogin: "Create and Login",
+  special_default: "Missing Page",
+  special_error_subtypes: "Error Subtypes",
+  special_flagged: "Flagged Items",
+  special_forum: "Forum Posts",
+  special_forum_participation: "Forum Participation",
+  special_general:
+    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
+  special_list_emails: "List Email Addresses",
+  special_list_users: "List Users",
+  special_locales: "Locale List",
+  special_mail: "Notifications (SMOKETEST ONLY)",
+  special_oldvotes: "Import Old Votes",
+  special_r_compact: "Numbers",
+  special_r_datetime: "Datetime",
+  special_r_vetting_json: "Dashboard",
+  special_r_zones: "Zones",
+  special_recent_activity: "Recent Activity",
+  special_retry: "Retry",
+  special_search: "Search",
+  special_statistics: "Statistics",
+  special_users: "Users",
+  special_vetting_participation: "Vetting Participation",
+  special_vsummary: "Priority Items Summary (slow)",
 };
 
 /**

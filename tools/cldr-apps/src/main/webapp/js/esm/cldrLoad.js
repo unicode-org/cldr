@@ -15,6 +15,7 @@ import * as cldrForum from "./cldrForum.js";
 import * as cldrForumParticipation from "./cldrForumParticipation.js";
 import * as cldrGenericVue from "./cldrGenericVue.js";
 import * as cldrInfo from "./cldrInfo.js";
+import * as cldrListEmails from "./cldrListEmails.js";
 import * as cldrListUsers from "./cldrListUsers.js";
 import { LocaleMap } from "./cldrLocaleMap.js";
 import * as cldrLocales from "./cldrLocales.js";
@@ -630,6 +631,7 @@ function getSpecial(str) {
     error_subtypes: cldrErrorSubtypes,
     forum: cldrForum,
     forum_participation: cldrForumParticipation,
+    list_emails: cldrListEmails,
     list_users: cldrListUsers,
     locales: cldrLocales,
     mail: cldrMail,

@@ -212,7 +212,9 @@ function getHtml(json) {
   let html = "";
   html += getEmailNotification(json);
   if (!isJustMe) {
-    html += getParticipatingUsersLink() + "<br />\n";
+    if (json.canGetEmailList) {
+      html += getParticipatingUsersLink() + "<br />\n";
+    }
     html += getAddUserLink() + "<br />\n";
     if (orgList && !justUser) {
       html += getOrgFilterMenu();
@@ -1136,8 +1138,7 @@ function getInterestLocalesPostData(interestLocales) {
 }
 
 function getParticipatingUsersLink() {
-  // TODO: "Users Who Participated": see https://unicode-org.atlassian.net/browse/CLDR-14432
-  return "<a class='notselected' href='v#tc-emaillist'>[TODO:] Email Address of Users Who Participated</a>";
+  return "<a href='#list_emails'>Email Addresses of Users Who Participated</a>";
 }
 
 function getAddUserLink() {

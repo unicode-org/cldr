@@ -1824,6 +1824,16 @@ public class UserRegistry {
         return userIsExpert(u);
     }
 
+    /**
+     * Can the user get a list of email addresses of participating users?
+     *
+     * @param u the user
+     * @return true or false
+     */
+    public static boolean userCanGetEmailList(User u) {
+        return userIsExpert(u);
+    }
+
     static boolean localeMatchesLocaleList(String localeArray[], CLDRLocale locale) {
         return localeMatchesLocaleList(stringArrayToLocaleArray(localeArray), locale);
     }

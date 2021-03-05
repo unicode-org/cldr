@@ -534,6 +534,7 @@ function updateStatusLoadHandler(json) {
       wasBusted = true;
       busted();
     } else if (
+      (!json.status) || // SurveyTool may not be loaded yet
       (wasBusted == true && !json.status.isBusted) ||
       cldrStatus.runningStampChanged(json.status.surveyRunningStamp)
     ) {

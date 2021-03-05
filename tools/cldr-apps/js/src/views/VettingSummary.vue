@@ -1,9 +1,5 @@
 <template>
     <div id="home">
-        My Session Id:
-            <code>{{ cldrOpts.cldrStatus.getSessionId() }}</code>
-            — <i>(for debugging, you can use this session id with the Swagger UI)</i>
-        <br>
         Current Status Code: {{ statusData.status }}
         <button v-on:click="stop()">Stop</button>
         <button v-on:click="start()">Start</button>

@@ -3,8 +3,10 @@ package org.unicode.cldr.web.api;
 import java.io.IOException;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -17,9 +19,12 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.VettingViewerQueue;
+import org.unicode.cldr.web.VettingViewerQueue.ReviewOutput;
 
 @Path("/summary")
 public class Summary {
@@ -34,15 +39,13 @@ public class Summary {
         value = {
             @APIResponse(
                 responseCode = "200",
-                description = "Results of VV operation",
+                description = "Results of Summary operation",
                 content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = SummaryResponse.class)))
         })
     public Response doVettingSummary(
         @QueryParam("ss") @Schema(required = true, description = "Session String") String sessionString,
-
         SummaryRequest request
-
     ) {
         try {
             // TODO: put this in a helper function (once working)
@@ -78,5 +81,54 @@ public class Summary {
         } catch (JSONException | IOException ioe) {
             return Response.status(500, "An exception occurred").entity(ioe).build();
         }
+    }
+
+
+    @GET
+    @Path("/dashboard/{locale}/{level}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(
+        summary = "Fetch the Dashboard for a locale",
+        description = "Given a locale, get the summary information, aka Dashboard"
+    )
+    @APIResponses(
+        value = {
+            @APIResponse(
+                responseCode = "200",
+                description = "Dashboard results",
+                content =  @Content(mediaType = "application/json",
+                schema = @Schema(implementation = ReviewOutput.class))) // TODO: SummaryResults.class
+        }
+    )
+    public Response getDashboard(
+        @QueryParam("session") @Schema(required = true, description = "Session ID")
+        String session,
+        @PathParam("locale") @Schema(required = true, description = "Locale ID")
+        String locale,
+        @PathParam("level") @Schema(required = true, description = "Coverage Level")
+        String level
+    ) {
+        CLDRLocale loc = CLDRLocale.getInstance(locale);
+        // TODO: put this in a helper function (once working)
+        CookieSession.checkForExpiredSessions();
+        if (session == null || session.isEmpty()) {
+            return Response.status(401, "No Session String").build();
+        }
+        CookieSession cs = CookieSession.retrieve(session);
+        if (cs == null) {
+            // not authorized
+            return Response.status(401, "No Session").build();
+        }
+        if (!UserRegistry.userCanModifyLocale(cs.user, loc)) {
+            return Response.status(403, "Forbidden").build();
+        }
+        cs.userDidAction();
+
+        // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
+        Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
+        ReviewOutput ret = VettingViewerQueue.getInstance()
+            .getDashboardOutput(loc, cs.user, coverageLevel);
+
+        return Response.ok().entity(ret).build();
     }
 }

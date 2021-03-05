@@ -6,7 +6,6 @@ import * as cldrAdmin from "./cldrAdmin.js";
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrBulkClosePosts from "./cldrBulkClosePosts.js";
 import * as cldrCreateLogin from "./cldrCreateLogin.js";
-import * as cldrDash from "./cldrDash.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrErrorSubtypes from "./cldrErrorSubtypes.js";
 import * as cldrEvent from "./cldrEvent.js";
@@ -621,6 +620,7 @@ function getSpecial(str) {
     // These are handled by Vue.
     about: cldrGenericVue,
     vsummary: cldrGenericVue,
+    r_vetting_json: cldrGenericVue,
     default: cldrGenericVue, // Add this here for testing the '/v#default' page.
 
     // Other special pages.
@@ -639,7 +639,6 @@ function getSpecial(str) {
     r_compact: cldrReportNumbers,
     r_datetime: cldrReportDates,
     r_zones: cldrReportZones,
-    r_vetting_json: cldrDash,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
     vetting_participation: cldrVettingParticipation,

@@ -217,6 +217,24 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Virtual keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a physical keyboard. This term has many synonyms: touch keyboard, software keyboard, SIP (Software Input Panel). This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
 
+### 3.1 <a name="Escaping" href="#Escaping">Escaping</a>
+
+When explicitly specified, attributes can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
+
+The _UnicodeSet_ notation is described in [UTS#35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
+
+* `from`, `before`, `after` on the `<transform>` element
+* `from`, `before`, `after` on the `<reorder>` element
+* `from`, `before`, `after` on the `<backspace>` element
+
+The `\u{...}` notation, a subset of hex notation, is described in [UTS#18 section 1.1](http://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
+
+* `to`, `longPress`, `multitap`, `hint` on the `<map>` element
+* `to` on the `<transform>` element
+* `to` on the `<backspace>` element
+
+Characters of general category of Combining Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
+
 * * *
 
 ## 4 <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
@@ -513,7 +531,8 @@ _Attribute:_ `multitap` (optional)
 > ```xml  
 > <map iso="C01" to="a" multitap="bb c d">
 > ```
-
+> Control characters, combining marks and whitespace (which is intended to be a multitap option) in this attribute are escaped using the `\u{...}` notation.
+ 
 _Attribute:_ `longPress-status` (optional)
 
 > Indicates optional `longPress` values. Must only occur with a `longPress` value. May be suppressed or shown, depending on user settings. There can be two `map` elements that differ only by `longPress-status`, allowing two different sets of `longPress` values.  
@@ -531,7 +550,7 @@ _Attribute:_ `optional` (optional)
 
 _Attribute:_ `hint` (optional)
 
-> Indicates a hint as to long-press contents, such as the first character of the `longPress` value, that can be displayed on the key. May be suppressed or shown, depending on user Settings.  
+> Indicates a hint as to long-press contents, such as the first character of the `longPress` value, that can be displayed on the key. May be suppressed or shown, depending on user Settings. Characters in this attribute can be escaped using the `\u{...}` notation.
 > 
 > _Example:_ where the hint is "{":  
 > 

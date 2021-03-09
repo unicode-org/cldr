@@ -6,6 +6,9 @@ import { createApp } from "vue";
 // example: import {SomeComponent} from 'whatever'
 import { Popover } from "ant-design-vue";
 
+// local components
+import CldrValue from "./views/CldrValue.vue";
+
 // so we can unmount a component
 let lastMounted = null;
 
@@ -58,7 +61,8 @@ function show(component, el, specialPage, cldrOpts) {
 function setupComponents(app) {
   // example:
   // app.component('SomeComponent', SomeComponent)
-  app.component('Popover', Popover);
+  app.component("Popover", Popover);
+  app.component("cldr-value", CldrValue);
 }
 
 export { showPanel };

@@ -880,7 +880,11 @@ public class UserRegistry {
     }
 
     public final UserRegistry.User get(String pass, String email, String ip) throws LogoutException {
-        return get(pass, email, ip, false);
+        boolean letmein = false;
+        if ("admin@".equals(email) && SurveyMain.vap.equals(pass)) {
+            letmein = true;
+        }
+        return get(pass, email, ip, letmein);
     }
 
     public void touch(int id) {
@@ -919,10 +923,13 @@ public class UserRegistry {
             return null; // nothing to do
         }
 
-        if (email.startsWith("!") && pass != null && pass.equals(SurveyMain.vap)) {
-            email = email.substring(1);
-            letmein = true;
-        }
+        // /**
+        //  * Login as  '!somebody@example.com' with the master password (vap)
+        //  */
+        // if (email.startsWith("!") && pass != null && pass.equals(SurveyMain.vap)) {
+        //     email = email.substring(1);
+        //     letmein = true;
+        // }
 
         email = normalizeEmail(email);
 
@@ -933,12 +940,10 @@ public class UserRegistry {
         try {
             conn = DBUtils.getInstance().getDBConnection();
             if ((pass != null) && !letmein) {
-                // logger.info("Looking up " + email + " : " + pass);
                 pstmt = DBUtils.prepareForwardReadOnly(conn, SQL_queryStmt_FRO);
                 pstmt.setString(1, email);
                 pstmt.setString(2, pass);
             } else {
-                // logger.info("Looking up " + email);
                 pstmt = DBUtils.prepareForwardReadOnly(conn, SQL_queryEmailStmt_FRO);
                 pstmt.setString(1, email);
             }

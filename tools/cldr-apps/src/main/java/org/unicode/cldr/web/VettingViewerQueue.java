@@ -16,6 +16,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.Semaphore;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +57,57 @@ import com.ibm.icu.util.ULocale;
  *
  */
 public class VettingViewerQueue {
+
+    /*
+     *         {
+              "code": "narrow-other-nominative",
+              "comment": "&lt;value too wide&gt; Too wide by about 100% (with common fonts).",
+              "english": "{0}dsp-Imp",
+              "old": "{0} dstspn Imp",
+              "winning": "{0} dstspn Imp",
+              "xpath": "7bd36b15a66d02cf"
+            }
+          ],
+          "header": "dessert-spoon-imperial",
+          "notification": "Error",
+          "page": "Volume",
+
+     */
+    @Schema(description = "single entry of the dashboard that needs review")
+    public static final class ReviewEntry {
+
+        @Schema(description = "Code for this entry", example="narrow-other-nominative")
+        public String code;
+
+        @Schema(example = "7bd36b15a66d02cf")
+        public String xpath;
+
+        @Schema(description = "English text", example = "{0}dsp-Imp")
+        public String english;
+
+        @Schema(description = "Previous English value, for EnglishChanged", example = "{0} dstspn Imp")
+        public String previousEnglish;
+
+        @Schema(description = "Prior value from a past release", example = "{0} dstspn Imp")
+        public String old;
+
+        @Schema(description = "Winning string in this locale", example = "{0} dstspn Imp")
+        public String winning;
+
+        @Schema(description = "html comment on the error", example = "&lt;value too wide&gt; Too wide by about 100% (with common fonts).")
+        public String comment;
+
+        /**
+         * Create a new ReviewEntry
+         * @param code item code
+         * @param xpath xpath string
+         */
+        public ReviewEntry(String code, String xpath) {
+            this.code = code;
+            this.xpath = XPathTable.getStringIDString(xpath);
+        }
+
+    }
 
     public static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
 
@@ -526,20 +578,21 @@ public class VettingViewerQueue {
      * @param quick
      * @param ctx
      *
-     * Called only by writeVettingViewerOutput
+     * Called only by writeVettingViewerOutput. Deprecated code path and URL.
      */
+    @Deprecated
     private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile baselineFile,
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
         EnumSet<Choice> choices,
-        String localeID,
+        CLDRLocale locale,
         boolean nonVettingPhase,
         boolean quick, WebContext ctx) {
-
         try {
             JSONObject reviewInfo = new JSONObject();
             JSONArray notificationsCount = new JSONArray();
             List<String> notifications = new ArrayList<>();
-            CLDRFile englishFile = ctx.sm.getSTFactory().make("en", true);
+            SurveyMain sm = CookieSession.sm;
+            CLDRFile englishFile = sm.getSTFactory().make("en", true);
 
             for (Choice choice : choices) {
                 notificationsCount.put(new JSONObject().put("name", choice.buttonLabel.replace(' ', '_')).put("description", choice.description));
@@ -549,24 +602,7 @@ public class VettingViewerQueue {
             reviewInfo.put("notification", notificationsCount);
 
             Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
-                = Relation.of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>,
-                    Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
-
-            //TODO we can prob do it in only one loop, but with that we can sort
-            for (Entry<R2<SectionId, PageId>, Set<VettingViewer<Organization>.WritingInfo>> entry0 : sorted.keyValuesSet()) {
-                final Set<VettingViewer<Organization>.WritingInfo> rows = entry0.getValue();
-                for (VettingViewer<Organization>.WritingInfo pathInfo : rows) {
-                    Set<Choice> choicesForPath = pathInfo.problems;
-                    SectionId section = entry0.getKey().get0();
-                    PageId subsection = entry0.getKey().get1();
-                    for (Choice choice : choicesForPath) {
-                        //reviewInfo
-                        notificationsList.put(Row.of(choice, section, subsection, pathInfo.codeOutput.getHeader()), pathInfo);
-
-                    }
-                }
-
-            }
+               = getNotificationsList(sorted);
 
             JSONArray allNotifications = new JSONArray();
             for (Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry : notificationsList.keyValuesSet()) {
@@ -578,6 +614,8 @@ public class VettingViewerQueue {
                 String pageName = entry.getKey().get2().name();
                 String headerName = entry.getKey().get3();
 
+                // TODO: I suspect the following logic is broken, it seems to insert a string with a literal "null"
+                // into the output.
                 if (allNotifications.optJSONObject(notificationNumber) == null) {
                     allNotifications.put(notificationNumber, new JSONObject().put(notificationName, new JSONObject()));
                 }
@@ -604,7 +642,7 @@ public class VettingViewerQueue {
 
                     //code
                     content.put("code", code);
-                    content.put("path", ctx.sm.xpt.getByXpath(path));
+                    content.put("path", sm.xpt.getByXpath(path));
 
                     //english
                     if (choicesForPath.contains(Choice.englishChanged)) {
@@ -650,9 +688,15 @@ public class VettingViewerQueue {
             reviewInfo.put("allNotifications", allNotifications);
 
             //hidden info
-            ReviewHide review = new ReviewHide();
-            reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
-            reviewInfo.put("direction", ctx.getDirectionForLocale());
+            if (ctx != null) {
+                // TODO: remove. New API handles this separately
+                ReviewHide review = new ReviewHide();
+                reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
+            }
+
+            // TODO: Why is this included? Should already be visible to the client
+            // in the locmap under 'dir'
+            reviewInfo.put("direction", sm.getHTMLDirectionFor(locale));
 
             output.append(reviewInfo.toString());
         } catch (JSONException | IOException e) {
@@ -669,34 +713,27 @@ public class VettingViewerQueue {
      * @param sess the CookieSession
      */
     public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess) {
+        String levelString = sess.getLevelString();
+        UserRegistry.User user = sess.user;
+        Level usersLevel = getLevelForLocale(ctx, locale.getBaseName(), levelString);
+
+        writeVettingViewerOutput(locale, aBuffer, ctx, user, usersLevel);
+    }
+
+    public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, UserRegistry.User user, Level usersLevel) {
+        final SurveyMain sm = CookieSession.sm;
         String loc = locale.getBaseName();
-        String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
         /*
          * if no coverage level set, use default one
          */
-        Level usersLevel;
-        if (levelString.equals("default")) {
-            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(loc));
-        } else {
-            usersLevel = Level.get(levelString);
-        }
-        UserRegistry.User user = sess.user;
         Organization usersOrg = Organization.fromString(user.voterOrg());
         final boolean quick = false;
         final String st_org = user.org;
-        SurveyMain sm = CookieSession.sm;
         STFactory sourceFactory = sm.getSTFactory();
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
 
-        EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-        if (usersOrg.equals(Organization.surveytool)) {
-            choiceSet = EnumSet.of(
-                VettingViewer.Choice.error,
-                VettingViewer.Choice.warning,
-                VettingViewer.Choice.hasDispute,
-                VettingViewer.Choice.notApproved);
-        }
+        EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
 
         if (locale != SUMMARY_LOCALE) {
             /*
@@ -711,7 +748,7 @@ public class VettingViewerQueue {
             CLDRFile baselineFile = baselineFactory.make(loc, true);
             Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
             file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
-            this.getJSONReview(aBuffer, sourceFile, baselineFile, file, choiceSet, loc, true, quick, ctx);
+            this.getJSONReview(aBuffer, sourceFile, baselineFile, file, choiceSet, locale, true, quick, ctx);
         } else {
             if (DEBUG) {
                 System.err.println("Starting summary gen..");
@@ -723,6 +760,264 @@ public class VettingViewerQueue {
             createLocalesWithVotes(st_org);
             vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
         }
+    }
+
+    /**
+     * Get Vetting Viewer output as an object
+     * @param locale
+     * @param user
+     * @param usersLevel
+     * @return
+     */
+    public ReviewOutput getDashboardOutput(CLDRLocale locale, UserRegistry.User user, Level usersLevel) {
+        final SurveyMain sm = CookieSession.sm;
+        String loc = locale.getBaseName();
+        /*
+         * if no coverage level set, use default one
+         */
+        Organization usersOrg = Organization.fromString(user.voterOrg());
+        final boolean quick = false;
+        final String st_org = user.org;
+        STFactory sourceFactory = sm.getSTFactory();
+        VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
+            getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
+
+        EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
+
+        // This is to prvent confusion, because parallel functions
+        // use the locale to identify a summary locale.
+        if (locale == SUMMARY_LOCALE) {
+            throw new IllegalArgumentException("SUMMARY_LOCALE not supported via getDashboardOutput()");
+        }
+        /*
+         * sourceFile provides the current winning values, taking into account recent votes.
+         * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
+         * are in the current XML in the cldr version control repository. The baseline values
+         * are generally the last release values plus any changes that have been made by the
+         * technical committee by committing directly to version control rather than voting.
+         */
+        CLDRFile sourceFile = sourceFactory.make(loc, true);
+        Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        CLDRFile baselineFile = baselineFactory.make(loc, true);
+        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
+        file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
+        return getDashboardOutput(sourceFile, baselineFile, file, choiceSet, locale);
+    }
+
+    @Schema(description = "Heading for a portion of the notifications")
+    public static final class ReviewNotification{
+
+        @Schema(description = "Notification type", example = "Error")
+        public String notification;
+
+        public ReviewNotification(String notificationName) {
+            this.notification = notificationName;
+        }
+
+        // for serialization
+        public ReviewNotificationGroup[] getEntries() {
+            return entries.toArray(new ReviewNotificationGroup[entries.size()]);
+        }
+
+        private List<ReviewNotificationGroup> entries = new ArrayList<>();
+
+        ReviewNotificationGroup add(ReviewNotificationGroup group) {
+            this.entries.add(group);
+            return group;
+        }
+    }
+
+
+    @Schema(description = "Group of notifications which share the same section/page/header")
+    public static final class ReviewNotificationGroup {
+        private List<ReviewEntry> entries = new ArrayList<>();
+
+        @Schema(description = "SurveyTool section", example = "Units")
+        public String section;
+        @Schema(description = "SurveyTool page", example = "Volume")
+        public String page;
+        @Schema(description = "SurveyTool header", example = "dessert-spoon-imperial")
+        public String header;
+
+        public ReviewNotificationGroup(String sectionName, String pageName, String headerName) {
+            this.section = sectionName;
+            this.page = pageName;
+            this.header = headerName;
+        }
+
+        public ReviewEntry add(String code, String xpath) {
+            ReviewEntry e = new ReviewEntry(code, xpath);
+            this.entries.add(e);
+            return e;
+        }
+
+        // for serialization
+        public ReviewEntry[] getEntries() {
+            return entries.toArray(new ReviewEntry[entries.size()]);
+        }
+    }
+
+
+    @Schema(description = "Output of Dashboard output")
+    public static final class ReviewOutput {
+        @Schema(description = "list of notifications")
+        private List<ReviewNotification> notifications = new ArrayList<>();
+
+        public ReviewNotification[] getNotifications() {
+            return notifications.toArray(new ReviewNotification[notifications.size()]);
+        }
+
+        public ReviewNotification add(String notification) {
+            return add(new ReviewNotification(notification));
+        }
+
+        /**
+         * Add this notification, unless the name is an exact match
+         * @param notificationName name of the next notification (e.g. Error)
+         * @param unlessMatches if this notification is already the same as notificationName, just return it.
+         * @return
+         */
+        public ReviewNotification add(String notificationName, ReviewNotification unlessMatches) {
+            if(unlessMatches != null && unlessMatches.notification.equals(notificationName)) {
+                return unlessMatches;
+            } else {
+                return add(notificationName);
+            }
+        }
+
+        public ReviewNotification add(ReviewNotification notification) {
+            this.notifications.add(notification);
+            return notification;
+        }
+    }
+
+    /**
+     * Get Dashboard output as an object
+     * @param sourceFile
+     * @param baselineFile
+     * @param sorted
+     * @param choices
+     * @param locale
+     * @return
+     */
+    private ReviewOutput getDashboardOutput(CLDRFile sourceFile, CLDRFile baselineFile,
+        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
+        EnumSet<Choice> choices,
+        CLDRLocale locale) {
+
+        ReviewOutput reviewInfo = new ReviewOutput();
+
+        addNotificationEntries(sourceFile, baselineFile, sorted, reviewInfo);
+        return reviewInfo;
+    }
+
+    private void addNotificationEntries(CLDRFile sourceFile, CLDRFile baselineFile, Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
+        ReviewOutput reviewInfo) {
+        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
+            = getNotificationsList(sorted);
+
+        ReviewNotification notification = null;
+
+        SurveyMain sm = CookieSession.sm;
+        CLDRFile englishFile = sm.getEnglishFile();
+
+        for (Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry : notificationsList.keyValuesSet()) {
+
+            notification = getNextNotification(reviewInfo, notification, entry);
+
+            addNotificiationGroup(sourceFile, baselineFile, notification, englishFile, entry);
+        }
+    }
+
+    private ReviewNotification getNextNotification(ReviewOutput reviewInfo, ReviewNotification notification,
+        Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
+        String notificationName = entry.getKey().get0().buttonLabel.replace(' ', '_');
+
+        notification = reviewInfo.add(notificationName, notification);
+        return notification;
+    }
+
+    private void addNotificiationGroup(CLDRFile sourceFile, CLDRFile baselineFile, ReviewNotification notification, CLDRFile englishFile,
+        Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
+        String sectionName = entry.getKey().get1().name();
+        String pageName = entry.getKey().get2().name();
+        String headerName = entry.getKey().get3();
+
+        ReviewNotificationGroup header = notification.add(new ReviewNotificationGroup(sectionName, pageName, headerName));
+
+        for (VettingViewer<Organization>.WritingInfo info : entry.getValue()) {
+            String code = info.codeOutput.getCode();
+            String path = info.codeOutput.getOriginalPath();
+            Set<Choice> choicesForPath = info.problems;
+
+            ReviewEntry reviewEntry = header.add(code, path);
+
+            reviewEntry.english = englishFile.getWinningValue(path);
+
+            if (choicesForPath.contains(Choice.englishChanged)) {
+                String previous = VettingViewer.getOutdatedPaths().getPreviousEnglish(path);
+                reviewEntry.previousEnglish = previous;
+            }
+
+            //old release
+            final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
+            reviewEntry.old = oldStringValue;
+
+            //winning value
+            String newWinningValue = sourceFile.getWinningValue(path);
+            reviewEntry.winning = newWinningValue;
+
+            //comment
+            String comment = "";
+            if (!info.htmlMessage.isEmpty()) {
+                reviewEntry.comment = info.htmlMessage;
+            }
+        }
+    }
+
+    private Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> getNotificationsList(
+        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted) {
+        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
+        = Relation.of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>,
+            Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
+
+        //TODO we can prob do it in only one loop, but with that we can sort
+        for (Entry<R2<SectionId, PageId>, Set<VettingViewer<Organization>.WritingInfo>> entry0 : sorted.keyValuesSet()) {
+            final Set<VettingViewer<Organization>.WritingInfo> rows = entry0.getValue();
+            for (VettingViewer<Organization>.WritingInfo pathInfo : rows) {
+                Set<Choice> choicesForPath = pathInfo.problems;
+                SectionId section = entry0.getKey().get0();
+                PageId subsection = entry0.getKey().get1();
+                for (Choice choice : choicesForPath) {
+                    //reviewInfo
+                    notificationsList.put(Row.of(choice, section, subsection, pathInfo.codeOutput.getHeader()), pathInfo);
+                }
+            }
+        }
+        return notificationsList;
+    }
+
+
+    private Level getLevelForLocale(WebContext ctx, String loc, String levelString) {
+        Level usersLevel;
+        if (levelString.equals("default")) {
+            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(loc));
+        } else {
+            usersLevel = Level.get(levelString);
+        }
+        return usersLevel;
+    }
+
+    private EnumSet<VettingViewer.Choice> getChoiceSetForOrg(Organization usersOrg) {
+        EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
+        if (usersOrg.equals(Organization.surveytool)) {
+            choiceSet = EnumSet.of(
+                VettingViewer.Choice.error,
+                VettingViewer.Choice.warning,
+                VettingViewer.Choice.hasDispute,
+                VettingViewer.Choice.notApproved);
+        }
+        return choiceSet;
     }
 
     /**

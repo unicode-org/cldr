@@ -1654,11 +1654,7 @@ public class WebContext implements Cloneable, Appendable {
         if (password.isEmpty()) {
             password = field(SurveyMain.QUERY_PASSWORD_ALT);
         }
-        boolean letmein = SurveyMain.vap.equals(field("letmein")); // using CLDR_VAP (admin) password
         String email = field(SurveyMain.QUERY_EMAIL);
-        if ("admin@".equals(email) && SurveyMain.vap.equals(password)) {
-            letmein = true;
-        }
 
         // if there was an email/password in the cookie, use that.
         {
@@ -1679,7 +1675,7 @@ public class WebContext implements Cloneable, Appendable {
         User user = null;
         // if an email/password given, try to fetch a user
         try {
-            user = CookieSession.sm.reg.get(password, email, userIP(), letmein);
+            user = CookieSession.sm.reg.get(password, email, userIP());
         } catch (LogoutException e) {
             logout(); // failed login, so logout this session.
         }
@@ -1742,7 +1738,7 @@ public class WebContext implements Cloneable, Appendable {
         if (CookieSession.DEBUG_INOUT) System.out.println("Session Now=" + session + ", user=" + user);
 
         // guest?
-        if (letmein || (user != null && UserRegistry.userIsTC(user))) {
+        if (user != null && UserRegistry.userIsTC(user)) {
             // allow in administrator or TC.
         } else if ((user != null) && (session == null)) { // user trying to log in-
             if (CookieSession.tooManyUsers()) {

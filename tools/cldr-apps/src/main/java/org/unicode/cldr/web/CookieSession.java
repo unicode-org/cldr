@@ -945,4 +945,9 @@ public class CookieSession {
     public void setMessage(String s) {
         sessionMessage = s;
     }
+
+    String getLevelString() {
+        String levelString = settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
+        return levelString;
+    }
 }

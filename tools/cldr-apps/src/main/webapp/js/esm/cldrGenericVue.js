@@ -33,6 +33,7 @@ function loadHandler(json, specialPage) {
 
   // add Vue-based about box
   cldrBundle.showPanel(specialPage, app, {
+    cldrSurvey,
     cldrStatus,
     cldrEvent, // Vue could call into these, if need be
   });

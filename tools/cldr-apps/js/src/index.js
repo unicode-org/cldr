@@ -1,6 +1,14 @@
-import "./style.css";
-// This is the entrypoint for the new SurveyTool app
+// This file gets bundled into bundle.js’s cldrBundle global
 
+// new global stylesheet
+import "./style.css";
+
+// module stylesheets need to go here. See cldrVueRouter.js
+// example: import 'someModule/dist/someModule.css'
+import 'ant-design-vue/dist/antd.css';
+
+
+// local modules
 import { showPanel } from "./cldrVueRouter.js";
 import { runGui } from "./runGui.js";
 

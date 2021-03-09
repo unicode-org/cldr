@@ -3,57 +3,78 @@
     <p v-if="fetchErr" class="st-sad">Error loading data: {{ fetchErr }}</p>
     <p v-if="!data" class="st-sad">Loading…</p>
     <div v-if="data && !fetchErr" id="scrollingwindow">
-      <div v-for="n in data.notifications" :key="n.notification">
+      <div
+        v-for="n in data.notifications"
+        :key="n.notification"
+        class="notificationcontainer"
+      >
         <h3 class="collapse-review">
+          <button class="btn btn-default" v-on:click="n.hidden = !n.hidden">
+            <span v-if="!n.hidden" class="glyphicon glyphicon-minus"> </span>
+            <span v-if="n.hidden" class="glyphicon glyphicon-plus"> </span>
+          </button>
           {{ n.notification }} ({{ n.entries.length }})
-
         </h3>
-        <table v-for="g in n.entries" :key="g.header" class="table table-responsive table-fixed-header table-review">
-          <thead>
-            <tr class="info">
-              <td colspan="5">
-                <b>{{ g.section }} — {{ g.page }}</b>
-                :
-                {{ g.header }}
-              </td>
-            </tr>
-            <tr>
-              <th>Code</th><th>English</th><th>Baseline</th>
-              <th>Winning {{ cldrOpts.cldrStatus.getNewVersion() }}</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="e in g.entries" :key="e.xpath" class="data-review">
-              <td class="button-review">
-                <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
-                  <span class="label label-info">
-                    {{ e.code }}
-                  </span> </a>
-              </td>
-              <td>
-                  {{ e.english }}
-              </td>
-              <td>
-                  {{ e.old }}
-              </td>
-              <td>
-                  {{ e.winning }}
-              </td>
-              <td class="button-review">
-                <Popover v-if="e.comment" title="Information" trigger="click">
-                  <template #content>
-                    <p v-html="e.comment" />
-                  </template>
-                  <button class="btn btn-default help-comment">
-                    <span class="glyphicon glyphicon-info-sign">
+        <div class="notificationgroup" v-if="!n.hidden">
+          <table
+            v-for="g in n.entries"
+            :key="g.header"
+            class="table table-responsive table-fixed-header table-review"
+          >
+            <thead>
+              <tr class="info">
+                <td colspan="5">
+                  <b>{{ g.section }} — {{ g.page }}</b>
+                  :
+                  {{ g.header }}
+                </td>
+              </tr>
+              <tr>
+                <th>Code</th>
+                <th>English</th>
+                <th>Baseline</th>
+                <th>Winning {{ cldrOpts.cldrStatus.getNewVersion() }}</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="e in g.entries" :key="e.xpath" class="data-review">
+                <td class="button-review">
+                  <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
+                    <span class="label label-info">
+                      {{ e.code }}
                     </span>
-                  </button>
-                </Popover>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                  </a>
+                </td>
+                <td>
+                  {{ e.english }}
+                </td>
+                <td>
+                  <cldr-value
+                    v-bind:value="e.old"
+                    v-bind:dir="cldrOpts.localeDir"
+                  />
+                </td>
+                <td>
+                  <cldr-value
+                    v-bind:value="e.winning"
+                    v-bind:dir="cldrOpts.localeDir"
+                  />
+                </td>
+                <td class="button-review">
+                  <Popover v-if="e.comment" title="Information" trigger="click">
+                    <template #content>
+                      <p v-html="e.comment" />
+                    </template>
+                    <button class="btn btn-default help-comment">
+                      <span class="glyphicon glyphicon-info-sign"> </span>
+                    </button>
+                  </Popover>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -74,11 +95,10 @@ export default {
   },
   methods: {
     fetchData() {
-      const { cldrStatus, cldrSurvey } = this.cldrOpts;
-      const locale = cldrStatus.getCurrentLocale();
+      const { cldrSurvey, locale, sessionId } = this.cldrOpts;
       this.locale = locale;
       const level = cldrSurvey.getSurveyUserCov();
-      const session = cldrStatus.getSessionId();
+      const session = sessionId;
       if (!locale) {
         this.fetchErr = "Please choose a locale first.";
         return;
@@ -141,6 +161,9 @@ export default {
   margin-right: 8px;
 }
 
-
-
+.collapse-review {
+  border-top: 2px solid gray;
+  margin-top: 4px;
+  padding-top: 5px;
+}
 </style>

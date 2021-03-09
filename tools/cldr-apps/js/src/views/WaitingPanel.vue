@@ -3,7 +3,7 @@
         <h1 class='hang'>
             Waiting for the SurveyTool to startup…
         </h1>
-        <h1><tt>{{ /* little spinner */ "/|\\-".charAt(fetchCount % 4) }}</tt></h1>
+        <h1><kbd>{{ /* little spinner */ "/|\\-".charAt(fetchCount % 4) }}</kbd></h1>
         <!-- todo: spinner -->
         <ol>
             <li v-if="!statusData">Checking…</li><!-- this shows while we are waiting for status data -->

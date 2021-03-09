@@ -30,7 +30,6 @@ function getItems() {
     disableMyAccount: "lock.jsp",
     xmlUpload: "upload.jsp?a=/cldr-apps/survey&s=" + sessionId,
     flag: "tc-flagged.jsp?s=" + sessionId,
-    browse: "browse.jsp",
   };
   return [
     {
@@ -161,9 +160,8 @@ function getItems() {
     aboutMenu,
 
     {
-      title: "Lookup a code or xpath",
+      special: "lookup",
       level: 2,
-      url: surveyUserURL.browse,
     },
     {
       special: "error_subtypes",

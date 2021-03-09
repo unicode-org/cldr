@@ -440,6 +440,7 @@ const strings = {
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",
+  special_lookup: "Look up a code or xpath",
   special_mail: "Notifications (SMOKETEST ONLY)",
   special_oldvotes: "Import Old Votes",
   special_r_compact: "Numbers",

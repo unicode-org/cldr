@@ -1,26 +1,38 @@
 <template>
   <div id="dashboard">
     <p v-if="fetchErr" class="st-sad">Error loading data: {{ fetchErr }}</p>
-    <p v-if="!data" class="st-sad">Loading…</p>
+    <a-spin v-if="!data">
+      <i>Loading…</i>
+    </a-spin>
     <div v-if="data && !fetchErr" id="scrollingwindow">
+      <!-- summary -->
+      <h4>
+        Coverage level <b>{{ level }}</b>:
+        <span
+          v-for="n in data.notifications"
+          :key="n.notification">
+          <span>
+            {{ n.notification }} ({{ n.total }})
+          </span>
+          &nbsp;&nbsp;
+        </span>
+      </h4>
+      <!-- tables -->
       <div
         v-for="n in data.notifications"
         :key="n.notification"
-        class="notificationcontainer"
-      >
-        <h3 class="collapse-review">
-          <button class="btn btn-default" v-on:click="n.hidden = !n.hidden">
-            <span v-if="!n.hidden" class="glyphicon glyphicon-minus"> </span>
-            <span v-if="n.hidden" class="glyphicon glyphicon-plus"> </span>
-          </button>
-          {{ n.notification }} ({{ n.entries.length }})
+        class="notificationcontainer">
+        <h3 v-on:click="n.hidden = !n.hidden" class="collapse-review">
+          <i v-if="!n.hidden" class="glyphicon glyphicon-chevron-down" />
+          <i v-if="n.hidden" class="glyphicon glyphicon-chevron-right" />
+
+          {{ n.notification }} ({{ n.total }})
         </h3>
         <div class="notificationgroup" v-if="!n.hidden">
           <table
             v-for="g in n.entries"
             :key="g.header"
-            class="table table-responsive table-fixed-header table-review"
-          >
+            class="table table-responsive table-fixed-header table-review">
             <thead>
               <tr class="info">
                 <td colspan="5">
@@ -88,16 +100,25 @@ export default {
       data: null,
       fetchErr: null,
       locale: null,
+      level: null,
     };
   },
   created() {
     this.fetchData();
   },
   methods: {
+    handleCoverageChanged(level) {
+      console.log("Changing level: " + level);
+      this.data = null;
+      this.fetchData();
+      return true;
+    },
     fetchData() {
       const { cldrSurvey, locale, sessionId } = this.cldrOpts;
       this.locale = locale;
       const level = cldrSurvey.getSurveyUserCov();
+      this.level = level;
+      console.log("Loading for " + level);
       const session = sessionId;
       if (!locale) {
         this.fetchErr = "Please choose a locale first.";
@@ -106,6 +127,14 @@ export default {
       fetch(`api/summary/dashboard/${locale}/${level}?session=${session}`)
         .then((data) => data.json())
         .then((data) => {
+          // calculate total counts
+          for (let e in data.notifications) {
+            const n = data.notifications[e];
+            n.total = 0;
+            for(let g in n.entries) {
+              n.total += n.entries[g].entries.length;
+            }
+          }
           this.data = data;
         })
         .catch((err) => {

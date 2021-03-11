@@ -96,6 +96,12 @@
 				<configuration>
 					<excludedScopes>system,test</excludedScopes>
 					<useMissingFile>true</useMissingFile>
+					<!--
+						exclude the "for-cldr" dependencies.
+						see https://unicode-org.atlassian.net/browse/ICU-21425
+						these are actually under Unicode-DFS-2016 the same as CLDR is.
+					-->
+					<excludedArtifacts>.*-for-cldr.*</excludedArtifacts>
 				</configuration>
 			</plugin>
 			<plugin>

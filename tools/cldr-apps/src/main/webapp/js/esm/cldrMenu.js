@@ -211,12 +211,7 @@ function patternCoverageClick(event, theLocale, clickedElement) {
       function (json) {
         if (cldrLoad.verifyJson(json, "pref")) {
           cldrEvent.unpackMenuSideBar(json);
-          if (
-            cldrStatus.getCurrentSpecial() &&
-            isReport(cldrStatus.getCurrentSpecial())
-          ) {
-            cldrLoad.reloadV();
-          }
+          cldrLoad.handleCoverageChanged(cldrSurvey.getSurveyUserCov());
           console.log("Server set covlev successfully.");
         }
       }

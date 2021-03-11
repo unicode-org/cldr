@@ -530,6 +530,27 @@ function reloadV() {
   }
 } // end reloadV
 
+/**
+ * The coverage level changed. Pass this off to the Vue component or the Special page.
+ * @param {String} newLevel
+ * @returns true if the change was handled.
+ */
+function handleCoverageChanged(newLevel) {
+  const currentSpecial = cldrStatus.getCurrentSpecial();
+  if (currentSpecial) {
+    const special = getSpecial(currentSpecial);
+    if (special.handleCoverageChanged && special.handleCoverageChanged(newLevel)) {
+      return true;
+    }
+    if (isReport(currentSpecial)) {
+      // Cause the page to reload.
+      reloadV();
+      return true;
+    }
+  }
+  return false;
+}
+
 function ignoreReloadRequest() {
   console.log(
     "reloadV()'s shower - ignoring reload request, we are in the middle of a load!"
@@ -1118,6 +1139,7 @@ export {
   flipToGenericNoLocale,
   flipToOtherDiv,
   getTheLocaleMap,
+  handleCoverageChanged,
   insertLocaleSpecialNote,
   linkToLocale,
   myLoad,

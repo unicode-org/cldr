@@ -134,6 +134,12 @@ function setCurrentPage(page) {
  */
 let currentSpecial = null;
 
+/**
+ * A string such as null, '' (empty), 'forum', 'search', 'r_vetting_json', etc.
+ * sometimes identifying a js module such as special/forum.js, but not always;
+ * 'r_vetting_json' identifies the Dashboard.
+ * a.k.a. surveyCurrentSpecial
+ */
 function getCurrentSpecial() {
   return currentSpecial;
 }

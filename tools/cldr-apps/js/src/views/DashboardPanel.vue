@@ -7,13 +7,10 @@
     <div v-if="data && !fetchErr" id="scrollingwindow">
       <!-- summary -->
       <h4>
-        Coverage level <b>{{ level }}</b>:
-        <span
-          v-for="n in data.notifications"
-          :key="n.notification">
-          <span>
-            {{ n.notification }} ({{ n.total }})
-          </span>
+        Coverage level <b>{{ level }}</b
+        >:
+        <span v-for="n in data.notifications" :key="n.notification">
+          <span> {{ n.notification }} ({{ n.total }}) </span>
           &nbsp;&nbsp;
         </span>
       </h4>
@@ -21,7 +18,8 @@
       <div
         v-for="n in data.notifications"
         :key="n.notification"
-        class="notificationcontainer">
+        class="notificationcontainer"
+      >
         <h3 v-on:click="n.hidden = !n.hidden" class="collapse-review">
           <i v-if="!n.hidden" class="glyphicon glyphicon-chevron-down" />
           <i v-if="n.hidden" class="glyphicon glyphicon-chevron-right" />
@@ -32,7 +30,8 @@
           <table
             v-for="g in n.entries"
             :key="g.header"
-            class="table table-responsive table-fixed-header table-review">
+            class="table table-responsive table-fixed-header table-review"
+          >
             <thead>
               <tr class="info">
                 <td colspan="5">
@@ -131,7 +130,7 @@ export default {
           for (let e in data.notifications) {
             const n = data.notifications[e];
             n.total = 0;
-            for(let g in n.entries) {
+            for (let g in n.entries) {
               n.total += n.entries[g].entries.length;
             }
           }

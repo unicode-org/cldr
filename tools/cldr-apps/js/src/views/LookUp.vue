@@ -75,7 +75,7 @@ export default {
       if (json.err) {
         // TODO: given "12345678", don't report "Status 500 Internal Server Error; URL: api/xpath/dec/12345678"!
         // Caused by: java.lang.InternalError: Exceeded max 768000 @ 12345678
-	      // at org.unicode.cldr.web.IntHash.get(IntHash.java:61)
+        // at org.unicode.cldr.web.IntHash.get(IntHash.java:61)
         // The server should be more robust, and catch such exceptions, or not throw them in the first place
         this.xpathStatus = "❌  " + json.message;
       } else {

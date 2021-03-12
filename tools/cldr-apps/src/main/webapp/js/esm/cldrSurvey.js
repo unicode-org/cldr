@@ -163,7 +163,6 @@ function unbust() {
   cldrStatus.setIsDisconnected(false);
   cldrDom.removeClass(document.getElementsByTagName("body")[0], "disconnected");
   wasBusted = false;
-  cldrAjax.clearXhr();
   hideLoader();
   updateStatus(); // will restart regular status updates
 }
@@ -179,13 +178,6 @@ function handleChangedLocaleStamp(stamp, name) {
     return;
   }
   if (stamp <= surveyNextLocaleStamp) {
-    return;
-  }
-  /*
-   * For performance, postpone the all-row WHAT_GETROW update if multiple
-   * requests (e.g., vote or single-row WHAT_GETROW requests) are pending.
-   */
-  if (cldrAjax.queueCount() > 1) {
     return;
   }
   if (Object.keys(showers).length == 0) {
@@ -534,7 +526,7 @@ function updateStatusLoadHandler(json) {
       wasBusted = true;
       busted();
     } else if (
-      (!json.status) || // SurveyTool may not be loaded yet
+      !json.status || // SurveyTool may not be loaded yet
       (wasBusted == true && !json.status.isBusted) ||
       cldrStatus.runningStampChanged(json.status.surveyRunningStamp)
     ) {
@@ -1518,7 +1510,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
     error: errorHandler,
     timeout: cldrAjax.mediumTimeout(),
   };
-  cldrAjax.queueXhr(xhrArgs);
+  cldrAjax.sendXhr(xhrArgs);
 }
 
 /**
@@ -1708,7 +1700,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
     error: errorHandler,
     timeout: cldrAjax.mediumTimeout(),
   };
-  cldrAjax.queueXhr(xhrArgs);
+  cldrAjax.sendXhr(xhrArgs);
 }
 
 /**

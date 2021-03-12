@@ -119,7 +119,7 @@ function showRecent() {
       load: loadHandler,
       error: errorHandler,
     };
-    cldrAjax.queueXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   };
   div.update();
 
@@ -212,7 +212,7 @@ function showAllItems() {
       load: loadHandler,
       error: errorHandler,
     };
-    cldrAjax.queueXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   };
   div.update();
 

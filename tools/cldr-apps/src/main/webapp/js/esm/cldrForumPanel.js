@@ -289,7 +289,7 @@ function loadInfo(frag, forumDivClone, tr) {
         }
       },
     };
-    cldrAjax.queueXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   }, 1900);
 } // end of the very long function loadInfo
 
@@ -399,7 +399,7 @@ function updatePosts(tr) {
     load: loadHandler,
     error: errorHandler,
   };
-  cldrAjax.queueXhr(xhrArgs);
+  cldrAjax.sendXhr(xhrArgs);
 }
 
 /**

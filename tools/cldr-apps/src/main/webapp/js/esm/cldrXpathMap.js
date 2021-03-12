@@ -115,7 +115,7 @@ XpathMap.prototype.get = function get(search, onResult) {
       load: loadHandler,
       err: errorHandler,
     };
-    cldrAjax.queueXhr(xhrArgs);
+    cldrAjax.sendXhr(xhrArgs);
   }
 };
 

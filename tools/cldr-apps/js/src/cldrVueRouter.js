@@ -58,7 +58,7 @@ function show(component, el, specialPage, cldrOpts) {
 function setupComponents(app) {
   // example:
   // app.component('SomeComponent', SomeComponent)
-  app.component('Popover', Popover);
+  app.component("Popover", Popover);
 }
 
 export { showPanel };

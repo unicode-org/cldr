@@ -6,9 +6,12 @@
       <div v-for="n in data.notifications" :key="n.notification">
         <h3 class="collapse-review">
           {{ n.notification }} ({{ n.entries.length }})
-
         </h3>
-        <table v-for="g in n.entries" :key="g.header" class="table table-responsive table-fixed-header table-review">
+        <table
+          v-for="g in n.entries"
+          :key="g.header"
+          class="table table-responsive table-fixed-header table-review"
+        >
           <thead>
             <tr class="info">
               <td colspan="5">
@@ -18,7 +21,9 @@
               </td>
             </tr>
             <tr>
-              <th>Code</th><th>English</th><th>Baseline</th>
+              <th>Code</th>
+              <th>English</th>
+              <th>Baseline</th>
               <th>Winning {{ cldrOpts.cldrStatus.getNewVersion() }}</th>
               <th>Action</th>
             </tr>
@@ -29,16 +34,17 @@
                 <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
                   <span class="label label-info">
                     {{ e.code }}
-                  </span> </a>
+                  </span>
+                </a>
               </td>
               <td>
-                  {{ e.english }}
+                {{ e.english }}
               </td>
               <td>
-                  {{ e.old }}
+                {{ e.old }}
               </td>
               <td>
-                  {{ e.winning }}
+                {{ e.winning }}
               </td>
               <td class="button-review">
                 <Popover v-if="e.comment" title="Information" trigger="click">
@@ -46,8 +52,7 @@
                     <p v-html="e.comment" />
                   </template>
                   <button class="btn btn-default help-comment">
-                    <span class="glyphicon glyphicon-info-sign">
-                    </span>
+                    <span class="glyphicon glyphicon-info-sign"> </span>
                   </button>
                 </Popover>
               </td>
@@ -140,7 +145,4 @@ export default {
 #components-popover-info-triggerType .ant-btn {
   margin-right: 8px;
 }
-
-
-
 </style>

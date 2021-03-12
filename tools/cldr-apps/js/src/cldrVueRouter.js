@@ -10,7 +10,7 @@ import { Popover, Spin } from "ant-design-vue";
 import CldrValue from "./views/CldrValue.vue";
 
 /**
- * The App created and mounted most recently. For .unmount … 
+ * The App created and mounted most recently. For .unmount …
  */
 let lastMounted = null;
 /**

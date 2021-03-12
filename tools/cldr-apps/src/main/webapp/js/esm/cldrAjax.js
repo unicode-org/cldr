@@ -6,94 +6,7 @@ import * as cldrStatus from "./cldrStatus.js";
 const ST_AJAX_DEBUG = true;
 
 /**
- * xhrQueueTimeout is a constant, 3 milliseconds, used only by
- * myLoad0, myErr0, and queueXhr, in calls to setTimeout for processXhrQueue.
- * Why 3 milliseconds?
- */
-const xhrQueueTimeout = 3;
-
-/**
- * Queue of XHR requests waiting to go out
- */
-let queueOfXhr = [];
-
-/**
- * The current timeout for processing XHRs
- * (Returned by setTimer: a number, representing the ID value of the timer that is set.
- * Use this value with the clearTimeout() method to cancel the timer.)
- */
-let queueOfXhrTimeout = null;
-
-/**
- * Queue the XHR request. It will be a GET *unless* either postData or content are set.
- *
- * @param xhrArgs the object, generally like:
- * {
- *   url: url,
- *   handleAs: "json",
- *   load: loadHandler,
- *   error: errorHandler,
- *   postData: postData, (or sometimes "content" instead of "postData")
- *   content: ourContent,
- *   headers: headers, (rarely used, but in loadOrFail it's {"Content-Type": "text/plain"}),
- *   timeout: mediumTimeout(),
- * }
- */
-function queueXhr(xhrArgs) {
-  queueOfXhr.push(xhrArgs);
-  if (ST_AJAX_DEBUG) {
-    console.log(
-      "pushed: PXQ=" + queueOfXhr.length + ", postData: " + xhrArgs.postData
-    );
-  }
-  if (!queueOfXhrTimeout) {
-    queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
-  }
-}
-
-/**
- * Clear the queue
- */
-function clearXhr() {
-  queueOfXhr = []; // clear queue
-  clearTimeout(queueOfXhrTimeout);
-  queueOfXhrTimeout = null;
-}
-
-/**
- * Process the queue
- */
-function processXhrQueue() {
-  if (cldrStatus.isDisconnected()) {
-    return;
-  }
-  if (!queueOfXhr || queueOfXhr.length == 0) {
-    queueOfXhr = [];
-    if (ST_AJAX_DEBUG) {
-      console.log("PXQ: 0");
-    }
-    queueOfXhrTimeout = null;
-    return; // nothing to do, reset.
-  }
-
-  var xhrArgs = queueOfXhr.shift();
-
-  xhrArgs.load2 = xhrArgs.load;
-  xhrArgs.err2 = xhrArgs.error;
-
-  xhrArgs.load = function (data) {
-    myLoad0(xhrArgs, data);
-  };
-  xhrArgs.error = function (err) {
-    myErr0(xhrArgs, err);
-  };
-  xhrArgs.startTime = new Date().getTime();
-
-  sendXhr(xhrArgs);
-}
-
-/**
- * Run the load handler (load2) and schedule the next request
+ * Run the load handler (load2)
  *
  * @param xhrArgs the request parameters plus such things as xhrArgs.load2
  * @param data the data (typically json)
@@ -110,11 +23,10 @@ function myLoad0(xhrArgs, data) {
   if (xhrArgs.load2) {
     xhrArgs.load2(data);
   }
-  queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
 }
 
 /**
- * Run the error handler (err2) and schedule the next request
+ * Run the error handler (err2)
  *
  * @param xhrArgs the request parameters plus such things as xhrArgs.err2
  * @param err the error-message string
@@ -126,16 +38,24 @@ function myErr0(xhrArgs, err) {
   if (xhrArgs.err2) {
     xhrArgs.err2(err);
   }
-  queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
 }
 
 /**
- * Send a request immediately.
+ * Send a request
  *
- * Called by processXhrQueue for events from queue, and also directly from
- * other modules to send requests without using the queue.
+ * It will be a GET *unless* either postData or content are set.
  *
- * @param xhrArgs the request parameters
+ * @param xhrArgs the object, generally like:
+ * {
+ *   url: url,
+ *   handleAs: "json",
+ *   load: loadHandler,
+ *   error: errorHandler,
+ *   postData: postData, (or sometimes "content" instead of "postData")
+ *   content: ourContent,
+ *   headers: headers, (rarely used, but in loadOrFail it's {"Content-Type": "text/plain"}),
+ *   timeout: mediumTimeout(),
+ * }
  */
 function sendXhr(xhrArgs) {
   let options = {};
@@ -257,19 +177,6 @@ function makeErrorMessage(request, url) {
 }
 
 /**
- * How many requests are in the queue?
- *
- * @return the number of requests in the queue
- */
-function queueCount() {
-  const count = queueOfXhr ? queueOfXhr.length : 0;
-  if (ST_AJAX_DEBUG) {
-    console.log("queueCount: " + count);
-  }
-  return count;
-}
-
-/**
  * Used for XMLHttpRequest = the number of milliseconds a request can take before being terminated.
  * Zero (the default unless we set it) means there is no timeout.
  */
@@ -287,4 +194,4 @@ function makeUrl(p) {
   return cldrStatus.getContextPath() + "/SurveyAjax?" + p.toString();
 }
 
-export { clearXhr, makeUrl, mediumTimeout, sendXhr, queueCount, queueXhr };
+export { makeUrl, mediumTimeout, sendXhr };

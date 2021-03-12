@@ -62,7 +62,7 @@ function loadHandler(json, specialPage) {
     locmap,
     localeInfo,
     localeDir,
-    sessionId: cldrStatus.getSessionId()
+    sessionId: cldrStatus.getSessionId(),
   });
 }
 

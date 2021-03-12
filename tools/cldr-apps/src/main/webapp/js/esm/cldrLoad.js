@@ -539,7 +539,10 @@ function handleCoverageChanged(newLevel) {
   const currentSpecial = cldrStatus.getCurrentSpecial();
   if (currentSpecial) {
     const special = getSpecial(currentSpecial);
-    if (special.handleCoverageChanged && special.handleCoverageChanged(newLevel)) {
+    if (
+      special.handleCoverageChanged &&
+      special.handleCoverageChanged(newLevel)
+    ) {
       return true;
     }
     if (isReport(currentSpecial)) {
@@ -970,7 +973,7 @@ function myLoad(url, message, handler, postData, headers) {
     postData: postData,
     headers: headers,
   };
-  cldrAjax.queueXhr(xhrArgs);
+  cldrAjax.sendXhr(xhrArgs);
 }
 
 function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {

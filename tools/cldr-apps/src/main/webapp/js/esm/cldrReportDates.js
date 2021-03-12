@@ -24,7 +24,7 @@ function load() {
     load: loadHandler,
     error: errorHandler,
   };
-  cldrAjax.queueXhr(xhrArgs);
+  cldrAjax.sendXhr(xhrArgs);
 }
 
 function getUrl() {

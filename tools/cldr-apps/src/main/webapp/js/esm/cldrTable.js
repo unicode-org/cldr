@@ -16,6 +16,7 @@ import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrVote from "./cldrVote.js";
 
 const CLDR_TABLE_DEBUG = false;
 /*
@@ -1378,7 +1379,7 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
  */
 function addValueVote(td, tr, theRow, newValue, newButton) {
   tr.inputTd = td; // cause the proposed item to show up in the right box
-  cldrSurvey.handleWiredClick(tr, theRow, "", { value: newValue }, newButton);
+  cldrVote.handleWiredClick(tr, theRow, "", { value: newValue }, newButton);
 }
 
 /**
@@ -1431,7 +1432,7 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
   if (tr.canModify) {
     cldrDom.removeAllChildNodes(noCell); // no opinion
     var noOpinion = cldrSurvey.cloneAnon(protoButton);
-    cldrSurvey.wireUpButton(noOpinion, tr, theRow, null);
+    cldrVote.wireUpButton(noOpinion, tr, theRow, null);
     noOpinion.value = null;
     var wrap = cldrSurvey.wrapRadio(noOpinion);
     noCell.appendChild(wrap);

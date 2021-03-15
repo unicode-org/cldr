@@ -11,6 +11,8 @@ import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 
+const CLDR_VOTE_DEBUG = true;
+
 /**
  * Wire up the button to perform a submit
  *
@@ -148,6 +150,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
      * any response. It may change again below, such as to 'tr_err' or 'tr_checking2'.
      */
     tr.className = originalTrClassName;
+    oneLessPendingVote();
     try {
       if (json.err && json.err.length > 0) {
         tr.className = "tr_err";
@@ -234,6 +237,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
      * any response. It may change again below, such as to 'tr_err'.
      */
     tr.className = originalTrClassName;
+    oneLessPendingVote();
     console.log("Error: " + err);
     cldrRetry.handleDisconnect("Error: " + err, null);
     theRow.className = "ferrbox";
@@ -246,7 +250,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
   if (box) {
     ourContent.value = value;
   }
-  var xhrArgs = {
+  const xhrArgs = {
     url: ourUrl,
     handleAs: "json",
     content: ourContent,
@@ -254,6 +258,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
     error: errorHandler,
     timeout: cldrAjax.mediumTimeout(),
   };
+  oneMorePendingVote();
   cldrAjax.sendXhr(xhrArgs);
 }
 
@@ -265,7 +270,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
 function showProposedItem(inTd, tr, theRow, value, tests, json) {
   // Find where our value went.
   var ourItem = cldrSurvey.findItemByValue(theRow.items, value);
-  var testKind = cldrSurvey.getTestKind(tests);
+  var testKind = getTestKind(tests);
   var ourDiv = null;
   var wrap;
   if (!ourItem) {
@@ -295,7 +300,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       cldrVote.wireUpButton(newButton, tr, theRow, "[retry]", {
         value: value,
       });
-      wrap = cldrSurvey.wrapRadio(newButton);
+      wrap = wrapRadio(newButton);
       ourDiv.appendChild(wrap);
     }
     var h3 = document.createElement("span");
@@ -334,7 +339,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
         .popover({
           placement: "bottom",
           html: true,
-          content: testsToHtml(tests),
+          content: cldrSurvey.testsToHtml(tests),
           trigger: "hover",
         })
         .popover("show");
@@ -367,7 +372,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     cldrInfo.showWithRow(message, tr);
     return;
   } else {
-    cldrSurvey.setDivClass(ourDiv, testKind);
+    setDivClass(ourDiv, testKind);
   }
 
   if (testKind || !ourItem) {
@@ -377,7 +382,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
 
     if (!ourItem) {
       var h3 = document.createElement("h3");
-      var span = cldrSurvey.appendItem(h3, value, "value");
+      var span = appendItem(h3, value, "value");
       cldrSurvey.setLang(span);
       h3.className = "span";
       div3.appendChild(h3);
@@ -417,13 +422,153 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     cldrInfo.listen(null, tr, ourDiv, ourShowFn);
     cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
   }
-
   return false;
 }
 
-function pending() {
-  // TODO: return true if multiple requests (e.g., vote or single-row WHAT_GETROW requests) are pending
+function setDivClass(div, testKind) {
+  if (!testKind) {
+    div.className = "d-item";
+  } else if (testKind == "Warning") {
+    div.className = "d-item-warn";
+  } else if (testKind == "Error") {
+    div.className = "d-item-err";
+  } else {
+    div.className = "d-item";
+  }
+}
+
+/**
+ * Determine whether a JSONified array of CheckCLDR.CheckStatus is overall a warning or an error.
+ *
+ * @param {Object} testResults - array of CheckCLDR.CheckStatus
+ * @returns {String} 'Warning' or 'Error' or null
+ *
+ * Note: when a user votes, the response to the POST request includes json.testResults,
+ * which often (always?) includes a warning "Needed to meet ... coverage level", possibly
+ * in addition to other warnings or errors. We then return Warning, resulting in
+ * div.className = "d-item-warn" and a temporary yellow background for the cell, which, however,
+ * goes back to normal color (with "d-item") after a multiple-row response is received.
+ * The message "Needed to meet ..." may not actually be displayed, in which case the yellow
+ * background is distracting; its purpose should be clarified.
+ */
+function getTestKind(testResults) {
+  if (!testResults) {
+    return null;
+  }
+  var theKind = null;
+  for (var i = 0; i < testResults.length; i++) {
+    var tr = testResults[i];
+    if (tr.type == "Warning") {
+      theKind = tr.type;
+    } else if (tr.type == "Error") {
+      return tr.type;
+    }
+  }
+  return theKind;
+}
+
+/**
+ * Add to the radio button, a more button style
+ *
+ * @param button
+ * @returns a newly created label element
+ */
+function wrapRadio(button) {
+  var label = document.createElement("label");
+  label.title = "Vote";
+  label.className = "btn btn-default";
+  label.appendChild(button);
+  $(label).tooltip();
+  return label;
+}
+
+/**
+ * Append just an editable span representing a candidate voting item
+ *
+ * @param div {DOM} div to append to
+ * @param value {String} string value
+ * @param pClass {String} html class for the voting item
+ * @return {DOM} the new span
+ */
+function appendItem(div, value, pClass) {
+  if (!value) {
+    return;
+  }
+  var text = document.createTextNode(value);
+  var span = document.createElement("span");
+  span.appendChild(text);
+  if (!value) {
+    span.className = "selected";
+  } else if (pClass) {
+    span.className = pClass;
+  } else {
+    span.className = "value";
+  }
+  div.appendChild(span);
+  return span;
+}
+
+let pendingVoteCount = 0;
+let lastTimeChanged = 0;
+
+function oneMorePendingVote() {
+  ++pendingVoteCount;
+  lastTimeChanged = Date.now();
+  if (CLDR_VOTE_DEBUG) {
+    console.log("oneMorePendingVote: ++pendingVoteCount = " + pendingVoteCount);
+  }
+}
+
+function oneLessPendingVote() {
+  --pendingVoteCount;
+  if (pendingVoteCount < 0) {
+    console.log(
+      "Error in oneLessPendingVote: changing to zero from negative " +
+        pendingVoteCount
+    );
+    pendingVoteCount = 0;
+  }
+  lastTimeChanged = Date.now();
+  if (CLDR_VOTE_DEBUG) {
+    console.log("oneLessPendingVote: --pendingVoteCount = " + pendingVoteCount);
+  }
+}
+
+/**
+ * Are we busy waiting for completion of voting activity?
+ *
+ * @return true if this module is busy enough to justify postponing
+ *         some other actions/requests; else false
+ *
+ * For example, if we're busy waiting for a server response about voting
+ * results, or the browser hasn't had time to update the display, the caller
+ * should postpone making a request to update the entire data section.
+ */
+function isBusy() {
+  if (pendingVoteCount > 0) {
+    if (CLDR_VOTE_DEBUG) {
+      console.log("cldrVote busy: pendingVoteCount = " + pendingVoteCount);
+    }
+    return true;
+  }
+  if (Date.now() - lastTimeChanged < 3000) {
+    if (CLDR_VOTE_DEBUG) {
+      console.log("cldrVote busy: less than 3 seconds elapsed");
+    }
+    return true;
+  }
+  if (CLDR_VOTE_DEBUG) {
+    console.log("cldrVote not busy");
+  }
   return false;
 }
 
-export { handleWiredClick, pending, wireUpButton };
+export {
+  appendItem,
+  getTestKind,
+  handleWiredClick,
+  isBusy,
+  setDivClass,
+  wireUpButton,
+  wrapRadio,
+};

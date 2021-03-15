@@ -789,7 +789,7 @@ function updateRowVoteInfo(tr, theRow) {
     if (value === theRow.winningValue) {
       const statusClass = getRowApprovalStatusClass(theRow);
       const statusTitle = cldrText.get(statusClass);
-      cldrSurvey.appendIcon(
+      appendIcon(
         isection,
         "voteInfo_winningItem d-dr-" + statusClass,
         cldrText.sub("draftStatus", [statusTitle])
@@ -797,11 +797,7 @@ function updateRowVoteInfo(tr, theRow) {
       isectionIsUsed = true;
     }
     if (item.isBaselineValue) {
-      cldrSurvey.appendIcon(
-        isection,
-        "i-star",
-        cldrText.get("voteInfo_baseline_desc")
-      );
+      appendIcon(isection, "i-star", cldrText.get("voteInfo_baseline_desc"));
       isectionIsUsed = true;
     }
     cldrSurvey.setLang(valdiv);
@@ -810,13 +806,13 @@ function updateRowVoteInfo(tr, theRow) {
        * theRow.inheritedValue can be undefined here; then do not append
        */
       if (theRow.inheritedValue) {
-        cldrSurvey.appendItem(valdiv, theRow.inheritedValue, item.pClass);
+        cldrVote.appendItem(valdiv, theRow.inheritedValue, item.pClass);
         valdiv.appendChild(
           cldrDom.createChunk(cldrText.get("voteInfo_votesForInheritance"), "p")
         );
       }
     } else {
-      cldrSurvey.appendItem(
+      cldrVote.appendItem(
         valdiv,
         value,
         value === theRow.winningValue ? "winner" : "value"
@@ -1140,7 +1136,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     const TRANS_HINT_ID = "en_ZZ"; // must match SurveyMain.TRANS_HINT_ID
     cldrSurvey.setLang(cell, TRANS_HINT_ID);
     if (theRow.displayExample) {
-      cldrSurvey.appendExample(cell, theRow.displayExample, TRANS_HINT_ID);
+      appendExample(cell, theRow.displayExample, TRANS_HINT_ID);
     }
     if (hintPos != -1 || hasExample) {
       var infos = document.createElement("div");
@@ -1194,7 +1190,7 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
    * in that case, though the consistency checking really should happen earlier, see checkRowConsistency.
    */
   if (getValidWinningValue(theRow) !== null) {
-    cldrSurvey.addVitem(
+    addVitem(
       cell,
       tr,
       theRow,
@@ -1343,7 +1339,7 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
       continue;
     }
     hadOtherItems = true;
-    cldrSurvey.addVitem(
+    addVitem(
       cell,
       tr,
       theRow,
@@ -1365,6 +1361,249 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
     cell.appendChild(tr.myProposal);
   } else {
     tr.myProposal = null; // not needed
+  }
+}
+
+/**
+ * Append a Vetting item ( vote button, etc ) to the row.
+ *
+ * @param {DOM} td cell to append into
+ * @param {DOM} tr which row owns the items
+ * @param {JSON} theRow JSON content of this row's data
+ * @param {JSON} item JSON of the specific item we are adding
+ * @param {DOM} newButton	 button prototype object
+ */
+function addVitem(td, tr, theRow, item, newButton) {
+  var displayValue = item.value;
+  if (displayValue === cldrSurvey.INHERITANCE_MARKER) {
+    displayValue = theRow.inheritedValue;
+  }
+  if (!displayValue) {
+    return;
+  }
+  var div = document.createElement("div");
+  var isWinner = td == tr.proposedcell;
+  var testKind = cldrVote.getTestKind(item.tests);
+  cldrVote.setDivClass(div, testKind);
+  item.div = div; // back link
+
+  var choiceField = document.createElement("div");
+  var wrap;
+  choiceField.className = "choice-field";
+  if (newButton) {
+    newButton.value = item.value;
+    cldrVote.wireUpButton(newButton, tr, theRow, item.valueHash);
+    wrap = cldrVote.wrapRadio(newButton);
+    choiceField.appendChild(wrap);
+  }
+  var subSpan = document.createElement("span");
+  subSpan.className = "subSpan";
+  var span = cldrVote.appendItem(subSpan, displayValue, item.pClass);
+  choiceField.appendChild(subSpan);
+
+  cldrSurvey.setLang(span);
+  checkLRmarker(choiceField, item.value);
+
+  if (item.isBaselineValue == true) {
+    appendIcon(choiceField, "i-star", cldrText.get("voteInfo_baseline_desc"));
+  }
+  if (item.votes && !isWinner) {
+    if (
+      item.valueHash == theRow.voteVhash &&
+      theRow.canFlagOnLosing &&
+      !theRow.rowFlagged
+    ) {
+      addIcon(choiceField, "i-stop"); // DEBUG
+    }
+  }
+
+  /*
+   * Note: history is maybe only defined for debugging; won't normally display it in production.
+   * See DataSection.USE_CANDIDATE_HISTORY which currently should be false for production, so
+   * that item.history will be undefined.
+   */
+  if (item.history) {
+    const historyText = " ☛" + item.history;
+    const historyTag = cldrDom.createChunk(historyText, "span", "");
+    choiceField.appendChild(historyTag);
+    cldrInfo.listen(historyText, tr, historyTag, null);
+  }
+
+  const surveyUser = cldrStatus.getSurveyUser();
+  if (
+    newButton &&
+    theRow.voteVhash == item.valueHash &&
+    theRow.items[theRow.voteVhash].votes &&
+    theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
+    theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes
+  ) {
+    var overrideTag = cldrDom.createChunk(
+      theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,
+      "span",
+      "i-override"
+    );
+    choiceField.appendChild(overrideTag);
+  }
+
+  div.appendChild(choiceField);
+
+  // wire up the onclick function for the Info Panel
+  td.showFn = item.showFn = showItemInfoFn(theRow, item);
+  div.popParent = tr;
+  cldrInfo.listen(null, tr, div, td.showFn);
+  td.appendChild(div);
+
+  if (item.example && item.value != item.examples) {
+    appendExample(div, item.example);
+  }
+}
+
+function appendIcon(toElement, className, title) {
+  var e = cldrDom.createChunk(null, "div", className);
+  e.title = title;
+  toElement.appendChild(e);
+  return e;
+}
+
+/**
+ * Check if we need LRM/RLM marker to display
+ * @param field choice field to append if needed
+ * @param value the value of votes (check &lrm; &rlm)
+ */
+function checkLRmarker(field, value) {
+  if (value) {
+    if (value.indexOf("\u200E") > -1 || value.indexOf("\u200F") > -1) {
+      value = value
+        .replace(/\u200E/g, '<span class="visible-mark">&lt;LRM&gt;</span>')
+        .replace(/\u200F/g, '<span class="visible-mark">&lt;RLM&gt;</span>');
+      var lrm = document.createElement("div");
+      lrm.className = "lrmarker-container";
+      lrm.innerHTML = value;
+      field.appendChild(lrm);
+    }
+  }
+}
+
+function appendExample(parent, text, loc) {
+  var div = document.createElement("div");
+  div.className = "d-example well well-sm";
+  div.innerHTML = text;
+  cldrSurvey.setLang(div, loc);
+  parent.appendChild(div);
+  return div;
+}
+
+/**
+ * Return a function that will show info for the given item in the Info Panel.
+ *
+ * @param theRow the data row
+ * @param item the candidate item
+ * @returns the function
+ *
+ * Called only by addVitem.
+ */
+function showItemInfoFn(theRow, item) {
+  return function (td) {
+    var h3 = document.createElement("div");
+    var displayValue = item.value;
+    if (item.value === cldrSurvey.INHERITANCE_MARKER) {
+      displayValue = theRow.inheritedValue;
+    }
+
+    var span = cldrVote.appendItem(h3, displayValue, item.pClass);
+    cldrSurvey.setLang(span);
+    h3.className = "span";
+    td.appendChild(h3);
+
+    if (item.value) {
+      /*
+       * Strings produced here, used as keys for cldrText.sub(), may include:
+       *  "pClass_winner", "pClass_alias", "pClass_fallback", "pClass_fallback_code", "pClass_fallback_root", "pClass_loser".
+       *  See getPClass in DataSection.java.
+       *
+       *  TODO: why not show stars, etc., here?
+       */
+      h3.appendChild(
+        cldrDom.createChunk(
+          cldrText.sub("pClass_" + item.pClass, item),
+          "p",
+          "pClassExplain"
+        )
+      );
+    }
+
+    if (item.value === cldrSurvey.INHERITANCE_MARKER) {
+      addJumpToOriginal(theRow, h3);
+    }
+
+    var newDiv = document.createElement("div");
+    td.appendChild(newDiv);
+
+    if (item.tests) {
+      newDiv.innerHTML = cldrSurvey.testsToHtml(item.tests);
+    } else {
+      newDiv.innerHTML = "<i>no tests</i>";
+    }
+
+    if (item.example) {
+      appendExample(td, item.example);
+    }
+  }; // end function(td)
+}
+
+/**
+ * Add a link in the Info Panel for "Jump to Original" (cldrText.get('followAlias')),
+ * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
+ *
+ * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
+ * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
+ * by checkRowConsistency.
+ *
+ * This is currently (2018-12-01) the only place inheritedLocale or inheritedXpid is used on the client.
+ * An alternative would be for the server to send the link (clickyLink.href), instead of inheritedLocale
+ * and inheritedXpid, to the client, avoiding the need for the client to know so much, including the need
+ * to replace 'code-fallback' with 'root' or when to use cldrStatus.getCurrentLocale() in place of inheritedLocale
+ * or use xpstrid in place of inheritedXpid.
+ *
+ * @param theRow the row
+ * @param el the element to which to append the link
+ */
+function addJumpToOriginal(theRow, el) {
+  if (theRow.inheritedLocale || theRow.inheritedXpid) {
+    var loc = theRow.inheritedLocale;
+    var xpstrid = theRow.inheritedXpid || theRow.xpstrid;
+    if (!loc) {
+      loc = cldrStatus.getCurrentLocale();
+    } else if (loc === "code-fallback") {
+      /*
+       * Never use 'code-fallback' in the link, use 'root' instead.
+       * On the server, 'code-fallback' sometimes goes by the name XMLSource.CODE_FALLBACK_ID.
+       * Reference: https://unicode.org/cldr/trac/ticket/11622
+       */
+      loc = "root";
+    }
+    if (
+      xpstrid === theRow.xpstrid && // current hash
+      loc === cldrStatus.getCurrentLocale()
+    ) {
+      // current locale
+      // i.e., following the alias would come back to the current item
+      el.appendChild(
+        cldrDom.createChunk(
+          cldrText.get("noFollowAlias"),
+          "span",
+          "followAlias"
+        )
+      );
+    } else {
+      var clickyLink = cldrDom.createChunk(
+        cldrText.get("followAlias"),
+        "a",
+        "followAlias"
+      );
+      clickyLink.href = "#/" + loc + "//" + xpstrid;
+      el.appendChild(clickyLink);
+    }
   }
 }
 
@@ -1434,7 +1673,7 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
     var noOpinion = cldrSurvey.cloneAnon(protoButton);
     cldrVote.wireUpButton(noOpinion, tr, theRow, null);
     noOpinion.value = null;
-    var wrap = cldrSurvey.wrapRadio(noOpinion);
+    var wrap = cldrVote.wrapRadio(noOpinion);
     noCell.appendChild(wrap);
     cldrInfo.listen(null, tr, noCell);
   } else if (tr.ticketOnly) {

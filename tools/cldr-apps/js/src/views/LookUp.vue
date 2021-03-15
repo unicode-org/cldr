@@ -31,6 +31,26 @@
   <label for="loc">Base Locale: </label>
   <input id="loc" name="loc" v-model="baseLocale" />
   <div id="whatisAnswer">{{ whatisAnswer }}</div>
+  <div v-if="whatisResults">
+    <h3 v-if="whatisResults.xpath">
+      Results for <kbd>{{ whatisResults.q }}</kbd>
+    </h3>
+    <h4 v-if="whatisResults.xpath && whatisResults.xpath.length">
+      XPATH search String match '{{ whatisResults.q }}' ('{{
+        whatisResults.q2
+      }}')
+    </h4>
+    <p
+      v-if="whatisResults.xpath && whatisResults.xpath.length"
+      v-for="x in whatisResults.xpath"
+    >
+      {{ x.loc - x.name }}
+      <span v-for="m in x.matches">{{ m.path }} - {{ m.value }}</span
+      ><br />
+    </p>
+    <h4 v-if="whatisResults.exact">Code or Data Exact Matches</h4>
+    <h4 v-if="whatisResults.full">Full Text Matches</h4>
+  </div>
 </template>
 
 <script>
@@ -46,6 +66,8 @@ export default {
       whatis: "",
       whatisAnswer: "",
       xpathStatus: "",
+      isModern: true,
+      whatisResults: null,
     };
   },
 
@@ -95,14 +117,28 @@ export default {
         return;
       }
       this.whatisAnswer = "Looking up " + this.whatis + "...";
+      this.whatisResults = null;
       const xhrArgs = {
         url: this.getWhatisAjaxUrl(),
         // TODO: the back end should return json, not text (html)
-        handleAs: "text",
-        load: (answer) => (this.whatisAnswer = answer),
+        handleAs: this.isModern ? "json" : "text",
+        load: this.whatisLoadHandler,
         error: (err) => (this.whatisAnswer = "Error: " + err),
       };
       cldrAjax.sendXhr(xhrArgs);
+    },
+
+    whatisLoadHandler(data) {
+      if (!this.isModern) {
+        this.whatisAnswer = data;
+        return;
+      }
+      const json = data;
+      if (json.err) {
+        this.whatisAnswer = "Error: " + json.err;
+        return;
+      }
+      this.whatisResults = json;
     },
 
     getLookupPathAjaxUrl(from, v) {
@@ -117,9 +153,11 @@ export default {
 
     getWhatisAjaxUrl() {
       const p = new URLSearchParams();
-      p.append("loc", this.baseLocale);
       p.append("q", this.whatis);
-      // TODO: not jsp! Maybe api/whatis
+      p.append("loc", this.baseLocale);
+      if (this.isModern) {
+        return "api/whatis?" + p.toString();
+      }
       return "browse_results.jsp?" + p.toString();
     },
   },

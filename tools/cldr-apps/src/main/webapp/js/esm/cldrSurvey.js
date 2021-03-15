@@ -185,7 +185,7 @@ function handleChangedLocaleStamp(stamp, name) {
    * For performance, postpone the all-row WHAT_GETROW update if multiple
    * requests (e.g., vote or single-row WHAT_GETROW requests) are pending.
    */
-  if (cldrVote.pending()) {
+  if (cldrVote.isBusy()) {
     return;
   }
   if (Object.keys(showers).length == 0) {
@@ -601,36 +601,6 @@ function parseStatusAction(action) {
 }
 
 /**
- * Determine whether a JSONified array of CheckCLDR.CheckStatus is overall a warning or an error.
- *
- * @param {Object} testResults - array of CheckCLDR.CheckStatus
- * @returns {String} 'Warning' or 'Error' or null
- *
- * Note: when a user votes, the response to the POST request includes json.testResults,
- * which often (always?) includes a warning "Needed to meet ... coverage level", possibly
- * in addition to other warnings or errors. We then return Warning, resulting in
- * div.className = "d-item-warn" and a temporary yellow background for the cell, which, however,
- * goes back to normal color (with "d-item") after a multiple-row response is received.
- * The message "Needed to meet ..." may not actually be displayed, in which case the yellow
- * background is distracting; its purpose should be clarified.
- */
-function getTestKind(testResults) {
-  if (!testResults) {
-    return null;
-  }
-  var theKind = null;
-  for (var i = 0; i < testResults.length; i++) {
-    var tr = testResults[i];
-    if (tr.type == "Warning") {
-      theKind = tr.type;
-    } else if (tr.type == "Error") {
-      return tr.type;
-    }
-  }
-  return theKind;
-}
-
-/**
  * Clone the node, removing the id
  *
  * @param {Node} i
@@ -747,51 +717,6 @@ function addIcon(td, className) {
   return star;
 }
 
-/**
- * Check if we need LRM/RLM marker to display
- * @param field choice field to append if needed
- * @param value the value of votes (check &lrm; &rlm)
- */
-function checkLRmarker(field, value) {
-  if (value) {
-    if (value.indexOf("\u200E") > -1 || value.indexOf("\u200F") > -1) {
-      value = value
-        .replace(/\u200E/g, '<span class="visible-mark">&lt;LRM&gt;</span>')
-        .replace(/\u200F/g, '<span class="visible-mark">&lt;RLM&gt;</span>');
-      var lrm = document.createElement("div");
-      lrm.className = "lrmarker-container";
-      lrm.innerHTML = value;
-      field.appendChild(lrm);
-    }
-  }
-}
-
-/**
- * Append just an editable span representing a candidate voting item
- *
- * @param div {DOM} div to append to
- * @param value {String} string value
- * @param pClass {String} html class for the voting item
- * @return {DOM} the new span
- */
-function appendItem(div, value, pClass) {
-  if (!value) {
-    return;
-  }
-  var text = document.createTextNode(value);
-  var span = document.createElement("span");
-  span.appendChild(text);
-  if (!value) {
-    span.className = "selected";
-  } else if (pClass) {
-    span.className = pClass;
-  } else {
-    span.className = "value";
-  }
-  div.appendChild(span);
-  return span;
-}
-
 function testsToHtml(tests) {
   var newHtml = "";
   if (!tests) {
@@ -830,18 +755,6 @@ function testsToHtml(tests) {
   return newHtml;
 }
 
-function setDivClass(div, testKind) {
-  if (!testKind) {
-    div.className = "d-item";
-  } else if (testKind == "Warning") {
-    div.className = "d-item-warn";
-  } else if (testKind == "Error") {
-    div.className = "d-item-err";
-  } else {
-    div.className = "d-item";
-  }
-}
-
 function findItemByValue(items, value) {
   if (!items) {
     return null;
@@ -852,223 +765,6 @@ function findItemByValue(items, value) {
     }
   }
   return null;
-}
-
-/**
- * Return a function that will show info for the given item in the Info Panel.
- *
- * @param theRow the data row
- * @param item the candidate item
- * @returns the function
- *
- * Called only by addVitem.
- */
-function showItemInfoFn(theRow, item) {
-  return function (td) {
-    var h3 = document.createElement("div");
-    var displayValue = item.value;
-    if (item.value === INHERITANCE_MARKER) {
-      displayValue = theRow.inheritedValue;
-    }
-
-    var span = appendItem(h3, displayValue, item.pClass);
-    setLang(span);
-    h3.className = "span";
-    td.appendChild(h3);
-
-    if (item.value) {
-      /*
-       * Strings produced here, used as keys for cldrText.sub(), may include:
-       *  "pClass_winner", "pClass_alias", "pClass_fallback", "pClass_fallback_code", "pClass_fallback_root", "pClass_loser".
-       *  See getPClass in DataSection.java.
-       *
-       *  TODO: why not show stars, etc., here?
-       */
-      h3.appendChild(
-        cldrDom.createChunk(
-          cldrText.sub("pClass_" + item.pClass, item),
-          "p",
-          "pClassExplain"
-        )
-      );
-    }
-
-    if (item.value === INHERITANCE_MARKER) {
-      addJumpToOriginal(theRow, h3);
-    }
-
-    var newDiv = document.createElement("div");
-    td.appendChild(newDiv);
-
-    if (item.tests) {
-      newDiv.innerHTML = testsToHtml(item.tests);
-    } else {
-      newDiv.innerHTML = "<i>no tests</i>";
-    }
-
-    if (item.example) {
-      appendExample(td, item.example);
-    }
-  }; // end function(td)
-}
-
-/**
- * Add a link in the Info Panel for "Jump to Original" (cldrText.get('followAlias')),
- * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
- *
- * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
- * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
- * by checkRowConsistency.
- *
- * This is currently (2018-12-01) the only place inheritedLocale or inheritedXpid is used on the client.
- * An alternative would be for the server to send the link (clickyLink.href), instead of inheritedLocale
- * and inheritedXpid, to the client, avoiding the need for the client to know so much, including the need
- * to replace 'code-fallback' with 'root' or when to use cldrStatus.getCurrentLocale() in place of inheritedLocale
- * or use xpstrid in place of inheritedXpid.
- *
- * @param theRow the row
- * @param el the element to which to append the link
- */
-function addJumpToOriginal(theRow, el) {
-  if (theRow.inheritedLocale || theRow.inheritedXpid) {
-    var loc = theRow.inheritedLocale;
-    var xpstrid = theRow.inheritedXpid || theRow.xpstrid;
-    if (!loc) {
-      loc = cldrStatus.getCurrentLocale();
-    } else if (loc === "code-fallback") {
-      /*
-       * Never use 'code-fallback' in the link, use 'root' instead.
-       * On the server, 'code-fallback' sometimes goes by the name XMLSource.CODE_FALLBACK_ID.
-       * Reference: https://unicode.org/cldr/trac/ticket/11622
-       */
-      loc = "root";
-    }
-    if (
-      xpstrid === theRow.xpstrid && // current hash
-      loc === cldrStatus.getCurrentLocale()
-    ) {
-      // current locale
-      // i.e., following the alias would come back to the current item
-      el.appendChild(
-        cldrDom.createChunk(
-          cldrText.get("noFollowAlias"),
-          "span",
-          "followAlias"
-        )
-      );
-    } else {
-      var clickyLink = cldrDom.createChunk(
-        cldrText.get("followAlias"),
-        "a",
-        "followAlias"
-      );
-      clickyLink.href = "#/" + loc + "//" + xpstrid;
-      el.appendChild(clickyLink);
-    }
-  }
-}
-
-function appendExample(parent, text, loc) {
-  var div = document.createElement("div");
-  div.className = "d-example well well-sm";
-  div.innerHTML = text;
-  setLang(div, loc);
-  parent.appendChild(div);
-  return div;
-}
-
-/**
- * Append a Vetting item ( vote button, etc ) to the row.
- *
- * @param {DOM} td cell to append into
- * @param {DOM} tr which row owns the items
- * @param {JSON} theRow JSON content of this row's data
- * @param {JSON} item JSON of the specific item we are adding
- * @param {DOM} newButton	 button prototype object
- */
-function addVitem(td, tr, theRow, item, newButton) {
-  var displayValue = item.value;
-  if (displayValue === INHERITANCE_MARKER) {
-    displayValue = theRow.inheritedValue;
-  }
-  if (!displayValue) {
-    return;
-  }
-  var div = document.createElement("div");
-  var isWinner = td == tr.proposedcell;
-  var testKind = getTestKind(item.tests);
-  setDivClass(div, testKind);
-  item.div = div; // back link
-
-  var choiceField = document.createElement("div");
-  var wrap;
-  choiceField.className = "choice-field";
-  if (newButton) {
-    newButton.value = item.value;
-    cldrVote.wireUpButton(newButton, tr, theRow, item.valueHash);
-    wrap = wrapRadio(newButton);
-    choiceField.appendChild(wrap);
-  }
-  var subSpan = document.createElement("span");
-  subSpan.className = "subSpan";
-  var span = appendItem(subSpan, displayValue, item.pClass);
-  choiceField.appendChild(subSpan);
-
-  setLang(span);
-  checkLRmarker(choiceField, item.value);
-
-  if (item.isBaselineValue == true) {
-    appendIcon(choiceField, "i-star", cldrText.get("voteInfo_baseline_desc"));
-  }
-  if (item.votes && !isWinner) {
-    if (
-      item.valueHash == theRow.voteVhash &&
-      theRow.canFlagOnLosing &&
-      !theRow.rowFlagged
-    ) {
-      addIcon(choiceField, "i-stop"); // DEBUG
-    }
-  }
-
-  /*
-   * Note: history is maybe only defined for debugging; won't normally display it in production.
-   * See DataSection.USE_CANDIDATE_HISTORY which currently should be false for production, so
-   * that item.history will be undefined.
-   */
-  if (item.history) {
-    const historyText = " ☛" + item.history;
-    const historyTag = cldrDom.createChunk(historyText, "span", "");
-    choiceField.appendChild(historyTag);
-    cldrInfo.listen(historyText, tr, historyTag, null);
-  }
-
-  const surveyUser = cldrStatus.getSurveyUser();
-  if (
-    newButton &&
-    theRow.voteVhash == item.valueHash &&
-    theRow.items[theRow.voteVhash].votes &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes
-  ) {
-    var overrideTag = cldrDom.createChunk(
-      theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,
-      "span",
-      "i-override"
-    );
-    choiceField.appendChild(overrideTag);
-  }
-
-  div.appendChild(choiceField);
-
-  // wire up the onclick function for the Info Panel
-  td.showFn = item.showFn = showItemInfoFn(theRow, item);
-  div.popParent = tr;
-  cldrInfo.listen(null, tr, div, td.showFn);
-  td.appendChild(div);
-
-  if (item.example && item.value != item.examples) {
-    appendExample(div, item.example);
-  }
 }
 
 function appendExtraAttributes(container, theRow) {
@@ -1188,13 +884,6 @@ function updateCoverage(theDiv) {
       theTable.className = newStyle;
     }
   }
-}
-
-function appendIcon(toElement, className, title) {
-  var e = cldrDom.createChunk(null, "div", className);
-  e.title = title;
-  toElement.appendChild(e);
-  return e;
 }
 
 /**
@@ -1460,21 +1149,6 @@ function setShower(id, func) {
 }
 
 /**
- * Add to the radio button, a more button style
- *
- * @param button
- * @returns a newly created label element
- */
-function wrapRadio(button) {
-  var label = document.createElement("label");
-  label.title = "Vote";
-  label.className = "btn btn-default";
-  label.appendChild(button);
-  $(label).tooltip();
-  return label;
-}
-
-/**
  * Show the vote summary part of the Fix panel
  *
  * @param cont
@@ -1503,11 +1177,7 @@ function showHelpFixPanel(cont) {
 export {
   INHERITANCE_MARKER,
   addIcon,
-  addVitem,
-  appendExample,
   appendExtraAttributes,
-  appendIcon,
-  appendItem,
   cacheBuster,
   cacheKill,
   chgPage,
@@ -1523,7 +1193,6 @@ export {
   getSurveyOrgCov,
   getSurveyUserCov,
   getTagChildren,
-  getTestKind,
   getXpathMap,
   hideLoader,
   isInputBusy,
@@ -1531,7 +1200,6 @@ export {
   parseStatusAction,
   refreshCounterVetting,
   refreshSingleRow,
-  setDivClass,
   setLang,
   setOverrideDir,
   setShower,
@@ -1546,5 +1214,4 @@ export {
   updateProgressWord,
   updateSpecialHeader,
   updateStatus,
-  wrapRadio,
 };

@@ -99,12 +99,17 @@ function continueInitializing(canAutoImport) {
 }
 
 function doHashChange(event) {
-  const changedHash = getHash();
-  if (sliceHash(new URL(event.newURL).hash) !== changedHash) {
+  const changedHash = getHash(); // window.location.hash minus "#"
+  if (
+    CLDR_LOAD_DEBUG &&
+    sliceHash(new URL(event.newURL).hash) !== changedHash
+  ) {
+    // This can happen when rapidly clicking on one row after another.
+    // In such cases, window.location.hash is more recent (per testing), so use it.
     console.log(
-      "Error in doHashChange: expected " +
-        event.newURL.hash +
-        " === " +
+      "Mismatch in doHashChange: (event:) " +
+        new URL(event.newURL).hash +
+        " !== (window:) " +
         changedHash
     );
   }
@@ -372,7 +377,7 @@ function scrollToItem() {
     const xtr = document.getElementById("r@" + curId);
     if (xtr) {
       console.log("Scrolling to " + curId);
-      xtr.scrollIntoView({ block: "center" });
+      xtr.scrollIntoView({ block: "nearest" });
     }
   }
 }

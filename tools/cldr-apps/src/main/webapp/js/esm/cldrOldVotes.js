@@ -8,6 +8,7 @@ import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrVote from "./cldrVote.js";
 
 // called as special.load
 function load() {
@@ -407,13 +408,13 @@ function showVoteTable(voteList, type, json) {
     tr.appendChild(td00);
     var td0 = cldrDom.createChunk("", "td", "v-win");
     if (row.winValue) {
-      var span0 = cldrSurvey.appendItem(td0, row.winValue, "winner");
+      var span0 = cldrVote.appendItem(td0, row.winValue, "winner");
       span0.dir = dir;
     }
     tr.appendChild(td0);
     var td1 = cldrDom.createChunk("", "td", "v-mine");
     var label = cldrDom.createChunk("", "label", "");
-    var span1 = cldrSurvey.appendItem(label, row.myValue, "value");
+    var span1 = cldrVote.appendItem(label, row.myValue, "value");
     td1.appendChild(label);
     span1.dir = dir;
     tr.appendChild(td1);

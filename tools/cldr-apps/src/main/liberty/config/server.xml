@@ -31,7 +31,7 @@
 	<dataSource id="DefaultDataSource"
 		jndiName="jdbc/SurveyTool">
 		<jdbcDriver libraryRef="jdbcLib" />
-		<properties serverName="localhost" portNumber="3306"
+		<properties serverTimezone="GMT" serverName="localhost" portNumber="3306"
 			databaseName="${MYSQL_DB}" user="${MYSQL_USER}"
 			password="${MYSQL_PASSWORD}" />
 	</dataSource>

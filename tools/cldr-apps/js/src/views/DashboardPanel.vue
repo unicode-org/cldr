@@ -10,7 +10,10 @@
         Coverage level <b>{{ level }}</b
         >:
         <span v-for="n in data.notifications" :key="n.notification">
-          <span> {{ n.notification }} ({{ n.total }}) </span>
+          <button :notification="n.notification"
+            class="scrollto"
+            v-on:click.prevent="scrollto"
+          > {{ n.notification }} ({{ n.total }}) </button>
           &nbsp;&nbsp;
         </span>
       </h4>
@@ -19,6 +22,7 @@
         v-for="n in data.notifications"
         :key="n.notification"
         class="notificationcontainer"
+        v-bind:id="'notification-'+n.notification"
       >
         <h3 v-on:click="n.hidden = !n.hidden" class="collapse-review">
           <i v-if="!n.hidden" class="glyphicon glyphicon-chevron-down" />
@@ -106,6 +110,34 @@ export default {
     this.fetchData();
   },
   methods: {
+    scrollto: function scrollto(event) {
+      const whence = event.target.getAttribute("notification");
+      if (this.data && this.data.notifications) {
+        for (let n of this.data.notifications) {
+          if (n.notification == whence) {
+            n.hidden = false;
+            const selector = `#notification-${whence}`;
+            try {
+              const scrollFix = event.target.offsetParent.offsetTop;
+              document.querySelector(selector).scrollIntoView(true);
+              // Now, scroll BACK because:
+              // -1000: to fix the H-alignment
+              // offsetTop stuff:  because of the huge 'header' bar , so that the category
+              // is actually visible.
+              //
+              // It's an approximation.
+              window.scrollBy(-1000,0-(scrollFix));
+            } catch (e) {
+              console.error(`Error ${e} trying to scroll to ${selector} for ${whence}`);
+            }
+            return;
+          }
+        }
+        console.error('Click on missing notitication ' + whence);
+      } else {
+        console.error('Click before data loaded on missing notitication ' + whence);
+      }
+    },
     handleCoverageChanged(level) {
       console.log("Changing level: " + level);
       this.data = null;

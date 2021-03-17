@@ -394,7 +394,7 @@ function getUserActionMenu(u, json) {
   html += ">\n";
   const theirLevel = u.data.userlevel;
   html += "<option value=''>" + LIST_ACTION_NONE + "</option>\n";
-  html += getChangeLevelOptions(theirLevel, json.userPerms.levels);
+  html += getChangeLevelOptions(u, theirLevel, json.userPerms.levels);
   html += "<option disabled='disabled'>" + LIST_ACTION_NONE + "</option>\n";
   for (const [action, text] of Object.entries(passwordActions)) {
     html += getPasswordOption(theirLevel, json, action, text);
@@ -406,15 +406,18 @@ function getUserActionMenu(u, json) {
   return html;
 }
 
-function getChangeLevelOptions(theirLevel, levels) {
+function getChangeLevelOptions(u, theirLevel, levels) {
   let html = "";
-  for (let number in levels) {
-    if (levels[number].name === "anonymous") {
-      continue;
-    }
-    // only allow mass LOCK
-    if (justUser || levels[number].name === "locked") {
-      html += doChangeUserOption(levels, number, theirLevel);
+  // User shouldn’t be able to change their own user level
+  if (!isJustMe && u.data.email !== cldrStatus.getSurveyUser().email) {
+    for (let number in levels) {
+      if (levels[number].name === "anonymous") {
+        continue;
+      }
+      // only allow mass LOCK
+      if (justUser || levels[number].name === "locked") {
+        html += doChangeUserOption(levels, number, theirLevel);
+      }
     }
   }
   return html;

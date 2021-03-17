@@ -621,20 +621,17 @@ public class TestSTFactory extends TestFmwk {
                         actualResult = actualResult && UserRegistry.userCanCreateUsers(u);
                         if (!u.isSameOrg(onUser)) {
                             actualResult = actualResult && UserRegistry.userCreateOtherOrgs(u); // if of different org
-                        } {
-                        // test both of these functions.
-                        final boolean newTest = (uLevel.canCreateOrSetLevelTo(onLevel));
-                        final boolean oldTest = UserRegistry.userCanCreateUsers(u)
-                            && (onUser.userlevel == UserRegistry.userCanCreateUserOfLevel(u, onUser.userlevel));
-                        assertEquals("New(ex) vs old(got) create test: " + uLevel + "/" + onLevel, newTest, oldTest);
-                        actualResult = actualResult && newTest;
-                    }
+                        }
+                        actualResult = actualResult && uLevel.canCreateOrSetLevelTo(onLevel);
                         break;
                     case "delete": // assume same perms for now (?)
                     case "modify": {
                         final boolean oldTest = u.isAdminFor(onUser);
                         final boolean newTest = uLevel.canManageSomeUsers() && uLevel.isManagerFor(u.getOrganization(), onLevel, onUser.getOrganization());
                         assertEquals("New(ex) vs old(got) manage test: " + uLevel + "/" + onLevel, newTest, oldTest);
+                        if (oldTest != newTest && onLevel == Level.expert) {
+                            System.out.println("Debugging: got expert in delete/modify; oldTest = " + oldTest + "; newTest = " + newTest);
+                        }
                         actualResult = actualResult && newTest;
                     }
                         break;

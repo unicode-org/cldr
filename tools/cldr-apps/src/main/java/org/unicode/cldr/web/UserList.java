@@ -147,6 +147,9 @@ public class UserList {
             final Organization myOrganization = me.getOrganization();
             JSONObject levels = new JSONObject();
             for (VoteResolver.Level v : VoteResolver.Level.values()) {
+                if (v == VoteResolver.Level.expert || v == VoteResolver.Level.anonymous) {
+                    continue;
+                }
                 int number = v.getSTLevel(); // like 999
                 JSONObject jo = new JSONObject();
                 jo.put("name", v.name()); // like "locked"
@@ -304,11 +307,13 @@ public class UserList {
                 String s = "";
                 if ((just == null) && (level <= UserRegistry.TC)) {
                     s += "<b>Must be zoomed in on a user to promote them to TC</b>";
+                } else if (!reg.canSetUserLevel(me, u.user, level)) {
+                   s += "[Permission Denied]";
                 } else {
                     u.user.userlevel = level;
                     s += "Set user level to "
                         + UserRegistry.levelToStr(level) + ": "
-                        + reg.setUserLevel(ctx, u.user.id, u.user.email, level);
+                        + reg.setUserLevel(me, u.user, level);
                     if (u.session != null) {
                         s += "<br/><i>Logging out user session " + u.session.id + "</i>";
                         u.session.remove();

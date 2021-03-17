@@ -133,7 +133,8 @@ public class TestAll extends TestGroup {
             TestMisc.class.getName(),
             TestSTFactory.class.getName(),
             TestUserSettingsData.class.getName(),
-            TestAnnotationVotes.class.getName()
+            TestAnnotationVotes.class.getName(),
+            TestUserRegistry.class.getName(),
         },
             "All tests in CLDR Web");
     }

@@ -204,12 +204,16 @@ public class VoteResolver<T> {
 
         /**
          * Policy: can this user create or set a user to the specified level?
+         *
+         * @param otherLevel the desired new level for the other user
+         *
+         * Note: UserRegistry.canSetUserLevel enforces additional limitations depending
+         * on more than this user's level and the other user's desired new level
          */
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
-            return (this == admin) || // admin can set any level
-                (otherLevel != expert && // expert can't be set by any users but admin
-                    canManageSomeUsers() && // must be some sort of manager
-                    otherLevel.getSTLevel() >= getSTLevel()); // can't gain higher privs
+            return otherLevel != expert && // expert can't be set by any user
+                canManageSomeUsers() && // must be some sort of manager
+                otherLevel.getSTLevel() >= getSTLevel(); // can't gain higher privs
         }
 
         /**

@@ -485,11 +485,15 @@ public class UserRegistry {
         }
 
         /**
-         * Is this user an administrator 'over' this user?
+         * Is this user an administrator 'over' the given other user?
          *
          * @param other
          * @see VoteResolver.Level.isAdminFor()
          * @deprecated
+         *
+         * Note: the above "@see VoteResolver.Level.isAdminFor()" seems to refer to a function
+         * that doesn't exist. Possibly it should be "@see VoteResolver.Level.isManagerFor()"?
+         * Maybe this should NOT be deprecated, since it's shorter, more convenient?
          */
         @Deprecated
         public boolean isAdminFor(User other) {
@@ -1179,28 +1183,27 @@ public class UserRegistry {
         return "";
     }
 
-    String setUserLevel(WebContext ctx, int theirId, String theirEmail, int newLevel) {
-        if (!ctx.session.user.getLevel().canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(newLevel))) {
+    String setUserLevel(User me, User them, int newLevel) {
+        if (!canSetUserLevel(me, them, newLevel)) {
             return ("[Permission Denied]");
         }
-
         String orgConstraint = null;
         String msg = "";
-        if (ctx.session.user.userlevel == ADMIN) {
+        if (me.userlevel == ADMIN) {
             orgConstraint = ""; // no constraint
         } else {
-            orgConstraint = " AND org='" + ctx.session.user.org + "' ";
+            orgConstraint = " AND org='" + me.org + "' ";
         }
         Connection conn = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
             Statement s = conn.createStatement();
-            String theSql = "UPDATE " + CLDR_USERS + " SET userlevel=" + newLevel + " WHERE id=" + theirId + " AND email='"
-                + theirEmail + "' " + orgConstraint;
-            logger.info("Attempt user update by " + ctx.session.user.email + ": " + theSql);
+            String theSql = "UPDATE " + CLDR_USERS + " SET userlevel=" + newLevel + " WHERE id=" + them.id + " AND email='"
+                + them.email + "' " + orgConstraint;
+            logger.info("Attempt user update by " + me.email + ": " + theSql);
             int n = s.executeUpdate(theSql);
             conn.commit();
-            userModified(theirId);
+            userModified(them.id);
             if (n == 0) {
                 msg = msg + " [Error: no users were updated!] ";
                 logger.severe("Error: 0 records updated.");
@@ -1209,7 +1212,7 @@ public class UserRegistry {
                 logger.severe("Error: " + n + " records updated!");
             } else {
                 msg = msg + " [user level set]";
-                msg = msg + updateIntLocs(theirId, conn);
+                msg = msg + updateIntLocs(them.id, conn);
             }
         } catch (SQLException se) {
             msg = msg + " exception: " + DBUtils.unchainSqlException(se);
@@ -1220,6 +1223,26 @@ public class UserRegistry {
         }
 
         return msg;
+    }
+
+    public boolean canSetUserLevel(User me, User them, int newLevel) {
+        final VoteResolver.Level myLevel = VoteResolver.Level.fromSTLevel(me.userlevel);
+        if (!myLevel.canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(newLevel))) {
+            return false;
+        }
+        // Can't change your own level
+        if (me.id == them.id) {
+            return false;
+        }
+        // Can't change the level of anyone whose current level is more privileged than yours
+        if (them.userlevel < me.userlevel) {
+            return false;
+        }
+        // Can't change the level of someone in a different org, unless you are admin
+        if (myLevel != Level.admin && !me.isSameOrg(them)) {
+            return false;
+        }
+        return true;
     }
 
     String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales) {
@@ -1694,41 +1717,6 @@ public class UserRegistry {
     /** can create a user in a different organization? */
     public static final boolean userCreateOtherOrgs(User u) {
         return userIsAdmin(u);
-    }
-
-    /** What level can the new user be, given requested? */
-
-    @Deprecated
-    /**
-     *
-     * @param u
-     * @param requestedLevel
-     * @return
-     * @deprecated
-     * @see Level#canCreateOrSetLevelTo
-     */
-    public static final int userCanCreateUserOfLevel(User u, int requestedLevel) {
-        if (requestedLevel < 0) {
-            requestedLevel = 0;
-        }
-        if (requestedLevel < u.userlevel) { // pin to creator
-            requestedLevel = u.userlevel;
-        }
-        if (requestedLevel == EXPERT && u.userlevel != ADMIN) {
-            return VETTER; // only admin can create EXPERT
-        }
-        if (u.userlevel == MANAGER) {
-            if (requestedLevel == MANAGER) {
-                return MANAGER;
-            } else {
-                if (requestedLevel < VETTER) {
-                    return VETTER;
-                } else {
-                    return requestedLevel;
-                }
-            }
-        }
-        return requestedLevel;
     }
 
     /** Can the user modify anyone's level? */

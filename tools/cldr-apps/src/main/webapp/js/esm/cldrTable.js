@@ -1413,7 +1413,7 @@ function addVitem(td, tr, theRow, item, newButton) {
       theRow.canFlagOnLosing &&
       !theRow.rowFlagged
     ) {
-      addIcon(choiceField, "i-stop"); // DEBUG
+      cldrSurvey.addIcon(choiceField, "i-stop"); // DEBUG
     }
   }
 

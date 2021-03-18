@@ -29,7 +29,6 @@ function getItems() {
   const surveyUserURL = {
     disableMyAccount: "lock.jsp",
     xmlUpload: "upload.jsp?a=/cldr-apps/survey&s=" + sessionId,
-    flag: "tc-flagged.jsp?s=" + sessionId,
   };
   return [
     {

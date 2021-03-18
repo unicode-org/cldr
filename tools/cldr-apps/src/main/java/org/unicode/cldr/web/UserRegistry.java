@@ -416,7 +416,7 @@ public class UserRegistry {
         }
 
         /**
-         * Convert this User to a VoteREsolver.VoterInfo. Not cached.
+         * Convert this User to a VoteResolver.VoterInfo. Not cached.
          */
         private VoterInfo createVoterInfo() {
             Organization o = this.getOrganization();
@@ -427,7 +427,10 @@ public class UserRegistry {
                     localesSet.add(s);
                 }
             }
-            VoterInfo v = new VoterInfo(o, l, this.name, localesSet);
+            VoterInfo v = new VoterInfo(o, l,
+                // do not allow VoteResolver.VoterInfo to see the actual "name", because it is sent to the client.
+                "#"+Integer.toString(id),
+                localesSet);
             return v;
         }
 

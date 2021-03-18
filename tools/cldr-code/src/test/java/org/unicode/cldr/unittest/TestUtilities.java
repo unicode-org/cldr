@@ -1388,4 +1388,29 @@ public class TestUtilities extends TestFmwkPlus {
             errln("Got getMissingStatus = " + status.toString() + "; expected " + expected.toString());
         }
     }
+
+    /**
+     * Test the function VoteResolver.Level.canCreateOrSetLevelTo()
+     *
+     * Compare org.unicode.cldr.unittest.web.TestUserRegistry.TestCanSetUserLevel()
+     */
+    public void TestCanCreateOrSetLevelTo() {
+        if (Level.admin.canCreateOrSetLevelTo(Level.expert)) {
+            // We do not use the Expert level anymore
+            errln("Not even admin can a set level to expert");
+        }
+        if (Level.vetter.canCreateOrSetLevelTo(Level.street)
+            || Level.anonymous.canCreateOrSetLevelTo(Level.street)
+            || Level.street.canCreateOrSetLevelTo(Level.locked)
+            || Level.locked.canCreateOrSetLevelTo(Level.locked)
+            ) {
+            errln("Only managers and above can change levels at all");
+        }
+        if (Level.manager.canCreateOrSetLevelTo(Level.tc)
+            || Level.manager.canCreateOrSetLevelTo(Level.admin)
+            || Level.tc.canCreateOrSetLevelTo(Level.admin)
+            ) {
+            errln("Can’t change anyone to a more privileged level than you");
+        }
+    }
 }

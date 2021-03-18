@@ -122,14 +122,14 @@
     <verifyUser name="u_tc" onUser="g_vetter"   allowed="false" action="modify"/>
     
     <echo>Test basic permissions - u_admin</echo>
-    <!--  admin can create users -->
+    <!-- admin can create/modify users, except can't create expert -->
     <verifyUser name="u_admin" onUser="u_street" 	allowed="true" action="create"/>
     <verifyUser name="u_admin" onUser="u_locked" 	allowed="true" action="create"/>
     <verifyUser name="u_admin" onUser="u_vetter" 	allowed="true" action="create"/>
     <verifyUser name="u_admin" onUser="u_manager"   allowed="true" action="create"/>
     <verifyUser name="u_admin" onUser="u_tc" 		allowed="true" action="create"/>
     <verifyUser name="u_admin" onUser="u_admin" 	allowed="true" action="create"/>
-    <verifyUser name="u_admin" onUser="u_expert" 	allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="u_expert" 	allowed="false" action="create"/>
     <verifyUser name="u_admin" onUser="g_vetter" 	allowed="true" action="create"/>
 
     <verifyUser name="u_admin" onUser="u_locked"   allowed="true" action="modify"/>

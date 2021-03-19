@@ -59,6 +59,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPIHelper;
 
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -198,12 +199,12 @@ public class DataSection implements JSONString {
              *
              * @return the processed value
              *
-             * Called only by CandidateItem.toJSONString
+             * Called only by {@link #toJSONString()}
              *
              * This is what the client receives by the name "value".
              * Compare what is called "rawValue" on both server and client.
              */
-            private String getProcessedValue() {
+            public String getProcessedValue() {
                 if (rawValue == null) {
                     return null;
                 }
@@ -265,7 +266,7 @@ public class DataSection implements JSONString {
              *
              * @return the set of votes
              */
-            private Set<UserRegistry.User> getVotes() {
+            public Set<UserRegistry.User> getVotes() {
                 if (!checkedVotes) {
                     votes = ballotBox.getVotesForValue(xpath, rawValue);
                     checkedVotes = true;
@@ -292,7 +293,7 @@ public class DataSection implements JSONString {
              *  3.  Red  The original is from the root."
              *      [corresponds with "fallback_root" or "fallback_code" and {background-color: #FFDDDD;}]
              */
-            private String getPClass() {
+            public String getPClass() {
                 if (rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
                     if (pathWhereFound != null) {
                         /*
@@ -309,7 +310,7 @@ public class DataSection implements JSONString {
                      *  .fallback {background-color:#5bc0de;padding: .1em .4em .2em;}
                      *  .fallback_root, .fallback_code {border: 1px dotted #f00 !important;background-color: #FFDDDD;}
                      */
-                    if (inheritedLocale != null && XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
+                    if (getInheritedLocale() != null && XMLSource.CODE_FALLBACK_ID.equals(getInheritedLocale().getBaseName())) {
                         return "fallback_code";
                     }
                     /*
@@ -319,7 +320,7 @@ public class DataSection implements JSONString {
                      * Also: https://unicode-org.atlassian.net/browse/CLDR-13132
                      * If and when CLDR-13132 is fixed, the former test with "==" might be OK here.
                      */
-                    if (inheritedLocale != null && "root".equals(inheritedLocale.getBaseName())) {
+                    if (getInheritedLocale() != null && "root".equals(getInheritedLocale().getBaseName())) {
                         return "fallback_root";
                     }
                     return "fallback";
@@ -400,15 +401,17 @@ public class DataSection implements JSONString {
              *
              * @return the JSON string. For example: {"isBailey":false,"tests":[],"rawValue":"↑↑↑","valueHash":"4oaR4oaR4oaR","pClass":"loser",
              *      "isFallback":false,"value":"↑↑↑","isBaselineValue":false,"example":"<div class='cldr_example'>2345<\/div>"}
+             * @deprecated {@see VoteAPIHelper#calculateItem}
              */
             @Override
+            @Deprecated
             public String toJSONString() throws JSONException {
                 JSONObject j = new JSONObject()
                     .put("valueHash", getValueHash())
                     .put("rawValue", rawValue)
                     .put("value", getProcessedValue())
                     .put("example", getExample())
-                    .put("isBaselineValue", isBaselineValue)
+                    .put("isBaselineValue", isBaselineValue())
                     .put("pClass", getPClass())
                     .put("tests", SurveyJSONWrapper.wrap(this.tests));
                 if (USE_CANDIDATE_HISTORY) {
@@ -425,7 +428,7 @@ public class DataSection implements JSONString {
                         uu.put("org", u.getOrganization());
                         uu.put("level", u.getLevel());
                         Integer voteCount = null;
-                        Map<User, Integer> overrides = ballotBox.getOverridesPerUser(xpath);
+                        Map<User, Integer> overrides = getOverrides();
                         if (overrides != null) {
                             voteCount = overrides.get(u);
                         }
@@ -443,6 +446,11 @@ public class DataSection implements JSONString {
                     j.put("votes", voteList);
                 }
                 return j.toString();
+            }
+
+            public Map<User, Integer> getOverrides() {
+                Map<User, Integer> overrides = ballotBox.getOverridesPerUser(xpath);
+                return overrides;
             }
 
             /**
@@ -466,7 +474,7 @@ public class DataSection implements JSONString {
              *
              * Called only by DataSection.DataRow.CandidateItem.toJSONString()
              */
-            private String getExample() {
+            public String getExample() {
                 return nativeExampleGenerator.getExampleHtml(xpath, rawValue);
             }
 
@@ -482,6 +490,10 @@ public class DataSection implements JSONString {
                 } else {
                     return tests;
                 }
+            }
+
+            public boolean isBaselineValue() {
+                return isBaselineValue;
             }
         } // end of class CandidateItem
 
@@ -983,63 +995,13 @@ public class DataSection implements JSONString {
          * would be specifically for the data representing what becomes "theRow" on the client,
          * AFTER that data has all been prepared/derived. See checkDataRowConsistency for work
          * in progress.
+         * @deprecated see {@link VoteAPIHelper#calculateRow}
          */
         @Override
+        @Deprecated
         public String toJSONString() throws JSONException {
 
             try {
-                String winningVhash = DataSection.getValueHash(winningValue);
-
-                String voteVhash = "";
-                if (userForVotelist != null) {
-                    String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
-                    if (ourVote != null) {
-                        CandidateItem voteItem = items.get(ourVote);
-                        if (voteItem != null) {
-                            voteVhash = voteItem.getValueHash();
-                        }
-                    }
-                }
-
-                JSONObject itemsJson = new JSONObject();
-                for (CandidateItem i : items.values()) {
-                    String key = i.getValueHash();
-                    if (itemsJson.has(key)) {
-                        System.out.println("Error: value hash key " + key + " is duplicate");
-                    }
-                    itemsJson.put(key, i);
-                }
-
-                String displayExample = null;
-                if (displayName != null) {
-                    displayExample = sm.getTranslationHintsExample().getExampleHtml(xpath, displayName);
-                }
-
-                String code = "?";
-                PathHeader ph = getPathHeader();
-                if (ph != null) {
-                    code = ph.getCode();
-                }
-
-                VoteResolver<String> resolver = ballotBox.getResolver(xpath);
-                JSONObject voteResolver = SurveyJSONWrapper.wrap(resolver);
-
-                boolean rowFlagged = sm.getSTFactory().getFlag(locale, xpathId);
-
-                String xpstrid = XPathTable.getStringIDString(xpath);
-
-                StatusAction statusAction = getStatusAction();
-
-                Map<String, String> extraAttributes = getNonDistinguishingAttributes();
-
-                boolean hasVoted = (userForVotelist != null) ? userHasVoted(userForVotelist.id) : false;
-
-                String inheritedXpid = (pathWhereFound != null) ? XPathTable.getStringIDString(pathWhereFound) : null;
-
-                boolean canFlagOnLosing = resolver.canFlagOnLosing();
-
-                String dir = (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) ? "ltr" : null;
-
                 if (DEBUG) {
                     checkDataRowConsistency();
                 }
@@ -1058,44 +1020,114 @@ public class DataSection implements JSONString {
                  * Anyway, try to keep the names same on server and client, and avoid using function calls
                  * or compound expressions for the arguments passed to jo.put here.
                  */
-                jo.put("canFlagOnLosing", canFlagOnLosing);
-                jo.put("code", code);
+                final VoteResolver<String> resolver = getResolver();
+                jo.put("canFlagOnLosing", resolver.canFlagOnLosing());
+                jo.put("code", getCode());
                 jo.put("confirmStatus", confirmStatus);
                 jo.put("coverageValue", coverageValue);
-                jo.put("dir", dir);
-                jo.put("displayExample", displayExample);
+                jo.put("dir", getDirectionality());
+                jo.put("displayExample", getDisplayExample());
                 jo.put("displayName", displayName);
-                jo.put("extraAttributes", extraAttributes);
-                jo.put("hasVoted", hasVoted);
-                jo.put("inheritedLocale", inheritedLocale);
+                jo.put("extraAttributes", getNonDistinguishingAttributes());
+                jo.put("hasVoted", userHasVoted());
+                jo.put("inheritedLocale", getInheritedLocale());
                 jo.put("inheritedValue", inheritedValue);
-                jo.put("inheritedXpid", inheritedXpid);
-                jo.put("items", itemsJson);
-                jo.put("rowFlagged", rowFlagged);
-                jo.put("statusAction", statusAction);
-                jo.put("voteResolver", voteResolver);
-                jo.put("voteVhash", voteVhash);
+                jo.put("inheritedXpid", getInheritedXPath());
+                jo.put("items", getItemsJSON());
+                jo.put("rowFlagged", isFlagged());
+                jo.put("statusAction", getStatusAction());
+                jo.put("voteResolver", SurveyJSONWrapper.wrap(resolver));
+                jo.put("voteVhash", getVoteVHash());
                 jo.put("winningValue", winningValue);
-                jo.put("winningVhash", winningVhash);
+                jo.put("winningVhash", getWinningVHash());
                 jo.put("xpath", xpath);
                 jo.put("xpathId", xpathId);
-                jo.put("xpstrid", xpstrid);
-
-                String helpHtml =  nativeExampleGenerator.getHelpHtml(xpath, sm.getTranslationHintsFile().getStringValue(xpath));
-                if(helpHtml != null) {
-                    jo.put("helpHtml", helpHtml);
-                }
-
-                String rdfUri = AbstractCacheManager.getInstance().resourceUriForXpath(xpath);
-                if(rdfUri != null) {
-                    jo.put("rdf", rdfUri);
-                }
+                jo.put("xpstrid", XPathTable.getStringIDString(xpath));
+                jo.put("helpHtml", getHelpHTML());
+                jo.put("rdf", getRDFURI());
 
                 return jo.toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in DataRow.toJSONString of " + this);
                 throw new JSONException(t);
             }
+        }
+
+        public String getInheritedXPath() {
+            return (pathWhereFound != null) ? XPathTable.getStringIDString(pathWhereFound) : null;
+        }
+
+        private String getWinningVHash() {
+            return DataSection.getValueHash(winningValue);
+        }
+
+        private JSONObject getItemsJSON() throws JSONException {
+            JSONObject itemsJson = new JSONObject();
+            for (CandidateItem i : items.values()) {
+                String key = i.getValueHash();
+                if (itemsJson.has(key)) {
+                    System.out.println("Error: value hash key " + key + " is duplicate");
+                }
+                itemsJson.put(key, i);
+            }
+            return itemsJson;
+        }
+
+        private String getVoteVHash() {
+            String voteVhash = "";
+            if (userForVotelist != null) {
+                String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
+                if (ourVote != null) {
+                    CandidateItem voteItem = items.get(ourVote);
+                    if (voteItem != null) {
+                        voteVhash = voteItem.getValueHash();
+                    }
+                }
+            }
+            return voteVhash;
+        }
+
+        public String getRDFURI() {
+            return AbstractCacheManager.getInstance().resourceUriForXpath(xpath);
+        }
+
+        public String getHelpHTML() {
+            return nativeExampleGenerator.getHelpHtml(xpath, sm.getTranslationHintsFile().getStringValue(xpath));
+        }
+
+        public String getDisplayExample() {
+            String displayExample = null;
+            if (displayName != null) {
+                displayExample = sm.getTranslationHintsExample().getExampleHtml(xpath, displayName);
+            }
+            return displayExample;
+        }
+
+        public boolean userHasVoted() {
+            return (userForVotelist != null) ? userHasVoted(userForVotelist.id) : false;
+        }
+
+        public boolean isFlagged() {
+            return sm.getSTFactory().getFlag(locale, xpathId);
+        }
+
+        public VoteResolver<String> getResolver() {
+            return ballotBox.getResolver(xpath);
+        }
+
+        public String getDirectionality() {
+            if (getPathHeader().getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS)
+                return "ltr";
+            else
+                return null;
+        }
+
+        public String getCode() {
+            String code = "?";
+            if (getPathHeader() != null) {
+                code = getPathHeader().getCode();
+            }
+            return code;
         }
 
         /**
@@ -1145,7 +1177,7 @@ public class DataSection implements JSONString {
              * This happens with "example C" in https://unicode.org/cldr/trac/ticket/11299#comment:15 .
              * See showItemInfoFn in survey.js
              */
-            if (inheritedItem != null && inheritedLocale == null && pathWhereFound == null) {
+            if (inheritedItem != null && getInheritedLocale() == null && pathWhereFound == null) {
                 System.out.println("Error in checkDataRowConsistency: inheritedItem without inheritedLocale or pathWhereFound" +
                     "; xpath = " + xpath + "; inheritedValue = " + inheritedValue);
             }
@@ -1173,7 +1205,7 @@ public class DataSection implements JSONString {
          *
          * Called only by DataRow.toJSONString
          */
-        private Map<String, String> getNonDistinguishingAttributes() {
+        public Map<String, String> getNonDistinguishingAttributes() {
             if (checkedNDA == false) {
                 String fullDiskXPath = diskFile.getFullXPath(xpath);
                 nonDistinguishingAttributes = sm.xpt.getUndistinguishingElementsFor(fullDiskXPath);
@@ -1279,6 +1311,10 @@ public class DataSection implements JSONString {
          */
         public boolean isUnvotableRoot(String val) {
             return unvotableRootValue != null && unvotableRootValue.equals(val);
+        }
+
+        public CLDRLocale getInheritedLocale() {
+            return inheritedLocale;
         }
     }
 

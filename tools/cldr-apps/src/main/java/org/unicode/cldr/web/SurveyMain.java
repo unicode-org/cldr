@@ -2663,7 +2663,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @author srl
      *
      */
-    public class UserLocaleStuff {
+    public class UserLocaleStuff implements AutoCloseable{
         public CLDRFile cldrfile = null;
         public XMLSource dbSource = null;
         public XMLSource resolvedSource = null;
@@ -2680,6 +2680,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         private String closeStack = null;
 
+        @Override
         public void close() {
             final boolean DEBUG = CldrUtility.getProperty("TEST", false);
             if (use <= 0) {

@@ -125,9 +125,9 @@ public class InterestSort extends SortMode {
             @Override
             public boolean isMember(DataRow p) {
                 // extrapaths and some special paths may not have an inherited item
-                return p.inheritedLocale != null &&
-                    (CLDRLocale.ROOT == p.inheritedLocale ||
-                    XMLSource.CODE_FALLBACK_ID.equals(p.inheritedLocale.getBaseName()));
+                return p.getInheritedLocale() != null &&
+                    (CLDRLocale.ROOT == p.getInheritedLocale() ||
+                    XMLSource.CODE_FALLBACK_ID.equals(p.getInheritedLocale().getBaseName()));
             }
         }, new Partition.Membership("Inherited") {
             @Override

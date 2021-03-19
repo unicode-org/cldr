@@ -18,12 +18,20 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.WebContext;
 
 @Path("/auth")
+@Tag(name = "auth", description = "APIs for authentication")
 public class Auth {
+    /**
+     * Header to be used for a ST Session id
+     */
+    public static final String SESSION_HEADER = "X-SurveyTool-Session";
+
+
     @Path("/login")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -63,7 +71,9 @@ public class Auth {
                 session = CookieSession.newSession(resp.user, userIP);
             }
             resp.sessionId = session.id;
-            return Response.ok().entity(resp).build();
+            return Response.ok().entity(resp)
+                .header(SESSION_HEADER, session.id)
+                .build();
         } catch (LogoutException ioe) {
             return Response.status(403, "Login Failed").build();
         }
@@ -109,7 +119,9 @@ public class Auth {
         // Remove the session
         s.remove();
 
-        return Response.status(Status.NO_CONTENT).build();
+        return Response.status(Status.NO_CONTENT)
+            .header(SESSION_HEADER, null)
+            .build();
     }
 
 
@@ -140,9 +152,9 @@ public class Auth {
         final boolean touch) {
 
         // Fetch the Cookie Session
-        CookieSession s = CookieSession.retrieveWithoutTouch(session);
+        final CookieSession s = getSession(session);
         if (s == null) {
-            return Response.status(Status.NOT_FOUND).build();
+            return Auth.noSessionResponse();
         }
 
         // Touch if requested
@@ -155,6 +167,28 @@ public class Auth {
         LoginResponse resp = new LoginResponse();
         resp.sessionId = session;
         resp.user = s.user;
-        return Response.ok().entity(resp).build();
+        return Response.ok().entity(resp)
+            .header(SESSION_HEADER, session)
+            .build();
+    }
+
+
+    /**
+     * Extract a CookieSession from a session string
+     * @param session
+     * @return session or null
+     */
+    public static CookieSession getSession(String session) {
+        if (session == null || session.isEmpty()) return null;
+        CookieSession.checkForExpiredSessions();
+        return CookieSession.retrieveWithoutTouch(session);
+    }
+
+    /**
+     * Convenience function for returning the response when there's no session
+     * @return
+     */
+    public static Response noSessionResponse() {
+        return Response.status(Status.UNAUTHORIZED).build();
     }
 }

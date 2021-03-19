@@ -17,6 +17,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
@@ -27,6 +28,7 @@ import org.unicode.cldr.web.VettingViewerQueue;
 import org.unicode.cldr.web.VettingViewerQueue.ReviewOutput;
 
 @Path("/summary")
+@Tag(name = "voting", description = "APIs for voting")
 public class Summary {
 
     @POST
@@ -48,15 +50,9 @@ public class Summary {
         SummaryRequest request
     ) {
         try {
-            // TODO: put this in a helper function (once working)
-            CookieSession.checkForExpiredSessions();
-            if (sessionString == null || sessionString.isEmpty()) {
-                return Response.status(401, "No Session String").build();
-            }
-            CookieSession session = CookieSession.retrieve(sessionString);
+            CookieSession session = Auth.getSession(sessionString);
             if (session == null) {
-                // not authorized
-                return Response.status(401, "No Session").build();
+                return Auth.noSessionResponse();
             }
             if (!UserRegistry.userCanUseVettingSummary(session.user)) {
                 return Response.status(403, "Forbidden").build();
@@ -109,15 +105,9 @@ public class Summary {
         String level
     ) {
         CLDRLocale loc = CLDRLocale.getInstance(locale);
-        // TODO: put this in a helper function (once working)
-        CookieSession.checkForExpiredSessions();
-        if (session == null || session.isEmpty()) {
-            return Response.status(401, "No Session String").build();
-        }
-        CookieSession cs = CookieSession.retrieve(session);
+        CookieSession cs = Auth.getSession(session);
         if (cs == null) {
-            // not authorized
-            return Response.status(401, "No Session").build();
+            return Auth.noSessionResponse();
         }
         if (!UserRegistry.userCanModifyLocale(cs.user, loc)) {
             return Response.status(403, "Forbidden").build();

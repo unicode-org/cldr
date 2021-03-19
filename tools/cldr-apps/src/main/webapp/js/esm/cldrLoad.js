@@ -652,6 +652,7 @@ function getSpecial(str) {
     vsummary: cldrGenericVue,
     r_vetting_json: cldrGenericVue,
     default: cldrGenericVue, // Add this here for testing the '/v#default' page.
+    test_panel: cldrGenericVue, // Test page
 
     // Other special pages.
     account: cldrAccount,

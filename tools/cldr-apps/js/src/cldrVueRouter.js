@@ -63,6 +63,10 @@ function show(component, el, specialPage, cldrOpts) {
     cldrOpts,
   });
 
+  // These are available on all components.
+  app.config.globalProperties.$cldrOpts = cldrOpts;
+  app.config.globalProperties.$specialPage = specialPage;
+
   // There is no global registration in Vue3, so we re-register
   // the components here.
   setupComponents(app);

@@ -51,7 +51,7 @@
                 <th>Code</th>
                 <th>English</th>
                 <th>Baseline</th>
-                <th>Winning {{ cldrOpts.cldrStatus.getNewVersion() }}</th>
+                <th>Winning {{ $cldrOpts.cldrStatus.getNewVersion() }}</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -70,13 +70,13 @@
                 <td>
                   <cldr-value
                     v-bind:value="e.old"
-                    v-bind:dir="cldrOpts.localeDir"
+                    v-bind:dir="$cldrOpts.localeDir"
                   />
                 </td>
                 <td>
                   <cldr-value
                     v-bind:value="e.winning"
-                    v-bind:dir="cldrOpts.localeDir"
+                    v-bind:dir="$cldrOpts.localeDir"
                   />
                 </td>
                 <td class="button-review">
@@ -100,7 +100,7 @@
 
 <script>
 export default {
-  props: ["specialPage", "cldrOpts"],
+  props: [],
   data() {
     return {
       data: null,
@@ -152,7 +152,7 @@ export default {
       return true;
     },
     fetchData() {
-      const { cldrSurvey, locale, sessionId } = this.cldrOpts;
+      const { cldrSurvey, locale, sessionId } = this.$cldrOpts;
       this.locale = locale;
       const level = cldrSurvey.getSurveyUserCov();
       this.level = level;

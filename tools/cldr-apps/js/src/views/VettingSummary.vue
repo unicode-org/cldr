@@ -1,20 +1,20 @@
 <template>
   <div id="home">
-    Current Status Code: {{ statusData.status }}
+    Current Status: {{ statusData.status }}
     <button v-on:click="stop()">Stop</button>
-    <button v-on:click="start()">Start</button>
+    <button v-on:click="start()">Refresh</button>
     <br />
-    Current Status Message:
+    Message:
     <span v-html="statusData.ret"></span>
     <br />
-    Results:
+    <!-- results -->
     <span v-html="statusData.output"></span>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["specialPage", "cldrOpts"],
+  props: [],
   data: function () {
     return {
       statusData: {
@@ -32,7 +32,7 @@ export default {
       const RETRY_ON_FETCH_ERR = 15 * SECONDS_IN_MS; // When we couldn't talk to server
       const NORMAL_RETRY = 5 * SECONDS_IN_MS; // "Normal" retry: starting or about to start
       const BUSTED_RETRY = 60 * SECONDS_IN_MS; // ST is down
-      const sessionId = this.cldrOpts.cldrStatus.getSessionId();
+      const sessionId = this.$cldrOpts.cldrStatus.getSessionId();
       fetch(`api/summary?ss=${sessionId}`, {
         method: "POST",
         headers: {
@@ -49,7 +49,7 @@ export default {
         });
     },
     stop: function () {
-      const sessionId = this.cldrOpts.cldrStatus.getSessionId();
+      const sessionId = this.$cldrOpts.cldrStatus.getSessionId();
       fetch(`api/summary?ss=${sessionId}`, {
         method: "POST",
         headers: {
@@ -65,7 +65,7 @@ export default {
         });
     },
     start: function () {
-      const sessionId = this.cldrOpts.cldrStatus.getSessionId();
+      const sessionId = this.$cldrOpts.cldrStatus.getSessionId();
       fetch(`api/summary?ss=${sessionId}`, {
         method: "POST",
         headers: {

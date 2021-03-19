@@ -160,7 +160,14 @@ public class SurveyTool extends HttpServlet {
             out.write("</head>\n<body>\n");
             writeWaitingNavbarHtml(out);
             out.write("<div id='app'></div>");
-            out.write("<script>cldrBundle.showPanel('retry', '#app');</script>");
+            out.write("<script>\n" +
+            "try {\n" +
+            "  cldrBundle.showPanel('retry', '#app');\n" +
+            "} catch(e) {\n" +
+            "  console.error(e);\n" +
+            "  document.getElementById('loading-err').innerText='Error: Could not CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack;\n" +
+            "}\n" +
+            "</script>\n");
             out.write("</body>");
         } else {
             /*
@@ -283,7 +290,7 @@ public class SurveyTool extends HttpServlet {
         out.write("<div class=\"navbar navbar-fixed-top\" role=\"navigation\">\n"
             + "  <div class=\"container\">\n"
             + "    <div class=\"navbar-header\">\n"
-            + "      <p class=\"navbar-brand\">\n"
+            + "      <p id=\"loading-err\" class=\"navbar-brand\">\n"
             + "        <a href=\"http://cldr.unicode.org\">CLDR</a> SurveyTool\n"
             + "      </p>\n"
             + "    </div>\n"
@@ -338,7 +345,14 @@ public class SurveyTool extends HttpServlet {
         out.write("<div id='st-run-gui'>Loading...</div>\n");
         if (!useDojo(request)) {
             if (RUN_ALL_JS_FROM_BUNDLE) {
-                out.write("<script>cldrBundle.runGui()</script>\n");
+                out.write("<script>\n" +
+                 "try {\n" +
+                 "  cldrBundle.runGui();\n" +
+                 "} catch(e) {\n" +
+                 "  console.error(e);\n" +
+                 "  document.write('&#x26A0; Error: Could not load CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack);\n" +
+                 "}\n" +
+                 "</script>\n");
             } else {
                 out.write("<script type='module'>import * as cldrGui from '" +
                     request.getContextPath() + "/js/esm/cldrGui.js'\n" +

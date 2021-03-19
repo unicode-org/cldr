@@ -926,15 +926,15 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
             if (topVoterTime != 0) {
               // Get the latest time vote only
               if (
-                vr.nameTime[item.votes[topVoter].name] <
-                vr.nameTime[item.votes[voter].name]
+                vr.nameTime[`#${topVoter}`] <
+                vr.nameTime[`#${voter}`]
               ) {
                 topVoter = voter;
-                topVoterTime = vr.nameTime[item.votes[topVoter].name];
+                topVoterTime = vr.nameTime[`#${topVoter}`];
               }
             } else {
               topVoter = voter;
-              topVoterTime = vr.nameTime[item.votes[topVoter].name];
+              topVoterTime = vr.nameTime[`#${topVoter}`];
             }
           }
         }

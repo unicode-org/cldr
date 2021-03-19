@@ -234,9 +234,8 @@ public class SurveyAjax extends HttpServlet {
                 send(r, out);
             } else if (what.equals(WHAT_FLAGGED)) {
                 SurveyJSONWrapper r = newJSONStatus(request, sm);
-                JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 1000, "select * from " + DBUtils.Table.VOTE_FLAGGED
-                    + "  order by locale asc, last_mod desc");
-                r.put(what, query);
+                mySession = CookieSession.retrieve(sess);
+                new SurveyFlaggedItems(UserRegistry.userIsTC(mySession.user)).getJson(r);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();

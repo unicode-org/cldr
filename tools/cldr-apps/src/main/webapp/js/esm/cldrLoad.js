@@ -9,6 +9,7 @@ import * as cldrCreateLogin from "./cldrCreateLogin.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrErrorSubtypes from "./cldrErrorSubtypes.js";
 import * as cldrEvent from "./cldrEvent.js";
+import * as cldrFlagged from "./cldrFlagged.js";
 import { Flipper } from "./cldrFlip.js";
 import * as cldrForum from "./cldrForum.js";
 import * as cldrForumParticipation from "./cldrForumParticipation.js";
@@ -659,6 +660,7 @@ function getSpecial(str) {
     bulk_close_posts: cldrBulkClosePosts,
     createAndLogin: cldrCreateLogin,
     error_subtypes: cldrErrorSubtypes,
+    flagged: cldrFlagged,
     forum: cldrForum,
     forum_participation: cldrForumParticipation,
     list_emails: cldrListEmails,

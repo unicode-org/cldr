@@ -2,7 +2,7 @@
   <div id="home">
     <h1 class="hang">Waiting for the SurveyTool to startup…</h1>
     <h1>
-      <kbd>{{ /* little spinner */ "/|\\-".charAt(fetchCount % 4) }}</kbd>
+      <a-spin size="large" delay="1000" />
     </h1>
     <!-- todo: spinner -->
     <ol>

@@ -5,7 +5,9 @@
       <a href="http://www.unicode.org/cldr">unicode.org/cldr</a>.
     </p>
     <h1>About this SurveyTool Installation</h1>
-    <table class="aboutBox">
+    <!-- spinner only shows if there's a delay -->
+    <a-spin tip="Loading" v-if="!aboutData" delay="500"/>
+    <table v-if="aboutData" class="aboutBox">
       <thead>
         <th>Property</th>
         <th>Value</th>
@@ -15,8 +17,23 @@
           <td class="aboutKey">
             {{ k }}
           </td>
-          <td class="aboutValue">
-            {{ v }}
+          <td>
+            <span v-if="/^(http|https):.*/.test(v)">
+              <!-- Looks like a URL -->
+              <a class="aboutValue" v-bind:href="v">{{ v }}</a>
+            </span>
+            <span v-else-if="/^[a-fA-F0-9]{6,40}$/.test(v) && aboutData.CLDR_COMMIT_BASE">
+              <!-- Looks like a Git hash, 6…40 hex chars.
+                   We need to check that CLDR_COMMIT_BASE is set, because that’s the
+                   base URL for the linkification -->
+              <a class="aboutValue" v-bind:href="aboutData.CLDR_COMMIT_BASE + v">
+                <i class="glyphicon glyphicon-cog" />{{ v }}
+              </a>
+            </span>
+            <span v-else class="aboutValue">
+              <!-- some other type -->
+              {{ v }}
+            </span>
           </td>
         </tr>
       </tbody>
@@ -28,9 +45,7 @@
 export default {
   data: function () {
     return {
-      aboutData: {
-        wait: "Loading…",
-      },
+      aboutData: null,
     };
   },
   created: function () {

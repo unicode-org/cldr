@@ -10,10 +10,13 @@
         Coverage level <b>{{ level }}</b
         >:
         <span v-for="n in data.notifications" :key="n.notification">
-          <button :notification="n.notification"
+          <button
+            :notification="n.notification"
             class="scrollto"
             v-on:click.prevent="scrollto"
-          > {{ n.notification }} ({{ n.total }}) </button>
+          >
+            {{ n.notification }} ({{ n.total }})
+          </button>
           &nbsp;&nbsp;
         </span>
       </h4>
@@ -22,7 +25,7 @@
         v-for="n in data.notifications"
         :key="n.notification"
         class="notificationcontainer"
-        v-bind:id="'notification-'+n.notification"
+        v-bind:id="'notification-' + n.notification"
       >
         <h3 v-on:click="n.hidden = !n.hidden" class="collapse-review">
           <i v-if="!n.hidden" class="glyphicon glyphicon-chevron-down" />
@@ -126,16 +129,20 @@ export default {
               // is actually visible.
               //
               // It's an approximation.
-              window.scrollBy(-1000,0-(scrollFix));
+              window.scrollBy(-1000, 0 - scrollFix);
             } catch (e) {
-              console.error(`Error ${e} trying to scroll to ${selector} for ${whence}`);
+              console.error(
+                `Error ${e} trying to scroll to ${selector} for ${whence}`
+              );
             }
             return;
           }
         }
-        console.error('Click on missing notitication ' + whence);
+        console.error("Click on missing notitication " + whence);
       } else {
-        console.error('Click before data loaded on missing notitication ' + whence);
+        console.error(
+          "Click before data loaded on missing notitication " + whence
+        );
       }
     },
     handleCoverageChanged(level) {

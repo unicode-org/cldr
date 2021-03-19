@@ -1145,8 +1145,7 @@ function getParticipatingUsersLink() {
 }
 
 function getAddUserLink() {
-  // TODO: "Add User"; not jsp: see https://unicode-org.atlassian.net/browse/CLDR-14433
-  return "<a href='/cldr-apps/adduser.jsp'>[TODO:] Add User</a>";
+  return "<a href='#add_user'>Add User</a>";
 }
 
 function getXmlUploadLink(u) {

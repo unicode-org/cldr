@@ -16,6 +16,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRURLS;
@@ -26,6 +27,7 @@ import org.unicode.cldr.web.SurveyMain;
 import com.ibm.icu.util.VersionInfo;
 
 @Path("/about")
+@Tag(name = "about", description = "APIs for the About panel")
 public class About {
 
     @GET

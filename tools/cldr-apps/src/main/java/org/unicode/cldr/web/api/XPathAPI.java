@@ -16,10 +16,12 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.XPathTable;
 
 @Path("/xpath")
+@Tag(name = "xpath", description = "APIs for XPath information")
 public class XPathAPI {
 
     @Schema(description = "Return value for XPath query")

@@ -411,6 +411,7 @@ public class SurveyAjax extends HttpServlet {
                             sendError(out, "Only Admin can access Admin Panel", ErrorCode.E_NO_PERMISSION);
                         }
                     } else if (what.equals(WHAT_SUBMIT)) {
+                        // TODO: obviated by VoteAPI
                         mySession.userDidAction();
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -2549,7 +2550,10 @@ public class SurveyAjax extends HttpServlet {
      * getSection to improve performance related to DataSection.
      * Reference: https://unicode-org.atlassian.net/projects/CLDR/issues/CLDR-11877
      *        and https://unicode-org.atlassian.net/projects/CLDR/issues/CLDR-12020
+     *
+     * @deprecated - use /api/vote instead
      */
+    @Deprecated
     public static void getRow(HttpServletRequest request, HttpServletResponse response, Writer out,
             SurveyMain sm, String sess, CLDRLocale locale, String xpath)
             throws IOException, JSONException {

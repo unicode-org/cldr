@@ -19,26 +19,16 @@ public class SurveyException extends Exception {
      * @author srl
      *
      */
-    enum ErrorCode {
+    public enum ErrorCode {
         E_UNKNOWN, E_INTERNAL, E_BAD_SECTION, E_BAD_LOCALE, E_NOT_STARTED, E_SPECIAL_SECTION, E_SESSION_DISCONNECTED, E_DISCONNECTED, E_NO_PERMISSION, E_NOT_LOGGED_IN, E_BAD_VALUE, E_BAD_XPATH, E_NO_OLD_VOTES,
         E_PERMANENT_VOTE_NO_FORUM;
     }
 
     private final ErrorCode err_code;
-    JSONObject err_data = null;
 
     public void addDataTo(SurveyJSONWrapper r) throws JSONException {
-        if (err_data != null) {
-            r.put("err_data", r);
-        } else {
-            r.put("err_data",
-                new JSONObject().put("message", getMessage()).put("class", this.getClass().getSimpleName()).put("cause", this.getCause()));
-        }
-    }
-
-    public SurveyException setErrData(JSONObject err_data) {
-        this.err_data = err_data;
-        return this;
+        r.put("err_data",
+            new JSONObject().put("message", getMessage()).put("class", this.getClass().getSimpleName()).put("cause", this.getCause()));
     }
 
     public ErrorCode getErrCode() {
@@ -63,6 +53,5 @@ public class SurveyException extends Exception {
     public SurveyException(ErrorCode err_code, String string, JSONObject err_data) {
         super(string);
         this.err_code = err_code;
-        this.err_data = err_data;
     }
 }

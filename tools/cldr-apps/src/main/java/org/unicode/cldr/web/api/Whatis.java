@@ -18,6 +18,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.StandardCodes;
@@ -27,6 +28,7 @@ import org.unicode.cldr.web.api.WhatisResponse.StandardCodeResult;
 import org.unicode.cldr.web.api.WhatisResponse.XpathResult;
 
 @Path("/whatis")
+@Tag(name = "xpath", description = "APIs for XPath info")
 public class Whatis {
 
     @GET

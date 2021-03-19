@@ -1,6 +1,5 @@
 <%@page import="org.unicode.cldr.web.SurveyMain.Phase"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="org.unicode.cldr.util.VoteResolver.VoterInfo"%>
 <%@page import="com.ibm.icu.util.VersionInfo"%>
 <%@page import="java.util.Properties"%>
 <%@page import="java.io.InputStream"%>

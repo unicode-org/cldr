@@ -454,6 +454,7 @@ const strings = {
   special_users: "Users",
   special_vetting_participation: "Vetting Participation",
   special_vsummary: "Priority Items Summary (slow)",
+  special_test_panel: "Experimental Test Panel",
 };
 
 /**

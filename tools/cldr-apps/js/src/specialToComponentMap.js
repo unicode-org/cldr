@@ -4,6 +4,7 @@ import DashboardPanel from "./views/DashboardPanel.vue";
 import UnknownPanel from "./views/UnknownPanel.vue";
 import VettingSummary from "./views/VettingSummary.vue";
 import WaitingPanel from "./views/WaitingPanel.vue";
+import TestPanel from "./views/TestPanel.vue";
 
 /**
  * Map of special (i.e. /v#about ) to components
@@ -16,6 +17,7 @@ const specialToComponentMap = {
   r_vetting_json: DashboardPanel,
   // If no match, end up here
   default: UnknownPanel,
+  test_panel: TestPanel, // for testing
 };
 
 /**

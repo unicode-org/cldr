@@ -118,6 +118,11 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
         System.err.println(getClass().getName() + ".cldrHome=" + cldrHome);
         if (cldrHomeSet == false) {
+            System.err.println("*********************************************************************");
+            System.err.println("*** CLDRConfig.getInstance() was called prior to SurveyTool setup ***");
+            System.err.println("*** This is probably an error. Look at the stack below, and make  ***");
+            System.err.println("*** sure that CLDRConfig.getInstance() is not called at static    ***");
+            System.err.println("*** init time.                                                    ***");
             System.err.println("[cldrHome not set] stack=\n" + StackTracker.currentStack() + "\n CLDRHOMESET = " + cldrHomeSet);
         }
     }
@@ -141,19 +146,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         survprops.put("CLDR_SURVEY_URL", "survey"); // default to relative URL.
 
         File propFile;
-        
-        // Try to use org.unicode.cldr.util.CLDRConfigImpl.cldrHome as a property
-        // Note that this specifies the entire path, not just the "parent"
-        try {
-            cldrHome = System.getProperty(CLDRConfigImpl.class.getName() + ".cldrHome", null);
-            if (!new File(cldrHome).isDirectory()) {
-                System.err.println(cldrHome + " is not a directory");
-                cldrHome = null;
-            }
-        } catch(Throwable t) {
-            t.printStackTrace();
-            cldrHome = null;
-        }
+
+        tryToInitCldrHome();
 
         System.err.println(CLDRConfigImpl.class.getName() + ".init(), cldrHome=" + cldrHome);
         if (cldrHome == null) {
@@ -215,6 +209,24 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         survprops.put("CLDRHOME", cldrHome);
 
         isInitted = true;
+    }
+
+    private void tryToInitCldrHome() {
+        // Try to use org.unicode.cldr.util.CLDRConfigImpl.cldrHome as a property
+        // Note that this specifies the entire path, not just the "parent"
+        try {
+            cldrHome = System.getProperty(CLDRConfigImpl.class.getName() + ".cldrHome", null);
+            if (!new File(cldrHome).isDirectory()) {
+                System.err.println(cldrHome + " is not a directory");
+                cldrHome = null;
+            } else {
+                cldrHomeSet = true;
+            }
+        } catch(Throwable t) {
+            System.err.println("Error " + t + " trying to set cldrHome");
+            t.printStackTrace();
+            cldrHome = null;
+        }
     }
 
     public final static String ALL_GIT_HASHES[] = { "CLDR_SURVEYTOOL_HASH", "CLDR_UTILITIES_HASH", "CLDR_DATA_HASH" };

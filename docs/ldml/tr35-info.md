@@ -977,7 +977,7 @@ There are many possible ways to construct complex units. For comparison of unit 
 4. For each single unit, disregarding prefixes and powers, get the order of the _simple_ unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/master/common/supplemental/units.xml). Sort the single units by that order, using a stable sort. If there are private-use single units, sort them after all the non-private use single units.
    * meter-square-kilogram => square-kilogram-meter
    * meter-square-gram ⇒ square-gram-meter
-5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different SI prefixes, such as _meter-kilometer_. In that case, sort the higher-power SI prefixes first, such as _kilometer-meter_.
+5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes, such as _meter-kilometer_. In that case, sort the larger prefixes first, such as _kilometer-meter_ or _kibibyte-kilobyte_
 6. Within private-use single units, sort by the simple unit alphabetically.
 
 The examples in #4 are due to the following ordering of the `unitQuantity` elements:

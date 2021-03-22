@@ -45,7 +45,7 @@ The LDML specification is divided into the following parts:
     *   2.3 [Supplemental Territory Information](#Supplemental_Territory_Information)
     *   2.4 [Territory-Based Preferences](#Territory_Based_Preferences)
         *   2.4.1 [Preferred Units for Specific Usages](#Preferred_Units_For_Usage)
-            *   Table: [Unit Preference Categories](#Unit_Preferences)
+            *   Table: [Unit Preference](#Unit_Preferences)
     *   2.5 [\<rgScope>: Scope of the “rg” Locale Key](#rgScope)
 *   3 [Supplemental Language Data](#Supplemental_Language_Data)
     *   3.1 [Supplemental Language Grouping](#Supplemental_Language_Grouping)
@@ -681,7 +681,7 @@ Attribute values for the \*Alias values include the following:
 | replacement | NMTOKEN       | The code(s) to replace it, space-delimited. |
 | reason      | deprecated    | The code in type is deprecated, such as 'iw' by 'he', or 'CS' by 'RS ME'. |
 |             | overlong      | The code in type is too long, such as 'eng' by 'en' or 'USA' or '840' by 'US' |
-|             | macrolanguage | The code in type is an encompassed languagethat is replaced by a macrolanguage, such as '[arb'](https://www.sil.org/iso639-3/documentation.asp?id=arb) by 'ar'. |
+|             | macrolanguage | The code in type is an encompassed language that is replaced by a macrolanguage, such as '[arb'](https://www.sil.org/iso639-3/documentation.asp?id=arb) by 'ar'. |
 |             | legacy        | The code in type is a legacy code that is replaced by another code for compatiblity with established legacy usage, such as 'sh' by 'sr_Latn' |
 |             | bibliographic | The code in type is a [bibliographic code](https://www.loc.gov/standards/iso639-2/langhome.html), which is replaced by a terminology code, such as 'alb' by 'sq'. |
 

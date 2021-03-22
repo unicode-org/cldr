@@ -2521,17 +2521,28 @@ Note that the CLDR plural categories overlap some of these features, since some 
 <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalCase EMPTY>
-
+<!ATTLIST grammaticalCase scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalGender EMPTY>
-
+<!ATTLIST grammaticalGender scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalDefiniteness EMPTY>
-
+<!ATTLIST grammaticalDefiniteness scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
 ```
+
+The @targets attribute contains the specific grammatical entities to which the features apply, such as ```nominal``` when they apply to nouns only. The @locales attribute contains the specific locales to which the features apply, such as ```de fr``` for German and French.
+
+The @scope attribute, if present, indicates that the values are limited to a specific subset for certain kinds of entities. For example, a particular language might have an animate gender for nouns, but no units of measurement ever have that case; in another language, the language might have a rich set of grammatical cases, but units are invariant. If the @scope attribute is not present, then that has the meaning of "everything else".
+
+The @scope attributes are targeted at messages created by computers, thus a feature may have a narrower scope if for all practical purposes the feature value is not used in messages created by computers. For example, it may be possible in theory for a kilogram to be in the vocative case (English poetry might have “O Captain! my Captain!/ our fearful trip is done”, but on computers you have little call to need the message “O kilogram! my kilogram! …”).
+
+**Constraints:**
+
+* a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.
+* the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.
 
 ### 15.1 <a name="Gender" href="#Gender">Gender</a>
 

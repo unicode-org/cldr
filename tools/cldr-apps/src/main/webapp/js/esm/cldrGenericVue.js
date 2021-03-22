@@ -48,22 +48,52 @@ function loadHandler(json, specialPage) {
     localeDir = localeInfo.dir;
   }
 
-  // add Vue-based component
+  // Not likely to fail here.
+  if (!cldrBundle) {
+    console.error("Oops - no cldrBundle in cldrGenericVue.js loadHandler()");
+    return cldrRetry.handleDisconnect(
+      "Something went wrong: the SurveyTool’s cldrBundle was not found.",
+      null
+    ); // in case the 2nd line doesn't work
+  }
 
-  cldrBundle.showPanel(specialPage, app, {
-    // modules
-    cldrLoad,
-    cldrEvent, // Vue could call into these, if need be
-    cldrStatus,
-    cldrSurvey,
+  try {
+    // add Vue-based component
+    cldrBundle.showPanel(specialPage, app, {
+      // modules
+      cldrLoad,
+      cldrEvent, // Vue could call into these, if need be
+      cldrStatus,
+      cldrSurvey,
 
-    // additional variables
-    locale,
-    locmap,
-    localeInfo,
-    localeDir,
-    sessionId: cldrStatus.getSessionId(),
-  });
+      // additional variables
+      locale,
+      locmap,
+      localeInfo,
+      localeDir,
+      sessionId: cldrStatus.getSessionId(),
+    });
+  } catch (e) {
+    console.error(
+      "Error in vue load of [" +
+        specialPage +
+        "]  " +
+        e.message +
+        " / " +
+        e.name
+    );
+    return cldrRetry.handleDisconnect(
+      "Exception while loading: " +
+        message +
+        " - " +
+        e.message +
+        ", n=" +
+        e.name +
+        " \nStack:\n" +
+        (e.stack || "[none]"),
+      null
+    ); // in case the 2nd line doesn't work
+  }
 }
 
 export { load, handleCoverageChanged };

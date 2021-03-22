@@ -1,10 +1,23 @@
 <template>
-  <p>This is only a test.</p>
+  <div>
+    <p>This is only a test. But by the way, hello {{ $specialPage }}</p>
+
+    <CldrRows locale="br" xpath="132345490064d839"> </CldrRows>
+    <hr />
+
+    <!-- <CldrRows locale="sr_Latn" xpath="132345490064d839">
+
+  </CldrRows> -->
+  </div>
 </template>
 
 <script>
+import CldrRows from "./CldrRows.vue";
+
 export default {
-  props: ["specialPage", "cldrOpts"],
+  components: {
+    CldrRows,
+  },
 };
 </script>
 

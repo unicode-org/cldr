@@ -1,10 +1,9 @@
 <template>
   <div id="home">
-    <h1 class="hang">Waiting for the SurveyTool to startup…</h1>
+    <h1 class="hang">Waiting for the SurveyTool to start up…</h1>
     <h1>
-      <a-spin size="large" delay="1000" />
+      <a-spin size="large" :delay="1000" />
     </h1>
-    <!-- todo: spinner -->
     <ol>
       <li v-if="!statusData">Checking…</li>
       <!-- this shows while we are waiting for status data -->

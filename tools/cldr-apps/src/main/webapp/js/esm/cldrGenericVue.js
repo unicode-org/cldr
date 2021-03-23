@@ -84,8 +84,6 @@ function loadHandler(json, specialPage) {
     );
     return cldrRetry.handleDisconnect(
       "Exception while loading: " +
-        message +
-        " - " +
         e.message +
         ", n=" +
         e.name +

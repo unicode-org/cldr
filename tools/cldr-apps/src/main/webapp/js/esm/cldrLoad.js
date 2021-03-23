@@ -622,7 +622,7 @@ function unspecialLoad(itemLoadInfo, theDiv) {
 }
 
 /**
- * Given a string like "about", return a "special" object like cldrAbout.
+ * Given a string like "about", return a "special" object like cldrAccount.
  * These objects share in common that they may define methods:
  *  - load
  *  - handleIdChanged
@@ -647,8 +647,10 @@ function unspecialLoad(itemLoadInfo, theDiv) {
  */
 function getSpecial(str) {
   const specials = {
-    // These are handled by Vue.
+    // These are handled by Vue. When adding a new mapping to cldrGenericVue here, it may also
+    // be necessary to map the special to a specific .vue file in specialToComponentMap.js
     about: cldrGenericVue,
+    add_user: cldrGenericVue,
     lookup: cldrGenericVue,
     vsummary: cldrGenericVue,
     r_vetting_json: cldrGenericVue,

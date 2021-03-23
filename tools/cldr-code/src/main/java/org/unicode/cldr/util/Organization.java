@@ -59,8 +59,21 @@ public enum Organization {
     private final String[] names;
 
     public static Organization fromString(String name) {
-        if(name == null) {
+        if (name == null) {
             throw new NullPointerException("Organization.fromString(null) called");
+        }
+        if (name.contains("Government of Pakistan")) {
+            /*
+             * "Government of Pakistan - National Language Authority"
+             * occurs in the cldr_users table; avoid problems with hyphen
+             */
+            return Organization.pakistan;
+        } else if (name.contains("Utilika")) {
+            /*
+             * "Utilika" and "Utilika Foundation" occur in the cldr_users table.
+             * Compare "Utilka Foundation", one of the variants for Organization.longnow
+             */
+            return Organization.longnow;
         }
         name = name.toLowerCase().replace('-', '_').replace('.', '_');
         Organization org = OrganizationNameMap.get(name);

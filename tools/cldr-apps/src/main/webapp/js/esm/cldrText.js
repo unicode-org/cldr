@@ -428,6 +428,7 @@ const strings = {
   special_about: "About Survey Tool",
   special_account: "Account Settings",
   special_admin: "Admin Panel",
+  special_add_user: "Add a Survey Tool user",
   special_bulk_close_posts: "Bulk Close Posts",
   special_createAndLogin: "Create and Login",
   special_default: "Missing Page",

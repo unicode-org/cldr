@@ -15,7 +15,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.InfoType;
@@ -130,7 +129,6 @@ public class UserList {
         r.put("userPerms", userPerms);
         r.put("canShowLocked", canShowLocked);
         if ("true".equals(request.getParameter(GET_ORGS))) {
-            reg.setOrgList();
             r.put("orgList", UserRegistry.getOrgList());
         }
         listUsers(r);
@@ -143,22 +141,7 @@ public class UserList {
         userPerms.put("canCreateUsers", canCreateUsers);
         userPerms.put("canModifyUsers", canModifyUsers);
         if (canCreateUsers) {
-            final VoteResolver.Level myLevel = VoteResolver.Level.fromSTLevel(me.userlevel);
-            final Organization myOrganization = me.getOrganization();
-            JSONObject levels = new JSONObject();
-            for (VoteResolver.Level v : VoteResolver.Level.values()) {
-                if (v == VoteResolver.Level.expert || v == VoteResolver.Level.anonymous) {
-                    continue;
-                }
-                int number = v.getSTLevel(); // like 999
-                JSONObject jo = new JSONObject();
-                jo.put("name", v.name()); // like "locked"
-                jo.put("string", UserRegistry.levelToStr(number)); // like "999: (LOCKED)"
-                jo.put("canCreateOrSetLevelTo", myLevel.canCreateOrSetLevelTo(v));
-                jo.put("isManagerFor", myLevel.isManagerFor(myOrganization, v, myOrganization));
-                levels.put(String.valueOf(number), jo);
-            }
-            userPerms.put("levels", levels);
+            userPerms.put("levels", UserRegistry.getLevelMenuJson(me));
         }
         return userPerms;
     }

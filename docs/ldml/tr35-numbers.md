@@ -96,28 +96,25 @@ Numbering systems information is used to define different representations for nu
 
 Attributes for the `<numberingSystem>` element are as follows:
 
-> `id` - Specifies the name of the numbering system that can be used to designate its use in formatting.
-> 
-> `type` - Specifies whether the numbering system is algorithmic or numeric.
-> 
-> `digits` - For numeric systems, specifies the digits used to represent numbers, in order, starting from zero.
-> 
-> `rules` - Specifies the RBNF ruleset to be used for formatting numbers from this numbering system. The rules specifier can contain simply a ruleset name, in which case the ruleset is assumed to be found in the rule set grouping "NumberingSystemRules". Alternatively, the specifier can denote a specific locale, ruleset grouping, and ruleset name, separated by slashes.
+- `id` - Specifies the name of the numbering system that can be used to designate its use in formatting.
+- `type` - Specifies whether the numbering system is algorithmic or numeric.
+- `digits` - For numeric systems, specifies the digits used to represent numbers, in order, starting from zero.
+- `rules` - Specifies the RBNF ruleset to be used for formatting numbers from this numbering system. The rules specifier can contain simply a ruleset name, in which case the ruleset is assumed to be found in the rule set grouping "NumberingSystemRules". Alternatively, the specifier can denote a specific locale, ruleset grouping, and ruleset name, separated by slashes.
 
 Examples:
 
 ```xml
-<numberingSystem id="latn" type="numeric" digits="0123456789"/>
 <!-- ASCII digits - A numeric system -->
+<numberingSystem id="latn" type="numeric" digits="0123456789"/>
 
-<numberingSystem id="thai" type="numeric" digits="๐๑๒๓๔๕๖๗๘๙"/>
 <!-- A numeric system using Thai digits -->
+<numberingSystem id="thai" type="numeric" digits="๐๑๒๓๔๕๖๗๘๙"/>
 
-<numberingSystem id="geor" type="algorithmic" rules="georgian"/>
 <!-- An algorithmic system - Georgian numerals , rules found in NumberingSystemRules -->
+<numberingSystem id="geor" type="algorithmic" rules="georgian"/>
 
-<numberingSystem id="hant" type="algorithmic" rules="zh_Hant/SpelloutRules/spellout-cardinal"/>
 <!-- An algorithmic system. Traditional Chinese Numerals -->
+<numberingSystem id="hant" type="algorithmic" rules="zh_Hant/SpelloutRules/spellout-cardinal"/>
 ```
 
 For general information about the numbering system data, including the BCP47 identifiers, see the main document _Section Q.1.1 [Numbering System Data](tr35.md#Numbering%20System%20Data)._
@@ -548,7 +545,7 @@ Many characters in a pattern are taken literally; they are matched during parsin
 
 To insert a special character in a pattern as a literal, that is, without any special meaning, the character must be quoted. There are some exceptions to this which are noted below. The Localized Replacement column shows the replacement from _Section 2.3 [Number Symbols](#Number_Symbols)_ or the numberSystem's digits: _italic_ indicates a special function.
 
-Invalid sequences of special characters (such as “¤¤¤¤¤” in current CLDR) should be handled for formatting and parsing as described in [Handling Invalid Patterns](tr35.md#Invalid_Patterns).
+Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current CLDR) should be handled for formatting and parsing as described in [Handling Invalid Patterns](tr35.md#Invalid_Patterns).
 
 ##### <a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a>
 
@@ -566,13 +563,13 @@ Invalid sequences of special characters (such as “¤¤¤¤¤” in current CLD
 | % | Prefix or suffix | percentSign | Multiply by 100 and show as percentage |
 | ‰ (U+2030) | Prefix or suffix | perMille | Multiply by 1000 and show as per mille (aka “basis points”) |
 | ; | Subpattern boundary | _syntax_ | Separates positive and negative subpatterns. When there is no explicit negative subpattern, an implicit negative subpattern is formed from the positive pattern with a prefixed - (ASCII U+002D HYPHEN-MINUS). |
-| ¤ (U+00A4) | Prefix or suffix | _currency symbol/name from currency specified in API_ | Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below. If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones. If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also the formatting forcurrency display names, steps 2 and 4 in [Currencies](#Currencies). <table><tr><th>No.</th><th>Replacement / Example</th></tr><tr><td rowspan="2">¤</td><td>Standard currency symbol</td></tr><tr><td>_C$12.00_</td></tr><tr><td rowspan="2">¤</td><td>ISO currency symbol (constant)</td></tr><tr><td>_CAD 12.00_</td></tr><tr><td rowspan="2">¤¤¤</td><td>Appropriate currency display name for the currency,based on the plural rules in effect for the locale</td></tr><tr><td>_5.00 Canadian dollars_</td></tr><tr><td rowspan="2" >¤¤¤¤</td><td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear.</td></tr><tr><td>_$12.00_</td></tr><tr><td>_others_</td><td>_Invalid in current CLDR. Reserved for future specification_</td></tr></table> |
+| ¤ (U+00A4) | Prefix or suffix | _currency symbol/name from currency specified in API_ | Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below. If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones. If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also the formatting forcurrency display names, steps 2 and 4 in [Currencies](#Currencies). <table><tr><th>No.</th><th>Replacement / Example</th></tr><tr><td rowspan="2">¤</td><td>Standard currency symbol</td></tr><tr><td>_C$12.00_</td></tr><tr><td rowspan="2">¤¤</td><td>ISO currency symbol (constant)</td></tr><tr><td>_CAD 12.00_</td></tr><tr><td rowspan="2">¤¤¤</td><td>Appropriate currency display name for the currency,based on the plural rules in effect for the locale</td></tr><tr><td>_5.00 Canadian dollars_</td></tr><tr><td rowspan="2" >¤¤¤¤¤</td><td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear.</td></tr><tr><td>_$12.00_</td></tr><tr><td>_others_</td><td>_Invalid in current CLDR. Reserved for future specification_</td></tr></table> |
 | * | Prefix or suffix boundary | _padding character specified in API_ | Pad escape, precedes pad character |
 | ' | Prefix or suffix | _syntax-only_ | Used to quote special characters in a prefix or suffix, for example, `"'#'#"` formats 123 to `"#123"`. To create a single quote itself, use two in a row: `"# o''clock"`. |
 
 A pattern contains a positive subpattern and may contain a negative subpattern, for example, "#,##0.00;(#,##0.00)". Each subpattern has a prefix, a numeric part, and a suffix. If there is no explicit negative subpattern, the implicit negative subpattern is the ASCII minus sign (-) prefixed to the positive subpattern. That is, "0.00" alone is equivalent to "0.00;-0.00". (The data in CLDR is normalized to remove an explicit negative subpattern where it would be identical to the implicit form.)
 
-Note that if an negative subpattern is used as-is: a minus sign is _not_ added, eg "0.00;0.00" ≠ "0.00;-0.00". Trailing semicolons are ignored, eg "0.00;" = "0.00". Whitespace is not ignored, including those around semicolons, so "0.00; -0.00" ≠ "0.00; -0.00".
+Note that if an negative subpattern is used as-is: a minus sign is _not_ added, eg "0.00;0.00" ≠ "0.00;-0.00". Trailing semicolons are ignored, eg "0.00;" = "0.00". Whitespace is not ignored, including those around semicolons, so "0.00 ; -0.00" ≠ "0.00;-0.00".
 
 If there is an explicit negative subpattern, it serves only to specify the negative prefix and suffix; the number of digits, minimal digits, and other characteristics are ignored in the negative subpattern. That means that "#,##0.0#;(#)" has precisely the same result as "#,##0.0#;(#,##0.0#)". However in the CLDR data, the format is normalized so that the other characteristics are preserved, just for readability.
 

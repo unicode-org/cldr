@@ -316,7 +316,7 @@ public class UserSettingsData {
     }
 
     public UserSettings getSettings(int id) {
-        if (id == -1) {
+        if (id == UserRegistry.NO_USER) {
             return new EphemeralSettings();
         }
         synchronized (idToSettings) {

@@ -20,7 +20,6 @@ import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
 import java.net.InetAddress;
-import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +40,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.Future;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.regex.Pattern;
@@ -77,7 +75,6 @@ import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -88,7 +85,6 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
@@ -251,7 +247,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static ElapsedTimer isBustedTimer = null;
     private static ServletConfig config = null;
     private static OperatingSystemMXBean osmxbean = ManagementFactory.getOperatingSystemMXBean();
-    private static double nProcs = osmxbean.getAvailableProcessors();
 
     // ===== Special bug numbers.
     private static final String URL_HOST = "http://www.unicode.org/";
@@ -323,7 +318,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     static final String SURVEYTOOL_COOKIE_SESSION = CookieSession.class.getPackage().getName() + ".id";
     static final String SURVEYTOOL_COOKIE_NONE = "0";
     static final String PREF_SORTMODE = "p_sort";
-    private static final String PREF_SHOWLOCKED = "p_showlocked";
     static final String PREF_NOPOPUPS = "p_nopopups";
     static final String PREF_CODES_PER_PAGE = "p_pager";
     static final String PREF_SORTMODE_CODE = "code";
@@ -455,7 +449,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             // make sure cldr-tools is functioning
             PathHeader.PageId.forString(PathHeader.PageId.Africa.name());
 
-            startupFuture = SurveyThreadManager.getExecutorService().submit(() -> doStartup());
+            SurveyThreadManager.getExecutorService().submit(() -> doStartup());
         } catch (Throwable t) {
             SurveyLog.logException(t, "Initializing SurveyTool");
             SurveyMain.busted("Error initializing SurveyTool.", t);
@@ -847,15 +841,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             } else if (isBusted != null) {
                 showOfflinePage(request, response, out);
             } else {
-                if(!SurveyTool.useDojo(request)) {
-                    // New: use the Vue retry page.
-                    response.sendRedirect("v#retry");
-                } else {
-                    // Old "startup" page.
-                    out.print(sysmsg("startup_header"));
-                    out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>" + getTopBox() + "</span>");
-                    out.print(sysmsg("startup_wait"));
-                }
+                response.sendRedirect("v#retry");
             }
             out.println("<br><i id='uptime'> " + getGuestsAndUsers() + "</i><br>");
             // TODO: on up, goto <base>
@@ -1236,16 +1222,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("</div>");
     }
 
-    /*
-     * print menu of stuff to 'work with' a live user session..
-     */
-    private void printLiveUserMenu(WebContext ctx, CookieSession cs) {
-        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;see=" + cs.id + "'>"
-            + ctx.iconHtml("zoom", "SEE this user") + "see" + "</a> |");
-        ctx.println("<a href='" + ctx.base() + "?&amp;s=" + cs.id + "'>" + "be" + "</a> |");
-        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;unlink=" + cs.id + "'>" + "kick" + "</a>");
-    }
-
     /**
      * print the header of the thing
      * @throws IOException
@@ -1576,139 +1552,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public static final String REDO_FIELD_LIST[] = { QUERY_LOCALE, QUERY_SECTION, QUERY_DO, "forum" };
 
-    /**
-     * Handle creating a new user
-     */
-    private void doNew(WebContext ctx) {
-        printHeader(ctx, "New User");
-        printUserTableWithHelp(ctx, "/AddModifyUser");
-        if (UserRegistry.userCanCreateUsers(ctx.session.user)) {
-            showAddUser(ctx);
-        }
-        ctx.println("<a href='" + ctx.url() + "'><b>Main SurveyTool Page</b></a><hr>");
-
-        String new_name = ctx.field("new_name");
-        String new_email = ctx.field("new_email");
-        String new_locales = ctx.field("new_locales");
-        new_locales = UserRegistry.normalizeLocaleList(new_locales);
-        if (new_locales.isEmpty()) new_locales = "mul";
-        String new_org = ctx.field("new_org");
-        int new_userlevel = ctx.fieldInt("new_userlevel", -1);
-
-        if (!UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
-            new_org = ctx.session.user.org; // if not admin, must create user in
-            // the same org
-        }
-
-        boolean newOrgOk = false;
-        try {
-            Organization.fromString(new_org);
-            newOrgOk = true;
-        } catch (IllegalArgumentException iae) {
-            newOrgOk = false;
-        }
-
-        if ((new_name == null) || (new_name.length() <= 0)) {
-            ctx.println("<div class='sterrmsg'>" + ctx.iconHtml("stop", "Could not add user")
-                + "Please fill in a name.. hit the Back button and try again.</div>");
-        } else if ((new_email == null) || (new_email.length() <= 0)
-            || ((-1 == new_email.indexOf('@')) || (-1 == new_email.indexOf('.')))) {
-            ctx.println("<div class='sterrmsg'>" + ctx.iconHtml("stop", "Could not add user")
-                + "Please fill in an <b>email</b>.. hit the Back button and try again.</div>");
-        } else if (newOrgOk == false) {
-            ctx.println("<div class='sterrmsg'>"
-                + ctx.iconHtml("stop", "Could not add user")
-                + "That Organization (<b>"
-                + new_org
-                + "</b>) is not valid. Either it is not spelled properly, or someone must update VoteResolver.Organization in VoteResolver.java</div>");
-        } else if ((new_org == null) || (new_org.length() <= 0)) { // for ADMIN
-            ctx.println("<div class='sterrmsg'>" + ctx.iconHtml("stop", "Could not add user")
-                + "Please fill in an <b>Organization</b>.. hit the Back button and try again.</div>");
-        } else if (new_userlevel < 0) {
-            ctx.println("<div class='sterrmsg'>" + ctx.iconHtml("stop", "Could not add user")
-                + "Please fill in a <b>user level</b>.. hit the Back button and try again.</div>");
-        } else if (new_userlevel == UserRegistry.EXPERT) {
-            ctx.println("<div class='sterrmsg'>" + ctx.iconHtml("stop", "Could not add user")
-                + "Nobody can create EXPERT users.. hit the Back button and try again.</div>");
-        } else if (!ctx.session.user.getLevel().canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(new_userlevel))) {
-            ctx.println("<div class='sterrmsg'>" + ctx.iconHtml("stop", "Could not add user")
-            + "Permission denied. Hit the Back button and try again.</div>");
-        } else {
-            UserRegistry.User u = reg.getEmptyUser();
-
-            u.name = new_name;
-            u.userlevel = new_userlevel;
-            u.email = new_email;
-            u.org = new_org;
-            u.locales = new_locales;
-            u.setPassword(UserRegistry.makePassword(u.email + u.org + ctx.session.user.email));
-
-            SurveyLog.debug("UR: Attempt newuser by " + ctx.session.user.email + ": of " + u.email + " @ " + ctx.userIP());
-            UserRegistry.User registeredUser = reg.newUser(ctx, u);
-
-            if (registeredUser == null) {
-                if (reg.get(new_email) != null) { // already exists..
-                    ctx.println("<div class='sterrmsg'>"
-                        + ctx.iconHtml("stop", "Could not add user")
-                        + "A user with that email already exists. If you have permission, you may be able to edit this user: <tt>");
-                    printUserZoomLink(ctx, new_email, new_email);
-                    ctx.println("</tt> </div>");
-                } else {
-                    ctx.println("<div class='sterrmsg'>" + ctx.iconHtml("stop", "Could not add user") + "Couldn't add user <tt>"
-                        + new_email + "</tt> - an unknown error occured.</div>");
-                }
-            } else {
-                ctx.println("<i>" + ctx.iconHtml("okay", "added") + "user added.</i>");
-                new_email = registeredUser.email.toLowerCase();
-                WebContext nuCtx = (WebContext) ctx.clone();
-                nuCtx.addQuery(QUERY_DO, "list");
-                nuCtx.addQuery(LIST_JUST, URLEncoder.encode(new_email));
-                ctx.println("" + "<form action='" + ctx.base() + "' method='POST'>");
-                ctx.print("<input name='s' type='hidden' value='" + ctx.session.id + "'/>"
-                    + "<input name='justu' type='hidden' value='" + new_email + "'/>"
-                    + "<input name='do' type='hidden' value='list'/>" + "<input name='" + registeredUser.id + "_" + new_email
-                    + "' type='hidden' value='sendpassword_'/>"
-                    + "<label><input type='submit' value='Send Password Email to " + new_email + "'/>"
-                    + ctx.iconHtml("warn", "Note..")
-                    + "The password is not sent to the user automatically. <b>You must click this button!!</b></label>"
-                    + "</form>" +
-
-                    "<br>Click here to manage this user: '<b><a href='" + nuCtx.url() + "#u_" + u.email + "'>"
-                    + ctx.iconHtml("zoom", "Zoom in on user") + "manage " + new_name + "</a></b>' page.</p>");
-                ctx.print("<br>Their login link is: ");
-                registeredUser.printPasswordLink(ctx);
-                ctx.println(" (clicking this will log you in as them.)<br>");
-            }
-        }
-
-        printFooter(ctx);
-    }
-
-    private void showAddUser(WebContext ctx) {
-        reg.setOrgList(); // setup the list of orgs
-        String defaultorg = "";
-
-        if (!UserRegistry.userIsAdmin(ctx.session.user)) {
-            defaultorg = URLEncoder.encode(ctx.session.user.org);
-        }
-
-        ctx.println("<br><a href='" + ctx.jspLink("adduser.jsp") + "&amp;defaultorg=" + defaultorg + "'>Add User</a> |");
-    }
-
-    // ============= User list management
-    private static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
-    private static final String LIST_ACTION_NONE = "-";
-    private static final String LIST_ACTION_SHOW_PASSWORD = "showpassword_";
-    private static final String LIST_ACTION_SEND_PASSWORD = "sendpassword_";
-    private static final String LIST_ACTION_SETLOCALES = "set_locales_";
-    private static final String LIST_ACTION_DELETE0 = "delete0_";
-    private static final String LIST_ACTION_DELETE1 = "delete_";
-    private static final String LIST_JUST = "justu";
-    private static final String LIST_MAILUSER = "mailthem";
-    private static final String LIST_MAILUSER_WHAT = "mailthem_t";
-    private static final String LIST_MAILUSER_CONFIRM = "mailthem_c";
-    private static final String LIST_MAILUSER_CONFIRM_CODE = "confirm";
-
     private void doUDump(WebContext ctx) {
         ctx.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
         ctx.println("<users host=\"" + ctx.serverHostport() + "\">");
@@ -1754,26 +1597,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             DBUtils.close(conn, ps, rs);
         }
         ctx.println("</users>");
-    }
-
-    /**
-     * @param ctx
-     * @param userEmail
-     * @param text
-     *            TODO
-     */
-    private void printUserZoomLink(WebContext ctx, String userEmail, String text) {
-        ctx.print("<a href='" + ctx.url() + ctx.urlConnector() + "do=list&" + LIST_JUST + "=" + URLEncoder.encode(userEmail) + "' >"
-            + ctx.iconHtml("zoom", "More on this user..") + text + "</a>");
-    }
-
-    private void doChangeUserOption(WebContext ctx, int newLevel, int theirLevel, boolean selected) {
-        if (ctx.session.user.getLevel().canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(newLevel))) {
-            ctx.println("    <option " + /* (selected?" SELECTED ":"") + */"value='" + LIST_ACTION_SETLEVEL + newLevel
-                + "'>Make " + UserRegistry.levelToStr(newLevel) + "</option>");
-        } else {
-            ctx.println("    <option disabled " + ">Make " + UserRegistry.levelToStr(newLevel) + "</option>");
-        }
     }
 
     /**
@@ -2033,14 +1856,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     throw new RuntimeException(ioe.toString() + " while redirecting to logout");
                 }
                 return;
-            }
-
-            // these items are only for users.
-            if (ctx.session.user != null) {
-                if (doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user))) {
-                    doNew(ctx);
-                    return;
-                }
             }
             // Option wasn't found
             ctx.setSessionMessage("<i id='sessionMessage'>Could not do the action '" + doWhat
@@ -2978,11 +2793,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     @Deprecated
     public static boolean isSetup = false;
-
-    /**
-     * Check on whether startup has happened or not.
-     */
-    private Future<?> startupFuture = null;
 
     /**
      * Class to startup ST in background and perform background operations.

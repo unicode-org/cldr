@@ -185,7 +185,7 @@ function mediumTimeout() {
 }
 
 /**
- * Make an AJAX URL for Survey Tool using the given URLSearchParams
+ * Make a SurveyAjax URL for Survey Tool using the given URLSearchParams
  *
  * @param {URLSearchParams} p
  * @return the URL string
@@ -194,4 +194,16 @@ function makeUrl(p) {
   return cldrStatus.getContextPath() + "/SurveyAjax?" + p.toString();
 }
 
-export { makeUrl, mediumTimeout, sendXhr };
+/**
+ * Make an API ajax URL for Survey Tool using the given URLSearchParams
+ *
+ * @param {String} api the remainder of the url to follow /api/, not including the query string
+ * @param {URLSearchParams} p the parameters for the query string; or null (or empty) for none
+ * @return the URL string
+ */
+function makeApiUrl(api, p) {
+  const queryString = p ? "?" + p.toString() : "";
+  return cldrStatus.getContextPath() + "/api/" + api + queryString;
+}
+
+export { makeApiUrl, makeUrl, mediumTimeout, sendXhr };

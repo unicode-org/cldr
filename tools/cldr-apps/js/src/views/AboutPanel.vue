@@ -6,7 +6,7 @@
     </p>
     <h1>About this SurveyTool Installation</h1>
     <!-- spinner only shows if there's a delay -->
-    <a-spin tip="Loading" v-if="!aboutData" delay="500" />
+    <a-spin tip="Loading" v-if="!aboutData" :delay="500" />
     <table v-if="aboutData" class="aboutBox">
       <thead>
         <th>Property</th>

@@ -188,7 +188,6 @@ public class AdminPanel {
             c1.setMaxAge(0);
             response.addCookie(c1);
         }
-        sm.reg.setOrgList();
         String orgs[] = UserRegistry.getOrgList();
         String myorg = orgs[(int) Math.rint(Math.random() * (orgs.length - 1))];
         JSONObject levels = new JSONObject();

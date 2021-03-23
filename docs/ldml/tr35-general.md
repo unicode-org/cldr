@@ -888,11 +888,11 @@ The formal syntax for identifiers is provided below.
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
-        <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">NIST special publication 811</a></li></ul></td></tr>
+        <ul><li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
 <tr><td>binary_prefix</td><td>:=</td>
     <td>"kibi", "mebi", …
-        <ul><li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">Prefixes for binary multiples</a></li></ul></td></tr>
+        <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>simple_unit</td><td>:=</td>
     <td>unit_component ("-" unit_component)*<br/>

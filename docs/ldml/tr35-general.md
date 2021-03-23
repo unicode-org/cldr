@@ -827,7 +827,7 @@ The identifiers and unit conversion data are built to handle arbitrary combinati
 
 For the US spelling, see the [Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811](https://www.nist.gov/pml/special-publication-811), which is explicit about the discrepancy with the English-language BIPM spellings:
 
-In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”
+> In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”
 
 #### Syntax
 
@@ -881,11 +881,18 @@ The formal syntax for identifiers is provided below.
         <ul><li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li></ul></td></tr>
 
 <tr><td>prefixed_unit</td><td></td>
-    <td>(si_prefix)? simple_unit<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
+    <td>(prefix)? simple_unit<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
+
+<tr><td>prefix</td><td></td>
+    <td>si_prefix | binary_prefix</td></tr>
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
         <ul><li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
+
+<tr><td>binary_prefix</td><td>:=</td>
+    <td>"kibi", "mebi", …
+        <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>simple_unit</td><td>:=</td>
     <td>unit_component ("-" unit_component)*<br/>
@@ -2521,17 +2528,28 @@ Note that the CLDR plural categories overlap some of these features, since some 
 <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalCase EMPTY>
-
+<!ATTLIST grammaticalCase scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalGender EMPTY>
-
+<!ATTLIST grammaticalGender scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalDefiniteness EMPTY>
-
+<!ATTLIST grammaticalDefiniteness scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
 ```
+
+The @targets attribute contains the specific grammatical entities to which the features apply, such as ```nominal``` when they apply to nouns only. The @locales attribute contains the specific locales to which the features apply, such as ```de fr``` for German and French.
+
+The @scope attribute, if present, indicates that the values are limited to a specific subset for certain kinds of entities. For example, a particular language might have an animate gender for nouns, but no units of measurement ever have that case; in another language, the language might have a rich set of grammatical cases, but units are invariant. If the @scope attribute is not present, then that has the meaning of "everything else".
+
+The @scope attributes are targeted at messages created by computers, thus a feature may have a narrower scope if for all practical purposes the feature value is not used in messages created by computers. For example, it may be possible in theory for a kilogram to be in the vocative case (English poetry might have “O Captain! my Captain!/ our fearful trip is done”, but on computers you have little call to need the message “O kilogram! my kilogram! …”).
+
+**Constraints:**
+
+* a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.
+* the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.
 
 ### 15.1 <a name="Gender" href="#Gender">Gender</a>
 
@@ -2565,8 +2583,8 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 ##### Example
 
 ```xml
-<grammaticalFeatures targets="nominal" locales="es fr it pt">
-   <grammaticalGender values="masculine feminine"/>
+<grammaticalFeatures targets="nominal" locales="de">
+   <grammaticalCase values="nominative accusative genitive dative"/>
 ```
 
 ##### Values
@@ -2674,7 +2692,7 @@ For a description of how to use these fields to construct a localized name, see 
 
 ### 16.1 <a name="gender_compound_units" href="#gender_compound_units">Deriving the Gender of Compound Units</a>
 
-The **deriveCompound\[@feature="gender"\]** data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The `attributeValues` of value are: `0` (=gender of the first element), `1` (=gender of second element), or one of the valid gender values for the language:
+The **deriveCompound\[@feature="gender"\]** data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The `attributeValues` of value are: **`0` (=gender of the first element), `1` (=gender of second element), or one of the valid gender values for the language.** In the unusual case that the 'per' compound has no first element and 0 is supplied, then the value is 1.  
 
 Example:
 
@@ -2710,7 +2728,7 @@ For example, for gram-per-meter, the first line above means:
 
 ### 16.3 <a name="case_compound_units" href="#case_compound_units">Deriving the Case of Unit Components</a>
 
-The `deriveComponent[@feature="plural"]` data provides information for how to derive the plural category for each of the atomic units, from the plural category of the whole compound and the structure of the compound. The `attributeValues` of value0 and value1 are: `compound` (=the grammatical case of the compound), or one of the valid grammatical case values for the language.
+The `deriveComponent[@feature="case"]` data provides information for how to derive the grammatical case for each of the atomic units, from the grammatical case of the whole compound and the structure of the compound. The `attributeValues` of value0 and value1 are: `compound` (=the grammatical case of the compound), or one of the valid grammatical case values for the language.
 
 Example:
 

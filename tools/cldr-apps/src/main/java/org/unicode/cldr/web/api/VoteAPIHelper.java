@@ -145,7 +145,7 @@ public class VoteAPIHelper {
         row.displayName = r.getDisplayName();
         row.extraAttributes = r.getNonDistinguishingAttributes();
         row.hasVoted = r.userHasVoted();
-        row.inheritedLocale = r.getInheritedLocale().getBaseName();
+        row.inheritedLocale = r.getInheritedLocaleName();
         // NB: "winningValue" is in the resolver info.
         row.inheritedXpath = r.getInheritedXPath();
         row.flagged = r.isFlagged();

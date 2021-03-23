@@ -52,7 +52,7 @@
                 <th>English</th>
                 <th>Baseline</th>
                 <th>Winning {{ $cldrOpts.cldrStatus.getNewVersion() }}</th>
-                <th>Action</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -65,7 +65,8 @@
                   </a>
                 </td>
                 <td>
-                  {{ e.english }}
+                  <span>{{ e.english }}</span>
+                  <span class="previousEnglish" v-if="e.previousEnglish"><b>OLD:</b> {{ e.previousEnglish }}</span>
                 </td>
                 <td>
                   <cldr-value
@@ -80,9 +81,9 @@
                   />
                 </td>
                 <td class="button-review">
-                  <Popover v-if="e.comment" title="Information" trigger="click">
+                  <Popover v-if="true || e.comment" title="Information" trigger="click">
                     <template #content>
-                      <p v-html="e.comment" />
+                      <p v-html="e.comment || categoryComment[n.notification] || `Unknown type: ${n.notification}`" />
                     </template>
                     <button class="btn btn-default help-comment">
                       <span class="glyphicon glyphicon-info-sign"> </span>
@@ -107,6 +108,10 @@ export default {
       fetchErr: null,
       locale: null,
       level: null,
+      categoryComment: {
+        Provisional: "Item is provisional, and need additional votes for confirmation.",
+        English_Changed: "The English version has changed, but the locale has not.",
+      },
     };
   },
   created() {
@@ -222,6 +227,11 @@ export default {
 
 .h4 {
   font-weight: bold;
+}
+
+.previousEnglish {
+  display: block;
+  color: #900;
 }
 
 #components-popover-info-triggerType .ant-btn {

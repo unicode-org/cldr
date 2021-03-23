@@ -578,6 +578,14 @@ If there is an explicit negative subpattern, it serves only to specify the negat
 
 > **Note:** The thousands separator and decimal separator in patterns are always ASCII ',' and '.'. They are substituted by the code with the correct local values according to other fields in CLDR. The same is true of the - (ASCII minus sign) and other special characters listed above.
 
+A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
+
+Placement | Examples
+-------|-------
+Before|"¤#,##0.00" "¤ #,##0.00" "¤-#,##0.00" "¤ -#,##0.00" "-¤#,##0.00" "-¤ #,##0.00" …
+After|"#,##0.00¤" "#,##0.00 ¤" "#,##0.00-¤" "#,##0.00- ¤" "#,##0.00¤-" "#,##0.00 ¤-" …
+Decimal|"#,##0¤00"
+
 Below is a sample of patterns, special characters, and results:
 
 ##### <a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>

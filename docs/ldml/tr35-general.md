@@ -1127,45 +1127,47 @@ If there is no precomputed form, the following process in pseudocode is used to 
 5.  Set both globalPlaceholder and globalPlaceholderPosition to be empty
 6.  Set numeratorUnitString to patternTimes(numerator, length, per0(pluralCategory), per0(caseVariant))
 7.  Set denominatorUnitString to patternTimes(denominator, length, per1(pluralCategory), per1(caseVariant))
-8.  Set perPattern to be getValue(times, locale, length)
-9.  If the denominatorString is empty, set result to denominatorString, otherwise set result to format(perPattern, numeratorString, denominatorString)
-10. return format(result, globalPlacholder, globalPlaceholderPosition)
+8.  Set perPattern to be getValue(per, locale, length)
+9.  If the denominatorString is empty, set result to numeratorString, otherwise set result to format(perPattern, numeratorUnitString, denominatorUnitString)
+10. return format(result, globalPlaceholder, globalPlaceholderPosition)
 
 **patternTimes(product_unit, locale, length, pluralCategory, caseVariant)**
 
-1. Set hasMultiple to true iff product_unit has more than one single_unit
-2. Set timesPattern to be getValue(times, locale, length)
-3. Set result to be empty
-4. For each single_unit in product_unit
-   1.  If hasMultiple
+1. Set timesPattern to be getValue(times, locale, length)
+2. Set result to be empty
+3. For each single_unit in product_unit
+   1.  If single_unit is not the last one in product_unit
        1. Set singlePluralCategory to be times0(pluralCategory)
        2. Set singleCaseVariant to be times0(caseVariant)
        3. Set pluralCategory to be times1(pluralCategory)
        4. Set caseVariant to be times1(caseVariant)
-   2.  Get the gender of that single_unit
-   3.  If singleUnit starts with a dimensionality_prefix, such as 'square-'
+   2.  Otherwise (if single_unit is the last, or only, single unit in product_unit)
+       1. Set singlePluralCategory to be pluralCategory
+       2. Set singleCaseVariant to be caseVariant
+   3.  Get the gender of that single_unit
+   4.  If singleUnit starts with a dimensionality_prefix, such as 'square-'
        1. set dimensionalityPrefixPattern to be getValue(that dimensionality_prefix, locale, length, singlePluralCategory, singleCaseVariant, gender), such as "{0} kwadratowym"
        2. set singlePluralCategory to be power0(singlePluralCategory)
        3. set singleCaseVariant to be power0(singleCaseVariant)
        4. remove the dimensionality_prefix from singleUnit
-   4.  if singleUnit starts with an si_prefix, such as 'centi'
+   5.  if singleUnit starts with an si_prefix, such as 'centi'
        1. set siPrefixPattern to be getValue(that si_prefix, locale, length), such as "centy{0}"
        2. set singlePluralCategory to be prefix0(singlePluralCategory)
        3. set singleCaseVariant to be prefix0(singleCaseVariant)
        4. remove the si_prefix from singleUnit
-   5.  Set corePattern to be the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as "{0} metrem"
-   6.  Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.
-   7.  If the position is _middle_, then fail
-   8.  If globalPlaceholder is empty
+   6.  Set corePattern to be the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as "{0} metrem"
+   7.  Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.
+   8.  If the position is _middle_, then fail
+   9.  If globalPlaceholder is empty
        1. Set globalPlaceholder to placeholder
        2. Set globalPlaceholderPosition to placeholderPosition
-   9.  If siPrefixPattern is not empty
+   10.  If siPrefixPattern is not empty
        1. Set coreUnit to be the combineLowercasing(locale, length, siPrefixPattern, coreUnit)
-   10. If dimensionalityPrefixPattern is not empty
+   11. If dimensionalityPrefixPattern is not empty
        1. Set coreUnit to be the combineLowercasing(locale, length, dimensionalityPrefixPattern, coreUnit)
-   11. If the result is empty, set result to be coreUnit
-   12. Otherwise set result to be format(timesPattern, result, coreUnit)
-5. Return result
+   12. If the result is empty, set result to be coreUnit
+   13. Otherwise set result to be format(timesPattern, result, coreUnit)
+4. Return result
 
 **combineLowercasing(locale, length, prefixPattern, coreUnit)**
 
@@ -1180,15 +1182,15 @@ If there is no precomputed form, the following process in pseudocode is used to 
 
 1. return the element value in the locale for the path corresponding to the key, locale, length, and variants — using normal inheritance including [Lateral Inheritance](https://unicode-org.github.io/cldr/ldml/tr35.md#Multiple_Inheritance) and [Parent Locales](https://unicode-org.github.io/cldr/ldml/tr35.md#Parent_Locales).
 
-**Extract(corePattern, coreUnit, placeHolder, placeholderPosition)**
+**Extract(corePattern, coreUnit, placeholder, placeholderPosition)**
 
-1. Find the position of the **placeHolder** in the core pattern
-2. Set **placeHolderPosition** to that postion (start, middle, or end)
-3. Remove the **placeHolder** from the **corePattern** and set **coreUnit** to that result
+1. Find the position of the **placeholder** in the core pattern
+2. Set **placeholderPosition** to that position (start, middle, or end)
+3. Remove the **placeholder** from the **corePattern** and set **coreUnit** to that result
 
 **per0(...), times0(...), etc.**
 
-1. These represent the **deriveCompound** data values from **Section 16 [Grammatical Derivations](#Grammatical_Derivations)**, where value0 of the per-structure is given as per0(...), and so on.
+1. These represent the **deriveComponent** data values from **Section 16 [Grammatical Derivations](#Grammatical_Derivations)**, where value0 of the per-structure is given as per0(...), and so on.
 2. "power" corresponds to dimensionality_prefix, while "prefix" corresponds to si_prefix.
 
 If the locale does not provide full modern coverage, the process could fall back to root locale for some localized patterns. That may give a "ransom-note" effect for the user. To avoid that, it may be preferable to abort the process at that point, and then localize the unitId for the root locale.

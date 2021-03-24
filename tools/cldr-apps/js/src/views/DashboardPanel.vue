@@ -33,66 +33,79 @@
 
           {{ n.notification }} ({{ n.total }})
         </h3>
-        <div class="notificationgroup" v-if="!n.hidden">
-          <table
-            v-for="g in n.entries"
-            :key="g.header"
-            class="table table-responsive table-fixed-header table-review"
-          >
-            <thead>
-              <tr class="info">
-                <td colspan="5">
-                  <b>{{ g.section }} — {{ g.page }}</b>
-                  :
-                  {{ g.header }}
-                </td>
-              </tr>
-              <tr>
-                <th>Code</th>
-                <th>English</th>
-                <th>Baseline</th>
-                <th>Winning {{ $cldrOpts.cldrStatus.getNewVersion() }}</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="e in g.entries" :key="e.xpath" class="data-review">
-                <td class="button-review">
-                  <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
-                    <span class="label label-info">
-                      {{ e.code }}
-                    </span>
-                  </a>
-                </td>
-                <td>
-                  <span>{{ e.english }}</span>
-                  <span class="previousEnglish" v-if="e.previousEnglish"><b>OLD:</b> {{ e.previousEnglish }}</span>
-                </td>
-                <td>
-                  <cldr-value
-                    v-bind:value="e.old"
-                    v-bind:dir="$cldrOpts.localeDir"
-                  />
-                </td>
-                <td>
-                  <cldr-value
-                    v-bind:value="e.winning"
-                    v-bind:dir="$cldrOpts.localeDir"
-                  />
-                </td>
-                <td class="button-review">
-                  <Popover v-if="true || e.comment" title="Information" trigger="click">
-                    <template #content>
-                      <p v-html="e.comment || categoryComment[n.notification] || `Unknown type: ${n.notification}`" />
-                    </template>
-                    <button class="btn btn-default help-comment">
-                      <span class="glyphicon glyphicon-info-sign"> </span>
-                    </button>
-                  </Popover>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="notificationgroups" v-if="!n.hidden">
+          <div class="notificationgroup" v-for="g in n.entries" :key="g.header">
+            <div class="notificationgroup-info info">
+              <b>{{ g.section }} — {{ g.page }}</b>
+              :
+              {{ g.header }}
+            </div>
+
+            <table
+              class="table table-responsive table-fixed-header table-review table-dashboard"
+            >
+              <thead>
+                <tr>
+                  <th width="15%">Code</th>
+                  <th width="20%">English</th>
+                  <th width="20%">Baseline</th>
+                  <th width="30%">
+                    Winning {{ $cldrOpts.cldrStatus.getNewVersion() }}
+                  </th>
+                  <th width="5%">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="e in g.entries" :key="e.xpath" class="data-review">
+                  <td class="button-review">
+                    <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
+                      <span class="label label-info">
+                        {{ e.code }}
+                      </span>
+                    </a>
+                  </td>
+                  <td>
+                    <span>{{ e.english }}</span>
+                    <span class="previousEnglish" v-if="e.previousEnglish"
+                      ><b>OLD:</b> {{ e.previousEnglish }}</span
+                    >
+                  </td>
+                  <td>
+                    <cldr-value
+                      v-bind:value="e.old"
+                      v-bind:dir="$cldrOpts.localeDir"
+                    />
+                  </td>
+                  <td>
+                    <cldr-value
+                      v-bind:value="e.winning"
+                      v-bind:dir="$cldrOpts.localeDir"
+                    />
+                  </td>
+                  <td class="button-review">
+                    <Popover
+                      v-if="true || e.comment"
+                      title="Information"
+                      trigger="click"
+                    >
+                      <template #content>
+                        <p
+                          v-html="
+                            e.comment ||
+                            categoryComment[n.notification] ||
+                            `Unknown type: ${n.notification}`
+                          "
+                        />
+                      </template>
+                      <button class="btn btn-default help-comment">
+                        <span class="glyphicon glyphicon-info-sign"> </span>
+                      </button>
+                    </Popover>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -109,8 +122,10 @@ export default {
       locale: null,
       level: null,
       categoryComment: {
-        Provisional: "Item is provisional, and need additional votes for confirmation.",
-        English_Changed: "The English version has changed, but the locale has not.",
+        Provisional:
+          "Item is provisional, and need additional votes for confirmation.",
+        English_Changed:
+          "The English version has changed, but the locale has not.",
       },
     };
   },
@@ -242,5 +257,17 @@ export default {
   border-top: 2px solid gray;
   margin-top: 4px;
   padding-top: 5px;
+}
+
+.table-dashboard {
+  table-layout: fixed;
+}
+
+.table-dashboard td {
+  background-color: white;
+}
+
+.notificationgroup-info {
+  font-size: large;
 }
 </style>

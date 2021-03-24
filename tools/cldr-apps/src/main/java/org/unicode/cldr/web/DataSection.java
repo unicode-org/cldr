@@ -1316,6 +1316,13 @@ public class DataSection implements JSONString {
         public CLDRLocale getInheritedLocale() {
             return inheritedLocale;
         }
+        public String getInheritedLocaleName() {
+            if ( inheritedLocale != null ) {
+                return inheritedLocale.getBaseName();
+            } else {
+                return null;
+            }
+        }
     }
 
     /*

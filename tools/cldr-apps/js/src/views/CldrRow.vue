@@ -1,11 +1,31 @@
 <template>
-  <div>
-    {{ row.code }} in {{ locale }} with these {{ row.items.length }} values:
-
-    <div v-for="item in row.items" :key="item.value">
-      <cldr-value :value="item.value" :dir="row.dir" />
-    </div>
-  </div>
+  <tr class="vother">
+    <td class="d-code codecell">
+        {{ row.code }}
+    </td>
+    <td class='d-disp comparisoncell'>
+        {{ row.displayName }}
+    </td>
+    <td class='d-no nocell'>
+        <input type="radio" />
+    </td>
+    <td class='d-dr statuscell'>
+        {{ row.resolver.winningStatus }}
+    </td>
+    <td title="$flyoverproposed" class='d-win proposedcell'>
+        <div v-for="item in row.items" :key="item.value">
+            <cldr-value v-if="item.value == row.resolver.winningValue" :value="item.value" :dir="row.dir" />
+        </div>
+    </td>
+    <td title="$flyoveradd" class='d-win addcell'>
+        <button>+</button>
+    </td>
+    <td title="$flyoverother" class='d-win othercell'>
+        <div v-for="item in row.items" :key="item.value">
+            <cldr-value v-if="item.value != row.resolver.winningValue" :value="item.value" :dir="row.dir" />
+        </div>
+    </td>
+  </tr>
 </template>
 
 <script>

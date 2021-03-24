@@ -97,7 +97,7 @@ The LDML specification is divided into the following parts:
     *   15.1 [Gender](#Gender)
     *   15.2 [Case](#Case)
 *   16 [Grammatical Derivations](#Grammatical_Derivations)
-    *   16.1[Deriving the Gender of Compound Units](#gender_compound_units)
+    *   16.1 [Deriving the Gender of Compound Units](#gender_compound_units)
     *   16.2 [Deriving the Plural Category of Unit Components](#plural_compound_units)
     *   16.3 [Deriving the Case of Unit Components](#case_compound_units)
 
@@ -175,7 +175,7 @@ When the display name contains "(" or ")" characters (or full-width equivalents)
 1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. Set LBN to that value. Disregard any of the matching subtags in the following processing.
     *   If CombineLanguage is false, only choose matches with the language subtag matching.
 2.  **Script, Region, Variants.** Where any of these subtags are in L, append the matching element value to LQS.
-3.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Join the pair using localePattern> and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.
+3.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Join the pair using `<localePattern>` and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.
 4.  **U extensions.** If there is an attribute value A, process the key-value pair <"u", A> as below and append to LQS. Then format and add display names for each of the remaining key-type pairs as described below.
 5.  **Other extensions.** There are currently no such extensions defined. Until such time as there are formats defined for them, append each of the extensions’s subtags to LQS.
 6.  **Private Use extensions.** Get the value
@@ -461,7 +461,7 @@ indicates that language names embedded in text are normally written in lower cas
 *   titlecase-words : all words in the phrase should be title case
 *   titlecase-firstword : the first word should be title case
 *   lowercase-words : all words in the phrase should be lower case
-*   mixed : a mixture of upper and lower case is permitted. generally used when the correct value is unknown.
+*   mixed : a mixture of upper and lower case is permitted, generally used when the correct value is unknown
 
 ## 3 <a name="Character_Elements" href="#Character_Elements">Character Elements</a>
 
@@ -552,7 +552,7 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](#Katakana), [ALetter](#ALetter), or [MidLetter](#MidLetter).
 2.  The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the sets.
 3.  Any [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt)s should be in the auxiliary set , or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.
-4.  For exemplar characters the [Unicode Set](tr35.md#Unicode_Sets) format is restricted so as to not use properties or boolean combinations .
+4.  For exemplar characters the [Unicode Set](tr35.md#Unicode_Sets) format is restricted so as to not use properties or boolean combinations.
 
 ### 3.2 ~~<a name="Character_Mapping" href="#Character_Mapping">Mapping</a>~~
 
@@ -746,7 +746,7 @@ These elements specify the localized way of formatting quantities of units such 
 </unit>
 ```
 
-The german rules are more complicated, because German has both gender and case. They thus have additional information, as illustrated below. Note that if there is no `@case` attribute, for backwards compatibility the implied case is nominative. The possible values for @case are listed in the `grammaticalFeatures` element. These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
+The German rules are more complicated, because German has both gender and case. They thus have additional information, as illustrated below. Note that if there is no `@case` attribute, for backwards compatibility the implied case is nominative. The possible values for @case are listed in the `grammaticalFeatures` element. These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
 
 ```xml
 <unit type="duration-day">
@@ -764,7 +764,7 @@ The german rules are more complicated, because German has both gender and case. 
 </unit>
 ```
 
-These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance).In addition to supporting language-specific plural cases such as “one” and “other”, unitPatterns support the language-independent explicit cases “0” and “1” for special handling of numeric values that are exactly 0 or 1; see [Explicit 0 and 1 rules](tr35-numbers.md#Explicit_0_1_rules).
+These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance). In addition to supporting language-specific plural cases such as “one” and “other”, unitPatterns support the language-independent explicit cases “0” and “1” for special handling of numeric values that are exactly 0 or 1; see [Explicit 0 and 1 rules](tr35-numbers.md#Explicit_0_1_rules).
 
 The `<unitPattern>` elements may be used to format quantities with decimal values; in such cases the choice of plural form will depend not only on the numeric value, but also on its formatting (see [Language Plural Rules](tr35-numbers.md#Language_Plural_Rules)). In addition to formatting units for stand-alone use, `<unitPattern>` elements are increasingly being used to format units for use in running text; for such usages, the developing [Grammatical Features](#Grammatical_Features) information will be very useful.
 
@@ -1681,7 +1681,7 @@ ss → z ;
 
 This conversion rule transforms "bass school" into "baz shool". The transform walks through the string from start to finish. Thus given the rules above "bassch" will convert to "bazch", because the "ss" rule is found before the "sch" rule in the string (later, we'll see a way to override this behavior). If two rules can both apply at a given point in the string, then the transform applies the first rule in the list.
 
-All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters →, ←, ↔. Normally, these characters do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole string of text. The slash affects only the character immediately after it. For example, to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string "arrow sign" (with a space), use one of the following rules:
+All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters `→`, `←`, `↔`. Normally, these characters do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole string of text. The slash affects only the character immediately after it. For example, to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string "arrow sign" (with a space), use one of the following rules:
 
 ```
 \←    → arrow\ sign ;
@@ -1725,7 +1725,7 @@ Rules can also specify what happens when an inverse transform is formed. To do t
 $pi ← p ;
 ```
 
-With the inverse transform, "p" will convert to the Greek p. These two directions can be combined together into a dual conversion rule by using the "↔" operator, yielding:
+With the inverse transform, "p" will convert to the Greek p. These two directions can be combined together into a dual conversion rule by using the `↔` operator, yielding:
 
 ```
 $pi ↔ p ;
@@ -2491,7 +2491,7 @@ The identifers (types) use the tags from the OpenType Feature Tag Registry. Give
 
 To find a localized subfamily name such as “Extraleicht Schmal” for a font called “Extralight Condensed”, a system or application library might do the following:
 
-1. Determine the set of languages in which the subfamily name can potentially be returned.This is the union of the languages for which the font contains ‘name’ table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names.
+1. Determine the set of languages in which the subfamily name can potentially be returned. This is the union of the languages for which the font contains ‘name’ table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names.
    
 2. Use a language matching algorithm such as in ICU to find the best available language given the user preferences. The resulting subfamily name will be localized to this language.
    

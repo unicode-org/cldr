@@ -52,6 +52,7 @@ The LDML specification is divided into the following parts:
     *   3.5 [More Information](#Character_More_Info)
     *   3.6 [Parse Lenient](#Character_Parse_Lenient)
 *   4 [Delimiter Elements](#Delimiter_Elements)
+    *   4.1 [Tailoring Linebreak Using Delimiters](#Tailor_Linebreak_With_Delimiters)
 *   5 [Measurement System Data](#Measurement_System_Data)
     *   5.1 [Measurement Elements (deprecated)](#Measurement_Elements)
 *   6 [Unit Elements](#Unit_Elements)
@@ -641,6 +642,23 @@ When quotations are nested, the quotation marks and alternate marks are used in 
 <alternateQuotationStart>‘</alternateQuotationStart>  
 <alternateQuotationEnd>’</alternateQuotationEnd>
 ```
+
+### 4.1 <a name="Tailor_Linebreak_With_Delimiters" href="#Tailor_Linebreak_With_Delimiters">Tailoring Linebreak Using Delimiters</a>
+
+The delimiter data can be used for language-specific tailoring of linebreak behavior, as suggested
+in the [description of linebreak class QU: Quotation](https://www.unicode.org/reports/tr14/#QU)
+in [[UAX14](https://www.unicode.org/reports/tr41/#UAX14)]. This is an example of
+[tailoring type](https://www.unicode.org/reports/tr14/#Tailoring) 1 (from that same document),
+changing the line breaking class assignment for some characters.
+
+If the values of `<quotationStart>` and `<quotationEnd>` are different, then:
+* if the value of `<quotationStart>` is a single character with linebreak class QU: Quotation, change its class to OP: Open Punctuation.
+* if the value of `<quotationEnd>` is a single character with linebreak class QU: Quotation, change its class to CL: Close Punctuation.
+Similarly for `<alternateQuotationStart>` and `<alternateQuotationEnd>`.
+
+Some characters with multiple uses should generally be excluded from this linebreak class remapping, such as:
+* U+2019 RIGHT SINGLE QUOTATION MARK, often used as apostrophe, should not be changed from QU; otherwise it will introduce breaks after apostrophe.
+* Several locales (mostly for central and eastern Europe) have U+201C LEFT DOUBLE QUOTATION MARK as `<quotationEnd>` or `<alternateQuotationEnd>`. However users in these locales may also encounter English text in which U+201C is used as `<quotationStart>`. In order to prevent improper breaks for English text, in these locales U+201C should not be changed from QU.
 
 ## 5 <a name="Measurement_System_Data" href="#Measurement_System_Data">Measurement System Data</a>
 

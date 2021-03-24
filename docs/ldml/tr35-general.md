@@ -138,7 +138,7 @@ For example, for the locale identifier zh_Hant_CN_co_pinyin_cu_USD, the display 
 
 ### 1.1 <a name="locale_display_name_algorithm" href="#locale_display_name_algorithm">Locale Display Name Algorithm</a>
 
-A locale display name LDN is generated for a locale identifer L in the following way. First, canonicalize the locale identifier as per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
+A locale display name LDN is generated for a locale identifer L in the following way. First, convert the locale identifier to *canonical syntax* per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
 
 Then follow each of the following steps for the subtags in L, building a base name LDN and a list of qualifying strings LQS.
 
@@ -153,7 +153,7 @@ Once LDN and LQS are built, return the following based on the length of LQS.
 <tr><td>&gt;1</td><td>use the &lt;localeSeparator&gt; element value to join the elements of the list into LDN2, then use the &lt;localePattern&gt; to compose the result LDN from LDN and LDN2, and return it.</td></tr>
 </tbody></table>
 
-The processing can be controled via the following parameters.
+The processing can be controlled via the following parameters.
 
 *   `CombineLanguage`: boolean
     *   Example: the `CombineLanguage = true`, picking the bold value below.
@@ -172,7 +172,7 @@ In addition, the input locale display name could be minimized (see [Part 1: Sect
 
 When the display name contains "(" or ")" characters (or full-width equivalents), replace them "\[", "\]" (or full-width equivalents) before adding.
 
-1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. Set LBN to that value. Disregard any of the matching subtags in the following processing.
+1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. If there is no match, then further convert L to *canonical form* per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)** and try the preceding steps again. Set LBN to the selected value. Disregard any of the matching subtags in the following processing.
     *   If CombineLanguage is false, only choose matches with the language subtag matching.
 2.  **Script, Region, Variants.** Where any of these subtags are in L, append the matching element value to LQS.
 3.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Join the pair using `<localePattern>` and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.

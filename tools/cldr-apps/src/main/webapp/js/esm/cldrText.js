@@ -269,7 +269,7 @@ const strings = {
   v_oldvotes_no_old: "No old votes to import. You're done with old votes!",
   v_submit_msg: "Import selected items",
   v_submit_busy: "Submitting...",
-  v_oldvote_auto_msg: "CLDR ST: Automatic Import",
+  v_oldvote_auto_msg: "Automatic Import",
   v_oldvote_auto_progress_msg:
     "Please wait while your old winning votes are imported...",
   v_oldvote_auto_desc_msg:
@@ -429,6 +429,7 @@ const strings = {
   special_account: "Account Settings",
   special_admin: "Admin Panel",
   special_add_user: "Add a Survey Tool user",
+  special_auto_import: "Import Old Winning Votes",
   special_bulk_close_posts: "Bulk Close Posts",
   special_createAndLogin: "Create and Login",
   special_default: "Missing Page",

@@ -396,7 +396,23 @@ function isDashboard() {
   return getCurrentSpecial() === "r_vetting_json";
 }
 
+/**
+ * Is auto-import of old votes in progress? (Boolean)
+ *
+ * Used for inhibiting $('#left-sidebar').hover (Locale chooser)
+ */
+let isAutoImportBusy = false;
+
+function getAutoImportBusy() {
+  return isAutoImportBusy;
+}
+
+function setAutoImportBusy(busy) {
+  isAutoImportBusy = !!busy;
+}
+
 export {
+  getAutoImportBusy,
   getContextPath,
   getCurrentId,
   getCurrentLocale,
@@ -421,6 +437,7 @@ export {
   isVisitor,
   logoIcon,
   runningStampChanged,
+  setAutoImportBusy,
   setContextPath,
   setCurrentId,
   setCurrentLocale,

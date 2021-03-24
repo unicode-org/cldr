@@ -112,7 +112,7 @@ function loadInitialMenusFromJson(json, theLocale) {
 
   setupCoverageLevels(json, theLocale);
 
-  cldrLoad.continueInitializing(json.canAutoImport);
+  cldrLoad.continueInitializing(json.canAutoImport || false);
 }
 
 function setupCoverageLevels(json, theLocale) {

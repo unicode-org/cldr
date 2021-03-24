@@ -29,7 +29,10 @@ function startup() {
   // handle the left sidebar
   $("#left-sidebar").hover(
     function () {
-      if (!$("body").hasClass("disconnected") && !cldrLoad.dialogIsOpen()) {
+      if (
+        !$("body").hasClass("disconnected") &&
+        !cldrStatus.getAutoImportBusy()
+      ) {
         // don't hover if another dialog is open.
         $(this).addClass("active");
         toggleOverlay();

@@ -1,0 +1,7 @@
+# This is set up and maintained by the Ansible script.
+# If you change this file, your changes may be replaced.
+MYSQL_USER=surveytool
+MYSQL_PASSWORD={{ mysql_users[0].password }}
+MYSQL_DB=cldrdb
+WLP_SKIP_MAXPERMSIZE=true
+LOG_DIR=/var/log/openliberty/cldr

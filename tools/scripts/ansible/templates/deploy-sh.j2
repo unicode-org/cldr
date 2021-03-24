@@ -1,17 +1,18 @@
 #!/bin/bash
 # Note: this is managed by Ansible, as deploy-sh.j2
-# Don't modify this file.
+# Don't modify this file unless its name is deploy-sh.j2
 GITHUB_SHA=$1
 UNLOCK=$2
-export TPASS={{ surveytooldeploy.password }} # from surveytooldeploy.password
-export TUSER=surveytooldeploy # fixed for now
+WORKDIR=${TMPDIR-/tmp} # keep all random files here
+SERVICE="{{ cldr_openliberty_service }}"
 
+# TODO: "dogit" could be split out as a separate script
 dogit() {
-    rm -f ~/git-list.txt
+    rm -f ${WORKDIR}/git-list.txt
     if [[ ${GITHUB_SHA} = "master" ]];
     then
-	echo "changing 'master' to 'origin/master' to get the latest"
-	GITHUB_SHA=origin/master
+        echo "changing 'master' to 'origin/master' to get the latest"
+        GITHUB_SHA=origin/master
     fi
     git fetch -p || exit 1
     git clean -f -d || echo 'warning: err on cleanup'
@@ -22,42 +23,61 @@ dogit() {
     git rev-parse --short "${GITHUB_SHA}" || exit 1 # fail on err
     if [[ $(git rev-parse --short HEAD) = $(git rev-parse --short "${GITHUB_SHA}") ]];
     then
-	echo "No checkout needed. Continuing with redeploy."
+        echo "No checkout needed. Continuing with redeploy."
     else
-	echo "Deploy will include these new items:"
-	echo "---"
-	(git log --oneline HEAD..${GITHUB_SHA} | tee ~/git-list.txt) || exit 1
-	echo "---"
-	if [[ ! -s ~/git-list.txt ]]; # if empty..
-	then
-	    echo "Note, ${GITHUB_SHA} is not ahead of HEAD"  $(git rev-parse --short HEAD)
-	    echo "Checking for items that would be REVERTED if we proceed:"
-	    echo "---"
-	    git log --oneline ${GITHUB_SHA}..HEAD
-	    echo "---"
-	    if [[ "${UNLOCK}" = "--override" ]];
-	    then
-		echo ".. continuing anyway! due to " "${UNLOCK}"
-	    else
-		echo "STOP. Check the override box if you really want to do this"
-		exit 1
-	    fi
-	fi
-	git checkout -f ${GITHUB_SHA}
-	echo "HEAD is now at" $(git rev-parse --short HEAD) "!"
+        echo "Deploy will include these new items:"
+        echo "---"
+        (git log --oneline HEAD..${GITHUB_SHA} | tee ${WORKDIR}/git-list.txt) || exit 1
+        echo "---"
+        if [[ ! -s ${WORKDIR}/git-list.txt ]]; # if empty..
+        then
+            echo "Note, ${GITHUB_SHA} is not ahead of HEAD"  $(git rev-parse --short HEAD)
+            echo "Checking for items that would be REVERTED if we proceed:"
+            echo "---"
+            git log --oneline ${GITHUB_SHA}..HEAD
+            echo "---"
+            if [[ "${UNLOCK}" = "--override" ]];
+            then
+                echo ".. continuing anyway! due to " "${UNLOCK}"
+            else
+                echo "STOP. Check the override box if you really want to do this"
+                exit 1
+            fi
+        fi
+        git checkout -f ${GITHUB_SHA}
+        echo "HEAD is now at" $(git rev-parse --short HEAD) "!"
      fi
 }
 
 # Check git first, before undeploying. Want to exit early
-(cd  /var/lib/tomcat8/cldr/cldr-trunk/ && dogit ) || exit 1
-# undeploy old ST
-curl -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/undeploy?path=/cldr-apps'
-# reset last deploy status
-rm -fv cldr-apps.war .deploystatus
-# copy cldr-apps.war from action runner to server
-dd bs=1024000 status=progress of=cldr-apps.war
+(cd  {{ cldr_trunk_path }} && dogit ) || exit 1
+# 
+# stop server
+sudo -u root /usr/sbin/service ${SERVICE} stop
+# clear cache
+if [[ -d /srv/st/config/.cache ]];
+then
+   echo "Deleting cache /srv/config/.cache"
+   rm -rf /srv/st/config/.cache
+fi
+rm -fv ${WORKDIR}/cldr-apps.zip ${WORKDIR}/deploystatus
+# copy cldr-apps.zip from action runner to server
+dd bs=1024000 status=progress of=${WORKDIR}/cldr-apps.zip
 # this counts the # of files to make sure it's not too short, but also verifies that unzip is OK
-echo ; echo -n 'Unzip check, # of files in cldr-apps.war: '
-(unzip -l cldr-apps.war | wc -l ) || exit 1
+echo ; echo -n 'Unzip check, # of files in cldr-apps.zip: '
+(unzip -l ${WORKDIR}/cldr-apps.zip | wc -l ) || exit 1
+cd ${WORKDIR} || exit 1
+rm -rf ./deploy || exit 1
+mkdir ./deploy
+cd ./deploy
+unzip ${WORKDIR}/cldr-apps.zip
+if [[ ! -d ./wlp ]];
+then
+    echo "Error, did not get a ./wlp dir from this zip.. stop"
+    exit 1
+fi
 # Now, do the deployment!
-curl -q -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/deploy?path=/cldr-apps&tag=cldr-apps&update=true' -T ./cldr-apps.war | tee .deploystatus
+# exclude these two files
+rsync -r --exclude server.env --exclude workarea --exclude bootstrap.properties -v \
+      --delete ./wlp/usr/servers/cldr/* /var/lib/openliberty/usr/servers/cldr/ || exit 1
+sudo -u root /usr/sbin/service ${SERVICE} start || exit 1

@@ -1,0 +1,86 @@
+# Manually run: commit checker
+
+name: commit-checker
+
+# Triggered on push to master,
+# or PR against master.
+on:
+  workflow_dispatch:
+    inputs:
+      end-ref:
+        description: CLDR Commit (e.g. master or maint/maint-38)
+        required: true
+      fix-version:
+        description: Fix Version (e.g. 38)
+        required: true
+      last-version:
+        description: Last Version (e.g. 37)
+        required: true
+      tool-repository:
+        description: Commit Checker ICU repo
+        required: true
+        default: 'unicode-org/icu'
+      tool-ref:
+        description: Commit Checker ICU branch/tag
+        required: true
+        default: 'master'
+jobs:
+  build:
+    name: Run Checker
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone CLDR
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.end-ref }}
+          lfs: false # not needed here
+          path: cldr
+          fetch-depth: 0 # expensive, but needed for checker
+      - name: clone ICU for tools
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.inputs.tool-repository }}
+          ref: ${{ github.event.inputs.tool-ref }}
+          lfs: false # not needed here
+          path: icu
+      #- name: Prepare Check
+      - name: Run Check and Publish
+        run: |
+          END_HASH=$(cd ${GITHUB_WORKSPACE}/cldr ; git rev-parse --short HEAD )
+          REPORT="CLDR-Report-"$(date +"%Y-%m-%d")-v38-${END_HASH}
+          echo $REPORT
+          cd icu/tools/commit-checker
+          command -v pipenv >/dev/null 2>/dev/null || sudo pip3 install pipenv
+          pipenv install
+          pipenv run python3 check.py \
+          --nocopyright \
+          --jira-query "project=CLDR AND fixVersion=${FV}" \
+          --repo-root ${GITHUB_WORKSPACE}/cldr \
+          --github-url https://github.com/unicode-org/cldr \
+          --rev-range "release-${LV}..${END_REF}" > ${GITHUB_WORKSPACE}/${REPORT}.md
+          cd ${GITHUB_WORKSPACE}
+          wc -l ${REPORT}.md
+          npx -p markdown-to-html markdown --flavor gfm --title ${REPORT} ${REPORT}.md -c unicode-org/cldr README.md --stylesheet github-markdown.css > ${REPORT}.html
+          echo "${RSA_KEY_CCC}" > ${HOME}/.key && chmod go= ${HOME}/.key
+          echo "${CCC_KNOWNHOSTS}" > ${HOME}/.knownhosts && chmod go= ${HOME}/.knownhosts
+          ln ${REPORT}.md CLDR_REPORT.md # use a fixed name for the publish step
+          scp -o UserKnownHostsFile=${HOME}/.knownhosts -i ${HOME}/.key -P ${CCC_PORT} ${REPORT}.md ${REPORT}.html ${CCC_USER}@${CCC_HOST}:public_html/
+          echo "Now go to https://cldr-smoke.unicode.org/cldrcc/${REPORT}.html"
+        env:
+          END_REF: ${{ github.event.inputs.end-ref }}
+          FV: ${{ github.event.inputs.fix-version }}
+          LV: ${{ github.event.inputs.last-version }}
+          # the RSA key for connecting
+          RSA_KEY_CCC: ${{ secrets.RSA_KEY_CCC }}
+          # the SSH port
+          CCC_USER: ${{ secrets.CCC_USER }}
+          CCC_PORT: 22
+          # the SSH host
+          CCC_HOST: cldr-smoke.unicode.org
+          # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+          CCC_KNOWNHOSTS: ${{ secrets.CCC_KNOWNHOSTS }}
+      - name: Upload CLDR_REPORT.md
+        uses: actions/upload-artifact@v2
+        with:
+          name: commit-checker-report
+          path: CLDR_REPORT.md

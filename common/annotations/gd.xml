@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -709,6 +709,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">aodann a’ casadh nan sùilean</annotation>
 		<annotation cp="😬">aodann | aodann le drèin air | drèin</annotation>
 		<annotation cp="😬" type="tts">aodann le drèin air</annotation>
+		<annotation cp="😮‍💨">anail | aodan a’ leigeil anail | cagar | cnead | cogar | faochadh | fead | leig anail | leig d’ anail | leigeil anail | plosg</annotation>
+		<annotation cp="😮‍💨" type="tts">aodan a’ leigeil anail</annotation>
 		<annotation cp="🤥">aodann | aodann nam breug | breug | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">aodann nam breug</annotation>
 		<annotation cp="😌">aodann | aodann a fhuair faochadh | faochadh</annotation>
@@ -767,8 +769,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">aodann le fiamh drèin</annotation>
 		<annotation cp="😮">aodann | aodann le beul fosgailte | beul | co-fhulangas | fosgailte | truaghas | truas</annotation>
 		<annotation cp="😮" type="tts">aodann le beul fosgailte</annotation>
-		<annotation cp="😮‍💨">anail | aodan a’ leigeil anail | cagar | cnead | cogar | faochadh | fead | leig anail | leig d’ anail | leigeil anail | plosg</annotation>
-		<annotation cp="😮‍💨" type="tts">aodan a’ leigeil anail</annotation>
 		<annotation cp="😯">aodann | aodann iongnaidh le sùilean fosgailte | iongnadh | tost</annotation>
 		<annotation cp="😯" type="tts">aodann iongnaidh le sùilean fosgailte</annotation>
 		<annotation cp="😲">annas | aodann | aodann a ghabh mòr-iongnadh | gu tur | iongnadh</annotation>
@@ -887,12 +887,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">clisg-phuing cridhe</annotation>
 		<annotation cp="💔">briseadh | briste | cridhe briste</annotation>
 		<annotation cp="💔" type="tts">cridhe briste</annotation>
-		<annotation cp="❤">cridhe | cridhe dearg</annotation>
-		<annotation cp="❤" type="tts">cridhe dearg</annotation>
 		<annotation cp="❤‍🔥">connan | cridhe | cridhe air theine | cridhe naoimh | deòthas | drùis | gaol | gràdh | lasair | loisg | losgadh</annotation>
 		<annotation cp="❤‍🔥" type="tts">cridhe air theine</annotation>
 		<annotation cp="❤‍🩹">fallainn | feabhas | gu math | nas fhallainne | nas fheàrr | slàn | slànachadh cridhe</annotation>
 		<annotation cp="❤‍🩹" type="tts">slànachadh cridhe</annotation>
+		<annotation cp="❤">cridhe | cridhe dearg</annotation>
+		<annotation cp="❤" type="tts">cridhe dearg</annotation>
 		<annotation cp="🧡">cridhe orains | orains</annotation>
 		<annotation cp="🧡" type="tts">cridhe orains</annotation>
 		<annotation cp="💛">buidhe | cridhe buidhe</annotation>
@@ -1055,14 +1055,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">duine</annotation>
 		<annotation cp="🧔">duine le feusag | feusag</annotation>
 		<annotation cp="🧔" type="tts">duine le feusag</annotation>
-		<annotation cp="👱‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach</annotation>
-		<annotation cp="👱‍♂" type="tts">duine le falt bàn</annotation>
-		<annotation cp="🧔‍♀">boireannach | boireannach: feusag | feusag | tè</annotation>
-		<annotation cp="🧔‍♀" type="tts">boireannach: feusag</annotation>
 		<annotation cp="🧔‍♂">duine | fear | feusag | fireannach | fireannach: feusag</annotation>
 		<annotation cp="🧔‍♂" type="tts">fireannach: feusag</annotation>
+		<annotation cp="👱‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach</annotation>
+		<annotation cp="👱‍♂" type="tts">duine le falt bàn</annotation>
 		<annotation cp="👩">boireannach | tè</annotation>
 		<annotation cp="👩" type="tts">boireannach</annotation>
+		<annotation cp="🧔‍♀">boireannach | boireannach: feusag | feusag | tè</annotation>
+		<annotation cp="🧔‍♀" type="tts">boireannach: feusag</annotation>
 		<annotation cp="👱‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè</annotation>
 		<annotation cp="👱‍♀" type="tts">boireannach le falt bàn</annotation>
 		<annotation cp="🧓">gun ghnè | sean | seann | seann-inbheach</annotation>
@@ -3671,7 +3671,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="²" type="tts">a dhà os-sgrìobhte</annotation>
 		<annotation cp="³">a trì os-sgrìobhte | ciùbach | ciùbaichte | os-sgrìobhte | trì</annotation>
 		<annotation cp="³" type="tts">a trì os-sgrìobhte</annotation>
-		<annotation cp="µ">samhla micreo | samhla µ | tomhas</annotation>
-		<annotation cp="µ" type="tts">samhla µ</annotation>
+		<annotation cp="µ">samhla micreo | samhla μ | tomhas</annotation>
+		<annotation cp="µ" type="tts">samhla μ</annotation>
 	</annotations>
 </ldml>

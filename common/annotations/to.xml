@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -333,6 +333,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">mata kilokilo</annotation>
 		<annotation cp="😬">mata mioʻi</annotation>
 		<annotation cp="😬" type="tts">mata mioʻi</annotation>
+		<annotation cp="😮‍💨" draft="unconfirmed">mata hō</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="unconfirmed">mata hō</annotation>
 		<annotation cp="🤥">mata moe ihu lōloa</annotation>
 		<annotation cp="🤥" type="tts">mata moe ihu lōloa</annotation>
 		<annotation cp="😌">mata fakanongononga</annotation>
@@ -391,8 +393,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">mata fingo</annotation>
 		<annotation cp="😮">mata moe ngutu fakamanga</annotation>
 		<annotation cp="😮" type="tts">mata moe ngutu fakamanga</annotation>
-		<annotation cp="😮‍💨" draft="unconfirmed">mata hō</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="unconfirmed">mata hō</annotation>
 		<annotation cp="😯">mata longo</annotation>
 		<annotation cp="😯" type="tts">mata longo</annotation>
 		<annotation cp="😲">mata ʻohovale</annotation>
@@ -511,12 +511,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">mafu fakaʻilonga kalanga</annotation>
 		<annotation cp="💔">loto lavea</annotation>
 		<annotation cp="💔" type="tts">loto lavea</annotation>
-		<annotation cp="❤">mafu kulokula</annotation>
-		<annotation cp="❤" type="tts">mafu kulokula</annotation>
 		<annotation cp="❤‍🔥" draft="unconfirmed">mafu afi</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="unconfirmed">mafu afi</annotation>
 		<annotation cp="❤‍🩹" draft="unconfirmed">mafu monomono</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="unconfirmed">mafu monomono</annotation>
+		<annotation cp="❤">mafu kulokula</annotation>
+		<annotation cp="❤" type="tts">mafu kulokula</annotation>
 		<annotation cp="🧡">mafu lanumoli</annotation>
 		<annotation cp="🧡" type="tts">mafu lanumoli</annotation>
 		<annotation cp="💛">mafu engeenga</annotation>
@@ -679,14 +679,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">tangata</annotation>
 		<annotation cp="🧔">kava | tokotaha</annotation>
 		<annotation cp="🧔" type="tts">tokotaha kava</annotation>
-		<annotation cp="👱‍♂">tangata ʻulu kelo</annotation>
-		<annotation cp="👱‍♂" type="tts">tangata ʻulu kelo</annotation>
-		<annotation cp="🧔‍♀" draft="unconfirmed">fefine kava</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="unconfirmed">fefine kava</annotation>
 		<annotation cp="🧔‍♂" draft="unconfirmed">kava | tangata</annotation>
 		<annotation cp="🧔‍♂" type="tts">tangata kava</annotation>
+		<annotation cp="👱‍♂">tangata ʻulu kelo</annotation>
+		<annotation cp="👱‍♂" type="tts">tangata ʻulu kelo</annotation>
 		<annotation cp="👩">fefine</annotation>
 		<annotation cp="👩" type="tts">fefine</annotation>
+		<annotation cp="🧔‍♀" draft="unconfirmed">fefine kava</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="unconfirmed">fefine kava</annotation>
 		<annotation cp="👱‍♀">fefine ʻulu kelo</annotation>
 		<annotation cp="👱‍♀" type="tts">fefine ʻulu kelo</annotation>
 		<annotation cp="🧓">tokotaha motuʻa</annotation>

@@ -610,6 +610,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧔🏾" type="tts">personne barbue : peau mate</annotation>
 		<annotation cp="🧔🏿">barbe | peau foncée | personne barbue</annotation>
 		<annotation cp="🧔🏿" type="tts">personne barbue : peau foncée</annotation>
+		<annotation cp="🧔🏻‍♂">barbe | homme barbu | peau claire</annotation>
+		<annotation cp="🧔🏻‍♂" type="tts">homme barbu : peau claire</annotation>
+		<annotation cp="🧔🏼‍♂">barbe | homme barbu | peau moyennement claire</annotation>
+		<annotation cp="🧔🏼‍♂" type="tts">homme barbu : peau moyennement claire</annotation>
+		<annotation cp="🧔🏽‍♂">barbe | homme barbu | peau légèrement mate</annotation>
+		<annotation cp="🧔🏽‍♂" type="tts">homme barbu : peau légèrement mate</annotation>
+		<annotation cp="🧔🏾‍♂">barbe | homme barbu | peau mate</annotation>
+		<annotation cp="🧔🏾‍♂" type="tts">homme barbu : peau mate</annotation>
+		<annotation cp="🧔🏿‍♂">barbe | homme barbu | peau foncée</annotation>
+		<annotation cp="🧔🏿‍♂" type="tts">homme barbu : peau foncée</annotation>
 		<annotation cp="👱🏻‍♂">blond | cheveux | homme blond | peau claire</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">homme blond : peau claire</annotation>
 		<annotation cp="👱🏼‍♂">blond | cheveux | homme blond | peau moyennement claire</annotation>
@@ -768,26 +778,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">homme : peau mate et chauve</annotation>
 		<annotation cp="👨🏿‍🦲">chauve | homme | peau foncée</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">homme : peau foncée et chauve</annotation>
-		<annotation cp="🧔🏻‍♀">barbe | femme barbue | peau claire</annotation>
-		<annotation cp="🧔🏻‍♀" type="tts">femme barbue : peau claire</annotation>
-		<annotation cp="🧔🏼‍♀">barbe | femme barbue | peau moyennement claire</annotation>
-		<annotation cp="🧔🏼‍♀" type="tts">femme barbue : peau moyennement claire</annotation>
-		<annotation cp="🧔🏽‍♀">barbe | femme barbue | peau légèrement mate</annotation>
-		<annotation cp="🧔🏽‍♀" type="tts">femme barbue : peau légèrement mate</annotation>
-		<annotation cp="🧔🏾‍♀">barbe | femme barbue | peau mate</annotation>
-		<annotation cp="🧔🏾‍♀" type="tts">femme barbue : peau mate</annotation>
-		<annotation cp="🧔🏿‍♀">barbe | femme barbue | peau foncée</annotation>
-		<annotation cp="🧔🏿‍♀" type="tts">femme barbue : peau foncée</annotation>
-		<annotation cp="🧔🏻‍♂">barbe | homme barbu | peau claire</annotation>
-		<annotation cp="🧔🏻‍♂" type="tts">homme barbu : peau claire</annotation>
-		<annotation cp="🧔🏼‍♂">barbe | homme barbu | peau moyennement claire</annotation>
-		<annotation cp="🧔🏼‍♂" type="tts">homme barbu : peau moyennement claire</annotation>
-		<annotation cp="🧔🏽‍♂">barbe | homme barbu | peau légèrement mate</annotation>
-		<annotation cp="🧔🏽‍♂" type="tts">homme barbu : peau légèrement mate</annotation>
-		<annotation cp="🧔🏾‍♂">barbe | homme barbu | peau mate</annotation>
-		<annotation cp="🧔🏾‍♂" type="tts">homme barbu : peau mate</annotation>
-		<annotation cp="🧔🏿‍♂">barbe | homme barbu | peau foncée</annotation>
-		<annotation cp="🧔🏿‍♂" type="tts">homme barbu : peau foncée</annotation>
 		<annotation cp="👩🏻">femme | peau claire</annotation>
 		<annotation cp="👩🏻" type="tts">femme : peau claire</annotation>
 		<annotation cp="👩🏼">femme | peau moyennement claire</annotation>
@@ -798,6 +788,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">femme : peau mate</annotation>
 		<annotation cp="👩🏿">femme | peau foncée</annotation>
 		<annotation cp="👩🏿" type="tts">femme : peau foncée</annotation>
+		<annotation cp="🧔🏻‍♀">barbe | femme barbue | peau claire</annotation>
+		<annotation cp="🧔🏻‍♀" type="tts">femme barbue : peau claire</annotation>
+		<annotation cp="🧔🏼‍♀">barbe | femme barbue | peau moyennement claire</annotation>
+		<annotation cp="🧔🏼‍♀" type="tts">femme barbue : peau moyennement claire</annotation>
+		<annotation cp="🧔🏽‍♀">barbe | femme barbue | peau légèrement mate</annotation>
+		<annotation cp="🧔🏽‍♀" type="tts">femme barbue : peau légèrement mate</annotation>
+		<annotation cp="🧔🏾‍♀">barbe | femme barbue | peau mate</annotation>
+		<annotation cp="🧔🏾‍♀" type="tts">femme barbue : peau mate</annotation>
+		<annotation cp="🧔🏿‍♀">barbe | femme barbue | peau foncée</annotation>
+		<annotation cp="🧔🏿‍♀" type="tts">femme barbue : peau foncée</annotation>
 		<annotation cp="👱🏻‍♀">blonde | cheveux | femme blonde | peau claire</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">femme blonde : peau claire</annotation>
 		<annotation cp="👱🏼‍♀">blonde | cheveux | femme blonde | peau moyennement claire</annotation>
@@ -3416,12 +3416,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">deux hommes se tenant la main : peau foncée et peau mate</annotation>
 		<annotation cp="👬🏿">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | zodiaque</annotation>
 		<annotation cp="👬🏿" type="tts">deux hommes se tenant la main : peau foncée</annotation>
+		<annotation cp="💏🏻">baiser | bisou | couple | peau claire</annotation>
+		<annotation cp="💏🏻" type="tts">bisou : peau claire</annotation>
+		<annotation cp="💏🏼">baiser | bisou | couple | peau moyennement claire</annotation>
+		<annotation cp="💏🏼" type="tts">bisou : peau moyennement claire</annotation>
+		<annotation cp="💏🏽">baiser | bisou | couple | peau légèrement mate</annotation>
+		<annotation cp="💏🏽" type="tts">bisou : peau légèrement mate</annotation>
+		<annotation cp="💏🏾">baiser | bisou | couple | peau mate</annotation>
+		<annotation cp="💏🏾" type="tts">bisou : peau mate</annotation>
+		<annotation cp="💏🏿">baiser | bisou | couple | peau foncée</annotation>
+		<annotation cp="💏🏿" type="tts">bisou : peau foncée</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">baiser | bisou | couple | femme | homme</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">bisou : femme et homme</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">baiser | bisou | couple | homme</annotation>
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">bisou : homme et homme</annotation>
 		<annotation cp="👩‍❤‍💋‍👩">baiser | bisou | couple | femme</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">bisou : femme et femme</annotation>
+		<annotation cp="💑🏻">amour | cœur | couple | couple avec cœur | peau claire</annotation>
+		<annotation cp="💑🏻" type="tts">couple avec cœur : peau claire</annotation>
+		<annotation cp="💑🏼">amour | cœur | couple | couple avec cœur | peau moyennement claire</annotation>
+		<annotation cp="💑🏼" type="tts">couple avec cœur : peau moyennement claire</annotation>
+		<annotation cp="💑🏽">amour | cœur | couple | couple avec cœur | peau légèrement mate</annotation>
+		<annotation cp="💑🏽" type="tts">couple avec cœur : peau légèrement mate</annotation>
+		<annotation cp="💑🏾">amour | cœur | couple | couple avec cœur | peau mate</annotation>
+		<annotation cp="💑🏾" type="tts">couple avec cœur : peau mate</annotation>
+		<annotation cp="💑🏿">amour | cœur | couple | couple avec cœur | peau foncée</annotation>
+		<annotation cp="💑🏿" type="tts">couple avec cœur : peau foncée</annotation>
 		<annotation cp="👩‍❤‍👨">amour | cœur | couple | couple avec cœur | femme | homme</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">couple avec cœur : femme et homme</annotation>
 		<annotation cp="👨‍❤‍👨">amour | cœur | couple | couple avec cœur | homme</annotation>
@@ -4006,6 +4026,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">drapeau : Écosse</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">drapeau</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">drapeau : Pays de Galles</annotation>
+		<annotation cp="¤" type="tts">devise inconnue ou non valide</annotation>
+		<annotation cp="֏" type="tts">dram arménien</annotation>
+		<annotation cp="؋" type="tts">afghani afghan</annotation>
+		<annotation cp="৳" type="tts">taka bangladeshi</annotation>
+		<annotation cp="฿" type="tts">baht thaïlandais</annotation>
+		<annotation cp="៛" type="tts">riel cambodgien</annotation>
+		<annotation cp="₡" type="tts">colón costaricain</annotation>
+		<annotation cp="₦" type="tts">naira nigérian</annotation>
+		<annotation cp="₧" type="tts">peseta espagnole</annotation>
+		<annotation cp="₪" type="tts">nouveau shekel israélien</annotation>
+		<annotation cp="₫" type="tts">dông vietnamien</annotation>
+		<annotation cp="₭" type="tts">kip loatien</annotation>
+		<annotation cp="₮" type="tts">tugrik mongol</annotation>
+		<annotation cp="₲" type="tts">guaraní paraguayen</annotation>
+		<annotation cp="₴" type="tts">hryvnia ukrainienne</annotation>
+		<annotation cp="₵" type="tts">cédi ghanéen</annotation>
+		<annotation cp="₸" type="tts">tenge kazakh</annotation>
+		<annotation cp="₺" type="tts">livre turque</annotation>
+		<annotation cp="₼" type="tts">manat azéri</annotation>
+		<annotation cp="₾" type="tts">lari géorgien</annotation>
 		<annotation cp="0⃣">touches</annotation>
 		<annotation cp="0⃣" type="tts">touches : 0</annotation>
 		<annotation cp="1⃣">touches</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -421,7 +421,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ro_MD">المولدوفية</language>
 			<language type="rof">الرومبو</language>
 			<language type="rom">الغجرية</language>
-			<language type="root">الجذر</language>
 			<language type="ru">الروسية</language>
 			<language type="rup">الأرومانيان</language>
 			<language type="rw">الكينيارواندا</language>
@@ -3726,9 +3725,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>سانتا إيزابيل</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>هونولولو</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>التوقيت العالمي المنسق</standard>
@@ -3848,11 +3844,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>بروكن هيل</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>كوري</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ميلبورن</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>كوري</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>هوبارت</exemplarCity>
@@ -4885,6 +4881,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>هونولولو</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>جونستون</exemplarCity>
@@ -8428,7 +8427,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">فرنك غرب أفريقي</displayName>
 				<displayName count="many">فرنك غرب أفريقي</displayName>
 				<displayName count="other">فرنك غرب أفريقي</displayName>
-				<symbol draft="contributed">CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>بالاديوم</displayName>
@@ -8847,7 +8846,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} قيراطًا</unitPattern>
 				<unitPattern count="other">{0} قيراط</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>مغم/ديسيبل</displayName>
 				<unitPattern count="zero">{0} مغم/ديسيبل</unitPattern>
 				<unitPattern count="one">{0} مغم/ديسيبل</unitPattern>
@@ -10610,7 +10609,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} قيراط</unitPattern>
 				<unitPattern count="other">{0} قيراط</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>مغم/ديسبل</displayName>
 				<unitPattern count="zero">{0} مغم/ديسبل</unitPattern>
 				<unitPattern count="one">{0} مغم/ديسبل</unitPattern>
@@ -10737,13 +10736,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} تيرابت</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>غيغابايت</displayName>
-				<unitPattern count="zero">{0} غيغابايت</unitPattern>
-				<unitPattern count="one">{0} غيغابايت</unitPattern>
-				<unitPattern count="two">{0} غيغابايت</unitPattern>
-				<unitPattern count="few">{0} غيغابايت</unitPattern>
-				<unitPattern count="many">{0} غيغابايت</unitPattern>
-				<unitPattern count="other">{0} غيغابايت</unitPattern>
+				<displayName>GB</displayName>
+				<unitPattern count="zero">{0} GB</unitPattern>
+				<unitPattern count="one">{0} GB</unitPattern>
+				<unitPattern count="two">{0} GB</unitPattern>
+				<unitPattern count="few">{0} GB</unitPattern>
+				<unitPattern count="many">{0} GB</unitPattern>
+				<unitPattern count="other">{0} GB</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName>غيغابت</displayName>
@@ -10756,12 +10755,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName>ميغابايت</displayName>
-				<unitPattern count="zero">{0} ميغابايت</unitPattern>
-				<unitPattern count="one">{0} ميغابايت</unitPattern>
-				<unitPattern count="two">{0} ميغابايت</unitPattern>
-				<unitPattern count="few">{0} ميغابايت</unitPattern>
-				<unitPattern count="many">{0} ميغابايت</unitPattern>
-				<unitPattern count="other">{0} ميغابايت</unitPattern>
+				<unitPattern count="zero">{0} MB</unitPattern>
+				<unitPattern count="one">{0} MB</unitPattern>
+				<unitPattern count="two">{0} MB</unitPattern>
+				<unitPattern count="few">{0} MB</unitPattern>
+				<unitPattern count="many">{0} MB</unitPattern>
+				<unitPattern count="other">{0} MB</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName>ميغابت</displayName>

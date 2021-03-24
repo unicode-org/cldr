@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -535,6 +535,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">gözlərini fırladan üz</annotation>
 		<annotation cp="😬">üz | üz-gözünü turşudan üz | üz-gözünü turşutmaq</annotation>
 		<annotation cp="😬" type="tts">üz-gözünü turşudan üz</annotation>
+		<annotation cp="😮‍💨">ciyərəçəkmə | nəfəs alan üz | nəfəsalma | pıçıldama</annotation>
+		<annotation cp="😮‍💨" type="tts">nəfəs alan üz</annotation>
 		<annotation cp="🤥">adam | üzü | yalançı</annotation>
 		<annotation cp="🤥" type="tts">yalançı adam üzü</annotation>
 		<annotation cp="😌">rahat üz | üz | yüngülləşmiş</annotation>
@@ -593,8 +595,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">qaşqabaqlı üz</annotation>
 		<annotation cp="😮">açıq | ağız | ağzı açıq üz | simpatiya | üz</annotation>
 		<annotation cp="😮" type="tts">ağzı açıq üz</annotation>
-		<annotation cp="😮‍💨">ciyərəçəkmə | nəfəs alan üz | nəfəsalma | pıçıldama</annotation>
-		<annotation cp="😮‍💨" type="tts">nəfəs alan üz</annotation>
 		<annotation cp="😯">heyrətlənmiş | susmuş | təəccüblənmiş | üz</annotation>
 		<annotation cp="😯" type="tts">heyrətlənmiş üz</annotation>
 		<annotation cp="😲">şoka düşmüş | tamamilə | təəccüblənmiş | üz</annotation>
@@ -713,12 +713,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ürək nida işarəsi ornamenti</annotation>
 		<annotation cp="💔">sındırılmış | sındırmaq | sınmış ürək | ürək</annotation>
 		<annotation cp="💔" type="tts">sınmış ürək</annotation>
-		<annotation cp="❤">qırmızı ürək | ürək</annotation>
-		<annotation cp="❤" type="tts">qırmızı ürək</annotation>
 		<annotation cp="❤‍🔥">alovlu ürək | müqəddəs ürək | sevgi | şəhvət | ürək | yanmaq</annotation>
 		<annotation cp="❤‍🔥" type="tts">alovlu ürək</annotation>
 		<annotation cp="❤‍🩹">özünə gəlmək | sağalma | sağlam | yara bandı bağlamaq | yara bandlı ürək</annotation>
 		<annotation cp="❤‍🩹" type="tts">yara bandlı ürək</annotation>
+		<annotation cp="❤">qırmızı ürək | ürək</annotation>
+		<annotation cp="❤" type="tts">qırmızı ürək</annotation>
 		<annotation cp="🧡">narıncı | narıncı ürək</annotation>
 		<annotation cp="🧡" type="tts">narıncı ürək</annotation>
 		<annotation cp="💛">sarı | ürək</annotation>
@@ -881,14 +881,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">kişi</annotation>
 		<annotation cp="🧔">saqqal | saqqallı şəxs</annotation>
 		<annotation cp="🧔" type="tts">saqqallı şəxs</annotation>
-		<annotation cp="👱‍♂">kişi | sarışın</annotation>
-		<annotation cp="👱‍♂" type="tts">sarışın kişi</annotation>
-		<annotation cp="🧔‍♀">kişi | kişi: saqqal | qadın: saqqal | saqqal</annotation>
-		<annotation cp="🧔‍♀" type="tts">qadın: saqqal</annotation>
 		<annotation cp="🧔‍♂">kişi | kişi; saqqal | kişi: saqqal | saqqal</annotation>
 		<annotation cp="🧔‍♂" type="tts">kişi; saqqal</annotation>
+		<annotation cp="👱‍♂">kişi | sarışın</annotation>
+		<annotation cp="👱‍♂" type="tts">sarışın kişi</annotation>
 		<annotation cp="👩">qadın</annotation>
 		<annotation cp="👩" type="tts">qadın</annotation>
+		<annotation cp="🧔‍♀">kişi | kişi: saqqal | qadın: saqqal | saqqal</annotation>
+		<annotation cp="🧔‍♀" type="tts">qadın: saqqal</annotation>
 		<annotation cp="👱‍♀">qadın | sarışın</annotation>
 		<annotation cp="👱‍♀" type="tts">sarışın qadın</annotation>
 		<annotation cp="🧓">gender-neytral | qoca | yaşlı böyük</annotation>

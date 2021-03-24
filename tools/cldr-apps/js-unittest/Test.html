@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <title>JavaScript Tests for CLDR SurveyTool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
   </head>
   <body>
-  <div style="padding-top: 48pt; padding-left: 32pt; font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+    <div style="padding-top: 48pt; padding-left: 32pt; font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;">
       <h1>CLDR SurveyTool JavaScript Tests</h1>
-      <em>Reference:</em> <a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a>
+      <script>
+        if (location.protocol === "file:") {
+          document.write("<h1>Error</h1><p>The protocol should be <b>html:</b>, not <b>file:</b><br />A server is required; see <b>run.sh</b></p>")
+        }
+      </script>
+      <p><em>Important:</em> run with run.sh; open the browser console to check for errors/warnings that are otherwise invisible!</p>
+      <p><em>References:</em></p>
+      <ul>
+        <li><a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a></li>
+        <li><a href="https://medium.com/dailyjs/running-mocha-tests-as-native-es6-modules-in-a-browser-882373f2ecb0">running-mocha-tests-as-native-es6-modules-in-a-browser</a></li>
+      </ul>
     </div>
-    <div id="mocha"></div>
+    <div id="mocha" style="margin-top: 12pt;"></div>
     <script src="https://unpkg.com/chai/chai.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
     <script class="mocha-init">
       mocha.setup('bdd');
-      mocha.checkLeaks();
     </script>
-    <script src="../WebContent/js/CldrStForumParticipation.js"></script>
-    <script src="../WebContent/js/CldrStForumFilter.js"></script>
-    <script src="../WebContent/js/CldrStForum.js"></script>
-    <script src="../WebContent/js/CldrSurveyVettingTable.js"></script>
-    <script src="../WebContent/js/CldrStCsvFromTable.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="data/forum_fr.js"></script>
     <script src="data/forum_participation_json.js"></script>
-    <script src="TestCldrStForum.js"></script>
-    <script src="TestCldrStForumFilter.js"></script>
-    <script src="TestCldrStForumParticipation.js"></script>
-    <script src="TestCldrStChecksum.js"></script>
-    <script src="TestCldrStCsvFromTable.js"></script>
-    <script class="mocha-exec">
+    <script src="data/bulk_close_posts_json.js"></script>
+    <script type="module" src="TestCldrTest.js"></script>
+    <script type="module" src="TestCldrAccount.js"></script>
+    <script type="module" src="TestCldrAdmin.js"></script>
+    <script type="module" src="TestCldrBulkClosePosts.js"></script>
+    <script type="module" src="TestCldrChecksum.js"></script>
+    <script type="module" src="TestCldrCreateLogin.js"></script>
+    <script type="module" src="TestCldrCsvFromTable.js"></script>
+    <script type="module" src="TestCldrErrorSubtypes.js"></script>
+    <script type="module" src="TestCldrForum.js"></script>
+    <script type="module" src="TestCldrForumFilter.js"></script>
+    <script type="module" src="TestCldrForumParticipation.js"></script>
+    <script type="module" src="TestCldrGui.js"></script>
+    <script type="module" src="TestCldrListUsers.js"></script>
+    <script type="module" src="TestCldrStatus.js"></script>
+    <script type="module" src="TestCldrText.js"></script>
+    <script type="module" class="mocha-exec">
+      mocha.checkLeaks();
       mocha.run();
     </script>
   </body>

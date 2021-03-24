@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -324,7 +324,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ro">رومینین</language>
 			<language type="ro_MD">مالدووا</language>
 			<language type="rof">رومبو</language>
-			<language type="root">روٹ</language>
 			<language type="ru">روسی</language>
 			<language type="rup">ارومانی</language>
 			<language type="rw">کینیاروانڈا</language>
@@ -3021,9 +3020,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>سانتا ایزابیل</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ہونولولو</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>کوآرڈینیٹڈ یونیورسل ٹائم</standard>
@@ -3143,11 +3139,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>بروکن ہِل</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>کیوری</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ملبورن</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>کیوری</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ہوبارٹ</exemplarCity>
@@ -4180,6 +4176,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ہونولولو</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>جانسٹن</exemplarCity>
@@ -6457,7 +6456,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>مغربی افریقی [CFA] فرانک</displayName>
 				<displayName count="one">مغربی افریقی [CFA] فرانک</displayName>
 				<displayName count="other">مغربی افریقی [CFA] فرانک</displayName>
-				<symbol draft="contributed">CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP فرانک</displayName>
@@ -6703,7 +6702,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} قیراط</unitPattern>
 				<unitPattern count="other">{0} قیراط</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>ملی گرام فی ڈیسی لیٹر</displayName>
 				<unitPattern count="one">{0} ملی گرام فی ڈیسی لیٹر</unitPattern>
 				<unitPattern count="other">{0} ملی گرام فی ڈیسی لیٹر</unitPattern>
@@ -7738,7 +7737,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} kt</unitPattern>
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dL</displayName>
 				<unitPattern count="one">{0} mg/dL</unitPattern>
 				<unitPattern count="other">{0} mg/dL</unitPattern>
@@ -8084,9 +8083,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ملیمیٹر</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="one">{0} µm</unitPattern>
-				<unitPattern count="other">{0} µm</unitPattern>
+				<displayName>μm</displayName>
+				<unitPattern count="one">{0} μm</unitPattern>
+				<unitPattern count="other">{0} μm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName>nm</displayName>
@@ -8208,9 +8207,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>µg</displayName>
-				<unitPattern count="one">{0} µg</unitPattern>
-				<unitPattern count="other">{0} µg</unitPattern>
+				<displayName>μg</displayName>
+				<unitPattern count="one">{0} μg</unitPattern>
+				<unitPattern count="other">{0} μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>ٹن</displayName>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -421,6 +421,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">گھومتی آنکھوں والا چہرہ</annotation>
 		<annotation cp="😬">چہرہ | مضحکہ خیز چہرہ | ناگواریت</annotation>
 		<annotation cp="😬" type="tts">مضحکہ خیز چہرہ</annotation>
+		<annotation cp="😮‍💨" draft="contributed">سانس چھوڑنے والا چہرہ</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">سانس چھوڑنے والا چہرہ</annotation>
 		<annotation cp="🤥">جھوٹ | جھوٹ بولتا چہرہ | چہرہ</annotation>
 		<annotation cp="🤥" type="tts">جھوٹ بولتا چہرہ</annotation>
 		<annotation cp="😌">پُر سکون | پُر سکون چہرہ | چہرہ</annotation>
@@ -479,8 +481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">تیوری زدہ چہرہ</annotation>
 		<annotation cp="😮">چہرہ | کھلا ہوا | کھلے منہ والا چہرہ | منہ</annotation>
 		<annotation cp="😮" type="tts">کھلے منہ والا چہرہ</annotation>
-		<annotation cp="😮‍💨" draft="contributed">سانس چھوڑنے والا چہرہ</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">سانس چھوڑنے والا چہرہ</annotation>
 		<annotation cp="😯">چہرہ | حیرت | شدید حیرت زدہ چہرہ</annotation>
 		<annotation cp="😯" type="tts">شدید حیرت زدہ چہرہ</annotation>
 		<annotation cp="😲">تکلیف | چہرہ | حیرت | حیرت زدہ چہرہ</annotation>
@@ -599,12 +599,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">دلی اظہار</annotation>
 		<annotation cp="💔">ٹوٹا ہوا | ٹوٹا ہوا دل | دل</annotation>
 		<annotation cp="💔" type="tts">ٹوٹا ہوا دل</annotation>
-		<annotation cp="❤">دل | سرخ</annotation>
-		<annotation cp="❤" type="tts">سرخ دل</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">جلتی آگ میں دل</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">جلتی آگ میں دل</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">دل کی اصلاح</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">دل کی اصلاح</annotation>
+		<annotation cp="❤">دل | سرخ</annotation>
+		<annotation cp="❤" type="tts">سرخ دل</annotation>
 		<annotation cp="🧡">نارنجی | نارنجی دل</annotation>
 		<annotation cp="🧡" type="tts">نارنجی دل</annotation>
 		<annotation cp="💛">پیلا | دل</annotation>
@@ -767,14 +767,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">مرد</annotation>
 		<annotation cp="🧔">داڑھی | داڑھی والا شخص</annotation>
 		<annotation cp="🧔" type="tts">داڑھی والا شخص</annotation>
-		<annotation cp="👱‍♂">بھورے بال | سنہرے بال | سنہرے بالوں والا مرد | مرد</annotation>
-		<annotation cp="👱‍♂" type="tts">سنہرے بالوں والا مرد</annotation>
-		<annotation cp="🧔‍♀">داڑھی | عورت | عورت: داڑھی</annotation>
-		<annotation cp="🧔‍♀" type="tts">عورت: داڑھی</annotation>
 		<annotation cp="🧔‍♂">داڑھی | مرد | مرد: داڑھی</annotation>
 		<annotation cp="🧔‍♂" type="tts">مرد: داڑھی</annotation>
+		<annotation cp="👱‍♂">بھورے بال | سنہرے بال | سنہرے بالوں والا مرد | مرد</annotation>
+		<annotation cp="👱‍♂" type="tts">سنہرے بالوں والا مرد</annotation>
 		<annotation cp="👩">انسان | عورت</annotation>
 		<annotation cp="👩" type="tts">عورت</annotation>
+		<annotation cp="🧔‍♀">داڑھی | عورت | عورت: داڑھی</annotation>
+		<annotation cp="🧔‍♀" type="tts">عورت: داڑھی</annotation>
 		<annotation cp="👱‍♀">بھورے بال | سنہرے بال | سنہرے بالوں والی عورت | عورت</annotation>
 		<annotation cp="👱‍♀" type="tts">سنہرے بالوں والی عورت</annotation>
 		<annotation cp="🧓">بوڑھا | بوڑھا بالغ | صنفی غیر جانبدار</annotation>

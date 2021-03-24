@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -500,6 +500,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">visage qui roule des yeux</annotation>
 		<annotation cp="😬">↑↑↑</annotation>
 		<annotation cp="😬" type="tts">↑↑↑</annotation>
+		<annotation cp="😮‍💨">↑↑↑</annotation>
+		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="🤥">mensonge | menteur | pinocchio | visage | visage de menteur</annotation>
 		<annotation cp="🤥" type="tts">↑↑↑</annotation>
 		<annotation cp="😌">soulagé | soulagement | visage</annotation>
@@ -558,8 +560,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">↑↑↑</annotation>
 		<annotation cp="😮">bouche ouverte | compassion | visage | visage épaté</annotation>
 		<annotation cp="😮" type="tts">visage épaté</annotation>
-		<annotation cp="😮‍💨">↑↑↑</annotation>
-		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="😯">ébahi | sans voix | stupéfait | surpris | visage</annotation>
 		<annotation cp="😯" type="tts">↑↑↑</annotation>
 		<annotation cp="😲">choqué | étonné | stupéfait | surpris | visage</annotation>
@@ -678,12 +678,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">↑↑↑</annotation>
 		<annotation cp="💔">brisé | cœur</annotation>
 		<annotation cp="💔" type="tts">↑↑↑</annotation>
-		<annotation cp="❤">cœur | rouge</annotation>
-		<annotation cp="❤" type="tts">↑↑↑</annotation>
 		<annotation cp="❤‍🔥">amour | cœur en feu | désir | feu | passion</annotation>
 		<annotation cp="❤‍🔥" type="tts">cœur en feu</annotation>
 		<annotation cp="❤‍🩹">cœur avec bandages | en convalescence | réconforter | récupérer | soigner</annotation>
 		<annotation cp="❤‍🩹" type="tts">↑↑↑</annotation>
+		<annotation cp="❤">cœur | rouge</annotation>
+		<annotation cp="❤" type="tts">↑↑↑</annotation>
 		<annotation cp="🧡">cœur | orange</annotation>
 		<annotation cp="🧡" type="tts">↑↑↑</annotation>
 		<annotation cp="💛">cœur | jaune</annotation>
@@ -846,14 +846,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">barbe | barbu | homme barbu | personne | personne barbue</annotation>
 		<annotation cp="🧔" type="tts">↑↑↑</annotation>
-		<annotation cp="👱‍♂">blond | homme</annotation>
-		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">femme barbue</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">femme barbue</annotation>
 		<annotation cp="🧔‍♂">barbe | homme | homme barbu</annotation>
 		<annotation cp="🧔‍♂" type="tts">homme barbu</annotation>
+		<annotation cp="👱‍♂">blond | homme</annotation>
+		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="👩">adulte | femme</annotation>
 		<annotation cp="👩" type="tts">↑↑↑</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">femme barbue</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">femme barbue</annotation>
 		<annotation cp="👱‍♀">blonde | femme</annotation>
 		<annotation cp="👱‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧓">adulte | âgée | genre non défini | personne</annotation>

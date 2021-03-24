@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -314,7 +314,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ro">ৰোমানীয়</language>
 			<language type="ro_MD">মোল্ডাভিয়ান</language>
 			<language type="rof">ৰোম্বো</language>
-			<language type="root">ৰুট</language>
 			<language type="ru">ৰাছিয়ান</language>
 			<language type="rup">আৰোমানীয়</language>
 			<language type="rw">কিনয়াৰোৱাণ্ডা</language>
@@ -2414,11 +2413,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>ব্ৰোকেন হিল</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ক্যুৰি</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>মেলব’ৰ্ণ</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>ক্যুৰি</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>হোবাৰ্ট</exemplarCity>
@@ -5675,7 +5674,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>পশ্চিম আফ্ৰিকান CFA ফ্ৰেংক</displayName>
 				<displayName count="one">পশ্চিম আফ্ৰিকান CFA ফ্ৰেংক</displayName>
 				<displayName count="other">পশ্চিম আফ্ৰিকান CFA ফ্ৰেংক</displayName>
-				<symbol draft="contributed">CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP ফ্ৰেংক</displayName>
@@ -5918,7 +5917,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} কেৰেট</unitPattern>
 				<unitPattern count="other">{0} কেৰেট</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>প্ৰতি ডেচিলিটাৰত মিলিগ্ৰাম</displayName>
 				<unitPattern count="one">প্ৰতি ডেচিলিটাৰত {0} মিলিগ্ৰাম</unitPattern>
 				<unitPattern count="other">প্ৰতি ডেচিলিটাৰত {0} মিলিগ্ৰাম</unitPattern>
@@ -6953,7 +6952,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} কেৰেট</unitPattern>
 				<unitPattern count="other">{0} কেৰেট</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>মিঃ গ্ৰাঃ/ডেঃ লিঃ</displayName>
 				<unitPattern count="one">{0} mg/dL</unitPattern>
 				<unitPattern count="other">{0} mg/dL</unitPattern>
@@ -7803,7 +7802,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>মিলি{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>µ{0}</unitPrefixPattern>
+				<unitPrefixPattern>μ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>নেনো{0}</unitPrefixPattern>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -322,7 +322,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ro">රොමේනියානු</language>
 			<language type="ro_MD">මොල්ඩවිආනු</language>
 			<language type="rof">රෝම්බෝ</language>
-			<language type="root">රූට්</language>
 			<language type="ru">රුසියානු</language>
 			<language type="rup">ඇරොමානියානු</language>
 			<language type="rw">කින්යර්වන්ඩා</language>
@@ -2389,9 +2388,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>සැන්ටා ඉසබෙල්</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>හොනොලුලු</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>සමකක්ෂ සාර්ව වේලාව</standard>
@@ -2511,11 +2507,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>බ්‍රෝකන් හිල්</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>කුරී</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>මෙල්බෝර්න්</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>කුරී</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>හෝබාර්ට්</exemplarCity>
@@ -3548,6 +3544,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>නෝම්</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>හොනොලුලු</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ජොන්ස්ටන්</exemplarCity>
@@ -5989,7 +5988,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">ක්‍රාත් {0}</unitPattern>
 				<unitPattern count="other">ක්‍රාත් {0}</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>ඩෙසිලීටරයකට මිලිග්‍රෑම්</displayName>
 				<unitPattern count="one">ඩෙසිලීටරයකට මිලිග්‍රෑම් {0}</unitPattern>
 				<unitPattern count="other">ඩෙසිලීටරයකට මිලිග්‍රෑම් {0}</unitPattern>
@@ -6839,7 +6838,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>මි{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>µ{0}</unitPrefixPattern>
+				<unitPrefixPattern>μ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>නැ{0}</unitPrefixPattern>
@@ -7024,7 +7023,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">ක්‍රාත් {0}</unitPattern>
 				<unitPattern count="other">ක්‍රාත් {0}</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>මිග්‍රෑ/ඩෙලි</displayName>
 				<unitPattern count="one">{0} මිග්‍රෑ/ඩෙලි</unitPattern>
 				<unitPattern count="other">{0} මිග්‍රෑ/ඩෙලි</unitPattern>
@@ -7874,7 +7873,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>මි{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>µ{0}</unitPrefixPattern>
+				<unitPrefixPattern>μ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>නැ{0}</unitPrefixPattern>

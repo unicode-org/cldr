@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -469,6 +469,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">കറങ്ങുന്ന കണ്ണുകളുള്ള മുഖം</annotation>
 		<annotation cp="😬">കൊഞ്ഞനം കുത്തുക | ഗോഷ്‌ടി | ഗോഷ്‌ടി കാണിക്കുന്ന മുഖം | മുഖം</annotation>
 		<annotation cp="😬" type="tts">ഗോഷ്‌ടി കാണിക്കുന്ന മുഖം</annotation>
+		<annotation cp="😮‍💨" draft="contributed">കോപാകുല മുഖം</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">കോപാകുല മുഖം</annotation>
 		<annotation cp="🤥">കള്ളം | കള്ളലക്ഷണം</annotation>
 		<annotation cp="🤥" type="tts">കള്ളലക്ഷണം</annotation>
 		<annotation cp="😌">ആശ്വാസം | ആശ്വാസമുള്ള മുഖം | മുഖം</annotation>
@@ -527,8 +529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">നീരസമുള്ള മുഖം</annotation>
 		<annotation cp="😮">തുറന്ന | തുറന്ന വായയുള്ള മുഖം | മുഖം | വായ | സഹതാപം</annotation>
 		<annotation cp="😮" type="tts">തുറന്ന വായയുള്ള മുഖം</annotation>
-		<annotation cp="😮‍💨" draft="contributed">കോപാകുല മുഖം</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">കോപാകുല മുഖം</annotation>
 		<annotation cp="😯">അത്ഭുതകരമായ | ആശ്ചര്യമുള്ള | ഞെട്ടൽ | മുഖം | സ്‌തബ്‌ധമായ</annotation>
 		<annotation cp="😯" type="tts">സ്‌തബ്‌ധമായ മുഖം</annotation>
 		<annotation cp="😲">അത്ഭുതം | അത്ഭുതം നിറഞ്ഞ മുഖം | ആശ്ചര്യം | ഞെട്ടൽ | പൂർണ്ണമായും | മുഖം</annotation>
@@ -647,12 +647,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ഹൃദയാകൃതിയിലുള്ള ആശ്ചര്യ ചിഹ്നം</annotation>
 		<annotation cp="💔">തകരുക | തകർന്ന ഹൃദയം | തകർന്നു | ഹൃദയം</annotation>
 		<annotation cp="💔" type="tts">തകർന്ന ഹൃദയം</annotation>
-		<annotation cp="❤">ചുവന്ന ഹൃദയം | ചുവപ്പ് | ഹൃദയം</annotation>
-		<annotation cp="❤" type="tts">ചുവന്ന ഹൃദയം</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">ഹൃദയത്തിൽ തീ</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">ഹൃദയത്തിൽ തീ</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">സുഖം പ്രാപിക്കുന്ന ഹൃദയം</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">സുഖം പ്രാപിക്കുന്ന ഹൃദയം</annotation>
+		<annotation cp="❤">ചുവന്ന ഹൃദയം | ചുവപ്പ് | ഹൃദയം</annotation>
+		<annotation cp="❤" type="tts">ചുവന്ന ഹൃദയം</annotation>
 		<annotation cp="🧡">ഓറഞ്ച് | പ്രണയം | വികാരം | ഹൃദയം</annotation>
 		<annotation cp="🧡" type="tts">ഓറഞ്ച് ഹൃദയം</annotation>
 		<annotation cp="💛">പ്രണയം | മഞ്ഞ | വികാരം | ഹൃദയം</annotation>
@@ -815,14 +815,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">പുരുഷൻ</annotation>
 		<annotation cp="🧔">താടി | വ്യക്തി | വ്യക്തി: താടി</annotation>
 		<annotation cp="🧔" type="tts">വ്യക്തി: താടി</annotation>
-		<annotation cp="👱‍♂">തലമുടി | പുരുഷൻ | പുരുഷൻ: സ്വർണ്ണത്തലമുടി | സ്വർണ്ണത്തലമുടിയുള്ള പുരുഷൻ | സ്വർണ്ണവർണ്ണം</annotation>
-		<annotation cp="👱‍♂" type="tts">പുരുഷൻ: സ്വർണ്ണത്തലമുടി</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">സ്ത്രീ: താടി</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">സ്ത്രീ: താടി</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">പുരുഷൻ: താടി</annotation>
 		<annotation cp="🧔‍♂" type="tts" draft="contributed">പുരുഷൻ: താടി</annotation>
+		<annotation cp="👱‍♂">തലമുടി | പുരുഷൻ | പുരുഷൻ: സ്വർണ്ണത്തലമുടി | സ്വർണ്ണത്തലമുടിയുള്ള പുരുഷൻ | സ്വർണ്ണവർണ്ണം</annotation>
+		<annotation cp="👱‍♂" type="tts">പുരുഷൻ: സ്വർണ്ണത്തലമുടി</annotation>
 		<annotation cp="👩">മുതിർന്നയാൾ | സ്‌ത്രീ</annotation>
 		<annotation cp="👩" type="tts">സ്‌ത്രീ</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">സ്ത്രീ: താടി</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">സ്ത്രീ: താടി</annotation>
 		<annotation cp="👱‍♀">തലമുടി | സ്ത്രീ | സ്ത്രീ: സ്വർണ്ണത്തലമുടി | സ്വർണ്ണത്തലമുടിക്കാരി | സ്വർണ്ണത്തലമുടിയുള്ള സ്ത്രീ</annotation>
 		<annotation cp="👱‍♀" type="tts">സ്ത്രീ: സ്വർണ്ണത്തലമുടി</annotation>
 		<annotation cp="🧓">അനിശ്ചിത ലിംഗഭേദം | പ്രായാധിക്യമുള്ള വ്യക്തി | മുതിർന്നയാൾ | ലിംഗഭേദമില്ല | വയസ്സായ വ്യക്തി | വാർദ്ധക്യം</annotation>

@@ -7,25 +7,35 @@
 
 	<groupId>org.unicode.cldr</groupId>
 	<artifactId>cldr-all</artifactId>
-	<version>38.0-SNAPSHOT</version>
-	<name>CLDR Parent</name>
+	<version>39.0-SNAPSHOT</version>
+	<name>CLDR All Tools</name>
 	<packaging>pom</packaging>
-
+	<licenses>
+		<license>
+			<name>Unicode-DFS-2016</name>
+		</license>
+	</licenses>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<!-- TODO: fix when https://github.com/unicode-org/icu/pull/1270 lands -->
-		<icu4j.version>0.0.0-cldr-38-d00</icu4j.version>
-		<junit.version>4.11</junit.version>
+		<!-- Note: see https://github.com/unicode-org/icu/packages/411079/versions
+			for the icu4j.version tag to use -->
+		<icu4j.version>69.1-SNAPSHOT-cldr-2021-02-17</icu4j.version>
+		<junit.version>4.13.1</junit.version>
 		<junit.jupiter.version>5.5.1</junit.jupiter.version>
 		<maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
+		<httpcomponents-version>5.0.3</httpcomponents-version>
+		<!--  web-specific properties are under cldr-apps -->
+		<mysql.version>8.0.22</mysql.version>
 	</properties>
 
 	<modules>
-		<module>java</module>
+		<module>cldr-code</module>
 		<module>cldr-apps</module>
+		<module>cldr-rdf</module>
 	</modules>
 
 	<dependencyManagement>
@@ -33,19 +43,24 @@
 			<!-- CLDR -->
 			<dependency>
 				<groupId>org.unicode.cldr</groupId>
-				<artifactId>cldr</artifactId>
+				<artifactId>cldr-code</artifactId>
+				<version>${project.version}</version> <!-- this seems to work -->
+			</dependency>
+			<dependency>
+				<groupId>org.unicode.cldr</groupId>
+				<artifactId>cldr-rdf</artifactId>
 				<version>${project.version}</version> <!-- this seems to work -->
 			</dependency>
 
 			<!-- ICU -->
 			<dependency>
 				<groupId>com.ibm.icu</groupId>
-				<artifactId>icu4j</artifactId>
+				<artifactId>icu4j-for-cldr</artifactId>
 				<version>${icu4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.ibm.icu</groupId>
-				<artifactId>utilities</artifactId>
+				<artifactId>utilities-for-cldr</artifactId>
 				<version>${icu4j.version}</version>
 			</dependency>
 
@@ -59,13 +74,13 @@
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
-				<version>29.0-jre</version>
+				<version>30.1-jre</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.apache.ant</groupId>
 				<artifactId>ant</artifactId>
-				<version>1.10.8</version>
+				<version>1.10.9</version>
 			</dependency>
 
 			<dependency>
@@ -102,42 +117,13 @@
 				<version>2.4</version>
 			</dependency>
 
-
-			<!-- API -->
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>3.1.0</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>javax.servlet.jsp</groupId>
-				<artifactId>javax.servlet.jsp-api</artifactId>
-				<version>2.3.1</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>javax.xml.bind</groupId>
-				<artifactId>jaxb-api</artifactId>
-				<version>2.3.1</version>
-				<scope>provided</scope>
-			</dependency>
-
 			<!-- mail / rss -->
-			<dependency>
-				<groupId>rome</groupId>
-				<artifactId>rome</artifactId>
-				<version>1.0</version>
-			</dependency>
 
 			<dependency>
 				<groupId>javax.mail</groupId>
 				<artifactId>mail</artifactId>
 				<version>1.5.0-b01</version>
 			</dependency>
-
 
 			<dependency>
 				<groupId>com.sun.activation</groupId>
@@ -152,14 +138,17 @@
 				<version>20190722</version>
 			</dependency>
 
-			<!-- scm -->
+			<!-- HTTP client -->
 			<dependency>
-				<groupId>org.tmatesoft.svnkit</groupId>
-				<artifactId>svnkit</artifactId>
-				<version>1.7.4-v1</version>
+				<groupId>org.apache.httpcomponents.client5</groupId>
+				<artifactId>httpclient5</artifactId>
+				<version>${httpcomponents-version}</version>
 			</dependency>
-
-
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>1.13.1</version>
+			</dependency>
 
 			<!-- db connectors -->
 			<dependency>
@@ -171,8 +160,9 @@
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>8.0.21</version>
+				<version>${mysql.version}</version>
 			</dependency>
+
 			<!-- test -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -193,8 +183,21 @@
 				<version>${junit.jupiter.version}</version>
 				<scope>test</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.5.6</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>githubicu</id>
+			<name>GitHub unicode-org/icu Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/unicode-org/icu</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<pluginManagement>
@@ -216,6 +219,14 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin-version}</version>
+					<configuration>
+						<systemPropertyVariables>
+							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR> <!-- this is valid for tools/java and tools/cldr-apps -->
+							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
+							<java.awt.headless>true</java.awt.headless>
+						</systemPropertyVariables>
+						<argLine>-Xmx6g -enableassertions</argLine>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -228,6 +239,10 @@
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>2.8.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>3.3.0</version>
 				</plugin>
 				<!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
 				<plugin>
@@ -256,7 +271,19 @@
 						<addOutputDirectoryToResources>true</addOutputDirectoryToResources>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>2.0.0</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>githubcldr</id>
+			<name>Maven@unicode-org/cldr</name>
+			<url>https://maven.pkg.github.com/unicode-org/cldr</url>
+		</repository>
+	</distributionManagement>
 </project>

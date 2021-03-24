@@ -1,3 +1,16 @@
-sprylab.tomcat-ubuntu
-geerlingguy.mysql
-derjd.journald
+- src: geerlingguy.mysql
+  version: 3.3.0
+- src: geerlingguy.nginx
+  version: 2.8.0
+- src: derjd.journald
+  version: 0.0.1
+
+# for Java
+- src: sfuhrm.adoptopenjdk_role
+  version: 1.0.0
+  name: adoptopenjdk_role
+
+# does not support ubuntu yet
+#- src: https://github.com/devopstoolbox/openliberty
+#  version: ccbd4d65753222d45c0c6a55e166a3417c6739a4
+#  name: devopstoolbox.openliberty

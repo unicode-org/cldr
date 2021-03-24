@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -445,6 +445,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">gözüni agdarýan ýüz</annotation>
 		<annotation cp="😬">ýüz | ýyrşarmak | ýyrşarýan ýüz</annotation>
 		<annotation cp="😬" type="tts">ýyrşarýan ýüz</annotation>
+		<annotation cp="😮‍💨">bugarmak | bugarýan ýüz | demikmek | iňňildi | pyşyrdy | rahatlamak | sykylyk</annotation>
+		<annotation cp="😮‍💨" type="tts">bugarýan ýüz</annotation>
 		<annotation cp="🤥">buratino | ýalan | ýalançy ýüz | ýüz</annotation>
 		<annotation cp="🤥" type="tts">ýalançy ýüz</annotation>
 		<annotation cp="😌">ynjalan | ýüz</annotation>
@@ -503,8 +505,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">çytyk ýüz</annotation>
 		<annotation cp="😮">açyk | açyk agyzly ýüz | agyz | duýgudaşlyk | ýüz</annotation>
 		<annotation cp="😮" type="tts">açyk agyzly ýüz</annotation>
-		<annotation cp="😮‍💨">bugarmak | bugarýan ýüz | demikmek | iňňildi | pyşyrdy | rahatlamak | sykylyk</annotation>
-		<annotation cp="😮‍💨" type="tts">bugarýan ýüz</annotation>
 		<annotation cp="😯">aňalan | aňalyp galan ýüz | geň galan | haýran galan | ýüz</annotation>
 		<annotation cp="😯" type="tts">aňalyp galan ýüz</annotation>
 		<annotation cp="😲">aňk-taňk | aňk-taňk bolan ýüz | düýbünden | haýran | ýüz</annotation>
@@ -623,12 +623,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">ýürekli ýüzlenme</annotation>
 		<annotation cp="💔">döwlen | döwmek | synan ýürek</annotation>
 		<annotation cp="💔" type="tts">synan ýürek</annotation>
-		<annotation cp="❤">gyzyl ýürek | ýürek</annotation>
-		<annotation cp="❤" type="tts">gyzyl ýürek</annotation>
 		<annotation cp="❤‍🔥">hyjuw | mukaddes ýürek | söýgi | ýanmak | ýanyp duran ýürek | ýürek</annotation>
 		<annotation cp="❤‍🔥" type="tts">ýanyp duran ýürek</annotation>
 		<annotation cp="❤‍🩹">dikelýän | düzelýän | gowulanýan | gowulaşýan | gowulaşýan ýürek | has sagdyn | oňat</annotation>
 		<annotation cp="❤‍🩹" type="tts">gowulaşýan ýürek</annotation>
+		<annotation cp="❤">gyzyl ýürek | ýürek</annotation>
+		<annotation cp="❤" type="tts">gyzyl ýürek</annotation>
 		<annotation cp="🧡">mämişi | mämişi ýürek</annotation>
 		<annotation cp="🧡" type="tts">mämişi ýürek</annotation>
 		<annotation cp="💛">sary | sary ýürek</annotation>
@@ -791,14 +791,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">erkek</annotation>
 		<annotation cp="🧔">kişi: sakal | şahs | şahs: sakal | sakal</annotation>
 		<annotation cp="🧔" type="tts">kişi: sakal</annotation>
-		<annotation cp="👱‍♂">erkek adam | erkek adam: sary saç | sary saçly | sary saçly erkek adam</annotation>
-		<annotation cp="👱‍♂" type="tts">erkek adam: sary saç</annotation>
-		<annotation cp="🧔‍♀">aýal | aýal: sakal | sakal</annotation>
-		<annotation cp="🧔‍♀" type="tts">aýal: sakal</annotation>
 		<annotation cp="🧔‍♂">adam | adam: sakal | sakal</annotation>
 		<annotation cp="🧔‍♂" type="tts">adam: sakal</annotation>
+		<annotation cp="👱‍♂">erkek adam | erkek adam: sary saç | sary saçly | sary saçly erkek adam</annotation>
+		<annotation cp="👱‍♂" type="tts">erkek adam: sary saç</annotation>
 		<annotation cp="👩">aýal | uly ýaşly | zenan</annotation>
 		<annotation cp="👩" type="tts">zenan</annotation>
+		<annotation cp="🧔‍♀">aýal | aýal: sakal | sakal</annotation>
+		<annotation cp="🧔‍♀" type="tts">aýal: sakal</annotation>
 		<annotation cp="👱‍♀">saç | sary saçly | zenan | zenan: sary saçly</annotation>
 		<annotation cp="👱‍♀" type="tts">zenan: sary saçly</annotation>
 		<annotation cp="🧓">garry | gartaşan | gartaşan adam | gartaşan kişi | jynsyýeti görkezilmedik | jynsyýeti tapawut etmeýän | uly ýaşly</annotation>

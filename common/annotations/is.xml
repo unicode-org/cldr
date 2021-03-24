@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -633,6 +633,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ranghvolfir augum</annotation>
 		<annotation cp="😬">andlit | andlit með grettu | gretta</annotation>
 		<annotation cp="😬" type="tts">gretta</annotation>
+		<annotation cp="😮‍💨">andköf | andlit að anda frá sér | blístur | hvísl | léttir | stuna | útöndun</annotation>
+		<annotation cp="😮‍💨" type="tts">andlit að anda frá sér</annotation>
 		<annotation cp="🤥">andlit | gosi | ljúga | lygari | lygi</annotation>
 		<annotation cp="🤥" type="tts">lygari</annotation>
 		<annotation cp="😌">andlit | andlit sem er létt | léttir</annotation>
@@ -691,8 +693,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">andlit með stóra skeifu</annotation>
 		<annotation cp="😮">andlit | andlit með opinn munn | munnur | opinn munnur</annotation>
 		<annotation cp="😮" type="tts">andlit með opinn munn</annotation>
-		<annotation cp="😮‍💨">andköf | andlit að anda frá sér | blístur | hvísl | léttir | stuna | útöndun</annotation>
-		<annotation cp="😮‍💨" type="tts">andlit að anda frá sér</annotation>
 		<annotation cp="😯">andlit | undrandi | undrun</annotation>
 		<annotation cp="😯" type="tts">undrandi andlit</annotation>
 		<annotation cp="😲">andlit | stórundrandi andlit | undrandi | undrun</annotation>
@@ -811,12 +811,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">hjarta sem upphrópunarmerki</annotation>
 		<annotation cp="💔">ástarsorg | brostið | hjarta</annotation>
 		<annotation cp="💔" type="tts">brostið hjarta</annotation>
-		<annotation cp="❤">hjarta | rautt hjarta</annotation>
-		<annotation cp="❤" type="tts">rautt hjarta</annotation>
 		<annotation cp="❤‍🔥">ást | brenna | girnd | heilagt hjarta | hjarta | logandi hjarta</annotation>
 		<annotation cp="❤‍🔥" type="tts">logandi hjarta</annotation>
 		<annotation cp="❤‍🩹">heilbrigðari | hjarta að gróa | hress | jafna sig | lagast | ná sér | skána</annotation>
 		<annotation cp="❤‍🩹" type="tts">hjarta að gróa</annotation>
+		<annotation cp="❤">hjarta | rautt hjarta</annotation>
+		<annotation cp="❤" type="tts">rautt hjarta</annotation>
 		<annotation cp="🧡">appelsínugult | hjarta | tilfinningar</annotation>
 		<annotation cp="🧡" type="tts">appelsínugult hjarta</annotation>
 		<annotation cp="💛">gult | hjarta | tilfinningar</annotation>
@@ -979,14 +979,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">karl</annotation>
 		<annotation cp="🧔">maður með skegg | skegg</annotation>
 		<annotation cp="🧔" type="tts">maður með skegg</annotation>
-		<annotation cp="👱‍♂">ljóshærður | ljóst hár | maður</annotation>
-		<annotation cp="👱‍♂" type="tts">ljóshærður maður</annotation>
-		<annotation cp="🧔‍♀">kona | kona: skegg | skegg</annotation>
-		<annotation cp="🧔‍♀" type="tts">kona: skegg</annotation>
 		<annotation cp="🧔‍♂">karl | karl: skegg | skegg</annotation>
 		<annotation cp="🧔‍♂" type="tts">karl: skegg</annotation>
+		<annotation cp="👱‍♂">ljóshærður | ljóst hár | maður</annotation>
+		<annotation cp="👱‍♂" type="tts">ljóshærður maður</annotation>
 		<annotation cp="👩">fólk | kona</annotation>
 		<annotation cp="👩" type="tts">kona</annotation>
+		<annotation cp="🧔‍♀">kona | kona: skegg | skegg</annotation>
+		<annotation cp="🧔‍♀" type="tts">kona: skegg</annotation>
 		<annotation cp="👱‍♀">kona | ljóshærð | ljóst hár</annotation>
 		<annotation cp="👱‍♀" type="tts">ljóshærð kona</annotation>
 		<annotation cp="🧓">eldri fullorðinn | gamall | kynhlutlaust</annotation>

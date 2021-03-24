@@ -1,0 +1,63 @@
+- hosts: surveytool
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  tasks:
+    - name: Install server packages
+      apt:
+        pkg:
+          - unzip # needed for deploy
+          # for monitoring
+          - prometheus-mysqld-exporter
+          # - prometheus-nginx-exporter # (not there yet)
+    - name: Setup surveytool user for deploy
+      user:
+        name: "{{ cldr_surveytool_user }}"
+        shell: /bin/bash
+        group: "{{ cldr_surveytool_group }}"
+    - name: Give access to surveytool user
+      file:
+        path: "{{ cldr_trunk_path }}"
+        owner: surveytool
+        recurse: yes
+    - name: Setup surveytool auth
+      authorized_key:
+        user: surveytool
+        key: '{{ surveytooldeploy.key }}'
+    - name: ensure cldradmin group is there
+      group:
+        name: cldradmin
+        state: present
+    - name: ensure cldradmin user is there
+      user:
+        name: cldradmin
+        comment: CLDR Admin
+        groups:
+          - cldradmin
+        append: yes # add to the groups, do not remove
+        state: present
+        create_home: true
+    - name: make sure /home/cldradmin/.ssh/ exists
+      file:
+        path: /home/cldradmin/.ssh/
+        owner: cldradmin
+        group: cldradmin
+        mode: '0700'
+        state: directory
+    - name: make sure /home/cldradmin/.ssh/authorized_keys exists
+      file:
+        dest: /home/cldradmin/.ssh/authorized_keys
+        owner: cldradmin
+        group: cldradmin
+        mode: '0600'
+        state: touch #https://github.com/ansible/ansible/issues/7490#issuecomment-497373505
+        modification_time: preserve
+        access_time: preserve
+    - name: add cldradmin to sudoers
+      template:
+        dest: /etc/sudoers.d/55-cldradmin-users
+        owner: root
+        group: root
+        mode: '440'
+        src: templates/55-cldradmin.conf

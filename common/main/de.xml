@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -480,7 +480,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ro_MD">Moldauisch</language>
 			<language type="rof">Rombo</language>
 			<language type="rom">Romani</language>
-			<language type="root">Root</language>
 			<language type="rtm">Rotumanisch</language>
 			<language type="ru">Russisch</language>
 			<language type="rue">Russinisch</language>
@@ -3514,9 +3513,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Koordinierte Weltzeit</standard>
@@ -3636,11 +3632,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>Broken Hill</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Hobart</exemplarCity>
@@ -4673,6 +4669,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Johnston</exemplarCity>
@@ -7688,7 +7687,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>CFA-Franc (BCEAO)</displayName>
 				<displayName count="one">CFA-Franc (BCEAO)</displayName>
 				<displayName count="other">CFA-Francs (BCEAO)</displayName>
-				<symbol draft="contributed">CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>Unze Palladium</displayName>
@@ -8161,7 +8160,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} Karat</unitPattern>
 				<unitPattern count="other">{0} Karat</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>Milligramm pro Deziliter</displayName>
 				<unitPattern count="one">{0} Milligramm pro Deziliter</unitPattern>
 				<unitPattern count="other">{0} Milligramm pro Deziliter</unitPattern>
@@ -9749,7 +9748,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} kt</unitPattern>
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dL</displayName>
 				<unitPattern count="one">{0} mg/dL</unitPattern>
 				<unitPattern count="other">{0} mg/dL</unitPattern>
@@ -10756,7 +10755,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<unitPattern count="one" draft="unconfirmed">{0}mg/dL</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}mg/dL</unitPattern>
 			</unit>
@@ -10972,9 +10971,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName draft="contributed">µm</displayName>
-				<unitPattern count="one" draft="contributed">{0} µm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} µm</unitPattern>
+				<displayName draft="contributed">μm</displayName>
+				<unitPattern count="one" draft="contributed">{0} μm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="contributed">nm</displayName>
@@ -11056,9 +11055,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName draft="contributed">µg</displayName>
-				<unitPattern count="one" draft="contributed">{0} µg</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} µg</unitPattern>
+				<displayName draft="contributed">μg</displayName>
+				<unitPattern count="one" draft="contributed">{0} μg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName draft="contributed">Tons</displayName>

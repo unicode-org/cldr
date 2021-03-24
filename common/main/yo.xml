@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -74,7 +74,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en_US" alt="short">Èdè Gẹ̀ẹ́sì (US)</language>
 			<language type="eo">Èdè Esperanto</language>
 			<language type="es">Èdè Sípáníìṣì</language>
-			<language type="es_419">Èdè Sípáníìṣì (orílẹ̀-èdè Látìn-Amẹ́ríkà) ( Èdè Sípáníìshì (Látìn-Amẹ́ríkà)</language>
+			<language type="es_419">Èdè Sípáníìṣì (orílẹ̀-èdè Látìn-Amẹ́ríkà)</language>
 			<language type="es_ES">Èdè Sípáníìṣì (orílẹ̀-èdè Yúróòpù)</language>
 			<language type="es_MX">Èdè Sípáníìṣì (orílẹ̀-èdè Mẹ́síkò)</language>
 			<language type="et">Èdè Estonia</language>
@@ -716,7 +716,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á à b d e é è ẹ {ẹ\u0301} {ẹ\u0300} f g {gb} h i í ì j k l m n ń o ó ò ọ {ọ\u0301} {ọ\u0300} p r s ṣ t u ú ù w y]</exemplarCharacters>
+		<exemplarCharacters>[a á à b d e é è ẹ {ẹ\u0301} {ẹ\u0300} f g {gb} h i í ì j k l m ḿ {m\u0300} n ń ǹ o ó ò ọ {ọ\u0301} {ọ\u0300} p r s ṣ t u ú ù w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q v x z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B D E F G H I J K L M N O P R S T U W Y]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
@@ -2006,10 +2006,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
+			<zone type="Australia/Melbourne">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Australia/Melbourne">
+			<zone type="Australia/Currie">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
@@ -5240,7 +5240,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6077,7 +6077,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>

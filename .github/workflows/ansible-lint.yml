@@ -10,17 +10,15 @@ jobs:
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Lint Ansible Playbook
-      uses: ansible/ansible-lint-action@master
+      # the hash here is a specific version of that repo
+      uses: ansible/ansible-lint-action@c37fb7b4bda2c8cb18f4942716bae9f11b0dc9bc
       with:
-        targets: |
-          tools/scripts/ansible/setup-playbook.yml
-        override-deps: |
-          ansible==2.9
-          ansible-lint==4.2.0
-        args: ""
+        targets: tools/scripts/ansible/*-playbook.yml
     - name: Lint Markdown
       # Warn, don't fail yet
       run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)
+    - name: Lint GitHub Actions
+      run: npx yaml-lint .github/workflows/*.yml
   build:
     runs-on: macos-latest
     steps:
@@ -30,4 +28,4 @@ jobs:
     - name: Install Vagrant and Ansible
       run: brew install ansible
     - name: Try the provision
-      run: cd tools/scripts/ansible && ansible-galaxy install -r roles.yml && ln -sv test-local-vars local-vars && vagrant up
+      run: cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant up

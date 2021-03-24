@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -335,6 +335,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">စိတ်မရှည်သည့်ဟန်ပြ မျက်လုံးများ</annotation>
 		<annotation cp="😬">မျက်နှာ | မျက်နှာရှုံ့ခြင်း | ရှုံ့မဲ့နေသော မျက်နှာ</annotation>
 		<annotation cp="😬" type="tts">ရှုံ့မဲ့နေသော မျက်နှာ</annotation>
+		<annotation cp="😮‍💨">ညည်းခြင်း | တီးတိုးပြောခြင်း | ပင့်သက်ရှိုက်ခြင်း | ရှူထုတ်ခြင်း | လေချွန်ခြင်း | သက်ပြင်းချ မျက်နှာ | ဟင်းချခြင်း</annotation>
+		<annotation cp="😮‍💨" type="tts">သက်ပြင်းချ မျက်နှာ</annotation>
 		<annotation cp="🤥">ရုပ် | လိမ်လည် | လူလိမ်ရုပ်</annotation>
 		<annotation cp="🤥" type="tts">လူလိမ်ရုပ်</annotation>
 		<annotation cp="😌">စိတ်သက်သာရာရ | စိတ်သက်သာရာရသည့် မျက်နှာ | မျက်နှာ</annotation>
@@ -393,8 +395,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">မျက်မှောင်ကြုတ်ထားသည့် မျက်နှာ</annotation>
 		<annotation cp="😮">ပါးစပ် | ပါးစပ်အဟောင်းသားနှင့် မျက်နှာ | မျက်နှာ | သနား</annotation>
 		<annotation cp="😮" type="tts">ပါးစပ်အဟောင်းသားနှင့် မျက်နှာ</annotation>
-		<annotation cp="😮‍💨">ညည်းခြင်း | တီးတိုးပြောခြင်း | ပင့်သက်ရှိုက်ခြင်း | ရှူထုတ်ခြင်း | လေချွန်ခြင်း | သက်ပြင်းချ မျက်နှာ | ဟင်းချခြင်း</annotation>
-		<annotation cp="😮‍💨" type="tts">သက်ပြင်းချ မျက်နှာ</annotation>
 		<annotation cp="😯">မျက်နှာ | မှင်သက် | အံ့ဩခြင်း | အံ့ဩသည့် မျက်နှာ | အံ့ဩသည့်မျက်နှာ</annotation>
 		<annotation cp="😯" type="tts">အံ့ဩသည့်မျက်နှာ</annotation>
 		<annotation cp="😲">ကြက်သေသေ | မျက်နှာ | လုံးဝ | အံ့အားသင့်ခြင်း | အံ့အားသင့်နေသော မျက်နှာ</annotation>
@@ -513,12 +513,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">လေးလံသည့် နှလုံးပုံစံ အာမေဍိတ်အတွဲ</annotation>
 		<annotation cp="💔">ကွဲနေသည့် နှလုံး | ကွဲနေသော | အက်ကွဲ | အက်ကွဲနေသည့် နှလုံး</annotation>
 		<annotation cp="💔" type="tts">အက်ကွဲနေသည့် နှလုံး</annotation>
-		<annotation cp="❤">နှလုံး | အနီရောင် နှလုံး</annotation>
-		<annotation cp="❤" type="tts">အနီရောင် နှလုံး</annotation>
 		<annotation cp="❤‍🔥">နှလုံးမီးတောက်ခြင်း | နှလုံးသား | ရမက် | လောင်ကျွမ်းခြင်း | အချစ် | အထွတ်အမြတ် နှလုံးသား</annotation>
 		<annotation cp="❤‍🔥" type="tts">နှလုံးမီးတောက်ခြင်း</annotation>
 		<annotation cp="❤‍🩹">ကျန်းမာခြင်း | ကုစားခြင်း | ကောင်းမွန်ခြင်း | ကောင်းမွန်လာခြင်း | နှလုံးသား ကုစားခြင်း | နာလန်ထူလာခြင်း | အားပြန်ဖြည့်ခြင်း</annotation>
 		<annotation cp="❤‍🩹" type="tts">နှလုံးသား ကုစားခြင်း</annotation>
+		<annotation cp="❤">နှလုံး | အနီရောင် နှလုံး</annotation>
+		<annotation cp="❤" type="tts">အနီရောင် နှလုံး</annotation>
 		<annotation cp="🧡">လိမ္မော်ရောင် | လိမ္မော်ရောင် အသည်းနှလုံး</annotation>
 		<annotation cp="🧡" type="tts">လိမ္မော်ရောင် အသည်းနှလုံး</annotation>
 		<annotation cp="💛">အဝါ | အဝါရောင် နှလုံး</annotation>
@@ -681,14 +681,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">အမျိုးသား</annotation>
 		<annotation cp="🧔">မုတ်ဆိတ် | လူ | အမျိုးသား | အမျိုးသား- မုတ်ဆိတ်ရှိသူ</annotation>
 		<annotation cp="🧔" type="tts">အမျိုးသား- မုတ်ဆိတ်ရှိသူ</annotation>
-		<annotation cp="👱‍♂">ဆံကေသာ | ရွှေရောင် | ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသား | အမျိုးသား | အမျိုးသား- ရွှေရောင်ဆံကေသာရှိသူ</annotation>
-		<annotation cp="👱‍♂" type="tts">အမျိုးသား- ရွှေရောင်ဆံကေသာရှိသူ</annotation>
-		<annotation cp="🧔‍♀">မုတ်ဆိတ် | အမျိုးသမီး | အမျိုးသမီး - မုတ်ဆိတ် | အမျိုးသမီး- မုတ်ဆိတ်</annotation>
-		<annotation cp="🧔‍♀" type="tts">အမျိုးသမီး - မုတ်ဆိတ်</annotation>
 		<annotation cp="🧔‍♂">မုတ်ဆိတ် | အမျိုးသား | အမျိုးသား - မုတ်ဆိတ်</annotation>
 		<annotation cp="🧔‍♂" type="tts">အမျိုးသား - မုတ်ဆိတ်</annotation>
+		<annotation cp="👱‍♂">ဆံကေသာ | ရွှေရောင် | ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသား | အမျိုးသား | အမျိုးသား- ရွှေရောင်ဆံကေသာရှိသူ</annotation>
+		<annotation cp="👱‍♂" type="tts">အမျိုးသား- ရွှေရောင်ဆံကေသာရှိသူ</annotation>
 		<annotation cp="👩">အမ | အမျိုးသမီး</annotation>
 		<annotation cp="👩" type="tts">အမျိုးသမီး</annotation>
+		<annotation cp="🧔‍♀">မုတ်ဆိတ် | အမျိုးသမီး | အမျိုးသမီး - မုတ်ဆိတ် | အမျိုးသမီး- မုတ်ဆိတ်</annotation>
+		<annotation cp="🧔‍♀" type="tts">အမျိုးသမီး - မုတ်ဆိတ်</annotation>
 		<annotation cp="👱‍♀">ရွှေရောင် | ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသမီး | အမျိုးသမီး | အမျိုးသမီး- ရွှေရောင်ဆံကေသာရှိသူ</annotation>
 		<annotation cp="👱‍♀" type="tts">အမျိုးသမီး- ရွှေရောင်ဆံကေသာရှိသူ</annotation>
 		<annotation cp="🧓">လိင်မခွဲခြားသော | လိင်သတ်မှတ်မထားသော | သက်ကြီး | အရွယ်ရောက်သူ | အသက်ကြီးသူ</annotation>
@@ -1381,7 +1381,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐡" type="tts">ငါးပူဖောင်း</annotation>
 		<annotation cp="🦈">ငါး | ငါးမန်း</annotation>
 		<annotation cp="🦈" type="tts">ငါးမန်း</annotation>
-		<annotation cp="🐙">ဘဝှဲ ရဘဝှေဲ ဘဝှဲ ဘဝွဲ ဘဝြဲ ဘဝဲ | ဘဝဲ</annotation>
+		<annotation cp="🐙">ဘဝှဲ ရဘဝှေဲ ဘဝှဲ ဘဝှဲ ဘဝွဲ ဘဝျဲ ဘဝဲ | ဘဝဲ</annotation>
 		<annotation cp="🐙" type="tts">ဘဝဲ</annotation>
 		<annotation cp="🐚">ကြောင်လိမ် | ခရုခွံ</annotation>
 		<annotation cp="🐚" type="tts">ခရုခွံ</annotation>
@@ -1933,7 +1933,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚏" type="tts">ဘတ်စ်ကား မှတ်တိုင်</annotation>
 		<annotation cp="🛣">ကားလမ်း | ဟိုင်းဝေး | အမြန်လမ်း</annotation>
 		<annotation cp="🛣" type="tts">ကားလမ်း</annotation>
-		<annotation cp="🛤">သံလမှး သံလမှး၊ ရထှား သံလမှး သံလမှး သံလမွှး သံလမြွး သံလမြး | သံလမ်း</annotation>
+		<annotation cp="🛤">သံလမှး သံလမှး၊ ရထှား သံလမှး သံလမှး သံလမှး သံလမွှး သံလမွျး သံလမျး | သံလမ်း</annotation>
 		<annotation cp="🛤" type="tts">သံလမ်း</annotation>
 		<annotation cp="🛢">စည်ပိုင်း | ဆီ</annotation>
 		<annotation cp="🛢" type="tts">ဆီ စည်ပိုင်း</annotation>

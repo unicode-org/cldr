@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -530,6 +530,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">cara con ojos en blanco</annotation>
 		<annotation cp="😬">cara | cara haciendo mueca | cara haciendo una mueca | mueca</annotation>
 		<annotation cp="😬" type="tts">↑↑↑</annotation>
+		<annotation cp="😮‍💨">↑↑↑</annotation>
+		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="🤥">↑↑↑</annotation>
 		<annotation cp="🤥" type="tts">↑↑↑</annotation>
 		<annotation cp="😌">↑↑↑</annotation>
@@ -588,8 +590,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">↑↑↑</annotation>
 		<annotation cp="😮">cara con boca abierta | empatía | sorpresa</annotation>
 		<annotation cp="😮" type="tts">↑↑↑</annotation>
-		<annotation cp="😮‍💨">↑↑↑</annotation>
-		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="😯">↑↑↑</annotation>
 		<annotation cp="😯" type="tts">↑↑↑</annotation>
 		<annotation cp="😲">↑↑↑</annotation>
@@ -708,12 +708,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">↑↑↑</annotation>
 		<annotation cp="💔">corazón | mal | roto | sufrir | triste</annotation>
 		<annotation cp="💔" type="tts">↑↑↑</annotation>
-		<annotation cp="❤">amor | corazón | emoción | rojo</annotation>
-		<annotation cp="❤" type="tts">↑↑↑</annotation>
 		<annotation cp="❤‍🔥">↑↑↑</annotation>
 		<annotation cp="❤‍🔥" type="tts">↑↑↑</annotation>
 		<annotation cp="❤‍🩹">↑↑↑</annotation>
 		<annotation cp="❤‍🩹" type="tts">↑↑↑</annotation>
+		<annotation cp="❤">amor | corazón | emoción | rojo</annotation>
+		<annotation cp="❤" type="tts">↑↑↑</annotation>
 		<annotation cp="🧡">↑↑↑</annotation>
 		<annotation cp="🧡" type="tts">↑↑↑</annotation>
 		<annotation cp="💛">↑↑↑</annotation>
@@ -876,14 +876,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">barba | barbón | cara | hombre con barba | persona con barba</annotation>
 		<annotation cp="🧔" type="tts">↑↑↑</annotation>
-		<annotation cp="👱‍♂">cara | güero | hombre rubio | rubio</annotation>
-		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🧔‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔‍♂">↑↑↑</annotation>
 		<annotation cp="🧔‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="👱‍♂">cara | güero | hombre rubio | rubio</annotation>
+		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="👩">↑↑↑</annotation>
 		<annotation cp="👩" type="tts">↑↑↑</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🧔‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="👱‍♀">cara | güera | mujer | mujer rubia</annotation>
 		<annotation cp="👱‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧓">género | maduro | mayor | neutro | persona mayor | persona vieja</annotation>

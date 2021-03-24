@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -795,6 +795,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ansikte som himlar med ögonen</annotation>
 		<annotation cp="😬">grimaserande ansikte | grimaserar</annotation>
 		<annotation cp="😬" type="tts">grimaserande ansikte</annotation>
+		<annotation cp="😮‍💨" draft="provisional">ansikte andas ut</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="provisional">ansikte andas ut</annotation>
 		<annotation cp="🤥">ansikte | ljugande ansikte | lögn | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">ljugande ansikte</annotation>
 		<annotation cp="😌">lättat ansikte | lättnad</annotation>
@@ -853,8 +855,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">ansikte med sur mun</annotation>
 		<annotation cp="😮">förvånad | förvånat ansikte | öppen mun</annotation>
 		<annotation cp="😮" type="tts">förvånat ansikte</annotation>
-		<annotation cp="😮‍💨" draft="provisional">ansikte andas ut</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="provisional">ansikte andas ut</annotation>
 		<annotation cp="😯">hyssjad | hyssjat ansikte | överraskad | stum | tyst ansikte</annotation>
 		<annotation cp="😯" type="tts">hyssjat ansikte</annotation>
 		<annotation cp="😲">chockad | chockat ansikte | förvånad</annotation>
@@ -973,12 +973,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">utropstecken i form av ett hjärta</annotation>
 		<annotation cp="💔">brustet | brustet hjärta | känslor | trasigt hjärta</annotation>
 		<annotation cp="💔" type="tts">brustet hjärta</annotation>
-		<annotation cp="❤">hjärta | kärlek | rött hjärta</annotation>
-		<annotation cp="❤" type="tts">rött hjärta</annotation>
 		<annotation cp="❤‍🔥" draft="provisional">brinnande hjärta</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="provisional">brinnande hjärta</annotation>
 		<annotation cp="❤‍🩹">friskna till | läkande hjärta | läker | läker sår | repa sig | tillfriskna</annotation>
 		<annotation cp="❤‍🩹" type="tts">läkande hjärta</annotation>
+		<annotation cp="❤">hjärta | kärlek | rött hjärta</annotation>
+		<annotation cp="❤" type="tts">rött hjärta</annotation>
 		<annotation cp="🧡">hjärta i orange | orange</annotation>
 		<annotation cp="🧡" type="tts">hjärta i orange</annotation>
 		<annotation cp="💛">gul | gult hjärta | hjärta</annotation>
@@ -1141,14 +1141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">man med skägg | person med skägg | skägg</annotation>
 		<annotation cp="🧔" type="tts">man med skägg</annotation>
-		<annotation cp="👱‍♂">blond | man</annotation>
-		<annotation cp="👱‍♂" type="tts">blond man</annotation>
-		<annotation cp="🧔‍♀">kvinna | kvinna: skägg | skägg</annotation>
-		<annotation cp="🧔‍♀" type="tts">kvinna: skägg</annotation>
 		<annotation cp="🧔‍♂">man | man: skägg | skägg</annotation>
 		<annotation cp="🧔‍♂" type="tts">man: skägg</annotation>
+		<annotation cp="👱‍♂">blond | man</annotation>
+		<annotation cp="👱‍♂" type="tts">blond man</annotation>
 		<annotation cp="👩">kvinna | vuxen</annotation>
 		<annotation cp="👩" type="tts">kvinna</annotation>
+		<annotation cp="🧔‍♀">kvinna | kvinna: skägg | skägg</annotation>
+		<annotation cp="🧔‍♀" type="tts">kvinna: skägg</annotation>
 		<annotation cp="👱‍♀">blond | blondin | kvinna</annotation>
 		<annotation cp="👱‍♀" type="tts">blond kvinna</annotation>
 		<annotation cp="🧓">äldre | äldre person | gammal | könsneutral | vuxen</annotation>

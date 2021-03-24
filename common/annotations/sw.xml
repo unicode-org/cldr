@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -335,6 +335,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">usio wenye macho yanayorembua</annotation>
 		<annotation cp="😬">kunja | uso | uso uliokunjwa</annotation>
 		<annotation cp="😬" type="tts">uso uliokunjwa</annotation>
+		<annotation cp="😮‍💨">binja | farijika | kite | kukamata | nong’ona | pumua | uso unaopumua</annotation>
+		<annotation cp="😮‍💨" type="tts">uso unaopumua</annotation>
 		<annotation cp="🤥">kudanganya | pinocchio | uso unaodanganya | uwongo</annotation>
 		<annotation cp="🤥" type="tts">uso unaodanganya</annotation>
 		<annotation cp="😌">farijika | uso | uso uliofarijika</annotation>
@@ -393,8 +395,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">uso ulionuna</annotation>
 		<annotation cp="😮">funguliwa | huruma | mdomo | uso | uso wenye mdomo ulio wazi</annotation>
 		<annotation cp="😮" type="tts">uso wenye mdomo ulio wazi</annotation>
-		<annotation cp="😮‍💨">binja | farijika | kite | kukamata | nong’ona | pumua | uso unaopumua</annotation>
-		<annotation cp="😮‍💨" type="tts">uso unaopumua</annotation>
 		<annotation cp="😯">kunyamaa | kushangazwa | kustaajabu | uso | uso ulionyamaa</annotation>
 		<annotation cp="😯" type="tts">uso ulionyamaa</annotation>
 		<annotation cp="😲">kabisa | kushtuliwa | kustaajabishwa | uso | uso uliostaajabu</annotation>
@@ -513,12 +513,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">umbo la moyo lenye alama ya mshangao</annotation>
 		<annotation cp="💔">moyo | moyo uliovunjika | vunja | vunjika</annotation>
 		<annotation cp="💔" type="tts">moyo uliovunjika</annotation>
-		<annotation cp="❤">moyo | moyo mwekundu</annotation>
-		<annotation cp="❤" type="tts">moyo mwekundu</annotation>
 		<annotation cp="❤‍🔥">chomeka | moyo | moyo mtakatifu | moyo unaochomeka | penda | tamaa</annotation>
 		<annotation cp="❤‍🔥" type="tts">moyo unaochomeka</annotation>
 		<annotation cp="❤‍🩹">anaimarika | anapata nafuu | anapona | kurekebisha moyo | mwenye afya | rekebisha | vizuri</annotation>
 		<annotation cp="❤‍🩹" type="tts">kurekebisha moyo</annotation>
+		<annotation cp="❤">moyo | moyo mwekundu</annotation>
+		<annotation cp="❤" type="tts">moyo mwekundu</annotation>
 		<annotation cp="🧡">chungwa | moyo wa rangi ya chungwa</annotation>
 		<annotation cp="🧡" type="tts">moyo wa rangi ya chungwa</annotation>
 		<annotation cp="💛">manjano | moyo | moyo wa manjano</annotation>
@@ -681,14 +681,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">mwanamume</annotation>
 		<annotation cp="🧔">mtu | mtu mwenye ndevu | mtu: ndevu | ndevu</annotation>
 		<annotation cp="🧔" type="tts">mtu mwenye ndevu</annotation>
-		<annotation cp="👱‍♂">manjano | mwanamume | mwanamume mwenye nywele ya kimanjano | nywele</annotation>
-		<annotation cp="👱‍♂" type="tts">mwanamume mwenye nywele ya kimanjano</annotation>
-		<annotation cp="🧔‍♀">mwanamke | mwanamke: ndevu | ndevu</annotation>
-		<annotation cp="🧔‍♀" type="tts">mwanamke: ndevu</annotation>
 		<annotation cp="🧔‍♂">mwanamume | mwanamume: ndevu | ndevu</annotation>
 		<annotation cp="🧔‍♂" type="tts">mwanamume: ndevu</annotation>
+		<annotation cp="👱‍♂">manjano | mwanamume | mwanamume mwenye nywele ya kimanjano | nywele</annotation>
+		<annotation cp="👱‍♂" type="tts">mwanamume mwenye nywele ya kimanjano</annotation>
 		<annotation cp="👩">msichana | mwanamke</annotation>
 		<annotation cp="👩" type="tts">mwanamke</annotation>
+		<annotation cp="🧔‍♀">mwanamke | mwanamke: ndevu | ndevu</annotation>
+		<annotation cp="🧔‍♀" type="tts">mwanamke: ndevu</annotation>
 		<annotation cp="👱‍♀">manjano | mwanamke | mwanamke mwenye nywele ya kimanjano | nywele</annotation>
 		<annotation cp="👱‍♀" type="tts">mwanamke mwenye nywele ya kimanjano</annotation>
 		<annotation cp="🧓">asiyejitambulisha na jinsia yoyote | mzee</annotation>

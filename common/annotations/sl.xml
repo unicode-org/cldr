@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -421,6 +421,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">obraz z zavijajočimi očmi</annotation>
 		<annotation cp="😬">grimasa | obraz | spačen obraz</annotation>
 		<annotation cp="😬" type="tts">spačen obraz</annotation>
+		<annotation cp="😮‍💨">godrnjanje | izdih | obraz, ki izdihne | olajšanje | šepet | sopih | žvižganje</annotation>
+		<annotation cp="😮‍💨" type="tts">obraz, ki izdihne</annotation>
 		<annotation cp="🤥">laž | lažnivec | lažnivi obraz | ostržek</annotation>
 		<annotation cp="🤥" type="tts">lažnivi obraz</annotation>
 		<annotation cp="😌">obraz | olajšan obraz | olajšano</annotation>
@@ -479,8 +481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">namrščen obraz</annotation>
 		<annotation cp="😮">obraz | obraz z odprtimi usti | odprto | sočutje | usta</annotation>
 		<annotation cp="😮" type="tts">obraz z odprtimi usti</annotation>
-		<annotation cp="😮‍💨">godrnjanje | izdih | obraz, ki izdihne | olajšanje | šepet | sopih | žvižganje</annotation>
-		<annotation cp="😮‍💨" type="tts">obraz, ki izdihne</annotation>
 		<annotation cp="😯">obraz | osupljen obraz | osuplo | presenečeno | tiho</annotation>
 		<annotation cp="😯" type="tts">osupljen obraz</annotation>
 		<annotation cp="😲">frapirano | obraz | popolnoma | presenečeno | začuden obraz | začudeno</annotation>
@@ -599,12 +599,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">klicaj v obliki srca</annotation>
 		<annotation cp="💔">počeno | srce | strto srce | zlomiti</annotation>
 		<annotation cp="💔" type="tts">strto srce</annotation>
-		<annotation cp="❤">rdeče srce | srce</annotation>
-		<annotation cp="❤" type="tts">rdeče srce</annotation>
 		<annotation cp="❤‍🔥">goreče srce | ljubezen | ogenj | poželenje | srce | sveto srce</annotation>
 		<annotation cp="❤‍🔥" type="tts">goreče srce</annotation>
 		<annotation cp="❤‍🩹">bolj zdravo | izboljšanje | okrevanje | ozdravljeno | zakrpano | zakrpano srce | zdravo</annotation>
 		<annotation cp="❤‍🩹" type="tts">zakrpano srce</annotation>
+		<annotation cp="❤">rdeče srce | srce</annotation>
+		<annotation cp="❤" type="tts">rdeče srce</annotation>
 		<annotation cp="🧡">oranžno srce</annotation>
 		<annotation cp="🧡" type="tts">oranžno srce</annotation>
 		<annotation cp="💛">rumeno | srce</annotation>
@@ -767,14 +767,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">moški</annotation>
 		<annotation cp="🧔">brada | moški | moški: brada | oseba | oseba: brada</annotation>
 		<annotation cp="🧔" type="tts">oseba: brada</annotation>
-		<annotation cp="👱‍♂">blondinec | fant | lasje | moški | moški: blondinec</annotation>
-		<annotation cp="👱‍♂" type="tts">moški: blondinec</annotation>
-		<annotation cp="🧔‍♀">brada | ženska | ženska: brada</annotation>
-		<annotation cp="🧔‍♀" type="tts">ženska: brada</annotation>
 		<annotation cp="🧔‍♂">brada | moški | moški: brada</annotation>
 		<annotation cp="🧔‍♂" type="tts">moški: brada</annotation>
+		<annotation cp="👱‍♂">blondinec | fant | lasje | moški | moški: blondinec</annotation>
+		<annotation cp="👱‍♂" type="tts">moški: blondinec</annotation>
 		<annotation cp="👩">dekle | ženska</annotation>
 		<annotation cp="👩" type="tts">ženska</annotation>
+		<annotation cp="🧔‍♀">brada | ženska | ženska: brada</annotation>
+		<annotation cp="🧔‍♀" type="tts">ženska: brada</annotation>
 		<annotation cp="👱‍♀">blondinka | dekle | lasje | ženska | ženska: blondinka</annotation>
 		<annotation cp="👱‍♀" type="tts">ženska: blondinka</annotation>
 		<annotation cp="🧓">spolno nevtralen | starejši | starejši odrasli</annotation>

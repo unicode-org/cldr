@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -393,6 +393,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">上を見る顔</annotation>
 		<annotation cp="😬">いー | しかめっ面 | しかめ面 | しかめ顔 | 顔</annotation>
 		<annotation cp="😬" type="tts">しかめ面</annotation>
+		<annotation cp="😮‍💨">あきらめ | ため息 | ほっとした | 安心 | 息を吐く顔 | 顔</annotation>
+		<annotation cp="😮‍💨" type="tts">息を吐く顔</annotation>
 		<annotation cp="🤥">うそつきの顔 | ピノキオの顔 | 嘘つき | 顔</annotation>
 		<annotation cp="🤥" type="tts">うそつきの顔</annotation>
 		<annotation cp="😌">ほっ | ほっとした顔 | 安心 | 顔</annotation>
@@ -451,8 +453,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">困った顔</annotation>
 		<annotation cp="😮">へー | 共感 | 口が開いた顔 | 顔</annotation>
 		<annotation cp="😮" type="tts">口が開いた顔</annotation>
-		<annotation cp="😮‍💨">あきらめ | ため息 | ほっとした | 安心 | 息を吐く顔 | 顔</annotation>
-		<annotation cp="😮‍💨" type="tts">息を吐く顔</annotation>
 		<annotation cp="😯">びっくり | びっくり顔 | ぽかーん | 顔 | 驚き</annotation>
 		<annotation cp="😯" type="tts">ぽかーん</annotation>
 		<annotation cp="😲">びっくり | びっくりした顔 | 顔 | 驚き | 驚愕</annotation>
@@ -571,12 +571,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ハートのびっくり</annotation>
 		<annotation cp="💔">ハート | 別れた | 割れたハート | 失恋</annotation>
 		<annotation cp="💔" type="tts">割れたハート</annotation>
-		<annotation cp="❤">ハート | 赤いハート</annotation>
-		<annotation cp="❤" type="tts">赤いハート</annotation>
 		<annotation cp="❤‍🔥">ハート | 愛 | 火の付いた | 炎 | 燃えるハート | 聖なる心臓</annotation>
 		<annotation cp="❤‍🔥" type="tts">燃えるハート</annotation>
 		<annotation cp="❤‍🩹">ケガ | ハート | 傷ついた | 傷心 | 包帯 | 包帯を巻いたハート</annotation>
 		<annotation cp="❤‍🩹" type="tts">包帯を巻いたハート</annotation>
+		<annotation cp="❤">ハート | 赤いハート</annotation>
+		<annotation cp="❤" type="tts">赤いハート</annotation>
 		<annotation cp="🧡">オレンジのハート | ハート</annotation>
 		<annotation cp="🧡" type="tts">オレンジのハート</annotation>
 		<annotation cp="💛">ハート | 黄色のハート</annotation>
@@ -739,14 +739,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">男性</annotation>
 		<annotation cp="🧔">あごひげ | あごひげの人 | ひげ | 人 | 顔</annotation>
 		<annotation cp="🧔" type="tts">あごひげの人</annotation>
-		<annotation cp="👱‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男性</annotation>
-		<annotation cp="👱‍♂" type="tts">金髪の男性</annotation>
-		<annotation cp="🧔‍♀">あごひげ | あごひげの女性 | ひげ | 女 | 顔</annotation>
-		<annotation cp="🧔‍♀" type="tts">あごひげの女性</annotation>
 		<annotation cp="🧔‍♂">あごひげ | あごひげの男性 | ひげ | 男 | 顔</annotation>
 		<annotation cp="🧔‍♂" type="tts">あごひげの男性</annotation>
+		<annotation cp="👱‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男性</annotation>
+		<annotation cp="👱‍♂" type="tts">金髪の男性</annotation>
 		<annotation cp="👩">大人 | 女 | 女性 | 顔</annotation>
 		<annotation cp="👩" type="tts">女性</annotation>
+		<annotation cp="🧔‍♀">あごひげ | あごひげの女性 | ひげ | 女 | 顔</annotation>
+		<annotation cp="🧔‍♀" type="tts">あごひげの女性</annotation>
 		<annotation cp="👱‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女性</annotation>
 		<annotation cp="👱‍♀" type="tts">金髪の女性</annotation>
 		<annotation cp="🧓">お年寄り | 老人 | 顔 | 高齢者</annotation>

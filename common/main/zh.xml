@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -423,7 +423,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ro_MD">摩尔多瓦语</language>
 			<language type="rof">兰博语</language>
 			<language type="rom">吉普赛语</language>
-			<language type="root">根语言</language>
 			<language type="ru">俄语</language>
 			<language type="rup">阿罗马尼亚语</language>
 			<language type="rw">卢旺达语</language>
@@ -3330,7 +3329,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -3340,7 +3339,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -5809,9 +5808,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>圣伊萨贝尔</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>檀香山</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>协调世界时</standard>
@@ -5934,11 +5930,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>布罗肯希尔</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>库利</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>墨尔本</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>库利</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>霍巴特</exemplarCity>
@@ -6972,6 +6968,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>诺姆</exemplarCity>
 			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>檀香山</exemplarCity>
+			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>约翰斯顿</exemplarCity>
 			</zone>
@@ -7563,7 +7562,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Indochina">
 				<long>
-					<standard>印度中国时间</standard>
+					<standard>中南半岛时间</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
@@ -10196,7 +10195,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>西非法郎</displayName>
 				<displayName count="other">西非法郎</displayName>
-				<symbol draft="contributed">CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>钯</displayName>
@@ -10666,7 +10665,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>克拉</displayName>
 				<unitPattern count="other">{0}克拉</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>毫克/分升</displayName>
 				<unitPattern count="other">每分升{0}毫克</unitPattern>
 			</unit>
@@ -11519,7 +11518,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -12372,7 +12371,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>

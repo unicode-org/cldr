@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -483,7 +483,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ro_MD">摩爾多瓦羅馬尼亞文</language>
 			<language type="rof">↑↑↑</language>
 			<language type="rom">↑↑↑</language>
-			<language type="root">↑↑↑</language>
 			<language type="rtm">↑↑↑</language>
 			<language type="ru">↑↑↑</language>
 			<language type="rue">↑↑↑</language>
@@ -7918,9 +7917,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>↑↑↑</standard>
@@ -8043,11 +8039,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>卡里</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>卡里</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>荷伯特</exemplarCity>
@@ -9079,6 +9075,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>埃達克</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
@@ -12645,7 +12644,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -13498,7 +13497,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -14350,7 +14349,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>

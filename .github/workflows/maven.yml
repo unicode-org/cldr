@@ -11,16 +11,109 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
         with:
-          lfs: true
+          lfs: false
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Build with Maven
-        run: mvn -s .github/workflows/mvn-settings.xml -B package --file tools/pom.xml
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build liberty server
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml
+          -DskipTests=true -Dinclude=usr
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cleanup liberty server
+        run: >
+          zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*
+      - name: Upload cldr-apps.zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-apps-server
+          path: tools/cldr-apps/target/cldr-apps.zip
+      - name: Upload cldr-code.jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-code
+          path: tools/cldr-code/target/cldr-code.jar
+      - name: BOM check in .xml files
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="-q --justCheckBom exemplars seed common keyboards"
+          && echo 'No XML BOM detected'
+      - name: Setup MySQL
+        run: |
+          sudo systemctl start mysql.service
+          sleep 3
+          mysql --user=root --password=root < tools/cldr-apps/test-setup.sql
+      - name: Test with maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml
+          '-Dorg.unicode.cldr.unittest.web.jdbcurl=jdbc:mysql://cldrtest:VbrB3LFCr6A!@localhost/cldrtest?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
+          '-Dorg.unicode.cldr.unittest.web.KeepDb=true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  check:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: false
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Download cldr-code.jar
+        uses: actions/download-artifact@v2
+        with:
+          name: cldr-code
+          path: tools/cldr-code/target/
+      - name: run CLDR console check
+        run: java -DCLDR_DIR=$(pwd) -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD 
+  deploy:
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs:
+      - build
+      - check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download cldr-apps.zip
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-apps-server
+    - name: Deploy to cldr-smoke
+      # Deploys only on push to master.
+      # Does not deploy for PRs.
+      if: ${{ github.event_name == 'push' }}
+      shell: bash
+      env:
+        # the RSA key for connecting
+        RSA_KEY_SURVEYTOOL: ${{ secrets.RSA_KEY_SURVEYTOOL }}
+        # the SSH port
+        SMOKETEST_PORT: ${{ secrets.SMOKETEST_PORT }}
+        # the SSH host
+        SMOKETEST_HOST: ${{ secrets.SMOKETEST_HOST }}
+        # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+        SMOKETEST_KNOWNHOSTS: ${{ secrets.SMOKETEST_KNOWNHOSTS }}
+      run: |
+        echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
+        echo "${SMOKETEST_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SMOKETEST_PORT} surveytool@${SMOKETEST_HOST} bash /usr/local/bin/deploy-to-openliberty.sh < cldr-apps.zip ${GITHUB_SHA} --override

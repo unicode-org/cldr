@@ -1,0 +1,143 @@
+# Path Transformations
+
+# see LdmlConvertRule.java
+
+#     * Some special transformation, like add an additional layer, can be easily
+#     * done by transforming the path. Following rules covers these kind of
+#     * transformation.
+#     * Note: It is important to keep the order for these rules. Whenever a
+#     * rule matches, further rules won't be applied.
+#
+# Syntax:
+#
+# # line comment
+# < match pattern
+# > replacement pattern
+#
+
+# separate them to two layers.
+< (.*ldml/exemplarCharacters)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# Add "standard" as type attribute to exemplarCharacter element if there is none
+< (.*ldml/exemplarCharacters)(.*)$
+> $1/standard$2
+
+## (Note: CLDR version is added in code)
+
+# Transform underscore to hyphen-minus in language keys
+< (.*/language\[@type="[a-z]{2,3})_([^"]*"\](\[@alt="short"])?)
+> $1-$2
+
+# Separate "ellipsis" from its type as another layer.
+< (.*/ellipsis)\[@type="([^"]*)"\](.*)$
+> $1/$2$3
+
+# Remove unnecessary dateFormat/pattern
+< (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="([^"]*)"\]/pattern\[@type="([^"]*)"\](.*)
+> $1/$2/$5Formats/$4$8
+
+# Separate calendar type
+< (.*/calendars)/calendar\[@type="([^"]*)"\](.*)$
+> $1/$2$3
+
+# Separate "metazone" from its type as another layer
+< (.*/metazone)\[@type="([^"]*)"\]/(.*)$
+> $1/$2/$3
+
+# Split out types into its various fields
+< (.*)/types/type\[@key="([^"]*)"\]\[@type="([^"]*)"\](.*)$
+> $1/types/$2/$3$4
+
+# Typographic
+< (.*)/(typographicNames)/(axisName|featureName)\[@type="([^"]*)"\](.*)$
+> $1/$2/$3s/$4$5
+
+# Typographic
+< (.*)/(typographicNames)/(styleName)(.*)$
+> $1/$2/$3s/$3$4
+
+# put CharacterLabelPatterns under CharacterLabelPatterns
+< (.*)/(characterLabels)/(characterLabelPattern)(.*)$
+> $1/characterLabelPatterns/$3$4
+
+# add type=standard
+< (.*/numbers/(decimal|scientific|percent|currency)Formats\[@numberSystem="([^"]*)"\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\[@type="standard"]/pattern.*$
+> $1/standard
+
+# 
+< (.*/numbers/currencyFormats\[@numberSystem="([^"]*)"\])/currencyFormatLength/currencyFormat\[@type="accounting"]/pattern.*$
+> $1/accounting
+
+# Add "type" attribute with value "standard" if there is no "type" in "decimalFormatLength".
+< (.*/numbers/(decimal|scientific|percent)Formats\[@numberSystem="([^"]*)"\]/(decimal|scientific|percent)FormatLength)/(.*)$
+> $1[@type="standard"]/$5
+
+# 
+< (.*/listPattern)/(.*)$
+> $1[@type="standard"]/$2
+
+# 
+< (.*/languagePopulation)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# 
+< (.*/languageAlias)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# 
+< (.*/scriptAlias)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# 
+< (.*/territoryAlias)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# 
+< (.*/subdivisionAlias)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# 
+< (.*/variantAlias)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# 
+< (.*/zoneAlias)\[@type="([^"]*)"\](.*)
+> $1/$2$3
+
+# 
+< (.*/alias)(.*)
+> $1/alias$2
+
+# 
+< (.*currencyData/region)(.*)
+> $1/region$2
+
+# Skip exemplar city in /etc/GMT or UTC timezones, since they don't have them
+< (.*(GMT|UTC).*/exemplarCity)(.*)
+> 
+
+# 
+< (.*/transforms/transform[^/]*)/(.*)
+> $1/tRules/$2
+
+# 
+< (.*)\[@territories="([^"]*)"\](.*)\[@alt="variant"\](.*)
+> $1\[@territories="$2-alt-variant"\]
+
+# 
+< (.*)/weekData/(.*)\[@alt="variant"\](.*)
+> $1/weekData/$2$3
+
+# Annotations: If there is a type, move that into a sibling value
+< (.*)/(annotations)/(annotation)\[@cp="([^"]*)"\]\[@type="([^"]*)"\](.*)$
+> $1/$2/$4/$5$6
+
+# Annotations: If there is a type, move that into a sibling value
+< (.*)/(annotations)/(annotation)\[@cp="([^"]*)"\](.*)$
+> $1/$2/$4/default$5
+
+# Grammar : put grammaticalGender into a separate section
+< (.*)/(grammaticalData)/(.*)/(grammaticalGender)(.*)$
+> $1/grammaticalGenderData/$3/$4$5
+

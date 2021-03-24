@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -641,6 +641,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">обличчя із закоченими очима</annotation>
 		<annotation cp="😬">кривляння | обличчя | обличчя з гримасою | скривлене обличчя</annotation>
 		<annotation cp="😬" type="tts">обличчя з гримасою</annotation>
+		<annotation cp="😮‍💨">вдих | видих | обличчя, що видихає | полегшення | свист | стогін | шепотіння</annotation>
+		<annotation cp="😮‍💨" type="tts">обличчя, що видихає</annotation>
 		<annotation cp="🤥">брехня | обличчя | обличчя, що бреше | піноккіо</annotation>
 		<annotation cp="🤥" type="tts">обличчя, що бреше</annotation>
 		<annotation cp="😌">заспокоєне обличчя | обличчя</annotation>
@@ -699,8 +701,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">похмуре обличчя</annotation>
 		<annotation cp="😮">відкритий | здивоване обличчя з відкритим ротом | обличчя | обличчя з відкритим ротом | рот | співчуття</annotation>
 		<annotation cp="😮" type="tts">обличчя з відкритим ротом</annotation>
-		<annotation cp="😮‍💨">вдих | видих | обличчя, що видихає | полегшення | свист | стогін | шепотіння</annotation>
-		<annotation cp="😮‍💨" type="tts">обличчя, що видихає</annotation>
 		<annotation cp="😯">вражений | здивоване і збентежене обличчя з бровами | здивований | обличчя | приголомшений</annotation>
 		<annotation cp="😯" type="tts">здивоване і збентежене обличчя з бровами</annotation>
 		<annotation cp="😲">вражене обличчя | здивований | обличчя | шокований</annotation>
@@ -819,12 +819,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">знак оклику у формі серця</annotation>
 		<annotation cp="💔">розбивати | розбите | серце</annotation>
 		<annotation cp="💔" type="tts">розбите серце</annotation>
-		<annotation cp="❤">серце | червоне серце</annotation>
-		<annotation cp="❤" type="tts">червоне серце</annotation>
 		<annotation cp="❤‍🔥">жага | любов | опік | палке серце | священне серце | серце</annotation>
 		<annotation cp="❤‍🔥" type="tts">палке серце</annotation>
 		<annotation cp="❤‍🩹">здоровий | здоровіший | лікування | одужання | покращення | поправка | серце, що заживає</annotation>
 		<annotation cp="❤‍🩹" type="tts">серце, що заживає</annotation>
+		<annotation cp="❤">серце | червоне серце</annotation>
+		<annotation cp="❤" type="tts">червоне серце</annotation>
 		<annotation cp="🧡">оранжеве серце | помаранчевий</annotation>
 		<annotation cp="🧡" type="tts">оранжеве серце</annotation>
 		<annotation cp="💛">жовте серце | жовтий | серце</annotation>
@@ -987,14 +987,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">чоловік</annotation>
 		<annotation cp="🧔">борода | бородань | людина з бородою</annotation>
 		<annotation cp="🧔" type="tts">людина з бородою</annotation>
-		<annotation cp="👱‍♂">білявий | блондин | волосся | чоловік із білявим волоссям</annotation>
-		<annotation cp="👱‍♂" type="tts">чоловік із білявим волоссям</annotation>
-		<annotation cp="🧔‍♀">борода | бородатий | жінка з бородою</annotation>
-		<annotation cp="🧔‍♀" type="tts">жінка з бородою</annotation>
 		<annotation cp="🧔‍♂">борода | бородатий | чоловік із бородою</annotation>
 		<annotation cp="🧔‍♂" type="tts">чоловік із бородою</annotation>
+		<annotation cp="👱‍♂">білявий | блондин | волосся | чоловік із білявим волоссям</annotation>
+		<annotation cp="👱‍♂" type="tts">чоловік із білявим волоссям</annotation>
 		<annotation cp="👩">доросла | жінка</annotation>
 		<annotation cp="👩" type="tts">жінка</annotation>
+		<annotation cp="🧔‍♀">борода | бородатий | жінка з бородою</annotation>
+		<annotation cp="🧔‍♀" type="tts">жінка з бородою</annotation>
 		<annotation cp="👱‍♀">білява | блондинка | жінка з білявим волоссям</annotation>
 		<annotation cp="👱‍♀" type="tts">жінка з білявим волоссям</annotation>
 		<annotation cp="🧓">гендерно-нейтральний | дорослий | літня людина | неозначеної статі | старий | старша людина</annotation>
@@ -3593,7 +3593,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="²" type="tts">надрядкова двійка</annotation>
 		<annotation cp="³">верхній індекс | верхній регістр | надрядкова трійка | три | трійка | у кубі</annotation>
 		<annotation cp="³" type="tts">надрядкова трійка</annotation>
-		<annotation cp="µ">µ | вимірювати | знак мікро | мк | мю</annotation>
+		<annotation cp="µ">μ | вимірювати | знак мікро | мк | мю</annotation>
 		<annotation cp="µ" type="tts">знак мікро</annotation>
 	</annotations>
 </ldml>

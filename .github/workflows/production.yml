@@ -19,47 +19,33 @@ jobs:
     name: Build for Production
     runs-on: ubuntu-latest
     steps:
-      # - name: Clone Repository (Latest)
-      #   uses: actions/checkout@v2
-      #   with:
-      #     lfs: true
-      #   if: github.event.inputs.git-ref == ''
       - name: Clone Repository (Custom Ref)
         uses: actions/checkout@v2
-        # if: github.event.inputs.git-ref != ''
         with:
           ref: ${{ github.event.inputs.git-ref }}
-          lfs: true
-          # TODO: The following should be in some common file, "build CLDR…"
-      - name: Cache for Tomcat tarball
-        id: cache-tomcat
+          lfs: false
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Cache local Maven repository
         uses: actions/cache@v2
         with:
-          path: tomcat-tarball
-          key: ${{ runner.os }}-tomcat-tarball
-      - name: Download Tomcat # only on cache miss
-        if: steps.cache-tomcat.outputs.cache-hit != 'true'
-        run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - ; cd .. '
-      - name: Alias Tomcat directory
-        run: ln -svf tomcat-tarball/apache-tomcat-* tomcat
-      # CLDR Tools
-      - name: Build tools/java
-        run: ant -noinput all -f tools/java/build.xml && ant jar -f tools/java/build.xml
-        # no need to store it.
-      # - name: Upload cldr.jar
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: cldr-tools
-      #     path: tools/java/cldr.jar
-      #   # not really needed, but tore
-      # Now, SurveyTool
-      - name: Build tools/cldr-apps
-        run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml war
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload cldr-apps.war
         uses: actions/upload-artifact@v2
         with:
           name: cldr-apps
-          path: tools/cldr-apps/cldr-apps.war
+          path: tools/cldr-apps/target/cldr-apps.war
   deploy:
     name: Deploy to Production
     needs:
@@ -73,7 +59,6 @@ jobs:
     - name: Deploy to st
       # Deploys only on push to master.
       # Does not deploy for PRs.
-      # if: ${{ github.event_name == 'push' }}
       shell: bash
       env:
         # the RSA key for connecting

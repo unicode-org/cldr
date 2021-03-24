@@ -1,11 +1,25 @@
+ansible_python_interpreter: python3
+
 cldr_database_name: cldrdb
 cldr_db_backup_host: corp.unicode.org
 cldr_db_backup_user: cldrbackup
 cldr_db_backup_destination: "{{ cldr_db_backup_host }}:/home/users/{{ cldr_db_backup_user }}"
-mysql_databases:
-  - name: "{{ cldr_database_name }}"
-    encoding: latin1
-    collation: latin1_bin
-mysql_enabled_on_startup: true
-mysql_bind_address: localhost
-ansible_python_interpreter: python3
+
+cldr_openliberty_user: openliberty
+cldr_openliberty_group: "{{ cldr_openliberty_user }}"
+# the name of the server
+cldr_openliberty_server: cldr
+cldr_openliberty_service: openliberty@{{ cldr_openliberty_server }}
+
+cldr_surveytool_user: surveytool
+cldr_surveytool_group: "{{ cldr_openliberty_group }}"
+
+# this is the path to the server config
+cldr_st_path: /srv/st
+cldr_path: "{{ cldr_st_path }}/config"
+# this is the path to the CLDR checkout
+cldr_trunk_path: "{{ cldr_st_path }}/src/cldr"
+
+# Java
+adoptopenjdk_package: adoptopenjdk-11-openj9
+adoptopenjdk_state: present

@@ -17,7 +17,7 @@ This is your local system, where you control the others from.
 - Install some prereqs:
 
 ```shell
-ansible-galaxy install -r roles.yml
+ansible-galaxy install -r requirements.yml
 ```
 
 - Make sure you can `ssh` into all of the needed systems. For example,
@@ -38,7 +38,8 @@ cldr-ref.unicode.org | SUCCESS => {
 
 ### Setup: Managed systems
 
-- Install python3. Make sure `python --version` returns "Python 3…"
+- Install python3. Make sure `python --version`
+or `python3 --version` returns "Python 3…"
 
 - TODO: these shouldn't be needed, but they are. Here's the entire
 install command:
@@ -101,6 +102,14 @@ surveytooldeploy:
   key: ssh-rsa …  ( SSH key goes here)
 ```
 
+## Setup: cldrcc
+
+```shell
+mkdir -p local-vars/cldrcc
+ssh-keygen -t rsa -b 2048 -C 'CLDR Commit Checker' -f local-vars/cldrcc/id_rsa
+```
+
+
 ## Configure
 
 Run the setup playbook.
@@ -127,10 +136,20 @@ vagrant up
 
 - To iterate, trying to reapply ansible, run `vagrant provision --provision-with=ansible`
 
-- to deploy ST to this, use:
+- to deploy ST to this, use the following:
 
 ```shell
-curl -v -u surveytooldeploy:${SURVEYTOOLDEPLOY} -T ../cldr-apps/cldr-apps.war  'http://127.0.0.1:8080/manager/text/deploy?path=/cldr-apps&tag=cldr-apps&update=true'
+(cd ../.. ; mvn package) # go to the tools folder and build ST (cldr-apps.war, etc.) if not already built
+vagrant ssh -- sudo -u surveytool /usr/local/bin/deploy-to-tomcat.sh $(git rev-parse HEAD) < ../../cldr-apps/target/cldr-apps.war
 ```
 
-where `SURVEYTOOLDEPLOY` is the password from surveytooldeploy.password above.
+- Now you should be able to login at <http://127.0.0.1:8880/cldr-apps/>
+
+- If you need to get directly to the tomcat server, use:
+
+```shell
+vagrant ssh -- -L 8080:127.0.0.1:8080
+# leave this shell window open.
+```
+
+Then, you can go to <http://127.0.0.1:8080> and directly access tomcat.

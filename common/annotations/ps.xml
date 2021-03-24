@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -331,6 +331,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">د تاوهونکو سترګو مخ</annotation>
 		<annotation cp="😬">بړوستوب | بړوسېدلی مخ | مخ</annotation>
 		<annotation cp="😬" type="tts">بړوسېدلی مخ</annotation>
+		<annotation cp="😮‍💨">خولې | څاڅکی | د تنفس مخ | راحت | ساه ایستل | سیټي | ګاز</annotation>
+		<annotation cp="😮‍💨" type="tts">د تنفس مخ</annotation>
 		<annotation cp="🤥">پينوشو | دروغ | مخ</annotation>
 		<annotation cp="🤥" type="tts">دروغ مخ</annotation>
 		<annotation cp="😌">خوشحاله | مخ</annotation>
@@ -389,8 +391,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">د تريو تندي مخ</annotation>
 		<annotation cp="😮">بيرته | خوا خوږي | خوله | د بېرته خولې مخ | مخ</annotation>
 		<annotation cp="😮" type="tts">د بېرته خولې مخ</annotation>
-		<annotation cp="😮‍💨">خولې | څاڅکی | د تنفس مخ | راحت | ساه ایستل | سیټي | ګاز</annotation>
-		<annotation cp="😮‍💨" type="tts">د تنفس مخ</annotation>
 		<annotation cp="😯">چپ | حيران | د چپې خولې مخ | ګنګس | مخ</annotation>
 		<annotation cp="😯" type="tts">د چپې خولې مخ</annotation>
 		<annotation cp="😲">بشپړ | پښيمانه | حيران | مخ</annotation>
@@ -509,12 +509,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">د زړه ندا</annotation>
 		<annotation cp="💔">مات | مات زړه | مات شوی</annotation>
 		<annotation cp="💔" type="tts">مات زړه</annotation>
-		<annotation cp="❤">زړه | سور زړه</annotation>
-		<annotation cp="❤" type="tts">سور زړه</annotation>
 		<annotation cp="❤‍🔥">زړه | زړه اور | سپیڅلی زړه | سوځول | شوق | مینه</annotation>
 		<annotation cp="❤‍🔥" type="tts">زړه اور</annotation>
 		<annotation cp="❤‍🩹">حي | روغول | ښه | ښه کول | ښه کول زړه | وده کول</annotation>
 		<annotation cp="❤‍🩹" type="tts">ښه کول زړه</annotation>
+		<annotation cp="❤">زړه | سور زړه</annotation>
+		<annotation cp="❤" type="tts">سور زړه</annotation>
 		<annotation cp="🧡">نارنجی | نارنجی زړه</annotation>
 		<annotation cp="🧡" type="tts">نارنجی زړه</annotation>
 		<annotation cp="💛">ژیړ | ژیړ زړه</annotation>
@@ -677,14 +677,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨" type="tts">سړی</annotation>
 		<annotation cp="🧔">ږيره | سړی | سړی: ږيره | شخص</annotation>
 		<annotation cp="🧔" type="tts">سړی: ږيره</annotation>
-		<annotation cp="👱‍♂">د زېړ ويښتانو | د زېړ وېښتانو سړی | سړی | سړی: د زيړ وېښتانو | وېښتان</annotation>
-		<annotation cp="👱‍♂" type="tts">سړی: د زيړ وېښتانو</annotation>
-		<annotation cp="🧔‍♀">ږیره | ښځه | ښځه: ږیره</annotation>
-		<annotation cp="🧔‍♀" type="tts">ښځه: ږیره</annotation>
 		<annotation cp="🧔‍♂">ږیره | سړی | سړی: ږیره</annotation>
 		<annotation cp="🧔‍♂" type="tts">سړی: ږیره</annotation>
+		<annotation cp="👱‍♂">د زېړ ويښتانو | د زېړ وېښتانو سړی | سړی | سړی: د زيړ وېښتانو | وېښتان</annotation>
+		<annotation cp="👱‍♂" type="tts">سړی: د زيړ وېښتانو</annotation>
 		<annotation cp="👩">ښځه</annotation>
 		<annotation cp="👩" type="tts">ښځه</annotation>
+		<annotation cp="🧔‍♀">ږیره | ښځه | ښځه: ږیره</annotation>
+		<annotation cp="🧔‍♀" type="tts">ښځه: ږیره</annotation>
 		<annotation cp="👱‍♀">د زېړ ويښتانو ښځه | زېړ ويښتان | ښځه | ښځه: د زېړ وېښتانو | ويښتان</annotation>
 		<annotation cp="👱‍♀" type="tts">ښځه: د زېړ وېښتانو</annotation>
 		<annotation cp="🧓">بالغ | زوړ | زوړ شخص | نامعلومه جنس | نر ښځۍ</annotation>

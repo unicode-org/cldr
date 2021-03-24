@@ -18,17 +18,7 @@ TODO: Remove this when ICU-21251 is completed.
     <profile>
       <id>github</id>
       <repositories>
-        <repository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-        <repository>
-          <id>githubsrl295</id>
-          <name>GitHub srl295/icu Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/srl295/icu</url>
-        </repository>
+        <!-- the 'central' repository is already defined by default. -->
         <repository>
           <id>github</id>
           <name>GitHub unicode-org/cldr Apache Maven Packages</name>
@@ -45,7 +35,12 @@ TODO: Remove this when ICU-21251 is completed.
       <password>${GITHUB_TOKEN}</password>
     </server>
     <server>
-      <id>githubsrl295</id>
+      <id>githubicu</id>
+      <username>${GITHUB_ACTOR}</username>
+      <password>${GITHUB_TOKEN}</password>
+    </server>
+    <server>
+      <id>githubcldr</id>
       <username>${GITHUB_ACTOR}</username>
       <password>${GITHUB_TOKEN}</password>
     </server>

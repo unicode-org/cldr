@@ -1,0 +1,46 @@
+- hosts: surveytool
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  roles:
+    - { role: geerlingguy.nginx }
+  tasks:
+    - name: Setup reverse proxy
+      blockinfile:
+        path: /etc/nginx/sites-enabled/default
+        block: |
+          # proxy /cldr-apps/ to tomcat, with generous timeouts
+          proxy_connect_timeout 60s;
+          proxy_send_timeout 500s;
+          proxy_read_timeout 500s;
+          location /cldr-apps/ {
+            rewrite ^/(.+)\._[\da-f]+_\.(js|css)$ /$1.$2 break;
+            allow all;
+            proxy_pass http://localhost:9080/cldr-apps/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
+          }
+          location /openapi/ {
+            allow all;
+            proxy_pass http://localhost:9080/openapi/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
+          }
+        marker: '# {mark} ANSIBLE MANAGED BLOCK'
+        insertafter: '^[\s]*server_name' # the LAST uncommented server block
+      notify: 'Restart Nginx'
+    - name: Setup index.html
+      copy:
+        src: templates/index.html
+        dest: /var/www/html
+        owner: root
+        group: root
+        mode: '0644'
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted

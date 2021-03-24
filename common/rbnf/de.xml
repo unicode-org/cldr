@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2021 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -16,8 +16,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1100" radix="100">←%spellout-cardinal-masculine←­hundert[­→→];</rbnfrule>
-                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1100" radix="100">←←­hundert[­→→];</rbnfrule>
+                <rbnfrule value="2000">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
@@ -59,6 +59,14 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-feminine← Billiarden[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <!--
+            Here is what the inflection table looks like for this language, and how they map to the various rule names.
+            case        masculine                feminine                 neuter
+            nominative  ein (cardinal-masculine) eine (cardinal-feminine) ein (cardinal-neuter)
+            genitive    eines (cardinal-s)       einer (cardinal-r)       eines (cardinal-s)
+            dative      einem (cardinal-m)       einer (cardinal-r)       einem (cardinal-m)
+            accusative  einen (cardinal-n)       eine (cardinal-feminine) ein (cardinal-neuter)
+            -->
             <ruleset type="spellout-cardinal-neuter">
                 <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
             </ruleset>
@@ -152,6 +160,24 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-feminine← Billiarden[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-cardinal-m">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">←← Komma →→;</rbnfrule>
+                <rbnfrule value="0">null;</rbnfrule>
+                <rbnfrule value="1">einem;</rbnfrule>
+                <rbnfrule value="2">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-masculine←­hundert[­→→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-masculine←­tausend[­→→];</rbnfrule>
+                <rbnfrule value="1000000">eine Million[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-feminine← Millionen[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">eine Milliarde[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-feminine← Milliarden[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">eine Billion[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-feminine← Billionen[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">eine Billiarde[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-feminine← Billiarden[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
             <ruleset type="ste" access="private">
                 <rbnfrule value="0">ste;</rbnfrule>
                 <rbnfrule value="1">­=%spellout-ordinal=;</rbnfrule>
@@ -200,6 +226,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-ordinal=s;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-m">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal=m;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

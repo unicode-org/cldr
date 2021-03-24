@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -447,6 +447,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">tvár prevracajúca oči</annotation>
 		<annotation cp="😬">grimasa | tvár | vyškerená</annotation>
 		<annotation cp="😬" type="tts">vyškerená tvár</annotation>
+		<annotation cp="😮‍💨">hvízdať | pískať | šepkať | stenať | úľava | vydýchnuť | vydychujúca tvár | vzdychať</annotation>
+		<annotation cp="😮‍💨" type="tts">vydychujúca tvár</annotation>
 		<annotation cp="🤥">klamať | klamstvo | lož | tvár | tvár s dlhým nosom</annotation>
 		<annotation cp="🤥" type="tts">tvár s dlhým nosom</annotation>
 		<annotation cp="😌">tvár | tvár vyjadrujúca úľavu | úľava | upokojená</annotation>
@@ -505,8 +507,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">zamračená tvár</annotation>
 		<annotation cp="😮">otvorené | súcit | tvár | tvár s otvorenými ústami | ústa</annotation>
 		<annotation cp="😮" type="tts">tvár s otvorenými ústami</annotation>
-		<annotation cp="😮‍💨">hvízdať | pískať | šepkať | stenať | úľava | vydýchnuť | vydychujúca tvár | vzdychať</annotation>
-		<annotation cp="😮‍💨" type="tts">vydychujúca tvár</annotation>
 		<annotation cp="😯">ohromená | prekvapená | tvár | umlčaná</annotation>
 		<annotation cp="😯" type="tts">umlčaná tvár</annotation>
 		<annotation cp="😲">absolútne | šokovaná | tvár | udivená</annotation>
@@ -625,12 +625,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">výkričník v tvare srdca</annotation>
 		<annotation cp="💔">srdce | zlomené | zlomiť</annotation>
 		<annotation cp="💔" type="tts">zlomené srdce</annotation>
-		<annotation cp="❤">červené | srdce</annotation>
-		<annotation cp="❤" type="tts">červené srdce</annotation>
 		<annotation cp="❤‍🔥">horiace srdce | láska | oheň | srdce | túžba</annotation>
 		<annotation cp="❤‍🔥" type="tts">horiace srdce</annotation>
 		<annotation cp="❤‍🩹">dobre | lepšie | srdce s obväzom | uzdravovať sa | zdravšie | zotavovať sa</annotation>
 		<annotation cp="❤‍🩹" type="tts">srdce s obväzom</annotation>
+		<annotation cp="❤">červené | srdce</annotation>
+		<annotation cp="❤" type="tts">červené srdce</annotation>
 		<annotation cp="🧡">oranžové | srdce</annotation>
 		<annotation cp="🧡" type="tts">oranžové srdce</annotation>
 		<annotation cp="💛">srdce | žlté</annotation>
@@ -793,14 +793,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">muž</annotation>
 		<annotation cp="🧔">brada | bradáč | fúzatý | fúzy</annotation>
 		<annotation cp="🧔" type="tts">bradáč</annotation>
-		<annotation cp="👱‍♂">blond | blondín | muž | svetlovlasý</annotation>
-		<annotation cp="👱‍♂" type="tts">blondín</annotation>
-		<annotation cp="🧔‍♀">brada | bradatá žena | žena</annotation>
-		<annotation cp="🧔‍♀" type="tts">bradatá žena</annotation>
 		<annotation cp="🧔‍♂">brada | bradatý muž | muž</annotation>
 		<annotation cp="🧔‍♂" type="tts">bradatý muž</annotation>
+		<annotation cp="👱‍♂">blond | blondín | muž | svetlovlasý</annotation>
+		<annotation cp="👱‍♂" type="tts">blondín</annotation>
 		<annotation cp="👩">dospelá | žena</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
+		<annotation cp="🧔‍♀">brada | bradatá žena | žena</annotation>
+		<annotation cp="🧔‍♀" type="tts">bradatá žena</annotation>
 		<annotation cp="👱‍♀">blond | blondína | blondínka | svetlovlasá | žena</annotation>
 		<annotation cp="👱‍♀" type="tts">blondína</annotation>
 		<annotation cp="🧓">človek | starší človek | starý</annotation>

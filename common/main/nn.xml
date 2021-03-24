@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -399,7 +399,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ro_MD">moldavisk</language>
 			<language type="rof">rombo</language>
 			<language type="rom">romani</language>
-			<language type="root">rot</language>
 			<language type="ru">russisk</language>
 			<language type="rup">arumensk</language>
 			<language type="rw">kinjarwanda</language>
@@ -2577,9 +2576,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">sommartid – {0}</regionFormat>
 			<regionFormat type="standard">normaltid – {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>koordinert universaltid</standard>
@@ -2699,11 +2695,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>Broken Hill</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Hobart</exemplarCity>
@@ -3736,6 +3732,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Johnston</exemplarCity>
@@ -6413,7 +6412,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>vestafrikanske CFA-franc</displayName>
 				<displayName count="one">vestafrikansk CFA-franc</displayName>
 				<displayName count="other">vestafrikanske CFA-franc</displayName>
-				<symbol draft="contributed">CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>palladium</displayName>
@@ -6506,12 +6505,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="unconfirmed">Zimbabwe-dollar (2009)</displayName>
 			</currency>
 		</currencies>
-		<miscPatterns numberSystem="latn">
-			<pattern type="approximately">ca. {0}</pattern>
-			<pattern type="atLeast">≥{0}</pattern>
-			<pattern type="atMost">↑↑↑</pattern>
-			<pattern type="range">{0}‒{1}</pattern>
-		</miscPatterns>
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} dag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dagar</pluralMinimalPairs>
@@ -6713,7 +6706,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} karat</unitPattern>
 				<unitPattern count="other">{0} karat</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>milligram per desiliter</displayName>
 				<unitPattern count="one">{0} milligram per desiliter</unitPattern>
 				<unitPattern count="other">{0} milligram per desiliter</unitPattern>
@@ -7746,7 +7739,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} kt</unitPattern>
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dl</displayName>
 				<unitPattern count="one">{0} mg/dl</unitPattern>
 				<unitPattern count="other">{0} mg/dl</unitPattern>
@@ -8092,9 +8085,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>µm</displayName>
-				<unitPattern count="one">{0} µm</unitPattern>
-				<unitPattern count="other">{0} µm</unitPattern>
+				<displayName>μm</displayName>
+				<unitPattern count="one">{0} μm</unitPattern>
+				<unitPattern count="other">{0} μm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName>nm</displayName>
@@ -8216,9 +8209,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>µg</displayName>
-				<unitPattern count="one">{0} µg</unitPattern>
-				<unitPattern count="other">{0} µg</unitPattern>
+				<displayName>μg</displayName>
+				<unitPattern count="one">{0} μg</unitPattern>
+				<unitPattern count="other">{0} μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>am. tonn</displayName>
@@ -8830,7 +8823,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}mm</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName draft="unconfirmed">µm</displayName>
+				<displayName draft="unconfirmed">μm</displayName>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">nm</displayName>

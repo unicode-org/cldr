@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -540,6 +540,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">სახე გადატრიალებული თვალებით</annotation>
 		<annotation cp="😬">დამანჭვა | დამანჭული სახე | სახე</annotation>
 		<annotation cp="😬" type="tts">დამანჭული სახე</annotation>
+		<annotation cp="😮‍💨">ამოოხვრა | ამოსუნთქვა | თურჩული | სტვენა</annotation>
+		<annotation cp="😮‍💨" type="tts">ამოსუნთქვა</annotation>
 		<annotation cp="🤥">მატყუარა სახე | პინოქიო | სახე | ტყუილი</annotation>
 		<annotation cp="🤥" type="tts">მატყუარა სახე</annotation>
 		<annotation cp="😌">სახე | შვება | შვების გამომხატველი სახე</annotation>
@@ -598,8 +600,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">შეჭმუხნილი სახე</annotation>
 		<annotation cp="😮">თანაგრძნობა | პირი | პირღია | სახე | სახე ღია პირით | ღია</annotation>
 		<annotation cp="😮" type="tts">სახე ღია პირით</annotation>
-		<annotation cp="😮‍💨">ამოოხვრა | ამოსუნთქვა | თურჩული | სტვენა</annotation>
-		<annotation cp="😮‍💨" type="tts">ამოსუნთქვა</annotation>
 		<annotation cp="😯">გაოგნებული | გაოცებული | სახე</annotation>
 		<annotation cp="😯" type="tts">გაოცებული სახე</annotation>
 		<annotation cp="😲">გაკვირვებული | სახე | შოკირებული</annotation>
@@ -718,12 +718,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">გულის ფორმის მსხვილი ძახილის ნიშანი</annotation>
 		<annotation cp="💔">გატეხვა | გატეხილი | გული</annotation>
 		<annotation cp="💔" type="tts">გატეხილი გული</annotation>
-		<annotation cp="❤">გული | წითელი გული</annotation>
-		<annotation cp="❤" type="tts">წითელი გული</annotation>
 		<annotation cp="❤‍🔥">ალი | ალმოდებული გული | ამური | სიყვარული | ცეცხლი</annotation>
 		<annotation cp="❤‍🔥" type="tts">ალმოდებული გული</annotation>
 		<annotation cp="❤‍🩹">გამოჯანსაღება | გაჯანსაღებული გული | კარგად ყოფნა | ჯანმრთელი</annotation>
 		<annotation cp="❤‍🩹" type="tts">გაჯანსაღებული გული</annotation>
+		<annotation cp="❤">გული | წითელი გული</annotation>
+		<annotation cp="❤" type="tts">წითელი გული</annotation>
 		<annotation cp="🧡">ნარინჯისფერი | ნარინჯისფერი გული</annotation>
 		<annotation cp="🧡" type="tts">ნარინჯისფერი გული</annotation>
 		<annotation cp="💛">გული | ყვითელი</annotation>
@@ -886,14 +886,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">კაცი</annotation>
 		<annotation cp="🧔">წვერი | წვეროსანი</annotation>
 		<annotation cp="🧔" type="tts">წვეროსანი</annotation>
-		<annotation cp="👱‍♂">კაცი | ქერა | ქერათმიანი კაცი</annotation>
-		<annotation cp="👱‍♂" type="tts">ქერათმიანი კაცი</annotation>
-		<annotation cp="🧔‍♀">ქალი | ქალი: წვერი | წვერი</annotation>
-		<annotation cp="🧔‍♀" type="tts">ქალი: წვერი</annotation>
 		<annotation cp="🧔‍♂">კაცი: წვერი | მამაკაცი | მამაკაცი: წვერი | წვერი</annotation>
 		<annotation cp="🧔‍♂" type="tts">კაცი: წვერი</annotation>
+		<annotation cp="👱‍♂">კაცი | ქერა | ქერათმიანი კაცი</annotation>
+		<annotation cp="👱‍♂" type="tts">ქერათმიანი კაცი</annotation>
 		<annotation cp="👩">ქალი</annotation>
 		<annotation cp="👩" type="tts">ქალი</annotation>
+		<annotation cp="🧔‍♀">ქალი | ქალი: წვერი | წვერი</annotation>
+		<annotation cp="🧔‍♀" type="tts">ქალი: წვერი</annotation>
 		<annotation cp="👱‍♀">ქალი | ქერა | ქერათმიანი ქალი</annotation>
 		<annotation cp="👱‍♀" type="tts">ქერათმიანი ქალი</annotation>
 		<annotation cp="🧓">გენდერ-ნეიტრალური | ჭარმაგი</annotation>

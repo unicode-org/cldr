@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -199,7 +199,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ro" draft="unconfirmed">rumuński</language>
 			<language type="ro_MD" draft="unconfirmed">mołdawski</language>
 			<language type="rof" draft="unconfirmed">rōmbo</language>
-			<language type="root" draft="unconfirmed">jynzyk rdzynny</language>
 			<language type="ru" draft="unconfirmed">ruski</language>
 			<language type="rw" draft="unconfirmed">kinya-ruanda</language>
 			<language type="rwk" draft="unconfirmed">rwa</language>
@@ -2196,11 +2195,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity draft="unconfirmed">Broken Hill</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity draft="unconfirmed">Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity draft="unconfirmed">Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity draft="unconfirmed">Hobart</exemplarCity>
@@ -4268,7 +4267,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">karaty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} karata</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName draft="unconfirmed">miligramy na decyliter</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} miligrama na decyliter</unitPattern>
 			</unit>
@@ -4965,7 +4964,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">karaty</displayName>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName draft="unconfirmed">mg/dl</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} mg/dl</unitPattern>
 			</unit>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -424,6 +424,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">lice s kolutajućim očima</annotation>
 		<annotation cp="😬">grimasa | lice | lice s grimasom</annotation>
 		<annotation cp="😬" type="tts">lice s grimasom</annotation>
+		<annotation cp="😮‍💨">izdisaj | lice koje izdiše | olakšanje | šapat | stenjanje | uzdah | zvižduk</annotation>
+		<annotation cp="😮‍💨" type="tts">lice koje izdiše</annotation>
 		<annotation cp="🤥">laganje | laž | lice | lice koje laže | pinokio</annotation>
 		<annotation cp="🤥" type="tts">lice koje laže</annotation>
 		<annotation cp="😌">lice | lice s izrazom olakšanja | olakšanje</annotation>
@@ -482,8 +484,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">namrgođeno lice</annotation>
 		<annotation cp="😮">lice | lice s otvorenim ustima | otvoreno | suosjećanje | usta</annotation>
 		<annotation cp="😮" type="tts">lice s otvorenim ustima</annotation>
-		<annotation cp="😮‍💨">izdisaj | lice koje izdiše | olakšanje | šapat | stenjanje | uzdah | zvižduk</annotation>
-		<annotation cp="😮‍💨" type="tts">lice koje izdiše</annotation>
 		<annotation cp="😯">iznenađenje | iznenađeno lice | lice | ušutkano | zapanjeno</annotation>
 		<annotation cp="😯" type="tts">iznenađeno lice</annotation>
 		<annotation cp="😲">lice | šok | zapanjeno lice | zapanjenost</annotation>
@@ -602,12 +602,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">uskličnik u obliku srca</annotation>
 		<annotation cp="💔">slomljeno | srce</annotation>
 		<annotation cp="💔" type="tts">slomljeno srce</annotation>
-		<annotation cp="❤">crveno srce | srce</annotation>
-		<annotation cp="❤" type="tts">crveno srce</annotation>
 		<annotation cp="❤‍🔥">ljubav | požuda | srce | srce u plamenu | sveto srce | vatra</annotation>
 		<annotation cp="❤‍🔥" type="tts">srce u plamenu</annotation>
 		<annotation cp="❤‍🩹">dobro | obnavljanje | oporavak | poboljšanje | srce koje se liječi | zarastanje | zdravije</annotation>
 		<annotation cp="❤‍🩹" type="tts">srce koje se liječi</annotation>
+		<annotation cp="❤">crveno srce | srce</annotation>
+		<annotation cp="❤" type="tts">crveno srce</annotation>
 		<annotation cp="🧡">narančasto | srce</annotation>
 		<annotation cp="🧡" type="tts">narančasto srce</annotation>
 		<annotation cp="💛">srce | žuto</annotation>
@@ -770,14 +770,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">muškarac</annotation>
 		<annotation cp="🧔">brada | muškarac | muškarac s bradom | osoba</annotation>
 		<annotation cp="🧔" type="tts">muškarac s bradom</annotation>
-		<annotation cp="👱‍♂">kosa | muškarac | plava kosa | plavokosi muškarac</annotation>
-		<annotation cp="👱‍♂" type="tts">plavokosi muškarac</annotation>
-		<annotation cp="🧔‍♀">brada | žena | žena: brada</annotation>
-		<annotation cp="🧔‍♀" type="tts">žena: brada</annotation>
 		<annotation cp="🧔‍♂">brada | muškarac | muškarac: brada</annotation>
 		<annotation cp="🧔‍♂" type="tts">muškarac: brada</annotation>
+		<annotation cp="👱‍♂">kosa | muškarac | plava kosa | plavokosi muškarac</annotation>
+		<annotation cp="👱‍♂" type="tts">plavokosi muškarac</annotation>
 		<annotation cp="👩">žena | žensko</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
+		<annotation cp="🧔‍♀">brada | žena | žena: brada</annotation>
+		<annotation cp="🧔‍♀" type="tts">žena: brada</annotation>
 		<annotation cp="👱‍♀">plavojka | plavokosa žena | plavuša</annotation>
 		<annotation cp="👱‍♀" type="tts">plavokosa žena</annotation>
 		<annotation cp="🧓">rodno neutralno | stara osoba | starija osoba</annotation>

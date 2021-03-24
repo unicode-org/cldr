@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -423,6 +423,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">Augen verdrehendes Gesicht</annotation>
 		<annotation cp="😬">Gesicht | Grimasse | Grimassen schneidendes Gesicht | Zähne</annotation>
 		<annotation cp="😬" type="tts">Grimassen schneidendes Gesicht</annotation>
+		<annotation cp="😮‍💨" draft="contributed">Gesicht, das ausatmet</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">Gesicht, das ausatmet</annotation>
 		<annotation cp="🤥">Gesicht | Lüge | lügendes Gesicht | Pinocchio-Nase</annotation>
 		<annotation cp="🤥" type="tts">lügendes Gesicht</annotation>
 		<annotation cp="😌">erleichtert | erleichtertes Gesicht | geschlossene Augen | Gesicht</annotation>
@@ -481,8 +483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">düsteres Gesicht</annotation>
 		<annotation cp="😮">erstaunt | Gesicht | Gesicht mit offenem Mund | offener Mund</annotation>
 		<annotation cp="😮" type="tts">Gesicht mit offenem Mund</annotation>
-		<annotation cp="😮‍💨" draft="contributed">Gesicht, das ausatmet</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">Gesicht, das ausatmet</annotation>
 		<annotation cp="😯">erstaunt | Gesicht | sprachlos | verdutztes Gesicht</annotation>
 		<annotation cp="😯" type="tts">verdutztes Gesicht</annotation>
 		<annotation cp="😲">erstaunt | erstauntes Gesicht | Gesicht</annotation>
@@ -601,12 +601,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">Herz als Ausrufezeichen</annotation>
 		<annotation cp="💔">gebrochenes Herz | Schmerz | Trennung</annotation>
 		<annotation cp="💔" type="tts">gebrochenes Herz</annotation>
-		<annotation cp="❤">Herz | rotes Herz</annotation>
-		<annotation cp="❤" type="tts">rotes Herz</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">Herz in Flammen</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">Herz in Flammen</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">Herz mit Verband</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">Herz mit Verband</annotation>
+		<annotation cp="❤">Herz | rotes Herz</annotation>
+		<annotation cp="❤" type="tts">rotes Herz</annotation>
 		<annotation cp="🧡">orange | oranges Herz</annotation>
 		<annotation cp="🧡" type="tts">oranges Herz</annotation>
 		<annotation cp="💛">gelb | gelbes Herz | Herz</annotation>
@@ -769,14 +769,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">Mann</annotation>
 		<annotation cp="🧔">Bart | Mensch: Bart | Person mit Bart | Person: Bart</annotation>
 		<annotation cp="🧔" type="tts">Person: Bart</annotation>
-		<annotation cp="👱‍♂">blond | blonder Mann | Gesicht | Haar | Mann | Mann: blond</annotation>
-		<annotation cp="👱‍♂" type="tts">Mann: blond</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">Frau: Bart</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">Frau: Bart</annotation>
 		<annotation cp="🧔‍♂" draft="contributed">Mann: Bart</annotation>
 		<annotation cp="🧔‍♂" type="tts" draft="contributed">Mann: Bart</annotation>
+		<annotation cp="👱‍♂">blond | blonder Mann | Gesicht | Haar | Mann | Mann: blond</annotation>
+		<annotation cp="👱‍♂" type="tts">Mann: blond</annotation>
 		<annotation cp="👩">Frau</annotation>
 		<annotation cp="👩" type="tts">Frau</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">Frau: Bart</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">Frau: Bart</annotation>
 		<annotation cp="👱‍♀">blond | blonde Frau | Frau | Frau: blond | Gesicht | Haar</annotation>
 		<annotation cp="👱‍♀" type="tts">Frau: blond</annotation>
 		<annotation cp="🧓">alt | älterer Erwachsener | älterer Mensch | geschlechtsneutral | ohne eindeutiges Geschlecht</annotation>

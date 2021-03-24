@@ -1,0 +1,3 @@
+# the Vagrant playbook is used for testing, see Vagrantfile
+- import_playbook: setup-playbook.yml
+# Note: any additional setup specifically for vagrant could be done here, such as adding a self-signed ssl cert

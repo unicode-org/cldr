@@ -11,7 +11,7 @@ CLDR_TESTPW={{ surveytooldeploy.testpw }}
 #CLDR_MESSAGE=
 
 ## Special message shown to users.
-CLDR_HEADER=Welcome to SurveyTool@surveytool. Please edit /var/lib/tomcat8/cldr/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely. Also see /var/lib/tomcat8/cldr/admin.html to get to the admin panel.
+CLDR_HEADER=Welcome to SurveyTool@surveytool. Please edit {{ cldr_path }}/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely. Also see {{ cldr_path }}/admin.html to get to the admin panel.
 
 ## Current SurveyTool phase 
 CLDR_PHASE=BETA
@@ -22,11 +22,8 @@ CLDR_OLDVERSION={{ surveytooldeploy.oldversion }}
 ## 'new'  version
 CLDR_NEWVERSION={{ surveytooldeploy.newversion }}
 
-## Current SurveyTool phase 
-CLDR_PHASE=BETA
-
 ## CLDR trunk. Default value shown
-CLDR_DIR=/var/lib/tomcat8/cldr/cldr-trunk
+CLDR_DIR={{ cldr_trunk_path }}
 
 ## SMTP server. Mail is disabled by default.
 #CLDR_SMTP=127.0.0.1

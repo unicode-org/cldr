@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -472,7 +472,7 @@ annotations.
 		<annotation cp="≡" type="tts">identical to</annotation>
 		<annotation cp="≣">equality | mathematics | strictly equivalent</annotation>
 		<annotation cp="≣" type="tts">strictly equivalent</annotation>
-		<annotation cp="≤">equal | equals | inequality | less-than or equal | less-then</annotation>
+		<annotation cp="≤">equal | equals | inequality | less-than | less-than or equal</annotation>
 		<annotation cp="≤" type="tts">less-than or equal</annotation>
 		<annotation cp="≥">equal | equals | greater-than | greater-than or equal | inequality</annotation>
 		<annotation cp="≥" type="tts">greater-than or equal</annotation>
@@ -802,6 +802,8 @@ annotations.
 		<annotation cp="🙄" type="tts">face with rolling eyes</annotation>
 		<annotation cp="😬">face | grimace | grimacing face</annotation>
 		<annotation cp="😬" type="tts">grimacing face</annotation>
+		<annotation cp="😮‍💨">exhale | face exhaling | gasp | groan | relief | whisper | whistle</annotation> <!-- 1F62E 200D 1F4A8 -->
+		<annotation cp="😮‍💨" type="tts">face exhaling</annotation>
 		<annotation cp="🤥">face | lie | lying face | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">lying face</annotation>
 		<annotation cp="😌">face | relieved</annotation>
@@ -822,7 +824,7 @@ annotations.
 		<annotation cp="🤕" type="tts">face with head-bandage</annotation>
 		<annotation cp="🤢">face | nauseated | vomit</annotation>
 		<annotation cp="🤢" type="tts">nauseated face</annotation>
-		<annotation cp="🤮">face vomiting | sick | vomit | puke</annotation>
+		<annotation cp="🤮">face vomiting | puke | sick | vomit</annotation>
 		<annotation cp="🤮" type="tts">face vomiting</annotation>
 		<annotation cp="🤧">face | gesundheit | sneeze | sneezing face</annotation>
 		<annotation cp="🤧" type="tts">sneezing face</annotation>
@@ -860,8 +862,6 @@ annotations.
 		<annotation cp="☹" type="tts">frowning face</annotation>
 		<annotation cp="😮">face | face with open mouth | mouth | open | sympathy</annotation>
 		<annotation cp="😮" type="tts">face with open mouth</annotation>
-		<annotation cp="😮‍💨">exhale | face exhaling | gasp | groan | relief | whisper | whistle</annotation> <!-- 1F62E 200D 1F4A8 -->
-		<annotation cp="😮‍💨" type="tts">face exhaling</annotation>
 		<annotation cp="😯">face | hushed | stunned | surprised</annotation>
 		<annotation cp="😯" type="tts">hushed face</annotation>
 		<annotation cp="😲">astonished | face | shocked | totally</annotation>
@@ -904,7 +904,7 @@ annotations.
 		<annotation cp="😤" type="tts">face with steam from nose</annotation>
 		<annotation cp="😡">angry | face | mad | pouting | rage | red</annotation>
 		<annotation cp="😡" type="tts">pouting face</annotation>
-		<annotation cp="😠">angry | face | mad | anger</annotation>
+		<annotation cp="😠">anger | angry | face | mad</annotation>
 		<annotation cp="😠" type="tts">angry face</annotation>
 		<annotation cp="🤬">face with symbols on mouth | swearing</annotation>
 		<annotation cp="🤬" type="tts">face with symbols on mouth</annotation>
@@ -980,12 +980,12 @@ annotations.
 		<annotation cp="❣" type="tts">heart exclamation</annotation>
 		<annotation cp="💔">break | broken | broken heart</annotation>
 		<annotation cp="💔" type="tts">broken heart</annotation>
-		<annotation cp="❤">heart | red heart</annotation>
-		<annotation cp="❤" type="tts">red heart</annotation>
 		<annotation cp="❤‍🔥">burn | heart | heart on fire | love | lust | sacred heart</annotation> <!-- 2764 200D 1F525 -->
 		<annotation cp="❤‍🔥" type="tts">heart on fire</annotation>
 		<annotation cp="❤‍🩹">healthier | improving | mending | mending heart | recovering | recuperating | well</annotation> <!-- 2764 200D 1FA79 -->
 		<annotation cp="❤‍🩹" type="tts">mending heart</annotation>
+		<annotation cp="❤">heart | red heart</annotation>
+		<annotation cp="❤" type="tts">red heart</annotation>
 		<annotation cp="🧡">orange | orange heart</annotation>
 		<annotation cp="🧡" type="tts">orange heart</annotation>
 		<annotation cp="💛">yellow | yellow heart</annotation>
@@ -1148,14 +1148,14 @@ annotations.
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">beard | person | person: beard</annotation>
 		<annotation cp="🧔" type="tts">person: beard</annotation>
-		<annotation cp="👱‍♂">blond | blond-haired man | hair | man | man: blond hair</annotation>
-		<annotation cp="👱‍♂" type="tts">man: blond hair</annotation>
-		<annotation cp="🧔‍♀">beard | woman | woman: beard</annotation>
-		<annotation cp="🧔‍♀" type="tts">woman: beard</annotation>
 		<annotation cp="🧔‍♂">beard | man | man: beard</annotation>
 		<annotation cp="🧔‍♂" type="tts">man: beard</annotation>
+		<annotation cp="👱‍♂">blond | blond-haired man | hair | man | man: blond hair</annotation>
+		<annotation cp="👱‍♂" type="tts">man: blond hair</annotation>
 		<annotation cp="👩">adult | woman</annotation>
 		<annotation cp="👩" type="tts">woman</annotation>
+		<annotation cp="🧔‍♀">beard | woman | woman: beard</annotation>
+		<annotation cp="🧔‍♀" type="tts">woman: beard</annotation>
 		<annotation cp="👱‍♀">blond-haired woman | blonde | hair | woman | woman: blond hair</annotation>
 		<annotation cp="👱‍♀" type="tts">woman: blond hair</annotation>
 		<annotation cp="🧓">adult | gender-neutral | old | older person | unspecified gender</annotation>
@@ -1839,7 +1839,7 @@ annotations.
 		<annotation cp="🐋" type="tts">whale</annotation>
 		<annotation cp="🐬">dolphin | flipper</annotation>
 		<annotation cp="🐬" type="tts">dolphin</annotation>
-		<annotation cp="🦭">sea Lion | seal</annotation>
+		<annotation cp="🦭">sea lion | seal</annotation>
 		<annotation cp="🦭" type="tts">seal</annotation>
 		<annotation cp="🐟">fish | Pisces | zodiac</annotation>
 		<annotation cp="🐟" type="tts">fish</annotation>
@@ -2915,7 +2915,7 @@ annotations.
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instrument | music | sax | saxophone</annotation>
 		<annotation cp="🎷" type="tts">saxophone</annotation>
-		<annotation cp="🪗">accordian | accordion | concertina | squeeze box</annotation>
+		<annotation cp="🪗">accordion | concertina | squeeze box</annotation>
 		<annotation cp="🪗" type="tts">accordion</annotation>
 		<annotation cp="🎸">guitar | instrument | music</annotation>
 		<annotation cp="🎸" type="tts">guitar</annotation>

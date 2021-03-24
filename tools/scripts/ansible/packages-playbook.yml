@@ -1,0 +1,17 @@
+- hosts: all
+  become: yes
+  roles:
+     - role: derJD.journald
+       vars:
+          journald_options:
+            SystemMaxUse: 512M  #reduce logfile use
+  tasks:
+    - name: Install some packages
+      apt:
+        pkg:
+          # these are for convenience of the user
+          - mosh
+          - emacs-nox
+          - byobu
+          # these are for monitoring
+          - prometheus-node-exporter

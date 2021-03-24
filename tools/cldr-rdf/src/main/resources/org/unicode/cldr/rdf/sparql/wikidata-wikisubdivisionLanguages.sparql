@@ -1,0 +1,11 @@
+prefix wdt: <http://www.wikidata.org/prop/direct/>
+prefix wd: <http://www.wikidata.org/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?item ?label ?code ?codeLabel
+WHERE {
+  ?item wdt:P300 ?code .
+  ?item rdfs:label ?label.
+  BIND (lang(?label) AS ?codeLabel)
+  FILTER regex(?codeLabel,"^(af|am|ar|as|az|be|bg|bn|bs|ca|ceb|cs|cy|da|de|el|en|es|et|eu|fa|fi|fil|fr|ga|gl|gu|ha|he|hi|hr|hu|hy|id|ig|is|it|ja|jv|ka|kk|km|kn|ko|ky|lo|lt|lv|mk|ml|mn|mr|ms|my|ne|nl|no|or|pa|pl|ps|pt|ro|ru|sd|si|sk|sl|so|sq|sr|sv|sw|ta|te|th|tk|tr|uk|ur|uz|vi|yo|yue|zh|zu)$")
+}
+ORDER BY ?code ?codeLabel

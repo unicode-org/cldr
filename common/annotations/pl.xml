@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -389,6 +389,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">twarz przewracająca oczami</annotation>
 		<annotation cp="😬">grymaśna buźka | twarz z grymasem</annotation>
 		<annotation cp="😬" type="tts">twarz z grymasem</annotation>
+		<annotation cp="😮‍💨">gwizd | twarz wypuszczająca powietrze | ulga | westchnienie | wydmuchiwać powietrze | wypuszczać powietrze</annotation>
+		<annotation cp="😮‍💨" type="tts">twarz wypuszczająca powietrze</annotation>
 		<annotation cp="🤥">długi nos | kłamać | pinokio | twarz kłamcy</annotation>
 		<annotation cp="🤥" type="tts">twarz kłamcy</annotation>
 		<annotation cp="😌">odprężona buźka | twarz z wyrazem ulgi</annotation>
@@ -447,8 +449,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">zachmurzona twarz</annotation>
 		<annotation cp="😮">twarz z otwartymi ustami | zaskoczenie | zaskoczona buźka</annotation>
 		<annotation cp="😮" type="tts">twarz z otwartymi ustami</annotation>
-		<annotation cp="😮‍💨">gwizd | twarz wypuszczająca powietrze | ulga | westchnienie | wydmuchiwać powietrze | wypuszczać powietrze</annotation>
-		<annotation cp="😮‍💨" type="tts">twarz wypuszczająca powietrze</annotation>
 		<annotation cp="😯">zaskoczenie | zaskoczona buźka | zdumiona twarz</annotation>
 		<annotation cp="😯" type="tts">zdumiona twarz</annotation>
 		<annotation cp="😲">zadziwiona twarz | zaskoczenie | zaskoczona buźka</annotation>
@@ -567,12 +567,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">wykrzyknik w kształcie serca</annotation>
 		<annotation cp="💔">pęknięte | serce | złamane serce</annotation>
 		<annotation cp="💔" type="tts">złamane serce</annotation>
-		<annotation cp="❤">czerwone | kocham | miłość | serce</annotation>
-		<annotation cp="❤" type="tts">czerwone serce</annotation>
 		<annotation cp="❤‍🔥">miłość | płomienie | płonąć | serce | serce w płomieniach | święte serce</annotation>
 		<annotation cp="❤‍🔥" type="tts">serce w płomieniach</annotation>
 		<annotation cp="❤‍🩹">dobrze | lepiej | lepsze samopoczucie | uleczone serce | zdrowsze</annotation>
 		<annotation cp="❤‍🩹" type="tts">uleczone serce</annotation>
+		<annotation cp="❤">czerwone | kocham | miłość | serce</annotation>
+		<annotation cp="❤" type="tts">czerwone serce</annotation>
 		<annotation cp="🧡">pomarańczowe | pomarańczowe serce</annotation>
 		<annotation cp="🧡" type="tts">pomarańczowe serce</annotation>
 		<annotation cp="💛">serce | żółte</annotation>
@@ -735,14 +735,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">mężczyzna</annotation>
 		<annotation cp="🧔">broda | osoba | osoba z brodą</annotation>
 		<annotation cp="🧔" type="tts">osoba z brodą</annotation>
-		<annotation cp="👱‍♂">blondyn | mężczyzna</annotation>
-		<annotation cp="👱‍♂" type="tts">blondyn</annotation>
-		<annotation cp="🧔‍♀">broda | kobieta | kobieta z brodą</annotation>
-		<annotation cp="🧔‍♀" type="tts">kobieta z brodą</annotation>
 		<annotation cp="🧔‍♂">broda | mężczyzna | mężczyzna z brodą</annotation>
 		<annotation cp="🧔‍♂" type="tts">mężczyzna z brodą</annotation>
+		<annotation cp="👱‍♂">blondyn | mężczyzna</annotation>
+		<annotation cp="👱‍♂" type="tts">blondyn</annotation>
 		<annotation cp="👩">kobieta</annotation>
 		<annotation cp="👩" type="tts">kobieta</annotation>
+		<annotation cp="🧔‍♀">broda | kobieta | kobieta z brodą</annotation>
+		<annotation cp="🧔‍♀" type="tts">kobieta z brodą</annotation>
 		<annotation cp="👱‍♀">blondynka | kobieta</annotation>
 		<annotation cp="👱‍♀" type="tts">blondynka</annotation>
 		<annotation cp="🧓">płeć neutralna | starszy dorosły | stary</annotation>

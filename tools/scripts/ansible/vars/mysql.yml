@@ -1,0 +1,6 @@
+mysql_databases:
+  - name: "{{ cldr_database_name }}"
+    encoding: latin1
+    collation: latin1_bin
+mysql_enabled_on_startup: true
+mysql_bind_address: localhost

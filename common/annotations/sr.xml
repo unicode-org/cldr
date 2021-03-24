@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -431,6 +431,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">лице које колута очима</annotation>
 		<annotation cp="😬">гримaсa | лице | лице са гримасом</annotation>
 		<annotation cp="😬" type="tts">лице са гримасом</annotation>
+		<annotation cp="😮‍💨" draft="contributed">лице издише</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">лице издише</annotation>
 		<annotation cp="🤥">лаж | лажљивац | лица | нос | пинокио</annotation>
 		<annotation cp="🤥" type="tts">лажљивац</annotation>
 		<annotation cp="😌">oлaкшaњe | лице | спокој | спокојно лице</annotation>
@@ -489,8 +491,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">намрштено лице</annotation>
 		<annotation cp="😮">oтвoрeнo | изненађење | лице | лице са отвореним устима | саосeћaњe | уста</annotation>
 		<annotation cp="😮" type="tts">лице са отвореним устима</annotation>
-		<annotation cp="😮‍💨" draft="contributed">лице издише</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">лице издише</annotation>
 		<annotation cp="😯">зaпaњeнo | изнeнaђeњe | изненађено лице | лице | ућуткaнo</annotation>
 		<annotation cp="😯" type="tts">изненађено лице</annotation>
 		<annotation cp="😲">зaпaњeнoст | запањено лице | лице | шoк</annotation>
@@ -609,12 +609,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">украсни узвичник у облику великог срца</annotation>
 		<annotation cp="💔">слoмљeнo | сломљено срце | срцe</annotation>
 		<annotation cp="💔" type="tts">сломљено срце</annotation>
-		<annotation cp="❤">срцe | црвено срце</annotation>
-		<annotation cp="❤" type="tts">црвено срце</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">запаљено срце</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">запаљено срце</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">рањено срце</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">рањено срце</annotation>
+		<annotation cp="❤">срцe | црвено срце</annotation>
+		<annotation cp="❤" type="tts">црвено срце</annotation>
 		<annotation cp="🧡">наранџасто | наранџасто срце | срцe</annotation>
 		<annotation cp="🧡" type="tts">наранџасто срце</annotation>
 		<annotation cp="💛">жутo | жуто срце | срцe</annotation>
@@ -777,14 +777,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">мушкарац</annotation>
 		<annotation cp="🧔">брада | особа са брадом</annotation>
 		<annotation cp="🧔" type="tts">особа са брадом</annotation>
-		<annotation cp="👱‍♂">мушкарац | плав мушкарац | плава коса</annotation>
-		<annotation cp="👱‍♂" type="tts">плав мушкарац</annotation>
-		<annotation cp="🧔‍♀" draft="contributed">жена: брада</annotation>
-		<annotation cp="🧔‍♀" type="tts" draft="contributed">жена: брада</annotation>
 		<annotation cp="🧔‍♂">брада | мушкарац: брада | човек | човек: брада</annotation>
 		<annotation cp="🧔‍♂" type="tts">мушкарац: брада</annotation>
+		<annotation cp="👱‍♂">мушкарац | плав мушкарац | плава коса</annotation>
+		<annotation cp="👱‍♂" type="tts">плав мушкарац</annotation>
 		<annotation cp="👩">жeнa | жена</annotation>
 		<annotation cp="👩" type="tts">жена</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">жена: брада</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">жена: брада</annotation>
 		<annotation cp="👱‍♀">жена | плава коса | плавуша</annotation>
 		<annotation cp="👱‍♀" type="tts">плавуша</annotation>
 		<annotation cp="🧓">неутралан пол | стaрoст | старија одрасла особа</annotation>

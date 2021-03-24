@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -393,6 +393,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">көзүн сүзгөн бет</annotation>
 		<annotation cp="😬">бет | буз | кебете | кебетесин бузган бет</annotation>
 		<annotation cp="😬" type="tts">кебетесин бузган бет</annotation>
+		<annotation cp="😮‍💨" draft="contributed">үшкүрүнгөн жүз</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">үшкүрүнгөн жүз</annotation>
 		<annotation cp="🤥">бет | жалган | жалганчы бет | пиноккио</annotation>
 		<annotation cp="🤥" type="tts">жалганчы бет</annotation>
 		<annotation cp="😌">бет | магдыра | магдыраган бет</annotation>
@@ -451,8 +453,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">ээгин кемшийткен бет</annotation>
 		<annotation cp="😮">ач | бет | жактыр | ооз | оозу ачылган бет</annotation>
 		<annotation cp="😮" type="tts">оозу ачылган бет</annotation>
-		<annotation cp="😮‍💨" draft="contributed">үшкүрүнгөн жүз</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">үшкүрүнгөн жүз</annotation>
 		<annotation cp="😯">бет | таң калган | таң калган бет | чоочуган</annotation>
 		<annotation cp="😯" type="tts">таң калган бет</annotation>
 		<annotation cp="😲">айран-таң | айран-таң калган бет | бет | дабдаарып калган бет | чоочуган</annotation>
@@ -571,12 +571,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">жүрөк менен жазылган илеп белгиси</annotation>
 		<annotation cp="💔">жараланган | жүрөк</annotation>
 		<annotation cp="💔" type="tts">жараланган жүрөк</annotation>
-		<annotation cp="❤">жүрөк | кызыл жүрөк</annotation>
-		<annotation cp="❤" type="tts">кызыл жүрөк</annotation>
 		<annotation cp="❤‍🔥">жүрөк | күйүү | өрттөнгөн жүрөк | сүйүү | ыйык жүрөк</annotation>
 		<annotation cp="❤‍🔥" type="tts">өрттөнгөн жүрөк</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">жарасы чапталган жүрөк</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">жарасы чапталган жүрөк</annotation>
+		<annotation cp="❤">жүрөк | кызыл жүрөк</annotation>
+		<annotation cp="❤" type="tts">кызыл жүрөк</annotation>
 		<annotation cp="🧡">кызгылтым сары | кызгылтым сары жүрөк</annotation>
 		<annotation cp="🧡" type="tts">кызгылтым сары жүрөк</annotation>
 		<annotation cp="💛">жүрөк | сары</annotation>
@@ -739,14 +739,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">эркек</annotation>
 		<annotation cp="🧔">сакал | сакалчан киши</annotation>
 		<annotation cp="🧔" type="tts">сакалчан киши</annotation>
-		<annotation cp="👱‍♂">сары чач | сары чачтуу эркек | эркек</annotation>
-		<annotation cp="👱‍♂" type="tts">сары чачтуу эркек</annotation>
-		<annotation cp="🧔‍♀">аял | аял : сакал | аял: сакал | сакал</annotation>
-		<annotation cp="🧔‍♀" type="tts">аял : сакал</annotation>
 		<annotation cp="🧔‍♂">киши | киши: сакал | сакал</annotation>
 		<annotation cp="🧔‍♂" type="tts">киши: сакал</annotation>
+		<annotation cp="👱‍♂">сары чач | сары чачтуу эркек | эркек</annotation>
+		<annotation cp="👱‍♂" type="tts">сары чачтуу эркек</annotation>
 		<annotation cp="👩">аял</annotation>
 		<annotation cp="👩" type="tts">аял</annotation>
+		<annotation cp="🧔‍♀">аял | аял : сакал | аял: сакал | сакал</annotation>
+		<annotation cp="🧔‍♀" type="tts">аял : сакал</annotation>
 		<annotation cp="👱‍♀">аял | сары чач | сары чачтуу аял</annotation>
 		<annotation cp="👱‍♀" type="tts">сары чачтуу аял</annotation>
 		<annotation cp="🧓">жынысы белгисиз | кары адам</annotation>

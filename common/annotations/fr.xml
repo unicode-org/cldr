@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -440,6 +440,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">visage roulant des yeux</annotation>
 		<annotation cp="😬">grimace | visage | visage grimaçant</annotation>
 		<annotation cp="😬" type="tts">visage grimaçant</annotation>
+		<annotation cp="😮‍💨">chuchoter | expiration | siffler | soulagement | sursaut | visage expirant</annotation>
+		<annotation cp="😮‍💨" type="tts">visage expirant</annotation>
 		<annotation cp="🤥">mensonge | menteur | pinocchio | visage | visage de menteur</annotation>
 		<annotation cp="🤥" type="tts">visage de menteur</annotation>
 		<annotation cp="😌">soulagement | visage | visage soulagé</annotation>
@@ -498,8 +500,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">visage mécontent</annotation>
 		<annotation cp="😮">surpris | visage avec bouche ouverte</annotation>
 		<annotation cp="😮" type="tts">visage avec bouche ouverte</annotation>
-		<annotation cp="😮‍💨">chuchoter | expiration | siffler | soulagement | sursaut | visage expirant</annotation>
-		<annotation cp="😮‍💨" type="tts">visage expirant</annotation>
 		<annotation cp="😯">sans voix | stupéfait | surpris | visage | visage ébahi</annotation>
 		<annotation cp="😯" type="tts">visage ébahi</annotation>
 		<annotation cp="😲">choc | stupéfait | visage</annotation>
@@ -618,12 +618,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">cœur point d’exclamation</annotation>
 		<annotation cp="💔">cœur | cœur brisé</annotation>
 		<annotation cp="💔" type="tts">cœur brisé</annotation>
-		<annotation cp="❤">cœur | cœur rouge</annotation>
-		<annotation cp="❤" type="tts">cœur rouge</annotation>
 		<annotation cp="❤‍🔥">amour | cœur enflammé | désir | feu | passion</annotation>
 		<annotation cp="❤‍🔥" type="tts">cœur enflammé</annotation>
 		<annotation cp="❤‍🩹">cœur avec bandages | réconforter | réparer | soigner</annotation>
 		<annotation cp="❤‍🩹" type="tts">cœur avec bandages</annotation>
+		<annotation cp="❤">cœur | cœur rouge</annotation>
+		<annotation cp="❤" type="tts">cœur rouge</annotation>
 		<annotation cp="🧡">cœur orange | orange</annotation>
 		<annotation cp="🧡" type="tts">cœur orange</annotation>
 		<annotation cp="💛">cœur | cœur jaune</annotation>
@@ -786,14 +786,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">homme</annotation>
 		<annotation cp="🧔">barbe | personne barbue</annotation>
 		<annotation cp="🧔" type="tts">personne barbue</annotation>
-		<annotation cp="👱‍♂">blond | cheveux | homme blond</annotation>
-		<annotation cp="👱‍♂" type="tts">homme blond</annotation>
-		<annotation cp="🧔‍♀">barbe | femme barbue</annotation>
-		<annotation cp="🧔‍♀" type="tts">femme barbue</annotation>
 		<annotation cp="🧔‍♂">barbe | homme barbu</annotation>
 		<annotation cp="🧔‍♂" type="tts">homme barbu</annotation>
+		<annotation cp="👱‍♂">blond | cheveux | homme blond</annotation>
+		<annotation cp="👱‍♂" type="tts">homme blond</annotation>
 		<annotation cp="👩">femme</annotation>
 		<annotation cp="👩" type="tts">femme</annotation>
+		<annotation cp="🧔‍♀">barbe | femme barbue</annotation>
+		<annotation cp="🧔‍♀" type="tts">femme barbue</annotation>
 		<annotation cp="👱‍♀">blonde | cheveux | femme blonde</annotation>
 		<annotation cp="👱‍♀" type="tts">femme blonde</annotation>
 		<annotation cp="🧓">adulte | âgé | genre neutre | personne âgée</annotation>

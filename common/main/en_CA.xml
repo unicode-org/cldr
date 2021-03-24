@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -479,7 +479,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ro_MD">Moldovan</language>
 			<language type="rof">↑↑↑</language>
 			<language type="rom" draft="contributed">↑↑↑</language>
-			<language type="root">↑↑↑</language>
 			<language type="rtm" draft="contributed">↑↑↑</language>
 			<language type="ru">↑↑↑</language>
 			<language type="rue" draft="contributed">↑↑↑</language>
@@ -3092,13 +3091,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} Daylight Saving Time</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>↑↑↑</standard>
@@ -3218,10 +3210,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
+			<zone type="Australia/Melbourne">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Australia/Melbourne">
+			<zone type="Australia/Currie">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
@@ -4255,6 +4247,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6720,7 +6719,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} karat</unitPattern>
 				<unitPattern count="other">{0} karats</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7755,7 +7754,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} kt</unitPattern>
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dL</displayName>
 				<unitPattern count="one">{0} mg/dL</unitPattern>
 				<unitPattern count="other">{0} mg/dL</unitPattern>
@@ -8695,7 +8694,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dL</displayName>
 				<unitPattern count="one">{0}mg/dL</unitPattern>
 				<unitPattern count="other">{0}mg/dL</unitPattern>

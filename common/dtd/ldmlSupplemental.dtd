@@ -17,7 +17,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST version number CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@METADATA-->
-<!ATTLIST version cldrVersion CDATA #FIXED "38" >
+<!ATTLIST version cldrVersion CDATA #FIXED "39" >
     <!--@MATCH:version-->
     <!--@VALUE-->
 <!ATTLIST version unicodeVersion CDATA #FIXED "13.0.0" >
@@ -384,6 +384,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitConstant status NMTOKEN #IMPLIED >
     <!--@MATCH:literal/approximate, exact-->
     <!--@VALUE-->
+<!ATTLIST unitConstant description CDATA #IMPLIED >
+    <!--@MATCH:any-->
+    <!--@METADATA-->
 
 <!ELEMENT unitQuantities ( unitQuantity* ) >
 
@@ -396,6 +399,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitQuantity status NMTOKEN #IMPLIED >
     <!--@MATCH:regex/simple-->
     <!--@VALUE-->
+<!ATTLIST unitQuantity description CDATA #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT convertUnits ( convertUnit* ) >
 
@@ -412,8 +417,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
     <!--@VALUE-->
 <!ATTLIST convertUnit systems NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/ussystem, uksystem-->
+    <!--@MATCH:set/literal/ussystem, uksystem, metric, si, other -->
     <!--@VALUE-->
+<!ATTLIST convertUnit description CDATA #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT unitPreferenceData ( unitPreferences* ) >
 <!ATTLIST unitPreferenceData draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -1230,7 +1237,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!-- # Grammatical Features -->
 
-<!ELEMENT grammaticalData ( grammaticalFeatures* ) >
+<!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations* ) >
 
 <!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) >
 <!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
@@ -1242,7 +1249,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST grammaticalCase scope NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/units-->
 <!ATTLIST grammaticalCase values NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, partitive, prepositional, sociative, vocative-->
+    <!--@MATCH:set/literal/abessive, ablative, accusative, adessive, allative, causal, comitative, dative, delative, elative, ergative, essive, genitive, illative, inessive, instrumental, locative, locativecopulative, nominative, oblique, partitive, prepositional, sociative, sublative, superessive, terminative, translative, vocative-->
     <!--@VALUE-->
 
 <!ELEMENT grammaticalGender EMPTY >
@@ -1257,4 +1264,32 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@MATCH:set/literal/units-->
 <!ATTLIST grammaticalDefiniteness values NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/definite, indefinite, unspecified, construct-->
+    <!--@VALUE-->
+
+<!ELEMENT grammaticalDerivations ( deriveCompound*, deriveComponent* ) >
+<!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED >
+    <!--@MATCH:set/validity/locale-->
+
+<!ELEMENT deriveCompound EMPTY >
+<!ATTLIST deriveCompound feature NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/gender-->
+<!ATTLIST deriveCompound structure NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/per, times, power, prefix-->
+<!ATTLIST deriveCompound value NMTOKEN #REQUIRED >
+    <!-- TODO: add @MATCH function for locale's gender categories and use here -->
+    <!--@MATCH:set/literal/0, 1-->
+    <!--@VALUE-->
+
+<!ELEMENT deriveComponent EMPTY >
+<!ATTLIST deriveComponent feature NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/plural, case-->
+<!ATTLIST deriveComponent structure NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/per, times, power, prefix-->
+<!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED >
+    <!-- TODO: add @MATCH function for locale's plural/case categories and use here -->
+    <!--@MATCH:set/literal/compound, zero, one, two, few, many, other, accusative, nominative-->
+    <!--@VALUE-->
+<!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED >
+    <!-- TODO: add @MATCH function for locale's plural/case categories and use here -->
+    <!--@MATCH:set/literal/compound, zero, one, two, few, many, other, accusative, nominative-->
     <!--@VALUE-->

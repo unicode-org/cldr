@@ -1,0 +1,43 @@
+<server description="cldr-apps Liberty server">
+	<!-- tag::featureManager[] -->
+	<featureManager>
+		<feature>jaxrs-2.1</feature>
+		<feature>jsp-2.3</feature>
+		<feature>jdbc-4.3</feature>
+		<feature>jndi-1.0</feature>
+		<feature>mpOpenAPI-1.1</feature>
+		<feature>mpConfig-1.4</feature>
+		<feature>localConnector-1.0</feature>
+		<feature>concurrent-1.0</feature>
+	</featureManager>
+	<!-- end::featureManager[] -->
+
+	<!-- tag::httpEndpoint[] -->
+	<httpEndpoint httpPort="9080" id="defaultHttpEndpoint"
+		host="*" />
+	<!-- end::httpEndpoint[] -->
+
+	<!-- tag::webApplication[] -->
+	<webApplication location="cldr-apps.war"
+		contextRoot="/cldr-apps" />
+	<!-- end::webApplication[] -->
+
+	<!-- TO SET UP: Create a "server.env" file next to this xml (that is, tools/cldr-apps/src/main/liberty/config/server.env)
+		with the following:
+			MYSQL_USER=surveytool
+			MYSQL_PASSWORD=yourpassword
+			MYSQL_DB=cldrdb
+	-->
+	<dataSource id="DefaultDataSource"
+		jndiName="jdbc/SurveyTool">
+		<jdbcDriver libraryRef="jdbcLib" />
+		<properties serverTimezone="GMT" serverName="localhost" portNumber="3306"
+			databaseName="${MYSQL_DB}" user="${MYSQL_USER}"
+			password="${MYSQL_PASSWORD}" />
+	</dataSource>
+
+	<!-- add the driver jar that was included by copyDependencies in pom.xml -->
+	<library id="jdbcLib">
+		<fileset dir="jdbc" includes="*.jar" />
+	</library>
+</server>

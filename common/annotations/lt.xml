@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -587,6 +587,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">veidas, vartantis akis</annotation>
 		<annotation cp="😬">besivaipantis veidas | grimasa | veidas</annotation>
 		<annotation cp="😬" type="tts">besivaipantis veidas</annotation>
+		<annotation cp="😮‍💨">dejuoti | gaudyti | iškvėpti | reljefas | šnabždesys | švilpukas | veidas su garu</annotation>
+		<annotation cp="😮‍💨" type="tts">veidas su garu</annotation>
 		<annotation cp="🤥">melas | meluojantis veidas | veidas</annotation>
 		<annotation cp="🤥" type="tts">meluojantis veidas</annotation>
 		<annotation cp="😌">palengvėjimas | veidas | veidas su palengvėjimu</annotation>
@@ -645,8 +647,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">paniuręs veidas</annotation>
 		<annotation cp="😮">atverta | burna | išsižiojęs | veidas</annotation>
 		<annotation cp="😮" type="tts">išsižiojęs veidas</annotation>
-		<annotation cp="😮‍💨">dejuoti | gaudyti | iškvėpti | reljefas | šnabždesys | švilpukas | veidas su garu</annotation>
-		<annotation cp="😮‍💨" type="tts">veidas su garu</annotation>
 		<annotation cp="😯">nuščiuvęs | nustebęs | priblokštas | veidas</annotation>
 		<annotation cp="😯" type="tts">nuščiuvęs veidas</annotation>
 		<annotation cp="😲">apstulbęs | priblokštas | veidas | visiškai</annotation>
@@ -765,12 +765,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">storas širdelės formos šauktukas</annotation>
 		<annotation cp="💔">sudaužyta | sudaužyta širdelė | sudaužyti</annotation>
 		<annotation cp="💔" type="tts">sudaužyta širdelė</annotation>
-		<annotation cp="❤">raudona širdelė | širdis</annotation>
-		<annotation cp="❤" type="tts">raudona širdelė</annotation>
 		<annotation cp="❤‍🔥" draft="contributed">deganti širdis</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">deganti širdis</annotation>
 		<annotation cp="❤‍🩹">atsigauna | atsigaunanti | gerai | gydytina širdis | sveikesnis | taisymas | tobulinti</annotation>
 		<annotation cp="❤‍🩹" type="tts">gydytina širdis</annotation>
+		<annotation cp="❤">raudona širdelė | širdis</annotation>
+		<annotation cp="❤" type="tts">raudona širdelė</annotation>
 		<annotation cp="🧡">oranžinė | oranžinė širdelė</annotation>
 		<annotation cp="🧡" type="tts">oranžinė širdelė</annotation>
 		<annotation cp="💛">geltona | geltona širdelė</annotation>
@@ -933,14 +933,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨" type="tts">vyras</annotation>
 		<annotation cp="🧔">barzda | barzdotas žmogus</annotation>
 		<annotation cp="🧔" type="tts">barzdotas žmogus</annotation>
-		<annotation cp="👱‍♂">blondinas | vyras</annotation>
-		<annotation cp="👱‍♂" type="tts">blondinas</annotation>
-		<annotation cp="🧔‍♀">barzda | moteris | moteris: barzda</annotation>
-		<annotation cp="🧔‍♀" type="tts">moteris: barzda</annotation>
 		<annotation cp="🧔‍♂">barzda | vyras | vyras: barzda</annotation>
 		<annotation cp="🧔‍♂" type="tts">vyras: barzda</annotation>
+		<annotation cp="👱‍♂">blondinas | vyras</annotation>
+		<annotation cp="👱‍♂" type="tts">blondinas</annotation>
 		<annotation cp="👩">moteris</annotation>
 		<annotation cp="👩" type="tts">moteris</annotation>
+		<annotation cp="🧔‍♀">barzda | moteris | moteris: barzda</annotation>
+		<annotation cp="🧔‍♀" type="tts">moteris: barzda</annotation>
 		<annotation cp="👱‍♀">blondinė | moteris</annotation>
 		<annotation cp="👱‍♀" type="tts">blondinė</annotation>
 		<annotation cp="🧓">kitas suaugusysis | neutrali lytis | senas</annotation>

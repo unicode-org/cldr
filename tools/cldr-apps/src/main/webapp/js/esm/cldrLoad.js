@@ -35,13 +35,6 @@ import * as cldrVettingParticipation from "./cldrVettingParticipation.js";
 
 const CLDR_LOAD_DEBUG = false;
 
-/**
- * haveDialog: when true, it means a "dialog" of some kind is displayed.
- * Used for inhibiting $('#left-sidebar').hover in redesign.js.
- * Currently there are only two such dialogs, both for auto-import.
- */
-let haveDialog = false;
-
 let locmap = null;
 
 let isLoading = false;
@@ -91,12 +84,13 @@ function showV() {
 }
 
 function continueInitializing(canAutoImport) {
-  if (canAutoImport) {
-    doAutoImport();
-  }
-  reloadV();
-
   window.addEventListener("hashchange", doHashChange);
+  if (canAutoImport) {
+    cldrEvent.hideOverlayAndSidebar();
+    window.location.href = "#auto_import";
+  } else {
+    reloadV();
+  }
 }
 
 function doHashChange(event) {
@@ -651,6 +645,7 @@ function getSpecial(str) {
     // be necessary to map the special to a specific .vue file in specialToComponentMap.js
     about: cldrGenericVue,
     add_user: cldrGenericVue,
+    auto_import: cldrGenericVue,
     lookup: cldrGenericVue,
     vsummary: cldrGenericVue,
     r_vetting_json: cldrGenericVue,
@@ -876,59 +871,6 @@ function trimNull(x) {
 }
 
 /**
- * Automatically import old winning votes
- */
-function doAutoImport() {
-  const autoImportProgressDialog = newProgressDialog({
-    title: cldrText.get("v_oldvote_auto_msg"),
-    content: cldrText.get("v_oldvote_auto_progress_msg"),
-  });
-  if (autoImportProgressDialog) {
-    autoImportProgressDialog.show();
-  }
-  haveDialog = true;
-  cldrEvent.hideOverlayAndSidebar();
-  /*
-   * See WHAT_AUTO_IMPORT = "auto_import" in SurveyAjax.java
-   */
-  const url =
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=auto_import&s=" +
-    cldrStatus.getSessionId() +
-    cldrSurvey.cacheKill();
-  myLoad(url, "auto-importing votes", function (json) {
-    if (autoImportProgressDialog) {
-      autoImportProgressDialog.hide();
-    }
-    haveDialog = false;
-    if (json.autoImportedOldWinningVotes) {
-      const vals = {
-        count: json.autoImportedOldWinningVotes,
-      };
-      const autoImportedDialog = newProgressDialog({
-        title: cldrText.get("v_oldvote_auto_msg"),
-        content: cldrText.sub("v_oldvote_auto_desc_msg", vals),
-      });
-      if (autoImportedDialog) {
-        autoImportedDialog.addChild(
-          new dijitButton({
-            label: "OK",
-            onClick: function () {
-              haveDialog = false;
-              autoImportedDialog.hide();
-              reloadV();
-            },
-          })
-        );
-        autoImportedDialog.show();
-      }
-      haveDialog = true;
-      cldrEvent.hideOverlayAndSidebar();
-    }
-  });
-}
-
-/**
  * @param postData optional - makes this a POST
  */
 function myLoad(url, message, handler, postData, headers) {
@@ -1097,17 +1039,6 @@ function sliceHash(hash) {
   return hash.charAt(0) === "#" ? hash.slice(1) : hash;
 }
 
-function dialogIsOpen() {
-  return haveDialog;
-}
-
-function newProgressDialog(args) {
-  // TODO: implement a replacement for dijit/Dialog (or something simpler)
-  // This is used only for doAutoImport
-  console.log("newProgressDialog not implemented yet! args = " + args);
-  return null;
-}
-
 function flipToOtherDiv(div) {
   flipper.flipTo(pages.other, div);
 }
@@ -1147,7 +1078,6 @@ export {
   appendLocaleLink,
   continueInitializing,
   coverageUpdate,
-  dialogIsOpen,
   flipToEmptyOther,
   flipToGenericNoLocale,
   flipToOtherDiv,

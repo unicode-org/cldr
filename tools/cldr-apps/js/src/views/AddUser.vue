@@ -317,7 +317,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .addUserErrors {
   font-weight: bold;
   font-size: large;

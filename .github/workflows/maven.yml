@@ -7,14 +7,27 @@ on:
   pull_request:
     branches:
     - '*'
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref (Optional)
+        required: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Clone Repository
+        uses: actions/checkout@v2
         with:
           lfs: false
+        if: github.event.inputs.git-ref == ''
+      - name: Clone Repository (manual ref)
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+          ref: ${{ github.event.inputs.git-ref }}
+        if: github.event.inputs.git-ref != ''
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
@@ -74,9 +87,17 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Clone Repository
+        uses: actions/checkout@v2
         with:
           lfs: false
+        if: github.event.inputs.git-ref == ''
+      - name: Clone Repository (manual ref)
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+          ref: ${{ github.event.inputs.git-ref }}
+        if: github.event.inputs.git-ref != ''
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
@@ -87,9 +108,10 @@ jobs:
           name: cldr-code
           path: tools/cldr-code/target/
       - name: run CLDR console check
-        run: java -DCLDR_DIR=$(pwd) -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD 
+        run: java -DCLDR_DIR=$(pwd) -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
   deploy:
-    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+    # don't run deploy on manual builds!
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.inputs.git-ref == ''
     needs:
       - build
       - check

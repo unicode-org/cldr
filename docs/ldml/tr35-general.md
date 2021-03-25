@@ -294,6 +294,12 @@ This contains a list of elements that provide the user-translated names for terr
 <territory type="US" alt="short">U.S.</territory>
 ```
 
+Notes:
+* Territory names may not match the official name of the territory, and the English or French names may not match those in ISO 3166. Reasons for this include:
+    * CLDR favors customary names in common parlance, not necessarily the official names.
+    * CLDR endeavors to provide names that are not too long, in order to avoid problems with truncation or overflow in user interfaces.
+* In general the territory names should also match those used in currency names, see **Part 3** _Section 4 [Currencies](tr35-numbers.md#Currencies)_.
+
 * * *
 
 ```xml

@@ -68,7 +68,6 @@ if(SurveyMain.isSetup==false ) {
 	<%
 	return;
 }
-CookieSession.sm.reg.setOrgList();
 String orgs[] = UserRegistry.getOrgList();
 String myorg = orgs[(int)Math.rint(Math.random()*(double)(orgs.length-1))];
 %>

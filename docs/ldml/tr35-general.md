@@ -1151,9 +1151,9 @@ If there is no precomputed form, the following process in pseudocode is used to 
 5.  Set both globalPlaceholder and globalPlaceholderPosition to be empty
 6.  Set numeratorUnitString to patternTimes(numerator, length, per0(pluralCategory), per0(caseVariant))
 7.  Set denominatorUnitString to patternTimes(denominator, length, per1(pluralCategory), per1(caseVariant))
-8.  Set perPattern to be getValue(times, locale, length)
-9.  If the denominatorString is empty, set result to denominatorString, otherwise set result to format(perPattern, numeratorString, denominatorString)
-10. return format(result, globalPlacholder, globalPlaceholderPosition)
+8.  Set perPattern to be getValue(per, locale, length)
+9.  If the denominatorString is empty, set result to numeratorString, otherwise set result to format(perPattern, numeratorUnitString, denominatorUnitString)
+10. return format(result, globalPlaceholder, globalPlaceholderPosition)
 
 **patternTimes(product_unit, locale, length, pluralCategory, caseVariant)**
 
@@ -1204,15 +1204,15 @@ If there is no precomputed form, the following process in pseudocode is used to 
 
 1. return the element value in the locale for the path corresponding to the key, locale, length, and variants — using normal inheritance including [Lateral Inheritance](https://unicode-org.github.io/cldr/ldml/tr35.md#Multiple_Inheritance) and [Parent Locales](https://unicode-org.github.io/cldr/ldml/tr35.md#Parent_Locales).
 
-**Extract(corePattern, coreUnit, placeHolder, placeholderPosition)**
+**Extract(corePattern, coreUnit, placeholder, placeholderPosition)**
 
-1. Find the position of the **placeHolder** in the core pattern
-2. Set **placeHolderPosition** to that postion (start, middle, or end)
-3. Remove the **placeHolder** from the **corePattern** and set **coreUnit** to that result
+1. Find the position of the **placeholder** in the core pattern
+2. Set **placeholderPosition** to that position (start, middle, or end)
+3. Remove the **placeholder** from the **corePattern** and set **coreUnit** to that result
 
 **per0(...), times0(...), etc.**
 
-1. These represent the **deriveCompound** data values from **Section 16 [Grammatical Derivations](#Grammatical_Derivations)**, where value0 of the per-structure is given as per0(...), and so on.
+1. These represent the **deriveComponent** data values from **Section 16 [Grammatical Derivations](#Grammatical_Derivations)**, where value0 of the per-structure is given as per0(...), and so on.
 2. "power" corresponds to dimensionality_prefix, while "prefix" corresponds to si_prefix.
 
 If the locale does not provide full modern coverage, the process could fall back to root locale for some localized patterns. That may give a "ransom-note" effect for the user. To avoid that, it may be preferable to abort the process at that point, and then localize the unitId for the root locale.

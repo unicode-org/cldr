@@ -646,6 +646,7 @@ function getSpecial(str) {
     about: cldrGenericVue,
     add_user: cldrGenericVue,
     auto_import: cldrGenericVue,
+    gear: cldrGenericVue,
     lookup: cldrGenericVue,
     vsummary: cldrGenericVue,
     r_vetting_json: cldrGenericVue,

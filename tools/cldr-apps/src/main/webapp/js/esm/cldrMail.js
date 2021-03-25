@@ -17,7 +17,7 @@ function load() {
     cldrSurvey.cacheKill();
 
   const message = "(loading mail " + cldrStatus.getCurrentLocale() + ")";
-  myLoad(url, message, loadMail);
+  cldrLoad.myLoad(url, message, loadMail);
 }
 
 function loadMail(json) {
@@ -87,7 +87,7 @@ function loadMail(json) {
       li.onclick = (function (li, row, header) {
         return function () {
           if (!row[header.READ_DATE]) {
-            myLoad(
+            cldrLoad.myLoad(
               cldrStatus.getContextPath() +
                 "/SurveyAjax?what=mail&s=" +
                 cldrStatus.getSessionId() +

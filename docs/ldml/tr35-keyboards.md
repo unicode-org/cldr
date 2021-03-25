@@ -46,26 +46,27 @@ The LDML specification is divided into the following parts:
     *   5.1 [Element: keyboard](#Element_Keyboard)
     *   5.2 [Element: version](#Element_version)
     *   5.3 [Element: generation](#Element_generation)
-    *   5.4 [Element: names](#Element_names)
-    *   5.5 [Element: name](#Element_name)
-    *   5.6 [Element: settings](#Element_settings)
-    *   5.7 [Element: keyMap](#Element_keyMap)
+    *   5.4 [Element: info](#Element_info) 
+    *   5.5 [Element: names](#Element_names)
+    *   5.6 [Element: name](#Element_name)
+    *   5.7 [Element: settings](#Element_settings)
+    *   5.8 [Element: keyMap](#Element_keyMap)
         *   Table: [Possible Modifier Keys](#Possible_Modifier_Keys)
-    *   5.8 [Element: map](#Element_map)
-    *   5.9 [Element: import](#Element_import)
-    *   5.10 [Element: displayMap](#Element_displayMap)
-    *   5.11 [Element: display](#Element_display)
-    *   5.12 [Element: layer](#Element_layer)
-    *   5.13 [Element: row](#Element_row)
-    *   5.14 [Element: switch](#Element_switch)
-    *   5.15 [Element: vkeys](#Element_vkeys)
-    *   5.16 [Element: vkey](#Element_vkey)
-    *   5.17 [Element: transforms](#Element_transforms)
-    *   5.18 [Element: transform](#Element_transform)
-    *   5.19 [Element: reorder](#Element_reorder)
-    *   5.20 [Element: final](#Element_final)
-    *   5.21 [Element: backspaces](#Element_backspaces)
-    *   5.22 [Element: backspace](#Element_backspace)
+    *   5.9 [Element: map](#Element_map)
+    *   5.10 [Element: import](#Element_import)
+    *   5.11 [Element: displayMap](#Element_displayMap)
+    *   5.12 [Element: display](#Element_display)
+    *   5.13 [Element: layer](#Element_layer)
+    *   5.14 [Element: row](#Element_row)
+    *   5.15 [Element: switch](#Element_switch)
+    *   5.16 [Element: vkeys](#Element_vkeys)
+    *   5.17 [Element: vkey](#Element_vkey)
+    *   5.18 [Element: transforms](#Element_transforms)
+    *   5.19 [Element: transform](#Element_transform)
+    *   5.20 [Element: reorder](#Element_reorder)
+    *   5.21 [Element: final](#Element_final)
+    *   5.22 [Element: backspaces](#Element_backspaces)
+    *   5.23 [Element: backspace](#Element_backspace)
 *   6 [Element Hierarchy - Platform File](#Element_Heirarchy_Platform_File)
     *   6.1 [Element: platform](#Element_platform)
     *   6.2 [Element: hardwareMap](#Element_hardwareMap)
@@ -318,7 +319,40 @@ The `generation` element is now deprecated. It was used to keep track of the gen
 
 * * *
 
-### 5.4 <a name="Element_names" href="#Element_names">Element: names</a>
+### 5.4 <a name="Element_info" href="#Element_info">Element: info</a>
+
+Element containing informative properties about the layout, for displaying in user interfaces etc.
+
+Syntax
+
+```xml
+<info [author="{author}"] 
+      [normalization="{form}"] 
+      [layout="{hint of the layout}"] 
+      [indicator="{short identifier}"] />
+```
+
+_Attribute:_ `author` (optional)
+
+> The `author` attribute contains the name of the author of the layout file.
+
+_Attribute:_ `normalization` (optional)
+
+> The `normalization` attribute describes the intended normalization form of the keyboard layout output. The valid values are `NFC`, `NFD` or `other`.
+> An example use case is aiding user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
+
+_Attribute:_ `layout` (optional)
+
+> The `layout` attribtue describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
+
+_Attribute:_ `indicator` (optional)
+
+> The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc. 
+> Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
+
+* * *
+
+### 5.5 <a name="Element_names" href="#Element_names">Element: names</a>
 
 Element used to store any names given to the layout by the platform.  
   
@@ -330,7 +364,7 @@ Syntax
 </names>  
 ```
 
-### 5.5 <a name="Element_name" href="#Element_name">Element: name</a>
+### 5.6 <a name="Element_name" href="#Element_name">Element: name</a>
 
 A single name given to the layout by the platform.  
   
@@ -358,7 +392,7 @@ Example
 
 * * *
 
-### 5.6 <a name="Element_settings" href="#Element_settings">Element: settings</a>
+### 5.7 <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
 An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for transformFailures the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).  
   
@@ -420,7 +454,7 @@ Indicates that:
 
 * * *
 
-### 5.7 <a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a>
+### 5.8 <a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a>
 
 This element defines the group of mappings for all the keys that use the same set of modifier keys. It contains one or more map elements.
 
@@ -489,7 +523,7 @@ If the `modifiers` attribute is not present on a `keyMap` then that particular k
 
 * * *
 
-### 5.8 <a name="Element_map" href="#Element_map">Element: map</a>
+### 5.9 <a name="Element_map" href="#Element_map">Element: map</a>
 
 This element defines a mapping between the base character and the output for a particular set of active modifier keys. This element must have the `keyMap` element as its parent.
 
@@ -607,7 +641,7 @@ Examples
 
 * * *
 
-#### 5.8.1 <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
+#### 5.9.1 <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
 
 The `flicks` element is used to generate results from a "flick" of the finger on a mobile device. 
 
@@ -644,7 +678,7 @@ Example: where a flick to the Northeast then South produces two code points.
 
 * * *
 
-### 5.9 <a name="Element_import" href="#Element_import">Element: import</a>
+### 5.10 <a name="Element_import" href="#Element_import">Element: import</a>
 
 The `import` element references another file of the same type and includes all the subelements of the top level element as though the `import` element were being replaced by those elements, in the appropriate section of the XML file. For example:
 
@@ -678,7 +712,7 @@ The following elements are not imported from the source file:
 
 * * *
 
-### 5.10 <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
+### 5.11 <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
 
 The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keyMap/map` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help. The `displayMap` consists of a list of display sub elements.
 
@@ -686,7 +720,7 @@ DisplayMaps are designed to be shared across many different keyboard layout desc
 
 * * *
 
-### 5.11 <a name="Element_display" href="#Element_display">Element: display</a>
+### 5.12 <a name="Element_display" href="#Element_display">Element: display</a>
 
 The `display` element describes how a character, that has come from a `keyMap/map` element, should be displayed on a keyboard layout where such display is possible.
 
@@ -714,7 +748,7 @@ To allow `displayMap`s to be shared across descriptions, there is no requirement
 
 * * *
 
-### 5.12 <a name="Element_layer" href="#Element_layer">Element: layer</a>
+### 5.13 <a name="Element_layer" href="#Element_layer">Element: layer</a>
 
 A `layer` element describes the configuration of keys on a particular layer of a keyboard. It contains `row` elements to describe which keys exist in each `row` and also `switch` elements that describe how keys in the layer switch the layer to another. In addition, for platforms that require a mapping from a key to a virtual key (for example Windows or Mac) there is also a `vkeys` element to describe the mapping.
 
@@ -742,7 +776,7 @@ The use of `@modifier` as an identifier for a layer, is sufficient since it is a
 
 * * *
 
-### 5.13 <a name="Element_row" href="#Element_row">Element: row</a>
+### 5.14 <a name="Element_row" href="#Element_row">Element: row</a>
 
 A `row` element describes the keys that are present in the row of a keyboard. `row` elements are ordered within a `layout` element with the top visual row being stored first. The row element introduces the `keyId` which may be an `ISOKey` or a `specialKey`. More formally:
 
@@ -777,7 +811,7 @@ Here is an example of a `row` element:
 
 * * *
 
-### 5.14 <a name="Element_switch" href="#Element_switch">Element: switch</a>
+### 5.15 <a name="Element_switch" href="#Element_switch">Element: switch</a>
 
 The `switch` element describes a function key that has been included in the layout. It specifies which layer pressing the key switches you to and also what the key looks like.
 
@@ -814,7 +848,7 @@ Here is an example of a `switch` element for a shift key:
 
 * * *
 
-### 5.15 <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
+### 5.16 <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
 
 On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the D01 key as being an 'a' with a vkey of 'a' as opposed to 'q' on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key is identified by its vkey and the modifiers active at the time the key was pressed.
 
@@ -832,7 +866,7 @@ A `vkeys` element consists of a list of `vkey` elements.
 
 * * *
 
-### 5.16 <a name="Element_vkey" href="#Element_vkey">Element: vkey</a>
+### 5.17 <a name="Element_vkey" href="#Element_vkey">Element: vkey</a>
 
 A `vkey` element describes a mapping between a key and a vkey for a particular platform.
 
@@ -925,7 +959,7 @@ In the context of a virtual keyboard there might be a symbol layer with the foll
 
 * * *
 
-### 5.17 <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
+### 5.18 <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
 
 This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support such as dead-keys using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
 
@@ -945,7 +979,7 @@ _Attribute:_ `type` (required)
 
 * * *
 
-### 5.18 <a name="Element_transform" href="#Element_transform">Element: transform</a>
+### 5.19 <a name="Element_transform" href="#Element_transform">Element: transform</a>
 
 This element must have the `transforms` element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points.. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
 
@@ -1091,7 +1125,7 @@ We consider each transform type in turn and consider attributes to the `<transfo
 
 * * *
 
-### 5.19 <a name="Element_reorder" href="#Element_reorder">Element: reorder</a>
+### 5.20 <a name="Element_reorder" href="#Element_reorder">Element: reorder</a>
 
 The reorder transform is applied after all transform except for those with `type="final"`.
 
@@ -1291,7 +1325,7 @@ The effect of this that the _e-vowel_ will be identified as a prebase and will h
 
 * * *
 
-### 5.20 <a name="Element_final" href="#Element_final">Element: transforms (final)</a>
+### 5.21 <a name="Element_final" href="#Element_final">Element: final</a>
 
 The final transform is applied after the reorder transform. It executes in a similar way to the simple transform with the settings ignored, as if there were no settings in the `<settings>` element.
 
@@ -1312,7 +1346,7 @@ Another example allows a keyboard implementation to alert or stop people typing 
 
 * * *
 
-### 5.21 <a name="Element_backspaces" href="#Element_backspaces">Element: backspaces</a>
+### 5.22 <a name="Element_backspaces" href="#Element_backspaces">Element: backspaces</a>
 
 The backspace transform is an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.
 
@@ -1332,7 +1366,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 
 * * *
 
-### 5.22 <a name="Element_backspace" href="#Element_backspace">Element: backspace</a>
+### 5.23 <a name="Element_backspace" href="#Element_backspace">Element: backspace</a>
 
 The `backspace` element has the same `@before`, `@from`, `@after`, `@to`,`@errors` of the `transform` element. The `@to` is optional with `backspace`.
 

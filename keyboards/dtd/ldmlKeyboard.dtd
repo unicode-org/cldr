@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT keyboard ( version, generation?, names, settings?, import*, keyMap+, displayMap?, layer*, vkeys*, transforms*, reorders?, backspaces? ) >
+<!ELEMENT keyboard ( version, generation?, info?, names, settings?, import*, keyMap+, displayMap?, layer*, vkeys*, transforms*, reorders?, backspaces? ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:any/TODO-->
 
@@ -30,6 +30,17 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST generation date CDATA #REQUIRED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+
+<!ELEMENT info EMPTY >
+<!ATTLIST info author CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST info normalization CDATA #IMPLIED >
+    <!--@MATCH:literal/NFC, NFD, other-->
+    <!--@VALUE-->
+<!ATTLIST info layout CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST info indicator CDATA #IMPLIED >
+    <!--@VALUE-->
 
 <!ELEMENT names ( name+ ) >
 

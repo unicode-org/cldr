@@ -11,14 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONException;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.VettingViewer;
 
 public class SurveyTool extends HttpServlet {
-    private static final String USE_DOJO_VAR = "USE_DOJO";
     private static final long serialVersionUID = 1L;
-    private static final boolean USE_DOJO_DEFAULT = true;
+
     /**
      * Normally we want to run all js from a bundle, for performance,
      * especially in production. This can be made false for testing and
@@ -26,45 +24,6 @@ public class SurveyTool extends HttpServlet {
      * individual cldr*.js modules directly.
      */
     private static final boolean RUN_ALL_JS_FROM_BUNDLE = true;
-
-    /**
-     * Is dojo enabled by default?
-     * Better to use the other variants taking a WebContext or an HttpServletRequest
-     * Making this private unless there is a good reason to use the default
-     * from another caller
-     * @deprecated this will be going away
-     * @return
-     */
-    @Deprecated
-    private static final boolean defaultUseDojo() {
-        return CLDRConfig.getInstance().getProperty(USE_DOJO_VAR, USE_DOJO_DEFAULT);
-    }
-
-    /**
-     * Is dojo enabled?
-     * @param ctx request context
-     * @deprecated this will be going away
-     * @return
-     */
-    @Deprecated
-    public static final boolean useDojo(WebContext ctx) {
-        return useDojo(ctx.request);
-    }
-
-    /**
-     * do we use Dojo?
-     * @param ctx request context
-     * @deprecated this will be going away
-     * @return
-     */
-    @Deprecated
-    public static final boolean useDojo(HttpServletRequest ctx) {
-        String param = ctx.getParameter(USE_DOJO_VAR);
-        if (param != null && !param.isEmpty()) {
-            return Boolean.parseBoolean(param); // override
-        }
-        return defaultUseDojo();
-    }
 
     @Override
     public final void init(final ServletConfig config) throws ServletException {
@@ -98,12 +57,8 @@ public class SurveyTool extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.write("<!DOCTYPE html>\n");
         if (SurveyMain.isBusted != null || request.getParameter("_BUSTED") != null) {
-            if(!useDojo(request)) {
-                // send the waiting page if we are down/busted.
-                serveWaitingPage(request, out, sm);
-            } else {
-                serveBustedPage(request, out);
-            }
+            // send the waiting page if we are down/busted.
+            serveWaitingPage(request, out, sm);
         } else if (sm == null || !SurveyMain.isSetup || request.getParameter("_STARTINGUP") != null) {
             serveWaitingPage(request, out, sm);
         } else {
@@ -132,35 +87,25 @@ public class SurveyTool extends HttpServlet {
         doGet(request, response);
     }
 
-    private void serveBustedPage(HttpServletRequest request, PrintWriter out) {
-        out.write("<html>\n<head>\n");
-        out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
-        out.write("<title>CLDR Survey Tool | Offline</title>\n");
-        includeCss(request, out);
-        out.write("</head>\n<body>\n");
-        out.write("<p class='ferrorbox'>Survey Tool is offline</p>\n");
-        out.write("</body>\n</html>\n");
-    }
-
     private void serveWaitingPage(HttpServletRequest request, PrintWriter out, SurveyMain sm)
         throws IOException {
-        if(!useDojo(request)) {
-            out.write("<html lang='" + SurveyMain.TRANS_HINT_LOCALE.toLanguageTag() + "' class='claro'>\n");
-            out.write("<head>\n");
-            out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
-            out.write("<title>CLDR Survey Tool | Starting</title>\n");
-            includeCss(request, out);
-            out.write(VettingViewer.getHeaderStyles() + "\n");
-            try {
-                includeJavaScript(request, out);
-            } catch (JSONException e) {
-                SurveyLog.logException(e, "Including JavaScript");
-            }
-            // fire up the Vue based waiting page
-            out.write("</head>\n<body>\n");
-            writeWaitingNavbarHtml(out);
-            out.write("<div id='app'></div>");
-            out.write("<script>\n" +
+
+        out.write("<html lang='" + SurveyMain.TRANS_HINT_LOCALE.toLanguageTag() + "' class='claro'>\n");
+        out.write("<head>\n");
+        out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
+        out.write("<title>CLDR Survey Tool | Starting</title>\n");
+        includeCss(request, out);
+        out.write(VettingViewer.getHeaderStyles() + "\n");
+        try {
+            includeJavaScript(request, out);
+        } catch (JSONException e) {
+            SurveyLog.logException(e, "Including JavaScript");
+        }
+        // fire up the Vue based waiting page
+        out.write("</head>\n<body>\n");
+        writeWaitingNavbarHtml(out);
+        out.write("<div id='app'></div>");
+        out.write("<script>\n" +
             "try {\n" +
             "  cldrBundle.showPanel('retry', '#app');\n" +
             "} catch(e) {\n" +
@@ -168,122 +113,7 @@ public class SurveyTool extends HttpServlet {
             "  document.getElementById('loading-err').innerText='Error: Could not CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack;\n" +
             "}\n" +
             "</script>\n");
-            out.write("</body>");
-        } else {
-            /*
-             * TODO: simplify serveWaitingPage and/or move it to the front end.
-             * This is a crude port from old v.jsp, with js inside html inside java.
-             * It could be the same as serveRunnningNormallyPage, except that
-             * instead of 'st-run-gui' it would have 'st-wait-for-server', and then
-             * the front end could be in charge of the JavaScript.
-             */
-            String url = request.getContextPath() + request.getServletPath();
-            out.write("<html lang='" + SurveyMain.TRANS_HINT_LOCALE.toLanguageTag() + "' class='claro'>\n");
-            out.write("<head>\n");
-            out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
-            out.write("<title>CLDR Survey Tool | Starting</title>\n");
-            includeCss(request, out);
-            if (request.getParameter("_STARTINGUP") == null) {
-                writeTimeoutReloadScript(out, url);
-            }
-            writeDotDotDotScript(out);
-            out.write(VettingViewer.getHeaderStyles() + "\n");
-            try {
-                includeJavaScript(request, out);
-            } catch (JSONException e) {
-                SurveyLog.logException(e, "Including JavaScript");
-            }
-            out.write("</head>\n<body>\n");
-            writeWaitingNavbarHtml(out);
-            out.write("<div class='container'>\n");
-            out.write("  <div class='starter-template' style='margin-top: 120px;'>\n");
-            out.write("<h1>Waiting for the Survey Tool to come online<span id='dots'>...</span></h1>\n");
-            out.write("<p class='lead'>The Survey Tool may be starting up.  </p>\n");
-            if (SurveyMain.isUnofficial()) {
-                out.write("<p><span class='glyphicon glyphicon-wrench'></span>"
-                    + SurveyMain.getCurrev(true) + "</p>\n");
-            }
-            out.write("If you are not redirected in a minute or two, please click\n");
-            final String survURL = request.getContextPath() + "/survey";
-            out.write("<a id='redir2' href='" + survURL + "'>this link</a> to try again.\n");
-            if (request.getParameter("_STARTINGUP") == null) {
-                out.write("<script>\n");
-                out.write("var newUrl = '" + url + "' + document.location.search +  document.location.hash;\n");
-                out.write("var survURL = '" + survURL + "';\n");
-                out.write("(document.getElementById('redir') || {}).href = newUrl;\n");
-                out.write("var dstatus = document.getElementById('st_err');\n");
-                out.write("if (dstatus != null) {\n");
-                out.write("  dstatus.appendChild(document.createElement('br'));\n");
-                out.write("  dstatus.appendChild(document.createTextNode('.'));\n");
-                if (useDojo(request)) {
-                    out.write("  require(['dojo/ready'], function(ready) {\n");
-                    out.write("    ready(function() {\n");
-                } else {
-                    out.write("  $(function() {\n"); // jquery
-                }
-                out.write("        dstatus.appendChild(document.createTextNode('.'));\n");
-                out.write("        window.setTimeout(function () {\n");
-                out.write("          dstatus.appendChild(document.createTextNode('.'));\n");
-                out.write("          const load = function (data) {\n");
-                out.write("            dstatus.appendChild(\n");
-                out.write("              document.createTextNode(\n");
-                out.write("                'Loaded ' +\n");
-                out.write("                  data.length +\n");
-                out.write("                  ' bytes from SurveyTool. Reloading this page..'\n");
-                out.write("              )\n");
-                out.write("            );\n");
-                out.write("            window.location.reload(true);\n");
-                out.write("          };\n");
-                out.write("          const xhrArgs = {\n");
-                out.write("            url: survURL,\n");
-                out.write("            load: load,\n");
-                out.write("          };\n");
-                out.write("          cldrAjax.sendXhr(xhrArgs);\n");
-                out.write("        }, 2000); // two seconds\n");
-                out.write("      });\n");
-                if (useDojo(request)) {
-                    out.write("  });\n");
-                }
-                out.write("}\n");
-                out.write("</script>\n");
-            }
-            out.write("<hr>\n");
-            out.write("<div id='st_err'></div>\n</div>\n</div>\n");
-            out.write("</body>\n</html>\n");
-        }
-    }
-
-    private void writeTimeoutReloadScript(PrintWriter out, String url) {
-        out.write("<script>\n");
-        out.write("  window.setTimeout(function() {\n");
-        out.write("    window.location.reload(true);\n");
-        out.write("    //document.location='" + url
-            + "' + document.location.search + document.location.hash;\n");
-        out.write("  },10000 /* ten seconds */);\n");
-        out.write("</script>\n");
-    }
-
-    private void writeDotDotDotScript(PrintWriter out) {
-        out.write("<script>\n");
-        out.write("var spin0 = 0;\n");
-        out.write("window.setInterval(function() {\n");
-        out.write("    spin0 = (spin0+1)%3;\n");
-        out.write("    var dots = document.getElementById('dots');\n");
-        out.write("    if (dots) {\n");
-        out.write("        switch(spin0) {\n");
-        out.write("         case 0:\n");
-        out.write("             dots.innerHTML = '.';\n");
-        out.write("             break;\n");
-        out.write("         case 1:\n");
-        out.write("             dots.innerHTML='&nbsp;.';\n");
-        out.write("             break;\n");
-        out.write("         case 2:\n");
-        out.write("            dots.innerHTML='&nbsp;&nbsp;.';\n");
-        out.write("           break;\n");
-        out.write("        }\n");
-        out.write("    }\n");
-        out.write("}, 1000);\n");
-        out.write("</script>\n");
+        out.write("</body>");
     }
 
     private void writeWaitingNavbarHtml(PrintWriter out) {
@@ -343,21 +173,19 @@ public class SurveyTool extends HttpServlet {
         out.write("</head>\n");
         out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
         out.write("<div id='st-run-gui'>Loading...</div>\n");
-        if (!useDojo(request)) {
-            if (RUN_ALL_JS_FROM_BUNDLE) {
-                out.write("<script>\n" +
-                 "try {\n" +
-                 "  cldrBundle.runGui();\n" +
-                 "} catch(e) {\n" +
-                 "  console.error(e);\n" +
-                 "  document.write('&#x26A0; Error: Could not load CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack);\n" +
-                 "}\n" +
-                 "</script>\n");
-            } else {
-                out.write("<script type='module'>import * as cldrGui from '" +
-                    request.getContextPath() + "/js/esm/cldrGui.js'\n" +
-                    "cldrGui.run()</script>\n");
-            }
+        if (RUN_ALL_JS_FROM_BUNDLE) {
+            out.write("<script>\n" +
+                "try {\n" +
+                "  cldrBundle.runGui();\n" +
+                "} catch(e) {\n" +
+                "  console.error(e);\n" +
+                "  document.write('&#x26A0; Error: Could not load CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack);\n" +
+                "}\n" +
+                "</script>\n");
+        } else {
+            out.write("<script type='module'>import * as cldrGui from '" +
+                request.getContextPath() + "/js/esm/cldrGui.js'\n" +
+                "cldrGui.run()</script>\n");
         }
         out.write("</body>\n</html>\n");
     }
@@ -367,9 +195,6 @@ public class SurveyTool extends HttpServlet {
         final String cb = getCacheBustingExtension(request);
         out.write("<link rel='stylesheet' href='" + contextPath + "/surveytool" + cb + ".css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum" + cb + ".css' />\n");
-        if (useDojo(request)) {
-            out.write("<link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css' />\n");
-        }
         // bootstrap.min.css -- cf. bootstrap.min.js elsewhere in this file
         out.write("<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/redesign.css' />\n");
@@ -384,80 +209,29 @@ public class SurveyTool extends HttpServlet {
      * @throws JSONException
      */
     public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException, JSONException {
-        if (useDojo(request)) {
-            includeDojoJavaScript(out);
-        } else {
-            // Load the big bundle
-            out.write("<script src=\"dist/bundle" + getCacheBustingExtension(request) + ".js\"></script>\n");
-        }
+        // Load the big bundle
+        out.write("<script src=\"dist/bundle" + getCacheBustingExtension(request) + ".js\"></script>\n");
         includeJqueryJavaScript(request, out);
         includeCldrJavaScript(request, out);
     }
 
-    private static void includeDojoJavaScript(Writer out) throws IOException {
-        out.write("<script>dojoConfig = {parseOnLoad: false, async: true,};</script>\n");
-        out.write("<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>\n");
-    }
-
     private static void includeJqueryJavaScript(HttpServletRequest request, Writer out) throws IOException {
-        // For compatibility with old Dojo, use old jquery, otherwise use newest jquery
         // Per https://en.wikipedia.org/wiki/JQuery#Release_history --
-        // jquery 1.11: January 24, 2014
         // jquery 3.5.1: May 4, 2020
-        final boolean doUseDojo = useDojo(request);
-        if (doUseDojo) {
-            out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
-        } else {
-            out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>\n");
-        }
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>\n");
 
-        // For compatibility with old Dojo, use old jquery-ui, otherwise use newest jquery-ui
         // Per https://en.wikipedia.org/wiki/JQuery_UI#Release_history --
-        // jquery-ui 1.10.4: Jan 17, 2014
         // jquery-ui 1.12.1: Sep 14, 2016 -- that's the newest
         // Per https://jqueryui.com/ -- Current stable "v1.12.1 jQuery 1.7+"
-        if (doUseDojo) {
-            out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
-        } else {
-            out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>\n");
-        }
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>\n");
     }
 
     private static void includeCldrJavaScript(HttpServletRequest request, Writer out) throws IOException {
         final String prefix = "<script src='" + request.getContextPath() + "/js/";
         final String tail = "'></script>\n";
-        final Boolean doUseDojo = useDojo(request);
-        out.write(String.format("<script>const %s=%s;</script>\n", USE_DOJO_VAR, doUseDojo.toString()));
-
-        if (doUseDojo) {
-            // Autosize 1.18.6 - 2014-03-13
-            out.write(prefix + "jquery.autosize.min.js" + tail);
-        } else {
-            // Autosize 4.0.2 (2018-04-30 per changelog.md), see http://www.jacklmoore.com/autosize
-            out.write(prefix + "autosize.min.js" + tail);
-        }
-
-        if (doUseDojo) {
-            final String js = getCacheBustingExtension(request) + ".js" + tail;
-            out.write(prefix + "CldrDojoText" + js); // CldrDojoText.js
-            out.write(prefix + "CldrDojoStatus" + js); // CldrDojoStatus.js
-            out.write(prefix + "CldrDojoAjax" + js); // CldrDojoAjax.js
-            out.write(prefix + "CldrDojoBulkClosePosts" + js); // CldrDojoBulkClosePosts.js
-            out.write(prefix + "CldrDojoForumParticipation" + js); // CldrDojoForumParticipation.js
-            out.write(prefix + "CldrDojoForumFilter" + js); // CldrDojoForumFilter.js
-            out.write(prefix + "CldrDojoCsvFromTable" + js); // CldrDojoCsvFromTable.js
-            out.write(prefix + "CldrDojoDeferHelp" + js); // CldrDojoDeferHelp.js
-            out.write(prefix + "CldrDojoForum" + js); // CldrDojoForum.js
-            out.write(prefix + "survey" + js); // survey.js
-            out.write(prefix + "CldrDojoLoad" + js); // CldrDojoLoad.js
-            out.write(prefix + "CldrDojoTable" + js); // CldrDojoTable.js
-            out.write(prefix + "bootstrap.min.js" + tail); // exceptional
-            out.write(prefix + "redesign" + js); // redesign.js
-            out.write(prefix + "review" + js); // review.js
-            out.write(prefix + "CldrDojoGui" + js); // CldrGuiDojo.js
-        } else {
-            out.write(prefix + "bootstrap.min.js" + tail);
-        }
+        // Autosize 4.0.2 (2018-04-30 per changelog.md), see http://www.jacklmoore.com/autosize
+        out.write(prefix + "autosize.min.js" + tail);
+        out.write(prefix + "bootstrap.min.js" + tail);
     }
 
     /**

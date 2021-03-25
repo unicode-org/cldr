@@ -783,6 +783,10 @@ The `count` attribute distinguishes the different plural forms, such as in the f
 </currency>
 ```
 
+Note on displayNames:
+* In general the region portion of the displayName should match the territory name, see **Part 2** _Section 1.2 [Locale Display Name Fields](tr35-general.md#locale_display_name_fields)_.
+* As a result, the English currency displayName in CLDR may not match the name in ISO 4217.
+
 To format a particular currency value "ZWD" for a particular numeric value _n_ using the (long) display name:
 
 1. If the numeric value is exactly 0 or 1, first see if there is a count with a matching explicit number (0 or 1). If so, use that string (see [Explicit 0 and 1 rules](#Explicit_0_1_rules)).

@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,12 +48,10 @@ import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.XPathParts;
@@ -398,15 +395,11 @@ public class SurveyAjax extends HttpServlet {
                     if (what.equals(WHAT_ADMIN_PANEL)) {
                         mySession.userDidAction();
                         if (UserRegistry.userIsAdmin(mySession.user)) {
-                            if (SurveyTool.useDojo(request)) {
-                                response.sendRedirect(request.getContextPath() + "/AdminPanel.jsp" + "?vap=" + SurveyMain.vap);
-                            } else {
-                                mySession.userDidAction();
-                                SurveyJSONWrapper r = newJSONStatus(request, sm);
-                                r.put("what", what);
-                                new AdminPanel().getJson(r, request, response, sm);
-                                send(r, out);
-                            }
+                            mySession.userDidAction();
+                            SurveyJSONWrapper r = newJSONStatus(request, sm);
+                            r.put("what", what);
+                            new AdminPanel().getJson(r, request, response, sm);
+                            send(r, out);
                         } else {
                             sendError(out, "Only Admin can access Admin Panel", ErrorCode.E_NO_PERMISSION);
                         }
@@ -834,61 +827,9 @@ public class SurveyAjax extends HttpServlet {
                         }
                             break;
                         case WHAT_USER_LIST: {
-                            if (!SurveyTool.useDojo(request)) {
-                                final SurveyJSONWrapper r = newJSONStatusQuick(sm);
-                                new UserList(request, response, mySession, sm).getJson(r);
-                                send(r, out);
-                            } else if (mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
-                                try {
-                                    Connection conn = null;
-                                    ResultSet rs = null;
-                                    PreparedStatement ps = null;
-                                    JSONArray users = new JSONArray();
-                                    final String forOrg = (UserRegistry.userIsAdmin(mySession.user)) ? null : mySession.user.org;
-                                    try {
-                                        conn = DBUtils.getInstance().getDBConnection();
-                                        ps = sm.reg.list(forOrg, conn);
-                                        rs = ps.executeQuery();
-                                        // id,userlevel,name,email,org,locales,intlocs,lastlogin
-                                        while (rs.next()) {
-                                            int id = rs.getInt("id");
-                                            UserRegistry.User them = sm.reg.getInfo(id);
-                                            users.put(SurveyJSONWrapper.wrap(them)
-                                                .put("locales", rs.getString("locales"))
-                                                .put("lastlogin", rs.getTimestamp("lastlogin"))
-                                                .put("intlocs", rs.getString("intlocs")));
-                                        }
-                                    } finally {
-                                        DBUtils.close(rs, ps, conn);
-                                    }
-                                    final SurveyJSONWrapper r = newJSONStatusQuick(sm);
-                                    r.put("what", what);
-                                    r.put("users", users);
-                                    r.put("org", forOrg);
-                                    JSONObject userPerms = new JSONObject();
-                                    final boolean userCanCreateUsers = UserRegistry.userCanCreateUsers(mySession.user);
-                                    userPerms.put("canCreateUsers", userCanCreateUsers);
-                                    if (userCanCreateUsers) {
-                                        final org.unicode.cldr.util.VoteResolver.Level myLevel = mySession.user.getLevel();
-                                        final Organization myOrganization = mySession.user.getOrganization();
-                                        JSONObject forLevel = new JSONObject();
-                                        for (VoteResolver.Level v : VoteResolver.Level.values()) {
-                                            JSONObject jo = new JSONObject();
-                                            jo.put("canCreateOrSetLevelTo", myLevel.canCreateOrSetLevelTo(v));
-                                            jo.put("isManagerFor", myLevel.isManagerFor(myOrganization, v, myOrganization));
-                                            forLevel.put(v.name(), jo);
-                                        }
-                                        userPerms.put("forLevel", forLevel);
-                                    }
-                                    r.put("userPerms", userPerms);
-                                    send(r, out);
-                                } catch (SQLException e) {
-                                    SurveyLog.logException(e, "listing users for " + mySession.user.toString());
-                                    throw new SurveyException(ErrorCode.E_INTERNAL, "Internal error listing users: " + e.toString());
-                                }
-                            } else {
-                                throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
-                            }
+                            final SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                            new UserList(request, response, mySession, sm).getJson(r);
+                            send(r, out);
                         }
                             break;
                         case WHAT_USER_OLDVOTES:
@@ -3015,7 +2956,7 @@ public class SurveyAjax extends HttpServlet {
                 out.write("<td title='vote:' style='" + resultStyle + "'>\n");
                 if (!checkResult.isEmpty()) {
                     out.write("<script>\n");
-                    String testsToHtml = SurveyTool.useDojo(request) ? "cldrSurvey.testsToHtml" : "testsToHtml";
+                    String testsToHtml = "testsToHtml";
                     out.write("document.write(" + testsToHtml + "(" + SurveyJSONWrapper.wrap(checkResult) + ")");
                     out.write("</script>\n");
                 }

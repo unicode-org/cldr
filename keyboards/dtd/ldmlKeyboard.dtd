@@ -56,7 +56,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT map EMPTY >
 <!ATTLIST map iso CDATA #REQUIRED >
-    <!--@MATCH:regex/[A-E](0[0-9]|1[0-3])-->
+    <!--@MATCH:regex/[A-Z][0-9][0-9]-->
 <!ATTLIST map to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -74,6 +74,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT flicks ( flick+ ) >
 <!ATTLIST flicks iso CDATA #REQUIRED >
+    <!--@MATCH:regex/[A-Z][0-9][0-9]-->
 
 <!ELEMENT flick EMPTY >
 <!ATTLIST flick directions NMTOKENS #REQUIRED >
@@ -102,17 +103,19 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT vkeys ( vkey+ ) >
 <!ATTLIST vkeys type CDATA #REQUIRED >
+    <!--@MATCH:literal/android, chromeos, osx, und, windows-->
 
 <!ELEMENT vkey EMPTY >
 <!ATTLIST vkey iso CDATA #REQUIRED >
+    <!--@MATCH:regex/[A-Z][0-9][0-9]-->
 <!ATTLIST vkey vkey CDATA #REQUIRED >
     <!--@VALUE-->
-<!ATTLIST vkey modifier CDATA #REQUIRED >
+<!ATTLIST vkey modifier CDATA #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT transforms ( transform+ ) >
 <!ATTLIST transforms type CDATA #REQUIRED >
-    <!--@MATCH:literal/simple-->
+    <!--@MATCH:literal/simple, final-->
 
 <!ELEMENT transform EMPTY >
 <!ATTLIST transform before CDATA #IMPLIED >

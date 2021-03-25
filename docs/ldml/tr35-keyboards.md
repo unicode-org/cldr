@@ -239,7 +239,7 @@ Characters of general category of Combining Mark (M), Control characters (Cc), F
 
 ## 4 <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
 
-Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chromeos. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
+Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or ChromeOS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
 
 1. A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called `_platform.xml`.
 2. Multiple layout files named by their locale identifiers. (eg. `lt-t-k0-chromeos.xml` or `ne-t-k0-windows.xml`).
@@ -285,7 +285,7 @@ Element used to keep track of the source data version.
 Syntax
 
 ```xml
-<version platform=".." revision="..">  
+<version platform=".." number="..">  
 ```
 
 _Attribute:_ `platform` (required)
@@ -294,7 +294,7 @@ _Attribute:_ `platform` (required)
 
 _Attribute:_ `number` (required)
 
-> The data revision version.
+> The data revision version. The attribute value must start with `$Revision` and end with `$`.
 
 _Attribute:_ `cldrVersion` (fixed by DTD)
 
@@ -480,10 +480,10 @@ Modifier Examples:
 Caps-Lock may be ON or OFF, Option must be ON, Shift must be ON and Command may be ON or OFF.
 
 ```xml
-<keyMap modifiers="shift caps" fallback="true" />
+<keyMap modifiers="shift caps" />
 ```
 
-Caps-Lock must be ON OR Shift must be ON. Is also the fallback key map.
+Caps-Lock must be ON OR Shift must be ON.
 
 If the `modifiers` attribute is not present on a `keyMap` then that particular key map is the base map.
 
@@ -503,7 +503,11 @@ Syntax
  to="{the output}"
  [longPress="{long press keys}"]
  [transform="no"]
-/><!-- {Comment to improve readability (if needed)} -->
+ [multitap="{the output on subsequent taps}"] 
+ [longPress-status="optional"] 
+ [optional="{optional mappings}"] 
+ [hint="{hint to long press content}"] 
+ /><!-- {Comment to improve readability (if needed)} -->
 ```
 
 _Attribute:_ `iso` (exactly one of base and iso is required)
@@ -514,7 +518,7 @@ _Attribute:_ `to` (required)
 
 > The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation.
 
-_Attribute:_ `longPress` (optional)
+_Attribute:_ `longPress="optional"` (optional)
 
 > The `longPress` attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the `\u{...}` notation.
 
@@ -568,7 +572,7 @@ Then the first key must be tagged with `transform="no"` to indicate that it shou
 
 Comment: US key equivalent, base key, escaped output and escaped longpress
 
-In the generated files, a comment is included to help the readability of the document. This comment simply shows the English key equivalent (with prefix `key=`), the base character (`base=`), the escaped output (`to=`) and escaped long-press keys (`long=`). These comments have been inserted strategically in places to improve readability. Not all comments include include all components since some of them may be obvious.
+In the generated files, a comment is included to help the readability of the document. This comment simply shows the English key equivalent (with prefix `key=`), the base character (`base=`), the escaped output (`to=`) and escaped long-press keys (`long=`). These comments have been inserted strategically in places to improve readability. Not all comments include all components since some of them may be obvious.
 
 Examples
 
@@ -605,15 +609,30 @@ Examples
 
 #### 5.8.1 <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
 
-```
-<!ELEMENT keyMap ( map | flicks )+ >  
-<!ELEMENT flick EMPTY>  
-<!ATTLIST flick directions NMTOKENS>  
-<!ATTLIST flick to CDATA>  
-<!--@VALUE-->
+The `flicks` element is used to generate results from a "flick" of the finger on a mobile device. 
+
+```xml
+<flicks iso="{the iso position}"> 
+    {a set of flick elements} 
+</flicks> 
 ```
 
-The `flicks` element is used to generate results from a "flick" of the finger on a mobile device. The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`. The `to` attribute value is the result of (one or more) flicks.
+_Attribute:_ `iso` (required)
+
+> The `iso` attribute represents the ISO layout position of the key (see the definition at the beginning of the document for more information).
+
+
+```xml
+<flick directions="{list of directions}" to="{the output}" /> 
+```
+ 
+_Attribute:_ `directions` (required) 
+
+> The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`. 
+
+_Attribute:_ `to` (required) 
+
+> The to attribute value is the result of (one or more) flicks. 
 
 Example: where a flick to the Northeast then South produces two code points.
 
@@ -645,7 +664,7 @@ Elements are considered to have three attributes that make them unique: the tag 
 |-----------|--------------|--------------------------|
 | `keyMap`  | `keyboard`   | `@modifiers`             |
 | `map`     | `keyMap`     | `@iso`                   |
-| `display` | `displayMap` | `@char` (new)            |
+| `display` | `displayMap` | `@to`                    |
 | `layout`  | `layouts`    | `@modifier`              |
 
 In order to help identify mistakes, it is an error if a file contains two elements that override each other. All element overrides must come as a result of an `<include>` element either for the element overridden or the element overriding.
@@ -661,7 +680,7 @@ The following elements are not imported from the source file:
 
 ### 5.10 <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
 
-The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@char` element from the `keyMap/map` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help. The `displayMap` consists of a list of display sub elements.
+The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keyMap/map` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help. The `displayMap` consists of a list of display sub elements.
 
 DisplayMaps are designed to be shared across many different keyboard layout descriptions, and included in where needed.
 
@@ -671,27 +690,27 @@ DisplayMaps are designed to be shared across many different keyboard layout desc
 
 The `display` element describes how a character, that has come from a `keyMap/map` element, should be displayed on a keyboard layout where such display is possible.
 
-_Attribute:_ `mapOutput` (required)
+_Attribute:_ `to` (required)
 
 > Specifies the character or character sequence from the `keyMap/map` element that is to have a special display.
 
 _Attribute:_ `display` (required)
 
-> Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@mapOutput` sequence. (It is an error if the value of the `display` attribute is the same as the value of the `char` attribute.)
+> Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@to` sequence. (It is an error if the value of the `display` attribute is the same as the value of the `to` attribute.)
 
 ```xml
-<keyboard >
-    <keyboardMap>
+<keyboard>
+    <keyMap>
         <map iso="C01" to="a" longpress="\u0301 \u0300" />
-    </keyboardMap>
+    </keyMap>
     <displayMap>
-        <display mapOutput="\u0300" display="u\u02CB" />
-        <display mapOutput="\u0301" display="u\u02CA" />
+        <display to="\u0300" display="u\u02CB" />
+        <display to="\u0301" display="u\u02CA" />
     </displayMap>  
-</keyboard >
+</keyboard>
 ```
 
-To allow `displayMap`s to be shared across descriptions, there is no requirement that `@mapOutput` matches any `@to` in any `keyMap/map` element in the keyboard description.
+To allow `displayMap`s to be shared across descriptions, there is no requirement that `@to` in a `display` element matches any `@to` in any `keyMap/map` element in the keyboard description.
 
 * * *
 
@@ -725,7 +744,7 @@ The use of `@modifier` as an identifier for a layer, is sufficient since it is a
 
 ### 5.13 <a name="Element_row" href="#Element_row">Element: row</a>
 
-A `row` element describes the keys that are present in the row of a keyboard. `row` elements are ordered within a `layout` element with the top visual row being stored first. The row element introduces the `keyId` which may be an `ISOKey` or a s`pecialKey`. More formally:
+A `row` element describes the keys that are present in the row of a keyboard. `row` elements are ordered within a `layout` element with the top visual row being stored first. The row element introduces the `keyId` which may be an `ISOKey` or a `specialKey`. More formally:
 
 ```
 keyId = ISOKey | specialKey  
@@ -799,6 +818,10 @@ Here is an example of a `switch` element for a shift key:
 
 On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the D01 key as being an 'a' with a vkey of 'a' as opposed to 'q' on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key is identified by its vkey and the modifiers active at the time the key was pressed.
 
+_Attribute:_ `type`
+
+> Current values: android, chromeos, osx, und, windows. 
+
 For a physical keyboard there is a layout specific default mapping of keys to vkeys. These are listed in a `vkeys` element which takes a list of `vkey` element mappings and is identified by a type. There are different vkey mappings required for different platforms. While `type="windows"` vkeys are very similar to `type="osx"` vkeys, they are not identical and require their own mapping.
 
 The most common model for specifying vkeys is to import a standard mapping, say to the US layout, and then to add a `vkeys` element to change the mapping appropriately for the specific layout.
@@ -816,10 +839,6 @@ A `vkey` element describes a mapping between a key and a vkey for a particular p
 _Attribute:_ `iso` (required)
 
 > The ISOkey being mapped.
-
-_Attribute:_ `type`
-
-> Current values: android, chromeos, osx, und, windows.
 
 _Attribute:_ `vkey` (required)
 
@@ -933,7 +952,11 @@ This element must have the `transforms` element as its parent. This element repr
 Syntax
 
 ```xml
-<transform from="{combination of characters}" to="{output}">
+<transform from="{combination of characters}" to="{output}"
+   [before="{look-behind required match}"] 
+   [after="{look-ahead required match}"] 
+   [error="fail"]
+>
 ```
 
 _Attribute:_ `from` (required)
@@ -958,7 +981,7 @@ Most transforms in practice have only a couple of characters. But for completene
 2. If there could not be a longer match, find the longest actual match, emit the transformed text (if failure is set to emit), and start processing again with the remainder.
 3. If there is no possible match, output the first character, and start processing again with the remainder.
 
-Suppose that there is the following transforms:
+Suppose that there are the following transforms:
 
 ```
 ab → x
@@ -1026,7 +1049,7 @@ _Attribute:_ `after` (optional)
 
 > This attribute consists of a sequence of elements (codepoint or UnicodeSet) and matches as a zero-width assertion after the `@from` sequence. The attribute must match for the transform to apply. If missing, no after constraint is applied. The attribute value must not be empty. When the transform is applied, the string matched by the `@from` attribute is replaced by the string in the `@to` attribute, with the text matched by the `@after` attribute left unchanged. After the change, the current position is reset to just after the text output from the `@to` attribute and just before the text matched by the `@after` attribute. Warning: some legacy implementations may not be able to make such an adjustment and will place the current position after the `@after` matched string.
 
-_Attribute:_ `error` (optional)
+_Attribute:_ `error="fail"` (optional)
 
 > If set this attribute indicates that the keyboarding application may indicate an error to the user in some way. Processing may stop and rewind to any state before the key was pressed. If processing does stop, no further transforms on the same input are applied. The `@error` attribute takes the value `"fail"`, or must be absent. If processing continues, the `@to` is used for output as normal. It thus should contain a reasonable value.
 
@@ -1092,13 +1115,21 @@ In order to get the characters into the correct relative order, it is necessary 
 
 The reorder transform consists of a single element type: `<reorder>` encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiary_base`, `prebase`) for the matched characters in the string.
 
-> **from** This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS#35 section 5.3.3). This attribute is required.
-> 
-> **before** This attribute follows the `transform/@before` attribute and contains the element string that must match the string immediately preceding the start of the string that the @from matches.
-> 
-> **after** This attribute follows the `transform/@after` attribute and contains the element string that must match the string immediately following the end of the string that the @from matches.
-> 
-> **order** This attribute gives the primary order for the elements in the matched string in the `@from` attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.
+_Attribute:_ `from` (required)
+
+> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS#35 section 5.3.3).
+
+_Attribute:_ `before`
+
+> This attribute follows the `transform/@before` attribute and contains the element string that must match the string immediately preceding the start of the string that the @from matches.
+
+_Attribute:_ `after`
+
+> This attribute follows the `transform/@after` attribute and contains the element string that must match the string immediately following the end of the string that the `@from` matches.
+
+_Attribute:_ `order`
+
+> This attribute gives the primary order for the elements in the matched string in the `@from` attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.
 > 
 > * If the value is 0 and its tertiary value is 0, then the character is the base of a new run.
 > * If the value is 0 and its tertiary value is non-zero, then it is a normal character in a run, with ordering semantics as described in the `@tertiary` attribute.
@@ -1111,8 +1142,10 @@ The reorder transform consists of a single element type: `<reorder>` encapsulate
 > * Secondary weight is the index of the character. This may be any value (character index, codepoint index) such that its value is greater than the character before it and less than the character after it.
 > * Tertiary weight is 0.
 > * Quaternary weight is the same as the secondary weight.
-> 
-> **tertiary** This attribute gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.
+
+_Attribute:_ `tertiary`
+
+> This attribute gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.
 > 
 > * If the value is 0 then the character is considered to have a primary order as specified in its order value and is a primary character.
 > * If the value is non zero, then the order value must be zero otherwise it is an error. The character is considered as a tertiary character for the purposes of ordering.
@@ -1123,10 +1156,14 @@ The reorder transform consists of a single element type: `<reorder>` encapsulate
 > * Secondary weight is the index of the primary character, not the tertiary character
 > * Tertiary weight is the tertiary value for the character.
 > * Quaternary weight is the index of the tertiary character.
-> 
-> **tertiary\_base** This attribute is a space separated list of `"true"` or `"false"` values corresponding to each character matched. It is illegal for a tertiary character to have a true `tertiary_base` value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true `tertiary_base` attribute is used. Primary characters with an `@order` value of 0 automatically are treated as having `tertiary_base` true regardless of what is specified for them.
-> 
-> **prebase** This attribute gives the prebase attribute for each character matched. The value may be `"true"` or `"false"` or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.
+
+_Attribute:_ `tertiary_base`
+
+> This attribute is a space separated list of `"true"` or `"false"` values corresponding to each character matched. It is illegal for a tertiary character to have a true `tertiary_base` value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true `tertiary_base` attribute is used. Primary characters with an `@order` value of 0 automatically are treated as having `tertiary_base` true regardless of what is specified for them.
+
+_Attribute:_ `prebase`
+
+> This attribute gives the prebase attribute for each character matched. The value may be `"true"` or `"false"` or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.
 >
 > If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus `@primary` may not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of `"false"` indicates that the character is not a prebase.
 
@@ -1191,9 +1228,9 @@ The first reorder is the default ordering for the _asat_ which allows for it to 
 
 `<reorder>` elements are priority ordered based first on the length of string their `@from` attribute matches and then the sum of the lengths of the strings their `@before` and `@after` attributes match.
 
-If a layout has two `<transforms>` elements of type reorder, e.g. from importing one and specifying the second, then `<transform>` elements are merged. The @from string in a `<reorder>` element describes a set of strings that it matches. This also holds for the `@before` and `@after` attributes. The intersection of two `<reorder>` elements consists of the intersections of their `@from`, `@before` and `@after` string sets. It is illegal for the intersection between any two `<reorder>` elements in the same `<transforms>` element to be non empty, although implementors are encouraged to have pity on layout authors when reporting such errors, since they can be hard to track down.
+If a layout has two `<reorders>` elements, e.g. from importing one and specifying the second, then `<reorder>` elements are merged. The @from string in a `<reorder>` element describes a set of strings that it matches. This also holds for the `@before` and `@after` attributes. The intersection of two `<reorder>` elements consists of the intersections of their `@from`, `@before` and `@after` string sets. It is illegal for the intersection between any two `<reorder>` elements in the same `<reorders>` element to be non empty, although implementors are encouraged to have pity on layout authors when reporting such errors, since they can be hard to track down.
 
-If two `<reorder>` elements in two different `<transforms>` elements have a non empty intersection, then they are split and merged. They are split such that where there were two `<reorder>` elements, there are, in effect (but not actuality), three elements consisting of:
+If two `<reorder>` elements in two different `<reorders>` elements have a non empty intersection, then they are split and merged. They are split such that where there were two `<reorder>` elements, there are, in effect (but not actuality), three elements consisting of:
 
 * `@from`, `@before`, `@after` that match the intersection of the two rules. The other attributes are merged, as described below.
 * `@from`, `@before`, `@after` that match the set of strings in the first rule not in the intersection with the other attributes from the first rule.
@@ -1213,7 +1250,7 @@ would not merge with:
 <reorder before="a" from="bcd" after="e" />
 ```
 
-When two `<reorders>`elements merge as the result of an import, the resulting `reorder` elements are sorted into priority order for matching.
+When two `<reorders>` elements merge as the result of an import, the resulting `reorder` elements are sorted into priority order for matching.
 
 Consider this fragment from a shared reordering for the Myanmar script:
 
@@ -1255,7 +1292,7 @@ The effect of this that the _e-vowel_ will be identified as a prebase and will h
 
 * * *
 
-### 5.20 <a name="Element_final" href="#Element_final">Element: final</a>
+### 5.20 <a name="Element_final" href="#Element_final">Element: transforms (final)</a>
 
 The final transform is applied after the reorder transform. It executes in a similar way to the simple transform with the settings ignored, as if there were no settings in the `<settings>` element.
 
@@ -1451,13 +1488,12 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
     * eg you can't have `"RAlt Ctrl"` in one `keyMap`, and `"Alt Shift"` in another (because Alt = RAltLAlt).
 4.  Every sequence of characters in a `transform[@from]` value must be a concatenation of two or more `map[@to]` values.
     * eg with `<transform from="xyz" to="q">` there must be some map values to get there, such as `<map... to="xy">` & `<map... to="z">`
-5.  There must be either 0 or 1 of (`keyMap[@fallback]` or `baseMap[@fallback]`) attributes
-6.  If the base and chars values for `modifiers=""` are all identical, and there are no longpresses, that `keyMap` must not appear (??)
-7.  There will never be overlaps among modifier values.
-8.  A modifier set will never have ? (optional) on all values
+5.  If the base and chars values for `modifiers=""` are all identical, and there are no longpresses, that `keyMap` must not appear (??)
+6.  There will never be overlaps among modifier values.
+7.  A modifier set will never have ? (optional) on all values
     * eg, you'll never have `RCtrl?Caps?LShift?`
-9.  Every `base[@base`] value must be unique.
-10. A `modifier` attribute value will aways be minimal, observing the following simplification rules.  
+8.  Every `base[@base`] value must be unique.
+9. A `modifier` attribute value will aways be minimal, observing the following simplification rules.  
     
 | Notation                                 | Notes | 
 |------------------------------------------|-------|

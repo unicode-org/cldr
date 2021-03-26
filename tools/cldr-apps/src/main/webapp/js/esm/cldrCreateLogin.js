@@ -93,7 +93,7 @@ function fetchData() {
 function loadHandler(json) {
   if (json.err) {
     const div = document.getElementById("createLoginDiv");
-    div.innerHTML = err;
+    div.innerHTML = json.err;
     return;
   }
   setupFormActionUrl();

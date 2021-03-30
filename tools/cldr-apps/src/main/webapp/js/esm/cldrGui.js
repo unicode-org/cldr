@@ -11,7 +11,11 @@ import MainHeader from "../../../../../js/src/views/MainHeader.vue";
 
 const GUI_DEBUG = true;
 
+const runGuiId = "st-run-gui";
+
 let mainHeaderWrapper = null;
+
+let rightPanelVisible = true;
 
 /**
  * Set up the DOM and start executing Survey Tool as a single page app
@@ -21,10 +25,12 @@ function run() {
     console.log("Hello my name is cldrGui.run");
     debugParse();
   }
-  const guiContainer = document.getElementById("st-run-gui");
+  const guiContainer = document.getElementById(runGuiId);
   if (!guiContainer) {
     if (GUI_DEBUG) {
-      console.log("cldrGui.run doing nothing since 'st-run-gui' not found");
+      console.log(
+        "cldrGui.run doing nothing since '" + runGuiId + "' not found"
+      );
     }
     return;
   }
@@ -43,7 +49,7 @@ function run() {
 }
 
 /**
- * Create the Main Header Vue component as the first child of the body element
+ * Create the Main Header Vue component
  *
  * Reference: https://v3.vuejs.org/api/application-api.html#mount
  */
@@ -52,7 +58,7 @@ function insertHeader() {
     const fragment = document.createDocumentFragment();
     mainHeaderWrapper = createApp(MainHeader).mount(fragment);
     const el = document.createElement("header");
-    const gui = document.getElementById("st-run-gui");
+    const gui = document.getElementById(runGuiId);
     gui.insertBefore(el, gui.firstChild);
     el.parentNode.replaceChild(fragment, el);
   } catch (e) {
@@ -108,7 +114,6 @@ const leftSidebar =
   "</div>\n";
 
 const st_notices =
-  /* start stnotices.jspf */
   "          <div class='topnotices'>\n" +
   "            <div id='stchanged' style='display:none;' class='stchanged' title='st has changed'>\n" +
   "              <img alt='[warn]' style='width: 16px; height: 16px; border: 0;' src='/cldr-apps/warn.png' title='Locale Changed' />\n" +
@@ -129,150 +134,6 @@ const st_notices =
   "              <button id='progress-refresh' onclick='window.location.reload(true);'>Refresh</button>\n" +
   "            </div>\n" +
   "          </div>\n";
-/* end stnotices.jspf */
-
-const mainContainer =
-  /* Caution: "-container" is added to various strings by menubuttons.set()
-       in cldrMenu.js, so be careful not to assume such attributes are unused!
-       
-    col-md-12, col-md-9, and col-md-3 are bootstrap-specific classes
-     "md" means "medium", "12/9/3" = number of columns; but they're not really columns.
-     col-md-12 means full (12/12) width. col-md-6 means half (6/12) width. col-md-4 means one third (4/12) width.
-     "Column classes indicate the number of columns you’d like to use out of the possible 12 per row.
-      So, if you want three equal-width columns across, you can use .col-4"
-     https://getbootstrap.com/docs/4.1/layout/grid/
-    "row" and "container-fluid" are also bootstrap classes
-   */
-  "<div class='container-fluid' id='main-container'>\n" +
-  "  <div class='row menu-position'>\n" +
-  "    <div class='col-md-12'>\n" +
-  "      <div id='toptitle'>\n" +
-  "        <div id='additional-top'>\n" +
-  st_notices +
-  "        </div>\n" +
-  "        <!-- top info -->\n" +
-  "        <div id='title-locale-container' class='menu-container' style='display:none'>\n" +
-  "          <h1><a href='#locales///' id='title-locale'></a></h1>\n" +
-  "          <span id='title-dcontent-container'><a href='http://cldr.unicode.org/translation/default-content' id='title-content'></a></span>\n" +
-  "        </div>\n" +
-  "        <div id='title-section-container' class='menu-container'>\n" +
-  "          <h1 id='section-current'></h1>\n" +
-  "          <div style='display:none' id='title-section' data-dojo-type='dijit/form/DropDownButton'>\n" +
-  "            <span>(section)</span>\n" +
-  "            <div id='menu-section' data-dojo-type='dijit/DropDownMenu'></div>\n" +
-  "          </div>\n" +
-  "        </div> \n" +
-  "        <div id='title-page-container' class='menu-container'></div>\n" +
-  "        <div class='row' id='nav-page'>\n" +
-  "          <div class='col-md-9'>\n" +
-  "            <p class='nav-button'>\n" +
-  "              <button id='chgPagePrevTop' type='button' class='btn btn-primary btn-xs'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
-  "              <button id='chgPageNextTop' type='button' class='btn btn-primary btn-xs'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
-  "              <button type='button' class='btn btn-default btn-xs toggle-right'>Toggle Sidebar <span class='glyphicon glyphicon-align-right'></span></button>\n" +
-  "            </p>\n" +
-  "            <div class='progress nav-progress'>\n" +
-  "              <div id='progress-voted' class='progress-bar progress-bar-info tip-log' title='Votes' style='width: 0%'></div>\n" +
-  "              <div id='progress-abstain' class='progress-bar progress-bar-warning tip-log' title='Abstain' style='width: 0%'></div>\n" +
-  "            </div>\n" +
-  "            <div class='counter-infos'><a id='reloadForum'>Forum:</a>\n" +
-  "              <span id='vForum'>...</span> ●\n" +
-  "              Votes: <span id='count-voted'></span>\n" +
-  "              - Abstain: <span id='count-abstain'></span>\n" +
-  "              - Total: <span id='count-total'></span>\n" +
-  "            </div>\n" +
-  "          </div>\n" +
-  "        </div>\n" +
-  "      </div>\n" +
-  "    </div>\n" +
-  "  </div>\n" +
-  "  <div class='row' id='main-row' style='padding-top:88px;'>\n" +
-  "    <div class='col-md-9'>\n" +
-  "      <div data-dojo-type='dijit/layout/ContentPane' id='MainContentPane' data-dojo-props=\"splitter:true, region:'center'\" >\n" +
-  "        <div id='LoadingMessageSection'>Please Wait<img src='loader.gif' alt='Please Wait' /></div>\n" +
-  "        <div id='DynamicDataSection'></div>\n" +
-  "        <div id='nav-page-footer'>\n" +
-  "          <p class='nav-button'>\n" +
-  "            <button id='chgPagePrevBot' type='button' class='btn btn-primary btn-xs'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
-  "            <button id='chgPageNextBot' type='button' class='btn btn-primary btn-xs'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
-  "            <button type='button' class='btn btn-default btn-xs toggle-right'>Toggle Sidebar <span class='glyphicon glyphicon-align-right'></span></button>\n" +
-  "          </p>\n" +
-  "        </div>\n" +
-  "        <div id='OtherSection'></div>\n" +
-  "      </div>\n" +
-  "    </div>\n" +
-  "    <div class='col-md-3'>\n" +
-  "      <div id='itemInfo' class='right-info' style='overflow-y: auto' data-dojo-type='dijit/layout/ContentPane' data-dojo-props=\"splitter:true, region:'trailing'\" ></div>\n" +
-  "    </div>\n" +
-  "  </div>\n" +
-  "  <div id='ressources' style='display:none'></div>\n" +
-  "</div>\n";
-
-const mainContainerLessBS =
-  /* less bootstrap in this version, for testing
-   */
-  "<div id='main-container'>\n" +
-  "  <div>\n" +
-  "    <div class='col-md-12'>\n" +
-  "      <div id='toptitle'>\n" +
-  "        <div id='additional-top'>\n" +
-  st_notices +
-  "        </div>\n" +
-  "        <!-- top info -->\n" +
-  "        <span id='title-locale-container' class='menu-container' style='display:none'>\n" +
-  "          <h1><a href='#locales///' id='title-locale'></a></h1>\n" +
-  "          <span id='title-dcontent-container'><a href='http://cldr.unicode.org/translation/default-content' id='title-content'></a></span>\n" +
-  "        </span>\n" +
-  "        <span id='title-section-container' class='menu-container'>\n" +
-  "          <h1 id='section-current'></h1>\n" +
-  "          <span style='display:none' id='title-section'>\n" +
-  "            <span>(section)</span>\n" +
-  "            <span id='menu-section'></span>\n" +
-  "          </span>\n" +
-  "        </span> \n" +
-  "        <span id='title-page-container' class='menu-container'></span>\n" +
-  "        <div id='nav-page'>\n" +
-  "          <div class='col-md-9'>\n" +
-  "            <p class='nav-button'>\n" +
-  "              <button id='chgPagePrevTop' type='button' class='btn btn-primary btn-xs'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
-  "              <button id='chgPageNextTop' type='button' class='btn btn-primary btn-xs'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
-  "              <button type='button' class='btn btn-default btn-xs toggle-right'>Toggle Sidebar <span class='glyphicon glyphicon-align-right'></span></button>\n" +
-  "            </p>\n" +
-  "            <div class='progress nav-progress'>\n" +
-  "              <div id='progress-voted' class='progress-bar progress-bar-info tip-log' title='Votes' style='width: 0%'></div>\n" +
-  "              <div id='progress-abstain' class='progress-bar progress-bar-warning tip-log' title='Abstain' style='width: 0%'></div>\n" +
-  "            </div>\n" +
-  "            <div class='counter-infos'><a id='reloadForum'>Forum:</a>\n" +
-  "              <span id='vForum'>...</span> ●\n" +
-  "              Votes: <span id='count-voted'></span>\n" +
-  "              - Abstain: <span id='count-abstain'></span>\n" +
-  "              - Total: <span id='count-total'></span>\n" +
-  "            </div>\n" +
-  "          </div>\n" +
-  "        </div>\n" +
-  "      </div>\n" +
-  "    </div>\n" +
-  "  </div>\n" +
-  "  <div id='main-row'>\n" +
-  "    <div class='col-md-9'>\n" +
-  "      <div id='MainContentPane'>\n" +
-  "        <div id='LoadingMessageSection'>Please Wait<img src='loader.gif' alt='Please Wait' /></div>\n" +
-  "        <div id='DynamicDataSection'></div>\n" +
-  "        <div id='nav-page-footer'>\n" +
-  "          <p class='nav-button'>\n" +
-  "            <button id='chgPagePrevBot' type='button' class='btn btn-primary btn-xs'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>\n" +
-  "            <button id='chgPageNextBot' type='button' class='btn btn-primary btn-xs'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>\n" +
-  "            <button type='button' class='btn btn-default btn-xs toggle-right'>Toggle Sidebar <span class='glyphicon glyphicon-align-right'></span></button>\n" +
-  "          </p>\n" +
-  "        </div>\n" +
-  "        <div id='OtherSection'></div>\n" +
-  "      </div>\n" +
-  "    </div>\n" +
-  "    <div class='col-md-3'>\n" +
-  "      <div id='itemInfo' class='right-info' style='overflow-y: auto'></div>\n" +
-  "    </div>\n" +
-  "  </div>\n" +
-  "  <div id='ressources' style='display:none'></div>\n" +
-  "</div>\n";
 
 const topTitle =
   `
@@ -442,18 +303,8 @@ const hiddenHtml =
   "  </div>\n" +
   "</div>\n";
 
-const useMainContainerRadical = true;
-const useMainContainerLessBS = false;
-
 function getBodyHtml() {
-  if (useMainContainerRadical) {
-    return (
-      leftSidebar + topTitle + sideBySide + overlay + postModal + hiddenHtml
-    );
-  } else if (useMainContainerLessBS) {
-    return leftSidebar + mainContainerLessBS + overlay + postModal + hiddenHtml;
-  }
-  return leftSidebar + mainContainer + overlay + postModal + hiddenHtml;
+  return leftSidebar + topTitle + sideBySide + overlay + postModal + hiddenHtml;
 }
 
 function handleResize() {
@@ -471,8 +322,6 @@ function updateWithStatus() {
 function debugParse() {
   for (let h of [
     leftSidebar,
-    mainContainer,
-    mainContainerLessBS,
     topTitle,
     sideBySide,
     overlay,
@@ -523,26 +372,15 @@ function debugElements() {
   }
 }
 
-let rightPanelVisible = true;
-
 /**
  * Show or hide the right panel
  */
 function toggleRightPanel() {
-  if (useMainContainerRadical) {
-    rightPanelVisible = !rightPanelVisible;
-    if (rightPanelVisible) {
-      showRightPanel();
-    } else {
-      hideRightPanel();
-    }
+  rightPanelVisible = !rightPanelVisible;
+  if (rightPanelVisible) {
+    showRightPanel();
   } else {
-    var main = $("#main-row > .col-md-9");
-    if (!main.length) {
-      showRightPanel();
-    } else {
-      hideRightPanel();
-    }
+    hideRightPanel();
   }
 }
 
@@ -550,19 +388,12 @@ function toggleRightPanel() {
  * Show the right panel
  */
 function showRightPanel() {
-  if (useMainContainerRadical) {
-    const main = document.getElementById("MainContentPane");
-    const info = document.getElementById("ItemInfoContainer");
-    if (main && info) {
-      main.style.width = "75%";
-      info.style.width = "25%";
-      info.style.display = "block";
-    }
-  } else {
-    $("#main-row > .col-md-12, #nav-page > .col-md-12")
-      .addClass("col-md-9")
-      .removeClass("col-md-12");
-    $("#main-row #itemInfo").show();
+  const main = document.getElementById("MainContentPane");
+  const info = document.getElementById("ItemInfoContainer");
+  if (main && info) {
+    main.style.width = "75%";
+    info.style.width = "25%";
+    info.style.display = "block";
   }
 }
 
@@ -574,18 +405,11 @@ function showRightPanel() {
  * clicking on the "view" buttons.
  */
 function hideRightPanel() {
-  if (useMainContainerRadical) {
-    const main = document.getElementById("MainContentPane");
-    const info = document.getElementById("ItemInfoContainer");
-    if (main && info) {
-      main.style.width = "100%";
-      info.style.display = "none";
-    }
-  } else {
-    $("#main-row > .col-md-9, #nav-page > .col-md-9")
-      .addClass("col-md-12")
-      .removeClass("col-md-9");
-    $("#main-row #itemInfo").hide();
+  const main = document.getElementById("MainContentPane");
+  const info = document.getElementById("ItemInfoContainer");
+  if (main && info) {
+    main.style.width = "100%";
+    info.style.display = "none";
   }
 }
 

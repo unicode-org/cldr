@@ -13,33 +13,24 @@
 /*
 NOTE: See http://www.w3.org/International/questions/qa-css-lang
 Right now, none by default.
-
-add following to ajax_status.jsp:
+To add fonts, add links like the following to html head:
 >>	 <link href='//fonts.googleapis.com/css?family=UnifrakturCook:bold' rel='stylesheet' type='text/css'>
 
 The the following can work here:
 :lang(de) {
   font-family: UnifrakturCook;
 }
-
 Color english brown
 :lang(en) {
 	color: brown !important;
 }
 */
 
-
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {
 font-family:'MON3 Anonta 1';
 src:local('MON3 Anonta 1'),url('//mmwebfonts.comquas.com/fonts/mon3.ttf');
 }
-
-/* 
-Remove these to save load time.
-@import url('http://mmwebfonts.comquas.com/fonts/?font=padauk');
-@import url('http://mmwebfonts.comquas.com/fonts/?font=myanmar3');
-*/
 
 /*
 Use padauk or MM3 if available, otherwise Mon3.
@@ -453,11 +444,6 @@ div.search div.results li a.codebox {
 }
 
 .alias {
-	/*	font-size: smaller;
-	*/
-
-/*	font-color: #F22;
-	*/
  background-color: #ddf;
 }
 
@@ -486,15 +472,6 @@ div.search div.results li a.codebox {
 	color: #313998;
 }
 
-/*	background-color: #444fd2;
-	color: #fff;
-	foreground-color: #fff;
-	margin: 1px;
-	text-weight: bold;
-	padding: 1px;
-	text-decoration: none;
-	border: 1px solid black */
-
 a.selected :link {
 	color: #fff
 }
@@ -502,11 +479,6 @@ a.selected :link {
 .notselected {
 	margin: 2px;
 	padding: 1px;
-
-
-/*
-
-text-decoration: none; */
 }
 
 a.notselected {
@@ -556,7 +528,6 @@ span.adminExceptionUptime {
 	padding-top: 0;
 	margin-top: 0;
 }
-
 
 .deadThread, .adminDeadThreadsHeader, ul.adminDeadThreads {
     background-color: red;
@@ -616,7 +587,6 @@ div.sidewaysArea {
 div.sideways_same  {
 	background: url(squo.png) no-repeat 0 top;
 }
-
 
 div.sideways_diff  {
 	background-color: #fbb;
@@ -801,15 +771,6 @@ tr.warnrow {
 .localeList {
     width:  auto;
 }
-
-/*
-.topLocaleRow:nth-child(odd) .subLocale:not(.hide):nth-child(even) {
-    background-color: #f4f4f4;
-}
-.topLocaleRow:nth-child(even) .subLocale:not(.hide):nth-child(even) {
-    background-color: #f4f4f4;
-}*/
-
 
 .localeList .topLocaleRow {
     width:  auto;
@@ -1033,21 +994,7 @@ h2.thisItem {
 }
 
 .small_login_hidden {
-	
-
-/*transition: opacity .25s visibility .1s linear .5s;
-	-moz-transition:  opacity .25s visibility .1s linear .5s;
-	-o-transition: opacity .25s visibility .1s linear .5s;
-	-webkit-transition: opacity .25s visibility .1s linear .5s;
-	
-	visibility: visible;
-	opacity: .5;*/
 	display: none;
-}
-
-.small_login_normal {
-	
-
 }
 
 i.loadingMsg,
@@ -1246,14 +1193,8 @@ th.partsection, th.partsection a {
     text-transform: capitalize;
 }
 
-
 tt.codebox {
 	border: 1px solid gray;
-/*
-
-padding: 1px; 
-  	margin-top:0px;
-  */
 }
 
 .respbox {
@@ -1280,10 +1221,6 @@ div.respbox:target {
 
 div.person a {
 	float: none;
-}
-
-.response {
-	
 }
 
 .localeName {
@@ -1329,7 +1266,6 @@ transition: all 0.5s ease;
     margin-top:  0.5em;
 }
 
-
 .reply a, div.subpost a.postReply {
 	background-color: #fff88d;
 	margin-bottom: 1em;
@@ -1355,16 +1291,7 @@ div.subpost a.postReply {
 }
 
 .actionbox {
-	/*    color: #000;
-	background: #ddd;
-	*/
     font-size: 80%;
-/*
-
-border: 1px
-    dashed gray;
-    padding: 1px;
-    margin-top: 0px; */
 }
 
 a.forumlink {
@@ -1468,7 +1395,6 @@ a.postItem {
 	color: #555;
 }
 
-
 .deactivated {
 	color: #555;
 }
@@ -1486,14 +1412,6 @@ td.framecell {
 	border-style: ridge;
 	margin: 1px;
 	padding: 1px;
-}
-
-.disputed {
-	
-}
-
-.insufficient {
-	
 }
 
 /* but, an insufficient table.. */
@@ -1532,8 +1450,6 @@ td.d-code .extraAttribute  {
 /* @group tzbox */
 
 table.tzbox {
-	/*	border: 1px solid gray;
-	*/
 	border-collapse: collapse;
 }
 
@@ -1683,7 +1599,6 @@ div#toparea img#stlogo {
 	font-style: italic;
 }
 
-
 .sterrmsg {
 	background-color: #ddd;
 	border: 1px solid red;
@@ -1700,11 +1615,6 @@ div#toparea img#stlogo {
 	white-space: nowrap;
 }
 
-/*
-deletebox: 
- border: 1px solid red; margin: 1em; padding: 1em;	
-*/
-
 .unvotebox {
 	font-size: small;
 	margin-left: 1px;
@@ -1714,10 +1624,6 @@ deletebox:
 	font-weight: bold;
 	white-space: nowrap;
 }
-
-/*
-
-border: 1px solid red; margin: 1em; padding: 1em;	 */
 
 .fnotebox {
 	border: 1px solid #94a694;
@@ -1751,10 +1657,6 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 	background-color: inherit !important;
 }
 
-.appendInputBoxChange, .appendInputBoxCancel {
-}
-
-
 a.dcLocale {
 	color:  #555;
 	text-decoration: none;	
@@ -1765,11 +1667,6 @@ a.dcLocale {
 	margin: 0.5em;
 	padding: 0.5em;
 	font: small "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-}
-
-
-table#usertable {
-	
 }
 
 .scorebox {
@@ -1905,12 +1802,6 @@ div.voteInfo_iconBar {
 
 /* @end */
 
-
-
-.loser {
-	
-}
-
 td.generatedexample {
 	border-left: 1px solid silver;
 	border-right: 2px solid gray;
@@ -1957,10 +1848,6 @@ span.marks b {
 	margin: 1px;
 	padding: 1px;
 	border: 1px solid green;
-}
-
-div.topnotices {
-	
 }
 
 div.topnotices a {
@@ -2113,57 +2000,8 @@ div.debugJsp {
 	margin: 0.5em;
 }
 
-form.adduser table {
-	border-collapse: collapse;
-	background-color: #cdd;
-}
-
-form.adduser td {
-	color: #555;
-}
-
-form.adduser th {
-	text-align: right;
-	vertical-align: top;
-}
-
-form.adduser label {
-	font: large "Lucida Grande", Lucida, Verdana, sans-serif;
-	white-space: nowrap;
-}
-
-form.adduser input {
-	font: large Georgia, "Times New Roman", Times, serif;
-}
-
-form.adduser th {
-	border-bottom: 1px solid gray;
-	padding-bottom: .5em;
-	padding-top: .5em;
-}
-
-form.adduser input, form.adduser select {
-	margin-top: .5em;
-	margin-bottom: .5em;
-}
-
-form.adduser tr.submit td {
-	border: none;
-	text-align: right;
-}
-
-form.adduser tr.submit input {
-	font-size: x-large;
-}
-
 span.elapsedtime {
 	font-size: smaller;
-}
-
-span#visitors {
-	/*position: fixed;
-	bottom: 0;
-	right: 0;*/
 }
 
 span#visitors table {
@@ -2184,10 +2022,6 @@ span#visitors td.remain {
 	background: #2e2 !important;
 	border: none !important;
 }
-
-
-
-
 
 table.progress-list {
 	border-collapse: collapse;
@@ -2220,15 +2054,10 @@ table.progress-list tbody tr td {
 	opacity: .9;
 	border-left: 3px dashed gray;
 	padding-left: 1em;
-	/*display: none;*/
 }
 
 table.progress-list #busy0 {
 	display: block;
-}
-
-table.progress-list #busy1 {
-	/*display: none;*/
 }
 
 /* Overrides */
@@ -2304,7 +2133,6 @@ select.menutop-active
 }
 
 #sectionmenu {
-	
 	padding-top:  0.5em;
 }
 
@@ -2407,12 +2235,6 @@ div.helpHtml td,div.helpHtml td th {
 
 /* @group AJAX build */
 
-.d-parrow td {	
-}
-
-.d-parrow {
-}
-
 .d-sortmode {
 	border: 1px solid gray;
 	background-color: #e3fbff;
@@ -2443,17 +2265,6 @@ span.pathChunk:after
     content: ':';
 }
 
-/*.d-sortmode:before {
-	content: 'Sorted:';
-	font-weight: bold;
-	font-size: small;
-}*/
-
-
-.d-sortmode d-sort-size {
-	
-}
-
 .d-sortmode .d-sort-size0 {
 	font-size: x-large;
 	padding-left:  1em;
@@ -2467,10 +2278,6 @@ span.pathChunk:after
 	margin-bottom: 0;
  	margin-left: 0;
  	padding-left:  0;
-}
-
-
-span.d-sort-size {
 }
 
 .d-sortmode li {
@@ -2499,7 +2306,6 @@ span.d-sort-size {
 	width: 16px;
 	height: 16px;
 }
-
 
 .d-dr-approved {
 	width: 16px;
@@ -2599,10 +2405,6 @@ h3.voteInfo_key_title {
 .d-item span span {
      display:  inline !important;
 }
-/*.d-item:hover {
-	border: 2px solid navy;
-	background: url(zoom.png) no-repeat right center;
-}*/
 
 #pu-content div.helpHtml {
 	margin-bottom:  0.5em;
@@ -2614,10 +2416,6 @@ tr.d-inforow, .d-item-selected {
 
 tr.d-inforow td {
 	padding: 0.5em;
-	/*border-top: 1em solid #dff ;
-	border-left: 1em solid #dff ;
-	border-right: 1em solid #dff ;
-	background-color:  white;*/
 	border-bottom: 3px solid gray;
 	border-left:  none;
 	border-right:  none;
@@ -2626,12 +2424,9 @@ tr.d-inforow td h3.span {
 	font-size: large;
 }
 
-
 .pu-select {
 	border: 2px double black !important;
 }
-
-
 
 .d-item-selected {
 	border: 2px solid navy;
@@ -2753,12 +2548,6 @@ span.i-override::after {
 	content:  "!)";
 }
 
-
-body.disconnected table {
-
-
-}
-
 body.disconnected table.data button,
 body.disconnected table.data input,
 body.disconnected table.data .d-change,
@@ -2768,11 +2557,6 @@ body.disconnected table.data .d-no,
 body.disconnected table.data .d-no-vo-false,
 body.disconnected table.data .d-no-vo-true {
 	display: none !important;
-}
-
-body.disconnected div#progress {
-	
-
 }
 
 button#progress-refresh {
@@ -2793,7 +2577,6 @@ textarea.errorMessage {
 	height: 10em;
 }
 
-
 div.possibleProblems {
 	border: 1px dashed olive;
 	padding: 0.2em;
@@ -2804,7 +2587,6 @@ div.possibleProblems {
 div.possibleProblems h3 {
 	margin:  0;
 }
-
 
 div.possibleProblems div {
 	display: block;
@@ -2893,8 +2675,6 @@ td.d-change,td.d-change-err,td.d-change-warn {
 	white-space: nowrap;
 }
 
-tr.d-inforow td.d-inforow-hidetd {
-}
 button.d-inforow-hider {
 	float: right;
 }
@@ -2927,7 +2707,6 @@ td.d-change-confirmonly .fnotebox {
 td.d-change-warn, td.d-win-warn, .d-item-warn {
 	border: 2px #fbeed5  !important;
 	background: #fcf8e3 !important;
-	/* padding:5px; */
 }
 
 td.d-win {
@@ -2936,13 +2715,6 @@ td.d-win {
 /* @end */
 
 /* @group Popup */
-
-div#pu-outer {
-	/*border:  1px solid orange;
-	position: absolute;
-	top: 500px;
-	left: 100px;*/
-}
 
 div#pu-peak {
 	width: 11px;
@@ -2958,7 +2730,6 @@ div#pu-peak {
 	text-align: right;
 	z-index: 6;
 }
-
 
 div#pu-content {
 	display: none;
@@ -2982,7 +2753,6 @@ div#pu-content {
 	margin-top:  0;
 	margin-bottom: 0;
 }
-
 
 /* @end */
 
@@ -3067,10 +2837,6 @@ button.forumShow {
     padding-left: 20px;
 }
 
-.stSplitPane .scrollingContent {
-/*	width: 100%;*/
-}
-
 body.claro > table#usertable,
 body.claro > div#toparea,
 body.claro > div#sectionmenu,
@@ -3078,24 +2844,9 @@ body.claro > div#footer {
 	display:  none;
 }
 
-#topstuff {
-}
-
-
 #st-menubar  {
     width: 40em;
     display:  inline-block;
-}
-
-#botstuff > div#progress {
-}
-
-
-html.claro, body.claro {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow:hidden;
 }
 
 #borderContainer {
@@ -3105,11 +2856,6 @@ html.claro, body.claro {
 
 span.editableHere {
     padding:  2px;
-}
-.titlePart {
-}
-
-.titlePart::before {
 }
 
 #oldVotesAcceptList th {
@@ -3130,11 +2876,6 @@ td.v-path {
     border:  1px solid black;
     background-color:  white;
 }
-
-td.v-win {
-    
-}
-
 
 #revision-info {
 	font-size: x-small;
@@ -3161,7 +2902,6 @@ td.v-win {
     font-family: "Courier New", Courier, mono;
     font-size: small;
 }
-
 
 .menu-container {
     display:  inline;
@@ -3198,10 +2938,6 @@ td.v-win {
     background-color: silver !important;
 }
 
-#OtherSection {
-	/* TODO:: center vertically */
-}
-
 #LoadingMessageSection {
     text-align: center;
     padding-top:  3em;
@@ -3232,11 +2968,6 @@ td.v-win {
     font: small "Lucida Grande", Lucida, Verdana, sans-serif;
     margin-bottom: 0;
 }
-
-.dijitCheckedMenuItemIcon {
-/*  background-image: url("radx.png") !important; */
-}
-
 
 #ariScroller {
     white-space: pre;
@@ -3302,10 +3033,6 @@ p.mailContent {
 .st_setup_text {
 	padding: 0.5em;
 	font-size: large;
-}
-
-ol.st_setup {
-	
 }
 
 ol.st_setup li {
@@ -3443,10 +3170,6 @@ table.flaggedItems th, table.flaggedItems td {
     padding:  0.25em;
 }
 
-table.flaggedItems .flaggedLocale {
-    
-}
-
 table.flaggedItems .flaggedPath {
     font-weight:  normal;
 }
@@ -3497,7 +3220,6 @@ table.flaggedItems .flaggedPath {
 	float:  left;
 }
 
-
 .special_flagged .thinUser .adminUserName {
 	font-size:  small;
 }
@@ -3537,7 +3259,6 @@ div.thinUser {
     padding-top: .25em;
     background-color: lightgray;
 }
-
 
 #vettingParticipation .count {
 	padding-left: 1em;
@@ -3583,6 +3304,3 @@ div.thinUser {
      color: red;
      background-color: lightgoldenrodyellow !important;
  }
-
-
-

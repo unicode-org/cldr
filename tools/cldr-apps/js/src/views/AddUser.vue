@@ -101,9 +101,9 @@
 </template>
 
 <script>
-import * as cldrAccount from "../../../src/main/webapp/js/esm/cldrAccount.js";
-import * as cldrAjax from "../../../src/main/webapp/js/esm/cldrAjax.js";
-import * as cldrStatus from "../../../src/main/webapp/js/esm/cldrStatus.js";
+import * as cldrAccount from "../esm/cldrAccount.js";
+import * as cldrAjax from "../esm/cldrAjax.js";
+import * as cldrStatus from "../esm/cldrStatus.js";
 
 export default {
   data() {

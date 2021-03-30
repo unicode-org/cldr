@@ -3,7 +3,7 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrEvent from "./cldrEvent.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
@@ -195,7 +195,7 @@ function listSingleUser(email) {
 }
 
 function reallyLoad() {
-  cldrEvent.hideRightPanel();
+  cldrGui.hideRightPanel();
   cldrInfo.showNothing();
   const xhrArgs = {
     url: getUrl(),
@@ -1185,7 +1185,7 @@ function getXmlUploadLink(u) {
 }
 
 function getUserActivityLink(u) {
-  // cf. cldrGear.getSpecialUrl
+  // cf. similar code in GearMenu.vue
   return (
     "<a class='recentActivity' href='v#recent_activity///" +
     u.data.id +

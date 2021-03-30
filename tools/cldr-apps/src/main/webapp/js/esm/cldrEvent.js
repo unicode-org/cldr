@@ -95,7 +95,6 @@ function startup() {
   );
   resizeSidebar();
 
-  $("body").on("click", ".toggle-right", toggleRightPanel);
   $(".tip-log").tooltip({
     placement: "bottom",
   });
@@ -119,14 +118,22 @@ function startup() {
 }
 
 /**
- * Size the sidebar relative to the header
+ * Size and position the sidebar relative to the header
  */
 function resizeSidebar() {
-  var sidebar = $("#left-sidebar");
-  var header = $(".navbar-fixed-top");
-
-  sidebar.css("height", $(window).height() - header.height());
-  sidebar.css("top", header.height());
+  const sidebar = $("#left-sidebar");
+  const header = $("#st-header");
+  if (!sidebar) {
+    console.log("Missing sidebar in resizeSidebar");
+    return;
+  }
+  if (!header) {
+    console.log("Missing header in resizeSidebar");
+    return;
+  }
+  const headerHeight = header.height();
+  sidebar.css("height", $(window).height() - headerHeight);
+  sidebar.css("top", headerHeight);
 }
 
 /**
@@ -630,42 +637,6 @@ function labelizeIcon() {
 }
 
 /**
- * Show or hide the right panel
- */
-function toggleRightPanel() {
-  var main = $("#main-row > .col-md-9");
-  if (!main.length) {
-    showRightPanel();
-  } else {
-    hideRightPanel();
-  }
-}
-
-/**
- * Show the right panel
- */
-function showRightPanel() {
-  $("#main-row > .col-md-12, #nav-page > .col-md-12")
-    .addClass("col-md-9")
-    .removeClass("col-md-12");
-  $("#main-row #itemInfo").show();
-}
-
-/**
- * Hide the right panel
- *
- * Called by toggleRightPanel, and also by the loadHandler() for isReport() true but isDashboard() false.
- * Otherwise, for the Date/Time, Zones, Numbers reports (especially Zones), the panel may invisibly prevent
- * clicking on the "view" buttons.
- */
-function hideRightPanel() {
-  $("#main-row > .col-md-9, #nav-page > .col-md-9")
-    .addClass("col-md-12")
-    .removeClass("col-md-9");
-  $("#main-row #itemInfo").hide();
-}
-
-/**
  * Used from within event handlers. cross platform 'stop propagation'
  *
  * @param e event
@@ -688,7 +659,6 @@ export {
   filterAllLocale,
   forceSidebar,
   hideOverlayAndSidebar,
-  hideRightPanel,
   popupAlert,
   resizeSidebar,
   searchRefresh,

@@ -4,7 +4,6 @@
 import * as cldrDeferHelp from "./cldrDeferHelp.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
-import * as cldrForum from "./cldrForum.js";
 import * as cldrForumPanel from "./cldrForumPanel.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";

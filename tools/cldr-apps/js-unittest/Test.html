@@ -7,25 +7,45 @@
     <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
   </head>
   <body>
-    <div style="padding-top: 48pt; padding-left: 32pt; font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+    <div
+      style="
+        padding-top: 48pt;
+        padding-left: 32pt;
+        font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      "
+    >
       <h1>CLDR SurveyTool JavaScript Tests</h1>
       <script>
         if (location.protocol === "file:") {
-          document.write("<h1>Error</h1><p>The protocol should be <b>html:</b>, not <b>file:</b><br />A server is required; see <b>run.sh</b></p>")
+          document.write(
+            "<h1>Error</h1><p>The protocol should be <b>html:</b>, not <b>file:</b><br />A server is required; see <b>run.sh</b></p>"
+          );
         }
       </script>
-      <p><em>Important:</em> run with run.sh; open the browser console to check for errors/warnings that are otherwise invisible!</p>
+      <p>
+        <em>Important:</em> run with run.sh; open the browser console to check
+        for errors/warnings that are otherwise invisible!
+      </p>
       <p><em>References:</em></p>
       <ul>
-        <li><a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a></li>
-        <li><a href="https://medium.com/dailyjs/running-mocha-tests-as-native-es6-modules-in-a-browser-882373f2ecb0">running-mocha-tests-as-native-es6-modules-in-a-browser</a></li>
+        <li>
+          <a href="https://mochajs.org/#running-mocha-in-the-browser"
+            >running-mocha-in-the-browser</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://medium.com/dailyjs/running-mocha-tests-as-native-es6-modules-in-a-browser-882373f2ecb0"
+            >running-mocha-tests-as-native-es6-modules-in-a-browser</a
+          >
+        </li>
       </ul>
     </div>
-    <div id="mocha" style="margin-top: 12pt;"></div>
+    <div id="mocha" style="margin-top: 12pt"></div>
     <script src="https://unpkg.com/chai/chai.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
     <script class="mocha-init">
-      mocha.setup('bdd');
+      mocha.setup("bdd");
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="data/forum_fr.js"></script>

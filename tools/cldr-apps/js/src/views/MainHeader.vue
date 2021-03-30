@@ -68,11 +68,11 @@
 </template>
 
 <script>
-import * as cldrMenu from "../../../src/main/webapp/js/esm/cldrMenu.js";
-import * as cldrStatus from "../../../src/main/webapp/js/esm/cldrStatus.js";
-import * as cldrSurvey from "../../../src/main/webapp/js/esm/cldrSurvey.js";
-import * as cldrText from "../../../src/main/webapp/js/esm/cldrText.js";
-import * as cldrVote from "../../../src/main/webapp/js/esm/cldrVote.js";
+import * as cldrMenu from "../esm/cldrMenu.js";
+import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrSurvey from "../esm/cldrSurvey.js";
+import * as cldrText from "../esm/cldrText.js";
+import * as cldrVote from "../esm/cldrVote.js";
 
 export default {
   data() {

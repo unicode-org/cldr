@@ -116,7 +116,7 @@
 </template>
 
 <script>
-import * as cldrStatus from "../../../src/main/webapp/js/esm/cldrStatus.js";
+import * as cldrStatus from "../esm/cldrStatus.js";
 
 export default {
   data() {

@@ -1,4 +1,4 @@
-import * as cldrGui from "../../src/main/webapp/js/esm/cldrGui.js";
+import * as cldrGui from "./esm/cldrGui.js";
 
 function runGui() {
   cldrGui.run();

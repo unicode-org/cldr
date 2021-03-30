@@ -6,8 +6,8 @@ import * as cldrForum from "./cldrForum.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
-import { createApp } from "../../../../../js/node_modules/vue";
-import MainHeader from "../../../../../js/src/views/MainHeader.vue";
+import { createApp } from "../../node_modules/vue";
+import MainHeader from "../views/MainHeader.vue";
 
 const GUI_DEBUG = true;
 

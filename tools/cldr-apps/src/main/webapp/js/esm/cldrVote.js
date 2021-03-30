@@ -14,6 +14,14 @@ import * as cldrText from "./cldrText.js";
 const CLDR_VOTE_DEBUG = true;
 
 /**
+ * The special "vote level" selected by the user, or zero for default.
+ * For example, admin has vote level 100 by default, and can instead choose vote level 4.
+ * When admin chooses 4 from the menu, voteLevelChanged gets 4.
+ * When admin chooses 100 (default) from the menu, voteLevelChanged gets 0 (not 100).
+ */
+let voteLevelChanged = 0;
+
+/**
  * Wire up the button to perform a submit
  *
  * @param button
@@ -136,9 +144,8 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
 
   let ourUrl = cldrStatus.getContextPath() + "/SurveyAjax";
 
-  var voteLevelChanged = document.getElementById("voteLevelChanged");
   if (voteLevelChanged) {
-    ourContent.voteLevelChanged = voteLevelChanged.value;
+    ourContent.voteLevelChanged = voteLevelChanged;
   }
 
   var originalTrClassName = tr.className;
@@ -508,6 +515,17 @@ function appendItem(div, value, pClass) {
   return span;
 }
 
+function setVoteLevelChanged(n) {
+  const num = Number(n);
+  if (num !== voteLevelChanged) {
+    if (num === Number(cldrStatus.getSurveyUser().votecount)) {
+      voteLevelChanged = 0;
+    } else {
+      voteLevelChanged = num;
+    }
+  }
+}
+
 let pendingVoteCount = 0;
 let lastTimeChanged = 0;
 
@@ -569,6 +587,7 @@ export {
   handleWiredClick,
   isBusy,
   setDivClass,
+  setVoteLevelChanged,
   wireUpButton,
   wrapRadio,
 };

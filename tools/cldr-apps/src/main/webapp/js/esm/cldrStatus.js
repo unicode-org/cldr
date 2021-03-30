@@ -1,7 +1,7 @@
 /*
  * cldrStatus: encapsulate data defining the current status of SurveyTool.
  */
-import * as cldrLoad from "./cldrLoad.js";
+import * as cldrGui from "./cldrGui.js";
 
 function updateAll(status) {
   if (status.contextPath) {
@@ -294,7 +294,10 @@ function getSurveyUser() {
 }
 
 function setSurveyUser(u) {
-  surveyUser = u;
+  if (surveyUser !== u) {
+    surveyUser = u;
+    cldrGui.updateWithStatus();
+  }
 }
 
 /**

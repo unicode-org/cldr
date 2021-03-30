@@ -393,7 +393,7 @@ function showRightPanel() {
   if (main && info) {
     main.style.width = "75%";
     info.style.width = "25%";
-    info.style.display = "block";
+    info.style.display = "flex";
   }
 }
 

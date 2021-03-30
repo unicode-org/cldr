@@ -5,7 +5,7 @@
  */
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
-import * as cldrGear from "./cldrGear.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import { LocaleMap } from "./cldrLocaleMap.js";
 import * as cldrStatus from "./cldrStatus.js";
@@ -22,6 +22,8 @@ let _thePages = null;
 function getThePages() {
   return _thePages;
 }
+
+const coverageMenu = [];
 
 /**
  * List of buttons/titles to set. This is not for the left sidebar; it's for
@@ -59,10 +61,7 @@ const menubuttons = {
 };
 
 function getInitialMenusEtc(sessionId) {
-  let theLocale = cldrStatus.getCurrentLocale();
-  if (!theLocale) {
-    theLocale = "root"; // Default.
-  }
+  const theLocale = cldrStatus.getCurrentLocale() || "root";
   const xurl =
     cldrStatus.getContextPath() +
     "/SurveyAjax?what=menus&_=" +
@@ -74,11 +73,11 @@ function getInitialMenusEtc(sessionId) {
     cldrSurvey.cacheKill();
 
   cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
-    loadInitialMenusFromJson(json, theLocale);
+    loadInitialMenusFromJson(json);
   });
 }
 
-function loadInitialMenusFromJson(json, theLocale) {
+function loadInitialMenusFromJson(json) {
   if (!cldrLoad.verifyJson(json, "locmap")) {
     return;
   }
@@ -110,12 +109,12 @@ function loadInitialMenusFromJson(json, theLocale) {
 
   cldrEvent.filterAllLocale();
 
-  setupCoverageLevels(json, theLocale);
+  setupCoverageLevels(json);
 
   cldrLoad.continueInitializing(json.canAutoImport || false);
 }
 
-function setupCoverageLevels(json, theLocale) {
+function setupCoverageLevels(json) {
   cldrSurvey.updateCovFromJson(json);
 
   const surveyLevels = json.menus.levels;
@@ -131,17 +130,15 @@ function setupCoverageLevels(json, theLocale) {
   levelNums.sort(function (a, b) {
     return a.num - b.num;
   });
-
-  let store = [];
-  store.push({
+  const orgCov = cldrSurvey.getSurveyOrgCov();
+  const defaultLabel = cldrText.sub("coverage_auto_msg", {
+    surveyOrgCov: cldrText.get("coverage_" + orgCov),
+  });
+  coverageMenu.length = 0;
+  coverageMenu.push({
     label: "Auto",
     value: "auto",
-    title: cldrText.get("coverage_auto_desc"),
   });
-  store.push({
-    type: "separator",
-  });
-
   for (let j in levelNums) {
     // use given order
     if (levelNums[j].num == 0) {
@@ -154,47 +151,21 @@ function setupCoverageLevels(json, theLocale) {
       continue; // hide Optional in production
     }
     const level = levelNums[j].level;
-    store.push({
-      label: cldrText.get("coverage_" + level.name),
+    const label =
+      level.name === orgCov
+        ? defaultLabel
+        : cldrText.get("coverage_" + level.name);
+    coverageMenu.push({
+      label: label,
       value: level.name,
-      title: cldrText.get("coverage_" + level.name + "_desc"),
     });
   }
-  // coverage menu
-  let patternCoverage = $("#title-coverage .dropdown-menu");
-  if (store[0].value) {
-    $("#coverage-info").text(store[0].label);
-  }
-  for (let index = 0; index < store.length; ++index) {
-    const data = store[index];
-    if (data.value) {
-      var html =
-        '<li><a class="coverage-list" data-value="' +
-        data.value +
-        '"href="#">' +
-        data.label +
-        "</a></li>";
-      patternCoverage.append(html);
-    }
-  }
-  patternCoverage.find("li a").click(function (event) {
-    patternCoverageClick(event, theLocale, $(this));
-  });
 }
 
-function patternCoverageClick(event, theLocale, clickedElement) {
-  event.stopPropagation();
-  event.preventDefault();
-  const newValue = clickedElement.data("value");
-  let setUserCovTo = null;
-  if (newValue == "auto") {
-    setUserCovTo = null; // auto
-  } else {
-    setUserCovTo = newValue;
-  }
-  if (setUserCovTo === cldrSurvey.getSurveyUserCov()) {
-    console.log("No change in user cov: " + setUserCovTo);
-  } else {
+function setCoverageLevel(newValue) {
+  const setUserCovTo = newValue == "auto" ? null : newValue;
+  if (setUserCovTo !== cldrSurvey.getSurveyUserCov()) {
+    const theLocale = cldrStatus.getCurrentLocale() || "root";
     cldrSurvey.setSurveyUserCov(setUserCovTo);
     const updurl =
       cldrStatus.getContextPath() +
@@ -220,20 +191,7 @@ function patternCoverageClick(event, theLocale, clickedElement) {
   // still update these.
   cldrLoad.coverageUpdate();
   cldrLoad.updateHashAndMenus(false);
-  $("#coverage-info").text(ucFirst(newValue));
-  clickedElement.parents(".dropdown-menu").dropdown("toggle");
-  if (!cldrStatus.isDashboard()) {
-    cldrSurvey.refreshCounterVetting();
-  }
   return false;
-}
-
-/**
- * Uppercase the first letter of a sentence
- * @return {String} string with first letter uppercase
- */
-function ucFirst(s) {
-  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 function addTopLocale(topLoc, theDiv) {
@@ -350,20 +308,19 @@ function update() {
       menubuttons.set(menubuttons.page);
     }
   } else {
-    const gearItems = cldrGear.getItems();
     if (_thePages == null || _thePages.loc != curLocale) {
-      getMenusFromServer(gearItems);
+      getMenusFromServer();
     } else {
       // go ahead and update
-      updateMenus(_thePages, gearItems);
+      updateMenus(_thePages);
     }
   }
 }
 
-function getMenusFromServer(gearItems) {
+function getMenusFromServer(s) {
   // show the raw IDs while loading.
   // TODO: clarify whether it's necessary -- the code would be cleaner without null here
-  updateMenuTitles(null, gearItems);
+  updateMenuTitles(null);
   const curLocale = cldrStatus.getCurrentLocale();
   if (!curLocale) {
     return;
@@ -384,32 +341,19 @@ function getMenusFromServer(gearItems) {
     }
     // Note: since the url has "locmap=false", we never get json.locmap or json.canmodify here
     cldrSurvey.updateCovFromJson(json);
-    updateCoverageMenuTitle();
     cldrLoad.coverageUpdate();
     unpackMenus(json);
     cldrEvent.unpackMenuSideBar(json);
-    updateMenus(_thePages, gearItems);
+    updateMenus(_thePages);
+    cldrGui.updateWithStatus();
   });
-}
-
-function updateCoverageMenuTitle() {
-  const cov = cldrSurvey.getSurveyUserCov();
-  if (cov) {
-    $("#cov-info").text(cldrText.get("coverage_" + cov));
-  } else {
-    $("#coverage-info").text(
-      cldrText.sub("coverage_auto_msg", {
-        surveyOrgCov: cldrText.get("coverage_" + cldrSurvey.getSurveyOrgCov()),
-      })
-    );
-  }
 }
 
 // TODO: always called with menuMap = _thePages so don't pass as parameter;
 // "menuMap" ALMOST always a synonym for _thePages in this file? Name it consistently...
 // CAUTION: exception, updateMenuTitles can be called with null instead of menuMap
-function updateMenus(menuMap, gearItems) {
-  updateMenuTitles(menuMap, gearItems);
+function updateMenus(menuMap) {
+  updateMenuTitles(menuMap);
 
   let myPage = null;
   let mySection = null;
@@ -454,8 +398,7 @@ function updateMenus(menuMap, gearItems) {
   cldrEvent.resizeSidebar();
 }
 
-function updateMenuTitles(menuMap, gearItems) {
-  cldrGear.set(gearItems);
+function updateMenuTitles(menuMap) {
   updateLocaleMenu();
   updateTitleAndSection(menuMap);
 }
@@ -560,4 +503,16 @@ function canModifyLoc(subLoc) {
   }
 }
 
-export { addTopLocale, canModifyLoc, getInitialMenusEtc, getThePages, update };
+function getCoverageMenu() {
+  return coverageMenu;
+}
+
+export {
+  addTopLocale,
+  canModifyLoc,
+  getCoverageMenu,
+  getInitialMenusEtc,
+  getThePages,
+  setCoverageLevel,
+  update,
+};

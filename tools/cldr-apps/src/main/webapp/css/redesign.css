@@ -9,7 +9,6 @@
 */
 
 body {
-	min-width:1390px;
 	font-family: "Noto Sans",
 	             "Noto Sans Symbols",
 /* The rest of the individual scripts should be looked at later.  The best solution would be to
@@ -81,34 +80,6 @@ tr.shown {
     position: fixed; 
     background-color: white; 
     z-index: 999; 
-    padding-top: 60px;
-    height:150px;
-}
-
-.nav-button {
-	display:inline-block;
-}
-
-.nav-progress {
-	width:150px;
-	float:right;
-	margin-left:15px;
-}
-
-#nav-page {
-	display:none;
-}
-
-#nav-page-footer { 
-	display:none;
-}
-
-#nav-page .counter-infos {
-	float:right;
-}
-
-#nav-page-footer .nav-button {
-	float:right;
 }
 
 p.specialmessage {
@@ -212,11 +183,6 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 
 .data-vertical .pu-select {
 	border:none !important;
-	/*padding:0px !important;
-	margin:0px !important;
-	padding-top:0px !important;
-	padding-bottom:0px !important;
-	padding-left:0px !important;*/
 }
 
 .data-vote {
@@ -279,8 +245,6 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 .othercell .form-inline {
 	display:inline-block;
 }
-
-
 
 .data-vertical .d-item-warn {
 	border-radius:5px;
@@ -413,8 +377,6 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 /*change in surveytool.css*/
 .topLocaleRow {
 	border:1px solid black;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	margin-top:5px;
 	margin-bottom:5px;
@@ -431,27 +393,10 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 .modal-backdrop {z-index:104000000;}
 .modal {z-index:104000001;}
 
-/* direct override of claro */
-html.claro {
-width: auto;
-height: auto;
-margin: auto;
-overflow:auto;
-}
-
-
 /*sidebar stuff*/
 .nav-pills>li>a {
 	border-radius:0px;
 }
-#main-container {
-	margin-left:2%;
-}
-
-.row {
-	width:98%;
-}
-
 
 #left-sidebar {
 	height:calc(100% - 50px);
@@ -471,7 +416,6 @@ overflow:auto;
 }
 #dragger {
 	width:10%;
-	background-image: -webkit-linear-gradient(#fff, #eee 50%, #e4e4e4);
 	background-image: linear-gradient(#fff, #eee 50%, #e4e4e4);
 	background-repeat: no-repeat;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
@@ -493,8 +437,6 @@ overflow:auto;
 }
 
 #locale-list , #locale-menu {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	overflow:scroll;
 	background-color:#f5f5f5;
@@ -618,9 +560,6 @@ div#additional-top div.beta span#betanotice  {
 #locale-menu div {
 	padding:5px;
 	padding-left:10px;
-	/*-webkit-box-shadow: inset 1px 1px 5px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: inset 1px 1px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: inset 1px 1px 5px 0px rgba(0,0,0,0.75);*/
 	width:100%;
 	cursor:pointer;
 }
@@ -647,19 +586,6 @@ div#additional-top div.beta span#betanotice  {
 
 #overlay.active {
 	opacity:0.5;
-}
-
-#toptitle h1 {
-	display:inline-block;
-	font-size: 28px;
-}
-
-#toptitle h1::before {
-	content:" / ";	
-}
-
-#toptitle #title-locale-container h1::before {
-	content:"";
 }
 
 #alert-info {
@@ -901,7 +827,6 @@ fieldset[disabled] .btn-danger.active {
 .btn-link[disabled],
 fieldset[disabled] .btn-link {
   background-color: transparent;
-  -webkit-box-shadow: none;
           box-shadow: none;
 }
 .btn-link,
@@ -1011,38 +936,6 @@ fieldset[disabled] .btn-primary.active {
   background-color: #fff;
 }
 
-.dropdown-menu:before {
-  position: absolute;
-  top: -7px;
-  left: 9px;
-  display: inline-block;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
-  border-left: 7px solid transparent;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-  content: '';
-}
-
-.dropdown-menu:after {
-  position: absolute;
-  top: -6px;
-  left: 10px;
-  display: inline-block;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid #ffffff;
-  border-left: 6px solid transparent;
-  content: '';
-}
-
-.navbar-fixed-top {
-	z-index:10000000000;
-}
-
-.navbar-fixed-top .popover-content > li > a {
-	display:block;
-	padding-bottom:4px;
-}
-
 .subSpan [dir=rtl] {
 	padding-left: 8px;
 	padding-right: 10px;
@@ -1064,9 +957,6 @@ fieldset[disabled] .btn-primary.active {
 	margin-top: 100px;
 }
 
-.nav-bar-fixed-top {
-	min-width:1060px;
-}
 /* feedback part */
 #feedback {
 	position:fixed;
@@ -1085,25 +975,153 @@ fieldset[disabled] .btn-primary.active {
 #feedback form {
 	display:none;
 	font-size:12px;
-	
-}
-
-
-/* media queries */
-@media (max-width: 1390px) {
-	
-	#main-container .col-md-9 {
-		width:974px;
-	}
-	
-	.right-info {
-		width:320px;
-		left:1020px;
-	}
 }
 
 #popover-vote label, .fix-parent .othercell {
 	direction:ltr;
 }
 
+/***
+ The following is here in redesign.css temporarily!
+ Note: redesign.css is loaded by SurveyTool.java AFTER surveytool.css and bootstrap, so has higher priority;
+ style.css (for webpack, currently empty) is effectively loaded first, has the lowest priority
+***/
 
+body,
+html {
+	width: 100vw !important;
+	height: 100vh !important;
+	overflow: hidden !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#st-run-gui {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
+}
+
+.sidebyside {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex: 1;
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.sidebyside-column {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.sidebyside-wide {
+	width: 75%;
+}
+
+.sidebyside-narrow {
+	width: 25%;
+}
+
+.sidebyside-column-top {
+	flex: none;
+	margin: 4px;
+}
+
+.sidebyside-scrollable {
+	margin: 4px;
+	/* padding-bottom is ignored by Firefox, though it is respected by Chrome, Edge, and Firefox */
+	padding-bottom: 3em;
+	overflow: auto;
+	/* min-height: min-content here causes scrollbar to disappear on Safari only,
+		though not on Chrome, Edge, or Firefox. Anyway it seems not to be needed. */
+}
+
+#toptitle {
+	font-size: medium;
+}
+
+#toparea #toptitle {
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 2.5em;
+	font-weight: normal;
+	padding-bottom:  0;
+}
+
+#toptitle span.title-cldr {
+	font-weight: bold;
+}
+
+#toptitle h1 {
+	display:inline-block;
+	font-size: 28px;
+}
+
+#toptitle h1::before {
+	content:" / ";	
+}
+
+#toptitle #title-locale-container h1::before {
+	content:"";
+}
+
+#main-container {
+	/* margin-left:2%; */
+}
+
+.row {
+	/* width:98%; */
+}
+
+#itemInfo div.xpath {
+	position: fixed;
+	left: 0.1em;
+	bottom: 0.1em;
+	color: #a19a9a;
+	padding:  2px;
+	border:  1px solid white;
+	font-family: "Courier New", Courier, mono;
+	font-weight: bold;
+}
+
+#itemInfo div.xpath:hover {
+	opacity: 1;
+	color: navy;
+	border:  1px solid silver;
+	background-color: white;
+}
+
+.beware-left-sidebar {
+	/* TODO: get the right width of the "slider" for left sidebar */
+	padding-left: 34px;
+}
+
+.nav-progress {
+	width:150px;
+	margin-left:15px;
+}
+
+#nav-page {
+	align-items: center;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+	margin: 0;
+	padding: 0em 1em 0em 1em;
+	box-sizing: border-box;
+}

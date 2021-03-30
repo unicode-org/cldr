@@ -97,7 +97,7 @@ public class UserList {
         }
         canShowLocked = UserRegistry.userIsExactlyManager(me) || UserRegistry.userIsTC(me);
         showLocked = canShowLocked && getPrefBool(PREF_SHOWLOCKED);
-        isValid = (me != null && (isJustMe || me.isAdminForOrg(me.org)));
+        isValid = (me != null && (isJustMe || UserRegistry.userCanDoList(me)));
         if (DEBUG) {
             debugEncoding();
         }

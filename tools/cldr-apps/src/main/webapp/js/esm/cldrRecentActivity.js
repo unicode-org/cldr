@@ -11,7 +11,7 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrEvent from "./cldrEvent.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
@@ -47,7 +47,7 @@ function pleaseLogIn() {
 function loadWithJson(json) {
   cldrSurvey.hideLoader();
   cldrLoad.setLoading(false);
-  cldrEvent.hideRightPanel();
+  cldrGui.hideRightPanel();
   const frag = cldrDom.construct(getHtml(json));
   cldrLoad.flipToOtherDiv(frag);
   if (Number(json.user) === Number(userId)) {

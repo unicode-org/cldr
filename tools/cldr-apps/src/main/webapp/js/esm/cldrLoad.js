@@ -85,8 +85,8 @@ function showV() {
 
 function continueInitializing(canAutoImport) {
   window.addEventListener("hashchange", doHashChange);
+  cldrEvent.hideOverlayAndSidebar();
   if (canAutoImport) {
-    cldrEvent.hideOverlayAndSidebar();
     window.location.href = "#auto_import";
   } else {
     reloadV();
@@ -577,6 +577,7 @@ function shower(itemLoadInfo) {
   }
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
+  setToptitleVisibility(curSpecial);
   if (curSpecial === "none") {
     // TODO: clarify when and why this would happen
     cldrSurvey.hideLoader();
@@ -585,10 +586,21 @@ function shower(itemLoadInfo) {
   } else {
     const special = getSpecial(curSpecial);
     if (special && special.load) {
+      cldrEvent.hideOverlayAndSidebar();
       special.load(curSpecial); // pass the special name to the loader
     } else {
       unspecialLoad(itemLoadInfo, theDiv);
     }
+  }
+}
+
+function setToptitleVisibility(curSpecial) {
+  const visible = curSpecial !== "gear";
+  const topTitle = document.getElementById("toptitle");
+  if (topTitle) {
+    topTitle.style.display = visible ? "initial" : "none";
+  } else {
+    console.log("setToptitleVisibility: topTitle not found!");
   }
 }
 
@@ -897,10 +909,6 @@ function myLoad(url, message, handler, postData, headers) {
     );
     try {
       handler(json);
-      // resize height
-      $("#main-row").css({
-        height: $("#main-row>div").height(),
-      });
     } catch (e) {
       console.log(
         "Error in ajax post [" + message + "]  " + e.message + " / " + e.name

@@ -3,6 +3,7 @@
  * which route through Vue
  */
 import * as cldrEvent from "./cldrEvent.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
@@ -36,7 +37,7 @@ function loadHandler(json, specialPage) {
   const app = document.createElement("div");
 
   // make right hand sidebar empty. TODO: better way to do this?
-  cldrEvent.hideRightPanel();
+  cldrGui.hideRightPanel();
   cldrSurvey.hideLoader();
   cldrLoad.flipToOtherDiv(app);
   const locale = cldrStatus.getCurrentLocale();

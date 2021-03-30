@@ -13,25 +13,33 @@
 /*
 NOTE: See http://www.w3.org/International/questions/qa-css-lang
 Right now, none by default.
-To add fonts, add links like the following to html head:
 
-	 <link href='//fonts.googleapis.com/css?family=UnifrakturCook:bold' rel='stylesheet' type='text/css'>
+add following to ajax_status.jsp:
+>>	 <link href='//fonts.googleapis.com/css?family=UnifrakturCook:bold' rel='stylesheet' type='text/css'>
 
 The the following can work here:
 :lang(de) {
   font-family: UnifrakturCook;
 }
+
 Color english brown
 :lang(en) {
 	color: brown !important;
 }
 */
 
+
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {
 font-family:'MON3 Anonta 1';
 src:local('MON3 Anonta 1'),url('//mmwebfonts.comquas.com/fonts/mon3.ttf');
 }
+
+/* 
+Remove these to save load time.
+@import url('http://mmwebfonts.comquas.com/fonts/?font=padauk');
+@import url('http://mmwebfonts.comquas.com/fonts/?font=myanmar3');
+*/
 
 /*
 Use padauk or MM3 if available, otherwise Mon3.
@@ -443,25 +451,6 @@ div.search div.results li {
 div.search div.results li a.codebox {
     font-size:  larger;
 }
-
-#itemInfo div.xpath {
-    position: fixed;
-    left: 0.1em;
-    bottom: 0.1em;
-    color: #a19a9a;
-    padding:  2px;
-    border:  1px solid white;
-    font-family: "Courier New", Courier, mono;
-    font-weight: bold;
-}
-
-#itemInfo div.xpath:hover {
-    opacity: 1;
-    color: navy;
-    border:  1px solid silver;
-    background-color: white;
-}
-
 
 .alias {
 	/*	font-size: smaller;
@@ -1679,23 +1668,6 @@ div#toparea img#stlogo {
 	display: none;
 }
 
-#toptitle {
-	font-size: medium;
-}
-
-#toparea #toptitle {
-	padding-top: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	line-height: 2.5em;
-	font-weight: normal;
-	padding-bottom:  0;
-}
-
-#toptitle span.title-cldr {
-	font-weight: bold;
-}
-
 .normal-title {
 	font-weight:  bold;
 }
@@ -2141,6 +2113,48 @@ div.debugJsp {
 	margin: 0.5em;
 }
 
+form.adduser table {
+	border-collapse: collapse;
+	background-color: #cdd;
+}
+
+form.adduser td {
+	color: #555;
+}
+
+form.adduser th {
+	text-align: right;
+	vertical-align: top;
+}
+
+form.adduser label {
+	font: large "Lucida Grande", Lucida, Verdana, sans-serif;
+	white-space: nowrap;
+}
+
+form.adduser input {
+	font: large Georgia, "Times New Roman", Times, serif;
+}
+
+form.adduser th {
+	border-bottom: 1px solid gray;
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
+
+form.adduser input, form.adduser select {
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+form.adduser tr.submit td {
+	border: none;
+	text-align: right;
+}
+
+form.adduser tr.submit input {
+	font-size: x-large;
+}
 
 span.elapsedtime {
 	font-size: smaller;
@@ -2170,6 +2184,10 @@ span#visitors td.remain {
 	background: #2e2 !important;
 	border: none !important;
 }
+
+
+
+
 
 table.progress-list {
 	border-collapse: collapse;
@@ -3042,12 +3060,6 @@ div.voterList p {
 	color: white !important;
 	background-color: navy !important;
 	transition: background-color 0.5s ease;
-}
-
-#itemInfo {
-	height:calc(100% - 200px);
-	min-width: 320px;
-	position:fixed;
 }
 
 button.forumShow {

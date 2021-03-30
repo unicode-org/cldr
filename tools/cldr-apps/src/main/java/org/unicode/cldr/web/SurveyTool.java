@@ -17,14 +17,6 @@ import org.unicode.cldr.util.VettingViewer;
 public class SurveyTool extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * Normally we want to run all js from a bundle, for performance,
-     * especially in production. This can be made false for testing and
-     * development, in which case the browser will load and run the
-     * individual cldr*.js modules directly.
-     */
-    private static final boolean RUN_ALL_JS_FROM_BUNDLE = true;
-
     @Override
     public final void init(final ServletConfig config) throws ServletException {
         System.out.println("\n🍓🍓🍓 SurveyTool.init() 🍓🍓🍓\n");
@@ -171,22 +163,16 @@ public class SurveyTool extends HttpServlet {
             SurveyLog.logException(e, "Including JavaScript");
         }
         out.write("</head>\n");
-        out.write("<body lang='" + lang + "' data-spy='scroll' data-target='#itemInfo'>\n");
+        out.write("<body lang='" + lang + "'>\n");
         out.write("<div id='st-run-gui'>Loading...</div>\n");
-        if (RUN_ALL_JS_FROM_BUNDLE) {
-            out.write("<script>\n" +
-                "try {\n" +
-                "  cldrBundle.runGui();\n" +
-                "} catch(e) {\n" +
-                "  console.error(e);\n" +
-                "  document.write('&#x26A0; Error: Could not load CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack);\n" +
-                "}\n" +
-                "</script>\n");
-        } else {
-            out.write("<script type='module'>import * as cldrGui from '" +
-                request.getContextPath() + "/js/esm/cldrGui.js'\n" +
-                "cldrGui.run()</script>\n");
-        }
+        out.write("<script>\n" +
+            "try {\n" +
+            "  cldrBundle.runGui();\n" +
+            "} catch(e) {\n" +
+            "  console.error(e);\n" +
+            "  document.write('&#x26A0; Error: Could not load CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack);\n" +
+            "}\n" +
+            "</script>\n");
         out.write("</body>\n</html>\n");
     }
 
@@ -197,7 +183,7 @@ public class SurveyTool extends HttpServlet {
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum" + cb + ".css' />\n");
         // bootstrap.min.css -- cf. bootstrap.min.js elsewhere in this file
         out.write("<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
-        out.write("<link rel='stylesheet' href='" + contextPath + "/css/redesign.css' />\n");
+        out.write("<link rel='stylesheet' href='" + contextPath + "/css/redesign" + cb + ".css' />\n");
     }
 
     /**

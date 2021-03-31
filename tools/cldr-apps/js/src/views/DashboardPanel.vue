@@ -102,6 +102,9 @@
                       </button>
                     </Popover>
                   </td>
+                  <td v-on:click="openInfoPanel()">
+                    <button type="button">Info</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -113,6 +116,9 @@
 </template>
 
 <script>
+import * as cldrGui from "../esm/cldrGui.js";
+import * as cldrInfo from "../esm/cldrInfo.js";
+
 export default {
   props: [],
   data() {
@@ -199,6 +205,12 @@ export default {
           this.fetchErr = err;
           this.list = [];
         });
+    },
+    openInfoPanel() {
+      cldrGui.showRightPanel();
+      cldrInfo.showMessage(
+        "Hello Info Panel, this is the Dashboard calling, and this is U+21E1 UPWARDS DASHED ARROW: ⇡"
+      );
     },
   },
 };

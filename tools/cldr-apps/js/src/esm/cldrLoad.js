@@ -14,6 +14,7 @@ import { Flipper } from "./cldrFlip.js";
 import * as cldrForum from "./cldrForum.js";
 import * as cldrForumParticipation from "./cldrForumParticipation.js";
 import * as cldrGenericVue from "./cldrGenericVue.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrListEmails from "./cldrListEmails.js";
 import * as cldrListUsers from "./cldrListUsers.js";
@@ -577,7 +578,7 @@ function shower(itemLoadInfo) {
   }
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
-  setToptitleVisibility(curSpecial);
+  cldrGui.setToptitleVisibility(curSpecial !== "gear");
   if (curSpecial === "none") {
     // TODO: clarify when and why this would happen
     cldrSurvey.hideLoader();
@@ -591,16 +592,6 @@ function shower(itemLoadInfo) {
     } else {
       unspecialLoad(itemLoadInfo, theDiv);
     }
-  }
-}
-
-function setToptitleVisibility(curSpecial) {
-  const visible = curSpecial !== "gear";
-  const topTitle = document.getElementById("toptitle");
-  if (topTitle) {
-    topTitle.style.display = visible ? "initial" : "none";
-  } else {
-    console.log("setToptitleVisibility: topTitle not found!");
   }
 }
 
@@ -852,7 +843,7 @@ function loadAllRowsFromJson(json, theDiv) {
       cldrSurvey.updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
       flipper.flipTo(pages.data); // TODO now? or later?
       showCurrentId(); // already calls scroll
-      cldrSurvey.refreshCounterVetting();
+      cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
     }
   }

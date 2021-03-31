@@ -4,6 +4,7 @@
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForum from "./cldrForum.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
 import { createApp } from "../../node_modules/vue";
@@ -137,7 +138,7 @@ const st_notices =
 
 const topTitle =
   `
-  <div id="toptitle" class="beware-left-sidebar">
+  <header id="toptitle" class="beware-left-sidebar">
     <div id="additional-top">
   ` +
   st_notices +
@@ -160,27 +161,25 @@ const topTitle =
       </span>
     </div> 
     <div id="title-page-container" class="menu-container"></div>
-    <div id="nav-page">
+    <nav id="nav-page">
       <span
-        ><button id="chgPagePrevTop" class="btn btn-sm" type="button" onclick="chgPage(-1)">← Previous</button>
-        <button id="chgPageNextTop" class="btn btn-sm" type="button" onclick="chgPage(1)">Next →</button></span
+        ><button id="chgPagePrevTop" class="cldr-nav-btn btn-primary" type="button">← Previous</button>
+        <button id="chgPageNextTop" class="cldr-nav-btn btn-primary" type="button">Next →</button></span
       >
-      <span>
+      <span class="counter-infos">
         <a id="reloadForum">Forum:</a>
         <span id="vForum"><span id="forumSummary"> 0</span> </span> ● Votes:
         <span id="count-voted">0</span> - Abstain:
         <span id="count-abstain">0</span> - Total:
         <span id="count-total">0</span>
-        <!-- TODO: progress meter -->
-        <meter value="0.7">70%</meter>
-        <span class="progress nav-progress" style="display:none">
+        <span class="progress nav-progress">
           <span id="progress-voted" class="progress-bar progress-bar-info tip-log" title="Votes" style="width: 0%"></span>
           <span id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title="Abstain" style="width: 0%"></span>
         </span>
-        <button class="toggle-right btn btn-sm" type="button" style="margin-left: 3em">Toggle Sidebar</button>
       </span>
-    </div>
-  </div>
+      <button class="cldr-nav-btn toggle-right" type="button">Toggle Sidebar</button>
+    </nav>
+  </header>
 `;
 
 const sideBySide = `
@@ -413,9 +412,61 @@ function hideRightPanel() {
   }
 }
 
+function setToptitleVisibility(visible) {
+  const topTitle = document.getElementById("toptitle");
+  if (topTitle) {
+    topTitle.style.display = visible ? "block" : "none";
+  } else {
+    console.log("setToptitleVisibility: topTitle not found!");
+  }
+}
+
+/**
+ * Update the counter on top of the vetting page
+ */
+function refreshCounterVetting() {
+  if (cldrStatus.isVisitor() || cldrStatus.isDashboard()) {
+    // if the user is a visitor, or this is the Dashboard, don't display the counter information
+    $("#nav-page .counter-infos").hide();
+    return;
+  }
+
+  const inputs = $(".vetting-page input:visible:checked");
+  const total = inputs.length;
+  const abstain = inputs.filter(function () {
+    return this.id.substr(0, 2) === "NO";
+  }).length;
+  const voted = total - abstain;
+
+  document.getElementById("count-total").innerHTML = total;
+  document.getElementById("count-abstain").innerHTML = abstain;
+  document.getElementById("count-voted").innerHTML = voted;
+  if (total === 0) {
+    total = 1;
+  }
+  document.getElementById("progress-voted").style.width =
+    (voted * 100) / total + "%";
+  document.getElementById("progress-abstain").style.width =
+    (abstain * 100) / total + "%";
+
+  if (cldrStatus.getCurrentLocale()) {
+    const surveyUser = cldrStatus.getSurveyUser();
+    if (surveyUser && surveyUser.id) {
+      const forumSummary = cldrForum.getForumSummaryHtml(
+        cldrStatus.getCurrentLocale(),
+        surveyUser.id,
+        false
+      );
+      document.getElementById("vForum").innerHTML = forumSummary;
+    }
+  }
+}
+
 export {
   hideRightPanel,
+  refreshCounterVetting,
   run,
+  setToptitleVisibility,
   updateWithStatus,
   /*
    * The following are meant to be accessible for unit testing only:

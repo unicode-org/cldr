@@ -149,7 +149,7 @@ export default {
         perm && (perm.userIsTC || perm.userIsVetter);
       this.canLookup = perm && perm.hasDataSource;
       this.canMonitorForum = perm && perm.userCanMonitorForum;
-      this.canUseVettingSummary = perm && perm.canUseVettingSummary;
+      this.canUseVettingSummary = perm && perm.userCanUseVettingSummary;
       this.isAdmin = perm && perm.userIsAdmin;
       this.isTC = perm && perm.userIsTC;
 

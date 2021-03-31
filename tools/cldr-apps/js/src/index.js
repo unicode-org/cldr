@@ -1,7 +1,7 @@
 // This file gets bundled into bundle.js’s cldrBundle global
 
-// new global stylesheet
-import "./style.css";
+// global stylesheets
+import "./css/cldrForum.css";
 
 // module stylesheets need to go here. See cldrVueRouter.js
 // example: import 'someModule/dist/someModule.css'

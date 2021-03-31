@@ -66,9 +66,11 @@ function getHtml() {
     "<p>" +
     cldrText.get("E_DISCONNECTED") +
     "</p>\n" +
+    "<p>" +
     "<button onClick='retry()'>\n" +
     "  <b>Reload</b>\n" +
     "</button>\n" +
+    "</p>\n" +
     "<h3>Details</h3>\n" +
     "location: " +
     errInfo.location +

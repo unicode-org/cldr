@@ -89,7 +89,7 @@ If a test or status check does not pass, see [Running Tests][] on the CLDR devel
 
 ## Copyright
 
-Copyright &copy; 1991-2020 Unicode, Inc.
+Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved. [Terms of use][]
 
 [Survey Tool]: http://cldr.unicode.org/index/survey-tool

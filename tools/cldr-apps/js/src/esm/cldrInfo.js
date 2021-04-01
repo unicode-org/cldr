@@ -6,8 +6,6 @@ import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForumPanel from "./cldrForumPanel.js";
 import * as cldrLoad from "./cldrLoad.js";
-import * as cldrStatus from "./cldrStatus.js";
-import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 
 let unShow = null;
@@ -93,10 +91,6 @@ function show(str, tr, hideIfLast, fn) {
     }
   }
 
-  if (cldrStatus.isDashboard()) {
-    fixPopoverVotePos();
-  }
-
   if (str) {
     // If a simple string, clone the string
     var div2 = document.createElement("div");
@@ -148,19 +142,13 @@ function show(str, tr, hideIfLast, fn) {
   // Now, copy or append the 'fragment' to the
   // appropriate spot. This depends on how we were called.
   if (tr) {
-    if (cldrStatus.isDashboard()) {
-      cldrSurvey.showHelpFixPanel(fragment);
-    } else {
-      cldrDom.removeAllChildNodes(pucontent);
-      pucontent.appendChild(fragment);
-    }
+    cldrDom.removeAllChildNodes(pucontent);
+    pucontent.appendChild(fragment);
   } else {
-    if (!cldrStatus.isDashboard()) {
-      // show, for example, dataPageInitialGuidance in Info Panel
-      var clone = fragment.cloneNode(true);
-      cldrDom.removeAllChildNodes(pucontent);
-      pucontent.appendChild(clone);
-    }
+    // show, for example, dataPageInitialGuidance in Info Panel
+    var clone = fragment.cloneNode(true);
+    cldrDom.removeAllChildNodes(pucontent);
+    pucontent.appendChild(clone);
   }
   fragment = null;
 
@@ -188,11 +176,7 @@ function show(str, tr, hideIfLast, fn) {
       $(this).closest("td").css("text-align", "left");
     }
   );
-  if (!cldrStatus.isDashboard()) {
-    return pucontent;
-  } else {
-    return null;
-  }
+  return pucontent;
 }
 
 function setLastShown(obj) {

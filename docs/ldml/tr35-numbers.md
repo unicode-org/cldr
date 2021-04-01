@@ -5,7 +5,7 @@
 <!-- HTML: no th -->
 <table><tbody>
 <tr><td>Version</td><td>39</td></tr>
-<tr><td>Editors</td><td>John Emmons (<a href="mailto:emmo@us.ibm.com">emmo@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).

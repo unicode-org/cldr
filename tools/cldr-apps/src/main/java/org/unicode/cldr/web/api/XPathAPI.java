@@ -107,7 +107,15 @@ public class XPathAPI {
 
         // the actual implementation
         XPathTable xpt = getXPathTable();
-        final String xpath = xpt.getByStringID(hexId);
+        String xpath = null;
+        try {
+            xpath = xpt.getByStringID(hexId);
+        } catch (RuntimeException e) {
+            /*
+             * Don't report the exception. This happens when it simply wasn't found.
+             * Possibly getByStringID, or some version of it, should not throw an exception.
+             */
+        }
         if (xpath == null) {
             return Response.status(Response.Status.NOT_FOUND)
                 .entity(new STError("XPath " + hexId + " not found"))
@@ -140,9 +148,16 @@ public class XPathAPI {
     public Response getByDecimal(
         @Parameter(required = true, example = "5678", schema = @Schema(type = SchemaType.INTEGER)) @PathParam("decId") int decId) {
 
-        // the actual implementation
         XPathTable xpt = getXPathTable();
-        final String xpath = xpt.getById(decId);
+        String xpath = null;
+        try {
+            xpath = xpt.getById(decId);
+        } catch (RuntimeException e) {
+            /*
+             * Don't report the exception. This happens when it simply wasn't found.
+             * Possibly getById, or some version of it, should not throw an exception.
+             */
+        }
         if (xpath == null) {
             return Response.status(Response.Status.NOT_FOUND)
                 .entity(new STError("XPath #" + decId + " not found"))

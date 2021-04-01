@@ -102,7 +102,7 @@
         <li><a href="#about">About</a></li>
       </ul>
     </li>
-    <li v-if="canLookup">
+    <li v-if="loggedIn">
       <ul>
         <li><a href="#lookup">Look up a code or xpath</a></li>
       </ul>
@@ -124,7 +124,6 @@ export default {
       accountLocked: false,
       canImportOldVotes: false,
       canListUsers: false,
-      canLookup: false,
       canMonitorVetting: false,
       canUseVettingSummary: false,
       isAdmin: false,
@@ -147,7 +146,6 @@ export default {
       this.canImportOldVotes = perm && perm.userCanImportOldVotes;
       this.canListUsers = this.canMonitorVetting =
         perm && (perm.userIsTC || perm.userIsVetter);
-      this.canLookup = perm && perm.hasDataSource;
       this.canMonitorForum = perm && perm.userCanMonitorForum;
       this.canUseVettingSummary = perm && perm.userCanUseVettingSummary;
       this.isAdmin = perm && perm.userIsAdmin;

@@ -1,0 +1,37 @@
+.forumThreadStatus {
+  color: red;
+  clear: left;
+}
+
+.postTypeComboLabel {
+  float: right;
+  clear: right;
+}
+
+.postTypeLabel {
+  color: red;
+  text-align: right;
+  clear: right;
+}
+
+.postTextBorder {
+  border-style: solid;
+  padding: 0.25em;
+  margin: 0.25em;
+  border-color: #3399f3;
+  border-width: 1px;
+}
+
+.postTextArea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+}
+
+.addPostButton {
+  margin: 0.5em !important; /* override bootstrap btn margin-bottom 0 */
+}
+
+hr.postRule {
+  border-top: 1px solid #3399f3;
+}

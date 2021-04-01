@@ -954,7 +954,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
           refreshFixPanel(json);
         } else {
           cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
-          refreshCounterVetting();
+          cldrGui.refreshCounterVetting();
         }
       } else {
         tr.className = "ferrbox";
@@ -1003,47 +1003,6 @@ function showLoader(text) {
  */
 function hideLoader() {
   updateAjaxWord(null);
-}
-
-/**
- * Update the counter on top of the vetting page
- */
-function refreshCounterVetting() {
-  if (cldrStatus.isVisitor() || cldrStatus.isDashboard()) {
-    // if the user is a visitor, or this is the Dashboard, don't display the counter information
-    $("#nav-page .counter-infos, #nav-page .nav-progress").hide();
-    return;
-  }
-
-  var inputs = $(".vetting-page input:visible:checked");
-  var total = inputs.length;
-  var abstain = inputs.filter(function () {
-    return this.id.substr(0, 2) === "NO";
-  }).length;
-  var voted = total - abstain;
-
-  document.getElementById("count-total").innerHTML = total;
-  document.getElementById("count-abstain").innerHTML = abstain;
-  document.getElementById("count-voted").innerHTML = voted;
-  if (total === 0) {
-    total = 1;
-  }
-  document.getElementById("progress-voted").style.width =
-    (voted * 100) / total + "%";
-  document.getElementById("progress-abstain").style.width =
-    (abstain * 100) / total + "%";
-
-  if (cldrForum && cldrStatus.getCurrentLocale()) {
-    const surveyUser = cldrStatus.getSurveyUser();
-    if (surveyUser && surveyUser.id) {
-      const forumSummary = cldrForum.getForumSummaryHtml(
-        cldrStatus.getCurrentLocale(),
-        surveyUser.id,
-        false
-      );
-      document.getElementById("vForum").innerHTML = forumSummary;
-    }
-  }
 }
 
 /**
@@ -1198,7 +1157,6 @@ export {
   isInputBusy,
   localizeFlyover,
   parseStatusAction,
-  refreshCounterVetting,
   refreshSingleRow,
   setLang,
   setOverrideDir,

@@ -6,41 +6,6 @@ import * as cldrStatus from "./cldrStatus.js";
 const ST_AJAX_DEBUG = true;
 
 /**
- * Run the load handler (load2)
- *
- * @param xhrArgs the request parameters plus such things as xhrArgs.load2
- * @param data the data (typically json)
- */
-function myLoad0(xhrArgs, data) {
-  if (ST_AJAX_DEBUG) {
-    xhrArgs.stopTime = new Date().getTime();
-    xhrArgs.tookTime = xhrArgs.stopTime - xhrArgs.startTime;
-    console.log(
-      "PXQ(" + queueOfXhr.length + "): time took= " + xhrArgs.tookTime
-    );
-    console.log("myLoad0!:" + xhrArgs.url);
-  }
-  if (xhrArgs.load2) {
-    xhrArgs.load2(data);
-  }
-}
-
-/**
- * Run the error handler (err2)
- *
- * @param xhrArgs the request parameters plus such things as xhrArgs.err2
- * @param err the error-message string
- */
-function myErr0(xhrArgs, err) {
-  if (ST_AJAX_DEBUG) {
-    console.log("myErr0!:" + xhrArgs.url);
-  }
-  if (xhrArgs.err2) {
-    xhrArgs.err2(err);
-  }
-}
-
-/**
  * Send a request
  *
  * It will be a GET *unless* either postData or content are set.

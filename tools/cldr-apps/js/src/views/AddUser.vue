@@ -1,103 +1,105 @@
 <template>
-  <a-spin v-if="loading" :delay="500" />
-  <div v-if="errors.length">
-    <span class="addUserErrors">Please correct the following error(s):</span>
-    <ul>
-      <li v-for="error in errors">{{ error }}</li>
-    </ul>
-  </div>
-  <div v-if="!loading && !addedNewUser" class="adduser">
-    <h2>Add User</h2>
-    <table>
-      <tr>
-        <th><label for="new_name">Name:</label></th>
-        <td>
-          <input
-            size="40"
-            id="new_name"
-            name="new_name"
-            v-model="newUser.name"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th><label for="new_email">E-mail:</label></th>
-        <td>
-          <input
-            size="40"
-            id="new_email"
-            name="new_email"
-            v-model="newUser.email"
-            type="email"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th><label for="new_org">Organization:</label></th>
-        <td v-if="canChooseOrg">
-          <select id="new_org" name="new_org" v-model="newUser.org">
-            <option disabled value="">Please select one</option>
-            <option v-for="org in orgList">{{ org }}</option>
-          </select>
-        </td>
-        <td v-else>
-          <input id="new_org" disabled="disabled" v-model="newUser.org" />
-        </td>
-      </tr>
-      <tr>
-        <th><label for="new_level">User level:</label></th>
-        <td>
-          <select id="new_level" name="new_level" v-model="newUser.level">
-            <option disabled value="">Please select one</option>
-            <option
-              v-for="(v, number) in levelList"
-              v-bind:value="number"
-              :disabled="!v.canCreateOrSetLevelTo"
-            >
-              {{ v.string }}
-            </option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <th><label for="new_locales">Languages responsible:</label></th>
-        <td>
-          <input
-            id="new_locales"
-            name="new_locales"
-            v-model="newUser.locales"
-          />
-          <button v-on:click="setAllLocales()">All Locales</button><br />
-          (Space separated. Examples: "en de de_CH fr zh_Hant". Use the All
-          Locales button to grant access to all locales. )
-        </td>
-      </tr>
-      <tr class="addButton">
-        <td colspan="2"><button v-on:click="add()">Add</button></td>
-      </tr>
-    </table>
-  </div>
+  <article>
+    <a-spin v-if="loading" :delay="500" />
+    <div v-if="errors.length">
+      <span class="addUserErrors">Please correct the following error(s):</span>
+      <ul>
+        <li v-for="error in errors">{{ error }}</li>
+      </ul>
+    </div>
+    <div v-if="!loading && !addedNewUser" class="adduser">
+      <h2>Add User</h2>
+      <table>
+        <tr>
+          <th><label for="new_name">Name:</label></th>
+          <td>
+            <input
+              size="40"
+              id="new_name"
+              name="new_name"
+              v-model="newUser.name"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="new_email">E-mail:</label></th>
+          <td>
+            <input
+              size="40"
+              id="new_email"
+              name="new_email"
+              v-model="newUser.email"
+              type="email"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="new_org">Organization:</label></th>
+          <td v-if="canChooseOrg">
+            <select id="new_org" name="new_org" v-model="newUser.org">
+              <option disabled value="">Please select one</option>
+              <option v-for="org in orgList">{{ org }}</option>
+            </select>
+          </td>
+          <td v-else>
+            <input id="new_org" disabled="disabled" v-model="newUser.org" />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="new_level">User level:</label></th>
+          <td>
+            <select id="new_level" name="new_level" v-model="newUser.level">
+              <option disabled value="">Please select one</option>
+              <option
+                v-for="(v, number) in levelList"
+                v-bind:value="number"
+                :disabled="!v.canCreateOrSetLevelTo"
+              >
+                {{ v.string }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th><label for="new_locales">Languages responsible:</label></th>
+          <td>
+            <input
+              id="new_locales"
+              name="new_locales"
+              v-model="newUser.locales"
+            />
+            <button v-on:click="setAllLocales()">All Locales</button><br />
+            (Space separated. Examples: "en de de_CH fr zh_Hant". Use the All
+            Locales button to grant access to all locales. )
+          </td>
+        </tr>
+        <tr class="addButton">
+          <td colspan="2"><button v-on:click="add()">Add</button></td>
+        </tr>
+      </table>
+    </div>
 
-  <div v-if="addedNewUser">
-    <h2>Added User</h2>
-    <p>
-      ✅ The new user was added. Name: <kbd>{{ newUser.name }}</kbd> E-mail:
-      <kbd>{{ newUser.email }}</kbd> ID:
-      <kbd>{{ userId }}</kbd>
-    </p>
-    <p>
-      ⚠️ <em>The password is not sent to the user automatically!</em> You must
-      click the <em>Manage this user</em> button and choose
-      <em>Send password</em> from the menu.
-    </p>
-    <p>
-      <button class="manageButton" v-on:click="manageThisUser()">
-        Manage this user
-      </button>
-    </p>
-    <hr />
-    <p><button v-on:click="initializeData()">Add another user</button></p>
-  </div>
+    <div v-if="addedNewUser">
+      <h2>Added User</h2>
+      <p>
+        ✅ The new user was added. Name: <kbd>{{ newUser.name }}</kbd> E-mail:
+        <kbd>{{ newUser.email }}</kbd> ID:
+        <kbd>{{ userId }}</kbd>
+      </p>
+      <p>
+        ⚠️ <em>The password is not sent to the user automatically!</em> You must
+        click the <em>Manage this user</em> button and choose
+        <em>Send password</em> from the menu.
+      </p>
+      <p>
+        <button class="manageButton" v-on:click="manageThisUser()">
+          Manage this user
+        </button>
+      </p>
+      <hr />
+      <p><button v-on:click="initializeData()">Add another user</button></p>
+    </div>
+  </article>
 </template>
 
 <script>

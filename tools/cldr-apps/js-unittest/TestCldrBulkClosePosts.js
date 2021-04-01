@@ -1,6 +1,6 @@
 import * as cldrTest from "./TestCldrTest.js";
 
-import * as cldrBulkClosePosts from "../src/main/webapp/js/esm/cldrBulkClosePosts.js";
+import * as cldrBulkClosePosts from "../js/src/esm/cldrBulkClosePosts.js";
 
 const assert = chai.assert;
 

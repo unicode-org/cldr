@@ -1,6 +1,6 @@
 import * as cldrTest from "./TestCldrTest.js";
 
-import * as cldrErrorSubtypes from "../src/main/webapp/js/esm/cldrErrorSubtypes.js";
+import * as cldrErrorSubtypes from "../js/src/esm/cldrErrorSubtypes.js";
 
 const assert = chai.assert;
 

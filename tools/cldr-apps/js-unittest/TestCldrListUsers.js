@@ -1,6 +1,6 @@
 import * as cldrTest from "./TestCldrTest.js";
 
-import * as cldrListUsers from "../src/main/webapp/js/esm/cldrListUsers.js";
+import * as cldrListUsers from "../js/src/esm/cldrListUsers.js";
 
 const assert = chai.assert;
 

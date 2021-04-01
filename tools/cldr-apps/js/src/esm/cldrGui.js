@@ -7,7 +7,7 @@ import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
-import { createApp } from "../../node_modules/vue";
+import { createCldrApp } from "../cldrVueRouter";
 import MainHeader from "../views/MainHeader.vue";
 
 const GUI_DEBUG = true;
@@ -57,7 +57,7 @@ function run() {
 function insertHeader() {
   try {
     const fragment = document.createDocumentFragment();
-    mainHeaderWrapper = createApp(MainHeader).mount(fragment);
+    mainHeaderWrapper = createCldrApp(MainHeader).mount(fragment);
     const el = document.createElement("header");
     const gui = document.getElementById(runGuiId);
     gui.insertBefore(el, gui.firstChild);
@@ -159,7 +159,7 @@ const topTitle =
         <span>(section)</span>
         <span id="menu-section"></span>
       </span>
-    </div> 
+    </div>
     <div id="title-page-container" class="menu-container"></div>
     <nav id="nav-page">
       <span

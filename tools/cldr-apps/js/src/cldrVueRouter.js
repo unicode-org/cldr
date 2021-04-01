@@ -2,12 +2,15 @@ import { specialToComponent } from "./specialToComponentMap";
 
 import { createApp } from "vue";
 
+import { getCldrOpts } from "./getCldrOpts";
+
 // components. See index.js for css imports.
 // example: import {SomeComponent} from 'whatever'
 import { Popover, Spin } from "ant-design-vue";
 
 // local components
 import CldrValue from "./views/CldrValue.vue";
+import LoginButton from "./views/LoginButton.vue";
 
 /**
  * The App created and mounted most recently. For .unmount …
@@ -49,27 +52,38 @@ function handleCoverageChanged(newLevel) {
 }
 
 /**
- * Create and mount the specified Vue route.
+ * Create the specified Vue app, and register components on it
  * @param {Component} component Vue component to mount
- * @param {Element|String} el Element or String selector
- * @param {String} specialPage name of special page
- * @param {Object} cldrOpts data to pass through
+ * @param {String} specialPage name of special page as $specialPage
+ * @param {Object} cldrOpts data to pass through as $cldrOpts
+ * @param {Object} extraProps data to pass through as global properties
  * @returns {App} the App object
  */
-function show(component, el, specialPage, cldrOpts) {
-  const app = createApp(component, {
-    // These get passed through to the component
-    specialPage,
-    cldrOpts,
-  });
+function createCldrApp(component, specialPage, cldrOpts, extraProps) {
+  const app = createApp(component, extraProps || {});
 
   // These are available on all components.
-  app.config.globalProperties.$cldrOpts = cldrOpts;
-  app.config.globalProperties.$specialPage = specialPage;
+  app.config.globalProperties.$cldrOpts = getCldrOpts();
+  app.config.globalProperties.$specialPage = specialPage || null;
 
   // There is no global registration in Vue3, so we re-register
   // the components here.
   setupComponents(app);
+
+  return app;
+}
+
+/**
+ * Create and mount the specified Vue route.
+ * @param {Component} component Vue component to mount
+ * @param {Element|String} el Element or String selector
+ * @param {String} specialPage name of special page as $specialPage
+ * @param {Object} cldrOpts data to pass through as $cldrOpts
+ * @param {Object} extraProps data to pass through as global properties
+ * @returns {App} the App object
+ */
+function show(component, el, specialPage, extraProps) {
+  const app = createCldrApp(component, specialPage, extraProps);
 
   // Fire up the app..
   lastRoot = app.mount(el);
@@ -87,6 +101,7 @@ function setupComponents(app) {
   app.component("Popover", Popover);
   app.component("a-spin", Spin);
   app.component("cldr-value", CldrValue);
+  app.component("cldr-loginbutton", LoginButton);
 }
 
-export { showPanel, handleCoverageChanged };
+export { showPanel, handleCoverageChanged, createCldrApp, setupComponents };

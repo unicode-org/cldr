@@ -2,11 +2,9 @@
  * cldrGenericVue: encapsulate functions for the any other special pages of Survey Tool
  * which route through Vue
  */
-import * as cldrEvent from "./cldrEvent.js";
 import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
-import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
 const testCldrRetry = false; // danger, must not be true for production
@@ -40,14 +38,6 @@ function loadHandler(json, specialPage) {
   cldrGui.hideRightPanel();
   cldrSurvey.hideLoader();
   cldrLoad.flipToOtherDiv(app);
-  const locale = cldrStatus.getCurrentLocale();
-  const locmap = cldrLoad.getTheLocaleMap();
-  let localeInfo = null;
-  let localeDir = null;
-  if (locale) {
-    localeInfo = locmap.getLocaleInfo(locale);
-    localeDir = localeInfo.dir;
-  }
 
   // Not likely to fail here.
   if (!cldrBundle) {
@@ -60,20 +50,7 @@ function loadHandler(json, specialPage) {
 
   try {
     // add Vue-based component
-    cldrBundle.showPanel(specialPage, app, {
-      // modules
-      cldrLoad,
-      cldrEvent, // Vue could call into these, if need be
-      cldrStatus,
-      cldrSurvey,
-
-      // additional variables
-      locale,
-      locmap,
-      localeInfo,
-      localeDir,
-      sessionId: cldrStatus.getSessionId(),
-    });
+    cldrBundle.showPanel(specialPage, app);
   } catch (e) {
     console.error(
       "Error in vue load of [" +

@@ -61,7 +61,7 @@
           v-bind:title="org"
         ></span>
         &nbsp;|&nbsp;
-        <a v-bind:href="logLink">{{ logText }}</a>
+        <cldr-loginbutton />
       </li>
     </ul>
   </header>
@@ -106,9 +106,8 @@ export default {
       this.coverageMenu = cldrMenu.getCoverageMenu();
       this.coverageTitle = cldrText.get("coverage_menu_desc");
       this.coverageLevel = cldrSurvey.getSurveyOrgCov();
-
       const user = cldrStatus.getSurveyUser();
-      this.loggedIn = !!user;
+
       if (user) {
         this.email = user.email;
         this.org = user.org;

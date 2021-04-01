@@ -3,6 +3,17 @@
  */
 import * as cldrGui from "./cldrGui.js";
 
+/**
+ * Target for status change events
+ */
+const statusTarget = new EventTarget();
+
+/**
+ * Re-export addEventListener as 'on',
+ * so: cldrStatus.on('userChanged', …)
+ */
+const on = statusTarget.addEventListener.bind(statusTarget);
+
 function updateAll(status) {
   if (status.contextPath) {
     setContextPath(status.contextPath);
@@ -297,6 +308,7 @@ function setSurveyUser(u) {
   if (surveyUser !== u) {
     surveyUser = u;
     cldrGui.updateWithStatus();
+    statusTarget.dispatchEvent(new Event("surveyUser"));
   }
 }
 
@@ -439,6 +451,7 @@ export {
   isDisconnected,
   isVisitor,
   logoIcon,
+  on,
   runningStampChanged,
   setAutoImportBusy,
   setContextPath,

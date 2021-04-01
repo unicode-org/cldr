@@ -1107,32 +1107,6 @@ function setShower(id, func) {
   showers[id] = func;
 }
 
-/**
- * Show the vote summary part of the Fix panel
- *
- * @param cont
- *
- * This was in review.js; for Dashboard
- */
-function showHelpFixPanel(cont) {
-  $(".fix-parent .data-vote").html("");
-  $(".fix-parent .data-vote").append(cont);
-
-  $(".data-vote > .span, .data-vote > .pClassExplain").remove();
-  $(".data-vote > .span, .data-vote > .d-example").remove();
-
-  var helpBox = $(".data-vote > *:not(.voteDiv)").add(".data-vote hr");
-  $(".data-vote table:last").after(helpBox);
-
-  if ($(".trInfo").length != 0) {
-    $(".voteDiv").prepend("<hr/>");
-    $(".voteDiv").prepend($(".trInfo").parent());
-  }
-
-  // move the element
-  labelizeIcon();
-}
-
 export {
   INHERITANCE_MARKER,
   addIcon,
@@ -1163,7 +1137,6 @@ export {
   setShower,
   setSurveyLevels,
   setSurveyUserCov,
-  showHelpFixPanel,
   showLoader,
   testsToHtml,
   unbust,

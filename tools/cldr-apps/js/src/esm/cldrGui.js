@@ -375,18 +375,17 @@ function debugElements() {
  * Show or hide the right panel
  */
 function toggleRightPanel() {
-  rightPanelVisible = !rightPanelVisible;
-  if (rightPanelVisible) {
-    showRightPanel();
-  } else {
-    hideRightPanel();
-  }
+  rightPanelVisible ? hideRightPanel() : showRightPanel();
 }
 
 /**
  * Show the right panel
  */
 function showRightPanel() {
+  if (rightPanelVisible) {
+    return;
+  }
+  rightPanelVisible = true;
   const main = document.getElementById("MainContentPane");
   const info = document.getElementById("ItemInfoContainer");
   if (main && info) {
@@ -404,6 +403,10 @@ function showRightPanel() {
  * clicking on the "view" buttons.
  */
 function hideRightPanel() {
+  if (!rightPanelVisible) {
+    return;
+  }
+  rightPanelVisible = false;
   const main = document.getElementById("MainContentPane");
   const info = document.getElementById("ItemInfoContainer");
   if (main && info) {
@@ -467,6 +470,7 @@ export {
   refreshCounterVetting,
   run,
   setToptitleVisibility,
+  showRightPanel,
   updateWithStatus,
   /*
    * The following are meant to be accessible for unit testing only:

@@ -180,7 +180,9 @@ public class SurveyTool extends HttpServlet {
         final String contextPath = request.getContextPath();
         final String cb = getCacheBustingExtension(request);
         out.write("<link rel='stylesheet' href='" + contextPath + "/surveytool" + cb + ".css' />\n");
-        out.write("<link rel='stylesheet' href='" + contextPath + "/css/CldrStForum" + cb + ".css' />\n");
+        /*
+         * Note: cldrForum.css is loaded through webpack
+         */
         // bootstrap.min.css -- cf. bootstrap.min.js elsewhere in this file
         out.write("<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
         out.write("<link rel='stylesheet' href='" + contextPath + "/css/redesign" + cb + ".css' />\n");

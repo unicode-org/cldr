@@ -220,8 +220,16 @@ function construct(html) {
   return renderer.content;
 }
 
+function appendIcon(toElement, className, title) {
+  var e = createChunk(null, "div", className);
+  e.title = title;
+  toElement.appendChild(e);
+  return e;
+}
+
 export {
   addClass,
+  appendIcon,
   clickToSelect,
   construct,
   createChunk,

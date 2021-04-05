@@ -435,7 +435,7 @@ function refreshCounterVetting() {
   }
 
   const inputs = $(".vetting-page input:visible:checked");
-  const total = inputs.length;
+  let total = inputs.length;
   const abstain = inputs.filter(function () {
     return this.id.substr(0, 2) === "NO";
   }).length;
@@ -445,7 +445,7 @@ function refreshCounterVetting() {
   document.getElementById("count-abstain").innerHTML = abstain;
   document.getElementById("count-voted").innerHTML = voted;
   if (total === 0) {
-    total = 1;
+    total = 1; // avoid division by zero
   }
   document.getElementById("progress-voted").style.width =
     (voted * 100) / total + "%";

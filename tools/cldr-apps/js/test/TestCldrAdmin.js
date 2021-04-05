@@ -1,6 +1,8 @@
 import * as cldrTest from "./TestCldrTest.js";
 
-import * as cldrAdmin from "../js/src/esm/cldrAdmin.js";
+import * as cldrAdmin from "../src/esm/cldrAdmin.js";
+
+export const TestCldrAdmin = "ok";
 
 const assert = chai.assert;
 

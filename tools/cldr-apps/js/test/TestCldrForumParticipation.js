@@ -1,20 +1,22 @@
 import * as cldrTest from "./TestCldrTest.js";
 
-import * as cldrBulkClosePosts from "../js/src/esm/cldrBulkClosePosts.js";
+import * as cldrForumParticipation from "../src/esm/cldrForumParticipation.js";
+
+export const TestCldrForumParticipation = "ok";
 
 const assert = chai.assert;
 
-describe("cldrBulkClosePosts.makeHtmlFromJson", function () {
+describe("cldrForumParticipation.makeHtmlFromJson", function () {
   /*
-   * bulkClosePostsJson has been defined in bulk_close_posts_json.js
+   * forumParticipationJson has been defined in forum_participation_json.js
    */
-  const json = bulkClosePostsJson;
+  const json = forumParticipationJson;
 
   it("should get json", function () {
     assert(json != null);
   });
 
-  const html = cldrBulkClosePosts.makeHtmlFromJson(json);
+  const html = cldrForumParticipation.makeHtmlFromJson(json);
 
   it("should not return null or empty", function () {
     assert(html != null && html !== "", "html is neither null nor empty");

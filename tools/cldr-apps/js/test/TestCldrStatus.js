@@ -1,4 +1,6 @@
-import * as cldrStatus from "../js/src/esm/cldrStatus.js";
+import * as cldrStatus from "../src/esm/cldrStatus.js";
+
+export const TestCldrStatus = "ok";
 
 const assert = chai.assert;
 

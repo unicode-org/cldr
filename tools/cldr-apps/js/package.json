@@ -4,7 +4,7 @@
   "description": "Node.js components for cldr-apps",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0",
+    "test": "webpack --config webpack-test.config.js",
     "lint": "exit 0",
     "build": "webpack",
     "watch": "webpack watch"

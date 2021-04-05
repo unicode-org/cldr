@@ -1,4 +1,6 @@
-import * as cldrText from "../js/src/esm/cldrText.js";
+import * as cldrText from "../src/esm/cldrText.js";
+
+export const TestCldrText = "ok";
 
 const assert = chai.assert;
 

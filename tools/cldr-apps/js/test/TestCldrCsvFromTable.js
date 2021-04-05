@@ -1,6 +1,8 @@
-import * as cldrCsvFromTable from "../js/src/esm/cldrCsvFromTable.js";
+import * as cldrCsvFromTable from "../src/esm/cldrCsvFromTable.js";
 
 const assert = chai.assert;
+
+export const TestCldrCsvFromTable = "ok";
 
 describe("cldrCsvFromTable.get", function () {
   const table = document.createElement("table");

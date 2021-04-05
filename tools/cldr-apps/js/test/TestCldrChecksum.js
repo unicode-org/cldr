@@ -1,4 +1,6 @@
-import * as cldrTable from "../js/src/esm/cldrTable.js";
+import * as cldrTable from "../src/esm/cldrTable.js";
+
+export const TestCldrChecksum = "ok";
 
 const assert = chai.assert;
 

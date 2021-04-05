@@ -394,7 +394,11 @@ public class SurveyAjax extends HttpServlet {
                 } else {
                     if (what.equals(WHAT_ADMIN_PANEL)) {
                         mySession.userDidAction();
-                        if (UserRegistry.userIsAdmin(mySession.user)) {
+                        if (UserRegistry.userIsAdmin(mySession.user) ||
+                            "create_login".equals(request.getParameter("do"))) {
+                            // TODO: temporary exception for createAndLogin
+                            // create_login doesn't actually create anything,
+                            // just returns metadata.
                             mySession.userDidAction();
                             SurveyJSONWrapper r = newJSONStatus(request, sm);
                             r.put("what", what);

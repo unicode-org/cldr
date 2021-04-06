@@ -739,7 +739,7 @@ public class SurveyAjax extends HttpServlet {
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
                         importOldVotes(r, mySession.user, sm, isSubmit, confirmList, loc);
                         send(r, out);
-                    } else if (what.equals(WHAT_GETSIDEWAYS)) {
+                    } else if (what.equals(WHAT_GETSIDEWAYS) && l != null) {
                         mySession.userDidAction();
                         final SurveyJSONWrapper r = newJSONStatusQuick(sm);
                         r.put("what", what);

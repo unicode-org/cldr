@@ -9,6 +9,7 @@ import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
+import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
 
 const CLDR_VOTE_DEBUG = true;
@@ -81,11 +82,11 @@ function wireUpButton(button, tr, theRow, vHash, box) {
 }
 
 function handleWiredClick(tr, theRow, vHash, box, button, what) {
-  var value = "";
-  var valToShow;
-  if (tr.wait) {
+  if (!tr || !theRow || tr.wait) {
     return;
   }
+  var value = "";
+  var valToShow;
   if (box) {
     valToShow = box.value;
     value = box.value;
@@ -174,7 +175,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
         if (json.submitResultRaw) {
           // if submitted..
           tr.className = "tr_checking2";
-          cldrSurvey.refreshSingleRow(
+          cldrTable.refreshSingleRow(
             tr,
             theRow,
             function (theRow) {
@@ -304,7 +305,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
         tr.lastOn.checked = false;
         tr.lastOn.className = "ichoice-o";
       }
-      cldrVote.wireUpButton(newButton, tr, theRow, "[retry]", {
+      wireUpButton(newButton, tr, theRow, "[retry]", {
         value: value,
       });
       wrap = wrapRadio(newButton);

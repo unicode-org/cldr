@@ -27,6 +27,7 @@ const createLoginNote =
 const formHtml =
   "<form id='createLoginForm' class='adduser' action='' method='POST'>" +
   "  <input type='hidden' name='action' value='new_and_login' />\n" +
+  "  <input type='hidden' id='dump' name='dump' value='_' />\n" +
   "  <table>\n" +
   "    <tr>\n" +
   "      <th><label for='real'>User Name:</label></th>\n" +
@@ -109,7 +110,14 @@ function setupFormActionUrl() {
     console.log(id + " not found in setupFormActionUrl");
     return;
   }
-  el.setAttribute("action", "survey?s=" + cldrStatus.getSessionId());
+  const vap = new URLSearchParams(window.location.search).get("vap");
+  if (vap) {
+    document.getElementById('dump').setAttribute("value", vap);
+    el.setAttribute("action", "survey");  // No session id, use 'dump=<testpw>'
+  } else {
+    // May not work, if not authorized
+    el.setAttribute("action", "survey?s=" + cldrStatus.getSessionId());
+  }
 }
 
 function setupUserName(json) {

@@ -34,7 +34,7 @@ const formHtml =
   "      <td><input id='real' name='real' size='40' value='' /></td>\n" +
   "    </tr>\n" +
   "    <tr class='submit'>\n" +
-  "      <td colspan='2'><button style='font-size: xx-large' type='submit'>Login</button></td>\n" +
+  "      <td colspan='2'><button style='font-size: xx-large; margin-top: 1ex; margin-bottom: 1ex' type='submit'>Login</button></td>\n" +
   "    </tr>\n" +
   "  </table>\n" +
   "  <h3>More Options...</h3>\n" +
@@ -112,8 +112,8 @@ function setupFormActionUrl() {
   }
   const vap = new URLSearchParams(window.location.search).get("vap");
   if (vap) {
-    document.getElementById('dump').setAttribute("value", vap);
-    el.setAttribute("action", "survey");  // No session id, use 'dump=<testpw>'
+    document.getElementById("dump").setAttribute("value", vap);
+    el.setAttribute("action", "survey"); // No session id, use 'dump=<testpw>'
   } else {
     // May not work, if not authorized
     el.setAttribute("action", "survey?s=" + cldrStatus.getSessionId());

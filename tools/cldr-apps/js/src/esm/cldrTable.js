@@ -5,12 +5,15 @@
  * Functions for populating the main table in the vetting page:
  * 		insertRows
  * 		updateRow
+ * 		refreshSingleRow
  *
  * updateRow is also used for the Dashboard.
  */
+import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForumPanel from "./cldrForumPanel.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
@@ -317,6 +320,86 @@ function findPartition(partitions, partitionList, curPartition, i) {
 }
 
 /**
+ * Reload a specific row
+ *
+ * Called only by load handler of cldrVote.handleWiredClick
+ */
+function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
+  cldrSurvey.showLoader(cldrText.get("loadingOneRow"));
+
+  const xhrArgs = {
+    url: getSingleRowUrl(tr, theRow),
+    handleAs: "json",
+    load: closureLoadHandler,
+    error: closureErrHandler,
+    timeout: cldrAjax.mediumTimeout(),
+  };
+  cldrAjax.sendXhr(xhrArgs);
+
+  function closureLoadHandler(json) {
+    singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure);
+  }
+
+  function closureErrHandler(err) {
+    singleRowErrHandler(err, onFailure);
+  }
+}
+
+function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
+  try {
+    if (json.section.rows[tr.rowHash]) {
+      theRow = json.section.rows[tr.rowHash];
+      tr.theTable.json.section.rows[tr.rowHash] = theRow;
+      updateRow(tr, theRow);
+      cldrSurvey.hideLoader();
+      onSuccess(theRow);
+      if (cldrStatus.isDashboard()) {
+        // TODO: refreshFixPanel(json);
+      } else {
+        cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+        cldrGui.refreshCounterVetting();
+      }
+    } else {
+      tr.className = "ferrbox";
+      console.log("could not find " + tr.rowHash + " in " + json);
+      onFailure(
+        "refreshSingleRow: Could not refresh this single row: Server failed to return xpath #" +
+          theRow.xpathId +
+          " for locale " +
+          cldrStatus.getCurrentLocale()
+      );
+    }
+  } catch (e) {
+    console.log("Error in ajax post [refreshSingleRow] ", e.message);
+  }
+}
+
+function singleRowErrHandler(err, onFailure) {
+  console.log("Error: " + err);
+  tr.className = "ferrbox";
+  tr.innerHTML =
+    "Error while  loading: <div style='border: 1px solid red;'>" +
+    err +
+    "</div>";
+  onFailure("err", err);
+}
+
+function getSingleRowUrl(tr, theRow) {
+  const p = new URLSearchParams();
+  p.append("what", "getrow"); // cf. WHAT_GETROW in SurveyAjax.java
+  p.append("_", cldrStatus.getCurrentLocale());
+  p.append("xpath", theRow.xpathId);
+  p.append("fhash", tr.rowHash);
+  p.append("automatic", "t");
+  if (cldrStatus.isDashboard()) {
+    p.append("dashboard", "true");
+  }
+  p.append("s", cldrStatus.getSessionId());
+  p.append("cacheKill", cldrSurvey.cacheBuster());
+  return cldrAjax.makeUrl(p);
+}
+
+/**
  * Update one row using data received from server.
  *
  * @param tr the table row
@@ -517,7 +600,9 @@ function reallyUpdateRow(tr, theRow) {
    * If the user can make changes, add an "abstain" button;
    * else, possibly add a ticket link, or else hide the column.
    */
-  updateRowNoAbstainCell(tr, theRow, abstainCell, proposedCell, protoButton);
+  if (abstainCell) {
+    updateRowNoAbstainCell(tr, theRow, abstainCell, proposedCell, protoButton);
+  }
 
   /*
    * Set className for this row to "vother" and "cov..." based on the coverage value.
@@ -1274,6 +1359,7 @@ export {
   appendExample,
   getRowApprovalStatusClass,
   insertRows,
+  refreshSingleRow,
   updateRow,
   /*
    * The following are meant to be accessible for unit testing only:

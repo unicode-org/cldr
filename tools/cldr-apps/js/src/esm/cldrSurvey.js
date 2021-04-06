@@ -4,7 +4,6 @@
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
-import * as cldrForum from "./cldrForum.js";
 import * as cldrGui from "./cldrGui.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
@@ -917,79 +916,6 @@ function setLang(node, loc) {
 }
 
 /**
- * Reload a specific row
- *
- * Called by loadHandler in handleWiredClick
- */
-function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
-  showLoader(cldrText.get("loadingOneRow"));
-
-  let ourUrl =
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=getrow" +
-    "&_=" +
-    cldrStatus.getCurrentLocale() +
-    "&xpath=" +
-    theRow.xpathId +
-    "&fhash=" +
-    tr.rowHash +
-    "&s=" +
-    cldrStatus.getSessionId() +
-    "&automatic=t";
-
-  if (cldrStatus.isDashboard()) {
-    ourUrl += "&dashboard=true";
-  }
-
-  var loadHandler = function (json) {
-    try {
-      if (json.section.rows[tr.rowHash]) {
-        theRow = json.section.rows[tr.rowHash];
-        tr.theTable.json.section.rows[tr.rowHash] = theRow;
-        cldrTable.updateRow(tr, theRow);
-
-        hideLoader();
-        onSuccess(theRow);
-        if (cldrStatus.isDashboard()) {
-          refreshFixPanel(json);
-        } else {
-          cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
-          cldrGui.refreshCounterVetting();
-        }
-      } else {
-        tr.className = "ferrbox";
-        console.log("could not find " + tr.rowHash + " in " + json);
-        onFailure(
-          "refreshSingleRow: Could not refresh this single row: Server failed to return xpath #" +
-            theRow.xpathId +
-            " for locale " +
-            cldrStatus.getCurrentLocale()
-        );
-      }
-    } catch (e) {
-      console.log("Error in ajax post [refreshSingleRow] ", e.message);
-    }
-  };
-  var errorHandler = function (err) {
-    console.log("Error: " + err);
-    tr.className = "ferrbox";
-    tr.innerHTML =
-      "Error while  loading: <div style='border: 1px solid red;'>" +
-      err +
-      "</div>";
-    onFailure("err", err);
-  };
-  var xhrArgs = {
-    url: ourUrl + cacheKill(),
-    handleAs: "json",
-    load: loadHandler,
-    error: errorHandler,
-    timeout: cldrAjax.mediumTimeout(),
-  };
-  cldrAjax.sendXhr(xhrArgs);
-}
-
-/**
  * Show the 'loading' sign
  *
  * @param {String} text text to use
@@ -1131,7 +1057,6 @@ export {
   isInputBusy,
   localizeFlyover,
   parseStatusAction,
-  refreshSingleRow,
   setLang,
   setOverrideDir,
   setShower,

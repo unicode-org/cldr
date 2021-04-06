@@ -31,11 +31,7 @@
       <li>
         <ul>
           <li>
-            <a
-              href="upload.jsp?a=/cldr-apps/survey&amp;s=w5nGTzkdT_bY9LnApVazwpX"
-              target="_blank"
-              >Upload XML
-            </a>
+            <a v-bind:href="uploadXmlUrl" target="_blank">Upload XML </a>
           </li>
         </ul>
       </li>
@@ -92,7 +88,7 @@
       </li>
     </template>
     <li class="section-header">Informational</li>
-    <li>
+    <li v-if="canSeeStatistics">
       <ul>
         <li><a href="#statistics">Statistics</a></li>
       </ul>
@@ -125,12 +121,14 @@ export default {
       canImportOldVotes: false,
       canListUsers: false,
       canMonitorVetting: false,
+      canSeeStatistics: false,
       canUseVettingSummary: false,
       isAdmin: false,
       isTC: false,
       loggedIn: false,
       org: null,
       recentActivityUrl: null,
+      uploadXmlUrl: null,
       userId: 0,
     };
   },
@@ -147,6 +145,7 @@ export default {
       this.canListUsers = this.canMonitorVetting =
         perm && (perm.userIsTC || perm.userIsVetter);
       this.canMonitorForum = perm && perm.userCanMonitorForum;
+      // this.canSeeStatistics will be false until there is a new implementation
       this.canUseVettingSummary = perm && perm.userCanUseVettingSummary;
       this.isAdmin = perm && perm.userIsAdmin;
       this.isTC = perm && perm.userIsTC;
@@ -157,6 +156,7 @@ export default {
 
       this.org = cldrStatus.getOrganizationName();
       this.recentActivityUrl = this.getSpecialUrl("recent_activity");
+      this.uploadXmlUrl = this.getSpecialUrl("upload");
     },
 
     getSpecialUrl(special) {
@@ -166,6 +166,11 @@ export default {
       if ("recent_activity" === special) {
         // cf. cldrAccount.getUserActivityLink
         url += "///" + this.userId;
+      } else if ("upload" === special) {
+        // not one of our "modern specials"; back end still jsp
+        const p = new URLSearchParams();
+        p.append("s", cldrStatus.getSessionId());
+        url = "upload.jsp?a=/cldr-apps/survey&" + p.toString();
       }
       return url;
     },

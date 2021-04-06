@@ -57,11 +57,14 @@ function loadInfo(frag, forumDivClone, tr) {
     sidewaysShowTimeout = window.setTimeout(function () {
       clearMyTimeout();
       cldrDom.updateIf(sidewaysControl, cldrText.get("sideways_loading1"));
-
+      const curLocale = cldrStatus.getCurrentLocale();
+      if (!curLocale) {
+        return;
+      }
       var url =
         cldrStatus.getContextPath() +
         "/SurveyAjax?what=getsideways&_=" +
-        cldrStatus.getCurrentLocale() +
+        curLocale +
         "&s=" +
         cldrStatus.getSessionId() +
         "&xpath=" +

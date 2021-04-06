@@ -32,19 +32,19 @@ function listen(str, tr, theObj, fn) {
 }
 
 function showNothing() {
-  return show(null, null, null, null);
+  show(null, null, null, null);
 }
 
 function showMessage(str) {
-  return show(str, null, null, null);
+  show(str, null, null, null);
 }
 
 function showWithRow(str, tr) {
-  return show(str, tr, null, null);
+  show(str, tr, null, null);
 }
 
 function showRowObjFunc(tr, hideIfLast, fn) {
-  return show(null, tr, hideIfLast, fn);
+  show(null, tr, hideIfLast, fn);
 }
 
 /**
@@ -180,7 +180,6 @@ function show(str, tr, hideIfLast, fn) {
       $(this).closest("td").css("text-align", "left");
     }
   );
-  return pucontent;
 }
 
 function setLastShown(obj) {

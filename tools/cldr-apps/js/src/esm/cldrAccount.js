@@ -329,7 +329,6 @@ function numberOfUsersShown(number) {
 }
 
 function submitTableForm() {
-  event.preventDefault();
   const formEl = document.getElementById("tableForm"); // maybe not event.target
   const data = new FormData(formEl);
   const xhrArgs = {
@@ -423,8 +422,7 @@ function getUserActions(u, json) {
 
 function getUserActionMenu(u, json) {
   const theirTag = u.data.id + "_" + u.data.email;
-  let html = "<select class='userActionMenuSelect' name='" + theirTag + "'";
-  html += ">\n";
+  let html = "<select class='userActionMenuSelect' name='" + theirTag + "'>\n";
   const theirLevel = u.data.userlevel;
   html += "<option value=''>" + LIST_ACTION_NONE + "</option>\n";
   html += getChangeLevelOptions(u, theirLevel);
@@ -1121,9 +1119,6 @@ function getUrl() {
   const allowCache = false;
   const p = new URLSearchParams();
   p.append("what", WHAT_USER_LIST);
-  if (CLDR_ACCOUNT_DEBUG) {
-    p.append("乒 pīng", "乓 pāng"); // test UTF-8 support
-  }
   if (needOrgList()) {
     p.append(GET_ORGS, true);
   }

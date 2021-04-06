@@ -98,22 +98,6 @@ public class UserList {
         canShowLocked = UserRegistry.userIsExactlyManager(me) || UserRegistry.userIsTC(me);
         showLocked = canShowLocked && getPrefBool(PREF_SHOWLOCKED);
         isValid = (me != null && (isJustMe || UserRegistry.userCanDoList(me)));
-        if (DEBUG) {
-            debugEncoding();
-        }
-    }
-
-    private void debugEncoding() {
-        /*
-         * Locally, I get
-         *   request.getCharacterEncoding = UTF-8
-         *   request.getParameter(乒 pīng) = 乓 pāng
-         * If that holds true on production, etc., then we might not need the decoding done
-         * by ctx.field(), though there may be issues of URL-encoding of some ASCII characters?
-         */
-        String enc = request.getCharacterEncoding();
-        System.out.println("request.getCharacterEncoding = " + enc);
-        System.out.println("request.getParameter(乒 pīng) = " + request.getParameter("乒 pīng"));
     }
 
     public void getJson(SurveyJSONWrapper r) throws JSONException, SurveyException, IOException {

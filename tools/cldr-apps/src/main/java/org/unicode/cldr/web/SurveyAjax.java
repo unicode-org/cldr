@@ -151,9 +151,7 @@ public class SurveyAjax extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         setup(request, response);
         /*
-         * TODO: is request.getParameter("value") always sufficient? Maybe add a
-         * check that request.getCharacterEncoding() always returns “UTF-8” (as it does
-         * for me currently on localhost) and throw an exception if it doesn’t
+         * TODO: is request.getParameter("value") always sufficient?
          */
         processRequest(request, response, request.getParameter("value"));
     }
@@ -167,8 +165,7 @@ public class SurveyAjax extends HttpServlet {
         setup(request, response);
         /*
          * TODO: check whether this ...decodeFieldString... is still needed/appropriate; what is QUERY_VALUE_SUFFIX for?
-         * See related TODO in doPost
-         * processRequest uses val for unrelated (?) purposes WHAT_SUBMIT, WHAT_PREF, WHAT_OLDVOTES, WHAT_SEARCH
+         * processRequest uses val for unrelated (?) purposes WHAT_SUBMIT, WHAT_PREF, WHAT_SEARCH
          * some of which are doPost, and some of which are doGet
          */
         processRequest(request, response, WebContext.decodeFieldString(request.getParameter(SurveyMain.QUERY_VALUE_SUFFIX)));
@@ -524,6 +521,8 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if (what.equals(WHAT_PREF)) {
+                        // This is used for setting Coverage level, see cldrMenu.js;
+                        // maybe also for PREF_CODES_PER_PAGE but that looks like dead code?
                         mySession.userDidAction();
                         String pref = request.getParameter("pref");
 
@@ -736,8 +735,9 @@ public class SurveyAjax extends HttpServlet {
                     } else if (what.equals(WHAT_OLDVOTES)) {
                         mySession.userDidAction();
                         boolean isSubmit = (request.getParameter("doSubmit") != null);
+                        String confirmList = request.getParameter("confirmList");
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
-                        importOldVotes(r, mySession.user, sm, isSubmit, val, loc);
+                        importOldVotes(r, mySession.user, sm, isSubmit, confirmList, loc);
                         send(r, out);
                     } else if (what.equals(WHAT_GETSIDEWAYS)) {
                         mySession.userDidAction();
@@ -1430,12 +1430,11 @@ public class SurveyAjax extends HttpServlet {
      * @param user the User (see UserRegistry.java)
      * @param sm the SurveyMain instance
      * @param isSubmit false when just showing options to user, true when user clicks "Vote for selected Winning/Losing Votes"
-     * @param val the String parameter that was passed to processRequest; null when first called for "Import Old Votes";
-     *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
+     * @param confirmList the list of xpaths to import when isSubmit is true, else null
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
      */
-    private void importOldVotes(SurveyJSONWrapper r, User user, SurveyMain sm, boolean isSubmit, String val, String loc)
+    private void importOldVotes(SurveyJSONWrapper r, User user, SurveyMain sm, boolean isSubmit, String confirmList, String loc)
                throws ServletException, IOException, JSONException, SQLException {
         r.put("what", WHAT_OLDVOTES);
         if (user == null) {
@@ -1445,7 +1444,7 @@ public class SurveyAjax extends HttpServlet {
             r.put("err", "No permission to do this (may not be the right SurveyTool phase)");
             r.put("err_code", ErrorCode.E_NO_PERMISSION);
         } else {
-            importOldVotesForValidatedUser(r, user, sm, isSubmit, val, loc);
+            importOldVotesForValidatedUser(r, user, sm, isSubmit, confirmList, loc);
         }
     }
 
@@ -1456,8 +1455,7 @@ public class SurveyAjax extends HttpServlet {
      * @param user the User
      * @param sm the SurveyMain instance
      * @param isSubmit false when just showing options to user, true when user clicks "Vote for selected Winning/Losing Votes"
-     * @param val the String parameter that was passed to processRequest; null when first called for "Import Old Votes";
-     *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
+     * @param confirmList
      * @param loc the locale as a string, empty when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
      *
@@ -1469,7 +1467,7 @@ public class SurveyAjax extends HttpServlet {
 
      */
     private void importOldVotesForValidatedUser(SurveyJSONWrapper r, User user, SurveyMain sm, boolean isSubmit,
-               String val, String loc)
+               String confirmList, String loc)
                throws ServletException, IOException, JSONException, SQLException {
 
         JSONObject oldvotes = new JSONObject();
@@ -1485,7 +1483,7 @@ public class SurveyAjax extends HttpServlet {
             oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
             STFactory fac = sm.getSTFactory();
             if (isSubmit) {
-                submitOldVotes(user, sm, locale, val, newVotesTable, oldvotes, fac);
+                submitOldVotes(user, sm, locale, confirmList, newVotesTable, oldvotes, fac);
             } else {
                 viewOldVotes(user, sm, loc, locale, newVotesTable, oldvotes, fac);
             }
@@ -1547,7 +1545,7 @@ public class SurveyAjax extends HttpServlet {
             }
         }
         /*
-         * In CldrSurveyVettingLoader.js the json is used like this:
+         * On the front end, the json is used like this:
          *  var data = json.oldvotes.locales.data;
          *  var header = json.oldvotes.locales.header;
          *  The header is then used for header.LOCALE_NAME, header.LOCALE, and header.COUNT.
@@ -1732,7 +1730,7 @@ public class SurveyAjax extends HttpServlet {
      * @param user the User
      * @param sm the SurveyMain instance, used for sm.xpt and sm.reg
      * @param locale the CLDRLocale
-     * @param val the JSON String like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}"
+     * @param confirmList the list, as a string like "7b8ee7884f773afa,1234567890abcdef"
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory to be used for ballotBoxForLocale
@@ -1742,33 +1740,21 @@ public class SurveyAjax extends HttpServlet {
      * @throws SQLException
      *
      * Called locally by importOldVotesForValidatedUser
-     *
-     * On the frontend, submitOldVotes is called in response to the user clicking a button
-     * set up in addOldvotesType in CldrSurveyVettingLoader.js: submit.on("click",function(e) {...
-     * ... if(jsondata[kk].box.checked) confirmList.push(jsondata[kk].strid);
-     * That on-click code sets up confirmList, inside of saveList:
-     * var saveList = {
-     *   locale: surveyCurrentLocale,
-     *   confirmList: confirmList
-     * };
-     * That saveList is what we receive here as "val", and expand into "list".
      */
-    private void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
+    private void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String confirmList,
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
         if (SurveyMain.isUnofficial()) {
             System.out.println("User " + user.toString() + "  is migrating old votes in " + locale.getDisplayName());
         }
-        JSONObject list = new JSONObject(val);
-
         BallotBox<User> box = fac.ballotBoxForLocale(locale);
 
-        JSONArray confirmList = list.getJSONArray("confirmList");
         Set<String> confirmSet = new HashSet<>();
-        for (int i = 0; i < confirmList.length(); i++) {
-            String strid = confirmList.getString(i);
-            confirmSet.add(strid);
+        for (String s : confirmList.split(",")) {
+            if (!s.isEmpty()) {
+                confirmSet.add(s);
+            }
         }
 
         Map<String, Object> rows[] = getOldVotesRows(newVotesTable, locale, user.id);

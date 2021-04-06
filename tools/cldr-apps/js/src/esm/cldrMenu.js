@@ -167,6 +167,7 @@ function setCoverageLevel(newValue) {
   if (setUserCovTo !== cldrSurvey.getSurveyUserCov()) {
     const theLocale = cldrStatus.getCurrentLocale() || "root";
     cldrSurvey.setSurveyUserCov(setUserCovTo);
+    // cf. WHAT_PREF in SurveyAjax.java
     const updurl =
       cldrStatus.getContextPath() +
       "/SurveyAjax?what=pref&_=" +

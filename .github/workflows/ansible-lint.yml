@@ -19,6 +19,8 @@ jobs:
       run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)
     - name: Lint GitHub Actions
       run: npx yaml-lint .github/workflows/*.yml
+    - name: Run JS tests
+      run: (cd tools/cldr-apps/js && npm ci && npm t)
   build:
     runs-on: macos-latest
     steps:

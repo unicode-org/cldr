@@ -14,7 +14,7 @@ BEGIN
 	DROP TEMPORARY TABLE IF EXISTS allreplycount;
 	
 	-- This table is a subset of all users, only having our current org.
-	CREATE TEMPORARY TABLE myorgusers SELECT * FROM CLDR_USERS WHERE org = my_org;
+	CREATE TEMPORARY TABLE myorgusers SELECT * FROM cldr_users WHERE org = my_org;
 	
 	-- FIRST a table of OUR ORG replies
 	CREATE TEMPORARY TABLE replycount

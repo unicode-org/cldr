@@ -64,9 +64,9 @@ public class ToolConstants {
         "39.0"
         // add to this once the release is final!
         );
-    public static final List<VersionInfo> CLDR_VERSIONS_VI = CLDR_VERSIONS.stream()
+    public static final Set<VersionInfo> CLDR_VERSIONS_VI = ImmutableSet.copyOf(CLDR_VERSIONS.stream()
         .map(x -> VersionInfo.getInstance(x))
-        .collect(Collectors.toUnmodifiableList());
+        .collect(Collectors.toList()));
 
     public static final String DEV_VERSION = "40";
     public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);

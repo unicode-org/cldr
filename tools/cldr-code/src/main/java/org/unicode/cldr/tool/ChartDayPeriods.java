@@ -36,7 +36,7 @@ public class ChartDayPeriods extends Chart {
             + "The following shows the ones that can be used as selectors in messages. "
             + "The first column has a language group to collect languages together that are more likely to have similar day periods. "
             + "For more information, see: "
-            + "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-dates.html#Day_Period_Rule_Sets'>Day Period Rules</a>. "
+            + "<a href='https://unicode.org/reports/tr35/tr35-dates.html#Day_Period_Rule_Sets'>Day Period Rules</a>. "
             + "The latest release data for this chart is in "
             + "<a href='http://unicode.org/cldr/latest/common/supplemental/dayPeriods.xml'>dayPeriods.xml</a>.<p>";
     }

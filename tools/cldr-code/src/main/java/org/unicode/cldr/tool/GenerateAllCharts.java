@@ -8,6 +8,10 @@ import org.unicode.cldr.util.VerifyZones;
 
 /**
  * Use -DCHART_VERSION=38.1 (for example) to get a specific version
+ * Plus options
+ * -DCHART_STATUS=beta (default, uses trunk, calls it β)
+ * -DCHART_STATUS=trunk (uses trunk, no β. Used at the end of the release, but before the final data is in cldr-archive)
+ * -DCHART_STATUS=release (only uses the cldr-archive, no β)
  * @author markdavis
  *
  */

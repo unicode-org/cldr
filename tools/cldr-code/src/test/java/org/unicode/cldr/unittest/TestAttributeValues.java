@@ -57,7 +57,6 @@ import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
 
 public class TestAttributeValues extends TestFmwk {
@@ -205,8 +204,7 @@ public class TestAttributeValues extends TestFmwk {
                 throw (IllegalArgumentException) new IllegalArgumentException(" at " + r.getLocation()).initCause(e);
             }
         } catch (Exception e) {
-            System.err.println("Exception occured in " + fullFile + " after parsing " + lastElement);
-            throw new ICUException(fullFile, e);
+            errln("Exception occured in " + fullFile + " after parsing " + lastElement);
         }
         pathChecker.elementCount.addAndGet(_elementCount);
         pathChecker.attributeCount.addAndGet(_attributeCount);

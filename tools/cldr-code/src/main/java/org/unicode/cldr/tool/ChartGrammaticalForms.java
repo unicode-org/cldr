@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -114,9 +115,13 @@ public class ChartGrammaticalForms extends Chart {
             throw new IllegalArgumentException("Needs adjustment for additional GrammaticalTarget.values()");
         }
 
+        System.out.println(SDI.hasGrammarInfo());
+
         TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Locale", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .addColumn("Locale", "class='source' width='1%'", null, "class='source'", true)
             .setSortPriority(0)
+            .setBreakSpans(true)
+            .addColumn("ID", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             .setBreakSpans(true)
             .addColumn("Feature", "class='source' width='1%'", null, "class='source'", true)
             .setSortPriority(1)
@@ -124,8 +129,13 @@ public class ChartGrammaticalForms extends Chart {
             .addColumn("Usage", "class='source'", null, "class='source'", true)
             .addColumn("Values", "class='source'", null, "class='source'", true)
             ;
-        for (String locale : SDI.hasGrammarInfo()) {
-            GrammarInfo grammarInfo = SDI.getGrammarInfo(locale, false);
+        for (String localeId : SDI.hasGrammarInfo()) {
+            if (localeId.equals("fi")) {
+                int debug = 0;
+            }
+            Set<String> failures = new LinkedHashSet<>();
+            GrammarInfo grammarInfo = SDI.getGrammarInfo(localeId, false);
+            String localeName = CONFIG.getEnglish().getName(localeId);
             for (GrammaticalFeature feature : GrammaticalFeature.values()) {
                 Map<GrammaticalScope, Set<String>> scopeToValues = grammarInfo.get(GrammaticalTarget.nominal, feature);
                 if (scopeToValues.isEmpty()) {
@@ -151,25 +161,38 @@ public class ChartGrammaticalForms extends Chart {
                         }
                         sortedValues.clear();
                         sortedValues.addAll(values);
-                        addRow(tablePrinter, locale, feature, usage.toString(), Joiner.on(", ").join(sortedValues));
+                        addRow(tablePrinter,
+                            localeName,
+                            localeId,
+                            feature,
+                            usage.toString(),
+                            Joiner.on(", ").join(sortedValues));
                     }
                 } else {
                     try {
                         sortedValues.addAll(values);
-                        addRow(tablePrinter, locale, feature, Joiner.on(", ").join(scopeToValues.keySet()),
+                        addRow(tablePrinter,
+                            localeName,
+                            localeId,
+                            feature,
+                            Joiner.on(", ").join(scopeToValues.keySet()),
                             Joiner.on(", ").join(sortedValues));
                     } catch (Exception e) {
-                        int debug = 0;
+                       failures.add(e.getMessage());
                     }
                 }
+            }
+            if (!failures.isEmpty()) {
+                System.out.println("# Failures, " + localeId + "\t" + failures);
             }
         }
         pw.append(tablePrinter.toString());
     }
 
-    public void addRow(TablePrinter tablePrinter, String locale, GrammaticalFeature feature, String usage, final String valueString) {
+    public void addRow(TablePrinter tablePrinter, String locale, String id, GrammaticalFeature feature, String usage, final String valueString) {
         tablePrinter.addRow()
         .addCell(locale)
+        .addCell(id)
         .addCell(feature)
         .addCell(usage)
         .addCell(valueString)

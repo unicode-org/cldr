@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -59,17 +60,23 @@ public class ToolConstants {
         "36.1",
         "37.0",
         "38.0",
-        "38.1"
+        "38.1",
+        "39.0"
         // add to this once the release is final!
         );
-    public static final String DEV_VERSION = "39";
+    public static final Set<VersionInfo> CLDR_VERSIONS_VI = ImmutableSet.copyOf(CLDR_VERSIONS.stream()
+        .map(x -> VersionInfo.getInstance(x))
+        .collect(Collectors.toList()));
+
+    public static final String DEV_VERSION = "40";
+    public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET = ImmutableSet.copyOf(ToolConstants.CLDR_VERSIONS);
     public static final Set<String> CLDR_RELEASE_AND_DEV_VERSION_SET = ImmutableSet.<String>builder().addAll(CLDR_RELEASE_VERSION_SET).add(DEV_VERSION).build();
 
-    public static String previousVersion(String version) {
-        String last = "";
-        for (String current : CLDR_VERSIONS) {
+    public static VersionInfo previousVersion(VersionInfo version) {
+        VersionInfo last = null;
+        for (VersionInfo current : CLDR_VERSIONS_VI) {
             if (current.equals(version)) {
                 break;
             }
@@ -77,27 +84,40 @@ public class ToolConstants {
         }
         return last;
     }
+    public static String previousVersion(String version, int minFields) {
+        VersionInfo result = previousVersion(VersionInfo.getInstance(version));
+        return result.getVersionString(minFields, 2);
+    }
+    public static String previousVersion(String version) {
+        return previousVersion(version, 2);
+    }
 
-    public static String getBaseDirectory(String version) {
-        if (version.equals(DEV_VERSION) || version.equals(DEV_VERSION + ".0")) {
+    public static String getBaseDirectory(VersionInfo vi) {
+        if (vi.equals(DEV_VERSION_VI)) {
             return CLDRPaths.BASE_DIRECTORY;
-        } else if (CLDR_RELEASE_VERSION_SET.contains(version)) {
-            return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/";
+        } else if (CLDR_VERSIONS_VI.contains(vi)) {
+            return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + vi.getVersionString(2, 2) + "/";
         } else {
-            throw new IllegalArgumentException("not a known version: " + version);
+            throw new IllegalArgumentException("not a known version: " + vi.getVersionString(2, 2)
+                + ", must be in: " + CLDR_VERSIONS_VI);
         }
+    }
+    public static String getBaseDirectory(String version) {
+        VersionInfo vi = VersionInfo.getInstance(version);
+        return getBaseDirectory(vi);
     }
 
     // allows overriding with -D
-    public static final String CHART_VERSION = CldrUtility.getProperty("CHART_VERSION", DEV_VERSION);
-    public static final VersionInfo CHART_VI = VersionInfo.getInstance(CHART_VERSION);
+    public static final VersionInfo CHART_VI = VersionInfo.getInstance(CldrUtility.getProperty("CHART_VERSION", DEV_VERSION));
+    public static final String CHART_VERSION = CHART_VI.getVersionString(1, 2);
 
-    public static final String PREV_CHART_VERSION = CldrUtility.getProperty("PREV_CHART_VERSION", previousVersion(CHART_VERSION));
-    public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(PREV_CHART_VERSION);
+    public static final String PREV_CHART_VERSION_RAW = CldrUtility.getProperty("PREV_CHART_VERSION", previousVersion(CHART_VERSION));
+    public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(PREV_CHART_VERSION_RAW);
+    public static final String PREV_CHART_VERSION = PREV_CHART_VI.getVersionString(1, 2);
     public static final String PREV_CHART_VERSION_WITH0 = PREV_CHART_VI.getVersionString(2, 2); // must have 1 decimal
 
     public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS",
-        CLDR_RELEASE_VERSION_SET.contains(CHART_VERSION)
+        CLDR_VERSIONS_VI.contains(CHART_VI)
         ? "release"
             : "beta"));
     public static final boolean BETA = CHART_STATUS == ChartStatus.beta;

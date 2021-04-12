@@ -52,6 +52,9 @@ public class Auth {
         })
     public Response login(
         @Context HttpServletRequest hreq,
+        @Context HttpServletResponse hresp,
+        @QueryParam("remember") @Schema( required = false, defaultValue = "false", description = "If true, remember login")
+        boolean remember,
         LoginRequest request) {
         if (request.isEmpty()) {
             return Response.status(401, "Authorization required").build();
@@ -71,6 +74,9 @@ public class Auth {
                 session = CookieSession.newSession(resp.user, userIP);
             }
             resp.sessionId = session.id;
+            if (remember == true && resp.user != null) {
+                WebContext.loginRemember(hresp, resp.user);
+            }
             return Response.ok().entity(resp)
                 .header(SESSION_HEADER, session.id)
                 .build();
@@ -102,22 +108,9 @@ public class Auth {
         @Context HttpServletResponse hresp,
         @QueryParam("session") @Schema(required = true, description = "Session ID to logout")
         final String session) {
-        // Remove auto-login cookies
-        WebContext.removeLoginCookies(hreq, hresp);
 
-        // Validate input string
-        if (session == null || session.isEmpty()) {
-            return Response.status(Status.EXPECTATION_FAILED).build();
-        }
-
-        // Fetch the Cookie Session
-        CookieSession s = CookieSession.retrieveWithoutTouch(session);
-        if (s == null) {
-            return Response.status(Status.NOT_FOUND).build();
-        }
-
-        // Remove the session
-        s.remove();
+        // TODO: move Cookie management out of WebContext and into Auth.java
+        WebContext.logout(hreq, hresp);
 
         return Response.status(Status.NO_CONTENT)
             .header(SESSION_HEADER, null)

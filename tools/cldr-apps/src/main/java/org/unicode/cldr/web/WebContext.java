@@ -1533,8 +1533,13 @@ public class WebContext implements Cloneable, Appendable {
      * @param expiry
      */
     Cookie addCookie(String id, String value, int expiry) {
+        return addCookie(response, id, value, expiry);
+    }
+
+    static Cookie addCookie(HttpServletResponse response, String id, String value, int expiry) {
         Cookie c = new Cookie(id, value);
         c.setMaxAge(expiry);
+        c.setPath("/");
         response.addCookie(c);
         return c;
     }
@@ -1844,14 +1849,32 @@ public class WebContext implements Cloneable, Appendable {
         Cookie c0 = WebContext.getCookie(request, SurveyMain.QUERY_EMAIL);
         if (c0 != null) { // only zap extant cookies
             c0.setValue("");
-            c0.setMaxAge(0);
+            c0.setPath("/");
+            // c0.setMaxAge(0);
             response.addCookie(c0);
         }
         Cookie c1 = WebContext.getCookie(request, SurveyMain.QUERY_PASSWORD);
         if (c1 != null) {
             c1.setValue("");
-            c1.setMaxAge(0);
+            c1.setPath("/");
+            // c1.setMaxAge(0);
             response.addCookie(c1);
+        }
+        // Hack, but clear JSESSIONID also.
+        Cookie c2 = WebContext.getCookie(request, "JSESSIONID");
+        if (c2 != null) {
+            c2.setValue("");
+            c2.setPath("/");
+            // c2.setMaxAge(0);
+            response.addCookie(c2);
+        }
+        try {
+            HttpSession s = request.getSession(false);
+            if (s != null) {
+                s.invalidate();
+            }
+        } catch (IllegalStateException ise) {
+            // ignore: means the session was already logged out
         }
     }
 
@@ -1870,8 +1893,15 @@ public class WebContext implements Cloneable, Appendable {
      * Remember this login (adds cookie to ctx.response )
      */
     public void loginRemember(User user) {
-        addCookie(SurveyMain.QUERY_EMAIL, user.email, SurveyMain.TWELVE_WEEKS);
-        addCookie(SurveyMain.QUERY_PASSWORD, user.getPassword(), SurveyMain.TWELVE_WEEKS);
+        loginRemember(response, user);
+    }
+
+    /**
+     * Remember this login (adds cookie to response )
+     */
+    public static void loginRemember(HttpServletResponse response, User user) {
+        addCookie(response, SurveyMain.QUERY_EMAIL, user.email, SurveyMain.TWELVE_WEEKS);
+        addCookie(response, SurveyMain.QUERY_PASSWORD, user.getPassword(), SurveyMain.TWELVE_WEEKS);
     }
 
     private String sessionMessage = null;

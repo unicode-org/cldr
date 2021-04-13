@@ -4,9 +4,12 @@
  * into smaller more specific modules)
  */
 import * as cldrForum from "./cldrForum.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrText from "./cldrText.js";
+
+const useWidgetForDashboard = true;
 
 let sentenceFilter;
 
@@ -414,18 +417,22 @@ function unpackMenuSideBar(json) {
     $("#left-sidebar").removeClass("active");
     toggleOverlay();
     $("#OtherSection").hide();
-    if ($(this).data("query")) {
-      window.location =
-        cldrStatus.getSurvUrl() +
-        "?" +
-        $(this).data("url") +
-        "&_=" +
-        cldrStatus.getCurrentLocale();
+    if (useWidgetForDashboard) {
+      cldrGui.insertDashboard();      
     } else {
-      cldrStatus.setCurrentSpecial($(this).data("url"));
-      cldrStatus.setCurrentId("");
-      cldrStatus.setCurrentPage("");
-      cldrLoad.reloadV();
+      if ($(this).data("query")) {
+        window.location =
+          cldrStatus.getSurvUrl() +
+          "?" +
+          $(this).data("url") +
+          "&_=" +
+          cldrStatus.getCurrentLocale();
+      } else {
+        cldrStatus.setCurrentSpecial($(this).data("url"));
+        cldrStatus.setCurrentId("");
+        cldrStatus.setCurrentPage("");
+        cldrLoad.reloadV();
+      }
     }
   });
 

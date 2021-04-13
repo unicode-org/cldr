@@ -56,6 +56,13 @@
         /* min-height: min-content here causes scrollbar to disappear on Safari only,
            though not on Chrome, Edge, or Firefox. Anyway it seems not to be needed. */
       }
+      .halfheight {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
 
       #toptitle h1 {
         display: inline-block;
@@ -113,6 +120,12 @@
       }
       .gray {
         background-color: #dbd4d4;
+      }
+      .purple {
+        background-color: #cfb3f3;
+      }
+      .lightgreen {
+        background-color: #99f763;
       }
 
       /* The "real" st-header is in MainHeader.vue; this copy is only for this test */
@@ -251,60 +264,92 @@
           id="MainContentPane"
           class="sidebyside-column sidebyside-wide green"
         >
-          <div class="sidebyside-column-top pink">
-            <p>
-              This locale, Aghem, supplies the
-              <i><a href="#">default content</a></i>
-              for
-              <b><a class="notselected" href="#/agq_CM">Aghem (Cameroon)</a></b
-              >. Please make sure that all the changes that you make here are
-              appropriate for <b>Aghem (Cameroon)</b>. If there are multiple
-              acceptable choices, please try to pick the one that would work for
-              the most other sublocales.
-            </p>
-          </div>
-          <div class="sidebyside-scrollable cyan">
-            <p>1: top row</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>2</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>3</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>4</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>5</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>6</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>7</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>8</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>This is the bottom, OK!</p>
-          </div>
+          <section class="halfheight">
+            <div class="sidebyside-column-top pink">
+              <p>
+                This locale, Aghem, supplies the
+                <i><a href="#">default content</a></i>
+                for
+                <b
+                  ><a class="notselected" href="#/agq_CM"
+                    >Aghem (Cameroon)</a
+                  ></b
+                >. Please make sure that all the changes that you make here are
+                appropriate for <b>Aghem (Cameroon)</b>. If there are multiple
+                acceptable choices, please try to pick the one that would work
+                for the most other sublocales.
+              </p>
+            </div>
+            <div class="sidebyside-scrollable cyan">
+              <p>1: top row</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>2</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>3</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>4</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>5</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>6</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>7</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>8</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>This is the bottom, OK!</p>
+            </div>
+          </section>
+          <section class="halfheight">
+            <div class="sidebyside-column-top lightgreen">
+              <p>Dash Header</p>
+            </div>
+            <div class="sidebyside-scrollable purple">
+              <p>Dashboard 1</p>
+              <p>Dashboard 2</p>
+              <p>Dashboard 3</p>
+              <p>Dashboard 4</p>
+              <p>Dashboard 5</p>
+              <p>Dashboard 6</p>
+              <p>Dashboard 7</p>
+              <p>Dashboard 8</p>
+              <p>Dashboard 9</p>
+              <p>Dashboard 10</p>
+              <p>Dashboard 11</p>
+              <p>Dashboard 12</p>
+              <p>Dashboard 13</p>
+              <p>Dashboard 14</p>
+              <p>Dashboard 15</p>
+              <p>Dashboard 16</p>
+              <p>Dashboard 17</p>
+              <p>Dashboard 18</p>
+              <p>Dashboard 19</p>
+              <p>Dashboard 20</p>
+            </div>
+          </section>
         </div>
         <div
           id="ItemInfoContainer"

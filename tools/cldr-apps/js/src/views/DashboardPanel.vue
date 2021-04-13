@@ -123,7 +123,7 @@ export default {
       level: null,
       categoryComment: {
         Provisional:
-          "Item is provisional, and need additional votes for confirmation.",
+          "Item is provisional, and needs additional votes for confirmation.",
         English_Changed:
           "The English version has changed, but the locale has not.",
       },

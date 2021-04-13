@@ -9,14 +9,17 @@ import * as cldrSurvey from "./cldrSurvey.js";
 
 import { createCldrApp } from "../cldrVueRouter";
 import MainHeader from "../views/MainHeader.vue";
+import DashboardWidget from "../views/DashboardWidget.vue";
 
 const GUI_DEBUG = true;
 
 const runGuiId = "st-run-gui";
 
 let mainHeaderWrapper = null;
+let dashboardWidgetWrapper = null;
 
 let rightPanelVisible = true;
+let dashboardVisible = false;
 
 /**
  * Set up the DOM and start executing Survey Tool as a single page app
@@ -63,7 +66,9 @@ function insertHeader() {
     gui.insertBefore(el, gui.firstChild);
     el.parentNode.replaceChild(fragment, el);
   } catch (e) {
-    console.error("Error in vue load " + e.message + " / " + e.name);
+    console.error(
+      "Error mounting main header vue " + e.message + " / " + e.name
+    );
   }
 }
 
@@ -185,12 +190,15 @@ const topTitle =
 const sideBySide = `
   <main id="main-row" class="sidebyside beware-left-sidebar">
     <div id="MainContentPane" class="sidebyside-column sidebyside-wide">
-      <header class="sidebyside-column-top"></header>
-      <section class="sidebyside-scrollable">
-        <div id="LoadingMessageSection">Please Wait<img src="loader.gif" alt="Please Wait" /></div>
-        <div id="DynamicDataSection"></div>
-        <div id="OtherSection"></div>
+      <section id="VotingEtcSection">
+        <header class="sidebyside-column-top"></header>
+        <section class="sidebyside-scrollable">
+          <div id="LoadingMessageSection">Please Wait<img src="loader.gif" alt="Please Wait" /></div>
+          <div id="DynamicDataSection"></div>
+          <div id="OtherSection"></div>
+        </section>
       </section>
+      <section id="DashboardSection"></section>
     </div>
     <div id="ItemInfoContainer" class="sidebyside-column sidebyside-narrow">
       <section id="itemInfo" class="sidebyside-scrollable"></section>
@@ -385,13 +393,13 @@ function showRightPanel() {
   if (rightPanelVisible) {
     return;
   }
-  rightPanelVisible = true;
   const main = document.getElementById("MainContentPane");
   const info = document.getElementById("ItemInfoContainer");
   if (main && info) {
     main.style.width = "75%";
     info.style.width = "25%";
     info.style.display = "flex";
+    rightPanelVisible = true;
   }
 }
 
@@ -406,12 +414,66 @@ function hideRightPanel() {
   if (!rightPanelVisible) {
     return;
   }
-  rightPanelVisible = false;
   const main = document.getElementById("MainContentPane");
   const info = document.getElementById("ItemInfoContainer");
   if (main && info) {
     main.style.width = "100%";
     info.style.display = "none";
+    rightPanelVisible = false;
+  }
+}
+
+/**
+ * Create the DashboardWidget Vue component
+ */
+function insertDashboard() {
+  try {
+    const fragment = document.createDocumentFragment();
+    dashboardWidgetWrapper = createCldrApp(DashboardWidget).mount(fragment);
+    const d = document.getElementById("DashboardSection");
+    d.replaceWith(fragment);
+    showDashboard();
+  } catch (e) {
+    console.error("Error mounting dashboard vue " + e.message + " / " + e.name);
+  }
+}
+
+function showDashboardIfExists() {
+  if (dashboardWidgetWrapper) {
+    showDashboard();
+  }
+}
+
+/**
+ * Show the dashboard
+ */
+function showDashboard() {
+  if (dashboardVisible) {
+    return;
+  }
+  const vote = document.getElementById("VotingEtcSection");
+  const dash = document.getElementById("DashboardSection");
+  if (vote && dash) {
+    vote.style.height = "50%";
+    dash.style.height = "50%";
+    dash.style.display = "flex";
+    dashboardVisible = true;
+  }
+}
+
+/**
+ * Hide the dashboard
+ */
+function hideDashboard() {
+  if (!dashboardVisible) {
+    return;
+  }
+  const vote = document.getElementById("VotingEtcSection");
+  const dash = document.getElementById("DashboardSection");
+  if (vote && dash) {
+    vote.style.height = "100%";
+    dash.style.display = "none";
+    dashboardVisible = false;
   }
 }
 
@@ -466,10 +528,14 @@ function refreshCounterVetting() {
 }
 
 export {
+  hideDashboard,
   hideRightPanel,
+  insertDashboard,
   refreshCounterVetting,
   run,
   setToptitleVisibility,
+  showDashboard,
+  showDashboardIfExists,
   showRightPanel,
   updateWithStatus,
   /*

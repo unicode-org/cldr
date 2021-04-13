@@ -1024,6 +1024,7 @@ html {
 
 .sidebyside-narrow {
 	width: 25%;
+	border-left: 2px solid #cfeaf8;
 }
 
 .sidebyside-column-top {
@@ -1033,21 +1034,18 @@ html {
 
 .sidebyside-scrollable {
 	margin: 4px;
-	/* padding-bottom is ignored by Firefox, though it is respected by Chrome, Edge, and Firefox */
-	padding-bottom: 3em;
 	overflow: auto;
-	/* min-height: min-content here causes scrollbar to disappear on Safari only,
-		though not on Chrome, Edge, or Firefox. Anyway it seems not to be needed. */
 }
 
 #toptitle {
 	font-size: medium;
 	display: none;
 	padding-top: 0;
-	padding-bottom: 0;
+	padding-bottom: 0.25em;
 	margin-top: 0.25em;
-	margin-bottom: 0.25em;
+	margin-bottom: 0;
 	margin-left: 1ex;
+	border-bottom: 2px solid #cfeaf8;
 }
 
 #toptitle span.title-cldr {
@@ -1124,4 +1122,30 @@ html {
 	margin: 0 8px 4px 0;
 	display: inline-block;
 	vertical-align: middle;
+}
+
+#VotingEtcSection {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: none;
+	overflow: hidden;
+}
+
+#DynamicDataSection {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	overflow: auto;
+}
+
+#DashboardSection {
+	width: 100%;
+	height: 50%;
+	display: none;
+	flex-direction: column;
+	overflow: hidden;
 }

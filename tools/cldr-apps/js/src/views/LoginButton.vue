@@ -1,9 +1,9 @@
 <template>
-    <button v-on:click="loginout()">{{ logText }}</button>
+  <button v-on:click="loginout()">{{ logText }}</button>
 </template>
 
 <script>
-import { reload } from '../esm/cldrForum.js';
+import { reload } from "../esm/cldrForum.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 
 export default {
@@ -35,7 +35,7 @@ export default {
         // now reload this page now that we've logged out
         await window.location.reload();
       } else {
-        window.location.replace('./login.jsp');
+        window.location.replace("./login.jsp");
       }
     },
   },

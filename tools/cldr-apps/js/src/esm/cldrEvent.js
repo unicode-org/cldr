@@ -418,7 +418,7 @@ function unpackMenuSideBar(json) {
     toggleOverlay();
     $("#OtherSection").hide();
     if (useWidgetForDashboard) {
-      cldrGui.insertDashboard();      
+      cldrGui.insertDashboard();
     } else {
       if ($(this).data("query")) {
         window.location =

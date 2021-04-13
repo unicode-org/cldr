@@ -5,6 +5,13 @@ import * as cldrStatus from "./cldrStatus.js";
 
 const ST_AJAX_DEBUG = true;
 
+function doFetch(resource, init) {
+  if (ST_AJAX_DEBUG) {
+    console.log("cldrAjax.doFetch: " + resource);
+  }
+  return fetch(resource, init);
+}
+
 /**
  * Send a request
  *
@@ -164,4 +171,4 @@ function makeApiUrl(api, p) {
   return cldrStatus.getContextPath() + "/api/" + api + queryString;
 }
 
-export { makeApiUrl, makeUrl, mediumTimeout, sendXhr };
+export { doFetch, makeApiUrl, makeUrl, mediumTimeout, sendXhr };

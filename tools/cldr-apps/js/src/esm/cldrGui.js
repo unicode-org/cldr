@@ -438,12 +438,6 @@ function insertDashboard() {
   }
 }
 
-function showDashboardIfExists() {
-  if (dashboardWidgetWrapper) {
-    showDashboard();
-  }
-}
-
 /**
  * Show the dashboard
  */
@@ -535,7 +529,6 @@ export {
   run,
   setToptitleVisibility,
   showDashboard,
-  showDashboardIfExists,
   showRightPanel,
   updateWithStatus,
   /*

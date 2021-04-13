@@ -58,7 +58,7 @@
               <tbody>
                 <tr v-for="e in g.entries" :key="e.xpath" class="data-review">
                   <td class="button-review">
-                    <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
+                    <a target="SurveyToolDashboard" v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
                       <span class="label label-info">
                         {{ e.code }}
                       </span>

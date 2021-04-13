@@ -1,9 +1,11 @@
 <template>
   <nav id="DashboardSection" class="halfheight">
     <p v-if="fetchErr" class="st-sad">Error loading data: {{ fetchErr }}</p>
-    <a-spin v-if="!data">
-      <i>Loading Dashboard…</i>
-    </a-spin>
+    <div class="while-loading" v-if="!data">
+      <a-spin>
+        <i>{{ loadingMessage }}</i>
+      </a-spin>
+    </div>
     <template v-if="data && !fetchErr">
       <header class="sidebyside-column-top">
         <span class="i-am-dashboard">Dashboard</span>
@@ -19,6 +21,13 @@
           </button>
           &nbsp;&nbsp;
         </span>
+        <button
+          class="right-button cldr-nav-btn"
+          title="Close"
+          @click="closeDashboard"
+        >
+          x
+        </button>
       </header>
       <section id="DashboardScroller" class="sidebyside-scrollable">
         <template
@@ -64,12 +73,18 @@
 </template>
 
 <script>
+import * as cldrAjax from "../esm/cldrAjax.js";
+import * as cldrGui from "../esm/cldrGui.js";
+import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrSurvey from "../esm/cldrSurvey.js";
+
 export default {
   props: [],
   data() {
     return {
       data: null,
       fetchErr: null,
+      loadingMessage: "Loading Dashboard…",
       locale: null,
       level: null,
       categoryComment: {
@@ -109,34 +124,49 @@ export default {
     },
 
     fetchData() {
-      const { cldrSurvey, locale, sessionId } = this.$cldrOpts;
-      this.locale = locale;
-      const level = cldrSurvey.getSurveyUserCov();
-      this.level = level;
-      console.log("Loading Dashboard for " + level);
-      const session = sessionId;
-      if (!locale) {
-        this.fetchErr = "Please choose a locale first.";
+      this.locale = cldrStatus.getCurrentLocale();
+      this.level = cldrSurvey.getSurveyUserCov();
+      if (!this.locale || !this.level) {
+        this.fetchErr = "Please choose a locale and a coverage level first.";
         return;
       }
-      fetch(`api/summary/dashboard/${locale}/${level}?session=${session}`)
+      this.loadingMessage =
+        "Loading Dashboard for locale " + this.locale + ", level " + this.level;
+      cldrAjax
+        .doFetch(this.getUrl())
         .then((data) => data.json())
         .then((data) => {
-          // calculate total counts
-          for (let e in data.notifications) {
-            const n = data.notifications[e];
-            n.total = 0;
-            for (let g in n.entries) {
-              n.total += n.entries[g].entries.length;
-            }
-          }
-          this.data = data;
-          this.resetScrolling();
+          this.updateData(data);
         })
         .catch((err) => {
-          console.error("DashboardWidget fetchData caught " + err);
+          console.error("Error loading Dashboard data: " + err);
           this.fetchErr = err;
         });
+    },
+
+    getUrl() {
+      const api = `summary/dashboard/${this.locale}/${this.level}`;
+      const p = new URLSearchParams();
+      p.append("session", cldrStatus.getSessionId());
+      return cldrAjax.makeApiUrl(api, p);
+    },
+
+    updateData(data) {
+      // TODO: if the user chose a different locale while waiting for data,
+      // don't show the dashboard for the old locale! This may be complicated
+      // if multiple dashboard requests are overlapping -- ideally should tell
+      // the back end to stop working on out-dated requests
+
+      // calculate total counts
+      for (let e in data.notifications) {
+        const n = data.notifications[e];
+        n.total = 0;
+        for (let g in n.entries) {
+          n.total += n.entries[g].entries.length;
+        }
+      }
+      this.data = data;
+      this.resetScrolling();
     },
 
     resetScrolling() {
@@ -146,6 +176,13 @@ export default {
           el.scrollTo(0, 0);
         }
       }, 500 /* half a second */);
+    },
+
+    closeDashboard(event) {
+      cldrGui.hideDashboard();
+      if (event.shiftKey) {
+        data = null;
+      }
     },
 
     humanize(str) {
@@ -165,13 +202,18 @@ export default {
   font-size: small;
 }
 
+.while-loading {
+  padding-top: 3em;
+}
+
 header {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 1ex 0;
   background-color: white;
   background-image: linear-gradient(white, #e7f7ff);
 }
@@ -187,6 +229,12 @@ header {
 
 .notification {
   font-style: italic;
+}
+
+.right-button {
+  /* This element will be pushed to the right.
+     The elements to the left of it will be pushed to the left. */
+  margin-left: auto !important;
 }
 
 .section-page {

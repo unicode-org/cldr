@@ -119,11 +119,14 @@ function doHashChange(event) {
   cldrStatus.setCurrentId(trimNull(cldrStatus.getCurrentId()));
 
   // did anything change?
-  if (
-    oldLocale != trimNull(cldrStatus.getCurrentLocale()) ||
-    oldSpecial != trimNull(cldrStatus.getCurrentSpecial()) ||
-    oldPage != trimNull(cldrStatus.getCurrentPage())
-  ) {
+
+  const changedLocale = oldLocale != trimNull(cldrStatus.getCurrentLocale());
+  const changedSpecial = oldSpecial != trimNull(cldrStatus.getCurrentSpecial());
+  const changedPage = oldPage != trimNull(cldrStatus.getCurrentPage());
+  if (changedLocale || changedSpecial) {
+    cldrGui.hideDashboard();
+  }
+  if (changedLocale || changedSpecial || changedPage) {
     console.log("# hash changed, (loc, etc) reloadingV..");
     reloadV();
   } else if (
@@ -608,7 +611,7 @@ function unspecialLoad(itemLoadInfo, theDiv) {
       // TODO: clarify when and why this would happen
       loadExclamationPoint();
     } else {
-      cldrGui.showDashboardIfExists();
+      /*** cldrGui.showDashboardIfExists(); ***/
       if (!cldrSurvey.isInputBusy()) {
         /*
          * Make “all rows” requests only when !isInputBusy, to avoid wasted requests

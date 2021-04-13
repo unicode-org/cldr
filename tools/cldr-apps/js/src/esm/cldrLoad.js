@@ -588,6 +588,7 @@ function shower(itemLoadInfo) {
     const special = getSpecial(curSpecial);
     if (special && special.load) {
       cldrEvent.hideOverlayAndSidebar();
+      cldrGui.hideDashboard();
       special.load(curSpecial); // pass the special name to the loader
     } else {
       unspecialLoad(itemLoadInfo, theDiv);
@@ -606,12 +607,15 @@ function unspecialLoad(itemLoadInfo, theDiv) {
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
       loadExclamationPoint();
-    } else if (!cldrSurvey.isInputBusy()) {
-      /*
-       * Make “all rows” requests only when !isInputBusy, to avoid wasted requests
-       * if the user leaves the input box open for an extended time.
-       */
-      loadAllRows(itemLoadInfo, theDiv);
+    } else {
+      cldrGui.showDashboardIfExists();
+      if (!cldrSurvey.isInputBusy()) {
+        /*
+         * Make “all rows” requests only when !isInputBusy, to avoid wasted requests
+         * if the user leaves the input box open for an extended time.
+         */
+        loadAllRows(itemLoadInfo, theDiv);
+      }
     }
   } else if (curSpecial) {
     console.log("No special js found for " + curSpecial);

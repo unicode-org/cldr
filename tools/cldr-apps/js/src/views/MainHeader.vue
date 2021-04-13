@@ -149,8 +149,6 @@ export default {
 
 <style scoped>
 header {
-  top: 0;
-  position: sticky;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

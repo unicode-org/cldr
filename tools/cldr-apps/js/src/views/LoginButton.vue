@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <a v-bind:href="logLink">{{ logText }}</a>
-  </div>
+    <button v-on:click="loginout()">{{ logText }}</button>
 </template>
 
 <script>
+import { reload } from '../esm/cldrForum.js';
 import * as cldrStatus from "../esm/cldrStatus.js";
 
 export default {
@@ -26,10 +25,17 @@ export default {
 
       if (loggedIn) {
         this.logText = "Log Out";
-        this.logLink = "./survey?do=logout";
       } else {
         this.logText = "Log In";
-        this.logLink = "./login.jsp";
+      }
+    },
+    async loginout() {
+      if (this.loggedIn) {
+        await fetch(`api/auth/logout?session=${cldrStatus.getSessionId()}`);
+        // now reload this page now that we've logged out
+        await window.location.reload();
+      } else {
+        window.location.replace('./login.jsp');
       }
     },
   },

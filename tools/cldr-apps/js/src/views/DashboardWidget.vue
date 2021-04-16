@@ -74,6 +74,7 @@
 
 <script>
 import * as cldrAjax from "../esm/cldrAjax.js";
+import * as cldrCoverage from "../esm/cldrCoverage.js";
 import * as cldrGui from "../esm/cldrGui.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrSurvey from "../esm/cldrSurvey.js";
@@ -125,7 +126,9 @@ export default {
 
     fetchData() {
       this.locale = cldrStatus.getCurrentLocale();
-      this.level = cldrSurvey.getSurveyUserCov();
+      // TODO: getSurveyUserCov is probably wrong here
+      // -- reference: https://unicode-org.atlassian.net/browse/CLDR-14668
+      this.level = cldrCoverage.getSurveyUserCov();
       if (!this.locale || !this.level) {
         this.fetchErr = "Please choose a locale and a coverage level first.";
         return;

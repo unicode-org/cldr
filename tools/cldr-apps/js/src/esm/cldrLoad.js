@@ -5,6 +5,7 @@ import * as cldrAccount from "./cldrAccount.js";
 import * as cldrAdmin from "./cldrAdmin.js";
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrBulkClosePosts from "./cldrBulkClosePosts.js";
+import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrCreateLogin from "./cldrCreateLogin.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrErrorSubtypes from "./cldrErrorSubtypes.js";
@@ -717,7 +718,7 @@ function loadGeneral(itemLoadInfo) {
  * Show the "possible problems" section which has errors for the locale
  */
 function showPossibleProblems() {
-  const effectiveCov = cldrSurvey.covName(cldrSurvey.effectiveCoverage());
+  const effectiveCov = cldrCoverage.covName(cldrCoverage.effectiveCoverage());
   const requiredCov = effectiveCov;
   const url =
     cldrStatus.getContextPath() +
@@ -846,7 +847,7 @@ function loadAllRowsFromJson(json, theDiv) {
         cldrStatus.getSessionId(),
         json
       ); // pageid is the xpath..
-      cldrSurvey.updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
+      cldrCoverage.updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
       flipper.flipTo(pages.data); // TODO now? or later?
       showCurrentId(); // already calls scroll
       cldrGui.refreshCounterVetting();
@@ -1062,7 +1063,7 @@ function flipToEmptyOther() {
 }
 
 function coverageUpdate() {
-  cldrSurvey.updateCoverage(flipper.get(pages.data));
+  cldrCoverage.updateCoverage(flipper.get(pages.data));
 }
 
 function setLoading(loading) {

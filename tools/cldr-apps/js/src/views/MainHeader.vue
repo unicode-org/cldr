@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import * as cldrCoverage from "../esm/cldrCoverage.js";
 import * as cldrMenu from "../esm/cldrMenu.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrSurvey from "../esm/cldrSurvey.js";
@@ -105,7 +106,9 @@ export default {
     updateData() {
       this.coverageMenu = cldrMenu.getCoverageMenu();
       this.coverageTitle = cldrText.get("coverage_menu_desc");
-      this.coverageLevel = cldrSurvey.getSurveyOrgCov();
+      // TODO: getSurveyOrgCov is probably wrong here
+      // -- reference: https://unicode-org.atlassian.net/browse/CLDR-14668
+      this.coverageLevel = cldrCoverage.getSurveyOrgCov();
       const user = cldrStatus.getSurveyUser();
 
       if (user) {

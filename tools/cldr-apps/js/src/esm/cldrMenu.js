@@ -3,6 +3,8 @@
  * for choosing locales, reports, specials, data sections; also for the Coverage menu
  * in the top navigation bar, and other kinds of "menu" -- TODO: separation of concerns!
  */
+import * as cldrAjax from "./cldrAjax.js";
+import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrGui from "./cldrGui.js";
@@ -62,16 +64,7 @@ const menubuttons = {
 
 function getInitialMenusEtc(sessionId) {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
-  const xurl =
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=menus&_=" +
-    theLocale +
-    "&locmap=" +
-    true +
-    "&s=" +
-    sessionId +
-    cldrSurvey.cacheKill();
-
+  const xurl = getMenusAjaxUrl(theLocale, true /* get locmap */);
   cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
     loadInitialMenusFromJson(json);
   });
@@ -115,10 +108,10 @@ function loadInitialMenusFromJson(json) {
 }
 
 function setupCoverageLevels(json) {
-  cldrSurvey.updateCovFromJson(json);
+  cldrCoverage.updateCovFromJson(json);
 
   const surveyLevels = json.menus.levels;
-  cldrSurvey.setSurveyLevels(surveyLevels);
+  cldrCoverage.setSurveyLevels(surveyLevels);
 
   let levelNums = []; // numeric levels
   for (let k in surveyLevels) {
@@ -130,7 +123,7 @@ function setupCoverageLevels(json) {
   levelNums.sort(function (a, b) {
     return a.num - b.num;
   });
-  const orgCov = cldrSurvey.getSurveyOrgCov();
+  const orgCov = cldrCoverage.getSurveyOrgCov();
   const defaultLabel = cldrText.sub("coverage_auto_msg", {
     surveyOrgCov: cldrText.get("coverage_" + orgCov),
   });
@@ -144,7 +137,7 @@ function setupCoverageLevels(json) {
     if (levelNums[j].num == 0) {
       continue; // none - skip
     }
-    if (levelNums[j].num < cldrSurvey.covValue("minimal")) {
+    if (levelNums[j].num < cldrCoverage.covValue("minimal")) {
       continue; // don't bother showing these
     }
     if (cldrStatus.getIsUnofficial() === false && levelNums[j].num == 101) {
@@ -164,26 +157,17 @@ function setupCoverageLevels(json) {
 
 function setCoverageLevel(newValue) {
   const setUserCovTo = newValue == "auto" ? null : newValue;
-  if (setUserCovTo !== cldrSurvey.getSurveyUserCov()) {
+  if (setUserCovTo !== cldrCoverage.getSurveyUserCov()) {
     const theLocale = cldrStatus.getCurrentLocale() || "root";
-    cldrSurvey.setSurveyUserCov(setUserCovTo);
-    // cf. WHAT_PREF in SurveyAjax.java
-    const updurl =
-      cldrStatus.getContextPath() +
-      "/SurveyAjax?what=pref&_=" +
-      theLocale +
-      "&pref=p_covlev&_v=" +
-      cldrSurvey.getSurveyUserCov() +
-      "&s=" +
-      cldrStatus.getSessionId() +
-      cldrSurvey.cacheKill(); // SurveyMain.PREF_COVLEV
+    cldrCoverage.setSurveyUserCov(setUserCovTo);
+    const updurl = getUpdatePreferencesAjaxUrl(theLocale);
     cldrLoad.myLoad(
       updurl,
-      "updating covlev to  " + cldrSurvey.getSurveyUserCov(),
+      "updating covlev to  " + cldrCoverage.getSurveyUserCov(),
       function (json) {
         if (cldrLoad.verifyJson(json, "pref")) {
           cldrEvent.unpackMenuSideBar(json);
-          cldrLoad.handleCoverageChanged(cldrSurvey.getSurveyUserCov());
+          cldrLoad.handleCoverageChanged(cldrCoverage.getSurveyUserCov());
           console.log("Server set covlev successfully.");
         }
       }
@@ -326,22 +310,14 @@ function getMenusFromServer(s) {
   if (!curLocale) {
     return;
   }
-  const url =
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=menus&_=" +
-    curLocale +
-    "&locmap=" +
-    false +
-    "&s=" +
-    cldrStatus.getSessionId() +
-    cldrSurvey.cacheKill();
+  const url = getMenusAjaxUrl(curLocale, false /* do not get locmap */);
   cldrLoad.myLoad(url, "menus", function (json) {
     if (!cldrLoad.verifyJson(json, "menus")) {
       console.log("JSON verification failed for menus in cldrLoad");
       return; // busted?
     }
     // Note: since the url has "locmap=false", we never get json.locmap or json.canmodify here
-    cldrSurvey.updateCovFromJson(json);
+    cldrCoverage.updateCovFromJson(json);
     cldrLoad.coverageUpdate();
     unpackMenus(json);
     cldrEvent.unpackMenuSideBar(json);
@@ -506,6 +482,27 @@ function canModifyLoc(subLoc) {
 
 function getCoverageMenu() {
   return coverageMenu;
+}
+
+function getMenusAjaxUrl(locale, getLocmap) {
+  const p = new URLSearchParams();
+  p.append("what", "menus"); // cf. WHAT_MENUS in SurveyAjax.java
+  p.append("_", locale);
+  p.append("locmap", !!getLocmap);
+  p.append("s", cldrStatus.getSessionId());
+  p.append("cacheKill", cldrSurvey.cacheBuster());
+  return cldrAjax.makeUrl(p);
+}
+
+function getUpdatePreferencesAjaxUrl(locale) {
+  const p = new URLSearchParams();
+  p.append("what", "pref"); // cf. WHAT_PREF in SurveyAjax.java
+  p.append("_", locale);
+  p.append("pref", "p_covlev"); // cf. SurveyMain.PREF_COVLEV in SurveyMain.java
+  p.append("_v", cldrCoverage.getSurveyUserCov());
+  p.append("s", cldrStatus.getSessionId());
+  p.append("cacheKill", cldrSurvey.cacheBuster());
+  return cldrAjax.makeUrl(p);
 }
 
 export {

@@ -2,15 +2,14 @@
  * cldrSurvey: encapsulate miscellaneous Survey Tool functions
  */
 import * as cldrAjax from "./cldrAjax.js";
+import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrGui from "./cldrGui.js";
-import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrMenu from "./cldrMenu.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
-import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
 import * as cldrVote from "./cldrVote.js";
 import { XpathMap } from "./cldrXpathMap.js";
@@ -81,12 +80,6 @@ const statusActionTable = {
  * @property timerSpeed
  */
 let timerSpeed = 15000; // 15 seconds
-
-let surveyLevels = null;
-
-let surveyOrgCov = null;
-
-let surveyUserCov = null;
 
 let overridedir = null;
 
@@ -778,113 +771,6 @@ function appendExtraAttributes(container, theRow) {
   }
 }
 
-function getSurveyLevels() {
-  return surveyLevels;
-}
-
-function setSurveyLevels(levs) {
-  return (surveyLevels = levs);
-}
-
-/**
- * Get numeric, given string
- *
- * @param {String} lev
- * @return {Number} or 0
- */
-function covValue(lev) {
-  lev = lev.toUpperCase();
-  const levs = getSurveyLevels();
-  if (levs && levs[lev]) {
-    return parseInt(levs[lev].level);
-  } else {
-    return 0;
-  }
-}
-
-function covName(lev) {
-  const levs = getSurveyLevels();
-  if (!levs) {
-    return null;
-  }
-  for (var k in levs) {
-    if (parseInt(levs[k].level) == lev) {
-      return k.toLowerCase();
-    }
-  }
-  return null;
-}
-
-function effectiveCoverage() {
-  const orgCov = getSurveyOrgCov();
-  if (!orgCov) {
-    throw new Error("surveyOrgCov not yet initialized");
-  }
-  const userCov = getSurveyUserCov();
-  if (userCov) {
-    return covValue(userCov);
-  } else {
-    return covValue(orgCov);
-  }
-}
-
-function getSurveyOrgCov() {
-  return surveyOrgCov;
-}
-
-function setSurveyOrgCov(cov) {
-  surveyOrgCov = cov;
-}
-
-function getSurveyUserCov() {
-  return surveyUserCov;
-}
-
-function setSurveyUserCov(cov) {
-  surveyUserCov = cov;
-}
-
-function updateCovFromJson(json) {
-  if (json.covlev_user && json.covlev_user != "default") {
-    setSurveyUserCov(json.covlev_user);
-  } else {
-    setSurveyUserCov(null);
-  }
-
-  if (json.covlev_org) {
-    setSurveyOrgCov(json.covlev_org);
-  } else {
-    setSurveyOrgCov(null);
-  }
-}
-
-/**
- * Update the coverage classes, show and hide things in and out of coverage
- */
-function updateCoverage(theDiv) {
-  if (theDiv == null) return;
-  var theTable = theDiv.theTable;
-  if (theTable == null) return;
-  if (!theTable.origClass) {
-    theTable.origClass = theTable.className;
-  }
-  const levs = getSurveyLevels();
-  if (levs != null) {
-    var effective = effectiveCoverage();
-    var newStyle = theTable.origClass;
-    for (var k in levs) {
-      var level = levs[k];
-
-      if (effective < parseInt(level.level)) {
-        newStyle = newStyle + " hideCov" + level.level;
-      }
-    }
-    if (newStyle != theTable.className) {
-      theTable.className = newStyle;
-    }
-  }
-}
-
 /**
  * @param loc optional
  * @returns locale bundle
@@ -1002,13 +888,13 @@ function getMenusFilteredByCov() {
     return;
   }
   // get name of current coverage
-  var cov = getSurveyUserCov();
+  var cov = cldrCoverage.getSurveyUserCov();
   if (!cov) {
-    cov = getSurveyOrgCov();
+    cov = cldrCoverage.getSurveyOrgCov();
   }
 
   // get the value
-  var val = covValue(cov);
+  var val = cldrCoverage.covValue(cov);
   var sections = _thePages.sections;
   var menus = [];
   // add filtered pages
@@ -1042,15 +928,9 @@ export {
   chgPage,
   cloneAnon,
   cloneLocalizeAnon,
-  covName,
-  covValue,
   createGravatar,
-  effectiveCoverage,
   findItemByValue,
   getDidUnbust,
-  getSurveyLevels,
-  getSurveyOrgCov,
-  getSurveyUserCov,
   getTagChildren,
   getXpathMap,
   hideLoader,
@@ -1060,13 +940,9 @@ export {
   setLang,
   setOverrideDir,
   setShower,
-  setSurveyLevels,
-  setSurveyUserCov,
   showLoader,
   testsToHtml,
   unbust,
-  updateCovFromJson,
-  updateCoverage,
   updateProgressWord,
   updateSpecialHeader,
   updateStatus,

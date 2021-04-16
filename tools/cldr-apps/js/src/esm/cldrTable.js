@@ -10,6 +10,7 @@
  * updateRow is also used for the Dashboard.
  */
 import * as cldrAjax from "./cldrAjax.js";
+import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForumPanel from "./cldrForumPanel.js";
@@ -108,7 +109,7 @@ function insertRows(theDiv, xpath, session, json) {
     }
     theTable.toAdd = toAdd;
   }
-  cldrSurvey.updateCoverage(theDiv);
+  cldrCoverage.updateCoverage(theDiv);
   if (!json.canModify) {
     /*
      * Remove the "Abstain" column from the header since user can't modify.

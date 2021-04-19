@@ -106,9 +106,7 @@ export default {
     updateData() {
       this.coverageMenu = cldrMenu.getCoverageMenu();
       this.coverageTitle = cldrText.get("coverage_menu_desc");
-      // TODO: getSurveyOrgCov is probably wrong here
-      // -- reference: https://unicode-org.atlassian.net/browse/CLDR-14668
-      this.coverageLevel = cldrCoverage.getSurveyOrgCov();
+      this.coverageLevel = cldrCoverage.getSurveyUserCov() || "auto";
       const user = cldrStatus.getSurveyUser();
 
       if (user) {
@@ -200,5 +198,9 @@ label {
   /* This element, and those to the right of it, will be pushed to the right.
      The elements to the left of it will be pushed to the left. */
   margin-left: auto !important;
+}
+
+#coverageLevel {
+  width: 16ch;
 }
 </style>

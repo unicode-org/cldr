@@ -555,6 +555,8 @@ function handleCoverageChanged(newLevel) {
       reloadV();
       return true;
     }
+  } else {
+    cldrGui.updateDashboardCoverage(newLevel);
   }
   return false;
 }

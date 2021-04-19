@@ -126,9 +126,7 @@ export default {
 
     fetchData() {
       this.locale = cldrStatus.getCurrentLocale();
-      // TODO: getSurveyUserCov is probably wrong here
-      // -- reference: https://unicode-org.atlassian.net/browse/CLDR-14668
-      this.level = cldrCoverage.getSurveyUserCov();
+      this.level = cldrCoverage.effectiveName();
       if (!this.locale || !this.level) {
         this.fetchErr = "Please choose a locale and a coverage level first.";
         return;

@@ -471,6 +471,12 @@ function hideDashboard() {
   }
 }
 
+function updateDashboardCoverage(newLevel) {
+  if (dashboardVisible && dashboardWidgetWrapper) {
+    dashboardWidgetWrapper.handleCoverageChanged(newLevel);
+  }
+}
+
 function setToptitleVisibility(visible) {
   const topTitle = document.getElementById("toptitle");
   if (topTitle) {
@@ -530,6 +536,7 @@ export {
   setToptitleVisibility,
   showDashboard,
   showRightPanel,
+  updateDashboardCoverage,
   updateWithStatus,
   /*
    * The following are meant to be accessible for unit testing only:

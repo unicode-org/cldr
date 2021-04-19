@@ -58,6 +58,24 @@ function effectiveCoverage() {
   }
 }
 
+/**
+ * Get the name for the effective coverage level, or null if none set
+ *
+ * The effective level is the coverage level that the user has chosen, or else the organization's
+ * coverage level if the user has not chosen one
+ *
+ * @return the name, or null
+ */
+function effectiveName() {
+  if (surveyUserCov) {
+    return surveyUserCov;
+  }
+  if (surveyOrgCov) {
+    return surveyOrgCov;
+  }
+  return null; // no error
+}
+
 function getSurveyOrgCov() {
   return surveyOrgCov;
 }
@@ -119,6 +137,7 @@ export {
   covName,
   covValue,
   effectiveCoverage,
+  effectiveName,
   getSurveyOrgCov,
   getSurveyUserCov,
   setSurveyLevels,

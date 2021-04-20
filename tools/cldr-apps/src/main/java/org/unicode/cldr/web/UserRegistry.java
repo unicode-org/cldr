@@ -587,7 +587,7 @@ public class UserRegistry {
     }
 
     public static void printPasswordLink(WebContext ctx, String email, String password) {
-        ctx.println("<a href='" + ctx.base() + "?email=" + email + "&amp;uid=" + password + "'>Login for " + email + "</a>");
+        ctx.println("<a href='" + ctx.base() + "?email=" + email + "&amp;pw=" + password + "'>Login for " + email + "</a>");
     }
 
     private static Map<String, Organization> orgToVrOrg = new HashMap<>();

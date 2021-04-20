@@ -614,15 +614,26 @@ public class WebContext implements Cloneable, Appendable {
         return vurl(loc, null, null, null);
     }
 
+    public String vurl() {
+        return vurl(null, null, null, null);
+    }
+
     /**
      * Get the new '/v' viewing URL. Note that this will include a fragment, do NOT append to the result (pass in something in queryAppend)
      * @param loc locale to view.
      * @param page pageID to view. Example:  PageId.Africa (shouldn't be null- yet)
      * @param strid strid to view. Example: "12345678" or null
-     * @param queryAppend  this will be appended as the query. Example: "?email=foo@bar"
+     * @param queryAppend  this will be appended as the query. Example: "?email=foo@bar".
+     * Defaults to the session key.
      * @return
      */
     public String vurl(CLDRLocale loc, PageId page, String strid, String queryAppend) {
+        // If we have a session, use it.
+        if (queryAppend == null || queryAppend.isEmpty()) {
+            if (session != null && session.id != null) {
+                queryAppend = "?s=" + session.id;
+            }
+        }
         StringBuilder sb = new StringBuilder(request.getContextPath());
         return WebContext.appendContextVurl(sb, loc, page, strid, queryAppend).toString();
     }
@@ -637,7 +648,9 @@ public class WebContext implements Cloneable, Appendable {
 
         // locale
         sb.append('/');
-        sb.append(loc.getBaseName());
+        if (loc != null) {
+            sb.append(loc.getBaseName());
+        }
 
         // page
         sb.append('/');
@@ -1518,7 +1531,17 @@ public class WebContext implements Cloneable, Appendable {
      * @return
      */
     public String getCookieValue(String id) {
-        Cookie c = getCookie(id);
+        return getCookieValue(request, id);
+    }
+
+    /**
+     * Get a cookie value or null
+     *
+     * @param id
+     * @return
+     */
+    public static String getCookieValue(HttpServletRequest hreq, String id) {
+        Cookie c = getCookie(hreq, id);
         if (c != null) {
             return c.getValue();
         }

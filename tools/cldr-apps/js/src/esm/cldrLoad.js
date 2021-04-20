@@ -75,12 +75,12 @@ function showV() {
    * Arrange for getInitialMenusEtc to be called soon after we've gotten the session id.
    * Add a short timeout to avoid interrupting the code that sets the session id.
    */
-  cldrStatus.setSessionIdChangeCallback(function (sessionId) {
+  cldrStatus.on("sessionId", () =>
     setTimeout(function () {
       parseHashAndUpdate(getHash());
-      cldrMenu.getInitialMenusEtc(sessionId);
-    }, 100 /* one tenth of a second */);
-  });
+      cldrMenu.getInitialMenusEtc(cldrStatus.getSessionId());
+    }, 100 /* one tenth of a second */)
+  );
 }
 
 function continueInitializing(canAutoImport) {

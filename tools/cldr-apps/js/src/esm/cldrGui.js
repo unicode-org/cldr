@@ -23,29 +23,99 @@ let dashboardVisible = false;
 
 /**
  * Set up the DOM and start executing Survey Tool as a single page app
+ * @returns Promise
  */
 function run() {
-  if (GUI_DEBUG) {
-    console.log("Hello my name is cldrGui.run");
-    debugParse();
-  }
-  const guiContainer = document.getElementById(runGuiId);
-  if (!guiContainer) {
+  try {
     if (GUI_DEBUG) {
-      console.log(
-        "cldrGui.run doing nothing since '" + runGuiId + "' not found"
-      );
+      console.log("Hello my name is cldrGui.run");
+      debugParse();
     }
-    return;
+    const guiContainer = document.getElementById(runGuiId);
+    if (!guiContainer) {
+      if (GUI_DEBUG) {
+        console.log(
+          "cldrGui.run doing nothing since '" + runGuiId + "' not found"
+        );
+      }
+      return Promise.resolve();
+    }
+    while (guiContainer.firstChild) {
+      guiContainer.removeChild(guiContainer.firstChild);
+    }
+    guiContainer.innerHTML = getBodyHtml();
+    insertHeader();
+    if (GUI_DEBUG) {
+      debugElements();
+    }
+    setOnClicks();
+    window.addEventListener("resize", handleResize);
+  } catch (e) {
+    return Promise.reject(e);
   }
-  guiContainer.innerHTML = getBodyHtml();
-  insertHeader();
-  if (GUI_DEBUG) {
-    debugElements();
-  }
-  setOnClicks();
-  window.addEventListener("resize", handleResize);
+  return ensureSession().then(completeStartupWithSession);
+}
 
+async function ensureSession() {
+  // Check first, because the session may already have been set
+  if (haveSession()) return; // Done!
+
+  // Is there a session in the URL?
+  const params = new URLSearchParams(window.location.search);
+  const s = params.get("s");
+  if (s) {
+    // We want to delete this parameter. It either is used and no longer needed,
+    // or it is invalid.
+    params.delete("s");
+    window.location.search = params.toString();
+
+    const inforesponse = await fetch(
+      `api/auth/info?session=${encodeURIComponent(s)}`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+    if (inforesponse.ok) {
+      const infoinfo = await (await inforesponse).json();
+      if (infoinfo.sessionId) {
+        cldrStatus.setSessionId(inforesponse.sessionId);
+      }
+      return; // Done.
+    }
+    // Else: it wasn't accepted as a session id. That's OK.
+  }
+
+  // see if we can get a session
+  const response = await fetch(`api/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({}), // no email/password
+  });
+  if (response.ok) {
+    const logintoken = await (await response).json();
+    if (logintoken.sessionId) {
+      // logged in OK.
+      cldrStatus.setSessionId(logintoken.sessionId);
+      // TODO: could set user, etc.
+    }
+  } else {
+    throw Error("SurveyTool did not create a session. Try back later.");
+  }
+}
+
+function haveSession() {
+  return (
+    cldrStatus.getSurveyUser() != null || cldrStatus.getSessionId() != null
+  );
+}
+
+function completeStartupWithSession() {
   cldrSurvey.updateStatus();
   cldrLoad.showV();
   cldrEvent.startup();

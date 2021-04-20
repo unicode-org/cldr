@@ -1,11 +1,26 @@
 <template>
-  <button class="cldr-nav-btn" v-on:click="loginout()">{{ logText }}</button>
+  <div class="loginwrap">
+    <div v-if="!user" class="loginform">
+      <a-input placeholder="Username" v-model:value="userName">
+        <template #prefix>
+          <span class="glyphicon glyphicon-user tip-log" />
+        </template>
+      </a-input>
+      <a-input-password placeholder="Password" v-model:value="password">
+      </a-input-password>
+      <a-checkbox v-model:checked="remember">Stay Logged In</a-checkbox>
+    </div>
+    <a-button
+      :disabled="!user && (!userName || !password)"
+      v-on:click="loginout()"
+      >{{ logText }}</a-button
+    >
+  </div>
 </template>
 
 <script>
-import { reload } from "../esm/cldrForum.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
-
+import { run } from "../esm/cldrGui.js";
 export default {
   created: function () {
     // listen for updates
@@ -35,7 +50,34 @@ export default {
         // now reload this page now that we've logged out
         await window.location.reload();
       } else {
-        window.location.replace("./login.jsp");
+        if (this.userName && this.password) {
+          try {
+            const response = await fetch(
+              `api/auth/login?remember=${this.remember}`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                },
+                body: JSON.stringify({
+                  email: this.userName,
+                  password: this.password,
+                }),
+              }
+            );
+            const logintoken = await (await response).json();
+            console.dir(logintoken);
+            if (logintoken.user && logintoken.sessionId) {
+              // logged in OK.
+              cldrStatus.setSessionId(logintoken.sessionId);
+              run(); // Restart everything
+            }
+          } catch (e) {
+            // TODO: popover
+            throw e;
+          }
+        }
       }
     },
   },
@@ -45,9 +87,24 @@ export default {
       user: null,
       logText: "",
       logLink: "",
+      userName: "",
+      password: "",
+      remember: true,
     };
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.loginwrap {
+  display: inline;
+}
+
+.loginform {
+  display: inline-block;
+}
+
+.loginform a-input {
+  display: inline;
+}
+</style>

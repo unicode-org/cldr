@@ -1180,7 +1180,7 @@ function getXmlUploadLink(u) {
 }
 
 function getUserActivityLink(u) {
-  // cf. similar code in GearMenu.vue
+  // cf. similar code in MainMenu.vue
   return (
     "<a class='recentActivity' href='v#recent_activity///" +
     u.data.id +

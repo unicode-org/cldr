@@ -437,7 +437,6 @@ const strings = {
   special_flagged: "Flagged Items",
   special_forum: "Forum Posts",
   special_forum_participation: "Forum Participation",
-  special_gear: "⚙",
   special_general:
     "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
   special_list_emails: "List Email Addresses",
@@ -445,6 +444,7 @@ const strings = {
   special_locales: "Locale List",
   special_lookup: "Look up a code or xpath",
   special_mail: "Notifications (SMOKETEST ONLY)",
+  special_menu: "☰",
   special_oldvotes: "Import Old Votes",
   special_r_compact: "Numbers",
   special_r_datetime: "Datetime",

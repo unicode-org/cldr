@@ -584,7 +584,7 @@ function shower(itemLoadInfo) {
   }
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
-  cldrGui.setToptitleVisibility(curSpecial !== "gear");
+  cldrGui.setToptitleVisibility(curSpecial !== "menu");
   if (curSpecial === "none") {
     // TODO: clarify when and why this would happen
     cldrSurvey.hideLoader();
@@ -658,12 +658,12 @@ function getSpecial(str) {
     about: cldrGenericVue,
     add_user: cldrGenericVue,
     auto_import: cldrGenericVue,
-    gear: cldrGenericVue,
-    lookup: cldrGenericVue,
-    vsummary: cldrGenericVue,
-    r_vetting_json: cldrGenericVue,
     default: cldrGenericVue, // Add this here for testing the '/v#default' page.
+    lookup: cldrGenericVue,
+    menu: cldrGenericVue,
+    r_vetting_json: cldrGenericVue,
     test_panel: cldrGenericVue, // Test page
+    vsummary: cldrGenericVue,
 
     // Other special pages.
     account: cldrAccount,

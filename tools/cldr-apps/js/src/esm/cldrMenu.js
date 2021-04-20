@@ -486,7 +486,7 @@ function getCoverageMenu() {
 
 function getMenusAjaxUrl(locale, getLocmap) {
   const p = new URLSearchParams();
-  p.append("what", "menus"); // cf. WHAT_MENUS in SurveyAjax.java
+  p.append("what", "menus"); // cf. WHAT_GET_MENUS in SurveyAjax.java
   p.append("_", locale);
   p.append("locmap", !!getLocmap);
   p.append("s", cldrStatus.getSessionId());

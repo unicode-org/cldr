@@ -354,12 +354,9 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
       updateRow(tr, theRow);
       cldrSurvey.hideLoader();
       onSuccess(theRow);
-      if (cldrStatus.isDashboard()) {
-        // TODO: refreshFixPanel(json);
-      } else {
-        cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
-        cldrGui.refreshCounterVetting();
-      }
+      cldrGui.updateDashboardRow(json);
+      cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+      cldrGui.refreshCounterVetting();
     } else {
       tr.className = "ferrbox";
       console.log("could not find " + tr.rowHash + " in " + json);
@@ -392,7 +389,7 @@ function getSingleRowUrl(tr, theRow) {
   p.append("xpath", theRow.xpathId);
   p.append("fhash", tr.rowHash);
   p.append("automatic", "t");
-  if (cldrStatus.isDashboard()) {
+  if (true || cldrStatus.isDashboard()) {
     p.append("dashboard", "true");
   }
   p.append("s", cldrStatus.getSessionId());

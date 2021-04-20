@@ -45,7 +45,6 @@ function run() {
   }
   setOnClicks();
   window.addEventListener("resize", handleResize);
-  $("body").on("click", ".toggle-right", toggleRightPanel);
 
   cldrSurvey.updateStatus();
   cldrLoad.showV();
@@ -88,6 +87,14 @@ function setOnClicks() {
   const el = document.getElementById("reloadForum");
   if (el) {
     el.onclick = () => cldrForum.reload();
+  }
+  let els = document.getElementsByClassName("open-dash");
+  for (let i = 0; i < els.length; i++) {
+    els[i].onclick = () => insertDashboard();
+  }
+  els = document.getElementsByClassName("toggle-right");
+  for (let i = 0; i < els.length; i++) {
+    els[i].onclick = () => toggleRightPanel();
   }
 }
 
@@ -182,7 +189,8 @@ const topTitle =
           <span id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title="Abstain" style="width: 0%"></span>
         </span>
       </span>
-      <button class="cldr-nav-btn toggle-right" type="button">Toggle Sidebar</button>
+      <button class="cldr-nav-btn cldr-nav-right open-dash" type="button">Open Dashboard</button>
+      <button class="cldr-nav-btn toggle-right" type="button">Toggle Info Panel</button>
     </nav>
   </header>
 `;
@@ -451,6 +459,10 @@ function showDashboard() {
     vote.style.height = "50%";
     dash.style.height = "50%";
     dash.style.display = "flex";
+    let els = document.getElementsByClassName("open-dash");
+    for (let i = 0; i < els.length; i++) {
+      els[i].style.display = "none";
+    }
     dashboardVisible = true;
   }
 }
@@ -467,6 +479,10 @@ function hideDashboard() {
   if (vote && dash) {
     vote.style.height = "100%";
     dash.style.display = "none";
+    let els = document.getElementsByClassName("open-dash");
+    for (let i = 0; i < els.length; i++) {
+      els[i].style.display = "inherit";
+    }
     dashboardVisible = false;
   }
 }
@@ -474,6 +490,12 @@ function hideDashboard() {
 function updateDashboardCoverage(newLevel) {
   if (dashboardVisible && dashboardWidgetWrapper) {
     dashboardWidgetWrapper.handleCoverageChanged(newLevel);
+  }
+}
+
+function updateDashboardRow(json) {
+  if (dashboardVisible && dashboardWidgetWrapper) {
+    dashboardWidgetWrapper.updateRow(json);
   }
 }
 
@@ -537,6 +559,7 @@ export {
   showDashboard,
   showRightPanel,
   updateDashboardCoverage,
+  updateDashboardRow,
   updateWithStatus,
   /*
    * The following are meant to be accessible for unit testing only:

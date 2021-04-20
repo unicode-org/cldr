@@ -3,7 +3,7 @@
     <ul>
       <li>{{ stVersionPhase }}</li>
       <li>
-        <a class="gear" href="#gear">⚙</a>
+        <a class="main-menu" href="#menu">☰</a>
       </li>
       <li v-if="coverageLevel">
         <label for="coverageLevel">Coverage:</label>
@@ -186,12 +186,13 @@ label {
   font-weight: normal;
 }
 
-.gear {
-  font-size: x-large;
+.main-menu {
+  font-size: 2em;
+  padding-bottom: 0.5em;
 }
 
-.gear:hover {
-  text-decoration: underline;
+.main-menu:hover {
+  background-color: white;
 }
 
 #st-special-header {

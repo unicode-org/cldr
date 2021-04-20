@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="loginout()">{{ logText }}</button>
+  <button class="cldr-nav-btn" v-on:click="loginout()">{{ logText }}</button>
 </template>
 
 <script>

@@ -26,7 +26,7 @@
           title="Close"
           @click="closeDashboard"
         >
-          x
+          X
         </button>
       </header>
       <section id="DashboardScroller" class="sidebyside-scrollable">
@@ -40,30 +40,47 @@
               :key="e.xpath"
               :class="'dash-' + n.notification"
             >
-              <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
-                <span class="notification">{{ humanize(n.notification) }}</span>
-                |
-                <span class="section-page">{{
-                  humanize(g.section + "—" + g.page)
-                }}</span>
-                |
-                <span class="entry-header">{{ g.header }}</span>
-                |
-                <span class="code">{{ e.code }}</span>
-                |
-                <span class="previous-english" v-if="e.previousEnglish">
-                  {{ e.previousEnglish }} →
-                </span>
-                <span class="english">{{ e.english }}</span>
-                |
-                <span class="old" v-bind:dir="$cldrOpts.localeDir">{{
-                  e.old
-                }}</span>
-                |
-                <span class="winning" v-bind:dir="$cldrOpts.localeDir">{{
-                  e.winning
-                }}</span>
-              </a>
+              <span class="dashEntry">
+                <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
+                  <span
+                    class="notification"
+                    :title="
+                      categoryComment[n.notification] ||
+                      humanize(n.notification)
+                    "
+                    >{{ abbreviate(n.notification) }}</span
+                  >
+                  <span class="section-page" title="section—page">{{
+                    humanize(g.section + "—" + g.page)
+                  }}</span>
+                  |
+                  <span class="entry-header" title="entry header">{{
+                    g.header
+                  }}</span>
+                  |
+                  <span class="code" title="code">{{ e.code }}</span>
+                  |
+                  <span
+                    class="previous-english"
+                    title="previous English"
+                    v-if="e.previousEnglish"
+                  >
+                    {{ e.previousEnglish }} →
+                  </span>
+                  <span class="english" title="English">{{ e.english }}</span>
+                  |
+                  <span
+                    class="winning"
+                    title="Winning"
+                    v-bind:dir="$cldrOpts.localeDir"
+                    >{{ e.winning }}</span
+                  >
+                  <template v-if="e.comment">
+                    |
+                    <span v-html="e.comment" title="comment"></span>
+                  </template>
+                </a>
+              </span>
             </p>
           </template>
         </template>
@@ -170,6 +187,14 @@ export default {
       this.resetScrolling();
     },
 
+    /**
+     * User has voted. Update the Dashboard as needed.
+     * @param json - the response to a request by cldrTable.refreshSingleRow
+     */
+    updateRow(json) {
+      console.log("json.issues = " + json.issues);
+    },
+
     resetScrolling() {
       setTimeout(function () {
         const el = document.getElementById("DashboardScroller");
@@ -181,8 +206,16 @@ export default {
 
     closeDashboard(event) {
       cldrGui.hideDashboard();
-      if (event.shiftKey) {
-        data = null;
+      if (!event.shiftKey) {
+        this.data = null;
+      }
+    },
+
+    abbreviate(str) {
+      if (str === "English_Changed") {
+        return "EC";
+      } else {
+        return str.substr(0, 1); // first letter, e.g., "E" for "Error"
       }
     },
 
@@ -228,8 +261,27 @@ header {
   margin-right: 0.5em;
 }
 
+p {
+  padding: 0.1em;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.dashEntry {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  text-align: left;
+  align-items: baseline;
+}
+
 .notification {
-  font-style: italic;
+  border: 0.1em solid;
+  border-radius: 50%;
+  height: 100%;
+  padding: 0.1em 0.33em;
+  margin-right: 0.5em;
+  font-weight: bold;
 }
 
 .right-button {
@@ -258,10 +310,6 @@ header {
   color: #900;
 }
 
-.old {
-  color: gray;
-}
-
 .winning {
   color: green;
 }
@@ -269,6 +317,7 @@ header {
 a {
   /* enable clicking on space to right of text, as well as on text itself */
   display: block;
+  width: 100%;
 }
 
 a:hover {

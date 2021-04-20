@@ -2,10 +2,10 @@
  * cldrRecentActivity: encapsulate the "Recent Activity" feature
  *
  * This feature is reached in three ways:
- *  (1) "My Votes, Recent Activity" from the gear menu
- *  (2) "My Account, Settings" from the gear menu,
+ *  (1) "My Votes, Recent Activity" from the main menu
+ *  (2) "My Account, Settings" from the main menu,
  *      then click the "User Activity" link in the table
- *  (3) "List ... Users" from the gear menu,
+ *  (3) "List ... Users" from the main menu,
  *      then click one of the "User Activity" links in the table
  *      -- the user in question might not be the current user
  */

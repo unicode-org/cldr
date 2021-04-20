@@ -2,8 +2,8 @@ import AboutPanel from "./views/AboutPanel.vue";
 import AddUser from "./views/AddUser.vue";
 import AutoImport from "./views/AutoImport.vue";
 import DashboardPanel from "./views/DashboardPanel.vue";
-import GearMenu from "./views/GearMenu.vue";
 import LookUp from "./views/LookUp.vue";
+import MainMenu from "./views/MainMenu.vue";
 import TestPanel from "./views/TestPanel.vue";
 import UnknownPanel from "./views/UnknownPanel.vue";
 import VettingSummary from "./views/VettingSummary.vue";
@@ -16,8 +16,8 @@ const specialToComponentMap = {
   about: AboutPanel,
   add_user: AddUser,
   auto_import: AutoImport,
-  gear: GearMenu,
   lookup: LookUp,
+  menu: MainMenu,
   r_vetting_json: DashboardPanel,
   retry: WaitingPanel,
   test_panel: TestPanel, // for testing

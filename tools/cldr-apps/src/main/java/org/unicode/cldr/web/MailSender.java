@@ -43,7 +43,6 @@ import org.unicode.cldr.util.CLDRLocale;
  */
 public class MailSender implements Runnable {
 
-    // private long waitTill = 0;
     private static final String CLDR_MAIL = "cldr_mail";
 
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
@@ -174,6 +173,8 @@ public class MailSender implements Runnable {
             } else {
                 int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
                 int eachTime = 60; /* Check for outbound mail every 60 seconds */
+
+                // The following line schedules MailSender.run() to be run periodically
                 periodicThis = SurveyThreadManager.getScheduledExecutorService().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
                 System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = "
                     + DBUtils.sqlCount(COUNTLEFTSQL));
@@ -348,40 +349,30 @@ public class MailSender implements Runnable {
             return;
         }
 
-//        if (System.currentTimeMillis() < waitTill) {
-//            SurveyLog.warnOnce("************* delaying mail processing due to previous errors. **************");
-//            return; // wait a bit
-//        }
-
         // Skip the System.out.println here normally, it clutters the logs.
         // See https://unicode.org/cldr/trac/ticket/10295
         // System.out.println("MailSender: processing mail queue");
 
         String oldName = Thread.currentThread().getName();
-        try {
+        DBUtils db = DBUtils.getInstance();
+        try (
+            Connection conn = db.getDBConnection();
+            PreparedStatement s = DBUtils.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL
+                + " where sent_date is NULL and id > ? and try_count < 3 order by id "
+                + (DBUtils.db_Mysql ? "limit 1" : ""));
+        ) {
             int countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
             Thread.currentThread().setName("SurveyTool MailSender: waiting count=" + countLeft);
-//            if (SurveyMain.isUnofficial()) {
             if (countLeft > 0) {
                 if (DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
-            } else {
-                //if(DEBUG) System.err.println("Countleft: 0");
             }
-//            }
 
-            Connection conn = null;
-            PreparedStatement s = null, s2 = null;
-            ResultSet rs = null;
+            java.sql.Timestamp sqlnow = DBUtils.sqlNow();
+            s.setInt(1, lastIdProcessed);
             Throwable badException = null;
-            try {
-                DBUtils db = DBUtils.getInstance();
-                conn = db.getDBConnection();
-                conn.setAutoCommit(false);
-                java.sql.Timestamp sqlnow = DBUtils.sqlNow();
-                s = DBUtils.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ? and try_count < 3 order by id "
-                    + (DBUtils.db_Mysql ? "limit 1" : ""));
-                s.setInt(1, lastIdProcessed);
-                rs = s.executeQuery();
+            try (
+                ResultSet rs = s.executeQuery();
+            ) {
                 if (rs.next() == false) { // No mail to send.
                     if (lastIdProcessed > 0) {
                         if (DEBUG) {
@@ -392,6 +383,8 @@ public class MailSender implements Runnable {
                     if (DEBUG) {
                         System.out.println("No mail to check.");
                     }
+                    conn.rollback();  // Nothing to do, so roll back any txn
+
                     return; // nothing to do
                 }
 
@@ -410,7 +403,6 @@ public class MailSender implements Runnable {
                 }
 
                 try {
-
                     lastIdProcessed = rs.getInt("id"); // update ID
                     if (DEBUG) System.out.println("Processing id " + lastIdProcessed);
                     MimeMessage ourMessage = new MimeMessage(ourSession);
@@ -527,12 +519,9 @@ public class MailSender implements Runnable {
                     conn.commit();
                     if (DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed + "  - " + badException.getCause());
                 }
-            } catch (SQLException se) {
-                SurveyLog.logException(se, "processing mail");
-                // waitTill = System.currentTimeMillis() + (1000 * 60 * 5); // backoff 5 minutes
-            } finally {
-                DBUtils.close(rs, s, s2, conn);
             }
+        } catch (SQLException se) {
+            SurveyLog.logException(se, "processing mail");
         } finally {
             Thread.currentThread().setName(oldName);
         }

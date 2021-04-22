@@ -80,6 +80,18 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+		       <directory>${project.basedir}/../..</directory>
+		       <targetPath>${project.build.directory}/classes/org/unicode/cldr/util/data</targetPath>
+				<includes>
+					<include>unicode-license.txt</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

@@ -37,6 +37,7 @@ import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -47,6 +48,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -92,6 +94,17 @@ public class Ldml2JsonConverter {
         public boolean tiered() {
             return isTiered;
         }
+        /**
+         * return the options as a pipe-delimited list
+         * @return
+         */
+        public static String valueList() {
+            return String.join("|", Lists.newArrayList(
+                RunType.values())
+                .stream()
+                .map(t -> t.name())
+                .toArray(String[]::new));
+        }
     }
 
     private static final StandardCodes sc = StandardCodes.make();
@@ -116,8 +129,8 @@ public class Ldml2JsonConverter {
                     "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
                 .add("match", 'm', ".*", ".*",
                     "Regular expression to define only specific locales or files to be generated")
-                .add("type", 't', "(main|supplemental|segments|rbnf|annotations|annotationsDerived)", "main",
-                    "Type of CLDR data being generated, main, supplemental, or segments.")
+                .add("type", 't', "("+RunType.valueList()+")", "main",
+                    "Type of CLDR data being generated, such as main, supplemental, or segments.")
                 .add("resolved", 'r', "(true|false)", "false",
                     "Whether the output JSON for the main directory should be based on resolved or unresolved data")
                 .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
@@ -195,7 +208,12 @@ public class Ldml2JsonConverter {
         boolean writePackages, String configFile, String pkgVersion) {
         this.cldrCommonDir = cldrDir;
         this.outputDir = outputDir;
-        this.type = RunType.valueOf(runType);
+        try {
+            this.type = RunType.valueOf(runType);
+        } catch (IllegalArgumentException | NullPointerException e) {
+            throw new RuntimeException("runType (-t) invalid: " + runType + " must be one of " + RunType.valueList(),
+                e);
+        }
         this.fullNumbers = fullNumbers;
         this.resolve = resolve;
         this.match = match;
@@ -822,6 +840,16 @@ public class Ldml2JsonConverter {
     public void writePackagingFiles(String outputDir, String packageName) throws IOException {
         writePackageJson(outputDir, packageName);
         writeBowerJson(outputDir, packageName);
+        writeReadme(outputDir, packageName);
+    }
+
+    public void writeReadme(String outputDir, String packageName) throws IOException {
+        try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "README.md");) {
+            FileCopier.copy(CldrUtility.getUTF8Data("cldr-json-readme.md"), outf);
+        }
+        try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "LICENSE");) {
+            FileCopier.copy(CldrUtility.getUTF8Data("unicode-license.txt"), outf);
+        }
     }
 
     public void writeBasicInfo(JsonObject obj, String packageName, boolean isNPM) {

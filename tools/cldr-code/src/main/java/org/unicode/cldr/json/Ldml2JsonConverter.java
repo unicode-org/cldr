@@ -572,10 +572,6 @@ public class Ldml2JsonConverter {
                     outputDirname.append("/" + filename);
                 }
 
-                File dir = new File(outputDirname.toString());
-                if (!dir.exists()) {
-                    dir.mkdirs();
-                }
                 assert(tier.isEmpty() == !type.tiered());
 
                 List<String> outputDirs = new ArrayList<>();
@@ -596,6 +592,11 @@ public class Ldml2JsonConverter {
                     }
                     if(DEBUG) System.out
                         .print("?" + progressPrefix(readCount, totalCount, filename, js.section) + " - " + theItems.size() + " item(s)" + "\r");
+                    // Create the output dir if it doesn't exist
+                    File dir = new File(outputDir.toString());
+                    if (!dir.exists()) {
+                        dir.mkdirs();
+                    }
                     PrintWriter outf = FileUtilities.openUTF8Writer(outputDir, outFilename);
                     JsonWriter out = new JsonWriter(outf);
                     out.setIndent("  ");
@@ -838,6 +839,10 @@ public class Ldml2JsonConverter {
      *            The name of the installable package
      */
     public void writePackagingFiles(String outputDir, String packageName) throws IOException {
+        File dir = new File(outputDir.toString());
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
         writePackageJson(outputDir, packageName);
         writeBowerJson(outputDir, packageName);
         writeReadme(outputDir, packageName);

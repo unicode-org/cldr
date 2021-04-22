@@ -2936,7 +2936,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (isBusted == null) {
                 MailSender.getInstance();
             } else {
-                progress.update("Not loading mail or output file manager- - SurveyTool already busted.");
+                progress.update("Not loading mail - SurveyTool already busted.");
             }
 
         } catch (Throwable t) {

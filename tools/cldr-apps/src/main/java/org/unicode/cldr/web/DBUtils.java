@@ -55,7 +55,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  */
 public class DBUtils {
     private static final String DEFAULT_DATA_SOURCE = "java:comp/DefaultDataSource";
-    private static final boolean DEBUG = true;// CldrUtility.getProperty("TEST",
+    private static final boolean DEBUG = false;// CldrUtility.getProperty("TEST",
     // false);
 
     private static final boolean DEBUG_SQL = false; // show "all" SQL

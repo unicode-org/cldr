@@ -3,7 +3,7 @@
     <ul>
       <li>{{ stVersionPhase }}</li>
       <li>
-        <a class="main-menu" href="#menu">☰</a>
+        <a href="#menu"><span class="main-menu-icon">☰</span> Menu</a>
       </li>
       <li v-if="coverageLevel">
         <label for="coverageLevel">Coverage:</label>
@@ -156,7 +156,7 @@ header {
   justify-content: space-between;
   text-align: center;
   margin: 0;
-  padding: 0;
+  padding: 0.2em;
   background-color: white;
   background-image: linear-gradient(white, #e7f7ff);
   z-index: 10000000000; /* prevent transparency when scrolling; also stay in front of "overlay"  */
@@ -167,7 +167,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -186,9 +186,12 @@ label {
   font-weight: normal;
 }
 
-.main-menu {
+.main-menu-icon {
   font-size: 2em;
-  padding-bottom: 0.5em;
+  margin-top: -1em;
+  margin-bottom: -1em;
+  display: inline-block;
+  vertical-align: -3%;
 }
 
 .main-menu:hover {

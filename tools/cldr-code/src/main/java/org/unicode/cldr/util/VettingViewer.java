@@ -1598,8 +1598,10 @@ public class VettingViewer<T> {
         } catch (Exception e) {
         }
 
-        EnumSet<Choice> errors = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user, usersLevel,
-            false, path).problems;
+        FileInfo fi = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user, usersLevel,
+            false, path);
+
+        EnumSet<Choice> errors = fi.problems;
 
         ArrayList<String> out = new ArrayList<>();
         for (Object error : errors.toArray()) {

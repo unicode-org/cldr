@@ -342,7 +342,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
   }
 
   function closureErrHandler(err) {
-    singleRowErrHandler(err, onFailure);
+    singleRowErrHandler(err, tr, onFailure);
   }
 }
 
@@ -372,7 +372,7 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
   }
 }
 
-function singleRowErrHandler(err, onFailure) {
+function singleRowErrHandler(err, tr, onFailure) {
   console.log("Error: " + err);
   tr.className = "ferrbox";
   tr.innerHTML =

@@ -14,7 +14,7 @@
           <button
             :notification="n.notification"
             class="scrollto cldr-nav-btn"
-            v-on:click.prevent="scrollto"
+            v-on:click.prevent="scrollToCategory"
             :title="categoryComment[n.notification] || humanize(n.notification)"
           >
             {{ humanize(n.notification) }} ({{ n.total }})
@@ -37,7 +37,8 @@
           <template v-for="g in n.entries" :key="g.header">
             <p
               v-for="e in g.entries"
-              :key="e.xpath"
+              :key="'dash-item-' + e.xpath + '-' + n.notification"
+              :id="'dash-item-' + e.xpath + '-' + n.notification"
               :class="'dash-' + n.notification"
             >
               <span class="dashEntry">
@@ -84,6 +85,7 @@
             </p>
           </template>
         </template>
+        <p class="bottom-padding">...</p>
       </section>
     </template>
   </nav>
@@ -92,6 +94,7 @@
 <script>
 import * as cldrAjax from "../esm/cldrAjax.js";
 import * as cldrCoverage from "../esm/cldrCoverage.js";
+import * as cldrDash from "../esm/cldrDash.js";
 import * as cldrGui from "../esm/cldrGui.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrSurvey from "../esm/cldrSurvey.js";
@@ -119,7 +122,7 @@ export default {
   },
 
   methods: {
-    scrollto(event) {
+    scrollToCategory(event) {
       const whence = event.target.getAttribute("notification");
       if (this.data && this.data.notifications) {
         for (let n of this.data.notifications) {
@@ -154,7 +157,8 @@ export default {
         .doFetch(this.getUrl())
         .then((data) => data.json())
         .then((data) => {
-          this.updateData(data);
+          this.data = cldrDash.setData(data);
+          this.resetScrolling();
         })
         .catch((err) => {
           console.error("Error loading Dashboard data: " + err);
@@ -169,30 +173,13 @@ export default {
       return cldrAjax.makeApiUrl(api, p);
     },
 
-    updateData(data) {
-      // TODO: if the user chose a different locale while waiting for data,
-      // don't show the dashboard for the old locale! This may be complicated
-      // if multiple dashboard requests are overlapping -- ideally should tell
-      // the back end to stop working on out-dated requests
-
-      // calculate total counts
-      for (let e in data.notifications) {
-        const n = data.notifications[e];
-        n.total = 0;
-        for (let g in n.entries) {
-          n.total += n.entries[g].entries.length;
-        }
-      }
-      this.data = data;
-      this.resetScrolling();
-    },
-
     /**
-     * User has voted. Update the Dashboard as needed.
+     * A user has voted. Update the Dashboard as needed.
+     *
      * @param json - the response to a request by cldrTable.refreshSingleRow
      */
     updateRow(json) {
-      console.log("json.issues = " + json.issues);
+      cldrDash.updateRow(this.data, json);
     },
 
     resetScrolling() {
@@ -206,9 +193,7 @@ export default {
 
     closeDashboard(event) {
       cldrGui.hideDashboard();
-      if (!event.shiftKey) {
-        this.data = null;
-      }
+      this.data = null;
     },
 
     abbreviate(str) {
@@ -267,6 +252,11 @@ p {
   line-height: 1.75;
 }
 
+p.bottom-padding {
+  line-height: 5;
+  color: white;
+}
+
 .dashEntry {
   display: flex;
   width: 100%;
@@ -318,10 +308,10 @@ a {
   /* enable clicking on space to right of text, as well as on text itself */
   display: block;
   width: 100%;
+  color: inherit;
 }
 
 a:hover {
-  color: black;
   background-color: #ccdfff; /* light blue */
 }
 </style>

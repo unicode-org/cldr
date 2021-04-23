@@ -119,6 +119,23 @@ XpathMap.prototype.get = function get(search, onResult) {
   }
 };
 
+XpathMap.prototype.getImmediately = function getImmediately(search) {
+  let result = null;
+  if (search.hex) {
+    result = this.stridToInfo[search.hex];
+  }
+  if (!result && search.id) {
+    if (typeof search.id !== Number) {
+      search.id = new Number(search.id);
+    }
+    result = this.xpidToInfo[search.id];
+  }
+  if (!result && search.path) {
+    result = this.xpathToInfo[search.path];
+  }
+  return result;
+};
+
 /**
  * Contribute some data to the map.
  * @function contribute

@@ -8,26 +8,41 @@
     </div>
     <template v-if="data && !fetchErr">
       <header class="sidebyside-column-top">
-        <span class="i-am-dashboard">Dashboard</span>
-        <span class="coverage">(Coverage: {{ level }})</span>
-        <span v-for="n in data.notifications" :key="n.notification">
-          <button
-            :notification="n.notification"
-            class="scrollto cldr-nav-btn"
-            v-on:click.prevent="scrollToCategory"
-            :title="categoryComment[n.notification] || humanize(n.notification)"
-          >
-            {{ humanize(n.notification) }} ({{ n.total }})
-          </button>
-          &nbsp;&nbsp;
-        </span>
         <button
-          class="right-button cldr-nav-btn"
+          class="cldr-nav-btn dash-closebox"
           title="Close"
           @click="closeDashboard"
         >
           X
         </button>
+        <span
+          class="i-am-dashboard"
+          :title="'Dashboard (coverage: ' + level + ')'"
+          >Dashboard</span
+        >
+        <span v-for="n in data.notifications" :key="n.notification">
+          <template v-if="n.total">
+            <button
+              :notification="n.notification"
+              class="scrollto cldr-nav-btn"
+              v-on:click.prevent="scrollToCategory"
+              :title="
+                categoryComment[n.notification] || humanize(n.notification)
+              "
+            >
+              {{ humanize(n.notification) }} ({{ n.total }})
+            </button>
+            &nbsp;&nbsp;
+          </template>
+        </span>
+        <span class="right-control">
+          <input
+            type="checkbox"
+            title="Hide checked items"
+            id="hideChecked"
+            v-model="hideChecked"
+          /><label for="hideChecked">hide</label>
+        </span>
       </header>
       <section id="DashboardScroller" class="sidebyside-scrollable">
         <template
@@ -35,54 +50,63 @@
           :key="'template-' + n.notification"
         >
           <template v-for="g in n.entries" :key="g.header">
-            <p
-              v-for="e in g.entries"
-              :key="'dash-item-' + e.xpath + '-' + n.notification"
-              :id="'dash-item-' + e.xpath + '-' + n.notification"
-              :class="'dash-' + n.notification"
-            >
-              <span class="dashEntry">
-                <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
-                  <span
-                    class="notification"
-                    :title="
-                      categoryComment[n.notification] ||
-                      humanize(n.notification)
-                    "
-                    >{{ abbreviate(n.notification) }}</span
-                  >
-                  <span class="section-page" title="section—page">{{
-                    humanize(g.section + "—" + g.page)
-                  }}</span>
-                  |
-                  <span class="entry-header" title="entry header">{{
-                    g.header
-                  }}</span>
-                  |
-                  <span class="code" title="code">{{ e.code }}</span>
-                  |
-                  <span
-                    class="previous-english"
-                    title="previous English"
-                    v-if="e.previousEnglish"
-                  >
-                    {{ e.previousEnglish }} →
-                  </span>
-                  <span class="english" title="English">{{ e.english }}</span>
-                  |
-                  <span
-                    class="winning"
-                    title="Winning"
-                    v-bind:dir="$cldrOpts.localeDir"
-                    >{{ e.winning }}</span
-                  >
-                  <template v-if="e.comment">
+            <template v-for="e in g.entries">
+              <p
+                v-if="!(hideChecked && e.checked)"
+                :key="'dash-item-' + e.xpath + '-' + n.notification"
+                :id="'dash-item-' + e.xpath + '-' + n.notification"
+                :class="'dash-' + n.notification"
+              >
+                <span class="dashEntry">
+                  <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
+                    <span
+                      class="notification"
+                      :title="
+                        categoryComment[n.notification] ||
+                        humanize(n.notification)
+                      "
+                      >{{ abbreviate(n.notification) }}</span
+                    >
+                    <span class="section-page" title="section—page">{{
+                      humanize(g.section + "—" + g.page)
+                    }}</span>
                     |
-                    <span v-html="e.comment" title="comment"></span>
-                  </template>
-                </a>
-              </span>
-            </p>
+                    <span class="entry-header" title="entry header">{{
+                      g.header
+                    }}</span>
+                    |
+                    <span class="code" title="code">{{ e.code }}</span>
+                    |
+                    <span
+                      class="previous-english"
+                      title="previous English"
+                      v-if="e.previousEnglish"
+                    >
+                      {{ e.previousEnglish }} →
+                    </span>
+                    <span class="english" title="English">{{ e.english }}</span>
+                    |
+                    <span
+                      class="winning"
+                      title="Winning"
+                      v-bind:dir="$cldrOpts.localeDir"
+                      >{{ e.winning }}</span
+                    >
+                    <template v-if="e.comment">
+                      |
+                      <span v-html="e.comment" title="comment"></span>
+                    </template>
+                  </a>
+                </span>
+                <input
+                  v-if="n.notification !== 'Error'"
+                  type="checkbox"
+                  class="right-control"
+                  title="You can hide checked items with the hide checkbox above"
+                  v-model="e.checked"
+                />
+              </p>
+            </template>
           </template>
         </template>
         <p class="bottom-padding">...</p>
@@ -105,6 +129,7 @@ export default {
     return {
       data: null,
       fetchErr: null,
+      hideChecked: false,
       loadingMessage: "Loading Dashboard…",
       locale: null,
       level: null,
@@ -229,7 +254,7 @@ header {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
+  text-align: baseline;
   align-items: center;
   margin: 0;
   padding: 1ex 0;
@@ -237,12 +262,12 @@ header {
   background-image: linear-gradient(white, #e7f7ff);
 }
 
-.i-am-dashboard {
-  font-weight: bold;
+.dash-closebox {
+  margin-left: 1ex;
 }
 
-.coverage {
-  margin-left: 0.5em;
+.i-am-dashboard {
+  font-weight: bold;
   margin-right: 0.5em;
 }
 
@@ -250,6 +275,7 @@ p {
   padding: 0.1em;
   margin: 0;
   line-height: 1.75;
+  display: flex;
 }
 
 p.bottom-padding {
@@ -274,10 +300,11 @@ p.bottom-padding {
   font-weight: bold;
 }
 
-.right-button {
+.right-control {
   /* This element will be pushed to the right.
      The elements to the left of it will be pushed to the left. */
   margin-left: auto !important;
+  margin-right: 1ex;
 }
 
 .section-page {

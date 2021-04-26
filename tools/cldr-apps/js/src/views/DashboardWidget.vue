@@ -104,6 +104,11 @@
                   class="right-control"
                   title="You can hide checked items with the hide checkbox above"
                   v-model="e.checked"
+                  @change="
+                    (event) => {
+                      entryCheckmarkChanged(event, e.xpath, n.notification);
+                    }
+                  "
                 />
               </p>
             </template>
@@ -232,6 +237,15 @@ export default {
     humanize(str) {
       return str.replaceAll("_", " ");
     },
+
+    entryCheckmarkChanged(event, xpath, category) {
+      cldrDash.saveEntryCheckmark(
+        event.target.checked,
+        xpath,
+        category,
+        this.locale
+      );
+    },
   },
 
   computed: {
@@ -268,7 +282,7 @@ header {
 
 .i-am-dashboard {
   font-weight: bold;
-  margin-right: 0.5em;
+  margin-right: 1em;
 }
 
 p {

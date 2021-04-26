@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -363,8 +364,6 @@ public class VettingViewerQueue {
             statusCode = Status.WAITING;
             final CLDRProgressTask progress = CookieSession.sm.openProgress("vv:" + locale, maxn + 100);
 
-            VettingViewer<Organization> vv = null;
-
             if (DEBUG)
                 System.err.println("Starting up vv task:" + locale);
 
@@ -705,64 +704,6 @@ public class VettingViewerQueue {
     }
 
     /**
-     * Write the Dashboard
-     *
-     * @param locale
-     * @param aBuffer
-     * @param ctx the WebContext, never null
-     * @param sess the CookieSession
-     */
-    public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess) {
-        String levelString = sess.getLevelString();
-        UserRegistry.User user = sess.user;
-        Level usersLevel = getLevelForLocale(ctx, locale.getBaseName(), levelString);
-
-        writeVettingViewerOutput(locale, aBuffer, ctx, user, usersLevel);
-    }
-
-    public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, UserRegistry.User user, Level usersLevel) {
-        final SurveyMain sm = CookieSession.sm;
-        String loc = locale.getBaseName();
-        /*
-         * if no coverage level set, use default one
-         */
-        Organization usersOrg = Organization.fromString(user.voterOrg());
-        final boolean quick = false;
-        final String st_org = user.org;
-        STFactory sourceFactory = sm.getSTFactory();
-        VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
-            getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
-
-        EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
-
-        if (locale != SUMMARY_LOCALE) {
-            /*
-             * sourceFile provides the current winning values, taking into account recent votes.
-             * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
-             * are in the current XML in the cldr version control repository. The baseline values
-             * are generally the last release values plus any changes that have been made by the
-             * technical committee by committing directly to version control rather than voting.
-             */
-            CLDRFile sourceFile = sourceFactory.make(loc, true);
-            Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-            CLDRFile baselineFile = baselineFactory.make(loc, true);
-            Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
-            file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
-            this.getJSONReview(aBuffer, sourceFile, baselineFile, file, choiceSet, locale, true, quick, ctx);
-        } else {
-            if (DEBUG) {
-                System.err.println("Starting summary gen..");
-            }
-            /*
-             * TODO: remove call to createLocalesWithVotes here, unless it has necessary side-effects.
-             * Its return value was formerly an unused argument to generateSummaryHtmlErrorTables
-             */
-            createLocalesWithVotes(st_org);
-            vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
-        }
-    }
-
-    /**
      * Get Vetting Viewer output as an object
      * @param locale
      * @param user
@@ -777,14 +718,13 @@ public class VettingViewerQueue {
          */
         Organization usersOrg = Organization.fromString(user.voterOrg());
         final boolean quick = false;
-        final String st_org = user.org;
         STFactory sourceFactory = sm.getSTFactory();
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
 
         EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
 
-        // This is to prvent confusion, because parallel functions
+        // This is to prevent confusion, because parallel functions
         // use the locale to identify a summary locale.
         if (locale == SUMMARY_LOCALE) {
             throw new IllegalArgumentException("SUMMARY_LOCALE not supported via getDashboardOutput()");
@@ -801,7 +741,7 @@ public class VettingViewerQueue {
         CLDRFile baselineFile = baselineFactory.make(loc, true);
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
         file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
-        return getDashboardOutput(sourceFile, baselineFile, file, choiceSet, locale);
+        return getDashboardOutput(sourceFile, baselineFile, file, choiceSet, locale, user.id);
     }
 
     @Schema(description = "Heading for a portion of the notifications")
@@ -889,6 +829,8 @@ public class VettingViewerQueue {
             this.notifications.add(notification);
             return notification;
         }
+
+        public HashMap<String, List<String>> hidden;
     }
 
     /**
@@ -898,16 +840,20 @@ public class VettingViewerQueue {
      * @param sorted
      * @param choices
      * @param locale
+     * @param userId
      * @return
      */
     private ReviewOutput getDashboardOutput(CLDRFile sourceFile, CLDRFile baselineFile,
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
         EnumSet<Choice> choices,
-        CLDRLocale locale) {
+        CLDRLocale locale, int userId) {
 
         ReviewOutput reviewInfo = new ReviewOutput();
 
         addNotificationEntries(sourceFile, baselineFile, sorted, reviewInfo);
+
+        reviewInfo.hidden = new ReviewHide().getHiddenField(userId, locale.toString());
+
         return reviewInfo;
     }
 
@@ -959,7 +905,7 @@ public class VettingViewerQueue {
                 reviewEntry.previousEnglish = previous;
             }
 
-            //old release
+            //old = baseline; not currently used by client?
             final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
             reviewEntry.old = oldStringValue;
 
@@ -968,7 +914,6 @@ public class VettingViewerQueue {
             reviewEntry.winning = newWinningValue;
 
             //comment
-            String comment = "";
             if (!info.htmlMessage.isEmpty()) {
                 reviewEntry.comment = info.htmlMessage;
             }
@@ -997,16 +942,6 @@ public class VettingViewerQueue {
         return notificationsList;
     }
 
-
-    private Level getLevelForLocale(WebContext ctx, String loc, String levelString) {
-        Level usersLevel;
-        if (levelString.equals("default")) {
-            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(loc));
-        } else {
-            usersLevel = Level.get(levelString);
-        }
-        return usersLevel;
-    }
 
     private EnumSet<VettingViewer.Choice> getChoiceSetForOrg(Organization usersOrg) {
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);

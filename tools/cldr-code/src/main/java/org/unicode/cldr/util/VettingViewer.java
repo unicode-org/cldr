@@ -1,9 +1,6 @@
 package org.unicode.cldr.util;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,7 +20,6 @@ import java.util.concurrent.RecursiveAction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -32,8 +28,6 @@ import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
-import org.unicode.cldr.tool.Option;
-import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -65,10 +59,6 @@ public class VettingViewer<T> {
     private static final String TH_AND_STYLES = "<th class='tv-th' style='text-align:left'>";
 
     private static final String SPLIT_CHAR = "\uFFFE";
-
-    private static final String TEST_PATH = "//ldml/localeDisplayNames/territories/territory[@type=\"SX\"]";
-    private static final double NANOSECS = 1000000000.0;
-    private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
 
     public static final Pattern ALT_PROPOSED = PatternCache.get("\\[@alt=\"[^\"]*proposed");
 
@@ -831,7 +821,6 @@ public class VettingViewer<T> {
         private int configParallel; // parallelism. 0 means "let Java decide"
         private int configChunkSize; // Number of locales to process at once, minimum 1
 
-        @SuppressWarnings("unchecked")
         public WriteContext(Set<Entry<String, String>> entrySet, EnumSet<Choice> choices, T organization, FileInfo totals, Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo, String header) {
             for(Entry<String, String> e : entrySet) {
                 localeNames.add(e.getKey());
@@ -1258,9 +1247,6 @@ public class VettingViewer<T> {
         }
         if ("root".equals(sourceFile.getLocaleID()) || path.startsWith("//ldml/layout/orientation/")) {
             return MissingStatus.MISSING_OK;
-        }
-        if (path.equals(TEST_PATH)) {
-            int debug = 1;
         }
         MissingStatus result;
 
@@ -1731,195 +1717,5 @@ public class VettingViewer<T> {
                 throw new IllegalArgumentException();
             }
         }
-    }
-
-    /**
-     * Simple example of usage
-     *
-     * @param args
-     * @throws IOException
-     */
-    final static Options myOptions = new Options();
-
-    enum MyOptions {
-        repeat(null, null, "Repeat indefinitely"),
-        filter(".*", ".*", "Filter files"),
-        locale(".*", "af", "Single locale for testing"),
-        source(".*", CLDRPaths.MAIN_DIRECTORY + "," + CLDRPaths.ANNOTATIONS_DIRECTORY, // CldrUtility.TMP2_DIRECTORY + "/vxml/common/main"
-            "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
-        verbose(null, null, "verbose debugging messages"),
-        output(".*", CLDRPaths.GEN_DIRECTORY + "vetting/", "filter the raw files (non-summary, mostly for debugging)"),;
-        // boilerplate
-        final Option option;
-
-        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
-            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
-        }
-    }
-
-    public static void main(String[] args) throws IOException {
-        SHOW_SUBTYPES = true;
-        myOptions.parse(MyOptions.source, args, true);
-        boolean repeat = MyOptions.repeat.option.doesOccur();
-        String fileFilter = MyOptions.filter.option.getValue();
-        String myOutputDir = repeat ? null : MyOptions.output.option.getValue();
-        String LOCALE = MyOptions.locale.option.getValue();
-
-        String[] DIRECTORIES = MyOptions.source.option.getValue().split(",\\s*");
-        final File[] fileDirectories = new File[DIRECTORIES.length];
-        int i = 0;
-        for (String s : DIRECTORIES) {
-            fileDirectories[i++] = new File(s);
-        }
-
-        do {
-            Timer timer = new Timer();
-            timer.start();
-
-            Factory cldrFactory = SimpleFactory.make(fileDirectories, fileFilter);
-            cldrFactory.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
-            SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-                .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
-            CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));
-
-            // FAKE this, because we don't have access to ST data
-
-            UsersChoice<Organization> usersChoice = new UsersChoice<Organization>() {
-                // Fake values for now
-                @Override
-                @SuppressWarnings("unused")
-                public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
-                    if (path.contains("USD")) {
-                        return "&dummy ‘losing’ value";
-                    }
-                    return null; // assume we didn't vote on anything else.
-                }
-
-                // Fake values for now
-                @Override
-                public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
-                    String usersValue = getWinningValueForUsersOrganization(cldrFile, path, user);
-                    String winningValue = cldrFile.getWinningValue(path);
-                    if (usersValue != null && !Objects.equals(usersValue, winningValue)) {
-                        return VoteStatus.losing;
-                    }
-                    String fullPath = cldrFile.getFullXPath(path);
-                    if (fullPath.contains("AMD") || fullPath.contains("unconfirmed") || fullPath.contains("provisional")) {
-                        return VoteStatus.provisionalOrWorse;
-                    } else if (fullPath.contains("AED")) {
-                        return VoteStatus.disputed;
-                    } else if (fullPath.contains("AED")) {
-                        return VoteStatus.ok_novotes;
-                    }
-                    return VoteStatus.ok;
-                }
-            };
-
-            // create the tableView and set the options desired.
-            // The Options should come from a GUI; from each you can get a long
-            // description and a button label.
-            // Assuming user can be identified by an int
-            VettingViewer<Organization> tableView = new VettingViewer<>(supplementalDataInfo, cldrFactory,
-                usersChoice, "Winning Proposed");
-
-            // here are per-view parameters
-
-            final EnumSet<Choice> choiceSet = EnumSet.allOf(Choice.class);
-            String localeStringID = LOCALE;
-            int userNumericID = 666;
-            Level usersLevel = Level.MODERN;
-            // http: // unicode.org/cldr-apps/survey?_=ur
-
-            if (!repeat) {
-                FileCopier.ensureDirectoryExists(myOutputDir);
-                FileCopier.copy(VettingViewer.class, "vettingView.css", myOutputDir);
-                FileCopier.copy(VettingViewer.class, "vettingView.js", myOutputDir);
-            }
-            System.out.println("Creation: " + timer.getDuration() / NANOSECS + " secs");
-
-            timer.start();
-            writeFile(myOutputDir, tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.newCode, null);
-            System.out.println("Code: " + timer.getDuration() / NANOSECS + " secs");
-
-            timer.start();
-            writeFile(myOutputDir, tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary,
-                Organization.google);
-            System.out.println("Summary: " + timer.getDuration() / NANOSECS + " secs");
-        } while (repeat);
-    }
-
-    private enum CodeChoice {
-        /** For the normal (locale) view of data **/
-        newCode,
-
-        /** For a summary view of data **/
-        summary
-    }
-
-    /**
-     *
-     * @param myOutputDir
-     * @param tableView
-     * @param choiceSet
-     * @param name
-     * @param localeStringID
-     * @param userNumericID
-     * @param usersLevel
-     * @param newCode
-     * @param organization
-     * @throws IOException
-     *
-     * Called only by VettingViewer.main
-     */
-    public static void writeFile(String myOutputDir, VettingViewer<Organization> tableView, final EnumSet<Choice> choiceSet,
-        String name, String localeStringID, int userNumericID,
-        Level usersLevel,
-        CodeChoice newCode, Organization organization)
-            throws IOException {
-        // open up a file, and output some of the styles to control the table
-        // appearance
-        PrintWriter out = myOutputDir == null ? new PrintWriter(new StringWriter())
-            : FileUtilities.openUTF8Writer(myOutputDir, "vettingView"
-                + name
-                + (newCode == CodeChoice.newCode ? "" : newCode == CodeChoice.summary ? "-summary" : "")
-                + (organization == null ? "" : "-" + organization.toString())
-                + ".html");
-//        FileUtilities.appendFile(VettingViewer.class, "vettingViewerHead.txt", out);
-        FileCopier.copy(VettingViewer.class, "vettingViewerHead.txt", out);
-        out.append(getHeaderStyles());
-        out.append("</head><body>\n");
-
-        out.println(
-            "<p>Note: this is just a sample run. The user, locale, user's coverage level, and choices of tests will change the output. In a real ST page using these, the first three would "
-                + "come from context, and the choices of tests would be set with radio buttons. Demo settings are: </p>\n<ol>"
-                + "<li>choices: "
-                + choiceSet
-                + "</li><li>localeStringID: "
-                + localeStringID
-                + "</li><li>userNumericID: "
-                + userNumericID
-                + "</li><li>usersLevel: "
-                + usersLevel
-                + "</ol>"
-                + "<p>Notes: This is a static version, using old values and faked values (L) just for testing."
-                + (TESTING ? "Also, the white cell after the Fix column is just for testing." : "")
-                + "</p><hr>\n");
-
-        // now generate the table with the desired options
-        // The options should come from a GUI; from each you can get a long
-        // description and a button label.
-        // Assuming user can be identified by an int
-
-        switch (newCode) {
-        case newCode:
-            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, false);
-            break;
-        case summary:
-            //System.out.println(tableView.getName("zh_Hant_HK"));
-            tableView.generateSummaryHtmlErrorTables(out, choiceSet, organization);
-            break;
-        }
-        out.println("</body>\n</html>\n");
-        out.close();
     }
 }

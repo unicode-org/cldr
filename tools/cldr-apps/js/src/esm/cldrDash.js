@@ -1,6 +1,7 @@
 /*
  * cldrDash: encapsulate dashboard data.
  */
+import * as cldrAjax from "./cldrAjax.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
@@ -72,7 +73,7 @@ function makeXpathIndex(data) {
     for (let g in n.entries) {
       for (let k in n.entries[g].entries) {
         const e = n.entries[g].entries[k];
-        e.checked = false;
+        e.checked = itemIsChecked(data, e.xpath, n.notification);
         if (!xpathIndex[e.xpath]) {
           xpathIndex[e.xpath] = {};
         }
@@ -85,6 +86,13 @@ function makeXpathIndex(data) {
       }
     }
   }
+}
+
+function itemIsChecked(data, xpath, category) {
+  if (!data.hidden || !data.hidden[category]) {
+    return false;
+  }
+  return data.hidden[category].includes(xpath);
 }
 
 /**
@@ -225,4 +233,31 @@ function getPathHeader(xpstrid) {
   };
 }
 
-export { setData, updateRow };
+/**
+ * Save the checkbox setting to the back end database for a particular xpath/category,
+ * as preference of the currrent user
+ *
+ * @param checked - boolean, currently unused since back end toggles existing preference
+ * @param xpath - the hex xpath id
+ * @param category - the notification cateogry string like "ERROR" or "ENGLISH_CHANGED"
+ * @param locale - the locale string such as "am" for Amharic
+ */
+function saveEntryCheckmark(checked, xpath, category, locale) {
+  const url = getCheckmarkUrl(xpath, category, locale);
+  cldrAjax.doFetch(url).catch((err) => {
+    console.error("Error setting dashboard checkmark preference: " + err);
+  });
+}
+
+function getCheckmarkUrl(xpath, category, locale) {
+  const p = new URLSearchParams();
+  p.append("what", "dash_hide"); // cf. WHAT_DASH_HIDE in SurveyAjax.java
+  p.append("path", xpath);
+  p.append("choice", category);
+  p.append("locale", locale);
+  p.append("s", cldrStatus.getSessionId());
+  p.append("cacheKill", cldrSurvey.cacheBuster());
+  return cldrAjax.makeUrl(p);
+}
+
+export { saveEntryCheckmark, setData, updateRow };

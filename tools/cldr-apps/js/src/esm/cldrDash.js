@@ -61,7 +61,7 @@ function addCounts(data) {
 }
 
 /**
- * Create the index
+ * Create the index; also set checked = false for all entries
  *
  * @param data
  */
@@ -72,6 +72,7 @@ function makeXpathIndex(data) {
     for (let g in n.entries) {
       for (let k in n.entries[g].entries) {
         const e = n.entries[g].entries[k];
+        e.checked = false;
         if (!xpathIndex[e.xpath]) {
           xpathIndex[e.xpath] = {};
         }
@@ -97,71 +98,68 @@ function makeXpathIndex(data) {
  */
 function updateRow(data, json) {
   try {
-    json.section.rows.forEach((row) => {
+    for (let key in json.section.rows) {
+      const row = json.section.rows[key];
       const xpath = row.xpstrid;
       const oldIssues =
         xpath in xpathIndex ? Object.keys(xpathIndex[xpath]).sort() : [];
       const newIssues = json.issues.sort();
       oldIssues.forEach((issue) => {
+        const catData = getNotificationCategory(data, issue);
         if (newIssues.includes(issue)) {
-          updateNotification(data, xpath, issue, row);
+          updateNotification(catData, xpath, issue, row);
         } else {
-          removeNotification(data, xpath, issue);
+          removeNotification(catData, xpath, issue);
         }
       });
       newIssues.forEach((issue) => {
         if (!oldIssues.includes(issue)) {
-          addNotification(data, xpath, issue, row);
+          const catData = getNotificationCategory(data, issue);
+          addNotification(catData, xpath, issue, row);
         }
       });
-    });
+    }
   } catch (error) {
     console.error("Caught error in updateRow: " + error);
   }
 }
 
-function updateNotification(data, xpath, issue, row) {
-  // TODO: modify the existing item in-place; that will be  more efficient, and will
-  // help to keep the items in their proper order, which is currently determined by the server
-  removeNotification(data, xpath, issue);
-  addNotification(data, xpath, issue, row);
-}
-
-function removeNotification(data, xpath, issue) {
-  for (let j in data.notifications) {
-    const n = data.notifications[j];
-    if (issue === n.notification) {
-      for (let g in n.entries) {
-        const entries = n.entries[g].entries;
-        for (let k in entries) {
-          if (entries[k].xpath === xpath) {
-            entries.splice(k, 1);
-            if (--n.total === 0) {
-              delete data.notifications[j];
-            }
-            delete xpathIndex[xpath][issue];
-            return;
-          }
-        }
+function updateNotification(catData, xpath, issue, row) {
+  for (let g in catData.entries) {
+    const entries = catData.entries[g].entries;
+    for (let k in entries) {
+      if (entries[k].xpath === xpath) {
+        const entry = entries[k];
+        entry.winning = row.winningValue;
+        entry.english = row.displayName;
+        entry.comment = constructMessageFromRow(row, issue);
+        return;
       }
     }
   }
 }
 
-function addNotification(data, xpath, issue, row) {
-  const n = getNotificationCategory(data, issue);
-  let comment = "";
-  row.items[row.winningVhash].tests.forEach((t) => {
-    if (t.type === issue) {
-      comment += t.message + "<br />";
+function removeNotification(catData, xpath, issue) {
+  for (let g in catData.entries) {
+    const entries = catData.entries[g].entries;
+    for (let k in entries) {
+      if (entries[k].xpath === xpath) {
+        entries.splice(k, 1);
+        --catData.total;
+        delete xpathIndex[xpath][issue];
+        return;
+      }
     }
-  });
+  }
+}
+
+function addNotification(catData, xpath, issue, row) {
   const e = {
     xpath: xpath,
     code: row.code,
     winning: row.winningValue,
     english: row.displayName,
-    comment: comment,
+    comment: constructMessageFromRow(row, issue),
   };
   const ph = getPathHeader(xpath);
   const a = {
@@ -170,13 +168,22 @@ function addNotification(data, xpath, issue, row) {
     section: ph.section,
     entries: [e],
   };
-  n.entries.push(a);
-  n.total++;
-  console.log("addNotification added " + issue + ", new total = " + n.total);
+  catData.entries.push(a);
+  catData.total++;
   if (!(xpath in xpathIndex)) {
     xpathIndex[xpath] = {};
   }
   xpathIndex[xpath][issue] = e;
+}
+
+function constructMessageFromRow(row, issue) {
+  let message = "";
+  row.items[row.winningVhash].tests.forEach((t) => {
+    if (t.type === issue) {
+      message += t.message + "<br />";
+    }
+  });
+  return message;
 }
 
 function getNotificationCategory(data, issue) {
@@ -210,6 +217,7 @@ function getPathHeader(xpstrid) {
     return result.ph;
   }
   // failure; fall back on dummy header, and current section/page
+  console.error("No path header from xpath map, using fallback");
   return {
     header: "[header]",
     page: cldrStatus.getCurrentPage(),

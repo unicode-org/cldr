@@ -2488,7 +2488,9 @@ public class SurveyAjax extends HttpServlet {
     public static void getRow(HttpServletRequest request, HttpServletResponse response, Writer out,
             SurveyMain sm, String sess, CLDRLocale locale, String xpath)
             throws IOException, JSONException {
-
+        if (locale == null) {
+            return;
+        }
         CLDRConfigImpl.setUrls(request);
         WebContext ctx = new WebContext(request, response);
         ElapsedTimer et = new ElapsedTimer();

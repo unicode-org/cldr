@@ -79,6 +79,7 @@ export default {
   data() {
     return {
       coverageLevel: null,
+      coverageMenu: null,
       coverageTitle: null,
       email: null,
       loggedIn: false,

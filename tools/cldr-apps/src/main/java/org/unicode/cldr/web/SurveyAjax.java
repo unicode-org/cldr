@@ -97,7 +97,6 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_GETSIDEWAYS = "getsideways";
     public static final String WHAT_GETXPATH = "getxpath";
     public static final String WHAT_PREF = "pref";
-    public static final String WHAT_VSUMMARY = "vsummary";
     public static final String WHAT_FORUM_PARTICIPATION = "forum_participation";
     public static final String WHAT_VETTING_PARTICIPATION = "vetting_participation";
     public static final String WHAT_BULK_CLOSE_POSTS = "bulk_close_posts";
@@ -112,7 +111,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_GET_MENUS = "menus";
     public static final String WHAT_REPORT = "report";
     public static final String WHAT_SEARCH = "search";
-    public static final String WHAT_REVIEW_HIDE = "review_hide";
+    public static final String WHAT_DASH_HIDE = "dash_hide";
     public static final String WHAT_PARTICIPATING_USERS = "participating_users"; // tc-emaillist.js
     public static final String WHAT_USER_INFO = "user_info"; // usermap.js
     public static final String WHAT_USER_LIST = "user_list"; // (old) users.js; (new) cldrListUsers.js
@@ -369,7 +368,7 @@ public class SurveyAjax extends HttpServlet {
                     }
                 }
                 send(r2, out);
-            } else if (what.equals(WHAT_REVIEW_HIDE)) {
+            } else if (what.equals(WHAT_DASH_HIDE)) {
                 CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
 
@@ -378,7 +377,7 @@ public class SurveyAjax extends HttpServlet {
                 } else {
                     mySession.userDidAction();
                     ReviewHide review = new ReviewHide();
-                    review.toggleItem(request.getParameter("choice"), Integer.parseInt(request.getParameter("path")), mySession.user.id,
+                    review.toggleItem(request.getParameter("choice"), request.getParameter("path"), mySession.user.id,
                         request.getParameter("locale"));
                 }
                 send(new SurveyJSONWrapper(), out);
@@ -541,26 +540,6 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                         r.put(SurveyMain.QUERY_VALUE_SUFFIX, mySession.settings().get(pref, null));
-                        send(r, out);
-                    } else if (what.equals(WHAT_VSUMMARY)) {
-                        // TODO: obviated by org.unicode.cldr.web.api.PriorityItems
-                        assertCanUseVettingSummary(mySession);
-                        VettingViewerQueue.LoadingPolicy policy = VettingViewerQueue.LoadingPolicy.valueOf(request.getParameter("loadingpolicy"));
-                        mySession.userDidAction();
-                        SurveyJSONWrapper r = newJSONStatus(request, sm);
-                        r.put("what", what);
-                        r.put("loadingpolicy", policy);
-                        VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
-                        StringBuilder sb = new StringBuilder();
-                        JSONObject jStatus = new JSONObject();
-                        String str = VettingViewerQueue.getInstance()
-                            .getVettingViewerOutput(null, mySession, VettingViewerQueue.SUMMARY_LOCALE, status,
-                                policy, sb, jStatus);
-                        r.put("jstatus", jStatus);
-                        r.put("status", status[0]);
-                        r.put("ret", str);
-                        r.put("output", sb.toString());
-
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_PARTICIPATION)) {
                         mySession.userDidAction();
@@ -961,13 +940,6 @@ public class SurveyAjax extends HttpServlet {
             return Integer.parseInt(replyToString);
         }
         return null;
-    }
-
-    private void assertCanUseVettingSummary(CookieSession mySession) throws SurveyException {
-        assertHasUser(mySession);
-        if (!UserRegistry.userCanUseVettingSummary(mySession.user)) {
-            throw new SurveyException(ErrorCode.E_NO_PERMISSION);
-        }
     }
 
     /**
@@ -3005,54 +2977,15 @@ public class SurveyAjax extends HttpServlet {
         }
         String which = request.getParameter("x");
 
-        if (SurveyMain.R_VETTING_JSON.equals(which)) {
-            response.setContentType("application/json");
-            WebContext ctx = new WebContext(request, response);
-            request.setAttribute(WebContext.CLDR_WEBCONTEXT, ctx);
-            ctx.session = cs;
-            ctx.sm = sm;
-            ctx.setLocale(l);
-            generateDashboard(out, cs, l, ctx);
+        response.setContentType("text/html");
+        if ("r_datetime".equals(which)) {
+            generateDateTimesReport(out, sm, l);
+        } else if ("r_zones".equals(which)) {
+            generateZonesReport(out, sm, l);
+        } else if ("r_compact".equals(which)) {
+            generateNumbersReport(out, sm, l);
         } else {
-            response.setContentType("text/html");
-            if ("r_datetime".equals(which)) {
-                generateDateTimesReport(out, sm, l);
-            } else if ("r_zones".equals(which)) {
-                generateZonesReport(out, sm, l);
-            } else if ("r_compact".equals(which)) {
-                generateNumbersReport(out, sm, l);
-            } else {
-                out.write("<i>Unrecognized report name: " + which + "</i><br/>\n");
-            }
-        }
-    }
-
-    /**
-     * Generate the Dashboard, as json
-     *
-     * @param out the Writer
-     * @param cs the CookieSession
-     * @param l the CLDRLocale
-     * @param ctx the WebContext
-     * @throws IOException
-     */
-    private static void generateDashboard(Writer out, CookieSession cs, CLDRLocale l, WebContext ctx) throws IOException {
-
-        try {
-            StringBuffer sb = new StringBuffer();
-            VettingViewerQueue.getInstance().writeVettingViewerOutput(l, sb, ctx, cs);
-            out.write(sb.toString());
-        } catch (Throwable t) {
-            /*
-             * catch ALL errors, because we need to return JSON
-             */
-            SurveyLog.logException(t, "when loading the Dashboard", ctx);
-            try {
-                new JSONWriter(out).object().key("err").value("Exception: " + t.getMessage()
-                    + " while loading the Dashboard").key("err_code").value("E_INTERNAL").endObject();
-            } catch (JSONException e) {
-                SurveyLog.logException(e, "when loading the Dashboard", ctx);
-            }
+            out.write("<i>Unrecognized report name: " + which + "</i><br/>\n");
         }
     }
 

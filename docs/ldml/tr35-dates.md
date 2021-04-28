@@ -18,7 +18,7 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -57,6 +57,7 @@ The LDML specification is divided into the following parts:
     *   4.1 [Calendar Data](#Calendar_Data)
     *   4.2 [Calendar Preference Data](#Calendar_Preference_Data)
     *   4.3 [Week Data](#Week_Data)
+        *   Table: [Week Designation Types](#Week_Designation_Types)
     *   4.4 [Time Data](#Time_Data)
     *   4.5 [Day Period Rule Sets](#Day_Period_Rule_Sets)
         *   4.5.1 [Day Period Rules](#Day_Period_Rules)
@@ -1196,7 +1197,7 @@ For examples, see [Day Periods Chart](https://unicode-org.github.io/cldr-staging
 
 The time zone IDs (tzid) are language-independent, and follow the _TZ time zone database_ [[Olson](tr35.md#Olson)] and naming conventions. However, the display names for those IDs can vary by locale. The generic time is so-called _wall-time_; what clocks use when they are correctly switched from standard to daylight time at the mandated time of the year.
 
-Unfortunately, the canonical tzid's (those in zone.tab) are not stable: may change in each release of the _TZ_ Time Zone database. In CLDR, however, stability of identifiers is very important. So the canonical IDs in CLDR are kept stable as described in [Canonical Form](tr35.md#Canonical_Form).
+Unfortunately, the canonical tzid's (those in zone.tab) are not stable: they may change in each release of the _TZ_ Time Zone database. In CLDR, however, stability of identifiers is very important. So the canonical IDs in CLDR are kept stable as described in [Canonical Form](tr35.md#Canonical_Form).
 
 The _TZ time zone database_ can have multiple IDs that refer to the same entity. It does contain information on equivalence relationships between these IDs, such as "Asia/Calcutta" and "Asia/Kolkata". It does not remove IDs (with a few known exceptions), but it may change the "canonical" ID which is in the file zone.tab.
 

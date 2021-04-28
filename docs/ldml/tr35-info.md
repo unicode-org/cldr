@@ -18,7 +18,7 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -759,6 +759,12 @@ The parentLocales data is supplemental data, but is described in detail in the [
 
 The unit conversion data ([units.xml](https://github.com/unicode-org/cldr/blob/master/common/supplemental/units.xml)) provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
 
+Many of the elements allow for a common @description attribute, to disambiguate the main attribute value or to explain the choice of other values. For example:
+```xml
+<unitConstant constant="glucose_molar_mass" value="180.1557" 
+  description="derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"/>
+```
+
 ```xml
 <!ELEMENT unitConstants ( unitConstant* ) >
 
@@ -769,6 +775,8 @@ The unit conversion data ([units.xml](https://github.com/unicode-org/cldr/blob/m
 <!ATTLIST unitConstant value CDATA #REQUIRED >
 
 <!ATTLIST unitConstant status NMTOKEN #IMPLIED >
+
+<!ATTLIST unitConstant description CDATA #IMPLIED >
 ```
 
 ### Constants
@@ -807,6 +815,8 @@ An implementation need not use rationals directly for conversion; it could use d
 <!ATTLIST convertUnit factor CDATA #IMPLIED >
 
 <!ATTLIST convertUnit offset CDATA #IMPLIED >
+
+<!ATTLIST convertUnit description CDATA #IMPLIED >
 ```
 
 The conversion data provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
@@ -837,7 +847,22 @@ The conversion may also require an offset, such as the following:
 
 The factor and offset can be simple expressions, just like the values in the unitConstants.
 
-Where a factor is not present, the value is 1; where an offset is not present, the value is 0. The `systems` attribute indicates where the value is not metric; currently the attribute values just include the _ussystem_ and _uksystem_ systems. The term _metric_ is used in a broad sense, and includes units that are simple multiples of metric units, such as pound-metric (= ½ kilogram).
+Where a factor is not present, the value is 1; where an offset is not present, the value is 0. 
+
+The `systems` attribute indicates the measurement system(s). Multiple values may be given; for example, _minute_ is marked as systems="metric ussystem uksystem" 
+
+Attribute Value | Description
+------------ | -------------
+_si_ | the _International System of Units (SI)_
+_metric_ | a superset of the _si_ units, with some non-SI units accepted for use with the SI or simple multiples of metric units, such as pound-metric (= ½ kilogram)
+_ussystem_ | the inch-pound system as used in the US, also called _US Customary Units_
+_uksystem_ | the inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
+
+CLDR follows conversion values where possible from:
+* [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf)
+* [International Astronomical Union General Assembly](https://arxiv.org/pdf/1510.07674.pdf)
+ 
+See also [NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes)
 
 For complex units, such as _pound-force-per-square-inch_, the conversions are computed by combining the conversions of each of the simple units: _pound-force_ and _inch_. Because the conversions in convertUnit are reversible, the computation can go from complex source unit to complex base unit to complex target units.
 
@@ -937,6 +962,8 @@ However, in conversion, it may be necessary to resolve them in order to find a m
 <!ATTLIST unitQuantity quantity NMTOKENS #REQUIRED >
 
 <!ATTLIST unitQuantity status NMTOKEN #IMPLIED >
+
+<!ATTLIST unitQuantity description CDATA #IMPLIED >
 ```
 
 Conversion is supported between comparable units. Those can be simple units, such as length, or more complex ‘derived’ units that are built up from _base units_. The `<unitQuantities>` element provides information on the base units used for conversion. It also supplies information about their _quantity_: mass, length, time, etc., and whether they are simple or not.
@@ -974,10 +1001,10 @@ There are many possible ways to construct complex units. For comparison of unit 
 3. Convert multiple instances of a unit into the appropriate power.
    * foot-per-second-second ⇒ foot-per-square-second
    * kilogram-meter-kilogram ⇒ meter-square-kilogram
-4. For each single unit, disregarding prefixes and powers, find its base unit using `<convertUnit>`, then get the order of that base unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/master/common/supplemental/units.xml). Then sort the single units by that order.
+4. For each single unit, disregarding prefixes and powers, get the order of the _simple_ unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/master/common/supplemental/units.xml). Sort the single units by that order, using a stable sort. If there are private-use single units, sort them after all the non-private use single units.
    * meter-square-kilogram => square-kilogram-meter
    * meter-square-gram ⇒ square-gram-meter
-5. If two single units have the same simple unit but different SI prefixes, such as "kilometer-meter", sort the higher-power SI prefixes first.
+5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes, such as _meter-kilometer_. In that case, sort the larger prefixes first, such as _kilometer-meter_ or _kibibyte-kilobyte_
 6. Within private-use single units, sort by the simple unit alphabetically.
 
 The examples in #4 are due to the following ordering of the `unitQuantity` elements:

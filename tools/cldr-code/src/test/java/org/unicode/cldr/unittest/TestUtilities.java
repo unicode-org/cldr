@@ -1379,10 +1379,14 @@ public class TestUtilities extends TestFmwkPlus {
      * Ideally we should also test for MissingStatus.DISPUTED, etc.; that's more difficult
      */
     public void TestMissingStatus() {
-        final String path = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-barrel\"]/displayName";
+        final String path = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-cup\"]/displayName";
         final String locale = "fr";
         final CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
         final MissingStatus expected = MissingStatus.PRESENT;
+        // Note: VettingViewer.getMissingStatus reports PRESENT for items with ↑↑↑ and absent if the item
+        // is removed to inherit from root, even though the value obtained is the same in either case;
+        // so for path pick an item that does not have ↑↑↑, otherwise when that item is stripped for
+        // production data the test will fail.
         final MissingStatus status = VettingViewer.getMissingStatus(cldrFile, path, true /* latin */);
         if (status != expected) {
             errln("Got getMissingStatus = " + status.toString() + "; expected " + expected.toString());

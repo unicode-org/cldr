@@ -104,7 +104,6 @@ export default {
         return cldrText.sub("coverage_auto_msg", {
           surveyOrgCov: item.label,
         });
-        return item.label + "—Default";
       }
       return item.label;
     },

@@ -68,14 +68,11 @@ function effectiveCoverage(locale) {
  *
  * @return the name, or null
  */
-function effectiveName() {
+function effectiveName(locale) {
   if (surveyUserCov) {
     return surveyUserCov;
   }
-  if (surveyOrgCov) {
-    return surveyOrgCov;
-  }
-  return null; // no error
+  return getSurveyOrgCov(locale);
 }
 
 function getSurveyOrgCov(locale) {

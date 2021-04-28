@@ -37,7 +37,8 @@ import * as cldrVettingParticipation from "./cldrVettingParticipation.js";
 
 const CLDR_LOAD_DEBUG = false;
 
-let locmap = null;
+let locmap = new LocaleMap(null); // a localemap that always returns the code
+// locmap will be modified later with locmap = new LocaleMap(json.locmap)
 
 let isLoading = false;
 
@@ -58,9 +59,6 @@ let flipper = null;
  * Call this once in the page. It expects to find a node #DynamicDataSection
  */
 function showV() {
-  locmap = new LocaleMap(null); // TODO: is it really a singleton?
-  // locmap will be modified later with locmap = new LocaleMap(json.locmap)
-
   flipper = new Flipper([pages.loading, pages.data, pages.other]);
 
   const pucontent = document.getElementById("itemInfo");
@@ -988,6 +986,15 @@ function setTheLocaleMap(lm) {
   locmap = lm;
 }
 
+/**
+ * Convenience for calling getTheLocaleMap().getLocaleName(loc)
+ * @param {String} loc
+ * @returns Locale name, or the locale code if data isn’t loaded yet.
+ */
+function getLocaleName(loc) {
+  return locmap.getLocaleName(loc);
+}
+
 // getHash and setHash are replacements for dojo/hash
 // https://dojotoolkit.org/reference-guide/1.10/dojo/hash.html
 // return "locales///";
@@ -1089,6 +1096,7 @@ export {
   flipToEmptyOther,
   flipToGenericNoLocale,
   flipToOtherDiv,
+  getLocaleName,
   getTheLocaleMap,
   handleCoverageChanged,
   insertLocaleSpecialNote,

@@ -125,8 +125,8 @@ import * as cldrAjax from "../esm/cldrAjax.js";
 import * as cldrCoverage from "../esm/cldrCoverage.js";
 import * as cldrDash from "../esm/cldrDash.js";
 import * as cldrGui from "../esm/cldrGui.js";
+import * as cldrLoad from "../esm/cldrLoad.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrSurvey from "../esm/cldrSurvey.js";
 
 export default {
   props: [],
@@ -176,13 +176,14 @@ export default {
 
     fetchData() {
       this.locale = cldrStatus.getCurrentLocale();
-      this.level = cldrCoverage.effectiveName();
+      this.level = cldrCoverage.effectiveName(this.locale);
       if (!this.locale || !this.level) {
         this.fetchErr = "Please choose a locale and a coverage level first.";
         return;
       }
-      this.loadingMessage =
-        "Loading Dashboard for locale " + this.locale + ", level " + this.level;
+      this.loadingMessage = `Loading ${cldrLoad.getLocaleName(
+        this.locale
+      )} dashboard at ${this.level} level`;
       cldrAjax
         .doFetch(this.getUrl())
         .then((data) => data.json())

@@ -3,7 +3,7 @@
     <ul>
       <li>{{ stVersionPhase }}</li>
       <li>
-        <a href="#menu"><span class="main-menu-icon">☰</span> Menu</a>
+        <a href="#menu///"><span class="main-menu-icon">☰</span> Menu</a>
       </li>
       <li v-if="coverageLevel">
         <label for="coverageLevel">Coverage:</label>

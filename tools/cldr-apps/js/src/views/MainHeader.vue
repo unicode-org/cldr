@@ -19,7 +19,7 @@
             v-bind:key="item.value"
             v-bind:value="item.value"
           >
-            {{ item.label }}
+            {{ coverageLabel(item) }}
           </option>
         </select>
       </li>
@@ -32,7 +32,7 @@
           v-on:change="setVoteLevel()"
           title="Vote with a different number of votes"
         >
-          <option v-for="n in voteCountMenu">{{ n }}</option>
+          <option :key="n" v-for="n in voteCountMenu">{{ n }}</option>
         </select>
       </li>
       <li>
@@ -71,7 +71,6 @@
 import * as cldrCoverage from "../esm/cldrCoverage.js";
 import * as cldrMenu from "../esm/cldrMenu.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrSurvey from "../esm/cldrSurvey.js";
 import * as cldrText from "../esm/cldrText.js";
 import * as cldrVote from "../esm/cldrVote.js";
 
@@ -100,14 +99,39 @@ export default {
   },
 
   methods: {
+    coverageLabel(item) {
+      if (item.value == this.orgCoverage) {
+        return cldrText.sub("coverage_auto_msg", {
+          surveyOrgCov: item.label,
+        });
+        return item.label + "—Default";
+      }
+      return item.label;
+    },
     /**
      * Update the data, getting some data from other module(s).
      * This function is called both locally, to initialize, and from other module(s), to update.
      */
     updateData() {
-      this.coverageMenu = cldrMenu.getCoverageMenu();
+      let needUpdate = false;
+      const orgCoverage = cldrCoverage.getSurveyOrgCov(
+        cldrStatus.getCurrentLocale()
+      );
+      if (orgCoverage != this.orgCoverage) {
+        needUpdate = true;
+        this.orgCoverage = orgCoverage;
+      }
+      const coverageMenu = cldrMenu.getCoverageMenu();
+      if (coverageMenu != this.coverageMenu) {
+        needUpdate = true;
+        this.coverageMenu = coverageMenu;
+      }
       this.coverageTitle = cldrText.get("coverage_menu_desc");
-      this.coverageLevel = cldrCoverage.getSurveyUserCov() || "auto";
+      const coverageLevel = cldrCoverage.getSurveyUserCov() || "auto";
+      if (coverageLevel != this.coverageLevel) {
+        needUpdate = true;
+        this.coverageLevel = coverageLevel;
+      }
       const user = cldrStatus.getSurveyUser();
 
       if (user) {
@@ -136,6 +160,9 @@ export default {
         cldrStatus.getNewVersion() +
         " " +
         cldrStatus.getPhase();
+      if (needUpdate) {
+        this.$forceUpdate();
+      }
     },
 
     setCoverageLevel() {

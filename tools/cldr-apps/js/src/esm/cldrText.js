@@ -354,6 +354,7 @@ const strings = {
   ari_sessiondisconnect_message: "Your session has been disconnected.",
   ari_force_reload: "[Second try: will force page reload]",
 
+  coverage_auto: "Default",
   coverage_auto_msg: "${surveyOrgCov} (Default)",
   coverage_core: "Core",
   coverage_posix: "POSIX",
@@ -365,7 +366,7 @@ const strings = {
   coverage_optional: "Optional",
   coverage_no_items: "No items at this current coverage level.",
   coverage_menu_desc:
-    'Change the displayed coverage level. "Automatic" will use your organization\'s preferred value for this locale, if any.',
+    'Change the displayed coverage level. "Default" will use your organization\'s preferred value for this locale, if any.',
 
   section_mail: "Messages",
 

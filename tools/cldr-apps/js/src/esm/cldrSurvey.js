@@ -890,7 +890,7 @@ function getMenusFilteredByCov() {
   // get name of current coverage
   var cov = cldrCoverage.getSurveyUserCov();
   if (!cov) {
-    cov = cldrCoverage.getSurveyOrgCov();
+    cov = cldrCoverage.getSurveyOrgCov(cldrStatus.getCurrentLocale());
   }
 
   // get the value

@@ -123,13 +123,9 @@ function setupCoverageLevels(json) {
   levelNums.sort(function (a, b) {
     return a.num - b.num;
   });
-  const orgCov = cldrCoverage.getSurveyOrgCov();
-  const defaultLabel = cldrText.sub("coverage_auto_msg", {
-    surveyOrgCov: cldrText.get("coverage_" + orgCov),
-  });
   coverageMenu.length = 0;
   coverageMenu.push({
-    label: "Auto",
+    label: cldrText.get("coverage_auto"),
     value: "auto",
   });
   for (let j in levelNums) {
@@ -144,10 +140,7 @@ function setupCoverageLevels(json) {
       continue; // hide Optional in production
     }
     const level = levelNums[j].level;
-    const label =
-      level.name === orgCov
-        ? defaultLabel
-        : cldrText.get("coverage_" + level.name);
+    const label = cldrText.get("coverage_" + level.name);
     coverageMenu.push({
       label: label,
       value: level.name,

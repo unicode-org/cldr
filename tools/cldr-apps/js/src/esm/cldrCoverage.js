@@ -2,9 +2,11 @@
  * cldrCoverage: encapsulate Survey Tool "Coverage" functions
  */
 
+import * as cldrStatus from "../esm/cldrStatus.js";
+
 let surveyLevels = null;
 
-let surveyOrgCov = null;
+const surveyOrgCov = {};
 
 let surveyUserCov = null;
 
@@ -45,10 +47,10 @@ function covName(lev) {
   return null;
 }
 
-function effectiveCoverage() {
-  const orgCov = getSurveyOrgCov();
+function effectiveCoverage(locale) {
+  const orgCov = getSurveyOrgCov(locale);
   if (!orgCov) {
-    throw new Error("surveyOrgCov not yet initialized");
+    throw new Error(`surveyOrgCov(${locale}) not yet initialized`);
   }
   const userCov = getSurveyUserCov();
   if (userCov) {
@@ -76,12 +78,12 @@ function effectiveName() {
   return null; // no error
 }
 
-function getSurveyOrgCov() {
-  return surveyOrgCov;
+function getSurveyOrgCov(locale) {
+  return surveyOrgCov[locale];
 }
 
-function setSurveyOrgCov(cov) {
-  surveyOrgCov = cov;
+function setSurveyOrgCov(cov, locale) {
+  surveyOrgCov[locale] = cov;
 }
 
 function getSurveyUserCov() {
@@ -100,9 +102,8 @@ function updateCovFromJson(json) {
   }
 
   if (json.covlev_org) {
-    setSurveyOrgCov(json.covlev_org);
-  } else {
-    setSurveyOrgCov(null);
+    // sets the organization coverage for this specific locale
+    setSurveyOrgCov(json.covlev_org, json.loc);
   }
 }
 
@@ -118,7 +119,8 @@ function updateCoverage(theDiv) {
   }
   const levs = getSurveyLevels();
   if (levs != null) {
-    var effective = effectiveCoverage();
+    const currentLocale = cldrStatus.getCurrentLocale();
+    var effective = effectiveCoverage(currentLocale);
     var newStyle = theTable.origClass;
     for (var k in levs) {
       var level = levs[k];

@@ -716,12 +716,15 @@ function loadGeneral(itemLoadInfo) {
  * Show the "possible problems" section which has errors for the locale
  */
 function showPossibleProblems() {
-  const effectiveCov = cldrCoverage.covName(cldrCoverage.effectiveCoverage());
+  const currentLocale = cldrStatus.getCurrentLocale();
+  const effectiveCov = cldrCoverage.covName(
+    cldrCoverage.effectiveCoverage(currentLocale)
+  );
   const requiredCov = effectiveCov;
   const url =
     cldrStatus.getContextPath() +
     "/SurveyAjax?what=possibleProblems&_=" +
-    cldrStatus.getCurrentLocale() +
+    currentLocale +
     "&s=" +
     cldrStatus.getSessionId() +
     "&eff=" +

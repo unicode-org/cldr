@@ -6,8 +6,6 @@
  * 		insertRows
  * 		updateRow
  * 		refreshSingleRow
- *
- * updateRow is also used for the Dashboard.
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
@@ -75,14 +73,8 @@ function insertRows(theDiv, xpath, session, json) {
     theTable = cldrSurvey.cloneLocalizeAnon(
       document.getElementById("proto-datatable")
     );
-    /*
-     * Note: cldrStatus.isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
-     */
-    if (cldrStatus.isDashboard()) {
-      theTable.className += " dashboard";
-    } else {
-      theTable.className += " vetting-page";
-    }
+    theTable.className += " vetting-page";
+
     /*
      * Give our table the unique id, 'vetting-table'. This is needed by the test SurveyDriverVettingTable.
      * Otherwise its id would be 'null' (the string 'null', not null!), and there is risk of confusion
@@ -181,10 +173,6 @@ function tablesAreCompatible(json1, json2) {
  *                            false if we need to insert new rows
  *
  * Called by insertRows only.
- *
- * This function is not currently used for the Dashboard, only for the main vetting table.
- * Still we may want to keep the calls to cldrStatus.isDashboard for future use. Also note that updateRow,
- * which is called from here, IS also used for the Dashboard.
  */
 function insertRowsIntoTbody(theTable, reuseTable) {
   var tbody = theTable.getElementsByTagName("tbody")[0];
@@ -207,10 +195,9 @@ function insertRowsIntoTbody(theTable, reuseTable) {
     var dir = theRow.dir;
     cldrSurvey.setOverrideDir(dir != null ? dir : null);
     /*
-     * There is no partition (section headings) in the Dashboard.
-     * Also we don't regenerate the headings if we're re-using an existing table.
+     * Don't regenerate the headings if we're re-using an existing table.
      */
-    if (!reuseTable && !cldrStatus.isDashboard()) {
+    if (!reuseTable) {
       var newPartition = findPartition(
         partitions,
         partitionList,
@@ -384,12 +371,13 @@ function singleRowErrHandler(err, tr, onFailure) {
 
 function getSingleRowUrl(tr, theRow) {
   const p = new URLSearchParams();
+  // TODO: switch to new API; WHAT_GETROW is deprecated
   p.append("what", "getrow"); // cf. WHAT_GETROW in SurveyAjax.java
   p.append("_", cldrStatus.getCurrentLocale());
   p.append("xpath", theRow.xpathId);
   p.append("fhash", tr.rowHash);
   p.append("automatic", "t");
-  if (true || cldrStatus.isDashboard()) {
+  if (cldrGui.dashboardIsVisible()) {
     p.append("dashboard", "true");
   }
   p.append("s", cldrStatus.getSessionId());
@@ -405,23 +393,6 @@ function getSingleRowUrl(tr, theRow) {
  *
  * Cells (columns) in each row:
  * Code    English    Abstain    A    Winning    Add    Others
- *
- * IMPORTANT: this function is used for the Dashboard as well as the main Vetting table.
- * Mostly the Dashboard tables are currently created by review.js showReviewPage
- * (invoked through writeVettingViewerOutput);
- * they're not created here. Nevertheless the calls here to cldrStatus.isDashboard() do serve a purpose,
- * cldrStatus.isDashboard() is true here when called by insertFixInfo in review.js. To see this, put
- * a breakpoint in this function, go to Dashboard, and click on a "Fix" button, whose pop-up
- * window then will include portions of the item's row as well as a version of the Info Panel.
- *
- * Dashboard columns are:
- * Code    English    CLDR 33    Winning 34    Action
- * -- but we don't add those here; instead, for Dashboard, this function is used
- * only for the "Fix" pop-up window, in which the "columns" aren't really in a table,
- * they're div elements.
- *
- * Called by insertRowsIntoTbody and loadHandler (in refreshSingleRow),
- * AND by insertFixInfo in review.js (Dashboard "Fix")!
  */
 function updateRow(tr, theRow) {
   if (!tr || !theRow) {
@@ -575,21 +546,11 @@ function reallyUpdateRow(tr, theRow) {
 
   /*
    * If the user can make changes, add "+" button for adding new candidate item.
-   *
-   * This code is for Dashboard as well as the basic vetting table.
-   * This block concerns the "other" cell if cldrStatus.isDashboard(), otherwise it concerns the "add" cell.
    */
   if (tr.canChange) {
-    if (cldrStatus.isDashboard()) {
-      if (otherCell) {
-        otherCell.appendChild(document.createElement("hr"));
-        otherCell.appendChild(formAdd);
-      }
-    } else {
-      if (addCell) {
-        cldrDom.removeAllChildNodes(addCell);
-        addCell.appendChild(formAdd);
-      }
+    if (addCell) {
+      cldrDom.removeAllChildNodes(addCell);
+      addCell.appendChild(formAdd);
     }
   }
 

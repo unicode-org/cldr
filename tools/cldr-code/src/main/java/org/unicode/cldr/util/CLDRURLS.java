@@ -56,7 +56,7 @@ public abstract class CLDRURLS {
         /**
          * The vetting viewer (i.e. Dashboard)
          */
-        Vetting("r_vetting_json"),
+        Vetting("dashboard"),
         /**
          * Forums.  use "id" for the numeric post id
          */

@@ -138,19 +138,13 @@ function setCurrentPage(page) {
 }
 
 /**
- * A string such as null, '' (empty), 'forum', 'search', 'r_vetting_json', etc.
- * sometimes identifying a js module such as special/forum.js, but not always;
- * 'r_vetting_json' identifies the Dashboard.
- * a.k.a. surveyCurrentSpecial
+ * A string such as "forum", "search", "r_datetime", etc., identifying a "special"
+ * page -- i.e., a page other than the main vetting page. Generally it's part of the
+ * URL, following "#", like "forum" in "https://st.unicode.org/cldr-apps/v#forum/aa//".
+ * It's null or empty when there is no current special page.
  */
 let currentSpecial = null;
 
-/**
- * A string such as null, '' (empty), 'forum', 'search', 'r_vetting_json', etc.
- * sometimes identifying a js module such as special/forum.js, but not always;
- * 'r_vetting_json' identifies the Dashboard.
- * a.k.a. surveyCurrentSpecial
- */
 function getCurrentSpecial() {
   return currentSpecial;
 }
@@ -403,15 +397,6 @@ function setIsDisconnected(d) {
 }
 
 /**
- * Are we in the Dashboard or not?
- *
- * @return true or false
- */
-function isDashboard() {
-  return getCurrentSpecial() === "r_vetting_json";
-}
-
-/**
  * Is auto-import of old votes in progress? (Boolean)
  *
  * Used for inhibiting $('#left-sidebar').hover (Locale chooser)
@@ -447,7 +432,6 @@ export {
   getSpecialHeader,
   getSurvUrl,
   getSurveyUser,
-  isDashboard,
   isDisconnected,
   isVisitor,
   logoIcon,

@@ -122,9 +122,10 @@ function doHashChange(event) {
   // did anything change?
 
   const changedLocale = oldLocale != trimNull(cldrStatus.getCurrentLocale());
-  const changedSpecial = oldSpecial != trimNull(cldrStatus.getCurrentSpecial());
+  const curSpecial = trimNull(cldrStatus.getCurrentSpecial());
+  const changedSpecial = oldSpecial != curSpecial;
   const changedPage = oldPage != trimNull(cldrStatus.getCurrentPage());
-  if (changedLocale || changedSpecial) {
+  if (changedLocale || (changedSpecial && curSpecial)) {
     cldrGui.hideDashboard();
   }
   if (changedLocale || changedSpecial || changedPage) {
@@ -329,7 +330,7 @@ function verifyJson(json, subkey) {
 
 function showCurrentId() {
   const curSpecial = cldrStatus.getCurrentSpecial();
-  if (curSpecial && curSpecial != "" && !cldrStatus.isDashboard()) {
+  if (curSpecial) {
     const special = getSpecial(curSpecial);
     if (special && special.handleIdChanged) {
       special.handleIdChanged(curSpecial, showCurrentId);
@@ -350,9 +351,7 @@ function unspecialHandleIdChanged() {
       // TODO: visible? coverage?
       cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
       console.log("Changed to " + cldrStatus.getCurrentId());
-      if (!cldrStatus.isDashboard()) {
-        scrollToItem();
-      }
+      scrollToItem();
     } else {
       console.log(
         "Warning could not load id " +
@@ -525,14 +524,11 @@ function reloadV() {
   shower(itemLoadInfo); // first load
 
   // set up the "show-er" function so that if this locale gets reloaded,
-  // the page will load again - except for the dashboard, where only the
-  // row get updated
-  if (!cldrStatus.isDashboard()) {
-    const id2 = flipper.get(pages.data).id;
-    cldrSurvey.setShower(id2, function () {
-      shower(itemLoadInfo);
-    });
-  }
+  // the page will load again
+  const id2 = flipper.get(pages.data).id;
+  cldrSurvey.setShower(id2, function () {
+    shower(itemLoadInfo);
+  });
 } // end reloadV
 
 /**
@@ -661,7 +657,6 @@ function getSpecial(str) {
     default: cldrGenericVue, // Add this here for testing the '/v#default' page.
     lookup: cldrGenericVue,
     menu: cldrGenericVue,
-    r_vetting_json: cldrGenericVue,
     test_panel: cldrGenericVue, // Test page
     vsummary: cldrGenericVue,
 
@@ -694,8 +689,9 @@ function getSpecial(str) {
 }
 
 /**
- * Is the given string for a report, that is, does it start with "r_"?
- * Really only (?) 4: "r_vetting_json" (Dashboard), "r_datetime", "r_zones", "r_compact"
+ * Is the given "special" name for a report, that is, does it start with "r_"?
+ * Really only 3: "r_datetime", "r_zones", "r_compact"
+ * (No longer applicable to Dashboard)
  * Cf. SurveyMain.ReportMenu.PRIORITY_ITEMS
  *
  * @param str the string

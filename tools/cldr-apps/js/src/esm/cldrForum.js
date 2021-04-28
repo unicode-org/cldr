@@ -1195,20 +1195,6 @@ function getThreadRootPost(post) {
 }
 
 /**
- * Get the last (most recent) post in the thread containing this post
- *
- * @param post the post object
- * @return the original post in the thread
- */
-function getNewestPostInThread(post) {
-  const threadPosts = threadHash[post.threadId];
-  /*
-   * threadPosts is ordered from newest to oldest
-   */
-  return threadPosts[0];
-}
-
-/**
  * Filter the forum threads and assemble them into a new document fragment,
  * ordering threads from newest to oldest, determining the time of each thread
  * by the newest post it contains

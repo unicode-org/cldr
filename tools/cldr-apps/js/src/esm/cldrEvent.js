@@ -9,8 +9,6 @@ import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrText from "./cldrText.js";
 
-const useWidgetForDashboard = true;
-
 let sentenceFilter;
 
 let cachedJson; // use a cache because the coverage can change, so we might need to update the menu
@@ -310,15 +308,12 @@ function unpackMenuSideBar(json) {
 
   var html = "<ul>";
   if (!cldrStatus.isVisitor()) {
-    // put the dashboard out
     var tmp = null;
     var reportHtml = "";
     $.each(reports, function (index, element) {
-      if (element.url != "r_vetting_json") {
+      if (element.url !== "dashboard") {
         reportHtml +=
-          '<li class="list-unstyled review-link" data-query="' +
-          element.hasQuery +
-          '" data-url="' +
+          '<li class="list-unstyled review-link" data-url="' +
           element.url +
           '"><div>' +
           element.display +
@@ -330,9 +325,7 @@ function unpackMenuSideBar(json) {
 
     if (tmp) {
       html +=
-        '<li class="list-unstyled review-link" data-query="' +
-        tmp.hasQuery +
-        '" data-url="' +
+        '<li class="list-unstyled review-link" data-url="' +
         tmp.url +
         '"><div>' +
         tmp.display +
@@ -417,22 +410,14 @@ function unpackMenuSideBar(json) {
     $("#left-sidebar").removeClass("active");
     toggleOverlay();
     $("#OtherSection").hide();
-    if (useWidgetForDashboard) {
+    const url = $(this).data("url");
+    if (url === "dashboard") {
       cldrGui.insertDashboard();
     } else {
-      if ($(this).data("query")) {
-        window.location =
-          cldrStatus.getSurvUrl() +
-          "?" +
-          $(this).data("url") +
-          "&_=" +
-          cldrStatus.getCurrentLocale();
-      } else {
-        cldrStatus.setCurrentSpecial($(this).data("url"));
-        cldrStatus.setCurrentId("");
-        cldrStatus.setCurrentPage("");
-        cldrLoad.reloadV();
-      }
+      cldrStatus.setCurrentSpecial(url);
+      cldrStatus.setCurrentId("");
+      cldrStatus.setCurrentPage("");
+      cldrLoad.reloadV();
     }
   });
 

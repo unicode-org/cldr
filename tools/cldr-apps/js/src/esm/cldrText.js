@@ -448,7 +448,6 @@ const strings = {
   special_oldvotes: "Import Old Votes",
   special_r_compact: "Numbers",
   special_r_datetime: "Datetime",
-  special_r_vetting_json: "Dashboard",
   special_r_zones: "Zones",
   special_recent_activity: "Recent Activity",
   special_retry: "Retry",

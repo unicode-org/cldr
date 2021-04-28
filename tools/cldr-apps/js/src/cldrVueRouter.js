@@ -6,7 +6,7 @@ import { getCldrOpts } from "./getCldrOpts";
 
 // components. See index.js for css imports.
 // example: import {SomeComponent} from 'whatever'
-import { Popover, Spin } from "ant-design-vue";
+import { Spin } from "ant-design-vue";
 
 // local components
 import CldrValue from "./views/CldrValue.vue";
@@ -98,7 +98,6 @@ function show(component, el, specialPage, extraProps) {
 function setupComponents(app) {
   // example:
   // app.component('SomeComponent', SomeComponent)
-  app.component("Popover", Popover);
   app.component("a-spin", Spin);
   app.component("cldr-value", CldrValue);
   app.component("cldr-loginbutton", LoginButton);

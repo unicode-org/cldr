@@ -62,12 +62,13 @@ public class CookieSession {
     public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
     /**
-     * @deprecated need to refactor anything that uses this.
-     * TODO: refactor how?? One possibility: "sm = SurveyMain.getInstance(request)" as in
+     * CookieSession.sm was formerly deprecated: "need to refactor anything that uses this."
+     * But, refactor how?? One possibility: "sm = SurveyMain.getInstance(request)" as in
      * SurveyAjax.processRequest, which requires the HttpServletRequest.
      * Another possibility: WebContext.sm (not static; e.g. "ctx.sm")
+     * Those aren't always possible or straightforward. The huge number of
+     * deprecation warnings produced by this deprecation were distractions.
      */
-    @Deprecated
     public static SurveyMain sm = null;
 
     private Connection conn = null;

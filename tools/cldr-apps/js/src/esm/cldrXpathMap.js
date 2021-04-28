@@ -52,19 +52,7 @@ function XpathMap() {
  */
 XpathMap.prototype.get = function get(search, onResult) {
   // see if we have anything immediately
-  let result = null;
-  if (!result && search.hex) {
-    result = this.stridToInfo[search.hex];
-  }
-  if (!result && search.id) {
-    if (typeof search.id !== Number) {
-      search.id = new Number(search.id);
-    }
-    result = this.xpidToInfo[search.id];
-  }
-  if (!result && search.path) {
-    result = this.xpathToInfo[search.path];
-  }
+  let result = this.getImmediately(search);
   if (result) {
     onResult({
       search: search,

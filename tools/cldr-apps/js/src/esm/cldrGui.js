@@ -414,7 +414,7 @@ function showRightPanel() {
 /**
  * Hide the right panel
  *
- * Called by toggleRightPanel, and also by the loadHandler() for isReport() true but isDashboard() false.
+ * Called by toggleRightPanel, and also for Reports.
  * Otherwise, for the Date/Time, Zones, Numbers reports (especially Zones), the panel may invisibly prevent
  * clicking on the "view" buttons.
  */
@@ -435,6 +435,9 @@ function hideRightPanel() {
  * Create the DashboardWidget Vue component
  */
 function insertDashboard() {
+  if (dashboardVisible) {
+    return; // already inserted and visible
+  }
   try {
     const fragment = document.createDocumentFragment();
     dashboardWidgetWrapper = createCldrApp(DashboardWidget).mount(fragment);
@@ -487,6 +490,10 @@ function hideDashboard() {
   }
 }
 
+function dashboardIsVisible() {
+  return dashboardVisible; // boolean
+}
+
 function updateDashboardCoverage(newLevel) {
   if (dashboardVisible && dashboardWidgetWrapper) {
     dashboardWidgetWrapper.handleCoverageChanged(newLevel);
@@ -512,8 +519,8 @@ function setToptitleVisibility(visible) {
  * Update the counter on top of the vetting page
  */
 function refreshCounterVetting() {
-  if (cldrStatus.isVisitor() || cldrStatus.isDashboard()) {
-    // if the user is a visitor, or this is the Dashboard, don't display the counter information
+  if (cldrStatus.isVisitor()) {
+    // if the user is a visitor, don't display the counter information
     $("#nav-page .counter-infos").hide();
     return;
   }
@@ -550,6 +557,7 @@ function refreshCounterVetting() {
 }
 
 export {
+  dashboardIsVisible,
   hideDashboard,
   hideRightPanel,
   insertDashboard,

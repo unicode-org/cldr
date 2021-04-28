@@ -117,15 +117,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
     /**
-     * The "r_" prefix is for r_vetting_json.jsp (Dashboard);
-     * also "r_datetime", "r_zones", and "r_compact" -- see ReportMenu.
+     * The "r_" prefix is for "r_datetime", "r_zones", and "r_compact" -- see ReportMenu.
      */
     private static final String REPORT_PREFIX = "r_";
-
-    /**
-     * r_vetting_json.jsp is for the Dashboard
-     */
-    public static final String R_VETTING_JSON = REPORT_PREFIX + "vetting_json"; // r_vetting_json
 
     private static final String XML_CACHE_PROPERTIES = "xmlCache.properties";
     private static UnicodeSet supportedNameSet = new UnicodeSet("[a-zA-Z]").freeze();
@@ -178,7 +172,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public enum ReportMenu {
-        PRIORITY_ITEMS("Dashboard", SurveyMain.R_VETTING_JSON), DATE_TIME("Date/Time", "r_datetime"), ZONES("Zones", "r_zones"), NUMBERS("Numbers",
+        PRIORITY_ITEMS("Dashboard", "dashboard"), DATE_TIME("Date/Time", "r_datetime"), ZONES("Zones", "r_zones"), NUMBERS("Numbers",
             "r_compact");
 
         private String display;

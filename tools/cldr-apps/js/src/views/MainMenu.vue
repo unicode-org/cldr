@@ -1,13 +1,13 @@
 <template>
   <ul>
     <template v-if="loggedIn">
-      <li v-if="isAdmin"><a href="#admin">Admin Panel</a></li>
+      <li v-if="isAdmin"><a href="#admin///">Admin Panel</a></li>
       <!-- My Account only has border-top (section-header) if Admin Panel is shown -->
       <li v-if="isAdmin" class="section-header">My Account</li>
       <li v-else>My Account</li>
       <li>
         <ul>
-          <li><a href="#account">Account Settings</a></li>
+          <li><a href="#account///">Account Settings</a></li>
         </ul>
       </li>
       <li>
@@ -20,7 +20,7 @@
       <li class="section-header">My Votes</li>
       <li v-if="canImportOldVotes">
         <ul>
-          <li><a href="#oldvotes">Import Old Votes </a></li>
+          <li><a href="#oldvotes///">Import Old Votes </a></li>
         </ul>
       </li>
       <li>
@@ -38,24 +38,24 @@
       <li class="section-header">My Organization ({{ org }})</li>
       <li v-if="canUseVettingSummary">
         <ul>
-          <li><a href="#vsummary">Priority Items Summary (slow)</a></li>
+          <li><a href="#vsummary///">Priority Items Summary (slow)</a></li>
         </ul>
       </li>
       <li v-if="canListUsers">
         <ul>
           <li>
-            <a href="#list_users">List {{ org }} Users</a>
+            <a href="#list_users///">List {{ org }} Users</a>
           </li>
         </ul>
       </li>
       <li v-if="canMonitorForum">
         <ul>
-          <li><a href="#forum_participation">Forum Participation</a></li>
+          <li><a href="#forum_participation///">Forum Participation</a></li>
         </ul>
       </li>
       <li v-if="canMonitorVetting">
         <ul>
-          <li><a href="#vetting_participation">Vetting Participation</a></li>
+          <li><a href="#vetting_participation///">Vetting Participation</a></li>
         </ul>
       </li>
       <li v-if="accountLocked" class="emphatic">
@@ -65,7 +65,7 @@
       <li>
         <ul>
           <li>
-            <a href="#flagged"
+            <a href="#flagged///"
               ><img
                 src="flag.png"
                 alt="flag"
@@ -78,34 +78,34 @@
       </li>
       <li>
         <ul>
-          <li><a href="#mail">Notifications (SMOKETEST ONLY)</a></li>
+          <li><a href="#mail///">Notifications (SMOKETEST ONLY)</a></li>
         </ul>
       </li>
       <li v-if="isAdmin">
         <ul>
-          <li><a href="#bulk_close_posts">Bulk Close Posts</a></li>
+          <li><a href="#bulk_close_posts///">Bulk Close Posts</a></li>
         </ul>
       </li>
     </template>
-    <li class="section-header">Informational</li>
+    <li class="section-header///">Informational</li>
     <li v-if="canSeeStatistics">
       <ul>
-        <li><a href="#statistics">Statistics</a></li>
+        <li><a href="#statistics///">Statistics</a></li>
       </ul>
     </li>
     <li>
       <ul>
-        <li><a href="#about">About</a></li>
+        <li><a href="#about///">About</a></li>
       </ul>
     </li>
     <li v-if="loggedIn">
       <ul>
-        <li><a href="#lookup">Look up a code or xpath</a></li>
+        <li><a href="#lookup///">Look up a code or xpath</a></li>
       </ul>
     </li>
     <li v-if="isTC">
       <ul>
-        <li><a href="#error_subtypes">Error Subtypes</a></li>
+        <li><a href="#error_subtypes///">Error Subtypes</a></li>
       </ul>
     </li>
   </ul>
@@ -162,10 +162,10 @@ export default {
     getSpecialUrl(special) {
       // This ought to be encapsulated as part of each special, which could have its own special.getHash
       // function, falling back on (or inheriting from) default ("#" + special)
-      let url = "#" + special;
+      let url = "#" + special + "///";
       if ("recent_activity" === special) {
         // cf. cldrAccount.getUserActivityLink
-        url += "///" + this.userId;
+        url += this.userId;
       } else if ("upload" === special) {
         // not one of our "modern specials"; back end still jsp
         const p = new URLSearchParams();

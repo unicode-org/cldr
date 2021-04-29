@@ -1266,7 +1266,9 @@ public class VettingViewer<T> {
             String localeFound = sourceFile.getSourceLocaleIdExtended(path, status, false /* skipInheritanceMarker */);
             /*
              * Only count it as missing IF the (localeFound is root or codeFallback)
-             * AND the aliasing didn't change the path
+             * AND the aliasing didn't change the path.
+             * Note that localeFound will be where an item with ↑↑↑ was found even though
+             * the value is actually inherited from somewhere else.
              */
             if (localeFound.equals("root") || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
                 result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased)

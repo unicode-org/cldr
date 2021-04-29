@@ -18,7 +18,7 @@ This is a partial document, describing general parts of the LDML: display names 
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -52,6 +52,7 @@ The LDML specification is divided into the following parts:
     *   3.5 [More Information](#Character_More_Info)
     *   3.6 [Parse Lenient](#Character_Parse_Lenient)
 *   4 [Delimiter Elements](#Delimiter_Elements)
+    *   4.1 [Tailoring Linebreak Using Delimiters](#Tailor_Linebreak_With_Delimiters)
 *   5 [Measurement System Data](#Measurement_System_Data)
     *   5.1 [Measurement Elements (deprecated)](#Measurement_Elements)
 *   6 [Unit Elements](#Unit_Elements)
@@ -97,7 +98,7 @@ The LDML specification is divided into the following parts:
     *   15.1 [Gender](#Gender)
     *   15.2 [Case](#Case)
 *   16 [Grammatical Derivations](#Grammatical_Derivations)
-    *   16.1[Deriving the Gender of Compound Units](#gender_compound_units)
+    *   16.1 [Deriving the Gender of Compound Units](#gender_compound_units)
     *   16.2 [Deriving the Plural Category of Unit Components](#plural_compound_units)
     *   16.3 [Deriving the Case of Unit Components](#case_compound_units)
 
@@ -138,7 +139,7 @@ For example, for the locale identifier zh_Hant_CN_co_pinyin_cu_USD, the display 
 
 ### 1.1 <a name="locale_display_name_algorithm" href="#locale_display_name_algorithm">Locale Display Name Algorithm</a>
 
-A locale display name LDN is generated for a locale identifer L in the following way. First, canonicalize the locale identifier as per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
+A locale display name LDN is generated for a locale identifer L in the following way. First, convert the locale identifier to *canonical syntax* per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
 
 Then follow each of the following steps for the subtags in L, building a base name LDN and a list of qualifying strings LQS.
 
@@ -153,7 +154,7 @@ Once LDN and LQS are built, return the following based on the length of LQS.
 <tr><td>&gt;1</td><td>use the &lt;localeSeparator&gt; element value to join the elements of the list into LDN2, then use the &lt;localePattern&gt; to compose the result LDN from LDN and LDN2, and return it.</td></tr>
 </tbody></table>
 
-The processing can be controled via the following parameters.
+The processing can be controlled via the following parameters.
 
 *   `CombineLanguage`: boolean
     *   Example: the `CombineLanguage = true`, picking the bold value below.
@@ -172,10 +173,10 @@ In addition, the input locale display name could be minimized (see [Part 1: Sect
 
 When the display name contains "(" or ")" characters (or full-width equivalents), replace them "\[", "\]" (or full-width equivalents) before adding.
 
-1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. Set LBN to that value. Disregard any of the matching subtags in the following processing.
+1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. If there is no match, then further convert L to *canonical form* per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)** and try the preceding steps again. Set LBN to the selected value. Disregard any of the matching subtags in the following processing.
     *   If CombineLanguage is false, only choose matches with the language subtag matching.
 2.  **Script, Region, Variants.** Where any of these subtags are in L, append the matching element value to LQS.
-3.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Join the pair using localePattern> and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.
+3.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Join the pair using `<localePattern>` and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.
 4.  **U extensions.** If there is an attribute value A, process the key-value pair <"u", A> as below and append to LQS. Then format and add display names for each of the remaining key-type pairs as described below.
 5.  **Other extensions.** There are currently no such extensions defined. Until such time as there are formats defined for them, append each of the extensions’s subtags to LQS.
 6.  **Private Use extensions.** Get the value
@@ -292,6 +293,12 @@ This contains a list of elements that provide the user-translated names for terr
 <territory type="US">United States</territory>
 <territory type="US" alt="short">U.S.</territory>
 ```
+
+Notes:
+* Territory names may not match the official name of the territory, and the English or French names may not match those in ISO 3166. Reasons for this include:
+    * CLDR favors customary names in common parlance, not necessarily the official names.
+    * CLDR endeavors to provide names that are not too long, in order to avoid problems with truncation or overflow in user interfaces.
+* In general the territory names should also match those used in currency names, see **Part 3** _Section 4 [Currencies](tr35-numbers.md#Currencies)_.
 
 * * *
 
@@ -461,7 +468,7 @@ indicates that language names embedded in text are normally written in lower cas
 *   titlecase-words : all words in the phrase should be title case
 *   titlecase-firstword : the first word should be title case
 *   lowercase-words : all words in the phrase should be lower case
-*   mixed : a mixture of upper and lower case is permitted. generally used when the correct value is unknown.
+*   mixed : a mixture of upper and lower case is permitted, generally used when the correct value is unknown
 
 ## 3 <a name="Character_Elements" href="#Character_Elements">Character Elements</a>
 
@@ -552,7 +559,7 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](#Katakana), [ALetter](#ALetter), or [MidLetter](#MidLetter).
 2.  The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the sets.
 3.  Any [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt)s should be in the auxiliary set , or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.
-4.  For exemplar characters the [Unicode Set](tr35.md#Unicode_Sets) format is restricted so as to not use properties or boolean combinations .
+4.  For exemplar characters the [Unicode Set](tr35.md#Unicode_Sets) format is restricted so as to not use properties or boolean combinations.
 
 ### 3.2 ~~<a name="Character_Mapping" href="#Character_Mapping">Mapping</a>~~
 
@@ -641,6 +648,23 @@ When quotations are nested, the quotation marks and alternate marks are used in 
 <alternateQuotationStart>‘</alternateQuotationStart>  
 <alternateQuotationEnd>’</alternateQuotationEnd>
 ```
+
+### 4.1 <a name="Tailor_Linebreak_With_Delimiters" href="#Tailor_Linebreak_With_Delimiters">Tailoring Linebreak Using Delimiters</a>
+
+The delimiter data can be used for language-specific tailoring of linebreak behavior, as suggested
+in the [description of linebreak class QU: Quotation](https://www.unicode.org/reports/tr14/#QU)
+in [[UAX14](https://www.unicode.org/reports/tr41/#UAX14)]. This is an example of
+[tailoring type](https://www.unicode.org/reports/tr14/#Tailoring) 1 (from that same document),
+changing the line breaking class assignment for some characters.
+
+If the values of `<quotationStart>` and `<quotationEnd>` are different, then:
+* if the value of `<quotationStart>` is a single character with linebreak class QU: Quotation, change its class to OP: Open Punctuation.
+* if the value of `<quotationEnd>` is a single character with linebreak class QU: Quotation, change its class to CL: Close Punctuation.
+Similarly for `<alternateQuotationStart>` and `<alternateQuotationEnd>`.
+
+Some characters with multiple uses should generally be excluded from this linebreak class remapping, such as:
+* U+2019 RIGHT SINGLE QUOTATION MARK, often used as apostrophe, should not be changed from QU; otherwise it will introduce breaks after apostrophe.
+* Several locales (mostly for central and eastern Europe) have U+201C LEFT DOUBLE QUOTATION MARK as `<quotationEnd>` or `<alternateQuotationEnd>`. However users in these locales may also encounter English text in which U+201C is used as `<quotationStart>`. In order to prevent improper breaks for English text, in these locales U+201C should not be changed from QU.
 
 ## 5 <a name="Measurement_System_Data" href="#Measurement_System_Data">Measurement System Data</a>
 
@@ -746,7 +770,7 @@ These elements specify the localized way of formatting quantities of units such 
 </unit>
 ```
 
-The german rules are more complicated, because German has both gender and case. They thus have additional information, as illustrated below. Note that if there is no `@case` attribute, for backwards compatibility the implied case is nominative. The possible values for @case are listed in the `grammaticalFeatures` element. These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
+The German rules are more complicated, because German has both gender and case. They thus have additional information, as illustrated below. Note that if there is no `@case` attribute, for backwards compatibility the implied case is nominative. The possible values for @case are listed in the `grammaticalFeatures` element. These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
 
 ```xml
 <unit type="duration-day">
@@ -764,7 +788,7 @@ The german rules are more complicated, because German has both gender and case. 
 </unit>
 ```
 
-These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance).In addition to supporting language-specific plural cases such as “one” and “other”, unitPatterns support the language-independent explicit cases “0” and “1” for special handling of numeric values that are exactly 0 or 1; see [Explicit 0 and 1 rules](tr35-numbers.md#Explicit_0_1_rules).
+These follow the inheritance specified in Part 1, Section [4.1.2 Lateral Inheritance](tr35.md#Lateral_Inheritance). In addition to supporting language-specific plural cases such as “one” and “other”, unitPatterns support the language-independent explicit cases “0” and “1” for special handling of numeric values that are exactly 0 or 1; see [Explicit 0 and 1 rules](tr35-numbers.md#Explicit_0_1_rules).
 
 The `<unitPattern>` elements may be used to format quantities with decimal values; in such cases the choice of plural form will depend not only on the numeric value, but also on its formatting (see [Language Plural Rules](tr35-numbers.md#Language_Plural_Rules)). In addition to formatting units for stand-alone use, `<unitPattern>` elements are increasingly being used to format units for use in running text; for such usages, the developing [Grammatical Features](#Grammatical_Features) information will be very useful.
 
@@ -827,7 +851,7 @@ The identifiers and unit conversion data are built to handle arbitrary combinati
 
 For the US spelling, see the [Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811](https://www.nist.gov/pml/special-publication-811), which is explicit about the discrepancy with the English-language BIPM spellings:
 
-In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”
+> In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”
 
 #### Syntax
 
@@ -881,11 +905,18 @@ The formal syntax for identifiers is provided below.
         <ul><li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li></ul></td></tr>
 
 <tr><td>prefixed_unit</td><td></td>
-    <td>(si_prefix)? simple_unit<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
+    <td>(prefix)? simple_unit<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
+
+<tr><td>prefix</td><td></td>
+    <td>si_prefix | binary_prefix</td></tr>
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
         <ul><li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
+
+<tr><td>binary_prefix</td><td>:=</td>
+    <td>"kibi", "mebi", …
+        <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>simple_unit</td><td>:=</td>
     <td>unit_component ("-" unit_component)*<br/>
@@ -1120,9 +1151,9 @@ If there is no precomputed form, the following process in pseudocode is used to 
 5.  Set both globalPlaceholder and globalPlaceholderPosition to be empty
 6.  Set numeratorUnitString to patternTimes(numerator, length, per0(pluralCategory), per0(caseVariant))
 7.  Set denominatorUnitString to patternTimes(denominator, length, per1(pluralCategory), per1(caseVariant))
-8.  Set perPattern to be getValue(times, locale, length)
-9.  If the denominatorString is empty, set result to denominatorString, otherwise set result to format(perPattern, numeratorString, denominatorString)
-10. return format(result, globalPlacholder, globalPlaceholderPosition)
+8.  Set perPattern to be getValue(per, locale, length)
+9.  If the denominatorString is empty, set result to numeratorString, otherwise set result to format(perPattern, numeratorUnitString, denominatorUnitString)
+10. return format(result, globalPlaceholder, globalPlaceholderPosition)
 
 **patternTimes(product_unit, locale, length, pluralCategory, caseVariant)**
 
@@ -1173,15 +1204,15 @@ If there is no precomputed form, the following process in pseudocode is used to 
 
 1. return the element value in the locale for the path corresponding to the key, locale, length, and variants — using normal inheritance including [Lateral Inheritance](https://unicode-org.github.io/cldr/ldml/tr35.md#Multiple_Inheritance) and [Parent Locales](https://unicode-org.github.io/cldr/ldml/tr35.md#Parent_Locales).
 
-**Extract(corePattern, coreUnit, placeHolder, placeholderPosition)**
+**Extract(corePattern, coreUnit, placeholder, placeholderPosition)**
 
-1. Find the position of the **placeHolder** in the core pattern
-2. Set **placeHolderPosition** to that postion (start, middle, or end)
-3. Remove the **placeHolder** from the **corePattern** and set **coreUnit** to that result
+1. Find the position of the **placeholder** in the core pattern
+2. Set **placeholderPosition** to that position (start, middle, or end)
+3. Remove the **placeholder** from the **corePattern** and set **coreUnit** to that result
 
 **per0(...), times0(...), etc.**
 
-1. These represent the **deriveCompound** data values from **Section 16 [Grammatical Derivations](#Grammatical_Derivations)**, where value0 of the per-structure is given as per0(...), and so on.
+1. These represent the **deriveComponent** data values from **Section 16 [Grammatical Derivations](#Grammatical_Derivations)**, where value0 of the per-structure is given as per0(...), and so on.
 2. "power" corresponds to dimensionality_prefix, while "prefix" corresponds to si_prefix.
 
 If the locale does not provide full modern coverage, the process could fall back to root locale for some localized patterns. That may give a "ransom-note" effect for the user. To avoid that, it may be preferable to abort the process at that point, and then localize the unitId for the root locale.
@@ -1674,7 +1705,7 @@ ss → z ;
 
 This conversion rule transforms "bass school" into "baz shool". The transform walks through the string from start to finish. Thus given the rules above "bassch" will convert to "bazch", because the "ss" rule is found before the "sch" rule in the string (later, we'll see a way to override this behavior). If two rules can both apply at a given point in the string, then the transform applies the first rule in the list.
 
-All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters →, ←, ↔. Normally, these characters do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole string of text. The slash affects only the character immediately after it. For example, to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string "arrow sign" (with a space), use one of the following rules:
+All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters `→`, `←`, `↔`. Normally, these characters do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole string of text. The slash affects only the character immediately after it. For example, to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string "arrow sign" (with a space), use one of the following rules:
 
 ```
 \←    → arrow\ sign ;
@@ -1718,7 +1749,7 @@ Rules can also specify what happens when an inverse transform is formed. To do t
 $pi ← p ;
 ```
 
-With the inverse transform, "p" will convert to the Greek p. These two directions can be combined together into a dual conversion rule by using the "↔" operator, yielding:
+With the inverse transform, "p" will convert to the Greek p. These two directions can be combined together into a dual conversion rule by using the `↔` operator, yielding:
 
 ```
 $pi ↔ p ;
@@ -2484,7 +2515,7 @@ The identifers (types) use the tags from the OpenType Feature Tag Registry. Give
 
 To find a localized subfamily name such as “Extraleicht Schmal” for a font called “Extralight Condensed”, a system or application library might do the following:
 
-1. Determine the set of languages in which the subfamily name can potentially be returned.This is the union of the languages for which the font contains ‘name’ table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names.
+1. Determine the set of languages in which the subfamily name can potentially be returned. This is the union of the languages for which the font contains ‘name’ table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names.
    
 2. Use a language matching algorithm such as in ICU to find the best available language given the user preferences. The resulting subfamily name will be localized to this language.
    
@@ -2521,17 +2552,28 @@ Note that the CLDR plural categories overlap some of these features, since some 
 <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalCase EMPTY>
-
+<!ATTLIST grammaticalCase scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalGender EMPTY>
-
+<!ATTLIST grammaticalGender scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalDefiniteness EMPTY>
-
+<!ATTLIST grammaticalDefiniteness scope NMTOKENS #IMPLIED >
 <!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
 ```
+
+The @targets attribute contains the specific grammatical entities to which the features apply, such as ```nominal``` when they apply to nouns only. The @locales attribute contains the specific locales to which the features apply, such as ```de fr``` for German and French.
+
+The @scope attribute, if present, indicates that the values are limited to a specific subset for certain kinds of entities. For example, a particular language might have an animate gender for nouns, but no units of measurement ever have that case; in another language, the language might have a rich set of grammatical cases, but units are invariant. If the @scope attribute is not present, then that has the meaning of "everything else".
+
+The @scope attributes are targeted at messages created by computers, thus a feature may have a narrower scope if for all practical purposes the feature value is not used in messages created by computers. For example, it may be possible in theory for a kilogram to be in the vocative case (English poetry might have “O Captain! my Captain!/ our fearful trip is done”, but on computers you have little call to need the message “O kilogram! my kilogram! …”).
+
+**Constraints:**
+
+* a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.
+* the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.
 
 ### 15.1 <a name="Gender" href="#Gender">Gender</a>
 
@@ -2565,8 +2607,8 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 ##### Example
 
 ```xml
-<grammaticalFeatures targets="nominal" locales="es fr it pt">
-   <grammaticalGender values="masculine feminine"/>
+<grammaticalFeatures targets="nominal" locales="de">
+   <grammaticalCase values="nominative accusative genitive dative"/>
 ```
 
 ##### Values
@@ -2674,7 +2716,7 @@ For a description of how to use these fields to construct a localized name, see 
 
 ### 16.1 <a name="gender_compound_units" href="#gender_compound_units">Deriving the Gender of Compound Units</a>
 
-The **deriveCompound\[@feature="gender"\]** data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The `attributeValues` of value are: `0` (=gender of the first element), `1` (=gender of second element), or one of the valid gender values for the language:
+The **deriveCompound\[@feature="gender"\]** data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The `attributeValues` of value are: **`0` (=gender of the first element), `1` (=gender of second element), or one of the valid gender values for the language.** In the unusual case that the 'per' compound has no first element and 0 is supplied, then the value is 1.  
 
 Example:
 
@@ -2710,7 +2752,7 @@ For example, for gram-per-meter, the first line above means:
 
 ### 16.3 <a name="case_compound_units" href="#case_compound_units">Deriving the Case of Unit Components</a>
 
-The `deriveComponent[@feature="plural"]` data provides information for how to derive the plural category for each of the atomic units, from the plural category of the whole compound and the structure of the compound. The `attributeValues` of value0 and value1 are: `compound` (=the grammatical case of the compound), or one of the valid grammatical case values for the language.
+The `deriveComponent[@feature="case"]` data provides information for how to derive the grammatical case for each of the atomic units, from the grammatical case of the whole compound and the structure of the compound. The `attributeValues` of value0 and value1 are: `compound` (=the grammatical case of the compound), or one of the valid grammatical case values for the language.
 
 Example:
 

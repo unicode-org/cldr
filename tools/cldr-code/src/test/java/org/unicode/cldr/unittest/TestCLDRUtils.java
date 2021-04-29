@@ -68,7 +68,7 @@ public class TestCLDRUtils extends TestFmwk {
             .make("fr", true);
 
         checkNames(french, "en_US_POSIX", "anglais américain (informatique)",
-            "anglais [É.-U.] (informatique)",
+            "anglais américain (informatique)", // or "anglais (É.-U., informatique)" if short has priority over dialect
             "anglais (États-Unis, informatique)",
             "anglais (É.-U., informatique)");
     }

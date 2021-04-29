@@ -18,7 +18,7 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -575,6 +575,14 @@ If there is an explicit negative subpattern, it serves only to specify the negat
 
 > **Note:** The thousands separator and decimal separator in patterns are always ASCII ',' and '.'. They are substituted by the code with the correct local values according to other fields in CLDR. The same is true of the - (ASCII minus sign) and other special characters listed above.
 
+A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
+
+Placement | Examples
+-------|-------
+Before|"¤#,##0.00" "¤ #,##0.00" "¤-#,##0.00" "¤ -#,##0.00" "-¤#,##0.00" "-¤ #,##0.00" …
+After|"#,##0.00¤" "#,##0.00 ¤" "#,##0.00-¤" "#,##0.00- ¤" "#,##0.00¤-" "#,##0.00 ¤-" …
+Decimal|"#,##0¤00"
+
 Below is a sample of patterns, special characters, and results:
 
 ##### <a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>
@@ -771,6 +779,10 @@ The `count` attribute distinguishes the different plural forms, such as in the f
     <symbol>Z$</symbol>
 </currency>
 ```
+
+Note on displayNames:
+* In general the region portion of the displayName should match the territory name, see **Part 2** _Section 1.2 [Locale Display Name Fields](tr35-general.md#locale_display_name_fields)_.
+* As a result, the English currency displayName in CLDR may not match the name in ISO 4217.
 
 To format a particular currency value "ZWD" for a particular numeric value _n_ using the (long) display name:
 

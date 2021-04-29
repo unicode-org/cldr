@@ -55,10 +55,21 @@
                 v-if="!(hideChecked && e.checked)"
                 :key="'dash-item-' + e.xpath + '-' + n.notification"
                 :id="'dash-item-' + e.xpath + '-' + n.notification"
-                :class="'dash-' + n.notification"
+                :class="
+                  'dash-' +
+                  n.notification +
+                  (lastClicked === e.xpath + '-' + n.notification
+                    ? ' last-clicked'
+                    : '')
+                "
               >
                 <span class="dashEntry">
-                  <a v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')">
+                  <a
+                    v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')"
+                    @click="
+                      () => setLastClicked(e.xpath + '-' + n.notification)
+                    "
+                  >
                     <span
                       class="notification"
                       :title="
@@ -135,6 +146,7 @@ export default {
       data: null,
       fetchErr: null,
       hideChecked: false,
+      lastClicked: null,
       loadingMessage: "Loading Dashboard…",
       locale: null,
       level: null,
@@ -219,6 +231,10 @@ export default {
           el.scrollTo(0, 0);
         }
       }, 500 /* half a second */);
+    },
+
+    setLastClicked(id) {
+      this.lastClicked = id;
     },
 
     closeDashboard(event) {
@@ -354,5 +370,9 @@ a {
 
 a:hover {
   background-color: #ccdfff; /* light blue */
+}
+
+.last-clicked {
+  background-color: #eee; /* light gray */
 }
 </style>

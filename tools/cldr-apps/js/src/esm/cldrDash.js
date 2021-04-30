@@ -25,15 +25,22 @@ let xpathIndex = {};
  * @param data  - an object with these elements:
  *   notifications - an array of objects, each having these elements:
  *     notification - a category string like "Error" or "English_Changed"
- *     total - an integer (number of entries-within-entries; added by addCounts(), not in json)
+ *     total - an integer (number of entries-within-entries), added by addCounts, not in json
  *     entries - an array of objects, each having these elements:
  *       header - a string
  *       page - a string
  *       section - a string
- *       entries - an array of objects, each having these elements, all strings:
- *         code, english, old, previousEnglish, winning, xpath, comment
+ *       entries - an array of objects, each having these elements:
+ *         code - a string
+ *         english - a string
+ *         old - a string (baseline value; unused?)
+ *         previousEnglish - a string
+ *         winning  - a string
+ *         xpath - a string
+ *         comment - a string
+ *         checked - a boolean, added by makeXpathIndex, not in json
  *
- * @return the modified data (with totals added)
+ * @return the modified data (with totals, etc., added)
  *
  * TODO: if the user chose a different locale while waiting for data,
  * don't show the dashboard for the old locale! This may be complicated
@@ -62,7 +69,7 @@ function addCounts(data) {
 }
 
 /**
- * Create the index; also set checked = false for all entries
+ * Create the index; also set checked = true/false for all entries
  *
  * @param data
  */

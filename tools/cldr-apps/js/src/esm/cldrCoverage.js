@@ -48,14 +48,14 @@ function covName(lev) {
 }
 
 function effectiveCoverage(locale) {
-  const orgCov = getSurveyOrgCov(locale);
-  if (!orgCov) {
-    throw new Error(`surveyOrgCov(${locale}) not yet initialized`);
-  }
   const userCov = getSurveyUserCov();
   if (userCov) {
     return covValue(userCov);
   } else {
+    const orgCov = getSurveyOrgCov(locale);
+    if (!orgCov) {
+      throw new Error(`surveyOrgCov(${locale}) not yet initialized`);
+    }
     return covValue(orgCov);
   }
 }

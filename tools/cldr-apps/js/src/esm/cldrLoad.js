@@ -715,20 +715,15 @@ function loadGeneral(itemLoadInfo) {
  */
 function showPossibleProblems() {
   const currentLocale = cldrStatus.getCurrentLocale();
-  const effectiveCov = cldrCoverage.covName(
-    cldrCoverage.effectiveCoverage(currentLocale)
-  );
-  const requiredCov = effectiveCov;
+  const userCov = cldrCoverage.getSurveyUserCov();
   const url =
     cldrStatus.getContextPath() +
     "/SurveyAjax?what=possibleProblems&_=" +
     currentLocale +
     "&s=" +
     cldrStatus.getSessionId() +
-    "&eff=" +
-    effectiveCov +
-    "&req=" +
-    requiredCov +
+    "&userCov=" +
+    (userCov||'auto') +
     cldrSurvey.cacheKill();
   myLoad(url, "possibleProblems", loadPossibleProblemsFromJson);
 }

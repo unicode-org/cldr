@@ -85,6 +85,7 @@ export default {
       logLink: null,
       logText: null,
       org: null,
+      orgCoverage: null,
       sessionMessage: null,
       specialHeader: null,
       stVersionPhase: null,

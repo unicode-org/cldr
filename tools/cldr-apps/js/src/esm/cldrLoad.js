@@ -723,7 +723,7 @@ function showPossibleProblems() {
     "&s=" +
     cldrStatus.getSessionId() +
     "&userCov=" +
-    (userCov||'auto') +
+    (userCov || "auto") +
     cldrSurvey.cacheKill();
   myLoad(url, "possibleProblems", loadPossibleProblemsFromJson);
 }

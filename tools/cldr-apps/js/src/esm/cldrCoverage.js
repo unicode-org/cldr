@@ -54,7 +54,8 @@ function effectiveCoverage(locale) {
   } else {
     const orgCov = getSurveyOrgCov(locale);
     if (!orgCov) {
-      throw new Error(`surveyOrgCov(${locale}) not yet initialized`);
+      console.error(`surveyOrgCov(${locale}) was not yet initialized`);
+      return 0;
     }
     return covValue(orgCov);
   }

@@ -700,9 +700,14 @@ public class SurveyAjax extends HttpServlet {
                             return;
                         }
 
-                        String eff = request.getParameter("eff");
+                        final String userCov = request.getParameter("userCov");
+                        String eff = userCov;
+                        if (eff.equals("auto")) {
+                            eff = mySession.getEffectiveCoverageLevel(loc);
+                        }
 
                         UserLocaleStuff uf = sm.getUserFile(mySession, locale);
+                        @SuppressWarnings("unchecked")
                         List<CheckStatus> checkCldrResult = (List<CheckStatus>) uf.hash.get(SurveyMain.CHECKCLDR_RES + eff);
 
                         if (checkCldrResult == null) {

@@ -1,7 +1,7 @@
 <template>
   <nav id="DashboardSection" class="halfheight">
     <p v-if="fetchErr" class="st-sad">Error loading data: {{ fetchErr }}</p>
-    <div class="while-loading" v-if="!data">
+    <div class="while-loading" v-if="!data && !fetchErr">
       <a-spin>
         <i>{{ loadingMessage }}</i>
       </a-spin>
@@ -198,6 +198,12 @@ export default {
       )} dashboard at ${this.level} level`;
       cldrAjax
         .doFetch(this.getUrl())
+        .then((response) => {
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          return response;
+        })
         .then((data) => data.json())
         .then((data) => {
           this.data = cldrDash.setData(data);

@@ -265,10 +265,11 @@ function getSessionId() {
 function setSessionId(i) {
   if (i !== sessionId) {
     sessionId = i;
-    if (sessionIdChangeCallback) {
-      sessionIdChangeCallback(sessionId);
-      sessionIdChangeCallback = null;
-    }
+  }
+  // TODO: always fire the sessionIdChangeCallback as it is a one shot.
+  if (sessionIdChangeCallback) {
+    sessionIdChangeCallback(sessionId);
+    sessionIdChangeCallback = null;
   }
 }
 

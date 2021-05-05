@@ -78,7 +78,7 @@ public class SurveyVettingParticipation {
                 final JSONObject json = SurveyJSONWrapper.wrap(theUser);
                 userObj.put(json);
 
-                final Set<CLDRLocale> intSet = theUser.getInterestLocales();
+                final Set<CLDRLocale> intSet = theUser.getInterestLocales(true);
                 if (intSet == null) {
                     json.put("allLocales", true);
                 } else {

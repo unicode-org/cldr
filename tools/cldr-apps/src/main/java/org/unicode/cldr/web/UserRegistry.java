@@ -374,8 +374,8 @@ public class UserRegistry {
          * Set of interest locales for this user.
          * @return null for 'all', otherwise a set of CLDRLocales
          */
-        @Schema( hidden = true )
-        public Set<CLDRLocale> getInterestLocales() {
+        @Schema( hidden = true ) // TODO: does not seem to effectively hide
+        public Set<CLDRLocale> getInterestLocales(boolean ignoredParameter) {
             String[] intList = getInterestList();
             if(intList == null) {
                 return null; // all locales

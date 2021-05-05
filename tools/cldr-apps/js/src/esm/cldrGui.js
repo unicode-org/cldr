@@ -81,7 +81,7 @@ async function ensureSession() {
     if (inforesponse.ok) {
       const infoinfo = await (await inforesponse).json();
       if (infoinfo.sessionId) {
-        cldrStatus.setSessionId(inforesponse.sessionId);
+        cldrStatus.setSessionId(infoinfo.sessionId);
       }
       return; // Done.
     }

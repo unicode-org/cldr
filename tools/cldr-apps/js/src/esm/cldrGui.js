@@ -67,7 +67,13 @@ async function ensureSession() {
     // We want to delete this parameter. It either is used and no longer needed,
     // or it is invalid.
     params.delete("s");
-    window.location.search = params.toString();
+    let newQuery = '';
+    if (params.toString()) {
+      newQuery = '?' + params.toString();
+    }
+    history.replaceState({},
+        '',
+        `?${params.toString()}${window.location.hash}`);
 
     const inforesponse = await fetch(
       `api/auth/info?session=${encodeURIComponent(s)}`,

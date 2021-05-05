@@ -102,7 +102,6 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
 
-    private static final String VURL_LOCALES = "v#locales///";
     private static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
     private static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
     private static final String CLDR_LASTVOTEVERSION = "CLDR_LASTVOTEVERSION";
@@ -301,8 +300,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // ======= query fields
     public static final String QUERY_PASSWORD = "pw";
-    public static final String QUERY_PASSWORD_ALT = "uid";
     public static final String QUERY_EMAIL = "email";
+    public static final String QUERY_PASSWORD_ALT = "uid";
     public static final String QUERY_SESSION = "s";
     public static final String QUERY_LOCALE = "_";
     public static final String QUERY_SECTION = "x";
@@ -479,7 +478,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /**
      * IP exclusion list
      */
-    static Hashtable<String, Object> BAD_IPS = new Hashtable<>();
+    public static Hashtable<String, Object> BAD_IPS = new Hashtable<>();
     public static String fileBaseA;
     public static String fileBaseASeed;
 
@@ -1864,8 +1863,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             title = title + " Example";
         } else if (which == null || which.isEmpty()) {
             if (ctx.getLocale() == null) {
-                ctx.redirect(ctx.context(VURL_LOCALES));
-                ctx.redirectToVurl(ctx.context(VURL_LOCALES)); // may blink.
+                ctx.redirect(ctx.vurl());
                 return;
             } else {
                 title = ""; // general";
@@ -2109,9 +2107,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             locale = ctx.getLocale().toString();
         }
         if ((locale == null) || (locale.length() <= 0)) {
-            ctx.println("<i>Loading locale list...</i>");
-            ctx.flush();
-            ctx.redirectToVurl(ctx.context(VURL_LOCALES)); // may blink.
+            ctx.redirect(ctx.vurl());
             return;
         } else {
             showLocale(ctx, which, whyBad);
@@ -2749,6 +2745,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String vurl = ctx.vurl(ctx.getLocale(), ctx.getPageId(), null, null);
         // redirect to /v#...
         ctx.redirectToVurl(vurl);
+        ctx.redirect(vurl);
     }
 
     /**

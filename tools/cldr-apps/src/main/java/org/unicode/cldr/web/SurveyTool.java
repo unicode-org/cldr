@@ -165,12 +165,19 @@ public class SurveyTool extends HttpServlet {
         out.write("</head>\n");
         out.write("<body lang='" + lang + "'>\n");
         out.write("<div id='st-run-gui'>Loading...</div>\n");
+        // runGui() returns a Promise.
+        // But, we also want to catch exceptions in calling cldrBundle or runGui.
         out.write("<script>\n" +
-            "try {\n" +
-            "  cldrBundle.runGui();\n" +
-            "} catch(e) {\n" +
+            "function stRunGuiErr(e) {\n" +
             "  console.error(e);\n" +
-            "  document.write('&#x26A0; Error: Could not load CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack);\n" +
+            "  document.write('<h1>&#x26A0; Error: Could not load CLDR ST GUI. Try reloading?</h1> '" +
+            " + e + '\\n<hr />\\n<pre>' + (e.stack||'') + '</pre>');\n" +
+            "}\n" +
+            "try {\n" +
+            "  cldrBundle.runGui()\n" +
+            "  .then(() => {}, stRunGuiErr);\n" +
+            "} catch(e) {\n" +
+            "  stRunGuiErr(e);\n" +
             "}\n" +
             "</script>\n");
         out.write("</body>\n</html>\n");

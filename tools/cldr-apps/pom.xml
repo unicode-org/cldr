@@ -45,6 +45,13 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- For rendering JSON. Avoids error about an insecure Stax XML processor -->
+		<dependency>
+			<groupId>org.codehaus.woodstox</groupId>
+			<artifactId>woodstox-core-asl</artifactId>
+			<version>4.4.1</version>
+		</dependency>
+
 		<!-- test -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

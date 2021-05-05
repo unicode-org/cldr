@@ -9,8 +9,11 @@ import * as cldrGui from "./cldrGui.js";
 const statusTarget = new EventTarget();
 
 /**
- * Re-export addEventListener as 'on',
- * so: cldrStatus.on('userChanged', …)
+ * Re-export addEventListener as 'on'
+ * so: cldrStatus.on('sessionId', …)
+ * Events:
+ * - sessionId:  session ID changed
+ * - surveyUser: survey user changed
  */
 const on = statusTarget.addEventListener.bind(statusTarget);
 
@@ -256,7 +259,6 @@ function setIsPhaseBeta(i) {
  * a.k.a. surveySessionId
  */
 let sessionId = null;
-let sessionIdChangeCallback = null;
 
 function getSessionId() {
   return sessionId;
@@ -266,15 +268,7 @@ function setSessionId(i) {
   if (i !== sessionId) {
     sessionId = i;
   }
-  // TODO: always fire the sessionIdChangeCallback as it is a one shot.
-  if (sessionIdChangeCallback) {
-    sessionIdChangeCallback(sessionId);
-    sessionIdChangeCallback = null;
-  }
-}
-
-function setSessionIdChangeCallback(func) {
-  sessionIdChangeCallback = func;
+  statusTarget.dispatchEvent(new Event("sessionId"));
 }
 
 /**
@@ -454,7 +448,6 @@ export {
   setPermissions,
   setPhase,
   setSessionId,
-  setSessionIdChangeCallback,
   setSessionMessage,
   setSpecialHeader,
   setSurveyUser,

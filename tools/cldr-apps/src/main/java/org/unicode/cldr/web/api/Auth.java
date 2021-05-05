@@ -20,6 +20,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.WebContext;
 
@@ -57,25 +58,65 @@ public class Auth {
         boolean remember,
         LoginRequest request) {
         if (request.isEmpty()) {
-            return Response.status(401, "Authorization required").build();
+            // No option to ignore the cookies.
+            // If you want to logout, use the /logout endpoint first.
+            final String myEmail = WebContext.getCookieValue(hreq, SurveyMain.QUERY_EMAIL);
+            final String myPassword = WebContext.getCookieValue(hreq, SurveyMain.QUERY_PASSWORD);
+            if (myEmail != null && !myEmail.isEmpty() && myPassword != null && !myPassword.isEmpty()) {
+                // use values from cookie
+                request.password = myPassword;
+                request.email = myEmail;
+            } // else, create an anonymous session
         }
         try {
             LoginResponse resp = new LoginResponse();
             // we start with the user
             String userIP = WebContext.userIP(hreq);
-            resp.user = CookieSession.sm.reg.get(request.password,
-                request.email, userIP);
-            if (resp.user == null) {
-                return Response.status(403, "Login failed").build();
-            }
-            CookieSession session = CookieSession.retrieveUser(resp.user);
-            if (session == null) {
+            CookieSession session = null;
+            if (!request.isEmpty()) {
+                resp.user = CookieSession.sm.reg.get(request.password,
+                    request.email, userIP);
+                if (resp.user == null) {
+                    return Response.status(403, "Login failed").build();
+                }
+                session = CookieSession.retrieveUser(resp.user);
+                if (session == null) {
+                    resp.newlyLoggedIn = true;
+                    session = CookieSession.newSession(resp.user, userIP);
+                }
+                resp.sessionId = session.id;
+                if (remember == true && resp.user != null) {
+                    WebContext.loginRemember(hresp, resp.user);
+                }
+            } else {
+                // anonymous session
+                // code ported from WebContext
+
+                // Funny interface. Non-null means a banned IP.
+                // We aren't going to return the special session, but just throw.
+                if (CookieSession.checkForAbuseFrom(userIP,
+                    SurveyMain.BAD_IPS,
+                    hreq.getHeader("User-Agent")) != null) {
+                        final String tooManyMessage = "Your IP, " + userIP
+                            + " has been throttled for making too many connections." +
+                            " Try turning on cookies, or obeying the 'META ROBOTS' tag.";
+                        return Response.status(429, "Too many requests from this IP")
+                        .entity(new STError(tooManyMessage)).build();
+                }
+
+                // Also check for too many guests.
+                if (CookieSession.tooManyGuests()) {
+                    final String tooManyMessage = "We have too many people ("+
+                        CookieSession.getUserCount() +
+                        ") browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
+                        return Response.status(429, "Too many guests")
+                        .entity(new STError(tooManyMessage)).build();
+                }
+
+                // All clear. Make an anonymous session.
+                session = CookieSession.newSession(true, userIP);
                 resp.newlyLoggedIn = true;
-                session = CookieSession.newSession(resp.user, userIP);
-            }
-            resp.sessionId = session.id;
-            if (remember == true && resp.user != null) {
-                WebContext.loginRemember(hresp, resp.user);
+                resp.sessionId = session.id;
             }
             return Response.ok().entity(resp)
                 .header(SESSION_HEADER, session.id)

@@ -57,6 +57,7 @@
       <li>
         <span class="hasTooltip" v-bind:title="email">{{ userName }}</span>
         <span
+          v-if="email"
           class="glyphicon glyphicon-user tip-log"
           v-bind:title="org"
         ></span>

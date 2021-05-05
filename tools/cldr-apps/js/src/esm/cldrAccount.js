@@ -1148,7 +1148,7 @@ function needOrgList() {
 function getLoginUrl(email, password) {
   const p = new URLSearchParams();
   p.append("email", email);
-  p.append("uid", password);
+  p.append("pw", password);
   // CAUTION: this is /survey not /SurveyAjax -- don't use cldrAjax.makeUrl until this is changed
   return cldrStatus.getContextPath() + "/survey?" + p.toString();
 }

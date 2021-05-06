@@ -66,15 +66,15 @@ export default {
                 }),
               }
             );
+            // TODO: if !response.ok, show login failed
             const logintoken = await (await response).json();
-            console.dir(logintoken);
-            if (logintoken.user && logintoken.sessionId) {
+            if (/*logintoken.user && */ logintoken.sessionId) {
               // logged in OK.
               cldrStatus.setSessionId(logintoken.sessionId);
               run(); // Restart everything
-            }
+            } // TODO: else, handle error.
           } catch (e) {
-            // TODO: popover
+            // TODO: popover needs to show that login failed
             throw e;
           }
         }

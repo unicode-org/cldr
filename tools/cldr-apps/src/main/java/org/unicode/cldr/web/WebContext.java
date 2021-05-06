@@ -629,12 +629,6 @@ public class WebContext implements Cloneable, Appendable {
      * @return
      */
     public String vurl(CLDRLocale loc, PageId page, String strid, String queryAppend) {
-        // If we have a session, use it.
-        if (queryAppend == null || queryAppend.isEmpty()) {
-            if (session != null && session.id != null) {
-                queryAppend = "?s=" + session.id;
-            }
-        }
         StringBuilder sb = new StringBuilder(request.getContextPath());
         return WebContext.appendContextVurl(sb, loc, page, strid, queryAppend).toString();
     }
@@ -1894,6 +1888,14 @@ public class WebContext implements Cloneable, Appendable {
             c2.setPath("/");
             // c2.setMaxAge(0);
             response.addCookie(c2);
+        }
+        // clear non-JSESSIONID session header cookie
+        Cookie c3 = WebContext.getCookie(request, Auth.SESSION_HEADER);
+        if (c3 != null) {
+            c3.setValue("");
+            c3.setPath("/");
+            // c1.setMaxAge(0);
+            response.addCookie(c3);
         }
         try {
             HttpSession s = request.getSession(false);

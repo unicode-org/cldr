@@ -21,6 +21,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyMain;
+import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.WebContext;
 
@@ -74,19 +75,18 @@ public class Auth {
             String userIP = WebContext.userIP(hreq);
             CookieSession session = null;
             if (!request.isEmpty()) {
-                resp.user = CookieSession.sm.reg.get(request.password,
+                UserRegistry.User user = CookieSession.sm.reg.get(request.password,
                     request.email, userIP);
-                if (resp.user == null) {
+                if (user == null) {
                     return Response.status(403, "Login failed").build();
                 }
-                session = CookieSession.retrieveUser(resp.user);
+                session = CookieSession.retrieveUser(user);
                 if (session == null) {
-                    resp.newlyLoggedIn = true;
-                    session = CookieSession.newSession(resp.user, userIP);
+                    session = CookieSession.newSession(user, userIP);
                 }
                 resp.sessionId = session.id;
-                if (remember == true && resp.user != null) {
-                    WebContext.loginRemember(hresp, resp.user);
+                if (remember == true && user != null) {
+                    WebContext.loginRemember(hresp, user);
                 }
             } else {
                 // anonymous session
@@ -115,7 +115,6 @@ public class Auth {
 
                 // All clear. Make an anonymous session.
                 session = CookieSession.newSession(true, userIP);
-                resp.newlyLoggedIn = true;
                 resp.sessionId = session.id;
             }
             return Response.ok().entity(resp)
@@ -200,12 +199,11 @@ public class Auth {
         // Response
         LoginResponse resp = new LoginResponse();
         resp.sessionId = session;
-        resp.user = s.user;
+
         return Response.ok().entity(resp)
             .header(SESSION_HEADER, session)
             .build();
     }
-
 
     /**
      * Extract a CookieSession from a session string

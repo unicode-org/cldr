@@ -267,8 +267,8 @@ function getSessionId() {
 function setSessionId(i) {
   if (i !== sessionId) {
     sessionId = i;
+    statusTarget.dispatchEvent(new Event("sessionId"));
   }
-  statusTarget.dispatchEvent(new Event("sessionId"));
 }
 
 /**

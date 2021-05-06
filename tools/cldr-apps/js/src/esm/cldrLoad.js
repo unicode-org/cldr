@@ -71,16 +71,6 @@ function showV() {
     "title-dcontent-link",
     cldrText.get("defaultContent_titleLink")
   );
-  /*
-   * Arrange for getInitialMenusEtc to be called soon after we've gotten the session id.
-   * Add a short timeout to avoid interrupting the code that sets the session id.
-   */
-  cldrStatus.on("sessionId", () =>
-    setTimeout(function () {
-      parseHashAndUpdate(getHash());
-      cldrMenu.getInitialMenusEtc(cldrStatus.getSessionId());
-    }, 100 /* one tenth of a second */)
-  );
 }
 
 function continueInitializing(canAutoImport) {
@@ -1091,12 +1081,14 @@ export {
   flipToEmptyOther,
   flipToGenericNoLocale,
   flipToOtherDiv,
+  getHash,
   getLocaleName,
   getTheLocaleMap,
   handleCoverageChanged,
   insertLocaleSpecialNote,
   linkToLocale,
   myLoad,
+  parseHashAndUpdate,
   reloadV,
   replaceHash,
   setLoading,

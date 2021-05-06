@@ -364,7 +364,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "qug|"
             + "raj|rgn|rif|rom|rtm|ru[eg]|"
             + "sa[msz]|sbp|sd[ch]|se[eil]|sg[as]|shu?|sid|sl[iy]|sog|srr|stq|su[sx]|syc|szl|"
-            + "tcy|ter|tiv|tk[lr]|tl[iy]?|tmh|tog|tru|ts[di]|ttt|tw|"
+            + "tcy|ter|tiv|tk[lr]|tl[iy]?|tmh|tog|tpi|tru|ts[di]|ttt|tw|"
             + "uga|"
             + "ve[cp]|vls|vmf||vot|vro|"
             + "was|wbp|wuu|"

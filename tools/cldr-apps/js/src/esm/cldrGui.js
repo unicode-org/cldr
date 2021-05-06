@@ -65,53 +65,6 @@ async function ensureSession() {
     return; // the session was already set
   }
   scheduleLoadingWithSessionId();
-  // Is there a session in the URL?
-  const params = new URLSearchParams(window.location.search);
-  const s = params.get("s");
-  if (s) {
-    if (GUI_DEBUG) {
-      console.log("cldrGui.ensureSession found param s = " + s);
-    }
-    // We want to delete this parameter. It either is used and no longer needed,
-    // or it is invalid.
-    params.delete("s");
-    let newQuery = "";
-    if (params.toString()) {
-      newQuery = "?" + params.toString();
-    }
-    history.replaceState(
-      {},
-      "",
-      `?${params.toString()}${window.location.hash}`
-    );
-
-    if (GUI_DEBUG) {
-      console.log("cldrGui.ensureSession making info request");
-    }
-    const inforesponse = await fetch(
-      `api/auth/info?session=${encodeURIComponent(s)}`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    if (inforesponse.ok) {
-      const infoinfo = await (await inforesponse).json();
-      if (infoinfo.sessionId) {
-        cldrStatus.setSessionId(infoinfo.sessionId);
-      }
-      if (GUI_DEBUG) {
-        console.log(
-          "cldrGui.ensureSession inforesponse.ok; infoinfo.sessionId = " +
-            infoinfo.sessionId
-        );
-      }
-      return; // Done.
-    }
-    // Else: it wasn't accepted as a session id. That's OK.
-  }
 
   if (GUI_DEBUG) {
     console.log("cldrGui.ensureSession making login request");

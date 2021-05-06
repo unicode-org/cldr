@@ -4,6 +4,7 @@
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForum from "./cldrForum.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrMenu from "./cldrMenu.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
@@ -57,18 +58,36 @@ function run() {
 }
 
 async function ensureSession() {
-  // Check first, because the session may already have been set
-  if (haveSession()) return; // Done!
-
+  if (haveSession()) {
+    if (GUI_DEBUG) {
+      console.log("cldrGui.ensureSession there is already a session");
+    }
+    return; // the session was already set
+  }
+  scheduleLoadingWithSessionId();
   // Is there a session in the URL?
   const params = new URLSearchParams(window.location.search);
   const s = params.get("s");
   if (s) {
+    if (GUI_DEBUG) {
+      console.log("cldrGui.ensureSession found param s = " + s);
+    }
     // We want to delete this parameter. It either is used and no longer needed,
     // or it is invalid.
     params.delete("s");
-    window.location.search = params.toString();
+    let newQuery = "";
+    if (params.toString()) {
+      newQuery = "?" + params.toString();
+    }
+    history.replaceState(
+      {},
+      "",
+      `?${params.toString()}${window.location.hash}`
+    );
 
+    if (GUI_DEBUG) {
+      console.log("cldrGui.ensureSession making info request");
+    }
     const inforesponse = await fetch(
       `api/auth/info?session=${encodeURIComponent(s)}`,
       {
@@ -83,11 +102,20 @@ async function ensureSession() {
       if (infoinfo.sessionId) {
         cldrStatus.setSessionId(infoinfo.sessionId);
       }
+      if (GUI_DEBUG) {
+        console.log(
+          "cldrGui.ensureSession inforesponse.ok; infoinfo.sessionId = " +
+            infoinfo.sessionId
+        );
+      }
       return; // Done.
     }
     // Else: it wasn't accepted as a session id. That's OK.
   }
 
+  if (GUI_DEBUG) {
+    console.log("cldrGui.ensureSession making login request");
+  }
   // see if we can get a session
   const response = await fetch(`api/auth/login`, {
     method: "POST",
@@ -102,7 +130,12 @@ async function ensureSession() {
     if (logintoken.sessionId) {
       // logged in OK.
       cldrStatus.setSessionId(logintoken.sessionId);
-      // TODO: could set user, etc.
+      if (GUI_DEBUG) {
+        console.log(
+          "cldrGui.ensureSession login response.ok; logintoken.sessionId = " +
+            logintoken.sessionId
+        );
+      }
     }
   } else {
     throw Error("SurveyTool did not create a session. Try back later.");
@@ -110,11 +143,24 @@ async function ensureSession() {
 }
 
 function haveSession() {
-  return (
-    cldrStatus.getSurveyUser() != null || cldrStatus.getSessionId() != null
-  );
+  if (cldrStatus.getSurveyUser() || cldrStatus.getSessionId()) {
+    return true;
+  }
+  return false;
 }
 
+/**
+ * Arrange for getInitialMenusEtc to be called soon after we've gotten the session id.
+ * Add a short timeout to avoid interrupting the code that sets the session id.
+ */
+function scheduleLoadingWithSessionId() {
+  cldrStatus.on("sessionId", () => {
+    setTimeout(function () {
+      cldrLoad.parseHashAndUpdate(cldrLoad.getHash());
+      cldrMenu.getInitialMenusEtc(cldrStatus.getSessionId());
+    }, 100 /* one tenth of a second */);
+  });
+}
 function completeStartupWithSession() {
   cldrSurvey.updateStatus();
   cldrLoad.showV();

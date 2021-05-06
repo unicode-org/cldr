@@ -209,6 +209,9 @@ public class CookieSession {
      *            id to fetch
      */
     public static CookieSession retrieve(String sessionid) {
+        if (sessionid == null || sessionid.isEmpty()) {
+            return null;
+        }
         CookieSession c = retrieveWithoutTouch(sessionid);
         if (c != null) {
             c.touch();

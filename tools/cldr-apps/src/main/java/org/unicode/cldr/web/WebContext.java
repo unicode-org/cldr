@@ -47,6 +47,7 @@ import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.Auth;
 import org.w3c.dom.Document;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
@@ -1834,6 +1835,9 @@ public class WebContext implements Cloneable, Appendable {
                 loginRemember(session.user);
             }
         }
+        if (session != null) {
+            setSessionCookie(response, session.id);
+        }
     }
 
     /**
@@ -1925,6 +1929,35 @@ public class WebContext implements Cloneable, Appendable {
     public static void loginRemember(HttpServletResponse response, User user) {
         addCookie(response, SurveyMain.QUERY_EMAIL, user.email, SurveyMain.TWELVE_WEEKS);
         addCookie(response, SurveyMain.QUERY_PASSWORD, user.getPassword(), SurveyMain.TWELVE_WEEKS);
+    }
+
+    /**
+     * Set the Session ID cookie (not JSESSION) on the given response.
+     */
+    public static void setSessionCookie(HttpServletResponse response, String sessionId) {
+        addCookie(response, Auth.SESSION_HEADER, sessionId, SurveyMain.TWELVE_WEEKS);
+    }
+
+    /**
+     * Get the Session cookie (not JSESSION)
+     * @param request
+     * @return cookie or null
+     */
+    public static Cookie getSessionCookie(HttpServletRequest request) {
+        return getCookie(request, Auth.SESSION_HEADER);
+    }
+
+    /**
+     * Get the Session string from the session cookie (not JSESSION) or null
+     * @param request
+     * @return session ID or null
+     */
+    public static String getSessionIdFromCookie(HttpServletRequest request) {
+        final Cookie c = getSessionCookie(request);
+        if (c != null) {
+            return c.getValue();
+        }
+        return null;
     }
 
     private String sessionMessage = null;

@@ -58,6 +58,8 @@ public class Auth {
         @QueryParam("remember") @Schema( required = false, defaultValue = "false", description = "If true, remember login")
         boolean remember,
         LoginRequest request) {
+
+        // If there's no user/pass, try to fill one in from cookies.
         if (request.isEmpty()) {
             // No option to ignore the cookies.
             // If you want to logout, use the /logout endpoint first.
@@ -67,7 +69,7 @@ public class Auth {
                 // use values from cookie
                 request.password = myPassword;
                 request.email = myEmail;
-            } // else, create an anonymous session
+            }
         }
         try {
             LoginResponse resp = new LoginResponse();
@@ -84,39 +86,48 @@ public class Auth {
                 if (session == null) {
                     session = CookieSession.newSession(user, userIP);
                 }
-                resp.sessionId = session.id;
                 if (remember == true && user != null) {
                     WebContext.loginRemember(hresp, user);
                 }
             } else {
-                // anonymous session
-                // code ported from WebContext
-
-                // Funny interface. Non-null means a banned IP.
-                // We aren't going to return the special session, but just throw.
-                if (CookieSession.checkForAbuseFrom(userIP,
-                    SurveyMain.BAD_IPS,
-                    hreq.getHeader("User-Agent")) != null) {
-                        final String tooManyMessage = "Your IP, " + userIP
-                            + " has been throttled for making too many connections." +
-                            " Try turning on cookies, or obeying the 'META ROBOTS' tag.";
-                        return Response.status(429, "Too many requests from this IP")
-                        .entity(new STError(tooManyMessage)).build();
+                // Is there a valid sessionId in the cookie?
+                final String sessionFromCookie = WebContext.getSessionIdFromCookie(hreq);
+                if (sessionFromCookie != null && !sessionFromCookie.isEmpty()) {
+                    session = CookieSession.retrieve(sessionFromCookie);
+                    // session will be null if not valid
                 }
 
-                // Also check for too many guests.
-                if (CookieSession.tooManyGuests()) {
-                    final String tooManyMessage = "We have too many people ("+
-                        CookieSession.getUserCount() +
-                        ") browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
-                        return Response.status(429, "Too many guests")
-                        .entity(new STError(tooManyMessage)).build();
-                }
+                if (session == null) {
+                    // anonymous session
+                    // code ported from WebContext
 
-                // All clear. Make an anonymous session.
-                session = CookieSession.newSession(true, userIP);
-                resp.sessionId = session.id;
+                    // Funny interface. Non-null means a banned IP.
+                    // We aren't going to return the special session, but just throw.
+                    if (CookieSession.checkForAbuseFrom(userIP,
+                        SurveyMain.BAD_IPS,
+                        hreq.getHeader("User-Agent")) != null) {
+                            final String tooManyMessage = "Your IP, " + userIP
+                                + " has been throttled for making too many connections." +
+                                " Try turning on cookies, or obeying the 'META ROBOTS' tag.";
+                            return Response.status(429, "Too many requests from this IP")
+                            .entity(new STError(tooManyMessage)).build();
+                    }
+
+                    // Also check for too many guests.
+                    if (CookieSession.tooManyGuests()) {
+                        final String tooManyMessage = "We have too many people ("+
+                            CookieSession.getUserCount() +
+                            ") browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
+                            return Response.status(429, "Too many guests")
+                            .entity(new STError(tooManyMessage)).build();
+                    }
+
+                    // All clear. Make an anonymous session.
+                    session = CookieSession.newSession(true, userIP);
+                }
             }
+            resp.sessionId = session.id;
+            WebContext.setSessionCookie(hresp, resp.sessionId);
             return Response.ok().entity(resp)
                 .header(SESSION_HEADER, session.id)
                 .build();

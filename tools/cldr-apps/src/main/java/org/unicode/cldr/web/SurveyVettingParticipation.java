@@ -43,7 +43,7 @@ public class SurveyVettingParticipation {
         JSONArray userObj = new JSONArray();
         JSONArray participationObj = new JSONArray();
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             psUsers = sm.reg.list(org, conn);
             if (org == null) {
                 r.put("org", "*");

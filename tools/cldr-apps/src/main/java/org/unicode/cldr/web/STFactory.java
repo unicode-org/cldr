@@ -699,7 +699,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                      * Select several columns (xp, submitter, value, override, last_mod),
                      * from all rows with the given locale in the votes table.
                      */
-                    conn = DBUtils.getInstance().getDBConnection();
+                    conn = DBUtils.getInstance().getAConnection();
                     ps = openQueryByLocaleRW(conn);
                     ps.setString(1, locale.getBaseName());
                     rs = ps.executeQuery();
@@ -1811,11 +1811,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         if (dbIsSetup)
             return;
         dbIsSetup = true; // don't thrash.
-        Connection conn = null;
         String sql = "(none)"; // this points to
         Statement s = null;
-        try {
-            conn = DBUtils.getInstance().getDBConnection();
+        try (Connection conn = DBUtils.getInstance().getDBConnection();) {
             if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE.toString())) {
                 /*
                  * CREATE TABLE cldr_votevalue ( locale VARCHAR(20), xpath INT
@@ -1947,7 +1945,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             SurveyMain.busted("Setting up DB for STFactory, SQL: " + sql, se);
             throw new InternalError("Setting up DB for STFactory, SQL: " + sql);
         } finally {
-            DBUtils.close(s, conn);
+            DBUtils.close(s);
         }
     }
 
@@ -2154,7 +2152,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         ResultSet rs = null;
         SimpleXMLSource sxs = new SimpleXMLSource(locale.getBaseName());
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
 
             ps = DBUtils.prepareStatementWithArgsFRO(conn, "select xpath,submitter,value," + VOTE_OVERRIDE + " from " + DBUtils.Table.VOTE_VALUE
                 + " where locale=? and value IS NOT NULL", locale);

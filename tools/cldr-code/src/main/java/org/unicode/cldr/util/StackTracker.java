@@ -10,6 +10,7 @@ package org.unicode.cldr.util;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.function.Predicate;
 
 /**
  * Debugging utility.
@@ -114,6 +115,25 @@ public class StackTracker implements Iterable<Object> {
      */
     public static StackTraceElement currentElement(int skip) {
         return Thread.currentThread().getStackTrace()[3 + skip];
+    }
+
+    /**
+     * Return the 'calling' element, skipping
+     * @param matchFirst matching predicate
+     * @return first matching stack. If none match, return currentElement(0)
+     * Example: to skip callers in my own class:
+     * currentElement(
+     *  (StackTraceElement s) ->
+     *    !s.getClassName().equals(MyClass.class.getName()));
+     */
+    public static StackTraceElement firstCallerMatching(Predicate<StackTraceElement> matchFirst) {
+        final StackTraceElement stacks[] = Thread.currentThread().getStackTrace();
+        for (int i=3; i<stacks.length; i++) {
+            if (matchFirst.test(stacks[i])) {
+                return stacks[i];
+            }
+        }
+        return stacks[3];
     }
 
     /**

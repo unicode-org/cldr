@@ -93,7 +93,7 @@ public class PermanentVote {
         PreparedStatement ps = null;
         int count = 0;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             ps = DBUtils.prepareForwardReadOnly(conn, sql);
             ps.setString(1, localeName);
             ps.setInt(2, xpathId);
@@ -125,7 +125,7 @@ public class PermanentVote {
         PreparedStatement ps = null;
         int count = 0;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             ps = DBUtils.prepareForwardReadOnly(conn, sql);
             ps.setString(1, localeName);
             ps.setInt(2, xpathId);
@@ -164,7 +164,7 @@ public class PermanentVote {
         PreparedStatement ps = null;
         int count = 0;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             ps = DBUtils.prepareForwardReadOnly(conn, sql);
             ps.setString(1, localeName);
             ps.setInt(2, xpathId);
@@ -185,13 +185,12 @@ public class PermanentVote {
      */
     private void lock() {
         String tableName = DBUtils.Table.LOCKED_XPATHS.toString();
-        Connection conn = null;
-        PreparedStatement ps = null;
         String sql = "INSERT INTO " + tableName
             + "(locale,xpath,value,last_mod) VALUES(?,?,?,CURRENT_TIMESTAMP)";
-        try {
-            conn = DBUtils.getInstance().getDBConnection();
-            ps = DBUtils.prepareForwardReadOnly(conn, sql);
+        try (
+            Connection conn = DBUtils.getInstance().getDBConnection();
+            PreparedStatement ps = DBUtils.prepareForwardReadOnly(conn, sql);
+        ) {
             ps.setString(1, localeName);
             ps.setInt(2, xpathId);
             DBUtils.setStringUTF8(ps, 3, value);
@@ -199,8 +198,6 @@ public class PermanentVote {
             conn.commit();
         } catch (SQLException e) {
             SurveyLog.logException(e);
-        } finally {
-            DBUtils.close(ps, conn);
         }
     }
 

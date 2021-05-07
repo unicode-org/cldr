@@ -111,7 +111,7 @@ public class UserSettingsData {
                 Connection conn = null;
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
-                    internalSet(id, name, value, conn);
+                    internalSet(id, name, value, conn);  // calls commit()
                 } finally {
                     DBUtils.closeDBConnection(conn);
                     if (value == null) {
@@ -190,7 +190,7 @@ public class UserSettingsData {
     }
 
     private String internalGet(int id, String name) throws SQLException {
-        Connection conn = DBUtils.getInstance().getDBConnection();
+        Connection conn = DBUtils.getInstance().getAConnection();
 
         String sql = "select " + SET_VALUES + ".set_value from " + SET_VALUES + "," + SET_KINDS + " where " + SET_VALUES
             + ".usr_id=? AND " + SET_KINDS + ".set_id=" + SET_VALUES + ".set_id AND " + SET_KINDS + ".set_name=?";

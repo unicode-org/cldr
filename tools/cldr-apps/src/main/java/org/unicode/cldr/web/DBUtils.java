@@ -55,8 +55,12 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  */
 public class DBUtils {
     private static final String DEFAULT_DATA_SOURCE = "java:comp/DefaultDataSource";
-    private static final boolean DEBUG = false;// CldrUtility.getProperty("TEST",
-    // false);
+    private static final boolean DEBUG = false;
+    /**
+     * Set org.unicode.cldr.web.DBUtils.DEBUG_DB_OPEN=true to trace when DBConnections are opened
+     */
+    private static final boolean DEBUG_DB_OPEN =
+        System.getProperty(DBUtils.class.getName() + ".DEBUG_DB_OPEN", null) != null;
 
     private static final boolean DEBUG_SQL = false; // show "all" SQL
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
@@ -815,6 +819,13 @@ public class DBUtils {
      * @return
      */
     public final Connection getAConnection() {
+        if (DEBUG_DB_OPEN) {
+            final String myClass = DBUtils.class.getName();
+            final StackTraceElement callerElement = StackTracker
+                .firstCallerMatching(
+                    (StackTraceElement s) -> !s.getClassName().equals(myClass));
+            System.out.println("DB OPEN: " + callerElement);
+        }
         try {
             if(connectionUrl != null) {
                 Connection c = getDBConnectionFor(connectionUrl);
@@ -1250,7 +1261,7 @@ public class DBUtils {
         Connection conn = null;
         ResultSet rs = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             rs = DBUtils.prepareForwardReadOnly(conn, query).executeQuery();
             writeCsv(rs, out);
         } catch (java.sql.SQLException se) {
@@ -1420,7 +1431,7 @@ public class DBUtils {
         PreparedStatement s = null;
         ResultSet rs = null;
         try {
-            conn = getInstance().getDBConnection();
+            conn = getInstance().getAConnection();
             s = DBUtils.prepareForwardReadOnly(conn, string);
             setArgs(s, args);
             if (limit != null && !DBUtils.db_Mysql) {
@@ -1512,17 +1523,13 @@ public class DBUtils {
      * @throws IOException
      */
     public static Map<String, Object>[] queryToArrayAssoc(String string, Object... args) throws SQLException, IOException {
-        Connection conn = null;
-        PreparedStatement s = null;
-        ResultSet rs = null;
-        try {
-            conn = getInstance().getDBConnection();
-            s = DBUtils.prepareForwardReadOnly(conn, string);
+        try (
+            Connection conn = getInstance().getAConnection();
+            PreparedStatement s = DBUtils.prepareForwardReadOnly(conn, string);) {
             setArgs(s, args);
-            rs = s.executeQuery();
-            return resultToArrayAssoc(rs);
-        } finally {
-            close(rs, s, conn);
+            try (ResultSet rs = s.executeQuery();) {
+                return resultToArrayAssoc(rs);
+            }
         }
     }
 
@@ -1535,17 +1542,13 @@ public class DBUtils {
      * @throws IOException
      */
     public static Object[][] queryToArrayArrayObj(String string, Object... args) throws SQLException, IOException {
-        Connection conn = null;
-        PreparedStatement s = null;
-        ResultSet rs = null;
-        try {
-            conn = getInstance().getDBConnection();
-            s = DBUtils.prepareForwardReadOnly(conn, string);
+        try (
+            Connection conn = getInstance().getAConnection();
+            PreparedStatement s = DBUtils.prepareForwardReadOnly(conn, string);) {
             setArgs(s, args);
-            rs = s.executeQuery();
-            return resultToArrayArrayObj(rs);
-        } finally {
-            close(rs, s, conn);
+            try (ResultSet rs = s.executeQuery();) {
+                return resultToArrayArrayObj(rs);
+            }
         }
     }
 
@@ -1678,7 +1681,7 @@ public class DBUtils {
      */
     public static void execSql(String sqlName) throws IOException, SQLException {
         System.err.println("Running SQL:  sql/"+sqlName);
-        try (Connection conn = getInstance().getDBConnection();
+        try (Connection conn = getInstance().getAConnection();
             InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
             Reader r = new InputStreamReader(s);) {
             ScriptRunner runner = new ScriptRunner(conn);

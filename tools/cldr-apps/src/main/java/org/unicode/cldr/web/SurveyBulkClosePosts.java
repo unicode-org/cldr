@@ -51,7 +51,7 @@ public class SurveyBulkClosePosts {
 
     private void reportOrExecute() {
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             prepareOpenRequestsDetailQuery();
             rs = ps.executeQuery();
             while (rs.next()) {

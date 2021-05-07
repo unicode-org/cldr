@@ -33,7 +33,7 @@ public class FeedBack extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.createTable();
-        Connection conn = DBUtils.getInstance().getDBConnection();
+        Connection conn = DBUtils.getInstance().getAConnection();
         try {
             Statement ps = conn.createStatement();
             ResultSet rs = ps.executeQuery("SELECT email,content, date FROM " + FeedBack.TABLE_FEEDBACK + " ORDER BY date DESC");
@@ -59,10 +59,9 @@ public class FeedBack extends HttpServlet {
 
         String email = request.getParameter("email");
         String content = request.getParameter("content");
-        Connection conn = DBUtils.getInstance().getDBConnection();
-        PreparedStatement ps;
-        try {
-            ps = conn.prepareStatement("INSERT INTO " + FeedBack.TABLE_FEEDBACK + " (email,content, date) VALUES (?,?,CURRENT_TIMESTAMP)");
+        try (Connection conn = DBUtils.getInstance().getDBConnection();
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO " + FeedBack.TABLE_FEEDBACK
+                + " (email,content, date) VALUES (?,?,CURRENT_TIMESTAMP)");) {
             ps.setString(1, email);
             ps.setString(2, content);
             ps.executeUpdate();
@@ -75,15 +74,13 @@ public class FeedBack extends HttpServlet {
 
     private void createTable() {
         if (!DBUtils.hasTable(FeedBack.TABLE_FEEDBACK)) {
-            Statement s;
-            Connection conn = DBUtils.getInstance().getDBConnection();
-            try {
-                s = conn.createStatement();
+            try (
+                Connection conn = DBUtils.getInstance().getDBConnection();
+                Statement s = conn.createStatement();
+            ) {
                 s.execute("CREATE TABLE " + FeedBack.TABLE_FEEDBACK + " (id int not null " + DBUtils.DB_SQL_IDENTITY + ", email varchar(230) not null, content "
                     + DBUtils.DB_SQL_BIGTEXT + " not null, date TIMESTAMP not null)");
                 s.execute("CREATE UNIQUE INDEX " + FeedBack.TABLE_FEEDBACK + "_id ON " + FeedBack.TABLE_FEEDBACK + " (id) ");
-                s.close();
-
                 conn.commit();
             } catch (SQLException e) {
                 e.printStackTrace();

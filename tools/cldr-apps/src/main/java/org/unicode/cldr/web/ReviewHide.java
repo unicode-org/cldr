@@ -49,7 +49,7 @@ public class ReviewHide {
             PreparedStatement s = null;
             try {
                 try {
-                    conn = DBUtils.getInstance().getDBConnection();
+                    conn = DBUtils.getInstance().getAConnection();
                     s = conn.prepareStatement("SELECT * FROM " + DBUtils.Table.DASH_HIDE + " WHERE user_id=? AND locale=?");
                     s.setInt(1, userId);
                     s.setString(2, locale);

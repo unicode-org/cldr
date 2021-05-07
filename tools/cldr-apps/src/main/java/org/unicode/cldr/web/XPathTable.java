@@ -184,7 +184,7 @@ public class XPathTable {
         Connection conn = null;
         PreparedStatement queryStmt = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             if (!DEBUG) {
                 addXpaths(unloadedXpaths, conn);
             } else {
@@ -296,6 +296,7 @@ public class XPathTable {
             setById(id, xpath);
             // logger.info("Mapped " + id + " back to " + xpath);
             rs.close();
+            conn.commit();
             return nid;
         } catch (SQLException sqe) {
             SurveyLog.logger.warning("xpath [" + xpath + "] len " + xpath.length());

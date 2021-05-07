@@ -135,7 +135,7 @@ public class UserList {
         PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         try {
-            conn = sm.dbUtils.getDBConnection();
+            conn = sm.dbUtils.getAConnection();
             synchronized (reg) {
                 ps = reg.list(org, conn); // org = null to list all
                 rs = ps.executeQuery();

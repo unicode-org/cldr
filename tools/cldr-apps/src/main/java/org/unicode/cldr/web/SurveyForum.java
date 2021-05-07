@@ -571,7 +571,7 @@ public class SurveyForum {
         PreparedStatement ps = null;
         String tableName = DBUtils.Table.FORUM_POSTS.toString();
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
 
             ps = DBUtils.prepareForwardReadOnly(conn, "select count(*) from " + tableName + " where loc=? and xpath=?");
             ps.setString(1, locale.getBaseName());
@@ -608,7 +608,7 @@ public class SurveyForum {
         try {
             Connection conn = null;
             try {
-                conn = sm.dbUtils.getDBConnection();
+                conn = sm.dbUtils.getAConnection();
                 Object[][] o = null;
                 final String forumPosts = DBUtils.Table.FORUM_POSTS.toString();
                 if (ident == 0) {
@@ -904,7 +904,7 @@ public class SurveyForum {
         String tableName = DBUtils.Table.FORUM_POSTS.toString();
         Map<Integer, String> posts = new HashMap<>();
         try {
-            conn = sm.dbUtils.getDBConnection();
+            conn = sm.dbUtils.getAConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT root,subj FROM " + tableName
                 + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
@@ -961,7 +961,7 @@ public class SurveyForum {
         String tableName = DBUtils.Table.FORUM_POSTS.toString();
         Map<Integer, String> posts = new HashMap<>();
         try {
-            conn = sm.dbUtils.getDBConnection();
+            conn = sm.dbUtils.getAConnection(); // readonly
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
                 + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");

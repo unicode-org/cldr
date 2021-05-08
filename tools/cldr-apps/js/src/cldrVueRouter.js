@@ -7,13 +7,14 @@ import { getCldrOpts } from "./getCldrOpts";
 // components. See index.js for css imports.
 // example: import {SomeComponent} from 'whatever'
 import {
-  Popover,
-  Spin,
+  Alert,
+  Button,
+  Checkbox,
   Form,
   Icon,
   Input,
-  Button,
-  Checkbox,
+  Popover,
+  Spin,
 } from "ant-design-vue";
 
 // local components
@@ -107,6 +108,7 @@ function setupComponents(app) {
   // example:
   // app.component('SomeComponent', SomeComponent)
   // Keep this list sorted
+  app.component("a-alert", Alert);
   app.component("a-button", Button);
   app.component("a-checkbox", Checkbox);
   app.component("a-form-item", Form.Item);
@@ -114,10 +116,10 @@ function setupComponents(app) {
   app.component("a-icon", Icon);
   app.component("a-input-password", Input.Password);
   app.component("a-input", Input);
+  app.component("a-popover", Popover);
   app.component("a-spin", Spin);
   app.component("cldr-loginbutton", LoginButton);
   app.component("cldr-value", CldrValue);
-  app.component("Popover", Popover);
 }
 
 export { showPanel, handleCoverageChanged, createCldrApp, setupComponents };

@@ -93,7 +93,7 @@ public class UserRegistry {
         Set<String> res = new HashSet<>();
 
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             s = DBUtils
                 .prepareStatementWithArgs(
                     conn,
@@ -119,7 +119,7 @@ public class UserRegistry {
         Set<CLDRLocale> res = new HashSet<>();
 
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             s = DBUtils
                 .prepareStatementWithArgs(
                     conn,
@@ -805,7 +805,7 @@ public class UserRegistry {
             if (ret == null) { // synchronized(conn) {
                 ResultSet rs = null;
                 PreparedStatement pstmt = null;
-                Connection conn = DBUtils.getInstance().getDBConnection();
+                Connection conn = DBUtils.getInstance().getAConnection();
                 try {
                     pstmt = DBUtils.prepareForwardReadOnly(conn, UserRegistry.SQL_queryIdStmt_FRO);
                     pstmt.setInt(1, id);
@@ -914,7 +914,7 @@ public class UserRegistry {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             if ((pass != null) && !letmein) {
                 pstmt = DBUtils.prepareForwardReadOnly(conn, SQL_queryStmt_FRO);
                 pstmt.setString(1, email);
@@ -1531,7 +1531,7 @@ public class UserRegistry {
             logger.info("UR: Attempt getPassword by " + ctx.session.user.email + ": of #" + theirId);
         }
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             s = conn.createStatement();
             rs = s.executeQuery("SELECT password FROM " + CLDR_USERS + " WHERE id=" + theirId);
             if (!rs.next()) {
@@ -2098,7 +2098,7 @@ public class UserRegistry {
             PreparedStatement ps = null;
             Connection conn = null;
             try {
-                conn = DBUtils.getInstance().getDBConnection();
+                conn = DBUtils.getInstance().getAConnection();
                 ps = list(null, conn);
                 rs = ps.executeQuery();
                 // id,userlevel,name,email,org,locales,intlocs,lastlogin
@@ -2169,7 +2169,7 @@ public class UserRegistry {
         Connection conn = null;
         Statement s = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             s = conn.createStatement();
             ResultSet rs = s.executeQuery("SELECT distinct org FROM " + CLDR_USERS + " order by org");
             while (rs.next()) {
@@ -2377,7 +2377,7 @@ public class UserRegistry {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             synchronized (this) {
                 ps = list(org, conn);
                 rs = ps.executeQuery();
@@ -2477,7 +2477,7 @@ public class UserRegistry {
         PreparedStatement ps = null;
         Connection conn = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             ps = list(null, conn);
             rs = ps.executeQuery();
             // id,userlevel,name,email,org,locales,intlocs,lastlogin

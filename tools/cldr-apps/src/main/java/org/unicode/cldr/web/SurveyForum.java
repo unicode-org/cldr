@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +44,7 @@ public class SurveyForum {
 
     private static final String FLAGGED_FOR_REVIEW_HTML = " <p>[This item was flagged for CLDR TC review.]";
 
-    private static java.util.logging.Logger logger;
+    private static java.util.logging.Logger logger = Logger.getLogger(SurveyForum.class.getName());
 
     private static String DB_FORA = "sf_fora"; // forum name -> id
 
@@ -351,13 +352,12 @@ public class SurveyForum {
     /**
      * Called by SM to create the reg
      *
-     * @param xlogger the logger to use
      * @param ourConn the conn to use
      * @return the SurveyForum
      */
-    public static SurveyForum createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm)
+    public static SurveyForum createTable(Connection ourConn, SurveyMain sm)
         throws SQLException {
-        SurveyForum reg = new SurveyForum(xlogger, sm);
+        SurveyForum reg = new SurveyForum(sm);
         try {
             reg.setupDB(ourConn); // always call - we can figure it out.
         } finally {
@@ -366,8 +366,7 @@ public class SurveyForum {
         return reg;
     }
 
-    private SurveyForum(java.util.logging.Logger xlogger, SurveyMain ourSm) {
-        logger = xlogger;
+    private SurveyForum(SurveyMain ourSm) {
         sm = ourSm;
     }
 
@@ -434,7 +433,7 @@ public class SurveyForum {
         if (oldOnOrBefore == null) {
             oldOnOrBefore = new Date(0);
         }
-        System.err.println("CLDR_OLD_POSTS_BEFORE: date: " + sdf.format(oldOnOrBefore) + " (format: mm/dd/yy)");
+        logger.fine("CLDR_OLD_POSTS_BEFORE: date: " + sdf.format(oldOnOrBefore) + " (format: mm/dd/yy)");
         String sql = null;
         String locindex = "loc";
         if (DBUtils.db_Mysql) {

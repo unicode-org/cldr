@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,7 +35,7 @@ import org.unicode.cldr.web.WebContext;
  * rather than environment variables.
  */
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
-
+    private static final Logger logger = Logger.getLogger(CLDRConfigImpl.class.getName());
     /**
      * Get an instance and downcast
      * @return
@@ -47,7 +48,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         try {
             return (CLDRConfigImpl) config;
         } catch (ClassCastException cce) {
-            System.err.println("Error: CLDRConfig.getInstance() returned "
+            logger.severe("Error: CLDRConfig.getInstance() returned "
                 + config.getClass().getName()
                 + " initialized at "
                 + config.getInitStack());
@@ -116,14 +117,14 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             throw new InternalError("-DCLDR_ENVIRONMENT=" + env + " - exitting!");
         }
 
-        System.err.println(getClass().getName() + ".cldrHome=" + cldrHome);
+        logger.info(getClass().getName() + ".cldrHome=" + cldrHome);
         if (cldrHomeSet == false) {
-            System.err.println("*********************************************************************");
-            System.err.println("*** CLDRConfig.getInstance() was called prior to SurveyTool setup ***");
-            System.err.println("*** This is probably an error. Look at the stack below, and make  ***");
-            System.err.println("*** sure that CLDRConfig.getInstance() is not called at static    ***");
-            System.err.println("*** init time.                                                    ***");
-            System.err.println("[cldrHome not set] stack=\n" + StackTracker.currentStack() + "\n CLDRHOMESET = " + cldrHomeSet);
+            logger.warning("*********************************************************************");
+            logger.warning("*** CLDRConfig.getInstance() was called prior to SurveyTool setup ***");
+            logger.warning("*** This is probably an error. Look at the stack below, and make  ***");
+            logger.warning("*** sure that CLDRConfig.getInstance() is not called at static    ***");
+            logger.warning("*** init time.                                                    ***");
+            logger.warning("[cldrHome not set] stack=\n" + StackTracker.currentStack() + "\n CLDRHOMESET = " + cldrHomeSet);
         }
     }
 
@@ -149,7 +150,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
         tryToInitCldrHome();
 
-        System.err.println(CLDRConfigImpl.class.getName() + ".init(), cldrHome=" + cldrHome);
+        logger.info(CLDRConfigImpl.class.getName() + ".init(), cldrHome=" + cldrHome);
         if (cldrHome == null) {
             String homeParent = null;
             // all of these properties specify the "parent", i.e. the parent of a "cldr" dir.
@@ -159,9 +160,9 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 if (homeParent == null) {
                     homeParent = System.getProperty(prop);
                     if (homeParent != null) {
-                        System.err.println(" cldrHome found, using " + prop + " = " + homeParent);
+                        logger.info(" cldrHome found, using " + prop + " = " + homeParent);
                     } else {
-                        System.err.println(" Unset: " + prop);
+                        logger.warning(" Unset: " + prop);
                     }
                 }
             }
@@ -169,13 +170,13 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 throw new InternalError(
                     "Could not find cldrHome. please set cldr.home, catalina.base, or user.dir, etc");
                 // for(Object qq : System.getProperties().keySet()) {
-                // SurveyLog.logger.warning("  >> "+qq+"="+System.getProperties().get(qq));
+                // logger.warning("  >> "+qq+"="+System.getProperties().get(qq));
                 // }
             }
             homeFile = new File(homeParent, "cldr");
             propFile = new File(homeFile, CLDR_PROPERTIES);
             if (!propFile.exists()) {
-                System.err.println("Does not exist: " + propFile.getAbsolutePath());
+                logger.warning("Does not exist: " + propFile.getAbsolutePath());
                 createBasicCldr(homeFile); // attempt to create
             }
             if (!homeFile.exists()) {
@@ -191,8 +192,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         // Set anything that needs access to the homedir here.
         SurveyLog.setDir(homeFile);
 
-        System.out.println("CLDRConfig: reading " + propFile.getAbsolutePath()); // make it explicit where this comes from
-        // SurveyLog.logger.info("SurveyTool starting up. root=" + new
+        logger.info("CLDRConfig: reading " + propFile.getAbsolutePath()); // make it explicit where this comes from
+        // logger.info("SurveyTool starting up. root=" + new
         // File(cldrHome).getAbsolutePath() + " time="+setupTime);
 
         loadIntoProperties(survprops, propFile);
@@ -217,13 +218,13 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         try {
             cldrHome = System.getProperty(CLDRConfigImpl.class.getName() + ".cldrHome", null);
             if (!new File(cldrHome).isDirectory()) {
-                System.err.println(cldrHome + " is not a directory");
+                logger.warning(cldrHome + " is not a directory");
                 cldrHome = null;
             } else {
                 cldrHomeSet = true;
             }
         } catch(Throwable t) {
-            System.err.println("Error " + t + " trying to set cldrHome");
+            logger.warning("Error " + t + " trying to set cldrHome");
             t.printStackTrace();
             cldrHome = null;
         }
@@ -272,23 +273,20 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     private void loadIntoProperties(Properties props, File propFile) throws InternalError {
         try (InputStream is = InputStreamFactory.createInputStream(propFile)) {
             props.load(is);
-            // progress.update("Loading configuration..");
-//            is.close();
         } catch (IOException ioe) {
-            /* throw new UnavailableException */
             StringBuilder sb = new StringBuilder("Couldn't load ");
             sb.append(propFile.getName());
             sb.append(" file from '");
             sb.append(propFile.getAbsolutePath());
             sb.append("': ");
+
+            logger.log(java.util.logging.Level.SEVERE, sb.toString(), ioe);
+
             sb.append(ioe.getMessage());
             // append the stacktrace
             sb.append("\r\n");
             sb.append(ioe.getStackTrace());
-            InternalError ie = new InternalError(sb.toString());
-//            InternalError ie = new InternalError("Couldn't load cldr.properties file from '" + propFile.getAbsolutePath() + "' :"
-//                + ioe.toString());
-            System.err.println(ie.toString() + ioe.toString());
+            InternalError ie = new InternalError(sb.toString(), ioe);
             ioe.printStackTrace();
             throw ie;
         }
@@ -309,13 +307,11 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 pw.write("<hr>if you change the admin password ( CLDR_VAP in config.properties ), please: "
                     + "1. delete this admin.html file 2. restart the server 3. navigate back to the main SurveyTool page.<p>");
             }
-//            pw.close();
-//            file.close();
         }
     }
 
     private void createBasicCldr(File homeFile) {
-        System.err.println("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
+        logger.info("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
 
         try {
             homeFile.mkdir();
@@ -369,7 +365,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 //            pw.close();
 //            file.close();
         } catch (IOException exception) {
-            System.err.println("While writing " + homeFile.getAbsolutePath() + " props: " + exception);
+            logger.warning("While writing " + homeFile.getAbsolutePath() + " props: " + exception);
             exception.printStackTrace();
         }
     }
@@ -393,7 +389,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     @Override
     public Object setProperty(String key, String value) {
         if (key.equals("CLDR_HEADER")) {
-            System.err.println(">> CLDRConfig set " + key + " = " + value);
+            logger.info(">> CLDRConfig set " + key + " = " + value);
             if (value == null || value.isEmpty()) {
                 survprops.setProperty(key, "");
                 survprops.remove(key);

@@ -3,6 +3,7 @@ package org.unicode.cldr.web;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 import org.unicode.cldr.util.VoteResolver;
 
@@ -18,6 +19,7 @@ import org.unicode.cldr.util.VoteResolver;
  * Reference: https://docs.google.com/document/d/1VsJ2y7dp2kq_Iu-zLTjOvCooX4kRfVPui6WO51aFGzE/edit?skip_itp2_check=true#heading=h.trc1g4nsvdb8
  */
 public class PermanentVote {
+    private static final Logger logger = Logger.getLogger(PermanentVote.class.getName());
     private String localeName;
     private int xpathId;
     private String value;
@@ -51,7 +53,7 @@ public class PermanentVote {
                 unlock();
                 cleanSlate();
                 didUnlock = didClean = true;
-                SurveyLog.logger.warning("PermanentVote: unlocked " + localeName + ", " + xpathId);
+                logger.warning("PermanentVote: unlocked " + localeName + ", " + xpathId);
             }
         } else {
             if (!isLockedThisValue() && gotTwo()) {
@@ -61,7 +63,7 @@ public class PermanentVote {
                 lock();
                 cleanSlate();
                 didLock = didClean = true;
-                SurveyLog.logger.warning("PermanentVote: locked " + localeName + ", " + xpathId + ", " + value);
+                logger.warning("PermanentVote: locked " + localeName + ", " + xpathId + ", " + value);
             }
         }
     }

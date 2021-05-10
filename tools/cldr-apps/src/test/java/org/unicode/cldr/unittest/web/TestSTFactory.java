@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Logger;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
@@ -31,7 +30,6 @@ import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyException;
-import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
@@ -851,14 +849,12 @@ public class TestSTFactory extends TestFmwk {
             SurveyMain.fileBaseA = new File(CLDRPaths.BASE_DIRECTORY, "common/annotations/").getAbsolutePath();
             SurveyMain.fileBaseASeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
 
-            SurveyLog.logger = Logger.getAnonymousLogger();
-
             et0 = new ElapsedTimer("setup DB");
             Connection conn = DBUtils.getInstance().getDBConnection();
             logln(et0.toString());
 
             et0 = new ElapsedTimer("setup Registry");
-            sm.reg = UserRegistry.createRegistry(SurveyLog.logger, sm);
+            sm.reg = UserRegistry.createRegistry(sm);
             logln(et0.toString());
 
             et0 = new ElapsedTimer("setup XPT");

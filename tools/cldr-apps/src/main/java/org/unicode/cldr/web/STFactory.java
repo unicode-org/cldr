@@ -166,7 +166,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // if(m==null || m.isEmpty()) {
             // return aliasOf.getFullPathAtDPath(path);
             // } else {
-            // SurveyLog.logger.warning("Note: DBS.getFullPathAtDPath() todo!!");
+            // logger.warning("Note: DBS.getFullPathAtDPath() todo!!");
             // TODO: show losing values
             return delegate.getFullPathAtDPath(path);
             // }
@@ -1411,7 +1411,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         @Override
         public String getValueAtDPath(String path) {
             String v = delegate.getValueAtDPath(path);
-            // SurveyLog.logger.warning("@@@@ ("+this.getLocaleID()+")" +
+            // logger.warning("@@@@ ("+this.getLocaleID()+")" +
             // path+"="+v);
             return v;
         }
@@ -1833,7 +1833,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     + " PRIMARY KEY (locale,submitter,xpath) " +
 
                     " )";
-                // SurveyLog.logger.info(sql);
+                // logger.info(sql);
                 s.execute(sql);
 
                 sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.VOTE_VALUE + " ON " + DBUtils.Table.VOTE_VALUE + " (locale,xpath,submitter)";
@@ -1850,7 +1850,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     + DBUtils.DB_SQL_UNICODE + ", " +
                     // DBUtils.DB_SQL_LAST_MOD + " " +
                     " PRIMARY KEY (locale,xpath,value" + valueLen + ") " + " )";
-                // SurveyLog.logger.info(sql);
+                // logger.info(sql);
                 s.execute(sql);
 
                 sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.VOTE_VALUE_ALT + " ON " + DBUtils.Table.VOTE_VALUE_ALT + " (locale,xpath,value" + valueLen + ")";
@@ -1870,7 +1870,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     + "submitter INT NOT NULL, " + DBUtils.DB_SQL_LAST_MOD + " "
                     + ", PRIMARY KEY (locale,xpath) " +
                     " )";
-                // SurveyLog.logger.info(sql);
+                // logger.info(sql);
                 s.execute(sql);
 
                 sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.VOTE_FLAGGED + " ON " + DBUtils.Table.VOTE_FLAGGED + " (locale,xpath)";

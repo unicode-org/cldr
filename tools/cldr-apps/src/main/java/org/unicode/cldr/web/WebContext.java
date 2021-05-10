@@ -22,6 +22,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -60,7 +61,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class WebContext implements Cloneable, Appendable {
     public static final String TMPL_PATH = "/WEB-INF/tmpl/";
-    public static java.util.logging.Logger logger = SurveyLog.logger;
+    private static final java.util.logging.Logger logger = Logger.getLogger(WebContext.class.getName());
     // USER fields
     public SurveyMain sm = null;
     public Document doc[] = new Document[0];

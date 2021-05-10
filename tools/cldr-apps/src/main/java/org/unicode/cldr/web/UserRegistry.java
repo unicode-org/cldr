@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 
 import javax.json.bind.annotation.JsonbProperty;
 
@@ -155,7 +156,7 @@ public class UserRegistry {
         }
     }
 
-    private static java.util.logging.Logger logger;
+    private static final java.util.logging.Logger logger = Logger.getLogger(UserRegistry.class.getName());
     // user levels
     public static final int ADMIN = VoteResolver.Level.admin.getSTLevel();
     /**< Administrator **/
@@ -627,9 +628,9 @@ public class UserRegistry {
      * @param ourConn
      *            the conn to use
      */
-    public static UserRegistry createRegistry(java.util.logging.Logger xlogger, SurveyMain theSm) throws SQLException {
+    public static UserRegistry createRegistry(SurveyMain theSm) throws SQLException {
         sm = theSm;
-        UserRegistry reg = new UserRegistry(xlogger);
+        UserRegistry reg = new UserRegistry();
         reg.setupDB();
         return reg;
     }
@@ -996,8 +997,7 @@ public class UserRegistry {
 
     static SurveyMain sm = null; // static for static checking of defaultContent
 
-    private UserRegistry(java.util.logging.Logger xlogger) {
-        logger = xlogger;
+    private UserRegistry() {
     }
 
     // ------- special things for "list" mode:
@@ -2424,7 +2424,7 @@ public class UserRegistry {
                 }
             } /* end synchronized(reg) */
         } catch (SQLException se) {
-            SurveyLog.logger.log(java.util.logging.Level.WARNING,
+            logger.log(java.util.logging.Level.WARNING,
                 "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
             out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
         } finally {

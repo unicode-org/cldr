@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 
@@ -14,6 +15,7 @@ import com.google.common.io.Files;
  * Central management for cache files.
  */
 public class CLDRCacheDir {
+    final static Logger logger = Logger.getLogger(CLDRCacheDir.class.getName());
     private static final String CACHE_SUBDIR = ".cache";
     /**
      * All users of the cache must have an enum entry here
@@ -160,7 +162,7 @@ public class CLDRCacheDir {
                     // In any event, these are only cache files.
                     rootDir = Files.createTempDir();
                 }
-                System.out.println("CLDRCacheDir: " + rootDir.getAbsolutePath());
+                logger.info("CLDRCacheDir: " + rootDir.getAbsolutePath());
                 setup();
             } catch(Throwable t) {
                 err = t;

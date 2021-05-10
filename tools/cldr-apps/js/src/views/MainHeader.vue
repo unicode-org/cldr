@@ -188,7 +188,7 @@ header {
   padding: 0.2em;
   background-color: white;
   background-image: linear-gradient(white, #e7f7ff);
-  z-index: 10000000000; /* prevent transparency when scrolling; also stay in front of "overlay"  */
+  z-index: 900; /* prevent transparency when scrolling; also stay in front of "overlay"  */
 }
 
 ul {

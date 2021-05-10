@@ -477,7 +477,7 @@ function toggleOverlay() {
     }, 500 /* half a second */);
   } else {
     toToggleOverlay = false;
-    overlay.css("z-index", "1000");
+    overlay.css("z-index", "800");
     overlay.addClass("active");
   }
 }

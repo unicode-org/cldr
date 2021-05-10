@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
@@ -50,6 +51,7 @@ import com.ibm.icu.impl.Utility;
  *    "long" StringID:    this is the "long" form of the hex id.  Not used within the SurveyTool, some CLDR tools use it.
  */
 public class XPathTable {
+    private static final Logger logger = Logger.getLogger(XPathTable.class.getName());
     public static final String CLDR_XPATHS = "cldr_xpaths";
 
     private PrettyPath ppath = new PrettyPath();
@@ -130,7 +132,7 @@ public class XPathTable {
         } finally {
             DBUtils.close(s);
             if (sql != null) {
-                SurveyLog.logger.warning("Last SQL: " + sql);
+                logger.warning("Last SQL: " + sql);
             }
         }
     }
@@ -299,8 +301,8 @@ public class XPathTable {
             conn.commit();
             return nid;
         } catch (SQLException sqe) {
-            SurveyLog.logger.warning("xpath [" + xpath + "] len " + xpath.length());
-            SurveyLog.logger.severe("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
+            logger.warning("xpath [" + xpath + "] len " + xpath.length());
+            logger.severe("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
             SurveyMain.busted("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
         } finally {
             if (inConn != null) {
@@ -497,7 +499,7 @@ public class XPathTable {
             xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
-        // SurveyLog.logger.warning("xp2Bxp: " + xpath + " --> " + newXpath);
+        // logger.warning("xp2Bxp: " + xpath + " --> " + newXpath);
         return newXpath;
     }
 
@@ -542,12 +544,12 @@ public class XPathTable {
         xpp.removeAttribute(-1, LDMLConstants.TYPE);
         xpp.removeAttribute(-1, LDMLConstants.DRAFT);
         xpp.removeAttribute(-1, LDMLConstants.REFERENCES);
-        // SurveyLog.logger.warning("Type on " + path + " with -1 is " + type );
+        // logger.warning("Type on " + path + " with -1 is " + type );
         if ((type == null) && (path.indexOf(what) >= 0)) {
             try {
                 // less common case - type isn't the last
                 for (int n = -2; (type == null) && ((0 - xpp.size()) < n); n--) {
-                    // SurveyLog.logger.warning("Type on n="+n
+                    // logger.warning("Type on n="+n
                     // +", "+path+" with "+n+" is " + type );
                     lastAtts = xpp.getAttributes(n);
                     if (lastAtts != null) {

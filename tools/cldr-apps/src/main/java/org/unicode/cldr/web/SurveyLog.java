@@ -4,59 +4,42 @@
 package org.unicode.cldr.web;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.StackTracker;
 
 /**
  * @author srl
- *
  */
 public class SurveyLog {
     static boolean DEBUG = false;
     private static boolean checkDebug = false;
     // Logging
-    public static Logger logger;
+    private static Logger logger;
 
     static {
-        logger = Logger.getLogger("org.unicode.cldr.SurveyMain");
-        // if(DEBUG) {
-        // logger.setLevel(Level.ALL);
-        // // for(Handler h : logger.getHandlers()) {
-        // // h.setLevel(logger.getLevel());
-        // // }
-        // ConsoleHandler ch = new ConsoleHandler();
-        // ch.setLevel(logger.getLevel());
-        // logger.addHandler(ch);
-        // }
+        logger = Logger.getLogger(SurveyLog.class.getName());
     }
 
-    public static java.util.logging.Handler loggingHandler = null;
-
+    @Deprecated
     static final void errln(String s) {
         logger.severe(s);
     }
 
+    @Deprecated
     public static void logException(Throwable t) {
         logException(t, "", null);
     }
 
+    @Deprecated
     public static void logException(Throwable t, String what) {
         logException(t, what, null);
     }
 
+    @Deprecated
     public static void logException(String what) {
         logException(null, what, null);
     }
@@ -82,66 +65,18 @@ public class SurveyLog {
         gBaseDir = homeFile;
     }
 
+    public static void logException(Logger logger, final Throwable exception, String what, WebContext ctx) {
+        logger.log(Level.SEVERE, what, exception);
+    }
+
+    /**
+     *
+     * @param exception
+     * @param what
+     * @param ctx
+     */
     public static synchronized void logException(final Throwable exception, String what, WebContext ctx) {
-        long nextTimePost = System.currentTimeMillis();
-        StringBuilder sb = new StringBuilder();
-        sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n').append(FIELD_SEP)
-            .append(LogField.DATE).append(' ').append(nextTimePost).append(' ').append(new Date()).append('\n')
-            .append(FIELD_SEP).append(LogField.REVISION).append(' ').append(SurveyMain.getCurrevCldrApps()).append(' ').append(SurveyMain.getNewVersion())
-            .append(' ').append(CLDRConfig.getInstance().getPhase()).append(' ').append(CLDRConfig.getInstance().getEnvironment()).append('\n')
-            .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
-        if (ctx != null) {
-            sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');
-        }
-        sb.append(FIELD_SEP).append(LogField.LOGSITE).append(' ').append(StackTracker.currentStack()).append('\n');
-        Throwable t = exception;
-        while (t != null) {
-            sb.append(FIELD_SEP).append(LogField.MESSAGE).append(' ').append(t.toString())
-                .append('\n');
-            sb.append(FIELD_SEP).append(LogField.STACK).append(' ').append(StackTracker.stackToString(t.getStackTrace(), 0))
-                .append('\n');
-            if (t instanceof SurveyException) {
-                sb.append(FIELD_SEP).append(LogField.SURVEYEXCEPTION).append(' ').append(((SurveyException) t).getErrCode())
-                    .append('\n');
-            }
-            if (t instanceof SQLException) {
-                SQLException se = ((SQLException) t);
-                sb.append(FIELD_SEP).append(LogField.SQL).append(' ').append('#').append(se.getErrorCode()).append(' ')
-                    .append(se.getSQLState()).append('\n');
-                t = se.getNextException();
-            } else {
-                t = t.getCause();
-            }
-        }
-
-        // First, log to file
-        // TODO move into chunkyreader
-        File baseDir = gBaseDir;
-        if (baseDir == null || !baseDir.isDirectory()) {
-            setDir(new File("."));
-            System.err.println(SurveyLog.class.getName() + " Warning: Storing exception.log in " + gBaseDir.getAbsolutePath()
-                + "/exception.log");
-        }
-        try {
-            File logFile = new File(baseDir, "exception.log");
-            OutputStream file = new FileOutputStream(logFile, true); // Append
-            PrintWriter pw = new PrintWriter(new OutputStreamWriter(file, "UTF-8"));
-            pw.append(sb);
-            pw.close();
-            file.close();
-        } catch (IOException ioe) {
-            logger.severe("Err: " + ioe + " trying to log exceptions!");
-            ioe.printStackTrace();
-        }
-
-        getChunkyReader().nudge();
-
-        // then, to screen
-        logger.severe(sb.toString());
-
-        if (exception instanceof OutOfMemoryError) {
-            SurveyMain.markBusted(exception); // would cause infinite recursion if busted() was called
-        }
+        logException(logger, exception, what, ctx);
     }
 
     private static ChunkyReader cr = null;
@@ -154,30 +89,18 @@ public class SurveyLog {
         return cr;
     }
 
-    // private static long lastTimePost = -1;
-    //
-    // /**
-    // * Note when the latest exception was recorded
-    // * @param nextTimePost
-    // */
-    // private static synchronized void notifyLatestException(long nextTimePost)
-    // {
-    // if(lastTimePost < nextTimePost) {
-    // lastTimePost = nextTimePost;
-    // }
-    // }
-    //
-    //
-    //
-    // public static synchronized long getLatestException() {
-    // if(lastTimePost<0) {
-    // File logFile = new File(SurveyMain.homeFile, "exception.log");
-    // }
-    // return lastTimePost;
-    // }
-
+    @Deprecated
     public static void logException(Throwable t, WebContext ctx) {
-        logException(t, "(exception)", ctx);
+        logException(logger, t, ctx);
+    }
+
+
+    public static void logException(Logger logger, Throwable t, String string) {
+        logger.log(Level.SEVERE, string, t);
+    }
+
+    public static void logException(Logger logger, Throwable t, WebContext ctx) {
+        logException(logger, t, "(exception)", ctx);
     }
 
     public static final void debug(Object string) {
@@ -214,16 +137,22 @@ public class SurveyLog {
         return DEBUG;
     }
 
-    static Set<String> alreadyWarned = new HashSet<>();
+    static ConcurrentHashMap<String, Boolean> alreadyWarned = new ConcurrentHashMap<>();
 
     /**
      * Warn one time, ignore after that
      * @param string
+     * @deprecated use warnOnce with your own logger
      */
-    public static synchronized void warnOnce(String string) {
-        if (!alreadyWarned.contains(string)) {
+    @Deprecated
+    public static void warnOnce(String string) {
+        warnOnce(logger, string);
+    }
+
+    public static void warnOnce(Logger logger, String string) {
+        final String key = logger.getName()+":"+string;
+        if (alreadyWarned.putIfAbsent(key, true) == null) {
             logger.log(Level.WARNING, string);
-            alreadyWarned.add(string);
         }
     }
 

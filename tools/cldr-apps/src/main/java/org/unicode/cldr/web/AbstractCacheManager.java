@@ -2,6 +2,7 @@ package org.unicode.cldr.web;
 
 import java.io.File;
 import java.time.Instant;
+import java.util.logging.Logger;
 
 import org.apache.jena.sparql.lang.sparql_11.ParseException;
 import org.unicode.cldr.rdf.AbstractCache;
@@ -9,6 +10,7 @@ import org.unicode.cldr.rdf.MapAll;
 import org.unicode.cldr.util.CLDRCacheDir;
 
 class AbstractCacheManager {
+    static final Logger logger = Logger.getLogger(AbstractCacheManager.class.getName());
     static final int DEFAULT_DAYS = 5;
     static final AbstractCacheManager getInstance() {
         return AbstractCacheHelper.INSTANCE;
@@ -40,9 +42,8 @@ class AbstractCacheManager {
         Instant d = c.load();
         // Expire the URL mapping every 90 days.
         final Instant latestGoodInstant = cacheDir.getType().getLatestGoodInstant(DEFAULT_DAYS);
-        // TODO: use SurveyLog.logger.info() instead of System.err.println
         // -- cf. "...ready for requests..." in SurveyMain called later but printed sooner
-        System.err.println("AbstractCacheManager: Loaded abstracts (last calculated at " + d+")");
+        logger.info("AbstractCacheManager: Loaded abstracts (last calculated at " + d+")");
         if(d == null || d.isBefore(latestGoodInstant)) {
             System.out.println("Will reload abstracts: " + d + " with expiry " + latestGoodInstant);
 

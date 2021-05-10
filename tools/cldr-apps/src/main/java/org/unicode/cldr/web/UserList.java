@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class UserList {
+    private static final Logger logger = Logger.getLogger(UserList.class.getName());
     private static final boolean DEBUG = true;
 
     private static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
@@ -160,7 +162,7 @@ public class UserList {
                 r.put("canGetEmailList", (!isJustMe) && UserRegistry.userCanGetEmailList(me));
             }
         } catch (SQLException se) {
-            SurveyLog.logger.log(java.util.logging.Level.WARNING,
+            logger.log(java.util.logging.Level.WARNING,
                 "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
             r.put("exception", DBUtils.unchainSqlException(se));
         } finally {

@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
+import java.util.logging.Logger;
 
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.enterprise.concurrent.ManagedScheduledExecutorService;
@@ -19,7 +20,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 
 public class SurveyThreadManager  {
-
+    static final Logger logger = Logger.getLogger(SurveyThreadManager.class.getName());
     private static final String JAVA_COMP_DEFAULT_MANAGED_THREAD_FACTORY = "java:comp/DefaultManagedThreadFactory";
     private static final String DEFAULT_MANAGED_EXECUTOR = "java:comp/DefaultManagedExecutorService";
     private static final String DEFAULT_MANAGED_SCHEDULED_EXECUTOR = "java:comp/DefaultManagedScheduledExecutorService";
@@ -47,7 +48,7 @@ public class SurveyThreadManager  {
                     SurveyMain.busted("Could not look up " + JAVA_COMP_DEFAULT_MANAGED_THREAD_FACTORY, e);
                     throw new RuntimeException(e);
                 }
-                System.err.println("SurveyThread: got ManagedThreadFactory: " + managedThreadFactory);
+                logger.finer("SurveyThread: got ManagedThreadFactory: " + managedThreadFactory);
                 gFactory = managedThreadFactory;
             }
         }
@@ -71,7 +72,7 @@ public class SurveyThreadManager  {
                     SurveyMain.busted("Could not look up " + DEFAULT_MANAGED_EXECUTOR, e);
                     throw new RuntimeException(e);
                 }
-                System.err.println("SurveyThread: got ManagedExecutorService: " + service);
+                logger.finer("SurveyThread: got ManagedExecutorService: " + service);
                 gExecutor = service;
             }
         }
@@ -95,7 +96,7 @@ public class SurveyThreadManager  {
                     SurveyMain.busted("Could not look up " + DEFAULT_MANAGED_SCHEDULED_EXECUTOR, e);
                     throw new RuntimeException(e);
                 }
-                System.err.println("SurveyThread: got ManagedScheduledExecutorService: " + service);
+                logger.finer("SurveyThread: got ManagedScheduledExecutorService: " + service);
                 gScheduledExecutor = service;
             }
         }
@@ -103,7 +104,7 @@ public class SurveyThreadManager  {
     }
 
     public void shutdown() {
-        System.err.println("SurveyThreadManager: The container should manage all threads.");
+        logger.finer("SurveyThreadManager: The container should manage all threads.");
         gExecutor=null;
         gFactory=null;
         gScheduledExecutor=null;

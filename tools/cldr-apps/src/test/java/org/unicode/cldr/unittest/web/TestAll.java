@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
@@ -37,6 +38,7 @@ import com.ibm.icu.text.RuleBasedCollator;
  * Top level test used to run all other tests as a batch.
  */
 public class TestAll extends TestGroup {
+    private static final Logger logger = Logger.getLogger(TestAll.class.getName());
 
     private static final String DB_SUBDIR = "db";
     private static final String CLDR_TEST_JDBC = TestAll.class.getPackage().getName() + ".jdbcurl";
@@ -111,15 +113,15 @@ public class TestAll extends TestGroup {
         }
         if (CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
             if (DEBUG)
-                SurveyLog.logger.warning("Keeping database..");
+                logger.warning("Keeping database..");
         } else {
             if (DEBUG)
-                SurveyLog.logger.warning("Removing old test database..  set -D" + CLDR_TEST_KEEP_DB
+                logger.warning("Removing old test database..  set -D" + CLDR_TEST_KEEP_DB
                     + "=true if you want to keep it..");
             File f = getEmptyDir(DB_SUBDIR);
             f.delete();
             if (DEBUG)
-                SurveyLog.logger.warning("Erased: " + f.getAbsolutePath() + " - now exists=" + f.isDirectory());
+                logger.warning("Erased: " + f.getAbsolutePath() + " - now exists=" + f.isDirectory());
         }
         return args;
     }
@@ -285,7 +287,7 @@ public class TestAll extends TestGroup {
                             emptyDir(f);
                             f.delete();
                         } else {
-                            SurveyLog.logger.warning("Please manually remove: " + f.getAbsolutePath());
+                            logger.warning("Please manually remove: " + f.getAbsolutePath());
                         }
                     }
                 }
@@ -344,7 +346,7 @@ public class TestAll extends TestGroup {
             isSetup = true;
             if (theDir != null) {
                 if (DEBUG)
-                    SurveyLog.logger.warning("Using new: " + theDir.getAbsolutePath() + " baseDir = "
+                    logger.warning("Using new: " + theDir.getAbsolutePath() + " baseDir = "
                         + getBaseDir().getAbsolutePath());
             }
 

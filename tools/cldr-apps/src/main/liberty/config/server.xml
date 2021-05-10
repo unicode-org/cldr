@@ -42,4 +42,10 @@
 	<library id="jdbcLib">
 		<fileset dir="jdbc" includes="*.jar" />
 	</library>
+
+	<!-- default logging settings -->
+	<logging
+		maxFileSize="50"
+		maxFiles="10"
+	/>
 </server>

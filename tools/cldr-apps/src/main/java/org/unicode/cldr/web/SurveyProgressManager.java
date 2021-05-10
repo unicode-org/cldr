@@ -8,6 +8,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 
 import org.unicode.cldr.util.StackTracker;
 
@@ -19,7 +20,7 @@ import com.ibm.icu.text.NumberFormat;
  *
  */
 public class SurveyProgressManager implements CLDRProgressIndicator {
-    private static final boolean DEBUG_PROGRESS = true;
+    private static final Logger logger = Logger.getLogger(SurveyProgressManager.class.getName());
     private Deque<SurveyProgressTask> tasks = new LinkedList<>();
 
     private class SurveyProgressTask implements CLDRProgressIndicator.CLDRProgressTask {
@@ -40,12 +41,11 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         @Override
         public void close() {
             if (tasks.isEmpty() || !tasks.contains(this)) {
-                SurveyLog.warnOnce("State Error: Closing an already-closed CLDRProgressIndicator at stack " + StackTracker.currentStack());
+                SurveyLog.warnOnce(logger, "State Error: Closing an already-closed CLDRProgressIndicator at stack " + StackTracker.currentStack());
             } else {
                 tasks.remove(this); // remove from deque
             }
-            if (DEBUG_PROGRESS && SurveyMain.isUnofficial())
-                System.err.println("Progress (" + progressWhat + ") DONE - "
+            logger.info("Progress (" + progressWhat + ") DONE - "
                     + ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()) + " @" + SurveyMain.uptime);
             dead = true;
         }
@@ -54,7 +54,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         public void update(int count) {
             progressCount = count;
             subTaskTime = System.currentTimeMillis();
-            if (SurveyMain.isUnofficial()) System.err.println("Progress (" + progressWhat + ") on #" + progressCount + " @" + SurveyMain.uptime);
+            logger.fine("Progress (" + progressWhat + ") on #" + progressCount + " @" + SurveyMain.uptime);
         }
 
         @Override
@@ -62,7 +62,6 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
             progressCount = count;
             progressSub = what;
             subTaskTime = System.currentTimeMillis();
-            // if(SurveyMain.isUnofficial()) System.err.println("Progress (" + progressWhat + ") on " + progressSub + " #"+progressCount  + " @" + SurveyMain.uptime);
         }
 
         /**
@@ -77,7 +76,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
                 progressCount++;
             }
             subTaskTime = System.currentTimeMillis();
-            if (SurveyMain.isUnofficial()) System.err.println("Progress (" + progressWhat + ") on " + what + " @" + SurveyMain.uptime);
+            logger.fine("Progress (" + progressWhat + ") on " + what + " @" + SurveyMain.uptime);
         }
 
         @Override
@@ -155,22 +154,22 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
             @Override
             public void close() {
-                System.out.println(et + ":  close");
+                logger.fine(et + ":  close");
             }
 
             @Override
             public void update(int count) {
-                System.out.println(et + ":  Update #" + count);
+                logger.fine(et + ":  Update #" + count);
             }
 
             @Override
             public void update(int count, String what) {
-                System.out.println(et + ":  Update " + what + " #" + count);
+                logger.fine(et + ":  Update " + what + " #" + count);
             }
 
             @Override
             public void update(String what) {
-                System.out.println(et + ":  Update " + what);
+                logger.fine(et + ":  Update " + what);
             }
 
             @Override
@@ -192,8 +191,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
     public CLDRProgressTask openProgress(String what, int max) {
         SurveyProgressTask t = new SurveyProgressTask(what, max);
         tasks.addLast(t);
-        if (SurveyMain.isUnofficial() && DEBUG_PROGRESS)
-            System.err.println("Progress (" + what + ") BEGIN");
+        logger.info("Progress (" + what + ") BEGIN");
         return t;
     }
 

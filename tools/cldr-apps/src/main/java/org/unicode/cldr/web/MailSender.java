@@ -24,6 +24,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
@@ -42,6 +43,7 @@ import org.unicode.cldr.util.CLDRLocale;
  * Helper class. Sends mail with a simple interface
  */
 public class MailSender implements Runnable {
+    final static Logger logger = Logger.getLogger(MailSender.class.getName());
 
     private static final String CLDR_MAIL = "cldr_mail";
 
@@ -124,7 +126,7 @@ public class MailSender implements Runnable {
             conn.setAutoCommit(false);
             DBUtils.getInstance();
             if (!DBUtils.hasTable(conn, CLDR_MAIL)) {
-                System.out.println("Creating " + CLDR_MAIL);
+                logger.info("Creating " + CLDR_MAIL);
                 s = DBUtils.prepareStatementWithArgs(conn, "CREATE TABLE " + CLDR_MAIL + " (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " // PK:  id
                     + USER + " int not null, " // userid TO
                     + "sender int not null DEFAULT -1 , " // userid TO
@@ -146,7 +148,7 @@ public class MailSender implements Runnable {
                     1, "Hello", "Hello from the SurveyTool!", DBUtils.sqlNow());
                 s2.execute();
                 conn.commit();
-                System.out.println("Setup " + CLDR_MAIL);
+                logger.info("Setup " + CLDR_MAIL);
             }
             // set some defaults
             // these getters cause the properties (e.g. mail.host) to be set in the current CLDRConfig.
@@ -163,7 +165,7 @@ public class MailSender implements Runnable {
             conn.commit();
 
             if (countDeleted > 0) {
-                System.out.println("MailSender:  reaped " + countDeleted + " expired messages");
+                logger.info("MailSender:  reaped " + countDeleted + " expired messages");
             }
 
             if (!CLDR_SENDMAIL) {
@@ -176,7 +178,7 @@ public class MailSender implements Runnable {
 
                 // The following line schedules MailSender.run() to be run periodically
                 periodicThis = SurveyThreadManager.getScheduledExecutorService().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
-                System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = "
+                logger.info("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = "
                     + DBUtils.sqlCount(COUNTLEFTSQL));
             }
         } catch (SQLException se) {
@@ -191,10 +193,10 @@ public class MailSender implements Runnable {
     static void shutdown() {
         try {
             if (fInstance != null && fInstance.periodicThis != null && !fInstance.periodicThis.isCancelled()) {
-                System.out.println("Interrupting running mail thread");
+                logger.info("Interrupting running mail thread");
                 fInstance.periodicThis.cancel(true);
             } else {
-                System.out.println("MailSender not running");
+                logger.info("MailSender not running");
             }
         } catch (Throwable t) {
             SurveyLog.logException(t, "shutting down mailSender");
@@ -351,7 +353,7 @@ public class MailSender implements Runnable {
 
         // Skip the System.out.println here normally, it clutters the logs.
         // See https://unicode.org/cldr/trac/ticket/10295
-        // System.out.println("MailSender: processing mail queue");
+        // logger.info("MailSender: processing mail queue");
 
         String oldName = Thread.currentThread().getName();
         DBUtils db = DBUtils.getInstance();
@@ -376,12 +378,12 @@ public class MailSender implements Runnable {
                 if (rs.next() == false) { // No mail to send.
                     if (lastIdProcessed > 0) {
                         if (DEBUG) {
-                            System.out.println("reset lastidprocessed to -1");
+                            logger.info("reset lastidprocessed to -1");
                         }
                         lastIdProcessed = -1;
                     }
                     if (DEBUG) {
-                        System.out.println("No mail to check.");
+                        logger.info("No mail to check.");
                     }
                     conn.rollback();  // Nothing to do, so roll back any txn
 
@@ -404,7 +406,7 @@ public class MailSender implements Runnable {
 
                 try {
                     lastIdProcessed = rs.getInt("id"); // update ID
-                    if (DEBUG) System.out.println("Processing id " + lastIdProcessed);
+                    if (DEBUG) logger.info("Processing id " + lastIdProcessed);
                     MimeMessage ourMessage = new MimeMessage(ourSession);
 
                     // from - sending user or surveytool
@@ -431,7 +433,7 @@ public class MailSender implements Runnable {
                         rs.updateTimestamp("try_date", sqlnow);
                         rs.updateRow();
                         conn.commit();
-                        System.out.println("Abandoning mail id # " + lastIdProcessed + " because: " + why);
+                        logger.info("Abandoning mail id # " + lastIdProcessed + " because: " + why);
                         processMail();
                         return;
                     }
@@ -479,19 +481,19 @@ public class MailSender implements Runnable {
                                 "Pretending to send mail - mail.host is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
                     }
 
-                    if (DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
+                    if (DEBUG) logger.info("Successful send of id " + lastIdProcessed + " to " + toUser);
 
                     if (!DBUtils.updateTimestamp(rs, "sent_date", sqlnow)) {
                         SurveyLog.warnOnce("Sorry, mail isn't supported without SQL update. You may need to use a different database or JDBC driver.");
                         shutdown();
                         return;
                     } else {
-                        if (DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
+                        if (DEBUG) logger.info("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
                         rs.updateRow();
                     }
-                    if (DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
+                    if (DEBUG) logger.info("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
                     conn.commit();
-                    if (DEBUG) System.out.println("Mail: committed: #id " + lastIdProcessed + " to " + toUser);
+                    if (DEBUG) logger.info("Mail: committed: #id " + lastIdProcessed + " to " + toUser);
 
                     // do more?
                     countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
@@ -517,7 +519,7 @@ public class MailSender implements Runnable {
                     rs.updateTimestamp("try_date", sqlnow);
                     rs.updateRow();
                     conn.commit();
-                    if (DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed + "  - " + badException.getCause());
+                    if (DEBUG) logger.info("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed + "  - " + badException.getCause());
                 }
             }
         } catch (SQLException se) {

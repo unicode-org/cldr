@@ -30,6 +30,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -54,6 +55,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  * Singleton utility class for simple(r) DB access.
  */
 public class DBUtils {
+    static final Logger logger = Logger.getLogger(DBUtils.class.getName());
     private static final String DEFAULT_DATA_SOURCE = "java:comp/DefaultDataSource";
     private static final boolean DEBUG = false;
     /**
@@ -153,7 +155,7 @@ public class DBUtils {
                 }
                 conn.close();
             } catch (SQLException e) {
-                System.err.println(DBUtils.unchainSqlException(e));
+                logger.severe(DBUtils.unchainSqlException(e));
                 e.printStackTrace();
             }
             db_number_open--;
@@ -280,7 +282,7 @@ public class DBUtils {
      * For production use, call getInstance().
      */
     public static void makeInstanceFrom(DataSource dataSource2, String url) {
-        System.err.println("DBUtils: Note: changing the DBUtils singleton instance to " + dataSource2 + " @ " + url);
+        logger.warning("DBUtils: Note: changing the DBUtils singleton instance to " + dataSource2 + " @ " + url);
         DBUtilsHelper.SINGLETON = new DBUtils(dataSource2, url);
     }
 
@@ -424,7 +426,7 @@ public class DBUtils {
                 rs = dbmd.getColumns(null, null, canonTable, canonColumn);
                 if (rs.next() == true) {
                     rs.close();
-                    //System.err.println("column " + table +"."+column + " did exist.");
+                    //logger.severe("column " + table +"."+column + " did exist.");
                     return true;
                 } else {
                     SurveyLog.debug("column " + table + "." + column + " did not exist.");
@@ -518,7 +520,7 @@ public class DBUtils {
             return sqlCount(conn, ps);
         } catch (SQLException se) {
             String complaint = " Couldn't query count - " + unchainSqlException(se) + " -  ps";
-            System.err.println(complaint);
+            logger.severe(complaint);
             ctx.println("<hr><font color='red'>ERR: " + complaint + "</font><hr>");
             return -1;
         }
@@ -536,7 +538,7 @@ public class DBUtils {
             s.close();
         } catch (SQLException se) {
             String complaint = " Couldn't query count - " + unchainSqlException(se) + " - " + sql;
-            System.err.println(complaint);
+            logger.severe(complaint);
             ctx.println("<hr><font color='red'>ERR: " + complaint + "</font><hr>");
         }
         return rv;
@@ -591,7 +593,7 @@ public class DBUtils {
             rv = ps.executeUpdate();
         } catch (SQLException se) {
             String complaint = " Couldn't sqlUpdate  - " + unchainSqlException(se) + " -  ps";
-            System.err.println(complaint);
+            logger.severe(complaint);
             ctx.println("<hr><font color='red'>ERR: " + complaint + "</font><hr>");
         }
         return rv;
@@ -642,28 +644,28 @@ public class DBUtils {
 
     private DBUtils() {
         if(CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
-            System.err.println("NOT initializing datasource: UNITTEST environment. Must call DBUtils.makeInstanceFrom() before DB operations will work."); //  makeInstanceFrom() must be called.
+            logger.warning("NOT initializing datasource: UNITTEST environment. Must call DBUtils.makeInstanceFrom() before DB operations will work."); //  makeInstanceFrom() must be called.
             return;
         }
         // Initialize DB context
-        System.err.println("Loading datasource: java:comp/env " + JDBC_SURVEYTOOL);
+        logger.info("Loading datasource: java:comp/env " + JDBC_SURVEYTOOL);
         ElapsedTimer et = new ElapsedTimer();
 
         try {
             final DataSource myOtherDB = InitialContext.doLookup(DEFAULT_DATA_SOURCE);
 
             if(myOtherDB != null) {
-                System.out.println("DefaultDataSource was ok");
+                logger.info("DefaultDataSource was ok");
                 datasource = myOtherDB;
             } else {
-                System.err.println("DefaultDataSource was not OK");
+                logger.info("DefaultDataSource was not OK");
                 Context initialContext = getInitialContext();
                 Context eCtx = (Context) initialContext.lookup("java:comp/env");
                 datasource = (DataSource) eCtx.lookup(JDBC_SURVEYTOOL);
             }
 
             if (datasource != null) {
-                System.out.println("Got datasource: " + datasource.toString() + " in " + et);
+                logger.info("Got datasource: " + datasource.toString() + " in " + et);
             }
             Connection c = null;
             try {
@@ -684,7 +686,7 @@ public class DBUtils {
                     try {
                         c.close();
                     } catch (Throwable tt) {
-                        System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                        logger.severe("Couldn't close datasource's conn: " + tt.toString());
                         tt.printStackTrace();
                     }
             }
@@ -733,7 +735,7 @@ public class DBUtils {
                 try {
                     c.close();
                 } catch (Throwable tt) {
-                    System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                    logger.severe("Couldn't close datasource's conn: " + tt.toString());
                     tt.printStackTrace();
                 }
         }
@@ -741,13 +743,13 @@ public class DBUtils {
 
     private void setupSqlForServerType() {
         SurveyLog.debug("setting up SQL for database type " + dbInfo);
-        System.out.println("setting up SQL for database type " + dbInfo);
+        logger.info("setting up SQL for database type " + dbInfo);
         if (dbInfo.contains("Derby")) {
             db_Derby = true;
-            System.out.println("Note: Derby (embedded) mode. ** some features may not work as expected **");
+            logger.info("Note: Derby (embedded) mode. ** some features may not work as expected **");
             db_UnicodeType = java.sql.Types.VARCHAR;
         } else if (dbInfo.contains("MySQL")) {
-            System.out.println("Note: MySQL mode");
+            logger.info("Note: MySQL mode");
             db_Mysql = true;
             DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
             DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
@@ -766,7 +768,7 @@ public class DBUtils {
 
             DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
         } else {
-            System.err.println("*** WARNING: Don't know what kind of database is " + dbInfo + " - don't know what kind of hacky nonportable SQL to use!");
+            logger.severe("*** WARNING: Don't know what kind of database is " + dbInfo + " - don't know what kind of hacky nonportable SQL to use!");
         }
     }
 
@@ -774,7 +776,7 @@ public class DBUtils {
         try {
             DBUtils.close(datasource);
         } catch (IllegalArgumentException iae) {
-            System.err.println("DB Shutdown in progress, ignoring: " + iae);
+            logger.warning("DB Shutdown in progress, ignoring: " + iae);
         }
         datasource = null;
         if (db_Derby) {
@@ -785,8 +787,8 @@ public class DBUtils {
             }
         }
         if (DBUtils.db_number_open > 0) {
-            System.out.println("DBUtils: removing my instance. " + DBUtils.db_number_open + " connections still open?\n" + tracker);
-            System.out.println("(Note: AutoClosed connections may not be calculated properly.)");
+            logger.info("DBUtils: removing my instance. " + DBUtils.db_number_open + " connections still open?\n" + tracker);
+            logger.info("(Note: AutoClosed connections may not be calculated properly.)");
         }
         if (tracker != null)
             tracker.clear();
@@ -854,7 +856,7 @@ public class DBUtils {
     }
 
     public void validateDatasourceExists(SurveyMain sm, CLDRProgressIndicator.CLDRProgressTask progress) {
-        System.err.println("StartupDB: datasource=" + datasource);
+        logger.info("StartupDB: datasource=" + datasource);
         if (datasource == null) {
             throw new RuntimeException(" - JNDI required:  " + getDbBrokenMessage());
         }
@@ -870,7 +872,7 @@ public class DBUtils {
      * @throws SQLException
      */
     public static final PreparedStatement prepareForwardReadOnly(Connection conn, String str) throws SQLException {
-        if (DEBUG_SQL) System.out.println("SQL: " + str);
+        if (DEBUG_SQL) logger.info("SQL: " + str);
         return conn.prepareStatement(str, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
     }
 
@@ -898,17 +900,9 @@ public class DBUtils {
             ps = prepareForwardReadOnly(conn, sql);
         } finally {
             if (ps == null) {
-                System.err.println("Warning: couldn't initialize " + name + " from " + sql);
+                logger.warning("Warning: couldn't initialize " + name + " from " + sql);
             }
         }
-        // if(false) System.out.println("EXPLAIN EXTENDED " +
-        // sql.replaceAll("\\?", "'?'")+";");
-        // } catch ( SQLException se ) {
-        // String complaint = "Vetter:  Couldn't prepare " + name + " - " +
-        // DBUtils.unchainSqlException(se) + " - " + sql;
-        // logger.severe(complaint);
-        // throw new RuntimeException(complaint);
-        // }
         return ps;
     }
 
@@ -923,17 +917,9 @@ public class DBUtils {
             ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         } finally {
             if (ps == null) {
-                System.err.println("Warning: couldn't initialize " + name + " from " + sql);
+                logger.warning("Warning: couldn't initialize " + name + " from " + sql);
             }
         }
-        // if(false) System.out.println("EXPLAIN EXTENDED " +
-        // sql.replaceAll("\\?", "'?'")+";");
-        // } catch ( SQLException se ) {
-        // String complaint = "Vetter:  Couldn't prepare " + name + " - " +
-        // DBUtils.unchainSqlException(se) + " - " + sql;
-        // logger.severe(complaint);
-        // throw new RuntimeException(complaint);
-        // }
         return ps;
     }
 
@@ -947,7 +933,7 @@ public class DBUtils {
     public static void close(Object... list) {
         for (Object o : list) {
             // if(o!=null) {
-            // System.err.println("Closing " +
+            // logger.severe("Closing " +
             // an(o.getClass().getSimpleName())+" " + o.getClass().getName());
             // }
             try {
@@ -975,21 +961,23 @@ public class DBUtils {
                             // try to find a "close"
                             final Method m = theClass.getDeclaredMethod("close");
                             if (m != null) {
-                                System.err.println("Attempting to call close() on " + theClass.getName());
+                                logger.warning("Attempting to call close() on " + theClass.getName());
                                 m.invoke(o);
                             }
                         } catch (Exception nsm) {
                             nsm.printStackTrace();
-                            System.err.println("Caught exception " + nsm + " - so, don't know how to close " + simpleName + " "
+                            logger.severe("Caught exception " + nsm + " - so, don't know how to close " + simpleName + " "
                                 + theClass.getName());
                         }
+                    } else if(simpleName.contains("WSJdbc43DataSource")) {
+                        logger.finest(() -> "Ignoring uncloseable " + theClass.getName());
                     } else {
                         throw new IllegalArgumentException("Don't know how to close " + simpleName + " "
                             + theClass.getName());
                     }
                 }
             } catch (SQLException e) {
-                System.err.println(unchainSqlException(e));
+                logger.severe(unchainSqlException(e));
             }
         }
     }
@@ -1055,7 +1043,7 @@ public class DBUtils {
                                                       */
                     ps.setString(i + 1, ((CLDRLocale) o).getBaseName());
                 } else {
-                    System.err.println("DBUtils: Warning: using toString for unknown object " + o.getClass().getName());
+                    logger.severe("DBUtils: Warning: using toString for unknown object " + o.getClass().getName());
                     ps.setString(i + 1, o.toString());
                 }
             }
@@ -1473,13 +1461,13 @@ public class DBUtils {
         if (ref != null) result = ref.get();
         long now = System.currentTimeMillis();
         if (CDEBUG) {
-            System.out.println("cachedjson: id " + id + " ref=" + ref + "res?" + (result != null));
+            logger.info("cachedjson: id " + id + " ref=" + ref + "res?" + (result != null));
         }
         if (result != null) {
             long age = now - (Long) result.get("birth");
             if (age > cacheAge) {
                 if (CDEBUG) {
-                    System.out.println("cachedjson: id " + id + " expiring because age " + age + " > " + cacheAge);
+                    logger.info("cachedjson: id " + id + " expiring because age " + age + " > " + cacheAge);
                 }
                 result = null;
             }
@@ -1487,13 +1475,13 @@ public class DBUtils {
 
         if (result == null) { // have to fetch it
             if (CDEBUG) {
-                System.out.println("cachedjson: id " + id + " fetching: " + query);
+                logger.info("cachedjson: id " + id + " fetching: " + query);
             }
             result = queryToJSON(query, args);
             long queryms = System.currentTimeMillis() - now;
             result.put("birth", (Long) now);
             if (CDEBUG) {
-                System.out.println("cachedjson: id " + id + " fetched in " + Double.toString(queryms / 1000.0) + "s");
+                logger.info("cachedjson: id " + id + " fetched in " + Double.toString(queryms / 1000.0) + "s");
             }
             result.put("queryms", (Long) (queryms));
             result.put("id", id);
@@ -1680,13 +1668,13 @@ public class DBUtils {
      * @throws SQLException
      */
     public static void execSql(String sqlName) throws IOException, SQLException {
-        System.err.println("Running SQL:  sql/"+sqlName);
+        logger.severe("Running SQL:  sql/"+sqlName);
         try (Connection conn = getInstance().getAConnection();
             InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
             Reader r = new InputStreamReader(s);) {
             ScriptRunner runner = new ScriptRunner(conn);
             runner.runScript(r);
-            System.err.println("SQL OK: sql/"+sqlName);
+            logger.severe("SQL OK: sql/"+sqlName);
         }
     }
 }

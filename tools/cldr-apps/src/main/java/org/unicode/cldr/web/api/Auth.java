@@ -72,7 +72,6 @@ public class Auth {
             }
         }
         try {
-            LoginResponse resp = new LoginResponse();
             // we start with the user
             String userIP = WebContext.userIP(hreq);
             CookieSession session = null;
@@ -126,7 +125,7 @@ public class Auth {
                     session = CookieSession.newSession(true, userIP);
                 }
             }
-            resp.sessionId = session.id;
+            LoginResponse resp = createLoginResponse(session);
             WebContext.setSessionCookie(hresp, resp.sessionId);
             return Response.ok().entity(resp)
                 .header(SESSION_HEADER, session.id)
@@ -134,6 +133,20 @@ public class Auth {
         } catch (LogoutException ioe) {
             return Response.status(403, "Login Failed").build();
         }
+    }
+
+
+    /**
+     * Create a LoginResponse, given a session.
+     * Put this here and not in LoginResponse because of serialization
+     * @param session
+     * @return
+     */
+    private LoginResponse createLoginResponse(CookieSession session) {
+        LoginResponse resp = new LoginResponse();
+        resp.sessionId = session.id;
+        resp.user = (session.user != null);
+        return resp;
     }
 
 
@@ -208,8 +221,7 @@ public class Auth {
         }
 
         // Response
-        LoginResponse resp = new LoginResponse();
-        resp.sessionId = session;
+        LoginResponse resp = createLoginResponse(s);
 
         return Response.ok().entity(resp)
             .header(SESSION_HEADER, session)

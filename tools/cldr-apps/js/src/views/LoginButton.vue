@@ -113,9 +113,8 @@ export default {
             }
             return;
           }
-          // TODO: if !response.ok, show login failed
           const logintoken = await (await response).json();
-          if (/*logintoken.user && */ logintoken.sessionId) {
+          if (logintoken.user && logintoken.sessionId) {
             // logged in OK.
             cldrStatus.setSessionId(logintoken.sessionId);
             this.loginShown = false;
@@ -124,6 +123,10 @@ export default {
               message: "Logged in as " + this.userName,
             });
             run(); // Restart everything
+          } else if (logintoken.sessionId) {
+            return errBox(
+              "The server returned a session ID but was not able to login."
+            );
           } else {
             return errBox("The server did not return a session ID.");
           }

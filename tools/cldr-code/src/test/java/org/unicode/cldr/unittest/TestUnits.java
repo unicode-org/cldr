@@ -2583,4 +2583,11 @@ public class TestUnits extends TestFmwk {
             orderingData.put(current, source);
         }
     }
+
+    public void TestElectricConsumption() {
+        String inputUnit = "kilowatt-hour-per-100-kilometer";
+        String outputUnit = "kilogram-meter-per-square-second";
+        Rational result = converter.convert(Rational.ONE, inputUnit, outputUnit, DEBUG);
+        assertEquals("kWh-per-100k", Rational.of(36), result);
+    }
 }

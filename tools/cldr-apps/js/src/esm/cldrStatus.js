@@ -229,7 +229,7 @@ function setIsUnofficial(i) {
 }
 
 /**
- * Is this a "beta" phase of Survey Tool? (Boolean)
+ * The current phase of Survey Tool (String), such as "Vetting"
  */
 let phase = "";
 

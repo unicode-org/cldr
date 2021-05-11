@@ -1940,51 +1940,6 @@ public class UserRegistry {
         return arr;
     }
 
-    static final boolean userCanSubmitLocale(User u, CLDRLocale locale) {
-        return userCanSubmitLocaleWhenDisputed(u, locale, false);
-    }
-
-    static final boolean userCanSubmitLocaleWhenDisputed(User u, CLDRLocale locale, boolean disputed) {
-        if (SurveyMain.isPhaseReadonly())
-            return false;
-        if (u == null)
-            return false; // no user, no dice
-        if (userIsTC(u))
-            return true; // TC can modify all
-        if ((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
-            return false;
-        }
-        if (SurveyMain.isPhaseClosed())
-            return false;
-        if (SurveyMain.isPhaseVetting() && !disputed && !userIsExpert(u))
-            return false; // only expert can submit new data.
-        return userCanModifyLocale(u, locale);
-    }
-
-    static final boolean userCanSubmitAnyLocale(User u) {
-        if (SurveyMain.isPhaseReadonly())
-            return false;
-        if (u == null)
-            return false; // no user, no dice
-        if (userIsTC(u))
-            return true; // TC can modify all
-        if (SurveyMain.isPhaseClosed())
-            return false;
-        if (SurveyMain.isPhaseVetting() && !userIsExpert(u))
-            return false; // only expert can submit new data.
-        return userCanSubmit(u);
-    }
-
-    static final boolean userCanVetLocale(User u, CLDRLocale locale) {
-        if (SurveyMain.isPhaseReadonly())
-            return false;
-        if (userIsTC(u))
-            return true; // TC can modify all
-        if (SurveyMain.isPhaseClosed())
-            return false;
-        return userCanModifyLocale(u, locale);
-    }
-
     static final String LOCALE_PATTERN = "[, \t\u00a0\\s]+"; // whitespace
     /**
      * Invalid user ID, representing NO USER.

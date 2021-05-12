@@ -41,21 +41,30 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload cldr-apps.war
+      - name: Build liberty server
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml
+          -DskipTests=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cleanup liberty server
+        run: >
+          zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*
+      - name: Upload cldr-apps.zip
         uses: actions/upload-artifact@v2
         with:
-          name: cldr-apps
-          path: tools/cldr-apps/target/cldr-apps.war
+          name: cldr-apps-server
+          path: tools/cldr-apps/target/cldr-apps.zip
   deploy:
     name: Deploy to Production
     needs:
       - build
     runs-on: ubuntu-latest
     steps:
-    - name: Download cldr-apps.war
+    - name: Download cldr-apps.zip
       uses: actions/download-artifact@v2
       with:
-        name: cldr-apps
+        name: cldr-apps-server
     - name: Deploy to st
       # Deploys only on push to master.
       # Does not deploy for PRs.
@@ -74,4 +83,4 @@ jobs:
       run: |
         echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
         echo "${SURVEYTOOL_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
-        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SURVEYTOOL_PORT} surveytool@${SURVEYTOOL_HOST} bash /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${DEPLOY_SHA} ${OVERRIDE}
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SURVEYTOOL_PORT} surveytool@${SURVEYTOOL_HOST} bash /usr/local/bin/deploy-to-openliberty.sh < cldr-apps.zip ${DEPLOY_SHA} ${OVERRIDE}

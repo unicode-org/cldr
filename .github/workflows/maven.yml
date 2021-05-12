@@ -48,7 +48,7 @@ jobs:
       - name: Build liberty server
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml
-          -DskipTests=true -Dinclude=usr
+          -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Cleanup liberty server

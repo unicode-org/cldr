@@ -1308,6 +1308,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "energy-therm-us",
         "force-pound-force",
         "force-newton",
+        "force-kilowatt-hour-per-100-kilometer",
         "frequency-gigahertz", "frequency-megahertz", "frequency-kilohertz", "frequency-hertz",
         "graphics-em", "graphics-pixel", "graphics-megapixel",
         "graphics-pixel-per-centimeter", "graphics-pixel-per-inch",

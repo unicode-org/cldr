@@ -114,7 +114,7 @@ public class SurveyForum {
             Connection conn = null;
             PreparedStatement fGetByLoc = null;
             try {
-                conn = sm.dbUtils.getDBConnection();
+                conn = sm.dbUtils.getAConnection();
                 fGetByLoc = prepare_fGetByLoc(conn);
                 fGetByLoc.setString(1, forum);
                 ResultSet rs = fGetByLoc.executeQuery();
@@ -183,7 +183,7 @@ public class SurveyForum {
             Connection conn = null;
             PreparedStatement pIntUsers = null;
             try {
-                conn = sm.dbUtils.getDBConnection();
+                conn = sm.dbUtils.getAConnection();
                 pIntUsers = prepare_pIntUsers(conn);
                 pIntUsers.setString(1, forum);
 
@@ -297,7 +297,7 @@ public class SurveyForum {
         Connection conn = null;
         PreparedStatement pList = null;
         try {
-            conn = sm.dbUtils.getDBConnection();
+            conn = sm.dbUtils.getAConnection();
             pList = DBUtils.prepareStatement(conn, "pList", "SELECT parent,poster FROM " + DBUtils.Table.FORUM_POSTS.toString()
                 + " WHERE id=?");
             for (;;) {
@@ -847,7 +847,7 @@ public class SurveyForum {
         String tableName = DBUtils.Table.FORUM_POSTS.toString();
         Map<Integer, String> posts = new HashMap<>();
         try {
-            conn = sm.dbUtils.getDBConnection();
+            conn = sm.dbUtils.getAConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
                 + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");

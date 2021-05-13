@@ -17,9 +17,18 @@
         </button>
         <span
           class="i-am-dashboard"
-          :title="'Dashboard (coverage: ' + level + ')'"
+          :title="
+            'Dashboard (locale: ' + localeName + '; coverage: ' + level + ')'
+          "
           >Dashboard</span
         >
+        <button
+          class="cldr-nav-btn dash-reload"
+          title="Reload"
+          @click="reloadDashboard"
+        >
+          ↻
+        </button>
         <span v-for="n in data.notifications" :key="n.notification">
           <template v-if="n.total">
             <button
@@ -149,6 +158,7 @@ export default {
       lastClicked: null,
       loadingMessage: "Loading Dashboard…",
       locale: null,
+      localeName: null,
       level: null,
       categoryComment: {
         Provisional:
@@ -179,11 +189,24 @@ export default {
       }
     },
 
+    reopen() {
+      if (
+        cldrStatus.getCurrentLocale() !== this.locale ||
+        cldrCoverage.effectiveName(this.locale) !== this.level
+      ) {
+        this.reloadDashboard();
+      }
+    },
+
     handleCoverageChanged(level) {
       console.log("Dashboard changing level: " + level);
+      this.reloadDashboard();
+      return true;
+    },
+
+    reloadDashboard() {
       this.data = null;
       this.fetchData();
-      return true;
     },
 
     fetchData() {
@@ -193,9 +216,8 @@ export default {
         this.fetchErr = "Please choose a locale and a coverage level first.";
         return;
       }
-      this.loadingMessage = `Loading ${cldrLoad.getLocaleName(
-        this.locale
-      )} dashboard at ${this.level} level`;
+      this.localeName = cldrLoad.getLocaleName(this.locale);
+      this.loadingMessage = `Loading ${this.localeName} dashboard at ${this.level} level`;
       cldrAjax
         .doFetch(this.getUrl())
         .then((response) => {
@@ -246,7 +268,6 @@ export default {
 
     closeDashboard(event) {
       cldrGui.hideDashboard();
-      this.data = null;
     },
 
     abbreviate(str) {
@@ -305,7 +326,11 @@ header {
 
 .i-am-dashboard {
   font-weight: bold;
-  margin-right: 1em;
+  margin-right: 1ex;
+}
+
+.dash-reload {
+  margin-right: 2em;
 }
 
 p {

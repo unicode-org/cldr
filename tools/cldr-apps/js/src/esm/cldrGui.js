@@ -508,10 +508,15 @@ function insertDashboard() {
     return; // already inserted and visible
   }
   try {
-    const fragment = document.createDocumentFragment();
-    dashboardWidgetWrapper = createCldrApp(DashboardWidget).mount(fragment);
-    const d = document.getElementById("DashboardSection");
-    d.replaceWith(fragment);
+    if (dashboardWidgetWrapper) {
+      // already created/inserted but invisible
+      dashboardWidgetWrapper.reopen();
+    } else {
+      const fragment = document.createDocumentFragment();
+      dashboardWidgetWrapper = createCldrApp(DashboardWidget).mount(fragment);
+      const d = document.getElementById("DashboardSection");
+      d.replaceWith(fragment);
+    }
     showDashboard();
   } catch (e) {
     console.error("Error mounting dashboard vue " + e.message + " / " + e.name);

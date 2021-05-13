@@ -4,7 +4,7 @@ These are ansible scripts for setup and maintenance of the Survey Tool.
 
 ## Scope
 
-Right now, the test setup mostly controls Tomcat, but not the nginx proxy
+Right now, the test setup mostly controls OpenLiberty, but not the nginx proxy
 due to public port issues (https).
 
 ## Setup
@@ -148,8 +148,8 @@ vagrant ssh -- sudo -u surveytool /usr/local/bin/deploy-to-tomcat.sh $(git rev-p
 - If you need to get directly to the tomcat server, use:
 
 ```shell
-vagrant ssh -- -L 8080:127.0.0.1:8080
+vagrant ssh -- -L 9080:127.0.0.1:9080
 # leave this shell window open.
 ```
 
-Then, you can go to <http://127.0.0.1:8080> and directly access tomcat.
+Then, you can go to <http://127.0.0.1:9080> and directly access tomcat.

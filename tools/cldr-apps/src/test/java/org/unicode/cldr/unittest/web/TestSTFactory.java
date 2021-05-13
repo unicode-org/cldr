@@ -867,6 +867,8 @@ public class TestSTFactory extends TestFmwk {
             et0 = new ElapsedTimer("Set up STFactory");
             gFac = sm.getSTFactory();
             logln(et0.toString());
+
+            assertFalse("SurveyTool shouldn’t be busted!", SurveyMain.isBusted());
         }
         return gFac;
     }

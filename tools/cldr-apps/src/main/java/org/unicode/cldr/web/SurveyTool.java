@@ -3,6 +3,8 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,15 +17,19 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.VettingViewer;
 
 public class SurveyTool extends HttpServlet {
+    static final Logger logger = SurveyLog.forClass(SurveyTool.class);
+
     private static final long serialVersionUID = 1L;
 
     @Override
     public final void init(final ServletConfig config) throws ServletException {
-        System.out.println("\n🍓🍓🍓 SurveyTool.init() 🍓🍓🍓\n");
+        System.out.println("🍓🍓🍓 SurveyTool.init() 🍓🍓🍓");
+        logger.info("🍓🍓🍓 SurveyTool.init() 🍓🍓🍓");
+
         try {
             super.init(config);
         } catch (Throwable t) {
-            System.err.println("SurveyTool.init() caught: " + t.toString());
+            logger.log(Level.SEVERE, "SurveyTool.init() caught", t);
             return;
         }
     }

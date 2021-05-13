@@ -20,7 +20,7 @@ import com.ibm.icu.text.NumberFormat;
  *
  */
 public class SurveyProgressManager implements CLDRProgressIndicator {
-    private static final Logger logger = Logger.getLogger(SurveyProgressManager.class.getName());
+    private static final Logger logger = SurveyLog.forClass(SurveyProgressManager.class);
     private Deque<SurveyProgressTask> tasks = new LinkedList<>();
 
     private class SurveyProgressTask implements CLDRProgressIndicator.CLDRProgressTask {

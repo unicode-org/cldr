@@ -10,7 +10,7 @@ import org.unicode.cldr.rdf.MapAll;
 import org.unicode.cldr.util.CLDRCacheDir;
 
 class AbstractCacheManager {
-    static final Logger logger = Logger.getLogger(AbstractCacheManager.class.getName());
+    static final Logger logger = SurveyLog.forClass(AbstractCacheManager.class);
     static final int DEFAULT_DAYS = 5;
     static final AbstractCacheManager getInstance() {
         return AbstractCacheHelper.INSTANCE;

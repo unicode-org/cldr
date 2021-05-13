@@ -35,7 +35,7 @@ import org.unicode.cldr.web.WebContext;
  * rather than environment variables.
  */
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
-    private static final Logger logger = Logger.getLogger(CLDRConfigImpl.class.getName());
+    private static final Logger logger = SurveyLog.forClass(CLDRConfigImpl.class);
     /**
      * Get an instance and downcast
      * @return

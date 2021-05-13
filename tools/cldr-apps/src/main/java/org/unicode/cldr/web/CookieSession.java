@@ -22,6 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
@@ -33,6 +34,7 @@ import org.unicode.cldr.web.UserRegistry.User;
  * per-user basis. Instances are typically held by WebContext.session.
  */
 public class CookieSession {
+    static final Logger logger = SurveyLog.forClass(CookieSession.class);
     /*
      * If KICK_IF_INACTIVE is true, then we may disconnect a user if they don't perform
      * an "active" action, triggering userDidAction(), within some length of time.
@@ -645,7 +647,7 @@ public class CookieSession {
         final public int value() {
             if (value == null) {
                 value = CLDRConfig.getInstance().getProperty(this.name().toUpperCase(), defVal);
-                SurveyLog.warnOnce("CookieSession: " + this.name().toUpperCase() + "=" + value + " (default: " + defVal + ")");
+                SurveyLog.warnOnce(logger, "CookieSession: " + this.name().toUpperCase() + "=" + value + " (default: " + defVal + ")");
             }
             return value;
         }

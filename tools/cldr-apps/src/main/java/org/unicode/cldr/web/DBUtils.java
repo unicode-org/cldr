@@ -55,16 +55,13 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  * Singleton utility class for simple(r) DB access.
  */
 public class DBUtils {
-    static final Logger logger = Logger.getLogger(DBUtils.class.getName());
+    /**
+     * Set property org.unicode.cldr.web.DBUtils.level=FINEST to trace SQL,
+     * org.unicode.cldr.web.DBUtils.level=FINE to trace connection opens
+     */
+    static final Logger logger = SurveyLog.forClass(DBUtils.class);
     private static final String DEFAULT_DATA_SOURCE = "java:comp/DefaultDataSource";
     private static final boolean DEBUG = false;
-    /**
-     * Set org.unicode.cldr.web.DBUtils.DEBUG_DB_OPEN=true to trace when DBConnections are opened
-     */
-    private static final boolean DEBUG_DB_OPEN =
-        System.getProperty(DBUtils.class.getName() + ".DEBUG_DB_OPEN", null) != null;
-
-    private static final boolean DEBUG_SQL = false; // show "all" SQL
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
     private String connectionUrl = null;
@@ -364,7 +361,7 @@ public class DBUtils {
                 rs = dbmd.getTables(null, null, canonName, null);
 
                 if (rs.next() == true) {
-                    if (DEBUG) SurveyLog.warnOnce("table " + canonName + " already existed.");
+                    if (DEBUG) SurveyLog.warnOnce(logger, "table " + canonName + " already existed.");
                     return true;
                 } else {
                     SurveyLog.warnOnce("table " + canonName + " did not exist.");
@@ -399,10 +396,10 @@ public class DBUtils {
             }
 
             if (hadTable) {
-                if (DEBUG) SurveyLog.warnOnce("table " + canonName + " already existed.");
+                if (DEBUG) SurveyLog.warnOnce(logger, "table " + canonName + " already existed.");
                 return true;
             } else {
-                SurveyLog.warnOnce("table " + canonName + " did not exist.");
+                SurveyLog.warnOnce(logger, "table " + canonName + " did not exist.");
                 return false;
             }
         } catch (SQLException se) {
@@ -817,17 +814,22 @@ public class DBUtils {
     }
 
     /**
+     * Internal method to get the immediate caller (discounting DBUtils functions)
+     * @return string
+     */
+    private static final String getDBOpenStack() {
+        final String myClass = DBUtils.class.getName();
+        final StackTraceElement callerElement = StackTracker
+            .firstCallerMatching(
+                (StackTraceElement s) -> (!s.getClassName().equals(myClass) && !s.getClassName().startsWith("java.")));
+        return callerElement.toString();
+    }
+    /**
      * Get an Autocommit Connection. Will be AutoCommit=true
      * @return
      */
     public final Connection getAConnection() {
-        if (DEBUG_DB_OPEN) {
-            final String myClass = DBUtils.class.getName();
-            final StackTraceElement callerElement = StackTracker
-                .firstCallerMatching(
-                    (StackTraceElement s) -> !s.getClassName().equals(myClass));
-            System.out.println("DB OPEN: " + callerElement);
-        }
+        logger.fine(() -> "DB OPEN: " + getDBOpenStack());
         try {
             if(connectionUrl != null) {
                 Connection c = getDBConnectionFor(connectionUrl);
@@ -872,7 +874,7 @@ public class DBUtils {
      * @throws SQLException
      */
     public static final PreparedStatement prepareForwardReadOnly(Connection conn, String str) throws SQLException {
-        if (DEBUG_SQL) logger.info("SQL: " + str);
+        logger.finest("SQL: " + str);
         return conn.prepareStatement(str, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
     }
 
@@ -900,7 +902,7 @@ public class DBUtils {
             ps = prepareForwardReadOnly(conn, sql);
         } finally {
             if (ps == null) {
-                logger.warning("Warning: couldn't initialize " + name + " from " + sql);
+                logger.severe("Warning: couldn't initialize " + name + " from " + sql);
             }
         }
         return ps;
@@ -917,7 +919,7 @@ public class DBUtils {
             ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         } finally {
             if (ps == null) {
-                logger.warning("Warning: couldn't initialize " + name + " from " + sql);
+                logger.severe("Warning: couldn't initialize " + name + " from " + sql);
             }
         }
         return ps;

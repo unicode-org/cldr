@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
@@ -21,7 +22,7 @@ import org.unicode.cldr.web.Partition.Membership;
  */
 
 public abstract class SortMode {
-
+    final Logger logger = SurveyLog.forClass(SortMode.class);
     static String getSortMode(WebContext ctx, String prefix) {
         String sortMode = null;
         sortMode = ctx.pref(SurveyMain.PREF_SORTMODE, SurveyMain.PREF_SORTMODE_DEFAULT);
@@ -239,8 +240,7 @@ public abstract class SortMode {
                 // }
 
                 if (!matcher.matches(p.getXpath(), p.getXpathId())) {
-                    if (false)
-                        System.err.println("not match: " + p.xpathId + " / " + p.getXpath());
+                    logger.finest("not match: " + p.xpathId + " / " + p.getXpath());
                     continue;
 
                 } else {
@@ -252,9 +252,8 @@ public abstract class SortMode {
         if (matcher != null) {
             matchName = matcher.getName();
         }
-        if (SurveyMain.isUnofficial())
-            System.err.println("Loaded " + newSet.size() + " from " + matchName + " - base xpath (" + rows.size() + ")  = "
-                + getName());
+        logger.fine("Loaded " + newSet.size() + " from " + matchName + " - base xpath (" + rows.size() + ")  = "
+            + getName());
         return newSet.toArray(new DataRow[newSet.size()]);
     }
 }

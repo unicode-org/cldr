@@ -1836,9 +1836,9 @@ public class TestUnits extends TestFmwk {
 
         assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validAndDeprecatedLongUnitIds);
 
-        assertSuperset("valid regular", "specials", validLongUnitIds, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
+        assertSuperset("valid regular", "specials", validLongUnitIds, GrammarInfo.getUnitsToAddGrammar());
 
-        assertSuperset("root unit IDs", "specials", unitLongIdsRoot, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
+        assertSuperset("root unit IDs", "specials", unitLongIdsRoot, GrammarInfo.getUnitsToAddGrammar());
 
         //assertSuperset("long convertible units", "valid regular", unitsConvertibleLongIds, validLongUnitIds);
         Output<String> baseUnit = new Output<>();
@@ -2127,7 +2127,7 @@ public class TestUnits extends TestFmwk {
             M4<String, String, String, Boolean> myInfo = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
 
             int count = 0;
-            for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+            for (String longUnit : GrammarInfo.getUnitsToAddGrammar()) {
                 final String shortUnit = converter.getShortId(longUnit);
                 String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
 
@@ -2168,7 +2168,7 @@ public class TestUnits extends TestFmwk {
     public void TestGenderOfCompounds() {
         Set<String> skipUnits = ImmutableSet.of("kilocalorie", "kilopascal", "terabyte", "gigabyte", "kilobyte", "gigabit", "kilobit", "megabit", "megabyte", "terabit");
         final ImmutableSet<String> keyValues = ImmutableSet.of("length", "mass", "duration", "power");
-        for (String localeID : GrammarInfo.SEED_LOCALES) {
+        for (String localeID : GrammarInfo.getGrammarLocales()) {
             GrammarInfo grammarInfo = SDI.getGrammarInfo(localeID);
             if (grammarInfo == null) {
                 logln("No grammar info for: " + localeID);

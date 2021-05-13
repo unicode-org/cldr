@@ -38,6 +38,9 @@ import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.Rational.RationalParser;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -4502,10 +4505,27 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * locales that have grammar info
+     * Locales that have grammar info
      */
     public Set<String> hasGrammarInfo() {
         return grammarLocaleToTargetToFeatureToValues.keySet();
+    }
+
+    /**
+     * Locales that have grammar info for at least one of the features (with the given target and scope).
+     */
+    public Set<String> getLocalesWithFeatures (GrammaticalTarget target, GrammaticalScope scope, GrammaticalFeature... features) {
+        Set<String> locales = new TreeSet<>();
+        for (Entry<String, GrammarInfo> localeAndGrammar : grammarLocaleToTargetToFeatureToValues.entrySet()) {
+            final GrammarInfo grammarInfo = localeAndGrammar.getValue();
+            for (GrammaticalFeature feature : features) {
+                Collection<String> featureInfo = grammarInfo.get(target, feature, scope);
+                if (!featureInfo.isEmpty()) {
+                    locales.add(localeAndGrammar.getKey());
+                }
+            }
+        }
+        return ImmutableSet.copyOf(locales);
     }
 
     /**
@@ -4526,7 +4546,7 @@ public class SupplementalDataInfo {
     @Deprecated
     public GrammarInfo getGrammarInfo(String locale, boolean seedOnly) {
         for (;locale != null; locale = LocaleIDParser.getParent(locale)) {
-            if (seedOnly && !GrammarInfo.SEED_LOCALES.contains(locale)) {
+            if (seedOnly && !GrammarInfo.getGrammarLocales().contains(locale)) {
                 continue;
             }
             GrammarInfo result = grammarLocaleToTargetToFeatureToValues.get(locale);

@@ -216,7 +216,7 @@ public class TestCLDRFile extends TestFmwk {
 
             }
         }
-        System.out.println("Units with grammar info: " + GrammarInfo.SPECIAL_TRANSLATION_UNITS.size());
+        System.out.println("Units with grammar info: " + GrammarInfo.getUnitsToAddGrammar().size());
         System.out.println("Inflection Paths");
         for (R2<Long, String> locale : extraPaths.getEntrySetSortedByCount(false, null)) {
             System.out.println(locale.get0() + "\t" + locale.get1());

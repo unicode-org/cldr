@@ -289,7 +289,7 @@ public class ChartGrammaticalForms extends Chart {
     }
 
     public void writeSubcharts(Anchors anchors) throws IOException {
-        Set<String> locales = GrammarInfo.SEED_LOCALES;
+        Set<String> locales = GrammarInfo.getGrammarLocales();
 
         LanguageTagParser ltp = new LanguageTagParser();
         //ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
@@ -305,7 +305,7 @@ public class ChartGrammaticalForms extends Chart {
 
         // collect the "best unit ordering"
         Map<String, BestUnitForGender> unitToBestUnit = new TreeMap<>();
-        for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+        for (String longUnit : GrammarInfo.getUnitsToAddGrammar()) {
             final String shortUnit = uc.getShortId(longUnit);
             if (shortUnit.equals("generic")) {
                 continue;
@@ -394,7 +394,7 @@ public class ChartGrammaticalForms extends Chart {
                 // now get the items
                 // also gather info on the "best power units"
 
-                for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+                for (String longUnit : GrammarInfo.getUnitsToAddGrammar()) {
                     final String shortUnit = uc.getShortId(longUnit);
                     String unitCell = getBestBaseUnit(uc, shortUnit, sizeInBaseUnits);
                     String quantity = shortUnit.contentEquals("generic") ? "temperature" : uc.getQuantityFromUnit(shortUnit, false);
@@ -451,7 +451,7 @@ public class ChartGrammaticalForms extends Chart {
                 // get best units for gender.
                 Multimap<String, BestUnitForGender> bestUnitForGender = TreeMultimap.create();
 
-                for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+                for (String longUnit : GrammarInfo.getUnitsToAddGrammar()) {
                     final String shortUnit = uc.getShortId(longUnit);
                     String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
                     final BestUnitForGender bestUnit = unitToBestUnit.get(shortUnit);

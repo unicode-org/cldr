@@ -101,6 +101,8 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     private Map<GrammaticalTarget, Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>>> targetToFeatureToUsageToValues = new TreeMap<>();
     private boolean frozen = false;
 
+    /** Only internal */
+    @Deprecated
     public void add(GrammaticalTarget target, GrammaticalFeature feature, GrammaticalScope usage, String value) {
         Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
         if (featureToUsageToValues == null) {
@@ -123,6 +125,8 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         }
     }
 
+    /** Only internal */
+    @Deprecated
     public void add(GrammaticalTarget target, GrammaticalFeature feature, GrammaticalScope usage, Collection<String> valueSet) {
         Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
         if (featureToUsageToValues == null) {
@@ -144,7 +148,8 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
 
     /**
      * Note: when there is known to be no features, the featureRaw will be null
-     */
+     * Only internal */
+    @Deprecated
     public void add(String targetsRaw, String featureRaw, String usagesRaw, String valuesRaw) {
         for (String targetString : SupplementalDataInfo.split_space.split(targetsRaw)) {
             GrammaticalTarget target = GrammaticalTarget.valueOf(targetString);
@@ -313,12 +318,12 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     /**
      * TODO: change this to be data-file driven
      */
-    public static final Set<String> SEED_LOCALES = ImmutableSet.of("pl", "ru", "da", "de", "no", "sv", "hi", "id", "es", "fr", "it", "nl", "pt", "en", "ja", "th", "vi", "zh", "zh_TW", "ko", "yue");
+    // private static final Set<String> SEED_LOCALES = ImmutableSet.of("pl", "ru", "da", "de", "no", "sv", "hi", "id", "es", "fr", "it", "nl", "pt", "en", "ja", "th", "vi", "zh", "zh_TW", "ko", "yue");
 
     /**
      * TODO: change this to be data-file driven
      */
-    public static final Set<String> SPECIAL_TRANSLATION_UNITS = ImmutableSet.of(
+    private static final Set<String> CORE_UNITS_NEEDING_GRAMMAR = ImmutableSet.of(
         // new in v38
         "mass-grain",
         "volume-dessert-spoon",
@@ -469,5 +474,53 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
             sourcePlural.value = "one";
             return;
         }
+    }
+
+    /**
+     * Internal class for thread-safety
+     */
+    static class GrammarLocales {
+        static final Set<String> data = CLDRConfig.getInstance().getSupplementalDataInfo().getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalCase);
+    }
+
+    /**
+     * Return the locales that have either case or gender info for units (or both).
+     */
+    public static Set<String> getGrammarLocales() {
+        return GrammarLocales.data;
+    }
+
+    /**
+     * Internal class for thread-safety
+     */
+    static class UnitsToAddGrammar {
+        static final Set<String> data;
+        static {
+            final CLDRConfig config = CLDRConfig.getInstance();
+            final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
+            Set<String> _data = new TreeSet<>(CORE_UNITS_NEEDING_GRAMMAR);
+            for (String path : With.in(config.getRoot().iterator("//ldml/units/unitLength[@type=\"short\"]/unit"))) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String unit = parts.getAttributeValue(3, "type");
+                // if one of the more important compound units, add it.
+                if (CORE_UNITS_NEEDING_GRAMMAR.contains(unit)) {
+                    _data.add(unit);
+                } else {
+                    // Otherwise, add simple units
+                    String shortUnit = converter.getShortId(unit);
+                    if (converter.isSimple(shortUnit)) {
+                        _data.add(unit);
+                    }
+                }
+            }
+            data = ImmutableSet.copyOf(_data);
+        }
+    }
+
+    /**
+     * Return the units that we should get grammar information for.
+     */
+    public static Set<String> getUnitsToAddGrammar() {
+        return UnitsToAddGrammar.data;
     }
 }

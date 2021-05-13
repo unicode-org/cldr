@@ -2232,10 +2232,15 @@ public class TestUnits extends TestFmwk {
                     final String printInfo = localeID + "\t" + unitId + "\t" + gender + "\t" + multiUnit + "\t" + quantity + "\t" + constructedGender + "\t" + areEqual;
                     System.out.println(printInfo);
                 }
+
                 if (gender != null && !areEqual && !skipUnits.contains(shortId)) {
                     unitId.getGender(cldrFile, source, partsUsed);
                     shortUnitToGender.put(shortId, unitId + "\t" + gender + "\t" + constructedGender + "\t" + areEqual);
                 }
+            }
+            if (quantityToGenderToUnits.keySet().isEmpty()) {
+                warnln("No genders for " + localeID);
+                continue;
             }
             for (Entry<String,String> entry : shortUnitToGender.entrySet()) {
                 errln(localeID + "\t" + entry);

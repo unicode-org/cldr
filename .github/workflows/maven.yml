@@ -108,7 +108,7 @@ jobs:
           name: cldr-code
           path: tools/cldr-code/target/
       - name: run CLDR console check
-        run: java -DCLDR_DIR=$(pwd) -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
+        run: java -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
   deploy:
     # don't run deploy on manual builds!
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.inputs.git-ref == ''

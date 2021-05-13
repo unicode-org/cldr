@@ -27,6 +27,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
@@ -66,6 +67,10 @@ import com.ibm.icu.util.VersionInfo;
  *
  */
 public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, UserRegistry.UserChangedListener {
+    /**
+     * Q: Do we want different loggers for the multiplicity of inner classes?
+     */
+    static final Logger logger = SurveyLog.forClass(STFactory.class);
     /**
      * This class tracks the expected maximum size of strings in the locale.
      * @author srl
@@ -720,7 +725,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         Timestamp last_mod = rs.getTimestamp(6); // last mod
                         User theSubmitter = sm.reg.getInfo(submitter);
                         if (theSubmitter == null) {
-                            SurveyLog.warnOnce("Ignoring votes for deleted user #" + submitter);
+                            SurveyLog.warnOnce(logger, "Ignoring votes for deleted user #" + submitter);
                         }
                         if (!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // check user permission to submit
                             continue;
@@ -732,7 +737,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                             internalSetVoteForValue(theSubmitter, xpath, value, voteOverride, last_mod);
                             n++;
                         } catch (BallotBox.InvalidXPathException e) {
-                            System.err.println("InvalidXPathException: Deleting vote for " + theSubmitter + ":" + locale + ":" + xpath);
+                            logger.severe("InvalidXPathException: Deleting vote for " + theSubmitter + ":" + locale + ":" + xpath);
                             rs.deleteRow();
                             del++;
                         }
@@ -1411,8 +1416,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         @Override
         public String getValueAtDPath(String path) {
             String v = delegate.getValueAtDPath(path);
-            // logger.warning("@@@@ ("+this.getLocaleID()+")" +
-            // path+"="+v);
             return v;
         }
 
@@ -2036,13 +2039,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             flagList = new HashSet<>();
 
-            System.out.println("Loading flagged items from .." + DBUtils.Table.VOTE_FLAGGED);
+            logger.fine("Loading flagged items from .." + DBUtils.Table.VOTE_FLAGGED);
             try {
                 for (Map<String, Object> r : DBUtils.queryToArrayAssoc("select * from " + DBUtils.Table.VOTE_FLAGGED)) {
                     flagList.add(new Pair<>(CLDRLocale.getInstance(r.get("locale").toString()),
                         (Integer) r.get("xpath")));
                 }
-                System.out.println("Loaded " + flagList.size() + " items into flagged list.");
+                if (flagList.isEmpty()) {
+                    // quell loading of empty votes
+                    logger.fine("Loaded " + flagList.size() + " items into flagged list.");
+                } else {
+                    logger.info("Loaded " + flagList.size() + " items into flagged list.");
+
+                }
             } catch (SQLException sqe) {
                 SurveyMain.busted("loading flagged votes from " + DBUtils.Table.VOTE_FLAGGED, sqe);
             } catch (IOException ioe) {

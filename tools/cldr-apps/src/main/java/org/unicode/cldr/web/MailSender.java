@@ -24,6 +24,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.mail.Authenticator;
@@ -43,13 +44,12 @@ import org.unicode.cldr.util.CLDRLocale;
  * Helper class. Sends mail with a simple interface
  */
 public class MailSender implements Runnable {
-    final static Logger logger = Logger.getLogger(MailSender.class.getName());
+    final static Logger logger = SurveyLog.forClass(MailSender.class);
 
     private static final String CLDR_MAIL = "cldr_mail";
 
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
 
-    public final boolean DEBUG = CLDRConfig.getInstance().getProperty("CLDR_DEBUG_MAIL", false) || (SurveyMain.isUnofficial() && SurveyLog.isDebug());
     public final boolean CLDR_SENDMAIL = CLDRConfig.getInstance().getProperty("CLDR_SENDMAIL", true);
 
     private UserRegistry.User getUser(int user) {
@@ -366,7 +366,7 @@ public class MailSender implements Runnable {
             int countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
             Thread.currentThread().setName("SurveyTool MailSender: waiting count=" + countLeft);
             if (countLeft > 0) {
-                if (DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
+                logger.fine("MailSender: waiting mails: " + countLeft);
             }
 
             java.sql.Timestamp sqlnow = DBUtils.sqlNow();
@@ -377,14 +377,10 @@ public class MailSender implements Runnable {
             ) {
                 if (rs.next() == false) { // No mail to send.
                     if (lastIdProcessed > 0) {
-                        if (DEBUG) {
-                            logger.info("reset lastidprocessed to -1");
-                        }
+                        logger.finer("reset lastidprocessed to -1");
                         lastIdProcessed = -1;
                     }
-                    if (DEBUG) {
-                        logger.info("No mail to check.");
-                    }
+                    logger.fine("No mail to check.");
                     conn.rollback();  // Nothing to do, so roll back any txn
 
                     return; // nothing to do
@@ -400,13 +396,13 @@ public class MailSender implements Runnable {
                             env.getProperty("CLDR_SMTP_PASSWORD"));
                     }
                 });
-                if (DEBUG) {
+                if (logger.getLevel().intValue() >= Level.FINE.intValue()) {
                     ourSession.setDebug(true);
                 }
 
                 try {
                     lastIdProcessed = rs.getInt("id"); // update ID
-                    if (DEBUG) logger.info("Processing id " + lastIdProcessed);
+                    logger.fine("Processing id " + lastIdProcessed);
                     MimeMessage ourMessage = new MimeMessage(ourSession);
 
                     // from - sending user or surveytool
@@ -481,19 +477,19 @@ public class MailSender implements Runnable {
                                 "Pretending to send mail - mail.host is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
                     }
 
-                    if (DEBUG) logger.info("Successful send of id " + lastIdProcessed + " to " + toUser);
+                    logger.fine("Successful send of id " + lastIdProcessed + " to " + toUser);
 
                     if (!DBUtils.updateTimestamp(rs, "sent_date", sqlnow)) {
                         SurveyLog.warnOnce("Sorry, mail isn't supported without SQL update. You may need to use a different database or JDBC driver.");
                         shutdown();
                         return;
                     } else {
-                        if (DEBUG) logger.info("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
+                        logger.fine("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
                         rs.updateRow();
                     }
-                    if (DEBUG) logger.info("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
+                    logger.fine("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
                     conn.commit();
-                    if (DEBUG) logger.info("Mail: committed: #id " + lastIdProcessed + " to " + toUser);
+                    logger.fine("Mail: committed: #id " + lastIdProcessed + " to " + toUser);
 
                     // do more?
                     countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
@@ -519,7 +515,7 @@ public class MailSender implements Runnable {
                     rs.updateTimestamp("try_date", sqlnow);
                     rs.updateRow();
                     conn.commit();
-                    if (DEBUG) logger.info("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed + "  - " + badException.getCause());
+                    logger.fine("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed + "  - " + badException.getCause());
                 }
             }
         } catch (SQLException se) {

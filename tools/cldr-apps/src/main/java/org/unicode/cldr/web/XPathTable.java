@@ -51,7 +51,7 @@ import com.ibm.icu.impl.Utility;
  *    "long" StringID:    this is the "long" form of the hex id.  Not used within the SurveyTool, some CLDR tools use it.
  */
 public class XPathTable {
-    private static final Logger logger = Logger.getLogger(XPathTable.class.getName());
+    private static final Logger logger = SurveyLog.forClass(XPathTable.class);
     public static final String CLDR_XPATHS = "cldr_xpaths";
 
     private PrettyPath ppath = new PrettyPath();
@@ -79,12 +79,13 @@ public class XPathTable {
         }
     }
 
+
     private void loadXPaths(Connection conn) throws SQLException {
         if (stringToId.size() != 0) { // Only load the entire stringToId map
             // once.
             return;
         }
-        ElapsedTimer et = new ElapsedTimer("XPathTable: load all xpaths");
+        ElapsedTimer et = new ElapsedTimer("XPathTable:  xpaths");
         int ixpaths = 0;
         PreparedStatement queryStmt = DBUtils.prepareForwardReadOnly(conn, "SELECT id,xpath FROM " + CLDR_XPATHS);
         // First, try to query it back from the DB.
@@ -97,8 +98,9 @@ public class XPathTable {
             ixpaths++;
         }
         queryStmt.close();
+        // quell this message in testing
         final boolean hushMessages = CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST;
-        if (!hushMessages) System.err.println(et + ": " + ixpaths + " loaded");
+        if(!hushMessages) logger.info(et + ": " + ixpaths + " loaded");
     }
 
     /**
@@ -716,8 +718,9 @@ public class XPathTable {
                 return x;
             }
         }
-        if (SurveyMain.isUnofficial())
-            System.err.println("xpt: Couldn't find stringid " + id + " - sid has " + sidToString.size());
+        if (SurveyMain.isUnofficial()) {
+            logger.warning("xpt: Couldn't find stringid " + id + " - sid has " + sidToString.size());
+        }
         // it may be
         return null;
     }

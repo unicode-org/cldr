@@ -22,7 +22,7 @@ import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class UserList {
-    private static final Logger logger = Logger.getLogger(UserList.class.getName());
+    private static final Logger logger = SurveyLog.forClass(UserList.class);
     private static final boolean DEBUG = true;
 
     private static final String LIST_ACTION_SETLEVEL = "set_userlevel_";

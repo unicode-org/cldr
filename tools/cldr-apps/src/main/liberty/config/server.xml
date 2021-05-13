@@ -43,7 +43,10 @@
 		<fileset dir="jdbc" includes="*.jar" />
 	</library>
 
-	<!-- default logging settings -->
+	<!-- default logging settings
+		Can set traceSpecification="org.unicode.cldr.web.DBUtils=fine" here
+		or property com.ibm.ws.logging.trace.specification=org.unicode.cldr.web.DBUtils=fine
+	 -->
 	<logging
 		maxFileSize="50"
 		maxFiles="10"

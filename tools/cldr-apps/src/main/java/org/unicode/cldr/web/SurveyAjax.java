@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -85,6 +86,8 @@ import com.ibm.icu.util.Output;
  */
 @MultipartConfig
 public class SurveyAjax extends HttpServlet {
+    static final Logger logger = SurveyLog.forClass(SurveyAjax.class);
+
     final boolean DEBUG = false; //  || SurveyLog.isDebug();
     public final static String WHAT_MY_LOCALES = "mylocales";
 
@@ -1247,7 +1250,7 @@ public class SurveyAjax extends HttpServlet {
         if (gLocMap == null) {
             ElapsedTimer et = new ElapsedTimer("SurveyAjax.getJSONLocMap: created JSON locale map ");
             gLocMap = createJSONLocMap(sm);
-            System.err.println(et.toString() + " - serializes to: " + gLocMap.toString().length() + "chars.");
+            logger.info(et.toString() + " - serializes to: " + gLocMap.toString().length() + "chars.");
         }
         return gLocMap;
     }

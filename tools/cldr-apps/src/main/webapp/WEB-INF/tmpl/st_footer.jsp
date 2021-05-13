@@ -15,8 +15,8 @@
         ctx.print(SurveyMain.getGuestsAndUsers());
         ctx.print("</span> \u00b7 ");
         ctx.print(" served in " + ctx.reqTimer + " <span id='dynload'></span></div>");
-        
-        
+
+
         ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='" + SurveyMain.URL_CLDR + "'>Common Locale Data Repository</a>");
        // if (ctx.request != null)
             try {
@@ -44,11 +44,11 @@
                         + "'>Report Problem in Tool</a>");
             } catch (Throwable t) {
                 SurveyLog.logException(t, ctx);
-                SurveyLog.logger.warning(t.toString());
+                SurveyLog.errln(t.toString()); // TODO: remove this JSP!
                 t.printStackTrace();
             }
-        
-        ctx.println("</div>");        
+
+        ctx.println("</div>");
         ctx.println("</body>");
         ctx.println("</html>");
 %>

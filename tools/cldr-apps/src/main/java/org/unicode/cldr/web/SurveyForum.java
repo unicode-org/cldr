@@ -44,7 +44,7 @@ public class SurveyForum {
 
     private static final String FLAGGED_FOR_REVIEW_HTML = " <p>[This item was flagged for CLDR TC review.]";
 
-    private static java.util.logging.Logger logger = Logger.getLogger(SurveyForum.class.getName());
+    private static java.util.logging.Logger logger = SurveyLog.forClass(SurveyForum.class);
 
     private static String DB_FORA = "sf_fora"; // forum name -> id
 
@@ -246,9 +246,7 @@ public class SurveyForum {
             + ">\n====\n\n"
             + text;
 
-        if (MailSender.getInstance().DEBUG) {
-            System.out.println(et + ": Forum notify: u#" + user.id + " x" + base_xpath + " queueing cc:" + cc_emails.size() + " and bcc:" + bcc_emails.size());
-        }
+        logger.fine(et + ": Forum notify: u#" + user.id + " x" + base_xpath + " queueing cc:" + cc_emails.size() + " and bcc:" + bcc_emails.size());
 
         MailSender.getInstance().queue(user.id, cc_emails, bcc_emails, HTMLUnsafe(subject), HTMLUnsafe(body), locale, base_xpath, postId);
     }

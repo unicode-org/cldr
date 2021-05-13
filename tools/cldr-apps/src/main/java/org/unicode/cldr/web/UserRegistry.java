@@ -156,7 +156,7 @@ public class UserRegistry {
         }
     }
 
-    private static final java.util.logging.Logger logger = Logger.getLogger(UserRegistry.class.getName());
+    private static final java.util.logging.Logger logger = SurveyLog.forClass(UserRegistry.class);
     // user levels
     public static final int ADMIN = VoteResolver.Level.admin.getSTLevel();
     /**< Administrator **/

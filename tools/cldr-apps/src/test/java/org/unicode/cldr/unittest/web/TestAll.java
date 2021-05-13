@@ -38,7 +38,7 @@ import com.ibm.icu.text.RuleBasedCollator;
  * Top level test used to run all other tests as a batch.
  */
 public class TestAll extends TestGroup {
-    private static final Logger logger = Logger.getLogger(TestAll.class.getName());
+    private static final Logger logger = SurveyLog.forClass(TestAll.class);
 
     private static final String DB_SUBDIR = "db";
     private static final String CLDR_TEST_JDBC = TestAll.class.getPackage().getName() + ".jdbcurl";

@@ -61,7 +61,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class WebContext implements Cloneable, Appendable {
     public static final String TMPL_PATH = "/WEB-INF/tmpl/";
-    private static final java.util.logging.Logger logger = Logger.getLogger(WebContext.class.getName());
+    private static final java.util.logging.Logger logger = SurveyLog.forClass(WebContext.class);
     // USER fields
     public SurveyMain sm = null;
     public Document doc[] = new Document[0];

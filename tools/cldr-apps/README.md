@@ -19,8 +19,44 @@ web server, listening on port 9080
 See <http://cldr.unicode.org/development/running-survey-tool> for further information
 about the Survey Tool.
 
+## Using Logging
+
+This is interim guidance, to be expanded upon as part of [CLDR-8581](https://unicode-org.atlassian.net/browse/CLDR-8581)
+
+### Getting a logger
+
+Example:
+
+```java
+class MyClass {
+    static final java.util.logging.Logger logger = SurveyLog.forClass(MyClass.class);
+    // …
+    MyClass() {
+        logger.finer("A finer point.");  // see java.util.logging.Logger docs
+        logger.info("Something informative!");
+        logger.warning("Something bad happened!");
+    }
+}
+```
+
+### Configuring log
+
+In `bootstrap.properties` _or other mechanism for setting system properties_, set the following to bump the log level:
+
+```properties
+com.ibm.ws.logging.trace.specification=org.unicode.cldr.web.MyClass.level=finest
+```
+
+You can also set in the `server.xml`:
+
+```xml
+<logging traceSpecification="org.unicode.cldr.web.MyClass.level=finest"/>
+```
+
+See <https://openliberty.io/docs/21.0.0.4/log-trace-configuration.html>
+
 ### Licenses
- 
+
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)
 a copy of which is included as [unicode-license.txt](../../unicode-license.txt).
 

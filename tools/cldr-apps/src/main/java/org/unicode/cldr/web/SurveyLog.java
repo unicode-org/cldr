@@ -15,15 +15,22 @@ import org.unicode.cldr.util.CLDRConfig;
  * @author srl
  */
 public class SurveyLog {
-    static boolean DEBUG = false;
-    private static boolean checkDebug = false;
-    // Logging
-    private static Logger logger;
-
-    static {
-        logger = Logger.getLogger(SurveyLog.class.getName());
+    /**
+     * Get a Logger class for the specified calling class.
+     * @param clazz
+     * @return
+     */
+    public static final Logger forClass(Class<?> clazz) {
+        return Logger.getLogger(clazz.getName());
     }
 
+
+    // Logging. Using a static reference for pedagogical reasons.
+    private static final Logger logger = SurveyLog.forClass(SurveyLog.class);
+
+
+    static boolean DEBUG = false;
+    private static boolean checkDebug = false;
     @Deprecated
     static final void errln(String s) {
         logger.severe(s);

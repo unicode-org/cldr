@@ -346,7 +346,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         + "function hide(what)\n"
         + "{document.getElementById(what).style.display=\"none\";\ndocument.getElementById(\"h_\"+what).style.display=\"block\";}\n"
         + "--></script>";
-    private static final Logger logger = Logger.getLogger(SurveyMain.class.getName());
+    private static final Logger logger = SurveyLog.forClass(SurveyMain.class);
 
     private static HelpMessages surveyToolSystemMessages = null;
     private static String CLDR_SURVEYTOOL_HASH = null;
@@ -412,6 +412,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public final void init(final ServletConfig config) throws ServletException {
         initCalled = true;
         logger.info("SurveyMain.init() " + uptime);
+        System.out.println("SurveyMain.init() " + uptime);
         try {
             new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is
             // available before we get
@@ -2950,12 +2951,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 .info("Phase: " + cconfig.getPhase() + " " + getNewVersion() + ",  environment: " + cconfig.getEnvironment() + " " + getCurrev(false));
         }
         if (!isBusted()) {
-            logger.info("------- SurveyTool ready for requests after " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
-                + "----------------------------\n\n\n");
+            final String startupMsg = "------- SurveyTool ready for requests after " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
+            + "----------------------------\n\n\n";
+            System.out.println(startupMsg);
+            logger.info(startupMsg);
             // TODO: use a Future instead
             isSetup = true;
         } else {
-            logger.info("------- SurveyTool FAILED TO STARTUP, " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
+            logger.warning("------- SurveyTool FAILED TO STARTUP, " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
                 + "----------------------------\n\n\n");
         }
     }

@@ -20,7 +20,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 
 public class SurveyThreadManager  {
-    static final Logger logger = Logger.getLogger(SurveyThreadManager.class.getName());
+    static final Logger logger = SurveyLog.forClass(SurveyThreadManager.class);
     private static final String JAVA_COMP_DEFAULT_MANAGED_THREAD_FACTORY = "java:comp/DefaultManagedThreadFactory";
     private static final String DEFAULT_MANAGED_EXECUTOR = "java:comp/DefaultManagedExecutorService";
     private static final String DEFAULT_MANAGED_SCHEDULED_EXECUTOR = "java:comp/DefaultManagedScheduledExecutorService";

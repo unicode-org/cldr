@@ -11,11 +11,13 @@ import org.apache.commons.io.FileUtils;
 
 import com.google.common.io.Files;
 
+import org.unicode.cldr.web.SurveyLog;
+
 /**
  * Central management for cache files.
  */
 public class CLDRCacheDir {
-    final static Logger logger = Logger.getLogger(CLDRCacheDir.class.getName());
+    final static Logger logger = SurveyLog.forClass(CLDRCacheDir.class);
     private static final String CACHE_SUBDIR = ".cache";
     /**
      * All users of the cache must have an enum entry here

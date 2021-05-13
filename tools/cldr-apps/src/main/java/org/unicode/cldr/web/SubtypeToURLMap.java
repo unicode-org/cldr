@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -40,6 +41,7 @@ import com.ibm.icu.text.MessageFormat;
 
 @CLDRTool(alias="subtype-to-url-map", description = "parse each of the params as a path or URL to a subtype map and check.")
 public class SubtypeToURLMap {
+    static final Logger logger = SurveyLog.forClass(SubtypeToURLMap.class);
     /**
      * Little tool for validating input data.
      * @param args list of files to validate, if empty runs against default data.
@@ -176,9 +178,9 @@ public class SubtypeToURLMap {
             if(urlCount>0 && !hadSubtype) { // had URLs, but did not end with a subtype
                 throw new IllegalArgumentException("Error: Dangling URL " + url.toString() + " from line " + urlLast + " with no subtypes. Comment out that line.");
             } else if(subtypeLast == 0) {
-                System.err.println("SubtypeToURLMap: Warning: no subtypes specified or no BEGIN line detected.");
+                logger.warning("SubtypeToURLMap: Warning: no subtypes specified or no BEGIN line detected.");
             } else {
-                System.out.println("SubtypeToURLMap: read " + lineCount + " lines, " + urlCount + " urls and " + newMap.size() + " subtypes mapped.");
+                logger.info("SubtypeToURLMap: read " + lineCount + " lines, " + urlCount + " urls and " + newMap.size() + " subtypes mapped.");
             }
         }
 
@@ -364,7 +366,7 @@ public class SubtypeToURLMap {
         doc.select("div code").forEach(n ->
             n.textNodes()
                 .forEach(tn -> sb.append(tn.text()).append('\n')));
-        System.err.println("Read " + sb.length() + " chars from " + resource.toString());
+        logger.info("Read " + sb.length() + " chars from " + resource.toString());
         try (Reader sr = new StringReader(sb.toString());
             BufferedReader br = new BufferedReader(sr);) {
             return new SubtypeToURLMap(br);
@@ -392,7 +394,7 @@ public class SubtypeToURLMap {
 
                 try {
                     map = getInstance(cacheFile);
-                    System.out.println(" Read " + cacheFile.getAbsolutePath() + " - date " + fileDate);
+                    logger.info(" Read " + cacheFile.getAbsolutePath() + " - date " + fileDate);
                     if(fileDate.isAfter(staleAfter)) {
                         System.err.println("Cache file stale, will try to reload");
                     } else {
@@ -404,11 +406,11 @@ public class SubtypeToURLMap {
             }
             try {
                 map = SubtypeToURLMap.getInstance(new URL(getDefaultUrl()));
-                System.out.println("Read new map from " + getDefaultUrl());
+                logger.info("Read new map from " + getDefaultUrl());
                 // now, write out the cache
                 writeToCache(map);
             } catch (IOException | URISyntaxException e) {
-                System.err.println("Could not initialize SubtypeToURLMap: " + e + " for URL " + getDefaultUrl());
+                logger.warning("Could not initialize SubtypeToURLMap: " + e + " for URL " + getDefaultUrl());
                 e.printStackTrace();
                 // If we loaded the cache file, we will still use it.
             }

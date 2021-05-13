@@ -19,7 +19,7 @@ import org.unicode.cldr.util.VoteResolver;
  * Reference: https://docs.google.com/document/d/1VsJ2y7dp2kq_Iu-zLTjOvCooX4kRfVPui6WO51aFGzE/edit?skip_itp2_check=true#heading=h.trc1g4nsvdb8
  */
 public class PermanentVote {
-    private static final Logger logger = Logger.getLogger(PermanentVote.class.getName());
+    private static final Logger logger = SurveyLog.forClass(PermanentVote.class);
     private String localeName;
     private int xpathId;
     private String value;

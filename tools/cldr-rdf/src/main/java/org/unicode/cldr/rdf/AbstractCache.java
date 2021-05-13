@@ -21,6 +21,7 @@ import com.google.common.io.Files;
  * @author srl295
  */
 public class AbstractCache {
+    // This is equivalent to SurveyLog.forClass()
     static final Logger logger = Logger.getLogger(AbstractCache.class.getName());
     private static final String XPATH_TO_RESOURCE_FILE = "xpath-to-resource.properties";
 

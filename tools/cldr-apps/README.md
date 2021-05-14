@@ -55,6 +55,43 @@ You can also set in the `server.xml`:
 
 See <https://openliberty.io/docs/21.0.0.4/log-trace-configuration.html>
 
+## Testing SMTP
+
+I use [mailhog](https://github.com/mailhog/MailHog). From docker:
+
+```shell
+docker run --rm -p 8025:8025 -p 1025:1025 mailhog/mailhog
+```
+
+Then browse to http://localhost:8025 to watch mail flow in.
+
+Then, setup SurveyTool with these `cldr.properties`:
+
+```properties
+CLDR_SENDMAIL=true
+mail.host=127.0.0.1
+mail.smtp.port=1025
+
+## if needed
+## etc see
+#CLDR_SMTP_USER=authuser
+#CLDR_SMTP_PASSWORD=authpassword
+#mail.smtp.auth=true
+#mail.smtp.starttls.enable=true
+# see <https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html>
+
+## other properties
+## how long after ST startup before we start trying to send out mail
+#CLDR_MAIL_DELAY_FIRST=55
+## how many seconds to wait between each "batch"
+#CLDR_MAIL_DELAY_EACH=15
+## How many mails to send in each "batch"
+#CLDR_MAIL_BATCHSIZE=0
+## How long to wait between each mail in the batch.
+CLDR_MAIL_DELAY_BATCH_ITEM=0
+
+```
+
 ### Licenses
 
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)

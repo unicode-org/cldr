@@ -206,15 +206,17 @@ public class AdminPanel {
         r.put("defaultLevel", UserRegistry.TC);
     }
 
+    static final String allNames[] = {
+        // http://en.wikipedia.org/wiki/List_of_most_popular_given_names (Greenland)
+        "Ivaana", "Pipaluk", "Nivi", "Paninnguaq", "Ivalu", "Naasunnguaq", "Julie", "Ane", "Isabella", "Kimmernaq",
+        "Malik", "Aputsiaq", "Minik", "Hans", "Inunnguaq", "Kristian", "Nuka", "Salik", "Peter", "Inuk",
+    };
+
     private String randomName() {
         // generate random name
         StringBuilder genname = new StringBuilder();
 
-        // http://en.wikipedia.org/wiki/List_of_most_popular_given_names#Oceania
-        genname.append(choose("Tarita", "Hiro", "Teiki", "Moana", "Manua", "Marama",
-            "Teiva", "Teva", "Maui", "Tehei", "Tamatoa", "Ioane", "Tapuarii",
-            "Tiare", "Hinano", "Poema", "Maeva", "Hina", "Vaea", "Titaua", "Moea",
-            "Moeata", "Tarita", "Titaina", "Teura", "Heikapu", "Mareva"));
+        genname.append(choose(allNames));
         genname.append(' ');
         genname.append((char) ('A' + new Random().nextInt(26)));
         genname.append('.');

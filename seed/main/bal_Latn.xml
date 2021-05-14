@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2021 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="bal"/>
+		<script type="Latn"/>
+	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
+		<languages>
+			<language type="bal">Balóchi</language>
+			<language type="de">Jarman</language>
+			<language type="de_AT">Ástriái Jarman</language>
+			<language type="de_CH">Swizi Jarman</language>
+			<language type="en">Engrézi</language>
+			<language type="en_AU">Ástréliái Engrézi</language>
+			<language type="en_CA">Kaynadhái Engrézi</language>
+			<language type="en_GB">Bartániái Engrézi</language>
+			<language type="en_US">Amriki Engrézi</language>
+			<language type="es">Espini</language>
+			<language type="es_419">Zerbári-Amriki Espini</language>
+			<language type="es_ES">Espini (Espin)</language>
+			<language type="es_MX">Meksiki Espini</language>
+			<language type="fr">Paránsi</language>
+			<language type="fr_CA">Kaynadhái Paránsi</language>
+			<language type="fr_CH">Swizi Paránsi</language>
+			<language type="it">Itáliái</language>
+			<language type="ja">Jápáni</language>
+			<language type="pt">Portagáli</language>
+			<language type="pt_BR">Brázili Portagáli</language>
+			<language type="pt_PT">Yuropi Portagáli</language>
+			<language type="ru">Rusi</language>
+			<language type="und">Nagisshetagén zobán</language>
+			<language type="zh">Chini</language>
+			<language type="zh_Hans">Sádah kortagén Chini</language>
+			<language type="zh_Hant">Rabyati Chini</language>
+		</languages>
+		<scripts>
+			<script type="Arab">Arabi</script>
+			<script type="Cyrl">Rusi</script>
+			<script type="Hans">Hán (sádah kortagén)</script>
+			<script type="Hant">Hán (asligén)</script>
+			<script type="Latn">Látin</script>
+			<script type="Zxxx">Nebeshtah nabutagén syáhag</script>
+			<script type="Zzzz">Kódh nakortagén syáhag</script>
+		</scripts>
+		<territories>
+			<territory type="BR">Brázil</territory>
+			<territory type="CN">Chin</territory>
+			<territory type="DE">Jarmani</territory>
+			<territory type="FR">Paráns</territory>
+			<territory type="GB">Bartániá</territory>
+			<territory type="IN">Hendostán</territory>
+			<territory type="IT">Itáliá</territory>
+			<territory type="JP">Jápán</territory>
+			<territory type="PK">Pákestán</territory>
+			<territory type="RU">Rus</territory>
+			<territory type="US">Amrikáay Tepákén Están</territory>
+			<territory type="ZZ">Nagisshetagén damag</territory>
+		</territories>
+		<types>
+			<type key="calendar" type="buddhist">Buddái sáldar</type>
+			<type key="calendar" type="chinese">Chini sáldar</type>
+			<type key="calendar" type="coptic">Kobti sáldar</type>
+			<type key="calendar" type="dangi">Dángi sáldar</type>
+			<type key="calendar" type="ethiopic">Etupiái sáldar</type>
+			<type key="calendar" type="ethiopic-amete-alem">Etupiái Ámet Álem sáldar</type>
+			<type key="calendar" type="gregorian">Miládi sáldar</type>
+			<type key="calendar" type="hebrew">Ebráni sáldar</type>
+			<type key="calendar" type="indian">Hendi Kawmi sáldar</type>
+			<type key="calendar" type="islamic">Eslámi sáldar</type>
+			<type key="calendar" type="islamic-civil">Eslámi shahri sáldar</type>
+			<type key="calendar" type="islamic-rgsa">Eslámi Saudi-Arabi sáldar</type>
+			<type key="calendar" type="islamic-tbla">Eslámi Nojumi sáldar</type>
+			<type key="calendar" type="islamic-umalqura">Eslámi Omm al-Korrahi sáldar</type>
+			<type key="calendar" type="iso8601">ISO-8601 sáldar</type>
+			<type key="calendar" type="japanese">Jápáni sáldar</type>
+			<type key="calendar" type="persian">Pársi sáldar</type>
+			<type key="calendar" type="roc">Mingu-Chini sáldar</type>
+			<type key="cf" type="standard">Zarray anjárén káleb</type>
+			<type key="collation" type="standard">Gisshetagén red o band</type>
+			<type key="numbers" type="arab">Arabi-Hendi mórdán</type>
+			<type key="numbers" type="cyrl">Rusi mórdán</type>
+			<type key="numbers" type="deva">Dénágari mórdán</type>
+			<type key="numbers" type="latn">Rónendi mórdán</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">mitari</measurementSystemName>
+			<measurementSystemName type="UK">Bartáni</measurementSystemName>
+			<measurementSystemName type="US">Amriki</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">zobán: {0}</codePattern>
+			<codePattern type="script">syáhag: {0}</codePattern>
+			<codePattern type="territory">damag: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters>[a á b c d e é g h i j k l m n o ó p r s t u v w y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[f ń q x]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[, . ? : ; ‘ ’ “ ”]</exemplarCharacters>
+		<exemplarCharacters type="index">[Á A B {Ch} D {Dh} É E F G H I J K L M N Ó O P R {Rh} S {Sh} T {Th} U V W Y Z {Zh}]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Jan</month>
+							<month type="2">Par</month>
+							<month type="3">Már</month>
+							<month type="4">Apr</month>
+							<month type="5">Mai</month>
+							<month type="6">Jun</month>
+							<month type="7">Jól</month>
+							<month type="8">Aga</month>
+							<month type="9">Sat</month>
+							<month type="10">Akt</month>
+							<month type="11">Naw</month>
+							<month type="12">Das</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Janwari</month>
+							<month type="2">Parwari</month>
+							<month type="3">Márch</month>
+							<month type="4">Aprél</month>
+							<month type="5">Mai</month>
+							<month type="6">Jun</month>
+							<month type="7">Jólái</month>
+							<month type="8">Agast</month>
+							<month type="9">Satambar</month>
+							<month type="10">Aktubar</month>
+							<month type="11">Nawambar</month>
+							<month type="12">Dasambar</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Yak</day>
+							<day type="mon">Do</day>
+							<day type="tue">Say</day>
+							<day type="wed">Chá</day>
+							<day type="thu">Pan</day>
+							<day type="fri">Jom</day>
+							<day type="sat">Sha</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Yakshambeh</day>
+							<day type="mon">Doshambeh</day>
+							<day type="tue">Sayshambeh</day>
+							<day type="wed">Chárshambeh</day>
+							<day type="thu">Panchshambeh</day>
+							<day type="fri">Jomah</day>
+							<day type="sat">Shambeh</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1/4</quarter>
+							<quarter type="2">2/4</quarter>
+							<quarter type="3">3/4</quarter>
+							<quarter type="4">4/4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">awali chárek</quarter>
+							<quarter type="2">domi chárek</quarter>
+							<quarter type="3">sayomi chárek</quarter>
+							<quarter type="4">cháromi chárek</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1/4</quarter>
+							<quarter type="2">2/4</quarter>
+							<quarter type="3">3/4</quarter>
+							<quarter type="4">4/4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">awali chárek</quarter>
+							<quarter type="2">domi chárek</quarter>
+							<quarter type="3">sayomi chárek</quarter>
+							<quarter type="4">cháromi chárek</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM, yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM, yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM, yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>hh:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>hh:mm:ss a zzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>hh:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>hh:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<metazone type="Alaska">
+				<long>
+					<generic>Aláskáay wahd</generic>
+					<standard>Aláskáay anjári wahd</standard>
+					<daylight>Aláskáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic>Amázónay wahd</generic>
+					<standard>Amázónay anjári wahd</standard>
+					<daylight>Amázónay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic>Delgáhi Amrikáay wahd</generic>
+					<standard>Delgáhi Amrikáay anjári wahd</standard>
+					<daylight>Delgáhi Amrikáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>Ródarátki Amrikáay wahd</generic>
+					<standard>Ródarátki Amrikáay anjári wahd</standard>
+					<daylight>Ródarátki Amrikáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>Kóhestagi Amrikáay wahd</generic>
+					<standard>Kóhestagi Amrikáay anjári wahd</standard>
+					<daylight>Kóhestagi Amrikáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>Árámzeri Amrikáay wahd</generic>
+					<standard>Árámzeri Amrikáay anjári wahd</standard>
+					<daylight>Árámzeri Amrikáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic>Arjentináay wahd</generic>
+					<standard>Arjentináay anjári wahd</standard>
+					<daylight>Arjentináay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic>Rónendi Arjentináay wahd</generic>
+					<standard>Rónendi Arjentináay anjári wahd</standard>
+					<daylight>Rónendi Arjentináay gramági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic>Delgáhi Ástréliáay wahd</generic>
+					<standard>Delgáhi Ástréliáay anjári wahd</standard>
+					<daylight>Delgáhi Ástréliáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic>Delgáhirónendi Ástréliáay wahd</generic>
+					<standard>Delgáhirónendi Ástréliáay anjári wahd</standard>
+					<daylight>Delgáhirónendi Ástréliáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic>Ródarátki Ástréliáay wahd</generic>
+					<standard>Ródarátki Ástréliáay anjári wahd</standard>
+					<daylight>Ródarátki Ástréliáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Lord_Howe">
+				<long>
+					<generic>Ástréliáay, Ládhaway wahd</generic>
+					<standard>Ástréliáay, Ládhaway anjári wahd</standard>
+					<daylight>Ástréliáay, Ládhaway garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic>Rónendi Ástréliáay wahd</generic>
+					<standard>Rónendi Ástréliáay anjári wahd</standard>
+					<daylight>Rónendi Ástréliáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic>Brázilay wahd</generic>
+					<standard>Brázilay anjári wahd</standard>
+					<daylight>Brázilay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>Delgáhi Yuropay wahd</generic>
+					<standard>Delgáhi Yuropay anjári wahd</standard>
+					<daylight>Delgáhi Yuropay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>Ródarátki Yuropay wahd</generic>
+					<standard>Ródarátki Yuropay anjári wahd</standard>
+					<daylight>Ródarátki Yuropay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard>Démterén Ródarátki Yuropay anjári wahd</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>Rónendi Yuropay wahd</generic>
+					<standard>Rónendi Yuropay anjári wahd</standard>
+					<daylight>Rónendi Yuropay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>Hawái/Alushiay wahd</generic>
+					<standard>Hawái/Alushiay anjári wahd</standard>
+					<daylight>Hawái/Alushiay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard>Delgáhi Endhonishiáay anjári wahd</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard>Ródarátki Endhonishiáay anjári wahd</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard>Rónendi Endhonishiáay anjári wahd</standard>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic>Erkuskay wahd</generic>
+					<standard>Erkuskay anjári wahd</standard>
+					<daylight>Erkuskay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard>Ródarátki Kázekestánay anjári wahd</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard>Rónendi Kázekestánay anjári wahd</standard>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>Krasnóyáskay wahd</generic>
+					<standard>Krasnóyáskay anjári wahd</standard>
+					<daylight>Krasnóyáskay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<standard>Makwáriay anjári wahd</standard>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>Mágadánay wahd</generic>
+					<standard>Mágadánay anjári wahd</standard>
+					<daylight>Mágadánay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
+					<generic>Shemálrónendi Meksikóay wahd</generic>
+					<standard>Górichánrónendi Meksikóay anjári wahd</standard>
+					<daylight>Shemálrónendi Meksikóay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>Árámzeri Meksikóay wahd</generic>
+					<standard>Árámzeri Meksikóay anjári wahd</standard>
+					<daylight>Árámzeri Meksikóay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>Máskóay wahd</generic>
+					<standard>Máskóay anjári wahd</standard>
+					<daylight>Máskóay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic>Nipándlaynday wahd</generic>
+					<standard>Nipándlaynday anjári wahd</standard>
+					<daylight>Nipándlaynday garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic>Noronáay wahd</generic>
+					<standard>Noronáay anjári wahd</standard>
+					<daylight>Noronáay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>Nawásibiskay wahd</generic>
+					<standard>Nawásibiskay anjári wahd</standard>
+					<daylight>Nawásibiskay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic>Ómskay wahd</generic>
+					<standard>Ómskay anjári wahd</standard>
+					<daylight>Ómskay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>Waládiwástókay wahd</generic>
+					<standard>Waládiwástókay anjári wahd</standard>
+					<daylight>Waládiwástókay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic>Yákuskay wahd</generic>
+					<standard>Yákuskay anjári wahd</standard>
+					<daylight>Yákuskay garmági wahd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>Yakátrinborgay wahd</generic>
+					<standard>Yakátrinborgay anjári wahd</standard>
+					<daylight>Yakátrinborgay garmági wahd</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<symbols numberSystem="latn">
+			<decimal>.</decimal>
+			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0 hazár</pattern>
+					<pattern type="1000" count="other">0 hazár</pattern>
+					<pattern type="10000" count="one">00 hazár</pattern>
+					<pattern type="10000" count="other">00 hazár</pattern>
+					<pattern type="100000" count="one">0 lakk</pattern>
+					<pattern type="100000" count="other">0 lakk</pattern>
+					<pattern type="1000000" count="one">0 milyun</pattern>
+					<pattern type="1000000" count="other">0 milyun</pattern>
+					<pattern type="10000000" count="one">0 korórh</pattern>
+					<pattern type="10000000" count="other">0 korórh</pattern>
+					<pattern type="100000000" count="one">00 korórh</pattern>
+					<pattern type="100000000" count="other">00 korórh</pattern>
+					<pattern type="1000000000" count="one">000 korórh</pattern>
+					<pattern type="1000000000" count="other">000 korórh</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one">0 h</pattern>
+					<pattern type="1000" count="other">0 h</pattern>
+					<pattern type="10000" count="one">00 h</pattern>
+					<pattern type="10000" count="other">00 h</pattern>
+					<pattern type="100000" count="one">0 l</pattern>
+					<pattern type="100000" count="other">0 l</pattern>
+					<pattern type="1000000" count="one">0 m</pattern>
+					<pattern type="1000000" count="other">0 m</pattern>
+					<pattern type="10000000" count="one">0 ko</pattern>
+					<pattern type="10000000" count="other">0 ko</pattern>
+					<pattern type="100000000" count="one">00 ko</pattern>
+					<pattern type="100000000" count="other">00 ko</pattern>
+					<pattern type="1000000000" count="one">000 ko</pattern>
+					<pattern type="1000000000" count="other">000 ko</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<currency type="BRL">
+				<displayName>Brázili riál</displayName>
+				<symbol>R$</symbol>
+				<symbol alt="narrow">R$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName>Chini yuan</displayName>
+				<symbol>¥</symbol>
+				<symbol alt="narrow">¥</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName>yuró</displayName>
+				<symbol>€</symbol>
+				<symbol alt="narrow">€</symbol>
+			</currency>
+			<currency type="GBP">
+				<displayName>Bartáni pawndh</displayName>
+				<symbol>£</symbol>
+				<symbol alt="narrow">£</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName>Hendostáni rupi</displayName>
+				<symbol>₹</symbol>
+				<symbol alt="narrow">₹</symbol>
+			</currency>
+			<currency type="IRR">
+				<displayName>Éráni ryál</displayName>
+				<symbol>ریال</symbol>
+				<symbol alt="narrow">ریال</symbol>
+			</currency>
+			<currency type="JPY">
+				<displayName>Jápáni yen</displayName>
+				<symbol>¥</symbol>
+				<symbol alt="narrow">¥</symbol>
+			</currency>
+			<currency type="PKR">
+				<displayName>Pákestáni rupi</displayName>
+				<symbol>Rs</symbol>
+				<symbol alt="narrow">Rs</symbol>
+			</currency>
+			<currency type="RUB">
+				<displayName>Rusi rubel</displayName>
+				<symbol>₽</symbol>
+				<symbol alt="narrow">₽</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>Amriki dhálar</displayName>
+				<symbol>$</symbol>
+				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="XXX">
+				<displayName>Nazántagén zarr</displayName>
+				<symbol>XXX</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+	<collations>
+		<collation type="standard">
+			<cr><![CDATA[
+				& 0 < á <<< Á & á < a <<< A & b < ch <<< Ch & d < dh <<< Dh & dh < é <<< É & é < e & n < ó <<< Ó & ó < o & r < rh <<< Rh & s < sh <<< Sh & t < th <<< Th & z < zh <<< Zh
+			]]></cr>
+		</collation>
+	</collations>
+	<posix>
+		<messages>
+			<yesstr>haw:h</yesstr>
+			<nostr>na:n</nostr>
+		</messages>
+	</posix>
+</ldml>

@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2021 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="bal"/>
+	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}، {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
+		<languages>
+			<language type="bal">بلۆچی</language>
+			<language type="de">جرمن</language>
+			<language type="de_AT">آستریایی جرمن</language>
+			<language type="de_CH">سویزی جرمن</language>
+			<language type="en">انگرێزی</language>
+			<language type="en_AU">اُسترالیایی انگرێزی</language>
+			<language type="en_CA">کانادایی انگرێزی</language>
+			<language type="en_GB">برتانیایی انگرێزی</language>
+			<language type="en_US">امریکی انگرێزی</language>
+			<language type="es">اِسپانیایی</language>
+			<language type="es_419">جنوب امریکی اسپانیایی</language>
+			<language type="es_ES">اسپانیایی</language>
+			<language type="es_MX">مکسیکی اسپانیایی</language>
+			<language type="fr">پرانسی</language>
+			<language type="fr_CA">کانادایی پرانسی</language>
+			<language type="fr_CH">سویزی پرانسی</language>
+			<language type="it">ایتالیایی</language>
+			<language type="ja">جاپانی</language>
+			<language type="pt">پرتگالی</language>
+			<language type="pt_BR">برازیلی پرتگالی</language>
+			<language type="pt_PT">یورپی پرتگالی</language>
+			<language type="ru">روسی</language>
+			<language type="und">نگیشّتگێن زبان</language>
+			<language type="zh">چینی</language>
+			<language type="zh_Hans">ساده کرتگێن چینی</language>
+			<language type="zh_Hant">اسلیگێن چینی</language>
+		</languages>
+		<scripts>
+			<script type="Arab">اربی</script>
+			<script type="Cyrl">روسی</script>
+			<script type="Hans">هان (ساده کرتگێن)</script>
+			<script type="Hant">هان (اسلیگێن)</script>
+			<script type="Latn">لاتین</script>
+			<script type="Zxxx">نبشته نبوتگێن سیاهگ</script>
+			<script type="Zzzz">کۆڈ نبوتگێن سیاهگ</script>
+		</scripts>
+		<territories>
+			<territory type="BR">برازیل</territory>
+			<territory type="CN">چین</territory>
+			<territory type="DE">جرمنی</territory>
+			<territory type="FR">پرانس</territory>
+			<territory type="GB">برتانیا</territory>
+			<territory type="IN">هندستان</territory>
+			<territory type="IT">ایتالیا</territory>
+			<territory type="JP">جاپان</territory>
+			<territory type="PK">پاکستان</territory>
+			<territory type="RU">روس</territory>
+			<territory type="US">امریکی هئوارێن ملک</territory>
+			<territory type="ZZ">نگیشّتگێن دمگ</territory>
+		</territories>
+		<types>
+			<type key="calendar" type="buddhist">بُدّایی سالدر</type>
+			<type key="calendar" type="chinese">چینی سالدر</type>
+			<type key="calendar" type="coptic">کپتی سالدر</type>
+			<type key="calendar" type="dangi">دانگی سالدر</type>
+			<type key="calendar" type="ethiopic">ایتیوپیایی سالدر</type>
+			<type key="calendar" type="ethiopic-amete-alem">ایتیوپیایی آمیت آلم سالدر</type>
+			<type key="calendar" type="gregorian">گرێگۆری سالدر</type>
+			<type key="calendar" type="hebrew">ابرانی سالدر</type>
+			<type key="calendar" type="indian">هندی کئومی سالدر</type>
+			<type key="calendar" type="islamic">اسلامی سالدر</type>
+			<type key="calendar" type="islamic-civil">اسلامی شهری سالدر</type>
+			<type key="calendar" type="islamic-rgsa">اسلامی سئوودی اربی سالدر</type>
+			<type key="calendar" type="islamic-tbla">اسلامی نجومی سالدر</type>
+			<type key="calendar" type="islamic-umalqura">اسلامی ام الکراهی سالدر</type>
+			<type key="calendar" type="iso8601">سالدر ISO-8601</type>
+			<type key="calendar" type="japanese">جاپانی سالدر</type>
+			<type key="calendar" type="persian">پارسی سالدر</type>
+			<type key="calendar" type="roc">مینگۆ چینی سالدر</type>
+			<type key="cf" type="standard">زرّئے گیشّتگێن کالب</type>
+			<type key="collation" type="standard">گیشّتگێن ترتیب</type>
+			<type key="numbers" type="arab">اربی-هندی نمبر</type>
+			<type key="numbers" type="cyrl">روسی نمبر</type>
+			<type key="numbers" type="deva">دێوناگری نمبر</type>
+			<type key="numbers" type="latn">مگربی نمبر</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">میتَری</measurementSystemName>
+			<measurementSystemName type="UK">برتانی</measurementSystemName>
+			<measurementSystemName type="US">امریکی</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">زبان: {0}</codePattern>
+			<codePattern type="script">سیاهگ: {0}</codePattern>
+			<codePattern type="territory">دمگ: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<layout>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters>[آ ا ب پ ت ٹ ج چ د ڈ ر ڑ ز ژ س ش ک گ ل م ن و ۆ ه ی ێ ے ئ ِ َ ُ ّ ْ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ث ح خ ذ ص ض ط ظ ع غ ف ق ں أ إ ؤ ہ ھ ة ء ٔ ً \u200D \u200C]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[. ، ؛ : ‹ › « » ' " ! ؟]</exemplarCharacters>
+		<exemplarCharacters type="index">[آ ا ب پ ت ٹ ج چ د ڈ ر ڑ ز ژ س ش ف ک گ ل م ن و ه ی {ای} {اێ} {ائی}]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">جن</month>
+							<month type="2">پر</month>
+							<month type="3">مار</month>
+							<month type="4">اپر</month>
+							<month type="5">مئیی</month>
+							<month type="6">جون</month>
+							<month type="7">جۆل</month>
+							<month type="8">اگست</month>
+							<month type="9">ستم</month>
+							<month type="10">اکت</month>
+							<month type="11">نئوم</month>
+							<month type="12">دسم</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">جنوری</month>
+							<month type="2">پروری</month>
+							<month type="3">مارچ</month>
+							<month type="4">اپرێل</month>
+							<month type="5">مئیی</month>
+							<month type="6">جون</month>
+							<month type="7">جۆلایی</month>
+							<month type="8">اگست</month>
+							<month type="9">ستمبر</month>
+							<month type="10">اکتوبر</month>
+							<month type="11">نئومبر</month>
+							<month type="12">دسمبر</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">یک</day>
+							<day type="mon">دو</day>
+							<day type="tue">سئے</day>
+							<day type="wed">چار</day>
+							<day type="thu">پنچ</day>
+							<day type="fri">جمه</day>
+							<day type="sat">شم</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">یکشمبه</day>
+							<day type="mon">دوشمبه</day>
+							<day type="tue">سئیشمبه</day>
+							<day type="wed">چارشمبه</day>
+							<day type="thu">پنچشمبه</day>
+							<day type="fri">جمه</day>
+							<day type="sat">شمبه</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1/4</quarter>
+							<quarter type="2">2/4</quarter>
+							<quarter type="3">3/4</quarter>
+							<quarter type="4">4/4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">ائوَلی چارِک</quarter>
+							<quarter type="2">دومی چارِک</quarter>
+							<quarter type="3">سئیمی چارِک</quarter>
+							<quarter type="4">چارُمی چارِک</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1/4</quarter>
+							<quarter type="2">2/4</quarter>
+							<quarter type="3">3/4</quarter>
+							<quarter type="4">4/4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">ائوَلی چارِک</quarter>
+							<quarter type="2">دومی چارِک</quarter>
+							<quarter type="3">سئیمی چارِک</quarter>
+							<quarter type="4">چارُمی چارِک</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM, yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM, yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM, yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>hh:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>hh:mm:ss a zzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>hh:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>hh:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat type="standard">
+							<pattern type="standard">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<metazone type="Alaska">
+				<long>
+					<generic>اَلاسکائے ساهت</generic>
+					<standard>اَلاسکائے گیشّتگێن ساهت</standard>
+					<daylight>اَلاسکائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic>امازۆنئے ساهت</generic>
+					<standard>امازۆنئے گیشّتگێن ساهت</standard>
+					<daylight>امازۆنئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic>نیامی امریکائے ساهت</generic>
+					<standard>نیامی امریکائے گیشّتگێن ساهت</standard>
+					<daylight>نیامی امریکائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>رۆدراتکی امریکائے ساهت</generic>
+					<standard>رۆدراتکی امریکائے گیشّتگێن ساهت</standard>
+					<daylight>رۆدراتکی امریکائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>کۆهستگێن امریکائے ساهت</generic>
+					<standard>کۆهستگێن امریکائے گیشّتگێن ساهت</standard>
+					<daylight>کۆهستگێن امریکائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>آرامزِری امریکائے ساهت</generic>
+					<standard>آرامزِری امریکائے گیشّتگێن ساهت</standard>
+					<daylight>آرامزِری امریکائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic>ارجنتینائے ساهت</generic>
+					<standard>ارجنتینائے گیشّتگێن ساهت</standard>
+					<daylight>ارجنتینائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic>ارجنتینائے ساهت</generic>
+					<standard>رۆنندی ارجنتینائے گیشّتگێن ساهت</standard>
+					<daylight>رۆنندی ارجنتینائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic>نیامی اُسترالیائے ساهت</generic>
+					<standard>نیامی اُسترالیائے گیشّتگێن ساهت</standard>
+					<daylight>نیامی اُسترالیائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic>نیام‌رۆنندی اُسترالیائے ساهت</generic>
+					<standard>نیام‌رۆنندی اُسترالیائے گیشّتگێن ساهت</standard>
+					<daylight>نیام‌رۆنندی اُسترالیائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic>رۆدراتکی اُسترالیائے ساهت</generic>
+					<standard>رۆدراتکی اُسترالیائے گیشّتگێن ساهت</standard>
+					<daylight>رۆدراتکی اُسترالیائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Lord_Howe">
+				<long>
+					<generic>لۆرڈ هئو اُسترالیائے ساهت</generic>
+					<standard>لۆرڈ هئو اُسترالیائے گیشّتگێن ساهت</standard>
+					<daylight>لۆرڈ هئو اُسترالیائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic>رۆنندی اُسترالیائے ساهت</generic>
+					<standard>رۆنندی اُسترالیائے گیشّتگێن ساهت</standard>
+					<daylight>رۆنندی اُسترالیائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic>برازیلئے ساهت</generic>
+					<standard>برازیلئے گیشّتگێن ساهت</standard>
+					<daylight>برازیلئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>نیامی یورپئے ساهت</generic>
+					<standard>نیامی یورپئے گیشّتگێن ساهت</standard>
+					<daylight>نیامی یورپئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>رۆدراتکی یورپئے ساهت</generic>
+					<standard>رۆدراتکی یورپئے گیشّتگێن ساهت</standard>
+					<daylight>رۆدراتکی یورپئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard>دێمتری رۆدراتکی یورپئے گیشّتگێن ساهت</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>رۆنندی یورپئے ساهت</generic>
+					<standard>رۆنندی یورپئے گیشّتگێن ساهت</standard>
+					<daylight>رۆنندی یورپئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>هئواییئے ساهت</generic>
+					<standard>هئواییئے گیشّتگێن ساهت</standard>
+					<daylight>هئواییئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard>نیامی اندۆنیزیائے گیشّتگێن ساهت</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard>رۆدراتکی اندۆنیزیائے گیشّتگێن ساهت</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard>رۆنندی اندۆنیزیائے گیشّتگێن ساهت</standard>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic>ایرکوتسکئے ساهت</generic>
+					<standard>ایرکوتسکئے گیشّتگێن ساهت</standard>
+					<daylight>ایرکوتسکئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard>رۆدراتکی کازکستانئے گیشّتگێن ساهت</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard>رۆنندی کازکستانئے گیشّتگێن ساهت</standard>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>کرانسنُیارسکئے ساهت</generic>
+					<standard>کرانسنُیارسکئے گیشّتگێن ساهت</standard>
+					<daylight>کرانسنُیارسکئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<standard>ماکواریئے گیشّتگێن ساهت</standard>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>مَگَدَنئے ساهت</generic>
+					<standard>مَگَدَنئے گیشّتگێن ساهت</standard>
+					<daylight>مَگَدَنئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
+					<generic>شمالی مِکسیکۆئے ساهت</generic>
+					<standard>شمالی مِکسیکۆئے گیشّتگێن ساهت</standard>
+					<daylight>شمالی مِکسیکۆئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>آرامزِری مِکسیکۆئے ساهت</generic>
+					<standard>آرامزِری مِکسیکۆئے گیشّتگێن ساهت</standard>
+					<daylight>آرامزِری مِکسیکۆئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>ماسکۆئے ساهت</generic>
+					<standard>ماسکۆئے گیشّتگێن ساهت</standard>
+					<daylight>ماسکۆئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic>نیوفاوونڈلئینڈئے ساهت</generic>
+					<standard>نیوفاوونڈلئینڈئے گیشّتگێن ساهت</standard>
+					<daylight>نیوفاوونڈلئینڈئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic>نُرُنهائے ساهت</generic>
+					<standard>نُرُنهائے گیشّتگێن ساهت</standard>
+					<daylight>نُرُنهائے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>نۆوۆسیبیرسکئے ساهت</generic>
+					<standard>نۆوۆسیبیرسکئے گیشّتگێن ساهت</standard>
+					<daylight>نۆوۆسیبیرسکئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic>اۆمسکئے ساهت</generic>
+					<standard>اۆمسکئے گیشّتگێن ساهت</standard>
+					<daylight>اۆمسکئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>ولادیوُستُکئے ساهت</generic>
+					<standard>ولادیوُستُکئے گیشّتگێن ساهت</standard>
+					<daylight>ولادیوُستُکئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic>یاکوتسکئے ساهت</generic>
+					<standard>یاکوتسکئے گیشّتگێن ساهت</standard>
+					<daylight>یاکوتسکئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>یێکاترینبورگئے ساهت</generic>
+					<standard>یێکاترینبورگئے گیشّتگێن ساهت</standard>
+					<daylight>یێکاترینبورگئے گرماگی ساهت</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<symbols numberSystem="latn">
+			<decimal>.</decimal>
+			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0 هزار</pattern>
+					<pattern type="1000" count="other">0 هزار</pattern>
+					<pattern type="10000" count="one">00 هزار</pattern>
+					<pattern type="10000" count="other">00 هزار</pattern>
+					<pattern type="100000" count="one">0 لکّ</pattern>
+					<pattern type="100000" count="other">0 لکّ</pattern>
+					<pattern type="1000000" count="one">0 میلیون</pattern>
+					<pattern type="1000000" count="other">0 میلیون</pattern>
+					<pattern type="10000000" count="one">0 کرۆڑ</pattern>
+					<pattern type="10000000" count="other">0 کرۆڑ</pattern>
+					<pattern type="100000000" count="one">00 کرۆڑ</pattern>
+					<pattern type="100000000" count="other">00 کرۆڑ</pattern>
+					<pattern type="1000000000" count="one">000 کرۆڑ</pattern>
+					<pattern type="1000000000" count="other">000 کرۆڑ</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one">0 ه</pattern>
+					<pattern type="1000" count="other">0 ه</pattern>
+					<pattern type="10000" count="one">00 ه</pattern>
+					<pattern type="10000" count="other">00 ه</pattern>
+					<pattern type="100000" count="one">0 ل</pattern>
+					<pattern type="100000" count="other">0 ل</pattern>
+					<pattern type="1000000" count="one">0 م</pattern>
+					<pattern type="1000000" count="other">0 م</pattern>
+					<pattern type="10000000" count="one">0 ک</pattern>
+					<pattern type="10000000" count="other">0 ک</pattern>
+					<pattern type="100000000" count="one">00 ک</pattern>
+					<pattern type="100000000" count="other">00 ک</pattern>
+					<pattern type="1000000000" count="one">000 ک</pattern>
+					<pattern type="1000000000" count="other">000 ک</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<currency type="BRL">
+				<displayName>برازیلی ریال</displayName>
+				<symbol>R$</symbol>
+				<symbol alt="narrow">R$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName>چینی یوان</displayName>
+				<symbol>¥</symbol>
+				<symbol alt="narrow">¥</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName>یورۆ</displayName>
+				<symbol>€</symbol>
+				<symbol alt="narrow">€</symbol>
+			</currency>
+			<currency type="GBP">
+				<displayName>برتانی پئوند</displayName>
+				<symbol>£</symbol>
+				<symbol alt="narrow">£</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName>هندُستانی روپّئیی</displayName>
+				<symbol>₹</symbol>
+				<symbol alt="narrow">₹</symbol>
+			</currency>
+			<currency type="IRR">
+				<displayName>اێرانی ریال</displayName>
+				<symbol>ریال</symbol>
+				<symbol alt="narrow">ریال</symbol>
+			</currency>
+			<currency type="JPY">
+				<displayName>جاپانی یَن</displayName>
+				<symbol>¥</symbol>
+				<symbol alt="narrow">¥</symbol>
+			</currency>
+			<currency type="PKR">
+				<displayName>پاکستانی روپی</displayName>
+				<symbol>Rs</symbol>
+				<symbol alt="narrow">Rs</symbol>
+			</currency>
+			<currency type="RUB">
+				<displayName>روسی روبل</displayName>
+				<symbol>₽</symbol>
+				<symbol alt="narrow">₽</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>امریکی دالر</displayName>
+				<symbol>$</symbol>
+				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="XXX">
+				<displayName>نگیشّتگێن زَرّ</displayName>
+				<symbol>XXX</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+	<collations>
+		<collation type="standard">
+			<cr><![CDATA[
+				& آ < ا & ٹ < ج & ڈ < ر & ڑ < ز & ۆ < ئو & ئو < ه & ێ < ے & ے < ئی & ئی < ئے
+			]]></cr>
+		</collation>
+	</collations>
+	<posix>
+		<messages>
+			<yesstr>هئو:ه</yesstr>
+			<nostr>نه:ن</nostr>
+		</messages>
+	</posix>
+</ldml>

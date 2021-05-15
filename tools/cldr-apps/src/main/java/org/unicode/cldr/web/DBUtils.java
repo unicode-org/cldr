@@ -1019,6 +1019,21 @@ public class DBUtils {
     }
 
     /**
+     * @param conn
+     * @param sql
+     * @param args
+     * @return
+     * @throws SQLException
+     */
+    public static PreparedStatement prepareStatementWithArgsUpdateable(Connection conn, String sql, Object... args) throws SQLException {
+        PreparedStatement ps;
+        ps = conn.prepareStatement(sql, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
+
+        setArgs(ps, args);
+        return ps;
+    }
+
+    /**
      * @param ps
      * @param args
      * @throws SQLException
@@ -1642,7 +1657,8 @@ public class DBUtils {
                 return true; // success- caller doesn't need to do an update.
             } catch (SQLFeatureNotSupportedException sfns) {
                 tryUpdates = false;
-                SurveyLog.warnOnce("SQL: Apparently updates aren't supported: " + sfns.toString() + " - falling back.");
+                SurveyLog.warnOnce(logger,
+                    "SQL: Apparently updates aren't supported: " + sfns.toString() + " - falling back.");
             }
         }
         return false; // caller needs to do an update

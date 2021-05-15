@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.UnitConverter.UnitSystem;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableListMultimap;
@@ -490,6 +491,31 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         return GrammarLocales.data;
     }
 
+    static final Set<String> INCLUDE_OTHER = ImmutableSet.of(
+        "g-force",
+        "arc-minute",
+        "arc-second",
+        "degree",
+        "revolution",
+        "bit",
+        "byte",
+        "week",
+        "calorie",
+        "pixel",
+        "generic",
+        "karat",
+        "percent",
+        "permille",
+        "permillion",
+        "permyriad",
+        "atmosphere",
+        "em",
+        "century",
+        "decade",
+        "month",
+        "year"
+        );
+    public static final boolean DEBUG = false;
     /**
      * Internal class for thread-safety
      */
@@ -498,20 +524,31 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         static {
             final CLDRConfig config = CLDRConfig.getInstance();
             final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
-            Set<String> _data = new TreeSet<>(CORE_UNITS_NEEDING_GRAMMAR);
+            Set<String> missing = new TreeSet<>();
+            Set<String> _data = new TreeSet<>();
             for (String path : With.in(config.getRoot().iterator("//ldml/units/unitLength[@type=\"short\"]/unit"))) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String unit = parts.getAttributeValue(3, "type");
-                // if one of the more important compound units, add it.
-                if (CORE_UNITS_NEEDING_GRAMMAR.contains(unit)) {
+                // Add simple units
+                String shortUnit = converter.getShortId(unit);
+                if (INCLUDE_OTHER.contains(shortUnit)) {
                     _data.add(unit);
-                } else {
-                    // Otherwise, add simple units
-                    String shortUnit = converter.getShortId(unit);
-                    if (converter.isSimple(shortUnit)) {
-                        _data.add(unit);
-                    }
+                    continue;
                 }
+                Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
+                if (converter.isSimple(shortUnit)
+                    && !Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
+                    _data.add(unit);
+                    continue;
+                }
+                missing.add(unit);
+            }
+            if (DEBUG) for (String unit : missing) {
+                String shortUnit = converter.getShortId(unit);
+                System.out.println("*Skipping\t" + unit
+                    + "\t" + converter.getQuantityFromUnit(shortUnit, false)
+                    + "\t" + converter.getSystemsEnum(shortUnit)
+                    + "\t" + (converter.isSimple(shortUnit) ? "SIMPLE" : ""));
             }
             data = ImmutableSet.copyOf(_data);
         }

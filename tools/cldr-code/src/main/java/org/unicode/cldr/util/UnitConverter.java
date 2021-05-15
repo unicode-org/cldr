@@ -1338,6 +1338,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
         ussystem,
         uksystem,
         other;
+
+        public static final Set<UnitSystem> SiOrMetric = ImmutableSet.of(UnitSystem.metric, UnitSystem.si);
+
         public static Set<UnitSystem> fromStringCollection(Collection<String> stringUnitSystems) {
             return stringUnitSystems.stream().map(x -> UnitSystem.valueOf(x)).collect(Collectors.toSet());
         }

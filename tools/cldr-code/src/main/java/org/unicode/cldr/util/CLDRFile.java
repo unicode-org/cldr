@@ -3449,7 +3449,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
                 // TODO use UnitPathType to get paths
                 if (!genders.isEmpty()) {
-                    for (String unit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+                    for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
                         toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender");
                     }
                     for (Count plural : adjustedPlurals) {
@@ -3475,7 +3475,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         toAddTo.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
 
                         for (Count plural : adjustedPlurals) {
-                            for (String unit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+                            for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
                                 toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
                                     + GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, plural.toString(), null, case1));
                             }

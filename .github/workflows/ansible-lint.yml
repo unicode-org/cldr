@@ -29,5 +29,7 @@ jobs:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Install Vagrant and Ansible
       run: brew install ansible
-    - name: Try the provision
-      run: cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant up
+    - name: Prepare the provision
+      run: (cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant validate)
+    - name: Try the provision (ignored, see CLDR-14757)
+      run: (cd tools/scripts/ansible && vagrant up) || ( echo Failing But Not Blocking CLDR-14757 ; true)

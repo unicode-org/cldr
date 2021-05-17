@@ -155,11 +155,8 @@ public class MetazoneSortMode extends SortMode {
                 return (pp != null && pp.matches("0-names\\|metazone\\|Bering:.++"));
             }
         },
-        new Partition.Membership("Yukon", "The Yukon time zone was used in the states of Alaska and Hawaii in the "
-            + "United States until 1983.  It is not currently in use. "
-            + "Daylight savings time was observed briefly in some areas, but was not the norm."
-            + "When DST was not in effect, the time zone was 10 hours behind UTC (UTC-10). "
-            + "When DST was in effect, the time zone was 9 hours behind UTC (UTC-9).") {
+        new Partition.Membership("Yukon", "The Yukon time zone is used by Yukon, Canada since November 2020. "
+            + "Daylight savings is not used. The time zone is 7 hours behind UTC (UTC-7).") {
             @Override
             public boolean isMember(DataRow p) {
                 String pp = p.getPrettyPath();

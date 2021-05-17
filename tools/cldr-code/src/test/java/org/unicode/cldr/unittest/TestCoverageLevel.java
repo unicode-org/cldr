@@ -338,7 +338,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
          */
         final ImmutableSet<String> inactiveMetazones = ImmutableSet.of("Bering", "Dominican", "Shevchenko", "Alaska_Hawaii", "Yerevan",
             "Africa_FarWestern", "British", "Sverdlovsk", "Karachi", "Malaya", "Oral", "Frunze", "Dutch_Guiana", "Irish", "Uralsk", "Tashkent", "Kwajalein",
-            "Yukon", "Ashkhabad", "Kizilorda", "Kuybyshev", "Baku", "Dushanbe", "Goose_Bay", "Liberia", "Samarkand", "Tbilisi", "Borneo", "Greenland_Central",
+            "Ashkhabad", "Kizilorda", "Kuybyshev", "Baku", "Dushanbe", "Goose_Bay", "Liberia", "Samarkand", "Tbilisi", "Borneo", "Greenland_Central",
             "Dacca", "Aktyubinsk", "Turkey", "Urumqi", "Acre", "Almaty", "Anadyr", "Aqtau", "Aqtobe", "Kamchatka", "Macau", "Qyzylorda", "Samara",
             "Casey", "Guam", "Lanka", "North_Mariana");
 

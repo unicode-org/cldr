@@ -12,7 +12,6 @@
     <url>https://unicode.org/cldr</url>
 
     <properties>
-        <mainClass>org.unicode.cldr.rdf.tool.FetchAbstracts</mainClass>
         <jenaVersion>3.16.0</jenaVersion>
     </properties>
 
@@ -89,7 +88,6 @@
             <artifactId>xercesImpl</artifactId>
         </dependency>
     </dependencies>
-        
     <build>
         <pluginManagement>
             <plugins>
@@ -97,7 +95,6 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <configuration>
-                    	<mainClass>${mainClass}</mainClass>
                         <systemProperties>
                             <systemProperty>
                                 <key>CLDR_DIR</key>

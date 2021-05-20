@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build-test": "webpack --config webpack-test.config.js",
-    "test": "npm run build-test && mocha-chrome test/Test.html",
+    "test": "npm run nonbrowser-test && npm run browser-test",
+    "nonbrowser-test": "mocha --require esm --reporter spec test/nonbrowser/test-*.js",
+    "browser-test": "npm run build-test && mocha-chrome test/Test.html",
     "lint": "exit 0",
     "build": "webpack",
     "watch": "webpack watch"
@@ -25,7 +27,10 @@
   "homepage": "https://github.com/unicode-org/cldr#readme",
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.7",
+    "chai": "^4.3.4",
     "css-loader": "^5.1.1",
+    "esm": "^3.2.25",
+    "mocha": "^8.4.0",
     "mocha-chrome": "^2.2.0",
     "style-loader": "^2.0.0",
     "vue-loader": "^16.1.2",

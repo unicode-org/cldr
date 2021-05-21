@@ -335,22 +335,23 @@ function unspecialHandleIdChanged() {
     if (!xtr) {
       console.log("Warning could not load id " + curId + " does not exist");
       updateCurrentId(null);
-    } else if (xtr.proposedcell && xtr.proposedcell.showFn) {
-      // TODO: visible? coverage?
+    } else {
+      if (!xtr.proposedcell || xtr.proposedcell.showFn) {
+        // warn, but show it anyway
+        console.log(
+          "Warning: now proposed cell && showFn " +
+            curId +
+            " - not setup - " +
+            xtr.toString() +
+            " pc=" +
+            xtr.proposedcell +
+            " sf = " +
+            xtr.proposedcell.showFn
+        );
+      }
       cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
       console.log("Changed to " + cldrStatus.getCurrentId());
       scrollToItem();
-    } else {
-      console.log(
-        "Warning could not load id " +
-          curId +
-          " - not setup - " +
-          xtr.toString() +
-          " pc=" +
-          xtr.proposedcell +
-          " sf = " +
-          xtr.proposedcell.showFn
-      );
     }
   }
 }

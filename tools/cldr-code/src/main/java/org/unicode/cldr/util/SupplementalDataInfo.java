@@ -3477,7 +3477,7 @@ public class SupplementalDataInfo {
         private final Set<String> adjustedCountStrings;
 
         // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
-        static final Pattern hasE = Pattern.compile("e\s*!?=");
+        static final Pattern hasE = Pattern.compile("e\\s*!?=");
 
         private PluralInfo(Map<Count, String> countToRule, PluralType pluralType) {
             EnumMap<Count, String> tempCountToRule = new EnumMap<>(Count.class);

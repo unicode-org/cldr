@@ -22,6 +22,7 @@ import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
 
@@ -481,7 +482,14 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
      * Internal class for thread-safety
      */
     static class GrammarLocales {
-        static final Set<String> data = CLDRConfig.getInstance().getSupplementalDataInfo().getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalCase);
+        static final Set<String> data = ImmutableSortedSet.copyOf(ImmutableSet.<String>builder()
+            .addAll(
+            CLDRConfig.getInstance().getSupplementalDataInfo()
+            .getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalCase))
+            .addAll(
+            CLDRConfig.getInstance().getSupplementalDataInfo()
+            .getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalGender)
+            ).build());
     }
 
     /**

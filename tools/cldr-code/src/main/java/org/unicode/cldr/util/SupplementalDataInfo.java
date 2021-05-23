@@ -3473,6 +3473,11 @@ public class SupplementalDataInfo {
         private final Set<Count> decimalKeywords;
         private final CountSampleList countSampleList;
         private final Map<Count, String> countToRule;
+        private final Set<Count> adjustedCounts;
+        private final Set<String> adjustedCountStrings;
+
+        // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+        static final Pattern hasE = Pattern.compile("e\s*!?=");
 
         private PluralInfo(Map<Count, String> countToRule, PluralType pluralType) {
             EnumMap<Count, String> tempCountToRule = new EnumMap<>(Count.class);
@@ -3498,6 +3503,10 @@ public class SupplementalDataInfo {
             EnumSet<Count> _keywords = EnumSet.noneOf(Count.class);
             EnumSet<Count> _integerKeywords = EnumSet.noneOf(Count.class);
             EnumSet<Count> _decimalKeywords = EnumSet.noneOf(Count.class);
+            Matcher hasEMatcher = hasE.matcher("");
+            Set<Count> _adjustedCounts = null;
+            Set<String> _adjustedCountStrings = null;
+
             for (String s : pluralRules.getKeywords()) {
                 Count c = Count.valueOf(s);
                 _keywords.add(c);
@@ -3511,7 +3520,19 @@ public class SupplementalDataInfo {
                 } else {
                     int debug = 1;
                 }
+                String parsedRules = pluralRules.getRules(s);
+                if (!hasEMatcher.reset(parsedRules).find()) {
+                    if (_adjustedCounts == null) {
+                        _adjustedCounts = new TreeSet<>();
+                        _adjustedCountStrings = new TreeSet<>();
+                    }
+                    _adjustedCounts.add(c);
+                    _adjustedCountStrings.add(s);
+                }
             }
+            adjustedCounts = _adjustedCounts == null ? Collections.emptySet() : ImmutableSet.copyOf(_adjustedCounts);
+            adjustedCountStrings = _adjustedCounts == null ? Collections.emptySet() : ImmutableSet.copyOf(_adjustedCountStrings);
+
             keywords = Collections.unmodifiableSet(_keywords);
             decimalKeywords = Collections.unmodifiableSet(_decimalKeywords);
             integerKeywords = Collections.unmodifiableSet(_integerKeywords);
@@ -3640,6 +3661,20 @@ public class SupplementalDataInfo {
 
         public Set<Count> getCounts() {
             return keywords;
+        }
+
+        /**
+         * Return the counts returned by the plural rules, adjusted to remove values that are not used in collecting data.
+         */
+        public Set<Count> getAdjustedCounts() {
+            return adjustedCounts;
+        }
+
+        /**
+         * Return the counts returned by the plural rules, adjusted to remove values that are not used in collecting data.
+         */
+        public Set<String> getAdjustedCountStrings() {
+            return adjustedCountStrings;
         }
 
         public Set<Count> getCounts(SampleType sampleType) {

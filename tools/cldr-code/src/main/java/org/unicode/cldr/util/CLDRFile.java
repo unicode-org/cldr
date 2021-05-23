@@ -3363,7 +3363,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
         Set<Count> pluralCounts = Collections.emptySet();
         if (plurals != null) {
-            pluralCounts = getAdjustedPluralCounts(plurals);
+            pluralCounts = plurals.getAdjustedCounts();
             if (pluralCounts.size() != 1) {
                 // we get all the root paths with count
                 addPluralCounts(toAddTo, pluralCounts, this);
@@ -3485,17 +3485,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         return toAddTo;
-    }
-
-    public Set<Count> getAdjustedPluralCounts(PluralInfo pluralInfo) {
-        Set<Count> pluralCounts = pluralInfo.getCounts();
-        String locale = getLocaleID();
-        if (locale.equals("fr") || locale.startsWith("fr_")) { // generalize this when we add other languages
-            pluralCounts = new HashSet<>(pluralCounts);
-            pluralCounts.remove(Count.many);
-            pluralCounts = ImmutableSet.copyOf(pluralCounts);
-        }
-        return pluralCounts;
     }
 
     private void addPluralCounts(Collection<String> toAddTo,

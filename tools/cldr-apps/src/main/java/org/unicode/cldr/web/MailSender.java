@@ -564,8 +564,9 @@ public class MailSender implements Runnable {
         Properties env = getProperties();
         Session ourSession = getMailSession(env);
 
-        if (logger.getLevel().intValue() >= Level.FINE.intValue()) {
-            // If the logger is in FINE form, turn on debugging in the mail session
+        // If the logger is in FINE form, turn on debugging in the mail session
+        // which seems to go to stdout
+        if (logger.isLoggable(Level.FINE)) {
             ourSession.setDebug(true);
         }
         return ourSession;

@@ -66,6 +66,8 @@ public class CLDRPaths {
     public static final String CHART_DIRECTORY = CldrUtility.getPath(STAGING_DIRECTORY + "docs/charts/", ToolConstants.CHART_VERSION);
     public static final String VERIFY_DIR = CLDRPaths.CHART_DIRECTORY + "verify/";
 
+    public static final String APPS_EMOJI_DIRECTORY = CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/src/main/webapp/images/emoji";
+
     /** Maintained in SVN */
 
     public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR", "cldr-aux/"));

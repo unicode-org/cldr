@@ -30,6 +30,7 @@ public class EmojiConstants {
     public static final String TAG_TERM = UTF16.valueOf(0xE007F);
     public static final String BLACK_FLAG = UTF16.valueOf(0x1F3F4);
     public static final String HANDSHAKE = UTF16.valueOf(0x1f91d);
+    public static final String COMPOSED_HANDSHAKE = new String(new int[] {0x1FAF1, 0x200D, 0x1FAF2},0,3);
     public static final String MALE_SIGN = "♂";
     public static final String FEMALE_SIGN = "♀";
     public static final String MAN = "👨";

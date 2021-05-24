@@ -109,13 +109,14 @@ public class VoteResolver<T> {
     /**
      * This is the level at which a vote counts. Each level also contains the
      * weight.
+     *
+     * Code related to Level.expert removed 2021-05-18 per CLDR-14597
      */
     public enum Level {
         locked(   0 /* votes */, 999 /* stlevel */),
         street(   1 /* votes */, 10  /* stlevel */),
         anonymous(0 /* votes */, 8   /* stlevel */),
         vetter(   4 /* votes */, 5   /* stlevel */),
-        expert(   8 /* votes */, 3   /* stlevel */),
         manager(  4 /* votes */, 2   /* stlevel */),
         tc(      20 /* votes */, 1   /* stlevel */),
         admin(  100 /* votes */, 0   /* stlevel */);
@@ -211,7 +212,7 @@ public class VoteResolver<T> {
          * on more than this user's level and the other user's desired new level
          */
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
-            return otherLevel != expert && // expert can't be set by any user
+            return
                 canManageSomeUsers() && // must be some sort of manager
                 otherLevel.getSTLevel() >= getSTLevel(); // can't gain higher privs
         }

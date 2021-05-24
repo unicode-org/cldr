@@ -22,7 +22,11 @@
     <verify status="approved" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >the price of tea in china</verify>
     <vote exception="false" name="tc_af_only" locale="el" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in greece</vote>
     <verify status="approved" locale="el" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >the price of tea in greece</verify>
-    	
+
+    <!-- cannot vote in locale az since this locale isn't listed for this org in Locales.txt -->
+    <user name="v_org_not_az" org="facebook" level="vetter" locales="*"/>
+    <vote exception="true" name="v_org_not_az" locale="az" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">test</vote>
+
 	<!--  the 'name' is the real name of the user, and is also used as a handle later. 
 		 level can be any member of VoteResolver.Level and org is any of VoteResolver.Organization  -->
 	<echo>setting up users</echo>
@@ -161,7 +165,7 @@
 	     This scenario is based on one for which a bug was encountered previously.
 	     Reference: https://unicode-org.atlassian.net/browse/CLDR-13390
 	     Four vetters, two of them (G1, G2) in the same organization (Google).-->
-	<user name="F1" org="facebook" level="vetter" locales="*"/>
+	<user name="A1" org="adobe" level="vetter" locales="*"/>
 	<user name="M1" org="microsoft" level="vetter" locales="*"/>
 	<user name="G1" org="google" level="vetter" locales="*"/>
 	<user name="G2" org="google" level="vetter" locales="*"/>
@@ -171,18 +175,18 @@
 	<vote name="TC1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='wide']/month[@type='4']">aprel</vote>
 
 	<!-- The four vetters vote as follows:
-			F1 aprel
+			A1 aprel
 			M1 Aprel
 			G1 Aprel
 			G2 ↑↑↑
 		Assume the path with 'stand-alone' inherits from the path with 'format' in the same locale.
 		Baseline is Aprel (per az.xml). -->
-	<vote name="F1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">aprel</vote>
+	<vote name="A1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">aprel</vote>
 	<vote name="M1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">Aprel</vote>
 	<vote name="G1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">Aprel</vote>
 	<vote name="G2" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">↑↑↑</vote>
 
-	<!-- G1 Aprel should be eliminated. G2 ↑↑↑ should combine with F1 aprel to beat M1 Aprel.
+	<!-- G1 Aprel should be eliminated. G2 ↑↑↑ should combine with A1 aprel to beat M1 Aprel.
 		Winner should be ↑↑↑, and ↑↑↑ resolves to the Bailey value aprel. -->
 	<verify status="approved" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']" >aprel</verify>
 

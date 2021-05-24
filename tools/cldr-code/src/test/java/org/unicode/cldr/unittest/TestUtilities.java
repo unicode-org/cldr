@@ -335,11 +335,11 @@ public class TestUtilities extends TestFmwkPlus {
         googleS(411, Organization.google, Level.street),
         googleV2(424, Organization.google, Level.vetter),
         appleV(304, Organization.apple, Level.vetter),
-        adobeE(208, Organization.adobe, Level.expert),
+        adobeE(204, Organization.adobe, Level.manager),
         adobeV(209, Organization.adobe, Level.vetter),
         ibmS(101, Organization.ibm, Level.street),
         ibmV(134, Organization.ibm, Level.vetter),
-        ibmE(118, Organization.ibm, Level.expert),
+        ibmE(114, Organization.ibm, Level.manager),
         ibmT(129, Organization.ibm, Level.tc),
         guestS2(802, Organization.guest, Level.street);
 
@@ -522,9 +522,9 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("aardvark", toVoterId("ibmE"));
         assertEquals("", "zebra", resolver.getWinningValue()); // TC vote of 20
         // beats
-        // expert's 8
+        // manager's 4
         // and its own
-        // expert's 8
+        // manager's 4
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
         resolver.clear();
@@ -541,9 +541,9 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", "aardvark", resolver.getWinningValue()); // Now
         // aardvark
         // wins -
-        // experts
-        // win out.
-        assertEquals("", Status.approved, resolver.getWinningStatus());
+        // managers
+        // win out as provisional
+        assertEquals("", Status.provisional, resolver.getWinningStatus());
 
         resolver.clear();
         resolver.setBaileyValue("bailey");
@@ -558,9 +558,9 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", "aardvark", resolver.getWinningValue()); // Now
         // aardvark
         // wins -
-        // experts
+        // managers
         // win out.
-        assertEquals("", Status.approved, resolver.getWinningStatus());
+        assertEquals("", Status.provisional, resolver.getWinningStatus());
     }
 
     public void TestResolvedVoteCounts() {
@@ -771,7 +771,8 @@ public class TestUtilities extends TestFmwkPlus {
             // "424=best",
             "411=best",
             "304=best",
-            "208=primo",
+            "204=primo",
+            "114=primo",
             // expected values
             "conflicts=[]",
             "value=primo",
@@ -784,7 +785,8 @@ public class TestUtilities extends TestFmwkPlus {
             // "424=best",
             "411=best",
             "304=best",
-            "208=primo",
+            "204=primo",
+            "114=primo",
             "101=best",
             // expected values
             "conflicts=[]",
@@ -1399,10 +1401,6 @@ public class TestUtilities extends TestFmwkPlus {
      * Compare org.unicode.cldr.unittest.web.TestUserRegistry.TestCanSetUserLevel()
      */
     public void TestCanCreateOrSetLevelTo() {
-        if (Level.admin.canCreateOrSetLevelTo(Level.expert)) {
-            // We do not use the Expert level anymore
-            errln("Not even admin can a set level to expert");
-        }
         if (Level.vetter.canCreateOrSetLevelTo(Level.street)
             || Level.anonymous.canCreateOrSetLevelTo(Level.street)
             || Level.street.canCreateOrSetLevelTo(Level.locked)

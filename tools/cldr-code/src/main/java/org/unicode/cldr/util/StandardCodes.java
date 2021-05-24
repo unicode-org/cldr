@@ -659,7 +659,7 @@ public class StandardCodes {
      * @param org
      * @return group if availble, null if not
      */
-    public String getGroup(String locale, Organization org) {
+    private String getGroup(String locale, Organization org) {
         Level l = getLocaleCoverageLevel(org, locale);
         if (l.equals(Level.UNDETERMINED)) {
             return null;

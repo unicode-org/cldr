@@ -223,7 +223,7 @@ public class UserList {
 
     private void handleActions(String action, UserSettings u) {
         if (getParam(LIST_ACTION_SETLOCALES + u.tag).length() > 0) {
-            setLocales(ctx, u);
+            setLocales(ctx.session, u);
         } else if (action == null || action.length() == 0 || action.equals(LIST_ACTION_NONE)) {
             return;
         }
@@ -252,9 +252,10 @@ public class UserList {
         }
     }
 
-    private void setLocales(WebContext ctx, UserSettings u) {
+    private void setLocales(CookieSession session, UserSettings u) {
         String newLocales = getParam(LIST_ACTION_SETLOCALES + u.tag);
-        String s = reg.setLocales(ctx, u.user.id, u.user.email, newLocales);
+
+        String s = reg.setLocales(session, u.user, newLocales, false);
         u.user.locales = newLocales; // MODIFY
         if (u.session != null) {
             s += "<br/><i>Logging out user session " + u.session.id

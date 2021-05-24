@@ -635,6 +635,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
     public void testBreakingLogicalGrouping() {
         checkBreakingLogicalGrouping("en");
         checkBreakingLogicalGrouping("ar");
+        checkBreakingLogicalGrouping("de");
+        checkBreakingLogicalGrouping("pl");
     }
 
     private void checkBreakingLogicalGrouping(String localeId) {

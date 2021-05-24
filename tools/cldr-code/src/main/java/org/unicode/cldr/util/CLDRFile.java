@@ -3363,7 +3363,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
         Set<Count> pluralCounts = Collections.emptySet();
         if (plurals != null) {
-            pluralCounts = plurals.getCounts();
+            pluralCounts = plurals.getAdjustedCounts();
             if (pluralCounts.size() != 1) {
                 // we get all the root paths with count
                 addPluralCounts(toAddTo, pluralCounts, this);

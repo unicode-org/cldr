@@ -103,7 +103,6 @@ public class TestCLDRFile extends TestFmwk {
             new TreeMap<String, Set<String>>(cldrFile.getComparator()),
             TreeSet.class);
         PluralInfo plurals = sdi.getPlurals(PluralType.cardinal, locale);
-        Set<String> normalKeywords = plurals.getCanonicalKeywords();
         for (String path : cldrFile.fullIterable()) {
             if (!path.contains("@count")) {
                 continue;
@@ -118,11 +117,18 @@ public class TestCLDRFile extends TestFmwk {
                 + path.substring(m.end(1));
             skeletonToKeywords.put(skeleton, m.group(1));
         }
+        Set<String> normalKeywords = plurals.getAdjustedCountStrings();
+
         for (Entry<String, Set<String>> entry : skeletonToKeywords
             .keyValuesSet()) {
+            final String abbreviatedPath = entry.getKey();
+            Set<String> expected = normalKeywords;
+            if (abbreviatedPath.startsWith("//ldml/numbers/minimalPairs/pluralMinimalPairs")) {
+                expected = plurals.getCanonicalKeywords();
+            }
             assertEquals(
-                "Incorrect keywords: " + locale + ", " + entry.getKey(),
-                normalKeywords, entry.getValue());
+                "Incorrect keywords: " + locale + ", " + abbreviatedPath,
+                expected, entry.getValue());
         }
     }
 

@@ -40,7 +40,7 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
 	   forms; since it is fixed for a given noun, we don't
 	   consider it as an independent grammaticalFeature here. -->
     </grammaticalFeatures>
-    <grammaticalFeatures targets="nominal" locales="ca es fr it lij pt">
+    <grammaticalFeatures targets="nominal" locales="ca es fr it pt"> <!-- add lij if it is added as a locale -->
       <grammaticalGender values="masculine feminine"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="nl">

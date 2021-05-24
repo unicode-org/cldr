@@ -201,13 +201,13 @@ public class LogicalGrouping {
             return true;
         case "zero": case "one":
             break; // continue
-        case "many": // special case for french
-            String localeId = cldrFile.getLocaleID();
-            if (localeId.startsWith("fr")
-                && (localeId.length() == 2 || localeId.charAt(2) == '_')) {
-                return true;
-            }
-            return false;
+//        case "many": // special case for french
+//            String localeId = cldrFile.getLocaleID();
+//            if (localeId.startsWith("fr")
+//                && (localeId.length() == 2 || localeId.charAt(2) == '_')) {
+//                return true;
+//            }
+//            return false;
         default:
             return false;
         }

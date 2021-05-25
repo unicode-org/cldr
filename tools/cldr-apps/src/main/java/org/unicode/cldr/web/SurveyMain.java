@@ -447,7 +447,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             SurveyThreadManager.getExecutorService().submit(() -> doStartup());
         } catch (Throwable t) {
-            SurveyLog.logException(t, "Initializing SurveyTool");
+            SurveyLog.logException(logger, t, "Initializing SurveyTool");
             SurveyMain.busted("Error initializing SurveyTool.", t);
             return;
         }
@@ -455,7 +455,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         try {
             dbUtils = DBUtils.getInstance();
         } catch (Throwable t) {
-            SurveyLog.logException(t, "Starting up database");
+            SurveyLog.logException(logger, t, "Starting up database");
 
             String dbBroken = DBUtils.getDbBrokenMessage();
 
@@ -586,71 +586,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             if (isUnofficial() && ctx.field("action").equals("new_and_login") &&
                     (ctx.hasTestPassword() || ctx.hasAdminPassword() || requestIsByAdmin(request))) {
-                // accessed from createAndLogin.jsp or cldrCreateLogin.js
-                ctx.println("<hr>");
-                String real = ctx.field("real").trim();
-                if (real.isEmpty() || real.equals("REALNAME")) {
-                    ctx.println(ctx.iconHtml("stop", "fail")
-                        + "<b>Please go <a href='javascript:window.history.back();'>Back</a> and fill in your real name.</b>");
-                } else {
-                    final boolean autoProceed = ctx.hasField("new_and_login_autoProceed");
-                    final boolean stayLoggedIn = ctx.hasField("new_and_login_stayLoggedIn");
-                    ctx.println("<div style='margin: 2em;'>");
-                    if (autoProceed) {
-                        ctx.println("<img src='loader.gif' align='right'>");
-                    } else {
-                        ctx.println("<img src='STLogo.png' align='right'>");
-                    }
-                    UserRegistry.User u = reg.getEmptyUser();
-                    StringBuffer myRealName = new StringBuffer(real.trim());
-                    StringBuilder newRealName = new StringBuilder();
-                    for (int j = 0; j < myRealName.length(); j++) {
-                        if (supportedNameSet.contains(myRealName.charAt(j))) {
-                            newRealName.append(myRealName.charAt(j));
-                        }
-                    }
-                    u.org = ctx.field("new_org").trim();
-                    String randomEmail = UserRegistry.makePassword(null) + "@" +
-                        UserRegistry.makePassword(null).substring(0, 4).replace('.', '0')
-                        + "." + u.org.replaceAll("_", "-").replaceAll(" ", "-") + ".example.com";
-                    String randomPass = UserRegistry.makePassword(null);
-                    u.name = newRealName.toString() + "_TESTER_";
-                    u.email = newRealName + "." + randomEmail.trim();
-                    String newLocales = ctx.field("new_locales").trim();
-                    newLocales = UserRegistry.normalizeLocaleList(newLocales);
-                    u.locales = newLocales;
-                    u.setPassword(randomPass);
-                    u.userlevel = ctx.fieldInt("new_userlevel", -1);
-                    if (u.userlevel <= 0) {
-                        u.userlevel = UserRegistry.LOCKED; // nice try
-                    }
-                    UserRegistry.User registeredUser = reg.newUser(ctx, u);
-                    ctx.println("<i>" + ctx.iconHtml("okay", "added") + "'" + u.name
-                        + "'. <br>Email: " + u.email + "  <br>Password: " + u.getPassword() + " <br>userlevel: " + u.getLevel() + "<br>");
-                    if (autoProceed) {
-                        ctx.print("You should be logged in shortly, otherwise click this link:");
-                    } else {
-                        ctx.print("You will be logged in when you click this link:");
-                    }
-                    ctx.print("</i>");
-                    ctx.println("<br>");
-                    registeredUser.printPasswordLink(ctx);
-                    ctx.println("<br><br><br><br><i>Note: this is a test account, and may be removed at any time.</i>");
-                    if (stayLoggedIn) {
-                        ctx.addCookie(QUERY_EMAIL, u.email, TWELVE_WEEKS);
-                        ctx.addCookie(QUERY_PASSWORD, u.getPassword(), TWELVE_WEEKS);
-                    } else {
-                        WebContext.removeLoginCookies(request, response);
-                    }
-                    if (autoProceed) {
-                        ctx.println("<script>window.setTimeout(function(){document.location = '" + ctx.base() + "/v?email=" + u.email + "&pw=" + u.getPassword()
-                            + "';},3000);</script>");
-                    }
-                    ctx.println("</div>");
-                }
-            } else if (ctx.hasAdminPassword()) {
-                ctx.response.sendRedirect(ctx.context("AdminPanel.jsp") + "?vap=" + vap);
-                return;
+                createNewAndLogin(ctx, request, response);
             } else if (ctx.field("sql").equals(vap)) {
                 Thread.currentThread().setName(baseThreadName + " ST sql");
                 doSql(ctx); // SQL interface
@@ -658,7 +594,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 Thread.currentThread().setName(baseThreadName + " ST ");
                 doSession(ctx); // Session-based Survey main
             }
-        } catch (Throwable t) { // should be THrowable
+        } catch (Throwable t) { // should be Throwable
             t.printStackTrace();
             SurveyLog.logException(logger, t, "Failure with user", ctx);
             ctx.println("<div class='ferrbox'><h2>Error processing session: </h2><pre>" + t.toString() + "</pre></div>");
@@ -666,6 +602,84 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             Thread.currentThread().setName(baseThreadName);
             ctx.close();
         }
+    }
+
+    private void createNewAndLogin(WebContext ctx, HttpServletRequest request, HttpServletResponse response) {
+        String real = ctx.field("real").trim();
+        if (real.isEmpty() || real.equals("REALNAME")) {
+            ctx.println(ctx.iconHtml("stop", "fail")
+                + "<b>Please go <a href='javascript:window.history.back();'>Back</a> and fill in your real name.</b>");
+        } else {
+            boolean autoProceed = ctx.hasField("new_and_login_autoProceed");
+            final boolean stayLoggedIn = ctx.hasField("new_and_login_stayLoggedIn");
+            ctx.println("<div style='margin: 2em;'>");
+            if (autoProceed) {
+                ctx.println("<img src='loader.gif' align='right'>");
+            } else {
+                ctx.println("<img src='STLogo.png' align='right'>");
+            }
+            UserRegistry.User u = reg.getEmptyUser();
+            StringBuffer myRealName = new StringBuffer(real.trim());
+            StringBuilder newRealName = new StringBuilder();
+            for (int j = 0; j < myRealName.length(); j++) {
+                if (supportedNameSet.contains(myRealName.charAt(j))) {
+                    newRealName.append(myRealName.charAt(j));
+                }
+            }
+            u.org = ctx.field("new_org").trim();
+            String randomEmail = UserRegistry.makePassword(null) + "@" +
+                UserRegistry.makePassword(null).substring(0, 4).replace('.', '0')
+                + "." + u.org.replaceAll("_", "-").replaceAll(" ", "-") + ".example.com";
+            String randomPass = UserRegistry.makePassword(null);
+            u.name = newRealName.toString() + "_TESTER_";
+            u.email = newRealName + "." + randomEmail.trim();
+            String newLocales = ctx.field("new_locales").trim();
+            LocaleNormalizer locNorm = new LocaleNormalizer();
+            newLocales = locNorm.normalize(newLocales);
+            if (locNorm.hasMessage()) {
+                reportNormalizationWarning(ctx.getOut(), locNorm, newLocales);
+                autoProceed = false;
+            }
+            u.locales = newLocales;
+            u.setPassword(randomPass);
+            u.userlevel = ctx.fieldInt("new_userlevel", -1);
+            if (u.userlevel <= 0) {
+                u.userlevel = UserRegistry.LOCKED; // nice try
+            }
+            UserRegistry.User registeredUser = reg.newUser(ctx, u);
+            ctx.println("<i>" + ctx.iconHtml("okay", "added") + "'" + u.name
+                + "'. <br>Email: " + u.email + "  <br>Password: " + u.getPassword() + " <br>userlevel: " + u.getLevel() + "<br>");
+            if (autoProceed) {
+                ctx.print("You should be logged in shortly, otherwise click this link:");
+            } else {
+                ctx.print("You will be logged in when you click this link:");
+            }
+            ctx.print("</i>");
+            ctx.println("<br>");
+            registeredUser.printPasswordLink(ctx);
+            ctx.println("<br><br><br><br><i>Note: this is a test account, and may be removed at any time.</i>");
+            if (stayLoggedIn) {
+                ctx.addCookie(QUERY_EMAIL, u.email, TWELVE_WEEKS);
+                ctx.addCookie(QUERY_PASSWORD, u.getPassword(), TWELVE_WEEKS);
+            } else {
+                WebContext.removeLoginCookies(request, response);
+            }
+            if (autoProceed) {
+                ctx.println("<script>window.setTimeout(function(){document.location = '" + ctx.base() + "/v?email=" + u.email + "&pw=" + u.getPassword()
+                    + "';},3000);</script>");
+            }
+            ctx.println("</div>");
+        }
+    }
+
+    private void reportNormalizationWarning(PrintWriter pw, LocaleNormalizer locNorm, String locales) {
+        if (locales == null || locales.isEmpty()) {
+            locales = UserRegistry.NO_LOCALES;
+        }
+        pw.println("<h2>Locale Validity Warning</h2>");
+        pw.println("<p>" + locNorm.getMessageHtml() + "</p>");
+        pw.println("<p>Normalized and validated locales: " + locales);
+        pw.println("<hr />");
     }
 
     private boolean requestIsByAdmin(HttpServletRequest request) {
@@ -723,7 +737,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         try {
             SurveyTool.includeJavaScript(request, out);
         } catch (JSONException e) {
-            SurveyLog.logException(e, "SurveyMain.showOfflinePage calling SurveyTool.includeJavaScript");
+            SurveyLog.logException(logger, e, "SurveyMain.showOfflinePage calling SurveyTool.includeJavaScript");
             out.println("<p>Error, including JavaScript failed!</p>");
         }
         // don't flood server if busted- check every minute.
@@ -741,7 +755,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 try {
                     writeHelperFile(request, maintFile);
                 } catch (IOException e) {
-                    SurveyLog.warnOnce("Trying to write helper file " + maintFile.getAbsolutePath() + " - " + e.toString());
+                    SurveyLog.warnOnce(logger, "Trying to write helper file " + maintFile.getAbsolutePath() + " - " + e.toString());
                 }
             }
             if (maintFile.exists()) {
@@ -807,7 +821,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 SurveyTool.includeJavaScript(request, out);
                 jsOK = true;
             } catch (JSONException e) {
-                SurveyLog.logException(e, "SurveyMain.ensureStartup calling SurveyTool.includeJavaScript");
+                SurveyLog.logException(logger, e, "SurveyMain.ensureStartup calling SurveyTool.includeJavaScript");
             }
             if (isUnofficial()) {
                 out.println("<script>timerSpeed = 2500;</script>");
@@ -979,7 +993,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             try {
                 doStartupDB();
             } catch (Throwable t) {
-                SurveyLog.logException(t, ctx);
+                SurveyLog.logException(logger, t, ctx);
                 ctx.println("Caught: " + t.toString() + "\n");
             }
             ctx.println("</pre>");
@@ -1114,13 +1128,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                 ctx.println("elapsed time: " + et + "<br>");
             } catch (SQLException se) {
-                SurveyLog.logException(se, ctx);
+                SurveyLog.logException(logger, se, ctx);
                 String complaint = "SQL err: " + DBUtils.unchainSqlException(se);
 
                 ctx.println("<pre class='ferrbox'>" + complaint + "</pre>");
                 logger.severe(complaint);
             } catch (Throwable t) {
-                SurveyLog.logException(t, ctx);
+                SurveyLog.logException(logger, t, ctx);
                 String complaint = t.toString();
                 t.printStackTrace();
                 ctx.println("<pre class='ferrbox'>" + complaint + "</pre>");
@@ -1129,13 +1143,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 try {
                     s.close();
                 } catch (SQLException se) {
-                    SurveyLog.logException(se, ctx);
+                    SurveyLog.logException(logger, se, ctx);
                     String complaint = "in s.closing: SQL err: " + DBUtils.unchainSqlException(se);
 
                     ctx.println("<pre class='ferrbox'> " + complaint + "</pre>");
                     logger.severe(complaint);
                 } catch (Throwable t) {
-                    SurveyLog.logException(t, ctx);
+                    SurveyLog.logException(logger, t, ctx);
                     String complaint = t.toString();
                     ctx.println("<pre class='ferrbox'> " + complaint + "</pre>");
                     logger.severe("Err in SQL close: " + complaint);
@@ -1179,7 +1193,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public void twidPut(String key, boolean val) {
-        twidHash.put(key, new Boolean(val));
+        twidHash.put(key, Boolean.valueOf(val));
     }
 
     /* twiddle: these are params settable at runtime.
@@ -1235,7 +1249,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         try {
             SurveyTool.includeJavaScript(ctx.request, ctx.out);
         } catch (JSONException | IOException e) {
-            SurveyLog.logException(e, "SurveyMain.printHeader calling SurveyTool.includeJavaScript");
+            SurveyLog.logException(logger, e, "SurveyMain.printHeader calling SurveyTool.includeJavaScript");
         }
 
         ctx.println("<title>CLDR " + getNewVersion() + " Survey Tool: ");
@@ -1822,7 +1836,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
                 SurveyLog.logException(null, "Bad StringID" + strid + " " + whyBad, ctx);
             } catch (Throwable t) {
-                SurveyLog.logException(t, "Exception processing StringID " + strid + " - " + whyBad, ctx);
+                SurveyLog.logException(logger, t, "Exception processing StringID " + strid + " - " + whyBad, ctx);
             }
         }
 
@@ -2256,7 +2270,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         xpath = "(not a valid StringID)";
                     }
                 } catch (Throwable t) {
-                    // SurveyLog.logException(t, ctx);
+                    // SurveyLog.logException(logger, t, ctx);
                 }
                 ctx.println("<div class='ferrbox'> " + ctx.iconHtml("stop", "bad xpath")
                     + " Sorry, the string ID in your URL can't be shown: <span class='loser' title='" + xpath + " " + whyBad + "'>" + strid
@@ -2933,7 +2947,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         } catch (Throwable t) {
             t.printStackTrace();
-            SurveyLog.logException(t, "StartupThread");
+            SurveyLog.logException(logger, t, "StartupThread");
             busted("Error on startup: ", t);
         } finally {
             progress.close();
@@ -3411,7 +3425,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     private static void busted(String what, Throwable t, String stack) {
         if (t != null) {
-            SurveyLog.logException(t, what /* , ignore stack - fetched from exception */);
+            SurveyLog.logException(logger, t, what /* , ignore stack - fetched from exception */);
         }
         logger.warning("SurveyTool " + SurveyMain.getCurrevCldrApps() + " busted: " + what + " ( after " + pages + "html+" + xpages
             + "xml pages served,  "
@@ -3428,7 +3442,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param stack
      */
     public static void markBusted(String what, Throwable t, String stack) {
-        SurveyLog.warnOnce("******************** SurveyTool is down (busted) ********************");
+        SurveyLog.warnOnce(logger, "******************** SurveyTool is down (busted) ********************");
         if (!isBusted()) { // Keep original failure message.
             isBusted = what;
             if (stack == null) {
@@ -3441,7 +3455,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             isBustedStack = stack + "\n" + "[" + new Date().toGMTString() + "] ";
             isBustedTimer = new ElapsedTimer();
         } else {
-            SurveyLog.warnOnce("[was already busted, not overriding old message.]");
+            SurveyLog.warnOnce(logger, "[was already busted, not overriding old message.]");
         }
     }
 
@@ -3591,13 +3605,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             } catch (Throwable t) {
                 t.printStackTrace();
                 logger.warning("While shutting down cookiesession ");
-            }
-            try {
-                if (reg != null)
-                    reg.shutdownDB();
-            } catch (Throwable t) {
-                t.printStackTrace();
-                logger.warning("While shutting down reg ");
             }
             if (dbUtils != null) {
                 dbUtils.doShutdown();

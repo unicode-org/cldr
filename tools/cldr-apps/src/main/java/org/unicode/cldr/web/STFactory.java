@@ -796,7 +796,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 int j = 0;
                 for (String xp : xpathSet) {
-                    resolver = targetXmlSource.setValueFromResolver(xp, resolver, resolveMorePaths);
+                    try {
+                        resolver = targetXmlSource.setValueFromResolver(xp, resolver, resolveMorePaths);
+                    } catch (Exception e) {
+                        SurveyLog.logException(logger, e, "In setValueFromResolver, xp = " + xp);
+                    }
                     j++;
                 }
                 SurveyLog.debug(et + " - resolved " + j + " items, " + n + " total.");

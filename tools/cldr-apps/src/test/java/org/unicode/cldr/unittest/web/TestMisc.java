@@ -9,6 +9,7 @@ import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.web.LocaleNormalizer;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.WebContext;
 
@@ -103,6 +104,44 @@ public class TestMisc extends TestFmwk {
             // if (CLDRURLS.UNKNOWN_REVISION.equals(version)) {
             //    errln("❌ " + s + " = UNKNOWN_REVISION: " + version);
             // }
+        }
+    }
+
+    public void TestLocaleNormalizer() {
+        LocaleNormalizer locNorm = new LocaleNormalizer();
+        String result = locNorm.normalize(null);
+        if (!result.isEmpty()) {
+            errln("❌ For null input, expected empty, got: " + result);
+        }
+        if (locNorm.hasMessage()) {
+            errln("❌ Expected no message for null-to-empty conversion");
+        }
+        String input = "horse with no name";
+        String expected = "no";
+        result = locNorm.normalize(input);
+        if (!result.equals(expected)) {
+            errln("❌ For input " + input + " expected " + result + " but got " + result);
+        }
+        if (!locNorm.hasMessage()) {
+            errln("❌ Expected message for " + input);
+        } else if (!locNorm.getMessageHtml().contains("horse")) {
+            errln("❌ Expected horse in html message for " + input);
+        } else if (!locNorm.getMessagePlain().contains("name")) {
+            errln("❌ Expected name in plain message for " + input);
+        }
+    }
+
+    public void TestQuietLocaleNormalizer() {
+        String input = "zh  aa test123";
+        String expected = "aa zh";
+        String result = LocaleNormalizer.normalizeQuietly(input); // static
+        if (!result.equals(expected)) {
+            errln("❌ For input " + input + " expected " + result + " but got " + result);
+        }
+        input = "*";
+        result = LocaleNormalizer.normalizeQuietly(input);
+        if (!input.equals(result)) {
+            errln("❌ For input " + input + " expected " + result + " but got " + result);
         }
     }
 }

@@ -16,6 +16,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.LocaleNormalizer;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -124,7 +125,7 @@ public class AddUser {
     }
 
     private String getNewUserLocales(String requestLocales) {
-        UserRegistry.normalizeLocaleList(requestLocales);
+        requestLocales = LocaleNormalizer.normalizeQuietly(requestLocales);
         if (requestLocales.isEmpty()) {
             return "mul";
         }

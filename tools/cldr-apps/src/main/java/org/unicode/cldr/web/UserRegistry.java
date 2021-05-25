@@ -6,12 +6,6 @@
 
 package org.unicode.cldr.web;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +20,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.logging.Logger;
 
 import javax.json.bind.annotation.JsonbProperty;
 
@@ -42,11 +35,10 @@ import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
@@ -57,7 +49,6 @@ import com.ibm.icu.util.ULocale;
  * class, UserRegistry.User, which represents an individual user.
  *
  * @see UserRegistry.User
- * @see OldUserRegistry
  **/
 public class UserRegistry {
 
@@ -65,7 +56,7 @@ public class UserRegistry {
      * Special constant for specifying access to all locales.
      */
     public static final String ALL_LOCALES = "*";
-    public static final String ALL_LOCALES_LIST[] = { ALL_LOCALES };
+
     /**
      * Special constant for specifying access to no locales. Used with intlocs (not with locale access)
      */
@@ -158,36 +149,60 @@ public class UserRegistry {
 
     private static final java.util.logging.Logger logger = SurveyLog.forClass(UserRegistry.class);
     // user levels
+
+    /**
+     * Administrator
+     */
     public static final int ADMIN = VoteResolver.Level.admin.getSTLevel();
-    /**< Administrator **/
+
+    /**
+     * Technical Committee
+     */
     public static final int TC = VoteResolver.Level.tc.getSTLevel();
-    /**< Technical Committee **/
+
+    /**
+     * Manager
+     */
     public static final int MANAGER = VoteResolver.Level.manager.getSTLevel();
-    /**< manager **/
-    public static final int EXPERT = VoteResolver.Level.expert.getSTLevel();
-    /**< Expert Vetter **/
+
+    /**
+     * Regular Vetter
+     */
     public static final int VETTER = VoteResolver.Level.vetter.getSTLevel();
-    /**< regular Vetter **/
+
+    /**
+     * "Street" = Guest Vetter
+     */
     public static final int STREET = VoteResolver.Level.street.getSTLevel();
-    /**< Guest Vetter **/
+
+    /**
+     * Locked user - can't login
+     */
     public static final int LOCKED = VoteResolver.Level.locked.getSTLevel();
-    /**< Locked user - can't login **/
+
+    /**
+     * Anonymous user - special for imported old losing votes
+     */
     public static final int ANONYMOUS = VoteResolver.Level.anonymous.getSTLevel();
-    /**< Anonymous user - special for imported old losing votes **/
 
-    public static final int LIMIT_LEVEL = 10000;
-    /** max level **/
+    /**
+     * min level
+     */
     public static final int NO_LEVEL = -1;
-    /** min level **/
 
+    /**
+     * special "IP" value referring to a user being added
+     */
     public static final String FOR_ADDING = "(for adding)";
-    /** special "IP" value referring to a user being added **/
+
     private static final String INTERNAL = "INTERNAL";
 
     /**
      * List of all user levels - for UI presentation
-     **/
-    public static final int ALL_LEVELS[] = { ADMIN, TC, MANAGER, EXPERT, VETTER, STREET, LOCKED };
+     *
+     * Code related to UserRegistry.EXPERT removed 2021-05-18 per CLDR-14597
+     */
+    public static final int ALL_LEVELS[] = { ADMIN, TC, MANAGER, VETTER, STREET, LOCKED };
 
     /**
      * get a level as a string - presentation form
@@ -353,7 +368,7 @@ public class UserRegistry {
          */
         @Schema( hidden = true )
         public String[] getInterestList() {
-            if (userIsExpert(this)) {
+            if (userIsManagerOrStronger(this)) {
                 if (intlocs == null || intlocs.length() == 0) {
                     return null;
                 } else {
@@ -469,12 +484,10 @@ public class UserRegistry {
          * Is this user an administrator 'over' the given other user?
          *
          * @param other
-         * @see VoteResolver.Level.isAdminFor()
          * @deprecated
          *
-         * Note: the above "@see VoteResolver.Level.isAdminFor()" seems to refer to a function
-         * that doesn't exist. Possibly it should be "@see VoteResolver.Level.isManagerFor()"?
-         * Maybe this should NOT be deprecated, since it's shorter, more convenient?
+         * Maybe this should NOT be deprecated, since it's shorter and more convenient
+         * than VoteResolver.Level.isManagerFor()
          */
         @Deprecated
         public boolean isAdminFor(User other) {
@@ -487,9 +500,9 @@ public class UserRegistry {
 
         /**
          * Is this user an administrator 'over' this user? Always true if admin,
-         * orif TC in same org.
+         * or if TC in same org.
          *
-         * @param other
+         * @param org
          */
         public boolean isAdminForOrg(String org) {
             boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) ||
@@ -585,6 +598,52 @@ public class UserRegistry {
         public void setPassword(String randomPass) {
             this.password = randomPass;
         }
+
+        /**
+         * Does this user have permission to modify the given locale?
+         *
+         * @param locale the CLDRLocale
+         * @return true or false
+         *
+         * Code related to userIsExpert, UserRegistry.EXPERT removed 2021-05-18 per CLDR-14597
+         */
+        private boolean hasLocalePermission(CLDRLocale locale) {
+            // admin, TC, and manager can always modify
+            if (userlevel <= UserRegistry.MANAGER) {
+                return true;
+            }
+            // the 'und' locale and sublocales can always be modified
+            if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
+                // All users can modify the sandbox
+                return true;
+            }
+            return userHasLocale(locale) && orgHasLocale(locale);
+        }
+
+        private boolean userHasLocale(CLDRLocale locale) {
+            if (isAllLocales(locales)) {
+                return true;
+            }
+            final String[] userLocaleArray = tokenizeLocale(locales);
+            return localeMatchesLocaleList(userLocaleArray, locale);
+        }
+
+        private boolean orgHasLocale(CLDRLocale locale) {
+            final Set<String> orgLocaleSet = StandardCodes.make().getLocaleCoverageLocales(org);
+            if (orgLocaleSet.contains(ALL_LOCALES)) {
+                return true;
+            }
+            String[] orgLocaleArray = {};
+            orgLocaleArray = orgLocaleSet.toArray(orgLocaleArray);
+            if (localeMatchesLocaleList(orgLocaleArray, locale)) {
+                return true;
+            }
+            CLDRLocale parent = locale.getParent();
+            if (parent != null && localeMatchesLocaleList(orgLocaleArray, parent)) {
+                return true;
+            }
+            return false;
+        }
     }
 
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -613,7 +672,7 @@ public class UserRegistry {
                 o = Organization.valueOf(arg);
             } catch (IllegalArgumentException iae) {
                 o = Organization.guest;
-                SurveyLog.warnOnce("** Unknown organization (treating as Guest): " + org);
+                SurveyLog.warnOnce(logger, "** Unknown organization (treating as Guest): " + org);
             }
             orgToVrOrg.put(org, o);
         }
@@ -622,26 +681,12 @@ public class UserRegistry {
 
     /**
      * Called by SM to create the reg
-     *
-     * @param xlogger
-     *            the logger to use
-     * @param ourConn
-     *            the conn to use
      */
     public static UserRegistry createRegistry(SurveyMain theSm) throws SQLException {
         sm = theSm;
         UserRegistry reg = new UserRegistry();
         reg.setupDB();
         return reg;
-    }
-
-    /**
-     * Called by SM to shutdown
-     *
-     * TODO: remove this if it isn't going to do anything
-     */
-    public void shutdownDB() throws SQLException {
-        // DBUtils.closeDBConnection(conn);
     }
 
     /**
@@ -824,7 +869,7 @@ public class UserRegistry {
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
                     u.intlocs = rs.getString(5);
-                    u.locales = normalizeLocaleList(rs.getString(6));
+                    u.locales = LocaleNormalizer.normalizeQuietly(rs.getString(6));
                     u.last_connect = rs.getTimestamp(7);
                     u.password = rs.getString(8);
                     ret = u; // let it finish..
@@ -900,14 +945,6 @@ public class UserRegistry {
         if (((pass != null && pass.length() <= 0)) && !letmein) {
             return null; // nothing to do
         }
-
-        // /**
-        //  * Login as  '!somebody@example.com' with the master password (vap)
-        //  */
-        // if (email.startsWith("!") && pass != null && pass.equals(SurveyMain.vap)) {
-        //     email = email.substring(1);
-        //     letmein = true;
-        // }
 
         email = normalizeEmail(email);
 
@@ -1079,35 +1116,6 @@ public class UserRegistry {
         return sb.toString();
     }
 
-    public static String normalizeLocaleList(String list) {
-        if (isAllLocales(list)) {
-            return ALL_LOCALES;
-        }
-        if (list == null) {
-            return "";
-        }
-        list = list.trim();
-        if (list.length() > 0) {
-            if (list.equals(NO_LOCALES)) {
-                return "";
-            }
-            Set<String> s = new TreeSet<>();
-            for (String l : UserRegistry.tokenizeLocale(list)) {
-                String forum = new ULocale(l).getBaseName();
-                s.add(forum);
-            }
-            list = null;
-            for (String forum : s) {
-                if (list == null) {
-                    list = forum;
-                } else {
-                    list = list + " " + forum;
-                }
-            }
-        }
-        return list;
-    }
-
     /**
      * assumes caller has a lock on conn
      */
@@ -1204,46 +1212,34 @@ public class UserRegistry {
         return true;
     }
 
-    String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales) {
-        return setLocales(ctx, theirId, theirEmail, newLocales, false);
-    }
-
-    /**
-     * Set the authorized locales, or the interest locales, for the specified user
-     *
-     * @param ctx the WebContext, used only for ctx.session
-     * @param theirId the user id
-     * @param theirEmail the user email
-     * @param newLocales the set of locales, as a string like "am fr zh"
-     * @param intLocs true to set interest locales, false to set authorized locales
-     * @return a message string describing the result
-     */
-    String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales, boolean intLocs) {
-        return setLocales(ctx.session, theirId, theirEmail, newLocales, intLocs);
-    }
-
     /**
      * Set the authorized locales, or the interest locales, for the specified user
      *
      * @param session the CookieSession
-     * @param theirId the user id
-     * @param theirEmail the user email
+     * @param user the specified user (sometimes distinct from session.user)
      * @param newLocales the set of locales, as a string like "am fr zh"
      * @param intLocs true to set interest locales, false to set authorized locales
      * @return a message string describing the result
      */
-    public String setLocales(CookieSession session, int theirId, String theirEmail, String newLocales, boolean intLocs) {
+    public String setLocales(CookieSession session, User user, String newLocales, boolean intLocs) {
+        int theirId = user.id;
+        String theirEmail = user.email;
+
         // make sure other user is at or below userlevel
         if (!intLocs && !session.user.isAdminFor(getInfo(theirId))) {
             return ("[Permission Denied]");
         }
+        String msg = "";
         if (!intLocs) {
-            newLocales = normalizeLocaleList(newLocales);
+            LocaleNormalizer locNorm = new LocaleNormalizer();
+            newLocales = locNorm.normalize(newLocales);
+            if (locNorm.hasMessage()) {
+                msg = locNorm.getMessageHtml();
+            }
         } else {
             newLocales = validateIntlocList(newLocales);
         }
         String orgConstraint = null;
-        String msg = "";
         if (session.user.userlevel == ADMIN) {
             orgConstraint = ""; // no constraint
         } else {
@@ -1454,10 +1450,10 @@ public class UserRegistry {
                 sm.notifyUser(null, forEmail, newPassword);
             }
         } catch (SQLException se) {
-            SurveyLog.logException(se, "Resetting password for user " + forEmail + " from " + ip);
+            SurveyLog.logException(logger, se, "Resetting password for user " + forEmail + " from " + ip);
             msg = msg + " exception";
         } catch (Throwable t) {
-            SurveyLog.logException(t, "Resetting password for user " + forEmail + " from " + ip);
+            SurveyLog.logException(logger, t, "Resetting password for user " + forEmail + " from " + ip);
             msg = msg + " exception: " + t.toString();
         } finally {
             DBUtils.close(updateInfoStmt, conn);
@@ -1502,10 +1498,10 @@ public class UserRegistry {
                 MailSender.getInstance().queue(null, 1, "User Locked: " + forEmail, "User account locked: " + ip + " reason=" + reason + " - " + u);
             }
         } catch (SQLException se) {
-            SurveyLog.logException(se, "Locking account for user " + forEmail + " from " + ip);
+            SurveyLog.logException(logger, se, "Locking account for user " + forEmail + " from " + ip);
             msg = msg + " exception";
         } catch (Throwable t) {
-            SurveyLog.logException(t, "Locking account for user " + forEmail + " from " + ip);
+            SurveyLog.logException(logger, t, "Locking account for user " + forEmail + " from " + ip);
             msg = msg + " exception: " + t.toString();
         } finally {
             DBUtils.close(updateInfoStmt, conn);
@@ -1565,10 +1561,11 @@ public class UserRegistry {
     }
 
     /**
-     * Get a new User object
+     * Create a new user
+     *
      * @param ctx - webcontext if available
-     * @param u prototype - used for user information
-     * @return
+     * @param u prototype - used for user information, but not for return value
+     * @return the new User object for the new user, or null for failure
      */
     public User newUser(WebContext ctx, User u) {
         final boolean hushUserMessages = CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST;
@@ -1577,7 +1574,8 @@ public class UserRegistry {
         u.email = u.email.replace('\'', '_').toLowerCase();
         u.org = u.org.replace('\'', '_');
         u.name = u.name.replace('\'', '_');
-        u.locales = u.locales.replace('\'', '_');
+        u.locales = (u.locales == null) ? "" : u.locales.replace('\'', '_');
+        u.locales = LocaleNormalizer.normalizeQuietly(u.locales);
 
         Connection conn = null;
         PreparedStatement insertStmt = null;
@@ -1585,12 +1583,11 @@ public class UserRegistry {
             conn = DBUtils.getInstance().getDBConnection();
             insertStmt = conn.prepareStatement(SQL_insertStmt);
             insertStmt.setInt(1, u.userlevel);
-            DBUtils.setStringUTF8(insertStmt, 2, u.name); // insertStmt.setString(2,
-            // u.name);
+            DBUtils.setStringUTF8(insertStmt, 2, u.name);
             insertStmt.setString(3, u.org);
             insertStmt.setString(4, u.email);
             insertStmt.setString(5, u.getPassword());
-            insertStmt.setString(6, normalizeLocaleList(u.locales));
+            insertStmt.setString(6, u.locales);
             if (!insertStmt.execute()) {
                 if (!hushUserMessages) logger.info("Added.");
                 conn.commit();
@@ -1609,10 +1606,10 @@ public class UserRegistry {
                 return null;
             }
         } catch (SQLException se) {
-            SurveyLog.logException(se, "Adding User");
+            SurveyLog.logException(logger, se, "Adding User");
             logger.severe("UR: Adding " + u.toString() + ": exception: " + DBUtils.unchainSqlException(se));
         } catch (Throwable t) {
-            SurveyLog.logException(t, "Adding User");
+            SurveyLog.logException(logger, t, "Adding User");
             logger.severe("UR: Adding  " + u.toString() + ": exception: " + t.toString());
         } finally {
             userModified(); // new user
@@ -1638,8 +1635,8 @@ public class UserRegistry {
         return (u != null) && (u.userlevel == UserRegistry.MANAGER);
     }
 
-    public static final boolean userIsExpert(User u) {
-        return (u != null) && (u.userlevel <= UserRegistry.EXPERT);
+    public static final boolean userIsManagerOrStronger(User u) {
+        return (u != null) && (u.userlevel <= UserRegistry.MANAGER);
     }
 
     public static final boolean userIsVetter(User u) {
@@ -1755,7 +1752,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanSetInterestLocales(User u) {
-        return userIsExpert(u);
+        return userIsManagerOrStronger(u);
     }
 
     /**
@@ -1765,7 +1762,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanGetEmailList(User u) {
-        return userIsExpert(u);
+        return userIsManagerOrStronger(u);
     }
 
     static boolean localeMatchesLocaleList(String localeArray[], CLDRLocale locale) {
@@ -1832,7 +1829,7 @@ public class UserRegistry {
             // All users can modify the sandbox
             return null;
         }
-        if ((u.locales == null) && userIsExpert(u))
+        if ((u.locales == null) && userIsManagerOrStronger(u))
             return null; // empty = ALL
         if (false || userIsExactlyManager(u))
             return null; // manager can edit all
@@ -1877,32 +1874,8 @@ public class UserRegistry {
             return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent
             // locale or a pure alias.
         }
-        // admin, TC, and manager can always modify.
-        if (userIsAdmin(u) ||
-            userIsTC(u) ||
-            userIsExactlyManager(u))
-            return null;
 
-        // the 'und' locale and sublocales can always be modified
-        if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
-            // All users can modify the sandbox
-            return null;
-        }
-
-        // unrestricted experts can modify all
-        if ((u.locales == null || isAllLocales(u.locales)) && userIsExpert(u))
-            return null; // empty = ALL
-
-        // User has a wildcard (*) - can modify all.
-        if (isAllLocales(u.locales)) {
-            return null;
-        }
-        String localeArray[] = tokenizeLocale(u.locales);
-        if (localeMatchesLocaleList(localeArray, locale)) {
-            return null;
-        } else {
-            return ModifyDenial.DENY_LOCALE_LIST;
-        }
+        return u.hasLocalePermission(locale) ? null : ModifyDenial.DENY_LOCALE_LIST;
     }
 
     // TODO: speedup. precalculate list of locales on user load.
@@ -1951,7 +1924,7 @@ public class UserRegistry {
     }
 
     /*
-     * Split into an array. Will return {} if no locales match, or {ALL_LOCALES}==ALL_LOCALES_LIST if it matches all locales
+     * Split into an array. Will return {} if no locales match
      */
     static String[] tokenizeLocale(String localeList) {
         if (isAllLocales(localeList)) {
@@ -2008,31 +1981,6 @@ public class UserRegistry {
             s.add(l);
         }
         return s;
-    }
-
-    /**
-     * take a locale string and convert it to HTML.
-     */
-    static String prettyPrintLocale(String localeList) {
-        if (isAllLocales(localeList)) {
-            return ("* (<i title='" + localeList + "'>all locales</i>)");
-        }
-        Set<CLDRLocale> localeArray = tokenizeValidCLDRLocale(localeList);
-        String ret = "";
-        if ((localeList == null) || (localeList.isEmpty())) {
-            ret = ("<i title='" + localeList + "'>all locales</i>");
-        } else if (localeArray.isEmpty()) {
-            if (localeList.equals("all")) {
-                ret = ("<i title='" + localeList + "'>all locales</i>");
-            } else {
-                ret = ("<i style='font-size: smaller' title='" + localeList + "'>no locales</i>");
-            }
-        } else {
-            for (CLDRLocale l : localeArray) {
-                ret = ret + " <tt class='codebox' title='" + l.getDisplayName() + "'>" + l.getBaseName() + "</tt> ";
-            }
-        }
-        return ret;
     }
 
     public VoterInfo getVoterToInfo(int userid) {
@@ -2169,228 +2117,6 @@ public class UserRegistry {
     }
 
     /**
-     * Read back an XML file
-     *
-     * @param sm
-     * @param inFile
-     * @return
-     */
-    public int readUserFile(SurveyMain sm, final File inFile) {
-        int nusers = 0;
-        if (CLDRConfig.getInstance().getEnvironment() != Environment.SMOKETEST) {
-            throw new InternalError("Error: can only do this in SMOKETEST"); // insanity
-            // check
-        }
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        PreparedStatement ps2 = null;
-        PreparedStatement ps3 = null;
-        try { // do this in 1 transaction. just in case.
-            conn = DBUtils.getInstance().getDBConnection();
-
-            ps = DBUtils.prepareStatementWithArgs(conn, "drop table " + CLDR_USERS);
-
-            int del = ps.executeUpdate();
-            System.err.println("DELETED " + del + "users.. reading from " + inFile.getAbsolutePath());
-
-            createUserTable(conn);
-
-            XMLFileReader myReader = new XMLFileReader();
-            final Map<String, String> attrs = new TreeMap<>();
-
-            // <user id="10" email="u_10@apple.example.com" level="vetter"
-            // name="Apple#10" org="apple" locales="nl nl_BE nl_NL"/>
-            // >>
-            // //users/user[@id="10"][@email="__"][@level="vetter"][@name="Apple"][@org="apple"][@locales="nl.. "]
-            final PreparedStatement myInsert = ps2 = DBUtils.prepareStatementForwardReadOnly(conn, "myInser", "UPDATE "
-                + CLDR_USERS + " SET userlevel=?,name=?,org=?,email=?,password=?,locales=?, lastlogin=NULL where id=?");
-            final PreparedStatement myAdder = ps3 = DBUtils.prepareStatementForwardReadOnly(conn, "myAdder", SQL_insertStmt);
-            final Connection myConn = conn; // for committing
-            myReader.setHandler(new XMLFileReader.SimpleHandler() {
-                int maxUserId = 1;
-
-                @Override
-                public void handlePathValue(String path, String value) {
-                    XPathParts xpp = XPathParts.getFrozenInstance(path);
-                    attrs.clear();
-                    for (String k : xpp.getAttributeKeys(-1)) {
-                        attrs.put(k, xpp.getAttributeValue(-1, k));
-                    }
-                    String elem = xpp.getElement(-1);
-                    System.err.println("* <" + elem + " " + attrs.toString() + ">" + value + "</" + elem + ">");
-
-                    try {
-
-                        String xpath = attrs.get("xpath");
-                        if (xpath != null) {
-                            xpath = xpath.trim().replace("'", "\"");
-                        }
-                        if (elem.equals("user")) {
-                            int id = Integer.parseInt(attrs.get("id"));
-                            if (id <= 1) {
-                                return; // skip user 1
-                            }
-                            while (id > maxUserId) { // loop, until we get to
-                                // that ID.
-                                ++maxUserId;
-                                // userlevel,name,org,email,password,locales,lastlogin
-                                myAdder.setInt(1, LOCKED);
-                                myAdder.setString(2, "Deleted User " + maxUserId);
-                                myAdder.setString(3, "n/a");
-                                myAdder.setString(4, "deleted-" + maxUserId + "@nobody.example.com");
-                                myAdder.setString(5, makePassword(""));
-                                myAdder.setString(6, "");
-                                int add = myAdder.executeUpdate();
-                                if (add != 1) {
-                                    throw new InternalError("Trying to add dummy user " + maxUserId);
-                                }
-                            }
-
-                            String name = attrs.get("name");
-                            String org = attrs.get("org");
-                            String email = normalizeEmail(attrs.get("email"));
-                            Level level = Level.valueOf(attrs.get("level"));
-                            String locales = attrs.get("locales");
-
-                            if (name == null) {
-                                name = org + "#" + id;
-                            }
-                            if (email == null) {
-                                email = org.toLowerCase() + id + "@" + org.toLowerCase() + ".example.com";
-                            }
-                            myInsert.setInt(1, level.getSTLevel());
-                            DBUtils.setStringUTF8(myInsert, 2, name);
-                            myInsert.setString(3, org);
-                            myInsert.setString(4, email);
-                            myInsert.setString(5, makePassword(email));
-                            myInsert.setString(6, locales);
-                            myInsert.setInt(7, id);
-                            int set = myInsert.executeUpdate();
-                            if (set != 1) {
-                                myConn.commit();
-                                throw new InternalError("Could not add user " + id + " - max user supposedly " + maxUserId
-                                    + " :: " + path);
-                            }
-                        } else {
-                            throw new IllegalArgumentException("Unknown test element type " + elem);
-                        }
-                    } catch (SQLException e) {
-                        SurveyLog.logException(e, "importing from " + inFile.getAbsolutePath() + " - " + "* <" + elem + " "
-                            + attrs.toString() + ">" + value + "</" + elem + ">");
-                        throw new IllegalArgumentException(e);
-                    }
-                }
-            });
-            myReader.read(inFile.getAbsolutePath(), -1, false);
-            nusers++;
-            conn.commit();
-        } catch (SQLException e) {
-            SurveyLog.logException(e, "importing users from " + inFile.getAbsolutePath());
-        } finally {
-            DBUtils.close(ps3, ps2, ps, conn);
-        }
-        return nusers;
-    }
-
-    /*
-     * <user id="460" email="?@??.??"> > <level n="5"/> > <org>IBM</org> >
-     * <locales type="edit"> > <locale id="sq"/> > </locales> > </user>
-     *
-     * It's probably better to just give VETTER, seems more portable than '5'.
-     *
-     * > If it is real info, make it an element. If not (and I think not, for >
-     * "ibm"), omit it.
-     *
-     * In the comments are the VoteResolver enum value. I'll probably just use
-     * that value.
-     *
-     * > 5. More issues with that. The structure is inconsistent, with some >
-     * info in attributes and some in elements. Should be one or the other. > >
-     * all attributes: > > <user id="460" email="?@??.??" level="5" org="IBM"
-     * edit="sq de"/> > > all elements > > <user id="460"> >
-     * <email>?@??.??</email> > <level/>5</level> > <org>IBM</org> >
-     * <edit>sq</edit> > <edit>de</edit> > </user> >
-     */
-
-    /**
-     * @param sm
-     *            TODO
-     * @param ourDate
-     * @param obscured
-     * @param outFile
-     * @throws UnsupportedEncodingException
-     * @throws FileNotFoundException
-     */
-    int writeUserFile(SurveyMain sm, String ourDate, boolean obscured, File outFile) throws UnsupportedEncodingException,
-        FileNotFoundException {
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF8"));
-        out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-        out.println("<users generated=\"" + ourDate + "\" obscured=\"" + obscured + "\">");
-        String org = null;
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            conn = DBUtils.getInstance().getAConnection();
-            synchronized (this) {
-                ps = list(org, conn);
-                rs = ps.executeQuery();
-                if (rs == null) {
-                    out.println("\t<!-- No results -->");
-                    out.close();
-                    return 0;
-                }
-                Organization lastOrg = null;
-                while (rs.next()) {
-                    int theirId = rs.getInt(1);
-                    int theirLevel = rs.getInt(2);
-                    String theirName = obscured ? ("#" + theirId) : DBUtils.getStringUTF8(rs, 3).trim();// rs.getString(3);
-                    String theirEmail = obscured ? /* "?@??.??" */"" : rs.getString(4).trim();
-                    String theirOrg = rs.getString(5);
-                    String theirLocales = rs.getString(6);
-
-                    Organization theOrg = computeVROrganization(theirOrg);
-                    if (theOrg == null) {
-                        SurveyLog.warnOnce("UserRegistry: Writing Illegal/unknown org: " + theirOrg);
-                    }
-                    if (!theOrg.equals(lastOrg)) {
-                        out.println("<!-- " + SurveyMain.xmlescape(theirOrg) + " -->");
-                        lastOrg = theOrg;
-                    }
-                    out.print("\t<user id=\"" + theirId + "\" ");
-                    if (theirEmail.length() > 0)
-                        out.print("email=\"" + theirEmail + "\" ");
-                    out.print("level=\"" + UserRegistry.levelAsStr(theirLevel).toLowerCase() + "\"");
-                    if (theirEmail.length() > 0)
-                        out.print(" name=\"" + SurveyMain.xmlescape(theirName) + "\"");
-                    out.print(" " + "org=\"" + theOrg + "\" locales=\"");
-                    if (UserRegistry.isAllLocales(theirLocales)) {
-                        out.print('*');
-                    } else {
-                        String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
-                        for (int i = 0; i < theirLocalesList.length; i++) {
-                            if (i > 0)
-                                out.print(" ");
-                            out.print(theirLocalesList[i]);
-                        }
-                    }
-                    out.println("\"/>");
-                }
-            } /* end synchronized(reg) */
-        } catch (SQLException se) {
-            logger.log(java.util.logging.Level.WARNING,
-                "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
-            out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
-        } finally {
-            DBUtils.close(conn, rs, ps);
-        }
-        out.println("</users>");
-        out.close();
-        return 1;
-    }
-
-    /**
      * Cache of the set of anonymous users
      */
     private Set<User> anonymousUsers = null;
@@ -2505,22 +2231,29 @@ public class UserRegistry {
     }
 
     /**
-     * Used for testing only.
+     * Create a test user, for unit testing only
+     *
      * @param name
      * @param org
      * @param locales
      * @param level
      * @param email
-     * @return
+     * @return the User object, or null for failure such as for invalid locales
      */
     public User createTestUser(String name, String org, String locales, Level level, String email) {
+        LocaleNormalizer locNorm = new LocaleNormalizer();
+        String normLocales = locNorm.normalize(locales);
+        if (locNorm.hasMessage()) {
+            logger.log(java.util.logging.Level.SEVERE, locNorm.getMessagePlain());
+            return null;
+        }
         UserRegistry.User proto = getEmptyUser();
         proto.email = email;
         proto.name = name;
         proto.org = org;
         proto.setPassword(UserRegistry.makePassword(proto.email));
         proto.userlevel = level.getSTLevel();
-        proto.locales = UserRegistry.normalizeLocaleList(locales);
+        proto.locales = normLocales;
 
         User u = newUser(null, proto);
         return u;
@@ -2531,7 +2264,7 @@ public class UserRegistry {
         final Organization myOrganization = me.getOrganization();
         JSONObject levels = new JSONObject();
         for (VoteResolver.Level v : VoteResolver.Level.values()) {
-            if (v == VoteResolver.Level.expert || v == VoteResolver.Level.anonymous) {
+            if (v == VoteResolver.Level.anonymous) {
                 continue;
             }
             int number = v.getSTLevel(); // like 999

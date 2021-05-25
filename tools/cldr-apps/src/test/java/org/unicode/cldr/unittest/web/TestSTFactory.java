@@ -627,9 +627,6 @@ public class TestSTFactory extends TestFmwk {
                         final boolean oldTest = u.isAdminFor(onUser);
                         final boolean newTest = uLevel.canManageSomeUsers() && uLevel.isManagerFor(u.getOrganization(), onLevel, onUser.getOrganization());
                         assertEquals("New(ex) vs old(got) manage test: " + uLevel + "/" + onLevel, newTest, oldTest);
-                        if (oldTest != newTest && onLevel == Level.expert) {
-                            System.out.println("Debugging: got expert in delete/modify; oldTest = " + oldTest + "; newTest = " + newTest);
-                        }
                         actualResult = actualResult && newTest;
                     }
                         break;

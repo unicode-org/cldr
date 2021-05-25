@@ -75,8 +75,11 @@ public class InterestLocales {
         /*
          * Last arg "true" for setLocales means set the interest locales (intlocs),
          * not the authorized locales (locales)
+         *
+         * Here the current user (session.user) is setting their own interest locs,
+         * not setting them for a different user
          */
-        String msg = reg.setLocales(session, session.user.id, session.user.email, intlocs, true);
+        String msg = reg.setLocales(session, session.user, intlocs, true);
         /*
          * session.user.intlocs does NOT get updated automatically by setLocales
          * so call userModified to clear the cache, and getInfo to get the updated intlocs

@@ -337,7 +337,7 @@ function updateStatusBox(json) {
       "The SurveyTool server returned a bad status",
       json
     );
-  } else if (cldrStatus.runningStampChanged(json.status.surveyRunningStamp)) {
+  } else if (cldrStatus.runningStampChanged(json.status?.surveyRunningStamp)) {
     cldrRetry.handleDisconnect(
       "The SurveyTool server restarted since this page was loaded. Please retry.",
       json,

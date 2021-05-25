@@ -993,7 +993,10 @@ function getPostTypeOptions(isReply, rootPost, value) {
       options["Agree"] = "Agree";
       options["Decline"] = "Decline";
     }
-    options["Discuss"] = makePostTypeLabel("Discuss", isReply);
+    if (isReply || userIsTC()) {
+      // only TC can initiate Discuss; others can reply
+      options["Discuss"] = makePostTypeLabel("Discuss", isReply);
+    }
     if (userCanClose(isReply, rootPost)) {
       options["Close"] = "Close";
     }

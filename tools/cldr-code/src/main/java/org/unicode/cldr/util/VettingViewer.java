@@ -407,7 +407,7 @@ public class VettingViewer<T> {
     private final SupplementalDataInfo supplementalDataInfo;
     private final String baselineTitle = "Baseline";
     private final String currentWinningTitle;
-
+    private Factory baselineFactory;
     private final Set<String> defaultContentLocales;
 
     /**
@@ -433,7 +433,20 @@ public class VettingViewer<T> {
 
         this.currentWinningTitle = currentWinningTitle;
         reasonsToPaths = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
+
+        // Default baseline factory
+        this.baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
     }
+
+    public Factory getBaselineFactory() {
+        return baselineFactory;
+    }
+
+    public void setBaselineFactory(Factory baselineFactory) {
+        this.baselineFactory = baselineFactory;
+    }
+
+
 
     public class WritingInfo implements Comparable<WritingInfo> {
         public final PathHeader codeOutput;

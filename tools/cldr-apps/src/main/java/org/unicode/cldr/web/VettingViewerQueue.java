@@ -719,8 +719,10 @@ public class VettingViewerQueue {
         Organization usersOrg = Organization.fromString(user.voterOrg());
         final boolean quick = false;
         STFactory sourceFactory = sm.getSTFactory();
+        final Factory baselineFactory = CookieSession.sm.getDiskFactory();  // Use the SurveyTool's baseline factory
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
+        vv.setBaselineFactory(baselineFactory);
 
         EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
 
@@ -737,7 +739,6 @@ public class VettingViewerQueue {
          * technical committee by committing directly to version control rather than voting.
          */
         CLDRFile sourceFile = sourceFactory.make(loc, true);
-        Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
         CLDRFile baselineFile = baselineFactory.make(loc, true);
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
         file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);

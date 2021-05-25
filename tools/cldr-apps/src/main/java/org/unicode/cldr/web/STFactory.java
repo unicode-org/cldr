@@ -743,8 +743,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         }
                     }
                     if (del > 0) {
-                        System.out.println("Committing delete of " + del + " invalid votes from " + locale);
-                        conn.commit();
+                        logger.warning ("Summary: delete of " + del + " invalid votes from " + locale);
                     }
                     DBUtils.close(rs, ps);
                     ps = openPermVoteQuery(conn);

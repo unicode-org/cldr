@@ -674,7 +674,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     private void reportNormalizationWarning(PrintWriter pw, LocaleNormalizer locNorm, String locales) {
         if (locales == null || locales.isEmpty()) {
-            locales = UserRegistry.NO_LOCALES;
+            locales = LocaleNormalizer.NO_LOCALES;
         }
         pw.println("<h2>Locale Validity Warning</h2>");
         pw.println("<p>" + locNorm.getMessageHtml() + "</p>");
@@ -1589,7 +1589,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("\t\t<name>" + theirName + "</name>");
                     ctx.println("\t\t<org>" + theirOrg + "</org>");
                     ctx.println("\t\t<locales type=\"edit\">");
-                    Set<CLDRLocale> locs = UserRegistry.tokenizeValidCLDRLocale(theirLocales);
+                    Set<CLDRLocale> locs = LocaleNormalizer.tokenizeValidCLDRLocale(theirLocales);
                     for (CLDRLocale loc : locs) {
                         ctx.println("\t\t\t<locale id=\"" + loc.getBaseName() + "\"/>");
                     }

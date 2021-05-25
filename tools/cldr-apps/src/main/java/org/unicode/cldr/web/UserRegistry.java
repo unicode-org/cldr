@@ -53,16 +53,6 @@ import com.ibm.icu.util.ULocale;
 public class UserRegistry {
 
     /**
-     * Special constant for specifying access to all locales.
-     */
-    public static final String ALL_LOCALES = "*";
-
-    /**
-     * Special constant for specifying access to no locales. Used with intlocs (not with locale access)
-     */
-    public static final String NO_LOCALES = "none";
-
-    /**
      * The number of anonymous users, ANONYMOUS_USER_COUNT, limits the number of distinct values that
      * can be added for a given locale and path as anonymous imported old losing votes. If eventually more
      * are needed, ANONYMOUS_USER_COUNT can be increased and more anonymous users will automatically
@@ -357,7 +347,7 @@ public class UserRegistry {
          * is the user interested in this locale?
          */
         public boolean interestedIn(CLDRLocale locale) {
-            return UserRegistry.localeMatchesLocaleList(intlocs, locale);
+            return LocaleNormalizer.localeMatchesLocaleList(intlocs, locale);
         }
 
         /**
@@ -372,15 +362,15 @@ public class UserRegistry {
                 if (intlocs == null || intlocs.length() == 0) {
                     return null;
                 } else {
-                    if (intlocs.equalsIgnoreCase(NO_LOCALES)) {
+                    if (intlocs.equalsIgnoreCase(LocaleNormalizer.NO_LOCALES)) {
                         return new String[0];
                     }
-                    if (isAllLocales(intlocs)) return null; // all = null
-                    return tokenizeLocale(intlocs);
+                    if (LocaleNormalizer.isAllLocales(intlocs)) return null; // all = null
+                    return LocaleNormalizer.tokenizeLocale(intlocs);
                 }
             } else if (userIsStreet(this)) {
-                if (isAllLocales(locales)) return null; // all = null
-                return tokenizeLocale(locales);
+                if (LocaleNormalizer.isAllLocales(locales)) return null; // all = null
+                return LocaleNormalizer.tokenizeLocale(locales);
             } else {
                 return new String[0];
             }
@@ -401,7 +391,7 @@ public class UserRegistry {
             // TODO: Need JDK9 for this:
             // return Set.of(stringArrayToLocaleArray(intList));
 
-            final TreeSet<CLDRLocale> s = new TreeSet<>();
+            final Set<CLDRLocale> s = new TreeSet<>();
             for(final CLDRLocale l : stringArrayToLocaleArray(intList)) {
                 s.add(l);
             }
@@ -415,8 +405,8 @@ public class UserRegistry {
             Organization o = this.getOrganization();
             VoteResolver.Level l = this.getLevel();
             Set<String> localesSet = new HashSet<>();
-            if (!isAllLocales(locales)) {
-                for (String s : tokenizeLocale(locales)) {
+            if (!LocaleNormalizer.isAllLocales(locales)) {
+                for (String s : LocaleNormalizer.tokenizeLocale(locales)) {
                     localesSet.add(s);
                 }
             }
@@ -621,25 +611,25 @@ public class UserRegistry {
         }
 
         private boolean userHasLocale(CLDRLocale locale) {
-            if (isAllLocales(locales)) {
+            if (LocaleNormalizer.isAllLocales(locales)) {
                 return true;
             }
-            final String[] userLocaleArray = tokenizeLocale(locales);
-            return localeMatchesLocaleList(userLocaleArray, locale);
+            final String[] userLocaleArray = LocaleNormalizer.tokenizeLocale(locales);
+            return LocaleNormalizer.localeMatchesLocaleList(userLocaleArray, locale);
         }
 
         private boolean orgHasLocale(CLDRLocale locale) {
             final Set<String> orgLocaleSet = StandardCodes.make().getLocaleCoverageLocales(org);
-            if (orgLocaleSet.contains(ALL_LOCALES)) {
+            if (orgLocaleSet.contains(LocaleNormalizer.ALL_LOCALES)) {
                 return true;
             }
             String[] orgLocaleArray = {};
             orgLocaleArray = orgLocaleSet.toArray(orgLocaleArray);
-            if (localeMatchesLocaleList(orgLocaleArray, locale)) {
+            if (LocaleNormalizer.localeMatchesLocaleList(orgLocaleArray, locale)) {
                 return true;
             }
             CLDRLocale parent = locale.getParent();
-            if (parent != null && localeMatchesLocaleList(orgLocaleArray, parent)) {
+            if (parent != null && LocaleNormalizer.localeMatchesLocaleList(orgLocaleArray, parent)) {
                 return true;
             }
             return false;
@@ -1107,7 +1097,7 @@ public class UserRegistry {
     static String validateIntlocList(String list) {
         list = list.trim();
         StringBuilder sb = new StringBuilder();
-        for (CLDRLocale l : tokenizeValidCLDRLocale(list)) {
+        for (CLDRLocale l : LocaleNormalizer.tokenizeValidCLDRLocale(list)) {
             if (sb.length() > 0) {
                 sb.append(' ');
             }
@@ -1765,27 +1755,6 @@ public class UserRegistry {
         return userIsManagerOrStronger(u);
     }
 
-    static boolean localeMatchesLocaleList(String localeArray[], CLDRLocale locale) {
-        return localeMatchesLocaleList(stringArrayToLocaleArray(localeArray), locale);
-    }
-
-    static boolean localeMatchesLocaleList(CLDRLocale localeArray[], CLDRLocale locale) {
-        for (CLDRLocale entry : localeArray) {
-            if (entry.equals(locale)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    static boolean localeMatchesLocaleList(String localeList, CLDRLocale locale) {
-        if (isAllLocales(localeList)) {
-            return true;
-        }
-        String localeArray[] = tokenizeLocale(localeList);
-        return localeMatchesLocaleList(localeArray, locale);
-    }
-
     public enum ModifyDenial {
         DENY_NULL_USER("No user specified"),
         DENY_LOCALE_READONLY("Locale is read-only"),
@@ -1833,10 +1802,10 @@ public class UserRegistry {
             return null; // empty = ALL
         if (false || userIsExactlyManager(u))
             return null; // manager can edit all
-        if (isAllLocales(u.locales)) {
+        if (LocaleNormalizer.isAllLocales(u.locales)) {
             return null; // all
         }
-        String localeArray[] = tokenizeLocale(u.locales);
+        String localeArray[] = LocaleNormalizer.tokenizeLocale(u.locales);
         final CLDRLocale languageLocale = locale.getLanguageLocale();
         for (final CLDRLocale l : stringArrayToLocaleArray(localeArray)) {
             if (l.getLanguageLocale() == languageLocale) {
@@ -1905,7 +1874,7 @@ public class UserRegistry {
         return null;
     }
 
-    private static CLDRLocale[] stringArrayToLocaleArray(String[] localeArray) {
+    static CLDRLocale[] stringArrayToLocaleArray(String[] localeArray) {
         CLDRLocale arr[] = new CLDRLocale[localeArray.length];
         for (int j = 0; j < localeArray.length; j++) {
             arr[j] = CLDRLocale.getInstance(localeArray[j]);
@@ -1913,75 +1882,10 @@ public class UserRegistry {
         return arr;
     }
 
-    static final String LOCALE_PATTERN = "[, \t\u00a0\\s]+"; // whitespace
     /**
      * Invalid user ID, representing NO USER.
      */
     public static final int NO_USER = -1;
-
-    public static final boolean isAllLocales(String localeList) {
-        return (localeList != null) && (localeList.contains(ALL_LOCALES) || localeList.trim().equals("all"));
-    }
-
-    /*
-     * Split into an array. Will return {} if no locales match
-     */
-    static String[] tokenizeLocale(String localeList) {
-        if (isAllLocales(localeList)) {
-            throw new IllegalArgumentException("Don't call this function with '" + ALL_LOCALES + "' - " + localeList);
-        }
-        if ((localeList == null) || ((localeList = localeList.trim()).length() == 0)) {
-            return new String[0];
-        }
-        return localeList.trim().split(LOCALE_PATTERN);
-    }
-
-    /**
-     * Tokenize a string, but return an array of CLDRLocales
-     *
-     * @param localeList
-     * @return
-     */
-    static CLDRLocale[] tokenizeCLDRLocale(String localeList) {
-        if (isAllLocales(localeList)) {
-            throw new IllegalArgumentException("Don't call this function with '" + ALL_LOCALES + "' - " + localeList);
-        }
-        if ((localeList == null) || ((localeList = localeList.trim()).length() == 0)) {
-            return new CLDRLocale[0];
-        }
-
-        String s[] = tokenizeLocale(localeList);
-        CLDRLocale l[] = new CLDRLocale[s.length];
-        for (int j = 0; j < s.length; j++) {
-            l[j] = CLDRLocale.getInstance(s[j]);
-        }
-        return l;
-    }
-
-    /**
-     * Tokenize a list, and validate it against actual locales
-     *
-     * @param localeList
-     * @return
-     */
-    static Set<CLDRLocale> tokenizeValidCLDRLocale(String localeList) {
-        if (isAllLocales(localeList)) {
-            throw new IllegalArgumentException("Don't call this function with '" + ALL_LOCALES + "' - " + localeList);
-        }
-        Set<CLDRLocale> s = new TreeSet<>();
-        if (localeList == null || isAllLocales(localeList))
-            return s; // empty
-
-        Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
-        CLDRLocale locs[] = tokenizeCLDRLocale(localeList);
-        for (CLDRLocale l : locs) {
-            if (!allLocs.contains(l)) {
-                continue;
-            }
-            s.add(l);
-        }
-        return s;
-    }
 
     public VoterInfo getVoterToInfo(int userid) {
         return getVoterToInfo().get(userid);
@@ -2016,8 +1920,8 @@ public class UserRegistry {
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
                     u.locales = rs.getString(6);
-                    if (isAllLocales(u.locales)) {
-                        u.locales = ALL_LOCALES;
+                    if (LocaleNormalizer.isAllLocales(u.locales)) {
+                        u.locales = LocaleNormalizer.ALL_LOCALES;
                     }
                     u.intlocs = rs.getString(7);
                     u.last_connect = rs.getTimestamp(8);
@@ -2171,8 +2075,8 @@ public class UserRegistry {
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
                     u.locales = rs.getString(6);
-                    if (isAllLocales(u.locales)) {
-                        u.locales = ALL_LOCALES;
+                    if (LocaleNormalizer.isAllLocales(u.locales)) {
+                        u.locales = LocaleNormalizer.ALL_LOCALES;
                     }
                     u.intlocs = rs.getString(7);
                     u.last_connect = rs.getTimestamp(8);
@@ -2215,7 +2119,7 @@ public class UserRegistry {
                     + "'anon" + i + "@example.org'," // email
                     + "'cldr',"                      // org
                     + "'',"                          // password
-                    + "'" + ALL_LOCALES + "')";      // locales
+                    + "'" + LocaleNormalizer.ALL_LOCALES + "')";      // locales
                 s.execute(sql);
             }
             conn.commit();

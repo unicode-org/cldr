@@ -576,6 +576,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if (!calType.matches("(gregorian|generic)")) {
                     continue;
                 }
+                // So far we are generating datetimeSkeleton mechanically, no coverage
+                if (xpp.containsElement("datetimeSkeleton")) {
+                    continue;
+                }
                 String element = xpp.getElement(-1);
                 // Skip things that shouldn't normally exist in the generic calendar
                 // days, dayPeriods, quarters, and months

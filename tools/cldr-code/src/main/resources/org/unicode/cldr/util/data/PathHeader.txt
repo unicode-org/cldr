@@ -94,9 +94,11 @@
 //ldml/dates/calendars/calendar[@type="%A"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:date)-$2 ; HIDE
 //ldml/dates/calendars/calendar[@type="%N"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:date) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:date)-$2 ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/datetimeSkeleton       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:date)-$2 ; HIDE
 
 //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar(gregorian) ; &calField(Formats:Standard:time) ; $1 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/datetimeSkeleton       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
 
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:dateTime)-$2 ; HIDE

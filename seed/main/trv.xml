@@ -96,21 +96,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="provisional">EEEE, G y MMMM dd</pattern>
+							<datetimeSkeleton draft="provisional">GyMMMMEEEEdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="provisional">G y MMMM d</pattern>
+							<datetimeSkeleton draft="provisional">GyMMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="provisional">G y MMM d</pattern>
+							<datetimeSkeleton draft="provisional">GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="provisional">GGGGG y-MM-dd</pattern>
+							<datetimeSkeleton draft="provisional">GGGGGyMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -262,21 +266,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="provisional">EEEE, y MMMM dd</pattern>
+							<datetimeSkeleton draft="provisional">yMMMMEEEEdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="provisional">y MMMM d</pattern>
+							<datetimeSkeleton draft="provisional">yMMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="provisional">y MMM d</pattern>
+							<datetimeSkeleton draft="provisional">yMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="provisional">y-MM-dd</pattern>
+							<datetimeSkeleton draft="provisional">yMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -284,21 +292,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern draft="provisional">h:mm:ss a zzzz</pattern>
+							<datetimeSkeleton draft="provisional">ahmmsszzzz</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern draft="provisional">h:mm:ss a z</pattern>
+							<datetimeSkeleton draft="provisional">ahmmssz</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern draft="provisional">h:mm:ss a</pattern>
+							<datetimeSkeleton draft="provisional">ahmmss</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern draft="provisional">h:mm a</pattern>
+							<datetimeSkeleton draft="provisional">ahmm</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

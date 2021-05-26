@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -65,6 +66,10 @@ public class CheckDates extends FactoryCheckCLDR {
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
     private CoverageLevel2 coverageLevel;
     private SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+    // Ordered list of this CLDRFile and parent CLDRFiles up to root
+    List<CLDRFile> parentCLDRFiles = new ArrayList<CLDRFile>();
+    // Map from calendar type (i.e. "gregorian", "generic", "chinese") to DateTimePatternGenerator instance for that type
+    Map<String, DateTimePatternGenerator> dtpgForType = new HashMap<String, DateTimePatternGenerator>();
 
     // Use the width of the character "0" as the basic unit for checking widths
     // It's not perfect, but I'm not sure that anything can be. This helps us
@@ -95,6 +100,8 @@ public class CheckDates extends FactoryCheckCLDR {
     private static final Pattern HOUR_SYMBOL = PatternCache.get("H{1,2}");
     private static final Pattern MINUTE_SYMBOL = PatternCache.get("mm");
     private static final Pattern YEAR_FIELDS = PatternCache.get("(y|Y|u|U|r){1,5}");
+
+    private static String CALENDAR_ID_PREFIX = "/calendar[@type=\"";
 
     static String[] calTypePathsToCheck = {
         "//ldml/dates/calendars/calendar[@type=\"buddhist\"]",
@@ -257,6 +264,17 @@ public class CheckDates extends FactoryCheckCLDR {
         // }
 
         dateFormatInfoFormat = sdi.getDayPeriods(Type.format, cldrFileToCheck.getLocaleID());
+
+        // Make new list of parent CLDRFiles
+        parentCLDRFiles.clear();
+        parentCLDRFiles.add(cldrFileToCheck);
+        while ((localeID = LocaleIDParser.getParent(localeID)) != null) {
+            CLDRFile resolvedParentCLDRFile = getFactory().make(localeID, true);
+            parentCLDRFiles.add(resolvedParentCLDRFile);
+        }
+        // Clear out map of DateTimePatternGenerators for calendarType
+        dtpgForType.clear();
+
         return this;
     }
 
@@ -539,6 +557,31 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
                 if (patternBasicallyOk) {
                     checkPattern(dateTypePatternType, path, fullPath, value, result);
+                }
+            } else if (path.contains("datetimeSkeleton") && !path.contains("[@alt=")) { // cannot test any alt skeletons
+                // Get calendar type from //ldml/dates/calendars/calendar[@type="..."]/
+                int startIndex = path.indexOf(CALENDAR_ID_PREFIX);
+                if (startIndex > 0) {
+                    startIndex += CALENDAR_ID_PREFIX.length();
+                    int endIndex = path.indexOf("\"]", startIndex);
+                    String calendarType = path.substring(startIndex,endIndex);
+                    // Get pattern generated from datetimeSkeleton
+                    DateTimePatternGenerator dtpg = getDTPGForCalendarType(calendarType);
+                    String patternFromSkeleton = dtpg.getBestPattern(value);
+                    // Get actual stock pattern
+                    String patternPath = path.replace("/datetimeSkeleton", "/pattern[@type=\"standard\"]");
+                    String patternStock = getCldrFileToCheck().getWinningValue(patternPath);
+                    // Compare and flag error if mismatch
+                    if (!patternFromSkeleton.equals(patternStock)) {
+                        CheckStatus item = new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.warningType)
+                            .setSubtype(Subtype.inconsistentDatePattern)
+                            .setMessage(
+                                "Pattern \"{0}\" from datetimeSkeleton should match corresponding standard pattern \"{1}\", adjust availableFormats to fix.",
+                                patternFromSkeleton, patternStock);
+                        result.add(item);
+                    }
                 }
             } else if (path.contains("hourFormat")) {
                 int semicolonPos = value.indexOf(';');
@@ -1118,6 +1161,15 @@ public class CheckDates extends FactoryCheckCLDR {
         result.add(new MyCheckStatus()
             .setFormat(x)
             .setCause(this).setMainType(CheckStatus.demoType));
+    }
+
+    private DateTimePatternGenerator getDTPGForCalendarType(String calendarType) {
+        DateTimePatternGenerator dtpg = dtpgForType.get(calendarType);
+        if (dtpg == null) {
+            dtpg = flexInfo.getDTPGForCalendarType(calendarType, parentCLDRFiles);
+            dtpgForType.put(calendarType, dtpg);
+        }
+        return dtpg;
     }
 
     static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:][:punctuation:]]");

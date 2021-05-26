@@ -72,8 +72,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characters>
 		<exemplarCharacters draft="unconfirmed">[a b d e f g h i j k l m n o p r s t u w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c q v x z]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="unconfirmed">[, . ? !]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B D E F G H I J K L M N O P R S T U W Y]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="unconfirmed">[, . ? !]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -136,21 +136,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEE, dd MMMM yyyy</pattern>
+							<datetimeSkeleton draft="unconfirmed">yyyyMMMMEEEdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd MMMM yyyy</pattern>
+							<datetimeSkeleton draft="unconfirmed">yyyyMMMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd MMM yyyy</pattern>
+							<datetimeSkeleton draft="unconfirmed">yyyyMMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd/MM/yy</pattern>
+							<datetimeSkeleton draft="unconfirmed">yyMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -158,21 +162,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a zzzz</pattern>
+							<datetimeSkeleton draft="unconfirmed">ahhmmsszzzz</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a zzz</pattern>
+							<datetimeSkeleton draft="unconfirmed">ahhmmsszzz</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm:ss a</pattern>
+							<datetimeSkeleton draft="unconfirmed">ahhmmss</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern draft="unconfirmed">hh:mm a</pattern>
+							<datetimeSkeleton draft="unconfirmed">ahhmm</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

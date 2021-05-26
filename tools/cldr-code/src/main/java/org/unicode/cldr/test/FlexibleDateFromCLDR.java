@@ -193,6 +193,69 @@ class FlexibleDateFromCLDR {
         }
     }
 
+    public DateTimePatternGenerator getDTPGForCalendarType(String calendarType, List<CLDRFile> parentCLDRFiles) {
+        DateTimePatternGenerator dtpg = DateTimePatternGenerator.getEmptyInstance();
+        switch (calendarType) {
+            default:
+                addAvailableFormatsForFile(dtpg, calendarType, parentCLDRFiles.get(0));
+                int hyphenIndex = calendarType.indexOf('-');
+                if (hyphenIndex > 0) { // e.g. islamic-umalqura, ethiopic-amete-alem
+                    // we inherit from the untruncated form
+                    String baseType = calendarType.substring(0,hyphenIndex);
+                    addAvailableFormatsForFile(dtpg, baseType, parentCLDRFiles.get(0));
+                }
+                // then fall through to generic (sideways)
+            case "generic":
+                addAvailableFormatsForFile(dtpg, "generic", parentCLDRFiles.get(0));
+                // then fall through to gregorian (sideways)
+            case "gregorian":
+                // this inherits upward from parents
+                addAvailableFormatsWithParents(dtpg, "gregorian", parentCLDRFiles);
+                break;
+
+            case "dangi":
+                addAvailableFormatsForFile(dtpg, "dangi", parentCLDRFiles.get(0));
+                // fall through to chinese (sideways)
+            case "chinese":
+                // this inherits upward from parents
+                addAvailableFormatsWithParents(dtpg, "chinese", parentCLDRFiles);
+                break;
+        }
+        return dtpg;
+    }
+
+    private void addAvailableFormatsWithParents(DateTimePatternGenerator dtpg, String calendarType, List<CLDRFile> parentCLDRFiles) {
+        for (Iterator<CLDRFile> it = parentCLDRFiles.iterator(); it.hasNext();) {
+            CLDRFile file = it.next();
+            addAvailableFormatsForFile(dtpg, calendarType, file);
+        }
+    }
+
+    private static String DATE_FORMAT_ITEM_ID_PREFIX = "dateFormatItem[@id=\"";
+
+    private void addAvailableFormatsForFile(DateTimePatternGenerator dtpg, String calendarType, CLDRFile file) {
+        String toppath = "//ldml/dates/calendars/calendar[@type=\"" + calendarType + "\"]/dateTimeFormats/availableFormats";
+        // relevant paths here might include the following (but we want to skip alt=variant):
+        // ...dateTimeFormats/availableFormats/dateFormatItem[@id="..."]
+        // ...dateTimeFormats/availableFormats/dateFormatItem[@id="..."][@draft="..."]
+        // ...dateTimeFormats/availableFormats/dateFormatItem[@id="..."][@count="..."]
+        // ...dateTimeFormats/availableFormats/dateFormatItem[@id="..."][@count="..."][@draft="..."]
+        // ...dateTimeFormats/availableFormats/dateFormatItem[@id="..."][@alt="variant"]
+        boolean isRoot = file.getLocaleID().equals("root");
+        for (Iterator<String> it = file.iterator(toppath); it.hasNext();) {
+            String path = it.next();
+            int startIndex = path.indexOf(DATE_FORMAT_ITEM_ID_PREFIX);
+            if (startIndex < 0 || path.indexOf("[@alt=", startIndex) >= 0) {
+                continue;
+            }
+            startIndex += DATE_FORMAT_ITEM_ID_PREFIX.length();
+            int endIndex = path.indexOf("\"]", startIndex);
+            String skeleton = path.substring(startIndex,endIndex);
+            String pattern = file.getWinningValue(path);
+            dtpg.addPatternWithSkeleton(pattern, skeleton, !isRoot, patternInfo);
+        }
+    }
+
     private String stripLiterals(String pattern) {
         int i = 0, patlen = pattern.length();
         StringBuilder stripped = new StringBuilder(patlen);

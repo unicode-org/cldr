@@ -307,7 +307,7 @@ public class SurveyAjax extends HttpServlet {
                     try {
                         u = sm.reg.getInfo(Integer.parseInt(user));
                     } catch (Throwable t) {
-                        SurveyLog.logException(t, "Parsing user " + user);
+                        SurveyLog.logException(logger, t, "Parsing user " + user);
                     }
                 }
                 /*
@@ -337,7 +337,7 @@ public class SurveyAjax extends HttpServlet {
                     try {
                     u = sm.reg.getInfo(Integer.parseInt(user));
                     } catch (Throwable t) {
-                    SurveyLog.logException(t, "Parsing user " + user);
+                    SurveyLog.logException(logger, t, "Parsing user " + user);
                     }
                 System.out.println("SQL: " + q1 + q2);
                 JSONObject query;
@@ -478,7 +478,7 @@ public class SurveyAjax extends HttpServlet {
                                         })
                                         .setMessage("Input Processor Exception: {0}")
                                         .setParameters(exceptionList));
-                                    SurveyLog.logException(exceptionList[0], "DAIP, Processing " + loc + ":" + xp + "='" + val
+                                    SurveyLog.logException(logger, exceptionList[0], "DAIP, Processing " + loc + ":" + xp + "='" + val
                                         + "' (was '" + origValue + "')");
                                 }
 
@@ -497,7 +497,7 @@ public class SurveyAjax extends HttpServlet {
                                         })
                                         .setMessage("Input Processor Error: {0}")
                                         .setParameters(list));
-                                    SurveyLog.logException(null, "DAIP, Processing " + loc + ":" + xp + "='" + val + "' (was '"
+                                    SurveyLog.logException(logger, null, "DAIP, Processing " + loc + ":" + xp + "='" + val + "' (was '"
                                         + origValue + "'): " + otherErr);
                                 }
 
@@ -513,7 +513,7 @@ public class SurveyAjax extends HttpServlet {
 
                                 submitVoteOrAbstention(r, val, mySession, locale, xp, stf, otherErr, result, request, ballotBox);
                             } catch (Throwable t) {
-                                SurveyLog.logException(t, "Processing submission " + locale + ":" + xp);
+                                SurveyLog.logException(logger, t, "Processing submission " + locale + ":" + xp);
                                 SurveyJSONWrapper.putException(r, t);
                             } finally {
                                 if (uf != null)
@@ -852,13 +852,13 @@ public class SurveyAjax extends HttpServlet {
                 sendError(out, "Unknown Request: " + what, ErrorCode.E_INTERNAL);
             }
         } catch (SurveyException e) {
-            SurveyLog.logException(e, "Processing: " + what);
+            SurveyLog.logException(logger, e, "Processing: " + what);
             sendError(out, e);
         } catch (JSONException e) {
-            SurveyLog.logException(e, "Processing: " + what);
+            SurveyLog.logException(logger, e, "Processing: " + what);
             sendError(out, "JSONException: " + e, ErrorCode.E_INTERNAL);
         } catch (SQLException e) {
-            SurveyLog.logException(e, "Processing: " + what);
+            SurveyLog.logException(logger, e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
         }
     }
@@ -1140,8 +1140,8 @@ public class SurveyAjax extends HttpServlet {
             CookieSession mySession = CookieSession.retrieve(sess);
             if (mySession.user != null) {
                 String locales = mySession.user.locales;
-                if (locales != null && !locales.isEmpty() && !UserRegistry.isAllLocales(locales)) {
-                    String localeArray[] = UserRegistry.tokenizeLocale(locales);
+                if (locales != null && !locales.isEmpty() && !LocaleNormalizer.isAllLocales(locales)) {
+                    String localeArray[] = LocaleNormalizer.tokenizeLocale(locales);
                     if (localeArray.length > 0) {
                         loc = localeArray[0];
                     }
@@ -1312,7 +1312,7 @@ public class SurveyAjax extends HttpServlet {
         try {
             r.put("status", sm.statusJSON(request));
         } catch (JSONException e) {
-            SurveyLog.logException(e, "getting status");
+            SurveyLog.logException(logger, e, "getting status");
         }
     }
 
@@ -1381,7 +1381,7 @@ public class SurveyAjax extends HttpServlet {
         try {
             e.addDataTo(r);
         } catch (JSONException e1) {
-            SurveyLog.logException(e1, "While processing " + e.toString());
+            SurveyLog.logException(logger, e1, "While processing " + e.toString());
             r.put("err", e.getMessage() + " - and JSON error " + e1.toString());
         }
         send(r, out);
@@ -1490,7 +1490,7 @@ public class SurveyAjax extends HttpServlet {
         Map<String, Long> localeCount = new HashMap<>();
         Map<String, String> localeName = new HashMap<>();
         while (--ver >= oldestVersionForImportingVotes) {
-            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(Integer.valueOf(ver).toString(), false).toString();
             if (DBUtils.hasTable(oldVotesTable)) {
                 String sql = "select locale,count(*) as count from " + oldVotesTable
                     + " where submitter=? " +
@@ -1553,7 +1553,7 @@ public class SurveyAjax extends HttpServlet {
             try {
                 realCount = viewOldVotes(user, sm, loc, CLDRLocale.getInstance(loc), newVotesTable, oldVotesNull, fac);
             } catch (Throwable t) {
-                SurveyLog.logException(t, "listLocalesForImportOldVotes: loc = " + loc);
+                SurveyLog.logException(logger, t, "listLocalesForImportOldVotes: loc = " + loc);
             }
             if (realCount > 0) {
                 data.put(new JSONArray().put(loc).put(realCount).put(localeName.get(loc)));
@@ -1689,7 +1689,7 @@ public class SurveyAjax extends HttpServlet {
                  * InvalidXPathException and VoteNotAcceptedException would be OK to ignore, but
                  * they can't happen here.
                  */
-                SurveyLog.logException(e, "Viewing old votes");
+                SurveyLog.logException(logger, e, "Viewing old votes");
                 continue;
             }
         }
@@ -1858,7 +1858,7 @@ public class SurveyAjax extends HttpServlet {
             throws InvalidXPathException, SQLException {
 
         int newVer = Integer.parseInt(SurveyMain.getNewVersion());
-        String importTable = DBUtils.Table.IMPORT.forVersion(new Integer(newVer).toString(), false).toString();
+        String importTable = DBUtils.Table.IMPORT.forVersion(Integer.valueOf(newVer).toString(), false).toString();
         Connection conn = null;
         PreparedStatement ps = null;
         String sql = "INSERT INTO " + importTable + "(locale,xpath,value) VALUES(?,?,?)";
@@ -1897,12 +1897,12 @@ public class SurveyAjax extends HttpServlet {
          * Use "union" to combine into a single sql query.
          */
         int newVer = Integer.parseInt(SurveyMain.getNewVersion());
-        String importTable = DBUtils.Table.IMPORT.forVersion(new Integer(newVer).toString(), false).toString();
+        String importTable = DBUtils.Table.IMPORT.forVersion(Integer.valueOf(newVer).toString(), false).toString();
         String sql = "";
         int tableCount = 0;
         int ver = newVer;
         while (--ver >= oldestVersionForImportingVotes) {
-            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(Integer.valueOf(newVer).toString(), false).toString();
             if (DBUtils.hasTable(oldVotesTable)) {
                 if (!sql.isEmpty()) {
                     sql += " UNION ALL ";
@@ -1981,7 +1981,7 @@ public class SurveyAjax extends HttpServlet {
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
         int confirmations = 0;
         while (--ver >= oldestVersionForImportingVotes) {
-            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(Integer.valueOf(ver).toString(), false).toString();
             if (DBUtils.hasTable(oldVotesTable)) {
                 // SurveyLog.warnOnce("Old Votes table present: " + oldVotesTable);
                 int count = DBUtils.sqlCount("select  count(*) as count from " + oldVotesTable
@@ -1993,7 +1993,7 @@ public class SurveyAjax extends HttpServlet {
                     confirmations += importAllOldWinningVotes(user, sm, oldVotesTable, newVotesTable);
                 }
             } else {
-                SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
+                SurveyLog.warnOnce(logger, "Old Votes table missing: " + oldVotesTable);
             }
         }
         oldvotes.put("ok", true);
@@ -2034,7 +2034,7 @@ public class SurveyAjax extends HttpServlet {
                 conn.commit();
             }
         } catch (SQLException e) {
-            SurveyLog.logException(e, "SQL exception: " + autoImportTable);
+            SurveyLog.logException(logger, e, "SQL exception: " + autoImportTable);
         } finally {
             DBUtils.close(ps, conn);
         }
@@ -2205,7 +2205,7 @@ public class SurveyAjax extends HttpServlet {
         String oldVotesTableList = "";
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
         while (--ver >= oldestVersionForImportingVotes) {
-            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(Integer.valueOf(ver).toString(), false).toString();
             if (DBUtils.hasTable(oldVotesTable)) {
                 Connection conn = null;
                 PreparedStatement ps = null;
@@ -2228,7 +2228,7 @@ public class SurveyAjax extends HttpServlet {
                     conn.commit();
                 } catch (SQLException e) {
                     // "Duplicate entry" may occur. Catch here rather than abort entire transfer.
-                    SurveyLog.logException(e, "SQL exception: transferring votes in " + oldVotesTable);
+                    SurveyLog.logException(logger, e, "SQL exception: transferring votes in " + oldVotesTable);
                 } finally {
                     DBUtils.close(ps, conn);
                 }
@@ -2597,7 +2597,7 @@ public class SurveyAjax extends HttpServlet {
                         return;
                     }
                 } catch (Throwable t) {
-                    SurveyLog.logException(t, "on loading " + locale + ":" + baseXp);
+                    SurveyLog.logException(logger, t, "on loading " + locale + ":" + baseXp);
                     new JSONWriter(out).object().key("err").value("Exception on getSection:" + t.toString())
                         .key("err_code").value("E_BAD_SECTION").endObject();
                     return;
@@ -2643,7 +2643,7 @@ public class SurveyAjax extends HttpServlet {
                     }
                     r.endObject();
                 } catch (Throwable t) {
-                    SurveyLog.logException(t, "RefreshRow write");
+                    SurveyLog.logException(logger, t, "RefreshRow write");
                     new JSONWriter(out).object().key("err").value("Exception on writeSection:" + t.toString()).endObject();
                 }
             }

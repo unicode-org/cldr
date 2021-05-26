@@ -1328,6 +1328,41 @@ public class CLDRModify {
                 }
             }
         });
+
+        fixList.add('S', "add datetimeSkeleton to dateFormat,timeFormat", new CLDRFilter() {
+            DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
+
+            @Override
+            public void handlePath(String xpath) {
+                // desired xpaths are like
+                // //ldml/dates/calendars/calendar[@type="..."]/dateFormats/dateFormatLength[@type="..."]/dateFormat[@type="standard"]/pattern[@type="standard"]
+                // //ldml/dates/calendars/calendar[@type="..."]/dateFormats/dateFormatLength[@type="..."]/dateFormat[@type="standard"]/pattern[@type="standard"][@draft="..."]
+                // //ldml/dates/calendars/calendar[@type="..."]/dateFormats/dateFormatLength[@type="..."]/dateFormat[@type="standard"]/pattern[@type="standard"][@numbers="..."]
+                // //ldml/dates/calendars/calendar[@type="..."]/dateFormats/dateFormatLength[@type="..."]/dateFormat[@type="standard"]/pattern[@type="standard"][@numbers="..."][@draft="..."]
+                // //ldml/dates/calendars/calendar[@type="..."]/dateFormats/dateFormatLength[@type="..."]/dateFormat[@type="standard"]/pattern[@type="standard"][@alt="variant"]
+                // //ldml/dates/calendars/calendar[@type="..."]/timeFormats/timeFormatLength[@type="..."]/timeFormat[@type="standard"]/pattern[@type="standard"]
+                // //ldml/dates/calendars/calendar[@type="..."]/timeFormats/timeFormatLength[@type="..."]/timeFormat[@type="standard"]/pattern[@type="standard"][@draft="..."]
+                if (xpath.indexOf("/dateFormat[@type=\"standard\"]/pattern") < 0 && xpath.indexOf("/timeFormat[@type=\"standard\"]/pattern") < 0) {
+                    return;
+                }
+                String patternValue = cldrFileToFilter.getStringValue(xpath);
+                String skeletonValue = patternValue;
+                if (!patternValue.equals("↑↑↑")) {
+                    skeletonValue = dateTimePatternGenerator.getSkeleton(patternValue);
+                    if (skeletonValue == null || skeletonValue.length() < 1) {
+                        show("empty skeleton for datetime pattern \"" + patternValue + "\"", "path " + xpath);
+                        return;
+                    }
+                }
+
+                String patternFullXPath = cldrFileToFilter.getFullXPath(xpath);
+                // Replace pattern[@type="standard"] with datetimeSkeleton, preserve other attributes (including numbers per TC discussion).
+                // Note that for the alt="variant" patterns there are corresponding alt="variant" availableFormats that must be used.
+                String skeletonFullXPath = patternFullXPath.replace("/pattern[@type=\"standard\"]", "/datetimeSkeleton"); // .replaceAll("\\[@numbers=\"[^\"]+\"\\]", "")
+                add(skeletonFullXPath, skeletonValue, "create datetimeSkeleton from dateFormat/pattern or timeFormat/pattern");
+            }
+        });
+
         /*
          * Fix id to be identical to skeleton
          * Eliminate any single-field ids
@@ -1339,7 +1374,6 @@ public class CLDRModify {
          * In Survey Tool: don't show id; compute when item added or changed
          * test validity
          */
-
         fixList.add('d', "fix dates", new CLDRFilter() {
             DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
             DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();

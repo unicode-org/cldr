@@ -21,7 +21,6 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -172,7 +171,7 @@ public class SurveyForum {
             throw new RuntimeException("Couldn't query ID for forum " + forum);
         }
         // Add to list
-        Integer i = new Integer(num);
+        Integer i = Integer.valueOf(num);
         nameToNum.put(forum, i);
         return num;
     }
@@ -267,6 +266,9 @@ public class SurveyForum {
         if (SurveyMain.isPhaseReadonly()) {
             return false;
         }
+        if (postType == PostType.DISCUSS && replyTo == NO_PARENT && !UserRegistry.userIsTC(user)) {
+            return false; // only TC can initiate Discuss; others can reply
+        }
         if (postType != PostType.CLOSE) {
             return true;
         }
@@ -313,7 +315,7 @@ public class SurveyForum {
             }
          } catch (SQLException se) {
             String complaint = "SurveyForum: Couldn't get parent for post - " + DBUtils.unchainSqlException(se);
-            SurveyLog.logException(se, complaint);
+            SurveyLog.logException(logger, se, complaint);
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
         } finally {
             DBUtils.close(pList, conn);
@@ -576,7 +578,7 @@ public class SurveyForum {
 
             return DBUtils.sqlCount(null, conn, ps);
         } catch (SQLException e) {
-            SurveyLog.logException(e, "postCountFor for " + tableName + " " + locale + ":" + xpathId);
+            SurveyLog.logException(logger, e, "postCountFor for " + tableName + " " + locale + ":" + xpathId);
             return 0;
         } finally {
             DBUtils.close(ps, conn);
@@ -799,7 +801,7 @@ public class SurveyForum {
                     + locale + " " + distinguishingXpath + " - post ID=" + newPostId
                     + " by " + user.toString());
             } catch (SurveyException e) {
-                SurveyLog.logException(e, "Error trying to post that a flag was removed from "
+                SurveyLog.logException(logger, e, "Error trying to post that a flag was removed from "
                     + locale + " " + distinguishingXpath);
             }
         }
@@ -861,7 +863,7 @@ public class SurveyForum {
             posts.forEach((root, subject) -> autoPostReplyAgree(root, subject, locale, user, xpathId, value));
          } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostAgree - " + DBUtils.unchainSqlException(se);
-            SurveyLog.logException(se, complaint);
+            SurveyLog.logException(logger, se, complaint);
         } finally {
             DBUtils.close(pList, conn);
         }
@@ -881,7 +883,7 @@ public class SurveyForum {
         try {
             doPostInternal(postInfo);
         } catch (SurveyException e) {
-            SurveyLog.logException(e, "SurveyForum: autoPostReplyAgree root " + root);
+            SurveyLog.logException(logger, e, "SurveyForum: autoPostReplyAgree root " + root);
         }
     }
 
@@ -917,7 +919,7 @@ public class SurveyForum {
             posts.forEach((root, subject) -> autoPostReplyDecline(root, subject, locale, user, xpathId, value));
          } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostDecline - " + DBUtils.unchainSqlException(se);
-            SurveyLog.logException(se, complaint);
+            SurveyLog.logException(logger, se, complaint);
         } finally {
             DBUtils.close(pList, conn);
         }
@@ -938,7 +940,7 @@ public class SurveyForum {
         try {
             doPostInternal(postInfo);
         } catch (SurveyException e) {
-            SurveyLog.logException(e, "SurveyForum: autoPostReplyDecline root " + root);
+            SurveyLog.logException(logger, e, "SurveyForum: autoPostReplyDecline root " + root);
         }
     }
 
@@ -974,7 +976,7 @@ public class SurveyForum {
             posts.forEach((root, subject) -> autoPostReplyClose(root, subject, locale, user, xpathId, value));
          } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostClose - " + DBUtils.unchainSqlException(se);
-            SurveyLog.logException(se, complaint);
+            SurveyLog.logException(logger, se, complaint);
         } finally {
             DBUtils.close(pList, conn);
         }
@@ -996,7 +998,7 @@ public class SurveyForum {
         try {
             doPostInternal(postInfo);
         } catch (SurveyException e) {
-            SurveyLog.logException(e, "SurveyForum: autoPostReplyClose root " + root);
+            SurveyLog.logException(logger, e, "SurveyForum: autoPostReplyClose root " + root);
         }
     }
 
@@ -1086,7 +1088,7 @@ public class SurveyForum {
         } catch (SQLException se) {
             String complaint = "SurveyForum:  Couldn't add post to " + localeStr + " - " + DBUtils.unchainSqlException(se)
                 + " - pAdd";
-            SurveyLog.logException(se, complaint);
+            SurveyLog.logException(logger, se, complaint);
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
         }
         return postId;

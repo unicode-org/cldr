@@ -83,7 +83,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%ellipsisTypes" value="(word-)?(initial|medial|final)"/>
 		<coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation|numbers)"/>
         <coverageVariable key="%hcTypes80" value="h(11|12|23|24)"/>
-		<coverageVariable key="%intervalFormatDateItems" value="(d|G?y|(G?y)?(M(MM)?)(E?d)?|(G?y)?MMMM)"/>
+		<coverageVariable key="%intervalFormatDateItems" value="(d|G?y|(G?y)?(M(MMM?)?)(E?d)?|GGGGGyM(E?d)?)"/>
 		<coverageVariable key="%intervalFormatTimeItems" value="((h|H)m?v?)"/>
 		<coverageVariable key="%intervalFormatTimeItemsDayPer" value="(Bhm?v?)"/>
 		<coverageVariable key="%intervalFormatGDiff" value="([GyMdaBHhm])"/>

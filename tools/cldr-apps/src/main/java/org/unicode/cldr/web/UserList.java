@@ -344,14 +344,13 @@ public class UserList {
         if (s0.equals(s1) && s0.length() > 0) {
             String s = "<h4>Change " + what + " to <tt class='codebox'>" + s0 + "</tt></h4>";
             s += "<div class='fnotebox'>" + reg.updateInfo(ctx, u.user.id, u.user.email, type, s0) + "</div>";
-            s += "<i>click Change again to see changes</i>";
+            u.user = reg.getInfo(u.user.id);
             u.ua.put(action, s);
         } else {
             String s = "<h4>Change " + what + "</h4>";
             if (s0.length() > 0) {
                 s += "<p class='ferrbox'>Both fields must match.</p>";
             }
-            u.ua.put(action, s);
             if (type == InfoType.INFO_ORG) {
                 s += "<select name='string0" + what + "'>]n";
                 s += "<option value='' >Choose...</option>\n";
@@ -369,6 +368,7 @@ public class UserList {
                 s += "<label><b>New " + what + ":</b><input name='string1" + what
                     + "'> (confirm)</label>\n";
             }
+            u.ua.put(action, s);
         }
     }
 
@@ -379,7 +379,6 @@ public class UserList {
         if (s0.equals(s1) && s0.length() > 0) {
             String s = "<h4>Change " + what + " to <tt class='codebox'>" + s0 + "</tt></h4>";
             s += "<div class='fnotebox'>" + reg.updateInfo(ctx, u.user.id, u.user.email, type, s0) + "</div>";
-            s += "<i>click Change again to see changes</i>";
             u.ua.put(action, s);
         } else {
             String s = "<h4>Change " + what + "</h4>";

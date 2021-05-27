@@ -215,6 +215,13 @@ function loadHandler(json) {
       orgList = json.orgList;
     }
     shownUsers = json.shownUsers;
+    if (
+      justUser &&
+      shownUsers.length === 1 &&
+      getSelectedAction(shownUsers[0]) === "change_INFO_EMAIL"
+    ) {
+      justUser = shownUsers[0].email;
+    }
     if (json.userPerms.levels) {
       levelList = json.userPerms.levels;
     }
@@ -492,20 +499,42 @@ function getJustUserActionMenuOptions(u, json) {
     html += getDeleteUserOptions(u, json);
   }
   html += " <option disabled='disabled'>" + LIST_ACTION_NONE + "</option>\n"; // separator
-
-  const current = 0; // ?? InfoType.fromAction(action); -- json.preset_do?
+  const selectedAction = getSelectedAction(u.data);
   for (const [info, title] of Object.entries(infoType)) {
     if (info === "INFO_ORG" && !cldrStatus.getPermissions().userIsAdmin) {
       continue;
     }
+    // INFO_EMAIL makes change_INFO_EMAIL, etc.; must be mixed case
+    const changeInfo = "change_" + info;
     html += " <option";
-    if (info === current) {
+    if (changeInfo === selectedAction) {
       html += " selected='selected'";
     }
-    // INFO_EMAIL makes CHANGE_INFO_EMAIL, etc.
-    html += " value='CHANGE_" + info + "'>Change " + title + "...</option>\n";
+    html += " value='" + changeInfo + "'>Change " + title + "...</option>\n";
   }
   return html;
+}
+
+/**
+ * Get the most recently chosen value in the actions menu, based on the server response.
+ *
+ * If the server response includes an object "actions" with at least
+ * one key, assume the first such key matches the most recently chosen item
+ * in the actions menu.
+ *
+ * This awkward implementation is due to incomplete modernization of the old
+ * implementation which was all java, no javascript.
+ *
+ * @return the value such as "change_INFO_EMAIL", or null
+ */
+function getSelectedAction(userData) {
+  if (userData.actions) {
+    const k = Object.keys(userData.actions);
+    if (k.length > 0) {
+      return k[0];
+    }
+  }
+  return null;
 }
 
 function getSetLocalesOption() {

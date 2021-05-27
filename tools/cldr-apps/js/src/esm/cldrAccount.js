@@ -432,10 +432,12 @@ function getUserActionMenu(u, json) {
   let html = "<select class='userActionMenuSelect' name='" + theirTag + "'>\n";
   const theirLevel = u.data.userlevel;
   html += "<option value=''>" + LIST_ACTION_NONE + "</option>\n";
-  html += getChangeLevelOptions(u, theirLevel);
-  html += "<option disabled='disabled'>" + LIST_ACTION_NONE + "</option>\n";
-  for (const [action, text] of Object.entries(passwordActions)) {
-    html += getPasswordOption(theirLevel, json, action, text);
+  if (json.userPerms?.canModifyUsers) {
+    html += getChangeLevelOptions(u, theirLevel);
+    html += "<option disabled='disabled'>" + LIST_ACTION_NONE + "</option>\n";
+    for (const [action, text] of Object.entries(passwordActions)) {
+      html += getPasswordOption(theirLevel, json, action, text);
+    }
   }
   if (justUser) {
     html += getJustUserActionMenuOptions(u, json);
@@ -498,19 +500,21 @@ function getJustUserActionMenuOptions(u, json) {
     html += "<option disabled='disabled'>" + LIST_ACTION_NONE + "</option>\n"; // separator
     html += getDeleteUserOptions(u, json);
   }
-  html += " <option disabled='disabled'>" + LIST_ACTION_NONE + "</option>\n"; // separator
-  const selectedAction = getSelectedAction(u.data);
-  for (const [info, title] of Object.entries(infoType)) {
-    if (info === "INFO_ORG" && !cldrStatus.getPermissions().userIsAdmin) {
-      continue;
+  if (json.userPerms?.canModifyUsers) {
+    html += " <option disabled='disabled'>" + LIST_ACTION_NONE + "</option>\n"; // separator
+    const selectedAction = getSelectedAction(u.data);
+    for (const [info, title] of Object.entries(infoType)) {
+      if (info === "INFO_ORG" && !cldrStatus.getPermissions().userIsAdmin) {
+        continue;
+      }
+      // INFO_EMAIL makes change_INFO_EMAIL, etc.; must be mixed case
+      const changeInfo = "change_" + info;
+      html += " <option";
+      if (changeInfo === selectedAction) {
+        html += " selected='selected'";
+      }
+      html += " value='" + changeInfo + "'>Change " + title + "...</option>\n";
     }
-    // INFO_EMAIL makes change_INFO_EMAIL, etc.; must be mixed case
-    const changeInfo = "change_" + info;
-    html += " <option";
-    if (changeInfo === selectedAction) {
-      html += " selected='selected'";
-    }
-    html += " value='" + changeInfo + "'>Change " + title + "...</option>\n";
   }
   return html;
 }
@@ -1201,11 +1205,17 @@ function getInterestLocalesPostData(interestLocales) {
 }
 
 function getXmlUploadLink(u) {
-  return (
-    // TODO: not jsp; see https://unicode-org.atlassian.net/browse/CLDR-14385
-    // /cldr-apps/upload.jsp?s=" + cldrStatus.getSessionId() + "&email=" + u.data.email
-    "<a href='?'>[TODO:] Upload XML...</a>"
-  );
+  // TODO: not jsp; see https://unicode-org.atlassian.net/browse/CLDR-14385
+  // cf. similar link (without email) in MainMenu.vue
+  const sessionId = cldrStatus.getSessionId();
+  if (!sessionId) {
+    return ""; // could be unit test
+  }
+  const p = new URLSearchParams();
+  p.append("s", sessionId);
+  p.append("email", u.data.email);
+  const url = "upload.jsp?" + p.toString();
+  return "<a href='" + url + "'>Upload XML...</a>";
 }
 
 function getUserActivityLink(u) {

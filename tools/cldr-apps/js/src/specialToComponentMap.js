@@ -4,6 +4,7 @@ import AutoImport from "./views/AutoImport.vue";
 import LookUp from "./views/LookUp.vue";
 import MainMenu from "./views/MainMenu.vue";
 import TestPanel from "./views/TestPanel.vue";
+import TransferVotes from "./views/TransferVotes.vue";
 import UnknownPanel from "./views/UnknownPanel.vue";
 import VettingSummary from "./views/VettingSummary.vue";
 import WaitingPanel from "./views/WaitingPanel.vue";
@@ -20,6 +21,7 @@ const specialToComponentMap = {
   retry: WaitingPanel,
   test_panel: TestPanel, // for testing
   vsummary: VettingSummary,
+  transfervotes: TransferVotes,
   // If no match, end up here
   default: UnknownPanel,
 };
@@ -46,4 +48,12 @@ function listSpecials() {
   return Object.keys(specialToComponentMap);
 }
 
-export { specialToComponent, listSpecials };
+/**
+ * Returns true if this is a vue special.
+ * Will return true for "default" also.
+ */
+function isVueSpecial(specialName) {
+  return specialName in specialToComponentMap;
+}
+
+export { isVueSpecial, listSpecials, specialToComponent };

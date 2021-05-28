@@ -560,6 +560,7 @@ public class UserRegistry {
                 .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
                 .put("userCanMonitorForum", userCanMonitorForum(this))
                 .put("userIsAdmin", userIsAdmin(this))
+                .put("userIsManager", getLevel().canManageSomeUsers())
                 .put("userIsTC", userIsTC(this))
                 .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
                 .put("userIsLocked", userIsLocked(this));
@@ -579,6 +580,7 @@ public class UserRegistry {
             m.put("userCanMonitorForum", userCanMonitorForum(this));
             m.put("userIsAdmin", userIsAdmin(this));
             m.put("userIsTC", userIsTC(this));
+            m.put("userIsManager", getLevel().canManageSomeUsers());
             m.put("userIsVetter", userIsVetter(this) && !userIsTC(this));
             m.put("userIsLocked", userIsLocked(this));
 

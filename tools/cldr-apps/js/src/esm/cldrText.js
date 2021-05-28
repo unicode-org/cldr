@@ -454,6 +454,7 @@ const strings = {
   special_retry: "Retry",
   special_search: "Search",
   special_statistics: "Statistics",
+  special_transfervotes: "Copy Old Votes Tool",
   special_users: "Users",
   special_vetting_participation: "Vetting Participation",
   special_vsummary: "Priority Items Summary (slow)",

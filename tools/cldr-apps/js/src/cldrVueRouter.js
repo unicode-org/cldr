@@ -15,6 +15,7 @@ import {
   Input,
   Popover,
   Spin,
+  Steps,
 } from "ant-design-vue";
 
 // local components
@@ -118,6 +119,8 @@ function setupComponents(app) {
   app.component("a-input", Input);
   app.component("a-popover", Popover);
   app.component("a-spin", Spin);
+  app.component("a-step", Steps.Step);
+  app.component("a-steps", Steps);
   app.component("cldr-loginbutton", LoginButton);
   app.component("cldr-value", CldrValue);
 }

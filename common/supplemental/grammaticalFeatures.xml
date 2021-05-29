@@ -193,7 +193,7 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="lt">
       <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
-      <grammaticalCase values="nominative genitive dative accusative instrumental locative"/>
+      <grammaticalCase scope="units" values="nominative genitive dative accusative instrumental locative"/>
       <grammaticalGender values="masculine feminine"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="cs hr sk sr">
@@ -205,7 +205,7 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="ru">
       <grammaticalCase values="nominative genitive dative accusative instrumental prepositional vocative locative"/>
-      <grammaticalCase scope="units" values="nominative accusative dative genitive instrumental nominative"/>
+      <grammaticalCase scope="units" values="nominative accusative dative genitive prepositional instrumental"/>
       <grammaticalGender values="masculine feminine neuter"/>
       <grammaticalGender scope="units" values="masculine feminine"/>
     </grammaticalFeatures>

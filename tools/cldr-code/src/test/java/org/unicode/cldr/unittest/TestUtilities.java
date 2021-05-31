@@ -12,6 +12,7 @@ import java.io.StringWriter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -1401,45 +1402,73 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     /**
-     * Verify that VettingViewer.getMissingStatus returns MissingStatus.PRESENT
-     * for a typical path in a well-populated locale
-     *
-     * Ideally we should also test for MissingStatus.DISPUTED, etc.; that's more difficult
+     * Check that expected paths are Aliased, and have debugging code
      */
     public void TestMissingGrammar() {
         // https://cldr-smoke.unicode.org/cldr-apps/v#/hu/Length/a4915bf505ffb49
         final String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
-        checkGrammarCoverage("hr", path);
-        checkGrammarCoverage("en_NZ", path);
+        checkGrammarCoverage("hr", path,    MissingStatus.ALIASED, 0, 0, 1, 1, 0);
+        checkGrammarCoverage("en_NZ", path, MissingStatus.ALIASED, 1, 0, 0, 0, 0);
     }
 
-    public void checkGrammarCoverage(final String locale, final String path) {
+    /**
+     * Check the getMissingStatus and getStatus. Note that the values may need to be adjusted in successive versions. The sizes are expected sizes.
+     * @param locale
+     * @param path
+     * @param statusExpected
+     */
+    public void checkGrammarCoverage(final String locale, final String path, MissingStatus statusExpected, int... sizes) {
         final CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
-        final MissingStatus expected = MissingStatus.ALIASED;
+        final MissingStatus expected = statusExpected;
         final MissingStatus status = VettingViewer.getMissingStatus(cldrFile, path, true /* latin */);
         if (status != expected) {
             errln("Got getMissingStatus = " + status.toString() + "; expected " + expected.toString());
         }
+        Iterable<String> pathsToTest = Collections.singleton(path);
+        Counter<org.unicode.cldr.util.Level> foundCounter = new Counter<>();
+        Counter<org.unicode.cldr.util.Level> unconfirmedCounter = new Counter<>();
+        Counter<org.unicode.cldr.util.Level> missingCounter = new Counter<>();
+        Relation<MissingStatus, String> missingPaths = new Relation(new TreeMap<MissingStatus,String>(), TreeSet.class, Ordering.natural());
+        Set<String> unconfirmedPaths = new TreeSet<>();
+        VettingViewer.getStatus(pathsToTest, cldrFile, PathHeader.getFactory(),
+            foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+        assertEquals(locale + " foundCounter", sizes[0], foundCounter.getTotal());
+        assertEquals(locale + " unconfirmedCounter", sizes[1], unconfirmedCounter.getTotal());
+        assertEquals(locale + " missingCounter", sizes[2], missingCounter.getTotal());
+        assertEquals(locale + " missingPaths", sizes[3], missingPaths.size());
+        assertEquals(locale + " unconfirmedPaths", sizes[4], unconfirmedPaths.size());
+        showStatusResults(locale, foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
         if (DEBUG) {
-            Counter<org.unicode.cldr.util.Level> foundCounter = new Counter<>();
-            Counter<org.unicode.cldr.util.Level> unconfirmedCounter = new Counter<>();
-            Counter<org.unicode.cldr.util.Level> missingCounter = new Counter<>();
-            Relation<MissingStatus, String> missingPaths = new Relation(new TreeMap<MissingStatus,String>(), TreeSet.class, Ordering.natural());
-            Set<String> unconfirmedPaths = new TreeSet<>();
-            VettingViewer.getStatus(cldrFile.fullIterable(), cldrFile, PathHeader.getFactory(),
-                foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths );
-            System.out.println("foundCounter:\t" + foundCounter
-                + "\nunconfirmedCounter:\t" + unconfirmedCounter
-                + "\nmissingCounter:\t" + missingCounter
-                + "\nunconfirmedPaths:\t" + unconfirmedPaths
-                + "\nmissing paths (modern):"
-                );
-            int count = 0;
-            for (Entry<MissingStatus, String> entry : missingPaths.entrySet()) {
-                final MissingStatus missingStatus = entry.getKey();
-                final String missingPath = entry.getValue();
-                System.out.println(++count + "\t" + missingStatus + "\t" + missingPath + "\t" + SUPPLEMENTAL_DATA_INFO.getCoverageLevel(missingPath, locale));
-            }
+            foundCounter.clear();
+            unconfirmedCounter.clear();
+            missingCounter.clear();
+            missingPaths.clear();
+            unconfirmedPaths.clear();
+            pathsToTest = cldrFile.fullIterable();
+            VettingViewer.getStatus(pathsToTest, cldrFile, PathHeader.getFactory(),
+                foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+            showStatusResults(locale, foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+        }
+    }
+
+    public void showStatusResults(final String locale, Counter<org.unicode.cldr.util.Level> foundCounter,
+        Counter<org.unicode.cldr.util.Level> unconfirmedCounter, Counter<org.unicode.cldr.util.Level> missingCounter,
+        Relation<MissingStatus, String> missingPaths, Set<String> unconfirmedPaths) {
+        warnln("\n" + locale + " foundCounter:\t" + foundCounter
+            + "\n" + locale + " unconfirmedCounter:\t" + unconfirmedCounter
+            + "\n" + locale + " missingCounter:\t" + missingCounter
+            + "\n" + locale + " unconfirmedPaths:\t" + unconfirmedPaths
+            + "\n" + locale + " missing paths (modern):"
+            );
+        int count = 0;
+        for (Entry<MissingStatus, String> entry : missingPaths.entrySet()) {
+            final MissingStatus missingStatus = entry.getKey();
+            final String missingPath = entry.getValue();
+            warnln(++count
+                + "\t" + locale
+                + "\t" + missingStatus
+                + "\t" + missingPath
+                + "\t" + SUPPLEMENTAL_DATA_INFO.getCoverageLevel(missingPath, locale));
         }
     }
 

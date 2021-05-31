@@ -1265,7 +1265,7 @@ public class VettingViewer<T> {
 
         String value = sourceFile.getStringValue(path);
         Status status = new Status();
-        sourceFile.getSourceLocaleID(path, status);
+        String sourceLocale = sourceFile.getSourceLocaleID(path, status);
         boolean isAliased = !path.equals(status.pathWhereFound); // this was path.equals, which would be incorrect!
 
         if (value == null) {
@@ -1693,6 +1693,12 @@ public class VettingViewer<T> {
         boolean latin = VettingViewer.isLatinScriptLocale(file);
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(), file.getLocaleID());
 
+        // We handle ALIASED specially, depending on whether the parent is root or not.
+        boolean parentIsRoot = CLDRLocale.ROOT.equals(CLDRLocale.getInstance(file.getLocaleID()).getParent());
+        MissingStatus aliasRemap = parentIsRoot
+            ? MissingStatus.ABSENT
+                : MissingStatus.PRESENT;
+
         for (String path : allPaths) {
 
             PathHeader ph = pathHeaderFactory.fromPath(path);
@@ -1705,14 +1711,15 @@ public class VettingViewer<T> {
             // String value = file.getSourceLocaleID(path, status);
             MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, latin);
 
-            switch (missingStatus) {
+            MissingStatus adjustedMissingStatus = missingStatus  == MissingStatus.ALIASED ? aliasRemap : missingStatus;
+
+            switch (adjustedMissingStatus) {
             case ABSENT:
                 missingCounter.add(level, 1);
                 if (missingPaths != null && level.compareTo(Level.MODERN) <= 0) {
                     missingPaths.put(missingStatus, path);
                 }
                 break;
-            case ALIASED:
             case PRESENT:
                 String fullPath = file.getFullXPath(path);
                 if (fullPath.contains("unconfirmed")

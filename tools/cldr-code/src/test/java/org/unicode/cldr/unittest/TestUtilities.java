@@ -1409,6 +1409,7 @@ public class TestUtilities extends TestFmwkPlus {
         final String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
         checkGrammarCoverage("hr", path,    MissingStatus.ALIASED, 0, 0, 1, 1, 0);
         checkGrammarCoverage("en_NZ", path, MissingStatus.ALIASED, 1, 0, 0, 0, 0);
+        checkGrammarCoverage("kw", path, MissingStatus.ABSENT, 0, 0, 1, 1, 0);
     }
 
     /**

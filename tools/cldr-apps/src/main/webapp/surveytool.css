@@ -1,4 +1,4 @@
-/* @override 
+/* @override
 	http://127.0.0.1:8080/cldr-apps/surveytool.css
 	http://naf.:8080/cldr-apps/surveytool.css
 	http://st.unicode.org/cldr-apps/surveytool.css
@@ -80,7 +80,7 @@ div.adminPanel {
 }
 
 h3.adminTitle {
-	font-size: x-large;	
+	font-size: x-large;
 	border-bottom:  2px solid black;
 }
 .userlist .seenSub::before {
@@ -308,11 +308,11 @@ button.isubmit {
 }
 
 button.ichoice {
-	
+
 }
 
 button.inochoice {
-	
+
 }
 
 #explainIcons {
@@ -443,7 +443,7 @@ div.search div.results li a.codebox {
 .fallback {
 	background-color:#5bc0de;
 	padding: .1em .4em .2em;
-	
+
 }
 .fallback_root, .fallback_code {
 	border: 1px dotted #f00 !important;
@@ -484,7 +484,7 @@ div.adminThreads {
 
 div.adminThreadList,
 div.adminExceptionList {
-	width:  43%;	
+	width:  43%;
 	clear:  right;
 	padding-right:  1em;
 	display:  table;
@@ -664,7 +664,7 @@ span.adminThreadState_BLOCKED {
 }
 
 div.adminThreadStack {
-	display:  inline;	
+	display:  inline;
 	white-space: pre;
 	width: 43%;
 	display:  table-cell;
@@ -733,7 +733,7 @@ tr.warnrow {
 	border: 1px solid gray;
 	background-color: #FFEECC;
 	padding: 0.2em 0.2em 0.2em 0.2em;
-	
+
 
 /*	padding: 1em 1em 1em 1em; */
 	margin-top: 2px;
@@ -746,7 +746,7 @@ tr.warnrow {
 }
 
 .pagerl_active {
-	
+
 }
 
 .pagerl_inactive {
@@ -788,7 +788,7 @@ tr.warnrow {
 
 .subLocaleList .subLocale {
     margin-right:  0.25em;
-    display: inline-block;  
+    display: inline-block;
 }
 
 .topLocaleRow a {
@@ -901,11 +901,11 @@ div.statistics .swatch {
 }
 
 div.statistics .color0 {
-	background-color: #8aa717;	
+	background-color: #8aa717;
 }
 
 div.statistics .color1 {
-	background-color: #1751a7;	
+	background-color: #1751a7;
 }
 
 table#statisticsTable td.locid {
@@ -953,7 +953,7 @@ table#statisticsTable .olddata:hover {
 }
 
 table#statisticsTable tbody tr.r0 {
-    
+
 }
 table#statisticsTable tbody tr.r1 {
     background-color: #d2eee1;
@@ -1042,11 +1042,11 @@ i.loadingMsgSpin {
 }
 
 div#smalllogin {
-	
+
 }
 
 .small_login_visible {
-	
+
 
 /*opacity: 1;*/
 	display: inline;
@@ -1119,7 +1119,7 @@ table.userlist {
 }
 
 .voteDiv p {
-	margin: 2px;	
+	margin: 2px;
 }
 
 .topbar {
@@ -1231,7 +1231,7 @@ div.person a {
 }
 
 .post {
-    margin-bottom: 0.75em;    
+    margin-bottom: 0.75em;
     padding-bottom:  0.25em;
 -webkit-transition: all 0.5s ease;
 -moz-transition: all 0.5s ease;
@@ -1312,7 +1312,7 @@ div.forumDiv div.subpost .postHeader {
 }
 
 button.forumNewButton {
-	
+
 }
 
 button.forumNewPostFlagButton {
@@ -1339,7 +1339,7 @@ div.forumDiv .adminUserUser i {
 		margin:  0.25em !important;
 }
 
-div.forumDiv div.subpost div.postContent {	
+div.forumDiv div.subpost div.postContent {
 	padding-top:  0.5em;
 	font: small Georgia, "Times New Roman", Times, serif;
 	white-space: pre-wrap;
@@ -1422,7 +1422,7 @@ td.insufficient span.loser {
 
 
 .extraAttribute_heading {
-	
+
 }
 .extraAttributes .extraAttribute {
 	display: inline;
@@ -1583,7 +1583,7 @@ div#toparea img#stlogo {
 .dcbox {
 	margin-left:  0.3em;
 	background-color: #ddd;
-	padding:  0.1em;	
+	padding:  0.1em;
 }
 
 .dcbox .dchelp {
@@ -1651,7 +1651,7 @@ div#toparea img#stlogo {
 
 a.dcLocale {
 	color:  #555;
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 .specialHeader {
@@ -1727,7 +1727,7 @@ div.voteInfo_noVotes.voteInfo_td {
 }
 
 .voteInfo_valueTitle {
-	font-weight:bold;	
+	font-weight:bold;
 }
 .voteInfo_iconValue  {
 	background-position: left top !important;
@@ -1786,7 +1786,7 @@ div.voteInfo_iconBar {
 }
 .voteInfo_orgsNonVote {
 	color: #333;
-	font-style: italic;	
+	font-style: italic;
 	padding-left:10px;
 }
 
@@ -1887,10 +1887,15 @@ p.errCodeMsg {
     font-weight: normal;
     font-style: normal;
     padding-left:  20px;
-    background: url(stop.png) no-repeat left top;
     margin-left:  3em;
     margin-right:  3em;
     border:  2px solid silver;
+	font-size: larger;
+	white-space: pre-line;
+}
+
+p.errCodeMsg .fgred {
+	color: red;
 }
 
 #LoadingMessageSection p.errCodeMsg button {
@@ -2199,7 +2204,7 @@ h2.v-oldvotes-sub {
 */
 
 tr.tr_unknown {
-	
+
 }
 
 div.helpHtml, .helpContent {
@@ -2241,7 +2246,7 @@ div.helpHtml td,div.helpHtml td th {
 }
 
 span.pathChunk {
-    margin-right:  1em;    
+    margin-right:  1em;
     font: italic normal small Georgia, "Times New Roman", Times, serif;
 }
 
@@ -2360,7 +2365,7 @@ span.pathChunk:after
 }
 
 h3.voteInfo_key_title {
-	margin-bottom: .1em;	
+	margin-bottom: .1em;
 }
 
 .d-code {
@@ -2521,7 +2526,7 @@ button.ichoice-x-ok:hover {
 }
 
 span.i-override {
-	font-size: 	x-small; 
+	font-size: 	x-small;
 	margin-left: 0.25em;
 }
 span.i-override, .voteInfo_overrideExplain {
@@ -2776,7 +2781,7 @@ div.voterList {
 }
 
 p.pClassExplain {
-	margin-top: 0.25em;	
+	margin-top: 0.25em;
 	display: inline;
 	font-weight: normal;
 	font-size: small;
@@ -3094,7 +3099,7 @@ div.bulkNextButton {
 	font-size: large;
 }
 .bulkNextInfo li h2 {
-	font-size: smaller;	
+	font-size: smaller;
 }
 
 .bulkNextInfo ul li.active::before,
@@ -3264,7 +3269,7 @@ div.thinUser {
     background-color: #f88;
     margin-left: 5em;
 }
- 
+
 #vettingParticipation .participatingUser {
     border: 1px solid gray;
      border-radius: .5em;

@@ -412,7 +412,7 @@ const strings = {
   E_NOT_STARTED:
     "The SurveyTool is still starting up. Please wait a bit and hit Reload.",
   E_SPECIAL_SECTION:
-    "An error occurred while trying to ${what}, the server said that those items aren't visible in the Survey Tool.\nPerhaps the URL is incorrect or an item was deprected?",
+    "An error occurred while trying to ${what}.\nThe XPath “${surveyCurrentId}” in locale “${surveyCurrentLocale}” is not visible in the SurveyTool.\nPerhaps the URL is incorrect or an item was deprecated?",
   E_SESSION_DISCONNECTED:
     "Your session has timed out or the SurveyTool has restarted. To continue from where you were, hit Reload.",
   E_DISCONNECTED:

@@ -12,12 +12,14 @@ import java.io.StringWriter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
@@ -56,7 +58,9 @@ import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Ordering;
 import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -65,6 +69,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TestUtilities extends TestFmwkPlus {
+    public static boolean DEBUG = false;
+
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
@@ -683,7 +689,7 @@ public class TestUtilities extends TestFmwkPlus {
             "ast",
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]",
             4);
-     }
+    }
 
     /**
      * In sublocales, for a typical path, the required votes should be 4, except for
@@ -939,22 +945,22 @@ public class TestUtilities extends TestFmwkPlus {
             "locales list",
             "https://st.unicode.org/cldr-apps/v#locales///",
             CLDRConfig.getInstance().urls()
-                .forSpecial(CLDRURLS.Special.Locales));
+            .forSpecial(CLDRURLS.Special.Locales));
         assertEquals("maltese", "https://st.unicode.org/cldr-apps/v#/mt//",
             CLDRConfig.getInstance().urls().forLocale(maltese));
         assertEquals("korean in maltese",
             "https://st.unicode.org/cldr-apps/v#/mt//"
                 + KOREAN_LANGUAGE_STRID,
-            CLDRConfig.getInstance()
+                CLDRConfig.getInstance()
                 .urls().forXpath(maltese, KOREAN_LANGUAGE));
         assertEquals("korean in maltese via stringid",
             "https://st.unicode.org/cldr-apps/v#/mt//"
                 + KOREAN_LANGUAGE_STRID,
-            CLDRConfig.getInstance()
+                CLDRConfig.getInstance()
                 .urls().forXpathHexId(maltese, KOREAN_LANGUAGE_STRID));
         assertEquals("south east asia in maltese",
             "https://st.unicode.org/cldr-apps/v#/mt/C_SEAsia/", CLDRConfig
-                .getInstance().urls().forPage(maltese, PageId.C_SEAsia));
+            .getInstance().urls().forPage(maltese, PageId.C_SEAsia));
         try {
             String ret = CLDRConfig.getInstance().urls()
                 .forXpathHexId(maltese, KOREAN_LANGUAGE);
@@ -975,7 +981,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("korean in maltese - absoluteUrl",
             "https://st.unicode.org/cldr-apps/v#/mt//"
                 + KOREAN_LANGUAGE_STRID,
-            CLDRConfig.getInstance()
+                CLDRConfig.getInstance()
                 .absoluteUrls().forXpath(maltese, KOREAN_LANGUAGE));
 
     }
@@ -1392,6 +1398,78 @@ public class TestUtilities extends TestFmwkPlus {
         final MissingStatus status = VettingViewer.getMissingStatus(cldrFile, path, true /* latin */);
         if (status != expected) {
             errln("Got getMissingStatus = " + status.toString() + "; expected " + expected.toString());
+        }
+    }
+
+    /**
+     * Check that expected paths are Aliased, and have debugging code
+     */
+    public void TestMissingGrammar() {
+        // https://cldr-smoke.unicode.org/cldr-apps/v#/hu/Length/a4915bf505ffb49
+        final String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
+        checkGrammarCoverage("hr", path,    MissingStatus.ALIASED, 0, 0, 1, 1, 0);
+        checkGrammarCoverage("en_NZ", path, MissingStatus.ALIASED, 1, 0, 0, 0, 0);
+        checkGrammarCoverage("kw", path, MissingStatus.ABSENT, 0, 0, 1, 1, 0);
+    }
+
+    /**
+     * Check the getMissingStatus and getStatus. Note that the values may need to be adjusted in successive versions. The sizes are expected sizes.
+     * @param locale
+     * @param path
+     * @param statusExpected
+     */
+    public void checkGrammarCoverage(final String locale, final String path, MissingStatus statusExpected, int... sizes) {
+        final CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
+        final MissingStatus expected = statusExpected;
+        final MissingStatus status = VettingViewer.getMissingStatus(cldrFile, path, true /* latin */);
+        if (status != expected) {
+            errln("Got getMissingStatus = " + status.toString() + "; expected " + expected.toString());
+        }
+        Iterable<String> pathsToTest = Collections.singleton(path);
+        Counter<org.unicode.cldr.util.Level> foundCounter = new Counter<>();
+        Counter<org.unicode.cldr.util.Level> unconfirmedCounter = new Counter<>();
+        Counter<org.unicode.cldr.util.Level> missingCounter = new Counter<>();
+        Relation<MissingStatus, String> missingPaths = new Relation(new TreeMap<MissingStatus,String>(), TreeSet.class, Ordering.natural());
+        Set<String> unconfirmedPaths = new TreeSet<>();
+        VettingViewer.getStatus(pathsToTest, cldrFile, PathHeader.getFactory(),
+            foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+        assertEquals(locale + " foundCounter", sizes[0], foundCounter.getTotal());
+        assertEquals(locale + " unconfirmedCounter", sizes[1], unconfirmedCounter.getTotal());
+        assertEquals(locale + " missingCounter", sizes[2], missingCounter.getTotal());
+        assertEquals(locale + " missingPaths", sizes[3], missingPaths.size());
+        assertEquals(locale + " unconfirmedPaths", sizes[4], unconfirmedPaths.size());
+        showStatusResults(locale, foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+        if (DEBUG) {
+            foundCounter.clear();
+            unconfirmedCounter.clear();
+            missingCounter.clear();
+            missingPaths.clear();
+            unconfirmedPaths.clear();
+            pathsToTest = cldrFile.fullIterable();
+            VettingViewer.getStatus(pathsToTest, cldrFile, PathHeader.getFactory(),
+                foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+            showStatusResults(locale, foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+        }
+    }
+
+    public void showStatusResults(final String locale, Counter<org.unicode.cldr.util.Level> foundCounter,
+        Counter<org.unicode.cldr.util.Level> unconfirmedCounter, Counter<org.unicode.cldr.util.Level> missingCounter,
+        Relation<MissingStatus, String> missingPaths, Set<String> unconfirmedPaths) {
+        warnln("\n" + locale + " foundCounter:\t" + foundCounter
+            + "\n" + locale + " unconfirmedCounter:\t" + unconfirmedCounter
+            + "\n" + locale + " missingCounter:\t" + missingCounter
+            + "\n" + locale + " unconfirmedPaths:\t" + unconfirmedPaths
+            + "\n" + locale + " missing paths (modern):"
+            );
+        int count = 0;
+        for (Entry<MissingStatus, String> entry : missingPaths.entrySet()) {
+            final MissingStatus missingStatus = entry.getKey();
+            final String missingPath = entry.getValue();
+            warnln(++count
+                + "\t" + locale
+                + "\t" + missingStatus
+                + "\t" + missingPath
+                + "\t" + SUPPLEMENTAL_DATA_INFO.getCoverageLevel(missingPath, locale));
         }
     }
 

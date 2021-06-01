@@ -51,6 +51,8 @@ import com.ibm.icu.util.ULocale;
  */
 public class VettingViewer<T> {
 
+    private static final boolean DEBUG = false;
+
     private static boolean SHOW_SUBTYPES = true; // CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals("true");
 
     private static final String CONNECT_PREFIX = "₍_";
@@ -1242,12 +1244,30 @@ public class VettingViewer<T> {
         return result;
     }
 
+    /**
+     * Used to determine what the status of a particular path's value is in a given locale.
+     */
     public enum MissingStatus {
-        PRESENT, ALIASED, MISSING_OK, ROOT_OK, ABSENT
+        /** There is an explicit value for the path, including ↑↑↑,
+         * or there is an inherited value (but not including the ABSENT conditions, eg not from root). */
+        PRESENT,
+
+        /** The value is inherited from a different path. It might be in the same locale or from a parent (but not root or CODE_FALLBACK). */
+        ALIASED,
+
+        /** See ABSENT */
+        MISSING_OK,
+
+        /** See ABSENT  */
+        ROOT_OK,
+
+        /** The supplied CLDRFile is null, or the value is null, or the value is inherited from root or CODE_FALLBACK.
+         * A special ValuePathStatus.isMissingOk method allows for some exceptions, changing the result to  MISSING_OK or ROOT_OK. */
+        ABSENT
     }
 
     /**
-     * Get the MissingStatus
+     * Get the MissingStatus: for details see the javadoc for MissingStatus.
      *
      * @param sourceFile the CLDRFile
      * @param path the path
@@ -1258,15 +1278,23 @@ public class VettingViewer<T> {
         if (sourceFile == null) {
             return MissingStatus.ABSENT;
         }
-        if ("root".equals(sourceFile.getLocaleID()) || path.startsWith("//ldml/layout/orientation/")) {
+        final String sourceLocaleID = sourceFile.getLocaleID();
+        if ("root".equals(sourceLocaleID)
+            || path.startsWith("//ldml/layout/orientation/")) { // TODO: this path condition should probably be in isMissingOk
             return MissingStatus.MISSING_OK;
         }
         MissingStatus result;
 
         String value = sourceFile.getStringValue(path);
         Status status = new Status();
-        sourceFile.getSourceLocaleID(path, status);
+        String sourceLocale = sourceFile.getSourceLocaleID(path, status); // does not skip inheritance marker
+
         boolean isAliased = !path.equals(status.pathWhereFound); // this was path.equals, which would be incorrect!
+        if (DEBUG
+            && !isAliased
+            && !sourceLocale.equals(sourceLocaleID)) {
+            int debug = 0;
+        }
 
         if (value == null) {
             result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;
@@ -1281,11 +1309,12 @@ public class VettingViewer<T> {
              * Only count it as missing IF the (localeFound is root or codeFallback)
              * AND the aliasing didn't change the path.
              * Note that localeFound will be where an item with ↑↑↑ was found even though
-             * the value is actually inherited from somewhere else.
+             * the resolved value is actually inherited from somewhere else.
              */
-            if (localeFound.equals("root") || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
+            if (localeFound.equals("root")
+                || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
                 result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased)
-                    || sourceFile.getLocaleID().equals("en")
+                    || sourceLocaleID.equals("en")
                     ? MissingStatus.ROOT_OK
                         : MissingStatus.ABSENT;
             } else if (isAliased) {
@@ -1649,7 +1678,7 @@ public class VettingViewer<T> {
     }
 
     /**
-     * Find the status of the items in the file.
+     * Find the status of all the paths in the input file. See the full getStatus for more information.
      * @param file the source. Must be a resolved file, made with minimalDraftStatus = unconfirmed
      * @param pathHeaderFactory PathHeaderFactory.
      * @param foundCounter output counter of the number of paths with values having contributed or approved status
@@ -1667,7 +1696,9 @@ public class VettingViewer<T> {
     }
 
     /**
-     * Find the status of the items in the file.
+     * Find the status of an input set of paths in the input file.
+     * It partitions the returned data according to the Coverage levels.
+     * NOTE: MissingStatus.ALIASED is handled specially; it is mapped to ABSENT if the parent is root, and otherwise mapped to PRESENT.
      * @param allPaths manual list of paths
      * @param file the source. Must be a resolved file, made with minimalDraftStatus = unconfirmed
      * @param pathHeaderFactory PathHeaderFactory.
@@ -1693,6 +1724,12 @@ public class VettingViewer<T> {
         boolean latin = VettingViewer.isLatinScriptLocale(file);
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(), file.getLocaleID());
 
+        // We handle ALIASED specially, depending on whether the parent is root or not.
+        boolean parentIsRoot = CLDRLocale.ROOT.equals(CLDRLocale.getInstance(file.getLocaleID()).getParent());
+        MissingStatus aliasRemap = parentIsRoot
+            ? MissingStatus.ABSENT
+                : MissingStatus.PRESENT;
+
         for (String path : allPaths) {
 
             PathHeader ph = pathHeaderFactory.fromPath(path);
@@ -1705,14 +1742,15 @@ public class VettingViewer<T> {
             // String value = file.getSourceLocaleID(path, status);
             MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, latin);
 
-            switch (missingStatus) {
+            MissingStatus adjustedMissingStatus = missingStatus  == MissingStatus.ALIASED ? aliasRemap : missingStatus;
+
+            switch (adjustedMissingStatus) {
             case ABSENT:
                 missingCounter.add(level, 1);
                 if (missingPaths != null && level.compareTo(Level.MODERN) <= 0) {
                     missingPaths.put(missingStatus, path);
                 }
                 break;
-            case ALIASED:
             case PRESENT:
                 String fullPath = file.getFullXPath(path);
                 if (fullPath.contains("unconfirmed")

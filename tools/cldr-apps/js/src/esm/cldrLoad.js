@@ -35,6 +35,7 @@ import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
 import * as cldrVettingParticipation from "./cldrVettingParticipation.js";
 import { isVueSpecial } from "../specialToComponentMap";
+import { notification } from "ant-design-vue";
 
 const CLDR_LOAD_DEBUG = false;
 
@@ -279,7 +280,9 @@ function verifyJson(json, subkey) {
     return false;
   } else if (json.err_code) {
     var msg_fmt = cldrRetry.format(json, subkey);
-    var loadingChunk = cldrDom.createChunk(msg_fmt, "p", "errCodeMsg");
+    var loadingChunk = cldrDom.createChunk("", "p", "errCodeMsg");
+    loadingChunk.appendChild(cldrDom.createChunk("","i","glyphicon glyphicon-remove-sign fgred"));
+    loadingChunk.appendChild(cldrDom.createChunk(msg_fmt));
     flipper.flipTo(pages.loading, loadingChunk);
     var retryButton = cldrDom.createChunk(
       cldrText.get("loading_reload"),
@@ -334,7 +337,13 @@ function unspecialHandleIdChanged() {
   if (curId) {
     var xtr = document.getElementById("r@" + curId);
     if (!xtr) {
+
       console.log("Warning could not load id " + curId + " does not exist");
+      notification.warning({
+        message: "Could not load XPath",
+        description: `The XPath ID ${curId} does not exist.`,
+        duration: 8,
+      });
       updateCurrentId(null);
     } else {
       if (!xtr.proposedcell || xtr.proposedcell.showFn) {

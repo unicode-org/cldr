@@ -118,6 +118,8 @@ function format(json, subkey) {
     message:
       json.err_data && json.err_data.message ? json.err_data.message : "",
     surveyCurrentLocale: cldrStatus.getCurrentLocale(),
+    surveyCurrentId: cldrStatus.getCurrentId(),
+    surveyCurrentPage: cldrStatus.getCurrentPage(),
   });
 }
 

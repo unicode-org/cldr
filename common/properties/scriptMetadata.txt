@@ -53,7 +53,7 @@
 # Such scripts are marked with a "provisional" comment.
 #
 # Note: For the most likely language for each script, see 
-#		http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/likely_subtags.html
+#		https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/likely_subtags.html
 #
 Zyyy; 1; 0040; ZZ; -1; RECOMMENDED; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN
 Latn; 2; 004C; IT; 1; RECOMMENDED; NO; NO; MIN; NO; YES
@@ -114,6 +114,7 @@ Cham; 33; AA00; VN; 1; LIMITED_USE; NO; NO; YES; NO; NO
 Cher; 33; 13C4; US; 2; LIMITED_USE; NO; NO; NO; NO; YES
 Chrs; 33; 10FBF; UZ; 1; EXCLUSION; YES; NO; YES; NO; NO
 Copt; 33; 03E2; EG; 1; EXCLUSION; NO; NO; MIN; NO; YES
+Cpmn; 33; 12FE5; CY; 2; EXCLUSION; NO; NO; NO; YES; NO  # provisional data for future Unicode 14.0 script
 Cprt; 33; 10800; CY; 1; EXCLUSION; YES; NO; NO; NO; NO
 Diak; 33; 1190C; MV; 1; EXCLUSION; NO; NO; YES; YES; NO
 Dogr; 33; 1180B; IN; 1; EXCLUSION; NO; NO; YES; NO; NO
@@ -173,6 +174,7 @@ Olck; 33; 1C5A; IN; 1; LIMITED_USE; NO; NO; NO; NO; NO
 Orkh; 33; 10C00; MN; 1; EXCLUSION; YES; NO; NO; NO; NO
 Osge; 33; 104B5; US; 1; LIMITED_USE; NO; NO; NO; NO; YES
 Osma; 33; 10480; SO; 1; EXCLUSION; NO; NO; NO; NO; NO
+Ougr; 33; 10F7C; 143; 1; EXCLUSION; YES; NO; YES; NO; NO  # provisional data for future Unicode 14.0 script
 Palm; 33; 10873; SY; 1; EXCLUSION; YES; NO; NO; NO; NO
 Pauc; 33; 11AC0; MM; 1; EXCLUSION; NO; NO; NO; NO; NO
 Perm; 33; 1036B; RU; 1; EXCLUSION; NO; NO; NO; NO; NO
@@ -209,8 +211,11 @@ Tavt; 33; AA80; VN; 1; LIMITED_USE; NO; YES; YES; NO; NO
 Tfng; 33; 2D30; MA; 1; LIMITED_USE; NO; NO; NO; NO; NO
 Tglg; 33; 1703; PH; 1; EXCLUSION; NO; NO; MIN; NO; NO
 Tirh; 33; 11484; IN; 1; EXCLUSION; NO; NO; NO; NO; NO
+Tnsa; 33; 16ABC; IN; 1; EXCLUSION; NO; NO; NO; NO; NO  # provisional data for future Unicode 14.0 script
+Toto; 33; 1E290; IN; 1; EXCLUSION; NO; NO; NO; NO; NO  # provisional data for future Unicode 14.0 script
 Ugar; 33; 10380; SY; 1; EXCLUSION; NO; NO; NO; NO; NO
 Vaii; 33; A549; LR; 2; LIMITED_USE; NO; NO; NO; YES; NO
+Vith; 33; 10582; AL; 1; EXCLUSION; NO; NO; NO; NO; YES  # provisional data for future Unicode 14.0 script
 Wara; 33; 118B4; IN; 1; EXCLUSION; NO; NO; NO; NO; YES
 Wcho; 33; 1E2E1; IN; 1; LIMITED_USE; NO; NO; NO; NO; NO
 Xpeo; 33; 103A0; IR; 1; EXCLUSION; NO; NO; NO; NO; NO

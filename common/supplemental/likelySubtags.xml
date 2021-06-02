@@ -1878,6 +1878,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Northern Sotho; ?; ? } => { Northern Sotho; Latin; South Africa }-->
 		<likelySubtag from="nss" to="nss_Latn_ZZ"/>
 		<!--{ Nali; ?; ? } => { Nali; Latin; Unknown Region }-->
+		<likelySubtag from="nst" to="nst_Tnsa_IN"/>
+		<!--{ Tase Naga; ?; ? } => { Tase Naga; Tangsa; India }-->
 		<likelySubtag from="ntm" to="ntm_Latn_ZZ"/>
 		<!--{ Nateni; ?; ? } => { Nateni; Latin; Unknown Region }-->
 		<likelySubtag from="ntr" to="ntr_Latn_ZZ"/>
@@ -1940,6 +1942,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Ottoman Turkish; ?; ? } => { Ottoman Turkish; Arabic; Unknown Region }-->
 		<likelySubtag from="otk" to="otk_Orkh_MN"/>
 		<!--{ Old Turkish; ?; ? } => { Old Turkish; Orkhon; Mongolia }-->
+		<likelySubtag from="oui" to="oui_Ougr_143"/>
+		<!--{ Old Uighur; ?; ? } => { Old Uighur; Old Uyghur; Central Asia }-->
 		<likelySubtag from="ozm" to="ozm_Latn_ZZ"/>
 		<!--{ Koonzime; ?; ? } => { Koonzime; Latin; Unknown Region }-->
 		<likelySubtag from="pa" to="pa_Guru_IN"/>
@@ -2496,6 +2500,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Tasawaq; ?; ? } => { Tasawaq; Latin; Niger }-->
 		<likelySubtag from="txg" to="txg_Tang_CN"/>
 		<!--{ Tangut; ?; ? } => { Tangut; Tangut; China }-->
+		<likelySubtag from="txo" to="txo_Toto_IN"/>
+		<!--{ Toto; ?; ? } => { Toto; Toto; India }-->
 		<likelySubtag from="ty" to="ty_Latn_PF"/>
 		<!--{ Tahitian; ?; ? } => { Tahitian; Latin; French Polynesia }-->
 		<likelySubtag from="tya" to="tya_Latn_ZZ"/>
@@ -3618,6 +3624,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Osage; ? } => { Osage; Osage; United States }-->
 		<likelySubtag from="und_Osma" to="so_Osma_SO"/>
 		<!--{ ?; Osmanya; ? } => { Somali; Osmanya; Somalia }-->
+		<likelySubtag from="und_Ougr" to="oui_Ougr_143"/>
+		<!--{ ?; Old Uyghur; ? } => { Old Uighur; Old Uyghur; Central Asia }-->
 		<likelySubtag from="und_Palm" to="arc_Palm_SY"/>
 		<!--{ ?; Palmyrene; ? } => { Aramaic; Palmyrene; Syria }-->
 		<likelySubtag from="und_Pauc" to="ctd_Pauc_MM"/>
@@ -3708,10 +3716,16 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Tibetan; ? } => { Tibetan; Tibetan; China }-->
 		<likelySubtag from="und_Tirh" to="mai_Tirh_IN"/>
 		<!--{ ?; Tirhuta; ? } => { Maithili; Tirhuta; India }-->
+		<likelySubtag from="und_Tnsa" to="nst_Tnsa_IN"/>
+		<!--{ ?; Tangsa; ? } => { Tase Naga; Tangsa; India }-->
+		<likelySubtag from="und_Toto" to="txo_Toto_IN"/>
+		<!--{ ?; Toto; ? } => { Toto; Toto; India }-->
 		<likelySubtag from="und_Ugar" to="uga_Ugar_SY"/>
 		<!--{ ?; Ugaritic; ? } => { Ugaritic; Ugaritic; Syria }-->
 		<likelySubtag from="und_Vaii" to="vai_Vaii_LR"/>
 		<!--{ ?; Vai; ? } => { Vai; Vai; Liberia }-->
+		<likelySubtag from="und_Vith" to="sq_Vith_AL"/>
+		<!--{ ?; Vithkuqi; ? } => { Albanian; Vithkuqi; Albania }-->
 		<likelySubtag from="und_Wara" to="hoc_Wara_IN"/>
 		<!--{ ?; Varang Kshiti; ? } => { Ho; Varang Kshiti; India }-->
 		<likelySubtag from="und_Wcho" to="nnp_Wcho_IN"/>

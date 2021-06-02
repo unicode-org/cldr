@@ -156,7 +156,7 @@ public class CldrUtility {
         return PathUtilities.getNormalizedPathString(path) + File.separatorChar;
     }
 
-    static String getPath(String path) {
+    public static String getPath(String path) {
         return getPath(path, null);
     }
 

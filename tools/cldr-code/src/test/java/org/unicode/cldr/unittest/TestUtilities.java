@@ -69,7 +69,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TestUtilities extends TestFmwkPlus {
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
 
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
     static CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -1407,9 +1407,9 @@ public class TestUtilities extends TestFmwkPlus {
     public void TestMissingGrammar() {
         // https://cldr-smoke.unicode.org/cldr-apps/v#/hu/Length/a4915bf505ffb49
         final String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
-        checkGrammarCoverage("hr", path,    MissingStatus.ABSENT, 0, 0, 1, 1, 0);
-        checkGrammarCoverage("en_NZ", path, MissingStatus.ALIASED, 1, 0, 0, 0, 0);
-        checkGrammarCoverage("kw", path, MissingStatus.ABSENT, 0, 0, 1, 1, 0);
+        checkGrammarCoverage("hr", path,    MissingStatus.ABSENT, DEBUG, 0, 0, 1, 1, 0);
+        checkGrammarCoverage("kw", path, MissingStatus.ABSENT, false, 0, 0, 1, 1, 0);
+        checkGrammarCoverage("en_NZ", path, MissingStatus.ALIASED, DEBUG, 1, 0, 0, 0, 0);
     }
 
     /**
@@ -1417,8 +1417,9 @@ public class TestUtilities extends TestFmwkPlus {
      * @param locale
      * @param path
      * @param statusExpected
+     * @param debug TODO
      */
-    public void checkGrammarCoverage(final String locale, final String path, MissingStatus statusExpected, int... sizes) {
+    public void checkGrammarCoverage(final String locale, final String path, MissingStatus statusExpected, boolean debug, int... sizes) {
         final CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
         final MissingStatus expected = statusExpected;
         final MissingStatus status = VettingViewer.getMissingStatus(cldrFile, path, true /* latin */);
@@ -1439,7 +1440,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals(locale + " missingPaths", sizes[3], missingPaths.size());
         assertEquals(locale + " unconfirmedPaths", sizes[4], unconfirmedPaths.size());
         showStatusResults(locale, foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
-        if (DEBUG) {
+        if (debug) {
             foundCounter.clear();
             unconfirmedCounter.clear();
             missingCounter.clear();

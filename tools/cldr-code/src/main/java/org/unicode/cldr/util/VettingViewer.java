@@ -51,7 +51,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class VettingViewer<T> {
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     private static boolean SHOW_SUBTYPES = true; // CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals("true");
 
@@ -884,15 +884,15 @@ public class VettingViewer<T> {
             char lastChar = ' ';
 
             for(int n=0;n<outputs.length;n++) {
-              final String name = localeNames.get(n);
-              if(DEBUG_THREADS) System.err.println("Appending " + name + " - " + outputs[n].length());
-              output.append(outputs[n]);
+                final String name = localeNames.get(n);
+                if(DEBUG_THREADS) System.err.println("Appending " + name + " - " + outputs[n].length());
+                output.append(outputs[n]);
 
-              char nextChar = name.charAt(0);
-              if (lastChar != nextChar) {
-                  output.append(this.header);
-                  lastChar = nextChar;
-              }
+                char nextChar = name.charAt(0);
+                if (lastChar != nextChar) {
+                    output.append(this.header);
+                    lastChar = nextChar;
+                }
             }
         }
 
@@ -914,7 +914,7 @@ public class VettingViewer<T> {
      *
      */
     private class WriteAction extends RecursiveAction {
-       private int length;
+        private int length;
         private int start;
         private WriteContext context;
 
@@ -943,7 +943,7 @@ public class VettingViewer<T> {
                 int split = length / 2;
                 // subdivide
                 invokeAll(new WriteAction(context, start, split),
-                          new WriteAction(context, start+split, length-split));
+                    new WriteAction(context, start+split, length-split));
             }
         }
 
@@ -1285,8 +1285,7 @@ public class VettingViewer<T> {
             return MissingStatus.ABSENT;
         }
         final String sourceLocaleID = sourceFile.getLocaleID();
-        if ("root".equals(sourceLocaleID)
-            || path.startsWith("//ldml/layout/orientation/")) { // TODO: this path condition should probably be in isMissingOk
+        if ("root".equals(sourceLocaleID)) { // path.startsWith("//ldml/layout/orientation/" moved to missingOk.txt
             return MissingStatus.MISSING_OK;
         }
         MissingStatus result;
@@ -1296,14 +1295,18 @@ public class VettingViewer<T> {
         String sourceLocale = sourceFile.getSourceLocaleID(path, status); // does not skip inheritance marker
 
         boolean isAliased = !path.equals(status.pathWhereFound); // this was path.equals, which would be incorrect!
-        if (DEBUG
-            && !isAliased
-            && !sourceLocale.equals(sourceLocaleID)) {
-            int debug = 0;
+        if (DEBUG) {
+            if (path.equals("//ldml/characterLabels/characterLabelPattern[@type=\"subscript\"]")) {
+                int debug = 0;
+            }
+            if (!isAliased && !sourceLocale.equals(sourceLocaleID)) {
+                int debug = 0;
+            }
         }
 
         if (value == null) {
-            result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;
+            result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK
+                : MissingStatus.ABSENT;
         } else {
             /*
              * skipInheritanceMarker must be false for getSourceLocaleIdExtended here, since INHERITANCE_MARKER
@@ -1311,23 +1314,25 @@ public class VettingViewer<T> {
              * treat the item as missing. Reference: https://unicode.org/cldr/trac/ticket/11765
              */
             String localeFound = sourceFile.getSourceLocaleIdExtended(path, status, false /* skipInheritanceMarker */);
+            final boolean localeFoundIsRootOrCodeFallback = localeFound.equals("root")
+                || localeFound.equals(XMLSource.CODE_FALLBACK_ID);
+            final boolean isParentRoot = CLDRLocale.getInstance(sourceFile.getLocaleID()).isParentRoot();
             /*
              * Only count it as missing IF the (localeFound is root or codeFallback)
              * AND the aliasing didn't change the path.
              * Note that localeFound will be where an item with ↑↑↑ was found even though
              * the resolved value is actually inherited from somewhere else.
              */
-            if (localeFound.equals("root")
-                || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
-                result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased)
-                    || sourceLocaleID.equals("en")
-                    ? MissingStatus.ROOT_OK
-                        : MissingStatus.ABSENT;
+
+            if (localeFoundIsRootOrCodeFallback) {
+                result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.ROOT_OK
+                    : isParentRoot ? MissingStatus.ABSENT
+                        : MissingStatus.ALIASED;
             } else if (!isAliased) {
                 result = MissingStatus.PRESENT;
-            } else if (CLDRLocale.getInstance(sourceFile.getLocaleID()).isParentRoot()) {
-                // We handle ALIASED specially, depending on whether the parent is root or not.
-                result = MissingStatus.ABSENT;
+            } else if (isParentRoot) { // We handle ALIASED specially, depending on whether the parent is root or not.
+                result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK
+                    : MissingStatus.ABSENT;
             } else {
                 result = MissingStatus.ALIASED;
             }

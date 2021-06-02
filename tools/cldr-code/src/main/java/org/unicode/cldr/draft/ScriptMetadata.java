@@ -31,7 +31,7 @@ public class ScriptMetadata {
     private static final int MAX_RANK = 33;
     private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
     private static final VersionInfo UNICODE_VERSION = VersionInfo.getInstance(
-        CldrUtility.getProperty("SCRIPT_UNICODE_VERSION", "13"));
+        CldrUtility.getProperty("SCRIPT_UNICODE_VERSION", "14"));
 
     // To get the data, go do the Script MetaData spreadsheet
     // Download As Comma Separated Items into DATA_FILE

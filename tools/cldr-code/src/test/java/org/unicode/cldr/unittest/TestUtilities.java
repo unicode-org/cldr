@@ -1407,7 +1407,7 @@ public class TestUtilities extends TestFmwkPlus {
     public void TestMissingGrammar() {
         // https://cldr-smoke.unicode.org/cldr-apps/v#/hu/Length/a4915bf505ffb49
         final String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
-        checkGrammarCoverage("hr", path,    MissingStatus.ALIASED, 0, 0, 1, 1, 0);
+        checkGrammarCoverage("hr", path,    MissingStatus.ABSENT, 0, 0, 1, 1, 0);
         checkGrammarCoverage("en_NZ", path, MissingStatus.ALIASED, 1, 0, 0, 0, 0);
         checkGrammarCoverage("kw", path, MissingStatus.ABSENT, 0, 0, 1, 1, 0);
     }

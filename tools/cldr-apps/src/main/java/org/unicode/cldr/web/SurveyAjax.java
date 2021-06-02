@@ -1132,19 +1132,16 @@ public class SurveyAjax extends HttpServlet {
         loc = (loc == null) ? null : loc.replace('-', '_');
         /*
          * Support "USER" as a "wildcard" for locale name, replacing it with a locale suitable for the
-         * current user, or "fr" (French) as a fallback. Reference: https://unicode.org/cldr/trac/ticket/11161
+         * current user, or "fr" (French) as a fallback.
          */
         if ("USER".equals(loc) && sess != null && !sess.isEmpty()) {
             loc = "fr"; // fallback
             CookieSession.checkForExpiredSessions();
             CookieSession mySession = CookieSession.retrieve(sess);
             if (mySession.user != null) {
-                String locales = mySession.user.locales;
-                if (locales != null && !locales.isEmpty() && !LocaleNormalizer.isAllLocales(locales)) {
-                    String localeArray[] = LocaleNormalizer.tokenizeLocale(locales);
-                    if (localeArray.length > 0) {
-                        loc = localeArray[0];
-                    }
+                CLDRLocale exLoc = mySession.user.exampleLocale();
+                if (exLoc != null) {
+                    loc = exLoc.getBaseName();
                 }
             }
         }

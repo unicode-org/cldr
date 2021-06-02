@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest.web;
 
+import java.util.Set;
+
 /**
  * Copyright (C) 2012
  */
@@ -9,8 +11,9 @@ import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.web.LocaleNormalizer;
+import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.web.STFactory;
+import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.WebContext;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -108,6 +111,10 @@ public class TestMisc extends TestFmwk {
     }
 
     public void TestLocaleNormalizer() {
+        final Set<CLDRLocale> smSet = SurveyMain.getLocalesSet();
+        if (smSet == null || smSet.isEmpty()) {
+            errln("❌ SurveyMain.getLocalesSet is null or empty");
+        }
         LocaleNormalizer locNorm = new LocaleNormalizer();
         String result = locNorm.normalize(null);
         if (!result.isEmpty()) {

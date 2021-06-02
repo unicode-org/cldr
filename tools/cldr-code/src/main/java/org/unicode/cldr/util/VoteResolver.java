@@ -269,13 +269,22 @@ public class VoteResolver<T> {
         private Organization organization;
         private Level level;
         private String name;
-        private Set<String> locales = new TreeSet<>();
+        /**
+         * A set of locales associated with this voter; it is often empty (as when
+         * the user has "*" for their set of locales); it may not serve any purpose
+         * in ordinary operation of Survey Tool; its main (only?) purpose seems to be for
+         * computeMaxVotes, whose only purpose seems to be creation of localeToOrganizationToMaxVote,
+         * which is used only by ConsoleCheckCLDR (for obscure reason), not by Survey Tool itself.
+         */
+        private Set<CLDRLocale> locales = new TreeSet<>();
 
-        public VoterInfo(Organization organization, Level level, String name, Set<String> locales) {
+        public VoterInfo(Organization organization, Level level, String name, LocaleSet localeSet) {
             this.setOrganization(organization);
             this.setLevel(level);
             this.setName(name);
-            this.locales.addAll(locales);
+            if (!localeSet.isAllLocales()) {
+                this.locales.addAll(localeSet.getSet());
+            }
         }
 
         public VoterInfo(Organization organization, Level level, String name) {
@@ -316,19 +325,7 @@ public class VoteResolver<T> {
             return name;
         }
 
-        public void setLocales(Set<String> locales) {
-            this.locales = locales;
-        }
-
-        public void addLocales(Set<String> locales) {
-            this.locales.addAll(locales);
-        }
-
-        public Set<String> getLocales() {
-            return locales;
-        }
-
-        public void addLocale(String locale) {
+        private void addLocale(CLDRLocale locale) {
             this.locales.add(locale);
         }
 
@@ -1547,7 +1544,8 @@ public class VoteResolver<T> {
                 continue; // skip TCs, locked
             }
 
-            for (String locale : info.getLocales()) {
+            for (CLDRLocale loc : info.locales) {
+                String locale = loc.getBaseName();
                 Map<Organization, Level> organizationToMaxVote = localeToOrganizationToMaxVote.get(locale);
                 if (organizationToMaxVote == null) {
                     localeToOrganizationToMaxVote.put(locale,
@@ -1633,7 +1631,8 @@ public class VoteResolver<T> {
                 } else if (mainType.startsWith("locale")) {
                     final String localeIdString = Group.localeId.get(matcher);
                     if (localeIdString != null) {
-                        voterInfo.addLocale(localeIdString.split("_")[0]);
+                        CLDRLocale locale = CLDRLocale.getInstance(localeIdString.split("_")[0]);
+                        voterInfo.addLocale(locale);
                     } else if (DEBUG_HANDLER) {
                         System.out.println("\tskipping");
                     }

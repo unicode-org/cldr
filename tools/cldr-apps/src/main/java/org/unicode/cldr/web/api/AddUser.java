@@ -14,9 +14,9 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.LocaleNormalizer;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.User;
 

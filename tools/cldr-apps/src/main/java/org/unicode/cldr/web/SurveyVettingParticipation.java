@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -78,12 +79,12 @@ public class SurveyVettingParticipation {
                 final JSONObject json = SurveyJSONWrapper.wrap(theUser);
                 userObj.put(json);
 
-                final Set<CLDRLocale> intSet = theUser.getInterestLocales(true);
-                if (intSet == null) {
+                final LocaleSet intSet = theUser.getInterestLocales();
+                if (intSet == null || intSet.isEmpty() || intSet.isAllLocales()) {
                     json.put("allLocales", true);
                 } else {
                     JSONArray intArr = new JSONArray();
-                    for (final CLDRLocale l : intSet) {
+                    for (final CLDRLocale l : intSet.getSet()) {
                         localeToUser.put(l, theUser);
                         intArr.put(l.getBaseName());
                         allVettedLocales.add(l); // covered by a user

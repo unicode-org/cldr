@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -32,7 +31,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
 import com.ibm.icu.text.UnicodeSetSpanner;
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class Annotations {
     private static final boolean DEBUG = false;
@@ -420,6 +418,8 @@ public class Annotations {
                     rem = code + rem;
                     code = "💑";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
+                } else if (code.equals(EmojiConstants.COMPOSED_HANDSHAKE)) {
+                    code = EmojiConstants.HANDSHAKE;
                 } else if (code.contains(EmojiConstants.HANDSHAKE)) {
                     code = code.startsWith(EmojiConstants.MAN) ? "👬"
                         : code.endsWith(EmojiConstants.MAN) ? "👫"

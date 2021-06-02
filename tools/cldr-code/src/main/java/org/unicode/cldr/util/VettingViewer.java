@@ -51,7 +51,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class VettingViewer<T> {
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private static boolean SHOW_SUBTYPES = true; // CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals("true");
 

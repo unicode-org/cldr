@@ -300,7 +300,7 @@ export default {
 
 <style scoped>
 #DashboardSection {
-  border-top: 2px solid #cfeaf8;
+  border-top: 4px solid #cfeaf8;
   font-size: small;
 }
 

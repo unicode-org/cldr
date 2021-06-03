@@ -1,6 +1,7 @@
 /*
  * cldrGui: encapsulate GUI functions for Survey Tool
  */
+import * as cldrDrag from "./cldrDrag.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForum from "./cldrForum.js";
 import * as cldrLoad from "./cldrLoad.js";
@@ -79,6 +80,8 @@ async function ensureSession() {
     body: JSON.stringify({}), // no email/password
   });
   if (response.ok) {
+    // TODO: address VS Code warning "'await' has no effect on the type of this expression"
+    // for the second "await" in the next line
     const logintoken = await (await response).json();
     if (logintoken.sessionId) {
       // logged in OK.
@@ -114,6 +117,7 @@ function scheduleLoadingWithSessionId() {
     }, 100 /* one tenth of a second */);
   });
 }
+
 function completeStartupWithSession() {
   cldrSurvey.updateStatus();
   cldrLoad.showV();
@@ -541,6 +545,7 @@ function showDashboard() {
       els[i].style.display = "none";
     }
     dashboardVisible = true;
+    cldrDrag.enable(vote, dash, true /* up/down */);
   }
 }
 

@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * This list needs updating as a new organizations are added; that's by design
@@ -103,5 +104,19 @@ public enum Organization {
     private Organization(String displayName, String... names) {
         this.displayName = displayName;
         this.names = names;
+    }
+
+    private LocaleSet localeSet = null;
+
+    public LocaleSet getCoveredLocales() {
+        if (localeSet == null) {
+            final Set<String> localeNameSet = StandardCodes.make().getLocaleCoverageLocales(this);
+            if (localeNameSet.contains(LocaleNormalizer.ALL_LOCALES)) {
+                localeSet = LocaleNormalizer.ALL_LOCALES_SET;
+            } else {
+                localeSet = new LocaleSet(localeNameSet);
+            }
+        }
+        return localeSet;
     }
 }

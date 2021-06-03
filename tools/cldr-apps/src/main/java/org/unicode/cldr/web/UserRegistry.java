@@ -33,16 +33,16 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.LocaleNormalizer;
+import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.util.ULocale;
 
 /**
  * This class represents the list of all registered users. It contains an inner
@@ -273,6 +273,9 @@ public class UserRegistry {
 
         private UserSettings settings;
 
+        private LocaleSet authorizedLocaleSet = null;
+        private LocaleSet interestLocalesSet = null;
+
         /**
          * @deprecated may not use
          */
@@ -347,55 +350,19 @@ public class UserRegistry {
          * is the user interested in this locale?
          */
         public boolean interestedIn(CLDRLocale locale) {
-            return LocaleNormalizer.localeMatchesLocaleList(intlocs, locale);
+            return getInterestLocales().contains(locale);
         }
 
         /**
-         * List of interest groups the user is interested in.
+         * Set of interest locales for this user
          *
-         * @return list of locales, or null for ALL locales, or a 0-length list
-         *         for NO locales.
+         * @return null or LocaleNormalizer.ALL_LOCALES_SET for 'all', otherwise a set of CLDRLocales
          */
-        @Schema( hidden = true )
-        public String[] getInterestList() {
-            if (userIsManagerOrStronger(this)) {
-                if (intlocs == null || intlocs.length() == 0) {
-                    return null;
-                } else {
-                    if (intlocs.equalsIgnoreCase(LocaleNormalizer.NO_LOCALES)) {
-                        return new String[0];
-                    }
-                    if (LocaleNormalizer.isAllLocales(intlocs)) return null; // all = null
-                    return LocaleNormalizer.tokenizeLocale(intlocs);
-                }
-            } else if (userIsStreet(this)) {
-                if (LocaleNormalizer.isAllLocales(locales)) return null; // all = null
-                return LocaleNormalizer.tokenizeLocale(locales);
-            } else {
-                return new String[0];
+        public LocaleSet getInterestLocales() {
+            if (interestLocalesSet == null) {
+                interestLocalesSet = LocaleNormalizer.setFromStringQuietly(intlocs, null);
             }
-        }
-
-        /**
-         * Set of interest locales for this user.
-         * @return null for 'all', otherwise a set of CLDRLocales
-         */
-        @Schema( hidden = true ) // TODO: does not seem to effectively hide
-        public Set<CLDRLocale> getInterestLocales(boolean ignoredParameter) {
-            String[] intList = getInterestList();
-            if(intList == null) {
-                return null; // all locales
-            }
-
-
-            // TODO: Need JDK9 for this:
-            // return Set.of(stringArrayToLocaleArray(intList));
-
-            final Set<CLDRLocale> s = new TreeSet<>();
-            for(final CLDRLocale l : stringArrayToLocaleArray(intList)) {
-                s.add(l);
-            }
-            return s;
+            return interestLocalesSet;
         }
 
         /**
@@ -404,28 +371,19 @@ public class UserRegistry {
         private VoterInfo createVoterInfo() {
             Organization o = this.getOrganization();
             VoteResolver.Level l = this.getLevel();
-            Set<String> localesSet = new HashSet<>();
-            if (!LocaleNormalizer.isAllLocales(locales)) {
-                for (String s : LocaleNormalizer.tokenizeLocale(locales)) {
-                    localesSet.add(s);
-                }
-            }
             VoterInfo v = new VoterInfo(o, l,
                 // do not allow VoteResolver.VoterInfo to see the actual "name", because it is sent to the client.
                 "#"+Integer.toString(id),
-                localesSet);
+                getAuthorizedLocaleSet());
             return v;
         }
 
-        /**
-         * Return the value of this voter info, out of the cache
-         *
-         * @deprecated use getVoterInfo
-         * @see #getVoterInfo
-         */
-        @Deprecated
-        public VoterInfo voterInfo() {
-            return getVoterInfo();
+        private LocaleSet getAuthorizedLocaleSet() {
+            if (authorizedLocaleSet == null) {
+                LocaleSet orgLocales = getOrganization().getCoveredLocales();
+                authorizedLocaleSet = LocaleNormalizer.setFromStringQuietly(locales, orgLocales);
+            }
+            return authorizedLocaleSet;
         }
 
         @Override
@@ -600,41 +558,37 @@ public class UserRegistry {
          * Code related to userIsExpert, UserRegistry.EXPERT removed 2021-05-18 per CLDR-14597
          */
         private boolean hasLocalePermission(CLDRLocale locale) {
-            // admin, TC, and manager can always modify
-            if (userlevel <= UserRegistry.MANAGER) {
-                return true;
-            }
-            // the 'und' locale and sublocales can always be modified
+            /*
+             * the 'und' locale and sublocales can always be modified
+             */
             if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
-                // All users can modify the sandbox
                 return true;
             }
-            return userHasLocale(locale) && orgHasLocale(locale);
+            /*
+             * Per CLDR-14597, TC and ADMIN can vote in any locale;
+             * MANAGER can vote if their organization covers the locale
+             */
+            if (userlevel <= UserRegistry.TC) {
+                return true;
+            }
+            if (userlevel == UserRegistry.MANAGER) {
+                return getOrganization().getCoveredLocales().containsLocaleOrParent(locale);
+            }
+            return getAuthorizedLocaleSet().contains(locale);
         }
 
-        private boolean userHasLocale(CLDRLocale locale) {
-            if (LocaleNormalizer.isAllLocales(locales)) {
-                return true;
+        /**
+         * Get a locale suitable for example paths to be shown to this user,
+         * when "USER" is used as a "wildcard" for the locale name in a URL
+         *
+         * @return the CLDRLocale, or null if no particularly suitable locale found
+         */
+        public CLDRLocale exampleLocale() {
+            final LocaleSet localeSet = getAuthorizedLocaleSet();
+            if (!localeSet.isEmpty() && !localeSet.isAllLocales()) {
+                return localeSet.firstElement();
             }
-            final String[] userLocaleArray = LocaleNormalizer.tokenizeLocale(locales);
-            return LocaleNormalizer.localeMatchesLocaleList(userLocaleArray, locale);
-        }
-
-        private boolean orgHasLocale(CLDRLocale locale) {
-            final Set<String> orgLocaleSet = StandardCodes.make().getLocaleCoverageLocales(org);
-            if (orgLocaleSet.contains(LocaleNormalizer.ALL_LOCALES)) {
-                return true;
-            }
-            String[] orgLocaleArray = {};
-            orgLocaleArray = orgLocaleSet.toArray(orgLocaleArray);
-            if (LocaleNormalizer.localeMatchesLocaleList(orgLocaleArray, locale)) {
-                return true;
-            }
-            CLDRLocale parent = locale.getParent();
-            if (parent != null && LocaleNormalizer.localeMatchesLocaleList(orgLocaleArray, parent)) {
-                return true;
-            }
-            return false;
+            return null;
         }
     }
 
@@ -1051,7 +1005,7 @@ public class UserRegistry {
         return rs;
     }
 
-    void setupIntLocs() throws SQLException {
+    private void setupIntLocs() throws SQLException {
         Connection conn = DBUtils.getInstance().getDBConnection();
         PreparedStatement removeIntLoc = null;
         PreparedStatement updateIntLoc = null;
@@ -1079,7 +1033,7 @@ public class UserRegistry {
     /**
      * assumes caller has a lock on conn
      */
-    String updateIntLocs(int user, Connection conn) throws SQLException {
+    private String updateIntLocs(int user, Connection conn) throws SQLException {
         PreparedStatement removeIntLoc = null;
         PreparedStatement updateIntLoc = null;
         try {
@@ -1092,26 +1046,9 @@ public class UserRegistry {
     }
 
     /**
-     * validate an interest locale list.
-     * @param list
-     * @return
-     */
-    static String validateIntlocList(String list) {
-        list = list.trim();
-        StringBuilder sb = new StringBuilder();
-        for (CLDRLocale l : LocaleNormalizer.tokenizeValidCLDRLocale(list)) {
-            if (sb.length() > 0) {
-                sb.append(' ');
-            }
-            sb.append(l.getBaseName());
-        }
-        return sb.toString();
-    }
-
-    /**
      * assumes caller has a lock on conn
      */
-    String updateIntLocs(int id, boolean doCommit, Connection conn, PreparedStatement removeIntLoc, PreparedStatement updateIntLoc)
+    private String updateIntLocs(int id, boolean doCommit, Connection conn, PreparedStatement removeIntLoc, PreparedStatement updateIntLoc)
         throws SQLException {
 
         User user = getInfo(id);
@@ -1122,16 +1059,10 @@ public class UserRegistry {
         removeIntLoc.setInt(1, id);
         removeIntLoc.executeUpdate();
 
-        String[] il = user.getInterestList();
-        if (il != null) {
-            updateIntLoc.setInt(1, id);
-            Set<String> s = new HashSet<>();
-            for (String l : il) {
-                String forum = new ULocale(l).getLanguage();
-                s.add(forum);
-            }
-            for (String forum : s) {
-                updateIntLoc.setString(2, forum);
+        LocaleSet intLocSet = user.getInterestLocales();
+        if (intLocSet != null && !intLocSet.isAllLocales()) {
+            for (CLDRLocale loc : intLocSet.getSet()) {
+                updateIntLoc.setString(2, loc.getLanguage());
                 updateIntLoc.executeUpdate();
             }
         }
@@ -1223,13 +1154,13 @@ public class UserRegistry {
         }
         String msg = "";
         if (!intLocs) {
-            LocaleNormalizer locNorm = new LocaleNormalizer();
-            newLocales = locNorm.normalize(newLocales);
+            final LocaleNormalizer locNorm = new LocaleNormalizer();
+            newLocales = locNorm.normalizeForSubset(newLocales, user.getOrganization().getCoveredLocales());
             if (locNorm.hasMessage()) {
-                msg = locNorm.getMessageHtml();
+                msg = locNorm.getMessageHtml() + "<br />";
             }
         } else {
-            newLocales = validateIntlocList(newLocales);
+            newLocales = LocaleNormalizer.normalizeQuietly(newLocales);
         }
         String orgConstraint = null;
         if (session.user.userlevel == ADMIN) {
@@ -1807,14 +1738,21 @@ public class UserRegistry {
         if (LocaleNormalizer.isAllLocales(u.locales)) {
             return null; // all
         }
-        String localeArray[] = LocaleNormalizer.tokenizeLocale(u.locales);
+        return userHasForumLocale(u, locale) ? null : ModifyDenial.DENY_LOCALE_LIST;
+    }
+
+    private static boolean userHasForumLocale(User u, CLDRLocale locale) {
         final CLDRLocale languageLocale = locale.getLanguageLocale();
-        for (final CLDRLocale l : stringArrayToLocaleArray(localeArray)) {
+        final LocaleSet authorizedLocaleSet = u.getAuthorizedLocaleSet();
+        if (authorizedLocaleSet.isAllLocales()) {
+            return true;
+        }
+        for (CLDRLocale l : authorizedLocaleSet.getSet()) {
             if (l.getLanguageLocale() == languageLocale) {
-                return null;
+                return true;
             }
         }
-        return ModifyDenial.DENY_LOCALE_LIST;
+        return false;
     }
 
     public static boolean countUserVoteForLocale(User theSubmitter, CLDRLocale locale) {
@@ -1849,7 +1787,6 @@ public class UserRegistry {
         return u.hasLocalePermission(locale) ? null : ModifyDenial.DENY_LOCALE_LIST;
     }
 
-    // TODO: speedup. precalculate list of locales on user load.
     public static final ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
         final ModifyDenial denyCountVote = countUserVoteForLocaleWhy(u, locale);
 
@@ -1874,14 +1811,6 @@ public class UserRegistry {
             return ModifyDenial.DENY_PHASE_FINAL_TESTING;
         }
         return null;
-    }
-
-    static CLDRLocale[] stringArrayToLocaleArray(String[] localeArray) {
-        CLDRLocale arr[] = new CLDRLocale[localeArray.length];
-        for (int j = 0; j < localeArray.length; j++) {
-            arr[j] = CLDRLocale.getInstance(localeArray[j]);
-        }
-        return arr;
     }
 
     /**
@@ -2147,8 +2076,9 @@ public class UserRegistry {
      * @return the User object, or null for failure such as for invalid locales
      */
     public User createTestUser(String name, String org, String locales, Level level, String email) {
-        LocaleNormalizer locNorm = new LocaleNormalizer();
-        String normLocales = locNorm.normalize(locales);
+        final LocaleNormalizer locNorm = new LocaleNormalizer();
+        final Organization organization = Organization.fromString(org);
+        final String normLocales = locNorm.normalizeForSubset(locales, organization.getCoveredLocales());
         if (locNorm.hasMessage()) {
             logger.log(java.util.logging.Level.SEVERE, locNorm.getMessagePlain());
             return null;

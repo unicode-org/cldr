@@ -75,7 +75,9 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleNormalizer;
+import org.unicode.cldr.util.LocaleSet;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -635,7 +637,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             u.email = newRealName + "." + randomEmail.trim();
             String newLocales = ctx.field("new_locales").trim();
             LocaleNormalizer locNorm = new LocaleNormalizer();
-            newLocales = locNorm.normalize(newLocales);
+            final Organization organization = Organization.fromString(u.org);
+            newLocales = locNorm.normalizeForSubset(newLocales, organization.getCoveredLocales());
             if (locNorm.hasMessage()) {
                 reportNormalizationWarning(ctx.getOut(), locNorm, newLocales);
                 autoProceed = false;
@@ -1589,9 +1592,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("\t\t<name>" + theirName + "</name>");
                     ctx.println("\t\t<org>" + theirOrg + "</org>");
                     ctx.println("\t\t<locales type=\"edit\">");
-                    Set<CLDRLocale> locs = LocaleNormalizer.tokenizeValidCLDRLocale(theirLocales);
-                    for (CLDRLocale loc : locs) {
-                        ctx.println("\t\t\t<locale id=\"" + loc.getBaseName() + "\"/>");
+                    final LocaleSet locs = LocaleNormalizer.setFromStringQuietly(theirLocales, null);
+                    if (!locs.isAllLocales()) {
+                        for (CLDRLocale loc : locs.getSet()) {
+                            ctx.println("\t\t\t<locale id=\"" + loc.getBaseName() + "\"/>");
+                        }
                     }
                     ctx.println("\t\t</locales>");
                     ctx.println("\t</user>");
@@ -1639,108 +1644,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     String getListSetting(UserSettings settings, String pref, String[] list, boolean doDef) {
         return settings.get(pref, doDef ? "default" : list[0]);
-    }
-
-    private static void writeMenu(WebContext jout, String title, String field, String current, String items[], String rec) {
-        String which = current;
-        boolean any = false;
-        for (int i = 0; !any && (i < items.length); i++) {
-            if (items[i].equals(which))
-                any = true;
-        }
-
-        String hash = "menu_" + field;
-        String theTitle = "";
-        if (rec != null && !rec.isEmpty()) {
-            theTitle = "(* denotes default value)";
-        }
-
-        jout.println("<label id='m_" + hash + "' class='" + (!current.equals(items[0]) ? "menutop-active" : "menutop-other")
-            + "' title='" + theTitle + "' >");
-        jout.println(title);
-        jout.println("<select class='" + (any ? "menutop-active" : "menutop-other") + "' onchange='window.location=this.value;'>");
-
-        if (!any) {
-            jout.println("<option selected value=\"\">Change...</option>");
-        }
-        for (int i = 0; i < items.length; i++) {
-            boolean isOptional = (items[i].equals(Level.COMPREHENSIVE.toString()));
-
-            if (isOptional && !SurveyMain.isUnofficial())
-                continue;
-            WebContext ssc = new WebContext(jout);
-            ssc.setQuery(field, items[i]);
-            String sty = "";
-            if (rec != null && rec.equals(items[i])) {
-                sty = "font-weight: bold;";
-            }
-
-            jout.print("<option style='" + sty + "' ");
-            if (items[i].equals(which)) {
-                jout.print(" selected ");
-            } else {
-                jout.print("value=\"" + ssc.url() + "\" ");
-            }
-            jout.print(">" + items[i]);
-            if (rec != null && rec.equals(items[i])) {
-                jout.print("*");
-            }
-            if (isOptional) {
-                jout.println(" [only available in SmokeTest]");
-            }
-            jout.println("</option>");
-        }
-        jout.println("</select>");
-
-        jout.println("<span id='info_" + hash + "'/>");
-
-        jout.println("</label>");
-    }
-
-    String showListSetting(WebContext ctx, String pref, String what, String[] list) {
-        return showListSetting(ctx, pref, what, list, false);
-    }
-
-    String showListSetting(WebContext ctx, String pref, String what, String[] list, boolean doDef) {
-        return showListSetting(ctx, pref, what, list, doDef, null);
-    }
-
-    String showListSetting(WebContext ctx, String pref, String what, String[] list, String rec) {
-        return showListSetting(ctx, pref, what, list, false, rec);
-    }
-
-    String showListSetting(WebContext ctx, String pref, String what, String[] list, boolean doDef, String rec) {
-        String val = getListSetting(ctx, pref, list, doDef);
-        ctx.settings().set(pref, val);
-
-        boolean no_js = ctx.prefBool(SurveyMain.PREF_NOJAVASCRIPT);
-
-        if (no_js) {
-            ctx.println("<b>" + what + "</b>: ");
-            if (doDef) {
-                WebContext nuCtx = (WebContext) ctx.clone();
-                nuCtx.addQuery(pref, "default");
-                ctx.println("<a href='" + nuCtx.url() + "' class='" + (val.equals("default") ? "selected" : "notselected") + "'>"
-                    + "default" + "</a> ");
-            }
-            for (int n = 0; n < list.length; n++) {
-                WebContext nuCtx = (WebContext) ctx.clone();
-                nuCtx.addQuery(pref, list[n]);
-                if (rec != null && rec.equals(list[n])) {
-                    ctx.print("<b>");
-                }
-                ctx.println("<a href='" + nuCtx.url() + "' class='" + (val.equals(list[n]) ? "selected" : "notselected") + "'>"
-                    + list[n] + "</a> ");
-                if (rec != null && rec.equals(list[n])) {
-                    ctx.print("*</b>");
-                }
-            }
-            ctx.println("<br>");
-        } else {
-            writeMenu(ctx, what, pref, val, list, rec);
-        }
-
-        return val;
     }
 
     private void doOptions(WebContext ctx) {
@@ -3336,6 +3239,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         localeListSet = Collections.unmodifiableSet(s);
         roLocales = Collections.unmodifiableSet(ro);
         localeSizer = lms;
+        LocaleNormalizer.setKnownLocales(localeListSet);
     }
 
     /**

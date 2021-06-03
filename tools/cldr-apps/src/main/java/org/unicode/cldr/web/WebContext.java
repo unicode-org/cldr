@@ -450,7 +450,7 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Get the target keyword and value for an 'a href' HTML tag
      *
-     * @param target
+     * @param t
      *            the target name to use
      * @return the 'target=...' string - may be blank if the user has requested
      *         no popups
@@ -1038,21 +1038,6 @@ public class WebContext implements Cloneable, Appendable {
                 return COVLEVEL_DEFAULT_RECOMMENDED.toString();
             }
         }
-    }
-
-    public String showCoverageSetting() {
-        String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage", WebContext.PREF_COVLEV_LIST);
-        return rv;
-    }
-
-    public String showCoverageSettingForLocale() {
-        String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage", WebContext.PREF_COVLEV_LIST,
-            getRecommendedCoverageLevel());
-        return rv;
-    }
-
-    public String getCoverageSetting() {
-        return sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
     }
 
     public static final String COVLEV_RECOMMENDED = "default";

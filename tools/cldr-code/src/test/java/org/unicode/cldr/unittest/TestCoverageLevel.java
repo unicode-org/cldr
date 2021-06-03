@@ -16,6 +16,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -380,19 +381,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|rap|bug|ban|xal|oc|alt|nia|myv|ain|rar|krl|ay|"
             + "syr|kv|umb|cu|prg|vo)");
 
-        final Pattern script100 = PatternCache.get("("
-            + "Adlm|Afak|Aghb|Ahom|Aran|Armi|Avst|Bali|Bamu|Bass|Batk|Bhks|Blis|Brah|Bugi|Buhd|"
-            + "Cakm|Cans|Cari|Cham|Chrs|Cher|Cirt|Copt|Cpmn|Cprt|Cyrs|"
-            + "Diak|Dogr|Dsrt|Dupl|Egy[dhp]|Elba|Elym|Geok|Glag|Gong|Gonm|Goth|Gran|"
-            + "Hatr|Hanb|Hano|Hluw|Hmng|Hmnp|Hrkt|Hung|Inds|Ital|Jamo|Java|Jurc|"
-            + "Kali|Khar|Khoj|Kits|Kpel|Kthi|Lana|Lat[fg]|Lepc|Limb|Lin[ab]|Lisu|Loma|Ly[cd]i|"
-            + "Mahj|Maka|Man[di]|Marc|Maya|Medf|Mend|Mer[co]|Modi|Moon|Mroo|Mtei|Mult|"
-            + "Nand|Narb|Nbat|Newa|Nkgb|Nkoo|Nshu|Ogam|Olck|Orkh|Osge|Osma|Ougr|"
-            + "Palm|Pauc|Perm|Phag|Phl[ipv]|Phnx|Plrd|Prti|"
-            + "Rjng|Rohg|Roro|Runr|"
-            + "Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sogd|Sogo|Sora|Soyo|Sund|Sylo|Syr[cejn]|"
-            + "Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Tnsa|Toto|"
-            + "Ugar|Vaii|Visp|Vith|Wara|Wcho|Wole|Xpeo|Xsux|Yezi|Yiii|Zanb|Zinh|Zmth)");
+        /**
+         * Recommended scripts that are allowed for comprehensive coverage.
+         * Not-recommended scripts (according to ScriptMetadata) are filtered out automatically.
+         */
+        final Pattern script100 = PatternCache.get("(Zinh)");
 
         final Pattern keys100 = PatternCache.get("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
             + "Normalization|Numeric|Reorder|Strength)|kv|sd|timezone|va|variableTop|x|d0|h0|i0|k0|m0|s0)");
@@ -522,6 +515,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 // Skip user defined script codes and alt=short
                 String scriptType = xpp.findAttributeValue("script", "type");
                 if (scriptType.startsWith("Q") || "short".equals(xpp.findAttributeValue("script", "alt"))) {
+                    continue;
+                }
+                ScriptMetadata.Info scriptInfo = ScriptMetadata.getInfo(scriptType);
+                if (scriptInfo == null || scriptInfo.idUsage != ScriptMetadata.IdUsage.RECOMMENDED) {
                     continue;
                 }
                 if (script100.matcher(scriptType).matches()) {

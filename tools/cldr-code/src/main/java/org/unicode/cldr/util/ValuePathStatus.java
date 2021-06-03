@@ -46,6 +46,9 @@ public class ValuePathStatus {
     }
 
     public static boolean isMissingOk(CLDRFile sourceFile, String path, boolean latin, boolean aliased) {
+        if (sourceFile.getLocaleID().equals("en")) {
+            return true;
+        }
         Output<String[]> arguments = new Output<>();
         List<String> failures = null;
 //        if (path.startsWith("//ldml/characters/parseLenients")) {

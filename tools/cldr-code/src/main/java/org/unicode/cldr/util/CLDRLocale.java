@@ -657,4 +657,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         if (DEBUG) System.out.println(this + ".HNRP=" + res);
         return res;
     }
+
+    public boolean isParentRoot() {
+        return CLDRLocale.ROOT == getParent();
+    }
 }

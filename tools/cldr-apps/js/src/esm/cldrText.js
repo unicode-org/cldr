@@ -457,6 +457,7 @@ const strings = {
   special_transfervotes: "Copy Old Votes Tool",
   special_users: "Users",
   special_vetting_participation: "Vetting Participation",
+  special_vetting_participation2: "Vetting Participation v2",
   special_vsummary: "Priority Items Summary (slow)",
   special_test_panel: "Experimental Test Panel",
 };

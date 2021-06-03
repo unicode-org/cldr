@@ -6,6 +6,7 @@ import MainMenu from "./views/MainMenu.vue";
 import TestPanel from "./views/TestPanel.vue";
 import TransferVotes from "./views/TransferVotes.vue";
 import UnknownPanel from "./views/UnknownPanel.vue";
+import VettingParticipation2 from "./views/VettingParticipation2.vue";
 import VettingSummary from "./views/VettingSummary.vue";
 import WaitingPanel from "./views/WaitingPanel.vue";
 
@@ -20,8 +21,9 @@ const specialToComponentMap = {
   menu: MainMenu,
   retry: WaitingPanel,
   test_panel: TestPanel, // for testing
-  vsummary: VettingSummary,
   transfervotes: TransferVotes,
+  vetting_participation2: VettingParticipation2,
+  vsummary: VettingSummary,
   // If no match, end up here
   default: UnknownPanel,
 };

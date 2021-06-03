@@ -281,7 +281,9 @@ function verifyJson(json, subkey) {
   } else if (json.err_code) {
     var msg_fmt = cldrRetry.format(json, subkey);
     var loadingChunk = cldrDom.createChunk("", "p", "errCodeMsg");
-    loadingChunk.appendChild(cldrDom.createChunk("","i","glyphicon glyphicon-remove-sign fgred"));
+    loadingChunk.appendChild(
+      cldrDom.createChunk("", "i", "glyphicon glyphicon-remove-sign fgred")
+    );
     loadingChunk.appendChild(cldrDom.createChunk(msg_fmt));
     flipper.flipTo(pages.loading, loadingChunk);
     var retryButton = cldrDom.createChunk(
@@ -337,7 +339,6 @@ function unspecialHandleIdChanged() {
   if (curId) {
     var xtr = document.getElementById("r@" + curId);
     if (!xtr) {
-
       console.log("Warning could not load id " + curId + " does not exist");
       notification.warning({
         message: "Could not load XPath",

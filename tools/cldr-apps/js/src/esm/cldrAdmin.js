@@ -45,6 +45,7 @@ function getHtml() {
     window.location.hostname +
     "</h2>\n" +
     "<a href='#createAndLogin'>CreateAndLogin</a>\n" +
+    " | <a href='#vetting_participation2///'>VettingParticipation2 (Locales.txt)</a>\n" +
     "<div style='float: right; font-size: x-small;'>" +
     "<span id='visitors'></span></div>\n" +
     "<hr />\n" +

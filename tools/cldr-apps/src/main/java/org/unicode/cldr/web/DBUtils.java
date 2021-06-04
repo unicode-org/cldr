@@ -26,16 +26,22 @@ import java.sql.SQLFeatureNotSupportedException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Predicate;
 import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import com.ibm.icu.dev.util.ElapsedTimer;
 
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.json.JSONArray;
@@ -48,8 +54,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.SurveyMain.Phase;
-
-import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
  * Singleton utility class for simple(r) DB access.
@@ -346,6 +350,28 @@ public class DBUtils {
     public static boolean hasTable(Connection conn, String table) {
         getInstance();
         return DBUtils.hasTable(table);
+    }
+
+    /**
+     * Get a list of all tables, possibly filtered through an expression
+     * @param conn connection
+     * @param matching predicate to match, if null: match all
+     * @return set of strings
+     * @throws SQLException
+     */
+    public static Collection<String> getTables(Connection conn, Predicate<String> matching)
+        throws SQLException {
+        DatabaseMetaData dbmd = conn.getMetaData();
+        try (ResultSet rs = dbmd.getTables(null, null, null, null)) {
+            Set<String> r = new TreeSet<String>();
+            while(rs.next()) {
+                final String name = rs.getString("TABLE_NAME");
+                if (matching == null || matching.test(name)) {
+                    r.add(name);
+                }
+            }
+            return r;
+        }
     }
 
     @Deprecated

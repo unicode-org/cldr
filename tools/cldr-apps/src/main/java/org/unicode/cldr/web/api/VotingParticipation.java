@@ -19,6 +19,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -26,6 +27,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
@@ -50,7 +52,7 @@ public class VotingParticipation {
         value = {
             @APIResponse(
                 responseCode = "200",
-                description = "Vote participatoin results",
+                description = "Vote participation results",
                 content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = VotingParticipationResults.class))),
             @APIResponse(
@@ -71,11 +73,20 @@ public class VotingParticipation {
             return Auth.noSessionResponse();
         }
         if (mySession.user == null) {
-            return Response.status(403).build();
+            return Response.status(Status.UNAUTHORIZED).build();
         }
         VotingParticipationResults results = new VotingParticipationResults();
         if (!UserRegistry.userIsAdmin(mySession.user)) {
+            // Restrict results to one organization
             results.onlyOrg = mySession.user.getOrganization();
+
+            if (CLDRConfig.getInstance().getEnvironment()
+                    == CLDRConfig.Environment.PRODUCTION) {
+                // This is a slow operation (querying all rows of votes in a dozen tables)
+                // so, for now, restrict it to admins only. It's only available in the
+                // admin UI at present.
+                return Response.status(Status.FORBIDDEN).build();
+            }
         }
         logger.info("Getting full vetting participation (slow), requested by " + mySession.user.toString());
         DBUtils dbUtils = DBUtils.getInstance();

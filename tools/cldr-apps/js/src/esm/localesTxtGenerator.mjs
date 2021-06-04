@@ -1,38 +1,10 @@
 // For CLDR-14804
 const FIRST_RELEASE = 30;
 
+import * as setUtils from "./setUtils.mjs";
+
 // General utils
 
-// return a - b
-function setMinus(a, b) {
-  const x = new Set();
-  for (const i of a.values()) {
-    if (!b.has(i)) {
-      x.add(i);
-    }
-  }
-  return x;
-}
-
-// return a || b
-function setUnion(a, b) {
-  const x = new Set();
-  for (const i of a.values()) {
-    x.add(i);
-  }
-  for (const i of b.values()) {
-    x.add(i);
-  }
-  return x;
-}
-
-function setToList(a) {
-  const l = [];
-  for (const i of a.values()) {
-    l.push(i);
-  }
-  return l;
-}
 
 // mismatch between user table and enum names
 function orgMogrify(org) {
@@ -98,19 +70,19 @@ function generateLocalesTxt(data, outFunction) {
       }
     }
     // Participation but no vetters?
-    const participationNoVetters = setMinus(localesWithVotes, localesWithUsers);
+    const participationNoVetters = setUtils.minus(localesWithVotes, localesWithUsers);
     if (participationNoVetters.size !== 0) {
       outFunction(
         `#  Participation but no vetters: ` +
-          setToList(participationNoVetters).join(" ")
+          setUtils.asList(participationNoVetters).join(" ")
       );
     }
-    const allLocales = setUnion(localesWithVotes, localesWithUsers);
+    const allLocales = setUtils.union(localesWithVotes, localesWithUsers);
     if (allLocales.size == 0) {
       outFunction(`#  no vetters, no votes`);
     }
-    const userButNoVotes = setMinus(localesWithUsers, localesWithVotes);
-    for (const l of setToList(localesWithVotes).sort()) {
+    const userButNoVotes = setUtils.minus(localesWithUsers, localesWithVotes);
+    for (const l of setUtils.asList(localesWithVotes).sort()) {
       if (localesWithVotes.has(l)) {
         outFunction(`${org} ; ${l} ; moderate ; `);
       }
@@ -118,7 +90,7 @@ function generateLocalesTxt(data, outFunction) {
     if (userButNoVotes.size !== 0) {
       outFunction("#");
       outFunction("# No votes in the following:");
-      for (const l of setToList(userButNoVotes).sort()) {
+      for (const l of setUtils.asList(userButNoVotes).sort()) {
         outFunction(`${org} ; ${l} ; moderate ; `);
       }
     }

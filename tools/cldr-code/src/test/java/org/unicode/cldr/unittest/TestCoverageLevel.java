@@ -90,6 +90,26 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
     }
 
+    public void testSpecificPathsPersCal() {
+        String[][] rows = {
+            { "//ldml/dates/calendars/calendar[@type=\"persian\"]/eras/eraAbbr/era[@type=\"0\"]", "basic", "4" },
+            { "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]", "basic", "4" }
+        };
+        Factory phf = PathHeader.getFactory(ENGLISH);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SDI, "ckb_IR");
+        CLDRLocale loc = CLDRLocale.getInstance("ckb_IR");
+        for (String[] row : rows) {
+            String path = row[0];
+            Level expectedLevel = Level.fromString(row[1]);
+            Level level = coverageLevel.getLevel(path);
+            assertEquals("Level for " + path, expectedLevel, level);
+
+            int expectedRequiredVotes = Integer.parseInt(row[2]);
+            int votes = SDI.getRequiredVotes(loc, phf.fromPath(path));
+            assertEquals("Votes for " + path, expectedRequiredVotes, votes);
+        }
+    }
+
     public void oldTestInvariantPaths() {
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
         PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");

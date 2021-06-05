@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2019 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="eo"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="aeaj" draft="contributed">Aĵmano</subdivision>
+			<subdivision type="aeaz" draft="contributed">Abudabio</subdivision>
+			<subdivision type="aedu" draft="contributed">Dubajo</subdivision>
+			<subdivision type="aefu" draft="contributed">Fuĵajro</subdivision>
+			<subdivision type="aerk" draft="contributed">Rasalĥajmo</subdivision>
+			<subdivision type="aesh" draft="contributed">Ŝarĵo</subdivision>
+			<subdivision type="aeuq" draft="contributed">Umalkajvajno</subdivision>
+			<subdivision type="arc" draft="contributed">Bonaero</subdivision>
+			<subdivision type="arm" draft="contributed">Mendozo</subdivision>
+			<subdivision type="arq" draft="contributed">Neŭkeno</subdivision>
+			<subdivision type="arx" draft="contributed">Kordobo</subdivision>
+			<subdivision type="at1" draft="contributed">Burgenlando</subdivision>
+			<subdivision type="at2" draft="contributed">Karintio</subdivision>
+			<subdivision type="at3" draft="contributed">Malsupra Aŭstrio</subdivision>
+			<subdivision type="at4" draft="contributed">Supra Aŭstrio</subdivision>
+			<subdivision type="at5" draft="contributed">Salcburgo</subdivision>
+			<subdivision type="at6" draft="contributed">Stirio</subdivision>
+			<subdivision type="at7" draft="contributed">Tirolo</subdivision>
+			<subdivision type="at8" draft="contributed">Vorarlbergo</subdivision>
+			<subdivision type="at9" draft="contributed">Vieno</subdivision>
+			<subdivision type="auact" draft="contributed">Aŭstralia Ĉefurboteritorio</subdivision>
+			<subdivision type="aunsw" draft="contributed">Nova Sud-Kimrio</subdivision>
+			<subdivision type="aunt" draft="contributed">Nordteritorio</subdivision>
+			<subdivision type="auqld" draft="contributed">Kvinslando</subdivision>
+			<subdivision type="ausa" draft="contributed">Sud-Aŭstralio</subdivision>
+			<subdivision type="autas" draft="contributed">Tasmanio</subdivision>
+			<subdivision type="auvic" draft="contributed">Viktorio</subdivision>
+			<subdivision type="auwa" draft="contributed">Okcident-Aŭstralio</subdivision>
+			<subdivision type="babih" draft="contributed">Federacio Bosnio kaj Hercegovino</subdivision>
+			<subdivision type="basrp" draft="contributed">Respubliko Serba</subdivision>
+			<subdivision type="bebru" draft="contributed">Bruselo</subdivision>
+			<subdivision type="bevan" draft="contributed">Antverpeno</subdivision>
+			<subdivision type="bevbr" draft="contributed">Flandra Brabanto</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flandrio</subdivision>
+			<subdivision type="bevli" draft="contributed">Limburgo</subdivision>
+			<subdivision type="bevov" draft="contributed">Orienta Flandrio</subdivision>
+			<subdivision type="bevwv" draft="contributed">Okcidenta Flandrio</subdivision>
+			<subdivision type="bewal" draft="contributed">Valonio</subdivision>
+			<subdivision type="bewbr" draft="contributed">Valona Brabanto</subdivision>
+			<subdivision type="bewht" draft="contributed">Henegovio</subdivision>
+			<subdivision type="bewlg" draft="contributed">Lieĝo</subdivision>
+			<subdivision type="bewlx" draft="contributed">Luksemburgo</subdivision>
+			<subdivision type="bewna" draft="contributed">Namuro</subdivision>
+			<subdivision type="bqbo" draft="contributed">Bonero</subdivision>
+			<subdivision type="brac" draft="contributed">Akro</subdivision>
+			<subdivision type="bral" draft="contributed">Alagoaso</subdivision>
+			<subdivision type="bram" draft="contributed">Amazono</subdivision>
+			<subdivision type="brap" draft="contributed">Amapao</subdivision>
+			<subdivision type="brba" draft="contributed">Bahio</subdivision>
+			<subdivision type="brce" draft="contributed">Cearao</subdivision>
+			<subdivision type="brdf" draft="contributed">Federacia Distrikto</subdivision>
+			<subdivision type="bres" draft="contributed">Espiritosanto</subdivision>
+			<subdivision type="brgo" draft="contributed">Gojaso</subdivision>
+			<subdivision type="brma" draft="contributed">Maranjo</subdivision>
+			<subdivision type="brmg" draft="contributed">Minasĝerajso</subdivision>
+			<subdivision type="brms" draft="contributed">Suda Matogroso</subdivision>
+			<subdivision type="brmt" draft="contributed">Matogroso</subdivision>
+			<subdivision type="brpa" draft="contributed">Parao</subdivision>
+			<subdivision type="brpb" draft="contributed">Paraibo</subdivision>
+			<subdivision type="brpe" draft="contributed">Pernambuko</subdivision>
+			<subdivision type="brpi" draft="contributed">Piaŭio</subdivision>
+			<subdivision type="brpr" draft="contributed">Paranao</subdivision>
+			<subdivision type="brrj" draft="contributed">Riodeĵanejro</subdivision>
+			<subdivision type="brrn" draft="contributed">Norda Riogrando</subdivision>
+			<subdivision type="brro" draft="contributed">Rondonio</subdivision>
+			<subdivision type="brrr" draft="contributed">Rorajmo</subdivision>
+			<subdivision type="brrs" draft="contributed">Suda Riogrando</subdivision>
+			<subdivision type="brsc" draft="contributed">Sankta Katarino</subdivision>
+			<subdivision type="brse" draft="contributed">Serĝipo</subdivision>
+			<subdivision type="brsp" draft="contributed">Sanpaŭlo</subdivision>
+			<subdivision type="brto" draft="contributed">Tokantinso</subdivision>
+			<subdivision type="caab" draft="contributed">Alberto</subdivision>
+			<subdivision type="cabc" draft="contributed">Brita Kolumbio</subdivision>
+			<subdivision type="camb" draft="contributed">Manitobo</subdivision>
+			<subdivision type="canb" draft="contributed">Nov-Brunsviko</subdivision>
+			<subdivision type="canl" draft="contributed">Novlando kaj Labradoro</subdivision>
+			<subdivision type="cans" draft="contributed">Novaskotio</subdivision>
+			<subdivision type="cant" draft="contributed">Nordokcidentaj Teritorioj</subdivision>
+			<subdivision type="canu" draft="contributed">Nunavuto</subdivision>
+			<subdivision type="caon" draft="contributed">Ontario</subdivision>
+			<subdivision type="cape" draft="contributed">Insulo de Princo Eduardo</subdivision>
+			<subdivision type="caqc" draft="contributed">Kebeko</subdivision>
+			<subdivision type="cask" draft="contributed">Saskaĉevano</subdivision>
+			<subdivision type="cayt" draft="contributed">Jukono</subdivision>
+			<subdivision type="cnsh" draft="contributed">Ŝanhajo</subdivision>
+			<subdivision type="cntw" draft="contributed">Tajvano</subdivision>
+			<subdivision type="cnxz" draft="contributed">Tibeto</subdivision>
+			<subdivision type="cz10" draft="contributed">Prago</subdivision>
+			<subdivision type="cz101" draft="contributed">Prago 1</subdivision>
+			<subdivision type="cz102" draft="contributed">Prago 2</subdivision>
+			<subdivision type="cz103" draft="contributed">Prago 3</subdivision>
+			<subdivision type="cz104" draft="contributed">Prago 4</subdivision>
+			<subdivision type="cz105" draft="contributed">Prago 5</subdivision>
+			<subdivision type="cz106" draft="contributed">Prago 6</subdivision>
+			<subdivision type="cz107" draft="contributed">Prago 7</subdivision>
+			<subdivision type="cz108" draft="contributed">Prago 8</subdivision>
+			<subdivision type="cz109" draft="contributed">Prago 9</subdivision>
+			<subdivision type="cz110" draft="contributed">Prago 10</subdivision>
+			<subdivision type="cz111" draft="contributed">Prago 11</subdivision>
+			<subdivision type="cz112" draft="contributed">Prago 12</subdivision>
+			<subdivision type="cz113" draft="contributed">Prago 13</subdivision>
+			<subdivision type="cz114" draft="contributed">Prago 14</subdivision>
+			<subdivision type="cz115" draft="contributed">Prago 15</subdivision>
+			<subdivision type="cz116" draft="contributed">Prago 16</subdivision>
+			<subdivision type="cz117" draft="contributed">Prago 17</subdivision>
+			<subdivision type="cz118" draft="contributed">Prago 18</subdivision>
+			<subdivision type="cz119" draft="contributed">Prago 19</subdivision>
+			<subdivision type="cz120" draft="contributed">Prago 20</subdivision>
+			<subdivision type="cz121" draft="contributed">Prago 21</subdivision>
+			<subdivision type="cz122" draft="contributed">Prago 22</subdivision>
+			<subdivision type="debb" draft="contributed">Brandenburgo</subdivision>
+			<subdivision type="debe" draft="contributed">Berlino</subdivision>
+			<subdivision type="debw" draft="contributed">Baden-Virtembergo</subdivision>
+			<subdivision type="deby" draft="contributed">Bavario</subdivision>
+			<subdivision type="dehb" draft="contributed">Bremeno</subdivision>
+			<subdivision type="dehe" draft="contributed">Hesio</subdivision>
+			<subdivision type="dehh" draft="contributed">Hamburgo</subdivision>
+			<subdivision type="demv" draft="contributed">Meklenburgo-Antaŭ-Pomerio</subdivision>
+			<subdivision type="deni" draft="contributed">Malsupra Saksio</subdivision>
+			<subdivision type="denw" draft="contributed">Nord-Rejno-Vestfalio</subdivision>
+			<subdivision type="derp" draft="contributed">Rejnlando-Palatinato</subdivision>
+			<subdivision type="desh" draft="contributed">Ŝlesvigo-Holstinio</subdivision>
+			<subdivision type="desl" draft="contributed">Sarlando</subdivision>
+			<subdivision type="desn" draft="contributed">Saksio</subdivision>
+			<subdivision type="dest" draft="contributed">Saksio-Anhalto</subdivision>
+			<subdivision type="deth" draft="contributed">Turingio</subdivision>
+			<subdivision type="egalx" draft="contributed">Aleksandrio</subdivision>
+			<subdivision type="egc" draft="contributed">Kairo</subdivision>
+			<subdivision type="esan" draft="contributed">Andaluzio</subdivision>
+			<subdivision type="esar" draft="contributed">Aragono</subdivision>
+			<subdivision type="esas" draft="contributed">Asturio</subdivision>
+			<subdivision type="esb" draft="contributed">Barcelono</subdivision>
+			<subdivision type="esba" draft="contributed">Badaĥozo</subdivision>
+			<subdivision type="escb" draft="contributed">Kantabrio</subdivision>
+			<subdivision type="esce" draft="contributed">Ceŭto</subdivision>
+			<subdivision type="escl" draft="contributed">Kastilio kaj Leono</subdivision>
+			<subdivision type="escm" draft="contributed">Kastilio-Manĉo</subdivision>
+			<subdivision type="escn" draft="contributed">Kanarioj</subdivision>
+			<subdivision type="esct" draft="contributed">Katalunio</subdivision>
+			<subdivision type="esex" draft="contributed">Ekstremaduro</subdivision>
+			<subdivision type="esga" draft="contributed">Galegio</subdivision>
+			<subdivision type="esib" draft="contributed">Balearoj</subdivision>
+			<subdivision type="esmc" draft="contributed">Murcia Regiono</subdivision>
+			<subdivision type="esml" draft="contributed">Melilo</subdivision>
+			<subdivision type="espv" draft="contributed">Eŭskio</subdivision>
+			<subdivision type="esri" draft="contributed">Rioĥo</subdivision>
+			<subdivision type="esvc" draft="contributed">Valencia Komunumo</subdivision>
+			<subdivision type="fi02" draft="contributed">Sud-Karelio</subdivision>
+			<subdivision type="fi10" draft="contributed">Sameio</subdivision>
+			<subdivision type="fi13" draft="contributed">Nord-Karelio</subdivision>
+			<subdivision type="frbre" draft="contributed">Bretonio</subdivision>
+			<subdivision type="frcor" draft="contributed">Korsiko</subdivision>
+			<subdivision type="frnc" draft="contributed">Nov-Kaledonio</subdivision>
+			<subdivision type="frnor" draft="contributed">Normandio</subdivision>
+			<subdivision type="frocc" draft="contributed">Okcitanio</subdivision>
+			<subdivision type="frre" draft="contributed">Reunio</subdivision>
+			<subdivision type="frwf" draft="contributed">Valiso kaj Futuno</subdivision>
+			<subdivision type="fryt" draft="contributed">Majoto</subdivision>
+			<subdivision type="gbeaw" draft="contributed">Anglio kaj Kimrio</subdivision>
+			<subdivision type="gbedh" draft="contributed">Edinburgo</subdivision>
+			<subdivision type="gblnd" draft="contributed">Londono</subdivision>
+			<subdivision type="gbnir" draft="contributed">Nord-Irlando</subdivision>
+			<subdivision type="gbukm" draft="contributed">Unuiĝinta Reĝlando</subdivision>
+			<subdivision type="gbyor" draft="contributed">Jorko</subdivision>
+			<subdivision type="geab" draft="contributed">Abĥazio</subdivision>
+			<subdivision type="inas" draft="contributed">Asamo</subdivision>
+			<subdivision type="inbr" draft="contributed">Biharo</subdivision>
+			<subdivision type="inch" draft="contributed">Ĉandigaro</subdivision>
+			<subdivision type="inct" draft="contributed">Ĉatisgaro</subdivision>
+			<subdivision type="indl" draft="contributed">Delhio</subdivision>
+			<subdivision type="ingj" draft="contributed">Guĝarato</subdivision>
+			<subdivision type="inka" draft="contributed">Karnatako</subdivision>
+			<subdivision type="inkl" draft="contributed">Keralo</subdivision>
+			<subdivision type="inor" draft="contributed">Odiŝo</subdivision>
+			<subdivision type="inpb" draft="contributed">Panĝabo</subdivision>
+			<subdivision type="inrj" draft="contributed">Raĝastano</subdivision>
+			<subdivision type="it21" draft="contributed">Piemonto</subdivision>
+			<subdivision type="it25" draft="contributed">Lombardio</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
+			<subdivision type="it42" draft="contributed">Ligurio</subdivision>
+			<subdivision type="it52" draft="contributed">Toskanio</subdivision>
+			<subdivision type="it55" draft="contributed">Umbrio</subdivision>
+			<subdivision type="it67" draft="contributed">Molizo</subdivision>
+			<subdivision type="it72" draft="contributed">Kampanio</subdivision>
+			<subdivision type="it78" draft="contributed">Kalabrio</subdivision>
+			<subdivision type="it82" draft="contributed">Sicilio</subdivision>
+			<subdivision type="it88" draft="contributed">Sardio</subdivision>
+			<subdivision type="jp13" draft="contributed">Tokio</subdivision>
+			<subdivision type="jp34" draft="contributed">Hiroŝimo</subdivision>
+			<subdivision type="nlaw" draft="contributed">Arubo</subdivision>
+			<subdivision type="nlcw" draft="contributed">Kuracao</subdivision>
+			<subdivision type="nldr" draft="contributed">Drento</subdivision>
+			<subdivision type="nlfl" draft="contributed">Flevolando</subdivision>
+			<subdivision type="nlfr" draft="contributed">Frislando</subdivision>
+			<subdivision type="nlge" draft="contributed">Gelderlando</subdivision>
+			<subdivision type="nlgr" draft="contributed">Groningo</subdivision>
+			<subdivision type="nlli" draft="contributed">Limburgo</subdivision>
+			<subdivision type="nlnb" draft="contributed">Nord-Brabanto</subdivision>
+			<subdivision type="nlnh" draft="contributed">Nord-Holando</subdivision>
+			<subdivision type="nlov" draft="contributed">Overiselo</subdivision>
+			<subdivision type="nlsx" draft="contributed">Sankta Marteno</subdivision>
+			<subdivision type="nlut" draft="contributed">Utreĥto</subdivision>
+			<subdivision type="nlze" draft="contributed">Zelando</subdivision>
+			<subdivision type="nlzh" draft="contributed">Sud-Holando</subdivision>
+			<subdivision type="ruba" draft="contributed">Baŝkirio</subdivision>
+			<subdivision type="ruce" draft="contributed">Ĉeĉenio</subdivision>
+			<subdivision type="rucu" draft="contributed">Ĉuvaŝio</subdivision>
+			<subdivision type="ruda" draft="contributed">Dagestano</subdivision>
+			<subdivision type="rukk" draft="contributed">Ĥakasio</subdivision>
+			<subdivision type="rukr" draft="contributed">Karelio</subdivision>
+			<subdivision type="rumow" draft="contributed">Moskvo</subdivision>
+			<subdivision type="ruta" draft="contributed">Tatario</subdivision>
+			<subdivision type="ruud" draft="contributed">Udmurtio</subdivision>
+			<subdivision type="stp" draft="contributed">Principeo</subdivision>
+			<subdivision type="sts" draft="contributed">Santomeo</subdivision>
+			<subdivision type="tttob" draft="contributed">Tobago</subdivision>
+			<subdivision type="twtpe" draft="contributed">Tajpeo</subdivision>
+			<subdivision type="ua30" draft="contributed">Kievo</subdivision>
+			<subdivision type="usak" draft="contributed">Alasko</subdivision>
+			<subdivision type="usal" draft="contributed">Alabamo</subdivision>
+			<subdivision type="usar" draft="contributed">Arkansaso</subdivision>
+			<subdivision type="usas" draft="contributed">Usona Samoo</subdivision>
+			<subdivision type="usaz" draft="contributed">Arizono</subdivision>
+			<subdivision type="usca" draft="contributed">Kalifornio</subdivision>
+			<subdivision type="usco" draft="contributed">Kolorado</subdivision>
+			<subdivision type="usct" draft="contributed">Konektikuto</subdivision>
+			<subdivision type="usdc" draft="contributed">Distrikto Kolumbio</subdivision>
+			<subdivision type="usde" draft="contributed">Delavaro</subdivision>
+			<subdivision type="usfl" draft="contributed">Florido</subdivision>
+			<subdivision type="usga" draft="contributed">Georgio</subdivision>
+			<subdivision type="usgu" draft="contributed">Gvamo</subdivision>
+			<subdivision type="ushi" draft="contributed">Havajo</subdivision>
+			<subdivision type="usia" draft="contributed">Iovao</subdivision>
+			<subdivision type="usid" draft="contributed">Idaho</subdivision>
+			<subdivision type="usil" draft="contributed">Ilinojso</subdivision>
+			<subdivision type="usin" draft="contributed">Indianao</subdivision>
+			<subdivision type="usks" draft="contributed">Kansaso</subdivision>
+			<subdivision type="usky" draft="contributed">Kentukio</subdivision>
+			<subdivision type="usla" draft="contributed">Luiziano</subdivision>
+			<subdivision type="usma" draft="contributed">Masaĉuseco</subdivision>
+			<subdivision type="usmd" draft="contributed">Marilando</subdivision>
+			<subdivision type="usme" draft="contributed">Majno</subdivision>
+			<subdivision type="usmi" draft="contributed">Miĉigano</subdivision>
+			<subdivision type="usmn" draft="contributed">Minesoto</subdivision>
+			<subdivision type="usmo" draft="contributed">Misuro</subdivision>
+			<subdivision type="usmp" draft="contributed">Nord-Marianoj</subdivision>
+			<subdivision type="usms" draft="contributed">Misisipo</subdivision>
+			<subdivision type="usmt" draft="contributed">Montano</subdivision>
+			<subdivision type="usnc" draft="contributed">Nord-Karolino</subdivision>
+			<subdivision type="usnd" draft="contributed">Nord-Dakoto</subdivision>
+			<subdivision type="usne" draft="contributed">Nebrasko</subdivision>
+			<subdivision type="usnh" draft="contributed">Nov-Hampŝiro</subdivision>
+			<subdivision type="usnj" draft="contributed">Nov-Ĵerzejo</subdivision>
+			<subdivision type="usnm" draft="contributed">Nov-Meksiko</subdivision>
+			<subdivision type="usnv" draft="contributed">Nevado</subdivision>
+			<subdivision type="usny" draft="contributed">Nov-Jorko</subdivision>
+			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
+			<subdivision type="usok" draft="contributed">Oklahomo</subdivision>
+			<subdivision type="usor" draft="contributed">Oregono</subdivision>
+			<subdivision type="uspa" draft="contributed">Pensilvanio</subdivision>
+			<subdivision type="uspr" draft="contributed">Portoriko</subdivision>
+			<subdivision type="usri" draft="contributed">Rod-Insulo</subdivision>
+			<subdivision type="ussc" draft="contributed">Sud-Karolino</subdivision>
+			<subdivision type="ussd" draft="contributed">Sud-Dakoto</subdivision>
+			<subdivision type="ustn" draft="contributed">Tenesio</subdivision>
+			<subdivision type="ustx" draft="contributed">Teksaso</subdivision>
+			<subdivision type="usum" draft="contributed">Usonaj Malgrandaj Insuloj</subdivision>
+			<subdivision type="usut" draft="contributed">Utaho</subdivision>
+			<subdivision type="usva" draft="contributed">Virginio</subdivision>
+			<subdivision type="usvi" draft="contributed">Usonaj Virgulinsuloj</subdivision>
+			<subdivision type="usvt" draft="contributed">Vermonto</subdivision>
+			<subdivision type="uswa" draft="contributed">Vaŝingtono</subdivision>
+			<subdivision type="uswi" draft="contributed">Viskonsino</subdivision>
+			<subdivision type="uswv" draft="contributed">Okcident-Virginio</subdivision>
+			<subdivision type="uswy" draft="contributed">Vajomingo</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

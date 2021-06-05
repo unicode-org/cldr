@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.InfoType;
@@ -553,7 +554,9 @@ public class UserList {
                     r.put("emailSendingMessage", true);
                     didConfirmMail = true;
                     mailBody = "SurveyTool Message ---\n" + sendWhat
-                        + "\n--------\n\nSurvey Tool: http://st.unicode.org" + ctx.base() + "\n\n";
+                        + "\n--------\n\nSurvey Tool: " +
+                        CLDRConfig.getInstance().absoluteUrls().base() +
+                        "\n\n";
                     mailSubj = "CLDR SurveyTool message from " + me.name;
                     if (!areSendingDisp) {
                         areSendingMail = true; // we are ready to go ahead and mail

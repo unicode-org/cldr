@@ -4,9 +4,10 @@ import { createApp } from "vue";
 
 import { getCldrOpts } from "./getCldrOpts";
 
-// components. See index.js for css imports.
+// See index.js for css imports.
 // example: import {SomeComponent} from 'whatever'
 import {
+  // components
   Alert,
   Button,
   Checkbox,
@@ -16,6 +17,8 @@ import {
   Popover,
   Spin,
   Steps,
+  // functions
+  notification,
 } from "ant-design-vue";
 
 // local components
@@ -93,12 +96,33 @@ function createCldrApp(component, specialPage, extraProps) {
  * @returns {App} the App object
  */
 function show(component, el, specialPage, extraProps) {
-  const app = createCldrApp(component, specialPage, extraProps);
-
-  // Fire up the app..
-  lastRoot = app.mount(el);
+  let app;
+  try {
+    app = createCldrApp(component, specialPage, extraProps);
+    lastRoot = app.mount(el);
+  } catch (e) {
+    errBox(e, !!app ? "showing" : "creating");
+    return null;
+  }
 
   return app;
+}
+
+/**
+ * Show an error box for a Vue component
+ * @param {Error} e the error
+ * @param {String} operation such as showing or creating
+ */
+function errBox(e, operation) {
+  console.error(`There was a problem ${operation} “${specialPage}”`);
+  console.error(e);
+  notification.error({
+    message: `Problem ${operation} “${specialPage}”`,
+    description: `${e.message} — (click to reload)`,
+    placement: "topLeft",
+    duration: 0, // do not auto close
+    onClick: () => window.location.reload(),
+  });
 }
 
 /**

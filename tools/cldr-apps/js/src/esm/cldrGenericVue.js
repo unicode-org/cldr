@@ -52,6 +52,9 @@ function loadHandler(json, specialPage) {
     // add Vue-based component
     cldrBundle.showPanel(specialPage, app);
   } catch (e) {
+    // Note: because of error handle deficiencies (CLDR-14790) showPanel is going to do its own
+    // notifications. So we do not expect this catch clause
+    // to be called on a Vue error.
     console.error(
       "Error in vue load of [" +
         specialPage +

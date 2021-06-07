@@ -44,9 +44,7 @@
       <h2>Choose the Copy Source (the user to copy votes <i>from</i>):</h2>
       <ul>
         <li v-for="user in chooseUserList" v-bind:key="user.id">
-          <button
-            @click="transferFrom(user.id)"
-          >
+          <button @click="transferFrom(user.id)">
             <i class="glyphicon glyphicon-user" />
             {{ user.name }} ({{ user.email }})
           </button>
@@ -64,21 +62,19 @@
         Choose a different source user
       </button>
       <div v-if="!fromLocale && votesCache[transferFromId]">
-        <h1>
-        Choose a source locale:
-        </h1>
+        <h1>Choose a source locale:</h1>
         <div>
-              <button
-              v-for="loc in votesCache[transferFromId].locales" v-bind:key="loc.locale"
-                @click="
-                  fromLocale = toLocale = loc.locale;
-                  current = 3;
-                "
-              >
-                Choose <code>{{loc.locale}}</code> {{ loc.localeDisplayName }}
-              </button>
+          <button
+            v-for="loc in votesCache[transferFromId].locales"
+            v-bind:key="loc.locale"
+            @click="
+              fromLocale = toLocale = loc.locale;
+              current = 3;
+            "
+          >
+            Choose <code>{{ loc.locale }}</code> {{ loc.localeDisplayName }}
+          </button>
         </div>
-
       </div>
       <h2 v-if="fromLocale && votesCache[transferFromId]">
         Source Locale: {{ fromLocale }}
@@ -246,19 +242,21 @@ export default {
               );
             }
             for (const release of Object.keys(releaseData)) {
-              for (const {locale} of releaseData[release]) {
+              for (const { locale } of releaseData[release]) {
                 allLocales.add(locale);
               }
             }
             const coll = new Intl.Collator([]);
             const locales = setUtils
               .asList(allLocales)
-              .map(locale => ({
+              .map((locale) => ({
                 locale,
-                localeDisplayName: locmap.getLocaleName(locale)
+                localeDisplayName: locmap.getLocaleName(locale),
               }))
-              .sort((a,b) => coll.compare(a.localeDisplayName, b.localeDisplayName));
-            this.votesCache[id] = {releaseData, locales};
+              .sort((a, b) =>
+                coll.compare(a.localeDisplayName, b.localeDisplayName)
+              );
+            this.votesCache[id] = { releaseData, locales };
             console.log(
               `loaded vote data for #${id}: ${Object.keys(
                 this.votesCache[id]
@@ -364,5 +362,5 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>>
+<style scoped></style>
+>

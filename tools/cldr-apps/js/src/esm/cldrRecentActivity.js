@@ -70,7 +70,12 @@ function getHtml(json) {
 
 function getItemsAndLocales(json) {
   let who = userId;
-  if (json.status.user.name) {
+  if (json.status.user.name && json.status.user.id === userId) {
+    // show the name in addition to their numeric id
+    // -- this currently only works when the user is viewing their own data;
+    // otherwise the name corresponding to userId isn't included in
+    // the json or the "#recent_activity" link url, though it could be
+    // implemented in either way and might be a worthwhile improvement
     who += " " + json.status.user.name;
   }
   return (

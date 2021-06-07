@@ -58,7 +58,7 @@
           v-for="n in data.notifications"
           :key="'template-' + n.notification"
         >
-          <template v-for="g in n.entries" :key="g.header">
+          <template v-for="g in n.entries" :key="g.section + g.page + g.header">
             <template v-for="e in g.entries">
               <p
                 v-if="!(hideChecked && e.checked)"

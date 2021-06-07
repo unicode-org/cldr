@@ -5,7 +5,6 @@ import * as setUtils from "./setUtils.mjs";
 
 // General utils
 
-
 // mismatch between user table and enum names
 function orgMogrify(org) {
   org = org.toLowerCase();
@@ -70,7 +69,10 @@ function generateLocalesTxt(data, outFunction) {
       }
     }
     // Participation but no vetters?
-    const participationNoVetters = setUtils.minus(localesWithVotes, localesWithUsers);
+    const participationNoVetters = setUtils.minus(
+      localesWithVotes,
+      localesWithUsers
+    );
     if (participationNoVetters.size !== 0) {
       outFunction(
         `#  Participation but no vetters: ` +

@@ -6,13 +6,13 @@
  * @returns a ∖ b
  */
 function minus(a, b) {
-    const x = new Set();
-    for (const i of a.values()) {
-        if (!b.has(i)) {
-            x.add(i);
-        }
+  const x = new Set();
+  for (const i of a.values()) {
+    if (!b.has(i)) {
+      x.add(i);
     }
-    return x;
+  }
+  return x;
 }
 
 /**
@@ -20,15 +20,15 @@ function minus(a, b) {
  * @param b {Set}
  * @returns a ∪ b
  */
- function union(a, b) {
-    const x = new Set();
-    for (const i of a.values()) {
-        x.add(i);
-    }
-    for (const i of b.values()) {
-        x.add(i);
-    }
-    return x;
+function union(a, b) {
+  const x = new Set();
+  for (const i of a.values()) {
+    x.add(i);
+  }
+  for (const i of b.values()) {
+    x.add(i);
+  }
+  return x;
 }
 
 /**
@@ -38,15 +38,11 @@ function minus(a, b) {
  * @returns array of a’s values.
  */
 function asList(a) {
-    const l = [];
-    for (const i of a.values()) {
-        l.push(i);
-    }
-    return l;
+  const l = [];
+  for (const i of a.values()) {
+    l.push(i);
+  }
+  return l;
 }
 
-export {
-    minus,
-    union,
-    asList,
-};
+export { minus, union, asList };

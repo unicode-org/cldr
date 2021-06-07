@@ -419,8 +419,8 @@ function getPasswordLink(email, password) {
 
 function getTransferLink(u) {
   if (cldrStatus.getPermissions()?.userIsManager) {
-    return `<a title="Copy Votes from another user to ${u.data.name}"
-      href="v?transferTo=${u.data.id}#transfervotes">Copy Votes Target</a><br />`;
+    return `<a title="Pick this option if you want to copy votes from someone else to ${u.data.name}"
+      href="v?transferTo=${u.data.id}#transfervotes">Copy votes to this vetter</a><br />`;
   } else {
     return "";
   }

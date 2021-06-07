@@ -2208,7 +2208,11 @@ public class SurveyAjax extends HttpServlet {
                 PreparedStatement ps = null;
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
-                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + oldVotesTable
+                    String add0="";
+                    if (DBUtils.db_Mysql) {
+                        add0 = "IGNORE"; // ignore duplicate errs, we want to transfer as much as we can
+                    }
+                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT "+add0+" INTO " + oldVotesTable
                         + " (locale, xpath, submitter, value, last_mod) " +
                         " SELECT ? as locale, " + oldVotesTable + ".xpath as xpath, ? as submitter, " + oldVotesTable + ".value as value, "
                         + oldVotesTable + ".last_mod as last_mod " +

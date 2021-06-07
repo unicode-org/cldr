@@ -45,24 +45,11 @@
       <ul>
         <li v-for="user in chooseUserList" v-bind:key="user.id">
           <button
-            title="Mouse over to preview votes, click to choose"
-            @mouseover="fetchFromVotes(user.id)"
             @click="transferFrom(user.id)"
           >
             <i class="glyphicon glyphicon-user" />
             {{ user.name }} ({{ user.email }})
           </button>
-          <div v-if="votesCache[user.id]">
-            <ul v-if="!votesCache[user.id].loading">
-              <li
-                v-for="k in Object.keys(votesCache[user.id])"
-                v-bind:key="user.id + ':' + k"
-              >
-                {{ k }}: {{ votesCache[user.id][k] }}
-              </li>
-            </ul>
-            <a-spin v-if="votesCache[user.id]?.loading" :delay="500"></a-spin>
-          </div>
         </li>
       </ul>
     </div>
@@ -76,37 +63,42 @@
       <button v-if="!started" v-on:click="cancel()">
         Choose a different source user
       </button>
-      <h1 v-if="!fromLocale && votesCache[transferFromId]">
+      <div v-if="!fromLocale && votesCache[transferFromId]">
+        <h1>
         Choose a source locale:
-      </h1>
+        </h1>
+        <div>
+              <button
+              v-for="loc in votesCache[transferFromId].locales" v-bind:key="loc.locale"
+                @click="
+                  fromLocale = toLocale = loc.locale;
+                  current = 3;
+                "
+              >
+                Choose <code>{{loc.locale}}</code> {{ loc.localeDisplayName }}
+              </button>
+        </div>
+
+      </div>
       <h2 v-if="fromLocale && votesCache[transferFromId]">
         Source Locale: {{ fromLocale }}
       </h2>
       <div v-if="votesCache[transferFromId]">
         <ul v-if="!votesCache[transferFromId].loading">
           <li
-            v-for="k in Object.keys(votesCache[transferFromId])"
+            v-for="k in Object.keys(votesCache[transferFromId].releaseData)"
             v-bind:key="transferFromId + ':' + k"
           >
             {{ k }}:
             <ul>
               <li
-                v-for="loc in votesCache[transferFromId][k]"
+                v-for="loc in votesCache[transferFromId].releaseData[k]"
                 v-bind:key="loc.locale"
               >
                 <h4 v-if="!fromLocale || fromLocale == loc.locale">
                   <code>{{ loc.locale }}</code> — {{ loc.localeDisplayName }}:
                   {{ loc.count }} vote(s)
                 </h4>
-                <button
-                  v-if="!fromLocale"
-                  @click="
-                    fromLocale = toLocale = loc.locale;
-                    current = 3;
-                  "
-                >
-                  Choose {{ loc.localeDisplayName }}
-                </button>
               </li>
             </ul>
           </li>
@@ -180,9 +172,9 @@
 
 <script>
 import { notification } from "ant-design-vue";
-import * as cldrText from "../esm/cldrText";
 import { ref, reactive } from "vue";
-import * as cldrLoad from "../esm/cldrLoad";
+import * as cldrLoad from "../esm/cldrLoad.js";
+import * as setUtils from "../esm/setUtils.mjs";
 
 function errBox(message) {
   console.error("TransferVotes.vue: " + message);
@@ -206,7 +198,6 @@ export default {
       chooseUserList: reactive({}),
       fullUserList: reactive({}),
       votesCache: reactive({}),
-      transferFromVotes: ref(null),
       transferToInfo: ref(null),
       transferFromId: ref(transferFromId),
       started: ref(null),
@@ -230,13 +221,8 @@ export default {
       this.current = 0;
       window.location.replace("v#list_users");
     },
-    setFromVotes(id) {
-      this.transferFromVotes = this.votesCache[id];
-      if (!this.transferFromVotes) {
-        this.fetchFromVotes(id);
-      }
-    },
     fetchFromVotes(id) {
+      const locmap = cldrLoad.getTheLocaleMap();
       // Don't warn if the id was already different from the user choice
       const quiet = id != this.transferFromId;
       if (!this.votesCache[id]) {
@@ -248,9 +234,10 @@ export default {
             return o?.user_oldvotes?.data;
           })
           .then((raw) => {
-            const data = raw || { no_votes: "[]" }; // handle case where there is no data
-            for (const release of Object.keys(data)) {
-              data[release] = JSON.parse(data[release]).map(
+            const releaseData = raw || { no_votes: "[]" }; // handle case where there is no data
+            const allLocales = new Set();
+            for (const release of Object.keys(releaseData)) {
+              releaseData[release] = JSON.parse(releaseData[release]).map(
                 ([count, locale, localeDisplayName]) => ({
                   count,
                   locale,
@@ -258,15 +245,26 @@ export default {
                 })
               );
             }
-            this.votesCache[id] = data;
+            for (const release of Object.keys(releaseData)) {
+              for (const {locale} of releaseData[release]) {
+                allLocales.add(locale);
+              }
+            }
+            const coll = new Intl.Collator([]);
+            const locales = setUtils
+              .asList(allLocales)
+              .map(locale => ({
+                locale,
+                localeDisplayName: locmap.getLocaleName(locale)
+              }))
+              .sort((a,b) => coll.compare(a.localeDisplayName, b.localeDisplayName));
+            this.votesCache[id] = {releaseData, locales};
             console.log(
               `loaded vote data for #${id}: ${Object.keys(
                 this.votesCache[id]
               ).join(",")}`
             );
-            if (id == this.transferFromId) {
-              this.transferFromVotes = this.votesCache[id];
-            } else if (!quiet) {
+            if (id != this.transferFromId && !quiet) {
               // don't print this on a simple mouseover
               console.warn(
                 `Note: loaded from data for #${id} but from user is #${this.transferFromId}`
@@ -366,4 +364,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+</style>>

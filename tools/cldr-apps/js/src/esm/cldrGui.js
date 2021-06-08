@@ -25,6 +25,8 @@ let dashboardVisible = false;
 
 /**
  * Set up the DOM and start executing Survey Tool as a single page app
+ * This is also called from LoginButton.vue (on login)
+ * and WaitingPanel.vue (on successful reload)
  * @returns Promise
  */
 function run() {

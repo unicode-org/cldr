@@ -1,6 +1,9 @@
 <template>
   <div id="home">
-    <h1 class="hang">Waiting for the SurveyTool to start up…</h1>
+    <!-- if $specialPage == retry then we have reached this page 'directly' -->
+    <h1 v-if="$specialPage != 'retry'" class="hang">
+      Waiting for the SurveyTool to start up…
+    </h1>
     <h1>
       <a-spin size="large" :delay="1000" />
     </h1>
@@ -58,6 +61,9 @@
 </template>
 
 <script>
+import { run } from "../esm/cldrGui.js";
+import { notification } from "ant-design-vue";
+
 export default {
   data: function () {
     return {
@@ -104,7 +110,21 @@ export default {
             );
           }
           if (data.status && data.status.isSetup) {
-            window.setTimeout(() => window.location.reload(), NORMAL_RETRY);
+            if (this.$specialPage == "retry") {
+              // immediately head back to the main page.
+              window.location.replace("v#");
+              run(); // reboot everything
+              setTimeout(
+                () =>
+                  notification.success({
+                    message: "Reconnected",
+                    description: "You have been reconnected to the SurveyTool.",
+                  }),
+                4000
+              );
+            } else {
+              window.setTimeout(() => window.location.reload(), NORMAL_RETRY);
+            }
           } else if (data.status && data.status.isBusted) {
             window.setTimeout(this.fetchStatus.bind(this), BUSTED_RETRY); // try in a minute
           } else {

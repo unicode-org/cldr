@@ -2009,9 +2009,10 @@ public class SurveyAjax extends HttpServlet {
      *
      * If the action is "ask", return true or false to indicate whether or not the table has a row for this user.
      * If the action is "set", add a row to the table for this user.
+     * If the action is "clear", remove from the table the row for this user (if any) (used after transfer votes)
      *
      * @param userId the user id
-     * @param action "ask" or "set"
+     * @param action "ask", "set", or "clear"
      * @return true or false (only used for "ask")
      */
     private boolean alreadyAutoImportedVotes(int userId, String action) {
@@ -2027,6 +2028,12 @@ public class SurveyAjax extends HttpServlet {
                 conn = DBUtils.getInstance().getDBConnection();
                 ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + autoImportTable
                     + " VALUES (" + userId + ")");
+                count = ps.executeUpdate();
+                conn.commit();
+            } else if ("clear".equals(action)) {
+                conn = DBUtils.getInstance().getDBConnection();
+                ps = DBUtils.prepareStatementWithArgs(conn, "DELETE FROM " + autoImportTable
+                    + " WHERE userid=" + userId);
                 count = ps.executeUpdate();
                 conn.commit();
             }
@@ -2178,6 +2185,7 @@ public class SurveyAjax extends HttpServlet {
         /* TODO: replace deprecated isAdminFor with ...? */
         if (user.isAdminForOrg(user.org) && user.isAdminFor(toUser)) {
             transferOldVotesGivenUsersAndLocales(r, from_user_id, to_user_id, from_locale, to_locale);
+            alreadyAutoImportedVotes(to_user_id, "clear"); // repeat auto-import as needed
         } else {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
         }

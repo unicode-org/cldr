@@ -212,6 +212,28 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+				<execution>
+					<id>copy-resources</id>
+					<phase>validate</phase>
+					<goals>
+					<goal>copy-resources</goal>
+					</goals>
+					<configuration>
+					<outputDirectory>${basedir}/target/liberty/wlp/usr/servers/cldr/apps/cldr-root</outputDirectory>
+					<resources>
+						<resource>
+							<directory>src/cldr-root</directory>
+							<filtering>true</filtering>
+						</resource>
+					</resources>
+					</configuration>
+				</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.22.2</version>

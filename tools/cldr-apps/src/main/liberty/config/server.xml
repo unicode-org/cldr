@@ -20,6 +20,13 @@
 	<!-- end::httpEndpoint[] -->
 
 	<!-- tag::webApplication[] -->
+	<!-- a very simple app (one index.html)
+	  which replaces the default server root
+	-->
+	<webApplication location="cldr-root" contextRoot="/" />
+	<!-- end::webApplication[] -->
+
+	<!-- tag::webApplication[] -->
 	<webApplication location="cldr-apps.war"
 		contextRoot="/cldr-apps" />
 	<!-- end::webApplication[] -->
@@ -30,6 +37,7 @@
 			MYSQL_PASSWORD=yourpassword
 			MYSQL_DB=cldrdb
 	-->
+
 	<dataSource id="DefaultDataSource"
 		jndiName="jdbc/SurveyTool">
 		<jdbcDriver libraryRef="jdbcLib" />

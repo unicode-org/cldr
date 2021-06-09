@@ -48,6 +48,7 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="te">
       <grammaticalCase values="nominative oblique accusative dative locative instrumental"/>
+      <grammaticalCase scope="units" values="nominative accusative dative locative instrumental"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="ta">
       <grammaticalCase values="nominative genitive accusative dative locative instrumental ablative vocative"/>
@@ -55,6 +56,7 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="fi">
       <grammaticalCase values="nominative abessive ablative adessive allative comitative elative essive genitive illative inessive instrumental partitive translative"/>
+      <grammaticalCase scope="units" values="nominative elative illative partitive"/>
       <!-- Finnish nouns also inflect in possessives, with agreement on number and person. -->
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="hu">
@@ -93,7 +95,9 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="ml">
       <grammaticalCase values="nominative genitive dative accusative instrumental locative comitative locativecopulative sociative"/>
+      <grammaticalCase scope="units" values="nominative genitive dative accusative instrumental locative sociative"/>
       <grammaticalGender values="animate inanimate feminine neuter"/>
+      <grammaticalGender scope="units" values="neuter"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="mr">
       <grammaticalCase values="nominative oblique accusative dative ergative locative ablative genitive"/>
@@ -131,8 +135,6 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="bn">
       <grammaticalCase values="nominative accusative genitive locative"/>
-      <grammaticalGender values="masculine feminine"/>
-      <grammaticalGender scope="units"/>
       <grammaticalDefiniteness values="definite indefinite"/>
       <!-- Gender is only used for expressing human activities/professions. -->
     </grammaticalFeatures>
@@ -166,12 +168,9 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalDefiniteness values="definite indefinite"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="am">
-      <!-- Note that nominals have intrinsic gender, and there is no
-	   indefinite accusative -->
       <grammaticalCase values="nominative accusative"/>
-      <grammaticalGender values="masculine feminine"/>
-      <grammaticalGender scope="units"/>
       <grammaticalDefiniteness values="definite indefinite"/>
+      <!-- Gender is only used for expressing human activities/professions. -->
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="nb no">
       <grammaticalCase values="nominative genitive"/>
@@ -196,12 +195,18 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalCase scope="units" values="nominative genitive dative accusative instrumental locative"/>
       <grammaticalGender values="masculine feminine"/>
     </grammaticalFeatures>
-    <grammaticalFeatures targets="nominal" locales="cs hr sk sr">
+    <grammaticalFeatures targets="nominal" locales="cs sk">
       <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
       <grammaticalCase scope="units" values="nominative genitive accusative instrumental"/>
       <grammaticalGender values="animate inanimate feminine neuter"/>
       <grammaticalGender scope="units" values="inanimate feminine neuter"/>
       <!-- Czech also inflects in polarity (negation is a prefix) -->
+    </grammaticalFeatures>
+    <grammaticalFeatures targets="nominal" locales="hr sr">
+      <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
+      <grammaticalCase scope="units" values="nominative genitive accusative instrumental"/>
+      <grammaticalGender values="animate inanimate feminine neuter"/>
+      <grammaticalGender scope="units" values="inanimate feminine neuter"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="ru">
       <grammaticalCase values="nominative genitive dative accusative instrumental prepositional vocative locative"/>
@@ -211,7 +216,7 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="pl">
       <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
-      <grammaticalCase scope="units" values="accusative dative genitive instrumental locative nominative vocative"/>
+      <grammaticalCase scope="units" values="accusative genitive nominative"/>
       <grammaticalGender values="animate inanimate personal feminine neuter"/>
       <grammaticalGender scope="units" values="inanimate feminine neuter"/>
     </grammaticalFeatures>

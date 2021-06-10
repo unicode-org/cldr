@@ -641,11 +641,14 @@ function handleMissingSpecial(curSpecial) {
     The link could be out-of-date, or you may have found a bug.`
     ),
     h(
-      "a",
+      "button",
       {
-        href: "v#",
+        onclick: function () {
+          window.location.replace("v#");
+          window.location.reload();
+        },
       },
-      `Click here to return to the SurveyTool.`
+      `Return to the SurveyTool`
     ),
   ]);
   notification.warning({

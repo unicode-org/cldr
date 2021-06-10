@@ -36,6 +36,7 @@ import * as cldrText from "./cldrText.js";
 import * as cldrVettingParticipation from "./cldrVettingParticipation.js";
 import { isVueSpecial } from "../specialToComponentMap";
 import { notification } from "ant-design-vue";
+import { h } from "vue";
 
 const CLDR_LOAD_DEBUG = false;
 
@@ -619,8 +620,39 @@ function unspecialLoad(itemLoadInfo, theDiv) {
       }
     }
   } else if (curSpecial) {
-    console.log("No special js found for " + curSpecial);
+    handleMissingSpecial(curSpecial);
   }
+}
+
+/**
+ *
+ * @param {String} curSpecial missing special
+ */
+function handleMissingSpecial(curSpecial) {
+  console.log("No special js found for " + curSpecial);
+  cldrSurvey.hideLoader();
+  isLoading = false;
+  flipper.flipTo(pages.other, document.createTextNode("Page Not Found")); // stop loader
+  const description = h("div", [
+    h(
+      "p",
+      {},
+      `The page “${curSpecial}” does not exist.
+    The link could be out-of-date, or you may have found a bug.`
+    ),
+    h(
+      "a",
+      {
+        href: "v#",
+      },
+      `Click here to return to the SurveyTool.`
+    ),
+  ]);
+  notification.warning({
+    message: "Page not found",
+    description,
+    duration: 0,
+  });
 }
 
 /**

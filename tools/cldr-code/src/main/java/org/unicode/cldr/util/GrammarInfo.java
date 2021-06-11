@@ -36,16 +36,17 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     public enum GrammaticalTarget {nominal}
 
     /**
-     * The ordering of these values is intended to put the default values first, and to group values together that tend to have similar forms.
+     * The ordering of these values is intended to put the default values first, and to group values together that tend to have similar forms for the most common cases,
+     * then have the rest in alphabetical order.
      */
-    public enum CaseValues {nominative, vocative, accusative, oblique, genitive, dative, locative, instrumental, prepositional,
-        ablative, adessive, allative, causal, delative, elative, essive, illative, inessive, sublative, superessive, terminative, translative;
+    public enum CaseValues {nominative, vocative, accusative, oblique, genitive, dative, locative, instrumental, prepositional, ablative,
+        abessive, adessive, allative, causal, comitative, delative, elative, ergative, essive, illative, inessive, locativecopulative, partitive, sociative, sublative, superessive, terminative, translative;
         public static Comparator<String> COMPARATOR = EnumComparator.create(CaseValues.class);
     }
     public enum GenderValues {neuter, masculine, inanimate, animate, common, personal, feminine;
         public static Comparator<String> COMPARATOR = EnumComparator.create(GenderValues.class);
     }
-    public enum DefinitenessValues {indefinite, definite, construct;
+    public enum DefinitenessValues {unspecified, indefinite, definite, construct;
         public static Comparator<String> COMPARATOR = EnumComparator.create(DefinitenessValues.class);
     }
     public enum PluralValues {zero, one, two, few, many, other;
@@ -143,10 +144,26 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
             if (values == null) {
                 usageToValues.put(usage, values = new TreeSet<>());
             }
+            validate(feature, valueSet);
             values.addAll(valueSet);
         }
     }
 
+
+    private void validate(GrammaticalFeature feature, Collection<String> valueSet) {
+        for (String value : valueSet) {
+            validate(feature, value);
+        }
+    }
+
+    private void validate(GrammaticalFeature feature, String value) {
+        switch (feature) {
+        case grammaticalCase: CaseValues.valueOf(value); break;
+        case grammaticalDefiniteness: DefinitenessValues.valueOf(value); break;
+        case grammaticalGender: GenderValues.valueOf(value); break;
+        case grammaticalNumber: PluralValues.valueOf(value); break;
+        }
+    }
 
     /**
      * Note: when there is known to be no features, the featureRaw will be null
@@ -484,12 +501,12 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     static class GrammarLocales {
         static final Set<String> data = ImmutableSortedSet.copyOf(ImmutableSet.<String>builder()
             .addAll(
-            CLDRConfig.getInstance().getSupplementalDataInfo()
-            .getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalCase))
+                CLDRConfig.getInstance().getSupplementalDataInfo()
+                .getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalCase))
             .addAll(
-            CLDRConfig.getInstance().getSupplementalDataInfo()
-            .getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalGender)
-            ).build());
+                CLDRConfig.getInstance().getSupplementalDataInfo()
+                .getLocalesWithFeatures(GrammaticalTarget.nominal, GrammaticalScope.units, GrammaticalFeature.grammaticalGender)
+                ).build());
     }
 
     /**

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2020 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="hnj"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language draft="unconfirmed" type="en">𞄥𞄴𞄅𞄇𞄉𞄦𞄱𞄊</language>
+			<language draft="unconfirmed" type="hnj">𞄀𞄄𞄰𞄩𞄍𞄜𞄰</language>
+		</languages>
+		<scripts>
+			<script type="Hmnp" draft="unconfirmed">𞄐𞄦𞄲𞄤𞄎𞄫𞄰 𞄚𞄜𞄲𞄔𞄬𞄱 𞄀𞄄𞄰𞄩</script>
+		</scripts>
+		<territories>
+			<territory type="US" draft="unconfirmed">𞄒𞄫𞄱𞄔𞄩𞄴</territory>
+		</territories>
+	</localeDisplayNames>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters>[ 𞄀 𞄁 𞄂 𞄃 𞄄 𞄅 𞄆 𞄇 𞄈 𞄉 𞄊 𞄋 𞄌 𞄍 𞄎 𞄏 𞄐 𞄑 𞄒 𞄓 𞄔 𞄕 𞄖 𞄗 𞄘 𞄙 𞄚 𞄛 𞄜 𞄝 𞄞 𞄟 𞄠 𞄡 𞄢 𞄣 𞄤 𞄥 𞄦 𞄧 𞄨 𞄩 𞄪 𞄫 𞄬   𞄰  𞄱  𞄲  𞄳  𞄴  𞄵  𞄶 𞄼 𞄽 𞅎 𞅏]</exemplarCharacters>
+		<!-- <exemplarCharacters type="auxiliary">[]</exemplarCharacters> -->
+		<exemplarCharacters type="index" >[ 𞄀 𞄁 𞄂 𞄃 𞄄 𞄅 𞄆 𞄇 𞄈 𞄉 𞄊 𞄋 𞄌 𞄍 𞄎 𞄏 𞄐 𞄑 𞄒 𞄓 𞄔 𞄕 𞄖 𞄗 𞄘 𞄙 𞄚 𞄛 𞄜 𞄝 𞄞 𞄟 𞄠 𞄡 𞄢 𞄣 𞄤 𞄥 𞄦 𞄧 𞄨 𞄩 𞄪 𞄫 𞄬 ]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+	</characters>
+	<numbers>
+		<defaultNumberingSystem>hmnp</defaultNumberingSystem>
+		<defaultNumberingSystem alt="latn">latn</defaultNumberingSystem>
+	</numbers>
+</ldml>

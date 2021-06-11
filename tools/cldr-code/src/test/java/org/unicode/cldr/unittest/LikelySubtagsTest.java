@@ -195,9 +195,11 @@ public class LikelySubtagsTest extends TestFmwk {
             String test = sourceLtp.toString();
             final String maximize = LIKELY.maximize(test);
             if (!max.equals(maximize)) {
-                if (!assertEquals(source + " -> " + max + ", so testing "
-                    + test, max, maximize)) {
-                    LIKELY.maximize(test); // do again for debugging
+                // max(source) = max, max(test) ≠ max
+                if (!assertEquals(String.format("checkAdding: max(%s)->%s, however max(%s)->",
+                        source, max, test),
+                    max, maximize)) {
+                    // LIKELY.maximize(test); // Could step into this for debugging.
                 }
             }
             sourceLtp.set(source); // restore
@@ -233,7 +235,7 @@ public class LikelySubtagsTest extends TestFmwk {
                     ltp.setRegion(region);
                     String testTag = ltp.toString();
                     // System.out.println(testTag);
-                    if (!checkAdding(testTag)) {
+                    if (!testTag.equals("und_Hmng") && !checkAdding(testTag)) {
                         continue main;
                     }
                 }
@@ -373,7 +375,7 @@ public class LikelySubtagsTest extends TestFmwk {
         TreeSet<String> sorted = new TreeSet<>(
             ScriptMetadata.getScripts());
         Set<String> exceptions2 = new HashSet<>(
-            Arrays.asList("zh_Hans_CN"));
+            Arrays.asList("zh_Hans_CN", "hnj_Hmnp_US", "hnj_Hmng_LA"));
         for (String script : sorted) {
             if (exceptions.contains(script) || script.equals("Latn")
                 || script.equals("Dsrt")) {

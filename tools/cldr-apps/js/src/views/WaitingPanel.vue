@@ -113,7 +113,6 @@ export default {
             if (this.$specialPage == "retry") {
               // immediately head back to the main page.
               window.location.replace("v#");
-              run(); // reboot everything
               setTimeout(
                 () =>
                   notification.success({
@@ -122,6 +121,15 @@ export default {
                   }),
                 4000
               );
+              run().catch((e) => {
+                // We can get here if run() was not able to boot the page
+                // That's OK, it may have been a waiting page. Reload should
+                // clear it up.
+                console.log(
+                  `run() threw an error, so we will do a page reload. Err was: ${e}`
+                );
+                window.location.reload();
+              });
             } else {
               window.setTimeout(() => window.location.reload(), NORMAL_RETRY);
             }

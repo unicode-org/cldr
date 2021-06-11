@@ -299,6 +299,12 @@ export default {
 </script>
 
 <style scoped>
+.st-sad {
+  font-style: italic;
+  border: 1px dashed red;
+  color: darkred;
+}
+
 #DashboardSection {
   border-top: 4px solid #cfeaf8;
   font-size: small;

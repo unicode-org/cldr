@@ -79,6 +79,16 @@ function createCldrApp(component, specialPage, extraProps) {
   app.config.globalProperties.$cldrOpts = getCldrOpts();
   app.config.globalProperties.$specialPage = specialPage || null;
 
+  // Setup err handling
+  app.config.errorHandler = (err, vm, info) => {
+    console.error(err);
+    notification.error({
+      message: `Error: ${err.name} in ${specialPage || "vue component"}`,
+      description: `${err.message}`,
+      duration: 0, // keep open
+    });
+  };
+
   // There is no global registration in Vue3, so we re-register
   // the components here.
   setupComponents(app);

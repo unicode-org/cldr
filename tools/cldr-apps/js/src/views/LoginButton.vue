@@ -14,6 +14,7 @@
       <a-input-password placeholder="Password" v-model:value="password">
       </a-input-password>
       <a-button
+        class="cldr-nav-btn"
         :disabled="!user && (!userName || !password)"
         v-on:click="login()"
         >Log In</a-button
@@ -26,7 +27,9 @@
         v-model:message="loginErrorMessage"
       />
     </template>
-    <a-button v-on:click="loginout()">{{ logText }}</a-button>
+    <a-button
+    class="cldr-nav-btn"
+    v-on:click="loginout()">{{ logText }}</a-button>
   </a-popover>
 </template>
 

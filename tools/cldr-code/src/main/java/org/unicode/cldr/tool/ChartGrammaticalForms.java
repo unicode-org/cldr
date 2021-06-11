@@ -620,7 +620,7 @@ public class ChartGrammaticalForms extends Chart {
                     final UnitId unitId = uc.createUnitId(bestUnit);
                     unitPattern = unitId.toString(ENGLISH, "long", pluralCategory, null, null, false);
                     if (unitPattern == null) {
-                        int debug = 0;
+                        return null;
                     }
                 }
                 String unitMeasure = MessageFormat.format(unitPattern, string.contains("/") ? "~" + bestDoubleFactor : string);

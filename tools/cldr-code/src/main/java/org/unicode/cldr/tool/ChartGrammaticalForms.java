@@ -318,9 +318,9 @@ public class ChartGrammaticalForms extends Chart {
         }
         unitToBestUnit = ImmutableMap.copyOf(unitToBestUnit);
         // quick check
-        final BestUnitForGender u1 = unitToBestUnit.get("meter");
-        final BestUnitForGender u2 = unitToBestUnit.get("square-centimeter");
-        int comp = u1.compareTo(u2); // should be less
+//        final BestUnitForGender u1 = unitToBestUnit.get("meter");
+//        final BestUnitForGender u2 = unitToBestUnit.get("square-centimeter");
+//        int comp = u1.compareTo(u2); // should be less
 
         Set<BestUnitForGender> sorted2 = new TreeSet<>(unitToBestUnit.values());
         System.out.println(sorted2);
@@ -400,7 +400,12 @@ public class ChartGrammaticalForms extends Chart {
                     String quantity = shortUnit.contentEquals("generic") ? "temperature" : uc.getQuantityFromUnit(shortUnit, false);
 
                     String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
+                    gender = gender == null ? "n/a" : gender;
                     Set<String> systems = uc.getSystems(shortUnit);
+
+                    if (unitCell == null || quantity == null || gender == null || sizeInBaseUnits.value == null) {
+                        throw new IllegalArgumentException("No best base unit for: " + shortUnit);
+                    }
 
                     for (String case1 : sortedCases) { //
                         // start a row, then add the cells in the row.
@@ -455,7 +460,7 @@ public class ChartGrammaticalForms extends Chart {
                     final String shortUnit = uc.getShortId(longUnit);
                     String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
                     final BestUnitForGender bestUnit = unitToBestUnit.get(shortUnit);
-                    if (bestUnit != null) {
+                    if (gender != null && bestUnit != null) {
                         bestUnitForGender.put(gender, bestUnit);
                     }
                 }
@@ -615,7 +620,7 @@ public class ChartGrammaticalForms extends Chart {
                     final UnitId unitId = uc.createUnitId(bestUnit);
                     unitPattern = unitId.toString(ENGLISH, "long", pluralCategory, null, null, false);
                     if (unitPattern == null) {
-                        int debug = 0;
+                        return null;
                     }
                 }
                 String unitMeasure = MessageFormat.format(unitPattern, string.contains("/") ? "~" + bestDoubleFactor : string);

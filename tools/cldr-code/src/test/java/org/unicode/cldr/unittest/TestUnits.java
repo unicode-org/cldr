@@ -95,6 +95,7 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Ordering;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row;
@@ -1830,8 +1831,7 @@ public class TestUnits extends TestFmwk {
         assertSameCollections("root unit IDs", "English", unitLongIdsRoot, unitLongIdsEnglish);
 
         final Set<String> validRootUnitIdsMinusOddballs = unitLongIdsRoot;
-        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds,
-            "concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg", "concentr-ofglucose");
+        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds, converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES));
         assertSameCollections("root unit IDs", "valid regular", validRootUnitIdsMinusOddballs, validLongUnitIdsMinusOddballs);
 
         assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validAndDeprecatedLongUnitIds);
@@ -2305,7 +2305,14 @@ public class TestUnits extends TestFmwk {
 
         // check root list
         // crucial that this is stable!!
-        checkCldrFileUnits("root unit", CLDRConfig.getInstance().getRoot());
+        Set<String> shortUnitsFound = checkCldrFileUnits("root unit", CLDRConfig.getInstance().getRoot());
+        final Set<String> shortValidRegularUnits = converter.getShortIds(VALID_REGULAR_UNITS);
+        assertEquals("root units - regular units", Collections.emptySet(),
+            Sets.difference(shortUnitsFound, shortValidRegularUnits));
+        assertEquals("regular units - special_untranslated - root units", Collections.emptySet(),
+            Sets.difference(Sets.difference(shortValidRegularUnits, UnitConverter.UNTRANSLATED_UNIT_NAMES), shortUnitsFound));
+
+        // check English also
         checkCldrFileUnits("en unit", CLDRConfig.getInstance().getEnglish());
 
         for (String unit : converter.canConvert()) {
@@ -2313,8 +2320,6 @@ public class TestUnits extends TestFmwk {
             String baseUnitId = converter.getBaseUnit(unit);
             checkNormalization("convertable base", baseUnitId);
         }
-
-
 
         checkNormalization("test case", "foot-acre", "acre-foot");
         checkNormalization("test case", "meter-newton", "newton-meter");
@@ -2399,7 +2404,9 @@ public class TestUnits extends TestFmwk {
 //        }
     }
 
-    public void checkCldrFileUnits(String title, final CLDRFile cldrFile) {
+    /** Checks the normalization of units found in the file, and returns the set of shortUnitIds found in the file */
+    public Set<String> checkCldrFileUnits(String title, final CLDRFile cldrFile) {
+        Set<String> shortUnitsFound = new TreeSet<>();
         for (String path : cldrFile) {
             if (!path.startsWith("//ldml/units/unitLength")) {
                 continue;
@@ -2410,8 +2417,10 @@ public class TestUnits extends TestFmwk {
                 continue;
             }
             String shortUnitId = converter.getShortId(longUnitId);
+            shortUnitsFound.add(shortUnitId);
             checkNormalization(title, shortUnitId);
         }
+        return ImmutableSet.copyOf(shortUnitsFound);
     }
 
     public void checkNormalization(String title, String source, String expected) {

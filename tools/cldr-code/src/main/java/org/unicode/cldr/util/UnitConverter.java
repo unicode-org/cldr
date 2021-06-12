@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -53,7 +54,20 @@ public class UnitConverter implements Freezable<UnitConverter> {
     static final Splitter BAR_SPLITTER = Splitter.on('-');
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
 
-    public static final Set<String> HACK_SKIP_UNIT_NAMES = ImmutableSet.of("dot-per-centimeter", "dot-per-inch", "liter-per-100-kilometer", "millimeter-ofhg", "inch-ofhg");
+    public static final Set<String> UNTRANSLATED_UNIT_NAMES = ImmutableSet.of(
+        "portion",
+        "ofglucose",
+        "100-kilometer",
+        "ofhg");
+
+    public static final Set<String> HACK_SKIP_UNIT_NAMES = ImmutableSet.of(
+        // skip dot because pixel is preferred
+        "dot-per-centimeter",
+        "dot-per-inch",
+        // skip because a component is not translated
+        "liter-per-100-kilometer",
+        "millimeter-ofhg",
+        "inch-ofhg");
 
 
     final RationalParser rationalParser;
@@ -1543,8 +1557,30 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return CldrUtility.ifNull(SHORT_TO_LONG_ID.get(shortUnitId), shortUnitId);
     }
 
+    public Set<String> getLongIds(Iterable<String> shortUnitIds) {
+        LinkedHashSet<String> result = new LinkedHashSet<>();
+        for (String longUnitId : shortUnitIds) {
+            String shortId = SHORT_TO_LONG_ID.get(longUnitId);
+            if (shortId != null) {
+                result.add(shortId);
+            }
+        }
+        return ImmutableSet.copyOf(result);
+    }
+
     public String getShortId(String longUnitId) {
         return CldrUtility.ifNull(SHORT_TO_LONG_ID.inverse().get(longUnitId), longUnitId);
+    }
+
+    public Set<String> getShortIds(Iterable<String> longUnitIds) {
+        LinkedHashSet<String> result = new LinkedHashSet<>();
+        for (String longUnitId : longUnitIds) {
+            String shortId = SHORT_TO_LONG_ID.inverse().get(longUnitId);
+            if (shortId != null) {
+                result.add(shortId);
+            }
+        }
+        return ImmutableSet.copyOf(result);
     }
 
     public Multimap<String, Continuation> getContinuations() {

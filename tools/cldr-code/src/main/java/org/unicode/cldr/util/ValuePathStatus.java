@@ -45,6 +45,8 @@ public class ValuePathStatus {
         return result;
     }
 
+    static final UnicodeSet ASCII_DIGITS = new UnicodeSet("[0-9]");
+
     public static boolean isMissingOk(CLDRFile sourceFile, String path, boolean latin, boolean aliased) {
         if (sourceFile.getLocaleID().equals("en")) {
             return true;
@@ -68,12 +70,16 @@ public class ValuePathStatus {
             return aliased;
         case compact:
             // special processing for compact numbers
+            // //ldml/numbers/decimalFormats[@numberSystem="%A"]/decimalFormatLength[@type="%A"]/decimalFormat[@type="standard"]/pattern[@type="%A"][@count="%A"] ; compact
             if (path.contains("[@count=\"other\"]")) {
                 return false; // the 'other' class always counts as missing
             }
-            String otherPath = "//ldml/numbers/decimalFormats[@numberSystem=\"" + arguments.value[1]
-                + "\"]/decimalFormatLength[@type=\"" + arguments.value[2]
-                + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" + arguments.value[3]
+            final String numberSystem = arguments.value[1];
+            final String formatLength = arguments.value[2];
+            final String patternType = arguments.value[3];
+            String otherPath = "//ldml/numbers/decimalFormats[@numberSystem=\"" + numberSystem
+                + "\"]/decimalFormatLength[@type=\"" + formatLength
+                + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" + patternType
                 + "\"][@count=\"other\"]";
             String otherValue = sourceFile.getWinningValue(otherPath);
             if (otherValue == null) {
@@ -83,8 +89,13 @@ public class ValuePathStatus {
             if (digits > 4) { // we can only handle to 4 digits
                 return false;
             }
-            // if there are no possible Count values for this many digits, then it is ok to be missing.
-            Count c = Count.valueOf(arguments.value[4]);
+            // If the count is numeric or if there are no possible Count values for this many digits, then it is ok to be missing.
+            final String count = arguments.value[4];
+            if (ASCII_DIGITS.containsAll(count)) {
+                return true; // ok to be missing
+            }
+            Count c = Count.valueOf(count);
+
             SupplementalDataInfo supplementalDataInfo2 = CLDRConfig.getInstance().getSupplementalDataInfo();
             // SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
             PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());

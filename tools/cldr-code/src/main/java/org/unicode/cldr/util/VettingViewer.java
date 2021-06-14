@@ -1328,13 +1328,10 @@ public class VettingViewer<T> {
                 result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.ROOT_OK
                     : isParentRoot ? MissingStatus.ABSENT
                         : MissingStatus.ALIASED;
-            } else if (!isAliased) {
-                result = MissingStatus.PRESENT;
-            } else if (isParentRoot) { // We handle ALIASED specially, depending on whether the parent is root or not.
-                result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK
-                    : MissingStatus.ABSENT;
-            } else {
+            } else if (isAliased) {
                 result = MissingStatus.ALIASED;
+            } else {
+                result = MissingStatus.PRESENT;
             }
         }
         return result;

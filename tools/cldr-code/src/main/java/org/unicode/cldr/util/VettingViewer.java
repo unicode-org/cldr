@@ -249,8 +249,6 @@ public class VettingViewer<T> {
          * or null if none of the users in the organization voted for the path. <br>
          * NOTE: Would be easier if this were a method on CLDRFile.
          * NOTE: if user = null, then it must return the absolute winning value.
-         *
-         * @param locale
          */
         public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T user);
 
@@ -258,10 +256,10 @@ public class VettingViewer<T> {
          *
          * Return the vote status
          * NOTE: if user = null, then it must disregard the user and never return losing. See VoteStatus.
-         *
-         * @param locale
          */
         public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, T user);
+
+        public VoteResolver<String> getVoteResolver(CLDRLocale loc, String path);
     }
 
     public static interface ErrorChecker {
@@ -659,7 +657,13 @@ public class VettingViewer<T> {
                 MissingStatus missingStatus = null;
 
                 if (!onlyRecordErrors) {
-                    missingStatus = getMissingStatus(sourceFile, path, latin);
+                    CLDRLocale loc = CLDRLocale.getInstance(localeID);
+                    VoteResolver<String> resolver = userVoteStatus.getVoteResolver(loc, path);
+                    if (resolver.getWinningStatus() == VoteResolver.Status.missing) {
+                        missingStatus = getMissingStatus(sourceFile, path, latin);
+                    } else {
+                        missingStatus = MissingStatus.PRESENT;
+                    }
                     if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
                         problems.add(Choice.missingCoverage);
                         problemCounter.increment(Choice.missingCoverage);

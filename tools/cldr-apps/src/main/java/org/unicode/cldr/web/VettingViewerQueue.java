@@ -21,7 +21,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
@@ -41,6 +40,7 @@ import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -1149,6 +1149,11 @@ public class VettingViewerQueue {
             return ballotBox.getResolver(path).getStatusForOrganization(orgOfUser);
         }
 
+        @Override
+        public VoteResolver<String> getVoteResolver(CLDRLocale loc, String path) {
+            BallotBox<User> ballotBox = getBox(sm, loc);
+            return ballotBox.getResolver(path);
+        }
     }
 
     private static int totalUsersWaiting(SurveyThreadManager st) {

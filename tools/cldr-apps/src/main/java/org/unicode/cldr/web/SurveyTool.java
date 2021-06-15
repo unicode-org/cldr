@@ -89,6 +89,7 @@ public class SurveyTool extends HttpServlet {
         throws IOException {
 
         out.write("<html lang='" + SurveyMain.TRANS_HINT_LOCALE.toLanguageTag() + "' class='claro'>\n");
+        out.write("<!-- serveWaitingPage() -->\n");
         out.write("<head>\n");
         out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
         out.write("<title>CLDR Survey Tool | Starting</title>\n");
@@ -133,6 +134,7 @@ public class SurveyTool extends HttpServlet {
 
     private void serveProblemNoSessionPage(HttpServletRequest request, PrintWriter out, String sessionMessage) {
         out.write("<html class='claro'>\n<head class='claro'>\n");
+        out.write("<!-- serveProblemNoSessionPage() -->");
         out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
         out.write("<title>CLDR Survey Tool</title>\n");
         out.write("</head>\n<body>\n");
@@ -154,6 +156,7 @@ public class SurveyTool extends HttpServlet {
         throws IOException {
         String lang = SurveyMain.TRANS_HINT_LOCALE.toLanguageTag();
         out.write("<html lang='" + lang + "' class='claro'>\n");
+        out.write("<!-- serveRunnningNormallyPage() -->");
         out.write("<head>\n");
         out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
         out.write("<title>CLDR Survey Tool</title>\n");

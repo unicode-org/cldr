@@ -12,6 +12,7 @@ import * as cldrSurvey from "./cldrSurvey.js";
 import { createCldrApp } from "../cldrVueRouter";
 import MainHeader from "../views/MainHeader.vue";
 import DashboardWidget from "../views/DashboardWidget.vue";
+import { notification } from "ant-design-vue";
 
 const GUI_DEBUG = true;
 
@@ -41,6 +42,7 @@ function run() {
         console.log(
           "cldrGui.run doing nothing since '" + runGuiId + "' not found"
         );
+        return Promise.reject(Error(`${runGuiId} element was not present.`));
       }
       return Promise.resolve();
     }
@@ -143,6 +145,11 @@ function insertHeader() {
     console.error(
       "Error mounting main header vue " + e.message + " / " + e.name
     );
+    notification.error({
+      message: `${e.name} while loading MainHeader.vue`,
+      description: `${e.message}`,
+      duration: 0,
+    });
   }
 }
 

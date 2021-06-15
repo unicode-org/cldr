@@ -373,6 +373,11 @@ public class StandardCodes {
     };
 
     /**
+     * Used for Locales.txt to mean "all"
+     */
+    public static final String ALL_LOCALES = "*";
+
+    /**
      * Returns locales according to status. It returns a Map of Maps, key 1 is
      * either IBM or Java (perhaps more later), key 2 is the Level.
      *
@@ -437,7 +442,7 @@ public class StandardCodes {
             }
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
-        Level status = locale_status.get("*");
+        Level status = locale_status.get(ALL_LOCALES);
         if (status != null && status != Level.UNDETERMINED) {
             coverageType.value = LocaleCoverageType.star;
             return status;
@@ -449,7 +454,7 @@ public class StandardCodes {
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
      */
     public Level getDefaultLocaleCoverageLevel(Organization organization) {
-        return getLocaleCoverageLevel(organization, "*");
+        return getLocaleCoverageLevel(organization, ALL_LOCALES);
     }
 
     public Set<Organization> getLocaleCoverageOrganizations() {
@@ -533,7 +538,7 @@ public class StandardCodes {
 
                 // verify that the locale is valid BCP47
                 String locale = stuff.get(1);
-                if (!locale.equals("*")) {
+                if (!locale.equals(ALL_LOCALES)) {
                     parser.set(locale);
                     String valid = validate(parser);
                     if (valid.length() != 0) {
@@ -556,7 +561,7 @@ public class StandardCodes {
                     platform_locale_level.put(organization, locale_status = new TreeMap<>());
                 }
                 locale_status.put(locale, status);
-                if (!locale.equals("*")) {
+                if (!locale.equals(ALL_LOCALES)) {
                     String scriptLoc = parser.getLanguageScript();
                     if (locale_status.get(scriptLoc) == null)
                         locale_status.put(scriptLoc, status);

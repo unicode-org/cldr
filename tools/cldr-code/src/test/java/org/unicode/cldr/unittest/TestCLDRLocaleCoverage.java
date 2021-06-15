@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.junit.jupiter.api.DisplayNameGenerator.Standard;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.MinimizeRegex;
 import org.unicode.cldr.util.CLDRConfig;
@@ -215,7 +216,9 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // Apple locales
         "aa", "bo", "cad", "kl", "kok", "lb", "pcm", "tg", "tt",
         // Google locales
-        "aa", "br", "gd", "ia", "kea", "nqo", "oc", "sc"
+        "aa", "br", "gd", "ia", "kea", "nqo", "oc", "sc",
+        // Skip "*"
+        StandardCodes.ALL_LOCALES
     );
 
     private void checkCldrLocales(Organization organization, int warningLevel) {

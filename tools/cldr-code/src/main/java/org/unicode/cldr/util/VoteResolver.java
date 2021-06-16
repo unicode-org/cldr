@@ -106,6 +106,8 @@ public class VoteResolver<T> {
      */
     public static final int HIGH_BAR = Level.tc.votes;
 
+    private static final int LOWER_BAR = (2 * Level.vetter.votes);
+
     /**
      * This is the level at which a vote counts. Each level also contains the
      * weight.
@@ -739,6 +741,19 @@ public class VoteResolver<T> {
     }
 
     /**
+     * What are the adjusted required votes for this item?
+     *
+     * @return requiredVotes, or LOWER_BAR if appropriate
+     */
+    public int getAdjustedRequiredVotes() {
+        if (requiredVotes == HIGH_BAR && trunkStatus != Status.approved) {
+            return LOWER_BAR;
+        } else {
+            return requiredVotes;
+        }
+    }
+
+    /**
      * Call this method first, for a new base path. You'll then call add for each value
      * associated with that base path.
      */
@@ -971,7 +986,7 @@ public class VoteResolver<T> {
 
         oValue = winningValue;
 
-        winningStatus = computeStatus(weights[0], weights[1], trunkStatus);
+        winningStatus = computeStatus(weights[0], weights[1]);
 
         // if we are not as good as the trunk, use the trunk
         if (trunkStatus != null && winningStatus.compareTo(trunkStatus) < 0) {
@@ -1347,15 +1362,14 @@ public class VoteResolver<T> {
      *
      * @param weight1 the weight (vote count) for the best value
      * @param weight2 the weight (vote count) for the next-best value
-     * @param oldStatus the old status (trunkStatus)
      * @return the Status
      */
-    private Status computeStatus(long weight1, long weight2, Status oldStatus) {
-        if (weight1 > weight2 && weight1 >= requiredVotes) {
+    private Status computeStatus(long weight1, long weight2) {
+        if (weight1 > weight2 && weight1 >= getAdjustedRequiredVotes()) {
             return Status.approved;
         }
         if (weight1 > weight2 &&
-            (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
+            (weight1 >= 4 && Status.contributed.compareTo(trunkStatus) > 0
                 || weight1 >= 2 && organizationToValueAndVote.getOrgCount(winningValue) >= 2) ) {
             return Status.contributed;
         }
@@ -1369,7 +1383,7 @@ public class VoteResolver<T> {
         if (!resolved) {
             resolveVotes();
         }
-        Status possibleStatus = computeStatus(organizationToValueAndVote.getBestPossibleVote(), 0, trunkStatus);
+        Status possibleStatus = computeStatus(organizationToValueAndVote.getBestPossibleVote(), 0);
         return possibleStatus.compareTo(winningStatus) > 0 ? possibleStatus : winningStatus;
     }
 

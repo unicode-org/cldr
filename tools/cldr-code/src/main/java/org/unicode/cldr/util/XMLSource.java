@@ -1339,6 +1339,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "talu", "numbers" },
             { "taml", "numbers" },
             { "tamldec", "numbers" },
+            { "tnsa", "numbers" },
             { "telu", "numbers" },
             { "thai", "numbers" },
             { "tibt", "numbers" },

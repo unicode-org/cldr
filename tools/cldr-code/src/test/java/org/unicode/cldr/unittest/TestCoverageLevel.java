@@ -696,7 +696,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     public void testLogicalGroupingSamples() {
-        System.out.println(GrammarInfo.getGrammarLocales());
+        getLogger().fine(GrammarInfo.getGrammarLocales().toString());
         String[][] test = {
             {"de",
                 "SINGLETON",

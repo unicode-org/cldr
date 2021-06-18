@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -18,6 +19,8 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.Output;
 
 public class PathDescription {
+
+    private final static Logger logger = Logger.getLogger(PathDescription.class.getName());
 
     public enum ErrorHandling {
         SKIP, CONTINUE
@@ -180,7 +183,7 @@ public class PathDescription {
                     }
                 }
                 if (!found) {
-                    System.out.println("Missing country for timezone " + code);
+                    logger.warning("Missing country for timezone " + code);
                 }
             }
             description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), new Object[] { code });

@@ -75,7 +75,9 @@ public class AbstractCache {
                 logger.fine("# " + simpleName + " read " + root.getAbsolutePath() + " count: " + size());
                 return Instant.ofEpochMilli(xpathToResourceFile.lastModified());
             } catch (IOException ioe) {
-                logger.log(Level.SEVERE, "Could not read files in " + root.getAbsolutePath(), ioe);
+                logger.log(Level.WARNING, "Could not read files in " + root.getAbsolutePath());
+                // Full stacktrace at a higher trace level
+                logger.log(Level.FINE, "Could not read " + root.getAbsolutePath() + " - " + ioe.getMessage());
                 xpathToResource.clear();
                 return null;
             }

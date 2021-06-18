@@ -162,7 +162,7 @@ public class TestCLDRFile extends TestFmwk {
     public void testExtraPaths() {
         // for debugging
         final CLDRFile german = CLDRConfig.getInstance().getCldrFactory().make("de", true);
-        System.out.println();
+        getLogger().fine("");
         Set<String> sorted = new TreeSet<>(german.getExtraPaths());
         PathHeader.Factory phf = PathHeader.getFactory();
         PatternPlaceholders pph = PatternPlaceholders.getInstance();
@@ -222,10 +222,10 @@ public class TestCLDRFile extends TestFmwk {
 
             }
         }
-        System.out.println("Units with grammar info: " + GrammarInfo.getUnitsToAddGrammar().size());
-        System.out.println("Inflection Paths");
+        getLogger().fine("Units with grammar info: " + GrammarInfo.getUnitsToAddGrammar().size());
+        getLogger().fine("Inflection Paths");
         for (R2<Long, String> locale : extraPaths.getEntrySetSortedByCount(false, null)) {
-            System.out.println(locale.get0() + "\t" + locale.get1());
+            getLogger().fine(locale.get0() + "\t" + locale.get1());
         }
         if (!badCoverage.isEmpty()) {
             errln("Paths not at modern: " + Joiner.on("\n\t").join(badCoverage));
@@ -856,7 +856,7 @@ public class TestCLDRFile extends TestFmwk {
                 String source = af.getSourceLocaleID(xpath, status);
                 Level level = coverageLevel2.getLevel(xpath);
                 PathHeader ph = pathHeaderFactory.fromPath(xpath);
-                System.out.println(""
+                getLogger().fine(""
                     + "\nPathHeader:\t" + ph
                     + "\nValue:\t" + value
                     + "\nLevel:\t" + level

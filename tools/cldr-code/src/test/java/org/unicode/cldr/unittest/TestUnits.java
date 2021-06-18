@@ -19,6 +19,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
@@ -949,6 +950,7 @@ public class TestUnits extends TestFmwk {
         );
 
     public void TestSystems() {
+        final Logger logger = getLogger();
 //        Map<String, TargetInfo> data = converter.getInternalConversionData();
         Output<String> metricUnit = new Output<>();
         Multimap<Set<UnitSystem>, R3<String, ConversionInfo, String>> systemsToUnits = TreeMultimap.create(Comparators.lexicographical(Ordering.natural()), Ordering.natural());
@@ -975,7 +977,7 @@ public class TestUnits extends TestFmwk {
 //            }
         }
         String std = converter.getStandardUnit("kilogram-meter-per-square-meter-square-second");
-        System.out.println();
+        logger.fine("");
         Output<Rational> outFactor = new Output<>();
         for (Entry<Set<UnitSystem>, Collection<R3<String, ConversionInfo, String>>> systemsAndUnits : systemsToUnits.asMap().entrySet()) {
             Set<UnitSystem> systems = systemsAndUnits.getKey();
@@ -1001,7 +1003,7 @@ public class TestUnits extends TestFmwk {
                     Rational specialFactor = converter.convert(Rational.ONE, unit, specialUnit, false);
                     specialRef = "\t" + specialFactor + "\t" + specialUnit;
                 }
-                System.out.println(systems + "\t" + quantity
+                logger.fine(systems + "\t" + quantity
                     + "\t" + unit
                     + "\t" + factor
                     + "\t" + standard
@@ -1442,7 +1444,7 @@ public class TestUnits extends TestFmwk {
     }
 
     public void TestUnitPreferences() {
-        System.out.println("\n\t\t If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
+        warnln("\n\t\t If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
         UnitPreferences prefs = SDI.getUnitPreferences();
         checkUnitPreferences(prefs);
 //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);
@@ -1719,7 +1721,7 @@ public class TestUnits extends TestFmwk {
                 + "\t" + endFactor.toString(FormatStyle.simple)
                 + "\t" + target);
         }
-        if (!DEBUG_ADD) System.out.println("\n\t\tSet -v to show units we could add");
+        if (!DEBUG_ADD) warnln("\n\t\tSet -v to show units we could add");
     }
 
     static final boolean DEBUG_ADD = false;

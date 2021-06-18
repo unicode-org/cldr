@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -93,8 +94,6 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
-    private static final boolean DEBUG = true;
-
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
@@ -1917,6 +1916,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void TestGrammarInfo() {
+        final Logger logger = getLogger();
         Multimap<String,String> allValues = TreeMultimap.create();
         for (String locale : SUPPLEMENTAL.hasGrammarInfo()) {
             if (locale.contentEquals("tr")) {
@@ -1935,14 +1935,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     }
                 }
             }
-            if (DEBUG) {
-                System.out.println(grammarInfo.toString("\n" + locale + "\t"));
-            }
+            logger.fine(grammarInfo.toString("\n" + locale + "\t"));
         }
-        if (DEBUG) {
-            System.out.println();
+        if (logger.isLoggable(java.util.logging.Level.FINE)) {  // if level is at least FINE
+            logger.fine("");
             for (Entry<String, Collection<String>> entry : allValues.asMap().entrySet()) {
-                System.out.println(entry.getKey() + "\t" + Joiner.on(", ").join(entry.getValue()));
+                logger.fine(entry.getKey() + "\t" + Joiner.on(", ").join(entry.getValue()));
             }
         }
     }

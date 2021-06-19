@@ -27,6 +27,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.MissingResourceException;
 import java.util.Random;
 import java.util.TreeMap;
@@ -34,6 +37,8 @@ import java.util.TreeMap;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
+import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.PatternCache;
 /**
  * TestFmwk is a base class for tests that can be run conveniently from the
  * command line as well as under the Java test harness.
@@ -46,6 +51,20 @@ import com.ibm.icu.util.ULocale;
  * arguments to the log only if the test is being run in verbose mode.
  */
 public class TestFmwk extends AbstractTestLog {
+
+    private Logger logger = null;
+
+    /**
+     * Get a Logger suitable for use with this test class.
+     * @return
+     */
+    protected synchronized Logger getLogger() {
+        if (logger == null) {
+            logger = Logger.getLogger(getClass().getName());
+        }
+        return logger;
+    }
+
     /**
      * The default time zone for all of our tests. Used in Target.run();
      */
@@ -578,15 +597,10 @@ public class TestFmwk extends AbstractTestLog {
             localParams.log.println(localParams.timeLog.toString());
         }
 
-        if (localParams.knownIssues != null) {
-            localParams.log.println("\nKnown Issues:");
-            for (Entry<String, List<String>> entry : localParams.knownIssues.entrySet()) {
-                String ticketLink = entry.getKey();
-                localParams.log.println("[" + ticketLink + "]");
-                for (String line : entry.getValue()) {
-                    localParams.log.println("  - " + line);
-                }
-            }
+        if (localParams.knownIssues.printKnownIssues(localParams.log::println)) {
+            // We had to shorten the known issues.
+            // Suggest to the user that they could print all issues.
+            localParams.log.println(" (Use -allKnownIssues to show all known issue sites) ");
         }
 
         if (localParams.errorSummary != null && localParams.errorSummary.length() > 0) {
@@ -846,57 +860,26 @@ public class TestFmwk extends AbstractTestLog {
         params.msg(message, level, incCount, newln);
     }
 
-    static final String ICU_TRAC_URL = "http://bugs.icu-project.org/trac/ticket/";
-    static final String CLDR_TRAC_URL = "http://unicode.org/cldr/trac/ticket/";
-    static final String CLDR_TICKET_PREFIX = "cldrbug:";
-
     /**
      * Log the known issue.
      * This method returns true unless -prop:logKnownIssue=no is specified
      * in the argument list.
      *
-     * @param ticket A ticket number string. For an ICU ticket, use numeric characters only,
-     * such as "10245". For a CLDR ticket, use prefix "cldrbug:" followed by ticket number,
-     * such as "cldrbug:5013".
+     * @param ticket A ticket number string. For an ICU ticket, use "ICU-10245".
+     * For a CLDR ticket, use "CLDR-12345".
+     * For compatibility, "1234" -> ICU-1234 and "cldrbug:456" -> CLDR-456
      * @param comment Additional comment, or null
      * @return true unless -prop:logKnownIssue=no is specified in the test command line argument.
      */
     public boolean logKnownIssue(String ticket, String comment) {
-        if (!getBooleanProperty("logKnownIssue", true)) {
+        if (getBooleanProperty("logKnownIssue", true)) {
+                StringBuffer path = new StringBuffer();
+                params.stack.appendPath(path);
+                params.knownIssues.logKnownIssue(path.toString(), ticket, comment);
+            return true;
+        } else {
             return false;
         }
-
-        StringBuffer descBuf = new StringBuffer();
-        params.stack.appendPath(descBuf);
-        if (comment != null && comment.length() > 0) {
-            descBuf.append(" (" + comment + ")");
-        }
-        String description = descBuf.toString();
-
-        String ticketLink = "Unknown Ticket";
-        if (ticket != null && ticket.length() > 0) {
-            boolean isCldr = false;
-            ticket = ticket.toLowerCase(Locale.ENGLISH);
-            if (ticket.startsWith(CLDR_TICKET_PREFIX)) {
-                isCldr = true;
-                ticket = ticket.substring(CLDR_TICKET_PREFIX.length());
-            }
-            ticketLink = (isCldr ? CLDR_TRAC_URL : ICU_TRAC_URL) + ticket;
-        }
-
-        if (params.knownIssues == null) {
-            params.knownIssues = new TreeMap<>();
-        }
-        List<String> lines = params.knownIssues.get(ticketLink);
-        if (lines == null) {
-            lines = new ArrayList<>();
-            params.knownIssues.put(ticketLink, lines);
-        }
-        if (!lines.contains(description)) {
-            lines.add(description);
-        }
-
-        return true;
     }
 
     protected int getErrorCount() {
@@ -947,6 +930,7 @@ public class TestFmwk extends AbstractTestLog {
         pw.println("Usage: " + className + " option* target*");
         pw.println();
         pw.println("Options:");
+        pw.println(" -allKnownIssues  Show all known issues for each bug, not just the first lines\n");
         pw.println(" -d[escribe] Print a short descriptive string for this test and all");
         pw.println("       listed targets.");
         pw.println(" -e<n> Set exhaustiveness from 0..10.  Default is 0, fewest tests.\n"
@@ -978,6 +962,7 @@ public class TestFmwk extends AbstractTestLog {
                 + "       This is the default behavior and has no effects on ICU 55+.");
         pw.println(" -p[rompt] Prompt before exiting");
         pw.println(" -prop:<key>=<value> Set optional property used by this test");
+        pw.println("    Example: -prop:logKnownIssue=no to cause known issues to fail");
         pw.println(" -q[uiet] Do not show warnings");
         pw.println(" -r[andom][:<n>] If present, randomize targets.  If n is present,\n"
                 + "       use it as the seed.  If random is not set, targets will\n"
@@ -1183,6 +1168,7 @@ public class TestFmwk extends AbstractTestLog {
         public boolean nodata;
         public long timing = 0;
         public boolean memusage;
+        public boolean allKnownIssues = false;
         public int inclusion;
         public String filter;
         public long seed;
@@ -1192,7 +1178,6 @@ public class TestFmwk extends AbstractTestLog {
 
         public StringBuffer errorSummary = new StringBuffer();
         private StringBuffer timeLog;
-        private Map<String, List<String>> knownIssues;
 
         public PrintWriter log;
         public int indentLevel;
@@ -1206,6 +1191,7 @@ public class TestFmwk extends AbstractTestLog {
         public Random random;
         public int maxTargetSec = 10;
         public HashMap props;
+        private UnicodeKnownIssues knownIssues;
 
         private TestParams() {
         }
@@ -1262,6 +1248,8 @@ public class TestFmwk extends AbstractTestLog {
                             params.warnings = true;
                         } else if (arg.equals("-nodata") || arg.equals("-nd")) {
                             params.nodata = true;
+                        } else if (arg.equals("-allknownissues")) {
+                            params.allKnownIssues = true;
                         } else if (arg.equals("-list") || arg.equals("-l")) {
                             params.listlevel = 1;
                         } else if (arg.equals("-listall") || arg.equals("-la")) {
@@ -1395,6 +1383,8 @@ public class TestFmwk extends AbstractTestLog {
             invalidCount = 0;
             testCount = 0;
             random = seed == 0 ? null : new Random(seed);
+
+            knownIssues = new UnicodeKnownIssues(allKnownIssues);
         }
 
         public class State {
@@ -2003,7 +1993,7 @@ public class TestFmwk extends AbstractTestLog {
             String source = st.getFileName();
             if(source == null || source.equals("TestShim.java")) {
                 return ""; // hit the end of helpful stack traces
-            } else if (source != null && !source.equals("TestFmwk.java") 
+            } else if (source != null && !source.equals("TestFmwk.java")
                 && !source.equals("AbstractTestLog.java")) {
                 String methodName = st.getMethodName();
                 if(methodName != null && methodName.startsWith("lambda$")) { // unpack inner lambda

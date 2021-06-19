@@ -353,7 +353,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 String name = eng.getShortName(emoji);
                 String lastName = eng.getShortName(lastEmoji);
                 int errorType = ERR;
-                if (logKnownIssue("cldr13660", "slightly out of order")) {
+                if (logKnownIssue("CLDR-13660", "slightly out of order")) {
                     errorType = WARN;
                 }
                 msg("Out of order: "
@@ -509,7 +509,7 @@ public class TestAnnotations extends TestFmwkPlus {
         }
         for (Level level : Level.values()) {
             UnicodeSet us = levels.getSet(level);
-            System.out.println(level + "\t" + us.size());
+            getLogger().fine(level + "\t" + us.size());
             switch(level) {
             case COMPREHENSIVE:
                 UnicodeSet us2 = new UnicodeSet(us).removeAll(us.strings());

@@ -505,7 +505,7 @@ public class TestValidity extends TestFmwkPlus {
         if (!changedAliases.isEmpty()) {
             warnln("Changed aliases from LSTR, just double-check: " + changedAliases.size());
             for (Entry<String, String> entry : changedAliases.entrySet()) {
-                System.out.println("\tcurrent=" + entry.getValue() + "\n\tlstr=" + entry.getKey());
+                getLogger().fine("\tcurrent=" + entry.getValue() + "\n\tlstr=" + entry.getKey());
             }
         }
     }

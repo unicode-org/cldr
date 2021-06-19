@@ -442,7 +442,9 @@ public class TestLocale extends TestFmwkPlus {
     }
 
     public void TestLocaleDisplay() {
-        System.out.println("\nUse -v to get samples for tests");
+        if (!isVerbose()) {
+            warnln("\nUse -v to get samples for tests");
+        }
         String fileName = CLDRPaths.TEST_DATA + "localeIdentifiers/localeDisplayName.txt";
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer(LstrType.redundant);
 

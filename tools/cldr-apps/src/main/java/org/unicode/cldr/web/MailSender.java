@@ -72,6 +72,9 @@ public class MailSender implements Runnable {
                 SurveyMain.isUnofficial() ? 5 : 60);
             // Check for outbound mail every 60 seconds
             CLDR_MAIL_DELAY_EACH = CLDRConfig.getInstance().getProperty("CLDR_MAIL_DELAY_EACH", 60);
+
+
+            System.err.println("Logger settings " + logger.getLevel().toString() + " for " + logger.getName());
         }
     }
     int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
@@ -367,24 +370,33 @@ public class MailSender implements Runnable {
             return;
         }
 
-        processAllMail();
+        logger.finest("processing all mail…");
+        Transport transport = processAllMail();
+        try {
+            if (transport != null) {
+                transport.close();
+            }
+        } catch (MessagingException me) {
+            logger.log(Level.WARNING, "Could not close transport", me);
+        }
         logger.finer("MailSender.run() done");
     }
 
     /**
      * Process all mail until it is done.
      */
-    private void processAllMail() {
+    private Transport processAllMail() {
         logger.finer("Processing mail");
 
         int batchSize = 0;
         Session ourSession = getMailSession();
+        Transport transport = null;
 
         for(;;) {
             final int countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
             if (countLeft == 0) {
                 logger.finer("No [more] mails");
-                return;
+                return transport;
             }
 
             ++batchSize;
@@ -395,9 +407,9 @@ public class MailSender implements Runnable {
             if (MailConfig.INSTANCE.CLDR_MAIL_BATCHSIZE > 0 &&
                 batchSize > MailConfig.INSTANCE.CLDR_MAIL_BATCHSIZE) {
                     logger.finer("Exitting, too many mails for batch");
-                    return;
+                    return transport;
             }
-            processOneMail(ourSession);
+            transport = processOneMail(ourSession, transport);
             logger.finest(() -> String.format("Sleep %ds", MailConfig.INSTANCE.CLDR_MAIL_DELAY_BATCH_ITEM));
             try {
                 Thread.sleep(MailConfig.INSTANCE.CLDR_MAIL_DELAY_BATCH_ITEM * 1000);
@@ -407,7 +419,7 @@ public class MailSender implements Runnable {
         }
     }
 
-    private void processOneMail(Session ourSession) {
+    private Transport processOneMail(Session ourSession, Transport transport) {
         DBUtils db = DBUtils.getInstance();
         java.sql.Timestamp sqlnow = DBUtils.sqlNow();
         try (
@@ -422,7 +434,7 @@ public class MailSender implements Runnable {
                 if (rs.next() == false) { // No mail to send.
                     resetLastIdProcessed();
                     logger.fine("No mail to check.");
-                    return; // nothing to do
+                    return transport; // nothing to do
                 }
 
                 // Get the ID of the user
@@ -434,7 +446,7 @@ public class MailSender implements Runnable {
                 UserRegistry.User toUser = getUser(to);
                 if (toUser == null) {
                     handleMissingUser(sqlnow, rs, to);
-                    return;
+                    return transport;
                 }
 
                 // collect other fieds
@@ -446,7 +458,7 @@ public class MailSender implements Runnable {
 
                 MimeMessage ourMessage = createMimeMessage(ourSession, subject, to, toUser, from, fromUser, queue_date, text);
 
-                sendMimeMessage(ourSession, toUser, ourMessage);
+                transport = sendMimeMessage(ourSession, toUser, ourMessage, transport);
 
                 updateMailStatus(sqlnow, rs, toUser);
             } catch (SQLException | MessagingException | UnsupportedEncodingException e) {
@@ -456,6 +468,7 @@ public class MailSender implements Runnable {
             // We no longer have a ResultSet, etc. Just log.
             SurveyLog.logException(logger, se, String.format("processing mail (last %d)", lastIdProcessed));
         }
+        return transport;
     }
 
     private void handleMailException(java.sql.Timestamp sqlnow, ResultSet rs, Exception e) throws SQLException {
@@ -480,9 +493,28 @@ public class MailSender implements Runnable {
         logger.fine("Mail: updated: #id " + lastIdProcessed + " to " + toUser);
     }
 
-    private void sendMimeMessage(Session ourSession, UserRegistry.User toUser, MimeMessage ourMessage) throws MessagingException {
+
+
+    private Transport sendMimeMessage(Session ourSession, UserRegistry.User toUser, MimeMessage ourMessage, Transport transport) throws MessagingException {
         if (ourSession.getProperties().getProperty("mail.host", null) != null) {
-            Transport.send(ourMessage);
+            if (transport != null) {
+                try {
+                    if (!transport.isConnected()) {
+                        logger.finest("reconnecting to " + transport.toString());
+                        transport.connect();
+                    }
+                } catch (MessagingException me) {
+                    logger.log(Level.WARNING, "Could not reconnect transport", me);
+                    transport = null;
+                }
+            }
+            if (transport == null) {
+                transport = ourSession.getTransport();
+                logger.finest("re/got transport, connecting to " + transport.toString());
+                transport.connect();
+            }
+            ourMessage.saveChanges();
+            transport.sendMessage(ourMessage, ourMessage.getAllRecipients());
         } else {
             SurveyLog
                 .warnOnce(
@@ -492,6 +524,7 @@ public class MailSender implements Runnable {
         }
 
         logger.fine("Successful send of id " + lastIdProcessed + " to " + toUser);
+        return transport;
     }
 
     private MimeMessage createMimeMessage(Session ourSession, final String subject, Integer to, UserRegistry.User toUser, final Integer from, final UserRegistry.User fromUser,
@@ -564,11 +597,7 @@ public class MailSender implements Runnable {
         Properties env = getProperties();
         Session ourSession = getMailSession(env);
 
-        // If the logger is in FINE form, turn on debugging in the mail session
-        // which seems to go to stdout
-        if (logger.isLoggable(Level.FINE)) {
-            ourSession.setDebug(true);
-        }
+        // Note: set mail.debug=true in cldr.properties to turn on session debugging.
         return ourSession;
     }
 

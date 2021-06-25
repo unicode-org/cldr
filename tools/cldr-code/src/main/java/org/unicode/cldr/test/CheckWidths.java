@@ -119,7 +119,7 @@ public class CheckWidths extends CheckCLDR {
             this(d, e, displayWidth, maximum, placeholders, false);
         }
 
-        boolean hasProblem(String path, String value, List<CheckStatus> result, CheckCLDR cause, Boolean aliasedAndComprenehsive) {
+        boolean hasProblem(String path, String value, List<CheckStatus> result, CheckCLDR cause, Boolean aliasedAndComprehensive) {
             double factor = 1d;
             switch (special) {
             case NUMBERFORMAT:
@@ -153,9 +153,9 @@ public class CheckWidths extends CheckCLDR {
                 if (valueMeasure >= warningReference) {
                     return false;
                 }
-                if (valueMeasure < errorReference 
-                	&& cause.getPhase() != Phase.BUILD 
-                	&& !aliasedAndComprenehsive) {
+                if (valueMeasure < errorReference
+                	&& cause.getPhase() != Phase.BUILD
+                	&& !aliasedAndComprehensive) {
                     errorType = CheckStatus.errorType;
                 }
                 break;
@@ -163,9 +163,9 @@ public class CheckWidths extends CheckCLDR {
                 if (valueMeasure <= warningReference * factor) {
                     return false;
                 }
-                if (valueMeasure > errorReference * factor 
-                	&& cause.getPhase() != Phase.BUILD 
-                	&& !aliasedAndComprenehsive) {
+                if (valueMeasure > errorReference * factor
+                	&& cause.getPhase() != Phase.BUILD
+                	&& !aliasedAndComprehensive) {
                     // Workaround for ST submission phase only per TC discussion 2018-05-30
                     // Make too many keywords be only a warning until we decide policy (JCE)
                     if (cause.getPhase() == Phase.SUBMISSION && measure.equals(Measure.SET_ELEMENTS)) {
@@ -329,10 +329,10 @@ public class CheckWidths extends CheckCLDR {
             // and didn't put the narrow forms of them into modern coverage.  If/when the narrow forms of all units
             // are modern coverage, then we can safely remove the aliasedAndComprehensive check.  Right now if an
             // item is aliased and coverage is comprehensive, then it can't generate anything worse than a warning.
-            Boolean aliasedAndComprenehsive = (coverageLevel.getLevel(path).compareTo(Level.COMPREHENSIVE) == 0)
+            Boolean aliasedAndComprehensive = (coverageLevel.getLevel(path).compareTo(Level.COMPREHENSIVE) == 0)
             && (status.pathWhereFound.compareTo(path) != 0);
             for (Limit item : items) {
-                if (item.hasProblem(path, value, result, this, aliasedAndComprenehsive)) {
+                if (item.hasProblem(path, value, result, this, aliasedAndComprehensive)) {
                     if (DEBUG && !found.contains(item)) {
                         found.add(item);
                     }

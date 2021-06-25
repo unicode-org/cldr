@@ -48,7 +48,6 @@ public class TestCheckWidths extends TestFmwkPlus {
         CLDRConfig config = CLDRConfig.getInstance();
         CLDRFile english = config.getEnglish();
         CheckWidths x = new CheckWidths();
-        CheckWidths.UnitWidthUtil.getInstance();
         Options options = new Options();
         List<CheckStatus> possibleErrors = new ArrayList<>();
         x.setCldrFileToCheck(english, options, possibleErrors);

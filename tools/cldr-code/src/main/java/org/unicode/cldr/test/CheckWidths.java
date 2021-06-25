@@ -2,7 +2,10 @@ package org.unicode.cldr.test;
 
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -10,14 +13,27 @@ import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.UnitId;
+import org.unicode.cldr.util.Validity;
+
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.Output;
 
 public class CheckWidths extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*CheckWidths.*
     private static CoverageLevel2 coverageLevel;
     private Level requiredLevel;
+
+    private static UnitWidthUtil UNIT_WIDTHS_UTIL = UnitWidthUtil.getInstance();
 
     /**
      * Controls for the warning about too many components, and for when to cause error.
@@ -40,7 +56,7 @@ public class CheckWidths extends CheckCLDR {
     }
 
     private enum Special {
-        NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS, NUMBERFORMAT, BARS
+        NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS, NUMBERFORMAT, BARS, PLACEHOLDER_UNITS
     }
 
     private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("\\{\\d\\}");
@@ -103,7 +119,8 @@ public class CheckWidths extends CheckCLDR {
             this(d, e, displayWidth, maximum, placeholders, false);
         }
 
-        boolean hasProblem(String value, List<CheckStatus> result, CheckCLDR cause, Boolean aliasedAndComprenehsive) {
+        boolean hasProblem(String path, String value, List<CheckStatus> result, CheckCLDR cause, Boolean aliasedAndComprehensive) {
+            double factor = 1d;
             switch (special) {
             case NUMBERFORMAT:
                 String[] values = value.split(";", 2);
@@ -114,6 +131,9 @@ public class CheckWidths extends CheckCLDR {
             case QUOTES:
                 value = value.replace("'", "");
                 break;
+            case PLACEHOLDER_UNITS:
+                factor = UNIT_WIDTHS_UTIL.getRoughComponentMax(path);
+                // fall through ok
             case PLACEHOLDERS:
                 value = PLACEHOLDER_PATTERN.matcher(value).replaceAll("");
                 break;
@@ -133,15 +153,19 @@ public class CheckWidths extends CheckCLDR {
                 if (valueMeasure >= warningReference) {
                     return false;
                 }
-                if (valueMeasure < errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive) {
+                if (valueMeasure < errorReference
+                	&& cause.getPhase() != Phase.BUILD
+                	&& !aliasedAndComprehensive) {
                     errorType = CheckStatus.errorType;
                 }
                 break;
             case MAXIMUM:
-                if (valueMeasure <= warningReference) {
+                if (valueMeasure <= warningReference * factor) {
                     return false;
                 }
-                if (valueMeasure > errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive) {
+                if (valueMeasure > errorReference * factor
+                	&& cause.getPhase() != Phase.BUILD
+                	&& !aliasedAndComprehensive) {
                     // Workaround for ST submission phase only per TC discussion 2018-05-30
                     // Make too many keywords be only a warning until we decide policy (JCE)
                     if (cause.getPhase() == Phase.SUBMISSION && measure.equals(Measure.SET_ELEMENTS)) {
@@ -162,33 +186,6 @@ public class CheckWidths extends CheckCLDR {
             return true;
         }
     }
-
-    // WARNING: errors must occur before warnings!!
-    // we allow unusual units and English units to be a little longer
-    static final String ALLOW_LONGER = "(area-acre"
-        + "|area-square-foot"
-        + "|area-square-mile"
-        + "|length-foot"
-        + "|length-inch"
-        + "|length-mile"
-        + "|length-light-year"
-        + "|length-yard"
-        + "|mass-ounce"
-        + "|mass-pound"
-        + "|power-horsepower"
-        + "|pressure-inch-ofhg"
-        + "|pressure-millimeter-ofhg"
-        + "|speed-mile-per-hour"
-        + "|temperature-fahrenheit"
-        + "|volume-cubic-mile"
-        + "|acceleration-g-force"
-        + "|speed-kilometer-per-hour"
-        + "|speed-meter-per-second"
-        + "|pressure-pound-force-per-square-inch"
-        + "|energy-therm-us"
-        + ")";
-
-    static final String ALLOW_LONGEST = "consumption-liter-per-100-kilometer";
 
     static RegexLookup<Limit[]> lookup = new RegexLookup<Limit[]>()
         .setPatternTransform(RegexLookup.RegexFinderTransformPath)
@@ -281,25 +278,12 @@ public class CheckWidths extends CheckCLDR {
             new Limit[] {
                 new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NUMBERFORMAT)
         })
-        // Catch -future/past Narrow units  and allow much wider values
-        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
-            new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
-        // Catch widest units and allow a bit wider
-        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGEST + "\"]/unitPattern", new Limit[] {
-            new Limit(5 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
-        // Catch special units and allow a bit wider
-        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGER + "\"]/unitPattern", new Limit[] {
-            new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
-        // Narrow units
-        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=%A]/unitPattern", new Limit[] {
-            new Limit(3 * EM, 4 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
-        // Short units
-        .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", new Limit[] {
-            new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+
+        // Short/Narrow units
+        // Note that the EM values are adjusted for units according to the number of components in the units
+        // See UnitWidthUtil for more information
+        .add("//ldml/units/unitLength[@type=\"(short|narrow)\"]/unit[@type=%A]/unitPattern", new Limit[] {
+            new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDER_UNITS)
         })
 
         // Currency Symbols
@@ -338,17 +322,17 @@ public class CheckWidths extends CheckCLDR {
         // item0.check("123456789", result, this);
 
         Limit[] items = lookup.get(path);
-        CLDRFile.Status status = new CLDRFile.Status();
-        this.getCldrFileToCheck().getSourceLocaleID(path, status);
-        // This was put in specifically to deal with the fact that we added a bunch of new units in CLDR 26
-        // and didn't put the narrow forms of them into modern coverage.  If/when the narrow forms of all units
-        // are modern coverage, then we can safely remove the aliasedAndComprehensive check.  Right now if an
-        // item is aliased and coverage is comprehensive, then it can't generate anything worse than a warning.
-        Boolean aliasedAndComprenehsive = (coverageLevel.getLevel(path).compareTo(Level.COMPREHENSIVE) == 0)
-            && (status.pathWhereFound.compareTo(path) != 0);
         if (items != null) {
+            CLDRFile.Status status = new CLDRFile.Status();
+            this.getCldrFileToCheck().getSourceLocaleID(path, status);
+            // This was put in specifically to deal with the fact that we added a bunch of new units in CLDR 26
+            // and didn't put the narrow forms of them into modern coverage.  If/when the narrow forms of all units
+            // are modern coverage, then we can safely remove the aliasedAndComprehensive check.  Right now if an
+            // item is aliased and coverage is comprehensive, then it can't generate anything worse than a warning.
+            Boolean aliasedAndComprehensive = (coverageLevel.getLevel(path).compareTo(Level.COMPREHENSIVE) == 0)
+            && (status.pathWhereFound.compareTo(path) != 0);
             for (Limit item : items) {
-                if (item.hasProblem(value, result, this, aliasedAndComprenehsive)) {
+                if (item.hasProblem(path, value, result, this, aliasedAndComprehensive)) {
                     if (DEBUG && !found.contains(item)) {
                         found.add(item);
                     }
@@ -368,5 +352,88 @@ public class CheckWidths extends CheckCLDR {
 
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
+    }
+
+    /**
+     * Provide a rough measure of how many unit components there are for the purpose of establishing a maximum width, with an special factor for non-metric.
+     */
+    public static class UnitWidthUtil {
+        static final Pattern UNIT_PREFIX = Pattern.compile("//ldml/units/unitLength\\[@type=\"([^\"]*)\"]/unit\\[@type=\"([^\\\"]*)\"]");
+        final UnitConverter CONVERTER = SupplementalDataInfo.getInstance().getUnitConverter();
+        final Set<String> validLongUnitIDs = Validity.getInstance().getCodeToStatus(LstrType.unit).keySet();
+
+        LoadingCache<String, Double> pathToUnitComponents = CacheBuilder.newBuilder().build(
+            new CacheLoader<String, Double>() {
+            @Override
+            public Double load(String path) throws ExecutionException {
+                final Matcher matcher = UNIT_PREFIX.matcher(path);
+                if (matcher.lookingAt()) {
+                    //String length = matcher.group(1);
+                    String longUnitId = matcher.group(2);
+                    return unitToComponents.get(longUnitId);
+                } else {
+                    throw new ICUException("Internal error");
+                }
+            }
+        });
+
+        LoadingCache<String, Double> unitToComponents = CacheBuilder.newBuilder().build(new CacheLoader<String, Double>() {
+            @Override
+            public Double load(String longUnitId) {
+                double components = 0;
+                String shortId = CONVERTER.getShortId(longUnitId);
+
+                Set<String> systems = CONVERTER.getSystems(shortId);
+                int widthFactor = systems.contains("metric") &&  !shortId.endsWith("-metric") ? 1 : 3;
+                // NOTE: allow cup-metric and pint-metric to be longer, since they aren't standard metric
+
+                // walk thorough the numerator and denominator to get the values
+                UnitId unitId = CONVERTER.createUnitId(shortId);
+                for (Entry<String, Integer> entry : unitId.numUnitsToPowers.entrySet()) {
+                    components += getComponentCount(entry.getKey(), entry.getValue());
+                }
+                for (Entry<String, Integer> entry : unitId.denUnitsToPowers.entrySet()) {
+                    components += getComponentCount(entry.getKey(), entry.getValue());
+                }
+                return widthFactor * components;
+            }
+
+            public double getComponentCount(String unit, Integer power) {
+                int result = 1;
+                if (power > 1) {
+                    ++result; // add one component for a power
+                }
+                // hack for number
+                if (unit.startsWith("100-")) {
+                    ++result;
+                    unit = unit.substring(4);
+                }
+                Output<Rational> deprefix = new Output<>();
+                unit = UnitConverter.stripPrefix(unit, deprefix);
+                if (!deprefix.value.equals(Rational.ONE)) {
+                    ++result; // add 1 component for kilo, mega, etc.
+                }
+                for (int i = 0; i < unit.length(); ++i) {
+                    if (unit.charAt(i) == '-') {
+                        ++result; // add one component for -imperial, etc.
+                    }
+                }
+                return result;
+            }
+        });
+
+        private UnitWidthUtil() { }
+
+        public static UnitWidthUtil getInstance() {
+            return new UnitWidthUtil();
+        }
+
+        public double getRoughComponentMax(String path) {
+            try {
+                return pathToUnitComponents.get(path);
+            } catch (ExecutionException e) {
+                throw new ICUException(e);
+            }
+        }
     }
 }

@@ -27,9 +27,9 @@
         v-model:message="loginErrorMessage"
       />
     </template>
-    <a-button
-    class="cldr-nav-btn"
-    v-on:click="loginout()">{{ logText }}</a-button>
+    <a-button class="cldr-nav-btn" v-on:click="loginout()">{{
+      logText
+    }}</a-button>
   </a-popover>
 </template>
 

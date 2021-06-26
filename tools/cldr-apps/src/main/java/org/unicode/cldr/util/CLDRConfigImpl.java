@@ -329,8 +329,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 pw.println("## Put the SurveyTool in setup mode. This enables cldr-setup.jsp?vap=(CLDR_VAP)");
                 pw.println("CLDR_MAINTENANCE=true");
                 pw.println();
-                pw.println("## your password. Login as user 'admin@' and this password for admin access.");
-                pw.println("CLDR_VAP=" + UserRegistry.makePassword("admin@"));
+                pw.println("## your password. Login as user '" + UserRegistry.ADMIN_EMAIL + "' and this password for admin access.");
+                pw.println("CLDR_VAP=" + UserRegistry.makePassword(UserRegistry.ADMIN_EMAIL));
                 pw.println();
                 pw.println("## Special Test Enablement.");
                 pw.println("CLDR_TESTPW=" + UserRegistry.makePassword("user@example.com"));

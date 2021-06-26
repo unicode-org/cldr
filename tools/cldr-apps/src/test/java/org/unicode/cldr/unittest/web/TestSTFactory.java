@@ -816,7 +816,7 @@ public class TestSTFactory extends TestFmwk {
     public UserRegistry.User getMyUser() {
         if (gUser == null) {
             try {
-                gUser = getFactory().sm.reg.get(null, "admin@", "[::1]", true);
+                gUser = getFactory().sm.reg.get(null, UserRegistry.ADMIN_EMAIL, "[::1]", true);
             } catch (SQLException e) {
                 handleException(e);
             } catch (LogoutException e) {

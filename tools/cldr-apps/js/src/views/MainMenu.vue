@@ -10,10 +10,10 @@
           <li><a href="#account///">Account Settings</a></li>
         </ul>
       </li>
-      <li>
+      <li v-if="!isAdmin && !accountLocked">
         <ul>
           <li>
-            <a href="lock.jsp" target="_blank">Lock (Disable) My Account </a>
+            <a href="#lock_account///">Lock (Disable) My Account </a>
           </li>
         </ul>
       </li>

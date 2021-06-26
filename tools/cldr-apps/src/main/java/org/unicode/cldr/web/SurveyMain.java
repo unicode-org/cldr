@@ -1223,7 +1223,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         ctx.print("<div style='float: right'><a class='notselected' href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | ");
         ctx.print("<a class='notselected' href='" + ctx.base() + "?letmein=" + vap
-            + "&amp;email=admin@'><b>Login as admin@</b></a> | ");
+            + "&amp;email=" + UserRegistry.ADMIN_EMAIL + "'><b>Login as " + UserRegistry.ADMIN_EMAIL + "</b></a> | ");
         ctx.print("<a class='" + (isDump ? "" : "not") + "selected' href='" + ctx.context("AdminPanel.jsp") + "?vap=" + vap
             + "'>Admin</a>");
         ctx.print(" | ");

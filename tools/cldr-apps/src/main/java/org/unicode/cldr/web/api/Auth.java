@@ -228,6 +228,64 @@ public class Auth {
             .build();
     }
 
+
+    @Path("/lock")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(
+        summary = "Lock (disable) account",
+        description = "Lock (disable, unsubscribe) the account of the user making the request.")
+    @APIResponses(
+        value = {
+            @APIResponse(
+                responseCode = "200",
+                description = "Locked OK",
+                content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = LoginResponse.class))),
+            @APIResponse(
+                responseCode = "403",
+                description = "Forbidden"),
+            @APIResponse(
+                responseCode = "404",
+                description = "Session not found"),
+            @APIResponse(
+                responseCode = "417",
+                description = "Invalid parameter"),
+            @APIResponse(
+                responseCode = "500",
+                description = "Failure"),
+        })
+    public Response lock(
+        @Context HttpServletRequest hreq,
+        @Context HttpServletResponse hresp,
+        LockRequest request) {
+
+        if (request.isEmpty()) {
+            return Response.status(417, "Missing parameter").build();
+        }
+        final CookieSession s = getSession(request.session);
+        if (s == null) {
+            return noSessionResponse();
+        } else if (!s.user.email.equals(request.email)) {
+            return Response.status(417, "Invalid parameter")
+                .entity(new STError("Mismatched E-mail parameter")).build();
+        } else if (request.email.equals(UserRegistry.ADMIN_EMAIL)) {
+            return Response.status(403, "Forbidden")
+                .entity(new STError("Cannot lock Admin")).build();
+        }
+        String lockResult = CookieSession.sm.reg.lockAccount(request.email, request.reason, WebContext.userIP(hreq));
+        if ("OK".equals(lockResult)) {
+            LoginResponse resp = createLoginResponse(s);
+            return Response.ok().entity(resp)
+                .header(SESSION_HEADER, request.session)
+                .build();
+        } else {
+            return Response.status(500, "Failure")
+                .entity(new STError(lockResult)).build();
+        }
+    }
+
     /**
      * Extract a CookieSession from a session string
      * @param session
@@ -247,3 +305,4 @@ public class Auth {
         return Response.status(Status.UNAUTHORIZED).build();
     }
 }
+

@@ -155,14 +155,12 @@ public class CheckForCopy extends FactoryCheckCLDR {
         }
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             value = cldrFile.getConstructedBaileyValue(path, null, null);
-        }
-        if (value == null) {
-            return Failure.ok;
-        }
-        if ("en".equals(loc) || loc.startsWith("en_")) {
-            if ("year".equals(value) || "month".equals(value) || "day".equals(value) || "hour".equals(value)) {
+            if (value == null) {
                 return Failure.ok;
             }
+        }
+        if (sameAsEnglishOK(loc, path, value)) {
+            return Failure.ok;
         }
         String value2 = value;
         if (isExplicitBailey) {
@@ -191,6 +189,19 @@ public class CheckForCopy extends FactoryCheckCLDR {
             }
         }
         return failure;
+    }
+
+    private static boolean sameAsEnglishOK(String loc, String path, String value) {
+        if (path.startsWith("//ldml/units/unitLength")
+            || path.startsWith("//ldml/characters/parseLenients")) {
+            return true;
+        }
+        if ("en".equals(loc) || loc.startsWith("en_")) {
+            if ("year".equals(value) || "month".equals(value) || "day".equals(value) || "hour".equals(value)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

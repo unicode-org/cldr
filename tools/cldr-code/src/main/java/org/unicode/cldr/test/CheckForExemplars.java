@@ -691,16 +691,16 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             scriptString.append("}");
         }
-        result
-        .add(new CheckStatus()
+        final String helpUrl = "http://cldr.unicode.org/translation/-core-data/exemplars#TOC-Handling-Warnings-in-Exemplar-characters";
+        final String message = "The characters \u200E{0}\u200E {1} {2}. "
+            + "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='"
+            + helpUrl
+            + "'>Exemplar Characters</a>.";
+        result.add(new CheckStatus()
             .setCause(this)
             .setMainType(warningVsError)
             .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
-            .setMessage(
-                "The characters \u200E{0}\u200E {1} {2}. "
-                    +
-                    "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Characters</a>.",
-                    new Object[] { fixedMissing, scriptString, qualifier }));
+            .setMessage(message, new Object[] { fixedMissing, scriptString, qualifier }));
     }
 
     static final Normalizer2 NFC = Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.COMPOSE);

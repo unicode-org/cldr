@@ -93,7 +93,7 @@ public class MailSender implements Runnable {
             return null;
         }
 
-        if (u.email.equals("admin@")) {
+        if (u.email.equals(UserRegistry.ADMIN_EMAIL)) {
             return null; // no mail to admin
         }
         return u.email;
@@ -344,7 +344,9 @@ public class MailSender implements Runnable {
         + "This email was generated automatically as part of the CLDR survey process\n"
         + "http://www.unicode.org/cldr\n"
         + "If you have any questions about it,\nplease contact your organization's CLDR Technical Committee member,\nor: surveytool at unicode.org\n"
-        + "TO UNSUBSCRIBE: You must permanently disable your account to stop receiving these emails. See: <http://st.unicode.org/cldr-apps/lock.jsp>";
+        + "TO UNSUBSCRIBE: You must permanently disable your account to stop receiving these emails."
+        + " In Survey Tool, log in and choose Lock My Account from the main menu."
+        + " You may request a password reset if needed.";
 
     private Properties getProperties() {
         CLDRConfig env = CLDRConfig.getInstance();

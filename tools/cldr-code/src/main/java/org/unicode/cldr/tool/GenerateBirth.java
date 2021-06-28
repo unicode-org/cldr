@@ -53,7 +53,7 @@ public class GenerateBirth {
     final static Options myOptions = new Options()
         .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
             "The target directory for building the text files that show the results.")
-        .add("log", ".*", CLDRPaths.AUX_DIRECTORY + "births/" + CldrVersion.trunk.getVersionInfo().getVersionString(2, 4),
+        .add("log", ".*", CLDRPaths.STAGING_DIRECTORY + "births/" + CldrVersion.trunk.getVersionInfo().getVersionString(2, 4),
             "The target directory for building the text files that show the results.")
         .add(
             "file",
@@ -139,39 +139,40 @@ public class GenerateBirth {
 
         File file = new File(dataDirectory + "/" + OutdatedPaths.OUTDATED_DATA);
         final String outputDataFile = PathUtilities.getNormalizedPathString(file);
-        System.out.println("Writing data: " + outputDataFile);
-        DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file));
-        dataOut.writeUTF(OutdatedPaths.FORMAT_KEY);
-
-        // Load and process all the locales
-
         TreeMap<String, Set<String>> localeToNewer = new TreeMap<>();
-        LanguageTagParser ltp = new LanguageTagParser();
-        for (String fileName : factories[0].getAvailable()) {
-            if (fileName.equals("en")) {
-                continue;
-            }
-            if (!ltp.set(fileName).getRegion().isEmpty()) {
-                continue; // skip region locales
-            }
-            // TODO skip default content locales
-            System.out.println(fileName);
-            Births other = new Births(fileName);
-            Set<String> newer = other.writeBirth(logDirectory, fileName, english);
 
-            dataOut.writeUTF(fileName);
-            dataOut.writeInt(newer.size());
-            for (String item : newer) {
-                long id = StringId.getId(item);
-                dataOut.writeLong(id);
-                if (DEBUG) {
-                    System.out.println(id + "\t" + item);
+        System.out.println("Writing data: " + outputDataFile);
+        try (DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file))) {
+            dataOut.writeUTF(OutdatedPaths.FORMAT_KEY);
+
+            // Load and process all the locales
+
+            LanguageTagParser ltp = new LanguageTagParser();
+            for (String fileName : factories[0].getAvailable()) {
+                if (fileName.equals("en")) {
+                    continue;
                 }
+                if (!ltp.set(fileName).getRegion().isEmpty()) {
+                    continue; // skip region locales
+                }
+                // TODO skip default content locales
+                System.out.println(fileName);
+                Births other = new Births(fileName);
+                Set<String> newer = other.writeBirth(logDirectory, fileName, english);
+
+                dataOut.writeUTF(fileName);
+                dataOut.writeInt(newer.size());
+                for (String item : newer) {
+                    long id = StringId.getId(item);
+                    dataOut.writeLong(id);
+                    if (DEBUG) {
+                        System.out.println(id + "\t" + item);
+                    }
+                }
+                localeToNewer.put(fileName, newer);
             }
-            localeToNewer.put(fileName, newer);
+            dataOut.writeUTF("$END$");
         }
-        dataOut.writeUTF("$END$");
-        dataOut.close();
 
         // Doublecheck the data
 
@@ -276,35 +277,35 @@ public class GenerateBirth {
         }
 
         public void writeBirthValues(String file) throws IOException {
-            DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file));
-            dataOut.writeUTF(OutdatedPaths.FORMAT_KEY);
-            System.out.println("Writing data: " + PathUtilities.getNormalizedPathString(file));
-            dataOut.writeInt(pathToBirthCurrentPrevious.size());
+            try (DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file))) {
+                dataOut.writeUTF(OutdatedPaths.FORMAT_KEY);
+                System.out.println("Writing data: " + PathUtilities.getNormalizedPathString(file));
+                dataOut.writeInt(pathToBirthCurrentPrevious.size());
 
-            // Load and process all the locales
+                // Load and process all the locales
 
-            //TreeMap<String, Set<String>> localeToNewer = new TreeMap<String, Set<String>>();
-            for (Entry<String, R3<CldrVersion, String, String>> entry : pathToBirthCurrentPrevious.entrySet()) {
-                String path = entry.getKey();
-                R3<CldrVersion, String, String> birthCurrentPrevious = entry.getValue();
-                CldrVersion birth = birthCurrentPrevious.get0();
-                String current = birthCurrentPrevious.get1();
-                String previous = birthCurrentPrevious.get2();
-                long id = StringId.getId(path);
-                dataOut.writeLong(id);
-                final String previousString = previous == null ? OutdatedPaths.NO_VALUE : previous;
-                dataOut.writeUTF(previousString);
-                if (previous == null) {
-                    emptyPrevious.add(path);
+                //TreeMap<String, Set<String>> localeToNewer = new TreeMap<String, Set<String>>();
+                for (Entry<String, R3<CldrVersion, String, String>> entry : pathToBirthCurrentPrevious.entrySet()) {
+                    String path = entry.getKey();
+                    R3<CldrVersion, String, String> birthCurrentPrevious = entry.getValue();
+                    CldrVersion birth = birthCurrentPrevious.get0();
+                    String current = birthCurrentPrevious.get1();
+                    String previous = birthCurrentPrevious.get2();
+                    long id = StringId.getId(path);
+                    dataOut.writeLong(id);
+                    final String previousString = previous == null ? OutdatedPaths.NO_VALUE : previous;
+                    dataOut.writeUTF(previousString);
+                    if (previous == null) {
+                        emptyPrevious.add(path);
+                    }
+                    dataOut.writeUTF(birth.toString());
+                    if (true) {
+                        System.out.println(id + "\t" + birth + "\t«" + current + "⇐" + previous + "»");
+                    }
                 }
-                dataOut.writeUTF(birth.toString());
-                if (true) {
-                    System.out.println(id + "\t" + birth + "\t«" + current + "⇐" + previous + "»");
-                }
+                dataOut.writeUTF("$END$");
+                emptyPrevious = Collections.unmodifiableSet(emptyPrevious);
             }
-            dataOut.writeUTF("$END$");
-            dataOut.close();
-            emptyPrevious = Collections.unmodifiableSet(emptyPrevious);
         }
 
         Set<String> writeBirth(PrintWriter out, Births onlyNewer) {
@@ -367,10 +368,10 @@ public class GenerateBirth {
         }
 
         Set<String> writeBirth(String directory, String filename, Births onlyNewer) throws IOException {
-            PrintWriter out = FileUtilities.openUTF8Writer(directory, filename + ".txt");
-            Set<String> newer = writeBirth(out, onlyNewer);
-            out.close();
-            return newer;
+            try (PrintWriter out = FileUtilities.openUTF8Writer(directory, filename + ".txt")) {
+                Set<String> newer = writeBirth(out, onlyNewer);
+                return newer;
+            }
         }
     }
 }

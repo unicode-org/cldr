@@ -441,8 +441,7 @@ public class ConsoleCheckCLDR {
             throw new IllegalArgumentException("The filter doesn't match any tests.");
         }
         System.out.println("filtered tests: " + checkCldr.getFilteredTests());
-        Factory backCldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, factoryFilter)
-            .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
+        Factory backCldrFactory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
         english = backCldrFactory.make("en", true);
 
         CheckCLDR.setDisplayInformation(english);

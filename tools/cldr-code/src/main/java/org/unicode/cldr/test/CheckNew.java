@@ -66,12 +66,13 @@ public class CheckNew extends FactoryCheckCLDR {
 
         String englishValue = getEnglishFile().getStringValue(path);
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
+        if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
 
         result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
             .setSubtype(Subtype.modifiedEnglishValue)
             .setMessage("The English value for this field changed from “{0}” to “{1}’, but the corresponding value for your locale didn't change.",
                 oldEnglishValue, englishValue));
-
+        }
         return this;
     }
 

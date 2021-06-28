@@ -61,7 +61,7 @@ public class CLDRPaths {
     public static final String SEED_ANNOTATIONS_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY1, ANNOTATIONS_SUBDIR);
 
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/" + MAIN_SUBDIR);
-    public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/births/");
+    public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/births");
 
     public static final String CHART_DIRECTORY = CldrUtility.getPath(STAGING_DIRECTORY + "docs/charts/", ToolConstants.CHART_VERSION);
     public static final String VERIFY_DIR = CLDRPaths.CHART_DIRECTORY + "verify/";

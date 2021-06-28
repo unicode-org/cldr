@@ -51,6 +51,7 @@ import com.ibm.icu.lang.UCharacter;
  * @see UserRegistry.User
  **/
 public class UserRegistry {
+    public static final String ADMIN_EMAIL = "admin@";
 
     /**
      * The number of anonymous users, ANONYMOUS_USER_COUNT, limits the number of distinct values that
@@ -721,7 +722,7 @@ public class UserRegistry {
             (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
         s.execute(sql);
         sql = ("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " + "VALUES(" + ADMIN + "," + "'admin',"
-            + "'SurveyTool'," + "'admin@'," + "'" + SurveyMain.vap + "')");
+            + "'SurveyTool'," + "'" + ADMIN_EMAIL + "'," + "'" + SurveyMain.vap + "')");
         s.execute(sql);
         sql = null;
         SurveyLog.debug("DB: added user Admin");
@@ -854,7 +855,7 @@ public class UserRegistry {
 
     public final UserRegistry.User get(String pass, String email, String ip) throws LogoutException {
         boolean letmein = false;
-        if ("admin@".equals(email) && SurveyMain.vap.equals(pass)) {
+        if (ADMIN_EMAIL.equals(email) && SurveyMain.vap.equals(pass)) {
             letmein = true;
         }
         return get(pass, email, ip, letmein);
@@ -1384,6 +1385,14 @@ public class UserRegistry {
         return msg;
     }
 
+    /**
+     * Lock (disable, unsubscribe) the specified account
+     *
+     * @param forEmail the E-mail address for the account
+     * @param reason a string explaining the reason for locking
+     * @param ip the current user's IP address
+     * @return "OK" for success or other message for failure
+     */
     public String lockAccount(String forEmail, String reason, String ip) {
         String msg = "";
         User u = this.get(forEmail);
@@ -1400,8 +1409,8 @@ public class UserRegistry {
         try {
             conn = DBUtils.getInstance().getDBConnection();
 
-            updateInfoStmt = DBUtils.prepareStatementWithArgs(conn, "UPDATE " + CLDR_USERS + " set password=?,userlevel=" + LOCKED
-                + ",  audit=? WHERE email=? AND userlevel <" + LOCKED + "  AND userlevel >= " + TC,
+            updateInfoStmt = DBUtils.prepareStatementWithArgs(conn, "UPDATE " + CLDR_USERS + " SET password=?,userlevel=" + LOCKED
+                + ", audit=? WHERE email=? AND userlevel <" + LOCKED + " AND userlevel >= " + TC,
                 newPassword,
                 "Lock: " + new Date().toString() + " by " + ip + ":" + reason,
                 forEmail);
@@ -1411,21 +1420,21 @@ public class UserRegistry {
             conn.commit();
             userModified(forEmail);
             if (n == 0) {
-                msg = msg + "Error: no valid accounts found";
+                msg = "Error: no valid accounts found";
                 logger.severe("Error in LOCK:: 0 users updated.");
             } else if (n != 1) {
-                msg = msg + " [Error in updated users!] ";
+                msg = "[Error in updated users!] ";
                 logger.severe("Error in LOCK: " + n + " updated removed!");
             } else {
-                msg = msg + "OK";
+                msg = "OK"; /* must be exactly "OK"! */
                 MailSender.getInstance().queue(null, 1, "User Locked: " + forEmail, "User account locked: " + ip + " reason=" + reason + " - " + u);
             }
         } catch (SQLException se) {
             SurveyLog.logException(logger, se, "Locking account for user " + forEmail + " from " + ip);
-            msg = msg + " exception";
+            msg += " SQL Exception";
         } catch (Throwable t) {
             SurveyLog.logException(logger, t, "Locking account for user " + forEmail + " from " + ip);
-            msg = msg + " exception: " + t.toString();
+            msg += " Exception: " + t.toString();
         } finally {
             DBUtils.close(updateInfoStmt, conn);
         }

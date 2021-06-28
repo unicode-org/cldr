@@ -82,9 +82,6 @@ export default {
       coverageMenu: null,
       coverageTitle: null,
       email: null,
-      loggedIn: false,
-      logLink: null,
-      logText: null,
       org: null,
       orgCoverage: null,
       sessionMessage: null,
@@ -138,8 +135,6 @@ export default {
       if (user) {
         this.email = user.email;
         this.org = user.org;
-        this.logLink = cldrStatus.getContextPath() + "/survey?do=logout";
-        this.logText = "Log out";
         this.userName = user.name;
         this.voteCountMenu = user.voteCountMenu;
         if (!this.voteLevelChanged) {
@@ -148,8 +143,6 @@ export default {
       } else {
         this.email = null;
         this.org = null;
-        this.logLink = cldrStatus.getContextPath() + "/login.jsp";
-        this.logText = "Log in";
         this.userName = null;
         this.voteCountMenu = null;
         this.voteLevelChanged = 0;

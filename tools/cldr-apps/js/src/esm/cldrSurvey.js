@@ -148,7 +148,6 @@ function busted() {
   cldrDom.addClass(document.getElementsByTagName("body")[0], "disconnected");
 }
 
-// referenced in cldrGui.js but not actually called yet for non-dojo, due to data-dojo-props dependency
 function unbust() {
   didUnbust = true;
   console.log("Un-busting");

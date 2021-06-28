@@ -443,6 +443,7 @@ const strings = {
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",
+  special_lock_account: "Lock (Disable) My Account",
   special_lookup: "Look up a code or xpath",
   special_mail: "Notifications (SMOKETEST ONLY)",
   special_menu: "☰",
@@ -460,6 +461,23 @@ const strings = {
   special_vetting_participation2: "Vetting Participation v2",
   special_vsummary: "Priority Items Summary (slow)",
   special_test_panel: "Experimental Test Panel",
+
+  lock_account_admin: "The Admin account cannot be locked.",
+  lock_account_login:
+    "To lock (unsubscribe and disable) your account, first log in. You may request a password reset if needed.",
+  lock_account_caution:
+    "You are requesting to lock (disable) your Survey Tool account permanently. All of your votes will be ignored. Are you absolutely sure you wish to do this?",
+  lock_account_instruction:
+    "To <em>permanently disable</em> your account, please fill in the following information, then press the button below.",
+  lock_account_sum: "The sum of ${0} and ${1}",
+  lock_account_email: "Your E-mail address",
+  lock_account_reason: "The reason for the account lock request",
+  lock_account_button: "Permanently lock my account",
+  lock_account_err_email: "The E-mail address must match exactly.",
+  lock_account_err_math: "Sorry, that answer to the math question was wrong.",
+  lock_account_err_reason: "The reason for the request must be filled in.",
+  lock_account_success:
+    "The account has been locked successfully. Thank you for using the Survey Tool. If you have difficulty still, contact the person who set up your account.",
 };
 
 /**

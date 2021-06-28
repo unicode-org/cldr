@@ -141,7 +141,7 @@ public class GenerateMaximalLocales {
         "fub_Arab_CM",
         "fuf_Latn_GN",
         "kby_Arab_NE",
-        "kdh_Arab_TG",
+        "kdh_Latn_TG",
         "apd_Arab_TG",
         "zlm_Latn_TG",
 

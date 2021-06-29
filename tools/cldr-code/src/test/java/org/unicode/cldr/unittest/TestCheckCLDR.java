@@ -479,8 +479,8 @@ public class TestCheckCLDR extends TestFmwk {
         // * check the data files to ensure that it is in fact outdated.
         // * change the path to that value
 
-        String locale = "fr";
-        String path = "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]";
+        String locale = "de";
+        String path = "//ldml/localeDisplayNames/languages/language[@type=\"mi\"]";
         CheckCLDR c = new CheckNew(testInfo.getCommonAndSeedAndMainAndAnnotationsFactory());
         List<CheckStatus> result = new ArrayList<>();
         Map<String, String> options = new HashMap<>();
@@ -492,7 +492,7 @@ public class TestCheckCLDR extends TestFmwk {
             }
             assertEquals(
                 null,
-                "The English value for this field changed from “Macau” to “Macao’, but the corresponding value for your locale didn't change.",
+                "In CLDR baseline the English value for this field changed from “Maori” to “Māori”, but the corresponding value for your locale didn't change.",
                 status.getMessage());
             return;
         }

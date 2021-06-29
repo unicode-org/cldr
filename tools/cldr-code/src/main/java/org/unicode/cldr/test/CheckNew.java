@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 
@@ -67,11 +68,11 @@ public class CheckNew extends FactoryCheckCLDR {
         String englishValue = getEnglishFile().getStringValue(path);
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
         if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
-
-        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-            .setSubtype(Subtype.modifiedEnglishValue)
-            .setMessage("The English value for this field changed from “{0}” to “{1}’, but the corresponding value for your locale didn't change.",
-                oldEnglishValue, englishValue));
+            CldrVersion birth = outdatedPaths.getEnglishBirth(path);
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                .setSubtype(Subtype.modifiedEnglishValue)
+                .setMessage("In CLDR {2} the English value for this field changed from “{0}” to “{1}”, but the corresponding value for your locale didn't change.",
+                    oldEnglishValue, englishValue, birth.toString()));
         }
         return this;
     }

@@ -948,7 +948,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
             if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {
-                r.setTrunk(currentValue, currentStatus);
+                r.setBaseline(currentValue, currentStatus);
                 r.add(currentValue);
             }
 

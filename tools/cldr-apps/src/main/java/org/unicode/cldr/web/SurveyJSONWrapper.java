@@ -116,7 +116,7 @@ public final class SurveyJSONWrapper {
     public static JSONObject wrap(final VoteResolver<String> r) throws JSONException {
         JSONObject ret = new JSONObject()
             .put("raw", r.toString()) /* "raw" is only used for debugging (stdebug_enabled) */
-            .put("requiredVotes", r.getAdjustedRequiredVotes());
+            .put("requiredVotes", r.getRequiredVotes());
 
         EnumSet<Organization> conflictedOrgs = r.getConflictedOrganizations();
 

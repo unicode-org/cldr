@@ -70,17 +70,17 @@ public class Race {
     }
 
     /**
-     * Get the last release xpath
+     * Get the baseline xpath
      */
     public String getBaselineValue() {
-        return resolver.getTrunkValue();
+        return resolver.getBaselineValue();
     }
 
     /**
-     * Get the last release status
+     * Get the baseline status
      */
     public org.unicode.cldr.util.VoteResolver.Status getBaselineStatus() {
-        return resolver.getTrunkStatus();
+        return resolver.getBaselineStatus();
     }
 
     public String resolverToString() {

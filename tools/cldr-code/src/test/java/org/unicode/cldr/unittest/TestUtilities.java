@@ -77,6 +77,9 @@ public class TestUtilities extends TestFmwkPlus {
         .getSupplementalDataInfo();
     private static final int STRING_ID_TEST_COUNT = 1024 * 16;
 
+    final int ONE_VETTER_BAR = Level.vetter.getVotes();
+    final int TWO_VETTER_BAR = 2 * ONE_VETTER_BAR;
+
     public static void main(String[] args) {
         new TestUtilities().run(args);
     }
@@ -378,7 +381,7 @@ public class TestUtilities extends TestFmwkPlus {
         VoteResolver<String> resolver = new VoteResolver<>();
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
 
-        resolver.setTrunk("new-item", Status.approved);
+        resolver.setBaseline("new-item", Status.approved);
         assertEquals("", "new-item", resolver.getWinningValue());
 
         /*
@@ -393,7 +396,7 @@ public class TestUtilities extends TestFmwkPlus {
         VoteResolver<String> resolver = new VoteResolver<>();
         resolver.setLocale(CLDRLocale.getInstance("jgo"), null);
         final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
-        resolver.setTrunk(jgo22trunk, Status.approved); // seed/jgo.xml from 22
+        resolver.setBaseline(jgo22trunk, Status.approved); // seed/jgo.xml from 22
         // trunk
         logln("SVN: " + jgo22trunk);
         logln(resolver.toString());
@@ -406,7 +409,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
         resolver.add("fii", toVoterId("adobeE"));
         resolver.add("fii", toVoterId("appleV"));
         VoteStatus voteStatus;
@@ -423,7 +426,7 @@ public class TestUtilities extends TestFmwkPlus {
         }
         resolver.clear();
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk(s1, Status.approved);
+        resolver.setBaseline(s1, Status.approved);
         resolver.add(s2, toVoterId("appleV"));
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
@@ -441,7 +444,7 @@ public class TestUtilities extends TestFmwkPlus {
         VoteResolver<String> resolver = new VoteResolver<>();
 
         resolver.setLocale(CLDRLocale.getInstance("af"), null);
-        resolver.setTrunk("BQ", Status.missing);
+        resolver.setBaseline("BQ", Status.missing);
         VoteStatus status = resolver
             .getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.provisionalOrWorse, status);
@@ -465,7 +468,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
         // resolver.setLastRelease("Arabisch", Status.approved);
-        resolver.setTrunk("Arabisch", Status.approved);
+        resolver.setBaseline("Arabisch", Status.approved);
         status = resolver.getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.ok_novotes, status);
     }
@@ -478,7 +481,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
-        resolver.setTrunk("foo", oldStatus);
+        resolver.setBaseline("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
 
@@ -491,7 +494,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
-        resolver.setTrunk("foo", oldStatus);
+        resolver.setBaseline("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("zebra", toVoterId("googleS"));
         resolver.add("apple", toVoterId("appleV"));
@@ -511,7 +514,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("mt"), null);
-        resolver.setTrunk("foo", oldStatus);
+        resolver.setBaseline("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"));
         assertEquals("", "zebra", resolver.getWinningValue()); // TC vote of 20
@@ -522,7 +525,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("mt"), null);
-        resolver.setTrunk("foo", oldStatus);
+        resolver.setBaseline("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"));
         resolver.add("aardvark", toVoterId("ibmE"));
@@ -536,7 +539,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("mt"), null);
-        resolver.setTrunk("foo", oldStatus);
+        resolver.setBaseline("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
         // reduced
@@ -554,7 +557,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("mt"), null);
-        resolver.setTrunk("foo", oldStatus);
+        resolver.setBaseline("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
         resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
         // reduced
@@ -577,7 +580,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
-        resolver.setTrunk("foo", oldStatus);
+        resolver.setBaseline("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
 
@@ -589,7 +592,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
         counts = resolver.getResolvedVoteCounts();
@@ -599,7 +602,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleS"));
         counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());
@@ -607,11 +610,12 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     private void verifyRequiredVotes(VoteResolver<String> resolver, String locale,
-        String xpath, int required) {
+        String xpath, Status baselineStatus, int required) {
         StringBuilder sb = new StringBuilder();
         sb.append("Locale: " + locale);
         resolver.clear();
         resolver.setBaileyValue("bailey");
+        resolver.setBaseline("foo", baselineStatus);
         PathHeader ph = null;
         if (xpath != null) {
             sb.append(" XPath: " + xpath);
@@ -625,70 +629,57 @@ public class TestUtilities extends TestFmwkPlus {
     public void TestRequiredVotes() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<>();
-
-        verifyRequiredVotes(
-            resolver,
-            "mt",
+        verifyRequiredVotes(resolver, "mt",
             "//ldml/localeDisplayNames/languages/language[@type=\"fr_CA\"]",
-            4);
-        verifyRequiredVotes(
-            resolver,
-            "fr",
+            Status.missing, ONE_VETTER_BAR);
+        verifyRequiredVotes(resolver, "fr",
             "//ldml/localeDisplayNames/languages/language[@type=\"fr_CA\"]",
-            8);
-
-        assertEquals("VoteResolver.HIGH_BAR", VoteResolver.HIGH_BAR, 20);
+            Status.provisional, TWO_VETTER_BAR);
         verifyRequiredVotes(resolver, "es",
             "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group",
-            VoteResolver.HIGH_BAR); // == 20
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "es",
             "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal",
-            VoteResolver.HIGH_BAR);
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "hi",
             "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal",
-            VoteResolver.HIGH_BAR);
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "hi",
             "//ldml/numbers/symbols[@numberSystem=\"deva\"]/group",
-            VoteResolver.HIGH_BAR);
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "ast",
-            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal", 4);
-        verifyRequiredVotes(resolver, "mt",
-            "//ldml/characters/exemplarCharacters", VoteResolver.HIGH_BAR);
+            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal",
+            Status.approved, ONE_VETTER_BAR);
         verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters",
-            VoteResolver.HIGH_BAR);
+            Status.approved, VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "mt",
+            "//ldml/characters/exemplarCharacters",
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
-            VoteResolver.HIGH_BAR);
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters[@type=\"numbers\"]",
-            VoteResolver.HIGH_BAR);
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters[@type=\"punctuation\"]",
-            VoteResolver.HIGH_BAR);
+            Status.approved, VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters[@type=\"index\"]",
-            VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(
-            resolver,
-            "es",
+            Status.approved, VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "es",
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sun\"]",
-            VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(
-            resolver,
-            "ast",
+            Status.approved, VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "ast",
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sun\"]",
-            4);
-        verifyRequiredVotes(
-            resolver,
-            "es",
+            Status.approved, ONE_VETTER_BAR);
+        verifyRequiredVotes(resolver, "es",
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]",
-            VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(
-            resolver,
-            "ast",
+            Status.provisional, VoteResolver.LOWER_BAR);
+        verifyRequiredVotes(resolver, "ast",
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]",
-            4);
+            Status.approved, ONE_VETTER_BAR);
     }
 
     /**
@@ -701,8 +692,8 @@ public class TestUtilities extends TestFmwkPlus {
         final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
         for (String locale : SubmissionLocales.CLDR_LOCALES) {
             if (locale.contains("_")) {
-                int expectedRequiredVotes = eightVoteSublocales.contains(locale) ? 8 : 4;
-                verifyRequiredVotes(resolver, locale, path, expectedRequiredVotes);
+                int expectedRequiredVotes = eightVoteSublocales.contains(locale) ? TWO_VETTER_BAR : ONE_VETTER_BAR;
+                verifyRequiredVotes(resolver, locale, path, Status.approved, expectedRequiredVotes);
             }
         }
     }
@@ -875,7 +866,7 @@ public class TestUtilities extends TestFmwkPlus {
                 // load the resolver
                 resolver.setBaileyValue(baileyValue);
                 resolver.setLocale(CLDRLocale.getInstance(locale), null);
-                resolver.setTrunk(oldValue, oldStatus);
+                resolver.setBaseline(oldValue, oldStatus);
                 for (int voter : values.keySet()) {
                     resolver.add(values.get(voter), voter);
                 }
@@ -1241,7 +1232,7 @@ public class TestUtilities extends TestFmwkPlus {
                 // load the resolver
                 resolver.setBaileyValue(baileyValue);
                 resolver.setLocale(CLDRLocale.getInstance(locale), null);
-                resolver.setTrunk(oldValue, oldStatus);
+                resolver.setBaseline(oldValue, oldStatus);
                 for (int voteEntry : valuesMap.keySet()) {
 
                     resolver.add(valuesMap.get(voteEntry).getValue(), valuesMap.get(voteEntry).getVoter());
@@ -1277,7 +1268,7 @@ public class TestUtilities extends TestFmwkPlus {
          */
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add("bailey", TestUser.ibmV.voterId);
@@ -1291,7 +1282,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
 
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
@@ -1305,7 +1296,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
@@ -1320,7 +1311,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
@@ -1333,7 +1324,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add("not-bailey", TestUser.ibmV.voterId);
@@ -1350,7 +1341,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
-        resolver.setTrunk("foo", Status.approved);
+        resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.googleV.voterId);
         resolver.add("bailey", TestUser.appleV.voterId);

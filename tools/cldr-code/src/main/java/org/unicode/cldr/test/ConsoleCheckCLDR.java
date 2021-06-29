@@ -885,7 +885,7 @@ public class ConsoleCheckCLDR {
 
                     CandidateInfo candidateInfo = itemInfo.get(item);
                     if (candidateInfo.oldStatus != null) {
-                        voteResolver.setTrunk(itemValue, candidateInfo.oldStatus);
+                        voteResolver.setBaseline(itemValue, candidateInfo.oldStatus);
                     }
                     voteResolver.add(itemValue);
                     for (int voter : candidateInfo.voters) {

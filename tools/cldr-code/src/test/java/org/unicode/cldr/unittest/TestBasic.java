@@ -1321,7 +1321,7 @@ public class TestBasic extends TestFmwkPlus {
             }
 
             for (CldrVersion version : CldrVersion.CLDR_VERSIONS_DESCENDING) {
-                if (version == CldrVersion.unknown || version == CldrVersion.trunk) {
+                if (version == CldrVersion.unknown || version == CldrVersion.baseline) {
                     continue;
                 }
                 DtdData dtdDataOld;

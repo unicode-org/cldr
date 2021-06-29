@@ -28,7 +28,7 @@ public enum CldrVersion {
     v1_1_1, v1_2, v1_3, v1_4_1, v1_5_1, v1_6_1, v1_7_2, v1_8_1, v1_9_1, v2_0_1,
     v21_0, v22_1, v23_1, v24_0, v25_0, v26_0, v27_0, v28_0, v29_0, v30_0, v31_0, v32_0, v33_0, v33_1, v34_0,
     v35_0, v35_1, v36_0, v36_1, v37_0, v38_0, v38_1, v39_0,
-    trunk;
+    baseline;
 
     private final String baseDirectory;
     private final String dotName;
@@ -83,7 +83,7 @@ public enum CldrVersion {
             dotName = oldName;
             baseDirectory = CLDRPaths.BASE_DIRECTORY;
             SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-            versionInfo = "trunk".equals(oldName) ? sdi.getCldrVersion() : VersionInfo.getInstance(0);
+            versionInfo = "baseline".equals(oldName) ? sdi.getCldrVersion() : VersionInfo.getInstance(0);
         }
     }
 
@@ -133,7 +133,7 @@ public enum CldrVersion {
         Set<VersionInfo> allTc = new TreeSet<>();
         Set<VersionInfo> missingEnums = new TreeSet<>();
         Set<CldrVersion> extraEnums = EnumSet.copyOf(CLDR_VERSIONS_ASCENDING);
-        extraEnums.remove(CldrVersion.trunk);
+        extraEnums.remove(CldrVersion.baseline);
         extraEnums.remove(CldrVersion.unknown);
 
         for (String subdir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {

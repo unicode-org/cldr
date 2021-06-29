@@ -19,9 +19,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -33,27 +33,26 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringId;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.VersionInfo;
 
 public class GenerateBirth {
     private static boolean DEBUG = false;
 
-    private static final List<CldrVersion> VERSIONS_WITH_TRUNK_DESCENDING = CldrVersion.CLDR_VERSIONS_DESCENDING;
+    static CldrVersion[] VERSIONS;
 
-    static final CldrVersion[] VERSIONS = VERSIONS_WITH_TRUNK_DESCENDING.toArray(
-        new CldrVersion[VERSIONS_WITH_TRUNK_DESCENDING.size()]); // hack for now; should change to list
-
-    static final Factory[] factories = new Factory[VERSIONS.length - 1]; // hack for now; should change to list
+    static Factory[] factories;
 
     final static Options myOptions = new Options()
         .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
             "The target directory for building the text files that show the results.")
-        .add("log", ".*", CLDRPaths.STAGING_DIRECTORY + "births/" + CldrVersion.trunk.getVersionInfo().getVersionString(2, 4),
+        .add("log", ".*", CLDRPaths.STAGING_DIRECTORY + "births/" + CldrVersion.baseline.getVersionInfo().getVersionString(2, 4),
             "The target directory for building the text files that show the results.")
         .add(
             "file",
@@ -61,22 +60,42 @@ public class GenerateBirth {
             ".*",
             "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
         .add("previous", "Stop after writing the English previous data.")
+        .add("oldest",
+            "\\d+(\\.\\d+)?",
+            "36.0",
+            "Oldest version to go back to, eg 36.1")
         .add("debug", "Debug");
 
     public static void main(String[] args) throws IOException {
         System.out.println("Run TestOutdatedPaths.java -v to see a listing of changes.");
         myOptions.parse(args, true);
+        DEBUG = myOptions.get("debug").doesOccur();
+
         try {
             CldrVersion.checkVersions(); // verify versions up to date
         } catch (Exception e) {
             throw new ICUException("This tool can only be run if the archive of released versions matching CldrVersion is available.", e);
         }
 
-        // set up the CLDR Factories
+        // generate the list for as far as we want to go back
 
-        DEBUG = myOptions.get("debug").doesOccur();
+        VersionInfo oldest = VersionInfo.getInstance(myOptions.get("oldest").getValue());
+        List<CldrVersion> versions = new ArrayList<>();
+        boolean foundStart = false;
+        for (CldrVersion version : CldrVersion.CLDR_VERSIONS_DESCENDING) {
+            versions.add(version);
+           if (version.getVersionInfo() == oldest) {
+               foundStart = true;
+               break;
+           }
+        }
+        if (!foundStart) {
+            throw new IllegalArgumentException("The last version is " + myOptions.get("oldest").getValue() + "; it must be in: " + Joiner.on(", ").join(CldrVersion.CLDR_VERSIONS_DESCENDING));
+        }
+        VERSIONS = versions.toArray(new CldrVersion[versions.size()]);
 
-        final CLDRConfig config = CLDRConfig.getInstance();
+        // set up the CLDR Factories for each version
+        factories = new Factory[VERSIONS.length]; // hack for now; should change to list
 
         String filePattern = myOptions.get("file").getValue();
 
@@ -86,10 +105,6 @@ public class GenerateBirth {
                 continue;
             }
             List<File> paths = version.getPathsForFactory();
-//            String base = version.getBaseDirectory();
-//            File[] paths = version.compareTo(CldrVersion.v27_0) > 0 ? // warning, order is reversed
-//                new File[] { new File(base + "common/main/") } :
-//                    new File[] { new File(base + "common/main/"), new File(base + "common/annotations/") };
 
             System.out.println(version + ", " + paths);
             Factory aFactory = SimpleFactory.make(paths.toArray(new File[paths.size()]), filePattern);
@@ -221,10 +236,14 @@ public class GenerateBirth {
 
         Births(String file) {
             locale = file;
+
             CLDRFile[] files = new CLDRFile[factories.length];
+            DisplayAndInputProcessor[] processors = new DisplayAndInputProcessor[factories.length];
+
             for (int i = 0; i < factories.length; ++i) {
                 try {
                     files[i] = factories[i].make(file, false);
+                    processors[i] = new DisplayAndInputProcessor(files[i], false);
                 } catch (Exception e) {
                     // stop when we fail to find
                     System.out.println("Stopped at " + file + ", " + CldrVersion.CLDR_VERSIONS_DESCENDING.get(i));
@@ -239,12 +258,13 @@ public class GenerateBirth {
                 if (xpath.contains("[@type=\"ar\"]")) {
                     int debug = 0;
                 }
-                String base = files[0].getStringValue(xpath);
+                String base = getProcessedStringValue(0, xpath, files, processors);
+
                 String previousValue = null;
                 int i;
                 CLDRFile lastFile = files[0];
                 for (i = 1; i < files.length && files[i] != null; ++i) {
-                    String previous = files[i].getStringValue(xpath);
+                    String previous = getProcessedStringValue(i, xpath, files, processors);
                     if (previous == null) {
                         previous = OutdatedPaths.NO_VALUE; // fixNullPrevious(xpath);
                     }
@@ -260,6 +280,14 @@ public class GenerateBirth {
                 birthToPaths.put(version, xpath);
                 pathToBirthCurrentPrevious.put(xpath, Row.of(version, base, previousValue));
             }
+        }
+
+        public String getProcessedStringValue(int fileNumber, String xpath, CLDRFile[] files, DisplayAndInputProcessor[] processors) {
+            String base = files[fileNumber].getStringValue(xpath);
+            if (base != null) {
+                base = processors[fileNumber].processInput(xpath, base, null);
+            }
+            return base;
         }
 
         private String fixNullPrevious(String xpath) {

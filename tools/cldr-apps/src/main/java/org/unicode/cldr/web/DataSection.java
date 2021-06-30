@@ -663,8 +663,8 @@ public class DataSection implements JSONString {
             winningValue = resolver.getWinningValue();
             confirmStatus = resolver.getWinningStatus();
 
-            baselineValue = resolver.getTrunkValue();
-            baselineStatus = resolver.getTrunkStatus();
+            baselineValue = resolver.getBaselineValue();
+            baselineStatus = resolver.getBaselineStatus();
 
             this.displayName = translationHintsFile.getStringValue(xpath);
         }

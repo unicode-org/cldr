@@ -2898,10 +2898,16 @@ public class SupplementalDataInfo {
     volatile List<ApprovalRequirementMatcher> approvalMatchers = null;
 
     /**
-     * Only called by VoteResolver.
-     * @param loc
-     * @param PathHeader - which path this is applied to, or null if unknown.
-     * @return
+     * Get the preliminary number of required votes based on the given locale and PathHeader
+     *
+     * Important: this number may not agree with VoteResolver.getRequiredVotes
+     * since VoteResolver also takes the baseline status into account.
+     *
+     * Called by VoteResolver, ShowStarredCoverage, TestCoverage, and TestCoverageLevel.
+     *
+     * @param loc the CLDRLocale
+     * @param ph the PathHeader - which path this is applied to, or null if unknown.
+     * @return a number such as 4 or 8
      */
     public int getRequiredVotes(CLDRLocale loc, PathHeader ph) {
         if (approvalMatchers == null) {

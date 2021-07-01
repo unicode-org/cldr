@@ -3440,12 +3440,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
                 Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
                 Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
-                Collection<Count> adjustedPlurals = GrammarInfo.NON_COMPUTABLE_PLURALS.get(locale);
-                if (adjustedPlurals.isEmpty()) {
-                    adjustedPlurals = pluralCounts;
-                } else {
-                    int debug = 0;
-                }
+                Collection<Count> adjustedPlurals = pluralCounts;
+                // There was code here allowing fewer plurals to be used, but is retracted for now (needs more thorough integration in logical groups, etc.)
+                // This note is left for 'blame' to find the old code in case we revive that.
 
                 // TODO use UnitPathType to get paths
                 if (!genders.isEmpty()) {

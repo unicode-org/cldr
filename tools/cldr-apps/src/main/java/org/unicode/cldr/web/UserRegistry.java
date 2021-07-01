@@ -361,7 +361,11 @@ public class UserRegistry {
          */
         public LocaleSet getInterestLocales() {
             if (interestLocalesSet == null) {
-                interestLocalesSet = LocaleNormalizer.setFromStringQuietly(intlocs, null);
+                if (userIsManagerOrStronger(this)) {
+                    interestLocalesSet = LocaleNormalizer.setFromStringQuietly(intlocs, null);
+                } else {
+                    interestLocalesSet = LocaleNormalizer.setFromStringQuietly(locales, null);
+                }
             }
             return interestLocalesSet;
         }
@@ -1056,13 +1060,16 @@ public class UserRegistry {
         if (user == null) {
             return "";
         }
-
+        logger.finer("uil: remove for user " + id);
         removeIntLoc.setInt(1, id);
         removeIntLoc.executeUpdate();
 
         LocaleSet intLocSet = user.getInterestLocales();
+        logger.finer("uil: intlocs " + id + " = " + intLocSet.toString());
         if (intLocSet != null && !intLocSet.isAllLocales()) {
             for (CLDRLocale loc : intLocSet.getSet()) {
+                logger.finer("uil: intlocs " + id + " + " + loc.toString());
+                updateIntLoc.setInt(1, id);
                 updateIntLoc.setString(2, loc.getLanguage());
                 updateIntLoc.executeUpdate();
             }

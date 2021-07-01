@@ -227,6 +227,7 @@ public class GenerateBirth {
     }
 
     static class Births {
+        private static final boolean USE_RESOLVED = false;
         final Relation<CldrVersion, String> birthToPaths;
         final Map<String, Row.R3<CldrVersion, String, String>> pathToBirthCurrentPrevious;
         final String locale;
@@ -242,7 +243,7 @@ public class GenerateBirth {
 
             for (int i = 0; i < factories.length; ++i) {
                 try {
-                    files[i] = factories[i].make(file, false);
+                    files[i] = factories[i].make(file, USE_RESOLVED);
                     processors[i] = new DisplayAndInputProcessor(files[i], false);
                 } catch (Exception e) {
                     // stop when we fail to find

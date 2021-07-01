@@ -27,6 +27,7 @@ import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.test.CheckNew;
+import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
@@ -479,24 +480,47 @@ public class TestCheckCLDR extends TestFmwk {
         // * check the data files to ensure that it is in fact outdated.
         // * change the path to that value
 
-        String locale = "de";
-        String path = "//ldml/localeDisplayNames/languages/language[@type=\"mi\"]";
+        checkCheckNew("de", "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"duration-century\"]/displayName",
+            "");
+        checkCheckNew("de", "//ldml/localeDisplayNames/languages/language[@type=\"mi\"]",
+            "In CLDR baseline the English value for this field changed from “Maori” to “Māori”, but the corresponding value for your locale didn't change.");
+        checkCheckNew("de", "//ldml/localeDisplayNames/languages/language[@type=\"en\"]",
+            "");
+    }
+
+    public void checkCheckNew(String locale, String path, String expectedMessage) {
+        final String title = "CheckNew " + locale + ", " + path;
+
+        OutdatedPaths outdatedPaths = OutdatedPaths.getInstance();
+        boolean isOutdated = outdatedPaths.isOutdated(locale, path);
+
+        //
+        String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
+        if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
+            assertEquals(
+                title,
+                expectedMessage.isEmpty(),
+                !isOutdated);
+        }
+
         CheckCLDR c = new CheckNew(testInfo.getCommonAndSeedAndMainAndAnnotationsFactory());
         List<CheckStatus> result = new ArrayList<>();
         Map<String, String> options = new HashMap<>();
         c.setCldrFileToCheck(testInfo.getCLDRFile(locale, true), options, result);
         c.check(path, path, "foobar", options, result);
+        String actualMessage = "";
         for (CheckStatus status : result) {
             if (status.getSubtype() != Subtype.modifiedEnglishValue) {
                 continue;
             }
-            assertEquals(
-                null,
-                "In CLDR baseline the English value for this field changed from “Maori” to “Māori”, but the corresponding value for your locale didn't change.",
-                status.getMessage());
-            return;
+            actualMessage = status.getMessage();
+            break;
         }
-        errln("No failure message.");
+        assertEquals(
+            title,
+            expectedMessage,
+            actualMessage);
+
     }
 
     public void TestCheckNewRootFailure() {
@@ -989,26 +1013,26 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public void TestInfohubLinks13979() {
-       CLDRFile root = cldrFactory.make("root", true);
-       List<CheckStatus> possibleErrors = new ArrayList<>();
-       String[][] tests = {
-           // test edge cases
-           // locale, path, value, expected
-           {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin",
-               "Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={GENDER}, e.g. “‹noun phrase in this gender›”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>."},
-       };
-       for (String[] row : tests) {
-           String localeId = row[0];
-           String path = row[1];
-           String value = row[2];
-           String expected = row[3];
+        CLDRFile root = cldrFactory.make("root", true);
+        List<CheckStatus> possibleErrors = new ArrayList<>();
+        String[][] tests = {
+            // test edge cases
+            // locale, path, value, expected
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin",
+            "Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={GENDER}, e.g. “‹noun phrase in this gender›”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>."},
+        };
+        for (String[] row : tests) {
+            String localeId = row[0];
+            String path = row[1];
+            String value = row[2];
+            String expected = row[3];
 
-           checkPathValue(root, localeId, path,value, possibleErrors);
-           for (CheckStatus error : possibleErrors) {
-               if (error.getSubtype() == Subtype.missingPlaceholders) {
-                assertEquals("message", expected, error.getMessage());
-               }
-           }
-       }
+            checkPathValue(root, localeId, path,value, possibleErrors);
+            for (CheckStatus error : possibleErrors) {
+                if (error.getSubtype() == Subtype.missingPlaceholders) {
+                    assertEquals("message", expected, error.getMessage());
+                }
+            }
+        }
     }
 }

@@ -672,11 +672,16 @@ public class VettingViewer<T> {
                         problems.add(Choice.englishChanged);
                         problemCounter.increment(Choice.englishChanged);
                     }
-                    if (!CheckCLDR.LIMITED_SUBMISSION && !itemsOkIfVoted && outdatedPaths.isOutdated(localeID, path)) {
-                        if (Objects.equals(value, oldValue) && choices.contains(Choice.englishChanged)) {
-                            // check to see if we voted
-                            problems.add(Choice.englishChanged);
-                            problemCounter.increment(Choice.englishChanged);
+                    if (!CheckCLDR.LIMITED_SUBMISSION
+                        && !itemsOkIfVoted && outdatedPaths.isOutdated(localeID, path)) {
+                        if (Objects.equals(value, oldValue)
+                            && choices.contains(Choice.englishChanged)) {
+                            String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
+                            if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
+                                // check to see if we voted
+                                problems.add(Choice.englishChanged);
+                                problemCounter.increment(Choice.englishChanged);
+                            }
                         }
                     }
                 }

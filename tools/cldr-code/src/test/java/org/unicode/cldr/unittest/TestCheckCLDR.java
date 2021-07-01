@@ -44,6 +44,7 @@ import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -58,6 +59,7 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
@@ -1035,4 +1037,39 @@ public class TestCheckCLDR extends TestFmwk {
             }
         }
     }
+    public void Test14866() {
+        final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
+        String locale = "pl";
+        int expectedCount = 14;
+
+        GrammarInfo grammarInfo = supplementalDataInfo.getGrammarInfo(locale);
+        logln("Locale:\t" + locale + "\n\tGrammarInfo:\t" + grammarInfo);
+        CLDRFile pl = factory.make(locale, true);
+        System.out.println("");
+        Collection<PathHeader> pathHeaders = new TreeSet<>(); // new ArrayList(); //
+        for (String path : pl.fullIterable()) {
+            if (path.startsWith("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-century\"]")) {
+                PathHeader pathHeader = PathHeader.getFactory().fromPath(path);
+                boolean added = pathHeaders.add(pathHeader);
+            }
+        }
+        int count = 0;
+        for (PathHeader pathHeader : pathHeaders) {
+            String path = pathHeader.getOriginalPath();
+            String value = pl.getStringValue(path);
+            CLDRFile.Status status = new CLDRFile.Status();
+            String localeFound = pl.getSourceLocaleID(path, status);
+            Level level = supplementalDataInfo.getCoverageLevel(path, locale);
+            logln(
+                "\n\t" + ++count  + " Locale:\t" + locale
+                + "\n\tLocaleFound:\t" + (locale.equals(localeFound) ? "«same»" : localeFound)
+                + "\n\tPathHeader:\t" + pathHeader
+                + "\n\tPath:    \t" + path
+                + "\n\tPathFound:\t" + (path.equals(status.pathWhereFound) ? "«same»" : status.pathWhereFound)
+                + "\n\tValue:\t" + value
+                + "\n\tLevel:\t" + level);
+        }
+        assertEquals("right number of elements found", expectedCount, count);
+    }
+
 }

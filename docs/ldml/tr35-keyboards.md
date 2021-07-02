@@ -39,7 +39,7 @@ The LDML specification is divided into the following parts:
 ## <a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a>
 
 *   1 [Keyboards](#Introduction)
-*   2 [Goals and Nongoals](#Goals_and_Nongoals)
+*   2 [Goals and Non-goals](#Goals_and_Nongoals)
 *   3 [Definitions](#Definitions)
 *   4 [File and Directory Structure](#File_and_Dir_Structure)
 *   5 [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
@@ -152,7 +152,7 @@ And its associated platform file (which includes the hardware mapping):
 
 * * *
 
-## 2 <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Nongoals</a>
+## 2 <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
 
 Some goals of this format are:
 
@@ -165,7 +165,6 @@ Some non-goals (outside the scope of the format) currently are:
 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
 3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence.
-4. More sophisticated transforms, such as for Indic character rearrangement. It is anticipated that these would be added to a future version, after working out a reasonable representation.
 
 Note: During development of this section, it was considered whether the modifier RAlt (=AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them.
 
@@ -319,7 +318,7 @@ _Attribute:_ `number` (required)
 
 _Attribute:_ `cldrVersion` (fixed by DTD)
 
-> The CLDR specification version that is associated with this data file. This value is fixed and is inherited from the DTD file and therefore does not show up directly in the XML file.
+> The CLDR specification version that is associated with this data file. This value is fixed and is inherited from the [DTD file](https://github.com/unicode-org/cldr/tree/master/keyboards/dtd) and therefore does not show up directly in the XML file.
 
 **Example**
 
@@ -437,7 +436,7 @@ _Attribute:_ `value` (required)
 
 ### 5.7 <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for transformFailures the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).  
+An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for `transformFailure` the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).  
   
 **Syntax**
 
@@ -542,7 +541,7 @@ Here is an exhaustive list of all possible modifier keys:
 | Modifier Keys |          | Comments                        |
 |---------------|----------|---------------------------------|
 | `altL`        | `altR`   | xAlty → xAltR+AltL? xAltR?AltLy |
-| `altR`        | `ctrlR`  | ditto for Ctrl                  |
+| `ctrlL`       | `ctrlR`  | ditto for Ctrl                  |
 | `shiftL`      | `shiftR` | ditto for Shift                 |
 | `optL`        | `optR`   | ditto for Opt                   |
 | `caps`        |          | Caps Lock                       |
@@ -631,7 +630,7 @@ _Attribute:_ `transform="no"` (optional)
 
 _Attribute:_ `multitap` (optional)
 
-> A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, two taps on the key C01 will produce a “c” in the following example.  
+> A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, three taps on the key C01 will produce a “c” in the following example (first tap produces “a”, two taps produce “bb” etc.).  
 > 
 > _Example:_  
 > 
@@ -791,14 +790,24 @@ _Attribute:_ `path` (required)
 
 If two identical elements, as described below, are defined, the later element will take precedence. Thus if a `hardwareMap/map` for the same keycode on the same page is defined twice (for example once in an included file), the later one will be the resulting mapping.
 
-Elements are considered to have three attributes that make them unique: the tag of the element, the parent and the identifying attribute. The parent in its turn is a unique element and so on up the chain. If the distinguishing attribute is optional, its non-existence is represented with an empty value. Here is a list of elements and their defining attributes. If an element is not listed then if it is a leaf element, only one occurs and it is merely replaced. If it has children, then the sub elements are considered, in effect merging the element in question.
+Elements are considered to have three attributes that make them unique: the tag of the element, the parent and the identifying attribute. The parent in its turn is a unique element and so on up the chain. If the distinguishing attribute is optional, its non-existence is represented with an empty value. Here is a list of elements and their defining attributes. If an element is not listed then if it is a leaf element, only one occurs and it is merely replaced. If it has children, then the subelements are considered, in effect merging the element in question.
 
-| Element   | Parent       | Distinguishing attribute |
-|-----------|--------------|--------------------------|
-| `keyMap`  | `keyboard`   | `@modifiers`             |
-| `map`     | `keyMap`     | `@iso`                   |
-| `display` | `displayMap` | `@to`                    |
-| `layout`  | `layouts`    | `@modifier`              |
+| Element      | Parent       | Distinguishing attribute     |
+|--------------|--------------|------------------------------|
+| `import`     | `keyboard`   | `@path`                      |
+| `keyMap`     | `keyboard`   | `@modifiers`                 |
+| `map`        | `keyMap`     | `@iso`                       |
+| `flicks`     | `keyMap`     | `@iso`                       |
+| `flick`      | `flicks`     | `@directions`                |
+| `display`    | `displayMap` | `@to`                        |
+| `layer`      | `keyboard`   | `@modifier`                  |
+| `row`        | `layer`      | `@keys`                      |
+| `switch`     | `layer`      | `@iso`                       |
+| `vkeys`      | `layer`      | `@iso`                       |
+| `transforms` | `keyboard`   | `@type`                      |
+| `transform`  | `keyboard`   | `@before`, `@from`, `@after` |
+| `reorder`    | `reorders`   | `@before`, `@from`, `@after` |
+| `backspace`  | `backspaces` | `@before`, `@from`, `@after` |
 
 In order to help identify mistakes, it is an error if a file contains two elements that override each other. All element overrides must come as a result of an `<include>` element either for the element overridden or the element overriding.
 
@@ -813,7 +822,7 @@ The following elements are not imported from the source file:
 
 ### 5.11 <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
 
-The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keyMap/map` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help. The `displayMap` consists of a list of display sub elements.
+The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keyMap/map` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help. The `displayMap` consists of a list of display subelements.
 
 DisplayMaps are designed to be shared across many different keyboard layout descriptions, and included in where needed.
 
@@ -869,8 +878,8 @@ _Attribute:_ `display` (required)
         <map iso="C01" to="a" longpress="\u0301 \u0300" />
     </keyMap>
     <displayMap>
-        <display to="\u0300" display="u\u02CB" />
-        <display to="\u0301" display="u\u02CA" />
+        <display to="\u0300" display="\u02CB" />
+        <display to="\u0301" display="\u02CA" />
     </displayMap>  
 </keyboard>
 ```
@@ -881,7 +890,7 @@ To allow `displayMap`s to be shared across descriptions, there is no requirement
 
 ### 5.13 <a name="Element_layer" href="#Element_layer">Element: layer</a>
 
-A `layer` element describes the configuration of keys on a particular layer of a keyboard. It contains `row` elements to describe which keys exist in each `row` and also `switch` elements that describe how keys in the layer switch the layer to another. In addition, for platforms that require a mapping from a key to a virtual key (for example Windows or Mac) there is also a `vkeys` element to describe the mapping.
+A `layer` element describes the configuration of keys on a particular layer of a keyboard. It contains one or more `row` elements to describe which keys exist in each `row` and optionally one or more `switch` elements that describe how keys in the layer switch the layer to another. In addition, for platforms that require a mapping from a key to a virtual key (for example Windows or Mac) there is also an optional `vkeys` element to describe the mapping.
 
 **Syntax**
 
@@ -925,7 +934,9 @@ The use of `@modifier` as an identifier for a layer, is sufficient since it is a
 
 ### 5.14 <a name="Element_row" href="#Element_row">Element: row</a>
 
-A `row` element describes the keys that are present in the row of a keyboard. `row` elements are ordered within a `layout` element with the top visual row being stored first. The row element introduces the `keyId` which may be an `ISOKey` or a `specialKey`. More formally:
+A `row` element describes the keys that are present in the row of a keyboard. `row` elements are ordered within a `layout` element with the top visual row being stored first.
+
+The row element introduces the `keyId` which may be an `ISOKey` or a `specialKey`. More formally:
 
 ```
 keyId = ISOKey | specialKey  
@@ -998,9 +1009,9 @@ _Attribute:_ `iso` (required)
 
 > The `keyId` as specified in one of the `row` elements. This must be a `specialKey` and not an `ISOKey`.
 
-_Attribute:_ `layout` (required)
+_Attribute:_ `layer` (required)
 
-> The modifier attribute of the resulting `layout` element that describes the layer the user gets switched to.
+> The modifier attribute of the resulting `layer` element that describes the layer the user gets switched to.
 
 _Attribute:_ `display` (required)
 
@@ -1016,14 +1027,14 @@ Here is an example of a `switch` element for a shift key:
     <row keys="C01-C09" />
     <row keys="shift B01-B07 bksp" />
     <row keys="sym A01 smilies A02-A03 enter" />
-    <switch iso="shift" layout="shift" display="&#x21EA;" />
+    <switch iso="shift" layer="shift" display="&#x21EA;" />
 </layer>
 <layer modifier="shift">
     <row keys="D01-D10" />
     <row keys="C01-C09" />
     <row keys="shift B01-B07 bksp" />
     <row keys="sym A01 smilies A02-A03 enter" />
-    <switch iso="shift" layout="none" display="&#x21EA;" />
+    <switch iso="shift" layer="none" display="&#x21EA;" />
 </layer>
 ```
 
@@ -1088,7 +1099,7 @@ _Attribute:_ `iso` (required)
 
 _Attribute:_ `vkey` (required)
 
-> The resultant vkey identifier.
+> The resultant vkey identifier (the value is platform specific).
 
 _Attribute:_ `modifier`
 
@@ -1157,8 +1168,8 @@ In the context of a virtual keyboard there might be a symbol layer with the foll
         <row keys="C01-C09" />
         <row keys="shift B01-B07 bksp" />
         <row keys="sym A00-A03 enter" />
-        <switch iso="sym" layout="none" display="ABC" />
-        <switch iso="shift" layout="sym+shift" display="&=/<" />
+        <switch iso="sym" layer="none" display="ABC" />
+        <switch iso="shift" layer="sym+shift" display="&amp;=/<" />
         <vkeys type="windows">
             <vkey iso="D01" vkey="VK_1" />
             ...
@@ -1175,7 +1186,7 @@ In the context of a virtual keyboard there might be a symbol layer with the foll
 
 ### 5.18 <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
 
-This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support such as dead-keys using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
+This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
 
 There can be multiple `<transforms>` elements
 
@@ -1198,6 +1209,15 @@ Syntax
 _Attribute:_ `type` (required)
 
 > Current values: `simple`, `final`.
+
+
+There are other keying behaviors that are needed particularly in handing complex orthographies from various parts of the world. The behaviors intended to be covered by the transforms are:
+
+* Reordering combining marks. The order required for underlying storage may differ considerably from the desired typing order. In addition, a keyboard may want to allow for different typing orders.
+* Error indication. Sometimes a keyboard layout will want to specify to the application that a particular keying sequence in a context is in error and that the application should indicate that that particular keypress is erroneous.
+* Backspace handling. There are various approaches to handling the backspace key. An application may treat it as an undo of the last key input, or it may simply delete the last character in the currently output text, or it may use transform rules to tell it how much to delete.
+
+We consider each transform type in turn and consider attributes to the `<transforms>` element pertinent to that type.
 
 * * *
 
@@ -1234,14 +1254,14 @@ For example, suppose there are the following transforms:
 ^o → ô
 ```
 
-If the user types a key that produces "\^", the keyboard enters a dead state. When the user then types a key that produces an "e", the transform is invoked, and "ê" is output. Suppose a user presses keys producing "\^" then "u". In this case, there is no match for the "\^u", and the "\^" is output if the failure attribute in the `transform` element is set to emit. If there is no transform starting with "u", then it is also output (again only if failure is set to emit) and the mechanism leaves the "dead" state.
+If the user types a key that produces "\^", the keyboard enters a dead state. When the user then types a key that produces an "e", the transform is invoked, and "ê" is output. Suppose a user presses keys producing "\^" then "u". In this case, there is no match for the "\^u", and the "\^" is output if the `transformFailure` attribute in the `settings` element is set to emit. If there is no transform starting with "u", then it is also output (again only if `transformFailure` is set to emit) and the mechanism leaves the "dead" state.
 
 The UI may show an initial sequence of matching characters with a special format, as is done with dead-keys on the Mac, and modify them as the transform completes. This behavior is specified in the `partial` attribute in the `transform` element.
 
-Most transforms in practice have only a couple of characters. But for completeness, the behavior is defined on all strings:
+Most transforms in practice have only a couple of characters. But for completeness, the behavior is defined on all strings. The following applies when no exact match exists:
 
 1. If there could be a longer match if the user were to type additional keys, go into a 'dead' state.
-2. If there could not be a longer match, find the longest actual match, emit the transformed text (if failure is set to emit), and start processing again with the remainder.
+2. If there could not be a longer match, find the longest actual match, emit the transformed text (if `transformFailure` is set to emit), and start processing again with the remainder.
 3. If there is no possible match, output the first character, and start processing again with the remainder.
 
 Suppose that there are the following transforms:
@@ -1327,7 +1347,7 @@ This indicates that it is an error to type two iota subscripts immediately after
 In terms of how these different attributes work in processing a sequences of transforms, consider the transform:
 
 ```xml
-<transform before="X" from="Y" after="Y" to="B" />
+<transform before="X" from="Y" after="Z" to="B" />
 ```
 
 This would transform the string:
@@ -1344,14 +1364,6 @@ X | Y Z → X B | Z
 
 And a subsequent transform could transform the Z string, looking back (using @before) to match the B.
 
-There are other keying behaviors that are needed particularly in handling languages and scripts from various parts of the world. The behaviors intended to be covered by the transforms are:
-
-* Reordering combining marks. The order required for underlying storage may differ considerably from the desired typing order. In addition, a keyboard may want to allow for different typing orders.
-* Error indication. Sometimes a keyboard layout will want to specify to the application that a particular keying sequence in a context is in error and that the application should indicate that that particular keypress is erroneous.
-* Backspace handling. There are various approaches to handling the backspace key. An application may treat it as an undo of the last key input, or it may simply delete the last character in the currently output text, or it may use transform rules to tell it how much to delete.
-
-We consider each transform type in turn and consider attributes to the `<transforms>` element pertinent to that type.
-
 * * *
 
 ### 5.20 <a name="Element_reorder" href="#Element_reorder">Element: reorders, reorder</a>
@@ -1366,7 +1378,7 @@ The reordering algorithm consists of four parts:
    * The **primary weight** is the primary order value.
    * The **secondary weight** is the index, a position in the input string, usually of the character itself, but it may be of a character earlier in the string.
    * The **tertiary weight** is a tertiary order value (defaulting to 0).
-   * The **quaternary weight** is the index of the character in the string. This ensures a stable sort for sequences of characters with the same tertiary weight.
+   * The **quaternary weight** is the index of the character in the string. This is solely to ensure a stable sort for sequences of characters with the same tertiary weight.
 2. Mark each character as to whether it is a prebase character, one that is typed before the base and logically stored after. Thus it will have a primary order > 0.
 3. Use the sort key and the prebase mark to identify runs. A run starts with a prefix that contains any prebase characters and a single base character whose primary and tertiary key is 0. The run extends until, but not including, the start of the prefix of the next run or end of the string.
    * `run := prebase* (primary=0 && tertiary=0) ((primary≠0 || tertiary≠0) && !prebase)*`
@@ -1374,7 +1386,7 @@ The reordering algorithm consists of four parts:
 
 The primary order of a character with the Unicode property Combining_Character_Class (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order > 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.
 
-In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow consonant character, but it may also follow a conjunct consisting of a consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
+In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
 
 The reorder transform consists of a single element type: `<reorder>` encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiary_base`, `prebase`) for the matched characters in the string.
 
@@ -1448,7 +1460,7 @@ _Attribute:_ `prebase`
 
 > This attribute gives the prebase attribute for each character matched. The value may be `"true"` or `"false"` or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.
 >
-> If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus `@primary` may not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of `"false"` indicates that the character is not a prebase.
+> If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus `@order` shall not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of `"false"` indicates that the character is not a prebase.
 
 There is no `@error` attribute.
 
@@ -1560,7 +1572,7 @@ Consider this fragment from a shared reordering for the Myanmar script:
 A particular Myanmar keyboard layout can have this `reorders` element:
 
 ```xml
-<reorders type="reorder">  
+<reorders>  
     <!-- Kinzi -->
     <reorder from="\u1004\u103A\u1039" order="-1" />
 

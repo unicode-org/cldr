@@ -40,6 +40,7 @@ public enum Organization {
     microsoft("Microsoft"),
     mozilla("Mozilla"),
     netflix("Netflix"),
+    nyiakeng_puachue_hmong("Nyiakeng Puachue Hmong"),
     openinstitute("Open Inst (Cambodia)"),
     openoffice_org("Open Office"),
     oracle("Oracle", "sun", "Sun Micro"),

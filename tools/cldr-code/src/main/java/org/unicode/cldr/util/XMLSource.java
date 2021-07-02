@@ -309,7 +309,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         @Override
         public String toString() {
             return
-            "newLocaleID: " + newLocaleID + ",\t"
+                "newLocaleID: " + newLocaleID + ",\t"
                 +
                 "oldPath: " + oldPath + ",\n\t"
                 +
@@ -486,7 +486,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @return the localeID
      */
     public String getSourceLocaleIdExtended(String path, CLDRFile.Status status,
-            @SuppressWarnings("unused") boolean skipInheritanceMarker) {
+        @SuppressWarnings("unused") boolean skipInheritanceMarker) {
         return getSourceLocaleID(path, status);
     }
 
@@ -961,10 +961,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // If there are one or more matching aliases, lowerKey() will
                 // return the alias with the longest matching prefix since the
                 // hashmap is sorted according to xpath.
-                String possibleSubpath = aliases.lowerKey(xpath);
-                if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
-                    aliasedPath = aliases.get(possibleSubpath) +
-                        xpath.substring(possibleSubpath.length());
+
+//                // The following is a work in progress
+//                // We need to recurse, since we might have a chain of aliases
+//                while (true) {
+                    String possibleSubpath = aliases.lowerKey(xpath);
+                    if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
+                        aliasedPath = aliases.get(possibleSubpath) +
+                            xpath.substring(possibleSubpath.length());
+//                        xpath = aliasedPath;
+//                    } else {
+//                        break;
+//                    }
                 }
             }
 
@@ -1397,7 +1405,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 "ro_MD",
                 "sw_CD",
                 "zh_Hans", "zh_Hant"
-                };
+            };
             for (String extraCode : extraCodes) {
                 addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
             }
@@ -1444,14 +1452,14 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/keys/key" +
                         "[@type=\"" + keyDisplayNames[i] + "\"]",
-                    keyDisplayNames[i]);
+                        keyDisplayNames[i]);
             }
             for (int i = 0; i < typeDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/types/type"
                         + "[@key=\"" + typeDisplayNames[i][1] + "\"]"
                         + "[@type=\"" + typeDisplayNames[i][0] + "\"]",
-                    typeDisplayNames[i][0]);
+                        typeDisplayNames[i][0]);
             }
             constructedItems.freeze();
             allowDuplicates = Collections.unmodifiableMap(allowDuplicates);

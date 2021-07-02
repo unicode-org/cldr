@@ -259,6 +259,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         addNonColliding(mapPathPartsToSets, "[@type=\"graphics-pixel-per-inch\"]", "[@type=\"graphics-dot-per-inch\"]");
         addNonColliding(mapPathPartsToSets, "[@type=\"graphics-dot-per-centimeter\"]", "[@type=\"graphics-pixel-per-centimeter\"]");
 
+        addNonColliding(mapPathPartsToSets, "[@type=\"duration-year-person\"]", "[@type=\"duration-year\"]");
+        addNonColliding(mapPathPartsToSets, "[@type=\"duration-month-person\"]", "[@type=\"duration-month\"]");
+        addNonColliding(mapPathPartsToSets, "[@type=\"duration-week-person\"]", "[@type=\"duration-week\"]");
+        addNonColliding(mapPathPartsToSets, "[@type=\"duration-day-person\"]", "[@type=\"duration-day\"]");
+
         // all done, return immutable version
         return ImmutableMap.copyOf(mapPathPartsToSets);
     }

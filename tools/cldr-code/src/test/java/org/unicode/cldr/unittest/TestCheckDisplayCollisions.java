@@ -38,7 +38,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String deciNarrow = "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
     private static final String deciShort = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         new TestCheckDisplayCollisions().run(args);
     }
 
@@ -196,30 +196,51 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void TestDotPixel14031 () {
-        TestFactory factory = new TestFactory();
-        XMLSource rootSource = new SimpleXMLSource("root");
-        factory.addFile(new CLDRFile(rootSource));
-
-        XMLSource localeSource = new SimpleXMLSource("de");
-        Map<String,String> m = ImmutableMap.of(
+        Map<String, String> pathValuePairs = ImmutableMap.of(
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/displayName", "Punkt",
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
             );
-        for (Entry<String, String> entry : m.entrySet()) {
-            localeSource.putValueAtPath(entry.getKey(), entry.getValue());
-        }
-        factory.addFile(new CLDRFile(localeSource));
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        checkDisplayCollisions("de", pathValuePairs, factory);
+    }
 
+    public void checkDisplayCollisions(String locale, Map<String, String> pathValuePairs, TestFactory factory) {
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
         cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
 
         List<CheckStatus> possibleErrors = new ArrayList<>();
-        cdc.setCldrFileToCheck(factory.make("de", true), ImmutableMap.of(), possibleErrors);
-        for (Entry<String, String> entry : m.entrySet()) {
+        cdc.setCldrFileToCheck(factory.make(locale, true), ImmutableMap.of(), possibleErrors);
+        for (Entry<String, String> entry : pathValuePairs.entrySet()) {
             cdc.check(entry.getKey(), entry.getKey(), entry.getValue(), ImmutableMap.of(), possibleErrors);
             assertEquals(entry.toString(), Collections.emptyList(), possibleErrors);
         }
     }
+
+    public TestFactory makeFakeCldrFile(String locale, Map<String, String> pathValuePairs) {
+        TestFactory factory = new TestFactory();
+        XMLSource rootSource = new SimpleXMLSource("root");
+        factory.addFile(new CLDRFile(rootSource));
+
+        XMLSource localeSource = new SimpleXMLSource(locale);
+        for (Entry<String, String> entry : pathValuePairs.entrySet()) {
+            localeSource.putValueAtPath(entry.getKey(), entry.getValue());
+        }
+        factory.addFile(new CLDRFile(localeSource));
+        return factory;
+    }
+
+    public void TestDurationPersonVariants () {
+        Map<String, String> pathValuePairs = ImmutableMap.of(
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"other\"]", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day\"]/unitPattern[@count=\"other\"]", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
+            );
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        checkDisplayCollisions("de", pathValuePairs, factory);
+    }
+
 }

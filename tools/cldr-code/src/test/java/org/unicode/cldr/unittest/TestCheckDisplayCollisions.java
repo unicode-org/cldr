@@ -38,7 +38,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String deciNarrow = "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
     private static final String deciShort = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         new TestCheckDisplayCollisions().run(args);
     }
 
@@ -197,11 +197,11 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
 
     public void TestDotPixel14031 () {
         Map<String, String> pathValuePairs = ImmutableMap.of(
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/displayName", "Punkt",
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
-                    );
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/displayName", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
+            );
         TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
         checkDisplayCollisions("de", pathValuePairs, factory);
     }
@@ -233,11 +233,12 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
 
     public void TestDurationPersonVariants () {
         Map<String, String> pathValuePairs = ImmutableMap.of(
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"other\"]", "Punkt",
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
-                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
-                    );
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"other\"]", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day\"]/unitPattern[@count=\"other\"]", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
+            );
         TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
         checkDisplayCollisions("de", pathValuePairs, factory);
     }

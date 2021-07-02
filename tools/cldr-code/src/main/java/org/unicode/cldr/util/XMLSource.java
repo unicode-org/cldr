@@ -962,16 +962,17 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // return the alias with the longest matching prefix since the
                 // hashmap is sorted according to xpath.
 
-                // We need to recurse, since we might have a chain of aliases
-                while (true) {
+//                // The following is a work in progress
+//                // We need to recurse, since we might have a chain of aliases
+//                while (true) {
                     String possibleSubpath = aliases.lowerKey(xpath);
                     if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
                         aliasedPath = aliases.get(possibleSubpath) +
                             xpath.substring(possibleSubpath.length());
-                        xpath = aliasedPath;
-                    } else {
-                        break;
-                    }
+//                        xpath = aliasedPath;
+//                    } else {
+//                        break;
+//                    }
                 }
             }
 

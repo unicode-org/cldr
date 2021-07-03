@@ -1066,11 +1066,20 @@ public class UserRegistry {
 
         LocaleSet intLocSet = user.getInterestLocales();
         logger.finer("uil: intlocs " + id + " = " + intLocSet.toString());
-        if (intLocSet != null && !intLocSet.isAllLocales()) {
+        if (intLocSet != null && !intLocSet.isAllLocales() && !intLocSet.isEmpty()) {
+            /*
+             * Simplify locales. For example simplify "pt_PT" to "pt" with loc.getLanguage().
+             * Avoid adding duplicates to the table. For example, if the same user has both
+             * "pt" and "pt_PT", only add one row, for "pt".
+             */
+            Set<String> languageSet = new TreeSet<>();
             for (CLDRLocale loc : intLocSet.getSet()) {
-                logger.finer("uil: intlocs " + id + " + " + loc.toString());
+                languageSet.add(loc.getLanguage());
+            }
+            for (String lang : languageSet) {
+                logger.finer("uil: intlocs " + id + " + " + lang);
                 updateIntLoc.setInt(1, id);
-                updateIntLoc.setString(2, loc.getLanguage());
+                updateIntLoc.setString(2, lang);
                 updateIntLoc.executeUpdate();
             }
         }

@@ -58,6 +58,7 @@ import org.unicode.cldr.web.UserRegistry.User;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.VersionInfo;
@@ -1498,6 +1499,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         @Override
         public VersionInfo getDtdVersionInfo() {
             return delegate.getDtdVersionInfo();
+        }
+
+        @Override
+        public Multimap<String, String> getUnaliasedToAliased() {
+            return delegate.getUnaliasedToAliased();
         }
     }
 

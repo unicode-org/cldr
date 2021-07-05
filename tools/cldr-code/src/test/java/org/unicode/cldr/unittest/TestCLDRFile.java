@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -46,9 +47,14 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XMLSource.Alias;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
@@ -61,6 +67,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 
 public class TestCLDRFile extends TestFmwk {
+
     private static final boolean DISABLE_TIL_WORKS = false;
 
     static CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -876,5 +883,144 @@ public class TestCLDRFile extends TestFmwk {
         if (!es_US.getRawExtraPaths().containsAll(es.getRawExtraPaths())) {
             errln("Failure: " + Joiner.on('\n').join(Sets.difference(es.getRawExtraPaths(), es_US.getRawExtraPaths())));
         }
+    }
+
+    static final Pattern debugTestAliases = Pattern.compile("\"duration-day\".*/gender"); // (day|week|month|year)
+
+    public void TestAliases() {
+        Multimap<String, String> unaliasedToAliased = getResolvedAliases();
+
+        final String localeID = "de";
+        CLDRFile pl = cldrFactory.make(localeID, true);
+        PathHeader.Factory phFactory = PathHeader.getFactory();
+        SortedSet<String> paths = ImmutableSortedSet.copyOf(pl.fullIterable());
+        Set<String> knownMissing = new HashSet<>();
+
+        for (String path : paths) {
+            if (debugTestAliases != null
+                && isVerbose()
+                && debugTestAliases.matcher(path).find()) {
+                Level level = sdi.getCoverageLevel(path,localeID);
+                PathHeader ph = phFactory.fromPath(path);
+                logln(level + "\t" + ph + "\t" + path);
+            }
+            final String pathStringValue = pl.getStringValue(path);
+
+            // make sure that all the aliased paths are included in the iteration
+            // check all prefixes also!
+            for (String prefix : XMLSource.getPrefixes(path)) {
+                Collection<String> aliasedPrefixPaths = unaliasedToAliased.get(prefix);
+                if (!aliasedPrefixPaths.isEmpty()) {
+                    final String suffix = path.substring(prefix.length());
+                    for (String aliasedPrefixPath : aliasedPrefixPaths) {
+                        String aliasedPath = aliasedPrefixPath + suffix;
+                        // check that the iteration for aliases is complete
+                        if (!paths.contains(aliasedPath)
+                            && !knownMissing.contains(aliasedPath)) {
+                            errln("\tMissing path \t" + aliasedPath + "\tFrom\t" + path);
+                            knownMissing.add(aliasedPath);
+                        }
+                        // check that the string value for the aliased path is null only if the pathStringValue is
+                        if (pathStringValue != null) {
+                            String aliasedStringValue = pl.getStringValue(aliasedPath);
+                            if (aliasedStringValue == null) {
+                                errln("\tMissing value for \t" + aliasedPath + "\tYet exists for\t" + path + "\t" + pathStringValue);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Walk through root, constructing all possible aliases
+     */
+    public Multimap<String, String> getResolvedAliases() {
+
+        // Extract the aliases from root, where they all are.
+
+        CLDRFile root = cldrFactory.make("root", true);
+        Multimap<String,String> unaliasedToAliased = TreeMultimap.create();
+        for (String path : root.fullIterable()) {
+            if (path.contains("/alias")) {
+                String fullPath = root.getFullXPath(path);
+                Alias alias = XMLSource.Alias.make(fullPath);
+                unaliasedToAliased.put(alias.getNewPath(), alias.getOldPath());
+            }
+        }
+
+        // We need to recursively generate other aliases, since some of the keys may themselves be aliased.
+
+        logValues("Starting aliases", unaliasedToAliased);
+        Multimap<String,String> toAdd = TreeMultimap.create();
+        while (true) {
+            for (Entry<String, Collection<String>> entry : unaliasedToAliased.asMap().entrySet()) {
+                String unaliased = entry.getKey();
+                Collection<String> aliases = entry.getValue();
+                for (String alias : aliases) {
+                    // If the value is itself a key, then add the additional values, if there are new ones.
+                    // We have to go further than that.
+                    // //ldml/units/unitLength[@type="short"]=[
+                    //   //ldml/units/unitLength[@type="long"],
+                    //   //ldml/units/unitLength[@type="narrow"]]
+                    // we have to expand:
+                    // //ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]=[
+                    //   //ldml/units/unitLength[@type="short"]/unit[@type="duration-day-person"]]
+                    // to be:
+                    // //ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]=[
+                    //   //ldml/units/unitLength[@type="short"]/unit[@type="duration-day-person"],
+                    //   //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day-person"],
+                    //   //ldml/units/unitLength[@type="long"]/unit[@type="duration-day-person"]]
+                    // so for each value, we have to see if it or some PREFIX of it is a key,
+                    // and if so, add the alias plus the rest of the path
+
+                    for (String prefix : XMLSource.getPrefixes(alias)) {
+                        final String suffix = alias.substring(prefix.length());
+                        addRecursions(prefix, suffix, unaliased, aliases, toAdd, unaliasedToAliased);
+                    }
+                }
+            }
+            if (toAdd.isEmpty()) { // we terminate when we are not able to add any more
+                break;
+            }
+            logValues("Adding recursed", toAdd);
+            unaliasedToAliased.putAll(toAdd);
+            toAdd.clear();
+        }
+        return ImmutableMultimap.copyOf(unaliasedToAliased);
+    }
+
+    public void logValues(String title, Multimap<String, String> unaliasedToAliased) {
+        StringBuilder result  = new StringBuilder();
+        for (Entry<String, Collection<String>> entry : unaliasedToAliased.asMap().entrySet()) {
+            if (debugTestAliases != null
+                && isVerbose()
+                && debugTestAliases.matcher(entry.getKey()).find()) {
+                result.append(entry).append('\n');
+            }
+        }
+        logln(unaliasedToAliased.size() + " " + title + ":\n" + result);
+    }
+
+    /** add any "new" paths based on the prefix and suffix. The new path will be constructed from alias(prefix) + suffix
+     */
+    public void addRecursions(String prefix, String suffix,
+        String unaliased, Collection<String> aliases,
+        Multimap<String, String> toAdd, Multimap<String, String> unaliasedToAliased) {
+        Collection<String> prefixAliases = unaliasedToAliased.get(prefix);
+        if (!prefixAliases.isEmpty()) {
+            for (String prefixAlias : prefixAliases) {
+                String substituted = prefixAlias + suffix; // replace the initial portion
+                if (!aliases.contains(substituted)) {
+                    toAdd.put(unaliased, substituted); // if there are some that weren't there before
+                }
+            }
+        }
+    }
+
+    public void TestGetPrefixes() {
+        List<String> actual = ImmutableList.copyOf(XMLSource.getPrefixes("//ldml/foobar/fii"));
+        assertEquals("prefixes", ImmutableList.of("//ldml/foobar/fii", "//ldml/foobar"), actual);
     }
 }

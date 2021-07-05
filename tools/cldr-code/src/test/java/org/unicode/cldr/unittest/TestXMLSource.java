@@ -12,6 +12,8 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestXMLSource extends TestFmwk {
@@ -65,6 +67,11 @@ public class TestXMLSource extends TestFmwk {
         public void getPathsWithValue(String valueToMatch, String pathPrefix,
             Set<String> result) {
         }
+
+        @Override
+        public Multimap<String, String> getUnaliasedToAliased() {
+            return ImmutableMultimap.of();
+        }
     }
 
     public static void main(String[] args) {
@@ -81,7 +88,7 @@ public class TestXMLSource extends TestFmwk {
             "//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]", "x");
         source.putValueAtDPath("//ldml/foo[@alt=\"short-x\"]", "x");
 
-        Set<String> result = new HashSet<String>();
+        Set<String> result = new HashSet<>();
         source.getPathsWithValue("x", "//ldml/foo/bar", result);
         assertEquals("no paths should be matched", 0, result.size());
         result.clear();
@@ -124,7 +131,7 @@ public class TestXMLSource extends TestFmwk {
     public void TestA() {
         CLDRConfig testInfo = CLDRConfig.getInstance();
         CLDRFile file = testInfo.getEnglish();
-        Set<String> result = new LinkedHashSet<String>();
+        Set<String> result = new LinkedHashSet<>();
         file.getPathsWithValue("ms", "", null, result);
         for (String path : result) {
             String value = file.getStringValue(path);

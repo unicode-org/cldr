@@ -58,6 +58,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -3481,8 +3482,29 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 }
             }
         }
+
+        // We also need to add aliases that map *to* the items we just added.
+        Set<String> aliases = new LinkedHashSet<>();
+        Multimap<String, String> unaliasedToAliased = dataSource.getUnaliasedToAliased();
+        for (String path : toAddTo) {
+            for (String prefix : XMLSource.getPrefixes(path)) {
+                Collection<String> aliaseds = unaliasedToAliased.get(prefix);
+                if (!aliaseds.isEmpty()) {
+                    String suffix = path.substring(prefix.length());
+                    for (String aliased : aliaseds) {
+                        String toAdd = aliased + suffix;
+                        if (!aliases.contains(toAdd) && !toAddTo.contains(toAdd)) {
+                            aliases.add(toAdd);
+                            if (DEBUG) System.out.println("Adding\t" + toAdd + "\tfrom\t" + path);
+                        }
+                    }
+                }
+            }
+        }
+        toAddTo.addAll(aliases);
         return toAddTo;
     }
+
 
     private void addPluralCounts(Collection<String> toAddTo,
         final Set<Count> pluralCounts,

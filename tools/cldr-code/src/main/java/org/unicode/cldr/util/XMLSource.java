@@ -20,7 +20,9 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.WeakHashMap;
 import java.util.regex.Matcher;
@@ -29,7 +31,11 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Iterators;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
@@ -41,11 +47,13 @@ import com.ibm.icu.util.VersionInfo;
  * Please update that document if major changes are made.
  */
 public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String> {
+
     public static final String CODE_FALLBACK_ID = "code-fallback";
     public static final String ROOT_ID = "root";
     public static final boolean USE_PARTS_IN_ALIAS = false;
     private static final String TRACE_INDENT = " "; // "\t"
     private static Map<String, String> allowDuplicates = new HashMap<>();
+    public static final Splitter SLASH_SPLITTER = Splitter.on('/');
 
     private String localeID;
     private boolean nonInheriting;
@@ -420,6 +428,44 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             }
             aliasMap.put(temp.getOldPath(), temp.getNewPath());
         }
+        // when we have a case like
+        //   //ldml/units/unitLength[@type="long"]=//ldml/units/unitLength[@type="short"]
+        // and
+        //   //ldml/units/unitLength[@type="short"]/unit[@type="duration-day-person"]=//ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]
+        // then we need to do a closure, and generate
+        //   //ldml/units/unitLength[@type="long"]/unit[@type="duration-day-person"]=//ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]
+
+        String requiredPrefix = "//ldml/units/unitLength";
+        TreeMap<String, String> toAdd = new TreeMap<>();
+        for (Entry<String, String> entry : aliasMap.tailMap(requiredPrefix).entrySet()) {
+            String alias = entry.getKey();
+            if (!alias.startsWith(requiredPrefix)) {
+                break;
+            }
+            String source = entry.getValue();
+            for (Entry<String, String> option : aliasMap.tailMap(source).entrySet()) {
+                String alias2 = option.getKey();
+                if (!alias2.startsWith(source)) {
+                    break;
+                }
+                String source2 = option.getValue();
+                if (!source2.startsWith(source)) {
+                    continue;
+                }
+                // at this point we know that alias2 and source2 both start with source.
+                String newAlias = alias + alias2.substring(source.length());
+                if (!toAdd.containsKey(newAlias)
+                    && !aliasMap.containsKey(newAlias)) {
+                    String newSource = alias + source2.substring(source.length());
+                    toAdd.put(newAlias, newSource);
+                }
+            }
+        }
+        System.out.println("\n"+Joiner.on('\n').join(
+            toAdd.tailMap("//ldml/units/unitLength[@type=\"long\"]")
+            .entrySet()));
+        aliasMap.putAll(toAdd);
+
         return aliasMap;
     }
 
@@ -960,19 +1006,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // Check if there is an alias for a subset xpath.
                 // If there are one or more matching aliases, lowerKey() will
                 // return the alias with the longest matching prefix since the
-                // hashmap is sorted according to xpath.
+                // treemap is sorted according to xpath.
 
-//                // The following is a work in progress
-//                // We need to recurse, since we might have a chain of aliases
-//                while (true) {
-                    String possibleSubpath = aliases.lowerKey(xpath);
-                    if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
-                        aliasedPath = aliases.get(possibleSubpath) +
-                            xpath.substring(possibleSubpath.length());
-//                        xpath = aliasedPath;
-//                    } else {
-//                        break;
-//                    }
+                String possibleSubpath = aliases.lowerKey(xpath);
+                if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
+                    aliasedPath = aliases.get(possibleSubpath) +
+                        xpath.substring(possibleSubpath.length());
+                    SortedMap<String, String> possibleValues = aliases.subMap(possibleSubpath, xpath);
                 }
             }
 
@@ -1558,6 +1598,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         public VersionInfo getDtdVersionInfo() {
             return currentSource.getDtdVersionInfo();
         }
+
+        @Override
+        public Multimap<String, String> getUnaliasedToAliased() {
+            ImmutableMultimap<String, String> backwards = ImmutableMultimap.copyOf(getAliases().entrySet());
+            return backwards.inverse();
+        }
     }
 
     /**
@@ -1764,5 +1810,31 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             }
         }
         return false;
+    }
+
+    public Multimap<String, String> getUnaliasedToAliased() {
+        throw new IllegalArgumentException("Must be overridden in any resolving subclass");
+    }
+
+    /**
+     * Return all the prefixes of a path, where each prefix goes up to a "/" or EOS.
+     * The prefixes must have at least two elements.
+     * eg "//ldml/foobar/fii" => {"//ldml/foobar/fii", "//ldml/foobar" }.
+     * The path itself is always the first item, with the lengths decreasing thereafter.
+     * TODO Optimize to remove list creation, and just return an iterator
+     */
+    static public Iterable<String> getPrefixes(String path) {
+        List<String> prefixesFound = new ArrayList<>();
+        prefixesFound.clear();
+        prefixesFound.add(path);
+        for (int i = path.length(); ; ) {
+            int previous = path.lastIndexOf('/', i);
+            if (previous < 7) { // skip //ldml and smaller
+                break;
+            }
+            prefixesFound.add(path.substring(0,previous));
+            i = previous-1;
+        }
+        return prefixesFound;
     }
 }

@@ -60,6 +60,11 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 
+/**
+ * This is the original TestFwmk test case for CLDRFile.
+ * @see {@link org.unicode.cldr.util.TestCLDRFile}
+ * @see {@link org.unicode.cldr.util.CLDRFile}
+ */
 public class TestCLDRFile extends TestFmwk {
     private static final boolean DISABLE_TIL_WORKS = false;
 

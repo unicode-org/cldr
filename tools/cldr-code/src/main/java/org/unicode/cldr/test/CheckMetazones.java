@@ -39,20 +39,32 @@ public class CheckMetazones extends CheckCLDR {
             // MessageFormat with arguments
         }
 
-        if (path.indexOf("/long") >= 0) {
-            XPathParts parts = XPathParts.getFrozenInstance(path);
-            String metazoneName = parts.getAttributeValue(3, "type");
-            if (!metazoneUsesDST(metazoneName) && path.indexOf("/standard") < 0) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.extraMetazoneString) // typically warningType or errorType
-                    .setMessage("Extra metazone string - should only contain standard value for a non-DST metazone"));
-                // the message can be MessageFormat with arguments
-            }
+        if (isDSTPathForNonDSTMetazone(path)) {
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.extraMetazoneString) // typically warningType or errorType
+            .setMessage("Extra metazone string - should only contain standard value for a non-DST metazone"));
         }
         return this;
     }
 
-    private boolean metazoneUsesDST(String name) {
+    /**
+     * True if this is a DST path, but a non DST metazone.
+     * Such an XPath should not be present in a CLDRFile.
+     * @param path (assumes it is a /metazone path)
+     * @return
+     */
+    public static boolean isDSTPathForNonDSTMetazone(String path) {
+        if (path.indexOf("/long") >= 0 || path.indexOf("/short") >= 0) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String metazoneName = parts.getAttributeValue(3, "type");
+            if (!metazoneUsesDST(metazoneName) && path.indexOf("/standard") < 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean metazoneUsesDST(String name) {
         return LogicalGrouping.metazonesDSTSet.contains(name);
     }
 }

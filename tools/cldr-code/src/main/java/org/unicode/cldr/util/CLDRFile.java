@@ -35,6 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckMetazones;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
@@ -3393,9 +3394,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         Set<String> zones = supplementalData.getAllMetazones();
 
         for (String zone : zones) {
+            final boolean metazoneUsesDST = CheckMetazones.metazoneUsesDST(zone);
             for (String width : new String[] { "long", "short" }) {
                 for (String type : new String[] { "generic", "standard", "daylight" }) {
-                    toAddTo.add("//ldml/dates/timeZoneNames/metazone[@type=\"" + zone + "\"]/" + width + "/" + type);
+                    if (metazoneUsesDST || type.equals("standard")) {
+                        // Only add /standard for non-DST metazones
+                        final String path = "//ldml/dates/timeZoneNames/metazone[@type=\"" + zone + "\"]/" + width + "/" + type;
+                        toAddTo.add(path);
+                    }
                 }
             }
         }

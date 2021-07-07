@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 
+import org.junit.jupiter.api.Test;
+import org.unicode.cldr.util.TestShimUtils;
+
 public class AllTests extends TestGroup {
     private static final ImmutableList<Class<?>> TEST_CLASSES = ImmutableList.of(
         CldrFileDataSourceTest.class,
@@ -16,7 +19,7 @@ public class AllTests extends TestGroup {
         PathMatcherTest.class,
         PrefixVisitorTest.class,
         XmlDataSourceTest.class);
-    
+
     public static void main(String[] args) {
         System.setProperty("CLDR_ENVIRONMENT", "UNITTEST");
         new AllTests().run(args, new PrintWriter(System.out));
@@ -27,8 +30,13 @@ public class AllTests extends TestGroup {
             .map(Class::getName)
             .collect(toImmutableList()).toArray(new String[0]);
     }
-    
+
     public AllTests() {
         super("org.unicode.cldr.api", getTestClassNames(), "API unit tests");
+    }
+
+    @Test
+    public void runApiTests() {
+        main(TestShimUtils.getArgs(AllTests.class, "-n -q"));
     }
 }

@@ -19,11 +19,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.logging.Logger;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -2605,5 +2605,36 @@ public class TestUnits extends TestFmwk {
         String outputUnit = "kilogram-meter-per-square-second";
         Rational result = converter.convert(Rational.ONE, inputUnit, outputUnit, DEBUG);
         assertEquals("kWh-per-100k", Rational.of(36), result);
+    }
+
+    public void TestEnglishDisplayNames() {
+        CLDRFile en = CLDRConfig.getInstance().getEnglish();
+        ImmutableSet<String> unitSkips = ImmutableSet.of("temperature-generic", "graphics-em");
+        for (String path : en) {
+            if (path.startsWith("//ldml/units/unitLength[@type=\"long\"]") && path.endsWith("/displayName")) {
+                if (path.contains("coordinateUnit")) {
+                    continue;
+                }
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                final String longUnitId = parts.getAttributeValue(3, "type");
+                if (unitSkips.contains(longUnitId)) {
+                    continue;
+                }
+                final String width = parts.getAttributeValue(2, "type");
+                //ldml/units/unitLength[@type="long"]/unit[@type="duration-decade"]/displayName
+                String displayName = en.getStringValue(path);
+
+                //ldml/units/unitLength[@type="long"]/unit[@type="duration-decade"]/unitPattern[@count="other"]
+                String pluralFormPath = path.substring(0,path.length()-"/displayName".length()) + "/unitPattern[@count=\"other\"]";
+                String pluralForm = en.getStringValue(pluralFormPath);
+                if (pluralForm == null) {
+                    errln("Have display name but no plural: " + pluralFormPath);
+                } else {
+                    String cleaned = pluralForm.replace("{0}", "").trim();
+                    assertEquals("Unit display name should correspond to plural in English " + width + ", " + longUnitId,
+                    cleaned, displayName);
+                }
+            }
+        }
     }
 }

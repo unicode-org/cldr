@@ -811,7 +811,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 Set<String> grouping = new TreeSet<>(LogicalGrouping.getPaths(cldrFile, path));
                 final Multimap<String, String> deltaValue = delta(expected, grouping);
                 if (seen.add(deltaValue)) {
-                    assertEquals("Logical group for " + path, ImmutableListMultimap.of(), deltaValue);
+                    assertEquals("Logical group for " + locale + ", " + path, ImmutableListMultimap.of(), deltaValue);
                 }
                 PathType actualPathType = PathType.getPathTypeFromPath(path);
                 assertEquals("PathType", expectedPathType, actualPathType);

@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,8 +14,15 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.With;
 
@@ -22,6 +30,7 @@ import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestExampleGenerator extends TestFmwk {
+    private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     CLDRConfig info = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
@@ -368,7 +377,10 @@ public class TestExampleGenerator extends TestFmwk {
                             String example = exampleGenerator.getExampleHtml(path, value);
                             if (assertNotNull(locale + "/" + path, example)) {
                                 String simplified = ExampleGenerator.simplify(example, false);
-                                warnln(locale + "/" + pathType.toString() + " ==>" + simplified);
+                                warnln(locale + ", " + width + ", " + pathType.toString() + " ==>" + simplified);
+                            } else {
+                                // for debugging
+                                example = exampleGenerator.getExampleHtml(path, value);
                             }
                         }
                     }
@@ -827,4 +839,74 @@ public class TestExampleGenerator extends TestFmwk {
             errln("Expected example to contain " + EXPECTED + "; got " + specialExample);
         }
     }
+
+    public void TestInflectedUnitExamples() {
+        final CLDRFile cldrFile = info.getCLDRFile("de", true);
+        ExampleGenerator exampleGenerator = getExampleGenerator("de");
+        String pattern = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day\"]/unitPattern[@count=\"COUNT\"][@case=\"CASE\"]";
+        String[][] tests = {
+            {"one", "nominative",  "〖❬1❭ Tag〗〖❬1❭ Tag❬ kostet (kosten) € 3,50.❭〗"},
+            {"one", "accusative",  "〖❬1❭ Tag〗〖❬… für 1❭ Tag❬ …❭〗"},
+            {"one", "genitive",  "〖❬1❭ Tages〗〖❬Anstatt 1❭ Tages❬ …❭〗"},
+            {"one", "dative",  "〖❬1❭ Tag〗〖❬… mit 1❭ Tag❬ …❭〗"},
+            {"other", "nominative",  "〖❬1,5❭ Tage〗〖❬1,5❭ Tage❬ kostet (kosten) € 3,50.❭〗"},
+            {"other", "accusative",  "〖❬1,5❭ Tage〗〖❬… für 1,5❭ Tage❬ …❭〗"},
+            {"other", "genitive",  "〖❬1,5❭ Tage〗〖❬Anstatt 1,5❭ Tage❬ …❭〗"},
+            {"other", "dative",  "〖❬1,5❭ Tagen〗〖❬… mit 1,5❭ Tagen❬ …❭〗"}
+        };
+        for (String[] row : tests) {
+            String path = pattern.replace("COUNT", row[0]).replace("CASE", row[1]);
+            String expected = row[2];
+            String value = cldrFile.getStringValue(path);
+            String actualRaw = exampleGenerator.getExampleHtml(path, value);
+            String actual = ExampleGenerator.simplify(actualRaw, false);
+            assertEquals(row[0] + ", " + row[1], expected, actual);
+        }
+    }
+
+    public void TestMinimalPairExamples() {
+        final CLDRFile cldrFile = info.getCLDRFile("de", true);
+        ExampleGenerator exampleGenerator = getExampleGenerator("de");
+        String[][] tests = {
+            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "〖❬1❭ Tag〗"},
+            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬1,5❭ Tage〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "〖… für ❬1 Tag❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", "〖… mit ❬1 Tag❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖Anstatt ❬1 Tages❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖❬1 Tag❭ kostet (kosten) € 3,50.〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Die ❬Stunde❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Meter pro Quadratsekunde❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬ Volt❭ ist …〗"},
+        };
+        for (String[] row : tests) {
+            String path = row[0];
+            String expected = row[1];
+            String value = cldrFile.getStringValue(path);
+            String actualRaw = exampleGenerator.getExampleHtml(path, value);
+            String actual = ExampleGenerator.simplify(actualRaw, false);
+            assertEquals(row[0] + ", " + row[1], expected, actual);
+        }
+        if (isVerbose()) { // generate examples
+            PluralInfo pluralInfo = SDI.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
+            ArrayList<String> paths = new ArrayList<>();
+
+            for (Count plural : pluralInfo.getCounts()) {
+                paths.add("//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"" + plural +  "\"]");
+            }
+            GrammarInfo grammarInfo = SDI.getGrammarInfo("de");
+            for (String grammaticalValues : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units)) {
+                paths.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + grammaticalValues +  "\"]");
+            }
+            for (String grammaticalValues : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units)) {
+                paths.add("//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + grammaticalValues +  "\"]");
+            }
+            for (String path : paths) {
+                String value = cldrFile.getStringValue(path);
+                String actualRaw = exampleGenerator.getExampleHtml(path, value);
+                String actual = ExampleGenerator.simplify(actualRaw, false);
+                System.out.println("{\"" + path.replace("\"", "\\\"") + "\", \"" + actual + "\"},");
+            }
+        }
+    }
+
 }

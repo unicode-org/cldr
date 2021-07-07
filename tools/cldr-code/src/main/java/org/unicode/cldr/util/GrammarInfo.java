@@ -75,8 +75,15 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         public CharSequence getSymbol() {
             return symbol;
         }
-        public String getDefault(Collection<String> values) {
-            return this == grammaticalGender && values != null && !values.contains("neuter") ? "masculine" : defaultValue;
+        /**
+         * Gets the default value. The parameter only needs to be set for grammaticalGender
+         */
+        public String getDefault(Collection<String> featureValuesFromGrammaticalInfo) {
+            return this == grammaticalGender
+                && featureValuesFromGrammaticalInfo != null
+                    && !featureValuesFromGrammaticalInfo.contains("neuter")
+                    ? "masculine"
+                        : defaultValue;
         }
         public static Matcher pathHasFeature(String path) {
             Matcher result = PATH_HAS_FEATURE.matcher(path);

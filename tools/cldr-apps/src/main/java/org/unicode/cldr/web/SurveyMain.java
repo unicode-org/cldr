@@ -104,7 +104,6 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
-
     private static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
     private static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
     private static final String CLDR_LASTVOTEVERSION = "CLDR_LASTVOTEVERSION";

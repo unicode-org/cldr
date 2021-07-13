@@ -29,34 +29,16 @@ let voteLevelChanged = 0;
  * @param tr
  * @param theRow
  * @param vHash
- * @param box
  */
-function wireUpButton(button, tr, theRow, vHash, box) {
-  if (box) {
-    button.id = "CHANGE_" + tr.rowHash;
-    vHash = "";
-    box.onchange = function () {
-      handleWiredClick(tr, theRow, vHash, box, button, "submit");
-      return false;
-    };
-    box.onkeypress = function (e) {
-      if (!e || !e.keyCode) {
-        return true; // not getting the point here.
-      } else if (e.keyCode == 13) {
-        handleWiredClick(tr, theRow, vHash, box, button);
-        return false;
-      } else {
-        return true;
-      }
-    };
-  } else if (vHash == null) {
+function wireUpButton(button, tr, theRow, vHash) {
+  if (vHash == null) {
     button.id = "NO_" + tr.rowHash;
     vHash = "";
   } else {
     button.id = "v" + vHash + "_" + tr.rowHash;
   }
   cldrDom.listenFor(button, "click", function (e) {
-    handleWiredClick(tr, theRow, vHash, box, button);
+    handleWiredClick(tr, theRow, vHash, undefined, button);
     cldrEvent.stopPropagation(e);
     return false;
   });
@@ -71,7 +53,7 @@ function wireUpButton(button, tr, theRow, vHash, box) {
       button.className = "ichoice-o";
       button.checked = false;
     }
-  } else if (theRow.voteVhash == vHash && !box) {
+  } else if (theRow.voteVhash == vHash) {
     button.className = "ichoice-x";
     button.checked = true;
     tr.lastOn = button;
@@ -81,7 +63,18 @@ function wireUpButton(button, tr, theRow, vHash, box) {
   }
 }
 
-function handleWiredClick(tr, theRow, vHash, box, button, what) {
+/**
+ * Handle a voting event
+ *
+ * @param {Element} tr the table row
+ * @param {Object} theRow object describing the table row
+ * @param {String} vHash hash of the value of the candidate item (cf. DataSection.getValueHash on back end)
+ * @param {Object} box object like { value: newValue }, or undefined (use button.value instead)
+ * @param {Element} button the GUI button
+ *
+ * TODO: shorten this function, using (non-nested) subroutines
+ */
+function handleWiredClick(tr, theRow, vHash, box, button) {
   if (!tr || !theRow || tr.wait) {
     return;
   }
@@ -100,15 +93,8 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
   } else {
     valToShow = button.value;
   }
-  if (!what) {
-    what = "submit";
-  }
-  if (what == "submit") {
-    button.className = "ichoice-x-ok"; // TODO: ichoice-inprogress? spinner?
-    cldrSurvey.showLoader(cldrText.get("voting"));
-  } else {
-    cldrSurvey.showLoader(cldrText.get("checking"));
-  }
+  button.className = "ichoice-x-ok"; // TODO: ichoice-inprogress? spinner?
+  cldrSurvey.showLoader(cldrText.get("voting"));
 
   // select
   cldrLoad.updateCurrentId(theRow.xpstrid);
@@ -135,7 +121,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
     "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
   );
   var ourContent = {
-    what: what,
+    what: "submit", /* cf. WHAT_SUBMIT in SurveyAjax.java */
     xpath: tr.xpathId,
     _: cldrStatus.getCurrentLocale(),
     fhash: tr.rowHash,

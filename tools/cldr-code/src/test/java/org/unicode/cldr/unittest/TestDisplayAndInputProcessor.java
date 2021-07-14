@@ -473,4 +473,24 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             return a;
         }
     }
+
+    /**
+     * Test whether DisplayAndInputProcessor.processInput correctly normalizes annotations
+     * containing “|” = U+007C VERTICAL LINE or its variations
+     */
+    public void TestSplitBar() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
+        String xpath = "//ldml/annotations/annotation[@cp=\"🆎\"]";
+        String val = daip.processInput(xpath, "a|b", null);
+        String normVal = "a | b";
+        assertEquals("Pipe gets spaces", normVal, val);
+        val = daip.processInput(xpath, "a   l   b", null);
+        assertEquals("Lowercase L with spaces becomes pipe", normVal, val);
+        val = daip.processInput(xpath, "alb", null);
+        assertEquals("Lowercase L without spaces does not become pipe", "alb", val);
+        val = daip.processInput(xpath, "a।b", null);
+        assertEquals("U+0964 DEVANAGARI DANDA without spaces becomes pipe", normVal, val);
+        val = daip.processInput(xpath, "a  ।  b", null);
+        assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
+    }
 }

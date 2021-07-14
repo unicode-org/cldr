@@ -312,7 +312,11 @@ public class DisplayAndInputProcessor {
     static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
     static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer(FIX_YEARS);
 
-    public static final Splitter SPLIT_BAR = Splitter.on(Pattern.compile("(\\||\\s+l\\s+)")).trimResults().omitEmptyStrings();
+    private static final String BAR_VL = "\\|"; // U+007C VERTICAL LINE (pipe, bar) literal
+    private static final String BAR_EL = "\\s+l\\s+"; // U+006C LATIN SMALL LETTER L with space
+    private static final String BAR_DANDA = "।"; // U+0964 DEVANAGARI DANDA
+    private static final String BAR_REGEX = "(" + BAR_VL + "|" + BAR_EL + "|" + BAR_DANDA + ")";
+    public static final Splitter SPLIT_BAR = Splitter.on(Pattern.compile(BAR_REGEX)).trimResults().omitEmptyStrings();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Joiner JOIN_BAR = Joiner.on(" | ");
 

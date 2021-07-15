@@ -34,7 +34,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about
     // contributed or higher. This can help to reduce the error count when you have a lot of new data.
 
-    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.approved;
+    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.contributed;
     static final Set<Phase> PHASES_CAUSE_ERROR = ImmutableSet.of(Phase.FINAL_TESTING, Phase.VETTING);
 
     private boolean phaseCausesError;
@@ -237,7 +237,9 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
                 CheckStatus.Type showError = phaseCausesError ? CheckStatus.errorType : CheckStatus.warningType;
                 result.add(new CheckStatus().setCause(this).setMainType(showError)
                     .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
-                    .setMessage("This item has a lower draft status (in its logical group) than {0}.",
+                    .setMessage("This item has draft status={0}, which is lower than the status={1} (for {2}).",
+                        myStatus.name(),
+                        draftStatus.name(),
                         getPathReferenceForMessage(apath, true))); // the
                 break; // no need to continue
             }

@@ -147,6 +147,28 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             return string == null ? DraftStatus.approved
                 : DraftStatus.valueOf(string.toLowerCase(Locale.ENGLISH));
         }
+
+        /**
+         * Get the draft status from a full xpath
+         * @param xpath
+         * @return
+         */
+        public static DraftStatus forXpath(String xpath) {
+            final String status = XPathParts.getFrozenInstance(xpath).getAttributeValue(-1, "draft");
+            return forString(status);
+        }
+
+        /**
+         * Return the XPath suffix for this draft status
+         * or "" for approved.
+         */
+        public String asXpath() {
+            if (this == approved) {
+                return "";
+            } else {
+                return "[@draft=\"" + name() + "\"]";
+            }
+        }
     }
 
     @Override

@@ -69,6 +69,10 @@ public enum Level {
         }
     }
 
+    public String getAltName() {
+        return altName;
+    }
+
     @Override
     public String toString() {
         return this.name().toLowerCase();

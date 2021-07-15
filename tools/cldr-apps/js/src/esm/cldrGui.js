@@ -612,7 +612,9 @@ function refreshCounterVetting() {
     $("#nav-page .counter-infos").hide();
     return;
   }
-
+  // TODO: avoid using the DOM for calculations -- calculate total, voted, and abstain using
+  // the original data, not the elements that we've put in the DOM
+  // Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
   const inputs = $(".vetting-page input:visible:checked");
   let total = inputs.length;
   const abstain = inputs.filter(function () {

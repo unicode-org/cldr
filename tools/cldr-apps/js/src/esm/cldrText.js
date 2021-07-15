@@ -15,7 +15,6 @@ const strings = {
   loading_nocontent: "This locale cannot be displayed.",
   loadingOneRow: "loading....",
   voting: "Voting",
-  checking: "Checking",
 
   emailHidden: "(hidden)",
   noVotingInfo: " (no voting info received)",

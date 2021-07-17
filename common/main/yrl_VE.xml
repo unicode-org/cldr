@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2021 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="yrl" />
+		<territory type="VE" />
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="br">beretan</language>
+			<language type="chn">yarigan xinoki</language>
+			<language type="de">areman</language>
+			<language type="de_CH">areman iwaté (Suisa)</language>
+			<language type="gmh">areman iwaté médiu</language>
+			<language type="goh">areman arkaiku iwaté</language>
+			<language type="gsw">areman (Suisa)</language>
+			<language type="lv">retan</language>
+			<language type="nds_NL">sakisan yatuka</language>
+			<language type="mul">siía ñeẽga</language>
+			<language type="und">ũba uyukuau ñeẽga</language>
+			<language type="wa">waran</language>
+			<language type="yrl">ñengatú</language>
+			<language type="zgh">tamasiriti marukinu padran</language>
+			<language type="zh">xinañeẽga</language>
+			<language type="zh" alt="menu">xinañeẽga, mãdarĩ</language>
+			<language type="zh_Hans">xinañeẽga iwasuĩma</language>
+			<language type="zh_Hans" alt="long">xinañeẽga mãdarĩ (iwasuĩma)</language>
+			<language type="zh_Hant">xinañeẽga katuwa</language>
+			<language type="zh_Hant" alt="long">xinañeẽga mãdarĩ (katuwa)</language>
+			<language type="zxx">ũba aykué ñeẽga sesewaraitá</language>
+		</languages>
+		<scripts>
+			<script type="Visp">ñeẽga xipiawera</script>
+		</scripts>
+		<territories>
+			<territory type="AC">Asesan Kapuãma</territory>
+			<territory type="BL">San Batulumeu</territory>
+			<territory type="BT">Butan</territory>
+			<territory type="CR">Koñta Rika</territory>
+			<territory type="GA">Gaban</territory>
+			<territory type="KN">San Kirituwan suí Newi</territory>
+			<territory type="PM">San Peduru asuí Mikelan</territory>
+			<territory type="TA">Tiritan Kũya</territory>
+			<territory type="UN">Nasan Yepewasuwaitá</territory>
+		</territories>
+		<variants>
+			<variant type="1606NICT" draft="contributed">frãsañeẽga kaxiímawara 1606 upé</variant>
+			<variant type="1694ACAD">frãsañeẽga kuiriwara</variant>
+			<variant type="AO1990">Kuatiasawasupí Ewakisawa ñeẽga Putugewara 1990</variant>
+			<variant type="COLB1945">Kõvẽsan kuatiasawasupí Brasiu-Putugau 1945</variant>
+			<variant type="KKCOR" draft="contributed">kuatiasawasupí pañé-yara</variant>
+		</variants>
+		<types>
+			<type key="collation" type="big5han">Xinañẽẽga rikusawarupí muakaresawa - Big5</type>
+			<type key="collation" type="gb2312han">Xinañeẽga iwasuĩma muakarewa - GB2312</type>
+			<type key="collation" type="search">Sikaisá purusawa pañérupí</type>
+			<type key="colStrength" type="primary" draft="contributed">Reyupurawaka letera básika ñũtú</type>
+		</types>
+		<codePatterns>
+			<codePattern type="language">Ñeẽga: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ye</month>
+							<month type="2">mk</month>
+							<month type="3">ms</month>
+							<month type="4">id</month>
+							<month type="5">pu</month>
+							<month type="6">py</month>
+							<month type="7">pm</month>
+							<month type="8">pm</month>
+							<month type="9">pi</month>
+							<month type="10">yp</month>
+							<month type="11">yy</month>
+							<month type="12">ym</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">Y</month>
+							<month type="2">M</month>
+							<month type="3">M</month>
+							<month type="4">I</month>
+							<month type="5">P</month>
+							<month type="6">P</month>
+							<month type="7">P</month>
+							<month type="8">P</month>
+							<month type="9">P</month>
+							<month type="10">Y</month>
+							<month type="11">Y</month>
+							<month type="12">Y</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">yepé</month>
+							<month type="2">mukũi</month>
+							<month type="3">musapíri</month>
+							<month type="4">irũdí</month>
+							<month type="5">pú</month>
+							<month type="6">pú-yepé</month>
+							<month type="7">pú-mukũi</month>
+							<month type="8">pú-musapíri</month>
+							<month type="9">pú-irũdí</month>
+							<month type="10">yepé-putimaã</month>
+							<month type="11">yepé-yepé</month>
+							<month type="12">yepé-mukũi</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">ye</month>
+							<month type="2">mk</month>
+							<month type="3">ms</month>
+							<month type="4">id</month>
+							<month type="5">pu</month>
+							<month type="6">py</month>
+							<month type="7">pm</month>
+							<month type="8">pm</month>
+							<month type="9">pi</month>
+							<month type="10">yp</month>
+							<month type="11">yy</month>
+							<month type="12">ym</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">Y</month>
+							<month type="2">M</month>
+							<month type="3">M</month>
+							<month type="4">I</month>
+							<month type="5">P</month>
+							<month type="6">P</month>
+							<month type="7">P</month>
+							<month type="8">P</month>
+							<month type="9">P</month>
+							<month type="10">Y</month>
+							<month type="11">Y</month>
+							<month type="12">Y</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">yepé</month>
+							<month type="2">mukũi</month>
+							<month type="3">musapíri</month>
+							<month type="4">irũdí</month>
+							<month type="5">pú</month>
+							<month type="6">pú-yepé</month>
+							<month type="7">pú-mukũi</month>
+							<month type="8">pú-musapíri</month>
+							<month type="9">pú-irũdí</month>
+							<month type="10">yepé-putimaã</month>
+							<month type="11">yepé-yepé</month>
+							<month type="12">yepé-mukũi</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">mit</day>
+							<day type="mon">mur</day>
+							<day type="tue">mmk</day>
+							<day type="wed">mms</day>
+							<day type="thu">sup</day>
+							<day type="fri">yuk</day>
+							<day type="sat">sau</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">M</day>
+							<day type="mon">M</day>
+							<day type="tue">M</day>
+							<day type="wed">M</day>
+							<day type="thu">S</day>
+							<day type="fri">Y</day>
+							<day type="sat">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">mituú</day>
+							<day type="mon">murakipí</day>
+							<day type="tue">murakí-mukũi</day>
+							<day type="wed">murakí-musapíri</day>
+							<day type="thu">supapá</day>
+							<day type="fri">yukuakú</day>
+							<day type="sat">saurú</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">M</day>
+							<day type="mon">M</day>
+							<day type="tue">M</day>
+							<day type="wed">M</day>
+							<day type="thu">S</day>
+							<day type="fri">Y</day>
+							<day type="sat">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">mituú</day>
+							<day type="mon">murakipí</day>
+							<day type="tue">murakí-mukũi</day>
+							<day type="wed">murakí-musapíri</day>
+							<day type="thu">supapá</day>
+							<day type="fri">yukuakú</day>
+							<day type="sat">saurú</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">M1</quarter>
+							<quarter type="2">M2</quarter>
+							<quarter type="3">M3</quarter>
+							<quarter type="4">M4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">yepésáwa musapíri-yasí</quarter>
+							<quarter type="2">mukũisawa musapíri-yasí</quarter>
+							<quarter type="3">musapírisawa musapíri-yasí</quarter>
+							<quarter type="4">irũdisawa musapíri-yasí</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">M1</quarter>
+							<quarter type="2">M2</quarter>
+							<quarter type="3">M3</quarter>
+							<quarter type="4">M4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">yepésáwa musapíri-yasí</quarter>
+							<quarter type="2">mukũisawa musapíri-yasí</quarter>
+							<quarter type="3">musapírisawa musapíri-yasí</quarter>
+							<quarter type="4">irũdisawa musapíri-yasí</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">pituna pyterupé</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="noon">iandé-ara-pyturepé</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="morning1">kuêma ramẽ</dayPeriod>
+							<dayPeriod type="afternoon1">karuka ramẽ</dayPeriod>
+							<dayPeriod type="evening1">pituna ramẽ</dayPeriod>
+							<dayPeriod type="night1">pitunaeté ramẽ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">pituna pyterupé</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="noon">iandé-ara-pyturepé</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="morning1">kuêma ramẽ</dayPeriod>
+							<dayPeriod type="afternoon1">karuka ramẽ</dayPeriod>
+							<dayPeriod type="evening1">pituna ramẽ</dayPeriod>
+							<dayPeriod type="night1">pitunaeté ramẽ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">pituna pyterupé</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="noon">iandé-ara-pyturepé</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="morning1">kuêma ramẽ</dayPeriod>
+							<dayPeriod type="afternoon1">karuka ramẽ</dayPeriod>
+							<dayPeriod type="evening1">pituna ramẽ</dayPeriod>
+							<dayPeriod type="night1">pitunaeté ramẽ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">pituna pyterupé</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="noon">iandé-ara-pyturepé</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="morning1">kuêma ramẽ</dayPeriod>
+							<dayPeriod type="afternoon1">karuka ramẽ</dayPeriod>
+							<dayPeriod type="evening1">pituna ramẽ</dayPeriod>
+							<dayPeriod type="night1">pitunaeté ramẽ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">pituna pyterupé</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="noon">iandé-ara-pyturepé</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="morning1">kuêma ramẽ</dayPeriod>
+							<dayPeriod type="afternoon1">karuka ramẽ</dayPeriod>
+							<dayPeriod type="evening1">pituna ramẽ</dayPeriod>
+							<dayPeriod type="night1">pitunaeté ramẽ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">pituna pyterupé</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="noon">iandé-ara-pyturepé</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="morning1">kuêma ramẽ</dayPeriod>
+							<dayPeriod type="afternoon1">karuka ramẽ</dayPeriod>
+							<dayPeriod type="evening1">pituna ramẽ</dayPeriod>
+							<dayPeriod type="night1">pitunaeté ramẽ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0">Kiristu senũdé</era>
+						<era type="0" alt="variant">Era Kumũ senũdé</era>
+						<era type="1">Kiristu ariré</era>
+						<era type="1" alt="variant">Era Kumũ</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">K.s.</era>
+						<era type="0" alt="variant">EKS</era>
+						<era type="1">K.a.</era>
+						<era type="1" alt="variant">EK</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="contributed">h:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="contributed">h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="contributed">h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="contributed">h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv">HH:mm v</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
+						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">W'ª' 'sẽmãna' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">W'ª' 'sẽmãna' MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="yM">MM/y</dateFormatItem>
+						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMEd">E, dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMM">MM/y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, d MMMM y</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">w'ª' 'sẽmãna' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">w'ª' 'sẽmãna' Y</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h – h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y – y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGG MM/y – GGGGG MM/y</greatestDifference>
+							<greatestDifference id="M">GGGGG MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">GGGGG MM/y – MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="G">GGGGG dd/MM/y – GGGGG dd/MM/y</greatestDifference>
+							<greatestDifference id="M">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="y">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">GGGGG E dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="G">GGGGG E dd/MM/y – GGGGG E dd/MM/y</greatestDifference>
+							<greatestDifference id="M">GGGGG E dd/MM/y – E dd/MM/y</greatestDifference>
+							<greatestDifference id="y">GGGGG E dd/MM/y – E dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G MMM y – G MMM y</greatestDifference>
+							<greatestDifference id="M">G MMM y – MMM</greatestDifference>
+							<greatestDifference id="y">G MMM y – MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G d – d MMM y</greatestDifference>
+							<greatestDifference id="G">G d MMM y – G d MMM y</greatestDifference>
+							<greatestDifference id="M">G d MMM y – d MMM</greatestDifference>
+							<greatestDifference id="y">G d MMM y – d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G E, d MMM y – E, d MMM</greatestDifference>
+							<greatestDifference id="G">G E, d MMM y – G E, d MMM y</greatestDifference>
+							<greatestDifference id="M">G E, d MMM y – E, d MMM</greatestDifference>
+							<greatestDifference id="y">G E, d MMM y – E, d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h – h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH'h' - HH'h'</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h – h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH – HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M – M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E, dd/MM – E, dd/MM</greatestDifference>
+							<greatestDifference id="M">E, dd/MM – E, dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM – MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d – d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d – E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y – y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">MMM – MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d – d MMM y</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d – E, d MMM y</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM y</greatestDifference>
+							<greatestDifference id="y">E, d MMM y – E, d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MMMM – MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="dayperiod-short">
+				<displayName>a. m./p. m.</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>a. m./p. m.</displayName>
+			</field>
+			<field type="dayperiod-narrow">
+				<displayName>a. m./p. m.</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity>Sã Batulumeu</exemplarCity>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity>Sã Kirituwan</exemplarCity>
+			</zone>
+			<metazone type="Bhutan">
+				<long>
+					<standard>Butan Hurariyu</standard>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>Sã Peduru asuí Mikiran Hurariyu</generic>
+					<standard>Sã Peduru asuí Mikiran Hurariyu Retewa</standard>
+					<daylight>Sã Peduru asuí Mikiran Kurasí Ara Hurariyu</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern count="one" type="1000">↑↑↑</pattern>
+					<pattern count="other" type="1000">↑↑↑</pattern>
+					<pattern count="one" type="10000">↑↑↑</pattern>
+					<pattern count="other" type="10000">↑↑↑</pattern>
+					<pattern count="one" type="100000">↑↑↑</pattern>
+					<pattern count="other" type="100000">↑↑↑</pattern>
+					<pattern count="one" type="1000000">0 millón</pattern>
+					<pattern count="other" type="1000000">0 millón-ita</pattern>
+					<pattern count="one" type="10000000">00 millón</pattern>
+					<pattern count="other" type="10000000">00 millón-ita</pattern>
+					<pattern count="one" type="100000000">000 millón</pattern>
+					<pattern count="other" type="100000000">000 millón-ita</pattern>
+					<pattern count="one" type="1000000000">0 billón</pattern>
+					<pattern count="other" type="1000000000">0 billón-ita</pattern>
+					<pattern count="one" type="10000000000">00 billón</pattern>
+					<pattern count="other" type="10000000000">00 billón-ita</pattern>
+					<pattern count="one" type="100000000000">000 billón</pattern>
+					<pattern count="other" type="100000000000">000 billón-ita</pattern>
+					<pattern count="one" type="1000000000000">0 tirillón</pattern>
+					<pattern count="other" type="1000000000000">0 tirillón-ita</pattern>
+					<pattern count="one" type="10000000000000">00 tirillón</pattern>
+					<pattern count="other" type="10000000000000">00 tirillón-ita</pattern>
+					<pattern count="one" type="100000000000000">000 tirillón</pattern>
+					<pattern count="other" type="100000000000000">000 tirillón-ita</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<currencies>
+			<currency type="AOR">
+				<displayName>Kuãsa ãgulawara yumũñãwa yuiri (1995-1999)</displayName>
+				<displayName count="one">Kuãsa ãgulawara yumuñãwa yuiri (AOR)</displayName>
+				<displayName count="other">Kuãsa-ita ãgulawara yumuñãwa-itayuiri (AOR)</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="area-square-mile">
+				<displayName>milla kuadaradu-ita</displayName>
+				<unitPattern count="one">{0} milla kuadaradu</unitPattern>
+				<unitPattern count="other">{0} milla kuadaradu-ita</unitPattern>
+				<perUnitPattern>{0} milla kuadaradu rupi</perUnitPattern>
+			</unit>
+			<unit type="concentr-permillion">
+				<displayName>pisawera-ita millón rupi</displayName>
+				<unitPattern count="one">{0} pisawera millón rupi</unitPattern>
+				<unitPattern count="other">{0} pisawera-ita millón rupi</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>milla-ita karóti rupi</displayName>
+				<unitPattern count="one">{0} milla karóti rupi</unitPattern>
+				<unitPattern count="other">{0} milla-ita karóti rupi</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>milla-ita karóti ĩperiawa rupi</displayName>
+				<unitPattern count="one">{0} milla karóti ĩperiawa rupi</unitPattern>
+				<unitPattern count="other">{0} milla-ita karóti ĩperiawa rupi</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>milla-ita</displayName>
+				<unitPattern count="one">{0} milla</unitPattern>
+				<unitPattern count="other">{0} milla-ita</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>milla paranãuara-ita</displayName>
+				<unitPattern count="one">{0} milla paranãuara</unitPattern>
+				<unitPattern count="other">{0} milla paranãuara-ita</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>milla esikãdinaua-ita</displayName>
+				<unitPattern count="one">{0} milla esikãdinaua</unitPattern>
+				<unitPattern count="other">{0} milla esikãdinaua-ita</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<displayName>milla-ita hura rupi</displayName>
+				<unitPattern count="one">{0} milla hura rupi</unitPattern>
+				<unitPattern count="other">{0} milla-ita hura rupi</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<displayName>milla kúbika-ita</displayName>
+				<unitPattern count="one">{0} milla kúbika</unitPattern>
+				<unitPattern count="other">{0} milla kúbika-ita</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="area-square-mile">
+				<displayName>milla-itá²</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="concentr-permillion">
+				<displayName>pisawera millón rupi</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>milla-itá/gal</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>millas/gal. imp.</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>milla</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<displayName>milla-itá/hura</displayName>
+				<unitPattern count="one">{0} mph</unitPattern>
+				<unitPattern count="other">{0} mph</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="length-mile">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one">{0} milla</unitPattern>
+				<unitPattern count="other">{0} milla</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
+	<characterLabels>
+		<characterLabelPattern type="all">{0} — pañé</characterLabelPattern>
+		<characterLabel type="punctuation">pũtuasan</characterLabel>
+	</characterLabels>
+	<typographicNames>
+		<axisName type="slnt">ĩkrinasan</axisName>
+		<featureName type="afrc">frasan-ita puãmuwa</featureName>
+		<featureName type="frac">frasan-ita diagunau</featureName>
+	</typographicNames>
+</ldml>

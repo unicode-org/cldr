@@ -4,15 +4,11 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Proper interpretation of these files requires synthesis of missing items, as per
-​http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
-Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<language type="kgp"/>
-		<territory type="BR"/>
+		<version number="$Revision$" />
+		<language type="yrl" />
+		<territory type="BR" />
 	</identity>
 </ldml>

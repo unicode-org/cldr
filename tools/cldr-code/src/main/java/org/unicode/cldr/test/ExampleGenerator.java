@@ -760,14 +760,10 @@ public class ExampleGenerator {
                 gCase = GrammaticalFeature.grammaticalCase.getDefault(null);
             }
             Collection<String> unitCaseInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
-            String pattern = unitId.toString(getCldrFile(), width, count, gCase, null, false);
-            if (pattern != null) {
-                if (!value.contentEquals(pattern)) {
-                    examples.add(pattern);
-                }
+            if (value != null) {
                 String minimalPattern = cldrFile.getStringValue("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + gCase + "\"]");
                 if (minimalPattern != null && numberFormat != null) {
-                    String composed = format(pattern, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
+                    String composed = format(value, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
                     examples.add(backgroundStartSymbol + format(minimalPattern, backgroundEndSymbol + composed + backgroundStartSymbol) + backgroundEndSymbol);
                 } else if (!unitCaseInfo.isEmpty()) {
                     examples.add("⚠️No Case Minimal Pair available yet️");

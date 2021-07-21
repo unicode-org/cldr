@@ -315,11 +315,32 @@ public class TestExampleGenerator extends TestFmwk {
             "〖❬1.5❭m〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
+
+        // The following are to ensure that we properly generate an example when we have a non-winning value
+        checkValue(
+            "Length m",
+            "〖❬1.5❭ badmeter〗",
+            exampleGenerator,
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]",
+            "{0} badmeter");
+
+        ExampleGenerator exampleGeneratorDe = getExampleGenerator("de");
+        checkValue(
+            "Length m",
+            "〖❬1,5❭ badmeter〗〖❬Anstatt 1,5❭ badmeter❬ …❭〗",
+            exampleGeneratorDe,
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]",
+            "{0} badmeter");
     }
 
     private void checkValue(String message, String expected,
         ExampleGenerator exampleGenerator, String path) {
-        String value = exampleGenerator.getCldrFile().getStringValue(path);
+        checkValue(message, expected, exampleGenerator, path, null);
+    }
+
+    private void checkValue(String message, String expected,
+        ExampleGenerator exampleGenerator, String path, String value) {
+        value = value != null ? value : exampleGenerator.getCldrFile().getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value);
         assertEquals(message, expected,
             ExampleGenerator.simplify(actual, false));

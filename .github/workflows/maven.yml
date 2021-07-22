@@ -17,6 +17,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Fail the things
+        run: 'echo "::error::Stuff is not happy"'
       - name: Clone Repository
         uses: actions/checkout@v2
         with:
@@ -78,11 +80,26 @@ jobs:
           mysql --user=root --password=root < tools/cldr-apps/test-setup.sql
       - name: Test with maven
         run: >
-          mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml
+          mvn -Dtest=TestCLDRFile -s .github/workflows/mvn-settings.xml -B surefire-report:report --file tools/pom.xml
           '-Dorg.unicode.cldr.unittest.web.jdbcurl=jdbc:mysql://cldrtest:VbrB3LFCr6A!@localhost/cldrtest?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
           '-Dorg.unicode.cldr.unittest.web.KeepDb=true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v2
+        with:
+          report_paths: 'tools/**/target/surefire-reports/TEST-*.xml'
+          fail_on_failure: true
+          require_tests: true
+        if: github.event.inputs.git-ref == ''
+      - name: Publish Test Report (custom ref)
+        uses: mikepenz/action-junit-report@v2
+        with:
+          report_paths: 'tools/**/target/surefire-reports/TEST-*.xml'
+          fail_on_failure: true
+          require_tests: true
+          commit: ${{ github.event.inputs.git-ref }}
+        if: github.event.inputs.git-ref != ''
   check:
     needs: build
     runs-on: ubuntu-latest

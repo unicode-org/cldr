@@ -64,4 +64,15 @@ public class TestCLDRFile {
             () -> assertEquals(status, DraftStatus.forString(status.name().toUpperCase()))
         );
     }
+
+    @Test
+    public void FailTest() throws Exception {
+        // TODO: remove this!
+        // TODO: remove this!
+        // TODO: remove this!
+        // TODO: remove this!
+        // TODO: remove this!
+        // TODO: remove this!
+        throw new Exception();
+    }
 }

@@ -17,8 +17,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Fail the things
-        run: 'echo "::error::Stuff is not happy"'
       - name: Clone Repository
         uses: actions/checkout@v2
         with:
@@ -78,28 +76,18 @@ jobs:
           sudo systemctl start mysql.service
           sleep 3
           mysql --user=root --password=root < tools/cldr-apps/test-setup.sql
-      - name: Test with maven
+      - name: Test with maven  # TODO: remove '-Dtest=TestCLDRFile' !!!
         run: >
-          mvn -Dtest=TestCLDRFile -s .github/workflows/mvn-settings.xml -B surefire-report:report --file tools/pom.xml
+          mvn -pl cldr-code -DfailIfNoTests=false -Dtest=TestCLDRFile -s .github/workflows/mvn-settings.xml -B surefire-report:report --file tools/pom.xml
           '-Dorg.unicode.cldr.unittest.web.jdbcurl=jdbc:mysql://cldrtest:VbrB3LFCr6A!@localhost/cldrtest?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
           '-Dorg.unicode.cldr.unittest.web.KeepDb=true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v2
+      - uses: KyleAure/junit-report-annotations-action@1.5
         with:
-          report_paths: 'tools/**/target/surefire-reports/TEST-*.xml'
-          fail_on_failure: true
-          require_tests: true
-        if: github.event.inputs.git-ref == ''
-      - name: Publish Test Report (custom ref)
-        uses: mikepenz/action-junit-report@v2
-        with:
-          report_paths: 'tools/**/target/surefire-reports/TEST-*.xml'
-          fail_on_failure: true
-          require_tests: true
-          commit: ${{ github.event.inputs.git-ref }}
-        if: github.event.inputs.git-ref != ''
+          name: "unit tests"
+          path: "tools/**/target/surefire-reports/TEST-*.xml"
+          # access-token: ${{ secrets.GITHUB_TOKEN }}
   check:
     needs: build
     runs-on: ubuntu-latest
@@ -125,7 +113,7 @@ jobs:
           name: cldr-code
           path: tools/cldr-code/target/
       - name: run CLDR console check
-        run: java -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
+        run: java CLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
   deploy:
     # don't run deploy on manual builds!
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.inputs.git-ref == ''

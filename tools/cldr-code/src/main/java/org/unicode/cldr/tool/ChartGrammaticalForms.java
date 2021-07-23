@@ -374,14 +374,14 @@ public class ChartGrammaticalForms extends Chart {
             if (sortedCases.size() > 1) {
                 // set up the table and add the headers
                 TablePrinter caseTablePrinter = new TablePrinter()
-                    .addColumn("Unit", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                    .setSortPriority(2)
-                    .setRepeatHeader(true)
                     .addColumn("Quantity", "class='source' width='1%'", null, "class='source'", true)
                     .setSortPriority(0)
+                    .setRepeatHeader(true)
                     .addColumn("Size", "class='source' width='1%'", null, "class='source'", true)
                     .setSortPriority(1)
                     .setHidden(true)
+                    .addColumn("Unit", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+                    .setSortPriority(2)
                     .addColumn("Gender", "class='source' width='1%'", null, "class='source'", true)
                     .addColumn("Case", "class='source' width='1%'", null, "class='source'", true)
                     ;
@@ -411,9 +411,9 @@ public class ChartGrammaticalForms extends Chart {
                         // start a row, then add the cells in the row.
                         caseTablePrinter
                         .addRow()
-                        .addCell(unitCell)
                         .addCell(quantity)
                         .addCell(sizeInBaseUnits.value)
+                        .addCell(unitCell)
                         .addCell(gender)
                         .addCell(case1);
 
@@ -424,6 +424,7 @@ public class ChartGrammaticalForms extends Chart {
 
                             String unitPattern = cldrFile.getStringValueWithBailey("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnit + "\"]/unitPattern"
                                 + GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, plural.toString(), null, case1));
+                            unitPattern = unitPattern.replace("\u00A0", " ");
 
                             caseTablePrinter.addCell(unitPattern);
 
@@ -438,7 +439,7 @@ public class ChartGrammaticalForms extends Chart {
                         caseTablePrinter.finishRow();
                     }
                 }
-                info.put("Unit Case Info", new TablePrinterWithHeader(
+                info.put("Unit Case & Gender Info", new TablePrinterWithHeader(
                     "<p>This table has rows contains unit forms appropriate for different grammatical cases and plural forms. "
                         + "Each plural form has a sample value such as <i>(1.2)</i> or <i>(2)</i>. "
                         + "That value is used with the localized unit pattern to form a formatted measure, such as “2,0 Stunden”. "
@@ -449,6 +450,43 @@ public class ChartGrammaticalForms extends Chart {
                         + "For more information, see <a target='unit_conversions' href='../supplemental/unit_conversions.html'>Unit Conversions</a>.</li>"
                         + "</ul>\n"
                         , caseTablePrinter));
+            } else if (sortedGenders.size() < 0) { // comment out for now
+                TablePrinter genderTablePrinter = new TablePrinter()
+                    .addColumn("Quantity", "class='source' width='1%'", null, "class='source'", true)
+                    .setSortPriority(0)
+                    .setRepeatHeader(true)
+                    .addColumn("Size", "class='source' width='1%'", null, "class='source'", true)
+                    .setSortPriority(1)
+                    .setHidden(true)
+                    .addColumn("Unit", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+                    .setSortPriority(2)
+                    .addColumn("Gender", "class='source' width='1%'", null, "class='source'", true)
+                    .addColumn("Native Name", "class='source' width='1%'", null, "class='source'", true)
+                    ;
+
+                for (String longUnit : GrammarInfo.getUnitsToAddGrammar()) {
+                    final String shortUnit = uc.getShortId(longUnit);
+                    String unitCell = getBestBaseUnit(uc, shortUnit, sizeInBaseUnits);
+                    String quantity = shortUnit.contentEquals("generic") ? "temperature" : uc.getQuantityFromUnit(shortUnit, false);
+
+                    String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
+                    String name = cldrFile.getStringValueWithBailey("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnit + "\"]/displayName");
+
+                    genderTablePrinter
+                    .addRow()
+                    .addCell(quantity)
+                    .addCell(sizeInBaseUnits.value)
+                    .addCell(unitCell)
+                    .addCell(gender)
+                    .addCell(name)
+                    .finishRow();
+
+                }
+                info.put("Unit Gender Info", new TablePrinterWithHeader(
+                    "<p>This table has rows containing gender information for each unit. "
+                        + "</p>\n"
+                        , genderTablePrinter));
+
             }
 
             if (sortedCases.size() > 1 || sortedGenders.size() > 1) {
@@ -509,6 +547,7 @@ public class ChartGrammaticalForms extends Chart {
 
                             for (Count plural : adjustedPlurals) {
                                 String localizedPowerPattern = UnitPathType.power.getTrans(cldrFile, "long", power, plural.toString(), case1, gender, null);
+                                localizedPowerPattern = localizedPowerPattern.replace("\u00A0", " ");
                                 caseTablePrinter.addCell(localizedPowerPattern);
 
                                 if (bestUnit == null) {
@@ -519,7 +558,10 @@ public class ChartGrammaticalForms extends Chart {
                                     placeholderPosition = UnitConverter.extractUnit(placeholderMatcher, localizedUnitPattern, unitPatternOut);
                                     if (placeholderPosition != PlaceholderLocation.middle) {
                                         localizedUnitPattern = unitPatternOut.value;
-                                        String placeholderPattern = placeholderMatcher.group();
+                                        localizedUnitPattern = localizedUnitPattern.replace("\u00A0", " ");
+                                        String placeholderPattern = placeholderPosition == PlaceholderLocation.missing
+                                            ? localizedUnitPattern
+                                                : placeholderMatcher.group();
 
                                         String combined;
                                         try {

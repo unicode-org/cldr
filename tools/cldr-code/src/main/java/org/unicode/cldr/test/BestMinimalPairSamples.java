@@ -29,6 +29,7 @@ import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.text.PluralRules.SampleType;
+import com.ibm.icu.util.Output;
 
 /**
  * Return the best samples for illustrating minimal pairs
@@ -53,33 +54,51 @@ public class BestMinimalPairSamples {
     }
 
     static final class CaseAndGenderSamples {
-        private final Map<String, String> genderCache;
+        private final Map<String, Pair<String, String>> genderCache;
         private final Map<String, String> caseCache;
+        private final String caseUnitId;
 
-        public CaseAndGenderSamples(Map<String, String> caseCache2, Map<String, String> genderCache2) {
+        public CaseAndGenderSamples(Map<String, String> caseCache2, String bestCaseUnitId,  Map<String, Pair<String, String>> genderCache2) {
             genderCache  = genderCache2;
             caseCache = caseCache2;
+            caseUnitId = bestCaseUnitId;
+        }
+
+        public String getGender(String gender, Output<String> shortUnitId) {
+            Pair<String, String> result = genderCache.get(gender);
+            if (result == null) {
+                return null;
+            }
+            shortUnitId.value = result.getFirst();
+            return result.getSecond();
+        }
+
+        public String getCase(String unitCase, Output<String> shortUnitId) {
+            shortUnitId.value = caseUnitId;
+            return caseCache.get(unitCase);
         }
     }
 
     /**
      * Returns a "good" value for a unit. Favors metric units, and simple units
+     * @param shortUnitId
      */
-    public synchronized String getBestUnitWithGender(String gender) {
+    public synchronized String getBestUnitWithGender(String gender, Output<String> shortUnitId) {
         if (caseAndGenderSamples == null) {
             caseAndGenderSamples = loadCaches();
         }
-        return caseAndGenderSamples.genderCache.get(gender);
+        return caseAndGenderSamples.getGender(gender, shortUnitId);
     }
 
     /**
      * Returns a "good" value for a unit. Favors metric units, and simple units
+     * @param shortUnitId
      */
-    public synchronized String getBestUnitWithCase(String unitCase) {
+    public synchronized String getBestUnitWithCase(String unitCase, Output<String> shortUnitId) {
         if (caseAndGenderSamples == null) {
             caseAndGenderSamples = loadCaches();
         }
-        return caseAndGenderSamples.caseCache.get(unitCase);
+        return caseAndGenderSamples.getCase(unitCase, shortUnitId);
     }
 
 
@@ -132,19 +151,19 @@ public class BestMinimalPairSamples {
         // Fill the case cache with the most distinctive forms.
         Map<String, String> caseCache = getBestCasePatterns(bestUnitPatternToCases);
 
-        // Make the gender cache be translated units instead of unit IDs
+        // Make the gender cache be translated units as well as unit IDs
         Count count = pluralInfo.getKeywords().contains("one") ? Count.one : Count.other;
-        Map<String,String> result2 = Maps.newHashMap();
+        Map<String,Pair<String,String>> result2 = Maps.newHashMap();
 
         for (Entry<String, String> entry : genderResults.entrySet()) {
             String shortUnitId = entry.getValue();
             String unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/unitPattern[@count=\"" + count + "\"]");
             unitPattern = unitPattern.replace("{0}", "").replace("\u00A0", "").trim();
-            result2.put(entry.getKey(), unitPattern);
+            result2.put(entry.getKey(), Pair.of(ExampleGenerator.UNIT_CONVERTER.getShortId(shortUnitId), unitPattern));
         }
         // it doesn't matter if we reset this due to multiple threads
-        Map<String, String> genderCache = ImmutableMap.copyOf(result2);
-        CaseAndGenderSamples result = new CaseAndGenderSamples(caseCache, genderCache);
+        Map<String, Pair<String, String>> genderCache = ImmutableMap.copyOf(result2);
+        CaseAndGenderSamples result = new CaseAndGenderSamples(caseCache, ExampleGenerator.UNIT_CONVERTER.getShortId(bestCaseUnitId), genderCache);
 
         return result;
     }

@@ -652,6 +652,7 @@ public class ExampleGenerator {
         boolean embedUnit = true;
         String grammarAttributes;
         String shortUnitId;
+        Output<String> output = new Output<>();
 
         switch(parts.getElement(-1)) {
 
@@ -674,7 +675,7 @@ public class ExampleGenerator {
         case "genderMinimalPairs": //ldml/numbers/minimalPairs/genderMinimalPairs[@gender="feminine"]
             String gender = parts.getAttributeValue(-1, "gender");
             //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"]
-            shortUnitId = bestMinimalPairSamples.getBestUnitWithGender(gender);
+            shortUnitId = bestMinimalPairSamples.getBestUnitWithGender(gender, output);
             //unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/displayName");
             // we do the following to get a singular form, since we can't depend on the displayName to be singular
 //            unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/unitPattern[@count=\"" + count + "\"]");

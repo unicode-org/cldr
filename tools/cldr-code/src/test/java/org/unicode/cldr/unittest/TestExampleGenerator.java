@@ -890,14 +890,14 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator("de");
         String[][] tests = {
             {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "〖❬1❭ Tag〗"},
-            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬1,5❭ Tage〗"},
+            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬2❭ Tage〗"},
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "〖… für ❬1 Tag❭ …〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", "〖… mit ❬1 Tag❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", "〖… mit ❬2 Tagen❭ …〗"},
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖Anstatt ❬1 Tages❭ …〗"},
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖❬1 Tag❭ kostet (kosten) € 3,50.〗"},
             {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Die ❬Stunde❭ ist …〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Meter pro Quadratsekunde❭ ist …〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬ Volt❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Zentimeter❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬Volt❭ ist …〗"},
         };
         for (String[] row : tests) {
             String path = row[0];

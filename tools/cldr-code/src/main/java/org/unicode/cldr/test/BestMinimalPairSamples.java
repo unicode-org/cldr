@@ -30,6 +30,7 @@ import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.Output;
@@ -274,7 +275,16 @@ public class BestMinimalPairSamples {
         if (samples == null) {
             return null;
         }
-        final FixedDecimal sample = samples.getSamples().iterator().next().start;
+
+        // get good sample. Avoid zero if possible
+        FixedDecimal sample = null;
+        for (FixedDecimalRange sampleRange : samples.getSamples()) {
+            sample = sampleRange.start;
+            if (sample.doubleValue() != 0d) {
+                break;
+            }
+        }
+
         if (icuServiceBuilder != null) {
             int visibleDigits = sample.getVisibleDecimalDigitCount();
             DecimalFormat nf;

@@ -13,6 +13,7 @@ import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -26,7 +27,9 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.Output;
@@ -44,14 +47,17 @@ public class BestMinimalPairSamples {
     final private GrammarInfo grammarInfo;
     final private PluralRules pluralInfo;
     final private PluralRules ordinalInfo;
-    private CaseAndGenderSamples caseAndGenderSamples = null;
+    final private ICUServiceBuilder icuServiceBuilder;
+    private CaseAndGenderSamples caseAndGenderSamples = null; // lazy evaluated
 
-    public BestMinimalPairSamples(CLDRFile cldrFile) {
+    public BestMinimalPairSamples(CLDRFile cldrFile, ICUServiceBuilder icuServiceBuilder) {
         this.cldrFile = cldrFile;
         grammarInfo = supplementalDataInfo.getGrammarInfo(cldrFile.getLocaleID());
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID()).getPluralRules();
         ordinalInfo = supplementalDataInfo.getPlurals(PluralType.ordinal, cldrFile.getLocaleID()).getPluralRules();
+        this.icuServiceBuilder = icuServiceBuilder;
     }
+
 
     static final class CaseAndGenderSamples {
         private final Map<String, Pair<String, String>> genderCache;
@@ -184,7 +190,7 @@ public class BestMinimalPairSamples {
             String bestCase = bestCaseCount.getFirst();
             String bestCount = bestCaseCount.getSecond();
             String sample = getPluralOrOrdinalSample(PluralType.cardinal, bestCount);
-            if (sample == null) {
+            if (sample == null) { // debugging
                 getPluralOrOrdinalSample(PluralType.cardinal, bestCount);
             }
             result.put(bestCaseCount.getFirst(), bestPattern.replace("{0}", sample));
@@ -260,7 +266,6 @@ public class BestMinimalPairSamples {
     }
 
     public String getPluralOrOrdinalSample(PluralType pluralType, String code) {
-        String result;
         PluralRules rules = pluralType == PluralType.cardinal ? pluralInfo : ordinalInfo;
         FixedDecimalSamples samples = rules.getDecimalSamples(code, SampleType.INTEGER);
         if (samples == null) {
@@ -269,6 +274,48 @@ public class BestMinimalPairSamples {
         if (samples == null) {
             return null;
         }
-        return samples.getSamples().iterator().next().start.toString();
+        final FixedDecimal sample = samples.getSamples().iterator().next().start;
+        if (icuServiceBuilder != null) {
+            int visibleDigits = sample.getVisibleDecimalDigitCount();
+            DecimalFormat nf;
+            if (visibleDigits == 0) {
+                nf = icuServiceBuilder.getNumberFormat(0); // 0 is integer, 1 is decimal
+            } else {
+                nf = icuServiceBuilder.getNumberFormat(1); // 0 is integer, 1 is decimal
+                int minFracDigits = nf.getMinimumFractionDigits();
+                int maxFracDigits = nf.getMaximumFractionDigits();
+                if (minFracDigits != visibleDigits || maxFracDigits != visibleDigits) {
+                    nf = (DecimalFormat) nf.clone();
+                    nf.setMaximumFractionDigits(visibleDigits);
+                    nf.setMinimumFractionDigits(visibleDigits);
+                }
+            }
+            return nf.format(sample);
+        }
+        return sample.toString();
+    }
+
+    /**
+     * Get the best value to show, plus the shortUnitId if relevant (case/gender)
+     */
+    public String getBestValue(String header, String code, Output<String> shortUnitId) {
+        String result = null;
+        switch(header) {
+        case "Case":
+            result = getBestUnitWithCase(code, shortUnitId);
+            break;
+        case "Gender":
+            result = getBestUnitWithGender(code, shortUnitId);
+            break;
+        case "Ordinal":
+            result = getPluralOrOrdinalSample(PluralType.ordinal, code);
+            shortUnitId.value = "n/a";
+            break;
+        case "Plural":
+            result = getPluralOrOrdinalSample(PluralType.cardinal, code);
+            shortUnitId.value = "n/a";
+            break;
+        }
+        return result == null ? "X" : result;
     }
 }

@@ -48,7 +48,6 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.UnitId;
-import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
@@ -321,11 +320,12 @@ public class ExampleGenerator {
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
         grammarInfo = supplementalDataInfo.getGrammarInfo(cldrFile.getLocaleID());
 
-        bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile);
 
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
         icuServiceBuilder.setCldrFile(cldrFile);
+
+        bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder);
 
         if (DEBUG_EXAMPLE_GENERATOR) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
@@ -646,53 +646,37 @@ public class ExampleGenerator {
 
     private String handleMinimalPairs(XPathParts parts, String minimalPattern) {
         List<String> examples = new ArrayList<>();
-        Count count = pluralInfo.getPluralRules().getKeywords().contains("one") ? Count.one : Count.other;
 
-        String unitPattern = null;
-        boolean embedUnit = true;
-        String grammarAttributes;
-        String shortUnitId;
         Output<String> output = new Output<>();
+        String count;
+        String sample = null;
 
         switch(parts.getElement(-1)) {
 
+        case "ordinalMinimalPairs":   //ldml/numbers/minimalPairs/ordinalMinimalPairs[@count="one"]
+            count = parts.getAttributeValue(-1, "count");
+            sample = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, count); // Pick a unit that exhibits the most variation
+            break;
+
         case "pluralMinimalPairs":   //ldml/numbers/minimalPairs/pluralMinimalPairs[@count="one"]
-            count = Count.valueOf(parts.getAttributeValue(-1, "count"));
-            unitPattern = minimalPattern;
-            embedUnit = false;
+            count = parts.getAttributeValue(-1, "count");
+            sample = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.cardinal, count); // Pick a unit that exhibits the most variation
             break;
 
         case "caseMinimalPairs":   //ldml/numbers/minimalPairs/caseMinimalPairs[@case="accusative"]
             String gCase = parts.getAttributeValue(-1, "case");
-
-            grammarAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, count.toString(), null, gCase);
-            //shortUnitId = getBestUnitWithCase(gCase); // TODO, we should pick a unit that exhibits the most variation
-
-            // eg //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"][@case="accusative"]
-            unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day\"]/unitPattern" + grammarAttributes);
+            sample = bestMinimalPairSamples.getBestUnitWithCase(gCase, output); // Pick a unit that exhibits the most variation
             break;
 
         case "genderMinimalPairs": //ldml/numbers/minimalPairs/genderMinimalPairs[@gender="feminine"]
             String gender = parts.getAttributeValue(-1, "gender");
-            //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"]
-            shortUnitId = bestMinimalPairSamples.getBestUnitWithGender(gender, output);
-            //unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/displayName");
-            // we do the following to get a singular form, since we can't depend on the displayName to be singular
-//            unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/unitPattern[@count=\"" + count + "\"]");
-//            unitPattern = unitPattern.replace("{0}", "").trim();
-            //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/gender
+            sample = bestMinimalPairSamples.getBestUnitWithGender(gender, output);
             break;
-        default: return null;
+        default:
+            return null;
         }
-        FixedDecimal amount = getBest(count);
-        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
-        if (embedUnit) {
-            String formattedUnit = format(unitPattern, numberFormat.format(amount));
-            examples.add(format(minimalPattern, backgroundStartSymbol + formattedUnit + backgroundEndSymbol));
-        } else {
-            String formattedUnit = format(unitPattern, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
-            examples.add(formattedUnit);
-        }
+        String formattedUnit = format(minimalPattern, backgroundStartSymbol + sample + backgroundEndSymbol);
+        examples.add(formattedUnit);
         return formatExampleList(examples);
     }
 

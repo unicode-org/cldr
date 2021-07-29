@@ -17,10 +17,15 @@ import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
@@ -29,6 +34,7 @@ import com.ibm.icu.util.Output;
 
 public class ListGrammarData {
     static CLDRConfig CONFIG = CLDRConfig.getInstance();
+    public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = CONFIG.getEnglish();
 
     private enum MyOptions {
@@ -73,6 +79,8 @@ public class ListGrammarData {
         Multimap<String,String> lines = LinkedHashMultimap.create();
         LikelySubtags likelySubtags = new LikelySubtags();
 
+        Multimap<String, String> stats = LinkedHashMultimap.create();
+
         for (String localeRaw : factory.getAvailableLanguages()) {
             if (!fileFilter.reset(localeRaw).matches()) {
                 continue;
@@ -88,11 +96,12 @@ public class ListGrammarData {
                 continue;
             }
             CLDRFile cldrFile = factory.make(locale, true);
+
             ExampleGenerator exampleGenerator = null;
             if (exampleHtml) {
                 exampleGenerator = new ExampleGenerator(cldrFile, CONFIG.getEnglish(), locale);
             }
-            BestMinimalPairSamples bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, null);
+            BestMinimalPairSamples bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, null, true);
             Map<PathHeader, String> pathHeaderToValue = new TreeMap<>();
             Multimap<String, String> sectionPageHeaderToCodes = TreeMultimap.create();
             for (String path : cldrFile.fullIterable()) {
@@ -121,15 +130,61 @@ public class ListGrammarData {
                 Output<String> shortUnitId = new Output<>();
                 String sample = bestMinimalPairSamples.getBestValue(ph.getHeader(), ph.getCode(), shortUnitId);
                 String example;
-                lines.put(ph.getHeader(), names
+                lines.put(ph.getHeader(),
+                    ph.getHeader()
+                    + "\t" + names
                     + "\t" + coverage
-                    + "\t" + ph
+                    + "\t" + ph.getCode()
                     + "\t" + minimalPattern
                     + "\t" + sample
                     + "\t" + shortUnitId
                     + (exampleHtml ? "\t" + ExampleGenerator.simplify(exampleGenerator.getExampleHtml(ph.getOriginalPath(), pathHeaderToValue.get(ph))) : ""));
             }
+
+            // show stats
+            GrammarInfo grammarInfo = SDI.getGrammarInfo(locale, true);
+            if (grammarInfo != null) {
+                Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+                if (!genders.isEmpty()) {
+                    final Multimap<String, String> genderToUnits = bestMinimalPairSamples.getGenderToUnits();
+                    Multimap<String,Integer> genderToUnitCounts = LinkedHashMultimap.create();
+                    for (Entry<String, Collection<String>> entry : genderToUnits.asMap().entrySet()) {
+                        genderToUnitCounts.put(entry.getKey(), entry.getValue().size());
+                    }
+
+                    stats.put(locale,
+                        "Gender Details"
+                        + "\t" + names
+                        + "\t" + coverage
+                        + "\t" + genders.size()
+                        + "\t"
+                        + "\t" + genderToUnitCounts
+                        + "\t" + genderToUnits
+                        );
+                }
+
+                Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+                if (!rawCases.isEmpty()) {
+                    Set<String> pluralKeywords = SDI.getPlurals(locale).getPluralRules().getKeywords();
+                    final Multimap<Integer, String> uniqueCaseAndCountToUnits = bestMinimalPairSamples.getUniqueCaseAndCountToUnits();
+                    Multimap<Integer,Integer> uniqueCaseAndCountToUnitsCounts = LinkedHashMultimap.create();
+                    for (Entry<Integer, Collection<String>> entry : uniqueCaseAndCountToUnits.asMap().entrySet()) {
+                        uniqueCaseAndCountToUnitsCounts.put(entry.getKey(), entry.getValue().size());
+                    }
+
+                    stats.put(locale,
+                        "Case&Count Details"
+                        + "\t" + names
+                        + "\t" + coverage
+                        + "\t" + rawCases.size()
+                        + "\t" + pluralKeywords.size()
+                        + "\t" + uniqueCaseAndCountToUnitsCounts
+                        + "\t" + uniqueCaseAndCountToUnits
+                        );
+                }
+            }
         }
+
         for (String key : new TreeSet<>(lines.keySet())) {
             String lastLocale = "";
             for (String line : lines.get(key)) {
@@ -139,6 +194,17 @@ public class ListGrammarData {
                     System.out.println();
                 }
                 System.out.println(line);
+            }
+        }
+
+        if (!stats.isEmpty()) {
+            System.out.println("\n******** Gender/Case Details\n");
+
+            for (Entry<String, Collection<String>> entry : stats.asMap().entrySet()) {
+                for (String line : entry.getValue()) {
+                    System.out.println(line);
+                }
+                System.out.println();
             }
         }
 

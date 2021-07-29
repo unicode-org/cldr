@@ -325,7 +325,7 @@ public class ExampleGenerator {
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
         icuServiceBuilder.setCldrFile(cldrFile);
 
-        bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder);
+        bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 
         if (DEBUG_EXAMPLE_GENERATOR) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());

@@ -21,6 +21,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.UnitPathType;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
@@ -50,13 +51,19 @@ public class BestMinimalPairSamples {
     final private PluralRules ordinalInfo;
     final private ICUServiceBuilder icuServiceBuilder;
     private CaseAndGenderSamples caseAndGenderSamples = null; // lazy evaluated
+    private Multimap<String, String> genderToUnits;
+    private Multimap<Integer, String> uniqueCaseAndCountToUnits;
+    private final boolean gatherStats;
 
-    public BestMinimalPairSamples(CLDRFile cldrFile, ICUServiceBuilder icuServiceBuilder) {
+    public BestMinimalPairSamples(CLDRFile cldrFile, ICUServiceBuilder icuServiceBuilder, boolean gatherStats) {
         this.cldrFile = cldrFile;
         grammarInfo = supplementalDataInfo.getGrammarInfo(cldrFile.getLocaleID());
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID()).getPluralRules();
         ordinalInfo = supplementalDataInfo.getPlurals(PluralType.ordinal, cldrFile.getLocaleID()).getPluralRules();
         this.icuServiceBuilder = icuServiceBuilder;
+        genderToUnits = TreeMultimap.create();
+        uniqueCaseAndCountToUnits = TreeMultimap.create();
+        this.gatherStats = gatherStats;
     }
 
 
@@ -121,6 +128,7 @@ public class BestMinimalPairSamples {
         for (String longUnitId : ExampleGenerator.UNITS) {
             String possibleGender = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnitId + "\"]/gender");
             if (possibleGender != null) {
+                if (gatherStats) genderToUnits.put(possibleGender, longUnitId);
                 String formerLongUnitId = genderResults.get(possibleGender);
                 if (formerLongUnitId == null || isBetterUnit(longUnitId, formerLongUnitId)) {
                     genderResults.put(possibleGender, longUnitId);
@@ -136,11 +144,14 @@ public class BestMinimalPairSamples {
                             continue;
                         }
                         unitPattern = unitPattern.replace("\u00A0", "").trim();
-                        unitPatternToCases.put(unitPattern, Pair.of(unitCase, count));
+                        final Pair<String, String> caseAndCount = Pair.of(unitCase, count);
+                        unitPatternToCases.put(unitPattern, caseAndCount);
                     }
                 }
-                // For case, we should do something fancier, but for now we pick the units with the largest number of distinct forms.
                 int caseFormCount = unitPatternToCases.keySet().size();
+                if (gatherStats) uniqueCaseAndCountToUnits.put(caseFormCount, longUnitId);
+
+                // For case, we should do something fancier, but for now we pick the units with the largest number of distinct forms.
                 int diff = caseFormCount - bestCaseFormCount;
                 if (diff > 0
                     || diff == 0
@@ -172,6 +183,8 @@ public class BestMinimalPairSamples {
         Map<String, Pair<String, String>> genderCache = ImmutableMap.copyOf(result2);
         CaseAndGenderSamples result = new CaseAndGenderSamples(caseCache, ExampleGenerator.UNIT_CONVERTER.getShortId(bestCaseUnitId), genderCache);
 
+        genderToUnits = ImmutableMultimap.copyOf(genderToUnits);
+        uniqueCaseAndCountToUnits = ImmutableMultimap.copyOf(uniqueCaseAndCountToUnits);
         return result;
     }
 
@@ -327,5 +340,13 @@ public class BestMinimalPairSamples {
             break;
         }
         return result == null ? "X" : result;
+    }
+
+    public Multimap<String, String> getGenderToUnits() {
+        return genderToUnits;
+    }
+
+    public Multimap<Integer, String> getUniqueCaseAndCountToUnits() {
+        return uniqueCaseAndCountToUnits;
     }
 }

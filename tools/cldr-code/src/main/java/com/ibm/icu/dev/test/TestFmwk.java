@@ -52,6 +52,11 @@ import org.unicode.cldr.util.PatternCache;
  */
 public class TestFmwk extends AbstractTestLog {
 
+    /**
+     * If true, use GitHub annotations on error messages.
+     */
+    private static boolean CLDR_GITHUB_ANNOTATIONS = (Boolean.parseBoolean(System.getProperty("CLDR_GITHUB_ANNOTATIONS", "false")));
+
     private Logger logger = null;
 
     /**
@@ -1570,15 +1575,31 @@ public class TestFmwk extends AbstractTestLog {
                 }
             }
 
-            // should roll indentation stuff into log ???
-            if (verbose || level > (quiet ? WARN : LOG)) {
+            final SourceLocation testLocation = sourceLocation();
+
+            if (newln && CLDR_GITHUB_ANNOTATIONS && (level == WARN || level == ERR)) {
+                // when -DCLDR_GITHUB_ANNOTATIONS=true, bypass usual output for warn and err:
+                final String[] MSGNAMES = {"", "::warning ", "::error "};
+                log.println(); // skip indentation for github
+                log.print(MSGNAMES[oldLevel] + testLocation.forGitHub() + "::");
+                // TODO: somehow, our github location format is not right
+                // For now, just repeat the location in the message.
+                log.print(" "+testLocation + message);
+                // if( message.startsWith(":") ) {
+                //     // Make sure there isn't another colon here
+                //     log.print(" " + message.substring(1));
+                // } else {
+                //     log.print(message);
+                // }
+                log.println();
+            } else if (verbose || level > (quiet ? WARN : LOG)) {
+                // should roll indentation stuff into log ???
                 if (!suppressIndent) {
                     indent(indentLevel + 1);
                     final String[] MSGNAMES = {"", "Warning: ", "Error: "};
                     log.print(MSGNAMES[oldLevel]);
                 }
 
-                String testLocation = sourceLocation();
                 message = testLocation + message;
                 log.print(message);
                 if (newln) {
@@ -1981,18 +2002,46 @@ public class TestFmwk extends AbstractTestLog {
 
     // Return the source code location of the calling test
     // or "" if not found
-    public static String sourceLocation() {
+    public static SourceLocation sourceLocation() {
         return sourceLocation(new Throwable());
+    }
+
+    public static final class SourceLocation {
+        public final int lineNumber;
+        public final String file;
+
+        public SourceLocation(int lineNumber2, String source) {
+            this.lineNumber = lineNumber2;
+            this.file = source;
+        }
+
+        public SourceLocation() {
+            this.lineNumber = -1;
+            this.file = null;
+        }
+
+        @Override
+        public String toString() {
+            if (lineNumber == -1 && file == null) {
+                return "";
+            } else {
+                return "(" + file + ":" + lineNumber + ") ";
+            }
+        }
+
+        public String forGitHub() {
+            return "file="+file+",line="+lineNumber;
+        }
     }
 
     // Return the source code location of the specified throwable's calling test
     // returns "" if not found
-    public static String sourceLocation(Throwable forThrowable) {
+    public static SourceLocation sourceLocation(Throwable forThrowable) {
         // Walk up the stack to the first call site outside this file
         for (StackTraceElement st : new Throwable().getStackTrace()) {
             String source = st.getFileName();
             if(source == null || source.equals("TestShim.java")) {
-                return ""; // hit the end of helpful stack traces
+                return new SourceLocation(); // hit the end of helpful stack traces
             } else if (source != null && !source.equals("TestFmwk.java")
                 && !source.equals("AbstractTestLog.java")) {
                 String methodName = st.getMethodName();
@@ -2001,11 +2050,11 @@ public class TestFmwk extends AbstractTestLog {
                 }
                 if (methodName != null &&
                        (methodName.startsWith("Test") || methodName.startsWith("test") || methodName.equals("main"))) {
-                   return "(" + source + ":" + st.getLineNumber() + ") ";
                 }
+                return new SourceLocation(st.getLineNumber(), source);
             }
         }
-        return ""; // not found
+        return new SourceLocation(); // not found
     }
 
 

@@ -47,7 +47,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
-import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.Units;
@@ -319,18 +318,18 @@ public class ExampleGenerator {
         if (!englishFile.isResolved()) {
             throw new IllegalArgumentException("English CLDRFile must be resolved");
         }
-        this.cldrFile = resolvedCldrFile;
-        this.subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(cldrFile.getLocaleID());
-        pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
-        grammarInfo = supplementalDataInfo.getGrammarInfo(cldrFile.getLocaleID());
-
+        cldrFile = resolvedCldrFile;
+        final String localeId = cldrFile.getLocaleID();
+        subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(localeId);
+        pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, localeId);
+        grammarInfo = supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
         icuServiceBuilder.setCldrFile(cldrFile);
 
         if (DEBUG_EXAMPLE_GENERATOR) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-            System.out.println("🧞‍ Created new ExampleGenerator for loc " + cldrFile.getLocaleID() + " at " + creationTime);
+            System.out.println("🧞‍ Created new ExampleGenerator for loc " + localeId + " at " + creationTime);
         }
     }
 
@@ -665,6 +664,7 @@ public class ExampleGenerator {
         case "caseMinimalPairs":   //ldml/numbers/minimalPairs/caseMinimalPairs[@case="accusative"]
             String gCase = parts.getAttributeValue(-1, "case");
 
+            // No crash if grammarInfo is null here since getGrammaticalInfoAttributes checks for null
             grammarAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, count.toString(), null, gCase);
             //shortUnitId = getBestUnitWithCase(gCase); // TODO, we should pick a unit that exhibits the most variation
 
@@ -701,7 +701,6 @@ public class ExampleGenerator {
      */
     private String getBestUnitWithGender(String gender) {
         if (genderCache == null) {
-            Collection<String> unitGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
             Map<String,String> result = Maps.newHashMap();
             for (String longUnitId : UNITS) {
                 String possibleGender = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnitId + "\"]/gender");
@@ -753,19 +752,20 @@ public class ExampleGenerator {
             if (UnitConverter.HACK_SKIP_UNIT_NAMES.contains(shortUnitId)) {
                 return null;
             }
-            final UnitId unitId = UNIT_CONVERTER.createUnitId(shortUnitId);
-            String width = parts.getAttributeValue(2, "type");
-            String gCase = parts.getAttributeValue(-1, "case");
-            if (gCase == null) {
-                gCase = GrammaticalFeature.grammaticalCase.getDefault(null);
-            }
-            Collection<String> unitCaseInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
             if (value != null) {
+                String gCase = parts.getAttributeValue(-1, "case");
+                if (gCase == null) {
+                    gCase = GrammaticalFeature.grammaticalCase.getDefault(null);
+                }
+                Collection<String> unitCaseInfo = null;
+                if (grammarInfo != null) {
+                    unitCaseInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+                }
                 String minimalPattern = cldrFile.getStringValue("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + gCase + "\"]");
                 if (minimalPattern != null && numberFormat != null) {
                     String composed = format(value, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
                     examples.add(backgroundStartSymbol + format(minimalPattern, backgroundEndSymbol + composed + backgroundStartSymbol) + backgroundEndSymbol);
-                } else if (!unitCaseInfo.isEmpty()) {
+                } else if (unitCaseInfo != null && !unitCaseInfo.isEmpty()) {
                     examples.add("⚠️No Case Minimal Pair available yet️");
                 }
             }

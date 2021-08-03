@@ -71,6 +71,6 @@
       cron:
         name: "backup db"
         user: cldrbackup
-        minute: "37"
-        hour: "7"
+        minute: "53"
+        hour: "14" # 14:53 UTC = 7:53 PDT or 6:53 PST
         job: "sh /home/cldrbackup/backup.sh >/dev/null 2>&1"

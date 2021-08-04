@@ -472,16 +472,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a á à b c d e é è f g h i í ï j k l m n o ó ò p q r s t u ú ü v w x y z]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[a á à b c ç d e é è f g h i í ï j k l m n o ó ò p q r s t u ú ü v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[ă â å ä ã ā æ ĕ ê ë ē ì ĭ î ī ñ ŏ ô ö ø ō œ ù ŭ û ū ÿ]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A Á À B C Ç D E É È Ë F G H I Í Ï J K L M N O Ó Ò P Q R S T U V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A Á À B C Ç D E É È F G H I Í Ï J K L M N O Ó Ò P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="unconfirmed">[\- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‐ ‑ – — , ; \: ! ? . … ’ &quot; “ ” « » ( ) \[ \] § @ * / \&amp; # † ‡ ⋅]</exemplarCharacters>
 		<ellipsis type="final" draft="unconfirmed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="medial" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="word-final" draft="unconfirmed">{0}…</ellipsis>
-		<ellipsis type="word-initial" draft="unconfirmed">… {0}</ellipsis>
+		<ellipsis type="word-initial" draft="unconfirmed">…{0}</ellipsis>
 		<ellipsis type="word-medial" draft="unconfirmed">{0}… {1}</ellipsis>
 		<moreInformation draft="unconfirmed">?</moreInformation>
 		<parseLenients scope="date" level="lenient">
@@ -1079,7 +1079,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="unconfirmed">LLLL 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yw" count="other" draft="unconfirmed">'setmana' w 'de' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
@@ -1304,13 +1304,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1" draft="unconfirmed">deman</relative>
 			</field>
 			<field type="day-short">
-				<displayName draft="unconfirmed">jn.</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 			</field>
 			<field type="day-narrow">
-				<displayName draft="unconfirmed">jn.</displayName>
+				<displayName draft="unconfirmed">jorn</displayName>
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
@@ -1434,14 +1434,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Europe_Eastern">
 				<long>
 					<generic draft="unconfirmed">ora d’Euròpa de l’èst</generic>
-					<standard draft="unconfirmed">ora d’Euròpa de l’èst estandard</standard>
+					<standard draft="unconfirmed">ora d’Euròpa de l’èst estandarda</standard>
 					<daylight draft="unconfirmed">ora d’estiu, Euròpa de l’èst</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<generic draft="unconfirmed">ora d’Euròpa de l’oèst</generic>
-					<standard draft="unconfirmed">ora d’Euròpa de l’oèst estandard</standard>
+					<standard draft="unconfirmed">ora d’Euròpa de l’oèst estandarda</standard>
 					<daylight draft="unconfirmed">ora d’estiu, Euròpa de l’oèst</daylight>
 				</long>
 			</metazone>
@@ -1489,7 +1489,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="unconfirmed">#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -1517,6 +1517,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BRL">
 				<displayName draft="unconfirmed">real bresilian</displayName>
 				<displayName count="other" draft="unconfirmed">reals brasilians</displayName>
+				<symbol draft="unconfirmed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CAD">
 				<symbol draft="unconfirmed">$CA</symbol>
@@ -1530,6 +1532,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CNY">
 				<displayName draft="unconfirmed">iuan chinés</displayName>
 				<displayName count="other" draft="unconfirmed">iuans chineses</displayName>
+				<symbol draft="unconfirmed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="unconfirmed">euro</displayName>
@@ -1546,10 +1550,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="INR">
 				<displayName draft="unconfirmed">ropia indiana</displayName>
 				<displayName count="other" draft="unconfirmed">ropias indianas</displayName>
+				<symbol draft="unconfirmed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
+			</currency>
+			<currency type="JPY">
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName draft="unconfirmed">roble rus</displayName>
 				<displayName count="other" draft="unconfirmed">robles russes</displayName>
+				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
@@ -1564,7 +1574,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="approximately" draft="unconfirmed">↑↑↑</pattern>
+			<pattern type="approximately" draft="unconfirmed">~ {0}</pattern>
 			<pattern type="atLeast" draft="unconfirmed">↑↑↑</pattern>
 			<pattern type="atMost" draft="unconfirmed">↑↑↑</pattern>
 			<pattern type="range" draft="unconfirmed">↑↑↑</pattern>

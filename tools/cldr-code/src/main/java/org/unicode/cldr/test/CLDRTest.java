@@ -623,6 +623,7 @@ public class CLDRTest extends TestFmwk {
         Set<String> scriptExceptions = new HashSet<>();
         scriptExceptions.add("Cham");
         scriptExceptions.add("Thai");
+        scriptExceptions.add("Toto");
         completionExceptions.put("script", scriptExceptions);
 
         Set<String> codeItems = codes.getGoodAvailableCodes(type);

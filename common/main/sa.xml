@@ -85,15 +85,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Zzzz">अज्ञात लिपि:</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="unconfirmed">लोक</territory>
+			<territory type="002" draft="unconfirmed">कालद्वीप</territory>
+			<territory type="003" draft="unconfirmed">उत्तरामेरिका</territory>
+			<territory type="005" draft="unconfirmed">दक्षिणामेरिका</territory>
+			<territory type="009" draft="unconfirmed">सामुद्रखण्ड</territory>
+			<territory type="013" draft="unconfirmed">मध्यामेरिका</territory>
+			<territory type="019" draft="unconfirmed">अमेरिकाखण्ड</territory>
+			<territory type="021" draft="unconfirmed">औदीच्यामेरिका</territory>
+			<territory type="142" draft="unconfirmed">जम्बुद्विप</territory>
+			<territory type="150" draft="unconfirmed">यूरोपखण्ड</territory>
 			<territory type="BR">ब्राजील</territory>
 			<territory type="CN">चीन:</territory>
 			<territory type="DE">जर्मनीदेश:</territory>
+			<territory type="EU" draft="unconfirmed">यूरोपसङ्घ</territory>
+			<territory type="EZ" draft="unconfirmed">यूरोमण्डल</territory>
 			<territory type="FR">फ़्रांस:</territory>
 			<territory type="GB">संयुक्त राष्ट्र:</territory>
 			<territory type="IN">भारतः</territory>
 			<territory type="IT">इटली:</territory>
 			<territory type="JP">जापन:</territory>
 			<territory type="RU">रष्यदेश:</territory>
+			<territory type="UN" draft="unconfirmed">संयुक्तराष्ट्रसङ्घ</territory>
 			<territory type="US">संयुक्त राज्य:</territory>
 			<territory type="ZZ">अज्ञात क्षेत्र:</territory>
 		</territories>
@@ -105,8 +118,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">छन्दोमान</measurementSystemName>
-			<measurementSystemName type="UK">यूके</measurementSystemName>
-			<measurementSystemName type="US">यूएस</measurementSystemName>
+			<measurementSystemName type="UK">सं.अ.</measurementSystemName>
+			<measurementSystemName type="US">सं.रा.</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">भाषा: {0}</codePattern>
@@ -204,7 +217,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<intervalFormats>
-						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback>{0}-{1}</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -456,7 +469,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BCE</era>
-						<era type="0" alt="variant">ईसवी पूर्व</era>
+						<era type="0" alt="variant">इ.स.पू.</era>
 						<era type="1">↑↑↑</era>
 						<era type="1" alt="variant">संवत्</era>
 					</eraAbbr>
@@ -548,6 +561,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM G y</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
@@ -730,16 +744,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">श्वः</relative>
 			</field>
 			<field type="day-short">
-				<displayName>अहन्</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">ह्यः</relative>
 				<relative type="0">अद्य</relative>
 				<relative type="1">श्वः</relative>
 			</field>
 			<field type="day-narrow">
-				<displayName>दिवा</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<displayName>दिनम्</displayName>
+				<relative type="-1">ह्यः</relative>
+				<relative type="0">अद्य</relative>
+				<relative type="1">श्वः</relative>
 			</field>
 			<field type="weekday">
 				<displayName>सप्ताहस्य दिनं</displayName>

@@ -12,7 +12,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
+			<localePattern>↑↑↑</localePattern>
 			<localeSeparator>{0}, {1}</localeSeparator>
 			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
@@ -376,11 +376,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BH">Báránì</territory>
 			<territory type="BI">Bùùrúndì</territory>
 			<territory type="BJ">Bẹ̀nẹ̀</territory>
-			<territory type="BL">St. Barthélemy</territory>
+			<territory type="BL">Ìlú Bátílẹ́mì</territory>
 			<territory type="BM">Bémúdà</territory>
 			<territory type="BN">Búrúnẹ́lì</territory>
 			<territory type="BO">Bọ̀lífíyà</territory>
-			<territory type="BQ">Caribbean Netherlands</territory>
+			<territory type="BQ">Káríbíánì ti Nẹ́dálándì</territory>
 			<territory type="BR">Bàràsílì</territory>
 			<territory type="BS">Bàhámásì</territory>
 			<territory type="BT">Bútánì</territory>
@@ -407,7 +407,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CR">Kuusita Ríkà</territory>
 			<territory type="CU">Kúbà</territory>
 			<territory type="CV">Etíokun Kápé féndè</territory>
-			<territory type="CW">Curaçao</territory>
+			<territory type="CW">Kúrásáò</territory>
 			<territory type="CX">Erékùsù Christmas</territory>
 			<territory type="CY">Kúrúsì</territory>
 			<territory type="CZ">Ṣẹ́ẹ́kì</territory>
@@ -504,7 +504,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Modofia</territory>
 			<territory type="ME">Montenegro</territory>
-			<territory type="MF">St. Martin</territory>
+			<territory type="MF">Ìlú Mátíìnì</territory>
 			<territory type="MG">Madasika</territory>
 			<territory type="MH">Etikun Máṣali</territory>
 			<territory type="MK">Àríwá Macedonia</territory>
@@ -556,7 +556,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="QO">Agbègbè Òṣọ́ọ́níà</territory>
 			<territory type="RE">Riuniyan</territory>
 			<territory type="RO">Romaniya</territory>
-			<territory type="RS">Serbia</territory>
+			<territory type="RS">Sẹ́bíà</territory>
 			<territory type="RU">Rọṣia</territory>
 			<territory type="RW">Ruwanda</territory>
 			<territory type="SA">Saudi Arabia</territory>
@@ -567,7 +567,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SG">Singapo</territory>
 			<territory type="SH">Hẹlena</territory>
 			<territory type="SI">Silofania</territory>
-			<territory type="SJ">Svalbard &amp; Jan Mayen</territory>
+			<territory type="SJ">Sífábáàdì àti Jánì Máyẹ̀nì</territory>
 			<territory type="SK">Silofakia</territory>
 			<territory type="SL">Siria looni</territory>
 			<territory type="SM">Sani Marino</territory>
@@ -577,7 +577,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SS">Gúúsù Sudan</territory>
 			<territory type="ST">Sao tomi ati piriiṣipi</territory>
 			<territory type="SV">Ẹẹsáfádò</territory>
-			<territory type="SX">Sint Maarten</territory>
+			<territory type="SX">Síntì Mátẹ́ẹ̀nì</territory>
 			<territory type="SY">Siria</territory>
 			<territory type="SZ">Saṣiland</territory>
 			<territory type="SZ" alt="variant">Síwásìlandì</territory>
@@ -823,6 +823,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1314,6 +1315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMd">d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y MMM d, E</dateFormatItem>
@@ -3195,12 +3197,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
-					<standard>Central Africa Time</standard>
+					<standard>Àkókò Àárín Afírikà</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
-					<standard>East Africa Time</standard>
+					<standard>Àkókò Ìlà-Oòrùn Afírikà</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Southern">
@@ -3210,23 +3212,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>West Africa Time</generic>
-					<standard>West Africa Standard Time</standard>
-					<daylight>West Africa Summer Time</daylight>
+					<generic>Àkókò Ìwọ̀-Oòrùn Afírikà</generic>
+					<standard>Àkókò Ìwọ̀-Oòrùn Àfẹnukò Afírikà</standard>
+					<daylight>Àkókò Ìwọ̀-Oòrùn Ooru Afírikà</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic>Alaska Time</generic>
-					<standard>Alaska Standard Time</standard>
-					<daylight>Alaska Daylight Time</daylight>
+					<generic>Àkókò Alásíkà</generic>
+					<standard>Àkókò Àfẹnukò Alásíkà</standard>
+					<daylight>Àkókò Ìyálẹ̀ta Alásíkà</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic>Amazon Time</generic>
-					<standard>Amazon Standard Time</standard>
-					<daylight>Amazon Summer Time</daylight>
+					<generic>Àkókò Amásọ́nì</generic>
+					<standard>Àkókò Afẹnukò Amásọ́nì</standard>
+					<daylight>Àkókò Oru Amásọ́nì</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -3280,9 +3282,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic>Western Argentina Time</generic>
-					<standard>Western Argentina Standard Time</standard>
-					<daylight>Western Argentina Summer Time</daylight>
+					<generic>Àkókò Iwọ́-oòrùn Ajẹ́ntínà</generic>
+					<standard>Àkókò Iwọ́-oòrùn Àfẹnukò Ajẹ́ntínà</standard>
+					<daylight>Àkókò Oru Iwọ́-oòrùn Ajẹ́ntínà</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -3336,9 +3338,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Azores">
 				<long>
-					<generic>Azores Time</generic>
-					<standard>Azores Standard Time</standard>
-					<daylight>Azores Summer Time</daylight>
+					<generic>Àkókò Ásọ́sì</generic>
+					<standard>Àkókò Àfẹnukò Ásọ́sì</standard>
+					<daylight>Àkókò Ooru Ásọ́sì</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bangladesh">
@@ -3372,9 +3374,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
-					<generic>Cape Verde Time</generic>
-					<standard>Cape Verde Standard Time</standard>
-					<daylight>Cape Verde Summer Time</daylight>
+					<generic>Àkókò Képú Fáàdì</generic>
+					<standard>Àkókò Àfẹnukò Képú Fáàdì</standard>
+					<daylight>Àkókò Sọ́mà Képú Fáàdì</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
@@ -3391,9 +3393,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Chile">
 				<long>
-					<generic>Chile Time</generic>
-					<standard>Chile Standard Time</standard>
-					<daylight>Chile Summer Time</daylight>
+					<generic>Àkókò Ṣílè</generic>
+					<standard>Àkókò Àfẹnukò Ṣílè</standard>
+					<daylight>Àkókò Oru Ṣílè</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
@@ -3484,7 +3486,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Further_Eastern">
 				<long>
-					<standard>Further-eastern European Time</standard>
+					<standard>Àkókò Iwájú Ìlà Oòrùn Yúróòpù</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
@@ -3496,9 +3498,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<generic>Falkland Islands Time</generic>
-					<standard>Falkland Islands Standard Time</standard>
-					<daylight>Falkland Islands Summer Time</daylight>
+					<generic>Àkókò Fókílándì</generic>
+					<standard>Àkókò Àfẹnukò Etíkun Fókílándì</standard>
+					<daylight>Àkókò Ooru Etíkun Fókílándì</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
@@ -3510,12 +3512,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
-					<standard>French Guiana Time</standard>
+					<standard>Àkókò Gúyánà Fáránsè</standard>
 				</long>
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard>French Southern &amp; Antarctic Time</standard>
+					<standard>Àkókò Gúsù Fáransé àti Àntátíìkì</standard>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -3566,7 +3568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Guyana">
 				<long>
-					<standard>Guyana Time</standard>
+					<standard>Àkókò Gúyànà</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -3597,7 +3599,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
-					<standard>Indian Ocean Time</standard>
+					<standard>Àkókò Etíkun Índíà</standard>
 				</long>
 			</metazone>
 			<metazone type="Indochina">
@@ -3629,9 +3631,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic>Irkutsk Time</generic>
-					<standard>Irkutsk Standard Time</standard>
-					<daylight>Irkutsk Summer Time</daylight>
+					<generic>Àkókò Íkósíkì</generic>
+					<standard>Àkókò Àfẹnukò Íkósíkì</standard>
+					<daylight>Àkókò Sọmà Íkúsíkì</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
@@ -3728,9 +3730,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
-					<generic>Mauritius Time</generic>
-					<standard>Mauritius Standard Time</standard>
-					<daylight>Mauritius Summer Time</daylight>
+					<generic>Àkókò Máríṣúṣì</generic>
+					<standard>Àkókò Àfẹnukò Máríṣúṣì</standard>
+					<daylight>Àkókò Ooru Máríṣúṣì</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mawson">
@@ -3854,16 +3856,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
-					<generic>Paraguay Time</generic>
-					<standard>Paraguay Standard Time</standard>
-					<daylight>Paraguay Summer Time</daylight>
+					<generic>Àkókò Párágúwè</generic>
+					<standard>Àkókò Àfẹnukò Párágúwè</standard>
+					<daylight>Àkókò Ooru Párágúwè</daylight>
 				</long>
 			</metazone>
 			<metazone type="Peru">
 				<long>
-					<generic>Peru Time</generic>
-					<standard>Peru Standard Time</standard>
-					<daylight>Peru Summer Time</daylight>
+					<generic>Àkókò Pérù</generic>
+					<standard>Àkókò Àfẹnukò Pérù</standard>
+					<daylight>Àkókò Ooru Pérù</daylight>
 				</long>
 			</metazone>
 			<metazone type="Philippines">
@@ -3902,7 +3904,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Reunion">
 				<long>
-					<standard>Réunion Time</standard>
+					<standard>Àkókò Rẹ́yúníọ́nì</standard>
 				</long>
 			</metazone>
 			<metazone type="Rothera">
@@ -3926,7 +3928,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
-					<standard>Seychelles Time</standard>
+					<standard>Àkókò Sèṣẹ́ẹ̀lì</standard>
 				</long>
 			</metazone>
 			<metazone type="Singapore">
@@ -3941,12 +3943,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
-					<standard>South Georgia Time</standard>
+					<standard>Àkókò Gúsù Jọ́jíà</standard>
 				</long>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
-					<standard>Suriname Time</standard>
+					<standard>Àkókò Súrínámù</standard>
 				</long>
 			</metazone>
 			<metazone type="Syowa">
@@ -4003,7 +4005,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Uruguay">
 				<long>
 					<generic>Aago Uruguay</generic>
-					<standard>Uruguay Standard Time</standard>
+					<standard>Àkókò Àfẹnukò Úrúgúwè</standard>
 					<daylight>Aago Soma Uruguay</daylight>
 				</long>
 			</metazone>
@@ -4067,6 +4069,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Yekaterinburg Time</generic>
 					<standard>Yekaterinburg Standard Time</standard>
 					<daylight>Yekaterinburg Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<standard>Àkókò Yúkọ́nì</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -4182,7 +4189,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
-				<displayName>Lẹ́kẹ̀ Àlìbéníà</displayName>
+				<displayName>Lẹ́ẹ̀kì Àlìbáníà</displayName>
 				<displayName count="other">lẹ́kè Àlìbéníà</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4322,7 +4329,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CHF">
-				<displayName>Faransi ti Orílẹ́ède Siwisi</displayName>
+				<displayName>Faransí Síwíìsì</displayName>
 				<displayName count="other">Faransi Siwisi</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4437,7 +4444,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GBP">
 				<displayName>Pọ́n-ùn ti Orilẹ̀-èdè Gẹ̀ẹ́sì</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GEL">
@@ -4455,8 +4462,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
-				<displayName>Pọ́n-ùn Gibraltar</displayName>
-				<displayName count="other">àwọn pọ́n-ùn Gibraltar</displayName>
+				<displayName>Pọ́n-ùn Gibúrátà</displayName>
+				<displayName count="other">àwọn pọ́n-ùn Gibúrátà</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4499,8 +4506,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HRK">
-				<displayName>Kúnà Croatian</displayName>
-				<displayName count="other">àwọn kúnà Croatian</displayName>
+				<displayName>Kúnà Kúróṣíà</displayName>
+				<displayName count="other">àwọn kúnà Kúróṣíà</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4545,7 +4552,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ISK">
 				<displayName>Kòrónà Icelandic</displayName>
-				<displayName count="other">kòrónà aílandíìkì</displayName>
+				<displayName count="other">kórónọ̀ Áílándíìkì</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4643,6 +4650,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="LSL">
 				<displayName>Loti ti Orílẹ́ède Lesoto</displayName>
+				<displayName count="other">Lótì ti Lẹ̀sótò</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>Dínà Líbíyà</displayName>
@@ -4750,8 +4758,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="NOK">
-				<displayName>Kírónì Nọ́ọ́wè</displayName>
-				<displayName count="other">kìrónà Nọ́ọ́wè</displayName>
+				<displayName>kórónì Nọ́wè</displayName>
+				<displayName count="other">kórónà Nọ́wè</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -6435,7 +6443,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="light-lumen">
 				<displayName>àmì lumẹ́ẹ̀nì</displayName>
-				<unitPattern count="other">{0} àmi lumẹ́ẹ̀nì</unitPattern>
+				<unitPattern count="other">{0} Lúmẹ́nì</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
@@ -6905,6 +6913,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="light-lumen">
+				<unitPattern count="other">{0} Lúmẹ́nì</unitPattern>
+			</unit>
 			<unit type="mass-kilogram">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -6952,7 +6963,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</listPattern>
 		<listPattern type="or">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>

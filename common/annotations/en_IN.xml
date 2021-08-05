@@ -12,8 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="IN"/>
 	</identity>
 	<annotations>
-		<annotation cp="{" draft="contributed">↑↑↑</annotation>
-		<annotation cp="{" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="{">↑↑↑</annotation>
+		<annotation cp="{" type="tts">↑↑↑</annotation>
 		<annotation cp="🏻">↑↑↑</annotation>
 		<annotation cp="🏻" type="tts">↑↑↑</annotation>
 		<annotation cp="🏼">↑↑↑</annotation>
@@ -24,23 +24,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">↑↑↑</annotation>
 		<annotation cp="🏿">↑↑↑</annotation>
 		<annotation cp="🏿" type="tts">↑↑↑</annotation>
-		<annotation cp="‾" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="_" draft="contributed">↑↑↑</annotation>
-		<annotation cp="_" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="-" draft="contributed">↑↑↑</annotation>
-		<annotation cp="-" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‐" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‐" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="‾">↑↑↑</annotation>
+		<annotation cp="‾" type="tts">↑↑↑</annotation>
+		<annotation cp="_">↑↑↑</annotation>
+		<annotation cp="_" type="tts">↑↑↑</annotation>
+		<annotation cp="-">↑↑↑</annotation>
+		<annotation cp="-" type="tts">↑↑↑</annotation>
+		<annotation cp="‐">↑↑↑</annotation>
+		<annotation cp="‐" type="tts">↑↑↑</annotation>
 		<annotation cp="–">↑↑↑</annotation>
 		<annotation cp="–" type="tts">↑↑↑</annotation>
 		<annotation cp="—">↑↑↑</annotation>
 		<annotation cp="—" type="tts">↑↑↑</annotation>
-		<annotation cp="―" draft="contributed">↑↑↑</annotation>
-		<annotation cp="―" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="・" draft="contributed">↑↑↑</annotation>
-		<annotation cp="・" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="," draft="contributed">↑↑↑</annotation>
+		<annotation cp="―">↑↑↑</annotation>
+		<annotation cp="―" type="tts">↑↑↑</annotation>
+		<annotation cp="・">↑↑↑</annotation>
+		<annotation cp="・" type="tts">↑↑↑</annotation>
+		<annotation cp=",">↑↑↑</annotation>
 		<annotation cp="," type="tts">↑↑↑</annotation>
 		<annotation cp="،">↑↑↑</annotation>
 		<annotation cp="،" type="tts">↑↑↑</annotation>
@@ -50,9 +50,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp=";" type="tts">↑↑↑</annotation>
 		<annotation cp="؛">↑↑↑</annotation>
 		<annotation cp="؛" type="tts">↑↑↑</annotation>
-		<annotation cp=":" draft="contributed">↑↑↑</annotation>
+		<annotation cp=":">↑↑↑</annotation>
 		<annotation cp=":" type="tts">↑↑↑</annotation>
-		<annotation cp="!" draft="contributed">↑↑↑</annotation>
+		<annotation cp="!">↑↑↑</annotation>
 		<annotation cp="!" type="tts">↑↑↑</annotation>
 		<annotation cp="¡">↑↑↑</annotation>
 		<annotation cp="¡" type="tts">↑↑↑</annotation>
@@ -60,412 +60,656 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="?" type="tts">↑↑↑</annotation>
 		<annotation cp="¿">↑↑↑</annotation>
 		<annotation cp="¿" type="tts">↑↑↑</annotation>
-		<annotation cp="؟" draft="contributed">↑↑↑</annotation>
+		<annotation cp="؟">↑↑↑</annotation>
 		<annotation cp="؟" type="tts">↑↑↑</annotation>
-		<annotation cp="‽" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="." draft="contributed">↑↑↑</annotation>
-		<annotation cp="." type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="…" draft="contributed">↑↑↑</annotation>
-		<annotation cp="…" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="。" draft="contributed">↑↑↑</annotation>
-		<annotation cp="。" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="‽">↑↑↑</annotation>
+		<annotation cp="‽" type="tts">↑↑↑</annotation>
+		<annotation cp=".">↑↑↑</annotation>
+		<annotation cp="." type="tts">↑↑↑</annotation>
+		<annotation cp="…">↑↑↑</annotation>
+		<annotation cp="…" type="tts">↑↑↑</annotation>
+		<annotation cp="。">↑↑↑</annotation>
+		<annotation cp="。" type="tts">↑↑↑</annotation>
 		<annotation cp="·">↑↑↑</annotation>
 		<annotation cp="·" type="tts">↑↑↑</annotation>
-		<annotation cp="'" draft="contributed">↑↑↑</annotation>
-		<annotation cp="'" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="’" draft="contributed">↑↑↑</annotation>
-		<annotation cp="’" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‚" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‚" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="“" draft="contributed">↑↑↑</annotation>
-		<annotation cp="“" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="”" draft="contributed">↑↑↑</annotation>
-		<annotation cp="”" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="„" draft="contributed">↑↑↑</annotation>
-		<annotation cp="„" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="'">↑↑↑</annotation>
+		<annotation cp="'" type="tts">↑↑↑</annotation>
+		<annotation cp="‘">↑↑↑</annotation>
+		<annotation cp="‘" type="tts">↑↑↑</annotation>
+		<annotation cp="’">↑↑↑</annotation>
+		<annotation cp="’" type="tts">↑↑↑</annotation>
+		<annotation cp="‚">↑↑↑</annotation>
+		<annotation cp="‚" type="tts">↑↑↑</annotation>
+		<annotation cp="“">↑↑↑</annotation>
+		<annotation cp="“" type="tts">↑↑↑</annotation>
+		<annotation cp="”">↑↑↑</annotation>
+		<annotation cp="”" type="tts">↑↑↑</annotation>
+		<annotation cp="„">↑↑↑</annotation>
+		<annotation cp="„" type="tts">↑↑↑</annotation>
 		<annotation cp="«">↑↑↑</annotation>
 		<annotation cp="«" type="tts">↑↑↑</annotation>
 		<annotation cp="»">↑↑↑</annotation>
 		<annotation cp="»" type="tts">↑↑↑</annotation>
-		<annotation cp=")" draft="contributed">↑↑↑</annotation>
-		<annotation cp=")" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="[" draft="contributed">↑↑↑</annotation>
-		<annotation cp="[" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="]" draft="contributed">↑↑↑</annotation>
-		<annotation cp="]" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="}" draft="contributed">↑↑↑</annotation>
-		<annotation cp="}" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〈" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〈" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〉" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〉" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="《" draft="contributed">↑↑↑</annotation>
-		<annotation cp="《" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="》" draft="contributed">↑↑↑</annotation>
-		<annotation cp="》" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="「" draft="contributed">↑↑↑</annotation>
-		<annotation cp="「" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="」" draft="contributed">↑↑↑</annotation>
-		<annotation cp="」" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="『" draft="contributed">↑↑↑</annotation>
-		<annotation cp="『" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="』" draft="contributed">↑↑↑</annotation>
-		<annotation cp="』" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="【" draft="contributed">↑↑↑</annotation>
-		<annotation cp="【" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="】" draft="contributed">↑↑↑</annotation>
-		<annotation cp="】" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〔" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〔" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〕" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〕" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〖" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〗" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〗" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp=")">↑↑↑</annotation>
+		<annotation cp=")" type="tts">↑↑↑</annotation>
+		<annotation cp="[">↑↑↑</annotation>
+		<annotation cp="[" type="tts">↑↑↑</annotation>
+		<annotation cp="]">↑↑↑</annotation>
+		<annotation cp="]" type="tts">↑↑↑</annotation>
+		<annotation cp="}">↑↑↑</annotation>
+		<annotation cp="}" type="tts">↑↑↑</annotation>
+		<annotation cp="〈">↑↑↑</annotation>
+		<annotation cp="〈" type="tts">↑↑↑</annotation>
+		<annotation cp="〉">↑↑↑</annotation>
+		<annotation cp="〉" type="tts">↑↑↑</annotation>
+		<annotation cp="《">↑↑↑</annotation>
+		<annotation cp="《" type="tts">↑↑↑</annotation>
+		<annotation cp="》">↑↑↑</annotation>
+		<annotation cp="》" type="tts">↑↑↑</annotation>
+		<annotation cp="「">↑↑↑</annotation>
+		<annotation cp="「" type="tts">↑↑↑</annotation>
+		<annotation cp="」">↑↑↑</annotation>
+		<annotation cp="」" type="tts">↑↑↑</annotation>
+		<annotation cp="『">↑↑↑</annotation>
+		<annotation cp="『" type="tts">↑↑↑</annotation>
+		<annotation cp="』">↑↑↑</annotation>
+		<annotation cp="』" type="tts">↑↑↑</annotation>
+		<annotation cp="【">↑↑↑</annotation>
+		<annotation cp="【" type="tts">↑↑↑</annotation>
+		<annotation cp="】">↑↑↑</annotation>
+		<annotation cp="】" type="tts">↑↑↑</annotation>
+		<annotation cp="〔">↑↑↑</annotation>
+		<annotation cp="〔" type="tts">↑↑↑</annotation>
+		<annotation cp="〕">↑↑↑</annotation>
+		<annotation cp="〕" type="tts">↑↑↑</annotation>
+		<annotation cp="〖">↑↑↑</annotation>
+		<annotation cp="〖" type="tts">↑↑↑</annotation>
+		<annotation cp="〗">↑↑↑</annotation>
+		<annotation cp="〗" type="tts">↑↑↑</annotation>
 		<annotation cp="§">↑↑↑</annotation>
 		<annotation cp="§" type="tts">↑↑↑</annotation>
-		<annotation cp="¶" draft="contributed">↑↑↑</annotation>
-		<annotation cp="¶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="@" draft="contributed">↑↑↑</annotation>
-		<annotation cp="@" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="*" draft="contributed">↑↑↑</annotation>
-		<annotation cp="*" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="/" draft="contributed">↑↑↑</annotation>
-		<annotation cp="/" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="\" draft="contributed">↑↑↑</annotation>
-		<annotation cp="\" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="&amp;" draft="contributed">↑↑↑</annotation>
-		<annotation cp="&amp;" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="#" draft="contributed">↑↑↑</annotation>
-		<annotation cp="#" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="%" draft="contributed">↑↑↑</annotation>
-		<annotation cp="%" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‰" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‰" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="¶">↑↑↑</annotation>
+		<annotation cp="¶" type="tts">↑↑↑</annotation>
+		<annotation cp="@">↑↑↑</annotation>
+		<annotation cp="@" type="tts">↑↑↑</annotation>
+		<annotation cp="*">↑↑↑</annotation>
+		<annotation cp="*" type="tts">↑↑↑</annotation>
+		<annotation cp="/">↑↑↑</annotation>
+		<annotation cp="/" type="tts">↑↑↑</annotation>
+		<annotation cp="\">↑↑↑</annotation>
+		<annotation cp="\" type="tts">↑↑↑</annotation>
+		<annotation cp="&amp;">↑↑↑</annotation>
+		<annotation cp="&amp;" type="tts">↑↑↑</annotation>
+		<annotation cp="#">↑↑↑</annotation>
+		<annotation cp="#" type="tts">↑↑↑</annotation>
+		<annotation cp="%">↑↑↑</annotation>
+		<annotation cp="%" type="tts">↑↑↑</annotation>
+		<annotation cp="‰">↑↑↑</annotation>
+		<annotation cp="‰" type="tts">↑↑↑</annotation>
 		<annotation cp="†">↑↑↑</annotation>
 		<annotation cp="†" type="tts">↑↑↑</annotation>
 		<annotation cp="‡">↑↑↑</annotation>
 		<annotation cp="‡" type="tts">↑↑↑</annotation>
 		<annotation cp="•">↑↑↑</annotation>
 		<annotation cp="•" type="tts">↑↑↑</annotation>
-		<annotation cp="‧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="′" draft="contributed">↑↑↑</annotation>
-		<annotation cp="′" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="″" draft="contributed">↑↑↑</annotation>
-		<annotation cp="″" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‴" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‴" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‸" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="※" draft="contributed">↑↑↑</annotation>
-		<annotation cp="※" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⁂" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="`" draft="contributed">↑↑↑</annotation>
-		<annotation cp="`" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="´" draft="contributed">↑↑↑</annotation>
-		<annotation cp="´" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="^" draft="contributed">↑↑↑</annotation>
-		<annotation cp="^" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="¨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="¨" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="‧">↑↑↑</annotation>
+		<annotation cp="‧" type="tts">↑↑↑</annotation>
+		<annotation cp="′">↑↑↑</annotation>
+		<annotation cp="′" type="tts">↑↑↑</annotation>
+		<annotation cp="″">↑↑↑</annotation>
+		<annotation cp="″" type="tts">↑↑↑</annotation>
+		<annotation cp="‴">↑↑↑</annotation>
+		<annotation cp="‴" type="tts">↑↑↑</annotation>
+		<annotation cp="‸">↑↑↑</annotation>
+		<annotation cp="‸" type="tts">↑↑↑</annotation>
+		<annotation cp="※">↑↑↑</annotation>
+		<annotation cp="※" type="tts">↑↑↑</annotation>
+		<annotation cp="⁂">↑↑↑</annotation>
+		<annotation cp="⁂" type="tts">↑↑↑</annotation>
+		<annotation cp="`">↑↑↑</annotation>
+		<annotation cp="`" type="tts">↑↑↑</annotation>
+		<annotation cp="´">↑↑↑</annotation>
+		<annotation cp="´" type="tts">↑↑↑</annotation>
+		<annotation cp="^">↑↑↑</annotation>
+		<annotation cp="^" type="tts">↑↑↑</annotation>
+		<annotation cp="¨">↑↑↑</annotation>
+		<annotation cp="¨" type="tts">↑↑↑</annotation>
 		<annotation cp="°">↑↑↑</annotation>
 		<annotation cp="°" type="tts">↑↑↑</annotation>
 		<annotation cp="℗">↑↑↑</annotation>
 		<annotation cp="℗" type="tts">↑↑↑</annotation>
 		<annotation cp="←">↑↑↑</annotation>
 		<annotation cp="←" type="tts">↑↑↑</annotation>
-		<annotation cp="↚" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="↚">↑↑↑</annotation>
+		<annotation cp="↚" type="tts">↑↑↑</annotation>
 		<annotation cp="→">↑↑↑</annotation>
 		<annotation cp="→" type="tts">↑↑↑</annotation>
-		<annotation cp="↛" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="↛">↑↑↑</annotation>
+		<annotation cp="↛" type="tts">↑↑↑</annotation>
 		<annotation cp="↑">↑↑↑</annotation>
 		<annotation cp="↑" type="tts">↑↑↑</annotation>
 		<annotation cp="↓">↑↑↑</annotation>
 		<annotation cp="↓" type="tts">↑↑↑</annotation>
-		<annotation cp="↜" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↝" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↞" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↡" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↢" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↤" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↦" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↫" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↬" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↭" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↯" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↰" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↱" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↲" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↳" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↴" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↵" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↶" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↷" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↸" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↹" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↺" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↻" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↼" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↽" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↾" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↿" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇀" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇁" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇂" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇃" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇄" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="↜">↑↑↑</annotation>
+		<annotation cp="↜" type="tts">↑↑↑</annotation>
+		<annotation cp="↝">↑↑↑</annotation>
+		<annotation cp="↝" type="tts">↑↑↑</annotation>
+		<annotation cp="↞">↑↑↑</annotation>
+		<annotation cp="↞" type="tts">↑↑↑</annotation>
+		<annotation cp="↟">↑↑↑</annotation>
+		<annotation cp="↟" type="tts">↑↑↑</annotation>
+		<annotation cp="↠">↑↑↑</annotation>
+		<annotation cp="↠" type="tts">↑↑↑</annotation>
+		<annotation cp="↡">↑↑↑</annotation>
+		<annotation cp="↡" type="tts">↑↑↑</annotation>
+		<annotation cp="↢">↑↑↑</annotation>
+		<annotation cp="↢" type="tts">↑↑↑</annotation>
+		<annotation cp="↣">↑↑↑</annotation>
+		<annotation cp="↣" type="tts">↑↑↑</annotation>
+		<annotation cp="↤">↑↑↑</annotation>
+		<annotation cp="↤" type="tts">↑↑↑</annotation>
+		<annotation cp="↥">↑↑↑</annotation>
+		<annotation cp="↥" type="tts">↑↑↑</annotation>
+		<annotation cp="↦">↑↑↑</annotation>
+		<annotation cp="↦" type="tts">↑↑↑</annotation>
+		<annotation cp="↧">↑↑↑</annotation>
+		<annotation cp="↧" type="tts">↑↑↑</annotation>
+		<annotation cp="↨">↑↑↑</annotation>
+		<annotation cp="↨" type="tts">↑↑↑</annotation>
+		<annotation cp="↫">↑↑↑</annotation>
+		<annotation cp="↫" type="tts">↑↑↑</annotation>
+		<annotation cp="↬">↑↑↑</annotation>
+		<annotation cp="↬" type="tts">↑↑↑</annotation>
+		<annotation cp="↭">↑↑↑</annotation>
+		<annotation cp="↭" type="tts">↑↑↑</annotation>
+		<annotation cp="↯">↑↑↑</annotation>
+		<annotation cp="↯" type="tts">↑↑↑</annotation>
+		<annotation cp="↰">↑↑↑</annotation>
+		<annotation cp="↰" type="tts">↑↑↑</annotation>
+		<annotation cp="↱">↑↑↑</annotation>
+		<annotation cp="↱" type="tts">↑↑↑</annotation>
+		<annotation cp="↲">↑↑↑</annotation>
+		<annotation cp="↲" type="tts">↑↑↑</annotation>
+		<annotation cp="↳">↑↑↑</annotation>
+		<annotation cp="↳" type="tts">↑↑↑</annotation>
+		<annotation cp="↴">↑↑↑</annotation>
+		<annotation cp="↴" type="tts">↑↑↑</annotation>
+		<annotation cp="↵">↑↑↑</annotation>
+		<annotation cp="↵" type="tts">↑↑↑</annotation>
+		<annotation cp="↶">↑↑↑</annotation>
+		<annotation cp="↶" type="tts">↑↑↑</annotation>
+		<annotation cp="↷">↑↑↑</annotation>
+		<annotation cp="↷" type="tts">↑↑↑</annotation>
+		<annotation cp="↸">↑↑↑</annotation>
+		<annotation cp="↸" type="tts">↑↑↑</annotation>
+		<annotation cp="↹">↑↑↑</annotation>
+		<annotation cp="↹" type="tts">↑↑↑</annotation>
+		<annotation cp="↺">↑↑↑</annotation>
+		<annotation cp="↺" type="tts">↑↑↑</annotation>
+		<annotation cp="↻">↑↑↑</annotation>
+		<annotation cp="↻" type="tts">↑↑↑</annotation>
+		<annotation cp="↼">↑↑↑</annotation>
+		<annotation cp="↼" type="tts">↑↑↑</annotation>
+		<annotation cp="↽">↑↑↑</annotation>
+		<annotation cp="↽" type="tts">↑↑↑</annotation>
+		<annotation cp="↾">↑↑↑</annotation>
+		<annotation cp="↾" type="tts">↑↑↑</annotation>
+		<annotation cp="↿">↑↑↑</annotation>
+		<annotation cp="↿" type="tts">↑↑↑</annotation>
+		<annotation cp="⇀">↑↑↑</annotation>
+		<annotation cp="⇀" type="tts">↑↑↑</annotation>
+		<annotation cp="⇁">↑↑↑</annotation>
+		<annotation cp="⇁" type="tts">↑↑↑</annotation>
+		<annotation cp="⇂">↑↑↑</annotation>
+		<annotation cp="⇂" type="tts">↑↑↑</annotation>
+		<annotation cp="⇃">↑↑↑</annotation>
+		<annotation cp="⇃" type="tts">↑↑↑</annotation>
+		<annotation cp="⇄">↑↑↑</annotation>
+		<annotation cp="⇄" type="tts">↑↑↑</annotation>
 		<annotation cp="⇅">↑↑↑</annotation>
 		<annotation cp="⇅" type="tts">↑↑↑</annotation>
 		<annotation cp="⇆">↑↑↑</annotation>
 		<annotation cp="⇆" type="tts">↑↑↑</annotation>
-		<annotation cp="⇇" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇈" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇉" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇊" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇋" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇌" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇐" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇍" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇑" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇒" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇏" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇓" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇔" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇎" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇖" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇗" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇙" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇚" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇛" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇜" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇝" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇞" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇡" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇢" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇤" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇦" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇩" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇪" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇵" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∀" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∂" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∃" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∅" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="⇇">↑↑↑</annotation>
+		<annotation cp="⇇" type="tts">↑↑↑</annotation>
+		<annotation cp="⇈">↑↑↑</annotation>
+		<annotation cp="⇈" type="tts">↑↑↑</annotation>
+		<annotation cp="⇉">↑↑↑</annotation>
+		<annotation cp="⇉" type="tts">↑↑↑</annotation>
+		<annotation cp="⇊">↑↑↑</annotation>
+		<annotation cp="⇊" type="tts">↑↑↑</annotation>
+		<annotation cp="⇋">↑↑↑</annotation>
+		<annotation cp="⇋" type="tts">↑↑↑</annotation>
+		<annotation cp="⇌">↑↑↑</annotation>
+		<annotation cp="⇌" type="tts">↑↑↑</annotation>
+		<annotation cp="⇐">↑↑↑</annotation>
+		<annotation cp="⇐" type="tts">↑↑↑</annotation>
+		<annotation cp="⇍">↑↑↑</annotation>
+		<annotation cp="⇍" type="tts">↑↑↑</annotation>
+		<annotation cp="⇑">↑↑↑</annotation>
+		<annotation cp="⇑" type="tts">↑↑↑</annotation>
+		<annotation cp="⇒">↑↑↑</annotation>
+		<annotation cp="⇒" type="tts">↑↑↑</annotation>
+		<annotation cp="⇏">↑↑↑</annotation>
+		<annotation cp="⇏" type="tts">↑↑↑</annotation>
+		<annotation cp="⇓">↑↑↑</annotation>
+		<annotation cp="⇓" type="tts">↑↑↑</annotation>
+		<annotation cp="⇔">↑↑↑</annotation>
+		<annotation cp="⇔" type="tts">↑↑↑</annotation>
+		<annotation cp="⇎">↑↑↑</annotation>
+		<annotation cp="⇎" type="tts">↑↑↑</annotation>
+		<annotation cp="⇖">↑↑↑</annotation>
+		<annotation cp="⇖" type="tts">↑↑↑</annotation>
+		<annotation cp="⇗">↑↑↑</annotation>
+		<annotation cp="⇗" type="tts">↑↑↑</annotation>
+		<annotation cp="⇘">↑↑↑</annotation>
+		<annotation cp="⇘" type="tts">↑↑↑</annotation>
+		<annotation cp="⇙">↑↑↑</annotation>
+		<annotation cp="⇙" type="tts">↑↑↑</annotation>
+		<annotation cp="⇚">↑↑↑</annotation>
+		<annotation cp="⇚" type="tts">↑↑↑</annotation>
+		<annotation cp="⇛">↑↑↑</annotation>
+		<annotation cp="⇛" type="tts">↑↑↑</annotation>
+		<annotation cp="⇜">↑↑↑</annotation>
+		<annotation cp="⇜" type="tts">↑↑↑</annotation>
+		<annotation cp="⇝">↑↑↑</annotation>
+		<annotation cp="⇝" type="tts">↑↑↑</annotation>
+		<annotation cp="⇞">↑↑↑</annotation>
+		<annotation cp="⇞" type="tts">↑↑↑</annotation>
+		<annotation cp="⇟">↑↑↑</annotation>
+		<annotation cp="⇟" type="tts">↑↑↑</annotation>
+		<annotation cp="⇠">↑↑↑</annotation>
+		<annotation cp="⇠" type="tts">↑↑↑</annotation>
+		<annotation cp="⇡">↑↑↑</annotation>
+		<annotation cp="⇡" type="tts">↑↑↑</annotation>
+		<annotation cp="⇢">↑↑↑</annotation>
+		<annotation cp="⇢" type="tts">↑↑↑</annotation>
+		<annotation cp="⇣">↑↑↑</annotation>
+		<annotation cp="⇣" type="tts">↑↑↑</annotation>
+		<annotation cp="⇤">↑↑↑</annotation>
+		<annotation cp="⇤" type="tts">↑↑↑</annotation>
+		<annotation cp="⇥">↑↑↑</annotation>
+		<annotation cp="⇥" type="tts">↑↑↑</annotation>
+		<annotation cp="⇦">↑↑↑</annotation>
+		<annotation cp="⇦" type="tts">↑↑↑</annotation>
+		<annotation cp="⇧">↑↑↑</annotation>
+		<annotation cp="⇧" type="tts">↑↑↑</annotation>
+		<annotation cp="⇨">↑↑↑</annotation>
+		<annotation cp="⇨" type="tts">↑↑↑</annotation>
+		<annotation cp="⇩">↑↑↑</annotation>
+		<annotation cp="⇩" type="tts">↑↑↑</annotation>
+		<annotation cp="⇪">↑↑↑</annotation>
+		<annotation cp="⇪" type="tts">↑↑↑</annotation>
+		<annotation cp="⇵">↑↑↑</annotation>
+		<annotation cp="⇵" type="tts">↑↑↑</annotation>
+		<annotation cp="∀">↑↑↑</annotation>
+		<annotation cp="∀" type="tts">↑↑↑</annotation>
+		<annotation cp="∂">↑↑↑</annotation>
+		<annotation cp="∂" type="tts">↑↑↑</annotation>
+		<annotation cp="∃">↑↑↑</annotation>
+		<annotation cp="∃" type="tts">↑↑↑</annotation>
+		<annotation cp="∅">↑↑↑</annotation>
+		<annotation cp="∅" type="tts">↑↑↑</annotation>
 		<annotation cp="∆">↑↑↑</annotation>
 		<annotation cp="∆" type="tts">↑↑↑</annotation>
 		<annotation cp="∇">↑↑↑</annotation>
 		<annotation cp="∇" type="tts">↑↑↑</annotation>
 		<annotation cp="∈">↑↑↑</annotation>
 		<annotation cp="∈" type="tts">↑↑↑</annotation>
-		<annotation cp="∉" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∋" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∎" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∏" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∑" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="+" draft="contributed">↑↑↑</annotation>
-		<annotation cp="+" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="±" draft="contributed">↑↑↑</annotation>
-		<annotation cp="±" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∉">↑↑↑</annotation>
+		<annotation cp="∉" type="tts">↑↑↑</annotation>
+		<annotation cp="∋">↑↑↑</annotation>
+		<annotation cp="∋" type="tts">↑↑↑</annotation>
+		<annotation cp="∎">↑↑↑</annotation>
+		<annotation cp="∎" type="tts">↑↑↑</annotation>
+		<annotation cp="∏">↑↑↑</annotation>
+		<annotation cp="∏" type="tts">↑↑↑</annotation>
+		<annotation cp="∑">↑↑↑</annotation>
+		<annotation cp="∑" type="tts">↑↑↑</annotation>
+		<annotation cp="+">↑↑↑</annotation>
+		<annotation cp="+" type="tts">↑↑↑</annotation>
+		<annotation cp="±">↑↑↑</annotation>
+		<annotation cp="±" type="tts">↑↑↑</annotation>
 		<annotation cp="÷">↑↑↑</annotation>
 		<annotation cp="÷" type="tts">↑↑↑</annotation>
 		<annotation cp="×">↑↑↑</annotation>
 		<annotation cp="×" type="tts">↑↑↑</annotation>
-		<annotation cp="&lt;" draft="contributed">↑↑↑</annotation>
-		<annotation cp="&lt;" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="=" draft="contributed">↑↑↑</annotation>
-		<annotation cp="=" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="&gt;" draft="contributed">↑↑↑</annotation>
-		<annotation cp="&gt;" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≯" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="¬" draft="contributed">↑↑↑</annotation>
-		<annotation cp="¬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="|" draft="contributed">↑↑↑</annotation>
-		<annotation cp="|" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="~" draft="contributed">↑↑↑</annotation>
-		<annotation cp="~" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="−" draft="contributed">↑↑↑</annotation>
-		<annotation cp="−" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="&lt;">↑↑↑</annotation>
+		<annotation cp="&lt;" type="tts">↑↑↑</annotation>
+		<annotation cp="≮">↑↑↑</annotation>
+		<annotation cp="≮" type="tts">↑↑↑</annotation>
+		<annotation cp="=">↑↑↑</annotation>
+		<annotation cp="=" type="tts">↑↑↑</annotation>
+		<annotation cp="≠">↑↑↑</annotation>
+		<annotation cp="≠" type="tts">↑↑↑</annotation>
+		<annotation cp="&gt;">↑↑↑</annotation>
+		<annotation cp="&gt;" type="tts">↑↑↑</annotation>
+		<annotation cp="≯">↑↑↑</annotation>
+		<annotation cp="≯" type="tts">↑↑↑</annotation>
+		<annotation cp="¬">↑↑↑</annotation>
+		<annotation cp="¬" type="tts">↑↑↑</annotation>
+		<annotation cp="|">↑↑↑</annotation>
+		<annotation cp="|" type="tts">↑↑↑</annotation>
+		<annotation cp="~">↑↑↑</annotation>
+		<annotation cp="~" type="tts">↑↑↑</annotation>
+		<annotation cp="−">↑↑↑</annotation>
+		<annotation cp="−" type="tts">↑↑↑</annotation>
 		<annotation cp="⁻">↑↑↑</annotation>
 		<annotation cp="⁻" type="tts">↑↑↑</annotation>
-		<annotation cp="∓" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∕" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⁄" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∗" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∙" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∓">↑↑↑</annotation>
+		<annotation cp="∓" type="tts">↑↑↑</annotation>
+		<annotation cp="∕">↑↑↑</annotation>
+		<annotation cp="∕" type="tts">↑↑↑</annotation>
+		<annotation cp="⁄">↑↑↑</annotation>
+		<annotation cp="⁄" type="tts">↑↑↑</annotation>
+		<annotation cp="∗">↑↑↑</annotation>
+		<annotation cp="∗" type="tts">↑↑↑</annotation>
+		<annotation cp="∘">↑↑↑</annotation>
+		<annotation cp="∘" type="tts">↑↑↑</annotation>
+		<annotation cp="∙">↑↑↑</annotation>
+		<annotation cp="∙" type="tts">↑↑↑</annotation>
 		<annotation cp="√">↑↑↑</annotation>
 		<annotation cp="√" type="tts">↑↑↑</annotation>
-		<annotation cp="∝" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∝">↑↑↑</annotation>
+		<annotation cp="∝" type="tts">↑↑↑</annotation>
 		<annotation cp="∞">↑↑↑</annotation>
 		<annotation cp="∞" type="tts">↑↑↑</annotation>
-		<annotation cp="∟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∟">↑↑↑</annotation>
+		<annotation cp="∟" type="tts">↑↑↑</annotation>
+		<annotation cp="∠">↑↑↑</annotation>
+		<annotation cp="∠" type="tts">↑↑↑</annotation>
+		<annotation cp="∣">↑↑↑</annotation>
+		<annotation cp="∣" type="tts">↑↑↑</annotation>
+		<annotation cp="∥">↑↑↑</annotation>
+		<annotation cp="∥" type="tts">↑↑↑</annotation>
+		<annotation cp="∧">↑↑↑</annotation>
+		<annotation cp="∧" type="tts">↑↑↑</annotation>
 		<annotation cp="∩">↑↑↑</annotation>
 		<annotation cp="∩" type="tts">↑↑↑</annotation>
 		<annotation cp="∪">↑↑↑</annotation>
 		<annotation cp="∪" type="tts">↑↑↑</annotation>
-		<annotation cp="∫" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∬" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∴" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≈" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≈" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∫">↑↑↑</annotation>
+		<annotation cp="∫" type="tts">↑↑↑</annotation>
+		<annotation cp="∬">↑↑↑</annotation>
+		<annotation cp="∬" type="tts">↑↑↑</annotation>
+		<annotation cp="∮">↑↑↑</annotation>
+		<annotation cp="∮" type="tts">↑↑↑</annotation>
+		<annotation cp="∴">↑↑↑</annotation>
+		<annotation cp="∴" type="tts">↑↑↑</annotation>
+		<annotation cp="∵">↑↑↑</annotation>
+		<annotation cp="∵" type="tts">↑↑↑</annotation>
+		<annotation cp="∶">↑↑↑</annotation>
+		<annotation cp="∶" type="tts">↑↑↑</annotation>
+		<annotation cp="∷">↑↑↑</annotation>
+		<annotation cp="∷" type="tts">↑↑↑</annotation>
+		<annotation cp="∼">↑↑↑</annotation>
+		<annotation cp="∼" type="tts">↑↑↑</annotation>
+		<annotation cp="∽">↑↑↑</annotation>
+		<annotation cp="∽" type="tts">↑↑↑</annotation>
+		<annotation cp="∾">↑↑↑</annotation>
+		<annotation cp="∾" type="tts">↑↑↑</annotation>
+		<annotation cp="≃">↑↑↑</annotation>
+		<annotation cp="≃" type="tts">↑↑↑</annotation>
+		<annotation cp="≅">↑↑↑</annotation>
+		<annotation cp="≅" type="tts">↑↑↑</annotation>
+		<annotation cp="≈">↑↑↑</annotation>
+		<annotation cp="≈" type="tts">↑↑↑</annotation>
+		<annotation cp="≌">↑↑↑</annotation>
+		<annotation cp="≌" type="tts">↑↑↑</annotation>
+		<annotation cp="≒">↑↑↑</annotation>
+		<annotation cp="≒" type="tts">↑↑↑</annotation>
+		<annotation cp="≖">↑↑↑</annotation>
+		<annotation cp="≖" type="tts">↑↑↑</annotation>
 		<annotation cp="≡">↑↑↑</annotation>
 		<annotation cp="≡" type="tts">↑↑↑</annotation>
-		<annotation cp="≤" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≥" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="≣">↑↑↑</annotation>
+		<annotation cp="≣" type="tts">↑↑↑</annotation>
+		<annotation cp="≤">↑↑↑</annotation>
+		<annotation cp="≤" type="tts">↑↑↑</annotation>
+		<annotation cp="≥">↑↑↑</annotation>
+		<annotation cp="≥" type="tts">↑↑↑</annotation>
+		<annotation cp="≦">↑↑↑</annotation>
+		<annotation cp="≦" type="tts">↑↑↑</annotation>
+		<annotation cp="≧">↑↑↑</annotation>
+		<annotation cp="≧" type="tts">↑↑↑</annotation>
+		<annotation cp="≪">↑↑↑</annotation>
+		<annotation cp="≪" type="tts">↑↑↑</annotation>
+		<annotation cp="≫">↑↑↑</annotation>
+		<annotation cp="≫" type="tts">↑↑↑</annotation>
+		<annotation cp="≬">↑↑↑</annotation>
+		<annotation cp="≬" type="tts">↑↑↑</annotation>
+		<annotation cp="≳">↑↑↑</annotation>
+		<annotation cp="≳" type="tts">↑↑↑</annotation>
+		<annotation cp="≺">↑↑↑</annotation>
+		<annotation cp="≺" type="tts">↑↑↑</annotation>
+		<annotation cp="≻">↑↑↑</annotation>
+		<annotation cp="≻" type="tts">↑↑↑</annotation>
+		<annotation cp="⊁">↑↑↑</annotation>
+		<annotation cp="⊁" type="tts">↑↑↑</annotation>
 		<annotation cp="⊂">↑↑↑</annotation>
 		<annotation cp="⊂" type="tts">↑↑↑</annotation>
+		<annotation cp="⊃">↑↑↑</annotation>
+		<annotation cp="⊃" type="tts">↑↑↑</annotation>
+		<annotation cp="⊆">↑↑↑</annotation>
+		<annotation cp="⊆" type="tts">↑↑↑</annotation>
+		<annotation cp="⊇">↑↑↑</annotation>
+		<annotation cp="⊇" type="tts">↑↑↑</annotation>
+		<annotation cp="⊕">↑↑↑</annotation>
+		<annotation cp="⊕" type="tts">↑↑↑</annotation>
+		<annotation cp="⊖">↑↑↑</annotation>
+		<annotation cp="⊖" type="tts">↑↑↑</annotation>
+		<annotation cp="⊗">↑↑↑</annotation>
+		<annotation cp="⊗" type="tts">↑↑↑</annotation>
+		<annotation cp="⊘">↑↑↑</annotation>
+		<annotation cp="⊘" type="tts">↑↑↑</annotation>
+		<annotation cp="⊙">↑↑↑</annotation>
+		<annotation cp="⊙" type="tts">↑↑↑</annotation>
+		<annotation cp="⊚">↑↑↑</annotation>
+		<annotation cp="⊚" type="tts">↑↑↑</annotation>
+		<annotation cp="⊛">↑↑↑</annotation>
+		<annotation cp="⊛" type="tts">↑↑↑</annotation>
+		<annotation cp="⊞">↑↑↑</annotation>
+		<annotation cp="⊞" type="tts">↑↑↑</annotation>
+		<annotation cp="⊟">↑↑↑</annotation>
+		<annotation cp="⊟" type="tts">↑↑↑</annotation>
+		<annotation cp="⊥">↑↑↑</annotation>
+		<annotation cp="⊥" type="tts">↑↑↑</annotation>
+		<annotation cp="⊮">↑↑↑</annotation>
+		<annotation cp="⊮" type="tts">↑↑↑</annotation>
+		<annotation cp="⊰">↑↑↑</annotation>
+		<annotation cp="⊰" type="tts">↑↑↑</annotation>
+		<annotation cp="⊱">↑↑↑</annotation>
+		<annotation cp="⊱" type="tts">↑↑↑</annotation>
+		<annotation cp="⋭">↑↑↑</annotation>
+		<annotation cp="⋭" type="tts">↑↑↑</annotation>
+		<annotation cp="⊶">↑↑↑</annotation>
+		<annotation cp="⊶" type="tts">↑↑↑</annotation>
+		<annotation cp="⊹">↑↑↑</annotation>
+		<annotation cp="⊹" type="tts">↑↑↑</annotation>
+		<annotation cp="⊿">↑↑↑</annotation>
+		<annotation cp="⊿" type="tts">↑↑↑</annotation>
+		<annotation cp="⋁">↑↑↑</annotation>
+		<annotation cp="⋁" type="tts">↑↑↑</annotation>
+		<annotation cp="⋂">↑↑↑</annotation>
+		<annotation cp="⋂" type="tts">↑↑↑</annotation>
+		<annotation cp="⋃">↑↑↑</annotation>
+		<annotation cp="⋃" type="tts">↑↑↑</annotation>
+		<annotation cp="⋅">↑↑↑</annotation>
+		<annotation cp="⋅" type="tts">↑↑↑</annotation>
+		<annotation cp="⋆">↑↑↑</annotation>
+		<annotation cp="⋆" type="tts">↑↑↑</annotation>
+		<annotation cp="⋈">↑↑↑</annotation>
+		<annotation cp="⋈" type="tts">↑↑↑</annotation>
+		<annotation cp="⋒">↑↑↑</annotation>
+		<annotation cp="⋒" type="tts">↑↑↑</annotation>
+		<annotation cp="⋘">↑↑↑</annotation>
+		<annotation cp="⋘" type="tts">↑↑↑</annotation>
+		<annotation cp="⋙">↑↑↑</annotation>
+		<annotation cp="⋙" type="tts">↑↑↑</annotation>
+		<annotation cp="⋮">↑↑↑</annotation>
+		<annotation cp="⋮" type="tts">↑↑↑</annotation>
+		<annotation cp="⋯">↑↑↑</annotation>
+		<annotation cp="⋯" type="tts">↑↑↑</annotation>
+		<annotation cp="⋰">↑↑↑</annotation>
+		<annotation cp="⋰" type="tts">↑↑↑</annotation>
+		<annotation cp="⋱">↑↑↑</annotation>
+		<annotation cp="⋱" type="tts">↑↑↑</annotation>
+		<annotation cp="■">↑↑↑</annotation>
+		<annotation cp="■" type="tts">↑↑↑</annotation>
+		<annotation cp="□">↑↑↑</annotation>
+		<annotation cp="□" type="tts">↑↑↑</annotation>
+		<annotation cp="▢">↑↑↑</annotation>
+		<annotation cp="▢" type="tts">↑↑↑</annotation>
+		<annotation cp="▣">↑↑↑</annotation>
+		<annotation cp="▣" type="tts">↑↑↑</annotation>
+		<annotation cp="▤">↑↑↑</annotation>
+		<annotation cp="▤" type="tts">↑↑↑</annotation>
+		<annotation cp="▥">↑↑↑</annotation>
+		<annotation cp="▥" type="tts">↑↑↑</annotation>
+		<annotation cp="▦">↑↑↑</annotation>
+		<annotation cp="▦" type="tts">↑↑↑</annotation>
+		<annotation cp="▧">↑↑↑</annotation>
+		<annotation cp="▧" type="tts">↑↑↑</annotation>
+		<annotation cp="▨">↑↑↑</annotation>
+		<annotation cp="▨" type="tts">↑↑↑</annotation>
+		<annotation cp="▩">↑↑↑</annotation>
+		<annotation cp="▩" type="tts">↑↑↑</annotation>
+		<annotation cp="▬">↑↑↑</annotation>
+		<annotation cp="▬" type="tts">↑↑↑</annotation>
+		<annotation cp="▭">↑↑↑</annotation>
+		<annotation cp="▭" type="tts">↑↑↑</annotation>
+		<annotation cp="▮">↑↑↑</annotation>
+		<annotation cp="▮" type="tts">↑↑↑</annotation>
+		<annotation cp="▰">↑↑↑</annotation>
+		<annotation cp="▰" type="tts">↑↑↑</annotation>
 		<annotation cp="▲">↑↑↑</annotation>
 		<annotation cp="▲" type="tts">↑↑↑</annotation>
+		<annotation cp="△">↑↑↑</annotation>
+		<annotation cp="△" type="tts">↑↑↑</annotation>
+		<annotation cp="▴">↑↑↑</annotation>
+		<annotation cp="▴" type="tts">↑↑↑</annotation>
+		<annotation cp="▵">↑↑↑</annotation>
+		<annotation cp="▵" type="tts">↑↑↑</annotation>
+		<annotation cp="▷">↑↑↑</annotation>
+		<annotation cp="▷" type="tts">↑↑↑</annotation>
+		<annotation cp="▸">↑↑↑</annotation>
+		<annotation cp="▸" type="tts">↑↑↑</annotation>
+		<annotation cp="▹">↑↑↑</annotation>
+		<annotation cp="▹" type="tts">↑↑↑</annotation>
+		<annotation cp="►">↑↑↑</annotation>
+		<annotation cp="►" type="tts">↑↑↑</annotation>
+		<annotation cp="▻">↑↑↑</annotation>
+		<annotation cp="▻" type="tts">↑↑↑</annotation>
 		<annotation cp="▼">↑↑↑</annotation>
 		<annotation cp="▼" type="tts">↑↑↑</annotation>
+		<annotation cp="▽">↑↑↑</annotation>
+		<annotation cp="▽" type="tts">↑↑↑</annotation>
+		<annotation cp="▾">↑↑↑</annotation>
+		<annotation cp="▾" type="tts">↑↑↑</annotation>
+		<annotation cp="▿">↑↑↑</annotation>
+		<annotation cp="▿" type="tts">↑↑↑</annotation>
+		<annotation cp="◁">↑↑↑</annotation>
+		<annotation cp="◁" type="tts">↑↑↑</annotation>
+		<annotation cp="◂">↑↑↑</annotation>
+		<annotation cp="◂" type="tts">↑↑↑</annotation>
+		<annotation cp="◃">↑↑↑</annotation>
+		<annotation cp="◃" type="tts">↑↑↑</annotation>
+		<annotation cp="◄">↑↑↑</annotation>
+		<annotation cp="◄" type="tts">↑↑↑</annotation>
+		<annotation cp="◅">↑↑↑</annotation>
+		<annotation cp="◅" type="tts">↑↑↑</annotation>
+		<annotation cp="◆">↑↑↑</annotation>
+		<annotation cp="◆" type="tts">↑↑↑</annotation>
+		<annotation cp="◇">↑↑↑</annotation>
+		<annotation cp="◇" type="tts">↑↑↑</annotation>
+		<annotation cp="◈">↑↑↑</annotation>
+		<annotation cp="◈" type="tts">↑↑↑</annotation>
+		<annotation cp="◉">↑↑↑</annotation>
+		<annotation cp="◉" type="tts">↑↑↑</annotation>
 		<annotation cp="◊">↑↑↑</annotation>
 		<annotation cp="◊" type="tts">↑↑↑</annotation>
 		<annotation cp="○">↑↑↑</annotation>
 		<annotation cp="○" type="tts">↑↑↑</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="◌">↑↑↑</annotation>
+		<annotation cp="◌" type="tts">↑↑↑</annotation>
+		<annotation cp="◍">↑↑↑</annotation>
+		<annotation cp="◍" type="tts">↑↑↑</annotation>
+		<annotation cp="◎">↑↑↑</annotation>
+		<annotation cp="◎" type="tts">↑↑↑</annotation>
 		<annotation cp="●">↑↑↑</annotation>
 		<annotation cp="●" type="tts">↑↑↑</annotation>
+		<annotation cp="◐">↑↑↑</annotation>
+		<annotation cp="◐" type="tts">↑↑↑</annotation>
+		<annotation cp="◑">↑↑↑</annotation>
+		<annotation cp="◑" type="tts">↑↑↑</annotation>
+		<annotation cp="◒">↑↑↑</annotation>
+		<annotation cp="◒" type="tts">↑↑↑</annotation>
+		<annotation cp="◓">↑↑↑</annotation>
+		<annotation cp="◓" type="tts">↑↑↑</annotation>
+		<annotation cp="◔">↑↑↑</annotation>
+		<annotation cp="◔" type="tts">↑↑↑</annotation>
+		<annotation cp="◕">↑↑↑</annotation>
+		<annotation cp="◕" type="tts">↑↑↑</annotation>
+		<annotation cp="◖">↑↑↑</annotation>
+		<annotation cp="◖" type="tts">↑↑↑</annotation>
+		<annotation cp="◗">↑↑↑</annotation>
+		<annotation cp="◗" type="tts">↑↑↑</annotation>
+		<annotation cp="◘">↑↑↑</annotation>
+		<annotation cp="◘" type="tts">↑↑↑</annotation>
+		<annotation cp="◙">↑↑↑</annotation>
+		<annotation cp="◙" type="tts">↑↑↑</annotation>
+		<annotation cp="◜">↑↑↑</annotation>
+		<annotation cp="◜" type="tts">↑↑↑</annotation>
+		<annotation cp="◝">↑↑↑</annotation>
+		<annotation cp="◝" type="tts">↑↑↑</annotation>
+		<annotation cp="◞">↑↑↑</annotation>
+		<annotation cp="◞" type="tts">↑↑↑</annotation>
+		<annotation cp="◟">↑↑↑</annotation>
+		<annotation cp="◟" type="tts">↑↑↑</annotation>
+		<annotation cp="◠">↑↑↑</annotation>
+		<annotation cp="◠" type="tts">↑↑↑</annotation>
+		<annotation cp="◡">↑↑↑</annotation>
+		<annotation cp="◡" type="tts">↑↑↑</annotation>
+		<annotation cp="◢">↑↑↑</annotation>
+		<annotation cp="◢" type="tts">↑↑↑</annotation>
+		<annotation cp="◣">↑↑↑</annotation>
+		<annotation cp="◣" type="tts">↑↑↑</annotation>
+		<annotation cp="◤">↑↑↑</annotation>
+		<annotation cp="◤" type="tts">↑↑↑</annotation>
+		<annotation cp="◥">↑↑↑</annotation>
+		<annotation cp="◥" type="tts">↑↑↑</annotation>
+		<annotation cp="◦">↑↑↑</annotation>
+		<annotation cp="◦" type="tts">↑↑↑</annotation>
 		<annotation cp="◯">↑↑↑</annotation>
 		<annotation cp="◯" type="tts">↑↑↑</annotation>
-		<annotation cp="♪" draft="contributed">↑↑↑</annotation>
-		<annotation cp="♪" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="♭" draft="contributed">↑↑↑</annotation>
-		<annotation cp="♭" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="♯" draft="contributed">↑↑↑</annotation>
-		<annotation cp="♯" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="◳">↑↑↑</annotation>
+		<annotation cp="◳" type="tts">↑↑↑</annotation>
+		<annotation cp="◷">↑↑↑</annotation>
+		<annotation cp="◷" type="tts">↑↑↑</annotation>
+		<annotation cp="◿">↑↑↑</annotation>
+		<annotation cp="◿" type="tts">↑↑↑</annotation>
+		<annotation cp="♪">↑↑↑</annotation>
+		<annotation cp="♪" type="tts">↑↑↑</annotation>
+		<annotation cp="⨧">↑↑↑</annotation>
+		<annotation cp="⨧" type="tts">↑↑↑</annotation>
+		<annotation cp="⨯">↑↑↑</annotation>
+		<annotation cp="⨯" type="tts">↑↑↑</annotation>
+		<annotation cp="⨼">↑↑↑</annotation>
+		<annotation cp="⨼" type="tts">↑↑↑</annotation>
+		<annotation cp="⩣">↑↑↑</annotation>
+		<annotation cp="⩣" type="tts">↑↑↑</annotation>
+		<annotation cp="⩽">↑↑↑</annotation>
+		<annotation cp="⩽" type="tts">↑↑↑</annotation>
+		<annotation cp="⪍">↑↑↑</annotation>
+		<annotation cp="⪍" type="tts">↑↑↑</annotation>
+		<annotation cp="⪚">↑↑↑</annotation>
+		<annotation cp="⪚" type="tts">↑↑↑</annotation>
+		<annotation cp="⪺">↑↑↑</annotation>
+		<annotation cp="⪺" type="tts">↑↑↑</annotation>
+		<annotation cp="♭">↑↑↑</annotation>
+		<annotation cp="♭" type="tts">↑↑↑</annotation>
+		<annotation cp="♯">↑↑↑</annotation>
+		<annotation cp="♯" type="tts">↑↑↑</annotation>
 		<annotation cp="😀">↑↑↑</annotation>
 		<annotation cp="😀" type="tts">↑↑↑</annotation>
 		<annotation cp="😃">↑↑↑</annotation>
@@ -540,8 +784,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">↑↑↑</annotation>
 		<annotation cp="😶">↑↑↑</annotation>
 		<annotation cp="😶" type="tts">↑↑↑</annotation>
-		<annotation cp="😶‍🌫" draft="contributed">↑↑↑</annotation>
-		<annotation cp="😶‍🌫" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="😶‍🌫">↑↑↑</annotation>
+		<annotation cp="😶‍🌫" type="tts">↑↑↑</annotation>
 		<annotation cp="😏">↑↑↑</annotation>
 		<annotation cp="😏" type="tts">↑↑↑</annotation>
 		<annotation cp="😒">↑↑↑</annotation>
@@ -550,8 +794,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">↑↑↑</annotation>
 		<annotation cp="😬">↑↑↑</annotation>
 		<annotation cp="😬" type="tts">↑↑↑</annotation>
-		<annotation cp="😮‍💨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="😮‍💨">↑↑↑</annotation>
+		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="🤥">↑↑↑</annotation>
 		<annotation cp="🤥" type="tts">↑↑↑</annotation>
 		<annotation cp="😌">↑↑↑</annotation>
@@ -584,8 +828,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts">↑↑↑</annotation>
 		<annotation cp="😵">↑↑↑</annotation>
 		<annotation cp="😵" type="tts">↑↑↑</annotation>
-		<annotation cp="😵‍💫" draft="contributed">↑↑↑</annotation>
-		<annotation cp="😵‍💫" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="😵‍💫">↑↑↑</annotation>
+		<annotation cp="😵‍💫" type="tts">↑↑↑</annotation>
 		<annotation cp="🤯">↑↑↑</annotation>
 		<annotation cp="🤯" type="tts">↑↑↑</annotation>
 		<annotation cp="🤠">↑↑↑</annotation>
@@ -728,10 +972,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">↑↑↑</annotation>
 		<annotation cp="💔">↑↑↑</annotation>
 		<annotation cp="💔" type="tts">↑↑↑</annotation>
-		<annotation cp="❤‍🔥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="❤‍🔥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="❤‍🩹" draft="contributed">↑↑↑</annotation>
-		<annotation cp="❤‍🩹" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="❤‍🔥">↑↑↑</annotation>
+		<annotation cp="❤‍🔥" type="tts">↑↑↑</annotation>
+		<annotation cp="❤‍🩹">↑↑↑</annotation>
+		<annotation cp="❤‍🩹" type="tts">↑↑↑</annotation>
 		<annotation cp="❤">↑↑↑</annotation>
 		<annotation cp="❤" type="tts">↑↑↑</annotation>
 		<annotation cp="🧡">↑↑↑</annotation>
@@ -3106,8 +3350,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">↑↑↑</annotation>
 		<annotation cp="↔">↑↑↑</annotation>
 		<annotation cp="↔" type="tts">↑↑↑</annotation>
-		<annotation cp="↮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="↮">↑↑↑</annotation>
+		<annotation cp="↮" type="tts">↑↑↑</annotation>
 		<annotation cp="↩">↑↑↑</annotation>
 		<annotation cp="↩" type="tts">↑↑↑</annotation>
 		<annotation cp="↪">↑↑↑</annotation>
@@ -3466,28 +3710,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳‍⚧" type="tts">↑↑↑</annotation>
 		<annotation cp="🏴‍☠">↑↑↑</annotation>
 		<annotation cp="🏴‍☠" type="tts">↑↑↑</annotation>
-		<annotation cp="¢" draft="contributed">↑↑↑</annotation>
-		<annotation cp="¢" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="$" draft="contributed">↑↑↑</annotation>
-		<annotation cp="$" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="¢">↑↑↑</annotation>
+		<annotation cp="¢" type="tts">↑↑↑</annotation>
+		<annotation cp="$">↑↑↑</annotation>
+		<annotation cp="$" type="tts">↑↑↑</annotation>
 		<annotation cp="£">↑↑↑</annotation>
 		<annotation cp="£" type="tts">↑↑↑</annotation>
 		<annotation cp="¥">↑↑↑</annotation>
 		<annotation cp="¥" type="tts">↑↑↑</annotation>
-		<annotation cp="₥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₩" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₩" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="₢">↑↑↑</annotation>
+		<annotation cp="₢" type="tts">↑↑↑</annotation>
+		<annotation cp="₣">↑↑↑</annotation>
+		<annotation cp="₣" type="tts">↑↑↑</annotation>
+		<annotation cp="₤">↑↑↑</annotation>
+		<annotation cp="₤" type="tts">↑↑↑</annotation>
+		<annotation cp="₥">↑↑↑</annotation>
+		<annotation cp="₥" type="tts">↑↑↑</annotation>
+		<annotation cp="₩">↑↑↑</annotation>
+		<annotation cp="₩" type="tts">↑↑↑</annotation>
 		<annotation cp="€">↑↑↑</annotation>
 		<annotation cp="€" type="tts">↑↑↑</annotation>
-		<annotation cp="₱" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₱" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="₰">↑↑↑</annotation>
+		<annotation cp="₰" type="tts">↑↑↑</annotation>
+		<annotation cp="₱">↑↑↑</annotation>
+		<annotation cp="₱" type="tts">↑↑↑</annotation>
+		<annotation cp="₳">↑↑↑</annotation>
+		<annotation cp="₳" type="tts">↑↑↑</annotation>
+		<annotation cp="₶">↑↑↑</annotation>
+		<annotation cp="₶" type="tts">↑↑↑</annotation>
+		<annotation cp="₷">↑↑↑</annotation>
+		<annotation cp="₷" type="tts">↑↑↑</annotation>
 		<annotation cp="₹">↑↑↑</annotation>
 		<annotation cp="₹" type="tts">↑↑↑</annotation>
 		<annotation cp="₽">↑↑↑</annotation>
 		<annotation cp="₽" type="tts">↑↑↑</annotation>
-		<annotation cp="₿" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₿" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="₿">↑↑↑</annotation>
+		<annotation cp="₿" type="tts">↑↑↑</annotation>
+		<annotation cp="₨">↑↑↑</annotation>
+		<annotation cp="₨" type="tts">↑↑↑</annotation>
+		<annotation cp="﷼">↑↑↑</annotation>
+		<annotation cp="﷼" type="tts">↑↑↑</annotation>
 		<annotation cp="¹">↑↑↑</annotation>
 		<annotation cp="¹" type="tts">↑↑↑</annotation>
 		<annotation cp="²">↑↑↑</annotation>
@@ -3496,5 +3758,79 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="³" type="tts">↑↑↑</annotation>
 		<annotation cp="µ">↑↑↑</annotation>
 		<annotation cp="µ" type="tts">↑↑↑</annotation>
+		<annotation cp="🛝">↑↑↑</annotation>
+		<annotation cp="🛝" type="tts">↑↑↑</annotation>
+		<annotation cp="🛞">↑↑↑</annotation>
+		<annotation cp="🛞" type="tts">↑↑↑</annotation>
+		<annotation cp="🛟">↑↑↑</annotation>
+		<annotation cp="🛟" type="tts">↑↑↑</annotation>
+		<annotation cp="🟰">↑↑↑</annotation>
+		<annotation cp="🟰" type="tts">↑↑↑</annotation>
+		<annotation cp="🥹">↑↑↑</annotation>
+		<annotation cp="🥹" type="tts">↑↑↑</annotation>
+		<annotation cp="🧌">↑↑↑</annotation>
+		<annotation cp="🧌" type="tts">↑↑↑</annotation>
+		<annotation cp="🩻">↑↑↑</annotation>
+		<annotation cp="🩻" type="tts">↑↑↑</annotation>
+		<annotation cp="🩼">↑↑↑</annotation>
+		<annotation cp="🩼" type="tts">↑↑↑</annotation>
+		<annotation cp="🪩">↑↑↑</annotation>
+		<annotation cp="🪩" type="tts">↑↑↑</annotation>
+		<annotation cp="🪪">↑↑↑</annotation>
+		<annotation cp="🪪" type="tts">↑↑↑</annotation>
+		<annotation cp="🪫">↑↑↑</annotation>
+		<annotation cp="🪫" type="tts">↑↑↑</annotation>
+		<annotation cp="🪬">↑↑↑</annotation>
+		<annotation cp="🪬" type="tts">↑↑↑</annotation>
+		<annotation cp="🪷">↑↑↑</annotation>
+		<annotation cp="🪷" type="tts">↑↑↑</annotation>
+		<annotation cp="🪸">↑↑↑</annotation>
+		<annotation cp="🪸" type="tts">↑↑↑</annotation>
+		<annotation cp="🪹">↑↑↑</annotation>
+		<annotation cp="🪹" type="tts">↑↑↑</annotation>
+		<annotation cp="🪺">↑↑↑</annotation>
+		<annotation cp="🪺" type="tts">↑↑↑</annotation>
+		<annotation cp="🫃">↑↑↑</annotation>
+		<annotation cp="🫃" type="tts">↑↑↑</annotation>
+		<annotation cp="🫄">↑↑↑</annotation>
+		<annotation cp="🫄" type="tts">↑↑↑</annotation>
+		<annotation cp="🫅">↑↑↑</annotation>
+		<annotation cp="🫅" type="tts">↑↑↑</annotation>
+		<annotation cp="🫗">↑↑↑</annotation>
+		<annotation cp="🫗" type="tts">↑↑↑</annotation>
+		<annotation cp="🫘">↑↑↑</annotation>
+		<annotation cp="🫘" type="tts">↑↑↑</annotation>
+		<annotation cp="🫙">↑↑↑</annotation>
+		<annotation cp="🫙" type="tts">↑↑↑</annotation>
+		<annotation cp="🫠">↑↑↑</annotation>
+		<annotation cp="🫠" type="tts">↑↑↑</annotation>
+		<annotation cp="🫡">↑↑↑</annotation>
+		<annotation cp="🫡" type="tts">↑↑↑</annotation>
+		<annotation cp="🫢">↑↑↑</annotation>
+		<annotation cp="🫢" type="tts">↑↑↑</annotation>
+		<annotation cp="🫣">↑↑↑</annotation>
+		<annotation cp="🫣" type="tts">↑↑↑</annotation>
+		<annotation cp="🫤">↑↑↑</annotation>
+		<annotation cp="🫤" type="tts">↑↑↑</annotation>
+		<annotation cp="🫥">↑↑↑</annotation>
+		<annotation cp="🫥" type="tts">↑↑↑</annotation>
+		<annotation cp="🫦">↑↑↑</annotation>
+		<annotation cp="🫦" type="tts">↑↑↑</annotation>
+		<annotation cp="🫧">↑↑↑</annotation>
+		<annotation cp="🫧" type="tts">↑↑↑</annotation>
+		<annotation cp="🫰">↑↑↑</annotation>
+		<annotation cp="🫰" type="tts">↑↑↑</annotation>
+		<annotation cp="🫱">↑↑↑</annotation>
+		<annotation cp="🫱" type="tts">↑↑↑</annotation>
+		<annotation cp="🫲">↑↑↑</annotation>
+		<annotation cp="🫲" type="tts">↑↑↑</annotation>
+		<annotation cp="🫳">↑↑↑</annotation>
+		<annotation cp="🫳" type="tts">↑↑↑</annotation>
+		<annotation cp="🫴">↑↑↑</annotation>
+		<annotation cp="🫴" type="tts">↑↑↑</annotation>
+		<annotation cp="🫵">↑↑↑</annotation>
+		<annotation cp="🫵" type="tts">↑↑↑</annotation>
+		<annotation cp="🫶">↑↑↑</annotation>
+		<annotation cp="🫶" type="tts">↑↑↑</annotation>
 	</annotations>
 </ldml>

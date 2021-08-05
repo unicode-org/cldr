@@ -43,7 +43,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="・" type="tts">கட்டகனா நடுப் புள்ளி</annotation>
 		<annotation cp=",">கமா | கால்புள்ளி | காற்புள்ளி</annotation>
 		<annotation cp="," type="tts">காற்புள்ளி</annotation>
-		<annotation cp="،">அரபு | அரேபியக் காற்புள்ளி | காற்புள்ளி</annotation>
+		<annotation cp="،">அரபு | காற்புள்ளி</annotation>
 		<annotation cp="،" type="tts">அரேபியக் காற்புள்ளி</annotation>
 		<annotation cp="、">ஐடியாகிராஃபிக் | காற்புள்ளி</annotation>
 		<annotation cp="、" type="tts">ஐடியாகிராஃபிக் காற்புள்ளி</annotation>
@@ -133,11 +133,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¶" type="tts">பத்திக் குறி</annotation>
 		<annotation cp="@">அட் குறி | வணிகரீதியான வீதக் குறி | வீதக் குறி | வீதக் குறியீடு</annotation>
 		<annotation cp="@" type="tts">வீதக் குறி</annotation>
-		<annotation cp="*">உடுக்குறி | உடுக்குறியீடு | நட்சத்திரக் குறி | நட்சத்திரம் | வைல்டு கார்டு</annotation>
+		<annotation cp="*">உடுக்குறியீடு | நட்சத்திரக் குறி | நட்சத்திரம் | வைல்டு கார்டு</annotation>
 		<annotation cp="*" type="tts">உடுக்குறி</annotation>
 		<annotation cp="/">கோடு | சாய்கோடு | சாய்ந்த | சாய்வுக்கோடு</annotation>
 		<annotation cp="/" type="tts">சாய்கோடு</annotation>
-		<annotation cp="\">பின் சாய்கோடு | பின் சாய்வுக்கோடு | பின்சாய்ந்த | பின்சாய்வு</annotation>
+		<annotation cp="\">பின் சாய்கோடு | பின் சாய்வுக்கோடு | பின்சாய்வு</annotation>
 		<annotation cp="\" type="tts">பின் சாய்கோடு</annotation>
 		<annotation cp="&amp;">உம்மைக் குறி | மற்றும்</annotation>
 		<annotation cp="&amp;" type="tts">உம்மைக் குறி</annotation>
@@ -145,7 +145,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="#" type="tts">எண் குறியீடு</annotation>
 		<annotation cp="%">சதவிகிதம் | சதவீதம்</annotation>
 		<annotation cp="%" type="tts">சதவீதம்</annotation>
-		<annotation cp="‰">ஆயிர வீதம் | ஆயிரத்திற்கு | ஆயிரவீதம் | ஒவ்வோர் ஆயிரத்திற்கும்</annotation>
+		<annotation cp="‰">ஆயிர வீதம் | ஆயிரத்திற்கு | ஆயிரவீதம்</annotation>
 		<annotation cp="‰" type="tts">ஆயிர வீதம்</annotation>
 		<annotation cp="†">சதுரத்தூபி | சிலுவை | சிலுவைக் குறி | வகுத்தற்குறி</annotation>
 		<annotation cp="†" type="tts">சிலுவைக் குறி</annotation>
@@ -169,9 +169,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁂" type="tts" draft="contributed">ஆஸ்டரிஸம்</annotation>
 		<annotation cp="`">உச்சரிப்பு | கூரழுத்தக்குறி | தொனி</annotation>
 		<annotation cp="`" type="tts">கூரழுத்தக்குறி</annotation>
-		<annotation cp="´">உச்சரிப்பு | உச்சரிப்புக் குறி | கூர்ந்த | தொனி</annotation>
+		<annotation cp="´">உச்சரிப்பு | கூர்ந்த | தொனி</annotation>
 		<annotation cp="´" type="tts">உச்சரிப்புக் குறி</annotation>
-		<annotation cp="^">ஆப்பு | உச்சரிப்பு | கட்டுப்பாடு | காரட் | சுட்டிக்காட்டி | செவ்ரான் | பவர் | வளைவுக்குறி</annotation>
+		<annotation cp="^">ஆப்பு | உச்சரிப்பு | காரட் | சுட்டிக்காட்டி | செவ்ரான் | பவர் | வளைவுக்குறி</annotation>
 		<annotation cp="^" type="tts">வளைவுக்குறி</annotation>
 		<annotation cp="¨">டையாரேசிஸ்</annotation>
 		<annotation cp="¨" type="tts">டையாரேசிஸ்</annotation>
@@ -249,6 +249,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↺" type="tts" draft="contributed">திறந்த வட்ட இடஞ்சுழி அம்புக்குறி</annotation>
 		<annotation cp="↻" draft="contributed">திறந்த வட்ட வலஞ்சுழி அம்புக்குறி</annotation>
 		<annotation cp="↻" type="tts" draft="contributed">திறந்த வட்ட வலஞ்சுழி அம்புக்குறி</annotation>
+		<annotation cp="↼" draft="contributed">இடதுபுற ஹார்பூன் மேல்நோக்கிய பார்ப் | பார்ப்</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">இடதுபுற ஹார்பூன் மேல்நோக்கிய பார்ப்</annotation>
+		<annotation cp="↽" draft="contributed">இடதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">இடதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="↾" draft="contributed">பார்ப் | மேல்நோக்கிய ஹார்பூன் வலதுபுற பார்ப்</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">இடதுபுற ஹார்பூன் வலதுநோக்கிய பார்ப்</annotation>
+		<annotation cp="↿" draft="contributed">பார்ப் | மேல்நோக்கிய ஹார்பூன் இடதுபுற பார்ப்</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">மேல்நோக்கிய ஹார்பூன் வலதுபுற பார்ப்</annotation>
+		<annotation cp="⇀" draft="contributed">பார்ப் | வலதுபுற ஹார்பூன் மேல்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇀" type="tts">மேல்நோக்கிய ஹார்பூன் மேல்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇁" draft="contributed">பார்ப் | வலதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">வலதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇂" draft="contributed">கீழ்புற ஹார்பூன் வலதுபுறம் நோக்கிய பார்ப் | பார்ப்</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">கீழ்புற ஹார்பூன் வலதுபுறம் நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇃" draft="contributed">கீழ்நோக்கிய ஹார்பூன் இடதுபுறம் நோக்கிய பார்ப் | பார்ப்</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">கீழ்நோக்கிய ஹார்பூன் இடதுபுறம் நோக்கிய பார்ப்</annotation>
 		<annotation cp="⇄" draft="contributed">இடதுபுற அம்புக்குறிக்கு மேல் வலதுபுற அம்புக்குறி</annotation>
 		<annotation cp="⇄" type="tts" draft="contributed">இடதுபுற அம்புக்குறிக்கு மேல் வலதுபுற அம்புக்குறி</annotation>
 		<annotation cp="⇅">அம்பு | கீழ் | மேல் | மேல் நோக்கிய மற்றும் கீழ் நோக்கிய அம்புகள்</annotation>
@@ -295,6 +311,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇚" type="tts" draft="contributed">இடதுபுறம் நோக்கிய மூன்று சேர்ந்த அம்புக்குறி</annotation>
 		<annotation cp="⇛" draft="contributed">வலதுபுறம் நோக்கிய மூன்று சேர்ந்த அம்புக்குறி</annotation>
 		<annotation cp="⇛" type="tts" draft="contributed">வலதுபுறம் நோக்கிய மூன்று சேர்ந்த அம்புக்குறி</annotation>
+		<annotation cp="⇜" draft="contributed">இடதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">இடதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
+		<annotation cp="⇝" draft="contributed">வலதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">வலதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
 		<annotation cp="⇞" draft="contributed">மேல் நோக்கிய அம்புக்குறியில் இரு குறுக்குக்கோடு</annotation>
 		<annotation cp="⇞" type="tts" draft="contributed">மேல் நோக்கிய அம்புக்குறியில் இரு குறுக்குக்கோடு</annotation>
 		<annotation cp="⇟" draft="contributed">கீழ் நோக்கிய அம்புக்குறியில் இரு குறுக்குக்கோடு</annotation>
@@ -319,13 +339,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇨" type="tts" draft="contributed">வலதுபுற வெற்று அம்புக்குறி</annotation>
 		<annotation cp="⇩" draft="contributed">கீழ் நோக்கிய வெற்று அம்புக்குறி</annotation>
 		<annotation cp="⇩" type="tts" draft="contributed">கீழ் நோக்கிய வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇪" draft="contributed">பட்டியிலிருந்து மேல்நோக்கிய வெற்று அம்பு</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">பட்டியிலிருந்து மேல்நோக்கிய வெற்று அம்பு</annotation>
+		<annotation cp="⇵" draft="contributed">கீழ்நோக்கிய அம்புக்குறி இடதுபுறம் மேல்நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">கீழ்நோக்கிய அம்புக்குறி இடதுபுறம் மேல்நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="∀" draft="contributed">அனைத்தும் | அனைவருக்கும் | உலகளாவிய அளவில் | ஏதேனும் | வழங்கப்பட்டது</annotation>
+		<annotation cp="∀" type="tts" draft="contributed">அனைத்திற்கும்</annotation>
+		<annotation cp="∂" draft="contributed">பகுதியளவிலான வேறுபாடு | வேறுபாடு</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">பகுதியளவிலான வேறுபாடு</annotation>
+		<annotation cp="∃" draft="contributed">இருத்தலியல்</annotation>
+		<annotation cp="∃" type="tts" draft="contributed">இருத்தலியல்</annotation>
+		<annotation cp="∅" draft="contributed">கணச் செயல் | கணிதவியல் | வெற்று கணம்</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">வெற்று கணம்</annotation>
 		<annotation cp="∆">அதிகரிப்பு | முக்கோணம்</annotation>
 		<annotation cp="∆" type="tts">அதிகரிப்பு</annotation>
 		<annotation cp="∇">நாப்லா | முக்கோணம்</annotation>
 		<annotation cp="∇" type="tts">நாப்லா</annotation>
 		<annotation cp="∈">இதன் உறுப்பு | உள்ளடக்கியது | உறுப்பு | உறுப்புரிமை | தொகுப்பு</annotation>
 		<annotation cp="∈" type="tts">இதன் உறுப்பு</annotation>
-		<annotation cp="+">கூட்டல் | கூட்டல் குறி | கூட்டு | சேர்</annotation>
+		<annotation cp="∉" draft="contributed">உறுப்பின்மை | உறுப்பு</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">உறுப்பின்மை</annotation>
+		<annotation cp="∋" draft="contributed">உறுப்பினராக இருத்தல் | உறுப்பு</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">உறுப்பினராக இருத்தல்</annotation>
+		<annotation cp="∎" draft="contributed">q.e.d. | qed | இறுதி ஆதாரம் | டாம்ப்ஸ்டோன் | ஹால்மோஸ்</annotation>
+		<annotation cp="∎" type="tts" draft="contributed">இறுதி ஆதாரம்</annotation>
+		<annotation cp="∏" draft="contributed">தயாரிப்பு | தர்க்கம் | பல்லுறுப்பு குறுக்குவெட்டு தயாரிப்பு</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">பல்லுறுப்பு குறுக்குவெட்டு தயாரிப்பு</annotation>
+		<annotation cp="∑" draft="contributed">கணிதவியல் | சுருக்கம் | பல்லுறுப்பு சுருக்கம்</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">பல்லுறுப்பு சுருக்கம்</annotation>
+		<annotation cp="+">கூட்டல் | கூட்டல் குறி | சேர்</annotation>
 		<annotation cp="+" type="tts">கூட்டல் குறி</annotation>
 		<annotation cp="±">கூட்டல் கழித்தல் | கூட்டல் குறிக்கு கீழ் கழித்தல் குறி</annotation>
 		<annotation cp="±" type="tts">கூட்டல் கழித்தல்</annotation>
@@ -335,22 +377,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">பெருக்கல் குறியீடு</annotation>
 		<annotation cp="&lt;">இதைவிடக் குறைவாக | குறிச்சொல் | திறந்த குறிச்சொல்</annotation>
 		<annotation cp="&lt;" type="tts">இதைவிடக் குறைவாக</annotation>
+		<annotation cp="≮" draft="contributed">கணிதவியல் | குறைவாக இல்லை | சமமின்மை</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">குறைவாக இல்லை</annotation>
 		<annotation cp="=">சமம் | சமன்</annotation>
 		<annotation cp="=" type="tts">சமம்</annotation>
 		<annotation cp="≠">சமமின்மை | சமம் அல்ல | சமனின்மை</annotation>
 		<annotation cp="≠" type="tts">சமம் அல்ல</annotation>
 		<annotation cp="&gt;">இதைவிட அதிகமாக | குறிச்சொல் | மூடிய குறிச்சொல்</annotation>
 		<annotation cp="&gt;" type="tts">இதைவிட அதிகமாக</annotation>
+		<annotation cp="≯" draft="contributed">அதிகமாக இல்லை | கணிதவியல் | சமமின்மை</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">அதிகமாக இல்லை</annotation>
 		<annotation cp="¬">இல்லை | மறுப்பு</annotation>
 		<annotation cp="¬" type="tts">மறுப்பு</annotation>
-		<annotation cp="|">கீரல் | கோடு | செங்குத்து பார் | செங்குத்துக் கோடு | பார் | பைக் | பைப் | ஸ்டைக்</annotation>
+		<annotation cp="|">கீரல் | கோடு | செங்குத்து பார் | செங்குத்துக் கோடு | பார் | பைப் | ஸ்டைக்</annotation>
 		<annotation cp="|" type="tts">செங்குத்துக் கோடு</annotation>
 		<annotation cp="~">அலைக்குறி | டில்டு</annotation>
 		<annotation cp="~" type="tts">அலைக்குறி</annotation>
 		<annotation cp="−">கழித்தல் | கழித்தல் குறி | கழித்தல் குறியீடு</annotation>
 		<annotation cp="−" type="tts">கழித்தல் குறியீடு</annotation>
-		<annotation cp="⁻">கழித்தல் | மேல் ஒட்டு | மேல் ஒட்டு கழித்தல் குறி</annotation>
+		<annotation cp="⁻">கழித்தல் | மேல் ஒட்டு</annotation>
 		<annotation cp="⁻" type="tts">மேல் ஒட்டு கழித்தல் குறி</annotation>
+		<annotation cp="∓" draft="contributed">கழித்தல்-அல்லது-கூட்டல் | கூட்டல்-கழித்தல்</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">கழித்தல்-அல்லது-கூட்டல்</annotation>
+		<annotation cp="∕" draft="contributed">சாய்தல் | சாய்வுக்கோடு | வகுத்தல் சாய்வுக்கோடு | ஸ்ட்ரோக்</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">வகுத்தல் சாய்வுக்கோடு</annotation>
+		<annotation cp="⁄" draft="contributed">சாய்தல் | பின்னச் சாய்வுக்கோடு | ஸ்ட்ரோக்</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">பின்னச் சாய்வுக்கோடு</annotation>
+		<annotation cp="∗" draft="contributed">உடுக்குறி ஆப்பரேட்டர் | நட்சத்திரம்</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">உடுக்குறி ஆப்பரேட்டர்</annotation>
+		<annotation cp="∘" draft="contributed">ஆப்பரேட்டர் | தொகுதி | வளைய ஆப்பரேட்டர்</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">வளையச் செயல்</annotation>
+		<annotation cp="∙" draft="contributed">ஆப்பரேட்டர் | புல்லட் ஆப்பரேட்டர்</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">புல்லட் ஆப்பரேட்டர்</annotation>
 		<annotation cp="√">அடிமானம் | இரண்டாம் படி மூலம் | படி | வர்க்க மூலம் | வர்க்கம் | விகிதமுறா மூலம்</annotation>
 		<annotation cp="√" type="tts">வர்க்க மூலம்</annotation>
 		<annotation cp="∝" draft="contributed">விகிதசமம்</annotation>
@@ -361,8 +419,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∟" type="tts" draft="contributed">வலது கோணம்</annotation>
 		<annotation cp="∠" draft="contributed">கோணம்</annotation>
 		<annotation cp="∠" type="tts" draft="contributed">கோணம்</annotation>
+		<annotation cp="∣" draft="contributed">வகுத்தல் | வகுப்பான்</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">வகுத்தல்</annotation>
 		<annotation cp="∥" draft="contributed">இணை</annotation>
 		<annotation cp="∥" type="tts" draft="contributed">இணை</annotation>
+		<annotation cp="∧" draft="contributed">அக் | அட்க்யூ | ஆப்பு | தர்க்கம் மற்றும்</annotation>
+		<annotation cp="∧" type="tts" draft="contributed">தர்க்கம் மற்றும்</annotation>
 		<annotation cp="∩">குறுக்குவெட்டு | தொகுப்பு</annotation>
 		<annotation cp="∩" type="tts">குறுக்குவெட்டு</annotation>
 		<annotation cp="∪">இணைப்பு | சேகரிப்பு | தொகுப்பு</annotation>
@@ -385,32 +447,266 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∼" type="tts" draft="contributed">டில்டே</annotation>
 		<annotation cp="∽" draft="contributed">எதிர் அலைக்குறி</annotation>
 		<annotation cp="∽" type="tts" draft="contributed">எதிர் அலைக்குறி</annotation>
+		<annotation cp="∾" draft="contributed">அதிகப்படியான நேர்மாறு</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">அதிகப்படியான நேர்மாறு</annotation>
+		<annotation cp="≃" draft="contributed">தொடர்வரை | நிபந்தனையுடன் கூடிய சமம்</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">நிபந்தனையுடன் கூடிய சமம்,</annotation>
 		<annotation cp="≅" draft="contributed">ஏறக்குறைய சமம்</annotation>
 		<annotation cp="≅" type="tts" draft="contributed">ஏறக்குறைய சமம்</annotation>
 		<annotation cp="≈">கிட்டத்தட்ட சமம் | தோராயமாக்கல் | தோராயமான</annotation>
 		<annotation cp="≈" type="tts">கிட்டத்தட்ட சமம்</annotation>
+		<annotation cp="≌" draft="contributed">அனைத்தும் சமம் | கணிதம் | சமம்</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">அனைத்தும் சமம்</annotation>
+		<annotation cp="≒" draft="contributed">தோராயமாகப் படத்திற்குச் சமம்</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">தோராயமாகப் படத்திற்குச் சமம்</annotation>
+		<annotation cp="≖" draft="contributed">கணிதம் | சமம் | சமான வளையம்</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">சமான வளையம்</annotation>
 		<annotation cp="≡">இதற்கு ஒத்தது | ஒரே மாதிரியான | பொருத்தமான | மூன்று மடங்கு</annotation>
 		<annotation cp="≡" type="tts">இதற்கு ஒத்தது</annotation>
+		<annotation cp="≣" draft="contributed">உறுதியான சமானம் | கணிதம் | சமானம்</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">உறுதியான சமானம்</annotation>
 		<annotation cp="≤">இதைவிடக் குறைவாக | இதைவிடக் குறைவாக அல்லது சமம் | சமம் | சமனின்மை | சமன்</annotation>
 		<annotation cp="≤" type="tts">இதைவிடக் குறைவாக அல்லது சமம்</annotation>
 		<annotation cp="≥">இதைவிட அதிகமாக | இதைவிட அதிகமாக அல்லது சமம் | சமம் | சமனின்மை | சமன்</annotation>
 		<annotation cp="≥" type="tts">இதைவிட அதிகமாக அல்லது சமம்</annotation>
+		<annotation cp="≦" draft="contributed">கணிதம் | சமமானதை விடக் குறைவாக | சமமின்மை</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">சமமானதை விடக் குறைவாக</annotation>
+		<annotation cp="≧" draft="contributed">கணிதம் | சமமானதை விட அதிகமாக | சமமின்மை</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">சமமானதை விட அதிகமாக</annotation>
+		<annotation cp="≪" draft="contributed">கணிதம் | சமமின்மை | மிகக் குறைவாக</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">மிகவும் குறைவாக</annotation>
+		<annotation cp="≫" draft="contributed">கணிதம் | சமமின்மை | மிக அதிகமாக</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">மிகவும் அதிகமாக</annotation>
+		<annotation cp="≬" draft="contributed">இடைப்பட்ட</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">இடைப்பட்ட</annotation>
+		<annotation cp="≳" draft="contributed">கணிதம் | சமமானதை விட அதிகம் | சமமின்மை</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">சமானத்தை விட அதிகம்</annotation>
+		<annotation cp="≺" draft="contributed">கணச் செயல் | கணிதவியல் | முன்னொட்டு</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">முந்தையது</annotation>
+		<annotation cp="≻" draft="contributed">கணச் செயல் | கணிதவியல் | வெற்றி பெறுதல்</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">வெற்றி பெறுதல்</annotation>
+		<annotation cp="⊁" draft="contributed">கணச் செயல் | கணிதவியல் | வெற்றி பெறாமை</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">வெற்றி பெறாமை</annotation>
 		<annotation cp="⊂">இதன் துணைக்குழு | துணைக்குழு | தொகுப்பு</annotation>
 		<annotation cp="⊂" type="tts">இதன் துணைக்குழு</annotation>
+		<annotation cp="⊃" draft="contributed">கணச் செயல் | கணிதவியல் | சூப்பர்செட்</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">சூப்பர்செட்</annotation>
+		<annotation cp="⊆" draft="contributed">துணைக்குழு சமன்</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">துணைக்குழு சமன்</annotation>
+		<annotation cp="⊇" draft="contributed">கணிதவியல் | சமன் | துணைக்குழு சமன்</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">சூப்பர்செட் சமன்</annotation>
+		<annotation cp="⊕" draft="contributed">கூட்டல் | வட்டமிட்ட கூட்டல்குறி</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">வட்டமிட்ட கூட்டல்குறி</annotation>
+		<annotation cp="⊖" draft="contributed">குறைப்பு | சமச்சீர் வேறுபாடு | வட்டமிட்ட கழித்தல்</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">வட்டமிட்ட கழித்தல்</annotation>
+		<annotation cp="⊗" draft="contributed">டென்சார் | தயாரிப்பு | வட்டத்தைப் பிரிக்கும் பெருக்கல் குறி</annotation>
+		<annotation cp="⊗" type="tts" draft="contributed">வட்டத்தைப் பிரிக்கும் பெருக்கல் குறி</annotation>
+		<annotation cp="⊘" draft="contributed">கணிதவியல் | வகுத்தல் | வட்டமிட்ட வகுத்தல் சாய்கோடு</annotation>
+		<annotation cp="⊘" type="tts" draft="contributed">வட்டத்தைப் பிரிக்கும் சாய்வுக்கோடு</annotation>
+		<annotation cp="⊙" draft="contributed">XNOR | ஆபரேட்டர் | வட்ட புள்ளி ஆபரேட்டர்</annotation>
+		<annotation cp="⊙" type="tts" draft="contributed">வட்டத்தின் நடுவில் இருக்கும் புள்ளி</annotation>
+		<annotation cp="⊚" draft="contributed">வளைய புள்ளி ஆப்பரேட்டர்</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">வளைய புள்ளி ஆப்பரேட்டர்</annotation>
+		<annotation cp="⊛" draft="contributed">குறியீடு | நட்சத்திரம் | வட்டமிட்ட நட்சத்திரக் குறியீடு</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">வட்டமிட்ட நட்சத்திரக் குறியீடு</annotation>
+		<annotation cp="⊞" draft="contributed">கணிதம் | கூட்டல் போன்றது | ஸ்கொயர் பிளஸ்</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">சதுரத்தினுள் அடைபட்ட கூட்டல் குறி</annotation>
+		<annotation cp="⊟" draft="contributed">கணிதம் | கழித்தல் போன்றது | சதுரமிட்ட கழித்தல்</annotation>
+		<annotation cp="⊟" type="tts" draft="contributed">சதுரத்தினுள் அடைபட்ட கழித்தல் குறி</annotation>
+		<annotation cp="⊥" draft="contributed">அப் டாக் | டாக் | முரண்பாடானது | முரண்பாடு</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">மேல்நோக்கிய கோடு</annotation>
+		<annotation cp="⊮" draft="contributed">கட்டாயப்படுத்தாது</annotation>
+		<annotation cp="⊮" type="tts" draft="contributed">கட்டாயப்படுத்தாது</annotation>
+		<annotation cp="⊰" draft="contributed">உறவின் கீழ் முன்னிறுத்தல் | கணச் செயல் | கணிதவியல்</annotation>
+		<annotation cp="⊰" type="tts" draft="contributed">உறவின் கீழ் முன்னிறுத்தல்</annotation>
+		<annotation cp="⊱" draft="contributed">உறவின் கீழ் வெற்றிபெறுதல் | கணச் செயல் | கணிதவியல்</annotation>
+		<annotation cp="⊱" type="tts" draft="contributed">உறவின் கீழ் வெற்றிபெறுதல்</annotation>
+		<annotation cp="⋭" draft="contributed">கணிதம் | குழுக் கோட்பாடு | சாதாரண துணைக்குழு சமமாக இல்லாமை</annotation>
+		<annotation cp="⋭" type="tts" draft="contributed">சாதாரணத் துணைக்குழுச் சமமின்மை</annotation>
+		<annotation cp="⊶" draft="contributed">அசல்</annotation>
+		<annotation cp="⊶" type="tts" draft="contributed">அசல்</annotation>
+		<annotation cp="⊹" draft="contributed">கணிதவியல் | சதுர அணி | தன்-சேர்ப்பு அணி | ஹெர்மைட் இணை அணி</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">ஹெர்மைட் இணை அணி</annotation>
+		<annotation cp="⊿" draft="contributed">கணிதம் | வலது கோண முக்கோணம் | வலது முக்கோணம்</annotation>
+		<annotation cp="⊿" type="tts" draft="contributed">வலதுபுற முக்கோணம்</annotation>
+		<annotation cp="⋁" draft="contributed">உறுப்புத் தர்க்கம் | தர்க்கம் | பல்லுறுப்புக் குறுக்குவெட்டு</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">உறுப்புத் தர்க்கம் அல்லது</annotation>
+		<annotation cp="⋂" draft="contributed">உறுப்புத் தர்க்கம் | கணச் செயல் | கணிதவியல் | பல்லுறுப்பு குறுக்குவெட்டு</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">பல்லுறுப்பு குறுக்குவெட்டு</annotation>
+		<annotation cp="⋃" draft="contributed">கணச் செயல் | கணிதவியல் | சேர்ப்பு | பல்லுருப்புச் சேர்ப்பு</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">பல்லுருப்புச் சேர்ப்பு</annotation>
+		<annotation cp="⋅" draft="contributed">செயற்குறி | புள்ளிச் செயற்குறி</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">புள்ளிச் செயற்குறி</annotation>
+		<annotation cp="⋆" draft="contributed">ஆபரேட்டர் | நட்சத்திர ஆபரேட்டர்</annotation>
+		<annotation cp="⋆" type="tts" draft="contributed">நட்சத்திரப் புள்ளி</annotation>
+		<annotation cp="⋈" draft="contributed">இயல்பான சேர்ப்பி | பைனரி ஆபரேட்டர் | பௌட்டி</annotation>
+		<annotation cp="⋈" type="tts" draft="contributed">இயல்பான சேர்ப்பி</annotation>
+		<annotation cp="⋒" draft="contributed">இரட்டை குறுக்குவெட்டு | கணச் செயல் | கணிதம் | குறுக்குவெட்டு</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">இரட்டை குறுக்குவெட்டு</annotation>
+		<annotation cp="⋘" draft="contributed">கணிதம் | சமமின்மை | மிகக் குறைவாக</annotation>
+		<annotation cp="⋘" type="tts" draft="contributed">மிகுந்த குறைவாக</annotation>
+		<annotation cp="⋙" draft="contributed">கணிதம் | சமமின்மை | மிக அதிகமாக</annotation>
+		<annotation cp="⋙" type="tts" draft="contributed">மிகுந்த அதிகமாக</annotation>
+		<annotation cp="⋮" draft="contributed">கணிதம் | செங்குத்து நீள்வட்டம் | நீள்வட்டம்</annotation>
+		<annotation cp="⋮" type="tts" draft="contributed">செங்குத்து நீள்வட்டங்கள்</annotation>
+		<annotation cp="⋯" draft="contributed">நீள்வட்டம் | மிட்லைன் கிடைமட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋯" type="tts" draft="contributed">மிட்லைன் கிடைமட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋰" draft="contributed">கணிதம் | நீள்வட்டம் | வலது மூலைவிட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋰" type="tts" draft="contributed">வலது மூலைவிட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋱" draft="contributed">கணிதம் | கீழ் வலது மூலைவிட்ட நீள்வட்டம் | நீள்வட்டம்</annotation>
+		<annotation cp="⋱" type="tts" draft="contributed">கீழ் வலது மூலைவிட்ட நீள்வட்டம்</annotation>
+		<annotation cp="■" draft="contributed">நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="■" type="tts" draft="contributed">நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="□" draft="contributed">வெற்றுச் சதுரம்</annotation>
+		<annotation cp="□" type="tts" draft="contributed">வெற்றுச் சதுரம்</annotation>
+		<annotation cp="▢" draft="contributed">வட்டமான மூலைகளுடன் வெற்று சதுரம்</annotation>
+		<annotation cp="▢" type="tts" draft="contributed">வளைந்த மூலைகளுடன் கூடிய வெற்று சதுரம்</annotation>
+		<annotation cp="▣" draft="contributed">நிரப்பப்பட்ட சதுரத்தைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="▣" type="tts" draft="contributed">நிரப்பப்பட்ட சதுரத்தைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="▤" draft="contributed">கிடைமட்ட நிரப்புதலுடன் கூடிய சதுரம்</annotation>
+		<annotation cp="▤" type="tts" draft="contributed">கிடைமட்ட நிரப்புதலுடன் கூடிய சதுரம்</annotation>
+		<annotation cp="▥" draft="contributed">செங்குத்துக் கோடு நிரப்புதலுடன் கூடியசதுரம்</annotation>
+		<annotation cp="▥" type="tts" draft="contributed">செங்குத்துக் கோடு நிரப்புதலுடன் கூடியசதுரம்</annotation>
+		<annotation cp="▦" draft="contributed">சதுர ஆர்த்தோகனல் கிராஸ்ஹாட்ச் நிரப்பு</annotation>
+		<annotation cp="▦" type="tts" draft="contributed">சதுர ஆர்த்தோகனல் கிராஸ்ஹாட்ச் நிரப்பு</annotation>
+		<annotation cp="▧" draft="contributed">சதுர மேல் இடது கீழ்பகுதி வலதுபுற நிரப்பு</annotation>
+		<annotation cp="▧" type="tts" draft="contributed">சதுர மேல் இடது கீழ்பகுதி வலதுபுற நிரப்பு</annotation>
+		<annotation cp="▨" draft="contributed">சதுர மேல் வலது கீழ்பகுதி இடதுபுற நிரப்பு</annotation>
+		<annotation cp="▨" type="tts" draft="contributed">சதுர மேல் வலது கீழ்பகுதி இடதுபுற நிரப்பு</annotation>
+		<annotation cp="▩" draft="contributed">சதுர மூலைவிட்ட குறுக்குவழி நிரப்பு</annotation>
+		<annotation cp="▩" type="tts" draft="contributed">சதுர மூலைவிட்ட குறுக்குவழி நிரப்பு</annotation>
+		<annotation cp="▬" draft="contributed">நிரப்பப்பட்ட செவ்வகம்</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">நிரப்பப்பட்ட செவ்வகம்</annotation>
+		<annotation cp="▭" draft="contributed">வெற்று செவ்வகம்</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">வெற்று செவ்வகம்</annotation>
+		<annotation cp="▮" draft="contributed">நிரப்பப்பட்ட செங்குத்து செவ்வகம்</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">நிரப்பப்பட்ட செங்குத்து செவ்வகம்</annotation>
+		<annotation cp="▰" draft="contributed">நிரப்பட்ட இணைகரம்</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">நிரப்பட்ட இணைகரம்</annotation>
 		<annotation cp="▲">அம்புக்குறி | நிரப்பட்ட மேல்நோக்கிய முக்கோண வடிவம் | நிரப்பப்பட்டது | நிரப்பிய மேல்நோக்கிய முக்கோணம் | முக்கோணம் | மேல்நோக்கியது</annotation>
 		<annotation cp="▲" type="tts">நிரப்பட்ட மேல்நோக்கிய முக்கோண வடிவம்</annotation>
+		<annotation cp="△" draft="contributed">வெற்று மேல் சுட்டிக்காட்டும் முக்கோணம்</annotation>
+		<annotation cp="△" type="tts" draft="contributed">வெற்று மேல் சுட்டிக்காட்டி முக்கோணம்</annotation>
+		<annotation cp="▴" draft="contributed">நிரப்பப்பட்ட மேல்நோக்கிய சிறிய முக்கோணம்</annotation>
+		<annotation cp="▴" type="tts" draft="contributed">நிரப்பப்பட்ட மேல்நோக்கிய சிறிய முக்கோணம்</annotation>
+		<annotation cp="▵" draft="contributed">வெற்று மேல் சுட்டிக்காட்டும் சிறிய முக்கோணம்</annotation>
+		<annotation cp="▵" type="tts" draft="contributed">வெற்று மேல்நோக்கிய சுட்டிக்காட்டும் சிறிய முக்கோணம்</annotation>
+		<annotation cp="▷" draft="contributed">வெற்று வலதுபுற-சுட்டிக்காட்டும் முக்கோணம்</annotation>
+		<annotation cp="▷" type="tts" draft="contributed">வெற்று வலதுபுற-சுட்டிக்காட்டும் முக்கோணம்</annotation>
+		<annotation cp="▸" draft="contributed">வலதுபுறம்-சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▸" type="tts" draft="contributed">வலதுபுறம்-சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▹" draft="contributed">வலதுபுறம்-சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="▹" type="tts" draft="contributed">வலதுபுறம்-சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="►" draft="contributed">வலதுபுறம் நோக்கிய-நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="►" type="tts" draft="contributed">வலதுபுறம் நோக்கிய-நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="▻" draft="contributed">வெற்று வலதுபுற சுட்டிக்காட்டி</annotation>
+		<annotation cp="▻" type="tts" draft="contributed">வெற்று வலதுபுற சுட்டிக்காட்டி</annotation>
 		<annotation cp="▼">அம்புக்குறி | கீழ்நோக்கியது | நிரப்பட்ட கீழ்நோக்கிய முக்கோண வடிவம் | நிரப்பப்பட்டது | நிரப்பிய கீழ்நோக்கிய முக்கோணம் | முக்கோணம்</annotation>
 		<annotation cp="▼" type="tts">நிரப்பட்ட கீழ்நோக்கிய முக்கோண வடிவம்</annotation>
+		<annotation cp="▽" draft="contributed">கீழ்நோக்கி சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="▽" type="tts" draft="contributed">கீழ்நோக்கி சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="▾" draft="contributed">கீழ்நோக்கி சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▾" type="tts" draft="contributed">கீழ்நோக்கி சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▿" draft="contributed">கீழே சுட்டிக்காட்டும் சிறிய வெற்று முக்கோணம்</annotation>
+		<annotation cp="▿" type="tts" draft="contributed">கீழே சுட்டிக்காட்டும் சிறிய வெற்று முக்கோணம்</annotation>
+		<annotation cp="◁" draft="contributed">கீழே சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="◁" type="tts" draft="contributed">கீழே சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="◂" draft="contributed">இடதுபுறம் சுட்டிக்காட்டி சிறிய நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◂" type="tts" draft="contributed">இடதுபுறம் சுட்டிக்காட்டி சிறிய நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◃" draft="contributed">இடதுபுறத்தில் சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="◃" type="tts" draft="contributed">இடதுபுறத்தில் சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="◄" draft="contributed">இடதுபுறத்தில் நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="◄" type="tts" draft="contributed">இடதுபுறத்தில் நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="◅" draft="contributed">இடதுபுறத்தில் நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="◅" type="tts" draft="contributed">இடதுபுறத்தில் வெற்று சுட்டிக்காட்டி</annotation>
+		<annotation cp="◆" draft="contributed">நிரப்பப்பட்ட வைர வடிவம்</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">நிரப்பப்பட்ட வைர வடிவம்</annotation>
+		<annotation cp="◇" draft="contributed">வெற்று வைர வடிவம்</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">வெற்று வைர வடிவம்</annotation>
+		<annotation cp="◈" draft="contributed">நிரப்பப்பட்ட வைரத்தைக் கொண்ட வெற்று வைரம்</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">நிரப்பப்பட்ட வைரத்தைக் கொண்ட வெற்று வைரம்</annotation>
+		<annotation cp="◉" draft="contributed">செறிவூட்டப்பட்ட நிரப்பப்பட்ட வட்டம் | நிரப்பப்பட்ட வட்டத்தைக் கொண்ட வெற்று வட்டம் | மீன் கண் | வட்ட புள்ளி | வார்டு</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">நிரப்பப்பட்ட வட்டத்தைக் கொண்ட வெற்று வட்டம்</annotation>
 		<annotation cp="◊">செவ்வகம் | நாற்கரம் | வைரம்</annotation>
 		<annotation cp="◊" type="tts">செவ்வகம்</annotation>
 		<annotation cp="○">நிரப்பப்படாத வட்டம் | வட்டம் | வளையம்</annotation>
 		<annotation cp="○" type="tts">நிரப்பப்படாத வட்டம்</annotation>
+		<annotation cp="◌" draft="contributed">புள்ளியிட்ட வட்டம்</annotation>
+		<annotation cp="◌" type="tts" draft="contributed">புள்ளியிட்ட வட்டம்</annotation>
+		<annotation cp="◍" draft="contributed">செங்குத்து நிரப்புடன் வட்டம்</annotation>
+		<annotation cp="◍" type="tts" draft="contributed">செங்குத்து நிரப்புதலுடன் கூடிய வட்டம்</annotation>
+		<annotation cp="◎" draft="contributed">இரட்டை வட்டம் | இலக்கு | செறிவான வட்டங்கள்</annotation>
+		<annotation cp="◎" type="tts" draft="contributed">செறிவுமிகுந்த வட்டங்கள்</annotation>
 		<annotation cp="●">நிரப்பப்பட்ட வட்டம் | வட்டம்</annotation>
 		<annotation cp="●" type="tts">நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◐" draft="contributed">இடது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">இடது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◑" draft="contributed">வலது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">வலது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◒" draft="contributed">கீழ் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">கீழ் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◓" draft="contributed">மேல் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">மேல் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◔" draft="contributed">வட்டத்தின் நான்கில் ஒரு பங்கில் மேல்பகுதி நிரப்பப்படுதல்</annotation>
+		<annotation cp="◔" type="tts" draft="contributed">வட்டத்தின் நான்கில் ஒரு பங்கில் மேல்பகுதி நிரப்பப்படுதல்</annotation>
+		<annotation cp="◕" draft="contributed">முழுவதும் நிரப்பப்பட்ட ஆனால் மேல் இடது மூலம் நிரப்பாது இருத்தல்</annotation>
+		<annotation cp="◕" type="tts" draft="contributed">முழுவதும் நிரப்பப்பட்ட ஆனால் மேல் இடது மூலை நிரப்பாது இருத்தல்</annotation>
+		<annotation cp="◖" draft="contributed">இடது பாதி நிரப்பிய வட்டம்</annotation>
+		<annotation cp="◖" type="tts" draft="contributed">இடது பாதி நிரப்பிய வட்டம்</annotation>
+		<annotation cp="◗" draft="contributed">வலது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◗" type="tts" draft="contributed">வலது பாதி நிரப்பிய வட்டம்</annotation>
+		<annotation cp="◘" draft="contributed">தலைகீழ் புல்லட்</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">தலைகீழ் புல்லட்</annotation>
+		<annotation cp="◙" draft="contributed">தலைகீழ் வெற்று வட்டம் | வெற்று வட்டம் கொண்ட நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">வெற்று வட்டத்தைக் கொண்ட நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="◜" draft="contributed">மேல் இடதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◜" type="tts" draft="contributed">மேல் இடதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◝" draft="contributed">மேல் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◝" type="tts" draft="contributed">மேல் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◞" draft="contributed">கீழ் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◞" type="tts" draft="contributed">கீழ் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◟" draft="contributed">கீழ் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◟" type="tts" draft="contributed">கீழ் இடதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◠" draft="contributed">மேல் அரை வட்டம்</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">மேல் அரை வட்டம்</annotation>
+		<annotation cp="◡" draft="contributed">மேல் அரை வட்டம்</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">கீழ் அரை வட்டம்</annotation>
+		<annotation cp="◢" draft="contributed">கீழ் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◢" type="tts" draft="contributed">கீழ் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◣" draft="contributed">கீழ் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◣" type="tts" draft="contributed">கீழ் இடதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◤" draft="contributed">மேல் இடதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">மேல் இடதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◥" draft="contributed">மேல் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◥" type="tts" draft="contributed">மேல் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◦" draft="contributed">வெற்று முக்கோணம்</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">வெற்று முக்கோணம்</annotation>
 		<annotation cp="◯">பெரிய நிரப்பப்படாத வட்டம் | வட்டம் | வளையம்</annotation>
 		<annotation cp="◯" type="tts">பெரிய நிரப்பப்படாத வட்டம்</annotation>
+		<annotation cp="◳" draft="contributed">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="◷" draft="contributed">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று வட்டம்</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று வட்டம்</annotation>
+		<annotation cp="◿" draft="contributed">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று வட்டம்</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">கீழ் வலதுபுற முக்கோணம்</annotation>
 		<annotation cp="♪">இசை | இசைக்குறி | எட்டாம் இசைக்குறி | எட்டாவது</annotation>
 		<annotation cp="♪" type="tts">எட்டாம் இசைக்குறி</annotation>
+		<annotation cp="⨧" draft="contributed">கூட்டல் சின்னத்தின் கீழ்பகுதியில் உள்ள இரண்டு</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">கூட்டல் சின்னத்தின் கீழ்பகுதியில் உள்ள இரண்டு</annotation>
+		<annotation cp="⨯" draft="contributed">வெக்டார் குறுக்கு கோடு</annotation>
+		<annotation cp="⨯" type="tts" draft="contributed">வெக்டார் குறுக்கு கோடு</annotation>
+		<annotation cp="⨼" draft="contributed">உட்பக்க கோடு</annotation>
+		<annotation cp="⨼" type="tts" draft="contributed">உட்பக்க கோடு</annotation>
+		<annotation cp="⩣" draft="contributed">தருக்கம் அல்லது இரட்டை கீழ்பட்டி</annotation>
+		<annotation cp="⩣" type="tts" draft="contributed">தருக்கம் அல்லது இரட்டை கீழ்பட்டி</annotation>
+		<annotation cp="⩽" draft="contributed">குறைவைக் குறிப்பிடும் சாய்வான சமக் குறியீடு</annotation>
+		<annotation cp="⩽" type="tts" draft="contributed">குறைவைக் குறிப்பிடும் சாய்வான சமக் குறியீடு</annotation>
+		<annotation cp="⪍" draft="contributed">ஒத்த சாமனத்திற்கு மேலே குறைவைக் குறிப்பிடும் குறியீடு</annotation>
+		<annotation cp="⪍" type="tts" draft="contributed">ஒத்த சாமனத்திற்கு மேலே குறைவைக் குறிப்பிடும் குறியீடு</annotation>
+		<annotation cp="⪚" draft="contributed">இரட்டை கோடு சமம் பெரியது | கணிதவியல் | சமமின்மை</annotation>
+		<annotation cp="⪚" type="tts" draft="contributed">இரட்டை கோடு சமம் பெரியது</annotation>
+		<annotation cp="⪺" draft="contributed">கிட்டத்தட்ட சமமின்மை மேற்புறத்தில் வெற்றி சின்னம்</annotation>
+		<annotation cp="⪺" type="tts" draft="contributed">கிட்டத்தட்ட சமமின்மை மேற்புறத்தில் வெற்றி சின்னம்</annotation>
 		<annotation cp="♭">இசை | இசைக்குறி | ஃபிளாட்</annotation>
 		<annotation cp="♭" type="tts">ஃபிளாட்</annotation>
 		<annotation cp="♯">இசை | இசைக்குறி | ஷார்ப்</annotation>
@@ -1865,7 +2161,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">விஸ்கி கிளாஸ்</annotation>
 		<annotation cp="🥤">சோடா | பழச்சாறு | ஜூஸ் | ஸ்ட்ரா உள்ள கோப்பை</annotation>
 		<annotation cp="🥤" type="tts">ஸ்ட்ரா உள்ள கோப்பை</annotation>
-		<annotation cp="🧋">குமிழி | குமிழித் தேநீர் | தேநீர் | பால் | முத்து</annotation>
+		<annotation cp="🧋">குமிழி | தேநீர் | பால் | முத்து</annotation>
 		<annotation cp="🧋" type="tts">குமிழித் தேநீர்</annotation>
 		<annotation cp="🧃">குடிபானப் பெட்டி | ஜூஸ் டப்பா | ஜூஸ் பாக்ஸ் | ஜூஸ் பெட்டி</annotation>
 		<annotation cp="🧃" type="tts">குடிபானப் பெட்டி</annotation>
@@ -3423,27 +3719,119 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">பவுண்ட்</annotation>
 		<annotation cp="¥">சி.என்.ஒய் | நாணயம் | யுவான் | யென் | ஜே.பி. ஒய்</annotation>
 		<annotation cp="¥" type="tts">யென்</annotation>
+		<annotation cp="₢" draft="contributed">BRB | குரூசிரோ | நாணயம்</annotation>
+		<annotation cp="₢" type="tts" draft="contributed">குரூசிரோ</annotation>
+		<annotation cp="₣" draft="contributed">நாணயம் | பிரான்க் | பிரெஞ்சு பிரான்க்</annotation>
+		<annotation cp="₣" type="tts" draft="contributed">பிரெஞ்ச் பிரான்க்</annotation>
+		<annotation cp="₤" draft="contributed">நாணயம் | லிரா</annotation>
+		<annotation cp="₤" type="tts" draft="contributed">லிரா</annotation>
 		<annotation cp="₥">மில்</annotation>
 		<annotation cp="₥" type="tts">மில்</annotation>
 		<annotation cp="₩">கே.ஆர்.டபிள்யூ | கே.பி.டபிள்யூ | வொன்</annotation>
 		<annotation cp="₩" type="tts">வொன்</annotation>
 		<annotation cp="€">ஈ.யூ.ஆர் | நாணயம் | யூரோ</annotation>
 		<annotation cp="€" type="tts">யூரோ</annotation>
+		<annotation cp="₰" draft="contributed">ஃபென்னிங் | நாணயம் | ஜெர்மன் பென்னி</annotation>
+		<annotation cp="₰" type="tts" draft="contributed">ஜெர்மன் பென்னி</annotation>
 		<annotation cp="₱">பேசோ</annotation>
 		<annotation cp="₱" type="tts">பேசோ</annotation>
+		<annotation cp="₳" draft="contributed">ARA | ஆஸ்ட்ரால் | நாணயம்</annotation>
+		<annotation cp="₳" type="tts" draft="contributed">ஆஸ்ட்ரால்</annotation>
+		<annotation cp="₶" draft="contributed">நாணயம் | லிவர் டோர்னாசிஸ்</annotation>
+		<annotation cp="₶" type="tts" draft="contributed">லிவர் டோர்னோசிஸ்</annotation>
+		<annotation cp="₷" draft="contributed">நாணயம் | ஸ்பெஸ்மில்லோ</annotation>
+		<annotation cp="₷" type="tts" draft="contributed">ஸ்பெஸ்மில்லோ</annotation>
 		<annotation cp="₹">இந்திய ரூபாய் | நாணயம் | ரூபாய்</annotation>
 		<annotation cp="₹" type="tts">இந்திய ரூபாய்</annotation>
 		<annotation cp="₽">நாணயம் | ரூபிள்</annotation>
 		<annotation cp="₽" type="tts">ரூபிள்</annotation>
 		<annotation cp="₿">பி.டி.சி | பிட்காயின்</annotation>
 		<annotation cp="₿" type="tts">பிட்காயின்</annotation>
-		<annotation cp="¹">ஒன்று | மேல் ஒட்டு | மேல் ஒட்டு எண் ஒன்று</annotation>
+		<annotation cp="₨" draft="contributed">நாணயம் | ரூபாய்</annotation>
+		<annotation cp="₨" type="tts" draft="contributed">ரூபாய்</annotation>
+		<annotation cp="﷼" draft="contributed">நாணயம் | ரியல்</annotation>
+		<annotation cp="﷼" type="tts" draft="contributed">ரியல்</annotation>
+		<annotation cp="¹">ஒன்று | மேல் ஒட்டு</annotation>
 		<annotation cp="¹" type="tts">மேல் ஒட்டு எண் ஒன்று</annotation>
 		<annotation cp="²">இரண்டு | மேல் ஒட்டு | மேல் ஒட்டு எண் இரண்டு | வர்க்கம்</annotation>
 		<annotation cp="²" type="tts">மேல் ஒட்டு எண் இரண்டு</annotation>
-		<annotation cp="³">கனமூலம் | மூன்று | மேல் ஒட்டு | மேல் ஒட்டு எண் மூன்று</annotation>
+		<annotation cp="³">கனமூலம் | மூன்று | மேல் ஒட்டு</annotation>
 		<annotation cp="³" type="tts">மேல் ஒட்டு எண் மூன்று</annotation>
 		<annotation cp="µ">அளவீடு | மைக்ரோ குறி</annotation>
 		<annotation cp="µ" type="tts">மைக்ரோ குறி</annotation>
+		<annotation cp="🛝">பொழுதுபோக்கு பூங்கா | விளையாட்டு</annotation>
+		<annotation cp="🛝" type="tts">சறுக்கு விளையாட்டு</annotation>
+		<annotation cp="🛞">டயர் | திருப்புதல் | வட்டம்</annotation>
+		<annotation cp="🛞" type="tts">சக்கரம்</annotation>
+		<annotation cp="🛟">உயிர் காப்பான் | பாதுகாப்பு | மிதவை | மீட்பு</annotation>
+		<annotation cp="🛟" type="tts">வட்ட மிதவை</annotation>
+		<annotation cp="🟰">கணிதம் | சமம்</annotation>
+		<annotation cp="🟰" type="tts">கனமான சமன் அடையாளம்</annotation>
+		<annotation cp="🥹">அழகை | எதிர்ப்பு | கோபம் | சோகம் | பெருமை</annotation>
+		<annotation cp="🥹" type="tts">கண்ணீரைத் தேக்கி வைத்துள்ள முகம்</annotation>
+		<annotation cp="🧌">அசுரன் | கற்பனை | விசித்திரக் கதை</annotation>
+		<annotation cp="🧌" type="tts">பூதம்</annotation>
+		<annotation cp="🩻">எலும்புகள் | எலும்புக்கூடு | மருத்துவம் | மருத்துவர்</annotation>
+		<annotation cp="🩻" type="tts">எக்ஸ்ரே</annotation>
+		<annotation cp="🩼">இயலாமை | காயம் | குச்சி | நகர்வதற்கான உதவி | பிரம்பு</annotation>
+		<annotation cp="🩼" type="tts">ஊன்றுகோல்</annotation>
+		<annotation cp="🪩">கொண்டாட்டம் | டிஸ்கோ | நடனம் | மினுமினுப்பு</annotation>
+		<annotation cp="🪩" type="tts">கண்ணாடி உருண்டை</annotation>
+		<annotation cp="🪪">உரிமம் | ஐடி | சான்றுகள் | பாதுகாப்பு</annotation>
+		<annotation cp="🪪" type="tts">அடையாள அட்டை</annotation>
+		<annotation cp="🪫">குறைந்த ஆற்றல் | மின்னணு</annotation>
+		<annotation cp="🪫" type="tts">குறைந்த பேட்டரி</annotation>
+		<annotation cp="🪬">கை | தாயத்து | பாதுகாப்பு | பாத்திமா | மிரியம் | மேரி</annotation>
+		<annotation cp="🪬" type="tts">ஹம்சா</annotation>
+		<annotation cp="🪷">இந்தியா | இந்து மதம் | தூய்மை | பௌத்தம் | மலர் | வியட்நாம்</annotation>
+		<annotation cp="🪷" type="tts">தாமரை</annotation>
+		<annotation cp="🪸">கடல் | நீரடித்திட்டு</annotation>
+		<annotation cp="🪸" type="tts">பவளம்</annotation>
+		<annotation cp="🪹">கூடு கட்டுதல்</annotation>
+		<annotation cp="🪹" type="tts">காலியான கூடு</annotation>
+		<annotation cp="🪺">கூடு கட்டுதல்</annotation>
+		<annotation cp="🪺" type="tts">முட்டைகள் உள்ள கூடு</annotation>
+		<annotation cp="🫃">கருத்தரிப்பு | தொப்பை | நிரம்பிய வயிறு | வீங்கிய வயிறு</annotation>
+		<annotation cp="🫃" type="tts">கருத்தரித்துள்ள ஆண்</annotation>
+		<annotation cp="🫄">கருத்தரிப்பு | தொப்பை | நிரம்பிய வயிறு | வீங்கிய வயிறு</annotation>
+		<annotation cp="🫄" type="tts">கருத்தரித்துள்ள நபர்</annotation>
+		<annotation cp="🫅">அரசர்க்குரியவர் | அரசன் | அரசு பதவி | மேன்மையானவர்</annotation>
+		<annotation cp="🫅" type="tts">மகுடம் அணிந்த நபர்</annotation>
+		<annotation cp="🫗">கண்ணாடி குவளை | காலி | சிந்துதல் | பானம்</annotation>
+		<annotation cp="🫗" type="tts">திரவத்தை ஊற்றுதல்</annotation>
+		<annotation cp="🫘">உணவு | சிறுநீரகம் | பயறுவகை</annotation>
+		<annotation cp="🫘" type="tts">பீன்ஸ்</annotation>
+		<annotation cp="🫙">ஊறுகாய் | களஞ்சியம் | காலி | கொள்கலன் | சாஸ்</annotation>
+		<annotation cp="🫙" type="tts">ஜாடி</annotation>
+		<annotation cp="🫠">உருகுதல் | கரைதல் | திரவம் | மறைந்துவிடுதல்</annotation>
+		<annotation cp="🫠" type="tts">உருகும் முகம்</annotation>
+		<annotation cp="🫡">ஆம் | சரி | படைகள் | வணக்கம் | வெய்யிலாக உள்ளது</annotation>
+		<annotation cp="🫡" type="tts">வணக்கம் தெரிவிக்கும் முகம்</annotation>
+		<annotation cp="🫢">அவநம்பிக்கை | ஆச்சரியம் | சங்கடம் | திகைப்பு | பயம் | பிரமிப்பு</annotation>
+		<annotation cp="🫢" type="tts">திறந்த கண்களுடன் கையால் வாயை மூடிய முகம்</annotation>
+		<annotation cp="🫣">எட்டிப்பார்த்தல் | முறைத்துப் பார்த்தல் | வசீகரிக்கப்பட்டது</annotation>
+		<annotation cp="🫣" type="tts">ஒரு கண்ணால் எட்டிப்பார்க்கும் முகம்</annotation>
+		<annotation cp="🫤">உறுதியாகத் தெரியவில்லை | ஏமாற்றம் | சந்தேகம் | பரவாயில்லை</annotation>
+		<annotation cp="🫤" type="tts">குறுக்காக உள்ள வாயுடன் கூடிய முகம்</annotation>
+		<annotation cp="🫥">அகமுகம் | மறைதல் | மறைந்துவிடுதல் | மறைந்துள்ளது | மனச்சோர்வடைந்தது</annotation>
+		<annotation cp="🫥" type="tts">புள்ளியிடப்பட்ட வட்ட வரி முகம்</annotation>
+		<annotation cp="🫦">அசௌகரியம் | உல்லாசமாக இருத்தல் | ஏக்கம் | கவலை | பதட்டம் | பயம்</annotation>
+		<annotation cp="🫦" type="tts">உதட்டைக் கடித்தல்</annotation>
+		<annotation cp="🫧">சுத்தம் | சோப்பு | நீருக்கடியில்</annotation>
+		<annotation cp="🫧" type="tts">குமிழ்கள்</annotation>
+		<annotation cp="🫰">அன்பு | இதயம் | சுடக்கு | பணம் | விலையுயர்ந்தது</annotation>
+		<annotation cp="🫰" type="tts">ஆள்காட்டி விரலுடன் கட்டைவிரல் குறுக்கிட்ட கை</annotation>
+		<annotation cp="🫱">கை | வலது | வலதுபுறம்</annotation>
+		<annotation cp="🫱" type="tts">வலது புறத்தைக் காட்டும் கை</annotation>
+		<annotation cp="🫲">இடது | இடதுபுறம் | கை</annotation>
+		<annotation cp="🫲" type="tts">இடது புறத்தைக் காட்டும் கை</annotation>
+		<annotation cp="🫳">ஓய்வு | கலைப்பு | வீழ்ச்சி</annotation>
+		<annotation cp="🫳" type="tts">உள்ளங்கையைக் கீழே காட்டிய கை</annotation>
+		<annotation cp="🫴">சைகை செய்தல் | பிடி என்பது | வழங்குதல் | வா என்பது</annotation>
+		<annotation cp="🫴" type="tts">உள்ளங்கையை மேலே காட்டிய கை</annotation>
+		<annotation cp="🫵">சுட்டிக்காட்டுதல் | நீங்கள்</annotation>
+		<annotation cp="🫵" type="tts">பார்வையாளரைச் சுட்டிக்காட்டும் ஆள்காட்டி விரல்</annotation>
+		<annotation cp="🫶">அன்பு</annotation>
+		<annotation cp="🫶" type="tts">இதய வடிவத்தைக் காட்டும் கைகள்</annotation>
 	</annotations>
 </ldml>

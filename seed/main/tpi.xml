@@ -11,69 +11,82 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="tpi"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
-			<language type="de" draft="unconfirmed">Jeman</language>
-			<language type="de_AT" draft="unconfirmed">Austria Jeman</language>
-			<language type="de_CH" draft="unconfirmed">Swis Jeman</language>
-			<language type="en" draft="unconfirmed">Inglis</language>
-			<language type="en_AU" draft="unconfirmed">Australian Inglis</language>
-			<language type="en_CA" draft="unconfirmed">Kenedien Inglis</language>
-			<language type="en_GB" draft="unconfirmed">Britis Inglis</language>
-			<language type="en_US" draft="unconfirmed">Amerikan Inglis</language>
-			<language type="es" draft="unconfirmed">Spenis</language>
-			<language type="es_419" draft="unconfirmed">Saut Amerikan Spenis</language>
-			<language type="es_ES" draft="unconfirmed">Spenis (Spein)</language>
-			<language type="es_MX" draft="unconfirmed">Meksikan Spenis</language>
-			<language type="fr" draft="unconfirmed">Frens</language>
+			<language type="de">Jeman</language>
+			<language type="de_AT">Austria Jeman</language>
+			<language type="de_CH">Swis Jeman</language>
+			<language type="en">Inglis</language>
+			<language type="en_AU">Australian Inglis</language>
+			<language type="en_CA">Kenedien Inglis</language>
+			<language type="en_GB">Britis Inglis</language>
+			<language type="en_GB" alt="short">↑↑↑</language>
+			<language type="en_US">Amerikan Inglis</language>
+			<language type="en_US" alt="short">↑↑↑</language>
+			<language type="es">Spenis</language>
+			<language type="es_419">Saut Amerikan Spenis</language>
+			<language type="es_ES">Spenis (Spein)</language>
+			<language type="es_MX">Meksikan Spenis</language>
+			<language type="fr">Frens</language>
 			<language type="fr_CA" draft="unconfirmed">Kenedien Spenis</language>
 			<language type="fr_CH" draft="unconfirmed">Swis Spenis</language>
-			<language type="it" draft="unconfirmed">Italien</language>
-			<language type="ja" draft="unconfirmed">Japanis</language>
-			<language type="pt" draft="unconfirmed">Potigis</language>
-			<language type="pt_BR" draft="unconfirmed">Brasilien Potigis</language>
-			<language type="pt_PT" draft="unconfirmed">Yurop Potigis</language>
+			<language type="it">Italien</language>
+			<language type="ja">Japanis</language>
+			<language type="pt">Potigis</language>
+			<language type="pt_BR">Brasilien Potigis</language>
+			<language type="pt_PT">Yurop Potigis</language>
 			<language type="ru" draft="unconfirmed">Rasien</language>
-			<language type="und" draft="unconfirmed">Tok ples i no stap</language>
-			<language type="zh" draft="unconfirmed">Sainis</language>
-			<language type="zh_Hans" draft="unconfirmed">Isipela Sainis</language>
-			<language type="zh_Hant" draft="unconfirmed">Tredisinol Sainis</language>
+			<language type="und">Tok ples i no stap</language>
+			<language type="zh">Sainis</language>
+			<language type="zh" alt="menu">↑↑↑</language>
+			<language type="zh_Hans">Isipela Sainis</language>
+			<language type="zh_Hans" alt="long">↑↑↑</language>
+			<language type="zh_Hant">Tredisinol Sainis</language>
+			<language type="zh_Hant" alt="long">↑↑↑</language>
 		</languages>
 		<scripts>
-			<script type="Arab" draft="unconfirmed">Arabik</script>
-			<script type="Cyrl" draft="unconfirmed">Syrilik</script>
-			<script type="Hans" draft="unconfirmed">Han (isipela)</script>
-			<script type="Hant" draft="unconfirmed">Han (tredisinol)</script>
-			<script type="Latn" draft="unconfirmed">Latin</script>
-			<script type="Zxxx" draft="unconfirmed">Tok i no raitim yet</script>
-			<script type="Zzzz" draft="unconfirmed">Tok i no gat kod yet</script>
+			<script type="Arab">Arabik</script>
+			<script type="Cyrl">Syrilik</script>
+			<script type="Hans">Han (isipela)</script>
+			<script type="Hans" alt="stand-alone">↑↑↑</script>
+			<script type="Hant">Han (tredisinol)</script>
+			<script type="Hant" alt="stand-alone">↑↑↑</script>
+			<script type="Latn">Latin</script>
+			<script type="Zxxx">Tok i no raitim yet</script>
+			<script type="Zzzz">Tok i no gat kod yet</script>
 		</scripts>
 		<territories>
-			<territory type="BR" draft="unconfirmed">Brasil</territory>
+			<territory type="BR">Brasil</territory>
 			<territory type="CN" draft="unconfirmed">Saina</territory>
-			<territory type="DE" draft="unconfirmed">Jemani</territory>
-			<territory type="FR" draft="unconfirmed">Frans</territory>
-			<territory type="GB" draft="unconfirmed">Yunaited Kingdom</territory>
+			<territory type="DE">Jemani</territory>
+			<territory type="FR">Frans</territory>
+			<territory type="GB">Yunaited Kingdom</territory>
 			<territory type="IN" draft="unconfirmed">India</territory>
-			<territory type="IT" draft="unconfirmed">Itali</territory>
-			<territory type="ZZ" draft="unconfirmed">Rijen i no stap</territory>
+			<territory type="IT">Itali</territory>
+			<territory type="ZZ">Rijen i no stap</territory>
 		</territories>
 		<types>
-			<type key="calendar" type="gregorian" draft="unconfirmed">Gregorien kalenda</type>
+			<type key="calendar" type="gregorian">Gregorien kalenda</type>
 			<type key="cf" type="standard" draft="unconfirmed">stendet karensi fomet</type>
-			<type key="collation" type="standard" draft="unconfirmed">stendet oda bilong skelim</type>
-			<type key="numbers" type="latn" draft="unconfirmed">westen namba</type>
+			<type key="collation" type="standard">stendet oda bilong skelim</type>
+			<type key="numbers" type="latn">westen namba</type>
 		</types>
 		<codePatterns>
-			<codePattern type="language" draft="unconfirmed">tok ples: {0}</codePattern>
-			<codePattern type="script" draft="unconfirmed">skript: {0}</codePattern>
-			<codePattern type="territory" draft="unconfirmed">rijen: {0}</codePattern>
+			<codePattern type="language">tok ples: {0}</codePattern>
+			<codePattern type="script">skript: {0}</codePattern>
+			<codePattern type="territory">rijen: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a b d e f g h i j k l m n o p r s t u w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c q v x z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B D E F G H I J K L M N O P R S T U W Y]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="unconfirmed">[, . ? !]</exemplarCharacters>
+		<exemplarCharacters draft="contributed">[a b d e f g h i j k l m n o p r s t u w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[c q v x z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[A B D E F G H I J K L M N O P R S T U W Y]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -246,8 +259,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="unconfirmed">yes:y</yesstr>
-			<nostr draft="unconfirmed">no:n</nostr>
+			<yesstr>yes:y</yesstr>
+			<nostr>no:n</nostr>
 		</messages>
 	</posix>
 </ldml>

@@ -47,6 +47,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.Units;
@@ -56,10 +57,8 @@ import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Maps;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
@@ -103,8 +102,8 @@ public class ExampleGenerator {
         .compile("http://[\\-a-zA-Z0-9]+(\\.[\\-a-zA-Z0-9]+)*([/#][\\-a-zA-Z0-9]+)*");
 
     private static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-    private static final UnitConverter UNIT_CONVERTER = supplementalDataInfo.getUnitConverter();
-    private static final Set<String> UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
+    static final UnitConverter UNIT_CONVERTER = supplementalDataInfo.getUnitConverter();
+    static final Set<String> UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
 
     public final static double NUMBER_SAMPLE = 123456.789;
     public final static double NUMBER_SAMPLE_WHOLE = 2345;
@@ -206,7 +205,7 @@ public class ExampleGenerator {
     private CLDRFile cldrFile;
 
     private CLDRFile englishFile;
-    private Map<String, String> genderCache = null;
+    private BestMinimalPairSamples bestMinimalPairSamples = null;
 
     private ExampleCache exCache = new ExampleCache();
 
@@ -326,6 +325,8 @@ public class ExampleGenerator {
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
         icuServiceBuilder.setCldrFile(cldrFile);
+
+        bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 
         if (DEBUG_EXAMPLE_GENERATOR) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
@@ -646,84 +647,38 @@ public class ExampleGenerator {
 
     private String handleMinimalPairs(XPathParts parts, String minimalPattern) {
         List<String> examples = new ArrayList<>();
-        Count count = pluralInfo.getPluralRules().getKeywords().contains("one") ? Count.one : Count.other;
 
-        String unitPattern = null;
-        boolean embedUnit = true;
-        String grammarAttributes;
-        String shortUnitId;
+        Output<String> output = new Output<>();
+        String count;
+        String sample = null;
 
         switch(parts.getElement(-1)) {
 
+        case "ordinalMinimalPairs":   //ldml/numbers/minimalPairs/ordinalMinimalPairs[@count="one"]
+            count = parts.getAttributeValue(-1, "count");
+            sample = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, count); // Pick a unit that exhibits the most variation
+            break;
+
         case "pluralMinimalPairs":   //ldml/numbers/minimalPairs/pluralMinimalPairs[@count="one"]
-            count = Count.valueOf(parts.getAttributeValue(-1, "count"));
-            unitPattern = minimalPattern;
-            embedUnit = false;
+            count = parts.getAttributeValue(-1, "count");
+            sample = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.cardinal, count); // Pick a unit that exhibits the most variation
             break;
 
         case "caseMinimalPairs":   //ldml/numbers/minimalPairs/caseMinimalPairs[@case="accusative"]
             String gCase = parts.getAttributeValue(-1, "case");
-
-            // No crash if grammarInfo is null here since getGrammaticalInfoAttributes checks for null
-            grammarAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, count.toString(), null, gCase);
-            //shortUnitId = getBestUnitWithCase(gCase); // TODO, we should pick a unit that exhibits the most variation
-
-            // eg //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"][@case="accusative"]
-            unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day\"]/unitPattern" + grammarAttributes);
+            sample = bestMinimalPairSamples.getBestUnitWithCase(gCase, output); // Pick a unit that exhibits the most variation
             break;
 
         case "genderMinimalPairs": //ldml/numbers/minimalPairs/genderMinimalPairs[@gender="feminine"]
             String gender = parts.getAttributeValue(-1, "gender");
-            //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"]
-            shortUnitId = getBestUnitWithGender(gender);
-            //unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/displayName");
-            // we do the following to get a singular form, since we can't depend on the displayName to be singular
-            unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/unitPattern[@count=\"" + count + "\"]");
-            unitPattern = unitPattern.replace("{0}", "").trim();
-            //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/gender
+            sample = bestMinimalPairSamples.getBestUnitWithGender(gender, output);
             break;
-        default: return null;
+        default:
+            return null;
         }
-        FixedDecimal amount = getBest(count);
-        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
-        if (embedUnit) {
-            String formattedUnit = format(unitPattern, numberFormat.format(amount));
-            examples.add(format(minimalPattern, backgroundStartSymbol + formattedUnit + backgroundEndSymbol));
-        } else {
-            String formattedUnit = format(unitPattern, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
-            examples.add(formattedUnit);
-        }
+        String formattedUnit = format(minimalPattern, backgroundStartSymbol + sample + backgroundEndSymbol);
+        examples.add(formattedUnit);
         return formatExampleList(examples);
-    }
-
-    /**
-     * Returns a "good" value for a unit. Favors metric units, and simple units
-     */
-    private String getBestUnitWithGender(String gender) {
-        if (genderCache == null) {
-            Map<String,String> result = Maps.newHashMap();
-            for (String longUnitId : UNITS) {
-                String possibleGender = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnitId + "\"]/gender");
-                if (possibleGender != null) {
-                    String formerLongUnitId = result.get(possibleGender);
-                    if (formerLongUnitId == null) {
-                        result.put(possibleGender, longUnitId);
-                    } else {
-                        // replace if as good or better. Metric is better. If both metric, choose alphabetical
-                        Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(UNIT_CONVERTER.getShortId(longUnitId));
-                        Set<UnitSystem> formerSystems = UNIT_CONVERTER.getSystemsEnum(UNIT_CONVERTER.getShortId(formerLongUnitId));
-                        if (!formerSystems.contains(UnitSystem.metric) && systems.contains(UnitSystem.metric)) {
-                            result.put(possibleGender, longUnitId);
-                        } else if (formerLongUnitId.compareTo(longUnitId) > 0) {
-                            result.put(possibleGender, longUnitId);
-                        }
-                    }
-                }
-            }
-            // it doesn't matter if we reset this due to multiple threads
-            genderCache = ImmutableMap.copyOf(result);
-        }
-        return genderCache.get(gender);
     }
 
     private UnitLength getUnitLength(XPathParts parts) {

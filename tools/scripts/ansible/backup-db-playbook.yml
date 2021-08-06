@@ -1,6 +1,7 @@
 - hosts: backupdb
   become: yes
   vars_files:
+    # variables are used in templates
     - vars/main.yml
     - local-vars/local.yml
   tasks:
@@ -71,6 +72,6 @@
       cron:
         name: "backup db"
         user: cldrbackup
-        minute: "37"
-        hour: "7"
+        minute: "53"
+        hour: "14" # 14:53 UTC = 7:53 PDT or 6:53 PST
         job: "sh /home/cldrbackup/backup.sh >/dev/null 2>&1"

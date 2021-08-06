@@ -75,9 +75,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="·" type="tts">srednja pika</annotation>
 		<annotation cp="'">enojni narekovaj | narekovaj | opuščaj | strojepisni opuščaj</annotation>
 		<annotation cp="'" type="tts">strojepisni opuščaj</annotation>
-		<annotation cp="‘">dvojni srednji narekovaj | enojni narekovaj | levi opuščaj | narekovaj | opuščaj</annotation>
+		<annotation cp="‘">enojni narekovaj | levi opuščaj | narekovaj | opuščaj</annotation>
 		<annotation cp="‘" type="tts">levi opuščaj</annotation>
-		<annotation cp="’">desni opuščaj | dvojni srednji narekovaj | enojni narekovaj | narekovaj | opuščaj</annotation>
+		<annotation cp="’">desni opuščaj | enojni narekovaj | narekovaj | opuščaj</annotation>
 		<annotation cp="’" type="tts">desni opuščaj</annotation>
 		<annotation cp="‚">narekovaj | nizki desni opuščaj | nizki narekovaj | opuščaj</annotation>
 		<annotation cp="‚" type="tts">nizki desni opuščaj</annotation>
@@ -91,7 +91,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="«" type="tts">levi francoski narekovaj</annotation>
 		<annotation cp="»">desni | desni francoski narekovaj | kotni | narekovaji | navednica | škarnice | znak</annotation>
 		<annotation cp="»" type="tts">desni francoski narekovaj</annotation>
-		<annotation cp=")">oglati oklepaj | oklepaj | oklepaji | okrogli oklepaj | zaklepaj</annotation>
+		<annotation cp=")">oklepaj | oklepaji | okrogli oklepaj | zaklepaj</annotation>
 		<annotation cp=")" type="tts">zaklepaj</annotation>
 		<annotation cp="[">oglati oklepaj | oglati uklepaj | oklepaj</annotation>
 		<annotation cp="[" type="tts">oglati uklepaj</annotation>
@@ -181,12 +181,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">avtorske pravice za zvočni posnetek</annotation>
 		<annotation cp="←">levo | puščica | puščica, obrnjena v levo</annotation>
 		<annotation cp="←" type="tts">puščica, obrnjena v levo</annotation>
-		<annotation cp="↚" draft="contributed">prečrtana puščica levo</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">prečrtana puščica levo</annotation>
+		<annotation cp="↚">puščica levo s poševnico</annotation>
+		<annotation cp="↚" type="tts">puščica levo s poševnico</annotation>
 		<annotation cp="→">desno | puščica | puščica, obrnjena v desno</annotation>
 		<annotation cp="→" type="tts">puščica, obrnjena v desno</annotation>
-		<annotation cp="↛" draft="contributed">prečrtana puščica desno</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">prečrtana puščica desno</annotation>
+		<annotation cp="↛">puščica desno s poševnico</annotation>
+		<annotation cp="↛" type="tts">puščica desno s poševnico</annotation>
 		<annotation cp="↑">navzgor | puščica | puščica, obrnjena navzgor</annotation>
 		<annotation cp="↑" type="tts">puščica, obrnjena navzgor</annotation>
 		<annotation cp="↓">navzdol | puščica | puščica, obrnjena navzdol</annotation>
@@ -237,18 +237,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↴" type="tts" draft="contributed">kotna puščica desno navzdol</annotation>
 		<annotation cp="↵" draft="contributed">kotna puščica levo navzdol</annotation>
 		<annotation cp="↵" type="tts" draft="contributed">kotna puščica levo navzdol</annotation>
-		<annotation cp="↶" draft="contributed">zgornja polkrožna puščica v nasprotni smeri urinega kazalca</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">zgornja polkrožna puščica v nasprotni smeri urinega kazalca</annotation>
-		<annotation cp="↷" draft="contributed">zgornja polkrožna puščica v smeri urinega kazalca</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">zgornja polkrožna puščica v smeri urinega kazalca</annotation>
+		<annotation cp="↶">zgornja polkrožna puščica v nasprotni smeri urnega kazalca</annotation>
+		<annotation cp="↶" type="tts">zgornja polkrožna puščica v nasprotni smeri urnega kazalca</annotation>
+		<annotation cp="↷">zgornja polkrožna puščica v smeri urnega kazalca</annotation>
+		<annotation cp="↷" type="tts">zgornja polkrožna puščica v smeri urnega kazalca</annotation>
 		<annotation cp="↸" draft="contributed">puščica severozahod z dolgo črtico zgoraj</annotation>
 		<annotation cp="↸" type="tts" draft="contributed">puščica severozahod z dolgo črtico zgoraj</annotation>
 		<annotation cp="↹" draft="contributed">puščica levo s črtico nad puščico desno s črtico</annotation>
 		<annotation cp="↹" type="tts" draft="contributed">puščica levo s črtico nad puščico desno s črtico</annotation>
-		<annotation cp="↺" draft="contributed">odprta krožna puščica v nasprotni smeri urinega kazalca</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">odprta krožna puščica v nasprotni smeri urinega kazalca</annotation>
-		<annotation cp="↻" draft="contributed">odprta krožna puščica v smeri urinega kazalca</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">odprta krožna puščica v smeri urinega kazalca</annotation>
+		<annotation cp="↺">odprta krožna puščica v nasprotni smeri urnega kazalca</annotation>
+		<annotation cp="↺" type="tts">odprta krožna puščica v nasprotni smeri urnega kazalca</annotation>
+		<annotation cp="↻">odprta krožna puščica v smeri urnega kazalca</annotation>
+		<annotation cp="↻" type="tts">odprta krožna puščica v smeri urnega kazalca</annotation>
 		<annotation cp="↼" draft="contributed">harpuna levo z ostjo navzgor</annotation>
 		<annotation cp="↼" type="tts" draft="contributed">harpuna levo z ostjo navzgor</annotation>
 		<annotation cp="↽" draft="contributed">harpuna levo z ostjo navzdol</annotation>
@@ -265,16 +265,108 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇂" type="tts" draft="contributed">harpuna navzdol z desno ostjo</annotation>
 		<annotation cp="⇃" draft="contributed">harpuna navzdol z levo ostjo</annotation>
 		<annotation cp="⇃" type="tts" draft="contributed">harpuna navzdol z levo ostjo</annotation>
+		<annotation cp="⇄" draft="contributed">puščica desno nad puščico levo</annotation>
+		<annotation cp="⇄" type="tts" draft="contributed">puščica desno nad puščico levo</annotation>
 		<annotation cp="⇅">navzdol | navzgor | puščica | puščici, obrnjeni navzgor in navzdol | Puščici, obrnjeni navzgor in navzdol</annotation>
 		<annotation cp="⇅" type="tts">puščici, obrnjeni navzgor in navzdol</annotation>
 		<annotation cp="⇆">desno | levo | puščica | puščica v levo nad puščico v desno | puščica, obrnjena v levo, nad puščico, obrnjeno v desno</annotation>
 		<annotation cp="⇆" type="tts">puščica v levo nad puščico v desno</annotation>
+		<annotation cp="⇇" draft="contributed">par puščic levo</annotation>
+		<annotation cp="⇇" type="tts" draft="contributed">par puščic levo</annotation>
+		<annotation cp="⇈" draft="contributed">par puščic navzgor</annotation>
+		<annotation cp="⇈" type="tts" draft="contributed">par puščic navzgor</annotation>
+		<annotation cp="⇉" draft="contributed">par puščic desno</annotation>
+		<annotation cp="⇉" type="tts" draft="contributed">par puščic desno</annotation>
+		<annotation cp="⇊" draft="contributed">par puščic navzdol</annotation>
+		<annotation cp="⇊" type="tts" draft="contributed">par puščic navzdol</annotation>
+		<annotation cp="⇋" draft="contributed">harpuna levo nad harpuno desno</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">harpuna levo nad harpuno desno</annotation>
+		<annotation cp="⇌" draft="contributed">harpuna desno nad harpuno levo</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">harpuna desno nad harpuno levo</annotation>
+		<annotation cp="⇐" draft="contributed">dvojna puščica levo</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">dvojna puščica levo</annotation>
+		<annotation cp="⇍" draft="contributed">dvojna prečrtana puščica levo</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">dvojna prečrtana puščica levo</annotation>
+		<annotation cp="⇑" draft="contributed">dvojna puščica navzgor</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">dvojna puščica navzgor</annotation>
+		<annotation cp="⇒" draft="contributed">dvojna puščica desno</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">dvojna puščica desno</annotation>
+		<annotation cp="⇏" draft="contributed">dvojna prečrtana puščica desno</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">dvojna prečrtana puščica desno</annotation>
+		<annotation cp="⇓" draft="contributed">dvojna puščica navzdol</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">dvojna puščica navzdol</annotation>
+		<annotation cp="⇔" draft="contributed">dvojna puščica levo-desno</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">dvojna puščica levo-desno</annotation>
+		<annotation cp="⇎" draft="contributed">dvojna prečrtana puščica levo-desno</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">dvojna prečrtana puščica levo-desno</annotation>
+		<annotation cp="⇖" draft="contributed">dvojna puščica severozahod</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">dvojna puščica severozahod</annotation>
+		<annotation cp="⇗" draft="contributed">dvojna puščica severovzhod</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">dvojna puščica severovzhod</annotation>
+		<annotation cp="⇘" draft="contributed">dvojna puščica jugovzhod</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">dvojna puščica jugovzhod</annotation>
+		<annotation cp="⇙" draft="contributed">dvojna puščica jugozahod</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">dvojna puščica jugozahod</annotation>
+		<annotation cp="⇚" draft="contributed">trojna puščica levo</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">trojna puščica levo</annotation>
+		<annotation cp="⇛" draft="contributed">trojna puščica desno</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">trojna puščica desno</annotation>
+		<annotation cp="⇜" draft="contributed">valovita puščica levo</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">valovita puščica levo</annotation>
+		<annotation cp="⇝" draft="contributed">valovita puščica desno</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">valovita puščica desno</annotation>
+		<annotation cp="⇞" draft="contributed">dvakrat prečrtana puščica navzgor</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">dvakrat prečrtana puščica navzgor</annotation>
+		<annotation cp="⇟" draft="contributed">dvakrat prečrtana puščica navzdol</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">dvakrat prečrtana puščica navzdol</annotation>
+		<annotation cp="⇠" draft="contributed">črtkana puščica levo</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">črtkana puščica levo</annotation>
+		<annotation cp="⇡" draft="contributed">črtkana puščica navzgor</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">črtkana puščica navzgor</annotation>
+		<annotation cp="⇢" draft="contributed">črtkana puščica desno</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">črtkana puščica desno</annotation>
+		<annotation cp="⇣" draft="contributed">črtkana puščica navzdol</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">črtkana puščica navzdol</annotation>
+		<annotation cp="⇤" draft="contributed">puščica levo s črtico</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">puščica levo s črtico</annotation>
+		<annotation cp="⇥" draft="contributed">puščica desno s črtico</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">puščica desno s črtico</annotation>
+		<annotation cp="⇦" draft="contributed">votla puščica levo</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">votla puščica levo</annotation>
+		<annotation cp="⇧" draft="contributed">votla puščica navzgor</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">votla puščica navzgor</annotation>
+		<annotation cp="⇨" draft="contributed">votla puščica desno</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">votla puščica desno</annotation>
+		<annotation cp="⇩" draft="contributed">votla puščica navzdol</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">votla puščica navzdol</annotation>
+		<annotation cp="⇪" draft="contributed">votla puščica od črte navzgor</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">votla puščica od črte navzgor</annotation>
+		<annotation cp="⇵" draft="contributed">puščica navzdol levo od puščice navzgor</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">puščica navzdol levo od puščice navzgor</annotation>
+		<annotation cp="∀" draft="contributed">kateri koli | poljubni | splošnisal | vsi | za vse</annotation>
+		<annotation cp="∀" type="tts" draft="contributed">za vse</annotation>
+		<annotation cp="∂" draft="contributed">diferencial | parcialni diferencial</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">parcialni diferencial</annotation>
+		<annotation cp="∃" draft="contributed">obstaja</annotation>
+		<annotation cp="∃" type="tts" draft="contributed">obstaja</annotation>
+		<annotation cp="∅" draft="contributed">matematika | operator množice | prazna množica</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">prazna množica</annotation>
 		<annotation cp="∆">razlika | trikotnik</annotation>
 		<annotation cp="∆" type="tts">razlika</annotation>
 		<annotation cp="∇">nabla | trikotnik</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">članstvo | element | je element množice | množica | vsebuje</annotation>
 		<annotation cp="∈" type="tts">je element množice</annotation>
+		<annotation cp="∉" draft="contributed">element | ni element</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">ni element</annotation>
+		<annotation cp="∋" draft="contributed">element | vključuje kot element</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">vključuje kot element</annotation>
+		<annotation cp="∎" draft="contributed">halmos | nagrobnik | q.e.d. | qed | znak za konec</annotation>
+		<annotation cp="∎" type="tts" draft="contributed">znak za konec</annotation>
+		<annotation cp="∏" draft="contributed">logika | produkt | produkt n-skupine</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">produkt n-skupine</annotation>
+		<annotation cp="∑" draft="contributed">matematika | vsota | vsota n-skupine</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">vsota n-skupine</annotation>
 		<annotation cp="+">plus | seštevanje | znak za plus</annotation>
 		<annotation cp="+" type="tts">znak za plus</annotation>
 		<annotation cp="±">znak plus/minus</annotation>
@@ -285,12 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">znak za množenje</annotation>
 		<annotation cp="&lt;">manjše od | oznaka | začetna oznaka</annotation>
 		<annotation cp="&lt;" type="tts">manjše od</annotation>
+		<annotation cp="≮" draft="contributed">matematika | ne manjše od | neenakovrednost</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">ne manjše od</annotation>
 		<annotation cp="=">enačaj | znak za enakost</annotation>
 		<annotation cp="=" type="tts">enačaj</annotation>
 		<annotation cp="≠">neenak | neenakost | ni enako</annotation>
 		<annotation cp="≠" type="tts">ni enako</annotation>
 		<annotation cp="&gt;">oznaka | večje od | zaključna oznaka</annotation>
 		<annotation cp="&gt;" type="tts">večje od</annotation>
+		<annotation cp="≯" draft="contributed">matematika | ne večje od | neenakovrednost</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">ne večje od</annotation>
 		<annotation cp="¬">ne | negacija</annotation>
 		<annotation cp="¬" type="tts">negacija</annotation>
 		<annotation cp="|">cev | črta | navpična črta | navpičnica | paličica | pokončna črta | pokončnica</annotation>
@@ -301,38 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">znak za minus</annotation>
 		<annotation cp="⁻">minus | nadpis | nadpisani minus</annotation>
 		<annotation cp="⁻" type="tts">nadpisani minus</annotation>
+		<annotation cp="∓" draft="contributed">minus ali plus | plus-minus</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">minus ali plus</annotation>
+		<annotation cp="∕" draft="contributed">črtica | poševnica | poševnica za deljenje</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">poševnica za deljenje</annotation>
+		<annotation cp="⁄" draft="contributed">črtica | poševnica ulomka</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">poševnica ulomka</annotation>
+		<annotation cp="∗" draft="contributed">operator zvezdice | zvezdica</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">operator zvezdice</annotation>
+		<annotation cp="∘" draft="contributed">kompozicija | operator | operator obroča</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">operator obroča</annotation>
+		<annotation cp="∙" draft="contributed">operator | operator vrstične oznake</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">operator vrstične oznake</annotation>
 		<annotation cp="√">iracionalno število | koren | korenski | kvadratni</annotation>
 		<annotation cp="√" type="tts">kvadratni koren</annotation>
+		<annotation cp="∝" draft="contributed">sorazmerno | sorazmernost</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">sorazmerno</annotation>
 		<annotation cp="∞">neskončno | znak za neskončno</annotation>
 		<annotation cp="∞" type="tts">znak za neskončno</annotation>
+		<annotation cp="∟" draft="contributed">matematika | pravi kot</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">pravi kot</annotation>
+		<annotation cp="∠" draft="contributed">kot | ostri kot</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">kot</annotation>
+		<annotation cp="∣" draft="contributed">delitelj | deljenje</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">deljenje</annotation>
+		<annotation cp="∥" draft="contributed">vzporedno</annotation>
+		<annotation cp="∥" type="tts" draft="contributed">vzporedno</annotation>
+		<annotation cp="∧" draft="contributed">atque | klin | logični in</annotation>
+		<annotation cp="∧" type="tts" draft="contributed">logični in</annotation>
 		<annotation cp="∩">množica | presek</annotation>
 		<annotation cp="∩" type="tts">presek</annotation>
 		<annotation cp="∪">množica | unija | zbirka</annotation>
 		<annotation cp="∪" type="tts">unija</annotation>
-		<annotation cp="≈">približek | približno | približno enako</annotation>
-		<annotation cp="≈" type="tts">približno enako</annotation>
+		<annotation cp="∫" draft="contributed">infinitezimalni račun | integral</annotation>
+		<annotation cp="∫" type="tts" draft="contributed">integral</annotation>
+		<annotation cp="∬" draft="contributed">dvojni integral | infinitezimalni račun</annotation>
+		<annotation cp="∬" type="tts" draft="contributed">dvojni integral</annotation>
+		<annotation cp="∮" draft="contributed">obrisni integral</annotation>
+		<annotation cp="∮" type="tts" draft="contributed">obrisni integral</annotation>
+		<annotation cp="∴" draft="contributed">logika | zato</annotation>
+		<annotation cp="∴" type="tts" draft="contributed">zato</annotation>
+		<annotation cp="∵" draft="contributed">ker | logika</annotation>
+		<annotation cp="∵" type="tts" draft="contributed">ker</annotation>
+		<annotation cp="∶" draft="contributed">razmerje</annotation>
+		<annotation cp="∶" type="tts" draft="contributed">razmerje</annotation>
+		<annotation cp="∷" draft="contributed">sorazmerje | sorazmernos</annotation>
+		<annotation cp="∷" type="tts" draft="contributed">sorazmerje</annotation>
+		<annotation cp="∼" draft="contributed">operator | operator vijuge</annotation>
+		<annotation cp="∼" type="tts" draft="contributed">operator vijuge</annotation>
+		<annotation cp="∽" draft="contributed">obrnjena vijuga | vijuga</annotation>
+		<annotation cp="∽" type="tts" draft="contributed">obrnjena vijuga</annotation>
+		<annotation cp="∾" draft="contributed">obrnjen ležeči s</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">obrnjen ležeči s</annotation>
+		<annotation cp="≃" draft="contributed">asimptota | asimptotično enako | matematika</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">asimptotično enako</annotation>
+		<annotation cp="≅" draft="contributed">enakost | izomorfizem | kongruenca | matematika | približno enako</annotation>
+		<annotation cp="≅" type="tts">približno enako</annotation>
+		<annotation cp="≈">približek | približno | skoraj enako</annotation>
+		<annotation cp="≈" type="tts">skoraj enako</annotation>
+		<annotation cp="≌" draft="contributed">enakost | matematika | vse enako</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">vse enako</annotation>
+		<annotation cp="≒" draft="contributed">približno enako preslikavi</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">približno enako preslikavi</annotation>
+		<annotation cp="≖" draft="contributed">enakost | matematika | obroč v enačaju</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">obroč v enačaju</annotation>
 		<annotation cp="≡">enako | je enako | točno</annotation>
 		<annotation cp="≡" type="tts">je enako</annotation>
+		<annotation cp="≣" draft="contributed">enakost | matematika | povsem enako</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">povsem enako</annotation>
 		<annotation cp="≤">enako | enakovredno | manjše | manjše ali enako | neenakovrednost</annotation>
 		<annotation cp="≤" type="tts">manjše ali enako</annotation>
 		<annotation cp="≥">enako | enakovredno | neenakovrednost | večje | večje ali enako</annotation>
 		<annotation cp="≥" type="tts">večje ali enako</annotation>
+		<annotation cp="≦" draft="contributed">manjše od nad enačajem | matematika | neenakovrednost</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">manjše od nad enačajem</annotation>
+		<annotation cp="≧" draft="contributed">matematika | neenakovrednost | večje od nad enačajem</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">večje od nad enačajem</annotation>
+		<annotation cp="≪" draft="contributed">matematika | neenakovrednost | veliko manjše od</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">veliko manjše od</annotation>
+		<annotation cp="≫" draft="contributed">matematika | neenakovrednost | veliko večje od</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">veliko večje od</annotation>
+		<annotation cp="≬" draft="contributed">med</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">med</annotation>
+		<annotation cp="≳" draft="contributed">matematika | neenakovrednost | večje od enakovredno</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">večje od enakovredno</annotation>
+		<annotation cp="≺" draft="contributed">matematika | operator množice | predhodnik</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">predhodnik</annotation>
+		<annotation cp="≻" draft="contributed">matematika | naslednik | operator množice</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">naslednik</annotation>
+		<annotation cp="⊁" draft="contributed">matematika | ni naslednik | operator množice</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">ni naslednik</annotation>
 		<annotation cp="⊂">je podmnožica množice | množica | podmnožica</annotation>
 		<annotation cp="⊂" type="tts">je podmnožica množice</annotation>
+		<annotation cp="⊃" draft="contributed">matematika | nadmnožica | operator množice</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">nadmnožica</annotation>
+		<annotation cp="⊆" draft="contributed">je podmnožica</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">je podmnožica</annotation>
+		<annotation cp="⊇" draft="contributed">enakost | je nadmnožica | matematika</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">je nadmnožica</annotation>
+		<annotation cp="⊕" draft="contributed">plus | plus v krogu</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">plus v krogu</annotation>
+		<annotation cp="⊖" draft="contributed">erozija | minus v krogu | simetrična razlika</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">minus v krogu</annotation>
+		<annotation cp="⊗" draft="contributed">krat v krogu | produkt | tenzor</annotation>
+		<annotation cp="⊗" type="tts" draft="contributed">krat v krogu</annotation>
+		<annotation cp="⊘" draft="contributed">kot deljenje | matematika | poševnica za deljenje v krogu</annotation>
+		<annotation cp="⊘" type="tts" draft="contributed">poševnica za deljenje v krogu</annotation>
+		<annotation cp="⊙" draft="contributed">operator | operator pike v krogu | XNOR</annotation>
+		<annotation cp="⊙" type="tts" draft="contributed">operator pike v krogu</annotation>
+		<annotation cp="⊚" draft="contributed">operator obroča v krogu</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">operator obroča v krogu</annotation>
+		<annotation cp="⊛" draft="contributed">asterisk | operator | operator zvezdice v krogu | zvezdica</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">operator zvezdice v krogu</annotation>
+		<annotation cp="⊞" draft="contributed">kod prištevanje | matematika | plus v kvadratusquaredplus</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">plus v kvadratu</annotation>
+		<annotation cp="⊟" draft="contributed">kot odštevanje | matematika | minus v kvadratu</annotation>
+		<annotation cp="⊟" type="tts" draft="contributed">minus v kvadratu</annotation>
+		<annotation cp="⊥" draft="contributed">falsum | žebljiček | žebljiček navzgor</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">žebljiček navzgor</annotation>
+		<annotation cp="⊮" draft="contributed">ne vsiljuje</annotation>
+		<annotation cp="⊮" type="tts" draft="contributed">ne vsiljuje</annotation>
+		<annotation cp="⊰" draft="contributed">matematika | operator množice | predhodnik v razmerju</annotation>
+		<annotation cp="⊰" type="tts" draft="contributed">predhodnik v razmerju</annotation>
+		<annotation cp="⊱" draft="contributed">matematika | naslednik v razmerju | operator množice</annotation>
+		<annotation cp="⊱" type="tts" draft="contributed">naslednik v razmerju</annotation>
+		<annotation cp="⋭" draft="contributed">matematika | ne vsebuje kot običajna podskupina, enaka | teorija skupin</annotation>
+		<annotation cp="⋭" type="tts" draft="contributed">ne vsebuje kot običajna podskupina, enaka</annotation>
+		<annotation cp="⊶" draft="contributed">original</annotation>
+		<annotation cp="⊶" type="tts" draft="contributed">original</annotation>
+		<annotation cp="⊹" draft="contributed">hermitska konjugirana matrika | kvadratna matrika | matematika | sebi adjungirana matrika</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">hermitska konjugirana matrika</annotation>
+		<annotation cp="⊿" draft="contributed">matematika | pravokotni trikotnik | trikotnik s pravim kotom</annotation>
+		<annotation cp="⊿" type="tts" draft="contributed">pravokotni trikotnik</annotation>
+		<annotation cp="⋁" draft="contributed">disjunkcija | logična n-skupina ali | logika</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">logična n-skupina ali</annotation>
+		<annotation cp="⋂" draft="contributed">matematika | operator množice | presek | presek n-skupin</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">presek n-skupin</annotation>
+		<annotation cp="⋃" draft="contributed">matematika | operator množice | unija | unija n-skupin</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">unija n-skupin</annotation>
+		<annotation cp="⋅" draft="contributed">operator | operator pike</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">operator pike</annotation>
+		<annotation cp="⋆" draft="contributed">operator | operator zvezde</annotation>
+		<annotation cp="⋆" type="tts" draft="contributed">operator zvezde</annotation>
+		<annotation cp="⋈" draft="contributed">binarni operator | metuljček | naravna združitev</annotation>
+		<annotation cp="⋈" type="tts" draft="contributed">naravna združitev</annotation>
+		<annotation cp="⋒" draft="contributed">dvojni presek | matematika | operator množice | presek</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">dvojni presek</annotation>
+		<annotation cp="⋘" draft="contributed">matematika | neenakost | zelo veliko manj kot</annotation>
+		<annotation cp="⋘" type="tts" draft="contributed">zelo veliko manj kot</annotation>
+		<annotation cp="⋙" draft="contributed">matematika | neenakost | zelo veliko več kot</annotation>
+		<annotation cp="⋙" type="tts" draft="contributed">zelo veliko več kot</annotation>
+		<annotation cp="⋮" draft="contributed">elipsa | matematika | navpične tri pike</annotation>
+		<annotation cp="⋮" type="tts" draft="contributed">navpične tri pike</annotation>
+		<annotation cp="⋯" draft="contributed">elipsa | tri pike v sredi vodoravno</annotation>
+		<annotation cp="⋯" type="tts" draft="contributed">tri pike v sredi vodoravno</annotation>
+		<annotation cp="⋰" draft="contributed">elipsa | matematika | tri pike v diagonali gor desno</annotation>
+		<annotation cp="⋰" type="tts" draft="contributed">tri pike v diagonali gor desno</annotation>
+		<annotation cp="⋱" draft="contributed">elipsa | matematika | tri pike v diagonali dol desno</annotation>
+		<annotation cp="⋱" type="tts" draft="contributed">tri pike v diagonali dol desno</annotation>
+		<annotation cp="■" draft="contributed">poln kvadrat</annotation>
+		<annotation cp="■" type="tts" draft="contributed">poln kvadrat</annotation>
+		<annotation cp="□" draft="contributed">prazen kvadrat</annotation>
+		<annotation cp="□" type="tts" draft="contributed">prazen kvadrat</annotation>
+		<annotation cp="▢" draft="contributed">prazen kvadrat z zaobljenimi koti</annotation>
+		<annotation cp="▢" type="tts" draft="contributed">prazen kvadrat z zaobljenimi koti</annotation>
+		<annotation cp="▣" draft="contributed">poln kvadrat v praznem kvadratu</annotation>
+		<annotation cp="▣" type="tts" draft="contributed">poln kvadrat v praznem kvadratu</annotation>
+		<annotation cp="▤" draft="contributed">kvadrat z vodoravnim polnilom</annotation>
+		<annotation cp="▤" type="tts" draft="contributed">kvadrat z vodoravnim polnilom</annotation>
+		<annotation cp="▥" draft="contributed">kvadrat z navpičnim polnilom</annotation>
+		<annotation cp="▥" type="tts" draft="contributed">kvadrat z navpičnim polnilom</annotation>
+		<annotation cp="▦" draft="contributed">kvadrat s pravokotnim križnim polnilom</annotation>
+		<annotation cp="▦" type="tts" draft="contributed">kvadrat s pravokotnim križnim polnilom</annotation>
+		<annotation cp="▧" draft="contributed">kvadrat s poševnim polnilom od levo zgoraj proti desno spodaj</annotation>
+		<annotation cp="▧" type="tts" draft="contributed">kvadrat s poševnim polnilom od leve navzdol</annotation>
+		<annotation cp="▨" draft="contributed">kvadrat s poševnim polnilom od desno spodaj proti levo zgoraj</annotation>
+		<annotation cp="▨" type="tts" draft="contributed">kvadrat s poševnim polnilom od desne navzgor</annotation>
+		<annotation cp="▩" draft="contributed">kvadrat z diagonalnim križnim polnilom</annotation>
+		<annotation cp="▩" type="tts" draft="contributed">kvadrat z diagonalnim križnim polnilom</annotation>
+		<annotation cp="▬" draft="contributed">poln pravokotnik</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">poln pravokotnik</annotation>
+		<annotation cp="▭" draft="contributed">prazen pravokotnik</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">prazen pravokotnik</annotation>
+		<annotation cp="▮" draft="contributed">poln navpičen pravokotnik</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">poln navpičen pravokotnik</annotation>
+		<annotation cp="▰" draft="contributed">poln paralelogram</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">poln paralelogram</annotation>
 		<annotation cp="▲">navzgor | poln | poln navzgor obrnjen trikotnik | puščica | trikotnik</annotation>
 		<annotation cp="▲" type="tts">poln navzgor obrnjen trikotnik</annotation>
+		<annotation cp="△" draft="contributed">prazen trikotnik, obrnjen navzgor</annotation>
+		<annotation cp="△" type="tts" draft="contributed">prazen trikotnik, obrnjen navzgor</annotation>
+		<annotation cp="▴" draft="contributed">poln majhen trikotnik, obrnjen navzgor</annotation>
+		<annotation cp="▴" type="tts" draft="contributed">poln majhen trikotnik, obrnjen navzgor</annotation>
+		<annotation cp="▵" draft="contributed">prazen majhen trikotnik, obrnjen navzgor</annotation>
+		<annotation cp="▵" type="tts" draft="contributed">prazen majhen trikotnik, obrnjen navzgor</annotation>
+		<annotation cp="▷" draft="contributed">prazen trikotnik, obrnjen v desno</annotation>
+		<annotation cp="▷" type="tts" draft="contributed">prazen trikotnik, obrnjen v desno</annotation>
+		<annotation cp="▸" draft="contributed">poln majhen trikotnik, obrnjen v desno</annotation>
+		<annotation cp="▸" type="tts" draft="contributed">poln majhen trikotnik, obrnjen v desno</annotation>
+		<annotation cp="▹" draft="contributed">prazen majhen trikotnik, obrnjen v desno</annotation>
+		<annotation cp="▹" type="tts" draft="contributed">prazen majhen trikotnik, obrnjen v desno</annotation>
+		<annotation cp="►" draft="contributed">poln kazalec, obrnjen v desno</annotation>
+		<annotation cp="►" type="tts" draft="contributed">poln kazalec, obrnjen v desno</annotation>
+		<annotation cp="▻" draft="contributed">prazen kazalec, obrnjen v desno</annotation>
+		<annotation cp="▻" type="tts" draft="contributed">prazen kazalec, obrnjen v desno</annotation>
 		<annotation cp="▼">navzdol | poln | poln navzdol obrnjen trikotnik | puščica | trikotnik</annotation>
 		<annotation cp="▼" type="tts">poln navzdol obrnjen trikotnik</annotation>
+		<annotation cp="▽" draft="contributed">prazen trikotnik, obrnjen navzdol</annotation>
+		<annotation cp="▽" type="tts" draft="contributed">prazen trikotnik, obrnjen navzdol</annotation>
+		<annotation cp="▾" draft="contributed">poln majhen trikotnik, obrnjen navzdol</annotation>
+		<annotation cp="▾" type="tts" draft="contributed">poln majhen trikotnik, obrnjen navzdol</annotation>
+		<annotation cp="▿" draft="contributed">prazen majhen trikotnik, obrnjen navzdol</annotation>
+		<annotation cp="▿" type="tts" draft="contributed">prazen majhen trikotnik, obrnjen navzdol</annotation>
+		<annotation cp="◁" draft="contributed">prazen trikotnik, obrnjen v levo</annotation>
+		<annotation cp="◁" type="tts" draft="contributed">prazen trikotnik, obrnjen v levo</annotation>
+		<annotation cp="◂" draft="contributed">poln majhen trikotnik, obrnjen v levo</annotation>
+		<annotation cp="◂" type="tts" draft="contributed">poln majhen trikotnik, obrnjen v levo</annotation>
+		<annotation cp="◃" draft="contributed">prazen majhen trikotnik, obrnjen v levo</annotation>
+		<annotation cp="◃" type="tts" draft="contributed">prazen majhen trikotnik, obrnjen v levo</annotation>
+		<annotation cp="◄" draft="contributed">poln kazalec, obrnjen v levo</annotation>
+		<annotation cp="◄" type="tts" draft="contributed">poln kazalec, obrnjen v levo</annotation>
+		<annotation cp="◅" draft="contributed">prazen kazalec, obrnjen v levo</annotation>
+		<annotation cp="◅" type="tts" draft="contributed">prazen kazalec, obrnjen v levo</annotation>
+		<annotation cp="◆" draft="contributed">poln karo</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">poln karo</annotation>
+		<annotation cp="◇" draft="contributed">prazen karo</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">prazen karo</annotation>
+		<annotation cp="◈" draft="contributed">poln karo v praznem karu</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">poln karo v praznem karu</annotation>
+		<annotation cp="◉" draft="contributed">koncentrična kroga s polnilom | kraj | pika v krogu | poln krog v praznem krogu | ribje oko</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">poln krog v praznem krogu</annotation>
 		<annotation cp="◊">romb | rombast lik</annotation>
 		<annotation cp="◊" type="tts">romb</annotation>
 		<annotation cp="○">krog | obroč | votel krog</annotation>
 		<annotation cp="○" type="tts">votel krog</annotation>
+		<annotation cp="◌" draft="contributed">pikčast krog</annotation>
+		<annotation cp="◌" type="tts" draft="contributed">pikčast krog</annotation>
+		<annotation cp="◍" draft="contributed">krog z navpičnim polnilom</annotation>
+		<annotation cp="◍" type="tts" draft="contributed">krog z navpičnim polnilom</annotation>
+		<annotation cp="◎" draft="contributed">dvojni krog | koncentrična kroga | tarča</annotation>
+		<annotation cp="◎" type="tts" draft="contributed">koncentrična kroga</annotation>
 		<annotation cp="●">krog | poln krog</annotation>
 		<annotation cp="●" type="tts">poln krog</annotation>
+		<annotation cp="◐" draft="contributed">krog s polno levo polovico</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">krog s polno levo polovico</annotation>
+		<annotation cp="◑" draft="contributed">krog s polno desno polovico</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">krog s polno desno polovico</annotation>
+		<annotation cp="◒" draft="contributed">krog s polno spodnjo polovico</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">krog s polno spodnjo polovico</annotation>
+		<annotation cp="◓" draft="contributed">krog s polno zgornjo polovico</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">krog s polno zgornjo polovico</annotation>
+		<annotation cp="◔" draft="contributed">krog s polno desno zgornjo četrtino</annotation>
+		<annotation cp="◔" type="tts" draft="contributed">krog s polno desno zgornjo četrtino</annotation>
+		<annotation cp="◕" draft="contributed">poln krog s prazno levo zgornjo četrtino</annotation>
+		<annotation cp="◕" type="tts" draft="contributed">poln krog s prazno levo zgornjo četrtino</annotation>
+		<annotation cp="◖" draft="contributed">polna leva polovica kroga</annotation>
+		<annotation cp="◖" type="tts" draft="contributed">polna leva polovica kroga</annotation>
+		<annotation cp="◗" draft="contributed">polna desna polovica kroga</annotation>
+		<annotation cp="◗" type="tts" draft="contributed">polna desna polovica kroga</annotation>
+		<annotation cp="◘" draft="contributed">obratna vrstična oznaka</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">obratna vrstična oznaka</annotation>
+		<annotation cp="◙" draft="contributed">obraten prazen krog | prazen krog v polnem kvadratu</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">prazen krog v polnem kvadratu</annotation>
+		<annotation cp="◜" draft="contributed">zgornja leva četrtina krožnega loka</annotation>
+		<annotation cp="◜" type="tts" draft="contributed">zgornja leva četrtina krožnega loka</annotation>
+		<annotation cp="◝" draft="contributed">zgornja desna četrtina krožnega loka</annotation>
+		<annotation cp="◝" type="tts" draft="contributed">zgornja desna četrtina krožnega loka</annotation>
+		<annotation cp="◞" draft="contributed">spodnja desna četrtina krožnega loka</annotation>
+		<annotation cp="◞" type="tts" draft="contributed">spodnja desna četrtina krožnega loka</annotation>
+		<annotation cp="◟" draft="contributed">spodnja leva četrtina krožnega loka</annotation>
+		<annotation cp="◟" type="tts" draft="contributed">spodnja leva četrtina krožnega loka</annotation>
+		<annotation cp="◠" draft="contributed">zgornji polkrog</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">zgornji polkrog</annotation>
+		<annotation cp="◡" draft="contributed">spodnji polkrog</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">spodnji polkrog</annotation>
+		<annotation cp="◢" draft="contributed">poln spodnji desni trikotnik</annotation>
+		<annotation cp="◢" type="tts" draft="contributed">poln spodnji desni trikotnik</annotation>
+		<annotation cp="◣" draft="contributed">poln spodnji levi trikotnik</annotation>
+		<annotation cp="◣" type="tts" draft="contributed">poln spodnji levi trikotnik</annotation>
+		<annotation cp="◤" draft="contributed">poln zgornji levi trikotnik</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">poln zgornji levi trikotnik</annotation>
+		<annotation cp="◥" draft="contributed">poln zgornji desni trikotnik</annotation>
+		<annotation cp="◥" type="tts" draft="contributed">poln zgornji desni trikotnik</annotation>
+		<annotation cp="◦" draft="contributed">prazna vrstična oznaka</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">prazna vrstična oznaka</annotation>
 		<annotation cp="◯">krog | obroč | velik votel krog</annotation>
 		<annotation cp="◯" type="tts">velik votel krog</annotation>
+		<annotation cp="◳" draft="contributed">prazen kvadrat z zgornjo desno četrtino</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">prazen kvadrat z zgornjo desno četrtino</annotation>
+		<annotation cp="◷" draft="contributed">prazen krog z zgornjo desno četrtino</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">prazen krog z zgornjo desno četrtino</annotation>
+		<annotation cp="◿" draft="contributed">spodnji desni trikotnik</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">spodnji desni trikotnik</annotation>
 		<annotation cp="♪">glasba | nota | osma | osminka</annotation>
 		<annotation cp="♪" type="tts">osminka</annotation>
+		<annotation cp="⨧" draft="contributed">plus s podpisano številko 2</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">plus s podpisano številko 2</annotation>
+		<annotation cp="⨯" draft="contributed">vektorski produkt</annotation>
+		<annotation cp="⨯" type="tts" draft="contributed">vektorski produkt</annotation>
+		<annotation cp="⨼" draft="contributed">notranji produkt</annotation>
+		<annotation cp="⨼" type="tts" draft="contributed">notranji produkt</annotation>
+		<annotation cp="⩣" draft="contributed">logična ali dvojna podčrta</annotation>
+		<annotation cp="⩣" type="tts" draft="contributed">logična ali dvojna podčrta</annotation>
+		<annotation cp="⩽" draft="contributed">manjše od s poševnim enačajem</annotation>
+		<annotation cp="⩽" type="tts" draft="contributed">manjše od s poševnim enačajem</annotation>
+		<annotation cp="⪍" draft="contributed">manjše od nad približno enako</annotation>
+		<annotation cp="⪍" type="tts" draft="contributed">manjše od nad približno enako</annotation>
+		<annotation cp="⪚" draft="contributed">dvočrtni enačaj nad večje od | matematika | neenakovrednost</annotation>
+		<annotation cp="⪚" type="tts" draft="contributed">dvočrtni enačaj nad večje od</annotation>
+		<annotation cp="⪺" draft="contributed">naslednik nad skoraj enako</annotation>
+		<annotation cp="⪺" type="tts" draft="contributed">naslednik nad skoraj enako</annotation>
 		<annotation cp="♭">glasba | nižaj | nota | znižani ton</annotation>
 		<annotation cp="♭" type="tts">nižaj</annotation>
 		<annotation cp="♯">glasba | nota | višaj | zvišani ton</annotation>
@@ -2977,8 +3351,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">puščica gor dol</annotation>
 		<annotation cp="↔">puščica | puščica levo desno</annotation>
 		<annotation cp="↔" type="tts">puščica levo desno</annotation>
-		<annotation cp="↮" draft="contributed">prečrtana puščica levo-desno</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">prečrtana puščica levo-desno</annotation>
+		<annotation cp="↮">puščica levo-desno s poševnico</annotation>
+		<annotation cp="↮" type="tts">puščica levo-desno s poševnico</annotation>
 		<annotation cp="↩">puščica | puščica desno, ki se ukrivlja v levo</annotation>
 		<annotation cp="↩" type="tts">puščica desno, ki se ukrivlja v levo</annotation>
 		<annotation cp="↪">puščica | puščica levo, ki se ukrivlja v desno</annotation>
@@ -2987,9 +3361,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⤴" type="tts">puščica desno, ki se ukrivlja gor</annotation>
 		<annotation cp="⤵">navzdol | puščica | puščica desno, ki se ukrivlja dol</annotation>
 		<annotation cp="⤵" type="tts">puščica desno, ki se ukrivlja dol</annotation>
-		<annotation cp="🔃">navpični puščici, ki se ukrivljata v smeri urinega kazalca | navpični puščici, ki se ukrivljata v smeri urnega kazalca | puščica | smer urinega kazalca | vnovično nalaganje</annotation>
+		<annotation cp="🔃">navpični puščici, ki se ukrivljata v smeri urnega kazalca | puščica | smer urnega kazalca | vnovično nalaganje</annotation>
 		<annotation cp="🔃" type="tts">navpični puščici, ki se ukrivljata v smeri urnega kazalca</annotation>
-		<annotation cp="🔄">gumb s puščicama, ki se ukrivljata v obratni smeri urinega kazalca | gumb s puščicama, ki se ukrivljata v obratni smeri urnega kazalca | nasprotna smer urinega kazalca | nazaj | puščica</annotation>
+		<annotation cp="🔄">gumb s puščicama, ki se ukrivljata v obratni smeri urnega kazalca | nasprotna smer urnega kazalca | nazaj | puščica</annotation>
 		<annotation cp="🔄" type="tts">gumb s puščicama, ki se ukrivljata v obratni smeri urnega kazalca</annotation>
 		<annotation cp="🔙">nazaj | puščica</annotation>
 		<annotation cp="🔙" type="tts">puščica nazaj</annotation>
@@ -3345,20 +3719,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">funt</annotation>
 		<annotation cp="¥">CNY | jen | JPY | juan | valuta</annotation>
 		<annotation cp="¥" type="tts">jen</annotation>
+		<annotation cp="₢" draft="contributed">brazilski real | BRB | cruzeiro | valuta</annotation>
+		<annotation cp="₢" type="tts" draft="contributed">cruzeiro</annotation>
+		<annotation cp="₣" draft="contributed">francoski frank | frank | valuta</annotation>
+		<annotation cp="₣" type="tts" draft="contributed">francoski frank</annotation>
+		<annotation cp="₤" draft="contributed">lira | valuta</annotation>
+		<annotation cp="₤" type="tts" draft="contributed">lira</annotation>
 		<annotation cp="₥">tisočinka | tisočinka dolarja</annotation>
 		<annotation cp="₥" type="tts">tisočinka</annotation>
 		<annotation cp="₩">KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | evro | valuta</annotation>
 		<annotation cp="€" type="tts">evro</annotation>
+		<annotation cp="₰" draft="contributed">nemški pfenig | pfenig | valuta</annotation>
+		<annotation cp="₰" type="tts" draft="contributed">nemški pfenig</annotation>
 		<annotation cp="₱">peso</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳" draft="contributed">ARA | avstral | valuta</annotation>
+		<annotation cp="₳" type="tts" draft="contributed">avstral</annotation>
+		<annotation cp="₶" draft="contributed">livre tournois | valuta</annotation>
+		<annotation cp="₶" type="tts" draft="contributed">livre tournois</annotation>
+		<annotation cp="₷" draft="contributed">spesmilo | valuta</annotation>
+		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
 		<annotation cp="₹">indijska rupija | rupija | valuta</annotation>
 		<annotation cp="₹" type="tts">indijska rupija</annotation>
 		<annotation cp="₽">rubelj | valuta</annotation>
 		<annotation cp="₽" type="tts">rubelj</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="₨" draft="contributed">rupija | valuta</annotation>
+		<annotation cp="₨" type="tts" draft="contributed">rupija</annotation>
+		<annotation cp="﷼" draft="contributed">rial | valuta</annotation>
+		<annotation cp="﷼" type="tts" draft="contributed">rial</annotation>
 		<annotation cp="¹">enka | nadpis | nadpisana enka</annotation>
 		<annotation cp="¹" type="tts">nadpisana enka</annotation>
 		<annotation cp="²">dvojka | kvadrat | nadpis | nadpisana dvojka</annotation>
@@ -3367,5 +3759,79 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="³" type="tts">nadpisana trojka</annotation>
 		<annotation cp="µ">mera | znak za mikro</annotation>
 		<annotation cp="µ" type="tts">znak za mikro</annotation>
+		<annotation cp="🛝">igra | zabaviščni park</annotation>
+		<annotation cp="🛝" type="tts">tobogan</annotation>
+		<annotation cp="🛞">krog | pnevmatika | vrtenje</annotation>
+		<annotation cp="🛞" type="tts">avtomobilsko kolo</annotation>
+		<annotation cp="🛟">plavajoč | reševanje | rešilni jopič | rešilni pripomoček | varnost</annotation>
+		<annotation cp="🛟" type="tts">rešilni obroč</annotation>
+		<annotation cp="🟰">enakovrednost | matematika</annotation>
+		<annotation cp="🟰" type="tts">znak za enakovrednost</annotation>
+		<annotation cp="🥹">jeza | jok | ponos | upor | žalost</annotation>
+		<annotation cp="🥹" type="tts">obraz, ki zadržuje jok</annotation>
+		<annotation cp="🧌">domišljija | pošast | pravljica</annotation>
+		<annotation cp="🧌" type="tts">trol</annotation>
+		<annotation cp="🩻">kosti | okostje | zdravnik | zdravniški</annotation>
+		<annotation cp="🩻" type="tts">rentgen</annotation>
+		<annotation cp="🩼">invalidnost | opora | palica | poškodba | pripomoček za mobilnost</annotation>
+		<annotation cp="🩼" type="tts">bergla</annotation>
+		<annotation cp="🪩">bleščanje | disko | ples | zabava</annotation>
+		<annotation cp="🪩" type="tts">disko krogla</annotation>
+		<annotation cp="🪪">dovoljenje | osebni dokument | poverilnice | varnost</annotation>
+		<annotation cp="🪪" type="tts">osebni dokument</annotation>
+		<annotation cp="🪫">elektronsko | nizka raven energije</annotation>
+		<annotation cp="🪫" type="tts">skoraj prazna baterija</annotation>
+		<annotation cp="🪬">amulet | Fatima | Marija | Mirjam | roka | zaščita</annotation>
+		<annotation cp="🪬" type="tts">roka Fatime</annotation>
+		<annotation cp="🪷">budizem | čistost | cvet | hinduizem | Indija | Vietnam</annotation>
+		<annotation cp="🪷" type="tts">lotos</annotation>
+		<annotation cp="🪸">greben | ocean</annotation>
+		<annotation cp="🪸" type="tts">korala</annotation>
+		<annotation cp="🪹">gnezdenje</annotation>
+		<annotation cp="🪹" type="tts">prazno gnezdo</annotation>
+		<annotation cp="🪺">gnezdenje</annotation>
+		<annotation cp="🪺" type="tts">gnezdo z jajcema</annotation>
+		<annotation cp="🫃">napihnjen | noseč | poln | trebuh</annotation>
+		<annotation cp="🫃" type="tts">noseč moški</annotation>
+		<annotation cp="🫄">napihnjen | noseč | poln | trebuh</annotation>
+		<annotation cp="🫄" type="tts">noseča oseba</annotation>
+		<annotation cp="🫅">kraljev | kraljeva oseba | monarh | plemič</annotation>
+		<annotation cp="🫅" type="tts">oseba s krono</annotation>
+		<annotation cp="🫗">kozarec | pijača | polivanje | prazen</annotation>
+		<annotation cp="🫗" type="tts">zlivanje tekočine</annotation>
+		<annotation cp="🫘">fižol | stročnica | živilo</annotation>
+		<annotation cp="🫘" type="tts">fižol</annotation>
+		<annotation cp="🫙">omaka | posoda | prazna | shramba | začimba</annotation>
+		<annotation cp="🫙" type="tts">kozarec za vlaganje</annotation>
+		<annotation cp="🫠">izginjanje | raztapljanje | taljenje | tekočina</annotation>
+		<annotation cp="🫠" type="tts">taleči se obraz</annotation>
+		<annotation cp="🫡">da | enote | pozdrav | salutiranje | sončno | strinjanje | v redu</annotation>
+		<annotation cp="🫡" type="tts">salutirajoč obraz</annotation>
+		<annotation cp="🫢">nejevera | osuplost | presenečenost | prestrašenost | sram | začudenje</annotation>
+		<annotation cp="🫢" type="tts">obraz z razprtimi očmi in roko pred usti</annotation>
+		<annotation cp="🫣">pogledovanje | prevzetost | strmenje</annotation>
+		<annotation cp="🫣" type="tts">obraz s pogledujočim očesom</annotation>
+		<annotation cp="🫤">dvom | negotovost | razočaranost | vzdih</annotation>
+		<annotation cp="🫤" type="tts">obraz s poševnimi usti</annotation>
+		<annotation cp="🫥">introvertiranost | izginjanje | nevidnost | potrtost | skrivanje</annotation>
+		<annotation cp="🫥" type="tts">obraz s črtkasto črto</annotation>
+		<annotation cp="🫦">nelagodje | spogledovanje | strah | vznemirjenost | zaskrbljenost | živčnost</annotation>
+		<annotation cp="🫦" type="tts">grizenje ustnice</annotation>
+		<annotation cp="🫧">čisto | kupček | milo | podvodni</annotation>
+		<annotation cp="🫧" type="tts">mehurčki</annotation>
+		<annotation cp="🫰">denar | drago | pri srcu | priljubljeno | tlesk</annotation>
+		<annotation cp="🫰" type="tts">roka s prekrižanima kazalcem in palcem</annotation>
+		<annotation cp="🫱">desno | obrnjena v desno | roka</annotation>
+		<annotation cp="🫱" type="tts">roka, obrnjena v desno</annotation>
+		<annotation cp="🫲">levo | obrnjena v levo | roka</annotation>
+		<annotation cp="🫲" type="tts">roka, obrnjena v levo</annotation>
+		<annotation cp="🫳">nehati | odslovitev | opustitev</annotation>
+		<annotation cp="🫳" type="tts">roka z dlanjo navzdol</annotation>
+		<annotation cp="🫴">namig | ponuditi | priti | ujeti</annotation>
+		<annotation cp="🫴" type="tts">roka z dlanjo navzgor</annotation>
+		<annotation cp="🫵">kazati | ti</annotation>
+		<annotation cp="🫵" type="tts">kazalec, usmerjen v opazovalca</annotation>
+		<annotation cp="🫶">ljubezen</annotation>
+		<annotation cp="🫶" type="tts">roki, sklenjeni v obliki srca</annotation>
 	</annotations>
 </ldml>

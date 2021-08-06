@@ -129,7 +129,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</characters>
 	<delimiters>
 		<quotationStart>↑↑↑</quotationStart>
-		<quotationEnd>”</quotationEnd>
+		<quotationEnd>↑↑↑</quotationEnd>
 		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
 		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
@@ -484,6 +484,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h.mm.ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
@@ -829,6 +830,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 	<units>
+		<unitLength type="narrow">
+			<unit type="consumption-mile-per-gallon-imperial">
+				<unitPattern count="other">{0}m/gUK</unitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<unitPattern count="other">{0}galIm</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<unitPattern count="other">{0}fl oz Im</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other">{0}dsp-Imp</unitPattern>
+			</unit>
+		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h.mm</durationUnitPattern>
 		</durationUnit>

@@ -363,6 +363,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∋" type="tts" draft="contributed">సభ్యుడి వలె కలిగి ఉంటుంది</annotation>
 		<annotation cp="∎" draft="contributed">తుది రుజువు</annotation>
 		<annotation cp="∎" type="tts" draft="contributed">తుది రుజువు</annotation>
+		<annotation cp="∏" draft="contributed">ఉత్పత్తి | ఎన్-అరీ ఉత్పత్తి | లాజిక్</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">ఎన్-అరీ ఉత్పత్తి</annotation>
+		<annotation cp="∑" draft="contributed">ఎన్-అరీ సమ్మషన్ | గణితశాస్త్రం | సమ్మషన్</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">ఎన్-అరీ సమ్మషన్</annotation>
 		<annotation cp="+">కూడిక | కూడిక చిహ్నం | చేర్చు</annotation>
 		<annotation cp="+" type="tts">కూడిక చిహ్నం</annotation>
 		<annotation cp="±">కూడిక-తీసివేత</annotation>
@@ -373,12 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">గుణింతపు గుర్తు</annotation>
 		<annotation cp="&lt;">ట్యాగ్ | తెరిచిన ట్యాగ్ | దీని కంటే తక్కువ</annotation>
 		<annotation cp="&lt;" type="tts">దీని కంటే తక్కువ</annotation>
+		<annotation cp="≮" draft="contributed">అసమానత | గణితశాస్త్రం | దీని కంటే తక్కువ కాదు</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">దీని కంటే తక్కువ కాదు</annotation>
 		<annotation cp="=">సమానం | సమానమైన</annotation>
 		<annotation cp="=" type="tts">సమానం</annotation>
 		<annotation cp="≠">అసమానత | సమానం కాదు | సమానత్వం కాదు</annotation>
 		<annotation cp="≠" type="tts">సమానం కాదు</annotation>
 		<annotation cp="&gt;">ట్యాగ్ | దీని కంటే ఎక్కువ | మూసివేయి ట్యాగ్</annotation>
 		<annotation cp="&gt;" type="tts">దీని కంటే ఎక్కువ</annotation>
+		<annotation cp="≯" draft="contributed">అసమానత | గణితశాస్త్రం | దీని కంటే ఎక్కువ కాదు</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">దీని కంటే ఎక్కువ కాదు</annotation>
 		<annotation cp="¬">కాదు | రుణాత్మకం</annotation>
 		<annotation cp="¬" type="tts">రుణాత్మకం</annotation>
 		<annotation cp="|">గీత | నిలువుగా ఉన్న గీత | నిలువుగా ఉన్న బార్ | పైక్ | పైపు | బార్ | విబార్ | షెఫర్ స్ట్రోక్ | స్టిక్ | స్ట్రోక్</annotation>
@@ -389,40 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">తీసివేత చిహ్నం</annotation>
 		<annotation cp="⁻">మైనస్ | సూపర్ స్క్రిప్ట్ | సూపర్ స్క్రిప్ట్ మైనస్</annotation>
 		<annotation cp="⁻" type="tts">సూపర్ స్క్రిప్ట్ మైనస్</annotation>
+		<annotation cp="∓" draft="contributed">ప్లస్-మైనస్ | మైనస్-లేదా-ప్లస్</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">మైనస్-లేదా-ప్లస్</annotation>
+		<annotation cp="∕" draft="contributed">వర్గుల్ | విభజన స్లాష్ | స్ట్రోక్ | స్లాష్</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">విభజన స్లాష్</annotation>
+		<annotation cp="⁄" draft="contributed">భిన్నం స్లాష్ | వర్గుల్ | స్ట్రోక్</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">భిన్నం స్లాష్</annotation>
+		<annotation cp="∗" draft="contributed">నక్షత్రం | నక్షత్రం ఆపరేటర్</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">నక్షత్రం ఆపరేటర్</annotation>
+		<annotation cp="∘" draft="contributed">ఆపరేటర్ | కూర్పు | రింగ్ ఆపరేటర్</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">రింగ్ ఆపరేటర్</annotation>
+		<annotation cp="∙" draft="contributed">ఆపరేటర్ | బుల్లెట్ ఆపరేటర్</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">బుల్లెట్ ఆపరేటర్</annotation>
 		<annotation cp="√">చదరపు | రాడికల్ | రాడిక్స్ | రూట్ | వర్గమూలం | సర్డ్</annotation>
 		<annotation cp="√" type="tts">వర్గమూలం</annotation>
+		<annotation cp="∝" draft="contributed">అనుపాతం | అనుపాతకత్వం</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">అనుపాతం</annotation>
 		<annotation cp="∞">అనంతం | అనంతం గుర్తు</annotation>
 		<annotation cp="∞" type="tts">అనంతం గుర్తు</annotation>
+		<annotation cp="∟" draft="contributed">గణితశాస్త్రం | రింగ్ కోణం</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">రింగ్ కోణం</annotation>
+		<annotation cp="∠" draft="contributed">కోణం | తీవ్రమైన</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">కోణం</annotation>
+		<annotation cp="∣" draft="contributed">భాజకం | విభజిస్తుంది</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">విభజిస్తుంది</annotation>
+		<annotation cp="∥" draft="contributed">సమాంతరం</annotation>
+		<annotation cp="∥" type="tts" draft="contributed">సమాంతరం</annotation>
+		<annotation cp="∧" draft="contributed">ఏటిక్యూయుఇ | ఏసి | లాజికల్ అండ్ | వెడ్జ్</annotation>
+		<annotation cp="∧" type="tts" draft="contributed">లాజికల్ అండ్</annotation>
 		<annotation cp="∩">ఇంటర్‌సెక్షన్ | సెట్</annotation>
 		<annotation cp="∩" type="tts">ఇంటర్‌సెక్షన్</annotation>
 		<annotation cp="∪">కలెక్షన్ | యూనియన్ | సెట్</annotation>
 		<annotation cp="∪" type="tts">యూనియన్</annotation>
+		<annotation cp="∫" draft="contributed">కాలిక్యులస్ | సమగ్రత</annotation>
+		<annotation cp="∫" type="tts" draft="contributed">సమగ్రత</annotation>
+		<annotation cp="∬" draft="contributed">కాలిక్యులస్ | డబుల్ ఇంటిగ్రల్</annotation>
+		<annotation cp="∬" type="tts" draft="contributed">డబుల్ ఇంటిగ్రల్</annotation>
+		<annotation cp="∮" draft="contributed">ఆకృతి సమగ్రత</annotation>
+		<annotation cp="∮" type="tts" draft="contributed">ఆకృతి సమగ్రత</annotation>
+		<annotation cp="∴" draft="contributed">కాబట్టి | లాజిక్</annotation>
+		<annotation cp="∴" type="tts" draft="contributed">కాబట్టి</annotation>
+		<annotation cp="∵" draft="contributed">ఎందుకంటే | లాజిక్</annotation>
+		<annotation cp="∵" type="tts" draft="contributed">ఎందుకంటే</annotation>
+		<annotation cp="∶" draft="contributed">నిష్పత్తి</annotation>
+		<annotation cp="∶" type="tts" draft="contributed">నిష్పత్తి</annotation>
+		<annotation cp="∷" draft="contributed">అనుపాతత్వం | అనుపాతము</annotation>
+		<annotation cp="∷" type="tts" draft="contributed">అనుపాతము</annotation>
+		<annotation cp="∼" draft="contributed">ఆపరేటర్ | టిల్డ్ ఆపరేటర్</annotation>
+		<annotation cp="∼" type="tts" draft="contributed">టిల్డ్ ఆపరేటర్</annotation>
+		<annotation cp="∽" draft="contributed">టిల్డ్ | రివర్స్డ్ టిల్డ్</annotation>
+		<annotation cp="∽" type="tts" draft="contributed">రివర్స్డ్ టిల్డ్</annotation>
+		<annotation cp="∾" draft="contributed">విలోమ లేజీ ఎస్</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">విలోమ లేజీ ఎస్</annotation>
+		<annotation cp="≃" draft="contributed">అసింప్టోటికల్లీ సమానం | అసింప్టోట్ | గణితశాస్త్రం</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">అసింప్టోటికల్లీ సమానం</annotation>
+		<annotation cp="≅" draft="contributed">ఐసోమార్ఫిజం | గణితశాస్త్రం | సమానత్వం | సమానత్వము | సుమారు సమానంగా</annotation>
+		<annotation cp="≅" type="tts" draft="contributed">సుమారు సమానంగా</annotation>
 		<annotation cp="≈">అంచనా | దాదాపు సమానం | సుమారు</annotation>
 		<annotation cp="≈" type="tts">దాదాపు సమానం</annotation>
+		<annotation cp="≌" draft="contributed">గణితశాస్త్రం | మొత్తం సమానం | సమానత్వం</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">మొత్తం సమానం</annotation>
+		<annotation cp="≒" draft="contributed">చిత్రానికి సుమారుగా సమానం</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">చిత్రానికి సుమారుగా సమానం</annotation>
+		<annotation cp="≖" draft="contributed">గణితశాస్త్రం | సమానత్వం | సమానంలో రింగ్</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">సమానంలో రింగ్</annotation>
 		<annotation cp="≡">ఖచ్చితంగా | ట్రిపుల్ | దీనిలా | సరిపోలిన</annotation>
 		<annotation cp="≡" type="tts">దీనిలా</annotation>
+		<annotation cp="≣" draft="contributed">ఖచ్చితంగా సమానం | గణితశాస్త్రం | సమానత్వం</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">ఖచ్చితంగా సమానం</annotation>
 		<annotation cp="≤">అసమానత | దీని కంటే తక్కువ | దీని కంటే తక్కువ లేదా సమానం | సమానం</annotation>
 		<annotation cp="≤" type="tts">దీని కంటే తక్కువ లేదా సమానం</annotation>
 		<annotation cp="≥">అసమానత | దీని కంటే ఎక్కువ | దీని కంటే ఎక్కువ లేదా సమానం | సమానం</annotation>
 		<annotation cp="≥" type="tts">దీని కంటే ఎక్కువ లేదా సమానం</annotation>
+		<annotation cp="≦" draft="contributed">అసమానత | గణితశాస్త్రం | సమానం కంటే తక్కువ</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">సమానం కంటే తక్కువ</annotation>
+		<annotation cp="≧" draft="contributed">అసమానత | గణితశాస్త్రం | సమానం కంటే ఎక్కువ</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">సమానం కంటే ఎక్కువ</annotation>
+		<annotation cp="≪" draft="contributed">అసమానత | గణితశాస్త్రం | దీని కంటే చాలా తక్కువ</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">దీని కంటే చాలా తక్కువ</annotation>
+		<annotation cp="≫" draft="contributed">అసమానత | గణితశాస్త్రం | దీని కంటే చాలా ఎక్కువ</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">దీని కంటే చాలా ఎక్కువ</annotation>
+		<annotation cp="≬" draft="contributed">మధ్య</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">మధ్య</annotation>
+		<annotation cp="≳" draft="contributed">అసమానత | గణితశాస్త్రం | సమానము కంటే ఎక్కువ</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">సమానము కంటే ఎక్కువ</annotation>
+		<annotation cp="≺" draft="contributed">గణితశాస్త్రం | ముందు | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">ముందు</annotation>
+		<annotation cp="≻" draft="contributed">గణితశాస్త్రం | విజయవంతం అవుతుంది | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">విజయవంతం అవుతుంది</annotation>
+		<annotation cp="⊁" draft="contributed">గణితశాస్త్రం | విజయవంతం కాదు | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">విజయవంతం కాదు</annotation>
 		<annotation cp="⊂">యొక్క సబ్‌సెట్ | సబ్‌సెట్ | సెట్</annotation>
 		<annotation cp="⊂" type="tts">యొక్క సబ్‌సెట్</annotation>
+		<annotation cp="⊃" draft="contributed">గణితశాస్త్రం | సూపర్‌సెట్ | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">సూపర్‌సెట్</annotation>
+		<annotation cp="⊆" draft="contributed">ఉపసెట్ సమానం</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">ఉపసెట్ సమానం</annotation>
+		<annotation cp="⊇" draft="contributed">గణితశాస్త్రం | సమానత్వం | సూపర్‌సెట్ సమానం</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">సూపర్‌సెట్ సమానం</annotation>
+		<annotation cp="⊕" draft="contributed">ప్లస్ | వృత్తాకార ప్లస్</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">వృత్తాకార ప్లస్</annotation>
+		<annotation cp="⊖" draft="contributed">ఎరోసిన్ | వృత్తాకార మైనస్ | సిమెట్రిక్ వ్యత్యాసం</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">వృత్తాకార మైనస్</annotation>
+		<annotation cp="⊗" draft="contributed">ఉత్పత్తి | టెన్సర్ | వృత్తాకార సమయాలు</annotation>
+		<annotation cp="⊗" type="tts" draft="contributed">వృత్తాకార సమయాలు</annotation>
+		<annotation cp="⊘" draft="contributed">గణితశాస్త్రం | విభజన వలె | వృత్తాకార విభజన స్లాష్</annotation>
+		<annotation cp="⊘" type="tts" draft="contributed">వృత్తాకార విభజన స్లాష్</annotation>
+		<annotation cp="⊙" draft="contributed">XNOR | ఆపరేటర్ | వృత్తాకార డాట్ ఆపరేటర్</annotation>
+		<annotation cp="⊙" type="tts" draft="contributed">వృత్తాకార డాట్ ఆపరేటర్</annotation>
+		<annotation cp="⊚" draft="contributed">వృత్తాకార రింగ్ ఆపరేటర్</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">వృత్తాకార రింగ్ ఆపరేటర్</annotation>
+		<annotation cp="⊛" draft="contributed">ఆపరేటర్ | నక్షత్రం | వృత్తాకార ఆస్టరిస్క్ ఆపరేటర్</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">వృత్తాకార నక్షత్రం ఆపరేటర్</annotation>
+		<annotation cp="⊞" draft="contributed">అదనం వంటిది | గణితశాస్త్రం | స్క్వేర్డ్ ప్లస్</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">స్క్వేర్డ్ ప్లస్</annotation>
+		<annotation cp="⊟" draft="contributed">గణితశాస్త్రం | తీసివేత వంటిది | స్క్వేర్డ్ ప్లస్</annotation>
+		<annotation cp="⊟" type="tts" draft="contributed">స్క్వేర్డ్ మైనస్</annotation>
+		<annotation cp="⊥" draft="contributed">అప్ టాక్ | ఈట్ | టాక్ | ఫాల్సమ్</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">అప్ టాక్</annotation>
+		<annotation cp="⊮" draft="contributed">బలవంతం చేయదు</annotation>
+		<annotation cp="⊮" type="tts" draft="contributed">బలవంతం చేయదు</annotation>
+		<annotation cp="⊰" draft="contributed">గణితశాస్త్రం | సంబంధం ప్రకారం కొనసాగుతుంది | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="⊰" type="tts" draft="contributed">సంబంధం ప్రకారం కొనసాగుతుంది</annotation>
+		<annotation cp="⊱" draft="contributed">గణితశాస్త్రం | సంబంధం ప్రకారం విజయవంతం అవుతుంది | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="⊱" type="tts" draft="contributed">సంబంధం ప్రకారం విజయవంతం అవుతుంది</annotation>
+		<annotation cp="⋭" draft="contributed">గణితశాస్త్రం | సమూహ సిద్ధాంతం | సాధారణ ఉప సమూహ సమానం వలె ఉండదు</annotation>
+		<annotation cp="⋭" type="tts" draft="contributed">సాధారణ ఉప సమూహ సమానం వలె ఉండదు</annotation>
 		<annotation cp="⊶" draft="contributed">వాస్తవం</annotation>
 		<annotation cp="⊶" type="tts" draft="contributed">వాస్తవం</annotation>
+		<annotation cp="⊹" draft="contributed">గణితశాస్త్రం | చదరపు మ్యాట్రిక్స్ | సెల్ఫ్-అడ్జంట్ మ్యాట్రిక్స్ | హెర్మిటియన్ కంజుగేట్ మ్యాట్రిక్స్</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">హెర్మిటియన్ కంజుగేట్ మ్యాట్రిక్స్</annotation>
+		<annotation cp="⊿" draft="contributed">కుడి కోణం ఉన్న త్రిభుచం | కుడివైపు త్రిభుజం | గణితశాస్త్రం</annotation>
+		<annotation cp="⊿" type="tts" draft="contributed">కుడివైపు త్రిభుజం</annotation>
+		<annotation cp="⋁" draft="contributed">ఎన్-అరీ లాజికల్ లేదా | లాజిక్ | విడదీయడం</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">ఎన్-అరీ లాజికల్ లేదా</annotation>
+		<annotation cp="⋂" draft="contributed">ఎన్-అరీ ఖండన | ఖండన | గణితశాస్త్రం | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">ఎన్-అరీ ఖండన</annotation>
+		<annotation cp="⋃" draft="contributed">ఎన్-అరీ యూనియన్ | గణితశాస్త్రం | యూనియన్ | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">ఎన్-అరీ యూనియన్</annotation>
+		<annotation cp="⋅" draft="contributed">ఆపరేటర్ | డాట్ ఆపరేటర్</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">డాట్ ఆపరేటర్</annotation>
+		<annotation cp="⋆" draft="contributed">ఆపరేటర్ | నక్షత్ర ఆపరేటర్</annotation>
+		<annotation cp="⋆" type="tts" draft="contributed">నక్షత్ర ఆపరేటర్</annotation>
+		<annotation cp="⋈" draft="contributed">బైనరీ ఆపరేటర్ | బౌటీ | సహజ జాయింట్</annotation>
+		<annotation cp="⋈" type="tts" draft="contributed">సహజ జాయింట్</annotation>
+		<annotation cp="⋒" draft="contributed">ఖండన | గణితశాస్త్రం | రెండు ఖండనలు | సెట్ ఆపరేటర్</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">రెండు ఖండనలు</annotation>
+		<annotation cp="⋘" draft="contributed">అసమానత | గణితశాస్త్రం | దీని కంటే చాలా చాలా తక్కువ</annotation>
+		<annotation cp="⋘" type="tts" draft="contributed">దీని కంటే చాలా చాలా తక్కువ</annotation>
+		<annotation cp="⋙" draft="contributed">అసమానత | గణితశాస్త్రం | దీని కంటే చాలా చాలా ఎక్కువ</annotation>
+		<annotation cp="⋙" type="tts" draft="contributed">దీని కంటే చాలా చాలా ఎక్కువ</annotation>
+		<annotation cp="⋮" draft="contributed">ఎలిప్సిస్ | గణితశాస్త్రం | నిలువు ఎలిప్సిస్</annotation>
+		<annotation cp="⋮" type="tts" draft="contributed">నిలువు ఎలిప్సిస్</annotation>
+		<annotation cp="⋯" draft="contributed">ఎలిప్సిస్ | మధ్య లైన్ సమాంతర ఎలిప్సిస్</annotation>
+		<annotation cp="⋯" type="tts" draft="contributed">మధ్య లైన్ సమాంతర ఎలిప్సిస్</annotation>
+		<annotation cp="⋰" draft="contributed">ఎగువ కుడి వికర్ణ ఎలిప్సిస్ | ఎలిప్సిస్ | గణితశాస్త్రం</annotation>
+		<annotation cp="⋰" type="tts" draft="contributed">ఎగువ కుడి వికర్ణ ఎలిప్సిస్</annotation>
+		<annotation cp="⋱" draft="contributed">ఎలిప్సిస్ | గణితశాస్త్రం | దిగువ కుడి వికర్ణ ఎలిప్సిస్</annotation>
+		<annotation cp="⋱" type="tts" draft="contributed">దిగువ కుడి వికర్ణ ఎలిప్సిస్</annotation>
+		<annotation cp="■" draft="contributed">పూరించిన చదరము</annotation>
+		<annotation cp="■" type="tts" draft="contributed">పూరించిన చదరము</annotation>
+		<annotation cp="□" draft="contributed">బోలుగా ఉన్న చదరము</annotation>
+		<annotation cp="□" type="tts" draft="contributed">బోలుగా ఉన్న చదరము</annotation>
+		<annotation cp="▢" draft="contributed">వృత్తాకార అంచులు ఉండే బోలుగా ఉన్న చదరము</annotation>
+		<annotation cp="▢" type="tts" draft="contributed">వృత్తాకార అంచులు ఉండే బోలుగా ఉన్న చదరము</annotation>
+		<annotation cp="▣" draft="contributed">పూరించిన చదరము కలిగి ఉండే బోలుగా ఉన్న చదరము</annotation>
+		<annotation cp="▣" type="tts" draft="contributed">పూరించిన చదరము కలిగి ఉండే బోలుగా ఉన్న చదరము</annotation>
+		<annotation cp="▤" draft="contributed">సమాంతర పూరింపుతో చదరము</annotation>
+		<annotation cp="▤" type="tts" draft="contributed">సమాంతర పూరింపుతో చదరము</annotation>
+		<annotation cp="▥" draft="contributed">నిలువు పూరింపుతో చదరము</annotation>
+		<annotation cp="▥" type="tts" draft="contributed">నిలువు పూరింపుతో చదరము</annotation>
+		<annotation cp="▦" draft="contributed">చదరపు ఆర్తోగోనల్ క్రాస్‌హాచ్ పూరింపు</annotation>
+		<annotation cp="▦" type="tts" draft="contributed">చదరపు ఆర్తోగోనల్ క్రాస్‌హాచ్ పూరింపు</annotation>
+		<annotation cp="▧" draft="contributed">చదరపు ఎగువ ఎడమ దిగువ కుడి పూరింపు</annotation>
+		<annotation cp="▧" type="tts" draft="contributed">చదరపు ఎగువ ఎడమ దిగువ కుడి పూరింపు</annotation>
+		<annotation cp="▨" draft="contributed">చదరపు ఎగువ ఎడమ దిగువ ఎడమ పూరింపు</annotation>
+		<annotation cp="▨" type="tts" draft="contributed">చదరపు ఎగువ ఎడమ దిగువ ఎడమ పూరింపు</annotation>
+		<annotation cp="▩" draft="contributed">చదరపు వికర్ణ క్రాస్‌హాచ్ పూరింపు</annotation>
+		<annotation cp="▩" type="tts" draft="contributed">చదరపు వికర్ణ క్రాస్‌హాచ్ పూరింపు</annotation>
+		<annotation cp="▬" draft="contributed">పూరించిన దీర్ఘచతురస్రం</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">పూరించిన దీర్ఘచతురస్రం</annotation>
+		<annotation cp="▭" draft="contributed">బోలుగా ఉన్న దీర్ఘచతురస్రం</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">బోలుగా ఉన్న దీర్ఘచతురస్రం</annotation>
+		<annotation cp="▮" draft="contributed">పూరించిన నిలువు దీర్ఘచతురస్రం</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">పూరించిన నిలువు దీర్ఘచతురస్రం</annotation>
+		<annotation cp="▰" draft="contributed">పూరించిన సమాంతర చతుర్భుజం</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">పూరించిన సమాంతర చతుర్భుజం</annotation>
 		<annotation cp="▲">త్రిభుజం | నిండి ఉన్న | పైకి | పైకి చూపుతున్న నిండి ఉన్న త్రిభుజం | బాణం</annotation>
 		<annotation cp="▲" type="tts">పైకి చూపుతున్న నిండి ఉన్న త్రిభుజం</annotation>
+		<annotation cp="△" draft="contributed">బోలుగా పైకి చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="△" type="tts" draft="contributed">బోలుగా పైకి చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="▴" draft="contributed">పూరించిన పైకి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▴" type="tts" draft="contributed">పూరించిన పైకి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▵" draft="contributed">బోలుగా ఉన్న పైకి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▵" type="tts" draft="contributed">బోలుగా ఉన్న పైకి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▷" draft="contributed">బోలుగా ఉన్న కుడివైపు చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="▷" type="tts" draft="contributed">బోలుగా ఉన్న కుడివైపు చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="▸" draft="contributed">పూరించిన కుడివైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▸" type="tts" draft="contributed">పూరించిన కుడివైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▹" draft="contributed">బోలుగా ఉన్న కుడివైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▹" type="tts" draft="contributed">బోలుగా ఉన్న కుడివైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="►" draft="contributed">పూరించిన కుడివైపు చూపుతున్న పాయింటర్</annotation>
+		<annotation cp="►" type="tts" draft="contributed">పూరించిన కుడివైపు చూపుతున్న పాయింటర్</annotation>
+		<annotation cp="▻" draft="contributed">బోలుగా ఉన్న కుడివైపు చూపుతున్న పాయింటర్</annotation>
+		<annotation cp="▻" type="tts" draft="contributed">బోలుగా ఉన్న కుడివైపు చూపుతున్న పాయింటర్</annotation>
 		<annotation cp="▼">కింద | కిందకి చూపుతున్న నిండి ఉన్న త్రిభుజం | త్రిభుజం | నిండి ఉన్న | బాణం</annotation>
 		<annotation cp="▼" type="tts">కిందకి చూపుతున్న నిండి ఉన్న త్రిభుజం</annotation>
+		<annotation cp="▽" draft="contributed">బోలుగా ఉన్న కిందికి చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="▽" type="tts" draft="contributed">బోలుగా ఉన్న కిందికి చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="▾" draft="contributed">పూరించిన కిందికి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▾" type="tts" draft="contributed">పూరించిన కిందికి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▿" draft="contributed">బోలుగా ఉన్న కిందికి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="▿" type="tts" draft="contributed">బోలుగా ఉన్న కిందికి చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="◁" draft="contributed">బోలుగా ఉన్న ఎడమవైపు చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="◁" type="tts" draft="contributed">బోలుగా ఉన్న ఎడమవైపు చూపుతున్న త్రిభుజం</annotation>
+		<annotation cp="◂" draft="contributed">పూరించిన ఎడమవైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="◂" type="tts" draft="contributed">పూరించిన ఎడమవైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="◃" draft="contributed">బోలుగా ఉన్న ఎడమవైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="◃" type="tts" draft="contributed">బోలుగా ఉన్న ఎడమవైపు చూపుతున్న చిన్న త్రిభుజం</annotation>
+		<annotation cp="◄" draft="contributed">పూరించిన ఎడమవైపు చూపుతున్న పాయింటర్</annotation>
+		<annotation cp="◄" type="tts" draft="contributed">పూరించిన ఎడమవైపు చూపుతున్న పాయింటర్</annotation>
+		<annotation cp="◅" draft="contributed">బోలుగా ఉన్న ఎడమవైపు చూపుతున్న పాయింటర్</annotation>
+		<annotation cp="◅" type="tts" draft="contributed">బోలుగా ఉన్న ఎడమవైపు చూపుతున్న పాయింటర్</annotation>
+		<annotation cp="◆" draft="contributed">పూరించిన డైమండ్</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">పూరించిన డైమండ్</annotation>
+		<annotation cp="◇" draft="contributed">బోలుగా ఉన్న డైమండ్</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">బోలుగా ఉన్న డైమండ్</annotation>
+		<annotation cp="◈" draft="contributed">పూరించిన డైమండ్ కలిగి ఉన్న బోలుగా ఉన్న డైమండ్</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">పూరించిన డైమండ్ కలిగి ఉన్న బోలుగా ఉన్న డైమండ్</annotation>
+		<annotation cp="◉" draft="contributed">కేంద్రీకృత వృత్తాలు పూరించబడ్డాయి | పూరించిన వృత్తం కలిగి ఉన్న బోలుగా ఉన్న వృత్తం | ఫిష్ఐ | వార్డ్ | వృత్తాకార డాట్</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">పూరించిన వృత్తం కలిగి ఉన్న బోలుగా ఉన్న వృత్తం</annotation>
 		<annotation cp="◊">రాంబస్ | వజ్రం | వజ్రపు ఆకారం</annotation>
 		<annotation cp="◊" type="tts">వజ్రపు ఆకారం</annotation>
 		<annotation cp="○">ఉంగరం | లోతు వృత్తం | వృత్తం</annotation>
 		<annotation cp="○" type="tts">లోతు వృత్తం</annotation>
+		<annotation cp="◌" draft="contributed">డాట్ ఉన్న వృత్తం</annotation>
+		<annotation cp="◌" type="tts" draft="contributed">డాట్ ఉన్న వృత్తం</annotation>
+		<annotation cp="◍" draft="contributed">నిలువు పూరింపుతో వృత్తం</annotation>
+		<annotation cp="◍" type="tts" draft="contributed">నిలువు పూరింపుతో వృత్తం</annotation>
+		<annotation cp="◎" draft="contributed">కేంద్రీకృత వృత్తాలు | రెండు వృత్తాలు | లక్ష్యం</annotation>
+		<annotation cp="◎" type="tts" draft="contributed">కేంద్రీకృత వృత్తాలు</annotation>
 		<annotation cp="●">నిండి ఉన్న వృత్తం | వృత్తం</annotation>
 		<annotation cp="●" type="tts">నిండి ఉన్న వృత్తం</annotation>
+		<annotation cp="◐" draft="contributed">వృత్తం ఎడమ సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">వృత్తం ఎడమ సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◑" draft="contributed">వృత్తం కుడి సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">వృత్తం కుడి సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◒" draft="contributed">వృత్తం కింది సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">వృత్తం కింది సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◓" draft="contributed">వృత్తం ఎగువ సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">వృత్తం ఎగువ సగభాగం పూరించబడింది</annotation>
+		<annotation cp="◔" draft="contributed">వృత్తం ఎగువ కుడి క్వాడ్రంట్ పూరించబడింది</annotation>
+		<annotation cp="◔" type="tts" draft="contributed">వృత్తం ఎగువ కుడి క్వాడ్రంట్ పూరించబడింది</annotation>
+		<annotation cp="◕" draft="contributed">అన్నింటినీ వృత్తం చేయి కానీ ఎగువ ఎడమ క్వాడ్రంట్ పూరించబడింది</annotation>
+		<annotation cp="◕" type="tts" draft="contributed">అన్నింటినీ వృత్తం చేయి కానీ ఎగువ ఎడమ క్వాడ్రంట్ పూరించబడింది</annotation>
+		<annotation cp="◖" draft="contributed">ఎడమ సగభాగం పూరించిన వృత్తం</annotation>
+		<annotation cp="◖" type="tts" draft="contributed">ఎడమ సగభాగం పూరించిన వృత్తం</annotation>
+		<annotation cp="◗" draft="contributed">కుడి సగభాగం పూరించిన వృత్తం</annotation>
+		<annotation cp="◗" type="tts" draft="contributed">కుడి సగభాగం పూరించిన వృత్తం</annotation>
+		<annotation cp="◘" draft="contributed">విలోమ బుల్లెట్</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">విలోమ బుల్లెట్</annotation>
+		<annotation cp="◙" draft="contributed">బోలుగా ఉన్న వృత్తం కలిగి ఉన్న పూరించిన చదరం | విలోమ బోలుగా ఉన్న వృత్తం</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">బోలుగా ఉన్న వృత్తం కలిగి ఉన్న పూరించిన చదరం</annotation>
+		<annotation cp="◜" draft="contributed">ఎగువ ఎడమ క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◜" type="tts" draft="contributed">ఎగువ ఎడమ క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◝" draft="contributed">ఎగువ కుడి క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◝" type="tts" draft="contributed">ఎగువ కుడి క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◞" draft="contributed">దిగువ కుడి క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◞" type="tts" draft="contributed">దిగువ కుడి క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◟" draft="contributed">దిగువ ఎడమ క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◟" type="tts" draft="contributed">దిగువ ఎడమ క్వాడ్రంట్ వృత్తాకార ఆర్క్</annotation>
+		<annotation cp="◠" draft="contributed">ఎగువ సగం వృత్తం</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">ఎగువ సగం వృత్తం</annotation>
+		<annotation cp="◡" draft="contributed">దిగువ సగం వృత్తం</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">దిగువ సగం వృత్తం</annotation>
+		<annotation cp="◢" draft="contributed">పూరించిన దిగువ కుడి త్రిభుజం</annotation>
+		<annotation cp="◢" type="tts" draft="contributed">పూరించిన దిగువ కుడి త్రిభుజం</annotation>
+		<annotation cp="◣" draft="contributed">పూరించిన దిగువ ఎడమ త్రిభుజం</annotation>
+		<annotation cp="◣" type="tts" draft="contributed">పూరించిన దిగువ ఎడమ త్రిభుజం</annotation>
+		<annotation cp="◤" draft="contributed">పూరించిన ఎగువ ఎడమ త్రిభుజం</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">పూరించిన ఎగువ ఎడమ త్రిభుజం</annotation>
+		<annotation cp="◥" draft="contributed">పూరించిన ఎగువ కుడి త్రిభుజం</annotation>
+		<annotation cp="◥" type="tts" draft="contributed">పూరించిన ఎగువ కుడి త్రిభుజం</annotation>
+		<annotation cp="◦" draft="contributed">బోలుగా ఉన్న బుల్లెట్</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">బోలుగా ఉన్న బుల్లెట్</annotation>
 		<annotation cp="◯">ఉంగరం | పెద్ద లోతు వృత్తం | వృత్తం</annotation>
 		<annotation cp="◯" type="tts">పెద్ద లోతు వృత్తం</annotation>
+		<annotation cp="◳" draft="contributed">బోలుగా ఉన్న చదరపు ఎగువ కుడి క్వాడ్రంట్</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">బోలుగా ఉన్న చదరపు ఎగువ కుడి క్వాడ్రంట్</annotation>
+		<annotation cp="◷" draft="contributed">ఎగువ కుడి క్వాడ్రంట్‌తో బోలుగా ఉన్న వృత్తం</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">ఎగువ కుడి క్వాడ్రంట్‌తో బోలుగా ఉన్న వృత్తం</annotation>
+		<annotation cp="◿" draft="contributed">దిగువ కుడి త్రిభుజం</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">దిగువ కుడి త్రిభుజం</annotation>
 		<annotation cp="♪">ఎనిమిదవ నోట్ | ఎనిమిది | నోట్ | సంగీతం</annotation>
 		<annotation cp="♪" type="tts">ఎనిమిదవ నోట్</annotation>
+		<annotation cp="⨧" draft="contributed">ప్లస్ సబ్‌స్క్రిప్ట్ టు</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">ప్లస్ సబ్‌స్క్రిప్ట్ టు</annotation>
+		<annotation cp="⨯" draft="contributed">వెక్టార్ క్రాస్ ఉత్పత్తి</annotation>
+		<annotation cp="⨯" type="tts" draft="contributed">వెక్టార్ క్రాస్ ఉత్పత్తి</annotation>
+		<annotation cp="⨼" draft="contributed">అంతర్గత ఉత్పత్తి</annotation>
+		<annotation cp="⨼" type="tts" draft="contributed">అంతర్గత ఉత్పత్తి</annotation>
+		<annotation cp="⩣" draft="contributed">లాజికల్ లేదా డబుల్ అండర్‌బార్</annotation>
+		<annotation cp="⩣" type="tts" draft="contributed">లాజికల్ లేదా డబుల్ అండర్‌బార్</annotation>
+		<annotation cp="⩽" draft="contributed">స్లాంటెడ్ సమానం కన్నా తక్కువ</annotation>
+		<annotation cp="⩽" type="tts" draft="contributed">స్లాంటెడ్ సమానం కన్నా తక్కువ</annotation>
+		<annotation cp="⪍" draft="contributed">సారూప్య సమానం ఎగువ కంటే తక్కువ</annotation>
+		<annotation cp="⪍" type="tts" draft="contributed">సారూప్య సమానం ఎగువ కంటే తక్కువ</annotation>
+		<annotation cp="⪚" draft="contributed">అసమానత | గణితశాస్త్రం | డబుల్-లైన్ సమానమైన దాని కంటే ఎక్కువ</annotation>
+		<annotation cp="⪚" type="tts" draft="contributed">డబుల్-లైన్ సమానమైన దాని కంటే ఎక్కువ</annotation>
+		<annotation cp="⪺" draft="contributed">దాదాపు సమానంగా లేనివి కూడా విజయవంతం అవుతాయి</annotation>
+		<annotation cp="⪺" type="tts" draft="contributed">దాదాపు సమానంగా లేనివి కూడా విజయవంతం అవుతాయి</annotation>
 		<annotation cp="♭">నోట్ | ఫ్లాట్ | బెమోల్ | సంగీతం</annotation>
 		<annotation cp="♭" type="tts">ఫ్లాట్</annotation>
 		<annotation cp="♯">డీస | డైసిస్ | నోట్ | షార్ప్ | సంగీతం</annotation>
@@ -476,11 +760,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😛">నవ్వు | నాలుక | నాలుక బయటపెట్టి నవ్వుతున్న ముఖం | ముఖం</annotation>
 		<annotation cp="😛" type="tts">నాలుక బయటపెట్టి నవ్వుతున్న ముఖం</annotation>
 		<annotation cp="😜">కన్ను | నవ్వు | నాలుక | నాలుక బయటపెట్టి కన్ను కొడుతూ నవ్వుతున్న ముఖం | ముఖం</annotation>
-		<annotation cp="😜" type="tts">నాలుక బయటపెట్టి కన్ను కొడుతూ నవ్వుతున్న ముఖం</annotation>
+		<annotation cp="😜" type="tts">నాలుక చాచి కన్ను కొడుతున్న నవ్వు ముఖం</annotation>
 		<annotation cp="🤪">కళ్లు | చిన్న | పెద్ద | వెర్రి ముఖం</annotation>
 		<annotation cp="🤪" type="tts">వెర్రి ముఖం</annotation>
 		<annotation cp="😝">కళ్లు | నవ్వు | నాలుక | నాలుక బయటపెట్టి కళ్లు మూసుకొని నవ్వుతున్న ముఖం | ముఖం</annotation>
-		<annotation cp="😝" type="tts">నాలుక బయటపెట్టి కళ్లు మూసుకొని నవ్వుతున్న ముఖం</annotation>
+		<annotation cp="😝" type="tts">నాలుక చాచి కళ్లు మూసుకొని నవ్వు ముఖం</annotation>
 		<annotation cp="🤑">డబ్బు | డబ్బుతో కళ్లు, నోరు మూసుకుపోయిన ముఖం | నోరు | ముఖం</annotation>
 		<annotation cp="🤑" type="tts">డబ్బుతో కళ్లు, నోరు మూసుకుపోయిన ముఖం</annotation>
 		<annotation cp="🤗">కౌగిలి | కౌగిలించుకున్న ముఖం | ముఖం</annotation>
@@ -3435,10 +3719,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">పౌండ్</annotation>
 		<annotation cp="¥">కరెన్సీ | జెపివై | యువాన్ | యెన్ | సిఎన్‌వై</annotation>
 		<annotation cp="¥" type="tts">యెన్</annotation>
+		<annotation cp="₢" draft="contributed">BRB | కరెన్సీ | క్రూజిరో</annotation>
+		<annotation cp="₢" type="tts" draft="contributed">క్రూజిరో</annotation>
+		<annotation cp="₣" draft="contributed">కరెన్సీ | ఫ్రాంక్ | ఫ్రెంచ్ ఫ్రాంక్</annotation>
+		<annotation cp="₣" type="tts" draft="contributed">ఫ్రెంచ్ ఫ్రాంక్</annotation>
 		<annotation cp="₤" draft="contributed">కరెన్సీ</annotation>
+		<annotation cp="₤" type="tts" draft="contributed">లిరా</annotation>
 		<annotation cp="₥">మిల్</annotation>
 		<annotation cp="₥" type="tts">మిల్</annotation>
-		<annotation cp="₩">కెపిడబ్ల్యూ | వాన్</annotation>
+		<annotation cp="₩">కెఆర్‌డబ్ల్యూ | కెపిడబ్ల్యూ | వాన్</annotation>
 		<annotation cp="₩" type="tts">వాన్</annotation>
 		<annotation cp="€">ఇయుఆర్ | కరెన్సీ | యూరో</annotation>
 		<annotation cp="€" type="tts">యూరో</annotation>
@@ -3470,5 +3759,79 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="³" type="tts">సూపర్ స్క్రిప్ట్ మూడు</annotation>
 		<annotation cp="µ">కొలత | మైక్రో గుర్తు</annotation>
 		<annotation cp="µ" type="tts">మైక్రో గుర్తు</annotation>
+		<annotation cp="🛝">ఆడటం | పరిహాసా పార్క్</annotation>
+		<annotation cp="🛝" type="tts">జారుడుదారి</annotation>
+		<annotation cp="🛞">టర్న్ | బండిచక్రం పట్టీ | సర్కిల్</annotation>
+		<annotation cp="🛞" type="tts">చక్రం</annotation>
+		<annotation cp="🛟">కాపాడుట | జీవిత సంరక్షణ | జీవితాన్ని రక్షించేది | తేలుట | భద్రత</annotation>
+		<annotation cp="🛟" type="tts">జీవన రక్షణ వలయం</annotation>
+		<annotation cp="🟰">లెక్క | సమానత్వం</annotation>
+		<annotation cp="🟰" type="tts">పెద్ద సమాన చిహ్నం</annotation>
+		<annotation cp="🥹">ఏడుపు | ఓర్చుట | కృతజ్ఞతా పూర్వకంగా | కోపంతో చూస్తున్న ముఖం | నిరాశ</annotation>
+		<annotation cp="🥹" type="tts">కళ్లలో నీళ్లను ఆపుకోని కృతజ్ఞతో చూస్తున్న ముఖం</annotation>
+		<annotation cp="🧌">కాల్పనికం | జానపదం | రాక్షసుడు</annotation>
+		<annotation cp="🧌" type="tts">ట్రోల్</annotation>
+		<annotation cp="🩻">అస్థిపంజరం | ఎముకలు | మెడికల్ | వైద్యుడు</annotation>
+		<annotation cp="🩻" type="tts">ఎక్స్-రే</annotation>
+		<annotation cp="🩼">కర్ర | చలనశీలత సహాయం | చేతికర్ర | దెబ్బ | వైకల్యం</annotation>
+		<annotation cp="🩼" type="tts">చంక కర్ర</annotation>
+		<annotation cp="🪩">గ్లిటర్ | డాన్స్ | డిస్కో | పార్టీ</annotation>
+		<annotation cp="🪩" type="tts">గాజు ముక్కలతో అలంకరించిన బంతి</annotation>
+		<annotation cp="🪪">ఆధారాలు | ఐడి | భద్రత | లైసెన్స్</annotation>
+		<annotation cp="🪪" type="tts">గుర్తింపు కార్డు</annotation>
+		<annotation cp="🪫">ఎలక్ట్రానిక్ | తక్కువ శక్తి</annotation>
+		<annotation cp="🪫" type="tts">బ్యాటరీ తక్కువగా ఉంది</annotation>
+		<annotation cp="🪬">చేయి | ఫాతిమా | మరియమ్ | మారీ | రక్ష | సంరక్షణ</annotation>
+		<annotation cp="🪬" type="tts">హంసా</annotation>
+		<annotation cp="🪷">పువ్వు | బౌద్ధమతం | భారతదేశం | వియత్నాం | శుద్ధత | హిందూమతం</annotation>
+		<annotation cp="🪷" type="tts">తామరపువ్వు</annotation>
+		<annotation cp="🪸">నీటిలో మునిగియున్న | సముద్రం</annotation>
+		<annotation cp="🪸" type="tts">పగడం</annotation>
+		<annotation cp="🪹">పక్షి గూడు</annotation>
+		<annotation cp="🪹" type="tts">ఖాళీ గూడు</annotation>
+		<annotation cp="🪺">పక్షి గూడు</annotation>
+		<annotation cp="🪺" type="tts">గుడ్లతో ఉన్న గూడు</annotation>
+		<annotation cp="🫃">కడుపు | కడుపుతో ఉన్న | పూర్తిగా | పొంగిన కడుపు</annotation>
+		<annotation cp="🫃" type="tts">కడుపుతో ఉన్న పురుషుడు</annotation>
+		<annotation cp="🫄">ఉబ్బిన కడుపు | కడుపు | కడుపుతో ఉన్న | పూర్తిగా</annotation>
+		<annotation cp="🫄" type="tts">కడుపుతో ఉన్న వ్యక్తి</annotation>
+		<annotation cp="🫅">చక్రవర్తి | నోబల్ | రాజత్వము | రాజసం</annotation>
+		<annotation cp="🫅" type="tts">కిరీటంతో ఉన్న వ్యక్తి</annotation>
+		<annotation cp="🫗">ఒలకబోయుట | ఖాళీ చేయడం | గ్లాస్ | పానీయం</annotation>
+		<annotation cp="🫗" type="tts">పానీయం పోయుట</annotation>
+		<annotation cp="🫘">ఆహారం | కాయధాన్యములు | కిడ్నీ ఆకారంలో ఉన్న చిక్కుడుకాయ గింజలు</annotation>
+		<annotation cp="🫘" type="tts">చిక్కుడుకాయ గింజలు</annotation>
+		<annotation cp="🫙">ఖాళీగా ఉన్న సీసా | డబ్బా | నిల్వ చేయుట | పులుసు | మసాలా</annotation>
+		<annotation cp="🫙" type="tts">గాజు సీసా</annotation>
+		<annotation cp="🫠">కనబడకుండా పోవుట | కరగడం | కరిగిపోవు | ద్రవం</annotation>
+		<annotation cp="🫠" type="tts">కరుగుతున్న ముఖం</annotation>
+		<annotation cp="🫡">అవును | చరమవందనం | సన్నీ | సరే | సైన్యము</annotation>
+		<annotation cp="🫡" type="tts">చరమవందనం చేస్తున్న ముఖం</annotation>
+		<annotation cp="🫢">అవిశ్వాసము | ఆటంకపరచు | ఆవ్ | ఆశ్చర్యం | ఆశ్చర్యపడుట | భయపడిన ముఖం</annotation>
+		<annotation cp="🫢" type="tts">కళ్లు తెరిచి చేతితో నోరు మూసుకున్న ముఖం</annotation>
+		<annotation cp="🫣">ఆకర్షణీయంగా | కొద్దిగా చూచుట | తొంగిచూచుట</annotation>
+		<annotation cp="🫣" type="tts">చేతితో కళ్లు మూసుకోని కొద్దిగా చూస్తున్న ముఖం</annotation>
+		<annotation cp="🫤">అనిశ్చయమైన | తటస్థ ముఖం | నిరాశతో ఉన్న ముఖం | సందేహాస్పదగా ఉన్న ముఖం</annotation>
+		<annotation cp="🫤" type="tts">వికర్ణ మూతితో ఉన్న ముఖం</annotation>
+		<annotation cp="🫥">అణచబడిన ముఖం | అంతర్ముఖులు | కనిపించని | దాచు | మాయమగు</annotation>
+		<annotation cp="🫥" type="tts">చుక్కలతోచేసిన ముఖం</annotation>
+		<annotation cp="🫦">అసౌకర్యం | ఆతురత | గాబరా | బాధగా | భయం | వణకడం</annotation>
+		<annotation cp="🫦" type="tts">పెదవి కొరకడం</annotation>
+		<annotation cp="🫧">నీటి అడుగున | బర్ప్ | శుభ్రమైన | సబ్బు</annotation>
+		<annotation cp="🫧" type="tts">నీటి బుడగలు</annotation>
+		<annotation cp="🫰">ఖరీదైనది | గుండె | చిటిక | డబ్బు | ప్రేమ</annotation>
+		<annotation cp="🫰" type="tts">చూపుడు వేలును బొటనవేలుకి తాకిస్తున్న చేయి</annotation>
+		<annotation cp="🫱">కుడి | కుడివైపుకు | చేయి</annotation>
+		<annotation cp="🫱" type="tts">కుడివైపుకు చూపే చేయి</annotation>
+		<annotation cp="🫲">ఎడమ | ఎడమవైపుకు | చేయి</annotation>
+		<annotation cp="🫲" type="tts">ఎడమవైపుకు చూపే చేయి</annotation>
+		<annotation cp="🫳">తీసివేయి | వదిలివేయి | షూ</annotation>
+		<annotation cp="🫳" type="tts">అరచేయి కిందికి ఉండటం</annotation>
+		<annotation cp="🫴">అందించడం | పట్టుకోవడం | బెకాన్ | రండి</annotation>
+		<annotation cp="🫴" type="tts">అరచేయి పైకి ఉండడం</annotation>
+		<annotation cp="🫵">మీరు | సూచించడం</annotation>
+		<annotation cp="🫵" type="tts">వీక్షకులను చూపుతున్న చూపుడు వేలు</annotation>
+		<annotation cp="🫶">ప్రేమ</annotation>
+		<annotation cp="🫶" type="tts">హృదయాకారంలో చేతులు</annotation>
 	</annotations>
 </ldml>

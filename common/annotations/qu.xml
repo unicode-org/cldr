@@ -11,6 +11,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="qu"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">gullwing nisqa | kurchiti | llawi | wichqay kurchiti</annotation>
+		<annotation cp="{" type="tts">kichay kurchiti</annotation>
 		<annotation cp="🏻">1–2 kaq | chuya qara niraq | qara niraq</annotation>
 		<annotation cp="🏻" type="tts">chuya qara niraq</annotation>
 		<annotation cp="🏼">3 kaq | qara niraq | tunpa chuya qara niraq</annotation>
@@ -21,14 +23,692 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">tunpa yana qara niraq</annotation>
 		<annotation cp="🏿">6 kaq | qara niraq | yana qara niraq</annotation>
 		<annotation cp="🏿" type="tts">yana qara niraq</annotation>
-		<annotation cp="!">qapariq yupiy</annotation>
+		<annotation cp="‾">siqisqa | takay | vinculum</annotation>
+		<annotation cp="‾" type="tts">siqisqa</annotation>
+		<annotation cp="_">rakichikuq | siqi | siqichay | uran rakichikuq | uran rakichikuqpi | uran siqi</annotation>
+		<annotation cp="_" type="tts">uran siqi</annotation>
+		<annotation cp="-">qichuna | rakichikuq | siqi</annotation>
+		<annotation cp="-" type="tts">siqi qichuna</annotation>
+		<annotation cp="‐">rakichikuq | siqi</annotation>
+		<annotation cp="‐" type="tts">rakichikuq</annotation>
+		<annotation cp="–">qichuna | uchuy</annotation>
+		<annotation cp="–" type="tts">uchuy qichuna</annotation>
+		<annotation cp="—">hatun | qichuna</annotation>
+		<annotation cp="—" type="tts">hatun qichuna</annotation>
+		<annotation cp="―">kinrampa siqin | rakichikuq | siqi | warra</annotation>
+		<annotation cp="―" type="tts">kinrampa siqin</annotation>
+		<annotation cp="・">chawpi chiku | chikukuna | interpunct | katakana | katakana chawpi chiku</annotation>
+		<annotation cp="・" type="tts">katakana chawpi chiku</annotation>
+		<annotation cp=",">samachimpu</annotation>
+		<annotation cp="," type="tts">samachimpu</annotation>
+		<annotation cp="،">arabico | samachimpu</annotation>
+		<annotation cp="،" type="tts">arabico samachimpu</annotation>
+		<annotation cp="、">ideografico | samachimpu</annotation>
+		<annotation cp="、" type="tts">ideografico samachimpu</annotation>
+		<annotation cp=";">chiku samachimpu | chiku-samachimpu</annotation>
+		<annotation cp=";" type="tts">chiku samachimpu</annotation>
+		<annotation cp="؛">arabico | chiku samachimpu | chiku-samachimpu</annotation>
+		<annotation cp="؛" type="tts">arabico chiku samachimpu</annotation>
+		<annotation cp=":">chiku</annotation>
+		<annotation cp=":" type="tts">chiku</annotation>
+		<annotation cp="!">bang | qapariq | qapariq cchimpu | qapariq chiku</annotation>
 		<annotation cp="!" type="tts">qapariq yupiy</annotation>
-		<annotation cp="?">tapukuna | tapukuna yupiy</annotation>
+		<annotation cp="¡">bang | qapariq | qapariq chiku | qapariq chimpu | tikrasqa | tikrasqa qapariq chimpu</annotation>
+		<annotation cp="¡" type="tts">tikrasqa qapariq chimpu</annotation>
+		<annotation cp="?">tapuna | tapuna yupiy</annotation>
 		<annotation cp="?" type="tts">tapukuna yupiy</annotation>
-		<annotation cp="*">asterisco</annotation>
+		<annotation cp="¿">tapuna | tapuna chimpu | tikrasqa | tikrasqa tapuna yupiy</annotation>
+		<annotation cp="¿" type="tts">tikrasqa tapuna yupiy</annotation>
+		<annotation cp="؟">arabico | arabico tapuna yupiy | tapuna | tapuna chimpu</annotation>
+		<annotation cp="؟" type="tts">arabico tapuna yupiy</annotation>
+		<annotation cp="‽">interabang | interrobang nisqa</annotation>
+		<annotation cp="‽" type="tts">interrobang nisqa</annotation>
+		<annotation cp=".">chiku | qurpa chiku | tukuq chiku</annotation>
+		<annotation cp="." type="tts">tukuq chiku</annotation>
+		<annotation cp="…">chikukuna | elipsis | sayachiy</annotation>
+		<annotation cp="…" type="tts">elipsis</annotation>
+		<annotation cp="。">chiku | ideografico | tukuq chiku</annotation>
+		<annotation cp="。" type="tts">ideografico chiku</annotation>
+		<annotation cp="·">chawpi | chiku | interpunct</annotation>
+		<annotation cp="·" type="tts">chawpi chiku</annotation>
+		<annotation cp="'">apostrofe | apostrofe maquina qillqaywan | huklla willakuy | yapa willakuy</annotation>
+		<annotation cp="'" type="tts">apostrofe maquina qillqaywan</annotation>
+		<annotation cp="‘">apostrofe | huklla yapa willakuy | lluqi apostrofe | umayuq yapa willakuy | yapa willakuy</annotation>
+		<annotation cp="‘" type="tts">lluqi apostrofe</annotation>
+		<annotation cp="’">apostrofe | huklla yapa willakuy | paña apostrofe | umayuq yapa willakuy | yapa willakuy</annotation>
+		<annotation cp="’" type="tts">paña apostrofe</annotation>
+		<annotation cp="‚">apostrofe | pisi paña apostrofe | pisi yapa willakuy | yapa willakuy</annotation>
+		<annotation cp="‚" type="tts">uran paña apostrofe</annotation>
+		<annotation cp="“">iskay kumilla | kumilla | lluqi kumilla unancha | umayuq kumilla | yapa willakuy</annotation>
+		<annotation cp="“" type="tts">lluqi kumilla</annotation>
+		<annotation cp="”">iskay yapa willakuy | kumilla | paña kumilla | umayuq kumilla | yapa willakuy</annotation>
+		<annotation cp="”" type="tts">paña kumilla</annotation>
+		<annotation cp="„">iskay yapa kumilla | kumilla | umayuq kumilla | uran kumilla | uran paña kumilla | yapa willakuy</annotation>
+		<annotation cp="„" type="tts">uran paña kumilla</annotation>
+		<annotation cp="«">allin tuqyaq | cheuron | kuchu | kurchitikuna | lluqi | lluqi francesa kumilla | yapa willakuy</annotation>
+		<annotation cp="«" type="tts">lluqi francesa kumilla</annotation>
+		<annotation cp="»">allin tuqyaq | cheuron | kuchu | kurchitikuna | paña | paña francesa kumilla | yapa willakuy</annotation>
+		<annotation cp="»" type="tts">paña francesa kumilla</annotation>
+		<annotation cp=")">muyusqa parentesis | parentesis | wichqay parentesis</annotation>
+		<annotation cp=")" type="tts">wichqay parentesis</annotation>
+		<annotation cp="[">kichay tawakuchusqa parentesis | korchiti | parentesis | tawakuchusqa kurchiti</annotation>
+		<annotation cp="[" type="tts">kichay tawakuchusqa parentesis</annotation>
+		<annotation cp="]">kurchiti | parentesis | tawakuchusqa kurchiti | wichqay tawakuchusqa parentesis</annotation>
+		<annotation cp="]" type="tts">wichqay tawakuchusqa parentesis</annotation>
+		<annotation cp="}">gullqing nisqa | kurchiti | llawi | wichqay kurchiti</annotation>
+		<annotation cp="}" type="tts">wichqay kurchiti</annotation>
+		<annotation cp="〈">cheuron | diamante hina kurchiti | kichay kuchuwan kurchiti | kuchuwan kurchiti | kurchiti | tupla</annotation>
+		<annotation cp="〈" type="tts">kichay kuchuwan kurchiti</annotation>
+		<annotation cp="〉">cheuron | diamante kurchiti | kuchuwan kurchiti | kurchiti | tupla | wichqay kuchuwan kurchiti</annotation>
+		<annotation cp="〉" type="tts">wichqay kuchuwan kurchiti</annotation>
+		<annotation cp="《">iskaychasqa kuchuwan kurchiti | kichay iskaychasqa kuchuwan kurchiti | kurchiti</annotation>
+		<annotation cp="《" type="tts">iskay kichasqa kuchuwan kurchiti</annotation>
+		<annotation cp="》">iskaychasqa kuchuwan kurchiti | kurchiti | wichqay iskaychasqa kuchuwan kurchiti</annotation>
+		<annotation cp="》" type="tts">wichqay iskaychasqa kuchuwan kurchiti</annotation>
+		<annotation cp="「">kichay kuchuman kurchiti | kuchuman kurchiti | kurchiti</annotation>
+		<annotation cp="「" type="tts">kichay kuchuman kurchiti</annotation>
+		<annotation cp="」">kuchuman kurchiti | kurchiti | wichqay kuchuman kurchiti</annotation>
+		<annotation cp="」" type="tts">wichqay kuchuman kurchiti</annotation>
+		<annotation cp="『">kichay ukun kuchuman kurchiti | kurchiti | ukun kuchuman kurchiti</annotation>
+		<annotation cp="『" type="tts">kichay ukun kuchuman kurchiti</annotation>
+		<annotation cp="』">kurchiti | wichqay ukun kuchuwan kurchiti</annotation>
+		<annotation cp="』" type="tts">wichqay ukun kuchuwan kurchiti</annotation>
+		<annotation cp="【">kichay yana kurchiti | kurchiti | lenticular kurchiti</annotation>
+		<annotation cp="【" type="tts">kichay yana kurchiti</annotation>
+		<annotation cp="】">kurchiti | lenticular kurchiti | wichqay yana kurchiti</annotation>
+		<annotation cp="】" type="tts">wichqay yana kurchiti</annotation>
+		<annotation cp="〔">kichay turtuga hina kurchiti | kurchiti | turtuga hina kurchiti</annotation>
+		<annotation cp="〔" type="tts">kichay turtuga hina kurchiti</annotation>
+		<annotation cp="〕">kurchiti | turtuga hina kurchiti | wichqay turtuga hina kurchiti</annotation>
+		<annotation cp="〕" type="tts">wichqay turtuga hina kurchiti</annotation>
+		<annotation cp="〖">kichay ukunwan kurchiti | kurchiti | ukunwan kurchiti | ukunwan lenticular kurchiti</annotation>
+		<annotation cp="〖" type="tts">kichay ukunwan kurchiti</annotation>
+		<annotation cp="〗">kurchiti | ukunwan kurchiti | ukunwan lenticular kurchiti | wichqay ukunwan kurchiti</annotation>
+		<annotation cp="〗" type="tts">wichqay ukunwan kurchiti</annotation>
+		<annotation cp="§">hatun qillqa raki | raki | ruwana | silcrow</annotation>
+		<annotation cp="§" type="tts">ruwana</annotation>
+		<annotation cp="¶">alinea | hatun qillqa raki | hatun qillqa raki chimpu | pilcrow | rubrica</annotation>
+		<annotation cp="¶" type="tts">hatun qillqa raki chimpu</annotation>
+		<annotation cp="@">ampersat | arobase | arroba | arroba chimpu | arroba qatu | arroba unancha | arroba yupiy</annotation>
+		<annotation cp="@" type="tts">arroba unancha</annotation>
+		<annotation cp="*">asterisco | comodin | quyllur</annotation>
 		<annotation cp="*" type="tts">asterisco</annotation>
+		<annotation cp="/">raki chimpu | raki sananpa | siqa | solidus | warra</annotation>
+		<annotation cp="/" type="tts">raki sananpa</annotation>
+		<annotation cp="\">qipaman raki sananpa | raki chimpu | tikrasqa solidus</annotation>
+		<annotation cp="\" type="tts">qipaman raki sananpa</annotation>
+		<annotation cp="&amp;">amperson | chaymanta | hinaspa</annotation>
+		<annotation cp="&amp;" type="tts">amperson</annotation>
+		<annotation cp="#">hash | hash chimpu | hashtag | lb | libra | yupay</annotation>
+		<annotation cp="#" type="tts">hash chimpu</annotation>
+		<annotation cp="%">pachakchasqa | sapa pachak | sapa-pachak</annotation>
+		<annotation cp="%" type="tts">pachakchasqa</annotation>
+		<annotation cp="‰">permil | permille | sapa milla | sapa waranqa</annotation>
+		<annotation cp="‰" type="tts">sapa milla</annotation>
+		<annotation cp="†">daga | daga unancha | obelisco | obelus</annotation>
+		<annotation cp="†" type="tts">daga chimpu</annotation>
+		<annotation cp="‡">daqa | iskay | iskay daga unancha | obelisco | obelus</annotation>
+		<annotation cp="‡" type="tts">iskay daga unancha</annotation>
+		<annotation cp="•">chiku | viñeta</annotation>
+		<annotation cp="•" type="tts">viñeta</annotation>
+		<annotation cp="‧">chiku | rakichikuq | rakisqa chiku | siqi</annotation>
+		<annotation cp="‧" type="tts">rakisqa chiku</annotation>
+		<annotation cp="′">qapaq</annotation>
+		<annotation cp="′" type="tts">qapaq</annotation>
+		<annotation cp="″">iskay qapaq | qapaq</annotation>
+		<annotation cp="″" type="tts">iskay qapaq</annotation>
+		<annotation cp="‴">kimsa qapaq | qappaq</annotation>
+		<annotation cp="‴" type="tts">kimsa qapaq</annotation>
+		<annotation cp="‸">allin tuqyaq</annotation>
+		<annotation cp="‸" type="tts">allin tuqyaq</annotation>
+		<annotation cp="※">willakuy chimpu</annotation>
+		<annotation cp="※" type="tts">willakuy chimpu</annotation>
+		<annotation cp="⁂">asterismo | dinkus | quyllurkuna</annotation>
+		<annotation cp="⁂" type="tts">asterismo</annotation>
+		<annotation cp="`">grave | kunka | tonu</annotation>
+		<annotation cp="`" type="tts">grave kunka</annotation>
+		<annotation cp="´">agudu | kunka | tonu</annotation>
+		<annotation cp="´" type="tts">agudu kunka</annotation>
+		<annotation cp="^">chuku | circunflejo | kallpa | kuchu | patachay | qimiq | raki unancha</annotation>
+		<annotation cp="^" type="tts">circunflejo raki</annotation>
+		<annotation cp="¨">dieresis | tréma | umlaut</annotation>
+		<annotation cp="¨" type="tts">dieresis</annotation>
+		<annotation cp="°">gradu | prueba | ura</annotation>
+		<annotation cp="°" type="tts">gradu</annotation>
+		<annotation cp="℗">copyright | grawasqa | uyarina</annotation>
+		<annotation cp="℗" type="tts">uyarina copyright nisqawan grawasqa</annotation>
+		<annotation cp="←">lluqi | qawasqa lluqiman wachi | wachi</annotation>
+		<annotation cp="←" type="tts">qawasqa lluqiman wachi</annotation>
+		<annotation cp="↚">lluqiman siqi wachi</annotation>
+		<annotation cp="↚" type="tts">lluqiman siqi wachi</annotation>
+		<annotation cp="→">paña qawasqa paña wachi | wachi</annotation>
+		<annotation cp="→" type="tts">qawasqa paña wachi</annotation>
+		<annotation cp="↛">pañaman siqi wachi</annotation>
+		<annotation cp="↛" type="tts">pañaman siqi wachi</annotation>
+		<annotation cp="↑">hanaq | qawasqa hanaqman wachi | wachi</annotation>
+		<annotation cp="↑" type="tts">qawasqa hanaqman wachi</annotation>
+		<annotation cp="↓">qawasqa uranman wachi | uran | wachi</annotation>
+		<annotation cp="↓" type="tts">qawasqa uranman wachi</annotation>
+		<annotation cp="↜">lluqiman wayrawayra wachi</annotation>
+		<annotation cp="↜" type="tts">lluqiman wayrawayra wachi</annotation>
+		<annotation cp="↝">pañaman wayrawayra wachi</annotation>
+		<annotation cp="↝" type="tts">pañaman wayrawayra wachi</annotation>
+		<annotation cp="↞">lluqiman iskay umawan wachi</annotation>
+		<annotation cp="↞" type="tts">lluqiman iskay umawan wachi</annotation>
+		<annotation cp="↟">hanaqman iskay umawan wachi</annotation>
+		<annotation cp="↟" type="tts">hanaqman iskay umawan wachi</annotation>
+		<annotation cp="↠">pañaman iskay umawan wachi</annotation>
+		<annotation cp="↠" type="tts">pañaman iskay umawan wachi</annotation>
+		<annotation cp="↡">uranman iskay umawan wachi</annotation>
+		<annotation cp="↡" type="tts">uranman iskay umawan wachi</annotation>
+		<annotation cp="↢">lluqiman wachi chupiyuq</annotation>
+		<annotation cp="↢" type="tts">lluqiman wachi chupiyuq</annotation>
+		<annotation cp="↣">pañaman wachi chupiyuq</annotation>
+		<annotation cp="↣" type="tts">pañaman wachi chupiyuq</annotation>
+		<annotation cp="↤">lluqiman wachi warramanta</annotation>
+		<annotation cp="↤" type="tts">lluqiman wachi warramanta</annotation>
+		<annotation cp="↥">hanaqman wachi warramanta</annotation>
+		<annotation cp="↥" type="tts">hanaqman wachi warramanta</annotation>
+		<annotation cp="↦">pañaman wachi warramanta</annotation>
+		<annotation cp="↦" type="tts">pañaman wachi warramanta</annotation>
+		<annotation cp="↧">uranman wachi warramanta</annotation>
+		<annotation cp="↧" type="tts">uranman wachi warramanta</annotation>
+		<annotation cp="↨">uranmanta hanaqman wachi siqiwan</annotation>
+		<annotation cp="↨" type="tts">uranmanta hanaqman wachi siqiwan</annotation>
+		<annotation cp="↫">lluqiman wachi lazowan</annotation>
+		<annotation cp="↫" type="tts">lluqiman wachi lazowan</annotation>
+		<annotation cp="↬">pañaman wachi lazowan</annotation>
+		<annotation cp="↬" type="tts">pañaman wachi lazowan</annotation>
+		<annotation cp="↭">lluqi paña wayrawayra wachi</annotation>
+		<annotation cp="↭" type="tts">lluqi paña wayrawayra wachi</annotation>
+		<annotation cp="↯">uranman zigzag hina wachi | zigzag nisqa</annotation>
+		<annotation cp="↯" type="tts">uranman zigzag hina wachi</annotation>
+		<annotation cp="↰">hanaqman wachi ñawchiwan lluqiman</annotation>
+		<annotation cp="↰" type="tts">hanaqman wachi ñawchiwan lluqiman</annotation>
+		<annotation cp="↱">hanaqman wachi ñawchiwan pañaman</annotation>
+		<annotation cp="↱" type="tts">hanaqman wachi ñawchiwan pañaman</annotation>
+		<annotation cp="↲">uranman wachi ñawchiwan lluqiman</annotation>
+		<annotation cp="↲" type="tts">uranman wachi ñawchiwan lluqiman</annotation>
+		<annotation cp="↳">uranman wachi ñawchiwan pañaman</annotation>
+		<annotation cp="↳" type="tts">uranman wachi ñawchiwan pañaman</annotation>
+		<annotation cp="↴">pañaman wachi kuchuwan uranman</annotation>
+		<annotation cp="↴" type="tts">pañaman wachi kuchuwan uranman</annotation>
+		<annotation cp="↵">uranman wachi kuchuwan lluqiman</annotation>
+		<annotation cp="↵" type="tts">uranman wachi kuchuwan lluqiman</annotation>
+		<annotation cp="↶">tikrasqa ura qatichkanku hanaqpi kuska muyusqa wachi</annotation>
+		<annotation cp="↶" type="tts">tikrasqa ura qatichkanku hanaqpi kuska muyusqa wachi</annotation>
+		<annotation cp="↷">ura qatichkanku hanaqpi kuska muyusqa wachi</annotation>
+		<annotation cp="↷" type="tts">ura qatichkanku hanaqpi kuska muyusqa wachi</annotation>
+		<annotation cp="↸">chincha kunti wachi hatun warrawan</annotation>
+		<annotation cp="↸" type="tts">chincha kunti wachi hatun warrawan</annotation>
+		<annotation cp="↹">lluqiman wachi pañaman wachipi</annotation>
+		<annotation cp="↹" type="tts">lluqiman wachi pañaman wachipi</annotation>
+		<annotation cp="↺">tikrasqa ura qatispa kichasqa muyuwan wachi</annotation>
+		<annotation cp="↺" type="tts">tikrasqa ura qatispa kichasqa muyuwan wachi</annotation>
+		<annotation cp="↻">ura qatispa kichasqa muyuwan wachi</annotation>
+		<annotation cp="↻" type="tts">ura qatispa kichasqa muyuwan wachi</annotation>
+		<annotation cp="↼">lluqiman arpon puya hina hanaqman | puya</annotation>
+		<annotation cp="↼" type="tts">lluqiman arpon puya hina hanaqman</annotation>
+		<annotation cp="↽">lluqiman arpon puya hina uranman</annotation>
+		<annotation cp="↽" type="tts">lluqiman arpon puya hina uranman</annotation>
+		<annotation cp="↾">hanaqman arpon puya hina pañaman | puya</annotation>
+		<annotation cp="↾" type="tts">hanaqman arpon puya hina pañaman</annotation>
+		<annotation cp="↿">hanaqman arpon puya hina lluqiman | puya hina</annotation>
+		<annotation cp="↿" type="tts">hanaqman arpon puya hina lluqiman</annotation>
+		<annotation cp="⇀">pañaman arpon puya hina hanaqman | puya</annotation>
+		<annotation cp="⇀" type="tts">pañaman arpon puya hina hanaqman</annotation>
+		<annotation cp="⇁">pañaman arpon puya hina uranman | puya</annotation>
+		<annotation cp="⇁" type="tts">pañaman arpon puya hina uranman</annotation>
+		<annotation cp="⇂">puya | uranman arpon puya hina pañaman</annotation>
+		<annotation cp="⇂" type="tts">uranman arpon puya hina pañaman</annotation>
+		<annotation cp="⇃">puya | uranman arpon puya hina lluqiman</annotation>
+		<annotation cp="⇃" type="tts">uranman arpon hina lluqiman</annotation>
+		<annotation cp="⇄">pañaman wachi lluqiman wachipi</annotation>
+		<annotation cp="⇄" type="tts">pañaman wachi lluqiman wachipi</annotation>
+		<annotation cp="⇅">hanaq | qawasqa hanaqman hinaspa qawasqa uranman wachikuna | uran | wachi</annotation>
+		<annotation cp="⇅" type="tts">qawasqa hanaqman-uranman wachikuna</annotation>
+		<annotation cp="⇆">lluqi | paña | qawasqa lluqi qawasqa pañapi wachikuna | wachi</annotation>
+		<annotation cp="⇆" type="tts">qawasqa lluqiman pañapi wachikuna</annotation>
+		<annotation cp="⇇">iskaychasqa lluqiman wachikuna</annotation>
+		<annotation cp="⇇" type="tts">iskaychasqa lluqiman wachikuna</annotation>
+		<annotation cp="⇈">iskaychasqa hanaqman wachikuna</annotation>
+		<annotation cp="⇈" type="tts">iskaychasqa hanaqman wachikuna</annotation>
+		<annotation cp="⇉">iskaychasqa pañaman wachikuna</annotation>
+		<annotation cp="⇉" type="tts">iskaychasqa pañaman wachikuna</annotation>
+		<annotation cp="⇊">iskaychasqa uranman wachikuna</annotation>
+		<annotation cp="⇊" type="tts">iskaychasqa uranman wachikuna</annotation>
+		<annotation cp="⇋">lluqiman arpon pañaman arponpi</annotation>
+		<annotation cp="⇋" type="tts">lluqiman arpon pañaman arponpi</annotation>
+		<annotation cp="⇌">pañaman arpon lluqiman arponpi</annotation>
+		<annotation cp="⇌" type="tts">pañaman arpon lluqiman arponpi</annotation>
+		<annotation cp="⇐">lluqiman iskay wachi</annotation>
+		<annotation cp="⇐" type="tts">lluqiman iskay wachi</annotation>
+		<annotation cp="⇍">lluqiman iskay wachi siqiwan</annotation>
+		<annotation cp="⇍" type="tts">lluqiman iskay wachi siqiwan</annotation>
+		<annotation cp="⇑">hanaqman iskay wachi</annotation>
+		<annotation cp="⇑" type="tts">hanaqman iskay wachi</annotation>
+		<annotation cp="⇒">pañaman iskay wachi</annotation>
+		<annotation cp="⇒" type="tts">pañaman iskay wachi</annotation>
+		<annotation cp="⇏">pañaman iskay wachi siqiwan</annotation>
+		<annotation cp="⇏" type="tts">pañaman iskay wachi siqiwan</annotation>
+		<annotation cp="⇓">uranman iskay wachi</annotation>
+		<annotation cp="⇓" type="tts">uranman iskay wachi</annotation>
+		<annotation cp="⇔">lluqiman pañaman iskay wachi</annotation>
+		<annotation cp="⇔" type="tts">lluqiman pañaman iskay wachi</annotation>
+		<annotation cp="⇎">lluqiman pañaman iskay wachi siqiwan</annotation>
+		<annotation cp="⇎" type="tts">lluqiman pañaman iskay wachi siqiwan</annotation>
+		<annotation cp="⇖">chinchaman kuntiman iskay wachi</annotation>
+		<annotation cp="⇖" type="tts">chinchaman kuntiman iskay wachi</annotation>
+		<annotation cp="⇗">chinchaman antiman iskay wachi</annotation>
+		<annotation cp="⇗" type="tts">chinchaman antiman iskay wachi</annotation>
+		<annotation cp="⇘">qullaman antiman iskay wachi</annotation>
+		<annotation cp="⇘" type="tts">qullaman antiman iskay wachi</annotation>
+		<annotation cp="⇙">qullaman kuntiman iskay wachi</annotation>
+		<annotation cp="⇙" type="tts">qullaman kuntiman iskay wachi</annotation>
+		<annotation cp="⇚">lluqiman kimsa wachi</annotation>
+		<annotation cp="⇚" type="tts">lluqiman kimsa wachi</annotation>
+		<annotation cp="⇛">pañaman kimsa wachi</annotation>
+		<annotation cp="⇛" type="tts">pañaman kimsa wachi</annotation>
+		<annotation cp="⇜">lluqiman siqikunawan wachi</annotation>
+		<annotation cp="⇜" type="tts">lluqiman siqikunawan wachi</annotation>
+		<annotation cp="⇝">pañaman siqikunawan wachi</annotation>
+		<annotation cp="⇝" type="tts">pañaman siqikunawan wachi</annotation>
+		<annotation cp="⇞">hanaqman wachi iskay siqikunawan</annotation>
+		<annotation cp="⇞" type="tts">hanaqman wachi iskay siqikunawan</annotation>
+		<annotation cp="⇟">uranman wachi iskay siqikunawan</annotation>
+		<annotation cp="⇟" type="tts">uranman wachi iskay siqikunawan</annotation>
+		<annotation cp="⇠">lluqi chikukunawan wachi</annotation>
+		<annotation cp="⇠" type="tts">lluqiman chikukunawan wachi</annotation>
+		<annotation cp="⇡">hanaqman chikukunawan wachi</annotation>
+		<annotation cp="⇡" type="tts">hanaqman chikukunawan wachi</annotation>
+		<annotation cp="⇢">pañaman chikukunawan wachi</annotation>
+		<annotation cp="⇢" type="tts">pañaman chikukunawan wachi</annotation>
+		<annotation cp="⇣">uranman chikukunawan wachi</annotation>
+		<annotation cp="⇣" type="tts">uranman chikukunawan wachi</annotation>
+		<annotation cp="⇤">lluqiman warrawan wachi</annotation>
+		<annotation cp="⇤" type="tts">lluqiman warrawan wachi</annotation>
+		<annotation cp="⇥">pañaman warrawan wachi</annotation>
+		<annotation cp="⇥" type="tts">pañaman warrawan wachi</annotation>
+		<annotation cp="⇦">lluqiman ukunman wachi</annotation>
+		<annotation cp="⇦" type="tts">lluqiman ukunwan wachi</annotation>
+		<annotation cp="⇧">hanaqman ukunman wachi</annotation>
+		<annotation cp="⇧" type="tts">hanaqman ukunman wachi</annotation>
+		<annotation cp="⇨">pañaman ukunman wachi</annotation>
+		<annotation cp="⇨" type="tts">pañaman ukunman wachi</annotation>
+		<annotation cp="⇩">uranman ukunman wachi</annotation>
+		<annotation cp="⇩" type="tts">uranman ukunman wachi</annotation>
+		<annotation cp="⇪">hanaqman ukunman warramanta wachi</annotation>
+		<annotation cp="⇪" type="tts">hanaqman ukunman warramanta wachi</annotation>
+		<annotation cp="⇵">uranman wachi lluqipi uranman wachiwan</annotation>
+		<annotation cp="⇵" type="tts">uranman wachi lluqipi uranman wachiwan</annotation>
+		<annotation cp="∀">llapa | llapapaq | lliw | qusqa | wakin</annotation>
+		<annotation cp="∀" type="tts">llapapaq</annotation>
+		<annotation cp="∂">diferencial | kuska diferencial</annotation>
+		<annotation cp="∂" type="tts">kuska diferencial</annotation>
+		<annotation cp="∃">kaymiña</annotation>
+		<annotation cp="∃" type="tts">kaymiña</annotation>
+		<annotation cp="∅">chusaq huñu | huñu llamkaq | matematicas</annotation>
+		<annotation cp="∅" type="tts">chusaq huñu</annotation>
+		<annotation cp="∆">kimsakuchu | yapay</annotation>
+		<annotation cp="∆" type="tts">yapay</annotation>
+		<annotation cp="∇">nabla kimsakuchu</annotation>
+		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="∈">huñu | ima | ima kaymanta | intigranti | tiyan</annotation>
+		<annotation cp="∈" type="tts">ima kaymanta</annotation>
+		<annotation cp="∉">ima | mana huk imayuq</annotation>
+		<annotation cp="∉" type="tts">mana huk imayuq</annotation>
+		<annotation cp="∋">ima | intigranti hina tiyan</annotation>
+		<annotation cp="∋" type="tts">intigranti hina tiyan</annotation>
+		<annotation cp="∎">halmos | lapida | q.e.d. | qed | tukuq mallina</annotation>
+		<annotation cp="∎" type="tts">tukuq mallina</annotation>
+		<annotation cp="∏">logico | mana tukukuq ruru | ruru</annotation>
+		<annotation cp="∏" type="tts">mana tukukuq ruru</annotation>
+		<annotation cp="∑">mana tukukuq yapaynin | matematicas | yapaynin</annotation>
+		<annotation cp="∑" type="tts">mana tukukuq yapaynin</annotation>
+		<annotation cp="+">yapana | yapana unancha | yapay</annotation>
+		<annotation cp="+" type="tts">yapana unancha</annotation>
+		<annotation cp="±">yapana-qichuna</annotation>
+		<annotation cp="±" type="tts">yapana qichuna</annotation>
+		<annotation cp="÷">obelus | rakina | rakina unancha | rakiy</annotation>
+		<annotation cp="÷" type="tts">rakina unancha</annotation>
+		<annotation cp="×">mirachina | mirachina unancha | mirachiy | pachakuna</annotation>
+		<annotation cp="×" type="tts">mirachina unancha</annotation>
+		<annotation cp="&lt;">pisi kayhina | pisi-kayhina | sutichaq | sutichaq kichay</annotation>
+		<annotation cp="&lt;" type="tts">pisi kayhina</annotation>
+		<annotation cp="≮">mana kikin | mana pisin | matematicas</annotation>
+		<annotation cp="≮" type="tts">mana pisin</annotation>
+		<annotation cp="=">kikin | kikinkuna</annotation>
+		<annotation cp="=" type="tts">kikin</annotation>
+		<annotation cp="≠">ama kikinkaq | mana kikin | mana kikin kay</annotation>
+		<annotation cp="≠" type="tts">ama kikinkaq</annotation>
+		<annotation cp="&gt;">aswan hatun kayhina | aswan hatun-kayhina | qaylla sutichaq | sutichaq</annotation>
+		<annotation cp="&gt;" type="tts">aswan hatun kayhina</annotation>
+		<annotation cp="≯">mana kikin | mana kuraqnin | matematicas</annotation>
+		<annotation cp="≯" type="tts">mana kuraqnin</annotation>
+		<annotation cp="¬">ama | mana</annotation>
+		<annotation cp="¬" type="tts">ama</annotation>
+		<annotation cp="|">kuqmu | qispi | sayampa siqin | sayampa warran | sheffer warra | siqi | warra</annotation>
+		<annotation cp="|" type="tts">sayampa siqin</annotation>
+		<annotation cp="~">asintu</annotation>
+		<annotation cp="~" type="tts">asintu</annotation>
+		<annotation cp="−">qichuna | qichuna unancha | qichuy</annotation>
+		<annotation cp="−" type="tts">qichuna unancha</annotation>
+		<annotation cp="⁻">hatun qillqa | qichuna</annotation>
+		<annotation cp="⁻" type="tts">hatun qillqa qichuna</annotation>
+		<annotation cp="∓">qichuna uta yapana | qichuna-yapana</annotation>
+		<annotation cp="∓" type="tts">qichuna utaq yapana</annotation>
+		<annotation cp="∕">rakina warra | siqi | virgula | warra</annotation>
+		<annotation cp="∕" type="tts">rakina warra</annotation>
+		<annotation cp="⁄">chiqta warra | siqi | virgula</annotation>
+		<annotation cp="⁄" type="tts">chiqta warra</annotation>
 		<annotation cp="∗">quyllur</annotation>
-		<annotation cp="⊕">yapana</annotation>
+		<annotation cp="∗" type="tts">asterisku llamkaq</annotation>
+		<annotation cp="∘">huñuynin | llamkaq | siwi llamkaq</annotation>
+		<annotation cp="∘" type="tts">siwi llamkaq</annotation>
+		<annotation cp="∙">llamkaq | siqichana yupi llamkaq</annotation>
+		<annotation cp="∙" type="tts">siqichana yupi llamkaq</annotation>
+		<annotation cp="√">radical | sapi | surd | tawakuchu</annotation>
+		<annotation cp="√" type="tts">iskaychasqa sapi</annotation>
+		<annotation cp="∝">proporcional | proporcionalidad</annotation>
+		<annotation cp="∝" type="tts">proporcional</annotation>
+		<annotation cp="∞">wiñaypaq | wiñaypaq wiñaynin unancha</annotation>
+		<annotation cp="∞" type="tts">wiñaypaq wiñaynin unancha</annotation>
+		<annotation cp="∟">matematicas | paña kuchu</annotation>
+		<annotation cp="∟" type="tts">paña kuchu</annotation>
+		<annotation cp="∠">agudu | kuchu</annotation>
+		<annotation cp="∠" type="tts">kuchu</annotation>
+		<annotation cp="∣">rakina | rakiq</annotation>
+		<annotation cp="∣" type="tts">rakina</annotation>
+		<annotation cp="∥">paralilu</annotation>
+		<annotation cp="∥" type="tts">paralilu</annotation>
+		<annotation cp="∧">ac | atque | logico kaywan | patma</annotation>
+		<annotation cp="∧" type="tts">logico kaywan</annotation>
+		<annotation cp="∩">huñu | siqi tinkuy</annotation>
+		<annotation cp="∩" type="tts">siqi tinkuy</annotation>
+		<annotation cp="∪">huñu | huñusqa | tinkuy</annotation>
+		<annotation cp="∪" type="tts">tinkuy</annotation>
+		<annotation cp="∫">lliw | yupachay</annotation>
+		<annotation cp="∫" type="tts">lliw</annotation>
+		<annotation cp="∬">iskay lliw | yupachay</annotation>
+		<annotation cp="∬" type="tts">iskay lliw</annotation>
+		<annotation cp="∮">muyusqa lliw</annotation>
+		<annotation cp="∮" type="tts">muyusqa lliw</annotation>
+		<annotation cp="∴">chantapas | logicu</annotation>
+		<annotation cp="∴" type="tts">chantapas</annotation>
+		<annotation cp="∵">imarayku | logico</annotation>
+		<annotation cp="∵" type="tts">imarayku</annotation>
+		<annotation cp="∶">chaychá</annotation>
+		<annotation cp="∶" type="tts">chaychá</annotation>
+		<annotation cp="∷">proporcion | proporcionalidad</annotation>
+		<annotation cp="∷" type="tts">proporcion</annotation>
+		<annotation cp="∼">llamkaq | tilde llamkaq</annotation>
+		<annotation cp="∼" type="tts">tilde llamkaq</annotation>
+		<annotation cp="∽">tikrasqa tilde | tilde</annotation>
+		<annotation cp="∽" type="tts">tikrasqa tilde</annotation>
+		<annotation cp="∾">tikrasqa s sananpa</annotation>
+		<annotation cp="∾" type="tts">tikrasqa s sananpa</annotation>
+		<annotation cp="≃">asintota | kikin asintoticamente nisqa | matematicas</annotation>
+		<annotation cp="≃" type="tts">kikin asintoticamente nisqa</annotation>
+		<annotation cp="≅">congruencia | isomorfismo | kikinkaq | matematicas | yaqa kikin</annotation>
+		<annotation cp="≅" type="tts">yaqa kikin</annotation>
+		<annotation cp="≈">kikinña | qayllachispa | qayllachiy</annotation>
+		<annotation cp="≈" type="tts">kikinña</annotation>
+		<annotation cp="≌">kikinkaq | llapa kikin | matematicas</annotation>
+		<annotation cp="≌" type="tts">llapa kikin</annotation>
+		<annotation cp="≒">yaqa kikin rikchaynin hina</annotation>
+		<annotation cp="≒" type="tts">yaqa kikin rikchaynin hina</annotation>
+		<annotation cp="≖">kikinkaq | matematicas | siwi kikin chimpupi</annotation>
+		<annotation cp="≖" type="tts">siwi kikin chimpupi</annotation>
+		<annotation cp="≡">kikillantaq | kikin | kimsa | riqsichisqa</annotation>
+		<annotation cp="≡" type="tts">kikillantaq</annotation>
+		<annotation cp="≣">chiqa kikin | kikinkaq | matematicas</annotation>
+		<annotation cp="≣" type="tts">chiqa kikin</annotation>
+		<annotation cp="≤">kikin | kikinkuna | mana kikinkaq | pisi kayhina utaq kikin | pisi-kayhina</annotation>
+		<annotation cp="≤" type="tts">pisi kayhin utaq kikin</annotation>
+		<annotation cp="≥">aswan hatun kayhina | aswan hatun kayhina utaq kikin | kikin | kikinkuna | mana kikinkaq</annotation>
+		<annotation cp="≥" type="tts">aswan hatun kayhina utaq kikin</annotation>
+		<annotation cp="≦">kikinkaq | matematicas | pisin kikin chimpupi</annotation>
+		<annotation cp="≦" type="tts">pisin kikin chimpupi</annotation>
+		<annotation cp="≧">kuraqnin kikin chimpupi | mana kikin | matematicas</annotation>
+		<annotation cp="≧" type="tts">kuraqnin kikin chimpupi</annotation>
+		<annotation cp="≪">aswan pisin | mana kikin | matematicas</annotation>
+		<annotation cp="≪" type="tts">aswan pisin</annotation>
+		<annotation cp="≫">aswan kuraqnin | mana kikin | matematicas</annotation>
+		<annotation cp="≫" type="tts">aswan kuraqnin</annotation>
+		<annotation cp="≬">kaypura</annotation>
+		<annotation cp="≬" type="tts">kaypura</annotation>
+		<annotation cp="≳">kikin kuraqnin | mana kikin | matematicas</annotation>
+		<annotation cp="≳" type="tts">kikin kuraqnin</annotation>
+		<annotation cp="≺">huñu llamkaq | matematicas | ñawpaqman</annotation>
+		<annotation cp="≺" type="tts">ñawpaqman</annotation>
+		<annotation cp="≻">huñu llamkaq | matematicas | qipaman</annotation>
+		<annotation cp="≻" type="tts">qipaman</annotation>
+		<annotation cp="⊁">huñu llamkaq | manam qipaman kanchu | matematicas</annotation>
+		<annotation cp="⊁" type="tts">manam qipaman kanchu</annotation>
+		<annotation cp="⊂">huñu | sullka huñu | sullka huñu kaymanta</annotation>
+		<annotation cp="⊂" type="tts">sullka huñu kaymanta</annotation>
+		<annotation cp="⊃">hatun huñu | huñu llamkaq | matematicas</annotation>
+		<annotation cp="⊃" type="tts">hatun huñu</annotation>
+		<annotation cp="⊆">uchuy huñu kikin chimpuwan</annotation>
+		<annotation cp="⊆" type="tts">uchuy huñu kikin chimpuwan</annotation>
+		<annotation cp="⊇">hatun huñu kikin chimpuwan | kikinkaq | matematicas</annotation>
+		<annotation cp="⊇" type="tts">hatun huñu kikin chimpuwan</annotation>
+		<annotation cp="⊕">muyupi yapana | yapana</annotation>
+		<annotation cp="⊕" type="tts">muyupi yapana</annotation>
+		<annotation cp="⊖">erosion | kikin puchu | muyupi qichuna</annotation>
+		<annotation cp="⊖" type="tts">muyupi qichuna</annotation>
+		<annotation cp="⊗">muyupi mirana | ruru | tensor</annotation>
+		<annotation cp="⊗" type="tts">muyupi mirana</annotation>
+		<annotation cp="⊘">matematicas | muyupi rakina warra | rakina hina</annotation>
+		<annotation cp="⊘" type="tts">muyupi rakina warra</annotation>
+		<annotation cp="⊙">muyupi chusu llamkaq</annotation>
+		<annotation cp="⊙" type="tts">muyupi chusu llamkaq</annotation>
+		<annotation cp="⊚">muyupi siwi llamkaq</annotation>
+		<annotation cp="⊚" type="tts">muyupi siwi llamkaq</annotation>
+		<annotation cp="⊛">asterisku | llamkaq | muyupi asterisku llamkaq</annotation>
+		<annotation cp="⊛" type="tts">muyupi asterisku llamkaq</annotation>
+		<annotation cp="⊞">matematicas | tawakuchupi yapana | yapana hina</annotation>
+		<annotation cp="⊞" type="tts">tawakuchupi yapana</annotation>
+		<annotation cp="⊟">matematicas | qichuna hina | tawakuchupi qichuna</annotation>
+		<annotation cp="⊟" type="tts">tawakuchupi qichuna</annotation>
+		<annotation cp="⊥">eet | falsum | hanaqman tachuela | tachuela</annotation>
+		<annotation cp="⊥" type="tts">hanaqman tachuela</annotation>
+		<annotation cp="⊮">manam kallpa kanchu</annotation>
+		<annotation cp="⊮" type="tts">manam kallpa kanchu</annotation>
+		<annotation cp="⊰">huñu llamkaq | matematicas | ñawpaqman tinkuywan</annotation>
+		<annotation cp="⊰" type="tts">ñawpaqman tinkuywan</annotation>
+		<annotation cp="⊱">huñu llamkaq | matematica | qipaman tinkuywan</annotation>
+		<annotation cp="⊱" type="tts">qipaman tinkuywan</annotation>
+		<annotation cp="⋭">huñu teoria | manam kaqlla hina ichuy huñu kikinwan tiyanchu | matematicas</annotation>
+		<annotation cp="⋭" type="tts">manam kaqlla hina uchuy huñu kikinwan tiyanchu</annotation>
+		<annotation cp="⊶">kikinchay</annotation>
+		<annotation cp="⊶" type="tts">kikinchay</annotation>
+		<annotation cp="⊹">ermitaño muyuchiy sapin | kikin huñusqa sapin | matematicas | tawakuchusqapa sapin</annotation>
+		<annotation cp="⊹" type="tts">ermitaño muyuchiy sapin</annotation>
+		<annotation cp="⊿">matematicas | paña kimsa kuchu | paña kimsa kuchuwan</annotation>
+		<annotation cp="⊿" type="tts">paña kimsa kuchu</annotation>
+		<annotation cp="⋁">disyuncion | logico | n-ary logico utaq</annotation>
+		<annotation cp="⋁" type="tts">n-ary logico utaq</annotation>
+		<annotation cp="⋂">huñu llamkaq | interseccion | matematicas | n-ary interseccion</annotation>
+		<annotation cp="⋂" type="tts">n-ary interseccion</annotation>
+		<annotation cp="⋃">huñu llamkaq | matematicas | n-ary tinkiy | tinkiy</annotation>
+		<annotation cp="⋃" type="tts">n-ary tinkiy</annotation>
+		<annotation cp="⋅">chusu llamkaq | llamkaq</annotation>
+		<annotation cp="⋅" type="tts">chusu llamkaq</annotation>
+		<annotation cp="⋆">llamkaq | quyllur llamkaq</annotation>
+		<annotation cp="⋆" type="tts">quyllur llamkaq</annotation>
+		<annotation cp="⋈">iskaychasqa llamkaq | kawsaq tinkuy | moñowan corbata</annotation>
+		<annotation cp="⋈" type="tts">kawsaq tikuy</annotation>
+		<annotation cp="⋒">huñu llamkaq | iskay tinkuy | matematicas | tinkuy</annotation>
+		<annotation cp="⋒" type="tts">iskay tinkuy</annotation>
+		<annotation cp="⋘">ancha aswan pisin | mana kikin | matematicas</annotation>
+		<annotation cp="⋘" type="tts">ancha aswan pisin</annotation>
+		<annotation cp="⋙">ancha aswan kuraqnin | mana kikin | matematicas</annotation>
+		<annotation cp="⋙" type="tts">ancha aswan kuraqnin</annotation>
+		<annotation cp="⋮">elipsis | matematicas | sayampa kimsa qatipasqa chusukuna</annotation>
+		<annotation cp="⋮" type="tts">sayampa kimsa qatipasqa chusukuna</annotation>
+		<annotation cp="⋯">chawpipi kinrampa kimsa qatipasqa chusukuna | elipsis</annotation>
+		<annotation cp="⋯" type="tts">chawpipi kinrampa kimsa qatipasqa chusukuna</annotation>
+		<annotation cp="⋰">elipsis | hanaq pañaman siqi kimsa qatipasqa chusukuna | matematicas</annotation>
+		<annotation cp="⋰" type="tts">hanaq pañaman siqi kimsa qatipasqa chusukuna</annotation>
+		<annotation cp="⋱">elipsis | matematicas | sa qatipasqa chusukuna</annotation>
+		<annotation cp="⋱" type="tts">uran pañaman siqi kimsa qatipasqa chusukuna</annotation>
+		<annotation cp="■">huntasqa tawakuchu</annotation>
+		<annotation cp="■" type="tts">huntasqa tawakuchu</annotation>
+		<annotation cp="□">ukunwan tawakuchu</annotation>
+		<annotation cp="□" type="tts">ukunwan tawakuchu</annotation>
+		<annotation cp="▢">ukunwan tawakuchu muyusqa kuchukunawan</annotation>
+		<annotation cp="▢" type="tts">ukunwan tawakuchu muyusqa kuchukunawan</annotation>
+		<annotation cp="▣">ukunwan tawakuchu huntasqa tawakuchuyuqwan</annotation>
+		<annotation cp="▣" type="tts">ukunwan tawakuchu huntasqa tawakuchuyuqwan</annotation>
+		<annotation cp="▤">tawakuchu kinrampawan huntasqa</annotation>
+		<annotation cp="▤" type="tts">tawakuchu kinrampawan huntasqa</annotation>
+		<annotation cp="▥">tawakuchu sayampawan huntasqa</annotation>
+		<annotation cp="▥" type="tts">tawakuchu sayampawan huntasqa</annotation>
+		<annotation cp="▦">tawakuchu pusaq chakanawan huntasqa</annotation>
+		<annotation cp="▦" type="tts">tawakuchu pusaq chakanawan huntasqa</annotation>
+		<annotation cp="▧">tawakuchu siqikunawan ukun lluqiman</annotation>
+		<annotation cp="▧" type="tts">tawakuchu siqikunawan ukun lluqiman</annotation>
+		<annotation cp="▨">tawakuchu siqikunawan ukun pañaman</annotation>
+		<annotation cp="▨" type="tts">tawakuchu siqikunawan ukun pañaman</annotation>
+		<annotation cp="▩">tawakuchu huntasqa chiqa siqikunawan</annotation>
+		<annotation cp="▩" type="tts">tawakuchu huntasqa chiqa siqikunawan</annotation>
+		<annotation cp="▬">huntasqa saytu</annotation>
+		<annotation cp="▬" type="tts">huntasqa saytu</annotation>
+		<annotation cp="▭">chusaq saytu</annotation>
+		<annotation cp="▭" type="tts">chusaq saytu</annotation>
+		<annotation cp="▮">huntasqa sayampa saytu</annotation>
+		<annotation cp="▮" type="tts">huntasqa sayampa saytu</annotation>
+		<annotation cp="▰">huntasqa paralelogramo</annotation>
+		<annotation cp="▰" type="tts">huntasqa paralelogramo</annotation>
+		<annotation cp="▲">hanaq | huntasqa | huntasqa hanaqman ñawpiwan kimsakuchu | kimsakuchu | wachi</annotation>
+		<annotation cp="▲" type="tts">huntasqa hanaqman ñawpiwan kimsakuchu</annotation>
+		<annotation cp="△">chusaq kimsakuchu ñawpi hanaqman</annotation>
+		<annotation cp="△" type="tts">chusaq kimsakuchu ñawpi hanaqman</annotation>
+		<annotation cp="▴">huntasqa uchuy kimsakuchu ñawpi hanaqman</annotation>
+		<annotation cp="▴" type="tts">huntasqa uchuy kimsakuchu ñawpi hanaqman</annotation>
+		<annotation cp="▵">chusaq uchuy kimsakuchu ñawpi hanaqman</annotation>
+		<annotation cp="▵" type="tts">chusaq uchuy kimsakuchu ñawpi hanaqman</annotation>
+		<annotation cp="▷">chusaq kimsakuchu ñawpi pañaman</annotation>
+		<annotation cp="▷" type="tts">chusaq kimsakuchu ñawpi pañaman</annotation>
+		<annotation cp="▸">huntasqa uchuy kimsakuchu ñawpi pañaman</annotation>
+		<annotation cp="▸" type="tts">huntasqa uchuy kimsakuchu ñawpi pañaman</annotation>
+		<annotation cp="▹">huntasqa uchuy kimsakuchu ñawpi pañaman</annotation>
+		<annotation cp="▹" type="tts">chusaq uchuy kimsakuchu ñawpi pañaman</annotation>
+		<annotation cp="►">huntasqa ñawpi pañaman</annotation>
+		<annotation cp="►" type="tts">huntasqa ñawpi pañaman</annotation>
+		<annotation cp="▻">chusaq ñawpi pañaman</annotation>
+		<annotation cp="▻" type="tts">chusaq ñawpi pañaman</annotation>
+		<annotation cp="▼">huntasqa | huntasqa uranman ñawpiwan kimsakuchu | kimsakuchu | uran | wachi</annotation>
+		<annotation cp="▼" type="tts">huntasqa uranman ñawpiwan kimsakuchu</annotation>
+		<annotation cp="▽">chusaq kimsakuchu ñawpi uranman</annotation>
+		<annotation cp="▽" type="tts">chusaq kimsakuchu ñawpi uranman</annotation>
+		<annotation cp="▾">huntasqa uchuy kimsakuchu ñawpi uranman</annotation>
+		<annotation cp="▾" type="tts">huntasqa uchuy kimsakuchu ñawpi uranman</annotation>
+		<annotation cp="▿">chusaq uchuy kimsakuchu ñawpi uranman</annotation>
+		<annotation cp="▿" type="tts">chusaq uchuy kimsakuchu ñawpi uranman</annotation>
+		<annotation cp="◁">chusaq kimsakuchu ñawpi lluqiman</annotation>
+		<annotation cp="◁" type="tts">chusaq kimsakuchu ñawpi lluqiman</annotation>
+		<annotation cp="◂">huntasqa uchuy kimsakuchu ñawpi lluqiman</annotation>
+		<annotation cp="◂" type="tts">huntasqa uchuy kimsakuchu ñawpi lluqiman</annotation>
+		<annotation cp="◃">chusaq uchuy kimsakuchu ñawpi lluqiman</annotation>
+		<annotation cp="◃" type="tts">chusaq uchuy kimsakuchu ñawpi lluqiman</annotation>
+		<annotation cp="◄">huntasqa ñawpi lluqiman</annotation>
+		<annotation cp="◄" type="tts">huntasqa ñawpi lluqiman</annotation>
+		<annotation cp="◅">chusaq ñawpi lluqiman</annotation>
+		<annotation cp="◅" type="tts">chusaq ñawpi lluqiman</annotation>
+		<annotation cp="◆">huntasqa puytu</annotation>
+		<annotation cp="◆" type="tts">huntasqa puytu</annotation>
+		<annotation cp="◇">chusaq puytu</annotation>
+		<annotation cp="◇" type="tts">chusaq puytu</annotation>
+		<annotation cp="◈">chusaq puytu huntasqa puytuwan</annotation>
+		<annotation cp="◈" type="tts">chusaq puytu huntasqa puytuwan</annotation>
+		<annotation cp="◉">chusaq muyu huntasqa muyuwan | concentricu huntasqa muyukuna | muyusqa chusu | ojo de pez</annotation>
+		<annotation cp="◉" type="tts">chusaq muyu huntasqa muyuwan</annotation>
+		<annotation cp="◊">puytu | rumbu</annotation>
+		<annotation cp="◊" type="tts">puytu</annotation>
+		<annotation cp="○">chusaq muyu | muyu | siwi</annotation>
+		<annotation cp="○" type="tts">chusaq muyu</annotation>
+		<annotation cp="◌">chusuwan muyu</annotation>
+		<annotation cp="◌" type="tts">chusuwan muyu</annotation>
+		<annotation cp="◍">muyu sayampa siqiwan</annotation>
+		<annotation cp="◍" type="tts">muyu sayampa siqiwan</annotation>
+		<annotation cp="◎">concentruku muyukuna | iskay muyu | objetivo</annotation>
+		<annotation cp="◎" type="tts">concetriku muyukuna</annotation>
+		<annotation cp="●">huntasqa muyu | muyu</annotation>
+		<annotation cp="●" type="tts">huntasqa muyu</annotation>
+		<annotation cp="◐">muyu kuska chusaq huntasqa lluqipi</annotation>
+		<annotation cp="◐" type="tts">muyu kuska chusaq huntasqa lluqipi</annotation>
+		<annotation cp="◑">muyu kuska chusaq huntasqa pañapi</annotation>
+		<annotation cp="◑" type="tts">muyu kuska chusaq huntasqa pañapi</annotation>
+		<annotation cp="◒">muyu kuska chusaq huntasqa uranpi</annotation>
+		<annotation cp="◒" type="tts">muyu kuska chusaq huntasqa uranpi</annotation>
+		<annotation cp="◓">muyu kuska chusaq huntasqa hanaqpi</annotation>
+		<annotation cp="◓" type="tts">muyu kuska chusaq huntasqa hanaqpi</annotation>
+		<annotation cp="◔">muyu huntasqa hanaq pañaman</annotation>
+		<annotation cp="◔" type="tts">muyu huntasqa hanaq pañaman</annotation>
+		<annotation cp="◕">llapan huntasqa muyu ichaqa chusaq hanaq lluqiman</annotation>
+		<annotation cp="◕" type="tts">llapan huntasqa muyu ichaqa chusaq hanaq lluqiman</annotation>
+		<annotation cp="◖">lluqi kusqa muyupi huntasqa</annotation>
+		<annotation cp="◖" type="tts">lluqi kusqa muyupi huntasqa</annotation>
+		<annotation cp="◗">paña kusqa muyupi huntasqa</annotation>
+		<annotation cp="◗" type="tts">paña kusqa muyupi huntasqa</annotation>
+		<annotation cp="◘">tikrasqa siqichana yupi</annotation>
+		<annotation cp="◘" type="tts">tikrasqa siqichana yupi</annotation>
+		<annotation cp="◙">ukun tawakuchupi huntasqa muyuwan</annotation>
+		<annotation cp="◙" type="tts">ukun tawakuchupi huntasqa muyuwan</annotation>
+		<annotation cp="◜">hanaq lluqipi muyusqa siqi</annotation>
+		<annotation cp="◜" type="tts">hanaq lluqipi muyusqa siqi</annotation>
+		<annotation cp="◝">hanaq pañapi muyusqa siqi</annotation>
+		<annotation cp="◝" type="tts">hanaq pañapi muyusqa siqi</annotation>
+		<annotation cp="◞">uran pañapi muyusqa siqi</annotation>
+		<annotation cp="◞" type="tts">uran pañapi muyusqa siqi</annotation>
+		<annotation cp="◟">uran lluqipi muyusqa siqi</annotation>
+		<annotation cp="◟" type="tts">uran lluqipi muyusqa siqi</annotation>
+		<annotation cp="◠">hanaqpi kuska muyu</annotation>
+		<annotation cp="◠" type="tts">hanaqpi kuska muyu</annotation>
+		<annotation cp="◡">uranpi kuska muyu</annotation>
+		<annotation cp="◡" type="tts">uranpi kuska muyu</annotation>
+		<annotation cp="◢">uran pañaman huntasqa kimsakuchu</annotation>
+		<annotation cp="◢" type="tts">uran pañaman huntasqa kimsakuchu</annotation>
+		<annotation cp="◣">uran lluqiman huntasqa kimsakuchu</annotation>
+		<annotation cp="◣" type="tts">uran lluqiman huntasqa kimsakuchu</annotation>
+		<annotation cp="◤">hanaq lluqiman huntasqa kimsakuchu</annotation>
+		<annotation cp="◤" type="tts">hanaq lluqiman huntasqa kimsakuchu</annotation>
+		<annotation cp="◥">hanaq pañaman huntasqa kimsakuchu</annotation>
+		<annotation cp="◥" type="tts">hanaq pañaman huntasqa kimsakuchu</annotation>
+		<annotation cp="◦">chusaq siqichana yupi</annotation>
+		<annotation cp="◦" type="tts">chusaq siqichana yupi</annotation>
+		<annotation cp="◯">hatun chusaq muyu | muyu | siwi</annotation>
+		<annotation cp="◯" type="tts">hatun chusaq muyu</annotation>
+		<annotation cp="◳">chusaq tawakuchu hanaq pañaman</annotation>
+		<annotation cp="◳" type="tts">chusaq tawakuchu hanaq pañaman</annotation>
+		<annotation cp="◷">chusaq muyu hanaq pañaman</annotation>
+		<annotation cp="◷" type="tts">chusaq muyu hanaq pañaman</annotation>
+		<annotation cp="◿">uran pachaman kimsakuchu</annotation>
+		<annotation cp="◿" type="tts">uran pachaman kimsakuchu</annotation>
+		<annotation cp="♪">pusaqñiqi | takiy | uchuy willakuy</annotation>
+		<annotation cp="♪" type="tts">pusaqñiqi</annotation>
+		<annotation cp="⨧">yapana sullkapi iskay qillqasqa</annotation>
+		<annotation cp="⨧" type="tts">yapana sullkapi iskay qillqasqa</annotation>
+		<annotation cp="⨯">vector mirana ruruwan</annotation>
+		<annotation cp="⨯" type="tts">vector mirana ruruwan</annotation>
+		<annotation cp="⨼">ukun ruru</annotation>
+		<annotation cp="⨼" type="tts">ukun ruru</annotation>
+		<annotation cp="⩣">logico utaq iskay warra uranpi</annotation>
+		<annotation cp="⩣" type="tts">logico utaq iskay warra uranpi</annotation>
+		<annotation cp="⩽">pisinman kikinwan</annotation>
+		<annotation cp="⩽" type="tts">pisinman kikinwan</annotation>
+		<annotation cp="⪍">pisin hanaqpi kikinwan</annotation>
+		<annotation cp="⪍" type="tts">pisin hanaqpi kikinwan</annotation>
+		<annotation cp="⪚">iskay siqi kikin kuraqninwan</annotation>
+		<annotation cp="⪚" type="tts">iskay siqi kikin kuraqninwan</annotation>
+		<annotation cp="⪺">sami hanaqpi manaraq yaqa kikin</annotation>
+		<annotation cp="⪺" type="tts">sami hanaqpi manaraq yaqa kikin</annotation>
+		<annotation cp="♭">bemol | panpa | takiy | uchuy willakuy</annotation>
+		<annotation cp="♭" type="tts">panpa</annotation>
+		<annotation cp="♯">agudu | dièse | diesis | takiy | uchuy willakuy</annotation>
+		<annotation cp="♯" type="tts">agudu</annotation>
 		<annotation cp="😀">kusi | kusisqa uya | uya</annotation>
 		<annotation cp="😀" type="tts">kusisqa uya</annotation>
 		<annotation cp="😃">kichay | kusi | kusisqa uya hatun ñawikunawan | simi | uya</annotation>
@@ -71,7 +751,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚" type="tts">muchʼasqa uyata wichqasqa ñawikunawan</annotation>
 		<annotation cp="😙">muchʼa | muchʼasqa uyata kusisqa ñawikunawan | ñawi | uya</annotation>
 		<annotation cp="😙" type="tts">muchʼasqa uyata kusisqa ñawikunawan</annotation>
-		<annotation cp="🥲">apuskachaq | chhallachasqa | kusisqa | kusisqa uya wiqiwan | kusisqa uya wiwiwan | llamkhasqa | pachi | wiqi</annotation>
+		<annotation cp="🥲">apuskachaq | kusisqa | kusisqa uya wiqiwan | kusisqa uya wiwiwan | llamkasqa | pachi | wiqi</annotation>
 		<annotation cp="🥲" type="tts">kusisqa uya wiqiwan</annotation>
 		<annotation cp="😋">kusi | mikhuchkan | mikhusqa mikhuna | miskʼi | mmm | uya | uya mikhusqa mikhuna</annotation>
 		<annotation cp="😋" type="tts">uya mikhusqa mikhuna</annotation>
@@ -345,7 +1025,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋" type="tts">qinquykachasqa maki</annotation>
 		<annotation cp="🤚">jinchʼa | juqharisqa | juqharisqa maki</annotation>
 		<annotation cp="🤚" type="tts">juqharisqa maki</annotation>
-		<annotation cp="🖐">maki | maki iskay ruk’anakunawa mast’asqa | maki iskay ruk’anakunawa mastʼasqa | mastʼasqa | rukana</annotation>
+		<annotation cp="🖐">maki | maki iskay rukanakunawa mastasqa | mastasqa | rukana</annotation>
 		<annotation cp="🖐" type="tts">maki iskay ruk’anakunawa mast’asqa</annotation>
 		<annotation cp="✋">huqharisqa maki | maki</annotation>
 		<annotation cp="✋" type="tts">huqharisqa maki</annotation>
@@ -359,8 +1039,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤏" type="tts">tʼipsisqa maki</annotation>
 		<annotation cp="✌">maki | v | yalli</annotation>
 		<annotation cp="✌" type="tts">yalli maki</annotation>
-		<annotation cp="🤞">maki | rankʼusqa rukanakuna | rankʼuy | rukana | suerte</annotation>
-		<annotation cp="🤞" type="tts">rankʼusqa rukanakuna</annotation>
+		<annotation cp="🤞">chakatasqa rukanakuna | chakatay | maki | rukana | suerte</annotation>
+		<annotation cp="🤞" type="tts">chakatasqa rukanakuna</annotation>
 		<annotation cp="🤟">ILY | maki | munanki yupi</annotation>
 		<annotation cp="🤟" type="tts">munanki yupi</annotation>
 		<annotation cp="🤘">maki | rock | rukana | waqrakuna | waqrakuna unancha</annotation>
@@ -453,7 +1133,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧" type="tts">warmi warma</annotation>
 		<annotation cp="🧑">genero neutral | mana akllasqa genero | puriq runa | runa</annotation>
 		<annotation cp="🧑" type="tts">runa</annotation>
-		<annotation cp="👱">chukcha | qʼillu | qʼillu chukcha runa | runa: qʼillu chukcha | runa:qʼillu chukcha</annotation>
+		<annotation cp="👱">chukcha | qillu | qillu chukcha runa | runa: qillu chukcha</annotation>
 		<annotation cp="👱" type="tts">runa: qʼillu chukcha</annotation>
 		<annotation cp="👨">puriq runa | tata</annotation>
 		<annotation cp="👨" type="tts">tata</annotation>
@@ -631,7 +1311,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🚒" type="tts">tata bombero</annotation>
 		<annotation cp="👩‍🚒">bombera | carru bombero | warmi</annotation>
 		<annotation cp="👩‍🚒" type="tts">warmi bombera</annotation>
-		<annotation cp="👮">jach’u | oficial | paco | policia</annotation>
+		<annotation cp="👮">hachu | oficial | paco | policia</annotation>
 		<annotation cp="👮" type="tts">policia</annotation>
 		<annotation cp="👮‍♂">jach’u | oficial | paco | tata | tata policia</annotation>
 		<annotation cp="👮‍♂" type="tts">tata policia</annotation>
@@ -651,7 +1331,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂‍♀" type="tts">warmi guardia</annotation>
 		<annotation cp="🥷">maqanakuy | ninja | pakasqa | siqilo</annotation>
 		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="👷">chuku | llamkaq | pirqaq | Pirqaq</annotation>
+		<annotation cp="👷">chuku | llamkaq | pirqaq</annotation>
 		<annotation cp="👷" type="tts">Pirqaq</annotation>
 		<annotation cp="👷‍♂">llamkaq | pirqaq | tata</annotation>
 		<annotation cp="👷‍♂" type="tts">tata pirqaq</annotation>
@@ -935,7 +1615,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👭" type="tts">warmi iskay makikunawan</annotation>
 		<annotation cp="👫">hapisqa | iskay makikunawan | maki | pitu | runa | warmi | warmi chaymanta runa iskay makikunawan</annotation>
 		<annotation cp="👫" type="tts">warmi chaymanta runa iskay makikunawan</annotation>
-		<annotation cp="👬">Geminis | iskay | iskay makikunawan | pitu | runa | runa iskay makikunawan | runakuna | zodiaco</annotation>
+		<annotation cp="👬">Geminis | iskay | iskay makikunawan | runa | runa iskay makikunawan | runakuna | zodiaco</annotation>
 		<annotation cp="👬" type="tts">runa iskay makikunawan</annotation>
 		<annotation cp="💏">much’a | pitu runakuna</annotation>
 		<annotation cp="💏" type="tts">much’a</annotation>
@@ -961,10 +1641,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦳" type="tts">yuraq chukcha</annotation>
 		<annotation cp="🦲">hairless | mana chukchayuq | paqla | quimioterapia | rutusqa</annotation>
 		<annotation cp="🦲" type="tts">paqla</annotation>
-		<annotation cp="🐵">k’usillu | kʼusillu uya | uya</annotation>
-		<annotation cp="🐵" type="tts">kʼusillu uya</annotation>
-		<annotation cp="🐒">kʼusillu</annotation>
-		<annotation cp="🐒" type="tts">kʼusillu</annotation>
+		<annotation cp="🐵">kusillu | uya</annotation>
+		<annotation cp="🐵" type="tts">kusillu uya</annotation>
+		<annotation cp="🐒">kusillu</annotation>
+		<annotation cp="🐒" type="tts">kusillu</annotation>
 		<annotation cp="🦍">gorila</annotation>
 		<annotation cp="🦍" type="tts">gorila</annotation>
 		<annotation cp="🦧">kusillo | orangutan</annotation>
@@ -1021,12 +1701,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐄" type="tts">waka</annotation>
 		<annotation cp="🐷">khuchi | uya</annotation>
 		<annotation cp="🐷" type="tts">khuchi uya</annotation>
-		<annotation cp="🐖">khuchi | tarpuy</annotation>
-		<annotation cp="🐖" type="tts">khuchi</annotation>
-		<annotation cp="🐗">khuchi | lumi khuchi</annotation>
-		<annotation cp="🐗" type="tts">lumi khuchi</annotation>
-		<annotation cp="🐽">khuchi | khuchi sinqa | ninri | uya</annotation>
-		<annotation cp="🐽" type="tts">khuchi sinqa</annotation>
+		<annotation cp="🐖">kuchi | tarpuy</annotation>
+		<annotation cp="🐖" type="tts">kuchi</annotation>
+		<annotation cp="🐗">kuchi | lumi kuchi</annotation>
+		<annotation cp="🐗" type="tts">lumi kuchi</annotation>
+		<annotation cp="🐽">kuchi | kuchi sinqa | ninri | uya</annotation>
+		<annotation cp="🐽" type="tts">kuchi sinqa</annotation>
 		<annotation cp="🐏">Aries | carnero | oveja | urqu | zodiaco</annotation>
 		<annotation cp="🐏" type="tts">carnero</annotation>
 		<annotation cp="🐑">china | oveja | uwija</annotation>
@@ -1045,14 +1725,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐘" type="tts">elefante</annotation>
 		<annotation cp="🦣">extinsion | hatun | mamut | millma | mumut | waqsa</annotation>
 		<annotation cp="🦣" type="tts">mamut</annotation>
-		<annotation cp="🦏">rhinoceros | rinoceronte</annotation>
+		<annotation cp="🦏">rinoceronte</annotation>
 		<annotation cp="🦏" type="tts">rinoceronte</annotation>
 		<annotation cp="🦛">hipo | hipopotamo</annotation>
 		<annotation cp="🦛" type="tts">hipopotamo</annotation>
-		<annotation cp="🐭">juk’ucha | jukʼucha uya | uya</annotation>
-		<annotation cp="🐭" type="tts">jukʼucha uya</annotation>
-		<annotation cp="🐁">jukʼucha</annotation>
-		<annotation cp="🐁" type="tts">jukʼucha</annotation>
+		<annotation cp="🐭">ukucha | uya</annotation>
+		<annotation cp="🐭" type="tts">ukucha uya</annotation>
+		<annotation cp="🐁">ukucha</annotation>
+		<annotation cp="🐁" type="tts">ukucha</annotation>
 		<annotation cp="🐀">rata</annotation>
 		<annotation cp="🐀" type="tts">rata</annotation>
 		<annotation cp="🐹">hamster | uya | uywa</annotation>
@@ -1069,8 +1749,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦔" type="tts">erizo</annotation>
 		<annotation cp="🦇">masu | vampiro</annotation>
 		<annotation cp="🦇" type="tts">masu</annotation>
-		<annotation cp="🐻">hukumari | jukumari uya</annotation>
-		<annotation cp="🐻" type="tts">hukumari</annotation>
+		<annotation cp="🐻">ukumari | uya</annotation>
+		<annotation cp="🐻" type="tts">ukumari</annotation>
 		<annotation cp="🐻‍❄">artico | jukumari | polar jukumari | yuraq</annotation>
 		<annotation cp="🐻‍❄" type="tts">polar jukumari</annotation>
 		<annotation cp="🐨">hukumari | koala</annotation>
@@ -1091,14 +1771,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐾" type="tts">sillu yupinay</annotation>
 		<annotation cp="🦃">p’isqu | pavo</annotation>
 		<annotation cp="🦃" type="tts">pavo</annotation>
-		<annotation cp="🐔">p’isqu | pollo</annotation>
+		<annotation cp="🐔">pisqu | pollo</annotation>
 		<annotation cp="🐔" type="tts">pollo</annotation>
-		<annotation cp="🐓">k’anka | kʼanka | p’isqu</annotation>
-		<annotation cp="🐓" type="tts">kʼanka</annotation>
-		<annotation cp="🐣">huchuy | p’akisqa | p’isqu | pollo | pollo pʼakisqa runtuwan</annotation>
-		<annotation cp="🐣" type="tts">pollo pʼakisqa runtuwan</annotation>
-		<annotation cp="🐤">huchuy | p’isqu | pollo</annotation>
-		<annotation cp="🐤" type="tts">huchuy pollo</annotation>
+		<annotation cp="🐓">kanka | pisqu</annotation>
+		<annotation cp="🐓" type="tts">kanka</annotation>
+		<annotation cp="🐣">chiwchi | chiwchi pakisqa runtuwan | huchuy | pisqu</annotation>
+		<annotation cp="🐣" type="tts">chiwchi pakisqa runtuwan</annotation>
+		<annotation cp="🐤">chiwchi | huchuy | pisqu</annotation>
+		<annotation cp="🐤" type="tts">chiwchi</annotation>
 		<annotation cp="🐥">huchuy | huchuy pollo chimpa rikuchkan | p’isqu | pollo</annotation>
 		<annotation cp="🐥" type="tts">huchuy pollo chimpa rikuchkan</annotation>
 		<annotation cp="🐦">p’isqu</annotation>
@@ -1121,7 +1801,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪶" type="tts">phuru</annotation>
 		<annotation cp="🦩">flamenco | rikurichisqa | tropical</annotation>
 		<annotation cp="🦩" type="tts">flamenco</annotation>
-		<annotation cp="🦚">apuskachay | pava real | pavo real | pʼisqu | rikurichisqa</annotation>
+		<annotation cp="🦚">apuskachay | pava real | pavo real | pisqu | rikurichisqa</annotation>
 		<annotation cp="🦚" type="tts">pavo real</annotation>
 		<annotation cp="🦜">parlay | pirata | pʼisqu | uritu</annotation>
 		<annotation cp="🦜" type="tts">uritu</annotation>
@@ -1143,26 +1823,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦕" type="tts">sauropodo</annotation>
 		<annotation cp="🦖">T-Rex | Tiranosaurio Rex</annotation>
 		<annotation cp="🦖" type="tts">T-Rex</annotation>
-		<annotation cp="🐳">ballena | ballena yakuta chʼamqachkan | chʼamqachkan | uya</annotation>
-		<annotation cp="🐳" type="tts">ballena yakuta chʼamqachkan</annotation>
+		<annotation cp="🐳">ballena | chamqachkan | uya</annotation>
+		<annotation cp="🐳" type="tts">ballena yakuta chamqachkan</annotation>
 		<annotation cp="🐋">ballena</annotation>
 		<annotation cp="🐋" type="tts">ballena</annotation>
 		<annotation cp="🐬">delfin | rikracha</annotation>
 		<annotation cp="🐬" type="tts">delfin</annotation>
 		<annotation cp="🦭">foca | mamaquchamanta Leon</annotation>
 		<annotation cp="🦭" type="tts">foca</annotation>
-		<annotation cp="🐟">callwa | Piscis | zodiaco</annotation>
-		<annotation cp="🐟" type="tts">callwa</annotation>
-		<annotation cp="🐠">callwa | tropical</annotation>
-		<annotation cp="🐠" type="tts">tropical callwa</annotation>
-		<annotation cp="🐡">callwa | pez globo</annotation>
-		<annotation cp="🐡" type="tts">pez globo</annotation>
+		<annotation cp="🐟">challwa | Piscis | zodiaco</annotation>
+		<annotation cp="🐟" type="tts">challwa</annotation>
+		<annotation cp="🐠">challwa | tropical</annotation>
+		<annotation cp="🐠" type="tts">tropical challwa</annotation>
+		<annotation cp="🐡">challwa | challwa globo</annotation>
+		<annotation cp="🐡" type="tts">globo challwa</annotation>
 		<annotation cp="🦈">challwa | tiburon</annotation>
 		<annotation cp="🦈" type="tts">tiburon</annotation>
 		<annotation cp="🐙">pulpo</annotation>
 		<annotation cp="🐙" type="tts">pulpo</annotation>
-		<annotation cp="🐚">ch’uru | chʼuru | muyuq</annotation>
-		<annotation cp="🐚" type="tts">chʼuru</annotation>
+		<annotation cp="🐚">churu | muyuq</annotation>
+		<annotation cp="🐚" type="tts">muyusqa churu</annotation>
 		<annotation cp="🐌">churu</annotation>
 		<annotation cp="🐌" type="tts">churu</annotation>
 		<annotation cp="🦋">ch’uspi | k’acha | pillpintu</annotation>
@@ -1189,40 +1869,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦂" type="tts">escorpión</annotation>
 		<annotation cp="🦟">malaria | mosquito | parasito | rupha | unqusqa | virus</annotation>
 		<annotation cp="🦟" type="tts">mosquito</annotation>
-		<annotation cp="🪰">ismusqa | khuru | parasito | phaway | unqusqa</annotation>
-		<annotation cp="🪰" type="tts">phaway</annotation>
-		<annotation cp="🪱">anelida | jallpʼamanta pacha | khuru | parasito | sillwi khuru</annotation>
-		<annotation cp="🪱" type="tts">sillwi khuru</annotation>
+		<annotation cp="🪰">ismusqa | parasito | paway | unqusqa | uru</annotation>
+		<annotation cp="🪰" type="tts">paway</annotation>
+		<annotation cp="🪱">anelida | hallpa pachapi uru | parasito | uru</annotation>
+		<annotation cp="🪱" type="tts">sillwi uru</annotation>
 		<annotation cp="🦠">ameba | bacteria | microbio | virus</annotation>
 		<annotation cp="🦠" type="tts">microbio</annotation>
-		<annotation cp="💐">t’ika | tʼikakunamanta</annotation>
-		<annotation cp="💐" type="tts">tʼikakunamanta</annotation>
-		<annotation cp="🌸">cerezo tʼika | cherry | t’ika</annotation>
-		<annotation cp="🌸" type="tts">cerezo tʼika</annotation>
-		<annotation cp="💮">t’ika | yuraq tʼika</annotation>
-		<annotation cp="💮" type="tts">yuraq tʼika</annotation>
+		<annotation cp="💐">tika | tikakunamanta</annotation>
+		<annotation cp="💐" type="tts">tikakunamanta</annotation>
+		<annotation cp="🌸">cerezo tika | cherry | tika</annotation>
+		<annotation cp="🌸" type="tts">cerezo tika</annotation>
+		<annotation cp="💮">tika | yuraq tika</annotation>
+		<annotation cp="💮" type="tts">yuraq tika</annotation>
 		<annotation cp="🏵">mallki | muyu whipala</annotation>
 		<annotation cp="🏵" type="tts">muyu whipala</annotation>
-		<annotation cp="🌹">rosa | t’ika</annotation>
+		<annotation cp="🌹">rosa | tika</annotation>
 		<annotation cp="🌹" type="tts">rosa</annotation>
-		<annotation cp="🥀">naq’isqa | naqʼisqa tʼika | t’ika</annotation>
-		<annotation cp="🥀" type="tts">naqʼisqa tʼika</annotation>
+		<annotation cp="🥀">qawisqa | tika</annotation>
+		<annotation cp="🥀" type="tts">qawisqa tika</annotation>
 		<annotation cp="🌺">hibisco | t’ika</annotation>
 		<annotation cp="🌺" type="tts">hibisco</annotation>
 		<annotation cp="🌻">girasol | inti | t’ika</annotation>
 		<annotation cp="🌻" type="tts">girasol</annotation>
 		<annotation cp="🌼">cerezo | tʼika</annotation>
 		<annotation cp="🌼" type="tts">cerezo</annotation>
-		<annotation cp="🌷">tulipan | tulipán | tʼika</annotation>
+		<annotation cp="🌷">tika | tulipan</annotation>
 		<annotation cp="🌷" type="tts">tulipán</annotation>
 		<annotation cp="🌱">wayna | wayna mallki</annotation>
 		<annotation cp="🌱" type="tts">wayna mallki</annotation>
 		<annotation cp="🪴">macetapi sachʼa | majiy | mana ruwanapaq | nutrir | paqariy | sachʼa | wasi</annotation>
 		<annotation cp="🪴" type="tts">macetapi sachʼa</annotation>
-		<annotation cp="🌲">sach’a | sachʼa perenne laqhiwan</annotation>
-		<annotation cp="🌲" type="tts">sachʼa perenne laqhiwan</annotation>
-		<annotation cp="🌳">caduco | laqhi | sach’a | sachʼa caduca laqhiwan</annotation>
-		<annotation cp="🌳" type="tts">sachʼa caduca laqhiwan</annotation>
+		<annotation cp="🌲">sacha | sacha perene rapiwan</annotation>
+		<annotation cp="🌲" type="tts">sacha perene rapiwan</annotation>
+		<annotation cp="🌳">caduco | sacha | sacha caduca rapiwan</annotation>
+		<annotation cp="🌳" type="tts">sacha caduca rapiwan</annotation>
 		<annotation cp="🌴">chunta | sach’a</annotation>
 		<annotation cp="🌴" type="tts">chunta</annotation>
 		<annotation cp="🌵">kisqa | mallki</annotation>
@@ -1401,7 +2081,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍤" type="tts">thiqtisqa yukra</annotation>
 		<annotation cp="🍥">callwa | challwa pastel muyuqwan | masa | pastel | phuyunku</annotation>
 		<annotation cp="🍥" type="tts">challwa pastel muyuqwan</annotation>
-		<annotation cp="🥮">killa pastel | otoño | raymi | yuèbǐng</annotation>
+		<annotation cp="🥮">[yuèbǐng] | killa pastel | otoño | raymi</annotation>
 		<annotation cp="🥮" type="tts">killa pastel</annotation>
 		<annotation cp="🍡">brocheta | dango | Japones | k’aspi | miski | postre</annotation>
 		<annotation cp="🍡" type="tts">dango</annotation>
@@ -1758,7 +2438,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕛">00 | 12 | 12:00 | chunka iskayniyuq | iskayniyuq</annotation>
 		<annotation cp="🕛" type="tts">chunka iskayniyuq</annotation>
 		<annotation cp="🕧">chunka iskayniyuq chaymanta kimsa chunkawan</annotation>
-		<annotation cp="🕧" type="tts">chunka iskayniyuq chaymanta kimsa chunkawan</annotation>
+		<annotation cp="🕧" type="tts">chunka iskayniyuq-kimsa chunkawan</annotation>
 		<annotation cp="🕐">00 | 1 | 1:00 | huk</annotation>
 		<annotation cp="🕐" type="tts">huk</annotation>
 		<annotation cp="🕜">huk chaymanta kimsa chunkawan</annotation>
@@ -1802,7 +2482,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕚">00 | 11 | 11:00 | chunka hukniyuq</annotation>
 		<annotation cp="🕚" type="tts">chunka hukniyuq</annotation>
 		<annotation cp="🕦">chunka hukniyuq chaymanta kimsa chunkawan</annotation>
-		<annotation cp="🕦" type="tts">chunka hukniyuq chaymanta kimsa chunkawan</annotation>
+		<annotation cp="🕦" type="tts">chunka hukniyuq-kimsa chunkawan</annotation>
 		<annotation cp="🌑">killa | tuta | unu Killa</annotation>
 		<annotation cp="🌑" type="tts">unu Killa</annotation>
 		<annotation cp="🌒">chawpi | killa | tukuspa</annotation>
@@ -2227,9 +2907,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏷" type="tts">sutichaq</annotation>
 		<annotation cp="🏧">atm | ATM unancha | banco | cajero | kikichansqa</annotation>
 		<annotation cp="🏧" type="tts">ATM unancha</annotation>
-		<annotation cp="🚮">chuqaq | chuqasqa qʼupa | chuqasqa qʼupa unancha</annotation>
-		<annotation cp="🚮" type="tts">chuqasqa qʼupa unancha</annotation>
-		<annotation cp="🚰">potable | potable yaku unancha | upyay | yaku</annotation>
+		<annotation cp="🚮">chuqaq | chuqasqa qupa | chuqasqa qupapi unancha</annotation>
+		<annotation cp="🚮" type="tts">chuqasqa qupapi unancha</annotation>
+		<annotation cp="🚰">potable | upyana | yaku</annotation>
 		<annotation cp="🚰" type="tts">potable yaku unancha</annotation>
 		<annotation cp="♿">tiyana ruedaspi unancha | yaykuy</annotation>
 		<annotation cp="♿" type="tts">tiyana ruedaspi unancha</annotation>
@@ -2263,62 +2943,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚳" type="tts">ama bicicletakuna</annotation>
 		<annotation cp="🚭">ama fumar | amatasqa | mana | manaraq</annotation>
 		<annotation cp="🚭" type="tts">ama fumar</annotation>
-		<annotation cp="🚯">ama qʼupa chuqaychu | amatasqa | mana | manaraq | sansariy</annotation>
-		<annotation cp="🚯" type="tts">ama qʼupa chuqaychu</annotation>
+		<annotation cp="🚯">ama qupa chuqaychu | amatasqa | mana | manaraq | sansariy</annotation>
+		<annotation cp="🚯" type="tts">ama qupa chuqaychu</annotation>
 		<annotation cp="🚱">ama yaku upyaypaq | mana yaykuy | yaku</annotation>
 		<annotation cp="🚱" type="tts">ama yaku upyaypaq</annotation>
 		<annotation cp="🚷">ama transeuntes | amatasqa | mana | manaraq | transeuntes</annotation>
 		<annotation cp="🚷" type="tts">ama transeuntes</annotation>
 		<annotation cp="📵">ama apaykachana telefonokuna | amatasqa | apaykchana | mana | telefono</annotation>
 		<annotation cp="📵" type="tts">ama apaykachana telefonokuna</annotation>
-		<annotation cp="🔞">18 | ama sullkʼa chunaka pusaqniyuqwan | ama sullkʼa chunka pusaqniyuqwan | amatasqa | chunka pusaqniyuq | sullkʼa wata | wata amataynin</annotation>
-		<annotation cp="🔞" type="tts">ama sullkʼa chunka pusaqniyuqwan</annotation>
+		<annotation cp="🔞">18 | ama sullka chunaka pusaqniyuqwan | ama sullka chunka pusaqniyuqwan | amatasqa | chunka pusaqniyuq | sullka wata | wata amataynin</annotation>
+		<annotation cp="🔞" type="tts">ama sullka chunka pusaqniyuqwan</annotation>
 		<annotation cp="☢">radiactivo | unancha</annotation>
 		<annotation cp="☢" type="tts">radiactivo</annotation>
-		<annotation cp="☣">biologico chhiki | unancha</annotation>
-		<annotation cp="☣" type="tts">biologico chhiki</annotation>
-		<annotation cp="⬆">hanaq wach’i</annotation>
-		<annotation cp="⬆" type="tts">hanaq wach’i</annotation>
-		<annotation cp="↗">hanaq paña wach’i</annotation>
-		<annotation cp="↗" type="tts">hanaq paña wach’i</annotation>
-		<annotation cp="➡">paña wach’i</annotation>
-		<annotation cp="➡" type="tts">paña wach’i</annotation>
-		<annotation cp="↘">uran paña wach’i</annotation>
-		<annotation cp="↘" type="tts">uran paña wach’i</annotation>
-		<annotation cp="⬇">uran wach’i</annotation>
-		<annotation cp="⬇" type="tts">uran wach’i</annotation>
-		<annotation cp="↙">uran lluq’i wach’i</annotation>
-		<annotation cp="↙" type="tts">uran lluq’i wach’i</annotation>
-		<annotation cp="⬅">lluq’i wach’i</annotation>
-		<annotation cp="⬅" type="tts">lluq’i wach’i</annotation>
-		<annotation cp="↖">hanaq lluq’i wach’i</annotation>
-		<annotation cp="↖" type="tts">hanaq lluq’i wach’i</annotation>
-		<annotation cp="↕">hanaq uran wach’i</annotation>
-		<annotation cp="↕" type="tts">hanaq uran wach’i</annotation>
-		<annotation cp="↔">lluq’i paña wach’i</annotation>
-		<annotation cp="↔" type="tts">lluq’i paña wach’i</annotation>
-		<annotation cp="↩">paña wach’i llink’uwan lluq’iman</annotation>
-		<annotation cp="↩" type="tts">paña wach’i llink’uwan lluq’iman</annotation>
-		<annotation cp="↪">lluq’i wach’i llink’uwan pañaman</annotation>
-		<annotation cp="↪" type="tts">lluq’i wach’i llink’uwan pañaman</annotation>
-		<annotation cp="⤴">paña wach’i llink’uwan hanaqman</annotation>
-		<annotation cp="⤴" type="tts">paña wach’i llink’uwan hanaqman</annotation>
-		<annotation cp="⤵">paña wach’i llink’uwan uranman</annotation>
-		<annotation cp="⤵" type="tts">paña wach’i llink’uwan uranman</annotation>
-		<annotation cp="🔃">Sayanpa wachʼikuna phani qatichkanku</annotation>
-		<annotation cp="🔃" type="tts">Sayanpa wachʼikuna phani qatichkanku</annotation>
-		<annotation cp="🔙">QHIPA wachʼi</annotation>
-		<annotation cp="🔙" type="tts">QHIPA wachʼi</annotation>
-		<annotation cp="🔚">TUKUY wachʼi</annotation>
-		<annotation cp="🔚" type="tts">TUKUY wachʼi</annotation>
-		<annotation cp="🔛">¡KAWSARICHIY! wachʼi</annotation>
-		<annotation cp="🔛" type="tts">¡KAWSARICHIY! wachʼi</annotation>
-		<annotation cp="🔜">QATIQ wachʼi</annotation>
-		<annotation cp="🔜" type="tts">QATIQ wachʼi</annotation>
-		<annotation cp="🔝">HANAQ wachʼi</annotation>
-		<annotation cp="🔝" type="tts">HANAQ wachʼi</annotation>
-		<annotation cp="🛐">muchʼay kiti | munaynin | religion</annotation>
-		<annotation cp="🛐" type="tts">muchʼay kiti</annotation>
+		<annotation cp="☣">biologico qupa | unancha</annotation>
+		<annotation cp="☣" type="tts">biologico qupa</annotation>
+		<annotation cp="⬆">cardinal | chincha | hanaq wachi | tarikuynin | wachi</annotation>
+		<annotation cp="⬆" type="tts">hanaq wachi</annotation>
+		<annotation cp="↗">chincha anti | hanaq paña wachi | intercardinal | tarikuynin | wachi</annotation>
+		<annotation cp="↗" type="tts">hanaq paña wachi</annotation>
+		<annotation cp="➡">anti | cardinal | paña wachi | tarikuynin | wachi</annotation>
+		<annotation cp="➡" type="tts">paña wachi</annotation>
+		<annotation cp="↘">intercardinal | qulla anti | tarikuynin | uran paña wachi | wachi</annotation>
+		<annotation cp="↘" type="tts">uran paña wachi</annotation>
+		<annotation cp="⬇">cardinal | qulla | tarikuynin | uran | wachi</annotation>
+		<annotation cp="⬇" type="tts">uran wachi</annotation>
+		<annotation cp="↙">intercardinal | qulla anti | tarikuynin | uran lluqi wachi | wachi</annotation>
+		<annotation cp="↙" type="tts">uran lluqi wachi</annotation>
+		<annotation cp="⬅">anti | cardinal | lluqi wachi | tarikuynin | wachi</annotation>
+		<annotation cp="⬅" type="tts">lluqi wachi</annotation>
+		<annotation cp="↖">chincha anti | hanaq lluqi wachi | intercardinal | tarikuynin | wachi</annotation>
+		<annotation cp="↖" type="tts">hanaq lluqi wachi</annotation>
+		<annotation cp="↕">hanaq uran wachi | wachi</annotation>
+		<annotation cp="↕" type="tts">hanaq uran wachi</annotation>
+		<annotation cp="↔">lluqi paña wachi | wachi</annotation>
+		<annotation cp="↔" type="tts">lluqi paña wachi</annotation>
+		<annotation cp="↮">lluqi pañaman siqi wachi</annotation>
+		<annotation cp="↮" type="tts">lluqi pañaman siqi wachi</annotation>
+		<annotation cp="↩">paña wachi llinkuwan lluqiman | wachi</annotation>
+		<annotation cp="↩" type="tts">paña wachi llinkuwan lluqiman</annotation>
+		<annotation cp="↪">lluqi wachi llinkuwan pañawan | wachi</annotation>
+		<annotation cp="↪" type="tts">lluqi wachi llinkuwan pañaman</annotation>
+		<annotation cp="⤴">paña wachi llinkuwan hanaqman | wachi</annotation>
+		<annotation cp="⤴" type="tts">paña wachi llinkuwan hanaqman</annotation>
+		<annotation cp="⤵">paña wachi llinkuwan uranman | uran | wachi</annotation>
+		<annotation cp="⤵" type="tts">paña wachi llinkuwan uranman</annotation>
+		<annotation cp="🔃">ura qatichkanku | ura sayampa qatichkanku | wachi | watiqmanta qipiy</annotation>
+		<annotation cp="🔃" type="tts">sayanpa wachikuna ura qatichkanku</annotation>
+		<annotation cp="🔄">laduman muyuspa | laduman ura qatispa | laduman ura qatispa wachikunata ñitina | tikrasqa ura qatispa | wachi</annotation>
+		<annotation cp="🔄" type="tts">laduman ura qatispa wachikunata ñitina</annotation>
+		<annotation cp="🔙">qipa | QIPA wachi | wachi</annotation>
+		<annotation cp="🔙" type="tts">QIPA wachi</annotation>
+		<annotation cp="🔚">tukuy | TUKUY wachi | wachi</annotation>
+		<annotation cp="🔚" type="tts">TUKUY wachi</annotation>
+		<annotation cp="🔛">chimpu | kawsarichiy | KAWSARICHIY! wachi | wachi</annotation>
+		<annotation cp="🔛" type="tts">KAWSARICHIY! wachi</annotation>
+		<annotation cp="🔜">utqay | UTQAY wachi | wachi</annotation>
+		<annotation cp="🔜" type="tts">QATIQ wachi</annotation>
+		<annotation cp="🔝">hanan | hanaq | HANAQ wachi | wachi</annotation>
+		<annotation cp="🔝" type="tts">HANAN wachi</annotation>
+		<annotation cp="🛐">muchay kiti | munaynin | religion</annotation>
+		<annotation cp="🛐" type="tts">muchay kiti</annotation>
 		<annotation cp="⚛">ateismo | atomo | atomo unancha</annotation>
 		<annotation cp="⚛" type="tts">atomo unancha</annotation>
 		<annotation cp="🕉">Hindu | om | religion</annotation>
@@ -2337,7 +3021,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☪" type="tts">quyllur chaymanta chawpi killa</annotation>
 		<annotation cp="☮">qhasi kay | qhasi kay unancha</annotation>
 		<annotation cp="☮" type="tts">qhasi kay unancha</annotation>
-		<annotation cp="🕎">candelabro | candelero | menorah | monorah | relligion</annotation>
+		<annotation cp="🕎">candelabro | candelero | menorah | religion</annotation>
 		<annotation cp="🕎" type="tts">menorah</annotation>
 		<annotation cp="🔯">fortuna | quyllur | suqta ñawpinkunawan quyllur</annotation>
 		<annotation cp="🔯" type="tts">suqta ñawpinkunawan quyllur</annotation>
@@ -2355,7 +3039,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♍" type="tts">Virgo</annotation>
 		<annotation cp="♎">aysana | justicia | Libra | ñiqichanakuna | zodiaco</annotation>
 		<annotation cp="♎" type="tts">Libra</annotation>
-		<annotation cp="♏">Escorpio | escorpion | Escorpion | zodiaco</annotation>
+		<annotation cp="♏">escorpio | Escorpio | escorpion | zodiaco</annotation>
 		<annotation cp="♏" type="tts">Escorpion</annotation>
 		<annotation cp="♐">arquero | Sagitario | zodiaco</annotation>
 		<annotation cp="♐" type="tts">Sagitario</annotation>
@@ -2367,49 +3051,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♓" type="tts">Piscis</annotation>
 		<annotation cp="⛎">katari | Ofiuco | soporte | zodiaco</annotation>
 		<annotation cp="⛎" type="tts">Ofiuco</annotation>
-		<annotation cp="🔀">chakatasqa wachʼikuna ñitina</annotation>
+		<annotation cp="🔀">chakatasqa | chaqrusqa taqikuna ñitina | wachi</annotation>
 		<annotation cp="🔀" type="tts">chakatasqa wachʼikuna ñitina</annotation>
-		<annotation cp="🔁">kutipay ñitina</annotation>
+		<annotation cp="🔁">kutipay | kutipay ñitina | ura qatichkanku | wachi</annotation>
 		<annotation cp="🔁" type="tts">kutipay ñitina</annotation>
-		<annotation cp="🔂">huklla kutipay ñitina</annotation>
+		<annotation cp="🔂">huklla | kutipay huk ñitina | ura qatichkanku | wachi</annotation>
 		<annotation cp="🔂" type="tts">huklla kutipay ñitina</annotation>
-		<annotation cp="▶">purichiy ñitina</annotation>
+		<annotation cp="▶">kimsakuchu | paña | purichiy | purichiy ñitina | wachi</annotation>
 		<annotation cp="▶" type="tts">purichiy ñitina</annotation>
-		<annotation cp="⏩">utqhay qatiq ñitina</annotation>
+		<annotation cp="⏩">iskay | ñawpaqman | utqay | utqay ñawpaq ñitina | wachi</annotation>
 		<annotation cp="⏩" type="tts">utqhay qatiq ñitina</annotation>
-		<annotation cp="⏭">qatiq ñan ñitina</annotation>
+		<annotation cp="⏭">kimsakuchu | qatiq rikchay | qatiq taqi | qatiq taqi ;itina | wachi</annotation>
 		<annotation cp="⏭" type="tts">qatiq ñan ñitina</annotation>
-		<annotation cp="⏯">purichiy utaq samay ñitina</annotation>
+		<annotation cp="⏯">kimsakuchu | paña | purichiy | purichiy utaq samay ñitina | samay | wachi</annotation>
 		<annotation cp="⏯" type="tts">purichiy utaq samay ñitina</annotation>
-		<annotation cp="◀">qhipanman ñitina</annotation>
+		<annotation cp="◀">kimsakuchu | lluqi | qipaman | qipaman ñitina | wachi</annotation>
 		<annotation cp="◀" type="tts">qhipanman ñitina</annotation>
-		<annotation cp="⏪">utqhay tikrana ñitina</annotation>
+		<annotation cp="⏪">iskay | kutipachiy | utqay qipaman ñitina | wachi</annotation>
 		<annotation cp="⏪" type="tts">utqhay tikrana ñitina</annotation>
-		<annotation cp="⏮">qhipa ñan ñitina</annotation>
+		<annotation cp="⏮">kimsakuchu | ñawpaq ñan | ñawpaq rikchayman | qipa ñan ñitina | wachi</annotation>
 		<annotation cp="⏮" type="tts">qhipa ñan ñitina</annotation>
-		<annotation cp="⏫">utqhay hanaq ñitina</annotation>
+		<annotation cp="🔼">hanaqman ñitina | ñitina | puka | wachi</annotation>
+		<annotation cp="🔼" type="tts">hanaqman ñitina</annotation>
+		<annotation cp="⏫">iskay | utqay hanaq ñitina | wachi</annotation>
 		<annotation cp="⏫" type="tts">utqhay hanaq ñitina</annotation>
-		<annotation cp="⏬">utqhay uran ñitina</annotation>
+		<annotation cp="🔽">ñitina | puka | uran | uranman ñitina | wachi</annotation>
+		<annotation cp="🔽" type="tts">uranman ñitina</annotation>
+		<annotation cp="⏬">iskay | uran | utqay uran ñitina | wachi</annotation>
 		<annotation cp="⏬" type="tts">utqhay uran ñitina</annotation>
-		<annotation cp="⏸">samay ñitina</annotation>
+		<annotation cp="⏸">iskay | samay | samay ñitina | sayanpa | siqi</annotation>
 		<annotation cp="⏸" type="tts">samay ñitina</annotation>
-		<annotation cp="⏹">tatichiy ñitina</annotation>
+		<annotation cp="⏹">tatichiy | tatichiy ñitina | tawakuchu</annotation>
 		<annotation cp="⏹" type="tts">tatichiy ñitina</annotation>
-		<annotation cp="⏺">graway ñitina</annotation>
+		<annotation cp="⏺">graway | graway ñitina | muyu</annotation>
 		<annotation cp="⏺" type="tts">graway ñitina</annotation>
-		<annotation cp="⏏">qarpuy ñitina</annotation>
+		<annotation cp="⏏">qarpuy | qarpuy ñitina</annotation>
 		<annotation cp="⏏" type="tts">qarpuy ñitina</annotation>
-		<annotation cp="🎦">cine</annotation>
+		<annotation cp="🎦">camara | cine | pelicula | pelikula</annotation>
 		<annotation cp="🎦" type="tts">cine</annotation>
-		<annotation cp="🔅">lliphiy ñitina</annotation>
+		<annotation cp="🔅">kanchaynin | llimpiy | llimpiy ñitina | uchuy</annotation>
 		<annotation cp="🔅" type="tts">lliphiy ñitina</annotation>
-		<annotation cp="🔆">kʼanchay ñitina</annotation>
+		<annotation cp="🔆">kanchay | kanchay ñitina | kanchaynin</annotation>
 		<annotation cp="🔆" type="tts">kʼanchay ñitina</annotation>
-		<annotation cp="📶">antena siqikunawan</annotation>
+		<annotation cp="📶">antena | apaykachana | pukullu | siqikuna | telefono</annotation>
 		<annotation cp="📶" type="tts">antena siqikunawan</annotation>
-		<annotation cp="📳">vibracion mudu</annotation>
+		<annotation cp="📳">apaykachana | mudu | pukullu | telefono | telefunu | vibracion</annotation>
 		<annotation cp="📳" type="tts">vibracion mudu</annotation>
-		<annotation cp="📴">apaykachana telefono wañuchiy</annotation>
+		<annotation cp="📴">apaykachana | muvil | telefunu | wañuchiy telefono</annotation>
 		<annotation cp="📴" type="tts">apaykachana telefono wañuchiy</annotation>
 		<annotation cp="♀">warmi | warmi unancha</annotation>
 		<annotation cp="♀" type="tts">warmi unancha</annotation>
@@ -2421,25 +3109,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✖" type="tts">mirachiy</annotation>
 		<annotation cp="➕">+ | matematicas | unancha | yapana</annotation>
 		<annotation cp="➕" type="tts">yapana</annotation>
-		<annotation cp="➖">- | matematicas | qhichuna | qichuna | unancha</annotation>
+		<annotation cp="➖">- | − | matematicas | qichuna | unancha</annotation>
 		<annotation cp="➖" type="tts">qhichuna</annotation>
-		<annotation cp="‼">iskay qapariq yupiy</annotation>
+		<annotation cp="➗">÷ | matematicas | rakina | rakiy | unancha</annotation>
+		<annotation cp="➗" type="tts">rakiy</annotation>
+		<annotation cp="♾">lliw | mana tukusqa | wiñaypaq | wiñaypaq wiñaynin</annotation>
+		<annotation cp="♾" type="tts">wiñaypaq wiñaynin</annotation>
+		<annotation cp="‼">! | !! | bangbang | chimpu | iskay qapariq chimpu | qapariq</annotation>
 		<annotation cp="‼" type="tts">iskay qapariq yupiy</annotation>
-		<annotation cp="⁉">qapariq tapuna chinpuy</annotation>
+		<annotation cp="⁉">! | !? | ? | chimpu | interrobang | qapariq | tapuna</annotation>
 		<annotation cp="⁉" type="tts">qapariq tapuna chinpuy</annotation>
-		<annotation cp="❔">yuraq tapukuna yupiy</annotation>
+		<annotation cp="❓">? | chimpu | puka tapuna chimpu | punctuacion | tapuna</annotation>
+		<annotation cp="❓" type="tts">puka tapuna chimpu</annotation>
+		<annotation cp="❔">? | chimpu | punctuacion | siqisqa | tapuna | yuraq tapuna yupiy</annotation>
 		<annotation cp="❔" type="tts">yuraq tapukuna yupiy</annotation>
-		<annotation cp="❕">yuraq qapariq yupiy</annotation>
+		<annotation cp="❕">! | chimpu | punctuacion | qapariq | siqisqa | yuraq qapariq yupiy</annotation>
 		<annotation cp="❕" type="tts">yuraq qapariq yupiy</annotation>
-		<annotation cp="〰">muyuq rakiqch’iku</annotation>
+		<annotation cp="❗">! | chimpu | puka qapariq yupiy | punctuacion | qapariq</annotation>
+		<annotation cp="❗" type="tts">puka qapariq yupiy</annotation>
+		<annotation cp="〰">muyuq | puntuacion | rakiqchiku</annotation>
 		<annotation cp="〰" type="tts">muyuq rakiqch’iku</annotation>
-		<annotation cp="💱">banco | qullqi | tikrasqa qullqi | tikray</annotation>
+		<annotation cp="💱">banco | qullqi | tikrasqa</annotation>
 		<annotation cp="💱" type="tts">tikrasqa qullqi</annotation>
-		<annotation cp="💲">dolar unancha</annotation>
+		<annotation cp="💲">dolar | dolar unancha | qullqi</annotation>
 		<annotation cp="💲" type="tts">dolar unancha</annotation>
-		<annotation cp="⚕">hampiq unancha</annotation>
+		<annotation cp="⚕">esculapio | hampi | hampiq unancha | llamkaqkuna</annotation>
 		<annotation cp="⚕" type="tts">hampiq unancha</annotation>
-		<annotation cp="♻">allinyachiy unancha</annotation>
+		<annotation cp="♻">allinyachiy | allinyachiy unancha</annotation>
 		<annotation cp="♻" type="tts">allinyachiy unancha</annotation>
 		<annotation cp="⚜">flor de lis</annotation>
 		<annotation cp="⚜" type="tts">flor de lis</annotation>
@@ -2447,30 +3143,184 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔱" type="tts">tridente unancha</annotation>
 		<annotation cp="📛">nina | rawra</annotation>
 		<annotation cp="📛" type="tts">nina rawra</annotation>
-		<annotation cp="🔰">japones unancha qallariqkunapaq</annotation>
+		<annotation cp="🔰">cheuron | Japones simi | Japones unancha ñawpaqpaq | ñawpaq | rapi</annotation>
 		<annotation cp="🔰" type="tts">japones unancha qallariqkunapaq</annotation>
-		<annotation cp="❌">chakana chinpu</annotation>
+		<annotation cp="⭕">hatun | muyu | o | puka | ukun puka muyu</annotation>
+		<annotation cp="⭕" type="tts">ukun puka muyu</annotation>
+		<annotation cp="✅">✓ | chimpu | chiqaqchay | ñitina</annotation>
+		<annotation cp="✅" type="tts">chimputa chiqaqchay ñitina</annotation>
+		<annotation cp="☑">✓ | chiqaqchay | chiqaqchay tawakuchu chimpuwan | tawakuchu</annotation>
+		<annotation cp="☑" type="tts">chiqaqchay tawakuchu chimpuwan</annotation>
+		<annotation cp="✔">✓ | chimpu | chiqaqchay</annotation>
+		<annotation cp="✔" type="tts">chiqaqchay chimpu</annotation>
+		<annotation cp="❌">× | chakata | chimpu | chinkachiy | mirachina | mirachiy | x</annotation>
 		<annotation cp="❌" type="tts">chakana chinpu</annotation>
-		<annotation cp="❎">chakana chinpu ñitina</annotation>
+		<annotation cp="❎">× | chakana chinpu ñitina | chinpu | tawakuchu | x</annotation>
 		<annotation cp="❎" type="tts">chakana chinpu ñitina</annotation>
-		<annotation cp="➰">bucle</annotation>
+		<annotation cp="➰">bucle | lazo | muyusqa</annotation>
 		<annotation cp="➰" type="tts">bucle</annotation>
-		<annotation cp="➿">iskay bucle</annotation>
+		<annotation cp="➿">bucle | iskay | lazo</annotation>
 		<annotation cp="➿" type="tts">iskay bucle</annotation>
-		<annotation cp="〽">alternancia patma unancha</annotation>
+		<annotation cp="〽">alternancia patma unancha | chimpu | patma</annotation>
 		<annotation cp="〽" type="tts">alternancia patma unancha</annotation>
-		<annotation cp="✳">pusaq siqiwan asterisco</annotation>
+		<annotation cp="✳">* | asterisco | pusaq siqiwan asterisco</annotation>
 		<annotation cp="✳" type="tts">pusaq siqiwan asterisco</annotation>
-		<annotation cp="✴">pusaq ñawpikunawan quyllur</annotation>
+		<annotation cp="✴">* | pusaq ñawpikunawan quyllur | quyllur</annotation>
 		<annotation cp="✴" type="tts">pusaq ñawpikunawan quyllur</annotation>
-		<annotation cp="❇">k’anchay</annotation>
+		<annotation cp="❇">* | kanchay</annotation>
 		<annotation cp="❇" type="tts">k’anchay</annotation>
-		<annotation cp="©">copyright</annotation>
+		<annotation cp="©">c | copyright nisqa</annotation>
 		<annotation cp="©" type="tts">copyright</annotation>
-		<annotation cp="®">yaykusqa</annotation>
+		<annotation cp="®">r | yaykusqa</annotation>
 		<annotation cp="®" type="tts">yaykusqa</annotation>
-		<annotation cp="™">waqaychasqa chinpuy</annotation>
+		<annotation cp="™">chimpu | tm | waqaychasqa chinpu | waqaychasqa chinpuy</annotation>
 		<annotation cp="™" type="tts">waqaychasqa chinpuy</annotation>
+		<annotation cp="🔠">ABCD | hatun sananpakuna | latina | sananpakuna | yaykuy</annotation>
+		<annotation cp="🔠" type="tts">latina hatun sananpakuna yaykuy</annotation>
+		<annotation cp="🔡">abcd | latina | sananpakuna | uchuy sananpakuna | yaykkuna</annotation>
+		<annotation cp="🔡" type="tts">latina uchuy sananpakuna yaykuy</annotation>
+		<annotation cp="🔢">1234 | yaykuy | yupaykuna</annotation>
+		<annotation cp="🔢" type="tts">yupaykuna yaykuy</annotation>
+		<annotation cp="🔣">〒♪&amp;% | unanchakuna yaykuy | yaykuy</annotation>
+		<annotation cp="🔣" type="tts">unanchakuna yaykuy</annotation>
+		<annotation cp="🔤">abc | achahala | latina | sananpakuna</annotation>
+		<annotation cp="🔤" type="tts">latina sananpakuna yaykuy</annotation>
+		<annotation cp="🅰">a | A ñitina (imayna yawar) | imayna yawar</annotation>
+		<annotation cp="🅰" type="tts">A ñitina (imayna yawar)</annotation>
+		<annotation cp="🆎">ab | AB ñitina (imayna yawar) | imayna yawar</annotation>
+		<annotation cp="🆎" type="tts">AB ñitina (imayna yawar)</annotation>
+		<annotation cp="🅱">b | B ñitina (imayna yawar) | imayna yawar</annotation>
+		<annotation cp="🅱" type="tts">B ñitina (imayna yawar)</annotation>
+		<annotation cp="🆑">cl | CL ñitina</annotation>
+		<annotation cp="🆑" type="tts">CL ñitina</annotation>
+		<annotation cp="🆒">cool | COOL ñitina</annotation>
+		<annotation cp="🆒" type="tts">COOL ñitina</annotation>
+		<annotation cp="🆓">free | FREE ñitina</annotation>
+		<annotation cp="🆓" type="tts">FREE ñitina</annotation>
+		<annotation cp="ℹ">i | willakuy</annotation>
+		<annotation cp="ℹ" type="tts">willakuy</annotation>
+		<annotation cp="🆔">id | ID ñitina | riqsichiy</annotation>
+		<annotation cp="🆔" type="tts">ID ñitina</annotation>
+		<annotation cp="Ⓜ">m | muyu | muyusqa M</annotation>
+		<annotation cp="Ⓜ" type="tts">muyusqa M</annotation>
+		<annotation cp="🆕">new | NEW ñitina</annotation>
+		<annotation cp="🆕" type="tts">NEW ñitina</annotation>
+		<annotation cp="🆖">ng | NG ñitina</annotation>
+		<annotation cp="🆖" type="tts">NG ñitina</annotation>
+		<annotation cp="🅾">imayna yawar | o | O ñitina (imayna yawar)</annotation>
+		<annotation cp="🅾" type="tts">O ñitina (imayna yawar)</annotation>
+		<annotation cp="🆗">OK | OK ñitina</annotation>
+		<annotation cp="🆗" type="tts">OK ñitina</annotation>
+		<annotation cp="🅿">P ñitina | parkeo</annotation>
+		<annotation cp="🅿" type="tts">P ñitina</annotation>
+		<annotation cp="🆘">sos | SOS ñitina | yanapay</annotation>
+		<annotation cp="🆘" type="tts">SOS ñitina</annotation>
+		<annotation cp="🆙">chimpu | up | UP! ñitina</annotation>
+		<annotation cp="🆙" type="tts">UP! ñitina</annotation>
+		<annotation cp="🆚">versus | vs | VS ñitina</annotation>
+		<annotation cp="🆚" type="tts">VS ñitina</annotation>
+		<annotation cp="🈁">“kaypi” | Japones | Japones “kaypi” ñitina | katakana</annotation>
+		<annotation cp="🈁" type="tts">Japones &quot;kaypi&quot; ñitina</annotation>
+		<annotation cp="🈂">“yanapakuy chanin” | Japones | Japones &quot;yanapakuy chanin&quot; ñitina | katakana</annotation>
+		<annotation cp="🈂" type="tts">Japones &quot;yanapakuy chanin&quot; ñitina</annotation>
+		<annotation cp="🈷">“sapa killa chanin” | ideografia | Japones | Japones &quot;sapa killa chanin&quot; ñitina</annotation>
+		<annotation cp="🈷" type="tts">Japones &quot;sapa killa chanin&quot; ñitina</annotation>
+		<annotation cp="🈶">“mana qullqiyuq chaninpaq” | ideografia | Japones | Japones &quot;mana qullqiyuq chaninpaq&quot; ñitina</annotation>
+		<annotation cp="🈶" type="tts">Japones &quot;mana qullqiyuq chaninpaq&quot; ñitina</annotation>
+		<annotation cp="🈯">“waqaychasqa” | ideografia | Japones | Japones &quot;waqaychasqa&quot; ñitina</annotation>
+		<annotation cp="🈯" type="tts">Japones &quot;waqaychasqa&quot; ñitina</annotation>
+		<annotation cp="🉐">“makipuray” | ideografia | Japones | Japones &quot;makipuray&quot; ñitina</annotation>
+		<annotation cp="🉐" type="tts">Japones &quot;makipuray&quot; ñitina</annotation>
+		<annotation cp="🈹">“ribajay” | ideografia | Japones | Japones &quot;ribajay&quot; ñitina</annotation>
+		<annotation cp="🈹" type="tts">Japones &quot;ribajay&quot; ñitina</annotation>
+		<annotation cp="🈚">“mana tarifawan” | ideografia | Japones | Japones &quot;mana tarifawan&quot; ñitina</annotation>
+		<annotation cp="🈚" type="tts">Japones &quot;mana tarifawan&quot; ñitina</annotation>
+		<annotation cp="🈲">“amatasqa” | ideografia | Japones | Japones &quot;amatasqa&quot; ñitina</annotation>
+		<annotation cp="🈲" type="tts">Japones &quot;amatasqa&quot; ñitina</annotation>
+		<annotation cp="🉑">“uyakusqa” | ideografia | Japones | Japones &quot;uyakusqa&quot; ñitina</annotation>
+		<annotation cp="🉑" type="tts">Japones &quot;uyakusqa&quot; ñitina</annotation>
+		<annotation cp="🈸">“llamkana” | ideografia | Japones | Japones “llamkana” ñitina</annotation>
+		<annotation cp="🈸" type="tts">Japones “llamkana” ñitina</annotation>
+		<annotation cp="🈴">“ñiqi wichay” | ideografia | Japones | Japones &quot;ñiqi wichay&quot; ñitina</annotation>
+		<annotation cp="🈴" type="tts">Japones &quot;ñiqi wichay&quot; ñitina</annotation>
+		<annotation cp="🈳">“vacante” | ideografia | Japones | Japones &quot;vacante&quot; ñitina</annotation>
+		<annotation cp="🈳" type="tts">Japones &quot;vacante&quot; ñitina</annotation>
+		<annotation cp="㊗">“kusirikuykuna” | ideografia | Japones | Japones “kusirikuykuna” ñitina</annotation>
+		<annotation cp="㊗" type="tts">Japones “kusirikuykuna” ñitina</annotation>
+		<annotation cp="㊙">“pakasqa” | ideografia | Japones | Japones &quot;pakasqa&quot; ñitina</annotation>
+		<annotation cp="㊙" type="tts">Japones &quot;pakasqa&quot; ñitina</annotation>
+		<annotation cp="🈺">“qatunapaq kichay” | ideografia | Japones | Japones &quot;qatunapaq kichay&quot; ñitina</annotation>
+		<annotation cp="🈺" type="tts">Japones &quot;qatunapaq kichay&quot; ñitina</annotation>
+		<annotation cp="🈵">“mana vacanteyuq” | ideografia | Japones | Japones &quot;mana vacanteyuq&quot; ñitina</annotation>
+		<annotation cp="🈵" type="tts">Japones &quot;mana vacanteyuq&quot; ñitina</annotation>
+		<annotation cp="🔴">chirukamay | muyu | puka</annotation>
+		<annotation cp="🔴" type="tts">puka muyu</annotation>
+		<annotation cp="🟠">muyu | qillmu</annotation>
+		<annotation cp="🟠" type="tts">qillmu muyu</annotation>
+		<annotation cp="🟡">muyu | qillu</annotation>
+		<annotation cp="🟡" type="tts">qillu muyu</annotation>
+		<annotation cp="🟢">muyu | qumir</annotation>
+		<annotation cp="🟢" type="tts">qumir muyu</annotation>
+		<annotation cp="🔵">anqas | chirukamay | muyu</annotation>
+		<annotation cp="🔵" type="tts">anqas muyu</annotation>
+		<annotation cp="🟣">kulli | muyu</annotation>
+		<annotation cp="🟣" type="tts">kulli muyu</annotation>
+		<annotation cp="🟤">muyu | paru</annotation>
+		<annotation cp="🟤" type="tts">paru muyu</annotation>
+		<annotation cp="⚫">chirukamay | muyu | yana muyu</annotation>
+		<annotation cp="⚫" type="tts">yana muyu</annotation>
+		<annotation cp="⚪">chirukamay | muyu | yuraq muyu</annotation>
+		<annotation cp="⚪" type="tts">yuraq muyu</annotation>
+		<annotation cp="🟥">puka | tawakuchu</annotation>
+		<annotation cp="🟥" type="tts">puka tawakuchu</annotation>
+		<annotation cp="🟧">qillmu | tawakuchu</annotation>
+		<annotation cp="🟧" type="tts">qillmu tawakuchu</annotation>
+		<annotation cp="🟨">qillu | tawakuchu</annotation>
+		<annotation cp="🟨" type="tts">qillu tawakuchu</annotation>
+		<annotation cp="🟩">qumir tawakuchu</annotation>
+		<annotation cp="🟩" type="tts">qumir tawakuchu</annotation>
+		<annotation cp="🟦">anqas | tawakuchu</annotation>
+		<annotation cp="🟦" type="tts">anqas tawakuchu</annotation>
+		<annotation cp="🟪">kulli | tawakuchu</annotation>
+		<annotation cp="🟪" type="tts">kulli tawakuchu</annotation>
+		<annotation cp="🟫">paru | tawakuchu</annotation>
+		<annotation cp="🟫" type="tts">paru tawakuchu</annotation>
+		<annotation cp="⬛">chirukamay | tawakuchu | yana hatun tawakuchu</annotation>
+		<annotation cp="⬛" type="tts">yana hatun tawakuchu</annotation>
+		<annotation cp="⬜">chirukamay | tawakuchu | yuraq hatun tawakuchu</annotation>
+		<annotation cp="⬜" type="tts">yuraq hatun tawakuchu</annotation>
+		<annotation cp="◼">chirukamay | tawakuchu | yana kuska tawakuchu</annotation>
+		<annotation cp="◼" type="tts">yana kuska tawakuchu</annotation>
+		<annotation cp="◻">chirukamay | tawakuchu | yuraq kuska tawakuchu</annotation>
+		<annotation cp="◻" type="tts">yuraq kuska tawakuchu</annotation>
+		<annotation cp="◾">chirukamay | tawakuchu | yana kuska uchuy tawakuchu</annotation>
+		<annotation cp="◾" type="tts">yana kuska uchuy tawakuchu</annotation>
+		<annotation cp="◽">chirukamay | tawakuchu | yuraq kuska uchuy tawakuchu</annotation>
+		<annotation cp="◽" type="tts">yuraq kuska uchuy tawakuchu</annotation>
+		<annotation cp="▪">chirukamay | tawakuchu | yana uchuy tawakuchu</annotation>
+		<annotation cp="▪" type="tts">yana uchuy tawakuchu</annotation>
+		<annotation cp="▫">chirukamay | tawakuchu | yuraq uchuy tawakuchu</annotation>
+		<annotation cp="▫" type="tts">yuraq uchuy tawakuchu</annotation>
+		<annotation cp="🔶">chirukamay | hatun qillmu puytu | qillmu</annotation>
+		<annotation cp="🔶" type="tts">hatun qillmu puytu</annotation>
+		<annotation cp="🔷">anqas | chirukamay | hatun anqas puytu | puytu</annotation>
+		<annotation cp="🔷" type="tts">hatun anqas puytu</annotation>
+		<annotation cp="🔸">chirukamay | puytu | qillmu | uchuy qillmu puytu</annotation>
+		<annotation cp="🔸" type="tts">uchuy qillmu puytu</annotation>
+		<annotation cp="🔹">anqas | chirukamay | puytu | uchuy anqas puytu</annotation>
+		<annotation cp="🔹" type="tts">uchuy anqas puytu</annotation>
+		<annotation cp="🔺">chirukamay | puka | puka kimsakuchu ñawpiwan hanaqman</annotation>
+		<annotation cp="🔺" type="tts">puka kimsakuchu ñawpiwan hanaqman</annotation>
+		<annotation cp="🔻">chirukamay | puka | puka kimsakuchu ñawpiwan hanaqman | uran</annotation>
+		<annotation cp="🔻" type="tts">puka kimsakuchu ñawpiwan uranman</annotation>
+		<annotation cp="💠">chirukamay | comic | puytu | puytu chusuwan | ukun</annotation>
+		<annotation cp="💠" type="tts">puytu chusuwan</annotation>
+		<annotation cp="🔘">chirukamay | ñitina | radio</annotation>
+		<annotation cp="🔘" type="tts">radio ñitina</annotation>
+		<annotation cp="🔳">chirukamay | kantukuna | ñitina | tawakuchu | yuraq tawakuchu ñitina</annotation>
+		<annotation cp="🔳" type="tts">yuraq tawakuchu ñitina</annotation>
+		<annotation cp="🔲">chirukamay | ñitina | tawakuchu | yana tawakuchu ñitina</annotation>
+		<annotation cp="🔲" type="tts">yana tawakuchu ñitina</annotation>
 		<annotation cp="🏁">carrera | meta | metapaq whipala | tawak’uchuwan</annotation>
 		<annotation cp="🏁" type="tts">metapaq whipala</annotation>
 		<annotation cp="🚩">chaski | kimsa kʼuchuwan wiphala</annotation>
@@ -2483,11 +3333,101 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">yuraq whipala</annotation>
 		<annotation cp="🏳‍🌈">k’uychi whipala</annotation>
 		<annotation cp="🏳‍🌈" type="tts">k’uychi whipala</annotation>
-		<annotation cp="$">dolar</annotation>
+		<annotation cp="¢">centavo</annotation>
+		<annotation cp="¢" type="tts">centavo</annotation>
+		<annotation cp="$">dolar | peso | qullqi | USD</annotation>
 		<annotation cp="$" type="tts">dolar</annotation>
-		<annotation cp="¥">yen</annotation>
+		<annotation cp="£">EGP | GBP | libra esterlilna | qullqi</annotation>
+		<annotation cp="£" type="tts">libra esterlina nisqa</annotation>
+		<annotation cp="¥">CNY | JPY | qullqi | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
-		<annotation cp="€">euro</annotation>
+		<annotation cp="₢">BRB | cruzeiro | qullqi</annotation>
+		<annotation cp="₢" type="tts">cruzeiro qullqi</annotation>
+		<annotation cp="₣">frances franco | franco | qullqi</annotation>
+		<annotation cp="₣" type="tts">frances franco</annotation>
+		<annotation cp="₤">lira | qullqi</annotation>
+		<annotation cp="₤" type="tts">lira qullqi</annotation>
+		<annotation cp="₥">mill qullqi | waranqa</annotation>
+		<annotation cp="₥" type="tts">mill qullqi</annotation>
+		<annotation cp="₩">KPW | KRW | won qullqi</annotation>
+		<annotation cp="₩" type="tts">won qullqi</annotation>
+		<annotation cp="€">EUR | euro | qullqi</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₰">centavo aleman | pfennig | qullqi</annotation>
+		<annotation cp="₰" type="tts">centavo aleman</annotation>
+		<annotation cp="₱">peso qullqi</annotation>
+		<annotation cp="₱" type="tts">peso qullqi</annotation>
+		<annotation cp="₳">ARA | austral | qullqi</annotation>
+		<annotation cp="₳" type="tts">austral qullqi</annotation>
+		<annotation cp="₶">livre tournois | qullqi</annotation>
+		<annotation cp="₶" type="tts">livre tournois qullqi</annotation>
+		<annotation cp="₷">qullqi | spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo qullqi</annotation>
+		<annotation cp="₹">qullqi | rupia | rupia indu</annotation>
+		<annotation cp="₹" type="tts">rupia indu</annotation>
+		<annotation cp="₽">qullqi | rublo</annotation>
+		<annotation cp="₽" type="tts">rublo</annotation>
+		<annotation cp="₿">bitcoin qullqi | BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin qullqi</annotation>
+		<annotation cp="₨">qullqi | rupia</annotation>
+		<annotation cp="₨" type="tts">rupia</annotation>
+		<annotation cp="﷼">qullqi | rial</annotation>
+		<annotation cp="﷼" type="tts">rial qullqi</annotation>
+		<annotation cp="¹">hatun qillqa | huk</annotation>
+		<annotation cp="¹" type="tts">hatun qillqa huk</annotation>
+		<annotation cp="²">hatun qillqa | iskay | tawakuchusqa</annotation>
+		<annotation cp="²" type="tts">hatun qillqa iskay</annotation>
+		<annotation cp="³">hatun qillqa | kimsa | machina</annotation>
+		<annotation cp="³" type="tts">hatun qillqa kimsa</annotation>
+		<annotation cp="µ">micro unancha | tupuna</annotation>
+		<annotation cp="µ" type="tts">micro unancha</annotation>
+		<annotation cp="🟰">tinki | unancha</annotation>
+		<annotation cp="🟰" type="tts">tinki unancha</annotation>
+		<annotation cp="🥹">orgulloso | piña | waqasqa | waqay</annotation>
+		<annotation cp="🥹" type="tts">uya wiqikunawan hapisqa</annotation>
+		<annotation cp="🧌">fantasia | kawri | willarina</annotation>
+		<annotation cp="🧌" type="tts">troll nisqa</annotation>
+		<annotation cp="🪷">Budismo | chuya | Hinduismo | India | tika | Vietnam</annotation>
+		<annotation cp="🪷" type="tts">loto</annotation>
+		<annotation cp="🪸">arrecife | mamaqucha</annotation>
+		<annotation cp="🪸" type="tts">coral nisqa</annotation>
+		<annotation cp="🪹">qisa</annotation>
+		<annotation cp="🪹" type="tts">chusaq qisa</annotation>
+		<annotation cp="🪺">qisa</annotation>
+		<annotation cp="🪺" type="tts">qisa runtukunawan</annotation>
+		<annotation cp="🫃">hunta | puputi | wiksayuq | yawarniyuq</annotation>
+		<annotation cp="🫃" type="tts">qari wiksayuq</annotation>
+		<annotation cp="🫄">hunta | wiksayuq | yawarniyuq</annotation>
+		<annotation cp="🫄" type="tts">wiksayuq runa</annotation>
+		<annotation cp="🫅">inka | qapaq | tata inka | uma runa</annotation>
+		<annotation cp="🫅" type="tts">runa kurunawan</annotation>
+		<annotation cp="🫠">chinkachisqa | chinkachiy | chulluy | yaku</annotation>
+		<annotation cp="🫠" type="tts">chullusqa uya</annotation>
+		<annotation cp="🫡">inti | rimaykuy | uyakuy | yari</annotation>
+		<annotation cp="🫡" type="tts">uya rimaykuspa</annotation>
+		<annotation cp="🫢">manchakusqa | manchakuy | pinqakusqa | pinqakuy</annotation>
+		<annotation cp="🫢" type="tts">uya kichasqa ñawikunawan maki simipi</annotation>
+		<annotation cp="🫣">captivatu | chinkachisqa | ñawiriy</annotation>
+		<annotation cp="🫣" type="tts">uya chinkachisqa ñawiwan</annotation>
+		<annotation cp="🫤">chinkachisqa | eseptiku | mana uyakusqa | mmm</annotation>
+		<annotation cp="🫤" type="tts">uya wiksu simiwan</annotation>
+		<annotation cp="🫥">chinkachiy | mana riqisqa | upallasqa</annotation>
+		<annotation cp="🫥" type="tts">chusupa siqinwan uya</annotation>
+		<annotation cp="🫦">llakikusqa | llakikuy | llakisqa | llakiy</annotation>
+		<annotation cp="🫦" type="tts">kachupakuspa simi</annotation>
+		<annotation cp="🫰">chanin | munay | qullqi | sunqu</annotation>
+		<annotation cp="🫰" type="tts">maki chakatasqa iskay rukanawan</annotation>
+		<annotation cp="🫱">maki | paña | pañaman</annotation>
+		<annotation cp="🫱" type="tts">pañaman maki</annotation>
+		<annotation cp="🫲">lluqi | lluqiman | maki</annotation>
+		<annotation cp="🫲" type="tts">lluqiman maki</annotation>
+		<annotation cp="🫳">chinkachiy | kachaykuy</annotation>
+		<annotation cp="🫳" type="tts">uranman maki pampa</annotation>
+		<annotation cp="🫴">hamuy | hapiy | mañay | quy</annotation>
+		<annotation cp="🫴" type="tts">hanaqman maki pampa</annotation>
+		<annotation cp="🫵">chimpuy | qam</annotation>
+		<annotation cp="🫵" type="tts">indice rukanawan chimpusqa qawaqman</annotation>
+		<annotation cp="🫶">munay</annotation>
+		<annotation cp="🫶" type="tts">sunqu makikunawan</annotation>
 	</annotations>
 </ldml>

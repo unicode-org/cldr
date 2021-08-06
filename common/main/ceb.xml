@@ -77,7 +77,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<script type="Zzzz">Wala Mailhing Script</script>
 		</scripts>
 		<territories>
-			<territory type="001">Kalibutan</territory>
+			<territory type="001">kalibutan</territory>
 			<territory type="002">Africa</territory>
 			<territory type="003">Amihanang Amerika</territory>
 			<territory type="005">South America</territory>
@@ -515,6 +515,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
@@ -702,7 +703,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 							<month type="5">↑↑↑</month>
 							<month type="6">↑↑↑</month>
 							<month type="7">↑↑↑</month>
-							<month type="8">Ago</month>
+							<month type="8">↑↑↑</month>
 							<month type="9">↑↑↑</month>
 							<month type="10">↑↑↑</month>
 							<month type="11">↑↑↑</month>
@@ -989,6 +990,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
@@ -3467,6 +3469,11 @@ the LDML specification (http://unicode.org/reports/tr35/)
 					<daylight>Oras sa Tag-init sa Yekaterinburg</daylight>
 				</long>
 			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<standard>Oras sa Yukon</standard>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -4071,6 +4078,12 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<displayName count="other">Mga Liberian dollar</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="LSL">
+				<displayName>Lesotho Loti</displayName>
+				<displayName count="one">Lesotho loti</displayName>
+				<displayName count="other">Mga Lesotho loti</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Libyan Dinar</displayName>
@@ -5938,8 +5951,8 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			</unit>
 			<unit type="duration-second">
 				<displayName>mga segundo</displayName>
-				<unitPattern count="one">{0} ka segundo</unitPattern>
-				<unitPattern count="other">{0} ka segundo</unitPattern>
+				<unitPattern count="one">{0}segundo</unitPattern>
+				<unitPattern count="other">{0}segundo</unitPattern>
 				<perUnitPattern>{0}/segundo</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">

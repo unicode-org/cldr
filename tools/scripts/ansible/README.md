@@ -85,21 +85,38 @@ Add three files inside local-vars/cldrbackup-vars: id_rsa, id_rsa.pub, and known
 
 ### Setup: Config file
 
-- Create a file `local-vars/local.yml` matching the example values in [test-local-vars/local.yml](test-local-vars/local.yml) (but with a secure password instead of `hunter42`!.)
+- Create a file `local-vars/local.yml` matching the example values in [test-local-vars/local.yml](test-local-vars/local.yml) but with secure passwords instead of `hunter42`, ...!
 
 ```yaml
+cldradmin_pw: hunter46 # needs to match cldradmin pw below
 mysql_users:
+  # this is the account used by the survey tool itself
+  # password will match /var/lib/openliberty/usr/servers/cldr/server.env
   - name: surveytool
     host: localhost
     password: hunter42
     priv: 'cldrdb.*:ALL'
+  # this is the account used for administrative tasks
+  # password will match /home/cldradmin/.my.sql
+  - name: cldradmin
+    password: hunter46
+    priv: 'cldrdb.*:ALL/*.*:PROCESS'
+    append_privs: yes
+# this is the account used for deployment
 surveytooldeploy:
+  # TODO: surveytooldeploy.password appears to be unused?
   password: hunter43
+  # vap will match CLDR_VAP in /srv/st/config/cldr.properties
   vap: hunter44
+  # testpw will match CLDR_TESTPW in /srv/st/config/cldr.properties
   testpw: hunter45
-  oldversion: 36
-  newversion: 37
+  oldversion: 39
+  newversion: 40
   key: ssh-rsa …  ( SSH key goes here)
+  certbot_admin_email: surveytool@unicode.org
+  certbot_certs:
+    - domains:
+      - cldr-ref.unicode.org
 ```
 
 ## Setup: cldrcc

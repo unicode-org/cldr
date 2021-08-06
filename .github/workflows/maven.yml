@@ -80,7 +80,7 @@ jobs:
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml
           '-Dorg.unicode.cldr.unittest.web.jdbcurl=jdbc:mysql://cldrtest:VbrB3LFCr6A!@localhost/cldrtest?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
-          '-Dorg.unicode.cldr.unittest.web.KeepDb=true'
+          '-Dorg.unicode.cldr.unittest.web.KeepDb=true' -DCLDR_GITHUB_ANNOTATIONS=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   check:

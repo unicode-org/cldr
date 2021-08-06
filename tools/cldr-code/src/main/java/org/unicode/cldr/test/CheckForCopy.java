@@ -54,7 +54,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
     private static final RegexLookup<Boolean> SKIP_CODE_CHECK = new RegexLookup<Boolean>()
         .add("^//ldml/characterLabels/characterLabel", true)
         .add("^//ldml/dates/fields/field\\[@type=\"(era|week|minute|quarter|second)\"]/displayName", true)
-        .add("^//ldml/localeDisplayNames/scripts/script\\[@type=\"(Jamo|Thai|Ahom|Loma|Moon|Newa|Arab|Lisu|Bali|Cham|Modi)\"]", true)
+        .add("^//ldml/localeDisplayNames/scripts/script\\[@type=\"(Jamo|Thai|Ahom|Loma|Moon|Newa|Arab|Lisu|Bali|Cham|Modi|Toto)\"]", true)
         .add("^//ldml/localeDisplayNames/languages/language\\[@type=\"(fon|gan|luo|tiv|yao|vai)\"]", true)
         .add("^//ldml/dates/timeZoneNames/metazone\\[@type=\"GMT\"]", true)
         .add("^//ldml/localeDisplayNames/territories/territory\\[@type=\"[^\"]*+\"]\\[@alt=\"short\"]", true)

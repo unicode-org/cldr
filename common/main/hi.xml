@@ -7631,6 +7631,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<ordinalMinimalPairs ordinal="one">{0}ला दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}वां दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}रा दाहिना मोड़ लें.</ordinalMinimalPairs>
+			<genderMinimalPairs gender="feminine">{0} बड़ी है.</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine">{0} बड़ा है.</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -8160,7 +8162,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<gender>masculine</gender>
+				<gender>feminine</gender>
 				<displayName>किलो कैलोरी</displayName>
 				<unitPattern count="one">{0} किलो कैलोरी</unitPattern>
 				<unitPattern count="one" case="oblique">{0} किलोकैलोरी</unitPattern>

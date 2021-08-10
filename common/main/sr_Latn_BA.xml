@@ -20,6 +20,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bm" draft="contributed">bamanankan</language>
 			<language type="bn" draft="contributed">bangla</language>
 			<language type="de" draft="contributed">njemački</language>
+			<language type="de_CH">švajcarski visoki njemački</language>
 			<language type="en_GB">engleski (Velika Britanija)</language>
 			<language type="es_ES">španski (Evropa)</language>
 			<language type="fa_AF" draft="contributed">dari</language>
@@ -1733,6 +1734,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="few" draft="contributed">sjevernokorejska vona</displayName>
 				<displayName count="other" draft="contributed">sjevernokorejskih vona</displayName>
 			</currency>
+			<currency type="NIO">
+				<displayName>Nikaragvanska zlatna kordoba</displayName>
+				<displayName count="one">nikaragvanska zlatna kordoba</displayName>
+				<displayName count="few">nikaragvanske zlatne kordobe</displayName>
+				<displayName count="other">nikaragvanskih zlatnih kordoba</displayName>
+			</currency>
 		</currencies>
 	</numbers>
 	<units>
@@ -1827,73 +1834,73 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 	</units>
 	<characterLabels>
-		<characterLabel type="body" draft="contributed">tijelo</characterLabel>
-		<characterLabel type="bullets_stars" draft="contributed">Znakovi za nabrajanje/zvjezdice</characterLabel>
-		<characterLabel type="downwards_arrows" draft="contributed">Strelice nadolje</characterLabel>
-		<characterLabel type="downwards_upwards_arrows" draft="contributed">Strelice nadolje i nagore</characterLabel>
-		<characterLabel type="leftwards_arrows" draft="contributed">Strelice nalijevo</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">Strelice nalijevo i nadesno</characterLabel>
-		<characterLabel type="place" draft="contributed">mjesto</characterLabel>
-		<characterLabel type="travel_places" draft="contributed">Putovanja i mjesta</characterLabel>
-		<characterLabel type="weather" draft="contributed">vrijeme</characterLabel>
+		<characterLabel type="body">tijelo</characterLabel>
+		<characterLabel type="bullets_stars">Znakovi za nabrajanje/zvjezdice</characterLabel>
+		<characterLabel type="downwards_arrows">Strelice nadolje</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">Strelice nadolje i nagore</characterLabel>
+		<characterLabel type="leftwards_arrows">Strelice nalijevo</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">Strelice nalijevo i nadesno</characterLabel>
+		<characterLabel type="place">mjesto</characterLabel>
+		<characterLabel type="travel_places">Putovanja i mjesta</characterLabel>
+		<characterLabel type="weather">vrijeme</characterLabel>
 	</characterLabels>
 	<typographicNames>
-		<styleName type="ital" subtype="1" draft="contributed">kurziv</styleName>
-		<styleName type="opsz" subtype="8" draft="contributed">veliko slovo</styleName>
-		<styleName type="opsz" subtype="12" draft="contributed">tekst</styleName>
-		<styleName type="opsz" subtype="18" draft="contributed">titlovanje</styleName>
-		<styleName type="opsz" subtype="72" draft="contributed">prikaz</styleName>
-		<styleName type="opsz" subtype="144" draft="contributed">poster</styleName>
-		<styleName type="slnt" subtype="-12" draft="contributed">nagnut ulijevo</styleName>
-		<styleName type="slnt" subtype="0" draft="contributed">uspravan</styleName>
-		<styleName type="slnt" subtype="12" draft="contributed">nagnut</styleName>
-		<styleName type="slnt" subtype="24" draft="contributed">ekstranagnut</styleName>
-		<styleName type="wdth" subtype="50" draft="contributed">ultrasužen</styleName>
-		<styleName type="wdth" subtype="50" alt="compressed" draft="contributed">ultrazbijen</styleName>
-		<styleName type="wdth" subtype="50" alt="narrow" draft="contributed">ultrasužen</styleName>
-		<styleName type="wdth" subtype="62.5" draft="contributed">ekstrasužen</styleName>
-		<styleName type="wdth" subtype="62.5" alt="compressed" draft="contributed">ekstrazbijen</styleName>
-		<styleName type="wdth" subtype="62.5" alt="narrow" draft="contributed">ekstrasužen</styleName>
-		<styleName type="wdth" subtype="75" draft="contributed">sužen</styleName>
-		<styleName type="wdth" subtype="75" alt="narrow" draft="contributed">zbijeno</styleName>
-		<styleName type="wdth" subtype="87.5" draft="contributed">polusužen</styleName>
-		<styleName type="wdth" subtype="87.5" alt="compressed" draft="contributed">poluzbijen</styleName>
-		<styleName type="wdth" subtype="87.5" alt="narrow" draft="contributed">polusužen</styleName>
-		<styleName type="wdth" subtype="100" draft="contributed">normalan</styleName>
-		<styleName type="wdth" subtype="112.5" draft="contributed">poluproširen</styleName>
-		<styleName type="wdth" subtype="112.5" alt="extended" draft="contributed">poluprodužen</styleName>
-		<styleName type="wdth" subtype="112.5" alt="wide" draft="contributed">poluširok</styleName>
-		<styleName type="wdth" subtype="125" draft="contributed">proširen</styleName>
-		<styleName type="wdth" subtype="150" draft="contributed">ekstraproširen</styleName>
-		<styleName type="wdth" subtype="150" alt="extended" draft="contributed">ekstraprodužen</styleName>
-		<styleName type="wdth" subtype="150" alt="wide" draft="contributed">ekstraširok</styleName>
-		<styleName type="wdth" subtype="200" draft="contributed">ultraproširen</styleName>
-		<styleName type="wdth" subtype="200" alt="extended" draft="contributed">ultraprodužen</styleName>
-		<styleName type="wdth" subtype="200" alt="wide" draft="contributed">ultraširok</styleName>
-		<styleName type="wght" subtype="100" draft="contributed">tanak</styleName>
-		<styleName type="wght" subtype="200" draft="contributed">ekstrasvijetao</styleName>
-		<styleName type="wght" subtype="200" alt="ultra" draft="contributed">ultrasvijetao</styleName>
-		<styleName type="wght" subtype="300" draft="contributed">svijetao</styleName>
-		<styleName type="wght" subtype="350" draft="contributed">polusvijetao</styleName>
-		<styleName type="wght" subtype="380" draft="contributed">knjiga</styleName>
-		<styleName type="wght" subtype="400" draft="contributed">običan</styleName>
-		<styleName type="wght" subtype="500" draft="contributed">srednji</styleName>
-		<styleName type="wght" subtype="600" draft="contributed">polupodebljan</styleName>
-		<styleName type="wght" subtype="600" alt="demi" draft="contributed">polupodebljan</styleName>
-		<styleName type="wght" subtype="700" draft="contributed">podebljan</styleName>
-		<styleName type="wght" subtype="800" draft="contributed">ekstrapodebljan</styleName>
-		<styleName type="wght" subtype="900" draft="contributed">crn</styleName>
-		<styleName type="wght" subtype="950" draft="contributed">ekstracrn</styleName>
-		<featureName type="afrc" draft="contributed">vertikalni razlomci</featureName>
-		<featureName type="cpsp" draft="contributed">razmak između velikih slova</featureName>
-		<featureName type="dlig" draft="contributed">opcionalne ligature</featureName>
-		<featureName type="frac" draft="contributed">dijagonalni razlomci</featureName>
-		<featureName type="lnum" draft="contributed">poravnati brojevi</featureName>
-		<featureName type="onum" draft="contributed">staromodni oblici</featureName>
-		<featureName type="ordn" draft="contributed">redni brojevi</featureName>
-		<featureName type="pnum" draft="contributed">proporcionalni brojevi</featureName>
-		<featureName type="smcp" draft="contributed">smanjena velika slova</featureName>
-		<featureName type="tnum" draft="contributed">tabelarni brojevi</featureName>
-		<featureName type="zero" draft="contributed">precrtana nula</featureName>
+		<styleName type="ital" subtype="1">kurziv</styleName>
+		<styleName type="opsz" subtype="8">veliko slovo</styleName>
+		<styleName type="opsz" subtype="12">tekst</styleName>
+		<styleName type="opsz" subtype="18">titlovanje</styleName>
+		<styleName type="opsz" subtype="72">prikaz</styleName>
+		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="slnt" subtype="-12">nagnut ulijevo</styleName>
+		<styleName type="slnt" subtype="0">uspravan</styleName>
+		<styleName type="slnt" subtype="12">nagnut</styleName>
+		<styleName type="slnt" subtype="24">ekstranagnut</styleName>
+		<styleName type="wdth" subtype="50">ultrasužen</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultrazbijen</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultrasužen</styleName>
+		<styleName type="wdth" subtype="62.5">ekstrasužen</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">ekstrazbijen</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">ekstrasužen</styleName>
+		<styleName type="wdth" subtype="75">sužen</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">zbijeno</styleName>
+		<styleName type="wdth" subtype="87.5">polusužen</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">poluzbijen</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">polusužen</styleName>
+		<styleName type="wdth" subtype="100">normalan</styleName>
+		<styleName type="wdth" subtype="112.5">poluproširen</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">poluprodužen</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">poluširok</styleName>
+		<styleName type="wdth" subtype="125">proširen</styleName>
+		<styleName type="wdth" subtype="150">ekstraproširen</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">ekstraprodužen</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">ekstraširok</styleName>
+		<styleName type="wdth" subtype="200">ultraproširen</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultraprodužen</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultraširok</styleName>
+		<styleName type="wght" subtype="100">tanak</styleName>
+		<styleName type="wght" subtype="200">ekstrasvijetao</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultrasvijetao</styleName>
+		<styleName type="wght" subtype="300">svijetao</styleName>
+		<styleName type="wght" subtype="350">polusvijetao</styleName>
+		<styleName type="wght" subtype="380">knjiga</styleName>
+		<styleName type="wght" subtype="400">običan</styleName>
+		<styleName type="wght" subtype="500">srednji</styleName>
+		<styleName type="wght" subtype="600">polupodebljan</styleName>
+		<styleName type="wght" subtype="600" alt="demi">polupodebljan</styleName>
+		<styleName type="wght" subtype="700">podebljan</styleName>
+		<styleName type="wght" subtype="800">ekstrapodebljan</styleName>
+		<styleName type="wght" subtype="900">crn</styleName>
+		<styleName type="wght" subtype="950">ekstracrn</styleName>
+		<featureName type="afrc">vertikalni razlomci</featureName>
+		<featureName type="cpsp">razmak između velikih slova</featureName>
+		<featureName type="dlig">opcionalne ligature</featureName>
+		<featureName type="frac">dijagonalni razlomci</featureName>
+		<featureName type="lnum">poravnati brojevi</featureName>
+		<featureName type="onum">staromodni oblici</featureName>
+		<featureName type="ordn">redni brojevi</featureName>
+		<featureName type="pnum">proporcionalni brojevi</featureName>
+		<featureName type="smcp">smanjena velika slova</featureName>
+		<featureName type="tnum">tabelarni brojevi</featureName>
+		<featureName type="zero">precrtana nula</featureName>
 	</typographicNames>
 </ldml>

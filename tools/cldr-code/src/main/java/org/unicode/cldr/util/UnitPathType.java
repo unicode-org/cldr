@@ -67,7 +67,16 @@ public enum UnitPathType {
     }
 
     public static UnitPathType getPathType(XPathParts parts) {
-        if (!parts.getElement(2).equals("unitLength")) {
+        String el2 = parts.getElement(2);
+        if (el2.equals("durationUnit")) {
+            String lastEl = parts.getElement(-1);
+            if (lastEl.equals("durationUnitPattern")) {
+                return UnitPathType.duration;
+            } else {
+                return null;
+            }
+        }
+        if (!el2.equals("unitLength")) {
             return null;
         }
         switch (parts.getElement(-1)) {

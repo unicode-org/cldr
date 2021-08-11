@@ -212,14 +212,21 @@
 	     is "contributed" in fr.xml, and that the .../decimal path is "approved" in fr.xml.
 	     Ideally this test might mock the data to avoid the assumption.
 	     Compare TestUtilities.TestVoteResolver where it is possible to set oldStatus, etc. -->
+
 	<user name="TwenA" org="apple" level="vetter" locales="*"/>
 	<user name="TwenB" org="ibm" level="vetter" locales="*"/>
 
-	<verify status="contributed" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">1</verify>
+	<!--
+		Issue: in v40, //ldml/numbers/minimumGroupingDigits  is now approved, so the test is not currently valid.
+		TODO: re-enable these verifications.
+	-->
+	<!--  TODO: re-enable:
+	 <verify status="contributed" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">1</verify> -->
 	<vote name="TwenA" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">2</vote>
 	<vote name="TwenB" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">2</vote>
 	<!-- 8 votes is enough to change from non-approved to approved -->
-	<verify status="approved" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">2</verify>
+	<!-- TODO: re-enable:
+	 <verify status="approved" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">2</verify> -->
 
 	<verify status="approved" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">,</verify>
 	<vote name="TwenA" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">?</vote>

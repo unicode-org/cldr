@@ -163,6 +163,7 @@ public class GenerateMaximalLocales {
         "rhg_Rohg_MM",
 
         "no_Latn_NO",
+        "und_Cpmn_CY",
     };
 
     /**

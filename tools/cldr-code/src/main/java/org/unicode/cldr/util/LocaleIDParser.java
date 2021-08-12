@@ -148,6 +148,19 @@ public class LocaleIDParser {
     }
 
     /**
+     * Return the base language subtag: en_US => en, en_Latn_US => en, en => en, root => root
+     * @param localeID
+     * @return
+     */
+    public static String getSimpleBaseLanguage(String localeID) {
+        int pos = localeID.indexOf('_');
+        if (pos >= 0) {
+            return localeID.substring(0,pos);
+        }
+        return localeID;
+    }
+
+    /**
      * If the locale consists of baseLanguage+script, return the position of the separator, otherwise -1.
      * @param s
      */

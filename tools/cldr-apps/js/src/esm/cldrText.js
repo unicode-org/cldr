@@ -453,6 +453,7 @@ const strings = {
   special_r_zones: "Zones",
   special_recent_activity: "Recent Activity",
   special_retry: "Retry",
+  special_retry_inplace: "Retry",
   special_search: "Search",
   special_statistics: "Statistics",
   special_transfervotes: "Copy Old Votes Tool",

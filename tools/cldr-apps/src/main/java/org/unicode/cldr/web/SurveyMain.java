@@ -851,6 +851,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             } else if (isBusted != null) {
                 showOfflinePage(request, response, out);
             } else {
+                // The servlet is offline, so doesn't think that it can
+                // display any page. We should have a static main page anyway.
+                // For now, redirect to 'v#retry' which will redirect to the locales
+                // page once ST is up.
                 response.sendRedirect("v#retry");
             }
             out.println("<br><i id='uptime'> " + getGuestsAndUsers() + "</i><br>");

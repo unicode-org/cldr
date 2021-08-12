@@ -2,6 +2,7 @@
  * cldrRetry: encapsulate notification (errors, etc.) functions for Survey Tool
  */
 import * as cldrEvent from "./cldrEvent.js";
+import * as cldrGenericVue from "./cldrGenericVue.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
@@ -41,7 +42,10 @@ function handleDisconnect(why, json, word, what) {
   errInfo.what = what;
   errInfo.json = json;
   console.log("Disconnect: " + why);
-  window.location.href = "#retry"; // load() will be called
+
+  // window.location.href = "#retry"; // load() will be called
+  // Instead of looping via #retry, simply remount 'retry' directly
+  cldrGenericVue.load('retry_inplace');
 }
 
 // called as special.load

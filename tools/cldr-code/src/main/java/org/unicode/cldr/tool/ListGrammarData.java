@@ -158,6 +158,8 @@ public class ListGrammarData {
                         + "\t" + coverage
                         + "\t" + genders.size()
                         + "\t"
+                        + "\t"
+                        + "\t" + genderToUnitCounts.keySet().size()
                         + "\t" + genderToUnitCounts
                         + "\t" + genderToUnits
                         );
@@ -168,9 +170,13 @@ public class ListGrammarData {
                     Set<String> pluralKeywords = SDI.getPlurals(locale).getPluralRules().getKeywords();
                     final Multimap<Integer, String> uniqueCaseAndCountToUnits = bestMinimalPairSamples.getUniqueCaseAndCountToUnits();
                     Multimap<Integer,Integer> uniqueCaseAndCountToUnitsCounts = LinkedHashMultimap.create();
+                    double average = 0;
+                    double total = 0;
                     for (Entry<Integer, Collection<String>> entry : uniqueCaseAndCountToUnits.asMap().entrySet()) {
                         uniqueCaseAndCountToUnitsCounts.put(entry.getKey(), entry.getValue().size());
-                    }
+                        average += entry.getKey()*entry.getValue().size();
+                        total += entry.getValue().size();
+                   }
 
                     stats.put(locale,
                         "Case&Count Details"
@@ -178,6 +184,8 @@ public class ListGrammarData {
                         + "\t" + coverage
                         + "\t" + rawCases.size()
                         + "\t" + pluralKeywords.size()
+                        + "\t" + rawCases.size()*pluralKeywords.size()
+                        + "\t" + (average/total)
                         + "\t" + uniqueCaseAndCountToUnitsCounts
                         + "\t" + uniqueCaseAndCountToUnits
                         );
@@ -204,7 +212,7 @@ public class ListGrammarData {
                 for (String line : entry.getValue()) {
                     System.out.println(line);
                 }
-                System.out.println();
+                //System.out.println();
             }
         }
 

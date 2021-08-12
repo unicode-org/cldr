@@ -115,6 +115,11 @@ public class BestMinimalPairSamples {
         return caseAndGenderSamples.getCase(unitCase, shortUnitId);
     }
 
+    static final Set<String> SKIP_CASE = ImmutableSet.of(
+        "concentr-ofglucose",
+        "concentr-portion",
+        "length-100-kilometer",
+        "pressure-ofhg");
 
     public CaseAndGenderSamples loadCaches() {
         Collection<String> unitCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
@@ -125,10 +130,12 @@ public class BestMinimalPairSamples {
         String bestCaseUnitId = null;
         Multimap<String, Pair<String,String>> bestUnitPatternToCases = null;
 
-        for (String longUnitId : ExampleGenerator.UNITS) {
+        for (String longUnitId : GrammarInfo.getUnitsToAddGrammar()) {
             String possibleGender = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnitId + "\"]/gender");
             if (possibleGender != null) {
-                if (gatherStats) genderToUnits.put(possibleGender, longUnitId);
+                if (gatherStats) {
+                    genderToUnits.put(possibleGender, ExampleGenerator.UNIT_CONVERTER.getShortId(longUnitId));
+                }
                 String formerLongUnitId = genderResults.get(possibleGender);
                 if (formerLongUnitId == null || isBetterUnit(longUnitId, formerLongUnitId)) {
                     genderResults.put(possibleGender, longUnitId);
@@ -149,7 +156,10 @@ public class BestMinimalPairSamples {
                     }
                 }
                 int caseFormCount = unitPatternToCases.keySet().size();
-                if (gatherStats) uniqueCaseAndCountToUnits.put(caseFormCount, longUnitId);
+                if (gatherStats
+                    && !SKIP_CASE.contains(longUnitId)) {
+                    uniqueCaseAndCountToUnits.put(caseFormCount, ExampleGenerator.UNIT_CONVERTER.getShortId(longUnitId));
+                }
 
                 // For case, we should do something fancier, but for now we pick the units with the largest number of distinct forms.
                 int diff = caseFormCount - bestCaseFormCount;
@@ -174,10 +184,10 @@ public class BestMinimalPairSamples {
         Map<String,Pair<String,String>> result2 = Maps.newHashMap();
 
         for (Entry<String, String> entry : genderResults.entrySet()) {
-            String shortUnitId = entry.getValue();
-            String unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + shortUnitId + "\"]/unitPattern[@count=\"" + count + "\"]");
+            String longUnitId = entry.getValue();
+            String unitPattern = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + longUnitId + "\"]/unitPattern[@count=\"" + count + "\"]");
             unitPattern = unitPattern.replace("{0}", "").replace("\u00A0", "").trim();
-            result2.put(entry.getKey(), Pair.of(ExampleGenerator.UNIT_CONVERTER.getShortId(shortUnitId), unitPattern));
+            result2.put(entry.getKey(), Pair.of(ExampleGenerator.UNIT_CONVERTER.getShortId(longUnitId), unitPattern));
         }
         // it doesn't matter if we reset this due to multiple threads
         Map<String, Pair<String, String>> genderCache = ImmutableMap.copyOf(result2);

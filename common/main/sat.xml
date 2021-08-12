@@ -454,6 +454,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -500,7 +501,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ᱥᱮᱨᱢᱟ/ᱵᱚᱪᱷᱚᱞᱨ</displayName>
 			</field>
 			<field type="year-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>ᱥᱮᱨᱢᱟ</displayName>
 			</field>
 			<field type="year-narrow">
 				<displayName>↑↑↑</displayName>
@@ -575,13 +576,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="second">
-				<displayName>ᱴᱤᱡ</displayName>
+				<displayName>ᱴᱤᱨᱤᱡ</displayName>
 			</field>
 			<field type="second-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>ᱴᱤᱨᱤᱡ</displayName>
 			</field>
 			<field type="second-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>ᱴᱤᱨᱤᱡ</displayName>
 			</field>
 			<field type="zone">
 				<displayName>ᱴᱚᱴᱷᱟ</displayName>
@@ -792,14 +793,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</miscPatterns>
 	</numbers>
 	<units>
+		<unitLength type="narrow">
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="one">{0}dsp-Imp</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern>↑↑↑</durationUnitPattern>
+			<durationUnitPattern>h:mm</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>↑↑↑</durationUnitPattern>
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>↑↑↑</durationUnitPattern>
+			<durationUnitPattern>m:ss</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>

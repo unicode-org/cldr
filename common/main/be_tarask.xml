@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -511,7 +511,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="017" draft="provisional">Сярэдняя Афрыка</territory>
 			<territory type="018" draft="provisional">Паўднёвая Афрыка</territory>
 			<territory type="019" draft="provisional">Паўночная і Паўднёвая Амэрыкі</territory>
-			<territory type="021" draft="provisional">Паўночная Амэрыка</territory>
 			<territory type="029" draft="provisional">Карыбы</territory>
 			<territory type="030" draft="provisional">Усходняя Азія</territory>
 			<territory type="034" draft="provisional">Паўднёвая Азія</territory>
@@ -519,7 +518,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="039" draft="provisional">Паўднёвая Эўропа</territory>
 			<territory type="053" draft="provisional">Аўстралазія</territory>
 			<territory type="054" draft="provisional">Мэланэзія</territory>
-			<territory type="057" draft="provisional">Мікранэзія</territory>
 			<territory type="061" draft="provisional">Палінэзія</territory>
 			<territory type="142" draft="provisional">Азія</territory>
 			<territory type="143" draft="provisional">Сярэдняя Азія</territory>
@@ -2543,9 +2541,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity draft="provisional">Санта-Ісабэль</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="provisional">Ганалулу</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard draft="provisional">унівэрсальны каардынаваны час</standard>
@@ -2665,11 +2660,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity draft="provisional">Брокэн-Хіл</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="provisional">Кэры</exemplarCity>
-			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity draft="provisional">Мэльбурн</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity draft="provisional">Кэры</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity draft="provisional">Хобарт</exemplarCity>
@@ -3703,6 +3698,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity draft="provisional">Ном</exemplarCity>
 			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="provisional">Ганалулу</exemplarCity>
+			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity draft="provisional">Джонстан</exemplarCity>
 			</zone>
@@ -4726,7 +4724,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimumGroupingDigits draft="provisional">2</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal draft="provisional">,</decimal>
-			<group draft="provisional">&#x00A0;</group>
+			<group draft="provisional"> </group>
 			<percentSign draft="provisional">%</percentSign>
 			<plusSign draft="provisional">+</plusSign>
 			<minusSign draft="provisional">-</minusSign>
@@ -9440,7 +9438,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="emoji" draft="provisional">эмадзі</characterLabel>
 		<characterLabel type="european_scripts" draft="provisional">Эўрапейскія пісьмы</characterLabel>
 		<characterLabel type="female" draft="provisional">Жаньчына</characterLabel>
-        <characterLabel type="flag" draft="provisional">Сьцяг</characterLabel>
+		<characterLabel type="flag" draft="provisional">Сьцяг</characterLabel>
 		<characterLabel type="flags" draft="provisional">Сьцягі</characterLabel>
 		<characterLabel type="food_drink" draft="provisional">Ежа й напоі</characterLabel>
 		<characterLabel type="format" draft="provisional">Фарматаваньне</characterLabel>
@@ -9532,7 +9530,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="87.5" draft="provisional">напаўшчыльны</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed" draft="provisional">напаўсьціснуты</styleName>
 		<styleName type="wdth" subtype="87.5" alt="narrow" draft="provisional">напаўвузкі</styleName>
-		<styleName type="wdth" subtype="100" draft="provisional">звычайны</styleName>
+		<styleName type="wdth" subtype="100" draft="provisional">нармальны</styleName>
 		<styleName type="wdth" subtype="112.5" draft="provisional">напаўразгорнуты</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended" draft="provisional">напаўпашыраны</styleName>
 		<styleName type="wdth" subtype="112.5" alt="wide" draft="provisional">напаўшырокі</styleName>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,6 +11,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="chr"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">brace | bracket | curly brace | curly bracket | gullwing | open curly bracket</annotation>
+		<annotation cp="{" type="tts">open curly bracket</annotation>
 		<annotation cp="🏻">ᎢᏳᏍᏗ 1–2 | ᎣᏁᎦᎸ ᏄᏍᏛᎢ | ᎤᏗᏴᎳᏘ ᎤᏁᎦᎵ ᏄᏍᏛᎢ</annotation>
 		<annotation cp="🏻" type="tts">ᎤᏗᏴᎳᏘ ᎤᏁᎦᎵ ᏄᏍᏛᎢ</annotation>
 		<annotation cp="🏼">ᎠᏲᏟᎨ-ᎤᏗᏴᎳᏘ ᎤᏁᎦᎸ ᏄᎿᏍᏛᎢ | ᎢᏳᏍᏗ 3 | ᎣᏁᎦᎸ ᏄᏍᏛᎢ</annotation>
@@ -21,24 +23,148 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">ᎠᏲᏟᎨ-ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ</annotation>
 		<annotation cp="🏿">ᎢᏳᏍᏗ 6 | ᎣᏁᎦᎸ ᏄᏍᏛᎢ | ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ</annotation>
 		<annotation cp="🏿" type="tts">ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ</annotation>
+		<annotation cp="_">ᎠᏍᏓᏅᏅᎢ | ᎡᎳᏗ ᎠᏍᏓᏅᏅᎢ | ᎡᎳᏗ ᏍᏆᎳ ᎠᏍᏓᏅᏅ | ᏍᏆᎳ ᎠᏍᏓᏅᏅ</annotation>
+		<annotation cp="_" type="tts">ᎡᎳᏗ ᎠᏍᏓᏅᏅᎢ</annotation>
+		<annotation cp="-">ᎪᏣᎴᏍᏗᏱ | ᏍᏆᎳ ᎠᏍᏓᏅᏅ | ᏍᏆᎳ ᎠᏍᏓᏅᏅ-ᎪᏣᎴᏍᏗᏱ | ᏍᏆᎳ ᎠᏍᏓᏅᏅᎢ</annotation>
+		<annotation cp="-" type="tts">ᏍᏆᎳ ᎠᏍᏓᏅᏅ-ᎪᏣᎴᏍᏗᏱ</annotation>
+		<annotation cp="‐">ᏍᏆᎳ ᎠᏍᏓᏅᏅ | ᏍᏆᎳ ᎠᏍᏓᏅᏅᎢ</annotation>
+		<annotation cp="‐" type="tts">ᏍᏆᎳ ᎠᏍᏓᏅᏅ</annotation>
 		<annotation cp="–">ᎡᏂ | ᎡᏂ ᏍᏆᎳ ᎠᏍᏓᏅᏅ | ᏍᏆᎳ ᎠᏍᏓᏅᏅ</annotation>
 		<annotation cp="–" type="tts">ᎡᏂ ᏍᏆᎳ ᎠᏍᏓᏅᏅ</annotation>
 		<annotation cp="—">ᎡᎻ | ᎡᎻ ᏍᏆᎳ ᎠᏍᏓᏅᏅ | ᏍᏆᎳ ᎠᏍᏓᏅᏅ</annotation>
 		<annotation cp="—" type="tts">ᎡᎻ ᏍᏆᎳ ᎠᏍᏓᏅᏅ</annotation>
+		<annotation cp="―">ᎠᏍᏓᏅᏅᎢ | ᎠᏍᏓᏅᏅᎢ ᎢᏳᏍᏗ | ᎨᏛᎢ | ᏍᏆᎳ ᎠᏍᏓᏅᏅ</annotation>
+		<annotation cp="―" type="tts">ᎠᏍᏓᏅᏅᎢ ᎢᏳᏍᏗ</annotation>
+		<annotation cp="・">dots | interpunct | katakana | katakana middle dot | middot</annotation>
+		<annotation cp="・" type="tts">katakana middle dot</annotation>
+		<annotation cp=",">comma</annotation>
+		<annotation cp="," type="tts">comma</annotation>
+		<annotation cp="،">arabic | comma</annotation>
+		<annotation cp="،" type="tts">arabic comma</annotation>
+		<annotation cp="、">comma | ideographic</annotation>
+		<annotation cp="、" type="tts">ideographic comma</annotation>
+		<annotation cp=";">semi-colon | semicolon</annotation>
+		<annotation cp=";" type="tts">semicolon</annotation>
+		<annotation cp="؛">arabic | arabic semicolon | semi-colon</annotation>
+		<annotation cp="؛" type="tts">arabic semicolon</annotation>
+		<annotation cp=":">colon</annotation>
+		<annotation cp=":" type="tts">colon</annotation>
+		<annotation cp="!">bang | exclamation | exclamation mark | exclamation point</annotation>
+		<annotation cp="!" type="tts">exclamation mark</annotation>
+		<annotation cp="¡">bang | exclamation | exclamation mark | exclamation point | inverted | inverted exclamation mark</annotation>
+		<annotation cp="¡" type="tts">inverted exclamation mark</annotation>
+		<annotation cp="?">ᎠᏛᏛᎲᏍᎩ | ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ</annotation>
+		<annotation cp="?" type="tts">ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ</annotation>
+		<annotation cp="¿">ᎠᏛᏛᎲᏍᎩ | ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ | ᏗᎧᎷᏆᏗᏅᏗ | ᏗᎧᎷᏆᏗᏅᏗ ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ</annotation>
+		<annotation cp="¿" type="tts">ᏗᎧᎷᏆᏗᏅᏗ ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ</annotation>
+		<annotation cp="؟">ᎠᏛᏛᎲᏍᎩ | ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ | ᎡᎳᏈ | ᎡᎳᏈ ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ</annotation>
+		<annotation cp="؟" type="tts">ᎡᎳᏈ ᎠᏛᏛᎲᏍᎩ ᎪᏪᎸ</annotation>
+		<annotation cp=".">dot | full stop | period</annotation>
+		<annotation cp="." type="tts">period</annotation>
+		<annotation cp="…">dots | ellipsis | omission</annotation>
+		<annotation cp="…" type="tts">ellipsis</annotation>
+		<annotation cp="。">full stop | ideographic | period</annotation>
+		<annotation cp="。" type="tts">ideographic period</annotation>
 		<annotation cp="·">ᎠᏰᏟ | ᎤᏓᏓᎸ | ᎭᏫᏂ ᏗᏜ ᎤᏓᏓᎸ</annotation>
 		<annotation cp="·" type="tts">ᎤᏓᏓᎸ ᎠᏰᏟ</annotation>
+		<annotation cp="'">apostrophe | quote | single quote | typewriter apostrophe</annotation>
+		<annotation cp="'" type="tts">typewriter apostrophe</annotation>
+		<annotation cp="‘">apostrophe | left apostrophe | quote | single quote | smart quote</annotation>
+		<annotation cp="‘" type="tts">left apostrophe</annotation>
+		<annotation cp="’">apostrophe | quote | right apostrophe | single quote | smart quote</annotation>
+		<annotation cp="’" type="tts">right apostrophe</annotation>
+		<annotation cp="‚">apostrophe | low quote | low right apostrophe | quote</annotation>
+		<annotation cp="‚" type="tts">low right apostrophe</annotation>
+		<annotation cp="“">double quote | left quotation mark | quotation | quote | smart quotation</annotation>
+		<annotation cp="“" type="tts">left quotation mark</annotation>
+		<annotation cp="”">double quote | quotation | quote | right quotation mark | smart quotation</annotation>
+		<annotation cp="”" type="tts">right quotation mark</annotation>
+		<annotation cp="„">double quote | low quotation | low right quotation mark | quotation | quote | smart quotation</annotation>
+		<annotation cp="„" type="tts">low right quotation mark</annotation>
 		<annotation cp="«">ᎠᎦᏍᎦᏂ | ᎠᎦᏍᎦᏂ ᎩᎺ | ᎧᏁᎢᏍᏙᏗ | ᏓᏍᏓᏅᏅ ᏚᎷᏨ | ᏔᎵ ᏗᎭᏰᎳᏍᏗ | ᏕᎦᏂᏴᏛ | ᏤᏫᎳᏂ</annotation>
 		<annotation cp="«" type="tts">ᎠᎦᏍᎦᏂ ᎩᎺ</annotation>
 		<annotation cp="»">ᎠᎦᏘᏏ | ᎠᎦᏘᏏ ᎩᎺ | ᎧᏁᎢᏍᏙᏗ | ᏓᏍᏓᏅᏅ ᏚᎷᏨ | ᏔᎵ ᏗᎭᏰᎳᏍᏗ | ᏕᎦᏂᏴᏛ | ᏤᏫᎳᏂ</annotation>
 		<annotation cp="»" type="tts">ᎠᎦᏘᏏ ᎩᎺ</annotation>
+		<annotation cp=")">bracket | close parenthesis | paren | parens | parenthesis | round bracket</annotation>
+		<annotation cp=")" type="tts">close parenthesis</annotation>
+		<annotation cp="[">bracket | crotchet | open square bracket | square bracket</annotation>
+		<annotation cp="[" type="tts">open square bracket</annotation>
+		<annotation cp="]">bracket | close square bracket | crotchet | square bracket</annotation>
+		<annotation cp="]" type="tts">close square bracket</annotation>
+		<annotation cp="}">brace | bracket | close curly bracket | curly brace | curly bracket | gullwing</annotation>
+		<annotation cp="}" type="tts">close curly bracket</annotation>
+		<annotation cp="〈">angle bracket | bracket | chevron | diamond brackets | open angle bracket | pointy bracket | tuple</annotation>
+		<annotation cp="〈" type="tts">open angle bracket</annotation>
+		<annotation cp="〉">angle bracket | bracket | chevron | close angle bracket | diamond brackets | pointy bracket | tuple</annotation>
+		<annotation cp="〉" type="tts">close angle bracket</annotation>
+		<annotation cp="《">bracket | double angle bracket | open double angle bracket</annotation>
+		<annotation cp="《" type="tts">open double angle bracket</annotation>
+		<annotation cp="》">bracket | close double angle bracket | double angle bracket</annotation>
+		<annotation cp="》" type="tts">close double angle bracket</annotation>
+		<annotation cp="「">bracket | corner bracket | open corner bracket</annotation>
+		<annotation cp="「" type="tts">open corner bracket</annotation>
+		<annotation cp="」">bracket | close corner bracket | corner bracket</annotation>
+		<annotation cp="」" type="tts">close corner bracket</annotation>
+		<annotation cp="『">bracket | hollow corner bracket | open hollow corner bracket</annotation>
+		<annotation cp="『" type="tts">open hollow corner bracket</annotation>
+		<annotation cp="』">bracket | close hollow corner bracket | hollow corner bracket</annotation>
+		<annotation cp="』" type="tts">close hollow corner bracket</annotation>
+		<annotation cp="【">bracket | lens bracket | lenticular bracket | open black lens bracket</annotation>
+		<annotation cp="【" type="tts">open black lens bracket</annotation>
+		<annotation cp="】">bracket | close black lens bracket | lens bracket | lenticular bracket</annotation>
+		<annotation cp="】" type="tts">close black lens bracket</annotation>
+		<annotation cp="〔">bracket | open tortoise shell bracket | shell bracket | tortoise shell bracket</annotation>
+		<annotation cp="〔" type="tts">open tortoise shell bracket</annotation>
+		<annotation cp="〕">bracket | close tortoise shell bracket | shell bracket | tortoise shell bracket</annotation>
+		<annotation cp="〕" type="tts">close tortoise shell bracket</annotation>
+		<annotation cp="〖">bracket | hollow lens bracket | hollow lenticular bracket | open hollow lens bracket</annotation>
+		<annotation cp="〖" type="tts">open hollow lens bracket</annotation>
+		<annotation cp="〗">bracket | close hollow lens bracket | hollow lens bracket | hollow lenticular bracket</annotation>
+		<annotation cp="〗" type="tts">close hollow lens bracket</annotation>
 		<annotation cp="§">ᎢᎦᏓ | ᎾᎿ ᎨᏒ | ᎾᎿ ᎨᏒ ᎪᏪᎶᏗ | ᏗᎧᏁᏍᏗ</annotation>
 		<annotation cp="§" type="tts">ᎾᎿ ᎨᏒ</annotation>
+		<annotation cp="¶">ᎤᏓᏡᎬ | ᎤᏓᏡᎬ ᎪᏪᎸ | ᎤᏓᏥᏍᎬ | ᎤᏓᏥᏍᎬ ᎪᏪᎸ</annotation>
+		<annotation cp="¶" type="tts">ᎤᏓᏡᎬ ᎪᏪᎸ</annotation>
+		<annotation cp="@">ampersat | arobase | arroba | at mark | at sign | at-sign | commercial at | strudel</annotation>
+		<annotation cp="@" type="tts">at-sign</annotation>
+		<annotation cp="*">asterisk | star | wildcard</annotation>
+		<annotation cp="*" type="tts">asterisk</annotation>
+		<annotation cp="/">oblique | slash | solidus | stroke | virgule | whack</annotation>
+		<annotation cp="/" type="tts">slash</annotation>
+		<annotation cp="\">backslash | reverse solidus | whack</annotation>
+		<annotation cp="\" type="tts">backslash</annotation>
+		<annotation cp="&amp;">ampersand | and | et</annotation>
+		<annotation cp="&amp;" type="tts">ampersand</annotation>
+		<annotation cp="#">hash | hash sign | hashtag | lb | number | pound</annotation>
+		<annotation cp="#" type="tts">hash sign</annotation>
+		<annotation cp="%">ᎢᎦᎢ ᎤᏃᏍᏗ | ᎢᎦᏛᎢ | ᎢᏯᏓᏅᏖᏗ ᎢᎦᎢ</annotation>
+		<annotation cp="%" type="tts">ᎢᎦᎢ ᎤᏃᏍᏗ</annotation>
+		<annotation cp="‰">per mil | per mille | permil | permille</annotation>
+		<annotation cp="‰" type="tts">per mille</annotation>
 		<annotation cp="†">ᎣᏇᎵᏍᎩ | ᎣᏇᎷᏏ | ᎭᏰᎳᏍᏗ | ᎭᏰᎳᏍᏗ ᎪᏪᎶᏗ</annotation>
 		<annotation cp="†" type="tts">ᎭᏰᎳᏍᏗ ᎪᏪᎶᏗ</annotation>
 		<annotation cp="‡">ᎣᏇᎵᏍᎩ | ᎣᏇᎷᏏ | ᎭᏰᎳᏍᏗ | ᏔᎵ | ᏔᎵ ᏗᎭᏰᎳᏍᏗ ᎪᏪᎶᏗ</annotation>
 		<annotation cp="‡" type="tts">ᏔᎵ ᏗᎭᏰᎳᏍᏗ ᎪᏪᎶᏗ</annotation>
 		<annotation cp="•">ᎤᏓᏓᎸ | ᎦᏂ</annotation>
 		<annotation cp="•" type="tts">ᎦᏂ</annotation>
+		<annotation cp="‧">dash | hyphen | hyphenation point | point</annotation>
+		<annotation cp="‧" type="tts">hyphenation point</annotation>
+		<annotation cp="′">prime</annotation>
+		<annotation cp="′" type="tts">prime</annotation>
+		<annotation cp="″">double prime | prime</annotation>
+		<annotation cp="″" type="tts">double prime</annotation>
+		<annotation cp="‴">prime | triple prime</annotation>
+		<annotation cp="‴" type="tts">triple prime</annotation>
+		<annotation cp="※">ᏩᏎᎸᎯ ᎪᏪᎸ</annotation>
+		<annotation cp="※" type="tts">ᏩᏎᎸᎯ ᎪᏪLC</annotation>
+		<annotation cp="`">accent | grave | tone</annotation>
+		<annotation cp="`" type="tts">grave accent</annotation>
+		<annotation cp="´">accent | acute | tone</annotation>
+		<annotation cp="´" type="tts">acute accent</annotation>
+		<annotation cp="^">accent | caret | chevron | circumflex | control | hat | pointer | power | wedge | xor sign</annotation>
+		<annotation cp="^" type="tts">circumflex accent</annotation>
+		<annotation cp="¨">diaeresis | tréma | umlaut</annotation>
+		<annotation cp="¨" type="tts">diaeresis</annotation>
 		<annotation cp="°">ᎢᎦᎢ ᎢᎦᏘ | ᎢᏳᏟᎶᏓ | ᎪᎯᏳᏙᏗ</annotation>
 		<annotation cp="°" type="tts">ᎢᎦᎢ ᎢᎦᏘ</annotation>
 		<annotation cp="℗">ᎤᏃᏴᎬ | ᎤᏃᏴᎬ ᎤᏤᎵᎢ ᎤᎯᏴᎢ | ᎤᏤᎵᎢ ᎤᎯᏴᎢ | ᏧᏃᏴᎬ</annotation>
@@ -61,10 +187,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∇" type="tts">ᎠᏲᎱᎯᏍᏗ</annotation>
 		<annotation cp="∈">ᎠᏁᎳ ᎤᎾᏓᏡᎬ | ᎢᎦᎢ ᎨᏐ | ᎤᏙᏣᎵ | ᎤᏙᏣᎵ ᎾᎿ | ᏧᏓᏂᏝᏅ</annotation>
 		<annotation cp="∈" type="tts">ᎤᏙᏣᎵ ᎾᎿ</annotation>
+		<annotation cp="+">ᎦᏟᏐᏗ | ᎦᏟᏐᏗᏱ | ᎦᏟᏐᏗᏱ ᎪᏪᎸ</annotation>
+		<annotation cp="+" type="tts">ᎦᏟᏐᏗᏱ ᎪᏪᎸ</annotation>
+		<annotation cp="±">ᎦᏟᏐᏗᏱ-ᎠᏣᎴᏍᏗᏱ</annotation>
+		<annotation cp="±" type="tts">ᎦᏟᏐᏗᏱ-ᎠᏣᎴᏍᏗᏱ</annotation>
 		<annotation cp="÷">ᎢᎦᏓ | ᎢᎦᏛ ᎪᏪᎶᏗ | ᎢᏓᏛ | ᎣᏇᎷᏏ</annotation>
 		<annotation cp="÷" type="tts">ᎢᎦᏛ ᎪᏪᎶᏗ</annotation>
 		<annotation cp="×">ᎠᏴᎦᎴᏫᏒᎯ | ᎢᏳᏩᎦᏗ | ᎢᏳᏩᎪᏗ | ᎢᏳᏩᎬᏗ | ᎪᏪᎶᏗ</annotation>
 		<annotation cp="×" type="tts">ᎢᏳᏩᎪᏗ ᎪᏪᎶᏗ</annotation>
+		<annotation cp="&lt;">ᎠᏍᏚᎢᏓ ᎪᏪᎸ | ᎪᏪᎸ | ᏩᎦᏲᏢ</annotation>
+		<annotation cp="&lt;" type="tts">ᏩᎦᏲᏢ</annotation>
+		<annotation cp="=">ᎢᏗᎦᎢ | ᎢᏧᎳᎭ</annotation>
+		<annotation cp="=" type="tts">ᎢᏧᎳᎭ</annotation>
+		<annotation cp="≠">ᎢᎦᏗᎭ ᏂᎨᏒᎾ | ᎢᏧᎳᎭ ᏂᎨᏒᎾ | Ꮭ ᎢᏧᎳ ᏱᎩ</annotation>
+		<annotation cp="≠" type="tts">Ꮭ ᎢᏧᎳ ᏱᎩ</annotation>
+		<annotation cp="&gt;">ᎠᏍᏚᎲᎦ ᎪᏪᎸ | ᎪᏪᎸ | ᏭᏔᏅ</annotation>
+		<annotation cp="&gt;" type="tts">ᏭᏔᏅ</annotation>
+		<annotation cp="¬">ᎤᏴᏟ | ᎥᏝ</annotation>
+		<annotation cp="¬" type="tts">ᎤᏴᏟ</annotation>
+		<annotation cp="|">ᎠᏍᏓᏅᏅᎢ | ᎦᏅᏃᏩ | ᎨᏛᎢ | ᎬᏍᏓ</annotation>
+		<annotation cp="|" type="tts">ᎨᏛᎢ</annotation>
+		<annotation cp="~">ᎠᏕᏲᎲᎢ ᎠᏍᏓᏅᏅᎢ</annotation>
+		<annotation cp="~" type="tts">ᎠᏕᏲᎲᎢ ᎠᏍᏓᏅᏅᎢ</annotation>
+		<annotation cp="−">ᎪᏣᎴᏍᏗᏱ | ᎪᏣᎴᏍᏗᏱ ᎪᏪᎸ | ᏗᎪᏣᎴᏍᏗ</annotation>
+		<annotation cp="−" type="tts">ᎪᏣᎴᏍᏗᏱ ᎪᏪᎸ</annotation>
 		<annotation cp="⁻">ᎠᎩᏲᎳᏗᏍᏗ | ᎤᏍᏗ ᎦᎸᎳᏗ | ᎤᏍᏗ ᎦᎸᎳᏗ ᎠᎩᏲᎳᏗᏍᏗ</annotation>
 		<annotation cp="⁻" type="tts">ᎤᏍᏗ ᎦᎸᎳᏗ ᎠᎩᏲᎳᏗᏍᏗ</annotation>
 		<annotation cp="√">ᎤᎾᏍᏕᎵ | ᏄᎬᏫᏳᏒ | ᏄᎬᏫᏳᏒᏕᎩ | ᏅᎩ ᏧᏅᏏᏯ | ᏅᎩ ᏧᏅᏏᏯ ᎤᎾᏍᏕᎵ | ᏙᏄᏛᎿ</annotation>
@@ -75,8 +221,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∩" type="tts">ᏧᏠᎯᏍᏗ</annotation>
 		<annotation cp="∪">ᎤᏓᏂᏝᏅ | ᏌᏊ ᎤᎾᎵᎪᎯ | ᏧᏓᏂᏝᏅ</annotation>
 		<annotation cp="∪" type="tts">ᏌᏊ ᎤᎾᎵᎪᎯ</annotation>
+		<annotation cp="≈">ᎢᏧᎳᏢ | ᎾᎥᏂᎨᏍᏗ | ᎾᎥᏂᎨᏍᏙᏙᏉ</annotation>
+		<annotation cp="≈" type="tts">ᎢᏧᎳᏢ</annotation>
 		<annotation cp="≡">ᎤᏠᏱ | ᏦᎢ ᎢᏳᏩᎪᏗ | ᏧᏠᏱ | ᏧᏠᏱ ᎾᎿ</annotation>
 		<annotation cp="≡" type="tts">ᏧᏠᏱ ᎾᎿ</annotation>
+		<annotation cp="≤">ᎢᏗᎦᎢ | ᎢᏧᎳᎭ | ᎢᏧᎳᎭ ᏂᎨᏒᎾ | ᏩᎦᏲᏢ | ᏭᏔᏅ ᎠᎴᏱᎩ ᎢᏧᎳᎭ</annotation>
+		<annotation cp="≤" type="tts">ᏩᎦᏲᏢ ᎠᎴᏱᎩ ᎢᏧᎳᎭ</annotation>
+		<annotation cp="≥">ᎢᏗᎦᎢ | ᎢᏧᎳᎭ | ᎢᏧᎳᎭ ᏂᎨᏒᎾ | ᏭᏔᏅ | ᏭᏔᏅ ᎠᎴᏱᎩ ᎢᏧᎳᎭ</annotation>
+		<annotation cp="≥" type="tts">ᏭᏔᏅ ᎠᎴᏱᎩ ᎢᏧᎳᎭ</annotation>
 		<annotation cp="⊂">ᎢᎦᏓᏊ | ᎢᎦᏓᏊ ᎾᎿ | ᏧᏓᏂᏝᏅ</annotation>
 		<annotation cp="⊂" type="tts">ᎢᎦᏓᏊ ᎾᎿ</annotation>
 		<annotation cp="▲">ᎠᎧᎵᎸᎯ | ᎠᎧᎵᎸᎯ ᎦᎸᎳᏗ-ᏦᎢ ᏧᏅᏏᏯ | ᎦᎸᎳᏗ | ᎦᏝᏗ | ᏦᎢ ᏧᏅᏏᏯ</annotation>
@@ -91,6 +243,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="●" type="tts">ᎠᎧᎵᎸᎯ ᎦᏐᏆᎳ</annotation>
 		<annotation cp="◯">RᏆ ᎤᏒᏙᏂ ᎦᏐᏆᎳ | ᎠᎵᏰᏑᏍᏔᏬ | ᎡᏆ ᎤᏒᏙᏂ ᎦᏐᏆᎳ | ᎦᏐᏆᎳ</annotation>
 		<annotation cp="◯" type="tts">RᏆ ᎤᏒᏙᏂ ᎦᏐᏆᎳ</annotation>
+		<annotation cp="♪">eighth | music | note</annotation>
+		<annotation cp="♪" type="tts">eighth note</annotation>
+		<annotation cp="♭">bemolle | flat | music | note</annotation>
+		<annotation cp="♭" type="tts">flat</annotation>
+		<annotation cp="♯">dièse | diesis | music | note | sharp</annotation>
+		<annotation cp="♯" type="tts">sharp</annotation>
 		<annotation cp="😀">ᎤᎧᏛ | ᎤᏤᏣᏍᏗ ᎤᎧᏛ | ᎤᏰᏍᎩ</annotation>
 		<annotation cp="😀" type="tts">ᎤᏤᏣᏍᏗ ᎤᎧᏛ</annotation>
 		<annotation cp="😃">ᎠᎰᎵ | ᎠᏍᎢᏓ | ᎤᎧᏛ | ᎤᏤᏣᏍᏗ | ᎤᏤᏣᏍᏗ ᎤᎧᏛ ᎾᏍᎩ ᎤᏔᎾ ᏗᎦᏙᎵ</annotation>
@@ -257,7 +415,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😖" type="tts">ᎤᎭᎾᎸ ᎤᎧᏛ</annotation>
 		<annotation cp="😣">ᎤᎧᏛ | ᎤᎵᏏᏅᏗ | ᏥᎾᏛᏁᎰᎢ ᎤᎧᏛ</annotation>
 		<annotation cp="😣" type="tts">ᏥᎾᏛᏁᎰᎢ ᎤᎧᏛ</annotation>
-		<annotation cp="😞">ᎡᏍᎦ ᎤᏰᎸᏅᎢ | ᎡᏍᎦ ᎤᏰᎸᏅᎢ ᎤᎧᏛ | ᎤᎧᏛ</annotation>
+		<annotation cp="😞">ᎡᏍᎦ ᎤᏰᎸᏅᎢ | ᎤᎧᏛ</annotation>
 		<annotation cp="😞" type="tts">ᎡᏍᎦ ᎤᏰᎸᏅᎢ ᎤᎧᏛ</annotation>
 		<annotation cp="😓">ᎠᎵ | ᎤᎧᏛ | ᎤᎧᏛᎢ ᎤᏠᏯᏍᏗ ᎤᏴᏟ ᎠᎵ | ᎤᏴᏝ</annotation>
 		<annotation cp="😓" type="tts">ᎤᎧᏛᎢ ᎤᏠᏯᏍᏗ ᎤᏴᏟ ᎠᎵ</annotation>
@@ -297,7 +455,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👽" type="tts">ᎢᎾ ᏂᏓᏳᎶᏒᎢ</annotation>
 		<annotation cp="👾">ᎠᏏᏴᏫ | ᎢᎾ ᏂᏓᏳᎶᏒ | ᎢᎾ ᏂᏓᏳᎶᏒᎢ | ᎢᎾ ᏂᏓᏳᎶᏒᎢ ᎦᏂᏰᎩ | ᎤᎧᏛ | ᎦᏂᏰᎩ | ᎪᏟᏍᏗ ᏂᎨᏒᎾ ᎦᏃᎯᎵᏙᎯ</annotation>
 		<annotation cp="👾" type="tts">ᎢᎾ ᏂᏓᏳᎶᏒᎢ ᎦᏂᏰᎩ</annotation>
-		<annotation cp="🤖">ᎤᎧᏛ | ᎦᏂᏰᎩ | ᏔᎷᎩᏍᎩ ᏴᏫ | ᏔᎷᎩᏍᎩ ᏴᏫ ᎤᎧᏛ</annotation>
+		<annotation cp="🤖">ᎤᎧᏛ | ᎦᏂᏰᎩ | ᏔᎷᎩᏍᎩ ᏴᏫ</annotation>
 		<annotation cp="🤖" type="tts">ᏔᎷᎩᏍᎩ ᏴᏫ ᎤᎧᏛ</annotation>
 		<annotation cp="😺">ᎠᎰᎵ | ᎠᏍᎢᏓ | ᎤᎧᏛ | ᎤᏤᏣᏍᏗ | ᏪᏌ</annotation>
 		<annotation cp="😺" type="tts">ᎤᏤᏣᏍᏗ ᏪᏌ ᎤᎧᏛ</annotation>
@@ -2843,7 +3001,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♂" type="tts">ᎠᏍᎦᏯ ᎪᏟᏍᏙᏗ</annotation>
 		<annotation cp="⚧">ᏄᏬᎵᏍᏛᎾ | ᏄᏬᎵᏍᏛᎾ ᎪᏟᏍᏙᏗ</annotation>
 		<annotation cp="⚧" type="tts">ᏄᏬᎵᏍᏛᎾ ᎪᏟᏍᏙᏗ</annotation>
-		<annotation cp="✖">× | x | ᎠᏎᏒᏗ | ᎤᏓᎨᏓ ᏗᏎᏢᎢ | ᎤᏓᎨᏓ ᏗᏎᏢᎢ ᎤᏙᏪᎸ | ᎤᏙᏪᎸ | ᎧᏁᏉᎢᏍᏗ | ᏗᏎᏢᎢ</annotation>
+		<annotation cp="✖">× | x | ᎠᏎᏒᏗ | ᎤᏓᎨᏓ ᏗᏎᏢᎢ | ᎤᏙᏪᎸ | ᎧᏁᏉᎢᏍᏗ | ᏗᏎᏢᎢ</annotation>
 		<annotation cp="✖" type="tts">ᎤᏓᎨᏓ ᏗᏎᏢᎢ ᎤᏙᏪᎸ</annotation>
 		<annotation cp="➕">+ | ᎤᏓᎨᏓ ᎧᏁᏉᎩ ᎤᏙᏪᎸ | ᎤᏙᏪᎸ | ᎧᏁᏉᎩ | ᏗᏎᏍᏗ</annotation>
 		<annotation cp="➕" type="tts">ᎤᏓᎨᏓ ᎧᏁᏉᎩ ᎤᏙᏪᎸ</annotation>
@@ -3083,6 +3241,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="£" type="tts">ᎩᎵᏏᏲ ᎠᏕᎳ</annotation>
 		<annotation cp="¥">CNY | JPY | ᎠᏕᎳ | ᏓᎶᏂᎨᏍᏛ ᎠᏕᎳ | ᏣᏩᏂᏏ ᎠᏕᎳ</annotation>
 		<annotation cp="¥" type="tts">ᏣᏩᏂᏏ ᎠᏕᎳ</annotation>
+		<annotation cp="₥">ᎻᎵ | ᏩᎦᏲᏢ ᎢᏯᏓᏅᏖᏗ</annotation>
+		<annotation cp="₥" type="tts">ᏩᎦᏲᏢ ᎢᏯᏓᏅᏖᏗ</annotation>
+		<annotation cp="₩">KPW | KRW | ᏧᎦᏃᏮ ᎪᎵᎠ ᎠᏕᎳ</annotation>
+		<annotation cp="₩" type="tts">ᏧᎦᏃᏮ ᎪᎵᎠ ᎠᏕᎳ</annotation>
 		<annotation cp="€">EUR | ᎠᏕᎳ | ᏳᎳᏈ ᎠᏕᎳ</annotation>
 		<annotation cp="€" type="tts">ᏳᎳᏈ ᎠᏕᎳ</annotation>
 		<annotation cp="₱">ᏍᏆᏂ ᎠᏕᎳ</annotation>
@@ -3091,6 +3253,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₹" type="tts">ᎢᏂᏗᎢᎠ ᎠᏕᎳ</annotation>
 		<annotation cp="₽">ᎠᏕᎳ | ᏲᏅᎯ ᎠᏕᎳ</annotation>
 		<annotation cp="₽" type="tts">ᏲᏅᎯ ᎠᏕᎳ</annotation>
+		<annotation cp="₿">BTC | ᎠᏏᎳᏕᏫᏒᎢ ᎠᏕᎳ</annotation>
+		<annotation cp="₿" type="tts">ᎠᏏᎳᏕᏫᏒᎢ ᎠᏕᎳ</annotation>
 		<annotation cp="¹">ᎤᏍᏗ ᎦᎸᎳᏗ | ᎤᏍᏗ ᎦᎸᎳᏗ ᏌᏊ | ᏌᏊ</annotation>
 		<annotation cp="¹" type="tts">ᎤᏍᏗ ᎦᎸᎳᏗ ᏌᏊ</annotation>
 		<annotation cp="²">ᎤᏍᏗ ᎦᎸᎳᏗ | ᎤᏍᏗ ᎦᎸᎳᏗ ᏔᎵ | ᏔᎵ</annotation>
@@ -3099,5 +3263,79 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="³" type="tts">ᎤᏍᏗ ᎦᎸᎳᏗ ᏦᎢ</annotation>
 		<annotation cp="µ">ᎢᏳᏟᎶᏓ | ᎤᏍᏗ ᎪᏪᎶᏗ</annotation>
 		<annotation cp="µ" type="tts">ᎤᏍᏗ ᎪᏪᎶᏗ</annotation>
+		<annotation cp="🛝">ᎠᎳᏍᎧᎴᎭ | ᎠᏍᏆᏂᎪᏑᏗ</annotation>
+		<annotation cp="🛝" type="tts">ᎠᏠᎳᏙᏗ</annotation>
+		<annotation cp="🛞">ᎠᎦᏔᎲᏍᏗ | ᎠᏜ ᎠᏢᏗ | ᎦᏌᏆᎳ</annotation>
+		<annotation cp="🛞" type="tts">ᎦᏆᏙᏗ</annotation>
+		<annotation cp="🛟">ᎠᏓᏍᏕᎸᏗ | ᎦᏃᏚ | ᎦᏄᎯᏒ | ᎬᏅᎢ | ᏄᎾᏰᎯᏍᏛᎾ</annotation>
+		<annotation cp="🛟" type="tts">ᎦᏌᏆᎳ ᎦᏄᎯᏒ</annotation>
+		<annotation cp="🟰">ᎢᏧᎳᎭ | ᏗᏎᏍᏗ</annotation>
+		<annotation cp="🟰" type="tts">ᎦᎨᏓ ᎢᏧᎳᎭ ᎪᏪᎸ</annotation>
+		<annotation cp="🥹">ᎠᎵᏤᎸᎮᏍᎩ | ᎠᏠᎯᎭ | ᎤᎿᎸᎯ | ᎤᏢᏉᏗ | ᎤᏪᏙᎵᏍᏗ</annotation>
+		<annotation cp="🥹" type="tts">ᏧᎦᏌᏬᏛ ᎤᎧᏛ</annotation>
+		<annotation cp="🧌">ᎦᎾᏰᎩ | ᎧᏃᎮᎸᏍᎩ | ᏄᎵᏍᏔᏂᏙᎸ</annotation>
+		<annotation cp="🧌" type="tts">ᎦᎾᏰᎩ ᏴᏫ ᎢᏳᏍᏗ</annotation>
+		<annotation cp="🩻">ᎠᎾᎦᎾᏘ | ᎪᎳ | ᏂᏚᏍᏛ ᎪᎳ | ᏅᏬᏘ</annotation>
+		<annotation cp="🩻" type="tts">ᎪᎳ ᏗᏟᎶᏍᏔᏅᎢ</annotation>
+		<annotation cp="🩼">ᎠᎵᏍᏕᎸᏗ | ᎠᏙᎳᏅᏍᏗ | ᎠᏲ | ᎬᏍᏓ | ᏗᏲᎤᎵ</annotation>
+		<annotation cp="🩼" type="tts">ᎠᏙᎳᏅᏍᏗ</annotation>
+		<annotation cp="🪩">ᎠᎳᏍᎩᏓ | ᎠᏓᎨᏗ | ᎤᎾᏓᏟᏌᎲ | ᏍᏆᏞᏍᏗ</annotation>
+		<annotation cp="🪩" type="tts">ᎠᏓᎨᏗ ᏍᏆᏞᏍᏗ</annotation>
+		<annotation cp="🪪">ᎠᏆᏂᏲᏍᏗ | ᎢᎪᎵᏍᏙᏗ | ᎪᏪᎵ ᎠᎵᏍᎪᎸᏗᏍᎩ | ᎫᏓᎸᏙ</annotation>
+		<annotation cp="🪪" type="tts">ᎢᎪᎵᏍᏙᏗ ᎠᏆᏂᏲᏍᏗ</annotation>
+		<annotation cp="🪫">ᎠᎾᎦᎵᏍᎩ | ᎡᎳᏗ ᏄᎵᏂᎬᎬ</annotation>
+		<annotation cp="🪫" type="tts">ᎡᎳᏗ ᎠᎾᎦᎵᏍᎩ</annotation>
+		<annotation cp="🪬">ᎠᏓᏍᏕᎸᏗ | ᎠᏯᎵᏗ | ᎺᎵ | ᎻᎵᎠᎻ | ᏝᏘᎹ</annotation>
+		<annotation cp="🪬" type="tts">ᎭᎻᏌ</annotation>
+		<annotation cp="🪷">ᎠᏥᎸᏍᎩ | ᎢᏂᏗᎢᎠ | ᎯᏂᏚ | ᏊᏓ | ᏙᎯ | ᏫᏰᏘᎾᎻ</annotation>
+		<annotation cp="🪷" type="tts">ᏓᎶᏂᎨᏍᏛ ᎠᏥᎸᏍᎩ</annotation>
+		<annotation cp="🪸">ᎠᎺᏉ | ᏅᏯ ᎠᎹᏱ</annotation>
+		<annotation cp="🪸" type="tts">ᏅᏯ ᎠᎹᏱ</annotation>
+		<annotation cp="🪹">ᎤᏁᏍᎩᎸᏒ</annotation>
+		<annotation cp="🪹" type="tts">ᎧᏁᏍᏓᎳᎲᎢ</annotation>
+		<annotation cp="🪺">ᎤᏁᏍᎩᎸᏒ</annotation>
+		<annotation cp="🪺" type="tts">ᎧᏁᏍᏓᎳᎲᎢ ᎠᎴ ᏧᏪᏥ</annotation>
+		<annotation cp="🫃">ᎤᏍᏉᎵ | ᎤᏬᏘᏛ | ᎦᏁᎵᏓ | ᎧᎵᎢ</annotation>
+		<annotation cp="🫃" type="tts">ᎦᏁᎵᏓ ᎠᏍᎦᏯ</annotation>
+		<annotation cp="🫄">ᎤᏍᏉᎵ | ᎤᏬᏘᏛ | ᎦᏁᎵᏓ | ᎧᎵᎢ</annotation>
+		<annotation cp="🫄" type="tts">ᎦᏁᎵᏓ ᏴᏫ</annotation>
+		<annotation cp="🫅">ᎠᏕᎳ ᏓᎶᏂᎨᎢ | ᎤᎬᏫ | ᎤᎬᏫᏳᎯ | ᏄᎬᏫᏳᏌᏕᎩ</annotation>
+		<annotation cp="🫅" type="tts">ᎤᎬᏫᏳᎯ ᎤᎵᏍᏚᎳ ᎠᏕᎳ ᏓᎶᏂᎨ</annotation>
+		<annotation cp="🫗">ᎠᏗᏔᏍᏗ | ᎠᏤᏩᏍᏗ | ᎤᎸᏌᏗ | ᎤᏏᏩ</annotation>
+		<annotation cp="🫗" type="tts">ᎠᏟᎠ</annotation>
+		<annotation cp="🫘">ᎠᎩᏍᏗ | ᎤᏓᎵ | ᏚᏯ</annotation>
+		<annotation cp="🫘" type="tts">ᏚᏯ</annotation>
+		<annotation cp="🫙">ᎠᏑᏍᏗ | ᎠᏓᎾᏅ | ᎤᏏᏩ | ᎪᎢ ᎠᏑᏍᏗ | ᎫᎫ</annotation>
+		<annotation cp="🫙" type="tts">ᎫᎫᎢ</annotation>
+		<annotation cp="🫠">ᎠᎹ | ᎠᏗᏍᎦᎶᏗ | ᎤᏩᎾᏬᎯᏍᏗ | ᎦᏅᏬᏍᎬ</annotation>
+		<annotation cp="🫠" type="tts">ᎦᏅᏬᏍᎬ ᎤᎧᏛ</annotation>
+		<annotation cp="🫡">ᎠᎦᎵᎭ | ᎠᏓᏲᎵᏍᏗ | ᎠᏲᏍᎩ | ᎥᎥ | ᎭᏩ</annotation>
+		<annotation cp="🫡" type="tts">ᎠᏓᏲᎵᏍᏗ ᎤᎧᏛ</annotation>
+		<annotation cp="🫢">ᎠᏆᏜᏏᏛᎡᎭ | ᎠᏍᏆᏂᎪᏒ | ᎠᏓᏍᎦ | ᎠᏓᏕᎰᎯᏍᏙᏗ | ᎤᏍᎦᏍᏓᏁᎸᎯ | ᎤᏍᏆᏂᎪᎯᏍᏗ</annotation>
+		<annotation cp="🫢" type="tts">ᎤᎧᏛ ᎾᎿ ᎠᏍᏚᎢᏓ ᏗᎦᏙᎵ ᎠᎴ ᎠᎰᎵ ᎤᏭᏝᎢ</annotation>
+		<annotation cp="🫣">ᎠᎦᏘᏍᎬ | ᎠᎪᎵᏰᎠ | ᎤᏔᏅᎢ</annotation>
+		<annotation cp="🫣" type="tts">ᎤᎧᏛ ᎾᎿ ᎤᏔᏅᎢ ᎠᎦᏙᎵ</annotation>
+		<annotation cp="🫤">ᎤᎵᏓᏍᏙᏗ | ᎤᏔᎴᏒ | ᎤᏜᏏᏛᎡᎭ | Ꮭ ᏳᏙᎯᏳᎢ</annotation>
+		<annotation cp="🫤" type="tts">ᎤᎧᏛ ᎾᎿ ᎤᏙᏌᏘ ᎠᎰᎵ</annotation>
+		<annotation cp="🫥">ᎠᏗᏍᎦᎶᏗ | ᎤᏍᎪᎸ | ᎤᏓᏕᎵᏍᏗ | ᎤᏩᏌ | ᎧᏂᎬᎾᎥ</annotation>
+		<annotation cp="🫥" type="tts">ᎤᏓᏓᎸ ᎠᏍᏓᏅᏅᎢ ᎤᎧᏛ</annotation>
+		<annotation cp="🫦">ᎠᏍᎦᏍᏗ | ᎠᏓᏘᏅᏍᏗ | ᎤᏓᏅᏖᏔᏅ | ᎤᏓᏅᏖᏗᏍᎩ | ᎤᏦᎠᏎᏗ | ᏤᎵᎯᏍᎨᏍᏗ</annotation>
+		<annotation cp="🫦" type="tts">ᎤᎭᏁᎦᎸᎢ ᎠᏍᎦᎳ</annotation>
+		<annotation cp="🫧">ᎠᎩᎫᎴᎦ | ᎠᎹᏱ | ᎣᎳ | ᎤᏓᏅᎦᎸᏓ</annotation>
+		<annotation cp="🫧" type="tts">ᏚᏆᎷᏒ</annotation>
+		<annotation cp="🫰">ᎠᎧᏁᏍᏗ | ᎠᏓᏅᏙ | ᎠᏕᎳ | ᎬᎨᏳ | ᏗᏓᏇᏄᎩᏍᏗ</annotation>
+		<annotation cp="🫰" type="tts">ᎤᏬᏰᏂ ᎾᎿ ᎠᏚᏂᎯ ᏯᏍᏓ ᎠᎴ ᎦᏰᏌᏛ</annotation>
+		<annotation cp="🫱">ᎠᎦᏘᏏ | ᎠᎦᏘᏏ ᏗᏜ | ᎤᏬᏰᏂ</annotation>
+		<annotation cp="🫱" type="tts">ᎤᏬᏰᏂ ᎠᎦᏘᏏ ᏗᏜ</annotation>
+		<annotation cp="🫲">ᎠᎦᏍᎦᏂ | ᎠᎦᏍᎦᏂ ᏗᏜ | ᎤᏬᏰᏂ</annotation>
+		<annotation cp="🫲" type="tts">ᎤᏬᏰᏂ ᎠᎦᏍᎦᏂ ᏗᏜ</annotation>
+		<annotation cp="🫳">ᎤᏟᎮᎾ | ᎪᏱᎵᏒ | ᏗᏥᏰᎵᎯ</annotation>
+		<annotation cp="🫳" type="tts">ᎭᏫᎾᏗᏢ ᎤᏬᏰᏂ ᎡᎳᏗ</annotation>
+		<annotation cp="🫴">ᎠᏍᎪᎸᏙᏗ | ᎡᎮᎾ | ᎬᏁᎭ | ᎯᏍᏆᎳᎩ</annotation>
+		<annotation cp="🫴" type="tts">ᎭᏫᎾᏗᏢ ᎤᏬᏰᏂ ᎦᎸᎳᏗ</annotation>
+		<annotation cp="🫵">ᎠᏓᏚᎯᏍᏙᏗ | ᏂᎯ</annotation>
+		<annotation cp="🫵" type="tts">ᎦᏰᏌᏛ ᎠᏓᏚᎯᏍᏙᏗ</annotation>
+		<annotation cp="🫶">ᎬᎨᏳ</annotation>
+		<annotation cp="🫶" type="tts">ᎠᏓᏅᏙ ᏧᏬᏰᏂ</annotation>
 	</annotations>
 </ldml>

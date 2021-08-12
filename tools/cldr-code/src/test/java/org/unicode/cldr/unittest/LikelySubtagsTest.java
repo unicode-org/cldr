@@ -244,7 +244,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     static Set<String> exceptions = new HashSet<>(Arrays.asList("Zyyy",
-        "Zinh", "Zzzz", "Brai"));
+        "Zinh", "Zzzz", "Brai", "Cpmn")); // scripts with no default language
 
     public void TestStability() {
         // when maximized must never change

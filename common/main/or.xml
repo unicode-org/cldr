@@ -95,6 +95,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="chr">ଚେରୋକୀ</language>
 			<language type="chy">ଚେଚେନା</language>
 			<language type="ckb">କେନ୍ଦ୍ରୀୟ କୁରଡିସ୍</language>
+			<language type="ckb" alt="menu">↑↑↑</language>
 			<language type="ckb" alt="variant">↑↑↑</language>
 			<language type="co">କୋର୍ସିକାନ୍</language>
 			<language type="cop">କପ୍ଟିକ୍</language>
@@ -391,6 +392,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="raj">ରାଜସ୍ଥାନୀ</language>
 			<language type="rap">ରାପାନୁଇ</language>
 			<language type="rar">ରାରୋତୋଙ୍ଗନ୍</language>
+			<language type="rhg">ରୋହିଙ୍ଗ୍ୟା</language>
 			<language type="rm">ରୋମାନଶ୍‌</language>
 			<language type="rn">ରୁଣ୍ଡି</language>
 			<language type="ro">ରୋମାନିଆନ୍</language>
@@ -1186,6 +1188,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
@@ -1564,11 +1567,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">ଅପରାହ୍ନ</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">ପୂର୍ବାହ୍ନ</dayPeriod>
-							<dayPeriod type="pm">ଅପରାହ୍ନ</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1673,6 +1676,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
@@ -2231,7 +2235,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} ମଙ୍ଗଳ. ରେ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} ମଙ୍ଗଳ. ପୂର୍ବେ</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ମଙ୍ଗଳ. ପୂର୍ବେ</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -2244,7 +2248,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} ବୁଧବାରରେ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} ବୁଧବାର ପୂର୍ବେ</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ବୁଧବାର ପୂର୍ବେ</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -2266,7 +2270,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ଏହି ବୁଧ</relative>
 				<relative type="1">ଆସନ୍ତା ବୁଧ</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} ବୁଧ. ରେ</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ବୁଧ. ରେ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -2318,7 +2322,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ଏହି ଶୁକ୍ରବାର</relative>
 				<relative type="1">ଆଗାମୀ ଶୁକ୍ରବାର</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} ଶୁକ୍ରବାରରେ</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ଶୁକ୍ରବାରରେ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -4772,6 +4776,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ୟେକାଟେରିନବର୍ଗ୍ ଗ୍ରୀଷ୍ମକାଳ ସମୟ</daylight>
 				</long>
 			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<standard>ୟୁକୋନ୍ ସମୟ</standard>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -5502,6 +5511,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">LRD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
+			<currency type="LSL">
+				<displayName>ଲେସୋଥୋ ଲୋଟି</displayName>
+				<displayName count="one">ଲେସୋଥୋ ଲୋଟି</displayName>
+				<displayName count="other">ଲେସୋଥୋ ଲୋଟିସ୍</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="LYD">
 				<displayName>ଲିବ୍ୟ ଦିନାର୍</displayName>
 				<displayName count="one">ଲିବ୍ୟ ଦିନାର୍</displayName>
@@ -6224,6 +6239,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ମିଲିମୋଲ୍ ପ୍ରତି ଲିଟର୍</unitPattern>
 				<unitPattern count="other">{0} ମିଲିମୋଲ୍ ପ୍ରତି ଲିଟର୍</unitPattern>
 			</unit>
+			<unit type="concentr-item">
+				<displayName>ଆଇଟମ୍‌ଗୁଡିକ</displayName>
+				<unitPattern count="one">{0} ଆଇଟମ୍</unitPattern>
+				<unitPattern count="other">{0} ଆଇଟମ୍‌ଗୁଡିକ</unitPattern>
+			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ଅଂଶ ପ୍ରତି ନିୟୁତ</displayName>
 				<unitPattern count="one">{0} ଅଂଶ ପ୍ରତି ନିୟୁତ</unitPattern>
@@ -6466,6 +6486,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ନ୍ୟୁଟନ</unitPattern>
 				<unitPattern count="other">{0} ନ୍ୟୁଟନ୍ସ</unitPattern>
 			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>100 କିଲୋମିଟର୍‌ ପ୍ରତି କିଲୋୱାଟ୍‌-ଘଣ୍ଟା</displayName>
+				<unitPattern count="one">{0} 100 କିଲୋମିଟର୍‌ ପ୍ରତି କିଲୋୱାଟ୍‌-ଘଣ୍ଟା</unitPattern>
+				<unitPattern count="other">{0} 100 କିଲୋମିଟର୍‌ ପ୍ରତି କିଲୋୱାଟ୍‌-ଘଣ୍ଟା</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>ଗିଗାହର୍ଜ୍</displayName>
 				<unitPattern count="one">{0} ଗିଗାହର୍ଜ୍</unitPattern>
@@ -6693,6 +6718,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ଟନ୍</unitPattern>
 				<unitPattern count="other">{0} ଟନ୍</unitPattern>
 			</unit>
+			<unit type="mass-stone">
+				<displayName>ଷ୍ଟୋନସ୍</displayName>
+				<unitPattern count="one">{0} ଷ୍ଟୋନ୍</unitPattern>
+				<unitPattern count="other">{0} ଷ୍ଟୋନସ୍</unitPattern>
+			</unit>
 			<unit type="mass-pound">
 				<displayName>ପାଉଣ୍ଡ୍</displayName>
 				<unitPattern count="one">{0} ପାଉଣ୍ଡ୍</unitPattern>
@@ -6729,6 +6759,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ସୋଲର ମାସେସ</displayName>
 				<unitPattern count="one">{0} ସୋଲର ମାସ</unitPattern>
 				<unitPattern count="other">{0} ସୋଲର ମାସେସ</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<displayName>ଗ୍ରେନ୍</displayName>
+				<unitPattern count="one">{0} ଗ୍ରେନ୍</unitPattern>
+				<unitPattern count="other">{0} ଗ୍ରେନ୍</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ଗିଗାୱାଟ୍</displayName>
@@ -6943,6 +6978,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ଏକର-ଫୁଟ</unitPattern>
 				<unitPattern count="other">{0} ଏକର-ଫିଟ୍</unitPattern>
 			</unit>
+			<unit type="volume-bushel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-gallon">
 				<displayName>ଗ୍ୟାଲନ୍</displayName>
 				<unitPattern count="one">{0} ଗ୍ୟାଲନ୍</unitPattern>
@@ -6994,6 +7034,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ବାରେଲ</displayName>
 				<unitPattern count="one">{0} ବାରେଲ</unitPattern>
 				<unitPattern count="other">{0} ବାରେଲ</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>ଡିଜଟ୍ ସ୍ପୁନ୍</displayName>
+				<unitPattern count="one">{0} ଡିଜଟ୍ ସ୍ପୁନ୍</unitPattern>
+				<unitPattern count="other">{0} ଡିଜଟ୍ ସ୍ପୁନ୍</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>↑↑↑</displayName>
@@ -7239,6 +7284,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ମିଲିମୋଲ୍/ଲି</unitPattern>
 				<unitPattern count="other">{0} ମିଲିମୋଲ୍/ଲି</unitPattern>
 			</unit>
+			<unit type="concentr-item">
+				<displayName>ଆଇଟମ୍</displayName>
+				<unitPattern count="one">{0} ଆଇଟମ୍</unitPattern>
+				<unitPattern count="other">{0} ଆଇଟମ୍</unitPattern>
+			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ଅଂଶ/ନିୟୁତ</displayName>
 				<unitPattern count="one">{0} ପିପିଏମ୍</unitPattern>
@@ -7481,6 +7531,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
 				<unitPattern count="one">{0} GHz</unitPattern>
@@ -7709,6 +7764,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ଟନ୍</unitPattern>
 			</unit>
 			<unit type="mass-stone">
+				<displayName>ଷ୍ଟୋନସ୍</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ଷ୍ଟ.</unitPattern>
 			</unit>
@@ -7748,6 +7804,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ସୋଲର ମାସେସ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<displayName>ଗ୍ରେନ୍</displayName>
+				<unitPattern count="one">{0} ଗ୍ରେନ୍</unitPattern>
+				<unitPattern count="other">{0} ଗ୍ରେନ୍</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ଗିୱା</displayName>
@@ -7962,6 +8023,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ଏକର-ଫିଟ୍</unitPattern>
 				<unitPattern count="other">{0} ଏକର-ଫିଟ୍</unitPattern>
 			</unit>
+			<unit type="volume-bushel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-gallon">
 				<displayName>ଗ୍ୟାଲ୍</displayName>
 				<unitPattern count="one">{0} ଗ୍ୟାଲ୍</unitPattern>
@@ -8158,10 +8224,45 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
+			<unit type="concentr-karat">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}kt</unitPattern>
+				<unitPattern count="other">{0}kt</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>ମିଲିମୋଲ୍/ଲି</displayName>
+				<unitPattern count="one">{0}ମିଲିମୋଲ୍/ଲି</unitPattern>
+				<unitPattern count="other">{0}ମିଲିମୋଲ୍/ଲି</unitPattern>
+			</unit>
+			<unit type="concentr-item">
+				<displayName>ଆଇଟମ୍</displayName>
+				<unitPattern count="one">{0}ଆଇଟମ୍</unitPattern>
+				<unitPattern count="other">{0}ଆଇଟମ୍</unitPattern>
+			</unit>
+			<unit type="concentr-permillion">
+				<displayName>ପିପିଏମ୍</displayName>
+				<unitPattern count="one">{0}ପିପିଏମ୍</unitPattern>
+				<unitPattern count="other">{0}ପିପିଏମ୍</unitPattern>
+			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
 				<unitPattern count="one">{0}%</unitPattern>
 				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>‱</displayName>
+				<unitPattern count="one">{0}‱</unitPattern>
+				<unitPattern count="other">{0}‱</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ମୋଲ</unitPattern>
+				<unitPattern count="other">{0}ମୋଲ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>ଲି/100କିମି</displayName>
@@ -8207,6 +8308,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ମିଲିସେକେଣ୍ଡ</displayName>
 				<unitPattern count="one">{0}ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>କିମି</displayName>
@@ -8255,6 +8361,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ଲିଟର୍</displayName>
 				<unitPattern count="one">{0}ଲି</unitPattern>
 				<unitPattern count="other">{0}ଲି</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>ଦିଗ</displayName>
@@ -8337,17 +8448,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</messages>
 	</posix>
 	<characterLabels>
-		<characterLabelPattern type="all">{0} — ସମସ୍ତ</characterLabelPattern>
-		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
-		<characterLabelPattern type="compatibility">{0} — ସୁସଙ୍ଗତି</characterLabelPattern>
-		<characterLabelPattern type="enclosed">{0} — ଆବଦ୍ଧ</characterLabelPattern>
-		<characterLabelPattern type="extended">{0} — ବର୍ଦ୍ଧିତ</characterLabelPattern>
-		<characterLabelPattern type="historic">{0} — ଐତିହାସିକ</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous">{0} — ବିବିଧ</characterLabelPattern>
+		<characterLabelPattern type="all">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="category-list">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="compatibility">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="enclosed">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="extended">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="historic">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">↑↑↑</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — ଅନ୍ୟ</characterLabelPattern>
-		<characterLabelPattern type="scripts">ଲିପି — {0}</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="one">{0} ଷ୍ଟ୍ରୋକ୍‍</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other">{0} ଷ୍ଟ୍ରୋକ୍‍</characterLabelPattern>
+		<characterLabelPattern type="scripts">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="subscript">ସବସ୍କ୍ରିପ୍ଟ {0}</characterLabelPattern>
+		<characterLabelPattern type="superscript">ସୁପରସ୍କ୍ରିପ୍ଟ {0}</characterLabelPattern>
 		<characterLabel type="activities">କାର୍ଯ୍ୟକଳାପ</characterLabel>
 		<characterLabel type="african_scripts">ଆଫ୍ରିକୀୟ ସ୍କ୍ରିପ୍ଟ</characterLabel>
 		<characterLabel type="american_scripts">ଆମେରିକୀୟ ସ୍କ୍ରିପ୍ଟ</characterLabel>

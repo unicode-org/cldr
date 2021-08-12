@@ -94,6 +94,7 @@ public class ConsoleCheckCLDR {
     static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
     // static PrettyPath prettyPathMaker = new PrettyPath();
+    private static boolean CLDR_GITHUB_ANNOTATIONS = (Boolean.parseBoolean(System.getProperty("CLDR_GITHUB_ANNOTATIONS", "false")));
 
     private static final int HELP1 = 0,
         HELP2 = 1,
@@ -1584,6 +1585,13 @@ public class ConsoleCheckCLDR {
             }
             addError(shortStatus);
             ErrorFile.addDataToErrorFile(localeID, path, shortStatus, subType);
+        }
+        if (CLDR_GITHUB_ANNOTATIONS) {
+            // Annotate anything that needs annotation
+            if (shortStatus == ErrorType.error || shortStatus == ErrorType.warning) {
+                String cleanPrettyPath = path == null ? "—" : prettyPath; // prettyPathMaker.getOutputForm(prettyPath);
+                System.out.println("::" + shortStatus + " file=" + localeID + ".xml:: " + localeID + ": " + subType + " @ " + cleanPrettyPath);
+            }
         }
         if (PATH_IN_COUNT && ErrorFile.generated_html_count != null) {
             ErrorFile.generated_html_count.println(lastHtmlLocaleID + ";\tpath:\t" + path);

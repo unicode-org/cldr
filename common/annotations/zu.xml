@@ -25,8 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">uhlobo-5</annotation>
 		<annotation cp="🏿">uhlobo 6 | uhlobo lwesikhumba | uhlobo-6</annotation>
 		<annotation cp="🏿" type="tts">uhlobo-6</annotation>
-		<annotation cp="‾" draft="provisional">ngaphezu komugqa</annotation>
-		<annotation cp="‾" type="tts" draft="provisional">ngaphezu komugqa</annotation>
+		<annotation cp="‾">ngaphezu komugqa</annotation>
+		<annotation cp="‾" type="tts">ngaphezu komugqa</annotation>
 		<annotation cp="_">dwebela | udeshi | udeshi ophansi | umugqa | umugqa ophansi | underdash</annotation>
 		<annotation cp="_" type="tts">umugqa ophansi</annotation>
 		<annotation cp="-">i-hyphen | i-hyphen-minus | susa | udeshi</annotation>
@@ -41,8 +41,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="―" type="tts">ibha evundlile</annotation>
 		<annotation cp="・">amachashazi | ichashazi lekatakana eliphakathi nendawo | katakana | middot | ukuxhumana</annotation>
 		<annotation cp="・" type="tts">ichashazi lekatakana eliphakathi nendawo</annotation>
-		<annotation cp="‽" draft="provisional">i-interrobang</annotation>
-		<annotation cp="‽" type="tts" draft="provisional">i-interrobang</annotation>
+		<annotation cp=",">ukhefana</annotation>
+		<annotation cp="," type="tts">ukhefana</annotation>
+		<annotation cp="،" type="tts">ukhefana wama-arabic</annotation>
+		<annotation cp="、">ukhefana | umbono</annotation>
+		<annotation cp="、" type="tts">ukhefana we-ideographic</annotation>
+		<annotation cp="‽">i-interrobang</annotation>
+		<annotation cp="‽" type="tts">i-interrobang</annotation>
 		<annotation cp=".">ichashazi | isikhathi | ungqi</annotation>
 		<annotation cp="." type="tts">isikhathi</annotation>
 		<annotation cp="…">amachashazi | i-ellipsis | okusalayo</annotation>
@@ -116,7 +121,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‧">i-hyphen | iphuzu | iphuzu le-hyphenation | udeshi</annotation>
 		<annotation cp="‧" type="tts">iphuzu le-hyphenation</annotation>
 		<annotation cp="‸">i-caret</annotation>
-		<annotation cp="‸" type="tts" draft="provisional">i-caret</annotation>
+		<annotation cp="‸" type="tts">i-caret</annotation>
 		<annotation cp="⁂">i-asterism | i-dinkus | izinkanyezi</annotation>
 		<annotation cp="⁂" type="tts">i-asterism</annotation>
 		<annotation cp="´">i-acute | isimangalo | isimangalo esibi | ithoni</annotation>
@@ -335,6 +340,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◯">indandatho | indilinga | indilinga enkulu engenalutho</annotation>
 		<annotation cp="◯" type="tts">indilinga enkulu engenalutho</annotation>
 		<annotation cp="♪">inothi | umculo | yesishiyagalombili</annotation>
+		<annotation cp="♪" type="tts">inothi yesishiyagalombili</annotation>
 		<annotation cp="😀">osinekile | ubuso obusinekile</annotation>
 		<annotation cp="😀" type="tts">ubuso obusinekile</annotation>
 		<annotation cp="😃">moyizela | ubuso | ubuso obumoyizelayo obuvule umlomo | umlomo | vula</annotation>
@@ -3346,5 +3352,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="³" type="tts">i-superscript three</annotation>
 		<annotation cp="µ">i-micro sign | kala | micro sign</annotation>
 		<annotation cp="µ" type="tts">i-micro sign</annotation>
+		<annotation cp="🛝">dlala | ipaki yokuzijabulisa</annotation>
+		<annotation cp="🪹">ukwakha isidleke</annotation>
+		<annotation cp="🪹" type="tts">isidleke esingenalutho</annotation>
+		<annotation cp="🪺">esidlekeni</annotation>
+		<annotation cp="🫃" type="tts">indoda ekhulelwe</annotation>
+		<annotation cp="🫄" type="tts">umuntu okhulelwe</annotation>
+		<annotation cp="🫅">inkosi | ohloniphekile | regal | ubukhosi</annotation>
+		<annotation cp="🫗" type="tts">uthela uketshezi</annotation>
+		<annotation cp="🫥" type="tts">ubuso bomugqa onamachashazi</annotation>
+		<annotation cp="🫵">iphoyinti | wena</annotation>
+		<annotation cp="🫶">uthando</annotation>
+		<annotation cp="🫶" type="tts">thanda izandla</annotation>
 	</annotations>
 </ldml>

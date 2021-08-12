@@ -17,6 +17,7 @@ import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrUserListExport from "../esm/cldrUserListExport";
 
 /**
  * The id of the user in question; not necessarily the current user
@@ -49,6 +50,21 @@ function loadWithJson(json) {
   cldrLoad.setLoading(false);
   cldrGui.hideRightPanel();
   const frag = cldrDom.construct(getHtml(json));
+
+  // Add a button for recent activity download
+  const recentActivityButton = document.createElement("button");
+  recentActivityButton.appendChild(
+    document.createTextNode("Download User Activity… (.xlsx)")
+  );
+  recentActivityButton.onclick = () =>
+    cldrUserListExport.downloadUserActivity(
+      json.user,
+      cldrStatus.getSessionId()
+    );
+  frag.appendChild(document.createElement("p"));
+  frag.appendChild(document.createElement("hr"));
+  frag.appendChild(recentActivityButton);
+
   cldrLoad.flipToOtherDiv(frag);
   if (Number(json.user) === Number(userId)) {
     showRecent();

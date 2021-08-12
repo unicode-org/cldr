@@ -17,7 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
-			<language type="bal" draft="provisional">بلۆچی</language>
+			<language type="bal">بلۆچی</language>
 			<language type="bal_Latn" draft="provisional">Balóchi</language>
 			<language type="de" draft="provisional">جرمن</language>
 			<language type="de_AT" draft="provisional">آستریایی جرمن</language>
@@ -41,8 +41,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_PT" draft="provisional">یورپی پرتگالی</language>
 			<language type="ru" draft="provisional">روسی</language>
 			<language type="und" draft="provisional">نگیشّتگێن زبان</language>
-			<language type="zh" draft="provisional">چینی</language>
-			<language type="zh_Hans" draft="provisional">ساده کرتگێن چینی</language>
+			<language type="zh">چینی</language>
+			<language type="zh_Hans">ساده کرتگێن چینی</language>
+			<language type="zh_Hans" alt="long">ساده کرتگێن چینی</language>
 			<language type="zh_Hant" draft="provisional">اسلیگێن چینی</language>
 		</languages>
 		<scripts>
@@ -100,9 +101,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<measurementSystemName type="US" draft="provisional">امریکی</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" draft="provisional">زبان: {0}</codePattern>
-			<codePattern type="script" draft="provisional">سیاهگ: {0}</codePattern>
-			<codePattern type="territory" draft="provisional">دمگ: {0}</codePattern>
+			<codePattern type="language">زبان: {0}</codePattern>
+			<codePattern type="script">سیاهگ: {0}</codePattern>
+			<codePattern type="territory">دمگ: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
@@ -112,10 +113,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="provisional">[آ ا ب پ ت ٹ ج چ د ڈ ر ڑ ز ژ س ش ک گ ل م ن و ۆ ه ی ێ ے ئ ِ َ ُ ّ ْ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="provisional">[ث ح خ ذ ص ض ط ظ ع غ ف ق ں أ إ ؤ ہ ھ ة ء ٔ ً \u200D \u200C]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="provisional">[. ، ؛ : ‹ › « » ' " ! ؟]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="provisional">[آ ا ب پ ت ٹ ج چ د ڈ ر ڑ ز ژ س ش ف ک گ ل م ن و ه ی {ای} {اێ} {ائی}]</exemplarCharacters>
+		<exemplarCharacters draft="contributed">[\u064E \u064F \u0650 \u0651 \u0652 آ ئ ا ب پ ت ٹ ج چ د ڈ ر ز ڑ ژ س ش ک گ ل م ن ه و ۆ ی ێ ے]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[\u200C\u200D \u064B \u0654 ء أ ؤ إ ة ث ح خ ذ ص ض ط ظ ع غ ف ق ں ھ ہ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[آ ا {ائی} {ای} {اێ} ب پ ت ٹ ج چ د ڈ ر ز ڑ ژ س ش ف ک گ ل م ن ه و ی]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[، ؛ \: ! ؟ . ' ‹ › &quot; « »]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -262,23 +263,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
-						<dateTimeFormat type="standard">
-							<pattern type="standard" draft="provisional">{1} {0}</pattern>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
-						<dateTimeFormat type="standard">
-							<pattern type="standard" draft="provisional">{1} {0}</pattern>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
-						<dateTimeFormat type="standard">
-							<pattern type="standard" draft="provisional">{1} {0}</pattern>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
-						<dateTimeFormat type="standard">
-							<pattern type="standard" draft="provisional">{1} {0}</pattern>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 				</dateTimeFormats>
@@ -336,7 +337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="provisional">ارجنتینائے ساهت</generic>
+					<generic draft="provisional">رۆنندی ارجنتینائے ساهت</generic>
 					<standard draft="provisional">رۆنندی ارجنتینائے گیشّتگێن ساهت</standard>
 					<daylight draft="provisional">رۆنندی ارجنتینائے گرماگی ساهت</daylight>
 				</long>
@@ -554,42 +555,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern draft="provisional">#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="one" draft="provisional">0 هزار</pattern>
-					<pattern type="1000" count="other" draft="provisional">0 هزار</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 هزار</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 هزار</pattern>
-					<pattern type="100000" count="one" draft="provisional">0 لکّ</pattern>
-					<pattern type="100000" count="other" draft="provisional">0 لکّ</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 میلیون</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 میلیون</pattern>
-					<pattern type="10000000" count="one" draft="provisional">0 کرۆڑ</pattern>
-					<pattern type="10000000" count="other" draft="provisional">0 کرۆڑ</pattern>
-					<pattern type="100000000" count="one" draft="provisional">00 کرۆڑ</pattern>
-					<pattern type="100000000" count="other" draft="provisional">00 کرۆڑ</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">000 کرۆڑ</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">000 کرۆڑ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="one" draft="provisional">0 ه</pattern>
-					<pattern type="1000" count="other" draft="provisional">0 ه</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 ه</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 ه</pattern>
-					<pattern type="100000" count="one" draft="provisional">0 ل</pattern>
-					<pattern type="100000" count="other" draft="provisional">0 ل</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 م</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 م</pattern>
-					<pattern type="10000000" count="one" draft="provisional">0 ک</pattern>
-					<pattern type="10000000" count="other" draft="provisional">0 ک</pattern>
-					<pattern type="100000000" count="one" draft="provisional">00 ک</pattern>
-					<pattern type="100000000" count="other" draft="provisional">00 ک</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">000 ک</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">000 ک</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
@@ -607,7 +572,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
-				<currencyFormat>
+				<currencyFormat type="standard">
 					<pattern draft="provisional">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -617,11 +582,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="provisional">برازیلی ریال</displayName>
 				<symbol draft="provisional">R$</symbol>
 				<symbol alt="narrow" draft="provisional">R$</symbol>
-			</currency>
-			<currency type="CNY">
-				<displayName draft="provisional">چینی یوان</displayName>
-				<symbol draft="provisional">¥</symbol>
-				<symbol alt="narrow" draft="provisional">¥</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="provisional">یورۆ</displayName>

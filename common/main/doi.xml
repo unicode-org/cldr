@@ -22,7 +22,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de_CH">स्विस हाई जर्मन</language>
 			<language type="doi">डोगरी</language>
 			<language type="en">अंगरेजी</language>
-			<language type="en_AU">आस्ट्रेलियाई अंगरेजी</language>
+			<language type="en_AU">↑↑↑</language>
 			<language type="en_CA">कैनेडियन अंगरेजी</language>
 			<language type="en_GB">ब्रिटिश अंगरेजी</language>
 			<language type="en_GB" alt="short">यूके अंगरेजी</language>
@@ -236,9 +236,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">दि</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">जनवरी</month>
-							<month type="2">फरवरी</month>
-							<month type="3">मार्च</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
 							<month type="4">अप्रैल</month>
 							<month type="5">मेई</month>
 							<month type="6">जून</month>
@@ -407,7 +407,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ई.पू.</era>
-						<era type="0" alt="variant">ई.पू.</era>
+						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1">ईसवी</era>
 						<era type="1" alt="variant">सन्</era>
 					</eraAbbr>
@@ -499,6 +499,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d, MMM G y</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d, MMM G y</dateFormatItem>
@@ -727,19 +728,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>दिन</displayName>
 				<relative type="-1">जंदा कल</relative>
 				<relative type="0">अज्ज</relative>
-				<relative type="1">औंदा कल</relative>
+				<relative type="1">औंदे कल</relative>
 			</field>
 			<field type="day-short">
 				<displayName>दिन</displayName>
-				<relative type="-1">जंदा कल</relative>
+				<relative type="-1">↑↑↑</relative>
 				<relative type="0">अज्ज</relative>
-				<relative type="1">औंदा कल</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName>दिन</displayName>
-				<relative type="-1">जंदा कल</relative>
+				<relative type="-1">↑↑↑</relative>
 				<relative type="0">अज्ज</relative>
-				<relative type="1">औंदा कल</relative>
+				<relative type="1">औंदे कल</relative>
 			</field>
 			<field type="weekday">
 				<displayName>हफ्ते दा दिन</displayName>
@@ -974,6 +975,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 	<units>
+		<unitLength type="narrow">
+			<unit type="consumption-mile-per-gallon-imperial">
+				<unitPattern count="one">{0}m/gUK</unitPattern>
+				<unitPattern count="other">{0}m/gUK</unitPattern>
+			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<unitPattern count="one">{0}किल्लोवाट/100किमी</unitPattern>
+				<unitPattern count="other">{0} किल्लोवाट/100किमी</unitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<unitPattern count="one">{0}galIm</unitPattern>
+				<unitPattern count="other">{0}galIm</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<unitPattern count="one">{0}fl oz Im</unitPattern>
+				<unitPattern count="other">{0}fl oz Im</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="one">{0}dsp-Imp</unitPattern>
+				<unitPattern count="other">{0}dsp-Imp</unitPattern>
+			</unit>
+		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
 		</durationUnit>

@@ -58,6 +58,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de_AT">Jamusanci Ostiriya</language>
 			<language type="de_CH">Jamusanci Suwizalan</language>
 			<language type="dje">Zarma</language>
+			<language type="doi">Harshen Dogri</language>
 			<language type="dsb">Sorbianci ta kasa</language>
 			<language type="dua">Duala</language>
 			<language type="dyo">Jola-Fonyi</language>
@@ -81,6 +82,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eu">Basque</language>
 			<language type="ewo">Ewondo</language>
 			<language type="fa">Farisa</language>
+			<language type="fa_AF">Vote Farisanci na Afaganistan</language>
 			<language type="ff">Fulah</language>
 			<language type="fi">Yaren mutanen Finland</language>
 			<language type="fil">Dan Filifin</language>
@@ -183,7 +185,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nmg">Kwasio</language>
 			<language type="nn">Norwegian Nynorsk</language>
 			<language type="nnh">Ngiemboon</language>
-			<language type="no" draft="unconfirmed">Yaren mutanen Norway</language>
+			<language type="no">Harhsen Norway</language>
 			<language type="nus">Nuer</language>
 			<language type="ny">Nyanja</language>
 			<language type="nyn">Nyankole</language>
@@ -200,6 +202,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_BR">Harshen Potugis na Birazil</language>
 			<language type="pt_PT">Potugis Ƙasashen Turai</language>
 			<language type="qu">Quechua</language>
+			<language type="rhg">Harshen Rohingya</language>
 			<language type="rm">Romansh</language>
 			<language type="rn">Rundi</language>
 			<language type="ro">Romaniyanci</language>
@@ -344,7 +347,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="053">Tsibarai na Austraila da New Zealand da maƙota</territory>
 			<territory type="054">Tsibirai na New Guinea da Fiji da maƙota</territory>
 			<territory type="057">Yankin Micronesiya</territory>
-			<territory type="061">tsibiri</territory>
+			<territory type="061">Tsibiri</territory>
 			<territory type="142">Asiya</territory>
 			<territory type="143">Asiya ta Tsakiya</territory>
 			<territory type="145">Yammacin Asiya</territory>
@@ -463,7 +466,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="HK">Babban Yankin Mulkin Hong Kong na Ƙasar Sin</territory>
 			<territory type="HK" alt="short">↑↑↑</territory>
 			<territory type="HM">Tsibirin Heard da McDonald</territory>
-			<territory type="HN">Honduras</territory>
+			<territory type="HN">Yankin Honduras</territory>
 			<territory type="HR">Kurowaishiya</territory>
 			<territory type="HT">Haiti</territory>
 			<territory type="HU">Hungari</territory>
@@ -525,7 +528,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MU">Moritus</territory>
 			<territory type="MV">Maldibi</territory>
 			<territory type="MW">Malawi</territory>
-			<territory type="MX">Makasiko</territory>
+			<territory type="MX">Mesiko</territory>
 			<territory type="MY">Malaisiya</territory>
 			<territory type="MZ">Mozambik</territory>
 			<territory type="NA">Namibiya</territory>
@@ -718,7 +721,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[a b ɓ c d ɗ e f g h i j k ƙ l m n o r s {sh} t {ts} u w y ƴ z ʼ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à â é è ê í ì î ó ò ô p q {r\u0303} ú ù û v x]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B Ɓ C D Ɗ E F G H I J K Ƙ L M N O R S T U W Y Ƴ Z]</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="contributed">[\- ‑ , ; \: ! ? . ' ‘ ’ &quot; “ ” ( ) \[ \] \{ \} ′ ″]</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
@@ -728,28 +731,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
-			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="-">↑↑↑</parseLenient>
+			<parseLenient sample=":">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="$" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="£" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=".">↑↑↑</parseLenient>
+			<parseLenient sample="’">↑↑↑</parseLenient>
+			<parseLenient sample="%">↑↑↑</parseLenient>
+			<parseLenient sample="‰">↑↑↑</parseLenient>
+			<parseLenient sample="$">↑↑↑</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
+			<parseLenient sample="¥">↑↑↑</parseLenient>
+			<parseLenient sample="₩">↑↑↑</parseLenient>
+			<parseLenient sample="₹">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="+" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="-">↑↑↑</parseLenient>
+			<parseLenient sample=",">↑↑↑</parseLenient>
+			<parseLenient sample="+">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=",">↑↑↑</parseLenient>
+			<parseLenient sample=".">↑↑↑</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>
@@ -822,6 +825,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1313,6 +1317,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1677,10 +1682,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Makon Wata</displayName>
 			</field>
 			<field type="weekOfMonth-short">
-				<displayName>Makon Wata</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
-				<displayName>Makon Wata</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day">
 				<displayName>kwana</displayName>
@@ -1852,7 +1857,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Talatar da ta gabata</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Talatar da ta gabata</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
@@ -4323,14 +4328,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Lokacin Bazara na Yekaterinburg</daylight>
 				</long>
 			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<standard>Lokacin Yukon</standard>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="contributed">↑↑↑</native>
+			<native>↑↑↑</native>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
+		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -4466,328 +4476,328 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Kuɗin Haɗaɗɗiyar Daular Larabawa</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afghani na ƙasar Afghanistan</displayName>
 				<displayName count="one">Afghani na ƙasar Afghanistan</displayName>
 				<displayName count="other">Afghani na ƙasar Afghanistan</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Kuɗin Albania</displayName>
 				<displayName count="one">Kuɗin Albania</displayName>
 				<displayName count="other">Kuɗin Albania</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Kuɗin Armenia</displayName>
 				<displayName count="one">kuɗin Armenia</displayName>
 				<displayName count="other">Kuɗin Armenia</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Antillean Guilder na ƙasar Netherlands</displayName>
 				<displayName count="one">Antillean guilder na ƙasar Netherlands</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Kuɗin Angola</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Peso na ƙasar Argentina</displayName>
 				<displayName count="one">peso na ƙasar Argentina</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Dalar Ostareliya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">Dalolin Ostareliya</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Florin na yankin Aruba</displayName>
 				<displayName count="one">florin na yankin Aruba</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>Kuɗin Azerbaijani</displayName>
 				<displayName count="one">kuɗin Azerbaijani</displayName>
 				<displayName count="other">Kuɗin Azerbaijani</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Kuɗaɗen Bosnia da Herzegovina</displayName>
 				<displayName count="one">Kuɗaɗen Bosnia da Herzegovina</displayName>
 				<displayName count="other">Kuɗaɗen Bosnia da Herzegovina</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Dalar ƙasar Barbados</displayName>
-				<displayName count="one">dalar Barbados</displayName>
+				<displayName count="one">Dalar Barbados</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Taka na ƙasar Bangladesh</displayName>
 				<displayName count="one">taka na ƙasar Bangladesh</displayName>
 				<displayName count="other">Taka na ƙasar Bangladesh</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>Kuɗin Bulgeria</displayName>
 				<displayName count="one">Kuɗin Bulgeria</displayName>
 				<displayName count="other">Kuɗin Bulgeria</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Kuɗin Baharan</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Kuɗin Burundi</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Dalar ƙasar Bermuda</displayName>
 				<displayName count="one">Dalar Bermuda</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Dalar Brunei</displayName>
 				<displayName count="one">Dalar Brunei</displayName>
 				<displayName count="other">Dalolin Brunei</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Boloviano na ƙasar Bolivia</displayName>
 				<displayName count="one">boliviano na ƙasar Bolivia</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Ril Kudin Birazil</displayName>
 				<displayName count="one">Ril Kuɗin Birazil</displayName>
 				<displayName count="other">Ril Kuɗin Birazil</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Dalar ƙasar Bahamas</displayName>
 				<displayName count="one">dalar ƙasar Bahamas</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Ngultrum na ƙasar Bhutan</displayName>
 				<displayName count="one">ngultrum na ƙasar Bhutan</displayName>
 				<displayName count="other">Ngultrum na ƙasar Bhutan</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Kuɗin Baswana</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BYN">
 				<displayName>Kuɗin Belarus</displayName>
 				<displayName count="one">Kuɗin Belarus</displayName>
 				<displayName count="other">Kuɗin Belarus</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Dalar ƙasar Belize</displayName>
 				<displayName count="one">Dalar ƙasar Belize</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Dalar Kanada</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Kuɗin Kongo</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Kuɗin Suwizalan</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Peso na ƙasar Chile</displayName>
 				<displayName count="one">peso na ƙasar Chile</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CNH">
 				<displayName>Yuwan na ƙasar Sin (na wajen ƙasa)</displayName>
 				<displayName count="one">yuwan na ƙasar Sin (na wajen ƙasa)</displayName>
 				<displayName count="other">yuwan na ƙasar Sin (na wajen ƙasa)</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Yuwan na ƙasar Sin</displayName>
 				<displayName count="one">Yuwan na ƙasar Sin</displayName>
 				<displayName count="other">Yuwan na ƙasar Sin</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Peso na ƙasar Columbia</displayName>
 				<displayName count="one">peso na ƙasar Columbia</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Colón na ƙasar Costa Rica</displayName>
 				<displayName count="one">colón na ƙasar Costa Rica</displayName>
 				<displayName count="other">colón na ƙasar Costa Rica</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>Peso mai fuska biyu na ƙasar Kuba</displayName>
-				<displayName count="one">peso mai fuska biyu na Cuba</displayName>
+				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Peso na ƙasar Kuba</displayName>
 				<displayName count="one">peso na ƙasar Cuba</displayName>
 				<displayName count="other">Peso na ƙasar Kuba</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Kuɗin Tsibiran Kap Barde</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Kuɗin Czech</displayName>
 				<displayName count="one">kuɗin Czech</displayName>
 				<displayName count="other">Kuɗin Czech</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Kuɗin Jibuti</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Krone na ƙasar Denmark</displayName>
 				<displayName count="one">krone na ƙasar Denmark</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Peso na jamhuriyar Dominica</displayName>
 				<displayName count="one">peso na jamhuriyar Dominica</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Kuɗin Aljeriya</displayName>
 				<displayName count="one">Dinarin Aljeriya</displayName>
 				<displayName count="other">Dinarin Aljeriya</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Fam kin Masar</displayName>
 				<displayName count="one">Fam na Masar</displayName>
 				<displayName count="other">Fam na Masar</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Kuɗin Eritireya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Kuɗin Habasha</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Yuro</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Dalar Fiji</displayName>
-				<displayName count="one">dalar Fiji</displayName>
+				<displayName count="one">Dalar Fiji</displayName>
 				<displayName count="other">Dalolin Fiji</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Fam na ƙasar Tsibirai na Falkland</displayName>
-				<displayName count="one">fam na Tsibirai na Falkland</displayName>
+				<displayName count="one">Fam na Tsibirai na Falkland</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Fam na Ingila</displayName>
 				<displayName count="one">Fam na Ingila</displayName>
 				<displayName count="other">Fam na Ingila</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Kuɗin Georgia</displayName>
 				<displayName count="one">kuɗin Georgia</displayName>
 				<displayName count="other">Kuɗin Georgia</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Cedi</displayName>
@@ -4796,28 +4806,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Sidi na Ghana</displayName>
 				<displayName count="one">Sidi na Ghana</displayName>
 				<displayName count="other">Sidi na Ghana</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Kuɗin Gibraltal</displayName>
 				<displayName count="one">Kuɗin Gibraltal</displayName>
 				<displayName count="other">Kuɗin Gibraltal</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Kuɗin Gambiya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Kuɗin Guinea</displayName>
 				<displayName count="one">Kuɗin Guinea</displayName>
 				<displayName count="other">Kuɗin Guinea</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Kuɗin Gini</displayName>
@@ -4826,251 +4836,254 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Quetzal na ƙasar Guatemala</displayName>
 				<displayName count="one">quetzal na ƙasar Guatemala</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Dalar Guyana</displayName>
 				<displayName count="one">dalar Guyana</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Dalar Hong Kong</displayName>
 				<displayName count="one">dalar Hong Kong</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Lempira na ƙasar Honduras</displayName>
 				<displayName count="one">lempira na ƙasar Honduras</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Kuɗin Croatia</displayName>
 				<displayName count="one">Kuɗin Croatia</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Gourde na ƙasar Haiti</displayName>
 				<displayName count="one">gourde na ƙasar Haiti</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Kuɗin Hungary</displayName>
 				<displayName count="one">kuɗin Hungary</displayName>
 				<displayName count="other">Kuɗin Hungary</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Rupiah na ƙasar Indonesia</displayName>
 				<displayName count="one">rupiah na ƙasar Indonesia</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Sabbin Kuɗin Israʼila</displayName>
 				<displayName count="one">Sabbin Kuɗin Israʼila</displayName>
 				<displayName count="other">Sabbin Kuɗin Israʼila</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Kuɗin Indiya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Dinarin Iraqi</displayName>
 				<displayName count="one">dinarin Iraqi</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Riyal na ƙasar Iran</displayName>
 				<displayName count="one">Riyal-riyal na ƙasar Iran</displayName>
 				<displayName count="other">Riyal-riyal na ƙasar Iran</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>Króna na ƙasar Iceland</displayName>
 				<displayName count="one">króna na ƙasar Iceland</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Dalar Jamaica</displayName>
 				<displayName count="one">dalar Jamaica</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Dinarin Jordan</displayName>
 				<displayName count="one">dinarin Jordan</displayName>
 				<displayName count="other">Dinarin Jordan</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Yen na ƙasar Japan</displayName>
 				<displayName count="one">Yen na ƙasar Japan</displayName>
 				<displayName count="other">Yen na ƙasar Japan</displayName>
-				<symbol draft="contributed">¥</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>¥</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Sulen Kenya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Som na ƙasar Kyrgystani</displayName>
 				<displayName count="one">som na ƙasar Kyrgystani</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Riel na ƙasar Cambodia</displayName>
 				<displayName count="one">riel na ƙasar Cambodia</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Kuɗin Kwamoras</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KPW">
-				<displayName>won na ƙasar Koriya ta Arewa</displayName>
+				<displayName>Won na ƙasar Koriya ta Arewa</displayName>
 				<displayName count="one">won na ƙasar Koriya ta Arewa</displayName>
 				<displayName count="other">won na ƙasar Koriya ta Arewa</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KRW">
-				<displayName>won na Koriya ta Kudu</displayName>
+				<displayName>Won na Koriya ta Kudu</displayName>
 				<displayName count="one">won na Koriya ta Kudu</displayName>
 				<displayName count="other">won na Koriya ta Kudu</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Dinarin Kuwaiti</displayName>
 				<displayName count="one">dinarin Kuwaiti</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Dalar ƙasar Tsibirai na Cayman</displayName>
 				<displayName count="one">dalar ƙasar Tsibirai na Cayman</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Tenge na ƙasar Kazkhstan</displayName>
 				<displayName count="one">tenge na ƙasar Kazakhstan</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Kuɗin Laos</displayName>
 				<displayName count="one">kuɗin Laos</displayName>
 				<displayName count="other">Kuɗin Laos</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Kuɗin Lebanon</displayName>
 				<displayName count="one">kuɗin Lebanon</displayName>
 				<displayName count="other">Kuɗin Lebanon</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Rupee na ƙasar Sri Lanka</displayName>
 				<displayName count="one">rupee na ƙasar Sri Lanka</displayName>
 				<displayName count="other">Rupee na ƙasar Sri Lanka</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Dalar Laberiya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Kuɗin Lesoto</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">Kuɗaɗen Lesoto</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Kuɗin Libiya</displayName>
 				<displayName count="one">Dinarin Libiya</displayName>
 				<displayName count="other">Dinarin Libiya</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Kuɗin Maroko</displayName>
 				<displayName count="one">Dirhamin Maroko</displayName>
 				<displayName count="other">Dirhamomin Maroko</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>kuɗaɗen Moldova</displayName>
 				<displayName count="one">Kuɗaɗen Moldova</displayName>
 				<displayName count="other">kuɗaɗen Moldova</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Kuɗin Madagaskar</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Dinarin Macedonia</displayName>
 				<displayName count="one">Dinarin Macedonia</displayName>
 				<displayName count="other">Dinarin Macedonia</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Kuɗin Myanmar</displayName>
 				<displayName count="one">kuɗin Myanmar</displayName>
 				<displayName count="other">Kuɗin Myanmar</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Tugrik na Mongolia</displayName>
 				<displayName count="one">tugrik na Mongoliya</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Pataca na ƙasar Macao</displayName>
 				<displayName count="one">pataca na ƙasar Macao</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Kuɗin Moritaniya (1973–2017)</displayName>
@@ -5079,40 +5092,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Kuɗin Moritaniya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Kuɗin Moritus</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Rufiyaa na ɓasar Maldives</displayName>
 				<displayName count="one">Rufiyaa na ɓasar Maldives</displayName>
 				<displayName count="other">Rufiyaa na ɓasar Maldives</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Kuɗin Malawi</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Peso na ƙasar Mekziko</displayName>
 				<displayName count="one">peso na ƙasar Mekziko</displayName>
 				<displayName count="other">peso na ƙasar Mekziko</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Kuɗin Malaysia</displayName>
 				<displayName count="one">kuɗin Malaysia</displayName>
 				<displayName count="other">Kuɗin Malaysia</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Kuɗin Mozambik</displayName>
@@ -5121,206 +5134,206 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Metical na ƙasar Mozambique</displayName>
 				<displayName count="one">metical na ƙasar Mozambique</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Dalar Namibiya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nairar Najeriya</displayName>
 				<displayName count="one">Nairar Nijeriya</displayName>
 				<displayName count="other">Nairar Nijeriya</displayName>
 				<symbol>₦</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Córdoba na ƙasar Nicaragua</displayName>
 				<displayName count="one">córdoba na ƙasar Nicaragua</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Krone na ƙasar Norway</displayName>
 				<displayName count="one">krone na ƙasar Norway</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Rupee na Nepal</displayName>
-				<displayName count="one">rupee na kasar Nepal</displayName>
+				<displayName count="one">rupee na Nepal</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Dalar New Zealand</displayName>
-				<displayName count="one">dalar New Zealand</displayName>
+				<displayName count="one">Dalar New Zealand</displayName>
 				<displayName count="other">Dalolin New Zealand</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Riyal ɗin Oman</displayName>
 				<displayName count="one">Riyal ɗin Oman</displayName>
 				<displayName count="other">Riyal ɗin Oman</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Balboa na ƙasar Panama</displayName>
 				<displayName count="one">balboa na ƙasar Panama</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Sol na ƙasar Peru</displayName>
 				<displayName count="one">sol na ƙasar Peru</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Kina na ƙasar Papua Sabon Guinea</displayName>
 				<displayName count="one">kina na ƙasar Papua Sabon Guinea</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Kuɗin Philippine</displayName>
 				<displayName count="one">kuɗin Philippine</displayName>
 				<displayName count="other">Kuɗin Philippine</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Rupee na ƙasar Pakistan</displayName>
 				<displayName count="one">rupee na ƙasar Pakistan</displayName>
 				<displayName count="other">Rupee na ƙasar Pakistan</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Kuɗin Polan</displayName>
 				<displayName count="one">kuɗin Polan</displayName>
 				<displayName count="other">kuɗaɗen Polan</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Guarani na ƙasar Paraguay</displayName>
 				<displayName count="one">guarani na ƙasar Paraguay</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Riyal ɗin Qatar</displayName>
 				<displayName count="one">Riyal ɗin Qatar</displayName>
 				<displayName count="other">Riyal ɗin Qatar</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Kuɗin Romania</displayName>
 				<displayName count="one">kuɗin Romania</displayName>
 				<displayName count="other">Kuɗin Romania</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Dinarin Serbia</displayName>
 				<displayName count="one">dinarin Serbia</displayName>
 				<displayName count="other">Dinarin Serbia</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Ruble na ƙasar Rasha</displayName>
 				<displayName count="one">Ruble na ƙasar Rasha</displayName>
 				<displayName count="other">Ruble na ƙasar Rasha</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Kuɗin Ruwanda</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Riyal</displayName>
 				<displayName count="one">Riyal ɗin Saudiyya</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Dalar Tsibirai na Solomon</displayName>
-				<displayName count="one">dalar Tsibirai na Solomon</displayName>
+				<displayName count="one">Dalar Tsibirai na Solomon</displayName>
 				<displayName count="other">Dalolin Tsibirai na Solomon</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Kuɗin Saishal</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Fam na Sudan</displayName>
 				<displayName count="one">Fam na Sudan</displayName>
 				<displayName count="other">Fam na Sudan</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Krona na ƙasar Sweden</displayName>
 				<displayName count="one">krona na ƙasar Sweden</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Dalar Singapore</displayName>
 				<displayName count="one">dalar Singapore</displayName>
 				<displayName count="other">Dalolin Singapore</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Fam kin San Helena</displayName>
 				<displayName count="one">Fam na San Helena</displayName>
 				<displayName count="other">Fam na San Helena</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Kuɗin Salewo</displayName>
 				<displayName count="one">Kuɗin Saliyo</displayName>
 				<displayName count="other">Kuɗin Saliyo</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Sulen Somaliya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Dalar ƙasar Suriname</displayName>
 				<displayName count="one">dalar ƙasar Suriname</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>Fam na Kudancin Sudan</displayName>
 				<displayName count="one">fam na Kudancin Sudan</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Kuɗin Sawo Tome da Paransip (1977–2017)</displayName>
@@ -5329,164 +5342,164 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Kuɗin Sawo Tome da Paransip</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Kuɗin Siriya</displayName>
 				<displayName count="one">Kuɗin Siriya</displayName>
 				<displayName count="other">Kuɗin Siriya</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Kuɗin Lilangeni</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Baht na ƙasar Thailand</displayName>
 				<displayName count="one">baht na ƙasar Thailand</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Somoni na ƙasar Tajikistan</displayName>
 				<displayName count="one">somoni na ƙasar Tajikistan</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>Manat na ƙasar Turkmenistan</displayName>
 				<displayName count="one">manat na ƙasar Turkmenistan</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Kuɗin Tunisiya</displayName>
 				<displayName count="one">Dinarin Tunusiya</displayName>
 				<displayName count="other">Dinarin Tunusiya</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Paʻanga na ƙasar Tonga</displayName>
 				<displayName count="one">paʻanga na ƙasar Tonga</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Kuɗin Turkiyya</displayName>
 				<displayName count="one">kudin Turkish</displayName>
 				<displayName count="other">Kuɗin Turkiyya</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+				<symbol alt="variant">↑↑↑</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dalar ƙasar Trinidad da Tobago</displayName>
 				<displayName count="one">dalar ƙasar Trinidad da Tobago</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Sabuwar Dalar Taiwan</displayName>
 				<displayName count="one">Sabuwar dalar Taiwan</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Sulen Tanzaniya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Kudin Ukrainian</displayName>
 				<displayName count="one">kuɗin Ukrain</displayName>
 				<displayName count="other">Kuɗin Ukrain</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Sule Yuganda</displayName>
 				<displayName count="one">Sulen Yuganda</displayName>
-				<displayName count="other">Sulen Yuganda</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<displayName count="other">Sulallan Yuganda</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Dalar Amurka</displayName>
 				<displayName count="one">Dalar Amirka</displayName>
 				<displayName count="other">Dalar Amurka</displayName>
-				<symbol draft="contributed">$</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>$</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Peso na ƙasar Uruguay</displayName>
 				<displayName count="one">peso na ƙasar Uruguay</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Som na ƙasar Uzbekistan</displayName>
 				<displayName count="one">som na ƙasar Uzbekistan</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="VES">
 				<displayName>Bolívar na ƙasar Venezuela</displayName>
 				<displayName count="one">bolívar na ƙasar Venezuela</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Kuɗin Vietnam</displayName>
 				<displayName count="one">kuɗin Vietnam</displayName>
 				<displayName count="other">Kuɗin Vietnam</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vatu da ƙasar Vanuatu</displayName>
 				<displayName count="one">vatu na ƙasar Vanuatu</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Tala na ƙasar Samoa</displayName>
 				<displayName count="one">tala na ƙasar Samoa</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Kuɗin Sefa na Afirka Ta Tsakiya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Dalar Gabashin Karebiyan</displayName>
 				<displayName count="one">dalar Gabashin Karebiyan</displayName>
 				<displayName count="other">dalar Gabashin Karebiyan</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>Kuɗin Sefa na Afirka Ta Yamma</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Kuɗin CFP franc</displayName>
 				<displayName count="one">kuɗin CFP franc</displayName>
 				<displayName count="other">Kuɗin CFP franc</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Kudin da ba a sani ba</displayName>
@@ -5497,14 +5510,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Riyal ɗin Yemen</displayName>
 				<displayName count="one">riyal ɗin Yemen</displayName>
 				<displayName count="other">Riyal ɗin Yemen</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Kuɗin Afirka Ta Kudu</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Kuɗin Zambiya (1968–2012)</displayName>
@@ -5513,8 +5526,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Kuɗin Zambiya</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Dalar zimbabuwe</displayName>
@@ -5527,9 +5540,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="contributed">rana {0}</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">rana {0}</pluralMinimalPairs>
 			<pluralMinimalPairs count="other" draft="contributed">ranaku {0}</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other" draft="contributed">↑↑↑</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">↑↑↑</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -5979,6 +5992,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">newton {0}</unitPattern>
 				<unitPattern count="other">newtons {0}</unitPattern>
 			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>kilowatt-hour per 100 kilometers</displayName>
+				<unitPattern count="one">kilowatt-hour per 100 kilometers {0}</unitPattern>
+				<unitPattern count="other">kilowatt-hours per 100 kilometers {0}</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>gigahertz</displayName>
 				<unitPattern count="one">gigahertz {0}</unitPattern>
@@ -6035,7 +6053,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ayoyi a inci</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>aya</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">aya {0}</unitPattern>
 				<unitPattern count="other">aya {0}</unitPattern>
 			</unit>
@@ -6110,19 +6128,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} a inci</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
-				<displayName>fasek</displayName>
+				<displayName>fasekoki</displayName>
 				<unitPattern count="one">fasek {0}</unitPattern>
 				<unitPattern count="other">fasekoki {0}</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>light years</displayName>
-				<unitPattern count="one">light year {0}</unitPattern>
-				<unitPattern count="other">light years {0}</unitPattern>
+				<displayName>shekarun haske</displayName>
+				<unitPattern count="one">shekarar haske {0}</unitPattern>
+				<unitPattern count="other">shekarun haske {0}</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>astronomical units</displayName>
 				<unitPattern count="one">astronomical unit {0}</unitPattern>
 				<unitPattern count="other">astronomical units {0}</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>furlongs</displayName>
+				<unitPattern count="one">furlong {0}</unitPattern>
+				<unitPattern count="other">furlongs {0}</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>fathoms</displayName>
+				<unitPattern count="one">fathom {0}</unitPattern>
+				<unitPattern count="other">fathoms {0}</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>nautical miles</displayName>
@@ -6195,6 +6223,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>tan-tan</displayName>
 				<unitPattern count="one">tan {0}</unitPattern>
 				<unitPattern count="other">tan-tan {0}</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>stones</displayName>
+				<unitPattern count="one">stone {0}</unitPattern>
+				<unitPattern count="other">stones {0}</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>↑↑↑</displayName>
@@ -6350,7 +6383,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>digiri-digiri faranhit</displayName>
-				<unitPattern count="one">digiri faranhit {0}</unitPattern>
+				<unitPattern count="one">digiri Faranhit {0}</unitPattern>
 				<unitPattern count="other">digiri-digiri faranhit {0}</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
@@ -6451,6 +6484,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">eka-ƙafa {0}</unitPattern>
 				<unitPattern count="other">eka-ƙafafu {0}</unitPattern>
 			</unit>
+			<unit type="volume-bushel">
+				<displayName>bushels</displayName>
+				<unitPattern count="one">bushel {0}</unitPattern>
+				<unitPattern count="other">bushels {0}</unitPattern>
+			</unit>
 			<unit type="volume-gallon">
 				<displayName>galan-galan</displayName>
 				<unitPattern count="one">galan {0}</unitPattern>
@@ -6535,7 +6573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>Imp. quart</displayName>
-				<unitPattern count="one">{0}</unitPattern>
+				<unitPattern count="one">Imp. quart {0}</unitPattern>
 				<unitPattern count="other">Imp. quart {0}</unitPattern>
 			</unit>
 			<coordinateUnit>
@@ -6994,6 +7032,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">N {0}</unitPattern>
 				<unitPattern count="other">N {0}</unitPattern>
 			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kWh/100km {0}</unitPattern>
+				<unitPattern count="other">kWh/100km {0}</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">GHz {0}</unitPattern>
@@ -7051,8 +7094,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>aya</displayName>
-				<unitPattern count="one">aya {0}</unitPattern>
-				<unitPattern count="other">aya {0}</unitPattern>
+				<unitPattern count="one">px {0}</unitPattern>
+				<unitPattern count="other">px {0}</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -7115,7 +7158,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-foot">
 				<displayName>ƙafafu</displayName>
 				<unitPattern count="one">ƙf {0}</unitPattern>
-				<unitPattern count="other">ƙf {0}</unitPattern>
+				<unitPattern count="other">ƙff {0}</unitPattern>
 				<perUnitPattern>{0}/ƙf</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
@@ -7130,14 +7173,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">pc {0}</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>light yrs</displayName>
-				<unitPattern count="one">ly {0}</unitPattern>
-				<unitPattern count="other">ly {0}</unitPattern>
+				<displayName>shkr haske</displayName>
+				<unitPattern count="one">sh {0}</unitPattern>
+				<unitPattern count="other">sh {0}</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">au {0}</unitPattern>
 				<unitPattern count="other">au {0}</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>furlongs</displayName>
+				<unitPattern count="one">fur {0}</unitPattern>
+				<unitPattern count="other">fur {0}</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>fathom</displayName>
+				<unitPattern count="one">fth {0}</unitPattern>
+				<unitPattern count="other">fth {0}</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>↑↑↑</displayName>
@@ -7210,6 +7263,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>tan-tan</displayName>
 				<unitPattern count="one">tn {0}</unitPattern>
 				<unitPattern count="other">tn {0}</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>stones</displayName>
+				<unitPattern count="one">st {0}</unitPattern>
+				<unitPattern count="other">st {0}</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>laba-laba</displayName>
@@ -7443,8 +7501,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">cL {0}</unitPattern>
-				<unitPattern count="other">cL {0}</unitPattern>
+				<unitPattern count="one">sL {0}</unitPattern>
+				<unitPattern count="other">sL {0}</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>↑↑↑</displayName>
@@ -7465,6 +7523,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>eka ƙf</displayName>
 				<unitPattern count="one">ek ƙf {0}</unitPattern>
 				<unitPattern count="other">ek ƙf {0}</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>bushels</displayName>
+				<unitPattern count="one">bu {0}</unitPattern>
+				<unitPattern count="other">bu {0}</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>gal</displayName>
@@ -7662,100 +7725,936 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">G{0}</unitPattern>
+				<unitPattern count="other">Gs{0}</unitPattern>
+			</unit>
+			<unit type="acceleration-meter-per-square-second">
+				<displayName>m/s²</displayName>
+				<unitPattern count="one">m/s²{0}</unitPattern>
+				<unitPattern count="other">m/s²{0}</unitPattern>
+			</unit>
+			<unit type="angle-revolution">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">rev{0}</unitPattern>
+				<unitPattern count="other">rev{0}</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>rad</displayName>
+				<unitPattern count="one">rad{0}</unitPattern>
+				<unitPattern count="other">rad{0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>deg</displayName>
+				<unitPattern count="one">deg{0}</unitPattern>
+				<unitPattern count="other">deg{0}</unitPattern>
+			</unit>
+			<unit type="angle-arc-minute">
+				<displayName>arcmin</displayName>
+				<unitPattern count="one">arcmin{0}</unitPattern>
+				<unitPattern count="other">arcmin{0}</unitPattern>
+			</unit>
+			<unit type="angle-arc-second">
+				<displayName>arcsec</displayName>
+				<unitPattern count="one">arcsecs{0}</unitPattern>
+				<unitPattern count="other">arcsecs{0}</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">km²{0}</unitPattern>
+				<unitPattern count="other">km²{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>hekta</displayName>
+				<unitPattern count="one">ha{0}</unitPattern>
+				<unitPattern count="other">hk{0}</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">m²{0}</unitPattern>
+				<unitPattern count="other">m²{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">cm²{0}</unitPattern>
+				<unitPattern count="other">cm²{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">sq mi{0}</unitPattern>
+				<unitPattern count="other">sq mi{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>eka</displayName>
+				<unitPattern count="one">ek{0}</unitPattern>
+				<unitPattern count="other">ek{0}</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>yd²</displayName>
+				<unitPattern count="one">yd²{0}</unitPattern>
+				<unitPattern count="other">yd²{0}</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">sk ƙf {0}</unitPattern>
+				<unitPattern count="other">sk ƙf{0}</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">in²{0}</unitPattern>
+				<unitPattern count="other">in²{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName>dunam</displayName>
+				<unitPattern count="one">dunam{0}</unitPattern>
+				<unitPattern count="other">dunam{0}</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">kt{0}</unitPattern>
+				<unitPattern count="other">kt{0}</unitPattern>
+			</unit>
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mg/dL{0}</unitPattern>
+				<unitPattern count="other">mg/dL{0}</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>mmol/L</displayName>
+				<unitPattern count="one">mmol/L{0}</unitPattern>
+				<unitPattern count="other">mmol/L{0}</unitPattern>
+			</unit>
+			<unit type="concentr-permillion">
+				<displayName>ppm</displayName>
+				<unitPattern count="one">ppm{0}</unitPattern>
+				<unitPattern count="other">ppm{0}</unitPattern>
+			</unit>
 			<unit type="concentr-percent">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">%{0}</unitPattern>
 				<unitPattern count="other">%{0}</unitPattern>
 			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>‱</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="one">mol{0}</unitPattern>
+				<unitPattern count="other">mol{0}</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>L/km</displayName>
+				<unitPattern count="one">L/km{0}</unitPattern>
+				<unitPattern count="other">L/km{0}</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>L/100km</displayName>
-				<unitPattern count="one">L/100km</unitPattern>
-				<unitPattern count="other">L/100km {0}</unitPattern>
+				<unitPattern count="one">L/100km{0}</unitPattern>
+				<unitPattern count="other">L/100km{0}</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mag{0}</unitPattern>
+				<unitPattern count="other">mag{0}</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mag UK</displayName>
+				<unitPattern count="one">m/gUK{0}</unitPattern>
+				<unitPattern count="other">m/gUK{0}</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">PB{0}</unitPattern>
+				<unitPattern count="other">PB{0}</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>TB</displayName>
+				<unitPattern count="one">TB{0}</unitPattern>
+				<unitPattern count="other">TB{0}</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="one">Tb{0}</unitPattern>
+				<unitPattern count="other">Tb{0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="one">GB{0}</unitPattern>
+				<unitPattern count="other">GB {0}</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="one">Gb{0}</unitPattern>
+				<unitPattern count="other">Gb{0}</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">MB{0}</unitPattern>
+				<unitPattern count="other">MB{0}</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="one">Mb{0}</unitPattern>
+				<unitPattern count="other">Mb{0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="one">kB{0}</unitPattern>
+				<unitPattern count="other">kB{0}</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="one">kb{0}</unitPattern>
+				<unitPattern count="other">kb{0}</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>B</displayName>
+				<unitPattern count="one">B{0}</unitPattern>
+				<unitPattern count="other">B{0}</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">bit{0}</unitPattern>
+				<unitPattern count="other">bit{0}</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ƙ{0}</unitPattern>
+				<unitPattern count="other">ƙ{0}</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">shkr gm{0}</unitPattern>
+				<unitPattern count="other">shkr gm{0}</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>shkr</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">s{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>wata</displayName>
 				<unitPattern count="one">w{0}</unitPattern>
 				<unitPattern count="other">w{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>mk</displayName>
 				<unitPattern count="one">m{0}</unitPattern>
 				<unitPattern count="other">m{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>rana</displayName>
 				<unitPattern count="one">r{0}</unitPattern>
 				<unitPattern count="other">r{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>saʼa</displayName>
 				<unitPattern count="one">s{0}</unitPattern>
 				<unitPattern count="other">s{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>mnt</displayName>
-				<unitPattern count="one">mtn</unitPattern>
+				<unitPattern count="one">minti{0}</unitPattern>
 				<unitPattern count="other">minti {0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>daƙ</displayName>
 				<unitPattern count="one">d {0}</unitPattern>
 				<unitPattern count="other">d {0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>msek</displayName>
 				<unitPattern count="one">ms {0}</unitPattern>
 				<unitPattern count="other">ms {0}</unitPattern>
 			</unit>
+			<unit type="duration-microsecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">μs{0}</unitPattern>
+				<unitPattern count="other">μs{0}</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ns{0}</unitPattern>
+				<unitPattern count="other">ns{0}</unitPattern>
+			</unit>
+			<unit type="electric-ampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">A{0}</unitPattern>
+				<unitPattern count="other">A{0}</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>mA</displayName>
+				<unitPattern count="one">mA{0}</unitPattern>
+				<unitPattern count="other">mA{0}</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">Ω{0}</unitPattern>
+				<unitPattern count="other">Ω{0}</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>volt</displayName>
+				<unitPattern count="one">V{0}</unitPattern>
+				<unitPattern count="other">V{0}</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kcal{0}</unitPattern>
+				<unitPattern count="other">kcal{0}</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kal{0}</unitPattern>
+				<unitPattern count="other">kal{0}</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">Kal{0}</unitPattern>
+				<unitPattern count="other">Kal{0}</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>kj</displayName>
+				<unitPattern count="one">kj{0}</unitPattern>
+				<unitPattern count="other">kj{0}</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>joule</displayName>
+				<unitPattern count="one">J{0}</unitPattern>
+				<unitPattern count="other">J{0}</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>kWh</displayName>
+				<unitPattern count="one">kWh{0}</unitPattern>
+				<unitPattern count="other">kWh{0}</unitPattern>
+			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>eV</displayName>
+				<unitPattern count="one">eV{0}</unitPattern>
+				<unitPattern count="other">eV{0}</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">Btu{0}</unitPattern>
+				<unitPattern count="other">Btu{0}</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">US therm{0}</unitPattern>
+				<unitPattern count="other">US therm{0}</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>lbf</displayName>
+				<unitPattern count="one">lbf{0}</unitPattern>
+				<unitPattern count="other">lbf{0}</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>N</displayName>
+				<unitPattern count="one">N{0}</unitPattern>
+				<unitPattern count="other">N{0}</unitPattern>
+			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kWh/100km{0}</unitPattern>
+				<unitPattern count="other">kWh/100km{0}</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">GHz{0}</unitPattern>
+				<unitPattern count="other">GHz{0}</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">MHz{0}</unitPattern>
+				<unitPattern count="other">MHz{0}</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kHz{0}</unitPattern>
+				<unitPattern count="other">kHz{0}</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">Hz{0}</unitPattern>
+				<unitPattern count="other">Hz{0}</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">em{0}</unitPattern>
+				<unitPattern count="other">em{0}</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">px{0}</unitPattern>
+				<unitPattern count="other">px{0}</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">MP{0}</unitPattern>
+				<unitPattern count="other">MP{0}</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ppcm{0}</unitPattern>
+				<unitPattern count="other">ppcm{0}</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ppi{0}</unitPattern>
+				<unitPattern count="other">ppi{0}</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">dpcm{0}</unitPattern>
+				<unitPattern count="other">dpcm{0}</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">dpi{0}</unitPattern>
+				<unitPattern count="other">dpi{0}</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">aya{0}</unitPattern>
+				<unitPattern count="other">ayoyi{0}</unitPattern>
+			</unit>
+			<unit type="length-earth-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">R⊕{0}</unitPattern>
+				<unitPattern count="other">R⊕{0}</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">km{0}</unitPattern>
 				<unitPattern count="other">km{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="one">m{0}</unitPattern>
 				<unitPattern count="other">m{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">dm{0}</unitPattern>
+				<unitPattern count="other">dm{0}</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">cm{0}</unitPattern>
 				<unitPattern count="other">cm{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">mm{0}</unitPattern>
 				<unitPattern count="other">mm{0}</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">μm{0}</unitPattern>
+				<unitPattern count="other">μm{0}</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">nm{0}</unitPattern>
+				<unitPattern count="other">nm{0}</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">pm{0}</unitPattern>
+				<unitPattern count="other">pm{0}</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mi{0}</unitPattern>
+				<unitPattern count="other">mil-mil{0}</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">yd{0}</unitPattern>
+				<unitPattern count="other">ydk{0}</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ƙf{0}</unitPattern>
+				<unitPattern count="other">ƙff{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>fasek</displayName>
+				<unitPattern count="one">fasek{0}</unitPattern>
+				<unitPattern count="other">fasekoki{0}</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>sh</displayName>
+				<unitPattern count="one">sh{0}</unitPattern>
+				<unitPattern count="other">sh{0}</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">au{0}</unitPattern>
+				<unitPattern count="other">au{0}</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>furlong</displayName>
+				<unitPattern count="one">fur{0}</unitPattern>
+				<unitPattern count="other">fur{0}</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>fathom</displayName>
+				<unitPattern count="one">fth{0}</unitPattern>
+				<unitPattern count="other">fth{0}</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">nmi{0}</unitPattern>
+				<unitPattern count="other">nmi{0}</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">smi{0}</unitPattern>
+				<unitPattern count="other">smi{0}</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mk{0}</unitPattern>
+				<unitPattern count="other">mk{0}</unitPattern>
+			</unit>
+			<unit type="length-solar-radius">
+				<displayName>R☉</displayName>
+				<unitPattern count="one">R☉{0}</unitPattern>
+				<unitPattern count="other">R☉{0}</unitPattern>
+			</unit>
+			<unit type="light-lux">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">lx{0}</unitPattern>
+				<unitPattern count="other">lx{0}</unitPattern>
+			</unit>
+			<unit type="light-candela">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">cd{0}</unitPattern>
+				<unitPattern count="other">cd{0}</unitPattern>
+			</unit>
+			<unit type="light-lumen">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">lm{0}</unitPattern>
+				<unitPattern count="other">lm{0}</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>L☉</displayName>
+				<unitPattern count="one">L☉{0}</unitPattern>
+				<unitPattern count="other">L☉{0}</unitPattern>
+			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">t{0}</unitPattern>
+				<unitPattern count="other">t{0}</unitPattern>
+			</unit>
 			<unit type="mass-kilogram">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">kg{0}</unitPattern>
 				<unitPattern count="other">kg{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>giram</displayName>
 				<unitPattern count="one">g{0}</unitPattern>
 				<unitPattern count="other">g{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mg{0}</unitPattern>
+				<unitPattern count="other">mg{0}</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">μg{0}</unitPattern>
+				<unitPattern count="other">μg{0}</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>tan</displayName>
+				<unitPattern count="one">tn{0}</unitPattern>
+				<unitPattern count="other">tn{0}</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>stone</displayName>
+				<unitPattern count="one">st{0}</unitPattern>
+				<unitPattern count="other">st{0}</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>laba</displayName>
+				<unitPattern count="one">{0}#</unitPattern>
+				<unitPattern count="other">{0}#</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">oz{0}</unitPattern>
+				<unitPattern count="other">oz{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>oz t</displayName>
+				<unitPattern count="one">oz t{0}</unitPattern>
+				<unitPattern count="other">oz t{0}</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>carat</displayName>
+				<unitPattern count="one">CD{0}</unitPattern>
+				<unitPattern count="other">CD{0}</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>Da</displayName>
+				<unitPattern count="one">Da{0}</unitPattern>
+				<unitPattern count="other">Da{0}</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>M⊕</displayName>
+				<unitPattern count="one">M⊕{0}</unitPattern>
+				<unitPattern count="other">M⊕{0}</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>M☉</displayName>
+				<unitPattern count="one">M☉{0}</unitPattern>
+				<unitPattern count="other">M☉{0}</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ƙwaya{0}</unitPattern>
+				<unitPattern count="other">ƙwaya{0}</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">GW{0}</unitPattern>
+				<unitPattern count="other">GW{0}</unitPattern>
+			</unit>
+			<unit type="power-megawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">MW{0}</unitPattern>
+				<unitPattern count="other">MW{0}</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kW{0}</unitPattern>
+				<unitPattern count="other">kW{0}</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<displayName>wat</displayName>
+				<unitPattern count="one">W{0}</unitPattern>
+				<unitPattern count="other">W{0}</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mW{0}</unitPattern>
+				<unitPattern count="other">mW{0}</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ƙi{0}</unitPattern>
+				<unitPattern count="other">ƙi{0}</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>mmHg</displayName>
+				<unitPattern count="one">mmHg{0}</unitPattern>
+				<unitPattern count="other">mmHg{0}</unitPattern>
+			</unit>
+			<unit type="pressure-pound-force-per-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">psi{0}</unitPattern>
+				<unitPattern count="other">psi{0}</unitPattern>
+			</unit>
+			<unit type="pressure-inch-ofhg">
+				<displayName>″ Hg</displayName>
+				<unitPattern count="one">″ Hg{0}</unitPattern>
+				<unitPattern count="other">″ Hg{0}</unitPattern>
+			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">sanda{0}</unitPattern>
+				<unitPattern count="other">sanda{0}</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mbar{0}</unitPattern>
+				<unitPattern count="other">mbar{0}</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">yny{0}</unitPattern>
+				<unitPattern count="other">yny{0}</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">Pa{0}</unitPattern>
+				<unitPattern count="other">Pa{0}</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">hPa{0}</unitPattern>
+				<unitPattern count="other">hPa{0}</unitPattern>
+			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kPa{0}</unitPattern>
+				<unitPattern count="other">kPa{0}</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">MPa{0}</unitPattern>
+				<unitPattern count="other">MPa{0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">km/s{0}</unitPattern>
 				<unitPattern count="other">km/s{0}</unitPattern>
 			</unit>
+			<unit type="speed-meter-per-second">
+				<displayName>m/d</displayName>
+				<unitPattern count="one">m/d{0}</unitPattern>
+				<unitPattern count="other">m/d{0}</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mas{0}</unitPattern>
+				<unitPattern count="other">mas{0}</unitPattern>
+			</unit>
+			<unit type="speed-knot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">kn{0}</unitPattern>
+				<unitPattern count="other">kn{0}</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°S</displayName>
 				<unitPattern count="one">S°{0}</unitPattern>
 				<unitPattern count="other">S°{0}</unitPattern>
 			</unit>
+			<unit type="temperature-fahrenheit">
+				<displayName>°F</displayName>
+				<unitPattern count="one">°{0}</unitPattern>
+				<unitPattern count="other">°{0}</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">K{0}</unitPattern>
+				<unitPattern count="other">K{0}</unitPattern>
+			</unit>
+			<unit type="torque-pound-force-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">lbf⋅ft{0}</unitPattern>
+				<unitPattern count="other">lbf⋅ft{0}</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">N⋅m{0}</unitPattern>
+				<unitPattern count="other">N⋅m{0}</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">km³{0}</unitPattern>
+				<unitPattern count="other">km³{0}</unitPattern>
+			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">m³{0}</unitPattern>
+				<unitPattern count="other">m³{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">cm³{0}</unitPattern>
+				<unitPattern count="other">cm³{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mi³{0}</unitPattern>
+				<unitPattern count="other">mi³{0}</unitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">yd³{0}</unitPattern>
+				<unitPattern count="other">yd³{0}</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ƙf³{0}</unitPattern>
+				<unitPattern count="other">ƙf³{0}</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">in³{0}</unitPattern>
+				<unitPattern count="other">in³{0}</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ML{0}</unitPattern>
+				<unitPattern count="other">ML{0}</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">hL{0}</unitPattern>
+				<unitPattern count="other">hL{0}</unitPattern>
+			</unit>
 			<unit type="volume-liter">
 				<displayName>lita</displayName>
 				<unitPattern count="one">L{0}</unitPattern>
 				<unitPattern count="other">L{0}</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">dL{0}</unitPattern>
+				<unitPattern count="other">dL{0}</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">sL{0}</unitPattern>
+				<unitPattern count="other">sL {0}</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mL{0}</unitPattern>
+				<unitPattern count="other">mL{0}</unitPattern>
+			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mpt{0}</unitPattern>
+				<unitPattern count="other">mpt{0}</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">mc{0}</unitPattern>
+				<unitPattern count="other">mc{0}</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ek ƙf{0}</unitPattern>
+				<unitPattern count="other">ek ƙf{0}</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>bu</displayName>
+				<unitPattern count="one">bu {0}</unitPattern>
+				<unitPattern count="other">bu {0}</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">gal{0}</unitPattern>
+				<unitPattern count="other">gal{0}</unitPattern>
+				<perUnitPattern>{0}/gal</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>Imp gal</displayName>
+				<unitPattern count="one">galIm{0}</unitPattern>
+				<unitPattern count="other">galIm{0}</unitPattern>
+				<perUnitPattern>{0}/galIm</perUnitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>qt</displayName>
+				<unitPattern count="one">qt{0}</unitPattern>
+				<unitPattern count="other">qt{0}</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pt</displayName>
+				<unitPattern count="one">pt{0}</unitPattern>
+				<unitPattern count="other">pt{0}</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>kofi</displayName>
+				<unitPattern count="one">k{0}</unitPattern>
+				<unitPattern count="other">kfn{0}</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">fl oz{0}</unitPattern>
+				<unitPattern count="other">fl oz{0}</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>Imp fl oz</displayName>
+				<unitPattern count="one">fl oz Im{0}</unitPattern>
+				<unitPattern count="other">fl oz Im{0}</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">bckl{0}</unitPattern>
+				<unitPattern count="other">bckl{0}</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ƙmc{0}</unitPattern>
+				<unitPattern count="other">ƙmc{0}</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">gang{0}</unitPattern>
+				<unitPattern count="other">gang{0}</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>dsp</displayName>
+				<unitPattern count="one">dsp{0}</unitPattern>
+				<unitPattern count="other">dsp{0}</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>dsp lmp</displayName>
+				<unitPattern count="one">dsp-lmp{0}</unitPattern>
+				<unitPattern count="other">dsp-lmp{0}</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">ɗigo{0}</unitPattern>
+				<unitPattern count="other">ɗigo{0}</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<displayName>fl.dr.</displayName>
+				<unitPattern count="one">fl.dr.{0}</unitPattern>
+				<unitPattern count="other">fl.dr.{0}</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">jigger{0}</unitPattern>
+				<unitPattern count="other">jigger{0}</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<displayName>pn</displayName>
+				<unitPattern count="one">pn{0}</unitPattern>
+				<unitPattern count="other">pn{0}</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">qt-Imp.{0}</unitPattern>
+				<unitPattern count="other">qt-Imp.{0}</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -7838,172 +8737,174 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</messages>
 	</posix>
 	<characterLabels>
-		<characterLabelPattern type="all">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="category-list">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="compatibility">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="enclosed">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="extended">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="historic">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="other">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="scripts">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="one">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other">↑↑↑</characterLabelPattern>
-		<characterLabel type="activities">↑↑↑</characterLabel>
-		<characterLabel type="african_scripts">↑↑↑</characterLabel>
-		<characterLabel type="american_scripts">↑↑↑</characterLabel>
-		<characterLabel type="animal">↑↑↑</characterLabel>
-		<characterLabel type="animals_nature">↑↑↑</characterLabel>
-		<characterLabel type="arrows">↑↑↑</characterLabel>
-		<characterLabel type="body">↑↑↑</characterLabel>
-		<characterLabel type="box_drawing">↑↑↑</characterLabel>
-		<characterLabel type="braille">↑↑↑</characterLabel>
-		<characterLabel type="building">↑↑↑</characterLabel>
-		<characterLabel type="bullets_stars">↑↑↑</characterLabel>
-		<characterLabel type="consonantal_jamo">↑↑↑</characterLabel>
-		<characterLabel type="currency_symbols">↑↑↑</characterLabel>
-		<characterLabel type="dash_connector">↑↑↑</characterLabel>
-		<characterLabel type="digits">↑↑↑</characterLabel>
-		<characterLabel type="dingbats">↑↑↑</characterLabel>
-		<characterLabel type="divination_symbols">↑↑↑</characterLabel>
-		<characterLabel type="downwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="downwards_upwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="east_asian_scripts">↑↑↑</characterLabel>
-		<characterLabel type="emoji">↑↑↑</characterLabel>
-		<characterLabel type="european_scripts">↑↑↑</characterLabel>
-		<characterLabel type="female">↑↑↑</characterLabel>
-		<characterLabel type="flag">↑↑↑</characterLabel>
-		<characterLabel type="flags">↑↑↑</characterLabel>
-		<characterLabel type="food_drink">↑↑↑</characterLabel>
-		<characterLabel type="format">↑↑↑</characterLabel>
-		<characterLabel type="format_whitespace">↑↑↑</characterLabel>
-		<characterLabel type="full_width_form_variant">↑↑↑</characterLabel>
-		<characterLabel type="geometric_shapes">↑↑↑</characterLabel>
-		<characterLabel type="half_width_form_variant">↑↑↑</characterLabel>
-		<characterLabel type="han_characters">↑↑↑</characterLabel>
-		<characterLabel type="han_radicals">↑↑↑</characterLabel>
-		<characterLabel type="hanja">↑↑↑</characterLabel>
-		<characterLabel type="hanzi_simplified">↑↑↑</characterLabel>
-		<characterLabel type="hanzi_traditional">↑↑↑</characterLabel>
-		<characterLabel type="heart">↑↑↑</characterLabel>
-		<characterLabel type="historic_scripts">↑↑↑</characterLabel>
-		<characterLabel type="ideographic_desc_characters">↑↑↑</characterLabel>
-		<characterLabel type="japanese_kana">↑↑↑</characterLabel>
-		<characterLabel type="kanbun">↑↑↑</characterLabel>
-		<characterLabel type="kanji">↑↑↑</characterLabel>
-		<characterLabel type="keycap">↑↑↑</characterLabel>
-		<characterLabel type="leftwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="letterlike_symbols">↑↑↑</characterLabel>
-		<characterLabel type="limited_use">↑↑↑</characterLabel>
-		<characterLabel type="male">↑↑↑</characterLabel>
-		<characterLabel type="math_symbols">↑↑↑</characterLabel>
-		<characterLabel type="middle_eastern_scripts">↑↑↑</characterLabel>
-		<characterLabel type="miscellaneous">↑↑↑</characterLabel>
-		<characterLabel type="modern_scripts">↑↑↑</characterLabel>
-		<characterLabel type="modifier">↑↑↑</characterLabel>
-		<characterLabel type="musical_symbols">↑↑↑</characterLabel>
-		<characterLabel type="nature">↑↑↑</characterLabel>
-		<characterLabel type="nonspacing">↑↑↑</characterLabel>
-		<characterLabel type="numbers">↑↑↑</characterLabel>
-		<characterLabel type="objects">↑↑↑</characterLabel>
-		<characterLabel type="other">↑↑↑</characterLabel>
-		<characterLabel type="paired">↑↑↑</characterLabel>
-		<characterLabel type="person">↑↑↑</characterLabel>
-		<characterLabel type="phonetic_alphabet">↑↑↑</characterLabel>
-		<characterLabel type="pictographs">↑↑↑</characterLabel>
-		<characterLabel type="place">↑↑↑</characterLabel>
-		<characterLabel type="plant">↑↑↑</characterLabel>
-		<characterLabel type="punctuation">↑↑↑</characterLabel>
-		<characterLabel type="rightwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="sign_standard_symbols">↑↑↑</characterLabel>
-		<characterLabel type="small_form_variant">↑↑↑</characterLabel>
-		<characterLabel type="smiley">↑↑↑</characterLabel>
-		<characterLabel type="smileys_people">↑↑↑</characterLabel>
-		<characterLabel type="south_asian_scripts">↑↑↑</characterLabel>
-		<characterLabel type="southeast_asian_scripts">↑↑↑</characterLabel>
-		<characterLabel type="spacing">↑↑↑</characterLabel>
-		<characterLabel type="sport">↑↑↑</characterLabel>
-		<characterLabel type="symbols">↑↑↑</characterLabel>
-		<characterLabel type="technical_symbols">↑↑↑</characterLabel>
-		<characterLabel type="tone_marks">↑↑↑</characterLabel>
-		<characterLabel type="travel">↑↑↑</characterLabel>
-		<characterLabel type="travel_places">↑↑↑</characterLabel>
-		<characterLabel type="upwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="variant_forms">↑↑↑</characterLabel>
-		<characterLabel type="vocalic_jamo">↑↑↑</characterLabel>
-		<characterLabel type="weather">↑↑↑</characterLabel>
-		<characterLabel type="western_asian_scripts">↑↑↑</characterLabel>
-		<characterLabel type="whitespace">↑↑↑</characterLabel>
+		<characterLabelPattern type="all">{0} — duk</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} — jituwa</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — a kewaye</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — faɗaɗaɗɗe</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — na tarihi</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — daban-daban</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — wani dabam</characterLabelPattern>
+		<characterLabelPattern type="scripts">rubututtuka — {0}</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">bugu {0}</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">bugu-bugu {0}</characterLabelPattern>
+		<characterLabelPattern type="subscript">rubutu ƙasa {0}</characterLabelPattern>
+		<characterLabelPattern type="superscript">rubutu sama {0}</characterLabelPattern>
+		<characterLabel type="activities">aiki</characterLabel>
+		<characterLabel type="african_scripts">rubutun Afirka</characterLabel>
+		<characterLabel type="american_scripts">rubutun Amurka</characterLabel>
+		<characterLabel type="animal">dabba</characterLabel>
+		<characterLabel type="animals_nature">dabba ko ɗabiʼa</characterLabel>
+		<characterLabel type="arrows">kibiya</characterLabel>
+		<characterLabel type="body">jiki</characterLabel>
+		<characterLabel type="box_drawing">zana akwati</characterLabel>
+		<characterLabel type="braille">rubutun makafi</characterLabel>
+		<characterLabel type="building">gini</characterLabel>
+		<characterLabel type="bullets_stars">harsashi ko tauraro</characterLabel>
+		<characterLabel type="consonantal_jamo">baƙin jamo</characterLabel>
+		<characterLabel type="currency_symbols">alamar kuɗi</characterLabel>
+		<characterLabel type="dash_connector">ɗigo ko mahaɗi</characterLabel>
+		<characterLabel type="digits">lamba</characterLabel>
+		<characterLabel type="dingbats">dingbat</characterLabel>
+		<characterLabel type="divination_symbols">alamar duba</characterLabel>
+		<characterLabel type="downwards_arrows">kibiya zuwa ƙasa</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">kibiya zuwa ƙasa sama</characterLabel>
+		<characterLabel type="east_asian_scripts">Rubutun gabashin Asiya</characterLabel>
+		<characterLabel type="emoji">imoji</characterLabel>
+		<characterLabel type="european_scripts">rubutun Turai</characterLabel>
+		<characterLabel type="female">mace</characterLabel>
+		<characterLabel type="flag">tuta</characterLabel>
+		<characterLabel type="flags">tutoci</characterLabel>
+		<characterLabel type="food_drink">abinci da abin sha</characterLabel>
+		<characterLabel type="format">tsara</characterLabel>
+		<characterLabel type="format_whitespace">tsara da fararin-sarari</characterLabel>
+		<characterLabel type="full_width_form_variant">nauʼi mai cikakken faɗi</characterLabel>
+		<characterLabel type="geometric_shapes">siffar lissafi</characterLabel>
+		<characterLabel type="half_width_form_variant">nauʼi mai rabin faɗi</characterLabel>
+		<characterLabel type="han_characters">harafin Han</characterLabel>
+		<characterLabel type="han_radicals">Han mai tsattsaura</characterLabel>
+		<characterLabel type="hanja">hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">Hanzi (sauƙaƙaƙƙe)</characterLabel>
+		<characterLabel type="hanzi_traditional">Hanzi (na gargajiya)</characterLabel>
+		<characterLabel type="heart">zuciya</characterLabel>
+		<characterLabel type="historic_scripts">rubutu mai tarihi</characterLabel>
+		<characterLabel type="ideographic_desc_characters">baƙin ideographic desc.</characterLabel>
+		<characterLabel type="japanese_kana">kana na Japan</characterLabel>
+		<characterLabel type="kanbun">kanbun</characterLabel>
+		<characterLabel type="kanji">kanji</characterLabel>
+		<characterLabel type="keycap">maɓalli na musamman</characterLabel>
+		<characterLabel type="leftwards_arrows">kibiyar hagu</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">kibiyar hagu dama</characterLabel>
+		<characterLabel type="letterlike_symbols">alamar haruffa</characterLabel>
+		<characterLabel type="limited_use">taƙaitaccen-amfani</characterLabel>
+		<characterLabel type="male">namiji</characterLabel>
+		<characterLabel type="math_symbols">alamar lissafi</characterLabel>
+		<characterLabel type="middle_eastern_scripts">rubutun Gabas ta Tsakiya</characterLabel>
+		<characterLabel type="miscellaneous">daban-daban</characterLabel>
+		<characterLabel type="modern_scripts">rubutun zamani</characterLabel>
+		<characterLabel type="modifier">mai gyagyarawa</characterLabel>
+		<characterLabel type="musical_symbols">alamar kiɗa</characterLabel>
+		<characterLabel type="nature">ɗabiʼa</characterLabel>
+		<characterLabel type="nonspacing">marar-sarari</characterLabel>
+		<characterLabel type="numbers">lambobi</characterLabel>
+		<characterLabel type="objects">abu</characterLabel>
+		<characterLabel type="other">wani daban</characterLabel>
+		<characterLabel type="paired">an haɗa</characterLabel>
+		<characterLabel type="person">mutum</characterLabel>
+		<characterLabel type="phonetic_alphabet">harafin sauti</characterLabel>
+		<characterLabel type="pictographs">rubutun hoto</characterLabel>
+		<characterLabel type="place">wuri</characterLabel>
+		<characterLabel type="plant">shuka</characterLabel>
+		<characterLabel type="punctuation">alamar rubutu</characterLabel>
+		<characterLabel type="rightwards_arrows">kibiyar dama</characterLabel>
+		<characterLabel type="sign_standard_symbols">alama ko alama</characterLabel>
+		<characterLabel type="small_form_variant">ƙaramin nauʼi</characterLabel>
+		<characterLabel type="smiley">murmushi</characterLabel>
+		<characterLabel type="smileys_people">murmushi ko mutum</characterLabel>
+		<characterLabel type="south_asian_scripts">rubutun Kudu-maso-gabashin Asiya</characterLabel>
+		<characterLabel type="southeast_asian_scripts">rubutun Kudu-maso-gabashin Asiya</characterLabel>
+		<characterLabel type="spacing">tazara</characterLabel>
+		<characterLabel type="sport">wasa</characterLabel>
+		<characterLabel type="symbols">alama</characterLabel>
+		<characterLabel type="technical_symbols">alamar fasaha</characterLabel>
+		<characterLabel type="tone_marks">alamar karin sauti</characterLabel>
+		<characterLabel type="travel">bulaguro</characterLabel>
+		<characterLabel type="travel_places">bulaguro ko wuri</characterLabel>
+		<characterLabel type="upwards_arrows">kibiyoyi sama</characterLabel>
+		<characterLabel type="variant_forms">nauʼi</characterLabel>
+		<characterLabel type="vocalic_jamo">muryar jamo</characterLabel>
+		<characterLabel type="weather">yanayi</characterLabel>
+		<characterLabel type="western_asian_scripts">rubutun Yammacin Asiya</characterLabel>
+		<characterLabel type="whitespace">farin-sarari</characterLabel>
 	</characterLabels>
 	<typographicNames>
-		<axisName type="ital">↑↑↑</axisName>
-		<axisName type="opsz">↑↑↑</axisName>
-		<axisName type="slnt">↑↑↑</axisName>
-		<axisName type="wdth">↑↑↑</axisName>
-		<axisName type="wght">↑↑↑</axisName>
-		<styleName type="ital" subtype="1">↑↑↑</styleName>
-		<styleName type="opsz" subtype="8">↑↑↑</styleName>
-		<styleName type="opsz" subtype="12">↑↑↑</styleName>
-		<styleName type="opsz" subtype="18">↑↑↑</styleName>
-		<styleName type="opsz" subtype="72">↑↑↑</styleName>
-		<styleName type="opsz" subtype="144">↑↑↑</styleName>
-		<styleName type="slnt" subtype="-12">↑↑↑</styleName>
-		<styleName type="slnt" subtype="0">↑↑↑</styleName>
-		<styleName type="slnt" subtype="12">↑↑↑</styleName>
-		<styleName type="slnt" subtype="24">↑↑↑</styleName>
-		<styleName type="wdth" subtype="50">↑↑↑</styleName>
-		<styleName type="wdth" subtype="50" alt="compressed">↑↑↑</styleName>
-		<styleName type="wdth" subtype="50" alt="narrow">↑↑↑</styleName>
-		<styleName type="wdth" subtype="62.5">↑↑↑</styleName>
-		<styleName type="wdth" subtype="62.5" alt="compressed">↑↑↑</styleName>
-		<styleName type="wdth" subtype="62.5" alt="narrow">↑↑↑</styleName>
-		<styleName type="wdth" subtype="75">↑↑↑</styleName>
-		<styleName type="wdth" subtype="75" alt="compressed">abnchhhh</styleName>
-		<styleName type="wdth" subtype="75" alt="narrow">↑↑↑</styleName>
-		<styleName type="wdth" subtype="87.5">↑↑↑</styleName>
-		<styleName type="wdth" subtype="87.5" alt="compressed">↑↑↑</styleName>
-		<styleName type="wdth" subtype="87.5" alt="narrow">↑↑↑</styleName>
-		<styleName type="wdth" subtype="100">↑↑↑</styleName>
-		<styleName type="wdth" subtype="112.5">↑↑↑</styleName>
-		<styleName type="wdth" subtype="112.5" alt="extended">↑↑↑</styleName>
-		<styleName type="wdth" subtype="112.5" alt="wide">↑↑↑</styleName>
-		<styleName type="wdth" subtype="125">↑↑↑</styleName>
-		<styleName type="wdth" subtype="125" alt="extended">Fadadawa</styleName>
-		<styleName type="wdth" subtype="125" alt="wide">fadi</styleName>
-		<styleName type="wdth" subtype="150">↑↑↑</styleName>
-		<styleName type="wdth" subtype="150" alt="extended">↑↑↑</styleName>
-		<styleName type="wdth" subtype="150" alt="wide">↑↑↑</styleName>
-		<styleName type="wdth" subtype="200">↑↑↑</styleName>
-		<styleName type="wdth" subtype="200" alt="extended">↑↑↑</styleName>
-		<styleName type="wdth" subtype="200" alt="wide">↑↑↑</styleName>
-		<styleName type="wght" subtype="100">↑↑↑</styleName>
-		<styleName type="wght" subtype="200">↑↑↑</styleName>
-		<styleName type="wght" subtype="200" alt="ultra">↑↑↑</styleName>
-		<styleName type="wght" subtype="300">↑↑↑</styleName>
-		<styleName type="wght" subtype="350">↑↑↑</styleName>
-		<styleName type="wght" subtype="380">↑↑↑</styleName>
-		<styleName type="wght" subtype="400">↑↑↑</styleName>
-		<styleName type="wght" subtype="500">↑↑↑</styleName>
-		<styleName type="wght" subtype="600">↑↑↑</styleName>
-		<styleName type="wght" subtype="600" alt="demi">↑↑↑</styleName>
-		<styleName type="wght" subtype="700">↑↑↑</styleName>
-		<styleName type="wght" subtype="800">↑↑↑</styleName>
-		<styleName type="wght" subtype="900">↑↑↑</styleName>
+		<axisName type="ital">tafiyar-tsuta</axisName>
+		<axisName type="opsz">girman gani</axisName>
+		<axisName type="slnt">kusurwa</axisName>
+		<axisName type="wdth">faɗi</axisName>
+		<axisName type="wght">nauyi</axisName>
+		<styleName type="ital" subtype="1">a haɗe</styleName>
+		<styleName type="opsz" subtype="8">rubutu</styleName>
+		<styleName type="opsz" subtype="12">matani</styleName>
+		<styleName type="opsz" subtype="18">sa suna</styleName>
+		<styleName type="opsz" subtype="72">nuna</styleName>
+		<styleName type="opsz" subtype="144">fasta</styleName>
+		<styleName type="slnt" subtype="-12">kwanta baya</styleName>
+		<styleName type="slnt" subtype="0">tsaye</styleName>
+		<styleName type="slnt" subtype="12">kwanta gaba</styleName>
+		<styleName type="slnt" subtype="24">kwanta gaba sosai</styleName>
+		<styleName type="wdth" subtype="50">kwanta gaba ƙwarai</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">matsatte ƙwarai</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">tsukakke ƙwarai</styleName>
+		<styleName type="wdth" subtype="62.5">tararre sosai</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">matsattse sosai</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">tsukakke sosai</styleName>
+		<styleName type="wdth" subtype="75">tararre</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">matsattse</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">matsattse</styleName>
+		<styleName type="wdth" subtype="87.5">ɗan tararre</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">ɗan matsattse</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">ɗan tsukakke</styleName>
+		<styleName type="wdth" subtype="100">na alʼada</styleName>
+		<styleName type="wdth" subtype="112.5">ɗan faɗaɗaɗɗe</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">ɗan ƙararre</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">mai ɗan faɗi</styleName>
+		<styleName type="wdth" subtype="125">faɗaɗaɗɗe</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">ƙararre</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">faɗi</styleName>
+		<styleName type="wdth" subtype="150">faɗaɗaɗɗe ƙwarai</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">ƙararre ƙwarai</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">mai faɗi ƙwarai</styleName>
+		<styleName type="wdth" subtype="200">faɗaɗaɗɗe sosai</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ƙararre sosai</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">mai faɗi sosai</styleName>
+		<styleName type="wght" subtype="100">siriri</styleName>
+		<styleName type="wght" subtype="200">marar nauyi sosai</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">marar nauyi ainun</styleName>
+		<styleName type="wght" subtype="300">marar nauyi</styleName>
+		<styleName type="wght" subtype="350">rabin nauyi</styleName>
+		<styleName type="wght" subtype="380">littafi</styleName>
+		<styleName type="wght" subtype="400">na ƙaʼida</styleName>
+		<styleName type="wght" subtype="500">matsakaici</styleName>
+		<styleName type="wght" subtype="600">ɗan mai kauri</styleName>
+		<styleName type="wght" subtype="600" alt="demi">rabin kauri</styleName>
+		<styleName type="wght" subtype="700">kauri</styleName>
+		<styleName type="wght" subtype="800">kauri sosai</styleName>
+		<styleName type="wght" subtype="900">baƙi</styleName>
 		<styleName type="wght" subtype="900" alt="heavy">nauyi</styleName>
-		<styleName type="wght" subtype="950">↑↑↑</styleName>
+		<styleName type="wght" subtype="950">baƙiƙƙirin</styleName>
 		<styleName type="wght" subtype="950" alt="ultrablack">matsanancin baki</styleName>
 		<styleName type="wght" subtype="950" alt="ultraheavy">matsanancin nauyi</styleName>
-		<featureName type="afrc">↑↑↑</featureName>
-		<featureName type="cpsp">↑↑↑</featureName>
-		<featureName type="dlig">↑↑↑</featureName>
-		<featureName type="frac">↑↑↑</featureName>
-		<featureName type="lnum">↑↑↑</featureName>
-		<featureName type="onum">↑↑↑</featureName>
-		<featureName type="ordn">↑↑↑</featureName>
-		<featureName type="pnum">↑↑↑</featureName>
-		<featureName type="smcp">↑↑↑</featureName>
-		<featureName type="tnum">↑↑↑</featureName>
-		<featureName type="zero">↑↑↑</featureName>
+		<featureName type="afrc">ginshiƙan tsaye</featureName>
+		<featureName type="cpsp">tazarar babban harafi</featureName>
+		<featureName type="dlig">haɗi na zaɓi</featureName>
+		<featureName type="frac">ginshiƙan karkace</featureName>
+		<featureName type="lnum">lambobin rufi</featureName>
+		<featureName type="onum">lambobi tsohon yayi</featureName>
+		<featureName type="ordn">odinaloli</featureName>
+		<featureName type="pnum">lambobin daidai</featureName>
+		<featureName type="smcp">ƙananan haruffa</featureName>
+		<featureName type="tnum">lambobin tabula</featureName>
+		<featureName type="zero">sifili mai layi</featureName>
 	</typographicNames>
 </ldml>

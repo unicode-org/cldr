@@ -757,6 +757,12 @@ public class VoteResolver<T> {
         organizationToValueAndVote.clear();
         resolved = valueIsLocked = false;
         values.clear();
+
+        // TODO: clear these out between reuse
+        // Are there other values that should be cleared?
+        oValue = null;
+        winningValue = null;
+        nValue = null;
     }
 
     /**

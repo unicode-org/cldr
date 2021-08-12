@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.logging.Logger;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -586,6 +586,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"kw", "many", "00,000,0000"},  // n != 1 and n % 100 = 1,21,41,61,81
             {"kw", "zero", "0"},    // n = 0
             {"fr", "many", ""},    // e is special
+            {"it", "many", ""},    // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+            {"es", "many", ""},    // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+            {"pt", "many", ""},    // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+            {"pt_PT", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<>();

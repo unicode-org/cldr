@@ -727,7 +727,11 @@ In case the best match does not include all the requested calendar fields, the `
 
 Interval formats allow for software to format intervals like "Jan 10-12, 2008" as a shorter and more natural format than "Jan 10, 2008 - Jan 12, 2008". They are designed to take a "skeleton" pattern (like the one used in availableFormats) plus start and end datetime, and use that information to produce a localized format.
 
-The data supplied in CLDR requires the software to determine the calendar field with the greatest difference before using the format pattern. For example, the greatest difference in "Jan 10-12, 2008" is the day field, while the greatest difference in "Jan 10 - Feb 12, 2008" is the month field. This is used to pick the exact pattern. The pattern is then designed to be broken up into two pieces by determining the first repeating field. For example, "MMM d-d, y" would be broken up into "MMM d-" and "d, y". The two parts are formatted with the first and second datetime, as described in more detail below.
+The data supplied in CLDR requires the software to determine the calendar field with the greatest difference before using the format pattern. For example, the greatest difference in "Jan 10-12, 2008" is the day field, while the greatest difference in "Jan 10 - Feb 12, 2008" is the month field. This is used to pick the exact pattern.
+
+The pattern is then designed to be broken up into two pieces by determining the first repeating field. For example, "MMM d-d, y" would be broken up into "MMM d-" and "d, y". The two parts are formatted with the first and second datetime, as described in more detail below.
+
+For the purposes of determining a repeating field, standalone fields and format fields are considered equivalent. For example, given the pattern "LLL d - MMM d, Y", the repeating field would be "M" since standalone month field "L" is considered equivalent to format field "M" when determining the repeating field. Therefore the pattern would be broken up into "LLL d - " and "MMM d, Y".
 
 In case there is no matching pattern, the intervalFormatFallback defines the fallback pattern. The fallback pattern is of the form "{0} - {1}" or "{1} - {0}", where {0} is replaced by the start datetime, and {1} is replaced by the end datetime. The fallback pattern determines the default order of the interval pattern. "{0} - {1}" means the first part of the interval patterns in current local are formatted with the start datetime, while "{1} - {0}" means the first part of the interval patterns in current locale are formatted with the end datetime.
 

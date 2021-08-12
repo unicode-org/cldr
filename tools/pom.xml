@@ -22,7 +22,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- Note: see https://github.com/unicode-org/icu/packages/411079/versions
 			for the icu4j.version tag to use -->
-		<icu4j.version>70.0.1-SNAPSHOT-cldr-2021-06-15</icu4j.version>
+		<icu4j.version>70.0.1-SNAPSHOT-cldr-2021-08-11</icu4j.version>
 		<junit.jupiter.version>5.5.1</junit.jupiter.version>
 		<maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
@@ -79,7 +79,7 @@
 			<dependency>
 				<groupId>org.apache.ant</groupId>
 				<artifactId>ant</artifactId>
-				<version>1.10.9</version>
+				<version>1.10.11</version>
 			</dependency>
 
 			<dependency>

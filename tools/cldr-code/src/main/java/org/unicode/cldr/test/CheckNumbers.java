@@ -16,8 +16,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.PluralRulesUtil;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -438,6 +440,11 @@ public class CheckNumbers extends FactoryCheckCLDR {
                 // If a plural case corresponds to a single double value, the format is
                 // allowed to not include a numeric value and in this way be inconsistent
                 // with the numeric formats used for other plural cases.
+                continue;
+            }
+            // skip special cases where the count=many is optional
+            if (count == Count.many
+                && PluralRulesUtil.LOCALES_WITH_OPTIONAL_MANY.contains(LocaleIDParser.getSimpleBaseLanguage(resolvedFile.getLocaleID()) )) {
                 continue;
             }
             if (numIntegerDigitsOther != numIntegerDigits) {

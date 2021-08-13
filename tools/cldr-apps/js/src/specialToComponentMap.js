@@ -22,6 +22,7 @@ const specialToComponentMap = {
   lookup: LookUp,
   menu: MainMenu,
   retry: WaitingPanel,
+  retry_inplace: WaitingPanel, // Like retry, but do NOT redirect after resume.
   test_panel: TestPanel, // for testing
   transfervotes: TransferVotes,
   vetting_participation2: VettingParticipation2,

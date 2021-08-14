@@ -1631,8 +1631,7 @@ public class SurveyAjax extends HttpServlet {
                     continue; // ignore unvotes.
                 }
                 PathHeader pathHeader = (PathHeader) m.get("pathHeader");
-                if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
-                    pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
+                if (!pathHeader.canReadAndWrite()) {
                     continue; // skip these
                 }
                 int xp = (Integer) m.get("xpath");
@@ -2407,7 +2406,7 @@ public class SurveyAjax extends HttpServlet {
                 }
             }
             CheckCLDR.StatusAction statusActionNewItem = cPhase.getAcceptNewItemAction(ci, pvi,
-                CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
+                CheckCLDR.InputMethod.DIRECT, ph, mySession.user);
             if (statusActionNewItem.isForbidden()) {
                 r.put("statusAction", statusActionNewItem);
                 if (DEBUG)
@@ -2464,14 +2463,12 @@ public class SurveyAjax extends HttpServlet {
      * @throws IOException
      * @throws JSONException
      *
-     * An earlier version of this code was formerly in RefreshRow.jsp.
-     * Moved to SurveyAjax.java to make more consistent with other requests, to reduce the amount of code needed,
-     * to enable features of Eclipse that don't work correctly for jsp files, and to facilitate refactoring
-     * getSection to improve performance related to DataSection.
-     * Reference: https://unicode-org.atlassian.net/projects/CLDR/issues/CLDR-11877
-     *        and https://unicode-org.atlassian.net/projects/CLDR/issues/CLDR-12020
-     *
      * @deprecated - use /api/vote instead
+     *
+     * TODO: in spite of being deprecated, this is used constantly in Survey Tool. Its intended
+     * replacement in /api/vote is not actually used yet, and isn't ready to be used since it
+     * fails to implement the "dashboard=true" query parameter for calling VettingViewerQueue.getErrorOnPath.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
      */
     @Deprecated
     public static void getRow(HttpServletRequest request, HttpServletResponse response, Writer out,
@@ -2899,7 +2896,7 @@ public class SurveyAjax extends HttpServlet {
                         CheckCLDR.StatusAction status = cPhase
                                 .getAcceptNewItemAction(ci, pvi,
                                         CheckCLDR.InputMethod.BULK,
-                                        phStatus, cs.user);
+                                        ph, cs.user);
 
                         if (status != CheckCLDR.StatusAction.ALLOW) {
                             result = "Item will be skipped. (" + status

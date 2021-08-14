@@ -34,6 +34,12 @@ import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
 
+/*
+ * TODO: use this instead of the deprecated SurveyAjax.getRow. First we must implement a replacement
+ * here for the "dashboard=true" query parameter getRow uses for calling VettingViewerQueue.getErrorOnPath.
+ * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
+ */
+
 @Path("/voting")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
 public class VoteAPI {

@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,6 +49,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
     static final boolean SKIP_ORIGINAL_PATH = true;
 
+    private final static Logger logger = Logger.getLogger(PathHeader.class.getName());
+
     /**
      * What status the survey tool should use. Can be overridden in
      * Phase.getAction()
@@ -74,7 +77,7 @@ public class PathHeader implements Comparable<PathHeader> {
          * Changes are allowed as READ_WRITE, but field is always displayed as
          * LTR, even in RTL locales (used for patterns).
          */
-        LTR_ALWAYS
+        LTR_ALWAYS;
     }
 
     private static EnumNames<SectionId> SectionIdNames = new EnumNames<>();
@@ -543,8 +546,10 @@ public class PathHeader implements Comparable<PathHeader> {
             if (0 != (result = alphabeticCompare(code, other.code))) {
                 return result;
             }
-            if (!SKIP_ORIGINAL_PATH && 0 != (result = alphabeticCompare(originalPath, other.originalPath))) {
-                return result;
+            if (!SKIP_ORIGINAL_PATH) {
+                if (0 != (result = alphabeticCompare(originalPath, other.originalPath))) {
+                    return result;
+                }
             }
             return 0;
         } catch (RuntimeException e) {
@@ -1880,10 +1885,6 @@ public class PathHeader implements Comparable<PathHeader> {
          * @return
          */
         private static String fix(String input, int orderIn) {
-            if (input.contains("👱")) {
-                int debug = 0;
-            }
-            String oldInput = input;
             input = RegexLookup.replace(input, args.value);
             order = orderIn;
             suborder = null;
@@ -2017,38 +2018,10 @@ public class PathHeader implements Comparable<PathHeader> {
         return trimLast(baseUrl) + "v#/" + locale + "//" + StringId.getHexId(path);
     }
 
-    // eg http://st.unicode.org/cldr-apps/survey?_=fr&x=Locale%20Name%20Patterns
-    /**
-     * @deprecated use CLDRConfig.urls()
-     * @param baseUrl
-     * @param locale
-     * @param subsection
-     * @return
-     */
-    @Deprecated
-    public static String getPageUrl(String baseUrl, String locale, PageId subsection) {
-        return trimLast(baseUrl) + "v#/" + locale + "/" + subsection + "/";
-    }
-
     private static String SURVEY_URL = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
 
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
-        return getLinkedView(baseUrl, file.getLocaleID(), path);
-    }
-    /**
-     * @deprecated use CLDRConfig.urls()
-     * @param baseUrl
-     * @param file
-     * @param path
-     * @return
-     */
-    @Deprecated
-    public static String getLinkedView(String baseUrl, String localeId, String path) {
-//        String value = file.getStringValue(path);
-//        if (value == null) {
-//            return null;
-//        }
-        return SECTION_LINK + PathHeader.getUrl(baseUrl, localeId, path) + "'><em>view</em></a>";
+        return SECTION_LINK + PathHeader.getUrl(baseUrl, file.getLocaleID(), path) + "'><em>view</em></a>";
     }
 
     /**
@@ -2072,5 +2045,45 @@ public class PathHeader implements Comparable<PathHeader> {
             }
         }
         return theTerritory;
+    }
+
+    /**
+     * Should this path header be hidden?
+     *
+     * @return true to hide, else false
+     */
+    public boolean shouldHide() {
+        switch (status) {
+        case HIDE:
+        case DEPRECATED:
+            return true;
+        case READ_ONLY:
+        case READ_WRITE:
+        case LTR_ALWAYS:
+            return false;
+        default:
+            logger.log(java.util.logging.Level.SEVERE, "Missing case for " + status);
+            return false;
+        }
+    }
+
+    /**
+     * Are reading and writing allowed for this path header?
+     *
+     * @return true if reading and writing are allowed, else false
+     */
+    public boolean canReadAndWrite() {
+        switch (status) {
+        case READ_WRITE:
+        case LTR_ALWAYS:
+            return true;
+        case HIDE:
+        case DEPRECATED:
+        case READ_ONLY:
+            return false;
+        default:
+            logger.log(java.util.logging.Level.SEVERE, "Missing case for " + status);
+            return false;
+        }
     }
 }

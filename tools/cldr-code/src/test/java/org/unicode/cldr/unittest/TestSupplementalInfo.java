@@ -720,7 +720,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (seen.contains(s)) {
                 continue;
             }
-            // System.out.println(s + " => " + VettingViewer.gatherCodes(s));
 
             List<String> ss = new ArrayList<>(s);
             String last = ss.get(ss.size() - 1);

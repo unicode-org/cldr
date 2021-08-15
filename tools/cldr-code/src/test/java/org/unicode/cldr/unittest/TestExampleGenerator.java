@@ -896,7 +896,7 @@ public class TestExampleGenerator extends TestFmwk {
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖Anstatt ❬1 metrischen Pints❭ …〗"},
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖❬2 metrische Pints❭ kostet (kosten) € 3,50.〗"},
             {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Die ❬Stunde❭ ist …〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Zentimeter❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Meter❭ ist …〗"},
             {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬mol❭ ist …〗"},
         };
         for (String[] row : tests) {

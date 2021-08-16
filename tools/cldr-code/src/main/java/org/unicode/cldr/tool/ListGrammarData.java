@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -156,8 +157,11 @@ public class ListGrammarData {
                         "Gender Details"
                         + "\t" + names
                         + "\t" + coverage
-                        + "\t" + genders.size()
                         + "\t"
+                        + "\t"
+                        + "\t" + genders.size()
+                        + "\t" + genderToUnitCounts.keySet().size()
+                        + "\t" + genderToUnitCounts.keySet().size()/(double)genders.size()
                         + "\t" + genderToUnitCounts
                         + "\t" + genderToUnits
                         );
@@ -167,19 +171,33 @@ public class ListGrammarData {
                 if (!rawCases.isEmpty()) {
                     Set<String> pluralKeywords = SDI.getPlurals(locale).getPluralRules().getKeywords();
                     final Multimap<Integer, String> uniqueCaseAndCountToUnits = bestMinimalPairSamples.getUniqueCaseAndCountToUnits();
+                    final Multimap<String, String> distinctNominativeCaseToUnit = bestMinimalPairSamples.getDistinctNominativeCaseToUnit();
+
+
                     Multimap<Integer,Integer> uniqueCaseAndCountToUnitsCounts = LinkedHashMultimap.create();
+                    double average = 0;
+                    double total = 0;
                     for (Entry<Integer, Collection<String>> entry : uniqueCaseAndCountToUnits.asMap().entrySet()) {
                         uniqueCaseAndCountToUnitsCounts.put(entry.getKey(), entry.getValue().size());
-                    }
-
+                        average += entry.getKey()*entry.getValue().size();
+                        total += entry.getValue().size();
+                   }
+                    Collection<String> non_distinct = distinctNominativeCaseToUnit.get(BestMinimalPairSamples.EQUALS_NOMINATIVE);
+                    HashSet<String> distinctUnits = new HashSet<>(distinctNominativeCaseToUnit.values());
+                    distinctUnits.removeAll(non_distinct);
                     stats.put(locale,
                         "Case&Count Details"
                         + "\t" + names
                         + "\t" + coverage
                         + "\t" + rawCases.size()
                         + "\t" + pluralKeywords.size()
+                        + "\t" + rawCases.size()*pluralKeywords.size()
+                        + "\t" + (average/total)
+                        + "\t" + (average/total)/rawCases.size()/pluralKeywords.size()
                         + "\t" + uniqueCaseAndCountToUnitsCounts
                         + "\t" + uniqueCaseAndCountToUnits
+                        + "\t" + distinctUnits.size()
+                        + "\t" + distinctNominativeCaseToUnit
                         );
                 }
             }
@@ -199,12 +217,13 @@ public class ListGrammarData {
 
         if (!stats.isEmpty()) {
             System.out.println("\n******** Gender/Case Details\n");
+            System.out.println("Type\tLc\tLocale\tCoverage\tCases\tPlurals\tProduct/Gender\tAverage\t%\tCounts\tDetails1\tDistinct\tDetails2");
 
             for (Entry<String, Collection<String>> entry : stats.asMap().entrySet()) {
                 for (String line : entry.getValue()) {
                     System.out.println(line);
                 }
-                System.out.println();
+                //System.out.println();
             }
         }
 

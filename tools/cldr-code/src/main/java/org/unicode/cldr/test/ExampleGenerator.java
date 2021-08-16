@@ -48,8 +48,6 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.UnitId;
-import org.unicode.cldr.util.UnitConverter.UnitSystem;
-import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;

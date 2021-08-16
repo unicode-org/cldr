@@ -41,7 +41,7 @@ final class LocaleIds {
         Pattern.compile("(?:[a-z]{2,3})"
             + "(?:_(?:[A-Z][a-z]{3}))?"
             + "(?:_(?:[A-Z]{2}|[0-9]{3}))?"
-            + "(?:_(?:[A-Z]{5,}|[0-9][A-Z0-9]{3}))?");
+            + "(?:_(?:[A-Za-z]{5,}|[0-9][A-Za-z0-9]{3}))?");
 
     /**
      * Checks whether the given ID is valid for CLDR use (including case). Locale IDs for use in
@@ -56,8 +56,11 @@ final class LocaleIds {
      *     <li>Language subtag is lower-case, and is either 2 or 3 letters (i.e. "[a-z]{2,3}").
      *     <li>Script subtag is mixed-case and must match {@code "[A-Z][a-z]{3}"}.
      *     <li>Region subtag is upper-case and must match {@code "[A-Z]{2}} or {@code "[0-9]{3}"}.
-     *     <li>Variant subtag is upper-case and must match {@code "[A-Z]{5,}} or
+     *     <li>Variant subtag is upper- or lower-case and must match {@code "[A-Z]{5,}} or
      *         {@code "[0-9][A-Z0-9]{3}"}.
+     *         Note: The EBNF at https://www.unicode.org/reports/tr35/#unicode_variant_subtag
+     *         allows either lettercase, and the data at common/validity/variant.xml user lower.
+     *         CLDR 40 has be_tarask, ca_ES_VALENCIA, en_US_POSIX.
      *     <li>The special locale ID {@code "root"} is also permitted.
      * <ul>
      *

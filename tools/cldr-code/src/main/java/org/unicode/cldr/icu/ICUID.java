@@ -11,6 +11,8 @@ public final class ICUID {
     public static final String ICU_XGC = "icu:xgc";
     public static final String ICU_TITLE = "icu:title";
     public static final String ICU_DICTIONARY = "icu:dictionary";
+    public static final String ICU_LSTM = "icu:lstm";
+    public static final String ICU_LSTMDATA = "icu:lstmdata";
     // private static final String ICU_CLASS = "icu:class";
     // private static final String ICU_IMPORT = "icu:import";
     // private static final String ICU_APPEND = "icu:append";

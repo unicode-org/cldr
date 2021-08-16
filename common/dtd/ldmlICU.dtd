@@ -39,11 +39,17 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST icu:ruleBasedNumberFormat type NMTOKEN #IMPLIED >
 
 <!-- RBBI data -->
-<!ELEMENT icu:breakIteratorData (alias | (icu:boundaries?, icu:dictionaries?)) >
+<!ELEMENT icu:breakIteratorData (alias | (icu:boundaries?, icu:dictionaries?, icu:lstm?)) >
 
 <!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line*, icu:sentence?, icu:title?, icu:xgc?)) >
 
 <!ELEMENT icu:dictionaries (alias | (icu:dictionary*)) >
+
+<!ELEMENT icu:lstm (alias | (icu:lstmdata*)) >
+
+<!ELEMENT icu:lstmdata ( #PCDATA ) >
+<!ATTLIST icu:lstmdata icu:dependency NMTOKEN #IMPLIED >
+<!ATTLIST icu:lstmdata type NMTOKEN #REQUIRED >
 
 <!ELEMENT icu:dictionary ( #PCDATA ) >
 <!ATTLIST icu:dictionary icu:dependency NMTOKEN #IMPLIED >

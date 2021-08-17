@@ -9,9 +9,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 -->
 <ldml>
 	<identity>
-		<version number="$Revision$" />
-		<language type="yrl" />
-		<territory type="VE" />
+		<version number="$Revision$"/>
+		<language type="yrl"/>
+		<territory type="VE"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -23,8 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="goh">areman arkaiku iwaté</language>
 			<language type="gsw">areman (Suisa)</language>
 			<language type="lv">retan</language>
-			<language type="nds_NL">sakisan yatuka</language>
 			<language type="mul">siía ñeẽga</language>
+			<language type="nds_NL">sakisan yatuka</language>
 			<language type="und">ũba uyukuau ñeẽga</language>
 			<language type="wa">waran</language>
 			<language type="yrl">ñengatú</language>
@@ -665,36 +665,36 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern count="one" type="1000">↑↑↑</pattern>
-					<pattern count="other" type="1000">↑↑↑</pattern>
-					<pattern count="one" type="10000">↑↑↑</pattern>
-					<pattern count="other" type="10000">↑↑↑</pattern>
-					<pattern count="one" type="100000">↑↑↑</pattern>
-					<pattern count="other" type="100000">↑↑↑</pattern>
-					<pattern count="one" type="1000000">0 millón</pattern>
-					<pattern count="other" type="1000000">0 millón-ita</pattern>
-					<pattern count="one" type="10000000">00 millón</pattern>
-					<pattern count="other" type="10000000">00 millón-ita</pattern>
-					<pattern count="one" type="100000000">000 millón</pattern>
-					<pattern count="other" type="100000000">000 millón-ita</pattern>
-					<pattern count="one" type="1000000000">0 billón</pattern>
-					<pattern count="other" type="1000000000">0 billón-ita</pattern>
-					<pattern count="one" type="10000000000">00 billón</pattern>
-					<pattern count="other" type="10000000000">00 billón-ita</pattern>
-					<pattern count="one" type="100000000000">000 billón</pattern>
-					<pattern count="other" type="100000000000">000 billón-ita</pattern>
-					<pattern count="one" type="1000000000000">0 tirillón</pattern>
-					<pattern count="other" type="1000000000000">0 tirillón-ita</pattern>
-					<pattern count="one" type="10000000000000">00 tirillón</pattern>
-					<pattern count="other" type="10000000000000">00 tirillón-ita</pattern>
-					<pattern count="one" type="100000000000000">000 tirillón</pattern>
-					<pattern count="other" type="100000000000000">000 tirillón-ita</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="one">0 millón</pattern>
+					<pattern type="1000000" count="other">0 millón-ita</pattern>
+					<pattern type="10000000" count="one">00 millón</pattern>
+					<pattern type="10000000" count="other">00 millón-ita</pattern>
+					<pattern type="100000000" count="one">000 millón</pattern>
+					<pattern type="100000000" count="other">000 millón-ita</pattern>
+					<pattern type="1000000000" count="one">0 billón</pattern>
+					<pattern type="1000000000" count="other">0 billón-ita</pattern>
+					<pattern type="10000000000" count="one">00 billón</pattern>
+					<pattern type="10000000000" count="other">00 billón-ita</pattern>
+					<pattern type="100000000000" count="one">000 billón</pattern>
+					<pattern type="100000000000" count="other">000 billón-ita</pattern>
+					<pattern type="1000000000000" count="one">0 tirillón</pattern>
+					<pattern type="1000000000000" count="other">0 tirillón-ita</pattern>
+					<pattern type="10000000000000" count="one">00 tirillón</pattern>
+					<pattern type="10000000000000" count="other">00 tirillón-ita</pattern>
+					<pattern type="100000000000000" count="one">000 tirillón</pattern>
+					<pattern type="100000000000000" count="other">000 tirillón-ita</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<currencies>
 			<currency type="AOR">
-				<displayName>Kuãsa ãgulawara yumũñãwa yuiri (1995-1999)</displayName>
+				<displayName>Kuãsa ãgulawara yumũñãwa yuiri (1995–1999)</displayName>
 				<displayName count="one">Kuãsa ãgulawara yumuñãwa yuiri (AOR)</displayName>
 				<displayName count="other">Kuãsa-ita ãgulawara yumuñãwa-itayuiri (AOR)</displayName>
 			</currency>

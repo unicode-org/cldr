@@ -35,16 +35,6 @@ locale=en_001; action=addNew; new_path=//ldml/dates/calendars/calendar[@type="ge
 locale=en_001; action=addNew; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="M"]; new_value=dd/MM–dd/MM
 locale=en_001; action=addNew; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="d"]; new_value=E d MMM – E d MMM
 locale=en_001; action=addNew; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]; new_value=E, d MMM – E, d MMM y G
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Central"]/short/generic; new_value=CET
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Central"]/short/standard; new_value=CET
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Central"]/short/daylight; new_value=CEST
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Eastern"]/short/generic; new_value=EET
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Eastern"]/short/standard; new_value=EET
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Eastern"]/short/daylight; new_value=EEST
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Western"]/short/generic; new_value=WET
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Western"]/short/standard; new_value=WET
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/metazone[@type="Europe_Western"]/short/daylight; new_value=WEST
-locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/zone[@type="Australia/Currie"]/exemplarCity; new_value=Currie
 locale=en_001; action=addNew; new_path=//ldml/dates/timeZoneNames/zone[@type="Europe/London"]/short/daylight; new_value=BST
 locale=en_001; action=addNew; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce-imperial"]/displayName; new_value=fluid ounces
 locale=en_001; action=addNew; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce-imperial"]/unitPattern[@count="one"]; new_value={0} fluid ounce

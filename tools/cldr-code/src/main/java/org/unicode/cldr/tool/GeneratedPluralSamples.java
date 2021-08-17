@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
@@ -26,6 +27,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TempPrintWriter;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
@@ -49,6 +51,13 @@ public class GeneratedPluralSamples {
     public static final String SEQUENCE_SEPARATOR = ", ";
 
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo(); // forward declaration
+
+    static final Pattern FIX_E = Pattern.compile("0*e");
+
+    private static String formatFormC(FixedDecimal fixedDecimal) {
+        // HACK, since ICU isn't yet updated
+        return FIX_E.matcher(fixedDecimal.toString()).replaceAll("c");
+    }
 
     static class Range implements Comparable<Range> {
         // invariant: visibleFractionDigitCount are the same
@@ -286,7 +295,7 @@ public class GeneratedPluralSamples {
                 if (builder.length() != 0) {
                     builder.append(", ");
                 }
-                builder.append(exponentSample);
+                builder.append(formatFormC(exponentSample));
                 if (--max < 0) {
                     break;
                 }
@@ -470,6 +479,10 @@ public class GeneratedPluralSamples {
     private final TreeMap<String, DataSamples> keywordToData = new TreeMap<>();
     private final PluralType type;
 
+    //HACK because ICU doesn't provide a good way to check for whether a rule depends on the 'e' operand
+
+    public final Set<String> SPECIAL_MANY = ImmutableSet.of("fr", "pt", "it", "es");
+
     GeneratedPluralSamples(PluralInfo pluralInfo, PluralType type, Set<String> equivalentLocales) {
         this.type = type;
 
@@ -496,7 +509,7 @@ public class GeneratedPluralSamples {
 
             // add some exponent samples for French
             // TODO check for any rule with exponent operand and do the same.
-            if (equivalentLocales.contains("fr")) {
+            if (!Collections.disjoint(equivalentLocales, SPECIAL_MANY)) {
                 final PluralRules pluralRules = pluralInfo.getPluralRules();
                 for (int i = 1; i < 15; ++i) {
                     add(pluralRules, i, 0, 3);

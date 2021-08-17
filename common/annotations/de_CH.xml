@@ -19,28 +19,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="…" type="tts">Ellipse</annotation>
 		<annotation cp="”">schliessendes doppeltes Anführungszeichen</annotation>
 		<annotation cp="”" type="tts">schliessendes doppeltes Anführungszeichen</annotation>
-		<annotation cp=")">Klammer | Parenthese | runde Klammer | schliessende runde Klammer</annotation>
+		<annotation cp=")">Klammer | Parenthese | runde Klammer | schliessende Klammer | schliessende runde Klammer</annotation>
 		<annotation cp=")" type="tts">schliessende Klammer</annotation>
 		<annotation cp="[" type="tts">öffnende eckige Klammer</annotation>
 		<annotation cp="]">eckige Klammer | eckige Klammer rechts | schliessende eckige Klammer</annotation>
 		<annotation cp="]" type="tts">schliessende eckige Klammer</annotation>
-		<annotation cp="}">geschweifte Klammer | geschweifte Klammer rechts | geschwungene Klammer | geschwungene Klammer rechts | schliessende geschweifte Klammer</annotation>
+		<annotation cp="}">geschweifte Klammer | geschweifte Klammer rechts | geschwungene Klammer | geschwungene Klammer rechts | schliessende geschweifte Klammer | schliessende geschwungene Klammer</annotation>
 		<annotation cp="}" type="tts">schliessende geschwungene Klammer</annotation>
 		<annotation cp="〉">Pfeilspitze rechts | schliessende spitze Klammer | schliessende Winkelklammer | spitze Klammer | spitze Klammer rechts | Winkelklammer</annotation>
 		<annotation cp="〉" type="tts">schliessende spitze Klammer</annotation>
 		<annotation cp="》">doppelte spitze Klammer | Klammer | schliessende doppelte spitze Klammer</annotation>
 		<annotation cp="》" type="tts">schliessende doppelte spitze Klammer</annotation>
-		<annotation cp="」">Eckklammer | Klammer | schliessende Eckklammer</annotation>
+		<annotation cp="」">Eckklammer | Klammer | schliessende Eckklammer | schliessende rechtwinklige Klammer</annotation>
 		<annotation cp="」" type="tts">schliessende rechtwinklige Klammer</annotation>
 		<annotation cp="『">Klammer | öffnende weisse Eckklammer | weisse Eckklammer</annotation>
 		<annotation cp="『" type="tts">öffnende weisse Eckklammer</annotation>
-		<annotation cp="』">Klammer | schliessende weisse Eckklammer | weisse Eckklammer</annotation>
+		<annotation cp="』">Klammer | schliessende rechtwinklige Klammer hohl | schliessende weisse Eckklammer | weisse Eckklammer</annotation>
 		<annotation cp="』" type="tts">schliessende rechtwinklige Klammer hohl</annotation>
 		<annotation cp="】">Klammer | konkave Klammer | schliessende schwarze konkave Klammer | schwarze konkave Klammer</annotation>
 		<annotation cp="】" type="tts">schliessende schwarze konkave Klammer</annotation>
-		<annotation cp="〕">rechte stumpfe Klammer | schliessende stumpfe Klammer | stumpfe Klammer</annotation>
+		<annotation cp="〕">rechte stumpfe Klammer | schliessende Klammer mit stumpfen Winkeln | schliessende stumpfe Klammer | stumpfe Klammer</annotation>
 		<annotation cp="〕" type="tts">schliessende Klammer mit stumpfen Winkeln</annotation>
-		<annotation cp="〗">hohle konkave Klammer | Klammer | konkave Klammer | schliessende hohle konkave Klammer</annotation>
+		<annotation cp="〗">hohle konkave Klammer | Klammer | konkave Klammer | schliessende hohle konkave Klammer | schliessende linsenförmige Klammer hohl</annotation>
 		<annotation cp="〗" type="tts">schliessende linsenförmige Klammer hohl</annotation>
 		<annotation cp="§" type="tts">Paragraph</annotation>
 		<annotation cp="@">Adresszeichen | Affenschaukel | Affenschwanz | At | At-Zeichen | Klammeraffe</annotation>
@@ -64,21 +64,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≠" type="tts">ungleich</annotation>
 		<annotation cp="&gt;">grösser als | Grösser-als-Zeichen</annotation>
 		<annotation cp="&gt;" type="tts">grösser als</annotation>
-		<annotation cp="≯" draft="contributed">Mathematik | nicht grösser als | Vergleichszeichen</annotation>
+		<annotation cp="≯" draft="contributed">nicht grösser als</annotation>
 		<annotation cp="≯" type="tts" draft="contributed">nicht grösser als</annotation>
+		<annotation cp="|">Längsstrich | Pipe | Pipe-Symbol | Pipe-Zeichen | senkrechter Strich | vertikaler Strich</annotation>
 		<annotation cp="|" type="tts">Längsstrich</annotation>
 		<annotation cp="~" type="tts">Tilde</annotation>
 		<annotation cp="−" type="tts">Minuszeichen</annotation>
+		<annotation cp="≈">fast gleich wie | Näherung | ungefähr gleich | Ungefähr-Zeichen</annotation>
 		<annotation cp="≈" type="tts">fast gleich wie</annotation>
 		<annotation cp="≥">gleich | grösser als | grösser als oder gleich | ist gleich | Vergleichszeichen</annotation>
 		<annotation cp="≥" type="tts">grösser als oder gleich</annotation>
-		<annotation cp="≧" draft="contributed">grösser als über gleich | Mathematik | Vergleichszeichen</annotation>
+		<annotation cp="≧" draft="contributed">grösser als über gleich</annotation>
 		<annotation cp="≧" type="tts" draft="contributed">grösser als über gleich</annotation>
-		<annotation cp="≫" draft="contributed">Mathematik | Vergleichszeichen | viel grösser als</annotation>
+		<annotation cp="≫" draft="contributed">viel grösser als</annotation>
 		<annotation cp="≫" type="tts" draft="contributed">viel grösser als</annotation>
-		<annotation cp="≳" draft="contributed">grösser als oder äquivalent | Mathematik | Vergleichszeichen</annotation>
+		<annotation cp="≳" draft="contributed">grösser als oder äquivalent</annotation>
 		<annotation cp="≳" type="tts" draft="contributed">grösser als oder äquivalent</annotation>
-		<annotation cp="⋙" draft="contributed">Mathematik | sehr viel grösser als | Vergleichszeichen</annotation>
+		<annotation cp="⋙" draft="contributed">sehr viel grösser als</annotation>
 		<annotation cp="⋙" type="tts" draft="contributed">sehr viel grösser als</annotation>
 		<annotation cp="□" draft="contributed">weisses Quadrat</annotation>
 		<annotation cp="□" type="tts" draft="contributed">weisses Quadrat</annotation>
@@ -112,11 +114,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◇" type="tts" draft="contributed">weisses Karo</annotation>
 		<annotation cp="◈" draft="contributed">weisses Karo mit kleinem schwarzem Karo</annotation>
 		<annotation cp="◈" type="tts" draft="contributed">weisses Karo mit kleinem schwarzem Karo</annotation>
-		<annotation cp="◉" draft="contributed">eingekreister Punkt | Fischauge | konzentrische gefüllte Kreise | weisser Kreis mit kleinem schwarzem Kreis</annotation>
+		<annotation cp="◉" draft="contributed">weisser Kreis mit kleinem schwarzem Kreis</annotation>
 		<annotation cp="◉" type="tts" draft="contributed">weisser Kreis mit kleinem schwarzem Kreis</annotation>
 		<annotation cp="◕" draft="contributed">schwarzer Kreis mit weissem Viertel oben links</annotation>
 		<annotation cp="◕" type="tts" draft="contributed">schwarzer Kreis mit weissem Viertel oben links</annotation>
-		<annotation cp="◙" draft="contributed">invertierter weisser Kreis | schwarzes Quadrat mit weissem Kreis</annotation>
+		<annotation cp="◙" draft="contributed">schwarzes Quadrat mit weissem Kreis</annotation>
 		<annotation cp="◙" type="tts" draft="contributed">schwarzes Quadrat mit weissem Kreis</annotation>
 		<annotation cp="◦" draft="contributed">weisses Aufzählungszeichen</annotation>
 		<annotation cp="◦" type="tts" draft="contributed">weisses Aufzählungszeichen</annotation>
@@ -141,10 +143,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪪" type="tts">ID</annotation>
 		<annotation cp="🪫">Akku leer | Batterie leer | schwache Batterie</annotation>
 		<annotation cp="🫗">ausgiessen | Getränk | giessen | Glas | leer | trinken</annotation>
-		<annotation cp="🫠">auflösen | schmelzen | verflüssigen | verschwinden</annotation>
+		<annotation cp="🫠">auflösen | schmelzen | schmelzendes Gesicht | verflüssigen | verschwinden</annotation>
 		<annotation cp="🫠" type="tts">schmelzendes Gesicht</annotation>
-		<annotation cp="🫡">Aye aye | Gesicht | jawohl | ok | salutieren | Truppen</annotation>
+		<annotation cp="🫡">Aye aye | Gesicht | grüssendes Gesicht | jawohl | ok | salutieren | Truppen</annotation>
 		<annotation cp="🫡" type="tts">grüssendes Gesicht</annotation>
+		<annotation cp="🫦">Angst | ängstlich | Auf Lippe beissen | besorgt | flirtend | nervös | unbehaglich</annotation>
 		<annotation cp="🫦" type="tts">Auf Lippe beissen</annotation>
 		<annotation cp="🫧">sauber | Schaum | Seife | Seifenblasen</annotation>
 		<annotation cp="🫧" type="tts">Seifenblasen</annotation>
@@ -234,6 +237,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍮">Dessert | Nachspeise | Nachtisch | Pudding | Sauce | Schokolade</annotation>
 		<annotation cp="☕">dampfend | Getränk | heiss | Heissgetränk | Kaffee | Tee | trinken</annotation>
 		<annotation cp="☕" type="tts">Heissgetränk</annotation>
+		<annotation cp="🫖">Kanne | Tee | Teekanne | Teekrug | trinken</annotation>
 		<annotation cp="🫖" type="tts">Teekrug</annotation>
 		<annotation cp="🍻">anstossen | Bier | Bierkrüge</annotation>
 		<annotation cp="🥂">anstossen | Champagner | feiern | Getränk | Sekt | Sektgläser</annotation>
@@ -349,6 +353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳‍⚧" type="tts">Transgenderflagge</annotation>
 		<annotation cp="¢">Cent</annotation>
 		<annotation cp="¢" type="tts">Cent</annotation>
+		<annotation cp="$">Dollar | Dollarzeichen | Geld | Peso | USD</annotation>
 		<annotation cp="$" type="tts">Dollarzeichen</annotation>
 		<annotation cp="₱">Peso</annotation>
 		<annotation cp="₱" type="tts">Peso</annotation>

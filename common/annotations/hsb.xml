@@ -25,7 +25,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏿" type="tts">ćmowa barba kože</annotation>
 		<annotation cp="_">delnja smužka | podsmužka | smužka</annotation>
 		<annotation cp="_" type="tts">delnja smužka</annotation>
-		<annotation cp="-">minus | smužka</annotation>
+		<annotation cp="-">minus | smužka | smužka-minus</annotation>
 		<annotation cp="-" type="tts">smužka-minus</annotation>
 		<annotation cp="‐">smužka | wjazaca smužka | wjazawka</annotation>
 		<annotation cp="‐" type="tts">wjazaca smužka</annotation>
@@ -35,7 +35,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="—" type="tts">dołha smužka</annotation>
 		<annotation cp="―">linija | smužka | wodoruna</annotation>
 		<annotation cp="―" type="tts">wodoruna smužka</annotation>
-		<annotation cp="・">Japanska | katakana | mjezydypk</annotation>
+		<annotation cp="・">Japanska | katakana | katakana-mjezydypk | mjezydypk</annotation>
 		<annotation cp="・" type="tts">katakana-mjezydypk</annotation>
 		<annotation cp=",">interpunkciske znamješko | koma</annotation>
 		<annotation cp="," type="tts">koma</annotation>
@@ -79,7 +79,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="“" type="tts">pazorki nalěwo</annotation>
 		<annotation cp="”">naprawo | pazorki | rěčana rěč</annotation>
 		<annotation cp="”" type="tts">pazorki naprawo</annotation>
-		<annotation cp="„">deleka naprawo | pazorki</annotation>
+		<annotation cp="„">deleka naprawo | pazorki | pazorki deleka naprawo</annotation>
 		<annotation cp="„" type="tts">pazorki deleka naprawo</annotation>
 		<annotation cp="«">dwójna kutowa spinka | francoske pazorki | francoske pazorki dolěwa | kutowa | spinka</annotation>
 		<annotation cp="«" type="tts">francoske pazorki dolěwa</annotation>
@@ -125,15 +125,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="§" type="tts">paragraf</annotation>
 		<annotation cp="¶">wotrězk | wotrězki | wotrězkowa značka | značka</annotation>
 		<annotation cp="¶" type="tts">wotrězkowa značka</annotation>
-		<annotation cp="@">tastatura | znamješko | znamješko @</annotation>
+		<annotation cp="@">tastatura | znamješko | znamješko @ | znamješko et</annotation>
 		<annotation cp="@" type="tts">znamješko et</annotation>
 		<annotation cp="*">hwěžka | tastatura</annotation>
 		<annotation cp="*" type="tts">hwěžka</annotation>
-		<annotation cp="/">doprawa | nakósna smužka | nakósna smužka doprawa | smužka | tastatura</annotation>
+		<annotation cp="/">doprawa | nakósna smužka | nakósna smužka doprawa | nakósna smužka doprawo | smužka | tastatura</annotation>
 		<annotation cp="/" type="tts">nakósna smužka doprawo</annotation>
 		<annotation cp="\">dolěwa | nakósna smužka | nakósna smužka dolěwa | smužka | tastatura</annotation>
 		<annotation cp="\" type="tts">nakósna smužka dolěwa</annotation>
-		<annotation cp="&amp;">&amp; | et | tastatura | znamješko</annotation>
+		<annotation cp="&amp;">&amp; | et | tastatura | znamješko | znamješko ampersand</annotation>
 		<annotation cp="&amp;" type="tts">znamješko ampersand</annotation>
 		<annotation cp="#">dwójny křižik | tastatura</annotation>
 		<annotation cp="#" type="tts">dwójny křižik</annotation>
@@ -147,7 +147,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‡" type="tts">znamjo dwójneho křiža</annotation>
 		<annotation cp="•">dypk | kulka</annotation>
 		<annotation cp="•" type="tts">dypk</annotation>
-		<annotation cp="‧">dypk | dźělić | złóžki | złóžki dźěłacy dypk</annotation>
+		<annotation cp="‧">dypk | dźělić | złóžki | złóžki dźělacy dypk | złóžki dźěłacy dypk</annotation>
 		<annotation cp="‧" type="tts">złóžki dźělacy dypk</annotation>
 		<annotation cp="′">apostrof | kwačka | tastatura</annotation>
 		<annotation cp="′" type="tts">apostrof</annotation>
@@ -157,17 +157,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‴" type="tts">trójny apostrof</annotation>
 		<annotation cp="※">China | Japanska | komejirushi | Korea | skedźbnić na | woznamjenjeć</annotation>
 		<annotation cp="※" type="tts">komejirushi</annotation>
-		<annotation cp="`">akcent | akcentowane | interpunkciske znamješko | smužka</annotation>
+		<annotation cp="`">akcent | akcentowane | interpunkciske znamješko | smužka | smužka nalěwo</annotation>
 		<annotation cp="`" type="tts">smužka nalěwo</annotation>
-		<annotation cp="´">akcent | akcentowane | interpunkciske znamješko | smužka</annotation>
+		<annotation cp="´">akcent | akcentowane | interpunkciske znamješko | smužka | smužka naprawo</annotation>
 		<annotation cp="´" type="tts">smužka naprawo</annotation>
 		<annotation cp="^">interpunkciske znamješko | wobroćena hóčka</annotation>
 		<annotation cp="^" type="tts">wobroćena hóčka</annotation>
-		<annotation cp="¨">dypkaj nad pimikom | interpunkciske znamješko | přezwuk</annotation>
+		<annotation cp="¨">dypkaj nad pimikom | dypkaj nad pismikom | interpunkciske znamješko | přezwuk</annotation>
 		<annotation cp="¨" type="tts">dypkaj nad pismikom</annotation>
 		<annotation cp="°">alkohol | promil | stopjeń | stopjenk | temperatura</annotation>
 		<annotation cp="°" type="tts">stopjeń</annotation>
-		<annotation cp="℗">awtorske prawa | copyright | hudźba | nahrawanja</annotation>
+		<annotation cp="℗">awtorske prawa | copyright | hudźba | nahrawanja | symbol za awtorske prawa hudźbnych nahrawanjow</annotation>
 		<annotation cp="℗" type="tts">symbol za awtorske prawa hudźbnych nahrawanjow</annotation>
 		<annotation cp="←">dolěwa | dolěwa pokazowacy kłok | kłok | pokazować</annotation>
 		<annotation cp="←" type="tts">dolěwa pokazowacy kłok</annotation>
@@ -181,15 +181,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇅" type="tts">horje a dele pokazowacej kłokaj</annotation>
 		<annotation cp="⇆">dolěwa | dolěwa pokazowacy kłok nad doprawa pokazowacym kłokom | doprawa</annotation>
 		<annotation cp="⇆" type="tts">dolěwa pokazowacy kłok nad doprawa pokazowacym kłokom</annotation>
-		<annotation cp="∆">delta | přirost | třiróžk</annotation>
+		<annotation cp="∆">delta | přirost | symbol delta | třiróžk</annotation>
 		<annotation cp="∆" type="tts">symbol delta</annotation>
-		<annotation cp="∇">nabla | třiróžk</annotation>
+		<annotation cp="∇">nabla | symbol nabla | třiróžk</annotation>
 		<annotation cp="∇" type="tts">symbol nabla</annotation>
 		<annotation cp="∈">element | element mnóstwa | mnóstwo | přisłušnosć | wobsahuje</annotation>
 		<annotation cp="∈" type="tts">element</annotation>
-		<annotation cp="+">aděrować | plus</annotation>
+		<annotation cp="+">aděrować | plus | znamjo plus</annotation>
 		<annotation cp="+" type="tts">znamjo plus</annotation>
-		<annotation cp="±">plus a minus</annotation>
+		<annotation cp="±">plus a minus | znamjo plus a minus</annotation>
 		<annotation cp="±" type="tts">znamjo plus a minus</annotation>
 		<annotation cp="÷">diwiděrować | diwizija | dźělenje přez | dźělić přez | symbol za diwiziju</annotation>
 		<annotation cp="÷" type="tts">symbol za diwiziju</annotation>
@@ -209,7 +209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="|" type="tts">padoruna smuha</annotation>
 		<annotation cp="~">tilda</annotation>
 		<annotation cp="~" type="tts">tilda</annotation>
-		<annotation cp="−">minus | subtrahěrować</annotation>
+		<annotation cp="−">minus | subtrahěrować | znamjo minus</annotation>
 		<annotation cp="−" type="tts">znamjo minus</annotation>
 		<annotation cp="⁻">minus | minus jako powyšene znamješko | minusowe znamješko | powyšene znamješko</annotation>
 		<annotation cp="⁻" type="tts">minus jako powyšene znamješko</annotation>
@@ -249,79 +249,79 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">předznamješko b</annotation>
 		<annotation cp="♯">hudźba | křižik | noty | powyšić | předznamješko</annotation>
 		<annotation cp="♯" type="tts">předznamješko křižik</annotation>
-		<annotation cp="🥹">hordy | płakać | so spjećować | so złobić | zrudny</annotation>
+		<annotation cp="🥹">hordy | płakać | so spjećować | so złobić | wobličo, kiž dźerži sylzy wróćo | zrudny</annotation>
 		<annotation cp="🥹" type="tts">wobličo, kiž dźerži sylzy wróćo</annotation>
-		<annotation cp="🧌">bajka | fantazija | potwora</annotation>
+		<annotation cp="🧌">bajka | fantazija | kubołt | potwora</annotation>
 		<annotation cp="🧌" type="tts">kubołt</annotation>
-		<annotation cp="🩻">kosće | lěkar | lěkowanje | skelet</annotation>
+		<annotation cp="🩻">kosće | lěkar | lěkowanje | roentgenowy wobraz | skelet</annotation>
 		<annotation cp="🩻" type="tts">roentgenowy wobraz</annotation>
-		<annotation cp="🩼">bolosće | kij | kij za slepych | pomoc při běhanju | zbrašenosć</annotation>
+		<annotation cp="🩼">bolosće | kij | kij za slepych | pomoc při běhanju | zbrašenosć | zepěra</annotation>
 		<annotation cp="🩼" type="tts">zepěra</annotation>
-		<annotation cp="🪩">disko | frinkolenje | party | reje</annotation>
+		<annotation cp="🪩">disko | frinkolenje | party | reje | špihelowa kula</annotation>
 		<annotation cp="🪩" type="tts">špihelowa kula</annotation>
-		<annotation cp="🪪">ID | licenca | wěstota | woprawnjenski dopokaz</annotation>
+		<annotation cp="🪪">ID | licenca | wěstota | woprawnjenski dopokaz | wupokaz</annotation>
 		<annotation cp="🪪" type="tts">wupokaz</annotation>
-		<annotation cp="🪫">elektriski | mało miliny</annotation>
+		<annotation cp="🪫">elektriski | mało miliny | słaba baterija</annotation>
 		<annotation cp="🪫" type="tts">słaba baterija</annotation>
-		<annotation cp="🪬">amulet | fatima | Marija | Miriam | ruka | škit</annotation>
+		<annotation cp="🪬">amulet | fatima | hamsa | Marija | Miriam | ruka | škit</annotation>
 		<annotation cp="🪬" type="tts">hamsa</annotation>
-		<annotation cp="🪷">buddhizm | čistosć | hinduizm | Indiska | kćenje | Vietnam</annotation>
+		<annotation cp="🪷">buddhizm | čistosć | hinduizm | Indiska | kćenje | lotusowe kćenje | Vietnam</annotation>
 		<annotation cp="🪷" type="tts">lotusowe kćenje</annotation>
-		<annotation cp="🪸">ocean | riff</annotation>
+		<annotation cp="🪸">korala | ocean | riff</annotation>
 		<annotation cp="🪸" type="tts">korala</annotation>
-		<annotation cp="🪹">hnězdźenje</annotation>
+		<annotation cp="🪹">hnězdźenje | prózdne hnězdo</annotation>
 		<annotation cp="🪹" type="tts">prózdne hnězdo</annotation>
-		<annotation cp="🪺">hnězdźenje</annotation>
+		<annotation cp="🪺">hnězdo z jejkomaj | hnězdźenje</annotation>
 		<annotation cp="🪺" type="tts">hnězdo z jejkomaj</annotation>
-		<annotation cp="🫃">brjuch | naduty | połny | samodruhi</annotation>
+		<annotation cp="🫃">brjuch | naduty | połny | samodruhi | samodruhi muž</annotation>
 		<annotation cp="🫃" type="tts">samodruhi muž</annotation>
-		<annotation cp="🫄">brjuch | naduty | połny | samodruha</annotation>
+		<annotation cp="🫄">brjuch | naduty | połny | samodruha | samodruha wosoba</annotation>
 		<annotation cp="🫄" type="tts">samodruha wosoba</annotation>
-		<annotation cp="🫅">kralowski | majestosć | monarch | zemjanski</annotation>
+		<annotation cp="🫅">kralowski | majestosć | monarch | wosoba z krónu | zemjanski</annotation>
 		<annotation cp="🫅" type="tts">wosoba z krónu</annotation>
-		<annotation cp="🫗">napoj | prózdny | rozpancać | škleńcy</annotation>
+		<annotation cp="🫗">kapalinu wuleć | napoj | prózdny | rozpancać | škleńcy</annotation>
 		<annotation cp="🫗" type="tts">kapalinu wuleć</annotation>
-		<annotation cp="🫘">jěrcheń | trukowy płód | zežiwidło</annotation>
+		<annotation cp="🫘">buny | jěrcheń | trukowy płód | zežiwidło</annotation>
 		<annotation cp="🫘" type="tts">buny</annotation>
 		<annotation cp="🫙">juška | korjenina | prózdny | składować | sudobjo</annotation>
 		<annotation cp="🫙" type="tts">sudobjo</annotation>
-		<annotation cp="🫠">běžity | rozběžeć | so rozpušćić | so zhubić</annotation>
+		<annotation cp="🫠">běžity | rozběžace wobličo | rozběžeć | so rozpušćić | so zhubić</annotation>
 		<annotation cp="🫠" type="tts">rozběžace wobličo</annotation>
-		<annotation cp="🫡">haj | jednotki | salutěrować | słónčne | w porjadku</annotation>
+		<annotation cp="🫡">haj | jednotki | salutěrować | salutěrowace wobličo | słónčne | w porjadku</annotation>
 		<annotation cp="🫡" type="tts">salutěrowace wobličo</annotation>
-		<annotation cp="🫢">bojazliwosć | česćownosć | njewěra | překwapjenje | stróžele | zadźiwanje</annotation>
+		<annotation cp="🫢">bojazliwosć | česćownosć | njewěra | překwapjenje | stróžele | wobličo z wočinjenymaj wočomaj a ruku na hubje | zadźiwanje</annotation>
 		<annotation cp="🫢" type="tts">wobličo z wočinjenymaj wočomaj a ruku na hubje</annotation>
-		<annotation cp="🫣">kukać | putany | wudźěrać</annotation>
+		<annotation cp="🫣">kukać | putany | wobličo z kukacym wóčkom | wudźěrać</annotation>
 		<annotation cp="🫣" type="tts">wobličo z kukacym wóčkom</annotation>
-		<annotation cp="🫤">mórkotacy | njewěsty | přesłapjeny | skeptiski</annotation>
+		<annotation cp="🫤">mórkotacy | njewěsty | přesłapjeny | skeptiski | wobličo z diagonalnej hubu</annotation>
 		<annotation cp="🫤" type="tts">wobličo z diagonalnej hubu</annotation>
-		<annotation cp="🫥">depresiwny | introwertěrowany | njewidźomny | so schować | so zhubić</annotation>
+		<annotation cp="🫥">depresiwny | introwertěrowany | njewidźomny | so schować | so zhubić | wobličo z dypkowanej smužku</annotation>
 		<annotation cp="🫥" type="tts">wobličo z dypkowanej smužku</annotation>
-		<annotation cp="🫦">flirtować | nerwozny | njepřijomny | starosćiwy | strach | strachoćiwy</annotation>
+		<annotation cp="🫦">flirtować | huba, kiž sej na delnju hubu kusnje | nerwozny | njepřijomny | starosćiwy | strach | strachoćiwy</annotation>
 		<annotation cp="🫦" type="tts">huba, kiž sej na delnju hubu kusnje</annotation>
-		<annotation cp="🫧">mydło | pod wodu | rihać | rjedźić</annotation>
+		<annotation cp="🫧">mydło | pod wodu | pucherje | rihać | rjedźić</annotation>
 		<annotation cp="🫧" type="tts">pucherje</annotation>
-		<annotation cp="🫰">drohe | lubosć | pjenjezy | wutroba</annotation>
+		<annotation cp="🫰">drohe | lubosć | pjenjezy | ruka z křižowanym pokazowakom a palcom | wutroba</annotation>
 		<annotation cp="🫰" type="tts">ruka z křižowanym pokazowakom a palcom</annotation>
 		<annotation cp="🫱">doprawa | naprawo | ruka</annotation>
 		<annotation cp="🫱" type="tts">ruka doprawa</annotation>
 		<annotation cp="🫲">dolěwa | nalěwo | ruka</annotation>
 		<annotation cp="🫲" type="tts">ruka dolěwa</annotation>
-		<annotation cp="🫳">pušćić | rozehnać | z ruki pušćić</annotation>
+		<annotation cp="🫳">dłóń pokazuje dele | pušćić | rozehnać | z ruki pušćić</annotation>
 		<annotation cp="🫳" type="tts">dłóń pokazuje dele</annotation>
-		<annotation cp="🫴">kiwać | popadnyć | poskićeć | přińć</annotation>
+		<annotation cp="🫴">dłóń pokazuje horje | kiwać | popadnyć | poskićeć | přińć</annotation>
 		<annotation cp="🫴" type="tts">dłóń pokazuje horje</annotation>
-		<annotation cp="🫵">dypk | ty</annotation>
+		<annotation cp="🫵">dypk | pokazowak, wusměrjeny na hladaceho | ty</annotation>
 		<annotation cp="🫵" type="tts">pokazowak, wusměrjeny na hladaceho</annotation>
-		<annotation cp="🫶">lubosć</annotation>
+		<annotation cp="🫶">lubosć | ruce tworitej formu wutroby</annotation>
 		<annotation cp="🫶" type="tts">ruce tworitej formu wutroby</annotation>
-		<annotation cp="🛝">sej hrajkać | zabawjenski park</annotation>
+		<annotation cp="🛝">sej hrajkać | suwadło na hrajkanišću | zabawjenski park</annotation>
 		<annotation cp="🛝" type="tts">suwadło na hrajkanišću</annotation>
-		<annotation cp="🛞">kruh | so wjerćeć | wobruč</annotation>
+		<annotation cp="🛞">koleso | kruh | so wjerćeć | wobruč</annotation>
 		<annotation cp="🛞" type="tts">koleso</annotation>
-		<annotation cp="🛟">płuwar | wěstota | wuchowanje | wuchowanski płuwar | wuchowar žiwjenje</annotation>
+		<annotation cp="🛟">płuwar | wěstota | wuchowanje | wuchowanska boja | wuchowanski płuwar | wuchowar žiwjenje</annotation>
 		<annotation cp="🛟" type="tts">wuchowanska boja</annotation>
-		<annotation cp="🟰">matematika | runota</annotation>
+		<annotation cp="🟰">matematika | runota | tołste znamjo jerunja</annotation>
 		<annotation cp="🟰" type="tts">tołste znamjo jerunja</annotation>
 		<annotation cp="😀">wobličo | wobličo ze šibałym posměwkom | wočinjena huba | žortne</annotation>
 		<annotation cp="😀" type="tts">wobličo ze šibałym posměwkom</annotation>
@@ -379,7 +379,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😝" type="tts">wobličo z wutyknjenym jazykom a zašćipnjenymaj wočomaj</annotation>
 		<annotation cp="🤑">huba | pjenjezy | wobličo | wobličo z dolarowymi znamješkami</annotation>
 		<annotation cp="🤑" type="tts">wobličo z dolarowymi znamješkami</annotation>
-		<annotation cp="🤗">wobjimać | wobjimanje | wobličo | wobličo z wojimacymaj rukomaj</annotation>
+		<annotation cp="🤗">wobjimać | wobjimanje | wobličo | wobličo z wobjimacymaj rukomaj | wobličo z wojimacymaj rukomaj</annotation>
 		<annotation cp="🤗" type="tts">wobličo z wobjimacymaj rukomaj</annotation>
 		<annotation cp="🤭">huch | wobličo z ruku nad hubu</annotation>
 		<annotation cp="🤭" type="tts">wobličo z ruku nad hubu</annotation>
@@ -407,7 +407,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">wobličo, kiž wjerći z wočomaj</annotation>
 		<annotation cp="😬">grimasa | wobličo | wobličo z grimasu | zuby</annotation>
 		<annotation cp="😬" type="tts">wobličo z grimasu</annotation>
-		<annotation cp="😮‍💨">hwizdać | šeptać | stonać | wolóženje | wudychać</annotation>
+		<annotation cp="😮‍💨">hwizdać | šeptać | stonać | wobličo, kiž wudycha | wolóženje | wudychać</annotation>
 		<annotation cp="😮‍💨" type="tts">wobličo, kiž wudycha</annotation>
 		<annotation cp="🤥">łža | nós Pinocchija | wobličo | wobličo, kiž łži</annotation>
 		<annotation cp="🤥" type="tts">wobličo, kiž łži</annotation>
@@ -441,7 +441,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts">zawjerćane wobličo</annotation>
 		<annotation cp="😵">hłowywjerćenje | wobličo | wobličo, kotremuž so we hłowje wjerći</annotation>
 		<annotation cp="😵" type="tts">wobličo, kotremuž so we hłowje wjerći</annotation>
-		<annotation cp="😵‍💫">hłowywjerćenje | hypnotizowany | spiralojty | woči</annotation>
+		<annotation cp="😵‍💫">hłowywjerćenje | hypnotizowany | spiralojty | wobličo ze spiralojtymaj wočomaj | woči</annotation>
 		<annotation cp="😵‍💫" type="tts">wobličo ze spiralojtymaj wočomaj</annotation>
 		<annotation cp="🤯">hłowa, kotraž rozbuchnje | někomu so zecnje | šokowany</annotation>
 		<annotation cp="🤯" type="tts">hłowa, kotraž rozbuchnje</annotation>
@@ -527,7 +527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤡" type="tts">wobličo clowna</annotation>
 		<annotation cp="👹">bajka | Japanska | monster | potwora | wobličo</annotation>
 		<annotation cp="👹" type="tts">potwora</annotation>
-		<annotation cp="👺">bajka | Japanska | kubołt | monster | wobličo</annotation>
+		<annotation cp="👺">bajka | Japanska | kubołt | maska kubołta | monster | wobličo</annotation>
 		<annotation cp="👺" type="tts">maska kubołta</annotation>
 		<annotation cp="👻">bajka | duch | fantasy | wobličo</annotation>
 		<annotation cp="👻" type="tts">duch</annotation>
@@ -573,19 +573,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💖" type="tts">so zybolaca wutrobička</annotation>
 		<annotation cp="💗">lubosć | rosćaca wutrobička | rozbudźeny | wutroba</annotation>
 		<annotation cp="💗" type="tts">rosćaca wutrobička</annotation>
-		<annotation cp="💓">lubosć | pukotaca wutroba | wutroba | wutrobička</annotation>
+		<annotation cp="💓">lubosć | pukotaca wutroba | pukotaca wutrobička | wutroba | wutrobička</annotation>
 		<annotation cp="💓" type="tts">pukotaca wutrobička</annotation>
 		<annotation cp="💞">kružacej wutrobičce | lubosć | wutroba | wutrobičce, kiž kružitej | wutrobička</annotation>
 		<annotation cp="💞" type="tts">kružacej wutrobičce</annotation>
 		<annotation cp="💕">dwě wutrobičce | lubosć | wutroba | wutrobička</annotation>
 		<annotation cp="💕" type="tts">dwě wutrobičce</annotation>
-		<annotation cp="💟">dekoracija z wutrobu | wutroba | wutrobička</annotation>
+		<annotation cp="💟">dekoracija z wutrobičku | dekoracija z wutrobu | wutroba | wutrobička</annotation>
 		<annotation cp="💟" type="tts">dekoracija z wutrobičku</annotation>
 		<annotation cp="❣">interpunkcija | wutroba | wutrobička | wutrobička jako wuwołak | wuwołak</annotation>
 		<annotation cp="❣" type="tts">wutrobička jako wuwołak</annotation>
 		<annotation cp="💔">bolosć | dźělenje | horjo | wutroba | złamana wutrobička</annotation>
 		<annotation cp="💔" type="tts">złamana wutrobička</annotation>
-		<annotation cp="❤‍🔥">lubosć | so palić | swjata wutroba | wutroba | wutrobička</annotation>
+		<annotation cp="❤‍🔥">lubosć | so palić | swjata wutroba | wutroba | wutrobička | wutrobička so pali</annotation>
 		<annotation cp="❤‍🔥" type="tts">wutrobička so pali</annotation>
 		<annotation cp="❤‍🩹">hojić | lěkować | so wustrowić | so zhrabać | wotchorić | wutrobu hojić</annotation>
 		<annotation cp="❤‍🩹" type="tts">wutrobu hojić</annotation>
@@ -695,7 +695,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤲" type="tts">zběhnjenej dłóni pódla so</annotation>
 		<annotation cp="🤝">dojednanje | ruce | sej ruce zawdać | zawdaće ruki</annotation>
 		<annotation cp="🤝" type="tts">zawdaće ruki</annotation>
-		<annotation cp="🙏">modlitwa | prosyć | ruce | so modlić | styknyć</annotation>
+		<annotation cp="🙏">modlitwa | prosyć | ruce | so modlić | styknjenej ruce | styknyć</annotation>
 		<annotation cp="🙏" type="tts">styknjenej ruce</annotation>
 		<annotation cp="✍">pisać | ruka | ruka, kiž pisa</annotation>
 		<annotation cp="✍" type="tts">ruka, kiž pisa</annotation>
@@ -709,9 +709,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦾" type="tts">mechaniska ruka</annotation>
 		<annotation cp="🦿">bjezbarjernosć | inwalida | mechaniska noha | nohowa proteza | proteza</annotation>
 		<annotation cp="🦿" type="tts">mechaniska noha</annotation>
-		<annotation cp="🦵">kopać | kopnjenje | kopnyć | noha</annotation>
+		<annotation cp="🦵">cyła noha | kopać | kopnjenje | kopnyć | noha</annotation>
 		<annotation cp="🦵" type="tts">cyła noha</annotation>
-		<annotation cp="🦶">noha | stopa | stupać | stupić</annotation>
+		<annotation cp="🦶">delnja noha | noha | stopa | stupać | stupić</annotation>
 		<annotation cp="🦶" type="tts">delnja noha</annotation>
 		<annotation cp="👂">dźěl ćěła | wucho</annotation>
 		<annotation cp="👂" type="tts">wucho</annotation>
@@ -721,7 +721,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃" type="tts">nós</annotation>
 		<annotation cp="🧠">inteligentny | mozy</annotation>
 		<annotation cp="🧠" type="tts">mozy</annotation>
-		<annotation cp="🫀">organ | pukot wutroby | pukotać | wutroba | wutroba (organ)</annotation>
+		<annotation cp="🫀">anatomiska wutroba (organ) | organ | pukot wutroby | pukotać | wutroba | wutroba (organ)</annotation>
 		<annotation cp="🫀" type="tts">anatomiska wutroba (organ)</annotation>
 		<annotation cp="🫁">dych | dychać | organ | płuca | wudychać | zadychać</annotation>
 		<annotation cp="🫁" type="tts">płuca</annotation>
@@ -793,11 +793,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙆‍♂" type="tts">muž z rukomaj na hłowje</annotation>
 		<annotation cp="🙆‍♀">gesta &quot;wšitko w porjadku&quot; | ruce | wobličo | žona | žona z rukomaj na hłowje</annotation>
 		<annotation cp="🙆‍♀" type="tts">žona z rukomaj na hłowje</annotation>
-		<annotation cp="💁">informacije | ironija | pomoc | ruka | sobudźěłaćer/ka informacije</annotation>
+		<annotation cp="💁">informacije | ironija | pomoc | ruka | sobudźěłaćer/ka informacije | wosoba z dłónju horje</annotation>
 		<annotation cp="💁" type="tts">wosoba z dłónju horje</annotation>
-		<annotation cp="💁‍♂">informacije | ironija | muž | pomoc | ruka | sobudźěłaćer informacije</annotation>
+		<annotation cp="💁‍♂">informacije | ironija | muž | muž z dłónju horje | pomoc | ruka | sobudźěłaćer informacije</annotation>
 		<annotation cp="💁‍♂" type="tts">muž z dłónju horje</annotation>
-		<annotation cp="💁‍♀">informacije | ironija | pomoc | ruka | sobudźěłaćerka informacije | žona</annotation>
+		<annotation cp="💁‍♀">informacije | ironija | pomoc | ruka | sobudźěłaćerka informacije | žona | žona z dłónju horje</annotation>
 		<annotation cp="💁‍♀" type="tts">žona z dłónju horje</annotation>
 		<annotation cp="🙋">gesta dobyća | wosoba ze zběhnjenej ruku | zbožowna</annotation>
 		<annotation cp="🙋" type="tts">wosoba ze zběhnjenej ruku</annotation>
@@ -829,115 +829,115 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷‍♂" type="tts">muž, kiž z ramjenjomaj suknje</annotation>
 		<annotation cp="🤷‍♀">dwěle | smorže | wšojedne | žane zdaće | žona, kiž z ramjenjomaj suknje</annotation>
 		<annotation cp="🤷‍♀" type="tts">žona, kiž z ramjenjomaj suknje</annotation>
-		<annotation cp="🧑‍⚕">chorobna sotra | lěkar | lěkarka | strowotnistwo | terapeut | terapeutka</annotation>
+		<annotation cp="🧑‍⚕">chorobna sotra | lěkar | lěkar/ka | lěkarka | strowotnistwo | terapeut | terapeutka</annotation>
 		<annotation cp="🧑‍⚕" type="tts">lěkar/ka</annotation>
 		<annotation cp="👨‍⚕">doktor | lěkar | lěkarski kitl | strowotnistwo | terapeut</annotation>
 		<annotation cp="👨‍⚕" type="tts">lěkar</annotation>
 		<annotation cp="👩‍⚕">chorobna sotra | lěkarka | lěkarski kitl | strowotnistwo | terapeutka</annotation>
 		<annotation cp="👩‍⚕" type="tts">lěkarka</annotation>
-		<annotation cp="🧑‍🎓">dostudowany | student | studentka | wotchadnica | wotchadnik | wustudowany</annotation>
+		<annotation cp="🧑‍🎓">dostudowany | student | student/ka | studentka | wotchadnica | wotchadnik | wustudowany</annotation>
 		<annotation cp="🧑‍🎓" type="tts">student/ka</annotation>
 		<annotation cp="👨‍🎓">doktorski kłobuk | student | uniwersita | wotchadnik</annotation>
 		<annotation cp="👨‍🎓" type="tts">student</annotation>
 		<annotation cp="👩‍🎓">doktorski kłobuk | studentka | uniwersita | wotchadnica</annotation>
 		<annotation cp="👩‍🎓" type="tts">studentka</annotation>
-		<annotation cp="🧑‍🏫">docent | docentka | profesor | profesorka | wučer | wučerka</annotation>
+		<annotation cp="🧑‍🏫">docent | docentka | profesor | profesorka | wučer | wučer/ka | wučerka</annotation>
 		<annotation cp="🧑‍🏫" type="tts">wučer/ka</annotation>
 		<annotation cp="👨‍🏫">docent | profesor | wučer</annotation>
 		<annotation cp="👨‍🏫" type="tts">wučer</annotation>
 		<annotation cp="👩‍🏫">docentka | profesorka | wučerka</annotation>
 		<annotation cp="👩‍🏫" type="tts">wučerka</annotation>
-		<annotation cp="🧑‍⚖">sudnica | sudnik | waha</annotation>
+		<annotation cp="🧑‍⚖">sudnica | sudnik | sudnik/ sudnica | waha</annotation>
 		<annotation cp="🧑‍⚖" type="tts">sudnik/ sudnica</annotation>
 		<annotation cp="👨‍⚖">prawo | sprawnosć | sudnik</annotation>
 		<annotation cp="👨‍⚖" type="tts">sudnik</annotation>
 		<annotation cp="👩‍⚖">prawo | sprawnosć | sudnica</annotation>
 		<annotation cp="👩‍⚖" type="tts">sudnica</annotation>
-		<annotation cp="🧑‍🌾">bur | burowka | ratar | ratarka | zahrodnica | zahrodnik</annotation>
+		<annotation cp="🧑‍🌾">bur | bur/owka | burowka | ratar | ratarka | zahrodnica | zahrodnik</annotation>
 		<annotation cp="🧑‍🌾" type="tts">bur/owka</annotation>
 		<annotation cp="👨‍🌾">bur | kłóska | ratar | zahrodnik</annotation>
 		<annotation cp="👨‍🌾" type="tts">bur</annotation>
 		<annotation cp="👩‍🌾">burowka | kłóska | ratarka | zahrodnica</annotation>
 		<annotation cp="👩‍🌾" type="tts">burowka</annotation>
-		<annotation cp="🧑‍🍳">kuchar | kucharka</annotation>
+		<annotation cp="🧑‍🍳">kuchar | kuchar/ka | kucharka</annotation>
 		<annotation cp="🧑‍🍳" type="tts">kuchar/ka</annotation>
 		<annotation cp="👨‍🍳">kuchar | warić</annotation>
 		<annotation cp="👨‍🍳" type="tts">kuchar</annotation>
 		<annotation cp="👩‍🍳">kucharka | warić</annotation>
 		<annotation cp="👩‍🍳" type="tts">kucharka</annotation>
-		<annotation cp="🧑‍🔧">elektrikar | elektrikarka | klempnar | klempnarka | mechanikar | mechanikarka</annotation>
+		<annotation cp="🧑‍🔧">elektrikar | elektrikarka | klempnar | klempnarka | mechanikar | mechanikar/ka | mechanikarka</annotation>
 		<annotation cp="🧑‍🔧" type="tts">mechanikar/ka</annotation>
 		<annotation cp="👨‍🔧">elektrikar | klempnar | mechanikar | muž | rjemjeslnik</annotation>
 		<annotation cp="👨‍🔧" type="tts">mechanikar</annotation>
 		<annotation cp="👩‍🔧">elektrikarka | klempnarka | mechanikarka | rjemjeslnica</annotation>
 		<annotation cp="👩‍🔧" type="tts">mechanikarka</annotation>
-		<annotation cp="🧑‍🏭">dźěłaćer | dźěłaćer w fabrice | dźěłaćerka w fabrice | fabrika | industrija | montaža</annotation>
+		<annotation cp="🧑‍🏭">dźěłaćer | dźěłaćer w fabrice | dźěłaćer/ka w fabrice | dźěłaćerka w fabrice | fabrika | industrija | montaža</annotation>
 		<annotation cp="🧑‍🏭" type="tts">dźěłaćer/ka w fabrice</annotation>
 		<annotation cp="👨‍🏭">dźěłaćer w fabrice | fabrika | industrija</annotation>
 		<annotation cp="👨‍🏭" type="tts">dźěłaćer w fabrice</annotation>
 		<annotation cp="👩‍🏭">dźěłaćerka w fabrice | fabrika | industrija</annotation>
 		<annotation cp="👩‍🏭" type="tts">dźěłaćerka w fabrice</annotation>
-		<annotation cp="🧑‍💼">architekt | architektka | běrow | krawata | přistajena | přistajeny | wobchodnistwo | woblek</annotation>
+		<annotation cp="🧑‍💼">architekt | architektka | běrow | krawata | přistajena | přistajeny | přistajeny/přistajena w běrowje | wobchodnistwo | woblek</annotation>
 		<annotation cp="🧑‍💼" type="tts">přistajeny/přistajena w běrowje</annotation>
 		<annotation cp="👨‍💼">běrow | manager | přistajeny | přistajeny w běrowje</annotation>
 		<annotation cp="👨‍💼" type="tts">přistajeny w běrowje</annotation>
 		<annotation cp="👩‍💼">běrow | managerka | přistajena | přistajena w běrowje</annotation>
 		<annotation cp="👩‍💼" type="tts">přistajena w běrowje</annotation>
-		<annotation cp="🧑‍🔬">biologa | biologowka | chemikar | chemikarka | fyzikar | fyzikarka | inženjer | inženjerka | wědomostnica | wědomostnik</annotation>
+		<annotation cp="🧑‍🔬">biologa | biologowka | chemikar | chemikarka | fyzikar | fyzikarka | inženjer | inženjerka | wědomostnica | wědomostnik | wědomostnik/ wědomostnica</annotation>
 		<annotation cp="🧑‍🔬" type="tts">wědomostnik/ wědomostnica</annotation>
 		<annotation cp="👨‍🔬">biologa | chemikar | fyzikar | inženjer | labor | slědźer | wědomostnik</annotation>
 		<annotation cp="👨‍🔬" type="tts">wědomostnik</annotation>
 		<annotation cp="👩‍🔬">biologowka | chemikarka | fyzikarka | inženjerka | labor | slědźerka | wědomostnica</annotation>
 		<annotation cp="👩‍🔬" type="tts">wědomostnica</annotation>
-		<annotation cp="🧑‍💻">programěrowar | programěrowarka | software | technologa | technologowka | wunamakar | wunamakarka | wuwiwar | wuwiwarka</annotation>
+		<annotation cp="🧑‍💻">programěrowar | programěrowarka | software | technologa | technologa/technologowka | technologowka | wunamakar | wunamakarka | wuwiwar | wuwiwarka</annotation>
 		<annotation cp="🧑‍💻" type="tts">technologa/technologowka</annotation>
-		<annotation cp="👨‍💻">IT-eksperta | kompjuter | programěrowar | wobrazowka | wunamakar | wuwiwar</annotation>
+		<annotation cp="👨‍💻">IT-eksperta | kompjuter | programěrowar | technologa | wobrazowka | wunamakar | wuwiwar</annotation>
 		<annotation cp="👨‍💻" type="tts">technologa</annotation>
-		<annotation cp="👩‍💻">IT-ekspertka | kompjuter | programěrowarka | wobrazowka | wunamakarka | wuwiwarka</annotation>
+		<annotation cp="👩‍💻">IT-ekspertka | kompjuter | programěrowarka | technologowka | wobrazowka | wunamakarka | wuwiwarka</annotation>
 		<annotation cp="👩‍💻" type="tts">technologowka</annotation>
-		<annotation cp="🧑‍🎤">dźiwadźelnica | dźiwadźelnik | rock | spěwar | spěwarka | star | zabawjer | zabawjerka</annotation>
+		<annotation cp="🧑‍🎤">dźiwadźelnica | dźiwadźelnik | rock | spěwar | spěwar/ka | spěwarka | star | zabawjer | zabawjerka</annotation>
 		<annotation cp="🧑‍🎤" type="tts">spěwar/ka</annotation>
 		<annotation cp="👨‍🎤">dźiwadźelnik | hrajer | mikrofon | muž | spěwar | star | zabawjer</annotation>
 		<annotation cp="👨‍🎤" type="tts">spěwar</annotation>
 		<annotation cp="👩‍🎤">dźiwadźelnica | hrajerka | mikrofon | spěwarka | star | zabawjerka | žona</annotation>
 		<annotation cp="👩‍🎤" type="tts">spěwarka</annotation>
-		<annotation cp="🧑‍🎨">moler | molerka | paleta | wuměłc | wuměłča</annotation>
+		<annotation cp="🧑‍🎨">moler | molerka | paleta | wuměłc | wuměłc/wuměłča | wuměłča</annotation>
 		<annotation cp="🧑‍🎨" type="tts">wuměłc/wuměłča</annotation>
 		<annotation cp="👨‍🎨">moler | muž | paleta barbow | wuměłc</annotation>
 		<annotation cp="👨‍🎨" type="tts">wuměłc</annotation>
 		<annotation cp="👩‍🎨">molerka | paleta barbow | wuměłča | žona</annotation>
 		<annotation cp="👩‍🎨" type="tts">wuměłča</annotation>
-		<annotation cp="🧑‍✈">lětadło | pilot | pilotka</annotation>
+		<annotation cp="🧑‍✈">lětadło | pilot | pilot/ka | pilotka</annotation>
 		<annotation cp="🧑‍✈" type="tts">pilot/ka</annotation>
 		<annotation cp="👨‍✈">lětadło | muž | pilot</annotation>
 		<annotation cp="👨‍✈" type="tts">pilot</annotation>
 		<annotation cp="👩‍✈">lětadło | pilotka | žona</annotation>
 		<annotation cp="👩‍✈" type="tts">pilotka</annotation>
-		<annotation cp="🧑‍🚀">astronawt | astronawtka | komsonawt | kosmonawtka | raketa</annotation>
+		<annotation cp="🧑‍🚀">astronawt | astronawt/ka | astronawtka | komsonawt | kosmonawtka | raketa</annotation>
 		<annotation cp="🧑‍🚀" type="tts">astronawt/ka</annotation>
-		<annotation cp="👨‍🚀">astronawt | astronawtika | kosmonawt | kosmonawtika | muž | swětnišćo</annotation>
+		<annotation cp="👨‍🚀">astronawt | astronawtika | awstronawt | kosmonawt | kosmonawtika | muž | swětnišćo</annotation>
 		<annotation cp="👨‍🚀" type="tts">awstronawt</annotation>
 		<annotation cp="👩‍🚀">astronawtika | astronawtka | kosmonawtika | kosmonawtka | swětnišćo | žona</annotation>
 		<annotation cp="👩‍🚀" type="tts">astronawtka</annotation>
-		<annotation cp="🧑‍🚒">wohnjowa wobora | wohnjowa wobornica | wohnjowy wobornik</annotation>
+		<annotation cp="🧑‍🚒">wohnjowa wobora | wohnjowa wobornica | wohnjowy wobornik | wohnjowy wobornik/ wohnjowa wobornica</annotation>
 		<annotation cp="🧑‍🚒" type="tts">wohnjowy wobornik/ wohnjowa wobornica</annotation>
 		<annotation cp="👨‍🚒">muž | nahłownik wohnjoweje wobory | wohnjowy wobornik</annotation>
 		<annotation cp="👨‍🚒" type="tts">wohnjowy wobornik</annotation>
 		<annotation cp="👩‍🚒">nahłownik wohnjoweje wobory | wohnjowa wobornica | žona</annotation>
 		<annotation cp="👩‍🚒" type="tts">wohnjowa wobornica</annotation>
-		<annotation cp="👮">policija | policist | policistka | wobličo</annotation>
+		<annotation cp="👮">policija | policist | policist/ka | policistka | wobličo</annotation>
 		<annotation cp="👮" type="tts">policist/ka</annotation>
 		<annotation cp="👮‍♂">muž | policija | policist</annotation>
 		<annotation cp="👮‍♂" type="tts">policist</annotation>
 		<annotation cp="👮‍♀">policija | policistka | žona</annotation>
 		<annotation cp="👮‍♀" type="tts">policistka</annotation>
-		<annotation cp="🕵">detektiw | detektiwka | spion | spionka</annotation>
+		<annotation cp="🕵">detektiw | detektiw/ka | detektiwka | spion | spionka</annotation>
 		<annotation cp="🕵" type="tts">detektiw/ka</annotation>
 		<annotation cp="🕵‍♂">detektiw | muž | spion</annotation>
 		<annotation cp="🕵‍♂" type="tts">detektiw</annotation>
 		<annotation cp="🕵‍♀">detektiwka | spionka | žona</annotation>
 		<annotation cp="🕵‍♀" type="tts">detektiwka</annotation>
-		<annotation cp="💂">stražnica | stražnik | stražowar | stražowarka</annotation>
+		<annotation cp="💂">stražnica | stražnik | stražnik/ stražnica | stražowar | stražowarka</annotation>
 		<annotation cp="💂" type="tts">stražnik/ stražnica</annotation>
 		<annotation cp="💂‍♂">muž | stražnik | stražowar</annotation>
 		<annotation cp="💂‍♂" type="tts">stražnik</annotation>
@@ -945,7 +945,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂‍♀" type="tts">stražnica</annotation>
 		<annotation cp="🥷">ninja | wojowar | wojowarka | wutrajnosć | zakryty</annotation>
 		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="👷">nahłownik | twarska dźěłaćerka | twarski dźěłaćer | wobličo</annotation>
+		<annotation cp="👷">nahłownik | twarska dźěłaćerka | twarski dźěłaćer | twarski dźěłaćer/ twarska dźěłaćerka | wobličo</annotation>
 		<annotation cp="👷" type="tts">twarski dźěłaćer/ twarska dźěłaćerka</annotation>
 		<annotation cp="👷‍♂">nahłownik | twarnišćo | twarski dźěłaćer</annotation>
 		<annotation cp="👷‍♂" type="tts">twarski dźěłaćer</annotation>
@@ -995,19 +995,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶" type="tts">rumpodichowka</annotation>
 		<annotation cp="🧑‍🎄">hodowna wosoba | hody</annotation>
 		<annotation cp="🧑‍🎄" type="tts">hodowna wosoba</annotation>
-		<annotation cp="🦸">chrobły | comic | dobry | nadčłowjek | rjek | rjekowka | supermocy | superrjek | superrjekowka</annotation>
+		<annotation cp="🦸">chrobły | comic | dobry | nadčłowjek | rjek | rjekowka | supermocy | superrjek | superrjek/ superrjekowka | superrjekowka</annotation>
 		<annotation cp="🦸" type="tts">superrjek/ superrjekowka</annotation>
 		<annotation cp="🦸‍♂">dobry | rjek | supermocy | superrjek</annotation>
 		<annotation cp="🦸‍♂" type="tts">superrjek</annotation>
 		<annotation cp="🦸‍♀">dobra | rjekowka | supermocy | superrjekowka</annotation>
 		<annotation cp="🦸‍♀" type="tts">superrjekowka</annotation>
-		<annotation cp="🦹">njekničomnica | njekničomnik | paduch | padušnica | superšamałc | superšamałča | zły</annotation>
+		<annotation cp="🦹">njekničomnica | njekničomnik | paduch | padušnica | superšamałc | superšamałc/superšamałča | superšamałča | zły</annotation>
 		<annotation cp="🦹" type="tts">superšamałc/superšamałča</annotation>
 		<annotation cp="🦹‍♂">njekmanik | njekničomnik | šamałc | superšamałc | zły</annotation>
 		<annotation cp="🦹‍♂" type="tts">superšamałc</annotation>
 		<annotation cp="🦹‍♀">njekmanica | njekničomnica | šamałča | superšamałča | zła</annotation>
 		<annotation cp="🦹‍♀" type="tts">superšamałča</annotation>
-		<annotation cp="🧙">kuzłar | kuzłarniča | kuzłarski mišter | magija | wjera</annotation>
+		<annotation cp="🧙">kuzłar | kuzłar/niča | kuzłarniča | kuzłarski mišter | magija | wjera</annotation>
 		<annotation cp="🧙" type="tts">kuzłar/niča</annotation>
 		<annotation cp="🧙‍♂">kuzłar | kuzłarski mišter | magija</annotation>
 		<annotation cp="🧙‍♂" type="tts">kuzłar</annotation>
@@ -1061,7 +1061,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💇‍♂" type="tts">muž, kiž da sej włosy třihać</annotation>
 		<annotation cp="💇‍♀">frizer | frizerka | frizura | nožicy | třihanje włosow | žona | žona, kiž da sej włosy třihać</annotation>
 		<annotation cp="💇‍♀" type="tts">žona, kiž da sej włosy třihać</annotation>
-		<annotation cp="🚶">běhać | ducy | pěši hić | pěšk | pěška | pućować</annotation>
+		<annotation cp="🚶">běhać | ducy | pěši hić | pěšk | pěška | pućować | wosoba, kiž je pěši po puću</annotation>
 		<annotation cp="🚶" type="tts">wosoba, kiž je pěši po puću</annotation>
 		<annotation cp="🚶‍♂">běhać | ducy | hić | pěši hić | pěšk | pućować | so wuchodźować</annotation>
 		<annotation cp="🚶‍♂" type="tts">pěšk</annotation>
@@ -1121,19 +1121,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧖‍♂" type="tts">muž w sawnje</annotation>
 		<annotation cp="🧖‍♀">sawna | žona | žona w sawnje</annotation>
 		<annotation cp="🧖‍♀" type="tts">žona w sawnje</annotation>
-		<annotation cp="🧗">krosnowar | krosnowarka | skała</annotation>
+		<annotation cp="🧗">krosnowar | krosnowar/ka | krosnowarka | skała</annotation>
 		<annotation cp="🧗" type="tts">krosnowar/ka</annotation>
 		<annotation cp="🧗‍♂">krosnowar | skała</annotation>
 		<annotation cp="🧗‍♂" type="tts">krosnowar</annotation>
 		<annotation cp="🧗‍♀">krosnowarka | skała</annotation>
 		<annotation cp="🧗‍♀" type="tts">krosnowarka</annotation>
-		<annotation cp="🤺">sport | tesak | tesakować | tesakowar | tesakowarka</annotation>
+		<annotation cp="🤺">sport | tesak | tesakować | tesakowar | tesakowar/ka | tesakowarka</annotation>
 		<annotation cp="🤺" type="tts">tesakowar/ka</annotation>
 		<annotation cp="🏇">jokej | jokej na konju | sport | wubědźowanje na konjach</annotation>
 		<annotation cp="🏇" type="tts">wubědźowanje na konjach</annotation>
-		<annotation cp="⛷">sněh | sněhaki | sněhakować | sněhakowar | sněhakowarka | sport</annotation>
+		<annotation cp="⛷">sněh | sněhaki | sněhakować | sněhakowar | sněhakowar/ka | sněhakowarka | sport</annotation>
 		<annotation cp="⛷" type="tts">sněhakowar/ka</annotation>
-		<annotation cp="🏂">sněh | snowboard | snowboarder | snowboarderka | snowboardowanje | sport</annotation>
+		<annotation cp="🏂">sněh | snowboard | snowboarder | snowboarder/ka | snowboarderka | snowboardowanje | sport</annotation>
 		<annotation cp="🏂" type="tts">snowboarder/ka</annotation>
 		<annotation cp="🏌">bul | golf | hrajer golfa | hrajerka golfa | wosoba, kiž hraje golf</annotation>
 		<annotation cp="🏌" type="tts">wosoba, kiž hraje golf</annotation>
@@ -1171,7 +1171,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏋‍♂" type="tts">zběhar wahow</annotation>
 		<annotation cp="🏋‍♀">wahi zběhać | zběharka wahow | žona</annotation>
 		<annotation cp="🏋‍♀" type="tts">zběharka wahow</annotation>
-		<annotation cp="🚴">koleso | kolesować | kolesowar | kolesowarka</annotation>
+		<annotation cp="🚴">koleso | kolesować | kolesowar | kolesowarka | wosoba, kiž kolesuje</annotation>
 		<annotation cp="🚴" type="tts">wosoba, kiž kolesuje</annotation>
 		<annotation cp="🚴‍♂">koleso | kolesowar | muž</annotation>
 		<annotation cp="🚴‍♂" type="tts">kolesowar</annotation>
@@ -1207,7 +1207,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤾‍♂" type="tts">mjetar</annotation>
 		<annotation cp="🤾‍♀">mjetańca | mjetarka | žona</annotation>
 		<annotation cp="🤾‍♀" type="tts">mjetarka</annotation>
-		<annotation cp="🤹">balansa | wušikny | žongler | žonglerka | žonglěrować</annotation>
+		<annotation cp="🤹">balansa | wosoba, kiž žonglěruje | wušikny | žongler | žonglerka | žonglěrować</annotation>
 		<annotation cp="🤹" type="tts">wosoba, kiž žonglěruje</annotation>
 		<annotation cp="🤹‍♂">balansa | wušikny | žongler | žonglěrować</annotation>
 		<annotation cp="🤹‍♂" type="tts">žongler</annotation>
@@ -1229,7 +1229,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👭" type="tts">žonje dźeržitej so za ruku</annotation>
 		<annotation cp="👫">muž | muž a žona | muž a žona dźeržitaj so za ruku | porik | so za ruku dźeržeć | žona</annotation>
 		<annotation cp="👫" type="tts">muž a žona dźeržitaj so za ruku</annotation>
-		<annotation cp="👬">Dwójnikaj | hwězdne znamjo | muž | mužej | porik | so za ruku dźeržeć</annotation>
+		<annotation cp="👬">Dwójnikaj | hwězdne znamjo | muž | mužej | mužej dźeržitaj so za ruku | porik | so za ruku dźeržeć</annotation>
 		<annotation cp="👬" type="tts">mužej dźeržitaj so za ruku</annotation>
 		<annotation cp="💏">hubka | porik | porik, kiž so koši | sej hubku dać | so košić | wutrobička</annotation>
 		<annotation cp="💏" type="tts">porik, kiž so koši</annotation>
@@ -1365,7 +1365,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦇" type="tts">njetopyr</annotation>
 		<annotation cp="🐻">bar | hłowa | hłowa mjedwjedźa | mjedwjedź | zwěrjo</annotation>
 		<annotation cp="🐻" type="tts">hłowa mjedwjedźa</annotation>
-		<annotation cp="🐻‍❄">Arktika | běły | běły mjedwjedź | hłowa | lód | sewjerny čop | zyma</annotation>
+		<annotation cp="🐻‍❄">Arktika | běły | běły mjedwjedź | hłowa | hłowa běłeho mjedwjedźa | lód | sewjerny čop | zyma</annotation>
 		<annotation cp="🐻‍❄" type="tts">hłowa běłeho mjedwjedźa</annotation>
 		<annotation cp="🐨">hłowa | hłowa koale | koala | koalamjedwjedź | zwěrjo</annotation>
 		<annotation cp="🐨" type="tts">hłowa koale</annotation>
@@ -1381,7 +1381,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦘" type="tts">kenguru</annotation>
 		<annotation cp="🦡">šwinc | šwincy | zwěrjo</annotation>
 		<annotation cp="🦡" type="tts">šwinc</annotation>
-		<annotation cp="🐾">paca | packa | wotćišć | wotćištej packow | zwěrjo</annotation>
+		<annotation cp="🐾">paca | packa | wotćišć | wotćišćej packow | wotćištej packow | zwěrjo</annotation>
 		<annotation cp="🐾" type="tts">wotćišćej packow</annotation>
 		<annotation cp="🦃">pjerizna | trutak | zwěrjo</annotation>
 		<annotation cp="🦃" type="tts">trutak</annotation>
@@ -1431,7 +1431,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐍" type="tts">had</annotation>
 		<annotation cp="🐲">bajka | hłowa | hłowa zmija | zmij | zwěrjo</annotation>
 		<annotation cp="🐲" type="tts">hłowa zmija</annotation>
-		<annotation cp="🐉">bajka | zmij | zwěrjo</annotation>
+		<annotation cp="🐉">bajka | mytologiski zmij | zmij | zwěrjo</annotation>
 		<annotation cp="🐉" type="tts">mytologiski zmij</annotation>
 		<annotation cp="🦕">brontosaurus | dino | dinosaurus | dinosawrier | wotemrěty</annotation>
 		<annotation cp="🦕" type="tts">brontosaurus</annotation>
@@ -1487,7 +1487,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪰" type="tts">mucha</annotation>
 		<annotation cp="🪱">insekt | kruhowačka | parazit | překasanc | wačka | wudźenka | zwěrjo</annotation>
 		<annotation cp="🪱" type="tts">wačka</annotation>
-		<annotation cp="🦠">ameba | bakterija | jednobańkowe zwěrjo | zwěrjo</annotation>
+		<annotation cp="🦠">ameba | bakterija | jednobańkowe zwěrjo | mikroba | zwěrjo</annotation>
 		<annotation cp="🦠" type="tts">mikroba</annotation>
 		<annotation cp="💐">kwěćel | kwětki</annotation>
 		<annotation cp="💐" type="tts">kwěćel</annotation>
@@ -1533,7 +1533,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍁" type="tts">łopjeno jawora</annotation>
 		<annotation cp="🍂">lisćo | łopjena | łopjeno | nazyma | rostlina</annotation>
 		<annotation cp="🍂" type="tts">lisćo</annotation>
-		<annotation cp="🍃">lisćo | łopjena | łopjeno we wětřiku | rostlina | wětřik | zejhrawać</annotation>
+		<annotation cp="🍃">lisćo | łopjena | łopjena we wětřiku | łopjeno we wětřiku | rostlina | wětřik | zejhrawać</annotation>
 		<annotation cp="🍃" type="tts">łopjena we wětřiku</annotation>
 		<annotation cp="🍇">kić | płody | sad | wino | winowa kić</annotation>
 		<annotation cp="🍇" type="tts">winowa kić</annotation>
@@ -1653,9 +1653,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥚" type="tts">jejko</annotation>
 		<annotation cp="🍳">pjec | pječene jejko | pónoj | pražene jejko | pražić</annotation>
 		<annotation cp="🍳" type="tts">pražene jejko</annotation>
-		<annotation cp="🥘">jědź | paella | pónoj | wok</annotation>
+		<annotation cp="🥘">jědź | paella | pónoj | pónoj z jědźu | wok</annotation>
 		<annotation cp="🥘" type="tts">pónoj z jědźu</annotation>
-		<annotation cp="🍲">hornc | jědź | jědź z jednoho hornca | kuskate běrny | poliwka</annotation>
+		<annotation cp="🍲">hornc | hornc z jědźu | jědź | jědź z jednoho hornca | kuskate běrny | poliwka</annotation>
 		<annotation cp="🍲" type="tts">hornc z jědźu</annotation>
 		<annotation cp="🫕">fondi | fondue | hornc | rozběžeć | so zeškrěć | šokolada | šwicarska jědź | twarožk</annotation>
 		<annotation cp="🫕" type="tts">fondue</annotation>
@@ -1681,7 +1681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍚" type="tts">zwarjeny rajs</annotation>
 		<annotation cp="🍛">curry | rajs | rajs z curryjom</annotation>
 		<annotation cp="🍛" type="tts">rajs z curryjom</annotation>
-		<annotation cp="🍜">jědź | jědźnej štabikaj | nudle | parić so | škla | štabikaj</annotation>
+		<annotation cp="🍜">jědź | jědźnej štabikaj | nudle | parić so | škla | škla z parjacej so jědźu | štabikaj</annotation>
 		<annotation cp="🍜" type="tts">škla z parjacej so jědźu</annotation>
 		<annotation cp="🍝">jědź | nudle z tomatowej jušku | pasta | spageti | spaghetti</annotation>
 		<annotation cp="🍝" type="tts">spageti</annotation>
@@ -1745,7 +1745,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍯" type="tts">hornčk mjeda</annotation>
 		<annotation cp="🍼">bleška | bleška za ćěšenka | mloko | mlokowa bleška | pić</annotation>
 		<annotation cp="🍼" type="tts">bleška za ćěšenka</annotation>
-		<annotation cp="🥛">mloko | napoj | škleńca</annotation>
+		<annotation cp="🥛">mloko | napoj | škleńca | škleńca mloka</annotation>
 		<annotation cp="🥛" type="tts">škleńca mloka</annotation>
 		<annotation cp="☕">čaj | horcy | kofej | napoj | pić | so parić</annotation>
 		<annotation cp="☕" type="tts">horcy napoj</annotation>
@@ -1755,7 +1755,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍵" type="tts">šalka čaja bjez wuška</annotation>
 		<annotation cp="🍶">bleša | napoj | nopašk | pić | sake</annotation>
 		<annotation cp="🍶" type="tts">sake</annotation>
-		<annotation cp="🍾">alkoholiski napoj | bleša | bleša ze zatyčku | nastorčić | šampanske | sej připić | sekt | silwester | zatyčka</annotation>
+		<annotation cp="🍾">alkoholiski napoj | bleša | bleša sekta | bleša ze zatyčku | nastorčić | šampanske | sej připić | sekt | silwester | zatyčka</annotation>
 		<annotation cp="🍾" type="tts">bleša sekta</annotation>
 		<annotation cp="🍷">alkoholiski napoj | bara | škleńca | wino | winowa škleńca</annotation>
 		<annotation cp="🍷" type="tts">winowa škleńca</annotation>
@@ -1769,7 +1769,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍻" type="tts">karanaj piwa</annotation>
 		<annotation cp="🥂">alkoholiski napoj | napoj | nastorčić | sej připić | sekt | sektowej škleńcy | škleńca</annotation>
 		<annotation cp="🥂" type="tts">sektowej škleńcy</annotation>
-		<annotation cp="🥃">alkoholiski napoj | bara | napoj | škleńca | whisky | whiskyjowa škleńca</annotation>
+		<annotation cp="🥃">alkoholiski napoj | bara | napoj | škleńca | škleńca k piću | whisky | whiskyjowa škleńca</annotation>
 		<annotation cp="🥃" type="tts">škleńca k piću</annotation>
 		<annotation cp="🥤">brěčka | napoj | nopašk | nopašk z trosku | pić | škleńca | škleńca z trosku | troska</annotation>
 		<annotation cp="🥤" type="tts">škleńca z trosku</annotation>
@@ -1793,7 +1793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔪" type="tts">kuchinski nóž</annotation>
 		<annotation cp="🏺">amfora | hwězdne znamjo | sudobjo | warić | waza | Wódny muž</annotation>
 		<annotation cp="🏺" type="tts">amfora</annotation>
-		<annotation cp="🌍">Afrika | Europa | globus | zemska kula | zemska kula z Afriku a Europu</annotation>
+		<annotation cp="🌍">Afrika | Europa | globus | zemska kula | zemska kula z Afriku a Europu | zemska kula z Europu a Afriku</annotation>
 		<annotation cp="🌍" type="tts">zemska kula z Europu a Afriku</annotation>
 		<annotation cp="🌎">Amerika | globus | Južna Amerika | Sewjerna Amerika | zemska kula | zemska kula z Ameriku</annotation>
 		<annotation cp="🌎" type="tts">zemska kula z Ameriku</annotation>
@@ -1961,7 +1961,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚒" type="tts">awto wohnjoweje wobory</annotation>
 		<annotation cp="🚓">patruljowy wóz | policajske awto | policajski wóz | policija</annotation>
 		<annotation cp="🚓" type="tts">policajske awto</annotation>
-		<annotation cp="🚔">patruljowy wóz | policajske awto | policajski wóz | policija | přijědźe | wotprědka</annotation>
+		<annotation cp="🚔">patruljowy wóz | policajske awto | policajske awto wotprědka | policajski wóz | policija | přijědźe | wotprědka</annotation>
 		<annotation cp="🚔" type="tts">policajske awto wotprědka</annotation>
 		<annotation cp="🚕">awto | jězdźidło | taksi</annotation>
 		<annotation cp="🚕" type="tts">taksi</annotation>
@@ -1993,7 +1993,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦼" type="tts">elektriski jězbny stoł</annotation>
 		<annotation cp="🛺">awtorikša | tuk-tuk</annotation>
 		<annotation cp="🛺" type="tts">awtorikša</annotation>
-		<annotation cp="🚲">jězdźidło | koleso | teptać</annotation>
+		<annotation cp="🚲">jězdźidło | koleso | koleso jako jězdźidło | teptać</annotation>
 		<annotation cp="🚲" type="tts">koleso jako jězdźidło</annotation>
 		<annotation cp="🛴">roler | roler k teptanju | teptać</annotation>
 		<annotation cp="🛴" type="tts">roler k teptanju</annotation>
@@ -2011,7 +2011,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛢" type="tts">wolijowy sud</annotation>
 		<annotation cp="⛽">bencin | tankować | tankowanski stołp | tankownja</annotation>
 		<annotation cp="⛽" type="tts">tankowanski stołp</annotation>
-		<annotation cp="🚨">čerwjena swěca | policija | sirena | so wjerćaca swěca | swěca</annotation>
+		<annotation cp="🚨">čerwjena swěca | policajska swěca | policija | sirena | so wjerćaca swěca | swěca</annotation>
 		<annotation cp="🚨" type="tts">policajska swěca</annotation>
 		<annotation cp="🚥">ampla | signal | swěca | wobchadna ampla | wodoruna ampla</annotation>
 		<annotation cp="🚥" type="tts">wodoruna ampla</annotation>
@@ -2049,7 +2049,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪂" type="tts">padak</annotation>
 		<annotation cp="💺">ćah | lětadło | městno k sedźenju | sydło</annotation>
 		<annotation cp="💺" type="tts">městno k sedźenju</annotation>
-		<annotation cp="🚁">helikopter | lećeć | lětać | transportny srědk</annotation>
+		<annotation cp="🚁">helikoper | helikopter | lećeć | lětać | transportny srědk</annotation>
 		<annotation cp="🚁" type="tts">helikoper</annotation>
 		<annotation cp="🚟">powjaznica | powjazowka | transportny srědk | wisata železnica</annotation>
 		<annotation cp="🚟" type="tts">wisata železnica</annotation>
@@ -2081,7 +2081,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⏲" type="tts">časměrjak</annotation>
 		<annotation cp="🕰">časnik | kaminowy časnik</annotation>
 		<annotation cp="🕰" type="tts">kaminowy časnik</annotation>
-		<annotation cp="🕛">12:00 | cyfrownik | dwanaće hodźin | w dwanaćich 0:00</annotation>
+		<annotation cp="🕛">12:00 | cyfrownik | dwanaće hodźin | w dwanaćich | w dwanaćich 0:00</annotation>
 		<annotation cp="🕛" type="tts">w dwanaćich</annotation>
 		<annotation cp="🕧">0:30 | 12:30 | cyfrownik | dwanaće hodźin třiceći | napoł jednej</annotation>
 		<annotation cp="🕧" type="tts">napoł jednej</annotation>
@@ -2145,7 +2145,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌗" type="tts">woteběracy połměsačk</annotation>
 		<annotation cp="🌘">ćma | měsačk | njebjo | nóc | woteběracy</annotation>
 		<annotation cp="🌘" type="tts">woteběracy měsačk</annotation>
-		<annotation cp="🌙">ćma | měsačk | njebjo | nóc | serp</annotation>
+		<annotation cp="🌙">ćma | měsačk | njebjo | nóc | serp | serp měsačka</annotation>
 		<annotation cp="🌙" type="tts">serp měsačka</annotation>
 		<annotation cp="🌚">měsačk | młody měsačk | młody měsačk z wobličom | wobličo</annotation>
 		<annotation cp="🌚" type="tts">młody měsačk z wobličom</annotation>
@@ -2247,7 +2247,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎍" type="tts">bambusowa dekoracija</annotation>
 		<annotation cp="🎎">Japanska | japanskej klance | klance | klanka | klankowy swjedźeń</annotation>
 		<annotation cp="🎎" type="tts">japanskej klance</annotation>
-		<annotation cp="🎏">chorhoj | dźeń dźěsća | Japanska | karp | koi-nobori | so naduć | swjedźeń | wětřik</annotation>
+		<annotation cp="🎏">chorhoj | dźeń dźěsća | Japanska | japanske karpowe chorhoje | karp | koi-nobori | so naduć | swjedźeń | wětřik</annotation>
 		<annotation cp="🎏" type="tts">japanske karpowe chorhoje</annotation>
 		<annotation cp="🎐">Japanska | japanska wětrowa wjertawa | wětr | wětřik | wjertawa</annotation>
 		<annotation cp="🎐" type="tts">japanska wětrowa wjertawa</annotation>
@@ -2311,11 +2311,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏸" type="tts">pjerkobul</annotation>
 		<annotation cp="🥊">bój | pjasćowanje | pjasćowanska rukajca | pjasćowanski bój | rukajca | sport</annotation>
 		<annotation cp="🥊" type="tts">pjasćowanska rukajca</annotation>
-		<annotation cp="🥋">bojowy sport | judo | karate | kimono | taekwondo | woblek</annotation>
+		<annotation cp="🥋">bojowy sport | judo | karate | kimono | taekwondo | woblek | woblek za bojowy sport</annotation>
 		<annotation cp="🥋" type="tts">woblek za bojowy sport</annotation>
 		<annotation cp="🥅">sport | sportowe wrota | wrota</annotation>
 		<annotation cp="🥅" type="tts">sportowe wrota</annotation>
-		<annotation cp="⛳">chorhojčka | golf | golfowe hrajnišćo</annotation>
+		<annotation cp="⛳">chorhojčka | chorhojčka w dźěrje | golf | golfowe hrajnišćo</annotation>
 		<annotation cp="⛳" type="tts">chorhojčka w dźěrje</annotation>
 		<annotation cp="⛸">smykač | smykać so | smykače | smykanje</annotation>
 		<annotation cp="⛸" type="tts">smykače</annotation>
@@ -2335,7 +2335,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎯" type="tts">darts</annotation>
 		<annotation cp="🪀">hrajka | jojo</annotation>
 		<annotation cp="🪀" type="tts">jojo</annotation>
-		<annotation cp="🪁">lećeć | lětać | wólny čas | wonka | zmij | zmija pušćeć</annotation>
+		<annotation cp="🪁">lećeć | lětać | wólny čas | wonka | zmij | zmij za pušćenje | zmija pušćeć</annotation>
 		<annotation cp="🪁" type="tts">zmij za pušćenje</annotation>
 		<annotation cp="🎱">billard | billardowa kula | čisło wosom | čisło wósom | hra | kula | wosom | wósom</annotation>
 		<annotation cp="🎱" type="tts">billardowa kula</annotation>
@@ -2367,13 +2367,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♥" type="tts">wutrobička</annotation>
 		<annotation cp="♦">hra | hrajna karta | karo | kartowa hra | karty | karty placać | šele</annotation>
 		<annotation cp="♦" type="tts">karo</annotation>
-		<annotation cp="♣">hra | hrajna karta | kartowa hra | karty | karty placać | křižik | žołdźe</annotation>
+		<annotation cp="♣">hra | hrajna karta | kartowa hra | karty | karty placać | křižik | křižik na hrajnej karće | žołdźe</annotation>
 		<annotation cp="♣" type="tts">křižik na hrajnej karće</annotation>
 		<annotation cp="♟">burik | figura | šach | šachowa figura</annotation>
 		<annotation cp="♟" type="tts">burik</annotation>
 		<annotation cp="🃏">hrajna karta | joker | kartowa hra</annotation>
 		<annotation cp="🃏" type="tts">joker</annotation>
-		<annotation cp="🀄">čerwjeny zmij | hra | hrajny kamušk | mahjong</annotation>
+		<annotation cp="🀄">čerwjeny zmij | hra | hrajny kamušk | mahjong | mahjong-kamušk</annotation>
 		<annotation cp="🀄" type="tts">mahjong-kamušk</annotation>
 		<annotation cp="🎴">hra | hrajne karty | hrajne karty z kwětkami | Japanska | japanske | karty</annotation>
 		<annotation cp="🎴" type="tts">hrajne karty z kwětkami</annotation>
@@ -2717,7 +2717,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗓" type="tts">protyka ze spiralnej wjazbu</annotation>
 		<annotation cp="📇">register | system | wizitka | wizitki | wjerćity | wjerćity register za wizitki</annotation>
 		<annotation cp="📇" type="tts">wjerćity register za wizitki</annotation>
-		<annotation cp="📈">diagram | grafika | křiwica | rozrost | stupacy | trend</annotation>
+		<annotation cp="📈">diagram | grafika | křiwica | rosćacy diagram | rozrost | stupacy | trend</annotation>
 		<annotation cp="📈" type="tts">rosćacy diagram</annotation>
 		<annotation cp="📉">diagram | grafika | křiwica | spadowacy | trend | woteběracy</annotation>
 		<annotation cp="📉" type="tts">spadowacy diagram</annotation>
@@ -2765,7 +2765,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛏" type="tts">kilop</annotation>
 		<annotation cp="⚒">dźěłanskej grataj | hamor | hamor a kilop | kilop | kilopk</annotation>
 		<annotation cp="⚒" type="tts">hamor a kilop</annotation>
-		<annotation cp="🛠">dźěłanskej grataj | hamor | hamor a škrubowy kluč | šrubowy kluč</annotation>
+		<annotation cp="🛠">dźěłanskej grataj | hamor | hamor a škrubowy kluč | hamor a šrubowy kluč | šrubowy kluč</annotation>
 		<annotation cp="🛠" type="tts">hamor a šrubowy kluč</annotation>
 		<annotation cp="🗡">bróń | mječik</annotation>
 		<annotation cp="🗡" type="tts">mječik</annotation>
@@ -2785,7 +2785,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔧" type="tts">šrubowy kluč</annotation>
 		<annotation cp="🪛">dźěłanski grat | šrub | šrubowak</annotation>
 		<annotation cp="🪛" type="tts">šrubowak</annotation>
-		<annotation cp="🔩">maćica | šrub | šrubica | zešrubować</annotation>
+		<annotation cp="🔩">maćica | šrub | šrub a maćica | šrubica | zešrubować</annotation>
 		<annotation cp="🔩" type="tts">šrub a maćica</annotation>
 		<annotation cp="⚙">dźěłanski grat | kolesko | zubičkate kolesko</annotation>
 		<annotation cp="⚙" type="tts">zubičkate kolesko</annotation>
@@ -2887,25 +2887,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪦" type="tts">narowny kamjeń</annotation>
 		<annotation cp="⚱">mortwy | pohrjeb | popjelnica | smjerć | zemrěć</annotation>
 		<annotation cp="⚱" type="tts">popjelnica</annotation>
-		<annotation cp="🗿">Jutrowna kupa | Polyneziska | statuwa | wobličo</annotation>
+		<annotation cp="🗿">Jutrowna kupa | moai | Polyneziska | statuwa | wobličo</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
 		<annotation cp="🪧">demonstracija | plakat | protest | taflička | transparent</annotation>
 		<annotation cp="🪧" type="tts">transparent</annotation>
-		<annotation cp="🏧">pjenježny awtomat | pjenjezy | symbol | wotzběhnyć</annotation>
+		<annotation cp="🏧">pjenježny awtomat | pjenjezy | symbol | symbol &quot;pjenježny awtomat&quot; | wotzběhnyć</annotation>
 		<annotation cp="🏧" type="tts">symbol &quot;pjenježny awtomat&quot;</annotation>
-		<annotation cp="🚮">koš za wotpadki | papjernik | smjeće | symbol | wotpadki</annotation>
+		<annotation cp="🚮">koš za wotpadki | papjernik | smjeće | symbol | symbol &quot;koš za wotpadki&quot; | wotpadki</annotation>
 		<annotation cp="🚮" type="tts">symbol &quot;koš za wotpadki&quot;</annotation>
-		<annotation cp="🚰">pitna woda | symbol | woda</annotation>
+		<annotation cp="🚰">pitna woda | symbol | symbol &quot;pitna woda&quot; | woda</annotation>
 		<annotation cp="🚰" type="tts">symbol &quot;pitna woda&quot;</annotation>
-		<annotation cp="♿">bjezbarjernosć | jězbny stoł | symbol | zbrašenym přiměrjene</annotation>
+		<annotation cp="♿">bjezbarjernosć | jězbny stoł | symbol | symbol &quot;jězbny stoł&quot; | zbrašenym přiměrjene</annotation>
 		<annotation cp="♿" type="tts">symbol &quot;jězbny stoł&quot;</annotation>
-		<annotation cp="🚹">muž | mužojo | nuznik | symbol | toaleta | toaleta za mužow | wustup</annotation>
+		<annotation cp="🚹">muž | mužojo | nuznik | symbol | symbol &quot;toaleta za mužow&quot; | toaleta | toaleta za mužow | wustup</annotation>
 		<annotation cp="🚹" type="tts">symbol &quot;toaleta za mužow&quot;</annotation>
-		<annotation cp="🚺">nuznik | symbol | toaleta | toaleta za žony | wustup | žona | žony</annotation>
+		<annotation cp="🚺">nuznik | symbol | symbol &quot;toaleta za žony&quot; | toaleta | toaleta za žony | wustup | žona | žony</annotation>
 		<annotation cp="🚺" type="tts">symbol &quot;toaleta za žony&quot;</annotation>
-		<annotation cp="🚻">nuzniki | symbol | toalety | wustup</annotation>
+		<annotation cp="🚻">nuzniki | symbol | symbol &quot;toalety&quot; | toalety | wustup</annotation>
 		<annotation cp="🚻" type="tts">symbol &quot;toalety&quot;</annotation>
-		<annotation cp="🚼">ćěšenk | rumnosć za pjeluškowanje | symbol</annotation>
+		<annotation cp="🚼">ćěšenk | rumnosć za pjeluškowanje | symbol | symbol &quot;ćěšenk&quot;</annotation>
 		<annotation cp="🚼" type="tts">symbol &quot;ćěšenk&quot;</annotation>
 		<annotation cp="🚾">nuznik | toaleta | WC | wodowy wustup | wustup</annotation>
 		<annotation cp="🚾" type="tts">WC</annotation>
@@ -2977,7 +2977,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔄" type="tts">napřećiwnej kłokaj přećiwo směrej časnika</annotation>
 		<annotation cp="🔙">dozady | kłok | kłok z napisom BACK | napis BACK | wróćo</annotation>
 		<annotation cp="🔙" type="tts">kłok z napisom BACK</annotation>
-		<annotation cp="🔚">dolěwa | kłod | kłok z napisom END | kónc</annotation>
+		<annotation cp="🔚">dolěwa | kłod | kłod z napisom END | kłok z napisom END | kónc</annotation>
 		<annotation cp="🔚" type="tts">kłod z napisom END</annotation>
 		<annotation cp="🔛">doprawa a dolěwa | kłok | kłok z napisom ON!</annotation>
 		<annotation cp="🔛" type="tts">kłok z napisom ON!</annotation>
@@ -3001,87 +3001,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✝" type="tts">łaćonski křiž</annotation>
 		<annotation cp="☦">křesćanstwo | křiž | nabožina | prawosławny</annotation>
 		<annotation cp="☦" type="tts">prawosławny křiž</annotation>
-		<annotation cp="☪">hilal | hwězda | islam | moslem | muslim | połměsačk</annotation>
+		<annotation cp="☪">hilal | hwězda | hwězda a połměsačk | islam | moslem | muslim | połměsačk</annotation>
 		<annotation cp="☪" type="tts">hwězda a połměsačk</annotation>
 		<annotation cp="☮">měr | měrowe hibanje | symbol | symbol měra</annotation>
 		<annotation cp="☮" type="tts">symbol měra</annotation>
 		<annotation cp="🕎">menora | nabožina | swěčnik | sydomručny</annotation>
 		<annotation cp="🕎" type="tts">menora</annotation>
-		<annotation cp="🔯">heksagram | hwězda | šěsćkónčkata hwězda | wěšćer | wěšćerka</annotation>
+		<annotation cp="🔯">heksagram | heksagram z dypkom | hwězda | šěsćkónčkata hwězda | wěšćer | wěšćerka</annotation>
 		<annotation cp="🔯" type="tts">heksagram z dypkom</annotation>
-		<annotation cp="♈">Boran | hwězdne znamjo | zwěrjatnik</annotation>
+		<annotation cp="♈">Boran | Boran (hwězdne znamjo) | hwězdne znamjo | zwěrjatnik</annotation>
 		<annotation cp="♈" type="tts">Boran (hwězdne znamjo)</annotation>
-		<annotation cp="♉">Byk | Ćělc | hwězdne znamjo | zwěrjatnik</annotation>
+		<annotation cp="♉">Byk | Byk (hwězdne znamjo) | Ćělc | hwězdne znamjo | zwěrjatnik</annotation>
 		<annotation cp="♉" type="tts">Byk (hwězdne znamjo)</annotation>
-		<annotation cp="♊">Dwójnikaj | Dwójniki | hwězdne znamjo | zwěrjatnik</annotation>
+		<annotation cp="♊">Dwójnikaj | Dwójnikaj (hwězdne znamjo) | Dwójniki | hwězdne znamjo | zwěrjatnik</annotation>
 		<annotation cp="♊" type="tts">Dwójnikaj (hwězdne znamjo)</annotation>
-		<annotation cp="♋">hwězdne znamjo | Rak | zwěrjatnik</annotation>
+		<annotation cp="♋">hwězdne znamjo | Rak | Rak (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♋" type="tts">Rak (hwězdne znamjo)</annotation>
-		<annotation cp="♌">hwězdne znamjo | Law | zwěrjatnik</annotation>
+		<annotation cp="♌">hwězdne znamjo | Law | Law (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♌" type="tts">Law (hwězdne znamjo)</annotation>
-		<annotation cp="♍">hwězdne znamjo | Knježna | zwěrjatnik</annotation>
+		<annotation cp="♍">hwězdne znamjo | Knježna | Knježna (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♍" type="tts">Knježna (hwězdne znamjo)</annotation>
-		<annotation cp="♎">hwězdne znamjo | Waha | zwěrjatnik</annotation>
+		<annotation cp="♎">hwězdne znamjo | Waha | Waha (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♎" type="tts">Waha (hwězdne znamjo)</annotation>
-		<annotation cp="♏">hwězdne znamjo | Skorpion | zwěrjatnik</annotation>
+		<annotation cp="♏">hwězdne znamjo | Skorpion | Skorpion (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♏" type="tts">Skorpion (hwězdne znamjo)</annotation>
-		<annotation cp="♐">hwězdne znamjo | Třělc | zwěrjatnik</annotation>
+		<annotation cp="♐">hwězdne znamjo | Třělc | Třělc (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♐" type="tts">Třělc (hwězdne znamjo)</annotation>
-		<annotation cp="♑">hwězdne znamjo | Kozoróžk | Skalny kozoł | zwěrjatnik</annotation>
+		<annotation cp="♑">hwězdne znamjo | Kozoróžk | Kozoróžk (hwězdne znamjo) | Skalny kozoł | zwěrjatnik</annotation>
 		<annotation cp="♑" type="tts">Kozoróžk (hwězdne znamjo)</annotation>
-		<annotation cp="♒">hwězdne znamjo | Wódny muž | zwěrjatnik</annotation>
+		<annotation cp="♒">hwězdne znamjo | Wódny muž | Wódny muž (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♒" type="tts">Wódny muž (hwězdne znamjo)</annotation>
-		<annotation cp="♓">hwězdne znamjo | Rybje | Ryby | zwěrjatnik</annotation>
+		<annotation cp="♓">hwězdne znamjo | Rybje | Ryby | Ryby (hwězdne znamjo) | zwěrjatnik</annotation>
 		<annotation cp="♓" type="tts">Ryby (hwězdne znamjo)</annotation>
 		<annotation cp="⛎">Hadadźeržnik | hwězdne znamjo | Ofiuchus</annotation>
 		<annotation cp="⛎" type="tts">Hadadźeržnik</annotation>
-		<annotation cp="🔀">kłokaj | připad | připadny wuběr | so křižowacej kłokaj | tłóčatko za wuběr po připadźe | wuběraj po připadźe</annotation>
+		<annotation cp="🔀">kłokaj | připad | připadny wuběr | so křižowacej kłokaj | tłóčatko &quot;wuběraj po připadźe&quot; | tłóčatko za wuběr po připadźe | wuběraj po připadźe</annotation>
 		<annotation cp="🔀" type="tts">tłóčatko &quot;wuběraj po připadźe&quot;</annotation>
-		<annotation cp="🔁">hišće raz | kłokaj | tłóčatko za wospjetowanje | w směrje časnika | wospjetne wohrawanje | wospjetować | wospjetuj</annotation>
+		<annotation cp="🔁">hišće raz | kłokaj | tłóčatko &quot;wospjetuj&quot; | tłóčatko za wospjetowanje | w směrje časnika | wospjetne wohrawanje | wospjetować | wospjetuj</annotation>
 		<annotation cp="🔁" type="tts">tłóčatko &quot;wospjetuj&quot;</annotation>
-		<annotation cp="🔂">hišće raz | kłokaj | spěw wospjetować | tłóčatko za wospjetowanje jednoho spěwa | wospjetne wothrawanje | wospjetuj jedyn spěw</annotation>
+		<annotation cp="🔂">hišće raz | kłokaj | spěw wospjetować | tłóčatko &quot;wospjetuj jedyn spěw&quot; | tłóčatko za wospjetowanje jednoho spěwa | wospjetne wothrawanje | wospjetuj jedyn spěw</annotation>
 		<annotation cp="🔂" type="tts">tłóčatko &quot;wospjetuj jedyn spěw&quot;</annotation>
-		<annotation cp="▶">kłok | třiróžk | wothrawać | wothrawaj</annotation>
+		<annotation cp="▶">kłok | tłóčatko &quot;wohrawaj&quot; | třiróžk | wothrawać | wothrawaj</annotation>
 		<annotation cp="▶" type="tts">tłóčatko &quot;wohrawaj&quot;</annotation>
-		<annotation cp="⏩">dale | doprawa | doprědka | dwójny kłok | přeskočić | wothrawaj spěšnišo</annotation>
+		<annotation cp="⏩">dale | doprawa | doprědka | dwójny kłok | přeskočić | tłóčatko &quot;wothrawaj spěšnišo&quot; | wothrawaj spěšnišo</annotation>
 		<annotation cp="⏩" type="tts">tłóčatko &quot;wothrawaj spěšnišo&quot;</annotation>
-		<annotation cp="⏭">dale | doprědka | dwójny kłok | přichodny spěw | přichodny titul | skoč k přichodnemu titulej | třiróžk</annotation>
+		<annotation cp="⏭">dale | doprědka | dwójny kłok | přichodny spěw | přichodny titul | skoč k přichodnemu titulej | tłóčatko &quot;skoč k přichodnemu titulej&quot; | třiróžk</annotation>
 		<annotation cp="⏭" type="tts">tłóčatko &quot;skoč k přichodnemu titulej&quot;</annotation>
-		<annotation cp="⏯">kłok | přestawka | třiróžk | wothrawać | wothrawaj abo čiń přestawku</annotation>
+		<annotation cp="⏯">kłok | přestawka | tłóčatko &quot;wothrawaj abo čiń přestawku&quot; | třiróžk | wothrawać | wothrawaj abo čiń přestawku</annotation>
 		<annotation cp="⏯" type="tts">tłóčatko &quot;wothrawaj abo čiń přestawku&quot;</annotation>
-		<annotation cp="◀">dolěwa | kłok | třiróžk | wjerć wróćo | wróćo | wróćo wjerćeć</annotation>
+		<annotation cp="◀">dolěwa | kłok | tłóčatko &quot;wjerć wróćo&quot; | třiróžk | wjerć wróćo | wróćo | wróćo wjerćeć</annotation>
 		<annotation cp="◀" type="tts">tłóčatko &quot;wjerć wróćo&quot;</annotation>
-		<annotation cp="⏪">dozady | dwójny kłok | dwójny kłok dolěwa | předchadźacy titul | spěšnišo wróćo wjerćeć | třiróžk | wjerć spěšnišo wróćo</annotation>
+		<annotation cp="⏪">dozady | dwójny kłok | dwójny kłok dolěwa | předchadźacy titul | spěšnišo wróćo wjerćeć | tłóčatko &quot;wjerć spěšnišo wróćo&quot; | třiróžk | wjerć spěšnišo wróćo</annotation>
 		<annotation cp="⏪" type="tts">tłóčatko &quot;wjerć spěšnišo wróćo&quot;</annotation>
-		<annotation cp="⏮">dwójny kłok | kłok | předchadźacy titul | skoč k předchadźacemu titulej | třiróžk</annotation>
+		<annotation cp="⏮">dwójny kłok | kłok | předchadźacy titul | skoč k předchadźacemu titulej | tłóčatko &quot;skoč k předchadźacemu titulej&quot; | třiróžk</annotation>
 		<annotation cp="⏮" type="tts">tłóčatko &quot;skoč k předchadźacemu titulej&quot;</annotation>
-		<annotation cp="🔼">horje | kłok | tłóčatko</annotation>
+		<annotation cp="🔼">horje | kłok | tłóčatko | tłóčatko &quot;horje&quot;</annotation>
 		<annotation cp="🔼" type="tts">tłóčatko &quot;horje&quot;</annotation>
-		<annotation cp="⏫">dwójny kłok | horje | spěšnišo | spěšnje horje | tłóčatko</annotation>
+		<annotation cp="⏫">dwójny kłok | horje | spěšnišo | spěšnje horje | tłóčatko | tłóčatko &quot;spěšnje horje&quot;</annotation>
 		<annotation cp="⏫" type="tts">tłóčatko &quot;spěšnje horje&quot;</annotation>
-		<annotation cp="🔽">dele | kłok | tłóčatko</annotation>
+		<annotation cp="🔽">dele | kłok | tłóčatko | tłóčatko &quot;dele&quot;</annotation>
 		<annotation cp="🔽" type="tts">tłóčatko &quot;dele&quot;</annotation>
-		<annotation cp="⏬">dele | dwójny kłok | kłok | spěšnje dele</annotation>
+		<annotation cp="⏬">dele | dwójny kłok | kłok | spěšnje dele | tłóčatko &quot;spěšnje dele&quot;</annotation>
 		<annotation cp="⏬" type="tts">tłóčatko &quot;spěšnje dele&quot;</annotation>
-		<annotation cp="⏸">čiń přestawku | přestawka | přetorhnyć | smuze</annotation>
+		<annotation cp="⏸">čiń přestawku | přestawka | přetorhnyć | smuze | tłóčatko &quot;přestawka&quot;</annotation>
 		<annotation cp="⏸" type="tts">tłóčatko &quot;přestawka&quot;</annotation>
-		<annotation cp="⏹">kwadrat | nahrawanje zastajić | stop | wothrawanje zastajić</annotation>
+		<annotation cp="⏹">kwadrat | nahrawanje zastajić | stop | tłóčatko &quot;stop&quot; | wothrawanje zastajić</annotation>
 		<annotation cp="⏹" type="tts">tłóčatko &quot;stop&quot;</annotation>
-		<annotation cp="⏺">kruh | nahrawać | nahrawaj | nahrawanje</annotation>
+		<annotation cp="⏺">kruh | nahrawać | nahrawaj | nahrawanje | tłóčatko &quot;nahrawaj&quot;</annotation>
 		<annotation cp="⏺" type="tts">tłóčatko &quot;nahrawaj&quot;</annotation>
-		<annotation cp="⏏">medije | štyriróžk | třiróžk | wusuń | wusunyć</annotation>
+		<annotation cp="⏏">medije | štyriróžk | tłóčatko &quot;wusuń&quot; | třiróžk | wusuń | wusunyć</annotation>
 		<annotation cp="⏏" type="tts">tłóčatko &quot;wusuń&quot;</annotation>
 		<annotation cp="🎦">film | kino | sej film wobhladać | zabawa</annotation>
 		<annotation cp="🎦" type="tts">kino</annotation>
-		<annotation cp="🔅">ćěmnišo | sćěmnić | swěca | swětłosć | tłóčatko | zaćěmnjeć</annotation>
+		<annotation cp="🔅">ćěmnišo | sćěmnić | swěca | swětłosć | tłóčatko | tłóčatko &quot;ćěmnišo&quot; | zaćěmnjeć</annotation>
 		<annotation cp="🔅" type="tts">tłóčatko &quot;ćěmnišo&quot;</annotation>
-		<annotation cp="🔆">jasnosć | swěca | swětlišo | swětłosć | tłóčatko</annotation>
+		<annotation cp="🔆">jasnosć | swěca | swětlišo | swětłosć | tłóčatko | tłóčatko &quot;swětlišo&quot;</annotation>
 		<annotation cp="🔆" type="tts">tłóčatko &quot;swětlišo&quot;</annotation>
 		<annotation cp="📶">mobilne škričkowanje | mobilnoškričowanski zwisk | signal | stołpiki | sylnosć signala</annotation>
 		<annotation cp="📶" type="tts">sylnosć signala</annotation>
-		<annotation cp="📳">handy | mobilny telefon | wibracija | wibraciski modus</annotation>
+		<annotation cp="📳">handy | mobilny telefon | tłóčatko &quot;wibraciski modus&quot; | wibracija | wibraciski modus</annotation>
 		<annotation cp="📳" type="tts">tłóčatko &quot;wibraciski modus&quot;</annotation>
-		<annotation cp="📴">handy hasnyć | hasń | hasnyć | mobilny telefon</annotation>
+		<annotation cp="📴">handy hasnyć | hasń | hasnyć | mobilny telefon | tłóčatko &quot;hasń handy&quot;</annotation>
 		<annotation cp="📴" type="tts">tłóčatko &quot;hasń handy&quot;</annotation>
 		<annotation cp="♀">symbol | symbol za žónski splah | žona | žónski splah</annotation>
 		<annotation cp="♀" type="tts">symbol za žónski splah</annotation>
@@ -3089,7 +3089,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♂" type="tts">symbol za muski splah</annotation>
 		<annotation cp="⚧">symbol | transgender | transgenderowy symbol</annotation>
 		<annotation cp="⚧" type="tts">transgenderowy symbol</annotation>
-		<annotation cp="✖">króćličenje | multiplikacija | multiplikować | namnoženje | namnožić | přetorhnyć</annotation>
+		<annotation cp="✖">króćličenje | multiplikacija | multiplikować | namnoženje | namnožić | přetorhnyć | znamješko multiplikacije</annotation>
 		<annotation cp="✖" type="tts">znamješko multiplikacije</annotation>
 		<annotation cp="➕">plus | plusowe znamješko | znamješko plus</annotation>
 		<annotation cp="➕" type="tts">znamješko plus</annotation>
@@ -3097,7 +3097,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➖" type="tts">znamješko minus</annotation>
 		<annotation cp="➗">diwiděrować | diwizija | dźělenje přez | dźělić přez | znamješko diwizije</annotation>
 		<annotation cp="➗" type="tts">znamješko diwizije</annotation>
-		<annotation cp="♾">bjezkónčnosć | na přeco | njeskónčnosć | wěčnje | znamješko</annotation>
+		<annotation cp="♾">bjezkónčnosć | na přeco | njeskónčnosć | wěčnje | znamješko | znamješko bjezkónčnosće</annotation>
 		<annotation cp="♾" type="tts">znamješko bjezkónčnosće</annotation>
 		<annotation cp="‼">čerwjene | dwaj wuwołakaj | dwójny | dwójny wuwołak | interpunkciske znamješko</annotation>
 		<annotation cp="‼" type="tts">dwójny wuwołak</annotation>
@@ -3133,7 +3133,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⭕" type="tts">prózdny čerwjeny kruh</annotation>
 		<annotation cp="✅">běła hóčka | hotowe | tłóčatko z běłej hóčku | wotbyte | wothóčkowane</annotation>
 		<annotation cp="✅" type="tts">tłóčatko z běłej hóčku</annotation>
-		<annotation cp="☑">hóčka | kontrolny kašćik | wothłosować | wothłosowanski kašćik | wothóčkować</annotation>
+		<annotation cp="☑">hóčka | kontrolny kašćik | kontrolny kašćik z hóčku | wothłosować | wothłosowanski kašćik | wothóčkować</annotation>
 		<annotation cp="☑" type="tts">kontrolny kašćik z hóčku</annotation>
 		<annotation cp="✔">hóčka | hotowe | tučna hóčka | wothóčkować</annotation>
 		<annotation cp="✔" type="tts">tučna hóčka</annotation>
@@ -3141,7 +3141,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❌" type="tts">křižik</annotation>
 		<annotation cp="❎">křižik | křižik w kwadraće | kwadrat | tłóčatko z křižikom</annotation>
 		<annotation cp="❎" type="tts">tłóčatko z křižikom</annotation>
-		<annotation cp="➰">looping | sekla | symbol</annotation>
+		<annotation cp="➰">looping | sekla | symbol | zawróćenska sekla</annotation>
 		<annotation cp="➰" type="tts">zawróćenska sekla</annotation>
 		<annotation cp="➿">dwójna sekla | looping | sekla | symbol</annotation>
 		<annotation cp="➿" type="tts">dwójna sekla</annotation>
@@ -3169,11 +3169,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔣" type="tts">zapodaj symbole</annotation>
 		<annotation cp="🔤">alfabet | łaćonski | pismiki | zapodaj łaćonske pismiki</annotation>
 		<annotation cp="🔤" type="tts">zapodaj łaćonske pismiki</annotation>
-		<annotation cp="🅰">a | A | čerwjeny kwadrat | krejna skupina | znamješko</annotation>
+		<annotation cp="🅰">a | A | čerwjeny kwadrat | krejna skupina | znamješko | znamješko A (krejna skupina)</annotation>
 		<annotation cp="🅰" type="tts">znamješko A (krejna skupina)</annotation>
-		<annotation cp="🆎">ab | AB | čerwjeny kwadrat | krejna skupina | znamješko</annotation>
+		<annotation cp="🆎">ab | AB | čerwjeny kwadrat | krejna skupina | znamješko | znamješko AB (krejna skupina)</annotation>
 		<annotation cp="🆎" type="tts">znamješko AB (krejna skupina)</annotation>
-		<annotation cp="🅱">b | B | čerwjeny kwadrat | krejna skupina | znamješko</annotation>
+		<annotation cp="🅱">b | B | čerwjeny kwadrat | krejna skupina | znamješko | znamješko B (krejna skupina)</annotation>
 		<annotation cp="🅱" type="tts">znamješko B (krejna skupina)</annotation>
 		<annotation cp="🆑">CL | znamješko</annotation>
 		<annotation cp="🆑" type="tts">znamješko CL</annotation>
@@ -3181,7 +3181,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆒" type="tts">znamješko COOL</annotation>
 		<annotation cp="🆓">FREE | znamješko</annotation>
 		<annotation cp="🆓" type="tts">znamješko FREE</annotation>
-		<annotation cp="ℹ">informować so | pismik i | symbol za informaciju | turistiska informacija</annotation>
+		<annotation cp="ℹ">informacija | informować so | pismik i | symbol za informaciju | turistiska informacija</annotation>
 		<annotation cp="ℹ" type="tts">informacija</annotation>
 		<annotation cp="🆔">ID | identita | znamješko</annotation>
 		<annotation cp="🆔" type="tts">znamješko ID</annotation>
@@ -3191,7 +3191,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆕" type="tts">znamješko NEW</annotation>
 		<annotation cp="🆖">NG | znamješko</annotation>
 		<annotation cp="🆖" type="tts">znamješko NG</annotation>
-		<annotation cp="🅾">0 | čerwjeny kwadrat | krejna skupina | znamješko</annotation>
+		<annotation cp="🅾">0 | čerwjeny kwadrat | krejna skupina | znamješko | znamješko 0 (krejna skupina)</annotation>
 		<annotation cp="🅾" type="tts">znamješko 0 (krejna skupina)</annotation>
 		<annotation cp="🆗">OK | přezjedny | w porjadku | znamješko</annotation>
 		<annotation cp="🆗" type="tts">znamješko OK</annotation>
@@ -3321,27 +3321,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳‍⚧" type="tts">transgender-chorhojčka</annotation>
 		<annotation cp="🏴‍☠">piraća | pirat | piratowska chorhojčka | pokład</annotation>
 		<annotation cp="🏴‍☠" type="tts">piratowska chorhojčka</annotation>
-		<annotation cp="¢">cent | měna | pjenjezy</annotation>
+		<annotation cp="¢">cent | měna | pjenjezy | symbol za cent</annotation>
 		<annotation cp="¢" type="tts">symbol za cent</annotation>
-		<annotation cp="$">dolar | měna | pjenjezy | symbol</annotation>
+		<annotation cp="$">dolar | měna | pjenjezy | symbol | symbol za dolar</annotation>
 		<annotation cp="$" type="tts">symbol za dolar</annotation>
-		<annotation cp="£">britiski punt | měna | pjenjezy | punt | symbol</annotation>
+		<annotation cp="£">britiski punt | měna | pjenjezy | punt | symbol | symbol za punt</annotation>
 		<annotation cp="£" type="tts">symbol za punt</annotation>
-		<annotation cp="¥">měna | pjenjezy | symbol | yen</annotation>
+		<annotation cp="¥">měna | pjenjezy | symbol | symbol za yen | yen</annotation>
 		<annotation cp="¥" type="tts">symbol za yen</annotation>
-		<annotation cp="₥">měna | mill | pjenjezy</annotation>
+		<annotation cp="₥">měna | mill | pjenjezy | symbol za mill</annotation>
 		<annotation cp="₥" type="tts">symbol za mill</annotation>
-		<annotation cp="₩">měna | pjenjezy | won</annotation>
+		<annotation cp="₩">měna | pjenjezy | symbol za won | won</annotation>
 		<annotation cp="₩" type="tts">symbol za won</annotation>
-		<annotation cp="€">euro | měna | pjenjezy | symbol</annotation>
+		<annotation cp="€">euro | měna | pjenjezy | symbol | symbol za euro</annotation>
 		<annotation cp="€" type="tts">symbol za euro</annotation>
-		<annotation cp="₱">měna | peso | pjenjezy</annotation>
+		<annotation cp="₱">měna | peso | pjenjezy | symbol za peso</annotation>
 		<annotation cp="₱" type="tts">symbol za peso</annotation>
-		<annotation cp="₹">Indiska | indiska rupija | měna | pjenjezy | symbol</annotation>
+		<annotation cp="₹">Indiska | indiska rupija | měna | pjenjezy | symbol | symbol za indisku rupiju</annotation>
 		<annotation cp="₹" type="tts">symbol za indisku rupiju</annotation>
-		<annotation cp="₽">měna | pjenjezy | rubl | symbol</annotation>
+		<annotation cp="₽">měna | pjenjezy | rubl | symbol | symbol za rubl</annotation>
 		<annotation cp="₽" type="tts">symbol za rubl</annotation>
-		<annotation cp="₿">bitcoin | měna | płaćenski srědk</annotation>
+		<annotation cp="₿">bitcoin | měna | płaćenski srědk | symbol za bitcoin</annotation>
 		<annotation cp="₿" type="tts">symbol za bitcoin</annotation>
 		<annotation cp="¹">čisło jedyn | jedynka | jedynka jako powyšene znamješko | powyšene znamješko</annotation>
 		<annotation cp="¹" type="tts">jedynka jako powyšene znamješko</annotation>
@@ -3349,7 +3349,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="²" type="tts">dwójka jako powyšene znamješko</annotation>
 		<annotation cp="³">čisło tři | trójka | trójka jako powyšene znamješko</annotation>
 		<annotation cp="³" type="tts">trójka jako powyšene znamješko</annotation>
-		<annotation cp="µ">měra | mikro | znamješko</annotation>
+		<annotation cp="µ">měra | mikro | znamješko | znamješko za mikro</annotation>
 		<annotation cp="µ" type="tts">znamješko za mikro</annotation>
 	</annotations>
 </ldml>

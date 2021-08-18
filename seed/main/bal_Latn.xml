@@ -115,8 +115,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characters>
 		<exemplarCharacters draft="provisional">[a á b c d e é g h i j k l m n o ó p r s t u v w y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="provisional">[f ń q x]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="provisional">[Á A B {Ch} D {Dh} É E F G H I J K L M N Ó O P R {Rh} S {Sh} T {Th} U V W Y Z {Zh}]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="provisional">[, . ? : ; ‘ ’ “ ”]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="provisional">[A Á B {Ch} D {Dh} E É F G H I J K L M N O Ó P R {Rh} S {Sh} T {Th} U V W Y Z {Zh}]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="provisional">[, ; \: ? . ‘ ’ “ ”]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>↑↑↑</quotationStart>
@@ -226,17 +226,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE, d MMMM, yyyy</pattern>
+							<pattern draft="provisional">EEEE, d MMMM, y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">d MMMM, yyyy</pattern>
+							<pattern draft="provisional">d MMMM, y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">d MMM, yyyy</pattern>
+							<pattern draft="provisional">d MMM, y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -582,7 +582,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="provisional">¤ #,##0.00</pattern>
+					<pattern draft="provisional">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

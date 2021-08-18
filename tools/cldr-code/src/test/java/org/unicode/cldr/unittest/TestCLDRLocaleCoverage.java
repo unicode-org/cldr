@@ -95,7 +95,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // If this fails, it is because of a mismatch between coverage and the getCLDRLanguageCodes.
         // Usually a problem with coverage.
         boolean showRegex = !assertContains("localesForNames.containsAll(coverageLocales)", localesForNames, coverageLocales);
-        showRegex |= !assertContains("coverageLocales.containsAll(localesForNames)", coverageLocales, localesForNames);
+        showRegex |= !assertContains("coverageLocales.containsAll(localesForNames) - add to %language80 or lower under coverageLevels.xml?", coverageLocales, localesForNames);
         if (showRegex || true) {
             String simplePattern = MinimizeRegex.simplePattern(localesForNames);
             warnln("Plain Regex for coverage:\n" + simplePattern);
@@ -180,9 +180,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             for (String locale : temp) {
                 temp2.add(locale + "\t" + ENGLISH.getName(locale));
             }
-            warnln("Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
+            errln(title + ": Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
         }
-        assertTrue(title, result);
         return result;
     }
 

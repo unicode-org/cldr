@@ -1906,7 +1906,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
         if (!surveyToolLanguages.containsAll(mainLanguages)) {
             mainLanguages.removeAll(surveyToolLanguages);
-            assertEquals("No main/* languages are missing from Survey Tool:language names (eg <variable id='$language' type='choice'>) ",
+            // TODO: See https://unicode-org.atlassian.net/browse/CLDR-14974
+            // Currently there is a requirement that all locales in main/* are in attributeValueValidity.xml
+            assertEquals("main/* languages missing from <variable id='$language'/> in attributeValueValidity.xml",
                 Collections.EMPTY_SET, mainLanguages);
         }
     }

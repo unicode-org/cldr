@@ -7638,10 +7638,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<ordinalMinimalPairs ordinal="one">ডান দিকে {0}ম বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">ডান দিকে {0}তম বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">ডান দিকে {0}য় বাঁকটি নিন।</ordinalMinimalPairs>
-			<caseMinimalPairs case="accusative">রবিবারকে আসার দিন হিসেবে ধরা হয় {0} টায়</caseMinimalPairs>
-			<caseMinimalPairs case="genitive">রবিবারের সন্ধ্যায় {0}টায় আসবে</caseMinimalPairs>
+			<caseMinimalPairs case="accusative">রবিবারকে আসার দিন হিসেবে ধরা হয় {0}</caseMinimalPairs>
+			<caseMinimalPairs case="genitive">রবিবারের সন্ধ্যায় {0} আসবে</caseMinimalPairs>
 			<caseMinimalPairs case="locative">রবিবারে {0} টায় আসবে</caseMinimalPairs>
-			<caseMinimalPairs case="nominative">রবিবার {0} টায় আসবে</caseMinimalPairs>
+			<caseMinimalPairs case="nominative">রবিবারে {0} আসবে</caseMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7749,13 +7749,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="acceleration-g-force">
 				<displayName>জি-বল</displayName>
 				<unitPattern count="one">{0} জি-বল</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} জি-বল</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>মিটার প্রতি বর্গ সেকেন্ডে</displayName>
@@ -7764,58 +7758,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>ঘূর্ণন</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ঘুর্ণন</unitPattern>
-				<unitPattern count="one" case="locative">{0} ঘুর্ণন</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ঘুর্ণন</unitPattern>
+				<unitPattern count="other">{0} ঘুর্ণন</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>রেডিয়্যান</displayName>
 				<unitPattern count="one">{0} রেডিয়্যান</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} রেডিয়্যান্স</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>ডিগ্রী</displayName>
 				<unitPattern count="one">{0} ডিগ্রী</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ডিগ্রী</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>আর্ক-মিনিট</displayName>
 				<unitPattern count="one">{0} আর্ক-মিনিট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} আর্ক-মিনিট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>আর্কসেকেন্ড</displayName>
 				<unitPattern count="one">{0} আর্কসেকেন্ড</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} আর্কসেকেন্ড</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>বর্গ কিলোমিটার</displayName>
@@ -7826,13 +7790,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-hectare">
 				<displayName>হেক্টর</displayName>
 				<unitPattern count="one">{0} হেক্টর</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} হেক্টর</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>বর্গ মিটার</displayName>
@@ -7881,13 +7839,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-karat">
 				<displayName>ক্যারেট</displayName>
 				<unitPattern count="one">{0} ক্যারেট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যারেট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>মিলিগ্রাম, প্রতি ডেসিলিটারে</displayName>
@@ -7907,57 +7859,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permillion">
 				<displayName>ভাগ, প্রতি মিলিয়নে</displayName>
 				<unitPattern count="one">{0} ভাগ, প্রতি মিলিয়নে</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ভাগ, প্রতি মিলিয়নে</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>শতাংশ</displayName>
 				<unitPattern count="one">{0}শতাংশ</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}শতাংশ</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>প্রতিমাইল</displayName>
 				<unitPattern count="one">{0} প্রতিমাইল</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}প্রতিমাইল</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} পারমিরিয়াড</unitPattern>
-				<unitPattern count="one" case="accusative">{0} পারমিরিয়াড</unitPattern>
-				<unitPattern count="one" case="genitive">{0} পারমিরিয়াড</unitPattern>
-				<unitPattern count="one" case="locative">{0} পারমিরিয়াড</unitPattern>
 				<unitPattern count="other">{0} পারমিরিয়াড</unitPattern>
-				<unitPattern count="other" case="accusative">{0} পারমিরিয়াড</unitPattern>
-				<unitPattern count="other" case="genitive">{0} পারমিরিয়াড</unitPattern>
-				<unitPattern count="other" case="locative">{0} পারমিরিয়াড</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>মোল্স</displayName>
 				<unitPattern count="one">{0} মোল</unitPattern>
-				<unitPattern count="one" case="accusative">{0} মোল</unitPattern>
-				<unitPattern count="one" case="genitive">{0} মোল</unitPattern>
-				<unitPattern count="one" case="locative">{0} মোল</unitPattern>
 				<unitPattern count="other">{0} মোল্স</unitPattern>
-				<unitPattern count="other" case="accusative">{0} মোল্স</unitPattern>
-				<unitPattern count="other" case="genitive">{0} মোল্স</unitPattern>
-				<unitPattern count="other" case="locative">{0} মোল্স</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>লিটার, প্রতি কিলোমিটারে</displayName>
@@ -8027,139 +7949,67 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-byte">
 				<displayName>বাইট</displayName>
 				<unitPattern count="one">{0} বাইট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বাইট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName>বিট</displayName>
 				<unitPattern count="one">{0} বিট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বিট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>শতাব্দী</displayName>
 				<unitPattern count="one">{0} শতাব্দী</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} শতাব্দী</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>দশক</displayName>
 				<unitPattern count="one">{0} দশক</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} দশক</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>বছর</displayName>
 				<unitPattern count="one">{0} বছর</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বছর</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি বছর</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>মাস</displayName>
 				<unitPattern count="one">{0} মাস</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মাস</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি মাস</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>সপ্তাহ</displayName>
 				<unitPattern count="one">{0} সপ্তাহ</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} সপ্তাহ</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি সপ্তাহ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>দিন</displayName>
 				<unitPattern count="one">{0} দিন</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি দিন</perUnitPattern>
 			</unit>
 			<unit type="duration-day-person">
 				<unitPattern count="one">{0} দিন</unitPattern>
-				<unitPattern count="one" case="accusative">{0} দিন</unitPattern>
-				<unitPattern count="one" case="genitive">{0} দিন</unitPattern>
-				<unitPattern count="one" case="locative">{0} দিন</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
-				<unitPattern count="other" case="accusative">{0} দিন</unitPattern>
-				<unitPattern count="other" case="genitive">{0} দিন</unitPattern>
-				<unitPattern count="other" case="locative">{0} দিন</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>ঘন্টা</displayName>
 				<unitPattern count="one">{0} ঘন্টা</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ঘন্টা</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি ঘন্টা</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>মিনিট</displayName>
 				<unitPattern count="one">{0} মিনিট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মিনিট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি মিনিট</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>সেকেন্ড</displayName>
 				<unitPattern count="one">{0} সেকেন্ড</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} সেকেন্ড</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি সেকেন্ড</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -8180,13 +8030,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ampere">
 				<displayName>অ্যাম্পিয়ার</displayName>
 				<unitPattern count="one">{0} অ্যাম্পিয়ার</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} অ্যাম্পিয়ার</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>মিলি-অ্যাম্পিয়ার</displayName>
@@ -8196,24 +8040,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ohm">
 				<displayName>ওহম</displayName>
 				<unitPattern count="one">{0} ওহম</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ওহম</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName>ভোল্ট</displayName>
 				<unitPattern count="one">{0} ভোল্ট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ভোল্ট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>কিলোক্যালরি</displayName>
@@ -8223,13 +8055,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-calorie">
 				<displayName>ক্যালোরি</displayName>
 				<unitPattern count="one">{0} ক্যালোরি</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যালোরি</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>ক্যালোরি</displayName>
@@ -8244,13 +8070,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-joule">
 				<displayName>জুল</displayName>
 				<unitPattern count="one">{0} জুল</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} জুল</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>কিলোওয়াট ঘন্টা</displayName>
@@ -8280,13 +8100,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="force-newton">
 				<displayName>নিউটন্স</displayName>
 				<unitPattern count="one">{0} নিউটন</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} নিউটন্স</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>কিলোওয়াট-ঘণ্টা প্রতি 100 কিলোমিটার</displayName>
@@ -8311,35 +8125,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-hertz">
 				<displayName>হার্জ</displayName>
 				<unitPattern count="one">{0} হার্জ</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} হার্জ</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>টাইপোগ্রাফিক em</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ems</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ems</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ems</unitPattern>
-				<unitPattern count="other" case="locative">{0} ems</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>পিক্সেল</displayName>
 				<unitPattern count="one">{0} পিক্সেল</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} পিক্সেল</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>মেগাপিক্সেল</displayName>
@@ -8385,13 +8181,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-meter">
 				<displayName>মিটার</displayName>
 				<unitPattern count="one">{0} মিটার</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মিটার</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি মিটার</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
@@ -8480,13 +8270,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-mile-scandinavian">
 				<displayName>মাইল-স্ক্যান্ডিনেভিয়ান</displayName>
 				<unitPattern count="one">{0} মাইল-স্ক্যান্ডিনেভিয়ান</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মাইল-স্ক্যান্ডিনেভিয়ান</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName>pt</displayName>
@@ -8501,35 +8285,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lux">
 				<displayName>লাক্স</displayName>
 				<unitPattern count="one">{0} লাক্স</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} লাক্স</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName>ক্যান্ডেলা</displayName>
 				<unitPattern count="one">{0} ক্যান্ডেলা</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যান্ডেলা</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName>লুমেন</displayName>
 				<unitPattern count="one">{0} লুমেন</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} লুমেন</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>সৌর ঔজ্জ্বল্য</displayName>
@@ -8539,36 +8305,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-metric-ton">
 				<displayName>মেট্রিক টন</displayName>
 				<unitPattern count="one">{0} মেট্রিক টন</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মেট্রিক টন</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>কিলোগ্রাম</displayName>
 				<unitPattern count="one">{0} কিলোগ্রাম</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} কিলোগ্রাম</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি কিলোগ্রাম</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>গ্রাম</displayName>
 				<unitPattern count="one">{0} গ্রাম</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} গ্রাম</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি গ্রাম</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
@@ -8611,13 +8359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-carat">
 				<displayName>ক্যারেট</displayName>
 				<unitPattern count="one">{0} ক্যারেট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যারেট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>ড্যালটন্স</displayName>
@@ -8657,13 +8399,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-watt">
 				<displayName>ওয়াট</displayName>
 				<unitPattern count="one">{0} ওয়াট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ওয়াট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>মিলিওয়াট</displayName>
@@ -8693,13 +8429,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-bar">
 				<displayName>বার</displayName>
 				<unitPattern count="one">{0} বার</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বার</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>মিলিবার</displayName>
@@ -8709,24 +8439,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName>প্যাসকেল</displayName>
 				<unitPattern count="one">{0} প্যাসকেল</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} প্যাসকেল</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>হেক্টোপাসকল</displayName>
@@ -8766,24 +8484,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>ডিগ্রী সেলসিয়াস</displayName>
 				<unitPattern count="one">{0} ডিগ্রী সেলসিয়াস</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ডিগ্রী সেলসিয়াস</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>ডিগ্রী ফারেনহাইট</displayName>
@@ -8793,13 +8499,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<displayName>কেলভিন</displayName>
 				<unitPattern count="one">{0} কেলভিন</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} কেলভিন</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>পাউন্ড-ফিট</displayName>
@@ -8861,13 +8561,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-liter">
 				<displayName>লিটার</displayName>
 				<unitPattern count="one">{0} লিটার</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} লিটার</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি লিটার</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
@@ -8888,24 +8582,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-pint-metric">
 				<displayName>মেট্রিক পিন্ট</displayName>
 				<unitPattern count="one">{0} মেট্রিক পিন্ট</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মেট্রিক পিন্ট</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>মেট্রিক কাপ</displayName>
 				<unitPattern count="one">{0} মেট্রিক কাপ</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মেট্রিক কাপ</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>একর-ফুট</displayName>

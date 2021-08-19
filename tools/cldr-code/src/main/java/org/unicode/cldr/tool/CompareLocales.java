@@ -8,7 +8,11 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.BiFunction;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -20,11 +24,38 @@ import com.google.common.collect.ImmutableList;
 
 /**
  * Tool to compare locales, generating tsv in the console.
- * TODO add regular parameter structure with output filename
+ * TODO add output filename
  * @author markdavis
  *
  */
 public class CompareLocales {
+
+    private enum MyOptions {
+        fileFilter(new Params().setHelp("filter paths").setMatch(".*")),
+        pathFilter(new Params().setHelp("filter paths").setMatch(".*")),
+        //directory(new Params().setHelp("Set the output directory name").setDefault(DEFAULT_DELTA_DIR_NAME).setMatch(".*")),
+        verbose(new Params().setHelp("verbose debugging messages")),
+        ;
+
+        // BOILERPLATE TO COPY
+        final Option option;
+
+        private MyOptions(Params params) {
+            option = new Option(this, params);
+        }
+
+        private static Options myOptions = new Options();
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+
+        private static Set<String> parse(String[] args) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
+
     /**
      * Supply list of locales as input args, like en en_001 en_GB
      * Only really useful if there is a shared non-root ancestor.
@@ -36,27 +67,48 @@ public class CompareLocales {
      * @param args
      */
     public static void main(String[] args) {
+        MyOptions.parse(args);
+        Matcher pathMatcher = !MyOptions.pathFilter.option.doesOccur() ? null : Pattern.compile(MyOptions.pathFilter.option.getValue()).matcher("");
+        Matcher fileMatcher = !MyOptions.fileFilter.option.doesOccur() ? null : Pattern.compile(MyOptions.fileFilter.option.getValue()).matcher("");
 
-        Arrays.sort(args);
-        List<String> locales = ImmutableList.copyOf(Arrays.asList(args));
+        Factory factory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
+        List<String> locales;
+        if (args.length != 0) {
+            Arrays.sort(args);
+            locales = ImmutableList.copyOf(Arrays.asList(args));
+        } else {
+            locales = new ArrayList<>();
+            for (String locale : factory.getAvailable()) {
+                if (fileMatcher != null && !pathMatcher.reset(locale).matches()) {
+                    continue;
+                }
+                locales.add(locale);
+            }
+            locales = ImmutableList.copyOf(locales);
+        }
+
         List<CLDRFile> files = new ArrayList<>();
         Set<String> paths = new HashSet<>();
         String prefix = "No\tSection\tPage\tHeader\tCode\t";
         for (String locale : locales) {
+
             System.out.print(prefix + locale);
             prefix = "\t";
-            Factory factory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
             CLDRFile cldrFile = factory.make(locale, true);
             files.add(cldrFile);
             for (String path : cldrFile) {
                 paths.add(path);
             }
         }
+
         showDiff(locales, (vi, vj) -> vi + " ≟ " + vj);
         System.out.println("\tConfig (2nd to last locale gets last value)");
 
         Set<PathHeader> sorted = new TreeSet<>();
         for (String path : paths) {
+            if (pathMatcher != null && !pathMatcher.reset(path).matches()) {
+                continue;
+            }
             sorted.add(PathHeader.getFactory().fromPath(path));
         }
         List<String> tempList = new ArrayList<>();

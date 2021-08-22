@@ -156,7 +156,7 @@ abstract public class CheckCLDR {
          *
          * @param pathValueInfo
          * @param inputMethod
-         * @param status
+         * @param ph the path header
          * @param userInfo
          *            null if there is no userInfo (nobody logged in).
          * @return
@@ -164,10 +164,11 @@ abstract public class CheckCLDR {
         public StatusAction getShowRowAction(
             PathValueInfo pathValueInfo,
             InputMethod inputMethod,
-            PathHeader.SurveyToolStatus status,
+            PathHeader ph,
             UserInfo userInfo // can get voterInfo from this.
             ) {
 
+            PathHeader.SurveyToolStatus status = ph.getSurveyToolStatus();
             // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
                 return StatusAction.FORBID_READONLY;
@@ -176,6 +177,13 @@ abstract public class CheckCLDR {
             if (status == SurveyToolStatus.READ_ONLY) {
                 return StatusAction.ALLOW_TICKET_ONLY;
             }
+
+            /*
+             * TODO: is it intentional that bulk submission and TC voting are allowed even for SurveyToolStatus.HIDE?
+             * If not, fix it by calling PathHeader.shouldHide() above instead of referencing SurveyToolStatus.DEPRECATED
+             * above and SurveyToolStatus.HIDE below. Otherwise add a comment here confirming that these are allowed for
+             * SurveyToolStatus.HIDE. Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
+             */
 
             // always forbid bulk import except in data submission.
             if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
@@ -196,12 +204,14 @@ abstract public class CheckCLDR {
 
             // if limited submission, and winner doesn't have an error, limit the values
 
-            if (LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(), valueStatus == ValueStatus.ERROR, pathValueInfo.getBaselineStatus() == Status.missing)) {
-                return StatusAction.FORBID_READONLY;
+            if (LIMITED_SUBMISSION) {
+                if (!SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(), valueStatus == ValueStatus.ERROR, pathValueInfo.getBaselineStatus() == Status.missing)) {
+                    return StatusAction.FORBID_READONLY;
+                }
             }
 
             if (this == Phase.SUBMISSION) {
-                return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
+                return (ph.canReadAndWrite())
                     ? StatusAction.ALLOW
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
@@ -211,11 +221,10 @@ abstract public class CheckCLDR {
             // Only allow ADD if we have an error or warning
             // Only check winning value for errors/warnings per ticket #8677
             if (valueStatus != ValueStatus.NONE) {
-                return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
+                return (ph.canReadAndWrite())
                     ? StatusAction.ALLOW
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
-//            }
 
             // No warnings, so allow just voting.
             return StatusAction.ALLOW_VOTING_BUT_NO_ADD;
@@ -238,11 +247,11 @@ abstract public class CheckCLDR {
             CandidateInfo enteredValue,
             PathValueInfo pathValueInfo,
             InputMethod inputMethod,
-            PathHeader.SurveyToolStatus status,
+            PathHeader ph,
             UserInfo userInfo // can get voterInfo from this.
             ) {
-            if (status != SurveyToolStatus.READ_WRITE && status != SurveyToolStatus.LTR_ALWAYS) {
-                return StatusAction.FORBID_READONLY; // not writable.
+            if (!ph.canReadAndWrite()) {
+                return StatusAction.FORBID_READONLY;
             }
 
             // only logged in users can add items.

@@ -90,7 +90,8 @@ public class DataSection implements JSONString {
      */
 
     /**
-     * The baseline CLDRFile for this DataSection
+     * The translation-hints CLDRFile for this DataSection
+     * This is English if TRANS_HINT_ID = "en_ZZ"; see SurveyMain.getTranslationHintsFile
      */
     private CLDRFile translationHintsFile;
 
@@ -1222,7 +1223,7 @@ public class DataSection implements JSONString {
         public StatusAction getStatusAction() {
             // null because this is for display.
             return SurveyMain.phase().getCPhase()
-                .getShowRowAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
+                .getShowRowAction(this, InputMethod.DIRECT, getPathHeader(), userForVotelist);
         }
 
         /**
@@ -1610,7 +1611,7 @@ public class DataSection implements JSONString {
 
         DataSection section = new DataSection(pageId, sm, locale, prefix, matcher);
 
-        CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName(), true, true);
+        CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName());
 
         ourSrc.setSupplementalDirectory(sm.getSupplementalDirectory());
 
@@ -1850,12 +1851,8 @@ public class DataSection implements JSONString {
                     // synthesize a new row..
                     String base_xpath_string = podBase + ourSuffix + suff;
 
-                    SurveyToolStatus ststats = SurveyToolStatus.READ_WRITE;
                     PathHeader ph = stf.getPathHeader(base_xpath_string);
-                    if (ph != null) {
-                        ststats = stf.getPathHeader(base_xpath_string).getSurveyToolStatus();
-                    }
-                    if ((ststats == SurveyToolStatus.HIDE || ststats == SurveyToolStatus.DEPRECATED)) {
+                    if (ph == null || ph.shouldHide()) {
                         continue;
                     }
 
@@ -2046,12 +2043,8 @@ public class DataSection implements JSONString {
                 }
             }
 
-            SurveyToolStatus ststats = SurveyToolStatus.READ_WRITE;
             PathHeader ph = stf.getPathHeader(xpath);
-            if (ph != null) {
-                ststats = stf.getPathHeader(xpath).getSurveyToolStatus();
-            }
-            if (ststats == SurveyToolStatus.HIDE || ststats == SurveyToolStatus.DEPRECATED) {
+            if (ph == null || ph.shouldHide()) {
                 continue;
             }
 
@@ -2089,36 +2082,6 @@ public class DataSection implements JSONString {
          */
         boolean isExtraPath = extraXpaths != null && extraXpaths.contains(xpath);
 
-        /*
-         * TODO: clarify the significance and usage of the local variable ourValue.
-         * Formerly it was named "value"; the new name "ourValue" reflects that it is
-         * gotten as ourSrc.getStringValue(xpath).
-         *
-         * If not null, it's ourSrc.getStringValue(xpath); not possible (confirm?) for that
-         * to be CldrUtility.INHERITANCE_MARKER. getStringValue effectively resolves that to
-         * the Bailey value -- could that possibly be causing a "hard" vote to be treated as
-         * winning when in reality it may have been a "soft" vote that was winning?
-         *
-         * ourValue DOES reflect the current votes (if any). To see this, enter a new winning
-         * value for a row, for example "test-bogus" in place of "occitan" in the first row
-         * of http://localhost:8080/cldr-apps/v#/fr_CA/Languages_O_S/24368393ccee3451
-         * and ourValue will get "test-bogus" here.
-         * Then vote for "soft" inheritance, and ourValue will get "occitan" here (NOT CldrUtility.INHERITANCE_MARKER).
-         * How does ourValue relate to winningValue, oldValue, etc.?
-         * Each CLDRFile has a dataSource, which is an XMLSource, an abstract class.
-         * These classes extend XMLSource: DelegateXMLSource, DummyXMLSource, ResolvingSource,
-         * SimpleXMLSource. Generally (always?) in this context ourSrc.dataSource is a
-         * ResolvingSource, and ourSrc.dataSource.currentSource is a DataBackedSource.
-         * ourSrc is initialized as follows:
-         *         CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName(), true, true);
-         *
-         * Basically ourSrc is an ordinary CLDRFile, so its values are based on (1) trunk plus (2) current votes; most
-         * often its values should agree with getWinningValue(), but might differ for some paths that have no votes in
-         * the current votes table, especially if the winning value depends on last-release value. If ourSrc were a "vetted"
-         * CLDRFile, as used for producing vxml (see makeVettedFile), then it would be more likely to agree with the winning
-         * value more often. Note that when ticket 11916 is done, the winning value will never depend on last-release.
-         * Reference: https://unicode.org/cldr/trac/ticket/11916
-         */
         String ourValue = isExtraPath ? null : ourSrc.getStringValue(xpath);
         if (ourValue == null) {
             /*

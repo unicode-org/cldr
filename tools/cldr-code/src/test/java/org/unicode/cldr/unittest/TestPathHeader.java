@@ -348,20 +348,22 @@ public class TestPathHeader extends TestFmwkPlus {
             CLDRFile cldrFile = info.getCLDRFile(locale, true);
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
             for (String path : cldrFile.fullIterable()) {
-                // if (!path.contains("@count")) {
-                // continue;
-                // }
                 Level level = coverageLevel.getLevel(path);
                 if (supplemental.isDeprecated(DtdType.ldml, path)) {
                     continue;
                 }
 
-                if (Level.OPTIONAL.compareTo(level) != 0) {
+                if (Level.COMPREHENSIVE.compareTo(level) != 0) {
                     continue;
                 }
 
                 PathHeader p = pathHeaderFactory.fromPath(path);
                 final SurveyToolStatus status = p.getSurveyToolStatus();
+                /*
+                 * TODO: is it intentional that SurveyToolStatus.DEPRECATED is distinguished from
+                 * SurveyToolStatus.HIDE here? If so, add a comment to make the intention clear; otherwise,
+                 * call PathHeader.shouldHide(). Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
+                 */
                 if (status == SurveyToolStatus.DEPRECATED) {
                     continue;
                 }
@@ -464,9 +466,8 @@ public class TestPathHeader extends TestFmwkPlus {
             PathHeader p = pathHeaderFactory.fromPath(path);
             SurveyToolStatus status = p.getSurveyToolStatus();
 
-            boolean hideCoverage = level == Level.OPTIONAL;
-            boolean hidePathHeader = status == SurveyToolStatus.DEPRECATED
-                || status == SurveyToolStatus.HIDE;
+            boolean hideCoverage = level == Level.COMPREHENSIVE;
+            boolean hidePathHeader = p.shouldHide();
             if (hidePathHeader != hideCoverage) {
                 String message = "PathHeader: " + status + ", Coverage: "
                     + level + ": " + path;
@@ -685,6 +686,11 @@ public class TestPathHeader extends TestFmwkPlus {
                     + ": " + p);
             }
 
+            /*
+             * TODO: if the goal here is to treat SurveyToolStatus.DEPRECATED and SurveyToolStatus.HIDE
+             * the same for the purpose of this test, then call PathHeader.shouldHide(). Otherwise, add a
+             * comment to explain this mysterious code. Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
+             */
             final SurveyToolStatus tempSTS = surveyToolStatus == SurveyToolStatus.DEPRECATED ? SurveyToolStatus.HIDE
                 : surveyToolStatus;
             String starred = starrer.set(path);
@@ -780,10 +786,7 @@ public class TestPathHeader extends TestFmwkPlus {
         checkPathDescriptionCompleteness(pathDescription, normal,
             "//ldml/numbers/defaultNumberingSystem", alreadySeen, starrer);
         for (PathHeader pathHeader : getPathHeaders(english)) {
-            final SurveyToolStatus surveyToolStatus = pathHeader
-                .getSurveyToolStatus();
-            if (surveyToolStatus == SurveyToolStatus.DEPRECATED
-                || surveyToolStatus == SurveyToolStatus.HIDE) {
+            if (pathHeader.shouldHide()) {
                 continue;
             }
             String path = pathHeader.getOriginalPath();

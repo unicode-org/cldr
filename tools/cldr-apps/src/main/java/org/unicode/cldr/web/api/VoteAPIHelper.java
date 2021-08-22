@@ -239,7 +239,7 @@ public class VoteAPIHelper {
                     // Now, recalculate the statusACtion for accepting the new item
                     r.statusAction = CLDRConfig.getInstance().getPhase()
                         .getAcceptNewItemAction(ci, pvi, CheckCLDR.InputMethod.DIRECT,
-                            stf.getPathHeader(xp).getSurveyToolStatus(), mySession.user);
+                            stf.getPathHeader(xp), mySession.user);
                     if (!r.statusAction.isForbidden()) {
                         try {
                             final BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(locale);

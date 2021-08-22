@@ -1347,12 +1347,11 @@ public class ShowLocaleCoverage {
         try {
             PathHeader ph = pathHeaderFactory.fromPath(path);
             phString = ph.toString();
-            surveyToolStatus = ph.getSurveyToolStatus();
             stLink = URLS.forXpath(locale, path);
             englishValue = ENGLISH.getStringValue(path);
-            action = Phase.SUBMISSION.getShowRowAction(dummyPathValueInfo, InputMethod.DIRECT, surveyToolStatus, dummyUserInfo);
+            action = Phase.SUBMISSION.getShowRowAction(dummyPathValueInfo, InputMethod.DIRECT, ph, dummyUserInfo);
         } catch (Exception e) {
-            int debug = 0;
+
         }
 
         String config_text = vxmlValue.isEmpty() ? "" :
@@ -1361,22 +1360,13 @@ public class ShowLocaleCoverage {
             + " ; new_path=" + StringId.getHexId(path)
             + " ; new_value=" + vxmlValue;
 
-
-
-        String s = TSV_MISSING_HEADER; // make sure in sync
         String line =
             language
             + "\t" + ENGLISH.getName(language)
             + "\t" + ENGLISH.getName("script", script)
-            //+ "\t" + englishValue
-            //+ "\t" + nativeValue
             + "\t" + cldrLocaleLevelGoal
-            //+ "\t" + icuValue
             + "\t" + itemLevel
-            //+ "\t" + status
-            //+ "\t" + (action == null ? "?" : action.toString())
             + "\t" + (surveyToolStatus == null ? "?" : surveyToolStatus.toString())
-            //+ "\t" + stLink
             + "\t" + bailey
             + "\t" + vxmlValue
             + "\t" + vxmlDraftStatus

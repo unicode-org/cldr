@@ -1,14 +1,10 @@
 package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.util.EnumSet;
 import java.util.Map.Entry;
-
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R2;
 
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.test.OutdatedPaths;
@@ -16,6 +12,9 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
+
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
 
 /**
  * Also see {@link org.unicode.cldr.unittest.TestUtilities}
@@ -40,7 +39,7 @@ class TestVettingViewer {
 
             @Override
             public VoteResolver<String> getVoteResolver(final CLDRLocale loc, final String path) {
-                VoteResolver<String> r = new VoteResolver<String>();
+                VoteResolver<String> r = new VoteResolver<>();
                 r.setLocale(locale, getPathHeader(path));
                 return r;
             }
@@ -52,19 +51,18 @@ class TestVettingViewer {
         }, "hello world");
 
         Organization usersOrg = Organization.surveytool;
-        final boolean quick = false;
+
         final Factory baselineFactory = CLDRConfig.getInstance().getCldrFactory();
         final Factory sourceFactory = baselineFactory;
-        vv.setBaselineFactory(baselineFactory);
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.of(VettingViewer.Choice.englishChanged);
         CLDRFile sourceFile = sourceFactory.make(loc, true);
         CLDRFile baselineFile = baselineFactory.make(loc, true);
-        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
+        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted;
         final Level usersLevel = Level.MODERN;
-        file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
+        sorted = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, sourceFile, baselineFile);
         boolean foundAny = false;
-        for (Entry<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> e : file.entrySet()) {
+        for (Entry<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> e : sorted.entrySet()) {
             for(Choice problem : e.getValue().problems) {
                 if (problem.name().equals("englishChanged")) {
                     foundAny = true;

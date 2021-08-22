@@ -3534,6 +3534,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     private Matcher typeValueMatcher = PatternCache.get("\\[@type=\"([^\"]*)\"\\]").matcher("");
 
+    /*
+     * TODO: explain this exclusion mechanism and why it's not implemented with
+     * PathHeader.SurveyToolStatus.HIDE and PathHeader.shouldHide(). Who should call this
+     * function? It appears to be called for both DataSection and Dashboard, but I put
+     * a breakpoint on “return true” and never got there through Dashboard or DataSection,
+     * at level comprehensive – is this effectively dead code?
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
+     */
     public boolean isPathExcludedForSurvey(String distinguishedPath) {
         // for now, just zones
         if (distinguishedPath.contains("/exemplarCity")) {

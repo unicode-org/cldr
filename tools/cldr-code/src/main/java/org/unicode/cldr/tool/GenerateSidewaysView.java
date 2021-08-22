@@ -39,7 +39,6 @@ import org.unicode.cldr.util.LanguageTagParser.Fields;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringId;
@@ -319,10 +318,10 @@ public class GenerateSidewaysView {
     private static PrintWriter showExemplars(PrintWriter out, String headerString, String pathName, String variant, String title,
         Output<PrintWriter> tsvFile)
         throws IOException {
-        PathHeader cleanPath = fixPath(pathName, null);
-        String filename = getFileName2(cleanPath, variant);
+        PathHeader ph = fixPath(pathName, null);
+        String filename = getFileName2(ph, variant);
         out = start(out, filename, headerString, title, tsvFile);
-        Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
+        Map<String, Set<String>> value_locales = path_value_locales.get(ph);
 
         // TODO change logic so that aux characters characters work well.
 
@@ -637,10 +636,8 @@ public class GenerateSidewaysView {
                 if (path.indexOf("/alias") >= 0) continue;
                 if (path.indexOf("/identity") >= 0) continue;
                 if (path.indexOf("/references") >= 0) continue;
-                PathHeader cleanPath = fixPath(path, postFix);
-                final SurveyToolStatus surveyToolStatus = cleanPath.getSurveyToolStatus();
-                if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
-                    // System.out.println("Skipping " + path);
+                PathHeader ph = fixPath(path, postFix);
+                if (ph.shouldHide()) {
                     continue;
                 }
                 String fullPath = cldrFile.getFullXPath(path);
@@ -659,12 +656,12 @@ public class GenerateSidewaysView {
                         String script = UScript.getName(getFirstScript(exemplars));
                         LOCALE_TO_SCRIPT.put(localeID, script);
                     } catch (Exception e) {
-                        int debug = 0;
+
                     }
                 }
-                Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
+                Map<String, Set<String>> value_locales = path_value_locales.get(ph);
                 if (value_locales == null) {
-                    path_value_locales.put(cleanPath, value_locales = new TreeMap<>(
+                    path_value_locales.put(ph, value_locales = new TreeMap<>(
                         standardCollation));
                 }
                 Set<String> locales = value_locales.get(value);

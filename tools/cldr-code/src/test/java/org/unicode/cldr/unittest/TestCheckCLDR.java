@@ -768,17 +768,20 @@ public class TestCheckCLDR extends TestFmwk {
 
                     for (PathHeader ph : sorted) {
                         String path = ph.getOriginalPath();
-
-                        //String phString = ph.toString();
                         SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
                         dummyPathValueInfo.xpath = path;
                         dummyPathValueInfo.baselineValue = cldrFileUnresolved.getStringValue(path);
                         StatusAction action = phase.getShowRowAction(
                             dummyPathValueInfo,
                             InputMethod.DIRECT,
-                            surveyToolStatus,
+                            ph,
                             dummyUserInfo);
 
+                        /*
+                         * TODO: if there is a reason to distinguish between SurveyToolStatus.HIDE and
+                         * SurveyToolStatus.DEPRECATED here, explain it with a comment; otherwise, call
+                         * ph.shouldHide() instead. Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
+                         */
                         if (surveyToolStatus == SurveyToolStatus.HIDE) {
                             assertEquals("HIDE ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
                         } else if (CheckCLDR.LIMITED_SUBMISSION) {
@@ -801,7 +804,7 @@ public class TestCheckCLDR extends TestFmwk {
                                     StatusAction action2 = phase.getShowRowAction(
                                         dummyPathValueInfo,
                                         InputMethod.DIRECT,
-                                        surveyToolStatus,
+                                        ph,
                                         dummyUserInfo);
                                 }
                                 actionToExamplePath.put(key, Pair.of(dummyPathValueInfo.baselineValue != null, path));

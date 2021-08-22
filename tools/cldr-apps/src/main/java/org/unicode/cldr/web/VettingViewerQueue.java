@@ -1,6 +1,3 @@
-/**
- *
- */
 package org.unicode.cldr.web;
 
 import java.io.IOException;
@@ -33,8 +30,6 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.StringId;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
@@ -49,31 +44,14 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.DurationFormat;
 import com.ibm.icu.util.ULocale;
 
 /**
  * @author srl
- *
  */
 public class VettingViewerQueue {
 
-    /*
-     *         {
-              "code": "narrow-other-nominative",
-              "comment": "&lt;value too wide&gt; Too wide by about 100% (with common fonts).",
-              "english": "{0}dsp-Imp",
-              "old": "{0} dstspn Imp",
-              "winning": "{0} dstspn Imp",
-              "xpath": "7bd36b15a66d02cf"
-            }
-          ],
-          "header": "dessert-spoon-imperial",
-          "notification": "Error",
-          "page": "Volume",
-
-     */
     @Schema(description = "single entry of the dashboard that needs review")
     public static final class ReviewEntry {
 
@@ -89,8 +67,8 @@ public class VettingViewerQueue {
         @Schema(description = "Previous English value, for EnglishChanged", example = "{0} dstspn Imp")
         public String previousEnglish;
 
-        @Schema(description = "Prior value from a past release", example = "{0} dstspn Imp")
-        public String old;
+        @Schema(description = "Baseline value", example = "{0} dstspn Imp")
+        public String old; /* Not currently (2021-08-13) used by front end; should be renamed "baseline" */
 
         @Schema(description = "Winning string in this locale", example = "{0} dstspn Imp")
         public String winning;
@@ -419,7 +397,7 @@ public class VettingViewerQueue {
             }
 
             if (!isSummary(locale)) {
-                vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, false);
+                vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel);
             } else {
                 if (DEBUG) {
                     System.err.println("Starting summary gen..");
@@ -458,7 +436,7 @@ public class VettingViewerQueue {
      * @param st_org
      * @return
      *
-     * Called by getLocalesWithVotes and writeVettingViewerOutput
+     * Called by getLocalesWithVotes
      */
     private Predicate<String> createLocalesWithVotes(String st_org) {
         final Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
@@ -531,6 +509,19 @@ public class VettingViewerQueue {
     private static final String PRE = "<DIV class='pager'>";
     private static final String POST = "</DIV>";
 
+    /**
+     * Get a miniature version of the Dashboard data, for only a single path
+     *
+     * Called by SurveyAjax.getRow (deprecated)
+     * TODO: VoteAPI should call this!
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
+     *
+     * @param locale
+     * @param ctx
+     * @param sess
+     * @param path
+     * @return
+     */
     public JSONArray getErrorOnPath(CLDRLocale locale, WebContext ctx, CookieSession sess, String path) {
         Level usersLevel;
         Organization usersOrg;
@@ -565,150 +556,13 @@ public class VettingViewerQueue {
     }
 
     /**
-     * Get the json for the Dashboard ("review")
+     * Get Dashboard output as an object
+     * This is used only for the Dashboard, not for Priority Items Summary
      *
-     * @param output
-     * @param sourceFile
-     * @param baselineFile
-     * @param sorted
-     * @param choices
-     * @param localeID
-     * @param nonVettingPhase
-     * @param quick
-     * @param ctx
-     *
-     * Called only by writeVettingViewerOutput. Deprecated code path and URL.
-     */
-    @Deprecated
-    private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile baselineFile,
-        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
-        EnumSet<Choice> choices,
-        CLDRLocale locale,
-        boolean nonVettingPhase,
-        boolean quick, WebContext ctx) {
-        try {
-            JSONObject reviewInfo = new JSONObject();
-            JSONArray notificationsCount = new JSONArray();
-            List<String> notifications = new ArrayList<>();
-            SurveyMain sm = CookieSession.sm;
-            CLDRFile englishFile = sm.getSTFactory().make("en", true);
-
-            for (Choice choice : choices) {
-                notificationsCount.put(new JSONObject().put("name", choice.buttonLabel.replace(' ', '_')).put("description", choice.description));
-                notifications.add(choice.buttonLabel);
-            }
-
-            reviewInfo.put("notification", notificationsCount);
-
-            Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
-               = getNotificationsList(sorted);
-
-            JSONArray allNotifications = new JSONArray();
-            for (Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry : notificationsList.keyValuesSet()) {
-
-                String notificationName = entry.getKey().get0().buttonLabel.replace(' ', '_');
-                int notificationNumber = entry.getKey().get0().order;
-
-                String sectionName = entry.getKey().get1().name();
-                String pageName = entry.getKey().get2().name();
-                String headerName = entry.getKey().get3();
-
-                // TODO: I suspect the following logic is broken, it seems to insert a string with a literal "null"
-                // into the output.
-                if (allNotifications.optJSONObject(notificationNumber) == null) {
-                    allNotifications.put(notificationNumber, new JSONObject().put(notificationName, new JSONObject()));
-                }
-
-                JSONObject sections = allNotifications.getJSONObject(notificationNumber).getJSONObject(notificationName);
-
-                if (sections.optJSONObject(sectionName) == null) {
-                    sections.accumulate(sectionName, new JSONObject());
-                }
-                JSONObject pages = sections.getJSONObject(sectionName);
-
-                if (pages.optJSONObject(pageName) == null) {
-                    pages.accumulate(pageName, new JSONObject());
-                }
-                JSONObject header = pages.getJSONObject(pageName);
-
-                JSONArray allContent = new JSONArray();
-                //real info
-                for (VettingViewer<Organization>.WritingInfo info : entry.getValue()) {
-                    JSONObject content = new JSONObject();
-                    String code = info.codeOutput.getCode();
-                    String path = info.codeOutput.getOriginalPath();
-                    Set<Choice> choicesForPath = info.problems;
-
-                    //code
-                    content.put("code", code);
-                    content.put("path", sm.xpt.getByXpath(path));
-
-                    //english
-                    if (choicesForPath.contains(Choice.englishChanged)) {
-                        String winning = englishFile.getWinningValue(path);
-                        String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML
-                            .transform(winning);
-                        String previous = VettingViewer.getOutdatedPaths().getPreviousEnglish(path);
-                        if (previous != null) {
-                            cellValue += "<br><span style='color:#900'><b>OLD: </b>"
-                                + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
-                        } else {
-                            cellValue += "<br><b><i>missing</i></b>";
-                        }
-                        content.put("english", cellValue);
-                    } else {
-                        content.put("english", englishFile.getWinningValue(path));
-                    }
-
-                    //old release
-                    final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
-                    content.put("old", oldStringValue);
-
-                    //winning value
-                    String newWinningValue = sourceFile.getWinningValue(path);
-                    if (CharSequences.equals(newWinningValue, oldStringValue)) {
-                        newWinningValue = "=";
-                    }
-                    content.put("winning", newWinningValue);
-
-                    //comment
-                    String comment = "";
-                    if (!info.htmlMessage.isEmpty()) {
-                        comment = info.htmlMessage;
-                    }
-                    content.put("comment", comment.replace("\"", "&quot;"));
-
-                    content.put("id", StringId.getHexId(info.codeOutput.getOriginalPath()));
-                    allContent.put(content);
-                }
-                header.put(headerName, allContent);
-
-            }
-            reviewInfo.put("allNotifications", allNotifications);
-
-            //hidden info
-            if (ctx != null) {
-                // TODO: remove. New API handles this separately
-                ReviewHide review = new ReviewHide();
-                reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
-            }
-
-            // TODO: Why is this included? Should already be visible to the client
-            // in the locmap under 'dir'
-            reviewInfo.put("direction", sm.getHTMLDirectionFor(locale));
-
-            output.append(reviewInfo.toString());
-        } catch (JSONException | IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Get Vetting Viewer output as an object
      * @param locale
      * @param user
      * @param usersLevel
-     * @return
+     * @return the ReviewOutput
      */
     public ReviewOutput getDashboardOutput(CLDRLocale locale, UserRegistry.User user, Level usersLevel) {
         final SurveyMain sm = CookieSession.sm;
@@ -717,12 +571,10 @@ public class VettingViewerQueue {
          * if no coverage level set, use default one
          */
         Organization usersOrg = Organization.fromString(user.voterOrg());
-        final boolean quick = false;
         STFactory sourceFactory = sm.getSTFactory();
-        final Factory baselineFactory = CookieSession.sm.getDiskFactory();  // Use the SurveyTool's baseline factory
+        final Factory baselineFactory = CookieSession.sm.getDiskFactory();
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
-        vv.setBaselineFactory(baselineFactory);
 
         EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
 
@@ -738,11 +590,11 @@ public class VettingViewerQueue {
          * are generally the last release values plus any changes that have been made by the
          * technical committee by committing directly to version control rather than voting.
          */
-        CLDRFile sourceFile = sourceFactory.make(loc, true);
+        CLDRFile sourceFile = sourceFactory.make(loc);
         CLDRFile baselineFile = baselineFactory.make(loc, true);
-        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
-        file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
-        return getDashboardOutput(sourceFile, baselineFile, file, choiceSet, locale, user.id);
+        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted;
+        sorted = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, sourceFile, baselineFile);
+        return reallyGetDashboardOutput(sourceFile, baselineFile, sorted, choiceSet, locale, user.id);
     }
 
     @Schema(description = "Heading for a portion of the notifications")
@@ -836,15 +688,17 @@ public class VettingViewerQueue {
 
     /**
      * Get Dashboard output as an object
+     * This is used only for the Dashboard, not for Priority Items Summary
+     *
      * @param sourceFile
      * @param baselineFile
      * @param sorted
      * @param choices
      * @param locale
      * @param userId
-     * @return
+     * @return the ReviewOutput
      */
-    private ReviewOutput getDashboardOutput(CLDRFile sourceFile, CLDRFile baselineFile,
+    private ReviewOutput reallyGetDashboardOutput(CLDRFile sourceFile, CLDRFile baselineFile,
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
         EnumSet<Choice> choices,
         CLDRLocale locale, int userId) {
@@ -858,6 +712,9 @@ public class VettingViewerQueue {
         return reviewInfo;
     }
 
+    /**
+     * Used only for Dashboard, not for Priority Items Summary
+     */
     private void addNotificationEntries(CLDRFile sourceFile, CLDRFile baselineFile, Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
         ReviewOutput reviewInfo) {
         Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
@@ -884,6 +741,9 @@ public class VettingViewerQueue {
         return notification;
     }
 
+    /**
+     * Used only for Dashboard, not for Priority Items Summary
+     */
     private void addNotificiationGroup(CLDRFile sourceFile, CLDRFile baselineFile, ReviewNotification notification, CLDRFile englishFile,
         Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
         String sectionName = entry.getKey().get1().name();
@@ -906,7 +766,7 @@ public class VettingViewerQueue {
                 reviewEntry.previousEnglish = previous;
             }
 
-            //old = baseline; not currently used by client?
+            // old = baseline; not currently used by client
             final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
             reviewEntry.old = oldStringValue;
 

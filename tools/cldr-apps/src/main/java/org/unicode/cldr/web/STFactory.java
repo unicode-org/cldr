@@ -1754,6 +1754,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return get(localeID).getFile(resolved);
     }
 
+    public CLDRFile make(String loc) {
+        return make(loc, true /* resolved */);
+    }
+
     public CLDRFile make(CLDRLocale loc, boolean resolved) {
         return make(loc.getBaseName(), resolved);
     }

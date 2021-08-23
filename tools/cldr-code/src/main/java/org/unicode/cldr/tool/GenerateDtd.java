@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.util.Locale;
 
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.TempPrintWriter;
 
 import com.ibm.icu.text.CaseMap;
 
+@CLDRTool(alias = "generate-dtd", description = "BRS: Reformat all DTDs")
 public class GenerateDtd {
 
     private static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();

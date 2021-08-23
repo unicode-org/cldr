@@ -44,10 +44,8 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
-import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
-import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
@@ -1484,25 +1482,7 @@ public class ExampleGenerator {
                     return result; // fail, skip
                 }
             } else {
-                String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
-                boolean singleZone = !supplementalDataInfo.getMultizones().contains(countryCode);
-                // we show just country for singlezone countries
-                if (singleZone) {
-                    result = countryName;
-                } else {
-                    if (value == null) {
-                        value = TimezoneFormatter.getFallbackName(timezone);
-                    }
-                    // otherwise we show the fallback with exemplar
-                    String fallback = setBackground(cldrFile
-                        .getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat"));
-                    // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-
-                    result = format(fallback, value, countryName);
-                }
-                // format with "{0} Time" or equivalent.
-                String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
-                result = format(timeFormat, result);
+                result = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
             }
         } else if (parts.contains("zone")) { // {0} Time
             result = value;
@@ -1528,7 +1508,6 @@ public class ExampleGenerator {
                     String timezone = supplementalDataInfo.getZoneForMetazoneByRegion(metazone_name, "001");
                     String countryCode = supplementalDataInfo.getZone_territory(timezone);
                     String regionFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat");
-                    String fallbackFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat");
                     String exemplarCity = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\""
                         + timezone + "\"]/exemplarCity");
                     if (exemplarCity == null) {
@@ -1537,20 +1516,12 @@ public class ExampleGenerator {
                     String countryName = cldrFile
                         .getWinningValue("//ldml/localeDisplayNames/territories/territory[@type=\"" + countryCode
                             + "\"]");
-                    boolean singleZone = !(supplementalDataInfo.getMultizones().contains(countryCode));
-
-                    if (singleZone) {
-                        result = setBackground(getMZTimeFormat() + " " +
+                    result = setBackground(getMZTimeFormat() + " " +
                             format(regionFormat, countryName));
-                    } else {
-                        result = setBackground(getMZTimeFormat() + " " +
-                            format(fallbackFormat, exemplarCity, countryName));
-                    }
                 } else {
                     String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
                     String hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
                     String metazone_name = parts.getAttributeValue(3, "type");
-                    // String tz_string = supplementalData.resolveParsedMetazone(metazone_name,"001");
                     String tz_string = supplementalDataInfo.getZoneForMetazoneByRegion(metazone_name, "001");
                     TimeZone currentZone = TimeZone.getTimeZone(tz_string);
                     int tzOffset = currentZone.getRawOffset();

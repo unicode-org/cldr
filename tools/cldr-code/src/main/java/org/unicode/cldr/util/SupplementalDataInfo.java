@@ -891,8 +891,6 @@ public class SupplementalDataInfo {
 
     private Map<String, Set<TelephoneCodeInfo>> territoryToTelephoneCodeInfo = new TreeMap<>();
 
-    private Set<String> multizone = new TreeSet<>();
-
     private Map<String, String> zone_territory = new TreeMap<>();
 
     private Relation<String, String> zone_aliases = Relation
@@ -1091,7 +1089,6 @@ public class SupplementalDataInfo {
         allLanguages.addAll(baseLanguageToPopulation.keySet());
         allLanguages = Collections.unmodifiableSet(allLanguages);
         skippedElements = Collections.unmodifiableSet(skippedElements);
-        multizone = Collections.unmodifiableSet(multizone);
         zone_territory = Collections.unmodifiableMap(zone_territory);
         alias_zone = Collections.unmodifiableMap(alias_zone);
         references = Collections.unmodifiableMap(references);
@@ -2274,37 +2271,6 @@ public class SupplementalDataInfo {
 
     public Set<String> getCanonicalZones() {
         return zone_territory.keySet();
-    }
-
-    /**
-     * Return the multizone countries (should change name).
-     *
-     * @return
-     */
-    public Set<String> getMultizones() {
-        // TODO Auto-generated method stub
-        return multizone;
-    }
-
-    private Set<String> singleRegionZones;
-
-    public Set<String> getSingleRegionZones() {
-        synchronized (this) {
-            if (singleRegionZones == null) {
-                singleRegionZones = new HashSet<>();
-                SupplementalDataInfo supplementalData = this; // TODO: this?
-                Set<String> multizoneCountries = supplementalData.getMultizones();
-                for (String zone : supplementalData.getCanonicalZones()) {
-                    String region = supplementalData.getZone_territory(zone);
-                    if (!multizoneCountries.contains(region) || zone.startsWith("Etc/")) {
-                        singleRegionZones.add(zone);
-                    }
-                }
-                singleRegionZones.remove("Etc/Unknown"); // remove special case
-                singleRegionZones = Collections.unmodifiableSet(singleRegionZones);
-            }
-        }
-        return singleRegionZones;
     }
 
     public Set<String> getTerritoriesForPopulationData(String language) {

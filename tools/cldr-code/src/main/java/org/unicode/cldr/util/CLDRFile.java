@@ -3458,11 +3458,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         // grammatical info
 
         GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), true);
-
-        if ("de".equals(getLocaleID())) {
-            int debug = 0;
-        }
-
         if (grammarInfo != null) {
             if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
                 Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
@@ -3529,42 +3524,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 }
                 toAddTo.add(start + count + end);
             }
-        }
-    }
-
-    private Matcher typeValueMatcher = PatternCache.get("\\[@type=\"([^\"]*)\"\\]").matcher("");
-
-    /*
-     * TODO: explain this exclusion mechanism and why it's not implemented with
-     * PathHeader.SurveyToolStatus.HIDE and PathHeader.shouldHide(). Who should call this
-     * function? It appears to be called for both DataSection and Dashboard, but I put
-     * a breakpoint on “return true” and never got there through Dashboard or DataSection,
-     * at level comprehensive – is this effectively dead code?
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-     */
-    public boolean isPathExcludedForSurvey(String distinguishedPath) {
-        // for now, just zones
-        if (distinguishedPath.contains("/exemplarCity")) {
-            excludedZones = getExcludedZones();
-            typeValueMatcher.reset(distinguishedPath).find();
-            if (excludedZones.contains(typeValueMatcher.group(1))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private Set<String> excludedZones;
-
-    public Set<String> getExcludedZones() {
-        synchronized (this) {
-            if (excludedZones == null) {
-                SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
-                // SupplementalDataInfo.getInstance(getSupplementalDirectory());
-                excludedZones = new HashSet<>(supplementalData.getSingleRegionZones());
-                excludedZones = Collections.unmodifiableSet(excludedZones); // protect
-            }
-            return excludedZones;
         }
     }
 

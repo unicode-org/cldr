@@ -2,11 +2,9 @@ package org.unicode.cldr.test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -25,7 +23,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.impl.Relation;
 
@@ -43,7 +40,6 @@ public class TestSupplementalData {
         supplementalData = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
         sc = StandardCodes.make();
 
-        showMultiZones();
         checkPlurals();
 
         System.out.println("Skipped Elements: " + supplementalData.getSkippedElements());
@@ -51,43 +47,6 @@ public class TestSupplementalData {
         checkTerritoryMapping();
 
         checkTelephoneCodeData();
-    }
-
-    private static void showMultiZones() {
-        // reverse the list
-        Relation<String, String> territoryToZones = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        for (String zone : supplementalData.getCanonicalZones()) {
-            territoryToZones.put(supplementalData.getZone_territory(zone), zone);
-        }
-        // gather the data
-        // this could be slightly simpler using supplementalData.get
-        Set<String> singulars = new TreeSet<>();
-        for (String region : territoryToZones.keySet()) {
-            final Set<String> zones = territoryToZones.getAll(region);
-            if (zones.size() == 1 || region.equals("001")) {
-                singulars.addAll(zones);
-                continue;
-            }
-            System.out.println(region + "\t" + english.getName("territory", region));
-            System.out.println("\t" + zones);
-        }
-        XPathParts xpp = XPathParts.getFrozenInstance(root.getFullXPath("//ldml/dates/timeZoneNames/singleCountries"));
-        List<String> singleCountries = Arrays.asList(xpp.getAttributeValue(-1, "list").split("\\s+"));
-        singulars.addAll(singleCountries);
-        singulars.remove("Etc/Unknown"); // remove special case
-        System.out.println("Excluded Zones (not necessary in Survey tool): " + singulars);
-        Set<String> otherExclusions = root.getExcludedZones();
-        if (!otherExclusions.equals(singulars)) {
-            throw new IllegalArgumentException("problem with excluded zones");
-        }
-        for (Iterator<String> it = english.iterator("//ldml/dates/timeZoneNames/zone"); it.hasNext();) {
-            String distinguishedPath = it.next();
-            if (root.isPathExcludedForSurvey(distinguishedPath)) {
-                System.out.println("EX\t" + distinguishedPath);
-            } else {
-                System.out.println("\t" + distinguishedPath);
-            }
-        }
     }
 
     private static void checkPlurals() {

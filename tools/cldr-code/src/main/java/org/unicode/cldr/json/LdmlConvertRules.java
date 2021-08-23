@@ -154,6 +154,7 @@ class LdmlConvertRules {
 
         // in common/bcp47/*.xml
         "keyword:key:alias",
+        "keyword:key:name",
         "key:type:alias",
         "key:type:name",
 

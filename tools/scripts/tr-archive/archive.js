@@ -36,13 +36,51 @@ async function renderit(infile) {
   // now fix
   const dom = new JSDOM(rawHtml);
   const document = dom.window.document;
+
+  // // setup doctype
+  // if (document.doctype) {
+  //   console.log("have a doctype " + document.doctype);
+  // } else {
+  //   document.doctype = document.implementation.createDocumentType("html","","");
+  //   document.insertBefore(document.childNodes[0], document.doctype);
+  // }
+
   const head = dom.window.document.getElementsByTagName("head")[0];
 
   // add CSS
   head.innerHTML =
     head.innerHTML +
     `<meta charset="utf-8">` +
-    `<link rel='stylesheet' type='text/css' media='screen' href='../reports.css'>`;
+    `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>`;
+
+  // Is there a title?
+  if(dom.window.document.getElementsByTagName("title").length >= 1) {
+    console.log("Already had a <title>… not changing.");
+  } else {
+    const title = document.createElement("title");
+    const first_h1_text = document.getElementsByTagName("h1")[0].textContent.replace(')Part', ') Part');
+    title.appendChild(document.createTextNode(first_h1_text))
+    head.appendChild(title);
+  }
+
+
+  // calculate the header object
+  const header = dom.window.document.createElement("div");
+  header.setAttribute("class", "header");
+  // taken from prior TRs
+  header.innerHTML = `<table class="header" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+      <tr>
+          <td class="icon"><a href="http://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]"
+                        src="http://www.unicode.org/webscripts/logo60s2.gif"
+                        height="33"
+                        width="34" /></a>  <a class="bar" href="http://www.unicode.org/reports/">Technical Reports</a></td>
+      </tr>
+      <tr>
+          <td class="gray"> </td>
+      </tr>
+  </tbody>
+  </table>`;
 
   // Move all elements out of the top level body and into a subelement
   const body = dom.window.document.getElementsByTagName("body")[0];
@@ -53,6 +91,7 @@ async function renderit(infile) {
     body.removeChild(e);
     div.appendChild(e);
   }
+  body.appendChild(header);
   body.appendChild(div);
 
   // now, fix all links from  ….md#…  to ….html#…
@@ -68,7 +107,8 @@ async function renderit(infile) {
 
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
-  await fs.writeFile(outfile, dom.serialize());
+  // TODO: assume that DOCTYPE is not written.
+  await fs.writeFile(outfile, `<!DOCTYPE html>\n` + dom.serialize());
   return outfile;
 }
 
@@ -86,5 +126,8 @@ async function fixall() {
 
 fixall().then(
   (x) => console.dir(x),
-  (e) => console.error(e)
+  (e) => {
+    console.error(e);
+    process.exitCode = 1;
+  }
 );

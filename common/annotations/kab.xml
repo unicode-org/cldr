@@ -11,22 +11,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="kab"/>
 	</identity>
 	<annotations>
-		<annotation cp="🏻" draft="unconfirmed">anaw 1–2 | taglimt tacebḥant</annotation>
+		<annotation cp="🏻" draft="unconfirmed">taglimt taceɛlalt</annotation>
 		<annotation cp="🏻" type="tts" draft="unconfirmed">taglimt taceɛlalt</annotation>
 		<annotation cp="🏼">tagwlimt taceɛlalt talemmast</annotation>
 		<annotation cp="🏼" type="tts" draft="unconfirmed">tagwlimt taceɛlalt talemmast</annotation>
 		<annotation cp="🏽">taglimt talemmast</annotation>
 		<annotation cp="🏽" type="tts" draft="unconfirmed">taglimt talemmast</annotation>
-		<annotation cp="🏾">tagwlimt tubrikt talemmast</annotation>
+		<annotation cp="🏾" draft="unconfirmed">taglimt tubrikt talemmast</annotation>
 		<annotation cp="🏾" type="tts" draft="unconfirmed">taglimt tubrikt talemmast</annotation>
-		<annotation cp="🏿">tagwlimt tubrikt</annotation>
+		<annotation cp="🏿" draft="unconfirmed">taglimt tubrikt</annotation>
 		<annotation cp="🏿" type="tts" draft="unconfirmed">taglimt tubrikt</annotation>
 		<annotation cp="," draft="unconfirmed">ticcert</annotation>
 		<annotation cp="," type="tts" draft="unconfirmed">ticcert</annotation>
-		<annotation cp="،" draft="unconfirmed">taɛrabt | ticcert</annotation>
+		<annotation cp="،" draft="unconfirmed">ticcert taɛrabt</annotation>
 		<annotation cp="،" type="tts" draft="unconfirmed">ticcert taɛrabt</annotation>
+		<annotation cp="·" draft="unconfirmed">taneqqiḍt talemmast</annotation>
 		<annotation cp="·" type="tts" draft="unconfirmed">taneqqiḍt talemmast</annotation>
+		<annotation cp="§" draft="unconfirmed">taseddart</annotation>
 		<annotation cp="§" type="tts" draft="unconfirmed">taseddart</annotation>
+		<annotation cp="°" draft="unconfirmed">tafesna</annotation>
 		<annotation cp="°" type="tts" draft="unconfirmed">tafesna</annotation>
 		<annotation cp="←" draft="unconfirmed">aneccab s azelmaḍ</annotation>
 		<annotation cp="←" type="tts" draft="unconfirmed">aneccab s azelmaḍ</annotation>
@@ -38,22 +41,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇅" type="tts" draft="unconfirmed">aneccab d asawen d uneccab d akessar</annotation>
 		<annotation cp="⇆" draft="unconfirmed">aneccab azelmaḍ nnig n uneccab ayeffus</annotation>
 		<annotation cp="⇆" type="tts" draft="unconfirmed">aneccab azelmaḍ nnig n uneccab ayeffus</annotation>
+		<annotation cp="∇" draft="unconfirmed">nabla</annotation>
 		<annotation cp="∇" type="tts" draft="unconfirmed">nabla</annotation>
+		<annotation cp="∈" draft="unconfirmed">aferdis n</annotation>
 		<annotation cp="∈" type="tts" draft="unconfirmed">aferdis n</annotation>
-		<annotation cp="+" draft="unconfirmed">azamul n tmerna | rnu | timerna</annotation>
+		<annotation cp="+" draft="unconfirmed">azamul n tmerna</annotation>
 		<annotation cp="+" type="tts" draft="unconfirmed">azamul n tmerna</annotation>
+		<annotation cp="=" draft="unconfirmed">yegda</annotation>
 		<annotation cp="=" type="tts" draft="unconfirmed">yegda</annotation>
-		<annotation cp="¬" draft="unconfirmed">tibawt | ur</annotation>
+		<annotation cp="¬" draft="unconfirmed">tibawt</annotation>
 		<annotation cp="¬" type="tts" draft="unconfirmed">tibawt</annotation>
 		<annotation cp="∩" draft="unconfirmed">amyegzem</annotation>
 		<annotation cp="∩" type="tts" draft="unconfirmed">amyegzem</annotation>
+		<annotation cp="∪" draft="unconfirmed">tadukkli</annotation>
 		<annotation cp="∪" type="tts" draft="unconfirmed">tadukkli</annotation>
+		<annotation cp="●" draft="unconfirmed">tawinest yeččuren</annotation>
 		<annotation cp="●" type="tts" draft="unconfirmed">tawinest yeččuren</annotation>
+		<annotation cp="🧌" draft="unconfirmed">aɣuliw</annotation>
 		<annotation cp="🧌" type="tts" draft="unconfirmed">aɣuliw</annotation>
 		<annotation cp="🪪" draft="unconfirmed">takarḍa n timagit</annotation>
 		<annotation cp="🪪" type="tts" draft="unconfirmed">takarḍa n timagit</annotation>
 		<annotation cp="🪫" draft="unconfirmed">aẓru yeɛyan</annotation>
 		<annotation cp="🪫" type="tts" draft="unconfirmed">aẓru yeɛyan</annotation>
+		<annotation cp="🪬" draft="unconfirmed">lxamsa</annotation>
 		<annotation cp="🪬" type="tts" draft="unconfirmed">lxamsa</annotation>
 		<annotation cp="🪷" draft="unconfirmed">abelbaquc</annotation>
 		<annotation cp="🪷" type="tts" draft="unconfirmed">abelbaquc</annotation>
@@ -63,7 +73,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪹" type="tts" draft="unconfirmed">lɛec ilem</annotation>
 		<annotation cp="🪺" draft="unconfirmed">lɛec s tmellalin</annotation>
 		<annotation cp="🪺" type="tts" draft="unconfirmed">lɛec s tmellalin</annotation>
+		<annotation cp="🫃" draft="unconfirmed">argaz s tadist</annotation>
 		<annotation cp="🫃" type="tts" draft="unconfirmed">argaz s tadist</annotation>
+		<annotation cp="🫄" draft="unconfirmed">amdan s tawist</annotation>
 		<annotation cp="🫄" type="tts" draft="unconfirmed">amdan s tawist</annotation>
 		<annotation cp="🫘" draft="unconfirmed">llubyan</annotation>
 		<annotation cp="🫘" type="tts" draft="unconfirmed">llubyan</annotation>
@@ -71,13 +83,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫙" type="tts" draft="unconfirmed">tabellaṛt</annotation>
 		<annotation cp="🫠" draft="unconfirmed">udem yefsin</annotation>
 		<annotation cp="🫠" type="tts" draft="unconfirmed">udem yefsin</annotation>
+		<annotation cp="🫢" draft="unconfirmed">udem s wallen yeldin d ufus ɣef yimi</annotation>
 		<annotation cp="🫢" type="tts" draft="unconfirmed">udem s wallen yeldin d ufus ɣef yimi</annotation>
+		<annotation cp="🫦" draft="unconfirmed">acenfir yettwakercen</annotation>
 		<annotation cp="🫦" type="tts" draft="unconfirmed">acenfir yettwakercen</annotation>
 		<annotation cp="🫰" draft="unconfirmed">afus s udebbuz d ccahed yemcubbaken</annotation>
 		<annotation cp="🫰" type="tts" draft="unconfirmed">afus s udebbuz d ccahed yemcubbaken</annotation>
-		<annotation cp="🫱" draft="unconfirmed">afus | ayeffus</annotation>
+		<annotation cp="🫱" draft="unconfirmed">afus ayeffus</annotation>
 		<annotation cp="🫱" type="tts" draft="unconfirmed">afus ayeffus</annotation>
-		<annotation cp="🫲" draft="unconfirmed">afus | azelmaḍ</annotation>
+		<annotation cp="🫲" draft="unconfirmed">afus azelmaḍ</annotation>
 		<annotation cp="🫲" type="tts" draft="unconfirmed">afus azelmaḍ</annotation>
 		<annotation cp="🫳" draft="unconfirmed">tidikelt d akesser</annotation>
 		<annotation cp="🫳" type="tts" draft="unconfirmed">tidikelt d akesser</annotation>
@@ -85,31 +99,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴" type="tts" draft="unconfirmed">tidikelt d asawen</annotation>
 		<annotation cp="🫵" draft="unconfirmed">ccahed iwehhan ɣer useqdac</annotation>
 		<annotation cp="🫵" type="tts" draft="unconfirmed">ccahed iwehhan ɣer useqdac</annotation>
-		<annotation cp="🫶" draft="unconfirmed">tayri</annotation>
+		<annotation cp="🫶" draft="unconfirmed">ifassen am wul</annotation>
 		<annotation cp="🫶" type="tts" draft="unconfirmed">ifassen am wul</annotation>
 		<annotation cp="🟰" draft="unconfirmed">geddu</annotation>
 		<annotation cp="🟰" type="tts" draft="unconfirmed">geddu</annotation>
 		<annotation cp="😀">acmumeḥ meqqren</annotation>
 		<annotation cp="😀" type="tts" draft="unconfirmed">acmumeḥ meqqren</annotation>
-		<annotation cp="😃">acmumeh n lfarh</annotation>
+		<annotation cp="😃" draft="unconfirmed">udem n ucmumeḥ s wallen yeldin</annotation>
 		<annotation cp="😃" type="tts" draft="unconfirmed">udem n ucmumeḥ s wallen yeldin</annotation>
-		<annotation cp="😄">acmumeh amesrar</annotation>
+		<annotation cp="😄" draft="unconfirmed">acmumaḥ amesrar</annotation>
 		<annotation cp="😄" type="tts" draft="unconfirmed">acmumaḥ amesrar</annotation>
 		<annotation cp="😁">acmumeḥ n tuɣmas meṛṛa</annotation>
 		<annotation cp="😁" type="tts" draft="unconfirmed">acmumeḥ n tuɣmas meṛṛa</annotation>
-		<annotation cp="😆">udem acmumaḥ akked yimi yeldin d wallen imedlen</annotation>
+		<annotation cp="😆" draft="unconfirmed">udem icmumḥen s yimi yeldin d wallen imedlen</annotation>
 		<annotation cp="😆" type="tts" draft="unconfirmed">udem icmumḥen s yimi yeldin d wallen imedlen</annotation>
-		<annotation cp="😅">acmumeh n reffu</annotation>
+		<annotation cp="😅" draft="unconfirmed">udem icmumḥen s leḥya</annotation>
 		<annotation cp="😅" type="tts" draft="unconfirmed">udem icmumḥen s leḥya</annotation>
-		<annotation cp="🤣">axbibed di tmurt si tedsa</annotation>
+		<annotation cp="🤣" draft="unconfirmed">axbibeḍ deg lqaɛa seg teḍsa</annotation>
 		<annotation cp="🤣" type="tts" draft="unconfirmed">axbibeḍ deg lqaɛa seg teḍsa</annotation>
-		<annotation cp="😂">taḍsa ar imeṭṭawen</annotation>
+		<annotation cp="😂" draft="unconfirmed">taḍsa almi i d-ɣlin imeṭṭawen</annotation>
 		<annotation cp="😂" type="tts" draft="unconfirmed">taḍsa almi i d-ɣlin imeṭṭawen</annotation>
-		<annotation cp="🙂">acmumeh afessas</annotation>
+		<annotation cp="🙂" draft="unconfirmed">acmumeḥ afessas</annotation>
 		<annotation cp="🙂" type="tts" draft="unconfirmed">acmumeḥ afessas</annotation>
-		<annotation cp="🙃" draft="unconfirmed">udem | yettin d akessar</annotation>
+		<annotation cp="🙃" draft="unconfirmed">udem yettin d akessar</annotation>
 		<annotation cp="🙃" type="tts" draft="unconfirmed">udem yettin d akessar</annotation>
-		<annotation cp="😉">udem yemmalen aɣmaz n ti</annotation>
+		<annotation cp="😉" draft="unconfirmed">udem yemmalen aɣmaz n tiṭ</annotation>
 		<annotation cp="😉" type="tts" draft="unconfirmed">udem yemmalen aɣmaz n tiṭ</annotation>
 		<annotation cp="😊">udem innecṛaḥen s wallen icmumḥen</annotation>
 		<annotation cp="😊" type="tts" draft="unconfirmed">udem innecṛaḥen s wallen icmumḥen</annotation>
@@ -121,7 +135,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤩" type="tts" draft="unconfirmed">udem yecmumḥen s wallen am yitran</annotation>
 		<annotation cp="😘">tasudent d wul</annotation>
 		<annotation cp="😘" type="tts" draft="unconfirmed">tasudent d wul</annotation>
-		<annotation cp="😗">tamact</annotation>
+		<annotation cp="😗" draft="unconfirmed">tasudent</annotation>
 		<annotation cp="😗" type="tts" draft="unconfirmed">tasudent</annotation>
 		<annotation cp="☺">udem n ucmumeḥ</annotation>
 		<annotation cp="☺" type="tts" draft="unconfirmed">udem n ucmumeḥ</annotation>
@@ -129,19 +143,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚" type="tts" draft="unconfirmed">tasudent allen medlent</annotation>
 		<annotation cp="😙">tasudent meqren</annotation>
 		<annotation cp="😙" type="tts" draft="unconfirmed">tasudent meqren</annotation>
+		<annotation cp="🥲" draft="unconfirmed">udem yecmumḥen s yimeṭṭawen</annotation>
 		<annotation cp="🥲" type="tts" draft="unconfirmed">udem yecmumḥen s yimeṭṭawen</annotation>
-		<annotation cp="😋">ham-ham</annotation>
+		<annotation cp="😋" draft="unconfirmed">udem yessibninen učči</annotation>
 		<annotation cp="😋" type="tts" draft="unconfirmed">udem yessibninen učči</annotation>
 		<annotation cp="😛">Udem s yiles</annotation>
 		<annotation cp="😛" type="tts" draft="unconfirmed">Udem s yiles</annotation>
 		<annotation cp="😜">Udem yessufɣen iles</annotation>
 		<annotation cp="😜" type="tts" draft="unconfirmed">Udem yessufɣen iles</annotation>
+		<annotation cp="🤪" draft="unconfirmed">udem yesseḍsayen</annotation>
 		<annotation cp="🤪" type="tts" draft="unconfirmed">udem yesseḍsayen</annotation>
 		<annotation cp="🤗">udem yefkan ahennec</annotation>
 		<annotation cp="🤗" type="tts" draft="unconfirmed">udem yefkan ahennec</annotation>
 		<annotation cp="🤭" draft="unconfirmed">udem s ufus ɣef yimi</annotation>
 		<annotation cp="🤭" type="tts" draft="unconfirmed">udem s ufus ɣef yimi</annotation>
-		<annotation cp="🤫" draft="unconfirmed">asuam | udem asusam | yaer</annotation>
+		<annotation cp="🤫" draft="unconfirmed">udem asusam</annotation>
 		<annotation cp="🤫" type="tts" draft="unconfirmed">udem asusam</annotation>
 		<annotation cp="🤔">udem ikecmen di ttexmim</annotation>
 		<annotation cp="🤔" type="tts" draft="unconfirmed">udem ikecmen di ttexmim</annotation>
@@ -175,6 +191,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😷" type="tts" draft="unconfirmed">udem s tgelmust</annotation>
 		<annotation cp="🤒">udem s utirmumitr</annotation>
 		<annotation cp="🤒" type="tts" draft="unconfirmed">udem s utirmumitr</annotation>
+		<annotation cp="🤕" draft="unconfirmed">udem icudden deg uqerruy</annotation>
 		<annotation cp="🤕" type="tts" draft="unconfirmed">udem icudden deg uqerruy</annotation>
 		<annotation cp="🤮" draft="unconfirmed">udem yettarran</annotation>
 		<annotation cp="🤮" type="tts" draft="unconfirmed">udem yettarran</annotation>
@@ -182,7 +199,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤧" type="tts" draft="unconfirmed">udem yettaḍasen</annotation>
 		<annotation cp="🥵" draft="unconfirmed">udem yerɣan</annotation>
 		<annotation cp="🥵" type="tts" draft="unconfirmed">udem yerɣan</annotation>
-		<annotation cp="🥶" draft="unconfirmed">udem asemmiḍ</annotation>
+		<annotation cp="🥶" draft="unconfirmed">udem asemmaḍ</annotation>
 		<annotation cp="🥶" type="tts" draft="unconfirmed">udem asemmaḍ</annotation>
 		<annotation cp="😎">acmumeḥ s nwader n yiṭij</annotation>
 		<annotation cp="😎" type="tts" draft="unconfirmed">acmumeḥ s nwader n yiṭij</annotation>
@@ -192,53 +209,58 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😟" type="tts" draft="unconfirmed">udem yuggaden</annotation>
 		<annotation cp="☹">udem amiglaz</annotation>
 		<annotation cp="☹" type="tts" draft="unconfirmed">udem amiglaz</annotation>
-		<annotation cp="😮">vennej</annotation>
+		<annotation cp="😮" draft="unconfirmed">udem s yimi yeldin</annotation>
 		<annotation cp="😮" type="tts" draft="unconfirmed">udem s yimi yeldin</annotation>
 		<annotation cp="😯">udem war taɣect</annotation>
 		<annotation cp="😯" type="tts" draft="unconfirmed">udem war taɣect</annotation>
 		<annotation cp="😥">uk</annotation>
 		<annotation cp="😥" type="tts" draft="unconfirmed">uk</annotation>
-		<annotation cp="😢" draft="unconfirmed">iḥeznen | ixaqqen | udem yettrun</annotation>
+		<annotation cp="😢" draft="unconfirmed">udem yettrun</annotation>
 		<annotation cp="😢" type="tts" draft="unconfirmed">udem yettrun</annotation>
 		<annotation cp="😣">udem akayay</annotation>
 		<annotation cp="😣" type="tts" draft="unconfirmed">udem akayay</annotation>
 		<annotation cp="😫">udem yeɛyan</annotation>
 		<annotation cp="😫" type="tts" draft="unconfirmed">udem yeɛyan</annotation>
-		<annotation cp="🥱" draft="unconfirmed">udem yettfan | yeεyan</annotation>
+		<annotation cp="🥱" draft="unconfirmed">udem yettfan</annotation>
 		<annotation cp="🥱" type="tts" draft="unconfirmed">udem yettfan</annotation>
+		<annotation cp="😠" draft="unconfirmed">udem yerfan</annotation>
 		<annotation cp="😠" type="tts" draft="unconfirmed">udem yerfan</annotation>
+		<annotation cp="😈" draft="unconfirmed">udem yeḍsan s wacciwen</annotation>
 		<annotation cp="😈" type="tts" draft="unconfirmed">udem yeḍsan s wacciwen</annotation>
+		<annotation cp="👿" draft="unconfirmed">udem yerfan s wacciwen</annotation>
 		<annotation cp="👿" type="tts" draft="unconfirmed">udem yerfan s wacciwen</annotation>
 		<annotation cp="🤡" draft="unconfirmed">udem yesseḍsayen</annotation>
+		<annotation cp="👹" draft="unconfirmed">waɣzen</annotation>
 		<annotation cp="👹" type="tts" draft="unconfirmed">waɣzen</annotation>
+		<annotation cp="👻" draft="unconfirmed">afunṭum</annotation>
 		<annotation cp="👻" type="tts" draft="unconfirmed">afunṭum</annotation>
-		<annotation cp="💞" draft="unconfirmed">tuzzya | ul itezzin</annotation>
+		<annotation cp="💞" draft="unconfirmed">ul itezzin</annotation>
 		<annotation cp="💞" type="tts" draft="unconfirmed">ul itezzin</annotation>
-		<annotation cp="💕" draft="unconfirmed">sin wulawen | tayri</annotation>
+		<annotation cp="💕" draft="unconfirmed">sin wulawen</annotation>
 		<annotation cp="💕" type="tts" draft="unconfirmed">sin wulawen</annotation>
-		<annotation cp="💟" draft="unconfirmed">acebbeḥ n wul | ul</annotation>
+		<annotation cp="💟" draft="unconfirmed">acebbeḥ n wul</annotation>
 		<annotation cp="💟" type="tts" draft="unconfirmed">acebbeḥ n wul</annotation>
-		<annotation cp="❣" draft="unconfirmed">abhat | asenqeḍ | tacreḍt | ul ibehten</annotation>
+		<annotation cp="❣" draft="unconfirmed">ul ibehten</annotation>
 		<annotation cp="❣" type="tts" draft="unconfirmed">ul ibehten</annotation>
-		<annotation cp="💔" draft="unconfirmed">reẓ | ul yerẓen | yerẓen</annotation>
+		<annotation cp="💔" draft="unconfirmed">ul yerẓen</annotation>
 		<annotation cp="💔" type="tts" draft="unconfirmed">ul yerẓen</annotation>
-		<annotation cp="❤" draft="unconfirmed">azeggaɣ | ul azeggaɣ</annotation>
+		<annotation cp="❤" draft="unconfirmed">ul azeggaɣ</annotation>
 		<annotation cp="❤" type="tts" draft="unconfirmed">ul azeggaɣ</annotation>
-		<annotation cp="🧡" draft="unconfirmed">ačini | ul ačini</annotation>
+		<annotation cp="🧡" draft="unconfirmed">ul ačini</annotation>
 		<annotation cp="🧡" type="tts" draft="unconfirmed">ul ačini</annotation>
-		<annotation cp="💛" draft="unconfirmed">awreɣ | ul awreɣ</annotation>
+		<annotation cp="💛" draft="unconfirmed">ul awreɣ</annotation>
 		<annotation cp="💛" type="tts" draft="unconfirmed">ul awreɣ</annotation>
-		<annotation cp="💚" draft="unconfirmed">azegzaw [ ul azegzaw</annotation>
+		<annotation cp="💚" draft="unconfirmed">ul azegzaw</annotation>
 		<annotation cp="💚" type="tts" draft="unconfirmed">ul azegzaw</annotation>
-		<annotation cp="💙" draft="unconfirmed">anili | ul anili</annotation>
+		<annotation cp="💙" draft="unconfirmed">ul anili</annotation>
 		<annotation cp="💙" type="tts" draft="unconfirmed">ul anili</annotation>
-		<annotation cp="💜" draft="unconfirmed">ademdam | ul ademdam</annotation>
+		<annotation cp="💜" draft="unconfirmed">ul ademdam</annotation>
 		<annotation cp="💜" type="tts" draft="unconfirmed">ul ademdam</annotation>
-		<annotation cp="🤎" draft="unconfirmed">aqehwi | ul</annotation>
+		<annotation cp="🤎" draft="unconfirmed">ul aqehwi</annotation>
 		<annotation cp="🤎" type="tts" draft="unconfirmed">ul aqehwi</annotation>
-		<annotation cp="🖤" draft="unconfirmed">aberkan | ul aberkan | ul n diri</annotation>
+		<annotation cp="🖤" draft="unconfirmed">ul aberkan</annotation>
 		<annotation cp="🖤" type="tts" draft="unconfirmed">ul aberkan</annotation>
-		<annotation cp="🤍" draft="unconfirmed">amellal | ul</annotation>
+		<annotation cp="🤍" draft="unconfirmed">ul amellal</annotation>
 		<annotation cp="🤍" type="tts" draft="unconfirmed">ul amellal</annotation>
 		<annotation cp="🕳" draft="unconfirmed">amruj</annotation>
 		<annotation cp="🕳" type="tts" draft="unconfirmed">amruj</annotation>
@@ -252,17 +274,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💭" type="tts" draft="unconfirmed">tanaka n tikta</annotation>
 		<annotation cp="💤" draft="unconfirmed">zzz</annotation>
 		<annotation cp="💤" type="tts" draft="unconfirmed">zzz</annotation>
-		<annotation cp="👋" draft="unconfirmed">afus | awehhi | wehhi</annotation>
+		<annotation cp="👋" draft="unconfirmed">afus yettwehhin</annotation>
 		<annotation cp="👋" type="tts" draft="unconfirmed">afus yettwehhin</annotation>
-		<annotation cp="🤚" draft="unconfirmed">talwaḥt n ufus | telwaḥt n ufus yettwarefden | yettwarefden</annotation>
+		<annotation cp="🤚" draft="unconfirmed">talwaḥt n ufus irefden</annotation>
 		<annotation cp="🤚" type="tts" draft="unconfirmed">talwaḥt n ufus irefden</annotation>
-		<annotation cp="🖐" draft="unconfirmed">aḍad | afus | afus s yiḍudan yeldin</annotation>
+		<annotation cp="🖐" draft="unconfirmed">afus s yiḍudan yeldin</annotation>
 		<annotation cp="🖐" type="tts" draft="unconfirmed">afus s yiḍudan yeldin</annotation>
-		<annotation cp="✋" draft="unconfirmed">afus | afus irefden | xmes</annotation>
+		<annotation cp="✋" draft="unconfirmed">afus irefden</annotation>
 		<annotation cp="✋" type="tts" draft="unconfirmed">afus irefden</annotation>
 		<annotation cp="🖖" draft="unconfirmed">aburkan n tezmert</annotation>
 		<annotation cp="🖖" type="tts" draft="unconfirmed">aburkan n tezmert</annotation>
-		<annotation cp="👌" draft="unconfirmed">afus | IH</annotation>
+		<annotation cp="👌" draft="unconfirmed">afus n IH</annotation>
 		<annotation cp="👌" type="tts" draft="unconfirmed">afus n IH</annotation>
 		<annotation cp="🤌" draft="unconfirmed">Iduḍan yemlalen</annotation>
 		<annotation cp="🤌" type="tts" draft="unconfirmed">Iduḍan yemlalen</annotation>
@@ -276,7 +298,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤟" type="tts" draft="unconfirmed">afus n tayri</annotation>
 		<annotation cp="🤘" draft="unconfirmed">azamul n wacciwen</annotation>
 		<annotation cp="🤘" type="tts" draft="unconfirmed">azamul n wacciwen</annotation>
-		<annotation cp="🤙" draft="unconfirmed">afus | afus n usiwel | asiwel</annotation>
+		<annotation cp="🤙" draft="unconfirmed">afus n usiwel</annotation>
 		<annotation cp="🤙" type="tts" draft="unconfirmed">afus n usiwel</annotation>
 		<annotation cp="👈" draft="unconfirmed">afus s udebbuz yerran s azelmaḍ</annotation>
 		<annotation cp="👈" type="tts" draft="unconfirmed">afus s udebbuz yerran s azelmaḍ</annotation>
@@ -290,7 +312,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇" type="tts" draft="unconfirmed">afus s udebbuz yerran d akesser</annotation>
 		<annotation cp="☝" draft="unconfirmed">ccahed yerran d asawen</annotation>
 		<annotation cp="☝" type="tts" draft="unconfirmed">ccahed yerran d asawen</annotation>
-		<annotation cp="👍" draft="unconfirmed">+1 | adebbuz | adebbuz d asawen | afus | d asawen</annotation>
+		<annotation cp="👍" draft="unconfirmed">adebbuz d asawen</annotation>
 		<annotation cp="👍" type="tts" draft="unconfirmed">adebbuz d asawen</annotation>
 		<annotation cp="👎" draft="unconfirmed">adebbuz d akessar</annotation>
 		<annotation cp="👎" type="tts" draft="unconfirmed">adebbuz d akessar</annotation>
@@ -306,15 +328,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👏" type="tts" draft="unconfirmed">aṣerfeq</annotation>
 		<annotation cp="🙌" draft="unconfirmed">ifassen yulin</annotation>
 		<annotation cp="🙌" type="tts" draft="unconfirmed">ifassen yulin</annotation>
-		<annotation cp="👐" draft="unconfirmed">afus | ifassen yeldin | yeldi</annotation>
+		<annotation cp="👐" draft="unconfirmed">ifassen yeldin</annotation>
 		<annotation cp="👐" type="tts" draft="unconfirmed">ifassen yeldin</annotation>
-		<annotation cp="🤲" draft="unconfirmed">taẓallit | tidikal yeddukklen d asawen</annotation>
+		<annotation cp="🤲" draft="unconfirmed">tidikal yeddukklen d asawen</annotation>
 		<annotation cp="🤲" type="tts" draft="unconfirmed">tidikal yeddukklen d asawen</annotation>
 		<annotation cp="🤝" draft="unconfirmed">amsalem</annotation>
 		<annotation cp="🤝" type="tts" draft="unconfirmed">amsalem</annotation>
 		<annotation cp="🙏" draft="unconfirmed">ifassen ineṭḍen</annotation>
 		<annotation cp="🙏" type="tts" draft="unconfirmed">ifassen ineṭḍen</annotation>
-		<annotation cp="✍" draft="unconfirmed">afus | afus yettarun | aru</annotation>
+		<annotation cp="✍" draft="unconfirmed">afus yettarun</annotation>
 		<annotation cp="✍" type="tts" draft="unconfirmed">afus yettarun</annotation>
 		<annotation cp="💅" draft="unconfirmed">iɣmi n waccaren</annotation>
 		<annotation cp="💅" type="tts" draft="unconfirmed">iɣmi n waccaren</annotation>
@@ -328,75 +350,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦵" type="tts" draft="unconfirmed">aqejjir</annotation>
 		<annotation cp="🦶" draft="unconfirmed">aḍar</annotation>
 		<annotation cp="🦶" type="tts" draft="unconfirmed">aḍar</annotation>
-		<annotation cp="👂" draft="unconfirmed">ameẓẓuɣ | tafekka</annotation>
+		<annotation cp="👂" draft="unconfirmed">ameẓẓuɣ</annotation>
 		<annotation cp="👂" type="tts" draft="unconfirmed">ameẓẓuɣ</annotation>
 		<annotation cp="🦻" draft="unconfirmed">ameẓẓuɣ s ufecku n tmesliwt</annotation>
 		<annotation cp="🦻" type="tts" draft="unconfirmed">ameẓẓuɣ s ufecku n tmesliwt</annotation>
-		<annotation cp="👃" draft="unconfirmed">anzaren | tafekka</annotation>
+		<annotation cp="👃" draft="unconfirmed">anzaren</annotation>
 		<annotation cp="👃" type="tts" draft="unconfirmed">anzaren</annotation>
-		<annotation cp="🧠" draft="unconfirmed">allaɣ | uḥric</annotation>
+		<annotation cp="🧠" draft="unconfirmed">allaɣ</annotation>
 		<annotation cp="🧠" type="tts" draft="unconfirmed">allaɣ</annotation>
 		<annotation cp="🫁" draft="unconfirmed">turin</annotation>
 		<annotation cp="🫁" type="tts" draft="unconfirmed">turin</annotation>
-		<annotation cp="🦷" draft="unconfirmed">amsujji n tuɣmas | tuɣmest</annotation>
+		<annotation cp="🦷" draft="unconfirmed">tuɣmest</annotation>
 		<annotation cp="🦷" type="tts" draft="unconfirmed">tuɣmest</annotation>
-		<annotation cp="🦴" draft="unconfirmed">iɣes | taɣessa</annotation>
+		<annotation cp="🦴" draft="unconfirmed">iɣes</annotation>
 		<annotation cp="🦴" type="tts" draft="unconfirmed">iɣes</annotation>
-		<annotation cp="👀" draft="unconfirmed">allen | tiṭ | udem</annotation>
+		<annotation cp="👀" draft="unconfirmed">allen</annotation>
 		<annotation cp="👀" type="tts" draft="unconfirmed">allen</annotation>
-		<annotation cp="👁" draft="unconfirmed">tafekka | tiṭ</annotation>
+		<annotation cp="👁" draft="unconfirmed">tiṭ</annotation>
 		<annotation cp="👁" type="tts" draft="unconfirmed">tiṭ</annotation>
-		<annotation cp="👅" draft="unconfirmed">iles | tafekka</annotation>
+		<annotation cp="👅" draft="unconfirmed">iles</annotation>
 		<annotation cp="👅" type="tts" draft="unconfirmed">iles</annotation>
-		<annotation cp="👄" draft="unconfirmed">icenfiren | imi</annotation>
+		<annotation cp="👄" draft="unconfirmed">imi</annotation>
 		<annotation cp="👄" type="tts" draft="unconfirmed">imi</annotation>
-		<annotation cp="👶">ṣebyan</annotation>
+		<annotation cp="👶" draft="unconfirmed">aṭufan</annotation>
 		<annotation cp="👶" type="tts" draft="unconfirmed">aṭufan</annotation>
 		<annotation cp="🧒">agrud</annotation>
 		<annotation cp="🧒" type="tts" draft="unconfirmed">agrud</annotation>
-		<annotation cp="👦">aqruṛ</annotation>
+		<annotation cp="👦" draft="unconfirmed">aqcic</annotation>
 		<annotation cp="👦" type="tts" draft="unconfirmed">aqcic</annotation>
-		<annotation cp="👧" draft="unconfirmed">tameẓẓyant | taqcict</annotation>
+		<annotation cp="👧" draft="unconfirmed">taqcict</annotation>
 		<annotation cp="👧" type="tts" draft="unconfirmed">taqcict</annotation>
-		<annotation cp="🧑" draft="unconfirmed">amengaḍ</annotation>
+		<annotation cp="🧑" draft="unconfirmed">amdan</annotation>
 		<annotation cp="🧑" type="tts" draft="unconfirmed">amdan</annotation>
-		<annotation cp="👱" draft="unconfirmed">aceɛlal | acekkuḥ | amdan aceɛlal | amdan: acekkuḥ aceɛlal</annotation>
+		<annotation cp="👱" draft="unconfirmed">amdan: acekkuḥ aceɛlal</annotation>
 		<annotation cp="👱" type="tts" draft="unconfirmed">amdan: acekkuḥ aceɛlal</annotation>
 		<annotation cp="👨" draft="unconfirmed">argaz</annotation>
 		<annotation cp="👨" type="tts" draft="unconfirmed">argaz</annotation>
-		<annotation cp="🧔" draft="unconfirmed">amdan | amdan: tamart | tamart</annotation>
+		<annotation cp="🧔" draft="unconfirmed">amdan: tamart</annotation>
 		<annotation cp="🧔" type="tts" draft="unconfirmed">amdan: tamart</annotation>
 		<annotation cp="👩" draft="unconfirmed">tameṭṭut</annotation>
 		<annotation cp="👩" type="tts" draft="unconfirmed">tameṭṭut</annotation>
-		<annotation cp="🧓" draft="unconfirmed">amengaḍ meqqren</annotation>
+		<annotation cp="🧓" draft="unconfirmed">amdan meqqren</annotation>
 		<annotation cp="🧓" type="tts" draft="unconfirmed">amdan meqqren</annotation>
-		<annotation cp="👴" draft="unconfirmed">amɣaṛ</annotation>
+		<annotation cp="👴" draft="unconfirmed">amɣar</annotation>
 		<annotation cp="👴" type="tts" draft="unconfirmed">amɣar</annotation>
-		<annotation cp="👵" draft="unconfirmed">tameṭṭut | tamɣart | tilemẓit</annotation>
+		<annotation cp="👵" draft="unconfirmed">tamɣart</annotation>
 		<annotation cp="👵" type="tts" draft="unconfirmed">tamɣart</annotation>
+		<annotation cp="🧏" draft="unconfirmed">amdan aɛeẓẓug</annotation>
 		<annotation cp="🧏" type="tts" draft="unconfirmed">amdan aɛeẓẓug</annotation>
+		<annotation cp="👮" draft="unconfirmed">amsaltu</annotation>
 		<annotation cp="👮" type="tts" draft="unconfirmed">amsaltu</annotation>
 		<annotation cp="💂" draft="unconfirmed">aɛessas</annotation>
 		<annotation cp="💂" type="tts" draft="unconfirmed">aɛessas</annotation>
+		<annotation cp="🥷" draft="unconfirmed">aninja</annotation>
 		<annotation cp="🥷" type="tts" draft="unconfirmed">aninja</annotation>
 		<annotation cp="🤴" draft="unconfirmed">ageldun</annotation>
 		<annotation cp="🤴" type="tts" draft="unconfirmed">ageldun</annotation>
+		<annotation cp="👸" draft="unconfirmed">tageldunt</annotation>
 		<annotation cp="👸" type="tts" draft="unconfirmed">tageldunt</annotation>
-		<annotation cp="👳" draft="unconfirmed">aɛessab | amdan s uɛessab</annotation>
+		<annotation cp="👳" draft="unconfirmed">amdan s uɛessab</annotation>
 		<annotation cp="👳" type="tts" draft="unconfirmed">amdan s uɛessab</annotation>
-		<annotation cp="🤰" draft="unconfirmed">tadist | tameṭṭut</annotation>
+		<annotation cp="🤰" draft="unconfirmed">tameṭṭut s tadist</annotation>
 		<annotation cp="🤰" type="tts" draft="unconfirmed">tameṭṭut s tadist</annotation>
+		<annotation cp="👼" draft="unconfirmed">aṭufan aneglus</annotation>
 		<annotation cp="👼" type="tts" draft="unconfirmed">aṭufan aneglus</annotation>
-		<annotation cp="🧟" draft="unconfirmed">aẓumbi | lmeyyet itteddu | ur yemmut ara</annotation>
+		<annotation cp="🧟" draft="unconfirmed">aẓumbi</annotation>
 		<annotation cp="🧟" type="tts" draft="unconfirmed">aẓumbi</annotation>
+		<annotation cp="🚶" draft="unconfirmed">amdan ileḥḥun</annotation>
 		<annotation cp="🚶" type="tts" draft="unconfirmed">amdan ileḥḥun</annotation>
+		<annotation cp="🧍" draft="unconfirmed">amdan ibedden</annotation>
 		<annotation cp="🧍" type="tts" draft="unconfirmed">amdan ibedden</annotation>
+		<annotation cp="🧎" draft="unconfirmed">amdan ɣef tgecrar</annotation>
 		<annotation cp="🧎" type="tts" draft="unconfirmed">amdan ɣef tgecrar</annotation>
+		<annotation cp="🏃" draft="unconfirmed">amdan yettazzalen</annotation>
 		<annotation cp="🏃" type="tts" draft="unconfirmed">amdan yettazzalen</annotation>
+		<annotation cp="💃" draft="unconfirmed">tameṭṭut iceṭṭḥen</annotation>
 		<annotation cp="💃" type="tts" draft="unconfirmed">tameṭṭut iceṭṭḥen</annotation>
+		<annotation cp="🕺" draft="unconfirmed">argaz iceṭṭḥen</annotation>
 		<annotation cp="🕺" type="tts" draft="unconfirmed">argaz iceṭṭḥen</annotation>
-		<annotation cp="👯" draft="unconfirmed">ameẓẓuɣ n uwtul | ccḍeḥ | imdanen s yimeẓẓuɣen n yiwtal | tamzɣra</annotation>
+		<annotation cp="👯" draft="unconfirmed">imdanen s yimeẓẓuɣen n yiwtal</annotation>
 		<annotation cp="👯" type="tts" draft="unconfirmed">imdanen s yimeẓẓuɣen n yiwtal</annotation>
+		<annotation cp="🚴" draft="unconfirmed">amdan s uvilu</annotation>
 		<annotation cp="🚴" type="tts" draft="unconfirmed">amdan s uvilu</annotation>
 		<annotation cp="🤽" draft="unconfirmed">amdan yetturare water polo</annotation>
 		<annotation cp="🤽" type="tts" draft="unconfirmed">amdan yetturare water polo</annotation>
@@ -424,7 +458,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👣" type="tts" draft="unconfirmed">lǧerra n yiḍarren</annotation>
 		<annotation cp="🦰" draft="unconfirmed">acekkuḥ azeggaɣ</annotation>
 		<annotation cp="🦰" type="tts" draft="unconfirmed">acekkuḥ azeggaɣ</annotation>
-		<annotation cp="🦱" draft="unconfirmed">acebbub akerčeččay</annotation>
+		<annotation cp="🦱" draft="unconfirmed">acekkuḥ akerṭuṭfan</annotation>
 		<annotation cp="🦱" type="tts" draft="unconfirmed">acekkuḥ akerṭuṭfan</annotation>
 		<annotation cp="🦳" draft="unconfirmed">acekkuḥ amellal</annotation>
 		<annotation cp="🦳" type="tts" draft="unconfirmed">acekkuḥ amellal</annotation>
@@ -432,7 +466,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦲" type="tts" draft="unconfirmed">aferḍas</annotation>
 		<annotation cp="🐵" draft="unconfirmed">adaqum n yibki</annotation>
 		<annotation cp="🐵" type="tts" draft="unconfirmed">adaqum n yibki</annotation>
-		<annotation cp="🐒" draft="unconfirmed">iddew</annotation>
+		<annotation cp="🐒" draft="unconfirmed">ibki</annotation>
 		<annotation cp="🐒" type="tts" draft="unconfirmed">ibki</annotation>
 		<annotation cp="🦍" draft="unconfirmed">aguril</annotation>
 		<annotation cp="🦍" type="tts" draft="unconfirmed">aguril</annotation>
@@ -456,17 +490,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts" draft="unconfirmed">udem n umcic</annotation>
 		<annotation cp="🐈" draft="unconfirmed">amcic</annotation>
 		<annotation cp="🐈" type="tts" draft="unconfirmed">amcic</annotation>
-		<annotation cp="🐯" draft="unconfirmed">aɣilas | udem</annotation>
+		<annotation cp="🐯" draft="unconfirmed">udem n uɣilas</annotation>
 		<annotation cp="🐯" type="tts" draft="unconfirmed">udem n uɣilas</annotation>
 		<annotation cp="🐅" draft="unconfirmed">aɣilas</annotation>
 		<annotation cp="🐅" type="tts" draft="unconfirmed">aɣilas</annotation>
 		<annotation cp="🐆" draft="unconfirmed">agiw</annotation>
 		<annotation cp="🐆" type="tts" draft="unconfirmed">agiw</annotation>
-		<annotation cp="🐴" draft="unconfirmed">udem / aɛewdiw</annotation>
+		<annotation cp="🐴" draft="unconfirmed">udem n uɛewdiw</annotation>
 		<annotation cp="🐴" type="tts" draft="unconfirmed">udem n uɛewdiw</annotation>
 		<annotation cp="🐎" draft="unconfirmed">aɛewdiw</annotation>
 		<annotation cp="🐎" type="tts" draft="unconfirmed">aɛewdiw</annotation>
-		<annotation cp="🦄" draft="unconfirmed">bu yiwen n yiccew | udem</annotation>
+		<annotation cp="🦄" draft="unconfirmed">bu yiwen n yiccew</annotation>
 		<annotation cp="🦄" type="tts" draft="unconfirmed">bu yiwen n yiccew</annotation>
 		<annotation cp="🦓" draft="unconfirmed">aɣyul n teẓgi</annotation>
 		<annotation cp="🦓" type="tts" draft="unconfirmed">aɣyul n teẓgi</annotation>
@@ -512,7 +546,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦏" type="tts" draft="unconfirmed">arinusirus</annotation>
 		<annotation cp="🦛" draft="unconfirmed">apuputam</annotation>
 		<annotation cp="🦛" type="tts" draft="unconfirmed">apuputam</annotation>
-		<annotation cp="🐭" draft="unconfirmed">aɣerda | udem</annotation>
+		<annotation cp="🐭" draft="unconfirmed">aqadum n uɣerda</annotation>
 		<annotation cp="🐭" type="tts" draft="unconfirmed">aqadum n uɣerda</annotation>
 		<annotation cp="🐁" draft="unconfirmed">aɣerda</annotation>
 		<annotation cp="🐁" type="tts" draft="unconfirmed">aɣerda</annotation>
@@ -528,7 +562,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐿" type="tts" draft="unconfirmed">tadɣaɣat</annotation>
 		<annotation cp="🦫" draft="unconfirmed">akastur</annotation>
 		<annotation cp="🦫" type="tts" draft="unconfirmed">akastur</annotation>
-		<annotation cp="🦔" draft="unconfirmed">inisi | isennanen</annotation>
+		<annotation cp="🦔" draft="unconfirmed">inisi</annotation>
 		<annotation cp="🦔" type="tts" draft="unconfirmed">inisi</annotation>
 		<annotation cp="🦇" draft="unconfirmed">azuɣnennay</annotation>
 		<annotation cp="🦇" type="tts" draft="unconfirmed">azuɣnennay</annotation>
@@ -536,7 +570,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐻" type="tts" draft="unconfirmed">ursu</annotation>
 		<annotation cp="🐨" draft="unconfirmed">akwala</annotation>
 		<annotation cp="🐨" type="tts" draft="unconfirmed">akwala</annotation>
-		<annotation cp="🐼" draft="unconfirmed">apanda | udem</annotation>
+		<annotation cp="🐼" draft="unconfirmed">apanda</annotation>
 		<annotation cp="🐼" type="tts" draft="unconfirmed">apanda</annotation>
 		<annotation cp="🦥" draft="unconfirmed">Asellaw</annotation>
 		<annotation cp="🦥" type="tts" draft="unconfirmed">Asellaw</annotation>
@@ -544,15 +578,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦦" type="tts" draft="unconfirmed">aselḍ aman</annotation>
 		<annotation cp="🦘" draft="unconfirmed">akanguru</annotation>
 		<annotation cp="🦘" type="tts" draft="unconfirmed">akanguru</annotation>
-		<annotation cp="🦡" draft="unconfirmed">isirru | isirru n tament</annotation>
+		<annotation cp="🦡" draft="unconfirmed">isirru</annotation>
 		<annotation cp="🦡" type="tts" draft="unconfirmed">isirru</annotation>
 		<annotation cp="🐾" draft="unconfirmed">tirekkiḍin n yiḍarren</annotation>
 		<annotation cp="🐾" type="tts" draft="unconfirmed">tirekkiḍin n yiḍarren</annotation>
 		<annotation cp="🦃" draft="unconfirmed">adandu</annotation>
 		<annotation cp="🦃" type="tts" draft="unconfirmed">adandu</annotation>
-		<annotation cp="🐔" draft="unconfirmed">agḍiḍ | tayaziḍt</annotation>
+		<annotation cp="🐔" draft="unconfirmed">tayaziḍt</annotation>
 		<annotation cp="🐔" type="tts" draft="unconfirmed">tayaziḍt</annotation>
-		<annotation cp="🐓" draft="unconfirmed">agḍiḍ | ayaziḍ</annotation>
+		<annotation cp="🐓" draft="unconfirmed">ayaziḍ</annotation>
 		<annotation cp="🐓" type="tts" draft="unconfirmed">ayaziḍ</annotation>
 		<annotation cp="🐣" draft="unconfirmed">acewcew yefrurxen</annotation>
 		<annotation cp="🐣" type="tts" draft="unconfirmed">acewcew yefrurxen</annotation>
@@ -562,13 +596,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts" draft="unconfirmed">afellus si zdat</annotation>
 		<annotation cp="🐦" draft="unconfirmed">agḍiḍ</annotation>
 		<annotation cp="🐦" type="tts" draft="unconfirmed">agḍiḍ</annotation>
-		<annotation cp="🐧" draft="unconfirmed">agḍiḍ | ameddul</annotation>
+		<annotation cp="🐧" draft="unconfirmed">ameddul</annotation>
 		<annotation cp="🐧" type="tts" draft="unconfirmed">ameddul</annotation>
 		<annotation cp="🕊" draft="unconfirmed">itbir</annotation>
 		<annotation cp="🕊" type="tts" draft="unconfirmed">itbir</annotation>
-		<annotation cp="🦅" draft="unconfirmed">agḍiḍ | lbaz</annotation>
+		<annotation cp="🦅" draft="unconfirmed">lbaz</annotation>
 		<annotation cp="🦅" type="tts" draft="unconfirmed">lbaz</annotation>
-		<annotation cp="🦆" draft="unconfirmed">abṛik | agḍiḍ</annotation>
+		<annotation cp="🦆" draft="unconfirmed">abṛik</annotation>
 		<annotation cp="🦆" type="tts" draft="unconfirmed">abṛik</annotation>
 		<annotation cp="🦢" draft="unconfirmed">iblireǧ</annotation>
 		<annotation cp="🦢" type="tts" draft="unconfirmed">iblireǧ</annotation>
@@ -584,7 +618,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦚" type="tts" draft="unconfirmed">afrux n ṭawes</annotation>
 		<annotation cp="🦜" draft="unconfirmed">babaɣayu</annotation>
 		<annotation cp="🦜" type="tts" draft="unconfirmed">babaɣayu</annotation>
-		<annotation cp="🐸" draft="unconfirmed">imqerqer | udem</annotation>
+		<annotation cp="🐸" draft="unconfirmed">imqerqer</annotation>
 		<annotation cp="🐸" type="tts" draft="unconfirmed">imqerqer</annotation>
 		<annotation cp="🐊" draft="unconfirmed">aɣucaf</annotation>
 		<annotation cp="🐊" type="tts" draft="unconfirmed">aɣucaf</annotation>
@@ -594,9 +628,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦎" type="tts" draft="unconfirmed">tata</annotation>
 		<annotation cp="🐍" draft="unconfirmed">azrem</annotation>
 		<annotation cp="🐍" type="tts" draft="unconfirmed">azrem</annotation>
-		<annotation cp="🐲" draft="unconfirmed">adragu | tamacahut | udem</annotation>
+		<annotation cp="🐲" draft="unconfirmed">udem n udragu</annotation>
 		<annotation cp="🐲" type="tts" draft="unconfirmed">udem n udragu</annotation>
-		<annotation cp="🐉" draft="unconfirmed">adragu | tamacahut</annotation>
+		<annotation cp="🐉" draft="unconfirmed">adragu</annotation>
 		<annotation cp="🐉" type="tts" draft="unconfirmed">adragu</annotation>
 		<annotation cp="🦕" draft="unconfirmed">aṣurupud</annotation>
 		<annotation cp="🦕" type="tts" draft="unconfirmed">aṣurupud</annotation>
@@ -608,7 +642,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts" draft="unconfirmed">tizmekt</annotation>
 		<annotation cp="🐬" draft="unconfirmed">addenfil</annotation>
 		<annotation cp="🐬" type="tts" draft="unconfirmed">addenfil</annotation>
-		<annotation cp="🦭" draft="unconfirmed">aydi n waman | izem n yilel</annotation>
+		<annotation cp="🦭" draft="unconfirmed">Aydi n waman</annotation>
 		<annotation cp="🦭" type="tts" draft="unconfirmed">Aydi n waman</annotation>
 		<annotation cp="🐟" draft="unconfirmed">aslem</annotation>
 		<annotation cp="🐟" type="tts" draft="unconfirmed">aslem</annotation>
@@ -642,7 +676,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕷" type="tts" draft="unconfirmed">tissist</annotation>
 		<annotation cp="🕸" draft="unconfirmed">azeṭṭa n tissist</annotation>
 		<annotation cp="🕸" type="tts" draft="unconfirmed">azeṭṭa n tissist</annotation>
-		<annotation cp="🦟" draft="unconfirmed">aṭṭan | avirus | malarya | tawla | tizit | ṭṭaɛun</annotation>
+		<annotation cp="🦟" draft="unconfirmed">tizit</annotation>
 		<annotation cp="🦟" type="tts" draft="unconfirmed">tizit</annotation>
 		<annotation cp="🪰" draft="unconfirmed">izi</annotation>
 		<annotation cp="🪰" type="tts" draft="unconfirmed">izi</annotation>
@@ -656,31 +690,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌸" type="tts" draft="unconfirmed">ajeğğig n taknisya</annotation>
 		<annotation cp="💮">ajeğğig amellal</annotation>
 		<annotation cp="💮" type="tts" draft="unconfirmed">ajeğğig amellal</annotation>
-		<annotation cp="🏵">tawardit</annotation>
+		<annotation cp="🏵" draft="unconfirmed">tawerdit</annotation>
 		<annotation cp="🏵" type="tts" draft="unconfirmed">tawerdit</annotation>
-		<annotation cp="🌹">tawerdett</annotation>
+		<annotation cp="🌹" draft="unconfirmed">tawerdet</annotation>
 		<annotation cp="🌹" type="tts" draft="unconfirmed">tawerdet</annotation>
 		<annotation cp="🥀">ajeğğig akiwan</annotation>
 		<annotation cp="🥀" type="tts" draft="unconfirmed">ajeğğig akiwan</annotation>
-		<annotation cp="🌺">tivinṣeṛt</annotation>
+		<annotation cp="🌺" draft="unconfirmed">tibinṣert</annotation>
 		<annotation cp="🌺" type="tts" draft="unconfirmed">tibinṣert</annotation>
-		<annotation cp="🌻">mager iṭṭij</annotation>
+		<annotation cp="🌻" draft="unconfirmed">magriṭij</annotation>
 		<annotation cp="🌻" type="tts" draft="unconfirmed">magriṭij</annotation>
 		<annotation cp="🌼">amgud</annotation>
 		<annotation cp="🌼" type="tts" draft="unconfirmed">amgud</annotation>
-		<annotation cp="🌷">taxlult</annotation>
+		<annotation cp="🌷" draft="unconfirmed">taxlult n nnbi</annotation>
 		<annotation cp="🌷" type="tts" draft="unconfirmed">taxlult n nnbi</annotation>
 		<annotation cp="🌱">imɣi aleqqaq</annotation>
 		<annotation cp="🌱" type="tts" draft="unconfirmed">imɣi aleqqaq</annotation>
 		<annotation cp="🪴" draft="unconfirmed">imɣi deg uḥibus</annotation>
 		<annotation cp="🪴" type="tts" draft="unconfirmed">imɣi deg uḥibus</annotation>
-		<annotation cp="🌲">tumert</annotation>
+		<annotation cp="🌲" draft="unconfirmed">aseklu s yifer imezgi</annotation>
 		<annotation cp="🌲" type="tts" draft="unconfirmed">aseklu s yifer imezgi</annotation>
 		<annotation cp="🌳">aseklu bu yifer</annotation>
 		<annotation cp="🌳" type="tts" draft="unconfirmed">aseklu bu yifer</annotation>
 		<annotation cp="🌴">tazdayt</annotation>
 		<annotation cp="🌴" type="tts" draft="unconfirmed">tazdayt</annotation>
-		<annotation cp="🌵">Tasiɣawt</annotation>
+		<annotation cp="🌵" draft="unconfirmed">tasiɣawt</annotation>
 		<annotation cp="🌵" type="tts" draft="unconfirmed">tasiɣawt</annotation>
 		<annotation cp="🌾">taceṛṛaft n ṛṛuz</annotation>
 		<annotation cp="🌾" type="tts" draft="unconfirmed">taceṛṛaft n ṛṛuz</annotation>
@@ -690,11 +724,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☘" type="tts" draft="unconfirmed">ikeffis</annotation>
 		<annotation cp="🍀">ikeffis bu kuẓ n wafriwen</annotation>
 		<annotation cp="🍀" type="tts" draft="unconfirmed">ikeffis bu kuẓ n wafriwen</annotation>
-		<annotation cp="🍁">ifer n kikev</annotation>
+		<annotation cp="🍁" draft="unconfirmed">ifer n kikeb</annotation>
 		<annotation cp="🍁" type="tts" draft="unconfirmed">ifer n kikeb</annotation>
-		<annotation cp="🍂">ifer alvivec (ifer ucelvu)</annotation>
+		<annotation cp="🍂" draft="unconfirmed">ifer yeɣlin</annotation>
 		<annotation cp="🍂" type="tts" draft="unconfirmed">ifer yeɣlin</annotation>
-		<annotation cp="🍃">tamjiwect n ifriwen</annotation>
+		<annotation cp="🍃" draft="unconfirmed">ifer yessafag waḍu</annotation>
 		<annotation cp="🍃" type="tts" draft="unconfirmed">ifer yessafag waḍu</annotation>
 		<annotation cp="🍇">tiẓurin</annotation>
 		<annotation cp="🍇" type="tts" draft="unconfirmed">tiẓurin</annotation>
@@ -702,7 +736,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍈" type="tts" draft="unconfirmed">afeqqus</annotation>
 		<annotation cp="🍉">delleɛ</annotation>
 		<annotation cp="🍉" type="tts" draft="unconfirmed">delleɛ</annotation>
-		<annotation cp="🍊">tamandaritt</annotation>
+		<annotation cp="🍊" draft="unconfirmed">tamandarit</annotation>
 		<annotation cp="🍊" type="tts" draft="unconfirmed">tamandarit</annotation>
 		<annotation cp="🍋" draft="unconfirmed">talimet</annotation>
 		<annotation cp="🍋" type="tts" draft="unconfirmed">talimet</annotation>
@@ -710,23 +744,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍌" type="tts" draft="unconfirmed">tabanant</annotation>
 		<annotation cp="🍍">tananast</annotation>
 		<annotation cp="🍍" type="tts" draft="unconfirmed">tananast</annotation>
-		<annotation cp="🥭">tamungatt</annotation>
+		<annotation cp="🥭" draft="unconfirmed">tamungat</annotation>
 		<annotation cp="🥭" type="tts" draft="unconfirmed">tamungat</annotation>
-		<annotation cp="🍎">adeffu azeggaɣ</annotation>
+		<annotation cp="🍎" draft="unconfirmed">tatteffaḥt tazeggaɣt</annotation>
 		<annotation cp="🍎" type="tts" draft="unconfirmed">tatteffaḥt tazeggaɣt</annotation>
-		<annotation cp="🍏">adeffu azegzaw</annotation>
+		<annotation cp="🍏" draft="unconfirmed">tatteffaḥt tazegzawt</annotation>
 		<annotation cp="🍏" type="tts" draft="unconfirmed">tatteffaḥt tazegzawt</annotation>
 		<annotation cp="🍐">ifires</annotation>
 		<annotation cp="🍐" type="tts" draft="unconfirmed">ifires</annotation>
-		<annotation cp="🍑">taxuxett</annotation>
+		<annotation cp="🍑" draft="unconfirmed">taxuxet</annotation>
 		<annotation cp="🍑" type="tts" draft="unconfirmed">taxuxet</annotation>
-		<annotation cp="🍒">taknisya</annotation>
+		<annotation cp="🍒" draft="unconfirmed">areḍli</annotation>
 		<annotation cp="🍒" type="tts" draft="unconfirmed">areḍli</annotation>
 		<annotation cp="🍓">tariwalt</annotation>
 		<annotation cp="🍓" type="tts" draft="unconfirmed">tariwalt</annotation>
 		<annotation cp="🫐" draft="unconfirmed">cilmun</annotation>
 		<annotation cp="🫐" type="tts" draft="unconfirmed">cilmun</annotation>
-		<annotation cp="🥝">takiwitt</annotation>
+		<annotation cp="🥝" draft="unconfirmed">takiwit</annotation>
 		<annotation cp="🥝" type="tts" draft="unconfirmed">takiwit</annotation>
 		<annotation cp="🍅">taṭumaṭict</annotation>
 		<annotation cp="🍅" type="tts" draft="unconfirmed">taṭumaṭict</annotation>
@@ -734,17 +768,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫒" type="tts" draft="unconfirmed">azemmur</annotation>
 		<annotation cp="🥥">iɣsan n koko</annotation>
 		<annotation cp="🥥" type="tts" draft="unconfirmed">iɣsan n koko</annotation>
-		<annotation cp="🥑">tavukatt</annotation>
+		<annotation cp="🥑" draft="unconfirmed">tavukat</annotation>
 		<annotation cp="🥑" type="tts" draft="unconfirmed">tavukat</annotation>
-		<annotation cp="🍆">tapatengalt</annotation>
+		<annotation cp="🍆" draft="unconfirmed">patenǧal</annotation>
 		<annotation cp="🍆" type="tts" draft="unconfirmed">patenǧal</annotation>
-		<annotation cp="🥔">tabaṭaṭatt</annotation>
+		<annotation cp="🥔" draft="unconfirmed">baṭaṭa</annotation>
 		<annotation cp="🥔" type="tts" draft="unconfirmed">baṭaṭa</annotation>
-		<annotation cp="🥕">taẓrudgatt</annotation>
+		<annotation cp="🥕" draft="unconfirmed">taẓrudgat</annotation>
 		<annotation cp="🥕" type="tts" draft="unconfirmed">taẓrudgat</annotation>
 		<annotation cp="🌽">ageṭṭuc</annotation>
 		<annotation cp="🌽" type="tts" draft="unconfirmed">ageṭṭuc</annotation>
-		<annotation cp="🌶">ifelfel azggaɣ</annotation>
+		<annotation cp="🌶" draft="unconfirmed">ifelfel aqerḥan</annotation>
 		<annotation cp="🌶" type="tts" draft="unconfirmed">ifelfel aqerḥan</annotation>
 		<annotation cp="🫑" draft="unconfirmed">ifelfel n leḥlu</annotation>
 		<annotation cp="🫑" type="tts" draft="unconfirmed">ifelfel n leḥlu</annotation>
@@ -814,7 +848,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍫" type="tts" draft="unconfirmed">tabewwaḍt n ccakula</annotation>
 		<annotation cp="🍬" draft="unconfirmed">taḥlawat</annotation>
 		<annotation cp="🍬" type="tts" draft="unconfirmed">taḥlawat</annotation>
-		<annotation cp="🍭" draft="unconfirmed">taḥlawat | tameccaḥt</annotation>
+		<annotation cp="🍭" draft="unconfirmed">tameccaḥt</annotation>
 		<annotation cp="🍭" type="tts" draft="unconfirmed">tameccaḥt</annotation>
 		<annotation cp="🍯" draft="unconfirmed">tabellaṛt n tament</annotation>
 		<annotation cp="🍯" type="tts" draft="unconfirmed">tabellaṛt n tament</annotation>
@@ -842,7 +876,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍽" type="tts" draft="unconfirmed">tafarciḍt d lmus s uḍebsi</annotation>
 		<annotation cp="🍴" draft="unconfirmed">tafarciḍt d lmus</annotation>
 		<annotation cp="🍴" type="tts" draft="unconfirmed">tafarciḍt d lmus</annotation>
-		<annotation cp="🥄" draft="unconfirmed">taɣenjawt | tiflewt | tijɣelt</annotation>
+		<annotation cp="🥄" draft="unconfirmed">tijɣelt</annotation>
 		<annotation cp="🥄" type="tts" draft="unconfirmed">tijɣelt</annotation>
 		<annotation cp="🔪" draft="unconfirmed">tafruyt n usaččet</annotation>
 		<annotation cp="🔪" type="tts" draft="unconfirmed">tafruyt n usaččet</annotation>
@@ -900,7 +934,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏠" type="tts" draft="unconfirmed">axxam</annotation>
 		<annotation cp="🏡" draft="unconfirmed">axxam s tmazirt</annotation>
 		<annotation cp="🏡" type="tts" draft="unconfirmed">axxam s tmazirt</annotation>
-		<annotation cp="🏢" draft="unconfirmed">azadaɣ n tnariyin</annotation>
+		<annotation cp="🏢" draft="unconfirmed">azadaɣ n tnariyin</annotation>
 		<annotation cp="🏢" type="tts" draft="unconfirmed">azadaɣ n tnariyin</annotation>
 		<annotation cp="🏣" draft="unconfirmed">tanazant tajapunit</annotation>
 		<annotation cp="🏣" type="tts" draft="unconfirmed">tanazant tajapunit</annotation>
@@ -932,13 +966,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗼" type="tts" draft="unconfirmed">Tiɣremt n Tokyo</annotation>
 		<annotation cp="🗽" draft="unconfirmed">asebdad n tlelli</annotation>
 		<annotation cp="🗽" type="tts" draft="unconfirmed">asebdad n tlelli</annotation>
-		<annotation cp="⛪">tamezgida n imasiḥiyen</annotation>
+		<annotation cp="⛪" draft="unconfirmed">tamezgida n yimasiḥiyen</annotation>
 		<annotation cp="⛪" type="tts" draft="unconfirmed">tamezgida n yimasiḥiyen</annotation>
-		<annotation cp="🕌">tamezgida n inselmen</annotation>
+		<annotation cp="🕌" draft="unconfirmed">tamezgida n yinselmen</annotation>
 		<annotation cp="🕌" type="tts" draft="unconfirmed">tamezgida n yinselmen</annotation>
 		<annotation cp="🛕" draft="unconfirmed">tamesgida handu</annotation>
 		<annotation cp="🛕" type="tts" draft="unconfirmed">tamesgida handu</annotation>
-		<annotation cp="🕍">tamezgida n udayen</annotation>
+		<annotation cp="🕍" draft="unconfirmed">tamezgida n wudayen</annotation>
 		<annotation cp="🕍" type="tts" draft="unconfirmed">tamezgida n wudayen</annotation>
 		<annotation cp="⛩" draft="unconfirmed">asebdad shrine</annotation>
 		<annotation cp="⛩" type="tts" draft="unconfirmed">asebdad shrine</annotation>
@@ -950,13 +984,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛺" type="tts" draft="unconfirmed">aqiḍun</annotation>
 		<annotation cp="🌁" draft="unconfirmed">agu</annotation>
 		<annotation cp="🌁" type="tts" draft="unconfirmed">agu</annotation>
-		<annotation cp="🌃">iḍ s itran</annotation>
+		<annotation cp="🌃" draft="unconfirmed">iḍ s yitran</annotation>
 		<annotation cp="🌃" type="tts" draft="unconfirmed">iḍ s yitran</annotation>
 		<annotation cp="🏙" draft="unconfirmed">tamdint</annotation>
 		<annotation cp="🏙" type="tts" draft="unconfirmed">tamdint</annotation>
 		<annotation cp="🌄" draft="unconfirmed">alluy n yiṭij ɣef yidurar</annotation>
 		<annotation cp="🌄" type="tts" draft="unconfirmed">alluy n yiṭij ɣef yidurar</annotation>
-		<annotation cp="🌅" draft="unconfirmed">alluy n yiṭiġ ɣef yidurar</annotation>
+		<annotation cp="🌅" draft="unconfirmed">alluy n yiṭij</annotation>
 		<annotation cp="🌅" type="tts" draft="unconfirmed">alluy n yiṭij</annotation>
 		<annotation cp="🌇" draft="unconfirmed">aɣelluy n yiṭij</annotation>
 		<annotation cp="🌇" type="tts" draft="unconfirmed">aɣelluy n yiṭij</annotation>
@@ -1009,10 +1043,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☀" type="tts" draft="unconfirmed">iṭij</annotation>
 		<annotation cp="☁">asigna</annotation>
 		<annotation cp="☁" type="tts" draft="unconfirmed">asigna</annotation>
-		<annotation cp="⛅">asigna | iṭij</annotation>
+		<annotation cp="⛅" draft="unconfirmed">iṭij deffir n usigna</annotation>
 		<annotation cp="⛅" type="tts" draft="unconfirmed">iṭij deffir n usigna</annotation>
 		<annotation cp="🌤">asigna | iṭij</annotation>
-		<annotation cp="🌫">asigna</annotation>
+		<annotation cp="🌫" draft="unconfirmed">tagut</annotation>
 		<annotation cp="🌫" type="tts" draft="unconfirmed">tagut</annotation>
 		<annotation cp="🌈" draft="unconfirmed">tislit n unẓar</annotation>
 		<annotation cp="🌈" type="tts" draft="unconfirmed">tislit n unẓar</annotation>
@@ -1048,34 +1082,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✨">itran</annotation>
 		<annotation cp="✨" type="tts" draft="unconfirmed">itran</annotation>
 		<annotation cp="🎈">asfugel</annotation>
+		<annotation cp="🧧" draft="unconfirmed">tabrat tazeggaɣt</annotation>
 		<annotation cp="🧧" type="tts" draft="unconfirmed">tabrat tazeggaɣt</annotation>
 		<annotation cp="🎀">asfugel</annotation>
 		<annotation cp="🎫">atiki</annotation>
 		<annotation cp="🎫" type="tts" draft="unconfirmed">atiki</annotation>
-		<annotation cp="🎖">ciɛa taserdasant</annotation>
+		<annotation cp="🎖" draft="unconfirmed">cciɛa taserdasant</annotation>
 		<annotation cp="🎖" type="tts" draft="unconfirmed">cciɛa taserdasant</annotation>
 		<annotation cp="🏆">arraz</annotation>
 		<annotation cp="🏆" type="tts" draft="unconfirmed">arraz</annotation>
-		<annotation cp="🏅">ciɛa n waddal</annotation>
+		<annotation cp="🏅" draft="unconfirmed">cciɛa n waddal</annotation>
 		<annotation cp="🏅" type="tts" draft="unconfirmed">cciɛa n waddal</annotation>
-		<annotation cp="🥇">ciɛa n dhev</annotation>
+		<annotation cp="🥇" draft="unconfirmed">cciɛa n umḍiq 1u</annotation>
 		<annotation cp="🥇" type="tts" draft="unconfirmed">cciɛa n umḍiq 1u</annotation>
-		<annotation cp="🥈">ciɛa n lfeṭṭa</annotation>
+		<annotation cp="🥈" draft="unconfirmed">cciɛa n umḍiq wis 2</annotation>
 		<annotation cp="🥈" type="tts" draft="unconfirmed">cciɛa n umḍiq wis 2</annotation>
-		<annotation cp="🥉" draft="unconfirmed">brunẓ | cciɛa | cciɛa n umḍiq wis 3 | wis kraḍ</annotation>
+		<annotation cp="🥉" draft="unconfirmed">cciɛa n umḍiq wis 3</annotation>
 		<annotation cp="🥉" type="tts" draft="unconfirmed">cciɛa n umḍiq wis 3</annotation>
-		<annotation cp="⚽">ččir n dabax n uḍar</annotation>
+		<annotation cp="⚽" draft="unconfirmed">ddabex n uḍar</annotation>
 		<annotation cp="⚽" type="tts" draft="unconfirmed">ddabex n uḍar</annotation>
+		<annotation cp="🏓" draft="unconfirmed">ping pung</annotation>
 		<annotation cp="🏓" type="tts" draft="unconfirmed">ping pung</annotation>
+		<annotation cp="🏸" draft="unconfirmed">badminṭun</annotation>
 		<annotation cp="🏸" type="tts" draft="unconfirmed">badminṭun</annotation>
 		<annotation cp="🔮">takurt n ukrisṭal</annotation>
 		<annotation cp="🔮" type="tts" draft="unconfirmed">takurt n ukrisṭal</annotation>
+		<annotation cp="🎮" draft="unconfirmed">urar n tvidyut</annotation>
 		<annotation cp="🎮" type="tts" draft="unconfirmed">urar n tvidyut</annotation>
 		<annotation cp="🀄">azeggaɣ | mahjong | urar</annotation>
 		<annotation cp="🎴">takarḍa | urar</annotation>
-		<annotation cp="🖼" draft="unconfirmed">akatar | asalay | taklut | taẓuri | tugna | tugna s ukatar</annotation>
+		<annotation cp="🖼" draft="unconfirmed">tugna s ukatar</annotation>
 		<annotation cp="🖼" type="tts" draft="unconfirmed">tugna s ukatar</annotation>
+		<annotation cp="🪡" draft="unconfirmed">tisegnit n lexyaḍa</annotation>
 		<annotation cp="🪡" type="tts" draft="unconfirmed">tisegnit n lexyaḍa</annotation>
+		<annotation cp="🧶" draft="unconfirmed">takurt n lxiḍ</annotation>
 		<annotation cp="🧶" type="tts" draft="unconfirmed">takurt n lxiḍ</annotation>
 		<annotation cp="👓" draft="unconfirmed">tismaqqalin</annotation>
 		<annotation cp="👓" type="tts" draft="unconfirmed">tismaqqalin</annotation>
@@ -1087,7 +1127,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥼" type="tts" draft="unconfirmed">tavluzt n ulabuṛatwar</annotation>
 		<annotation cp="🦺" draft="unconfirmed">ajili n tɣellist</annotation>
 		<annotation cp="🦺" type="tts" draft="unconfirmed">ajili n tɣellist</annotation>
-		<annotation cp="👔" draft="unconfirmed">tikravaḍin</annotation>
+		<annotation cp="👔" draft="unconfirmed">takravaḍt</annotation>
 		<annotation cp="👔" type="tts" draft="unconfirmed">takravaḍt</annotation>
 		<annotation cp="👕" draft="unconfirmed">amayut</annotation>
 		<annotation cp="👕" type="tts" draft="unconfirmed">amayut</annotation>
@@ -1119,7 +1159,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👚" type="tts" draft="unconfirmed">iceṭṭiḍen n tlawin</annotation>
 		<annotation cp="👛" draft="unconfirmed">ṣṣak</annotation>
 		<annotation cp="👛" type="tts" draft="unconfirmed">ṣṣak</annotation>
-		<annotation cp="👜" draft="unconfirmed">ṣṣak n ufus</annotation>
+		<annotation cp="👜" draft="unconfirmed">taṣakuct</annotation>
 		<annotation cp="👜" type="tts" draft="unconfirmed">taṣakuct</annotation>
 		<annotation cp="👝" draft="unconfirmed">taxriḍt</annotation>
 		<annotation cp="👝" type="tts" draft="unconfirmed">taxriḍt</annotation>
@@ -1165,7 +1205,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💄" type="tts" draft="unconfirmed">zzin aγec</annotation>
 		<annotation cp="💍">taxatemt</annotation>
 		<annotation cp="💍" type="tts" draft="unconfirmed">taxatemt</annotation>
-		<annotation cp="💎">adgun aswa</annotation>
+		<annotation cp="💎" draft="unconfirmed">aẓru ɣlayen</annotation>
 		<annotation cp="💎" type="tts" draft="unconfirmed">aẓru ɣlayen</annotation>
 		<annotation cp="🔇">asusam</annotation>
 		<annotation cp="🔇" type="tts" draft="unconfirmed">asusam</annotation>
@@ -1240,7 +1280,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💽" type="tts" draft="unconfirmed">aḍebsi n uselkim</annotation>
 		<annotation cp="💾" draft="unconfirmed">adebṣi aleqqaq</annotation>
 		<annotation cp="💾" type="tts" draft="unconfirmed">adebṣi aleqqaq</annotation>
-		<annotation cp="💿" draft="unconfirmed">aḍebsi | asekdan | aselkim | cd</annotation>
+		<annotation cp="💿" draft="unconfirmed">aḍebsi asekdan</annotation>
 		<annotation cp="💿" type="tts" draft="unconfirmed">aḍebsi asekdan</annotation>
 		<annotation cp="📀" draft="unconfirmed">dvd</annotation>
 		<annotation cp="📀" type="tts" draft="unconfirmed">dvd</annotation>
@@ -1274,7 +1314,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📓" type="tts" draft="unconfirmed">imedlis</annotation>
 		<annotation cp="📒">ambellez</annotation>
 		<annotation cp="📒" type="tts" draft="unconfirmed">ambellez</annotation>
-		<annotation cp="📃">asebter yettwasekwren</annotation>
+		<annotation cp="📃" draft="unconfirmed">asebter yennḍen</annotation>
 		<annotation cp="📃" type="tts" draft="unconfirmed">asebter yennḍen</annotation>
 		<annotation cp="📜">adrurem</annotation>
 		<annotation cp="📜" type="tts" draft="unconfirmed">adrurem</annotation>
@@ -1284,7 +1324,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📰" type="tts" draft="unconfirmed">aɣmis</annotation>
 		<annotation cp="🗞" draft="unconfirmed">aɣùis yennḍen</annotation>
 		<annotation cp="🗞" type="tts" draft="unconfirmed">aɣùis yennḍen</annotation>
-		<annotation cp="📑">tacreṭ | tacreṭ n usebter</annotation>
+		<annotation cp="📑" draft="unconfirmed">accaren n tecraḍ</annotation>
 		<annotation cp="📑" type="tts" draft="unconfirmed">accaren n tecraḍ</annotation>
 		<annotation cp="🔖">tacreṭ n usebter</annotation>
 		<annotation cp="🔖" type="tts" draft="unconfirmed">tacreṭ n usebter</annotation>
@@ -1298,10 +1338,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💴" type="tts" draft="unconfirmed">lkaɣeḍ n yen</annotation>
 		<annotation cp="💵" draft="unconfirmed">lkaɣeḍ n udular</annotation>
 		<annotation cp="💵" type="tts" draft="unconfirmed">lkaɣeḍ n udular</annotation>
-		<annotation cp="💶" draft="unconfirmed">lkaɣeḍ n yen</annotation>
+		<annotation cp="💶" draft="unconfirmed">lkareḍ n uru</annotation>
 		<annotation cp="💶" type="tts" draft="unconfirmed">lkareḍ n uru</annotation>
 		<annotation cp="💷" draft="unconfirmed">lkaɣeḍ n upawnd</annotation>
 		<annotation cp="💷" type="tts" draft="unconfirmed">lkaɣeḍ n upawnd</annotation>
+		<annotation cp="💸" draft="unconfirmed">idrimen s yiferrawen</annotation>
 		<annotation cp="💸" type="tts" draft="unconfirmed">idrimen s yiferrawen</annotation>
 		<annotation cp="💳" draft="unconfirmed">takarḍa n usmad</annotation>
 		<annotation cp="💳" type="tts" draft="unconfirmed">takarḍa n usmad</annotation>
@@ -1317,9 +1358,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📩" type="tts" draft="unconfirmed">izen yettwazen</annotation>
 		<annotation cp="📤">tanaka n tuzna</annotation>
 		<annotation cp="📤" type="tts" draft="unconfirmed">tanaka n tuzna</annotation>
-		<annotation cp="📥" draft="unconfirmed">imayl | rmes | tabewwaḍt | tabrat | tanaka | taqecwalt</annotation>
+		<annotation cp="📥" draft="unconfirmed">tanaka n urmas</annotation>
 		<annotation cp="📥" type="tts" draft="unconfirmed">tanaka n urmas</annotation>
-		<annotation cp="📦" draft="unconfirmed">akemmus | tabewwaḍt</annotation>
+		<annotation cp="📦" draft="unconfirmed">akemmus</annotation>
 		<annotation cp="📦" type="tts" draft="unconfirmed">akemmus</annotation>
 		<annotation cp="🗳">asenduq</annotation>
 		<annotation cp="✏">imru</annotation>
@@ -1338,11 +1379,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📂" type="tts" draft="unconfirmed">ldi akaram n ufaylu</annotation>
 		<annotation cp="📅" draft="unconfirmed">awitay</annotation>
 		<annotation cp="📅" type="tts" draft="unconfirmed">awitay</annotation>
-		<annotation cp="📆">awitay</annotation>
+		<annotation cp="📆" draft="unconfirmed">awitay yettwakksen</annotation>
 		<annotation cp="📆" type="tts" draft="unconfirmed">awitay yettwakksen</annotation>
-		<annotation cp="📋" draft="unconfirmed">Γef wafus</annotation>
+		<annotation cp="📋" draft="unconfirmed">ɣef wafus</annotation>
 		<annotation cp="📋" type="tts" draft="unconfirmed">ɣef wafus</annotation>
-		<annotation cp="🔒">yeskweṛ</annotation>
+		<annotation cp="🔒" draft="unconfirmed">yemdel</annotation>
 		<annotation cp="🔒" type="tts" draft="unconfirmed">yemdel</annotation>
 		<annotation cp="🔓">yeldi</annotation>
 		<annotation cp="🔓" type="tts" draft="unconfirmed">yeldi</annotation>
@@ -1354,7 +1395,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔑" type="tts" draft="unconfirmed">tasarut</annotation>
 		<annotation cp="🗝" draft="unconfirmed">tasarut taqdimt</annotation>
 		<annotation cp="🗝" type="tts" draft="unconfirmed">tasarut taqdimt</annotation>
-		<annotation cp="🔨">afecku</annotation>
+		<annotation cp="🔨" draft="unconfirmed">tafḍist</annotation>
 		<annotation cp="🔨" type="tts" draft="unconfirmed">tafḍist</annotation>
 		<annotation cp="🪓" draft="unconfirmed">tacaqurt</annotation>
 		<annotation cp="🪓" type="tts" draft="unconfirmed">tacaqurt</annotation>
@@ -1402,7 +1443,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛒" type="tts" draft="unconfirmed">taqecwalt n tiɣin</annotation>
 		<annotation cp="🚬">ageṛṛu</annotation>
 		<annotation cp="🚬" type="tts" draft="unconfirmed">ageṛṛu</annotation>
-		<annotation cp="⚰">tamettant</annotation>
+		<annotation cp="⚰" draft="unconfirmed">nneɛc</annotation>
 		<annotation cp="⚰" type="tts" draft="unconfirmed">nneɛc</annotation>
 		<annotation cp="🪦" draft="unconfirmed">ccahed</annotation>
 		<annotation cp="🪦" type="tts" draft="unconfirmed">ccahed</annotation>
@@ -1410,19 +1451,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪧" type="tts" draft="unconfirmed">tafilt</annotation>
 		<annotation cp="🏧">tamacint n tedrimt tawurmant</annotation>
 		<annotation cp="🏧" type="tts" draft="unconfirmed">tamacint n tedrimt tawurmant</annotation>
-		<annotation cp="🚮">tignit n iḍumman</annotation>
+		<annotation cp="🚮" draft="unconfirmed">tignit n yiḍumman</annotation>
 		<annotation cp="🚮" type="tts" draft="unconfirmed">tignit n yiḍumman</annotation>
-		<annotation cp="🚰">aman deg ufus</annotation>
+		<annotation cp="🚰" draft="unconfirmed">aman n tissit</annotation>
 		<annotation cp="🚰" type="tts" draft="unconfirmed">aman n tissit</annotation>
-		<annotation cp="♿">azamul n unekcum n uneɛyabu</annotation>
+		<annotation cp="♿" draft="unconfirmed">azamul n unekcum n umeɛduṛ</annotation>
 		<annotation cp="♿" type="tts" draft="unconfirmed">azamul n unekcum n umeɛduṛ</annotation>
-		<annotation cp="🚹">azamul n urgaz</annotation>
+		<annotation cp="🚹" draft="unconfirmed">taxxamt n urgaz</annotation>
 		<annotation cp="🚹" type="tts" draft="unconfirmed">taxxamt n urgaz</annotation>
-		<annotation cp="🚺">azamul n tmeṭṭut</annotation>
+		<annotation cp="🚺" draft="unconfirmed">azamul n texxamt n tmeṭṭut</annotation>
 		<annotation cp="🚺" type="tts" draft="unconfirmed">azamul n texxamt n tmeṭṭut</annotation>
 		<annotation cp="🚻">azamul n teslalayt</annotation>
 		<annotation cp="🚻" type="tts" draft="unconfirmed">azamul n teslalayt</annotation>
-		<annotation cp="🚼">azamul n ṣebyan</annotation>
+		<annotation cp="🚼" draft="unconfirmed">azamul n uṭufan</annotation>
 		<annotation cp="🚼" type="tts" draft="unconfirmed">azamul n uṭufan</annotation>
 		<annotation cp="🚾">taslalayt</annotation>
 		<annotation cp="🚾" type="tts" draft="unconfirmed">taslalayt</annotation>
@@ -1458,7 +1499,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔞" type="tts" draft="unconfirmed">yegdel ddaw n tmenṭac</annotation>
 		<annotation cp="⬆">aneccab d asawen</annotation>
 		<annotation cp="⬆" type="tts" draft="unconfirmed">aneccab d asawen</annotation>
-		<annotation cp="↗">aneccab d asawen uẓẓil</annotation>
+		<annotation cp="↗" draft="unconfirmed">aneccab asawen ayeffus</annotation>
 		<annotation cp="↗" type="tts" draft="unconfirmed">aneccab asawen ayeffus</annotation>
 		<annotation cp="➡">aneccab ayeffus</annotation>
 		<annotation cp="➡" type="tts" draft="unconfirmed">aneccab ayeffus</annotation>
@@ -1490,13 +1531,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔄" type="tts" draft="unconfirmed">taqeffalt n ineccaben n tnila yettin n isegnan n temrilt</annotation>
 		<annotation cp="🔙">Aneccab n tuɣalin</annotation>
 		<annotation cp="🔙" type="tts" draft="unconfirmed">Aneccab n tuɣalin</annotation>
-		<annotation cp="🔚">Aneccab n tagara</annotation>
+		<annotation cp="🔚" draft="unconfirmed">Aneccab n taggara</annotation>
 		<annotation cp="🔚" type="tts" draft="unconfirmed">Aneccab n taggara</annotation>
 		<annotation cp="🔛">urmid</annotation>
 		<annotation cp="🔛" type="tts" draft="unconfirmed">urmid</annotation>
 		<annotation cp="🔜">Aneccab Qrib</annotation>
 		<annotation cp="🔜" type="tts" draft="unconfirmed">Aneccab Qrib</annotation>
-		<annotation cp="🔝">aneccab n ufalla</annotation>
+		<annotation cp="🔝" draft="unconfirmed">aneccab n ufella</annotation>
 		<annotation cp="🔝" type="tts" draft="unconfirmed">aneccab n ufella</annotation>
 		<annotation cp="🛐" draft="unconfirmed">amḍiq n tẓallit</annotation>
 		<annotation cp="🛐" type="tts" draft="unconfirmed">amḍiq n tẓallit</annotation>
@@ -1572,7 +1613,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⏹" type="tts" draft="unconfirmed">taqeffalt n useḥbes</annotation>
 		<annotation cp="⏺" draft="unconfirmed">taqeffalt n usekles</annotation>
 		<annotation cp="⏺" type="tts" draft="unconfirmed">taqeffalt n usekles</annotation>
-		<annotation cp="⏏">taqeffalt n senzelli</annotation>
+		<annotation cp="⏏" draft="unconfirmed">taqeffalt n tukksa</annotation>
 		<annotation cp="⏏" type="tts" draft="unconfirmed">taqeffalt n tukksa</annotation>
 		<annotation cp="🎦">sinima</annotation>
 		<annotation cp="🎦" type="tts" draft="unconfirmed">sinima</annotation>
@@ -1582,7 +1623,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♂" type="tts" draft="unconfirmed">azamul n uwtem</annotation>
 		<annotation cp="⚧" draft="unconfirmed">Azamul n bu snat n tewsatin</annotation>
 		<annotation cp="⚧" type="tts" draft="unconfirmed">Azamul n bu snat n tewsatin</annotation>
-		<annotation cp="✖" draft="unconfirmed">tiyita</annotation>
+		<annotation cp="✖" draft="unconfirmed">asgat</annotation>
 		<annotation cp="✖" type="tts" draft="unconfirmed">asgat</annotation>
 		<annotation cp="➕" draft="unconfirmed">timerna</annotation>
 		<annotation cp="➕" type="tts" draft="unconfirmed">timerna</annotation>
@@ -1592,30 +1633,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➗" type="tts" draft="unconfirmed">beṭṭu</annotation>
 		<annotation cp="♾" draft="unconfirmed">war talast</annotation>
 		<annotation cp="♾" type="tts" draft="unconfirmed">war talast</annotation>
+		<annotation cp="‼" draft="unconfirmed">asɣal n ubhat uslig</annotation>
 		<annotation cp="‼" type="tts" draft="unconfirmed">asɣal n ubhat uslig</annotation>
-		<annotation cp="❗" draft="unconfirmed">! | abhat | asɣal n ubhat azeggaɣ | asɣat | asigez</annotation>
+		<annotation cp="❗" draft="unconfirmed">asɣal n ubhat azeggaɣ</annotation>
 		<annotation cp="❗" type="tts" draft="unconfirmed">asɣal n ubhat azeggaɣ</annotation>
 		<annotation cp="💲">adulaṛ | idrimen | tadrimt</annotation>
+		<annotation cp="🆒" draft="unconfirmed">taqeffalt COOL</annotation>
 		<annotation cp="🆒" type="tts" draft="unconfirmed">taqeffalt COOL</annotation>
+		<annotation cp="🆓" draft="unconfirmed">taqeffalt FREE</annotation>
 		<annotation cp="🆓" type="tts" draft="unconfirmed">taqeffalt FREE</annotation>
-		<annotation cp="ℹ" draft="unconfirmed">i | talɣut</annotation>
+		<annotation cp="ℹ" draft="unconfirmed">talɣut</annotation>
 		<annotation cp="ℹ" type="tts" draft="unconfirmed">talɣut</annotation>
-		<annotation cp="🆔" draft="unconfirmed">sulay | taqeffalt ID | timagit</annotation>
+		<annotation cp="🆔" draft="unconfirmed">taqeffalt ID</annotation>
 		<annotation cp="🆔" type="tts" draft="unconfirmed">taqeffalt ID</annotation>
+		<annotation cp="🟣" draft="unconfirmed">tawinest tademdamt</annotation>
 		<annotation cp="🟣" type="tts" draft="unconfirmed">tawinest tademdamt</annotation>
-		<annotation cp="🟥" draft="unconfirmed">amkuẓ | azeggaɣ</annotation>
+		<annotation cp="🟥" draft="unconfirmed">amkuẓ azeggaɣ</annotation>
 		<annotation cp="🟥" type="tts" draft="unconfirmed">amkuẓ azeggaɣ</annotation>
-		<annotation cp="🟧" draft="unconfirmed">aččinawi | amkuẓ</annotation>
+		<annotation cp="🟧" draft="unconfirmed">amkuẓ aččinawi</annotation>
 		<annotation cp="🟧" type="tts" draft="unconfirmed">amkuẓ aččinawi</annotation>
-		<annotation cp="🟨" draft="unconfirmed">amkuẓ | awreɣ</annotation>
+		<annotation cp="🟨" draft="unconfirmed">amkuẓ awreɣ</annotation>
 		<annotation cp="🟨" type="tts" draft="unconfirmed">amkuẓ awreɣ</annotation>
-		<annotation cp="🟩" draft="unconfirmed">amkuẓ | azegzaw</annotation>
+		<annotation cp="🟩" draft="unconfirmed">amkuẓ azegzaw</annotation>
 		<annotation cp="🟩" type="tts" draft="unconfirmed">amkuẓ azegzaw</annotation>
-		<annotation cp="🟦" draft="unconfirmed">amidadi | amkuẓ</annotation>
+		<annotation cp="🟦" draft="unconfirmed">amkuẓ amidadi</annotation>
 		<annotation cp="🟦" type="tts" draft="unconfirmed">amkuẓ amidadi</annotation>
-		<annotation cp="🟪" draft="unconfirmed">ademdam | amkuẓ</annotation>
+		<annotation cp="🟪" draft="unconfirmed">amkuẓ ademdam</annotation>
 		<annotation cp="🟪" type="tts" draft="unconfirmed">amkuẓ ademdam</annotation>
-		<annotation cp="🟫" draft="unconfirmed">amkuẓ | aqehwi</annotation>
+		<annotation cp="🟫" draft="unconfirmed">amkuẓ aqehwi</annotation>
 		<annotation cp="🟫" type="tts" draft="unconfirmed">amkuẓ aqehwi</annotation>
 		<annotation cp="⬛" draft="unconfirmed">amkuẓ aberkan ameqqran</annotation>
 		<annotation cp="⬛" type="tts" draft="unconfirmed">amkuẓ aberkan ameqqran</annotation>

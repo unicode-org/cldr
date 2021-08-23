@@ -46,15 +46,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="〕">bracket | close tortoise shell bracket | right tortoise shell bracket | shell bracket | tortoise shell bracket</annotation>
 		<annotation cp="〖">bracket | hollow lens bracket | hollow lenticular bracket | left hollow lenticular bracket</annotation>
 		<annotation cp="〗">bracket | hollow lens bracket | hollow lenticular bracket | right hollow lenticular bracket</annotation>
-		<annotation cp="@">ampersat | arobase | arroba | at mark | at-sign | commercial at | email | strudel</annotation>
+		<annotation cp="@">ampersat | arobase | arroba | at mark | at sign | at-sign | commercial at | email | strudel</annotation>
 		<annotation cp="@" type="tts">at sign</annotation>
 		<annotation cp="%">per cent | per-cent | percent | percentage</annotation>
 		<annotation cp="↹">leftwards arrow to bar over rightwards arrow to bar</annotation>
 		<annotation cp="∂">differential | partial derivative | partial differential</annotation>
 		<annotation cp="∃">existential | mathematics | quantifier | there exists</annotation>
 		<annotation cp="∅">empty set | mathematics | null set | null sign | set operator</annotation>
-		<annotation cp="∉">element | not an element | set</annotation>
+		<annotation cp="∉">element | not an element | not an element of | set</annotation>
 		<annotation cp="∉" type="tts">not an element of</annotation>
+		<annotation cp="∎">end of proof | end proof | halmos | q.e.d. | qed | tombstone</annotation>
 		<annotation cp="∎" type="tts">end of proof</annotation>
 		<annotation cp="∑">mathematics | n-ary summation | sigma | summation</annotation>
 		<annotation cp="&lt;" type="tts">less than</annotation>
@@ -62,29 +63,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="&gt;" type="tts">greater than</annotation>
 		<annotation cp="|">bar | line | pipe | sheffer stroke | vertical bar | vertical line</annotation>
 		<annotation cp="∓">minus-or-plus | minus-plus</annotation>
+		<annotation cp="∝">is proportional | proportional | proportionality</annotation>
 		<annotation cp="∝" type="tts">is proportional</annotation>
 		<annotation cp="∣">divides | divisor | vertical bar</annotation>
+		<annotation cp="∥">parallel | parallel to</annotation>
 		<annotation cp="∥" type="tts">parallel to</annotation>
 		<annotation cp="∮">complex analysis | contour integral</annotation>
+		<annotation cp="≃">asymptote | asymptotically equal | asymptotically equal to | mathematics</annotation>
 		<annotation cp="≃" type="tts">asymptotically equal to</annotation>
+		<annotation cp="≅">approximately equal | approximately equal to | congruence | equality | isomorphism | mathematics</annotation>
 		<annotation cp="≅" type="tts">approximately equal to</annotation>
 		<annotation cp="≈">about | almost equal | approximate | approximation | around</annotation>
+		<annotation cp="≌">all equal | all equal to | equality | mathematics</annotation>
 		<annotation cp="≌" type="tts">all equal to</annotation>
+		<annotation cp="≣">equality | mathematics | strictly equivalent | strictly equivalent to</annotation>
 		<annotation cp="≣" type="tts">strictly equivalent to</annotation>
 		<annotation cp="≤">equal | equals | inequality | less than or equal to | less-than</annotation>
 		<annotation cp="≤" type="tts">less than or equal to</annotation>
 		<annotation cp="≥">equal | equals | greater than or equal to | greater-than | inequality</annotation>
 		<annotation cp="≥" type="tts">greater than or equal to</annotation>
-		<annotation cp="≳">equivalent | greater-than | inequality | mathematics</annotation>
+		<annotation cp="≳">equivalent | greater-than | greater-than or equivalent to | inequality | mathematics</annotation>
 		<annotation cp="≳" type="tts">greater-than or equivalent to</annotation>
 		<annotation cp="≺">mathematics | ordered set | precedes | set operator</annotation>
 		<annotation cp="≻">follows | mathematics | ordered set | set operator | succeeds</annotation>
 		<annotation cp="⊁">does not succeed | mathematics | ordered set | set operator</annotation>
-		<annotation cp="⊃">mathematics | proper superset | set operator</annotation>
+		<annotation cp="⊃">mathematics | proper superset | set operator | superset of</annotation>
 		<annotation cp="⊃" type="tts">superset of</annotation>
-		<annotation cp="⊆">equal | mathematics | subset</annotation>
+		<annotation cp="⊆">equal | mathematics | subset | subset of or equal to</annotation>
 		<annotation cp="⊆" type="tts">subset of or equal to</annotation>
-		<annotation cp="⊇">equal | mathematics | superset</annotation>
+		<annotation cp="⊇">equal | mathematics | superset | superset of or equal to</annotation>
 		<annotation cp="⊇" type="tts">superset of or equal to</annotation>
 		<annotation cp="⊕">circled plus | direct sum | exclusive or | logic | mathematics</annotation>
 		<annotation cp="⊖">circled minus | erosion | mathematics | symmetric difference</annotation>
@@ -95,9 +102,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⊮">does not force | mathematics</annotation>
 		<annotation cp="⊰">mathematics | ordered set | precedes under relation | set operator</annotation>
 		<annotation cp="⊱">mathematics | ordered set | set operator | succeeds under relation</annotation>
+		<annotation cp="⋭">does not contain as normal subgroup equal | does not contain as normal subgroup or equal | group theory | mathematics</annotation>
 		<annotation cp="⋭" type="tts">does not contain as normal subgroup or equal</annotation>
+		<annotation cp="⊶">original | original of</annotation>
 		<annotation cp="⊶" type="tts">original of</annotation>
-		<annotation cp="⋰">ellipsis | mathematics | upwards diagonal ellipsis</annotation>
+		<annotation cp="⋰">ellipsis | mathematics | upwards diagonal ellipsis | upwards right diagonal ellipsis</annotation>
 		<annotation cp="⋰" type="tts">upwards right diagonal ellipsis</annotation>
 		<annotation cp="⋱">downwards right diagonal ellipsis | ellipsis | mathematics</annotation>
 		<annotation cp="⋱" type="tts">downwards right diagonal ellipsis</annotation>
@@ -156,18 +165,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◞" type="tts">lower-right quadrant circular arc</annotation>
 		<annotation cp="◟">lower-left quadrant circular arc</annotation>
 		<annotation cp="◟" type="tts">lower-left quadrant circular arc</annotation>
-		<annotation cp="◢">black lower-right triangle</annotation>
+		<annotation cp="◢">black lower-right triangle | filled lower-right triangle</annotation>
 		<annotation cp="◢" type="tts">filled lower-right triangle</annotation>
-		<annotation cp="◣">black lower-left triangle</annotation>
+		<annotation cp="◣">black lower-left triangle | filled lower-left triangle</annotation>
 		<annotation cp="◣" type="tts">filled lower-left triangle</annotation>
-		<annotation cp="◤">black upper-left triangle</annotation>
+		<annotation cp="◤">black upper-left triangle | filled upper-left triangle</annotation>
 		<annotation cp="◤" type="tts">filled upper-left triangle</annotation>
-		<annotation cp="◥">black upper-right triangle</annotation>
+		<annotation cp="◥">black upper-right triangle | filled upper-right triangle</annotation>
 		<annotation cp="◥" type="tts">filled upper-right triangle</annotation>
 		<annotation cp="◯">circle | large hollow circle | large white circle | ring</annotation>
-		<annotation cp="◳">white square with upper-right quadrant</annotation>
+		<annotation cp="◳">hollow square with upper-right quadrant | white square with upper-right quadrant</annotation>
 		<annotation cp="◳" type="tts">hollow square with upper-right quadrant</annotation>
-		<annotation cp="◷">white circle with upper-right quadrant</annotation>
+		<annotation cp="◷">hollow circle with upper-right quadrant | white circle with upper-right quadrant</annotation>
 		<annotation cp="◷" type="tts">hollow circle with upper-right quadrant</annotation>
 		<annotation cp="◿">lower-right triangle | white</annotation>
 		<annotation cp="◿" type="tts">lower-right triangle</annotation>
@@ -202,7 +211,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤧">bless you | face | gesundheit | sneeze | sneezing face</annotation>
 		<annotation cp="😵‍💫">dizzy | face with spiral eyes | hypnotised | spiral | trouble | whoa</annotation>
 		<annotation cp="😤">angry | face | face with steam from nose | frustration | triumph | won</annotation>
-		<annotation cp="😻">cat | eye | face | heart | love | smile | smiling cat face with heart-eyes</annotation>
+		<annotation cp="😻">cat | eye | face | heart | love | smile | smiling cat face with heart eyes | smiling cat face with heart-eyes</annotation>
 		<annotation cp="😻" type="tts">smiling cat face with heart eyes</annotation>
 		<annotation cp="🗨">dialogue | left speech bubble | speech</annotation>
 		<annotation cp="👌">hand | OK | perfect</annotation>
@@ -361,7 +370,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛒">basket | cart | shopping | trolley</annotation>
 		<annotation cp="🚮">garbage | litter | litter bin | litter in bin sign | trash</annotation>
 		<annotation cp="🚹">bathroom | lavatory | men’s | men’s room | restroom | washroom | wc</annotation>
-		<annotation cp="🚺">bathroom | lavatory | restroom | washroom | wc | women’s | women’s room</annotation>
+		<annotation cp="🚺">bathroom | ladies’ room | lavatory | restroom | washroom | wc | women’s | women’s room</annotation>
 		<annotation cp="🚺" type="tts">ladies’ room</annotation>
 		<annotation cp="🚻">bathroom | lavatory | restroom | washroom | WC</annotation>
 		<annotation cp="🚻" type="tts">washroom</annotation>

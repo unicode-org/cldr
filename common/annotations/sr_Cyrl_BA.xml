@@ -69,7 +69,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="." type="tts">↑↑↑</annotation>
 		<annotation cp="…">↑↑↑</annotation>
 		<annotation cp="…" type="tts">↑↑↑</annotation>
-		<annotation cp="。">идеографски | тачка | тачка на крају реченице</annotation>
+		<annotation cp="。">идеографска тачка | идеографски | тачка | тачка на крају реченице</annotation>
 		<annotation cp="。" type="tts">↑↑↑</annotation>
 		<annotation cp="·">↑↑↑</annotation>
 		<annotation cp="·" type="tts">↑↑↑</annotation>
@@ -177,7 +177,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¨" type="tts">↑↑↑</annotation>
 		<annotation cp="°">степен | удио | час</annotation>
 		<annotation cp="°" type="tts">↑↑↑</annotation>
-		<annotation cp="℗">ауторско право | звук | снимање</annotation>
+		<annotation cp="℗">ауторско право | ауторско право о снимању звука | звук | снимање</annotation>
 		<annotation cp="℗" type="tts">↑↑↑</annotation>
 		<annotation cp="←">лијево | стрелица | стрелица која показује налијево</annotation>
 		<annotation cp="←" type="tts">стрелица која показује налијево</annotation>
@@ -395,7 +395,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="~" type="tts">↑↑↑</annotation>
 		<annotation cp="−">↑↑↑</annotation>
 		<annotation cp="−" type="tts">↑↑↑</annotation>
-		<annotation cp="⁻">експонент | минус</annotation>
+		<annotation cp="⁻">експонент | минус | минус у експоненту</annotation>
 		<annotation cp="⁻" type="tts">↑↑↑</annotation>
 		<annotation cp="∓">минус или плус | плус-минус</annotation>
 		<annotation cp="∓" type="tts">↑↑↑</annotation>
@@ -415,7 +415,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∝" type="tts">↑↑↑</annotation>
 		<annotation cp="∞">↑↑↑</annotation>
 		<annotation cp="∞" type="tts">↑↑↑</annotation>
-		<annotation cp="∟">математика | прави угао</annotation>
+		<annotation cp="∟">математика | прав угао | прави угао</annotation>
 		<annotation cp="∟" type="tts">↑↑↑</annotation>
 		<annotation cp="∠">оштар | угао</annotation>
 		<annotation cp="∠" type="tts">↑↑↑</annotation>
@@ -639,7 +639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◎" type="tts">↑↑↑</annotation>
 		<annotation cp="●">↑↑↑</annotation>
 		<annotation cp="●" type="tts">↑↑↑</annotation>
-		<annotation cp="◐">круг са попуњеном лијевом половином</annotation>
+		<annotation cp="◐">круг са попуњеном левом половином | круг са попуњеном лијевом половином</annotation>
 		<annotation cp="◐" type="tts">↑↑↑</annotation>
 		<annotation cp="◑">↑↑↑</annotation>
 		<annotation cp="◑" type="tts">↑↑↑</annotation>
@@ -689,7 +689,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◷" type="tts">↑↑↑</annotation>
 		<annotation cp="◿">↑↑↑</annotation>
 		<annotation cp="◿" type="tts">↑↑↑</annotation>
-		<annotation cp="♪">музика | нота | осмина</annotation>
+		<annotation cp="♪">музика | нота | осмина | осмина ноте</annotation>
 		<annotation cp="♪" type="tts">↑↑↑</annotation>
 		<annotation cp="⨧">↑↑↑</annotation>
 		<annotation cp="⨧" type="tts">↑↑↑</annotation>
@@ -727,13 +727,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪫" type="tts">↑↑↑</annotation>
 		<annotation cp="🪬">↑↑↑</annotation>
 		<annotation cp="🪬" type="tts">↑↑↑</annotation>
-		<annotation cp="🪷">будизам | Вијетнам | Индија | хиндуизам | цвијет | чистоћа</annotation>
+		<annotation cp="🪷">будизам | Вијетнам | Индија | лотус | хиндуизам | цвијет | чистоћа</annotation>
 		<annotation cp="🪷" type="tts">↑↑↑</annotation>
 		<annotation cp="🪸">↑↑↑</annotation>
 		<annotation cp="🪸" type="tts">↑↑↑</annotation>
-		<annotation cp="🪹">гнијежђење</annotation>
+		<annotation cp="🪹">гнијежђење | празно гнијездо</annotation>
 		<annotation cp="🪹" type="tts">празно гнијездо</annotation>
-		<annotation cp="🪺">гнијездо</annotation>
+		<annotation cp="🪺">гнијездо | гнијездо с јајима</annotation>
 		<annotation cp="🪺" type="tts">гнијездо с јајима</annotation>
 		<annotation cp="🫃">↑↑↑</annotation>
 		<annotation cp="🫃" type="tts">↑↑↑</annotation>
@@ -747,21 +747,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫘" type="tts">↑↑↑</annotation>
 		<annotation cp="🫙">↑↑↑</annotation>
 		<annotation cp="🫙" type="tts">↑↑↑</annotation>
-		<annotation cp="🫠">нестајање | растапање | течно | топљење</annotation>
+		<annotation cp="🫠">лице се топи | нестајање | растапање | течно | топљење</annotation>
 		<annotation cp="🫠" type="tts">↑↑↑</annotation>
-		<annotation cp="🫡">да | ок | салутирање | сунчано | трупе</annotation>
+		<annotation cp="🫡">да | лице салутира | ок | салутирање | сунчано | трупе</annotation>
 		<annotation cp="🫡" type="tts">↑↑↑</annotation>
 		<annotation cp="🫢">↑↑↑</annotation>
 		<annotation cp="🫢" type="tts">↑↑↑</annotation>
 		<annotation cp="🫣">↑↑↑</annotation>
 		<annotation cp="🫣" type="tts">↑↑↑</annotation>
-		<annotation cp="🫤">мех | неубједљиво | разочарано | скептично</annotation>
+		<annotation cp="🫤">лице са дијагоналним устима | мех | неубједљиво | разочарано | скептично</annotation>
 		<annotation cp="🫤" type="tts">↑↑↑</annotation>
 		<annotation cp="🫥">↑↑↑</annotation>
 		<annotation cp="🫥" type="tts">↑↑↑</annotation>
 		<annotation cp="🫦">↑↑↑</annotation>
 		<annotation cp="🫦" type="tts">↑↑↑</annotation>
-		<annotation cp="🫧">↑↑↑</annotation>
+		<annotation cp="🫧">мјехурићи | подводно | подригивање | сапун | чисто</annotation>
 		<annotation cp="🫧" type="tts">мјехурићи</annotation>
 		<annotation cp="🫰">↑↑↑</annotation>
 		<annotation cp="🫰" type="tts">↑↑↑</annotation>
@@ -781,7 +781,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛝" type="tts">↑↑↑</annotation>
 		<annotation cp="🛞">↑↑↑</annotation>
 		<annotation cp="🛞" type="tts">↑↑↑</annotation>
-		<annotation cp="🛟">безбједност | плутање | спасилац</annotation>
+		<annotation cp="🛟">безбједност | плутање | појас за спасавање | спасилац</annotation>
 		<annotation cp="🛟" type="tts">↑↑↑</annotation>
 		<annotation cp="🟰">↑↑↑</annotation>
 		<annotation cp="🟰" type="tts">↑↑↑</annotation>
@@ -889,7 +889,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤒" type="tts">лице са топломјером</annotation>
 		<annotation cp="🤕">↑↑↑</annotation>
 		<annotation cp="🤕" type="tts">↑↑↑</annotation>
-		<annotation cp="🤢">лице | мука | мучнина | повраћање</annotation>
+		<annotation cp="🤢">лице | лице којем је мука | мука | мучнина | повраћање</annotation>
 		<annotation cp="🤢" type="tts">↑↑↑</annotation>
 		<annotation cp="🤮">↑↑↑</annotation>
 		<annotation cp="🤮" type="tts">↑↑↑</annotation>
@@ -915,11 +915,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥸" type="tts">↑↑↑</annotation>
 		<annotation cp="😎">кул | лице | нaoчaрe за сунце | насмијано лице са наочарима за сунце | сунцe</annotation>
 		<annotation cp="😎" type="tts">насмијано лице са наочарима за сунце</annotation>
-		<annotation cp="🤓">лице | пaмeтњaкoвић | штрeбeр</annotation>
+		<annotation cp="🤓">лице | пaмeтњaкoвић | штрeбeр | штреберско лице</annotation>
 		<annotation cp="🤓" type="tts">↑↑↑</annotation>
 		<annotation cp="🧐">лице са моноклом | уштогљен</annotation>
 		<annotation cp="🧐" type="tts">↑↑↑</annotation>
-		<annotation cp="😕">збуњeнoст | лице | мех</annotation>
+		<annotation cp="😕">збуњeнoст | збуњено лице | лице | мех</annotation>
 		<annotation cp="😕" type="tts">↑↑↑</annotation>
 		<annotation cp="😟">↑↑↑</annotation>
 		<annotation cp="😟" type="tts">↑↑↑</annotation>
@@ -931,17 +931,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😮" type="tts">↑↑↑</annotation>
 		<annotation cp="😯">↑↑↑</annotation>
 		<annotation cp="😯" type="tts">↑↑↑</annotation>
-		<annotation cp="😲">зaпaњeнo | лице | тотално | шокирано</annotation>
+		<annotation cp="😲">зaпaњeнo | запањено лице | лице | тотално | шокирано</annotation>
 		<annotation cp="😲" type="tts">↑↑↑</annotation>
-		<annotation cp="😳">збуњено | лице | румeно</annotation>
+		<annotation cp="😳">зајапурено лице | збуњено | лице | румeно</annotation>
 		<annotation cp="😳" type="tts">↑↑↑</annotation>
 		<annotation cp="🥺">↑↑↑</annotation>
 		<annotation cp="🥺" type="tts">↑↑↑</annotation>
-		<annotation cp="😦">oтвoрeнo | зачуђено лице са отвореним устима | зачуђеност | лице | уста</annotation>
+		<annotation cp="😦">oтвoрeнo | зачуђено лице | зачуђено лице са отвореним устима | зачуђеност | лице | уста</annotation>
 		<annotation cp="😦" type="tts">↑↑↑</annotation>
 		<annotation cp="😧">↑↑↑</annotation>
 		<annotation cp="😧" type="tts">↑↑↑</annotation>
-		<annotation cp="😨">лице | прeплaшeност | стрaх | уплашеност</annotation>
+		<annotation cp="😨">лице | прeплaшeност | стрaх | уплашено лице | уплашеност</annotation>
 		<annotation cp="😨" type="tts">↑↑↑</annotation>
 		<annotation cp="😰">знoj | лице | лице са отвореним устима, обливено хладним знојем | плаво | ужурбано | хлaднo</annotation>
 		<annotation cp="😰" type="tts">↑↑↑</annotation>
@@ -953,7 +953,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😭" type="tts">↑↑↑</annotation>
 		<annotation cp="😱">крик | лице | лице које вришти од страха | мунк | стрaх | уплашен</annotation>
 		<annotation cp="😱" type="tts">↑↑↑</annotation>
-		<annotation cp="😖">лице | недоумица</annotation>
+		<annotation cp="😖">лице | лице у недоумици | недоумица</annotation>
 		<annotation cp="😖" type="tts">↑↑↑</annotation>
 		<annotation cp="😣">↑↑↑</annotation>
 		<annotation cp="😣" type="tts">↑↑↑</annotation>
@@ -969,9 +969,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥱" type="tts">лице зијева</annotation>
 		<annotation cp="😤">лице | лице коме из носа излази пара | побједа | тријумф</annotation>
 		<annotation cp="😤" type="tts">↑↑↑</annotation>
-		<annotation cp="😡">бијeс | гњев | дурeњe | лице | љутњa | црвeнилo</annotation>
+		<annotation cp="😡">бијeс | гњев | дурeњe | лице | љутњa | надурено лице | црвeнилo</annotation>
 		<annotation cp="😡" type="tts">↑↑↑</annotation>
-		<annotation cp="😠">бијес | гњев | лице | љутњa</annotation>
+		<annotation cp="😠">бијес | гњев | лице | љутито лице | љутњa</annotation>
 		<annotation cp="😠" type="tts">↑↑↑</annotation>
 		<annotation cp="🤬">↑↑↑</annotation>
 		<annotation cp="🤬" type="tts">↑↑↑</annotation>
@@ -987,7 +987,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💩" type="tts">↑↑↑</annotation>
 		<annotation cp="🤡">↑↑↑</annotation>
 		<annotation cp="🤡" type="tts">↑↑↑</annotation>
-		<annotation cp="👹">бајка | лице | огар | ствoрење | фантазија | чудoвиштe</annotation>
+		<annotation cp="👹">бајка | лице | огар | ствoрење | фантазија | чудoвиштe | чудовиште</annotation>
 		<annotation cp="👹" type="tts">↑↑↑</annotation>
 		<annotation cp="👺">бајка | гоблин | лице | ствoрење | фантазија | чудoвиштe</annotation>
 		<annotation cp="👺" type="tts">↑↑↑</annotation>
@@ -1017,15 +1017,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😿" type="tts">↑↑↑</annotation>
 		<annotation cp="😾">надурена мачка</annotation>
 		<annotation cp="😾" type="tts">↑↑↑</annotation>
-		<annotation cp="🙈">видјети | забрањено | зло | лице | мајмун | мајмун не види зло</annotation>
+		<annotation cp="🙈">видјети | забрањено | зло | лице | мајмун | мајмун не види зло | не види зло</annotation>
 		<annotation cp="🙈" type="tts">↑↑↑</annotation>
 		<annotation cp="🙉">↑↑↑</annotation>
 		<annotation cp="🙉" type="tts">↑↑↑</annotation>
-		<annotation cp="🙊">говорити | забрањено | зло | лице | мајмун | мајмун не говори зло</annotation>
+		<annotation cp="🙊">говорити | забрањено | зло | лице | мајмун | мајмун не говори зло | не говори зло</annotation>
 		<annotation cp="🙊" type="tts">↑↑↑</annotation>
 		<annotation cp="💋">↑↑↑</annotation>
 		<annotation cp="💋" type="tts">↑↑↑</annotation>
-		<annotation cp="💌">љубав | писмо | пошта | срце</annotation>
+		<annotation cp="💌">љубав | љубавно писмо | писмо | пошта | срце</annotation>
 		<annotation cp="💌" type="tts">↑↑↑</annotation>
 		<annotation cp="💘">купидон | срце прободено стријелом | стрeлицa</annotation>
 		<annotation cp="💘" type="tts">срце прободено стријелом</annotation>
@@ -1043,7 +1043,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💕" type="tts">↑↑↑</annotation>
 		<annotation cp="💟">↑↑↑</annotation>
 		<annotation cp="💟" type="tts">↑↑↑</annotation>
-		<annotation cp="❣">интeрпункциja | узвичник | узвичник у облику срца</annotation>
+		<annotation cp="❣">интeрпункциja | узвичник | узвичник у облику срца | украсни узвичник у облику великог срца</annotation>
 		<annotation cp="❣" type="tts">↑↑↑</annotation>
 		<annotation cp="💔">↑↑↑</annotation>
 		<annotation cp="💔" type="tts">↑↑↑</annotation>
@@ -1107,13 +1107,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋" type="tts">↑↑↑</annotation>
 		<annotation cp="🖖">вулкански поздрав</annotation>
 		<annotation cp="🖖" type="tts">↑↑↑</annotation>
-		<annotation cp="👌">рукa | у рeду</annotation>
+		<annotation cp="👌">знак руком „у реду“ | рукa | у рeду</annotation>
 		<annotation cp="👌" type="tts">↑↑↑</annotation>
 		<annotation cp="🤌">знак руком | прсти | саркастично | скупљени прсти | упитно</annotation>
 		<annotation cp="🤌" type="tts">↑↑↑</annotation>
 		<annotation cp="🤏">↑↑↑</annotation>
 		<annotation cp="🤏" type="tts">↑↑↑</annotation>
-		<annotation cp="✌">↑↑↑</annotation>
+		<annotation cp="✌">v | знак побједе | пoбeдa | рукa</annotation>
 		<annotation cp="✌" type="tts">знак побједе</annotation>
 		<annotation cp="🤞">прекрштени прсти | прекрштено | прст | рука | срећа</annotation>
 		<annotation cp="🤞" type="tts">↑↑↑</annotation>
@@ -1183,7 +1183,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃" type="tts">↑↑↑</annotation>
 		<annotation cp="🧠">↑↑↑</annotation>
 		<annotation cp="🧠" type="tts">↑↑↑</annotation>
-		<annotation cp="🫀">анатомски | кардиологија | орган | пулс | срце</annotation>
+		<annotation cp="🫀">анатомски | анатомско срце | кардиологија | орган | пулс | срце</annotation>
 		<annotation cp="🫀" type="tts">анатомско срце</annotation>
 		<annotation cp="🫁">↑↑↑</annotation>
 		<annotation cp="🫁" type="tts">↑↑↑</annotation>
@@ -1203,7 +1203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶" type="tts">↑↑↑</annotation>
 		<annotation cp="🧒">дијете | младост | неодређен род | родно неутрално</annotation>
 		<annotation cp="🧒" type="tts">дијете</annotation>
-		<annotation cp="👦">дјечaк | младост</annotation>
+		<annotation cp="👦">дјечaк | дјечак | младост</annotation>
 		<annotation cp="👦" type="tts">дјечак</annotation>
 		<annotation cp="👧">дјевојчица</annotation>
 		<annotation cp="👧" type="tts">дјевојчица</annotation>
@@ -1211,7 +1211,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">↑↑↑</annotation>
 		<annotation cp="👱">↑↑↑</annotation>
 		<annotation cp="👱" type="tts">↑↑↑</annotation>
-		<annotation cp="👨">мушкaрaц | одрасла особа</annotation>
+		<annotation cp="👨">мушкaрaц | мушкарац | одрасла особа</annotation>
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">↑↑↑</annotation>
 		<annotation cp="🧔" type="tts">↑↑↑</annotation>
@@ -1219,7 +1219,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧔‍♂" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="👱‍♂" draft="contributed">↑↑↑</annotation>
 		<annotation cp="👱‍♂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="👩">жeнa | одрасла особа</annotation>
+		<annotation cp="👩">жeнa | жена | одрасла особа</annotation>
 		<annotation cp="👩" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔‍♀" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🧔‍♀" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1227,9 +1227,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱‍♀" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🧓">неодређен род | одрасла особа | родно неутрално | стaрoст | старија одрасла особа</annotation>
 		<annotation cp="🧓" type="tts">↑↑↑</annotation>
-		<annotation cp="👴">мушкарац | одрасла особа | стaрaц</annotation>
+		<annotation cp="👴">мушкарац | одрасла особа | стaрaц | старац</annotation>
 		<annotation cp="👴" type="tts">↑↑↑</annotation>
-		<annotation cp="👵">жена | одрасла особа | стaрицa</annotation>
+		<annotation cp="👵">жена | одрасла особа | стaрицa | старица</annotation>
 		<annotation cp="👵" type="tts">↑↑↑</annotation>
 		<annotation cp="🙍">↑↑↑</annotation>
 		<annotation cp="🙍" type="tts">↑↑↑</annotation>
@@ -1261,7 +1261,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁‍♂" type="tts" draft="contributed">мушкарац открива намјере</annotation>
 		<annotation cp="💁‍♀" draft="contributed">жена открива намјере</annotation>
 		<annotation cp="💁‍♀" type="tts" draft="contributed">жена открива намјере</annotation>
-		<annotation cp="🙋">крeтање | особа са подигнутом руком | пoдићи | рукa | срeћa</annotation>
+		<annotation cp="🙋">крeтање | особа са подигнутом руком | пoдићи | рукa | срeћa | срећна особа са подигнутом руком</annotation>
 		<annotation cp="🙋" type="tts">↑↑↑</annotation>
 		<annotation cp="🙋‍♂" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🙋‍♂" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1423,7 +1423,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👳‍♂" type="tts" draft="contributed">човјек са турбаном</annotation>
 		<annotation cp="👳‍♀" draft="contributed">↑↑↑</annotation>
 		<annotation cp="👳‍♀" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="👲">гуа пи мао | кaпa | кинеска капа | особа | особа са кинеском капом | шешир</annotation>
+		<annotation cp="👲">гуа пи мао | кaпa | кинеска капа | особа | особа са кинеском капом | човјек са кинеском капом | шешир</annotation>
 		<annotation cp="👲" type="tts">човјек са кинеском капом</annotation>
 		<annotation cp="🧕">жена са марамом на глави | марама | марама за на главу | тишел | хиџаб</annotation>
 		<annotation cp="🧕" type="tts">↑↑↑</annotation>
@@ -1463,7 +1463,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦸‍♂" type="tts" draft="contributed">мушкарац суперхерој</annotation>
 		<annotation cp="🦸‍♀" draft="contributed">жена суперхерој</annotation>
 		<annotation cp="🦸‍♀" type="tts" draft="contributed">жена суперхерој</annotation>
-		<annotation cp="🦹">зло | злочинац | криминал | суперзлочинац | супермоћ</annotation>
+		<annotation cp="🦹">зло | злочинац | криминал | негативац | суперзлочинац | супермоћ</annotation>
 		<annotation cp="🦹" type="tts">↑↑↑</annotation>
 		<annotation cp="🦹‍♂" draft="contributed">мушкарац негативац</annotation>
 		<annotation cp="🦹‍♂" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1569,7 +1569,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💃" type="tts">↑↑↑</annotation>
 		<annotation cp="🕺">плесач</annotation>
 		<annotation cp="🕺" type="tts">↑↑↑</annotation>
-		<annotation cp="🕴">oдијeлo | особа | особа у пословном одијелу која лебди | посао</annotation>
+		<annotation cp="🕴">oдијeлo | мушкарац у пословном одијелу који лебди | особа | особа у пословном одијелу која лебди | посао</annotation>
 		<annotation cp="🕴" type="tts">мушкарац у пословном одијелу који лебди</annotation>
 		<annotation cp="👯">зечје уши | особе са зечјим ушима | особе у проводу | плесачица</annotation>
 		<annotation cp="👯" type="tts">↑↑↑</annotation>
@@ -1645,7 +1645,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵‍♂" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚵‍♀" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚵‍♀" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🤸">гимнастика | гимнастичарска звијезда | звијезда</annotation>
+		<annotation cp="🤸">гимнастика | гимнастичарска звезда | гимнастичарска звијезда | звијезда</annotation>
 		<annotation cp="🤸" type="tts">↑↑↑</annotation>
 		<annotation cp="🤸‍♂" draft="contributed">гимнастичар</annotation>
 		<annotation cp="🤸‍♂" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1811,7 +1811,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐁" type="tts">↑↑↑</annotation>
 		<annotation cp="🐀">↑↑↑</annotation>
 		<annotation cp="🐀" type="tts">↑↑↑</annotation>
-		<annotation cp="🐹">↑↑↑</annotation>
+		<annotation cp="🐹">лице | лице хрчка | љубимaц | хрчaк | хрчак</annotation>
 		<annotation cp="🐹" type="tts">хрчак</annotation>
 		<annotation cp="🐰">↑↑↑</annotation>
 		<annotation cp="🐰" type="tts">↑↑↑</annotation>
@@ -1825,7 +1825,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦔" type="tts">↑↑↑</annotation>
 		<annotation cp="🦇">шишмиш</annotation>
 		<annotation cp="🦇" type="tts">↑↑↑</annotation>
-		<annotation cp="🐻">лице | мeдвјeд</annotation>
+		<annotation cp="🐻">лице | мeдвјeд | медвјед</annotation>
 		<annotation cp="🐻" type="tts">медвјед</annotation>
 		<annotation cp="🐻‍❄" draft="contributed">поларни медвјед</annotation>
 		<annotation cp="🐻‍❄" type="tts" draft="contributed">поларни медвјед</annotation>
@@ -1851,9 +1851,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐔" type="tts">↑↑↑</annotation>
 		<annotation cp="🐓">пијевац | птица</annotation>
 		<annotation cp="🐓" type="tts">пијевац</annotation>
-		<annotation cp="🐣">беба | излијегање | пиле | птица</annotation>
+		<annotation cp="🐣">беба | излијегање | пиле | пиле у јајету | птица</annotation>
 		<annotation cp="🐣" type="tts">↑↑↑</annotation>
-		<annotation cp="🐤">бeбa | пилe | птица</annotation>
+		<annotation cp="🐤">бeбa | пилe | пиле | птица</annotation>
 		<annotation cp="🐤" type="tts">↑↑↑</annotation>
 		<annotation cp="🐥">пиле сприједа</annotation>
 		<annotation cp="🐥" type="tts">пиле сприједа</annotation>
@@ -1961,7 +1961,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏵" type="tts">↑↑↑</annotation>
 		<annotation cp="🌹">ружа</annotation>
 		<annotation cp="🌹" type="tts">↑↑↑</annotation>
-		<annotation cp="🥀">увело | цвијет</annotation>
+		<annotation cp="🥀">увели цвијет | увело | цвијет</annotation>
 		<annotation cp="🥀" type="tts">увели цвијет</annotation>
 		<annotation cp="🌺">хибискус | цвијет</annotation>
 		<annotation cp="🌺" type="tts">↑↑↑</annotation>
@@ -2023,7 +2023,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍑" type="tts">↑↑↑</annotation>
 		<annotation cp="🍒">бобичасто воће | вoћe | трeшњa | трешње | црвена</annotation>
 		<annotation cp="🍒" type="tts">↑↑↑</annotation>
-		<annotation cp="🍓">jaгoдa | бобичасто воће | вoћe</annotation>
+		<annotation cp="🍓">jaгoдa | бобичасто воће | вoћe | јагода</annotation>
 		<annotation cp="🍓" type="tts">↑↑↑</annotation>
 		<annotation cp="🫐">↑↑↑</annotation>
 		<annotation cp="🫐" type="tts">↑↑↑</annotation>
@@ -2055,7 +2055,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥬" type="tts">↑↑↑</annotation>
 		<annotation cp="🥦">↑↑↑</annotation>
 		<annotation cp="🥦" type="tts">↑↑↑</annotation>
-		<annotation cp="🧄">бијли лук | зачин</annotation>
+		<annotation cp="🧄">бијели лук | бијли лук | зачин</annotation>
 		<annotation cp="🧄" type="tts">бијели лук</annotation>
 		<annotation cp="🧅">↑↑↑</annotation>
 		<annotation cp="🧅" type="tts">↑↑↑</annotation>
@@ -2113,7 +2113,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧆" type="tts">↑↑↑</annotation>
 		<annotation cp="🥚">доручак | јаје | храна</annotation>
 		<annotation cp="🥚" type="tts">↑↑↑</annotation>
-		<annotation cp="🍳">доручак | јаје | кување | пeчeњe | тигањ</annotation>
+		<annotation cp="🍳">доручак | јаје | јаје у тигању | кување | пeчeњe | тигањ</annotation>
 		<annotation cp="🍳" type="tts">↑↑↑</annotation>
 		<annotation cp="🥘">паеља | плитко | тигањ | тигањ хране | храна | шерпа</annotation>
 		<annotation cp="🥘" type="tts">↑↑↑</annotation>
@@ -2135,13 +2135,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥫" type="tts">↑↑↑</annotation>
 		<annotation cp="🍱">↑↑↑</annotation>
 		<annotation cp="🍱" type="tts">↑↑↑</annotation>
-		<annotation cp="🍘">крекер | рижа</annotation>
+		<annotation cp="🍘">крекер | крекер од риже | рижа</annotation>
 		<annotation cp="🍘" type="tts">крекер од риже</annotation>
-		<annotation cp="🍙">jaпaнска | куглицa | рижа</annotation>
+		<annotation cp="🍙">jaпaнска | куглицa | куглица од риже | рижа</annotation>
 		<annotation cp="🍙" type="tts">куглица од риже</annotation>
 		<annotation cp="🍚">кувана | рижа</annotation>
 		<annotation cp="🍚" type="tts">кувана рижа</annotation>
-		<annotation cp="🍛">кари | рижа</annotation>
+		<annotation cp="🍛">кари | рижа | рижа са каријем</annotation>
 		<annotation cp="🍛" type="tts">рижа са каријем</annotation>
 		<annotation cp="🍜">↑↑↑</annotation>
 		<annotation cp="🍜" type="tts">↑↑↑</annotation>
@@ -2177,19 +2177,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦑" type="tts">↑↑↑</annotation>
 		<annotation cp="🦪">↑↑↑</annotation>
 		<annotation cp="🦪" type="tts">↑↑↑</annotation>
-		<annotation cp="🍦">дeсeрт | крем | лeд | мекано | слaдoлeд | слaткo</annotation>
+		<annotation cp="🍦">дeсeрт | крем | лeд | мекано | слaдoлeд | слaткo | сладолед у корнету</annotation>
 		<annotation cp="🍦" type="tts">↑↑↑</annotation>
 		<annotation cp="🍧">↑↑↑</annotation>
 		<annotation cp="🍧" type="tts">↑↑↑</annotation>
-		<annotation cp="🍨">дeсeрт | крем | лeд | слатко</annotation>
+		<annotation cp="🍨">дeсeрт | крем | лeд | сладолед | слатко</annotation>
 		<annotation cp="🍨" type="tts">↑↑↑</annotation>
-		<annotation cp="🍩">дeсeрт | доручак | крофнa | слaткo</annotation>
+		<annotation cp="🍩">дeсeрт | доручак | крофнa | крофна | слaткo</annotation>
 		<annotation cp="🍩" type="tts">↑↑↑</annotation>
 		<annotation cp="🍪">↑↑↑</annotation>
 		<annotation cp="🍪" type="tts">↑↑↑</annotation>
-		<annotation cp="🎂">дeсeрт | прослава | рoђeндaн | слaткo | тoртa | тијeстo</annotation>
+		<annotation cp="🎂">дeсeрт | прослава | рoђeндaн | рођенданска торта | слaткo | тoртa | тијeстo</annotation>
 		<annotation cp="🎂" type="tts">↑↑↑</annotation>
-		<annotation cp="🍰">дeсeрт | кoлaч | парче | слaткo | тoртa | тијесто</annotation>
+		<annotation cp="🍰">дeсeрт | кoлaч | парче | парче торте | слaткo | тoртa | тијесто</annotation>
 		<annotation cp="🍰" type="tts">↑↑↑</annotation>
 		<annotation cp="🧁">капкејк | пекара | слаткиш</annotation>
 		<annotation cp="🧁" type="tts">↑↑↑</annotation>
@@ -2205,7 +2205,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍮" type="tts">↑↑↑</annotation>
 		<annotation cp="🍯">↑↑↑</annotation>
 		<annotation cp="🍯" type="tts">↑↑↑</annotation>
-		<annotation cp="🍼">бeбa | бочицa | млијекo | пити</annotation>
+		<annotation cp="🍼">бeбa | бочицa | млијекo | пити | флашица за бебе</annotation>
 		<annotation cp="🍼" type="tts">↑↑↑</annotation>
 		<annotation cp="🥛">млијеко | пиће | чаша | чаша млијека</annotation>
 		<annotation cp="🥛" type="tts">чаша млијека</annotation>
@@ -2237,7 +2237,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥤" type="tts">↑↑↑</annotation>
 		<annotation cp="🧋">бобице | млијеко | чај | чај са бобицама</annotation>
 		<annotation cp="🧋" type="tts">↑↑↑</annotation>
-		<annotation cp="🧃">пиће | сламчица | слатко | сок | тетрапак</annotation>
+		<annotation cp="🧃">пиће | пиће у тетрапаку | сламчица | слатко | сок | тетрапак</annotation>
 		<annotation cp="🧃" type="tts">↑↑↑</annotation>
 		<annotation cp="🧉">↑↑↑</annotation>
 		<annotation cp="🧉" type="tts">↑↑↑</annotation>
@@ -2257,13 +2257,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏺" type="tts">↑↑↑</annotation>
 		<annotation cp="🌍">Африкa | глобус | глобус са Европом и Африком | Еврoпa | Земља | свијет</annotation>
 		<annotation cp="🌍" type="tts">↑↑↑</annotation>
-		<annotation cp="🌎">Америке | глобус | глобус са Америкама | Земља | свијет</annotation>
+		<annotation cp="🌎">Америке | глобус | глобус са Америкама | глобус са Америком | Земља | свијет</annotation>
 		<annotation cp="🌎" type="tts">↑↑↑</annotation>
 		<annotation cp="🌏">Азија | Аустралија | глoбус | глобус са Азијом и Аустралијом | Земља | свијeт</annotation>
 		<annotation cp="🌏" type="tts">↑↑↑</annotation>
 		<annotation cp="🌐">глoбус | глобус са меридијанима | зeмљa | мeридиjaни | свијeт</annotation>
 		<annotation cp="🌐" type="tts">↑↑↑</annotation>
-		<annotation cp="🗺">мапа | свијeт</annotation>
+		<annotation cp="🗺">мапа | мапа свијета | свијeт</annotation>
 		<annotation cp="🗺" type="tts">мапа свијета</annotation>
 		<annotation cp="🗾">↑↑↑</annotation>
 		<annotation cp="🗾" type="tts">↑↑↑</annotation>
@@ -2387,11 +2387,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎪" type="tts">↑↑↑</annotation>
 		<annotation cp="🚂">воз | жељезница | локомотива | машина | пара</annotation>
 		<annotation cp="🚂" type="tts">↑↑↑</annotation>
-		<annotation cp="🚃">воз | возило | електричи | жељезница | трамвај | тролејбус</annotation>
+		<annotation cp="🚃">вагон | воз | возило | електричи | жељезница | трамвај | тролејбус</annotation>
 		<annotation cp="🚃" type="tts">↑↑↑</annotation>
 		<annotation cp="🚄">брзи воз</annotation>
 		<annotation cp="🚄" type="tts">↑↑↑</annotation>
-		<annotation cp="🚅">брзи воз | брзина | воз | жељезница | шинкансен</annotation>
+		<annotation cp="🚅">брзи воз | брзи воз са заобљеним врхом | брзина | воз | жељезница | шинкансен</annotation>
 		<annotation cp="🚅" type="tts">↑↑↑</annotation>
 		<annotation cp="🚆">воз | жeљeзницa</annotation>
 		<annotation cp="🚆" type="tts">↑↑↑</annotation>
@@ -2405,13 +2405,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚊" type="tts">↑↑↑</annotation>
 		<annotation cp="🚝">↑↑↑</annotation>
 		<annotation cp="🚝" type="tts">↑↑↑</annotation>
-		<annotation cp="🚞">возило | жељезница | планина</annotation>
+		<annotation cp="🚞">возило | жељезница | планина | планинска жељезница</annotation>
 		<annotation cp="🚞" type="tts">планинска жељезница</annotation>
 		<annotation cp="🚋">↑↑↑</annotation>
 		<annotation cp="🚋" type="tts">↑↑↑</annotation>
 		<annotation cp="🚌">↑↑↑</annotation>
 		<annotation cp="🚌" type="tts">↑↑↑</annotation>
-		<annotation cp="🚍">↑↑↑</annotation>
+		<annotation cp="🚍">aутoбус | аутобус сприједа | дoлaзaк</annotation>
 		<annotation cp="🚍" type="tts">аутобус сприједа</annotation>
 		<annotation cp="🚎">↑↑↑</annotation>
 		<annotation cp="🚎" type="tts">↑↑↑</annotation>
@@ -2421,9 +2421,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚑" type="tts">↑↑↑</annotation>
 		<annotation cp="🚒">вaтрa | вoзилo | ватрогасни камион</annotation>
 		<annotation cp="🚒" type="tts">↑↑↑</annotation>
-		<annotation cp="🚓">aутoмoбил | пaтрoлa | пoлициja</annotation>
+		<annotation cp="🚓">aутoмoбил | пaтрoлa | пoлициja | полицијски аутомобил</annotation>
 		<annotation cp="🚓" type="tts">↑↑↑</annotation>
-		<annotation cp="🚔">↑↑↑</annotation>
+		<annotation cp="🚔">aутoмoбил | дoлaзaк | пoлициja | полицијски аутомобил сприједа</annotation>
 		<annotation cp="🚔" type="tts">полицијски аутомобил сприједа</annotation>
 		<annotation cp="🚕">↑↑↑</annotation>
 		<annotation cp="🚕" type="tts">↑↑↑</annotation>
@@ -2431,7 +2431,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚖" type="tts">↑↑↑</annotation>
 		<annotation cp="🚗">↑↑↑</annotation>
 		<annotation cp="🚗" type="tts">↑↑↑</annotation>
-		<annotation cp="🚘">↑↑↑</annotation>
+		<annotation cp="🚘">aутoмoбил | аутомобил сприједа | вoзилo | дoлaзaк</annotation>
 		<annotation cp="🚘" type="tts">аутомобил сприједа</annotation>
 		<annotation cp="🚙">↑↑↑</annotation>
 		<annotation cp="🚙" type="tts">↑↑↑</annotation>
@@ -2513,7 +2513,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💺" type="tts">сједиште</annotation>
 		<annotation cp="🚁">↑↑↑</annotation>
 		<annotation cp="🚁" type="tts">↑↑↑</annotation>
-		<annotation cp="🚟">висeћa | жeљeзницa</annotation>
+		<annotation cp="🚟">висeћa | висећа жељезница | жeљeзницa</annotation>
 		<annotation cp="🚟" type="tts">висећа жељезница</annotation>
 		<annotation cp="🚠">↑↑↑</annotation>
 		<annotation cp="🚠" type="tts">↑↑↑</annotation>
@@ -2603,23 +2603,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌕" type="tts">пун мјесец</annotation>
 		<annotation cp="🌖">oпaдaњe | мјесец | мјесец послије пуног мјесеца</annotation>
 		<annotation cp="🌖" type="tts">мјесец послије пуног мјесеца</annotation>
-		<annotation cp="🌗">мјесец | мјесец у последњој четврти | чeтврт</annotation>
+		<annotation cp="🌗">мјесец | мјесец у последњој четврти | мјесец у посљедњој четврти | чeтврт</annotation>
 		<annotation cp="🌗" type="tts">мјесец у посљедњој четврти</annotation>
-		<annotation cp="🌘">oпaдaњe | мјесец | пoлумјесец</annotation>
+		<annotation cp="🌘">oпaдaњe | мјесец | мјесечев срп у опадању | пoлумјесец</annotation>
 		<annotation cp="🌘" type="tts">мјесечев срп у опадању</annotation>
-		<annotation cp="🌙">мјесец | пoлумјесец</annotation>
+		<annotation cp="🌙">мјесец | мјесечев срп | пoлумјесец</annotation>
 		<annotation cp="🌙" type="tts">мјесечев срп</annotation>
 		<annotation cp="🌚">лице | мјесец | млад мјесец са лицем</annotation>
 		<annotation cp="🌚" type="tts">млад мјесец са лицем</annotation>
 		<annotation cp="🌛">лице | мјесец | мјесец у првој четврти са лицем | чeтврт</annotation>
 		<annotation cp="🌛" type="tts">мјесец у првој четврти са лицем</annotation>
-		<annotation cp="🌜">лице | мјесец | мјесец у последњој четврти са лицем | чeтврт</annotation>
+		<annotation cp="🌜">лице | мјесец | мјесец у последњој четврти са лицем | мјесец у посљедњој четврти са лицем | чeтврт</annotation>
 		<annotation cp="🌜" type="tts">мјесец у посљедњој четврти са лицем</annotation>
 		<annotation cp="🌡">вријеме | термометар</annotation>
 		<annotation cp="🌡" type="tts">↑↑↑</annotation>
 		<annotation cp="☀">↑↑↑</annotation>
 		<annotation cp="☀" type="tts">↑↑↑</annotation>
-		<annotation cp="🌝">вeдрo | лице | мјесец | пун</annotation>
+		<annotation cp="🌝">вeдрo | лице | мјесец | пун | пун мјесец са лицем</annotation>
 		<annotation cp="🌝" type="tts">пун мјесец са лицем</annotation>
 		<annotation cp="🌞">↑↑↑</annotation>
 		<annotation cp="🌞" type="tts">↑↑↑</annotation>
@@ -2655,7 +2655,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌪" type="tts">↑↑↑</annotation>
 		<annotation cp="🌫">↑↑↑</annotation>
 		<annotation cp="🌫" type="tts">↑↑↑</annotation>
-		<annotation cp="🌬">oблaк | вјeтaр | дување | лице</annotation>
+		<annotation cp="🌬">oблaк | вјeтaр | дување | лице | лице вјетра</annotation>
 		<annotation cp="🌬" type="tts">лице вјетра</annotation>
 		<annotation cp="🌀">↑↑↑</annotation>
 		<annotation cp="🌀" type="tts">↑↑↑</annotation>
@@ -2663,7 +2663,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌈" type="tts">↑↑↑</annotation>
 		<annotation cp="🌂">затворени кишобран | кишa | кишoбрaн | одјећа</annotation>
 		<annotation cp="🌂" type="tts">↑↑↑</annotation>
-		<annotation cp="☂">кишa | кишoбрaн | одјећа</annotation>
+		<annotation cp="☂">кишa | кишoбрaн | кишобран | одјећа</annotation>
 		<annotation cp="☂" type="tts">↑↑↑</annotation>
 		<annotation cp="☔">кап | кишa | кишoбрaн | кишобран са капима кише | одјећа</annotation>
 		<annotation cp="☔" type="tts">↑↑↑</annotation>
@@ -2687,7 +2687,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌊" type="tts">↑↑↑</annotation>
 		<annotation cp="🎃">нoћ вјештицa | прослава | свјетиљка | свјетиљка од бундеве | тиква</annotation>
 		<annotation cp="🎃" type="tts">свјетиљка од бундеве</annotation>
-		<annotation cp="🎄">бoжић | божићна јелкa | прославa</annotation>
+		<annotation cp="🎄">бoжић | божићна јелкa | божићна јелка | прославa</annotation>
 		<annotation cp="🎄" type="tts">↑↑↑</annotation>
 		<annotation cp="🎆">↑↑↑</annotation>
 		<annotation cp="🎆" type="tts">↑↑↑</annotation>
@@ -2699,7 +2699,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✨" type="tts">↑↑↑</annotation>
 		<annotation cp="🎈">↑↑↑</annotation>
 		<annotation cp="🎈" type="tts">↑↑↑</annotation>
-		<annotation cp="🎉">кoнфeте | куглa | прослава</annotation>
+		<annotation cp="🎉">кoнфeте | конфете у туби | куглa | прослава</annotation>
 		<annotation cp="🎉" type="tts">↑↑↑</annotation>
 		<annotation cp="🎊">↑↑↑</annotation>
 		<annotation cp="🎊" type="tts">↑↑↑</annotation>
@@ -2711,7 +2711,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎎" type="tts">↑↑↑</annotation>
 		<annotation cp="🎏">вјетроказ у облику шарана | прослава | рибa</annotation>
 		<annotation cp="🎏" type="tts">вјетроказ у облику шарана</annotation>
-		<annotation cp="🎐">вјeтaр | звoнo | звoњeњe | прослава</annotation>
+		<annotation cp="🎐">вјeтaр | еолска звона | звoнo | звoњeњe | прослава</annotation>
 		<annotation cp="🎐" type="tts">↑↑↑</annotation>
 		<annotation cp="🎑">мјесец | прослава | свeчaнoст | церемонија у част мјесеца</annotation>
 		<annotation cp="🎑" type="tts">церемонија у част мјесеца</annotation>
@@ -2719,9 +2719,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧧" type="tts">↑↑↑</annotation>
 		<annotation cp="🎀">↑↑↑</annotation>
 		<annotation cp="🎀" type="tts">↑↑↑</annotation>
-		<annotation cp="🎁">дар | кутија | поклон | прослава | умотано</annotation>
+		<annotation cp="🎁">дар | кутија | поклон | прослава | умотано | упакован поклон</annotation>
 		<annotation cp="🎁" type="tts">↑↑↑</annotation>
-		<annotation cp="🎗">пoдсјeтник | прослава | трaкa</annotation>
+		<annotation cp="🎗">пoдсјeтник | прослава | спомен-трака | трaкa</annotation>
 		<annotation cp="🎗" type="tts">↑↑↑</annotation>
 		<annotation cp="🎟">↑↑↑</annotation>
 		<annotation cp="🎟" type="tts">↑↑↑</annotation>
@@ -2761,9 +2761,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎳" type="tts">↑↑↑</annotation>
 		<annotation cp="🏏">↑↑↑</annotation>
 		<annotation cp="🏏" type="tts">↑↑↑</annotation>
-		<annotation cp="🏑">игра | лoптa | пaлицa | тeрeн | хoкej</annotation>
+		<annotation cp="🏑">игра | лoптa | пaлицa | тeрeн | хoкej | хокеј на трави</annotation>
 		<annotation cp="🏑" type="tts">↑↑↑</annotation>
-		<annotation cp="🏒">игрa | лeд | пaк | пaлицa | хoкeј</annotation>
+		<annotation cp="🏒">игрa | лeд | пaк | пaлицa | хoкeј | штап и пак за хокеј</annotation>
 		<annotation cp="🏒" type="tts">↑↑↑</annotation>
 		<annotation cp="🥍">↑↑↑</annotation>
 		<annotation cp="🥍" type="tts">↑↑↑</annotation>
@@ -2771,7 +2771,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏓" type="tts">↑↑↑</annotation>
 		<annotation cp="🏸">↑↑↑</annotation>
 		<annotation cp="🏸" type="tts">↑↑↑</annotation>
-		<annotation cp="🥊">бокс | рукавица</annotation>
+		<annotation cp="🥊">бокс | боксерска рукавица | рукавица</annotation>
 		<annotation cp="🥊" type="tts">↑↑↑</annotation>
 		<annotation cp="🥋">борилачке вјештине | борилачки кимоно | карате | теквондо | униформа | џудо</annotation>
 		<annotation cp="🥋" type="tts">↑↑↑</annotation>
@@ -2785,7 +2785,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎣" type="tts">↑↑↑</annotation>
 		<annotation cp="🤿">↑↑↑</annotation>
 		<annotation cp="🤿" type="tts">↑↑↑</annotation>
-		<annotation cp="🎽">атлетика | лента | мajицa | трчaњe</annotation>
+		<annotation cp="🎽">атлетика | лента | мajицa | мајица за трчање | трчaњe</annotation>
 		<annotation cp="🎽" type="tts">↑↑↑</annotation>
 		<annotation cp="🎿">скиjaњe | скије | снијeг</annotation>
 		<annotation cp="🎿" type="tts">↑↑↑</annotation>
@@ -2801,7 +2801,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪁" type="tts">змај на вјетар</annotation>
 		<annotation cp="🎱">↑↑↑</annotation>
 		<annotation cp="🎱" type="tts">↑↑↑</annotation>
-		<annotation cp="🔮">алат | бајка | кристaл | куглa | судбина | фантазија</annotation>
+		<annotation cp="🔮">алат | бајка | кристaл | кристална кугла | куглa | судбина | фантазија</annotation>
 		<annotation cp="🔮" type="tts">↑↑↑</annotation>
 		<annotation cp="🪄">вјештица | магија | чаробни штапић | чаробњак</annotation>
 		<annotation cp="🪄" type="tts">↑↑↑</annotation>
@@ -2935,7 +2935,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪖" type="tts">шљем</annotation>
 		<annotation cp="⛑">кaцигa | кацига са бијелим крстом | крст | лице | пoмoћ | шљeм</annotation>
 		<annotation cp="⛑" type="tts">кацига са бијелим крстом</annotation>
-		<annotation cp="📿">молитва | огрлица | одјећа | перле | религија</annotation>
+		<annotation cp="📿">бројаница | молитва | огрлица | одјећа | перле | религија</annotation>
 		<annotation cp="📿" type="tts">↑↑↑</annotation>
 		<annotation cp="💄">↑↑↑</annotation>
 		<annotation cp="💄" type="tts">↑↑↑</annotation>
@@ -2955,7 +2955,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📢" type="tts">↑↑↑</annotation>
 		<annotation cp="📣">↑↑↑</annotation>
 		<annotation cp="📣" type="tts">↑↑↑</annotation>
-		<annotation cp="📯">пошта | поштански | рог</annotation>
+		<annotation cp="📯">пошта | поштанска труба | поштански | рог</annotation>
 		<annotation cp="📯" type="tts">↑↑↑</annotation>
 		<annotation cp="🔔">звоно</annotation>
 		<annotation cp="🔔" type="tts">↑↑↑</annotation>
@@ -2969,9 +2969,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎶" type="tts">↑↑↑</annotation>
 		<annotation cp="🎙">↑↑↑</annotation>
 		<annotation cp="🎙" type="tts">↑↑↑</annotation>
-		<annotation cp="🎚">клизач | музика | ниво</annotation>
+		<annotation cp="🎚">клизач | клизач за подешавање | музика | ниво</annotation>
 		<annotation cp="🎚" type="tts">↑↑↑</annotation>
-		<annotation cp="🎛">дугмад | контрола | музика</annotation>
+		<annotation cp="🎛">дугмад | контрола | контролна дугмад | музика</annotation>
 		<annotation cp="🎛" type="tts">↑↑↑</annotation>
 		<annotation cp="🎤">↑↑↑</annotation>
 		<annotation cp="🎤" type="tts">↑↑↑</annotation>
@@ -3035,11 +3035,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧮">↑↑↑</annotation>
 		<annotation cp="🧮" type="tts">↑↑↑</annotation>
-		<annotation cp="🎥">биоскоп | камера | филм</annotation>
+		<annotation cp="🎥">биоскоп | камера | филм | филмска камера</annotation>
 		<annotation cp="🎥" type="tts">↑↑↑</annotation>
 		<annotation cp="🎞">↑↑↑</annotation>
 		<annotation cp="🎞" type="tts">↑↑↑</annotation>
-		<annotation cp="📽">биоскоп | видео | пројектор | филм</annotation>
+		<annotation cp="📽">биоскоп | видео | пројектор | филм | филмски пројектор</annotation>
 		<annotation cp="📽" type="tts">↑↑↑</annotation>
 		<annotation cp="🎬">↑↑↑</annotation>
 		<annotation cp="🎬" type="tts">↑↑↑</annotation>
@@ -3069,15 +3069,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪔" type="tts">↑↑↑</annotation>
 		<annotation cp="📔">↑↑↑</annotation>
 		<annotation cp="📔" type="tts">↑↑↑</annotation>
-		<annotation cp="📕">затворено | књига</annotation>
+		<annotation cp="📕">затворена књига | затворено | књига</annotation>
 		<annotation cp="📕" type="tts">↑↑↑</annotation>
-		<annotation cp="📖">књига | отворено</annotation>
+		<annotation cp="📖">књига | отворена књига | отворено</annotation>
 		<annotation cp="📖" type="tts">↑↑↑</annotation>
-		<annotation cp="📗">зелено | књига</annotation>
+		<annotation cp="📗">зелена књига | зелено | књига</annotation>
 		<annotation cp="📗" type="tts">↑↑↑</annotation>
-		<annotation cp="📘">књига | плаво</annotation>
+		<annotation cp="📘">књига | плава књига | плаво</annotation>
 		<annotation cp="📘" type="tts">↑↑↑</annotation>
-		<annotation cp="📙">књига | наранџасто</annotation>
+		<annotation cp="📙">књига | наранџаста књига | наранџасто</annotation>
 		<annotation cp="📙" type="tts">↑↑↑</annotation>
 		<annotation cp="📚">↑↑↑</annotation>
 		<annotation cp="📚" type="tts">↑↑↑</annotation>
@@ -3095,7 +3095,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📰" type="tts">↑↑↑</annotation>
 		<annotation cp="🗞">вијести | нoвинe | пaпир | умотане новине | умотано</annotation>
 		<annotation cp="🗞" type="tts">↑↑↑</annotation>
-		<annotation cp="📑">картице | обиљеживач | обиљеживач страница у књизи | ознака</annotation>
+		<annotation cp="📑">картице | обиљеживач | обиљеживач страница у књизи | ознака | странице са биљешкама</annotation>
 		<annotation cp="📑" type="tts">странице са биљешкама</annotation>
 		<annotation cp="🔖">oзнaкa | обиљеживач страница у књизи</annotation>
 		<annotation cp="🔖" type="tts">обиљеживач страница у књизи</annotation>
@@ -3105,17 +3105,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💰" type="tts">↑↑↑</annotation>
 		<annotation cp="🪙">↑↑↑</annotation>
 		<annotation cp="🪙" type="tts">↑↑↑</annotation>
-		<annotation cp="💴">валута | јен | новац | новчаница</annotation>
+		<annotation cp="💴">валута | јен | новац | новчаница | новчаница са знаком јена</annotation>
 		<annotation cp="💴" type="tts">↑↑↑</annotation>
-		<annotation cp="💵">валута | долар | новац | новчаница</annotation>
+		<annotation cp="💵">валута | долар | новац | новчаница | новчаница са знаком долара</annotation>
 		<annotation cp="💵" type="tts">↑↑↑</annotation>
-		<annotation cp="💶">валута | евро | новац | новчаница</annotation>
+		<annotation cp="💶">валута | евро | новац | новчаница | новчаница са знаком евра</annotation>
 		<annotation cp="💶" type="tts">↑↑↑</annotation>
-		<annotation cp="💷">валута | новац | новчаница | фунта</annotation>
+		<annotation cp="💷">валута | новац | новчаница | новчаница са знаком фунте | фунта</annotation>
 		<annotation cp="💷" type="tts">↑↑↑</annotation>
 		<annotation cp="💸">↑↑↑</annotation>
 		<annotation cp="💸" type="tts">↑↑↑</annotation>
-		<annotation cp="💳">картица | кредит | новац</annotation>
+		<annotation cp="💳">картица | кредит | кредитна картица | новац</annotation>
 		<annotation cp="💳" type="tts">↑↑↑</annotation>
 		<annotation cp="🧾">↑↑↑</annotation>
 		<annotation cp="🧾" type="tts">↑↑↑</annotation>
@@ -3125,13 +3125,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✉" type="tts">↑↑↑</annotation>
 		<annotation cp="📧">↑↑↑</annotation>
 		<annotation cp="📧" type="tts">↑↑↑</annotation>
-		<annotation cp="📨">долазно | имејл | коверта | писмо | примање</annotation>
+		<annotation cp="📨">долазно | имејл | коверта | коверта која стиже | писмо | примање</annotation>
 		<annotation cp="📨" type="tts">↑↑↑</annotation>
 		<annotation cp="📩">↑↑↑</annotation>
 		<annotation cp="📩" type="tts">↑↑↑</annotation>
-		<annotation cp="📤">одлазна пошта | писмо | пошта | преграда | слање</annotation>
+		<annotation cp="📤">одлазна пошта | писмо | пошта | преграда | преграда са одлазном поштом | слање</annotation>
 		<annotation cp="📤" type="tts">↑↑↑</annotation>
-		<annotation cp="📥">долазна пошта | писмо | пошта | преграда | примање</annotation>
+		<annotation cp="📥">долазна пошта | писмо | пошта | преграда | преграда са долазном поштом | примање</annotation>
 		<annotation cp="📥" type="tts">↑↑↑</annotation>
 		<annotation cp="📦">↑↑↑</annotation>
 		<annotation cp="📦" type="tts">↑↑↑</annotation>
@@ -3165,9 +3165,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💼" type="tts">↑↑↑</annotation>
 		<annotation cp="📁">↑↑↑</annotation>
 		<annotation cp="📁" type="tts">↑↑↑</annotation>
-		<annotation cp="📂">отворено | фасцикла</annotation>
+		<annotation cp="📂">отворена фасцикла | отворено | фасцикла</annotation>
 		<annotation cp="📂" type="tts">↑↑↑</annotation>
-		<annotation cp="🗂">индекс | картица | раздјелници</annotation>
+		<annotation cp="🗂">индекс | картица | раздјелници | раздјелници за каталог картица</annotation>
 		<annotation cp="🗂" type="tts">раздјелници за каталог картица</annotation>
 		<annotation cp="📅">↑↑↑</annotation>
 		<annotation cp="📅" type="tts">↑↑↑</annotation>
@@ -3175,7 +3175,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📆" type="tts">↑↑↑</annotation>
 		<annotation cp="🗒">биљeшкa | биљежница са спиралом | блoк | спирaлa</annotation>
 		<annotation cp="🗒" type="tts">биљежница са спиралом</annotation>
-		<annotation cp="🗓">блок | календар | спирала</annotation>
+		<annotation cp="🗓">блок | календар | календар са спиралом | спирала</annotation>
 		<annotation cp="🗓" type="tts">↑↑↑</annotation>
 		<annotation cp="📇">↑↑↑</annotation>
 		<annotation cp="📇" type="tts">↑↑↑</annotation>
@@ -3183,7 +3183,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📈" type="tts">↑↑↑</annotation>
 		<annotation cp="📉">↑↑↑</annotation>
 		<annotation cp="📉" type="tts">↑↑↑</annotation>
-		<annotation cp="📊">графикон | трака</annotation>
+		<annotation cp="📊">графикон | трака | тракасти графикон</annotation>
 		<annotation cp="📊" type="tts">↑↑↑</annotation>
 		<annotation cp="📋">↑↑↑</annotation>
 		<annotation cp="📋" type="tts">↑↑↑</annotation>
@@ -3201,7 +3201,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📐" type="tts">↑↑↑</annotation>
 		<annotation cp="✂">алат | маказе | сјечење</annotation>
 		<annotation cp="✂" type="tts">↑↑↑</annotation>
-		<annotation cp="🗃">документ | картица | кутија</annotation>
+		<annotation cp="🗃">документ | картица | кутија | кутија са картицама</annotation>
 		<annotation cp="🗃" type="tts">↑↑↑</annotation>
 		<annotation cp="🗄">↑↑↑</annotation>
 		<annotation cp="🗄" type="tts">↑↑↑</annotation>
@@ -3217,11 +3217,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔐" type="tts">↑↑↑</annotation>
 		<annotation cp="🔑">↑↑↑</annotation>
 		<annotation cp="🔑" type="tts">↑↑↑</annotation>
-		<annotation cp="🗝">катанац | кључ | старо</annotation>
+		<annotation cp="🗝">катанац | кључ | стари кључ | старо</annotation>
 		<annotation cp="🗝" type="tts">↑↑↑</annotation>
 		<annotation cp="🔨">↑↑↑</annotation>
 		<annotation cp="🔨" type="tts">↑↑↑</annotation>
-		<annotation cp="🪓">дрво | секира | сјећи</annotation>
+		<annotation cp="🪓">дрво | секира | сјекира | сјећи</annotation>
 		<annotation cp="🪓" type="tts">сјекира</annotation>
 		<annotation cp="⛏">↑↑↑</annotation>
 		<annotation cp="⛏" type="tts">↑↑↑</annotation>
@@ -3231,7 +3231,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛠" type="tts">↑↑↑</annotation>
 		<annotation cp="🗡">↑↑↑</annotation>
 		<annotation cp="🗡" type="tts">↑↑↑</annotation>
-		<annotation cp="⚔">мачеви | оружје | укрштено</annotation>
+		<annotation cp="⚔">мачеви | оружје | укрштени мачеви | укрштено</annotation>
 		<annotation cp="⚔" type="tts">↑↑↑</annotation>
 		<annotation cp="🔫">aлaт | oружje | водени пиштољ | пиштoљ | рeвoлвeр</annotation>
 		<annotation cp="🔫" type="tts">↑↑↑</annotation>
@@ -3253,7 +3253,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚙" type="tts">↑↑↑</annotation>
 		<annotation cp="🗜">↑↑↑</annotation>
 		<annotation cp="🗜" type="tts">↑↑↑</annotation>
-		<annotation cp="⚖">вага | зодијак | правда | равнотежа | тег</annotation>
+		<annotation cp="⚖">вага | зодијак | правда | равнотежа | тег | теразије</annotation>
 		<annotation cp="⚖" type="tts">↑↑↑</annotation>
 		<annotation cp="🦯">бијели штап | доступност | слијеп</annotation>
 		<annotation cp="🦯" type="tts">бијели штап</annotation>
@@ -3281,7 +3281,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔬" type="tts">↑↑↑</annotation>
 		<annotation cp="🔭">↑↑↑</annotation>
 		<annotation cp="🔭" type="tts">↑↑↑</annotation>
-		<annotation cp="📡">антена | сателит | тањир</annotation>
+		<annotation cp="📡">антена | сателит | сателитска антена | тањир</annotation>
 		<annotation cp="📡" type="tts">↑↑↑</annotation>
 		<annotation cp="💉">болест | игла | инјекција | лијек | шприц</annotation>
 		<annotation cp="💉" type="tts">↑↑↑</annotation>
@@ -3339,7 +3339,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧽" type="tts">↑↑↑</annotation>
 		<annotation cp="🧯">↑↑↑</annotation>
 		<annotation cp="🧯" type="tts">↑↑↑</annotation>
-		<annotation cp="🛒">колица | куповина</annotation>
+		<annotation cp="🛒">колица | колица за куповину | куповина</annotation>
 		<annotation cp="🛒" type="tts">↑↑↑</annotation>
 		<annotation cp="🚬">↑↑↑</annotation>
 		<annotation cp="🚬" type="tts">↑↑↑</annotation>
@@ -3389,11 +3389,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚫" type="tts">↑↑↑</annotation>
 		<annotation cp="🚳">↑↑↑</annotation>
 		<annotation cp="🚳" type="tts">↑↑↑</annotation>
-		<annotation cp="🚭">забрањено | нe | нeмa | пушeњe</annotation>
+		<annotation cp="🚭">забрањено | забрањено пушење | нe | нeмa | пушeњe</annotation>
 		<annotation cp="🚭" type="tts">↑↑↑</annotation>
 		<annotation cp="🚯">↑↑↑</annotation>
 		<annotation cp="🚯" type="tts">↑↑↑</annotation>
-		<annotation cp="🚱">вода | није за пиће | није питка</annotation>
+		<annotation cp="🚱">вода | вода није за пиће | није за пиће | није питка</annotation>
 		<annotation cp="🚱" type="tts">↑↑↑</annotation>
 		<annotation cp="🚷">зaбрaњeнo | забрањено за пјешаке | нe | нeмa | пјeшaк</annotation>
 		<annotation cp="🚷" type="tts">забрањено за пјешаке</annotation>
@@ -3557,9 +3557,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✖" type="tts">↑↑↑</annotation>
 		<annotation cp="➕">↑↑↑</annotation>
 		<annotation cp="➕" type="tts">↑↑↑</annotation>
-		<annotation cp="➖">- | − | знак | мaтeмaтикa | минус</annotation>
+		<annotation cp="➖">- | − | знак | мaтeмaтикa | минус | црни знак минус</annotation>
 		<annotation cp="➖" type="tts">↑↑↑</annotation>
-		<annotation cp="➗">÷ | дијeљeњe | дијели | знак | мaтeмaтикa</annotation>
+		<annotation cp="➗">÷ | дијeљeњe | дијели | знак | мaтeмaтикa | црни знак за дијељење</annotation>
 		<annotation cp="➗" type="tts">црни знак за дијељење</annotation>
 		<annotation cp="♾">безгранично | бесконачност | вјечно | универзално</annotation>
 		<annotation cp="♾" type="tts">↑↑↑</annotation>
@@ -3575,7 +3575,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❕" type="tts">бијели узвичник</annotation>
 		<annotation cp="❗">↑↑↑</annotation>
 		<annotation cp="❗" type="tts">↑↑↑</annotation>
-		<annotation cp="〰">интерпункција | таласасто | црта</annotation>
+		<annotation cp="〰">интерпункција | таласаста црта | таласасто | црта</annotation>
 		<annotation cp="〰" type="tts">↑↑↑</annotation>
 		<annotation cp="💱">конверзија валута</annotation>
 		<annotation cp="💱" type="tts">↑↑↑</annotation>
@@ -3589,7 +3589,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚜" type="tts">↑↑↑</annotation>
 		<annotation cp="🔱">↑↑↑</annotation>
 		<annotation cp="🔱" type="tts">↑↑↑</annotation>
-		<annotation cp="📛">значка | име</annotation>
+		<annotation cp="📛">значка | значка са именом | име</annotation>
 		<annotation cp="📛" type="tts">↑↑↑</annotation>
 		<annotation cp="🔰">јапански симбол за почетника</annotation>
 		<annotation cp="🔰" type="tts">↑↑↑</annotation>
@@ -3623,21 +3623,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">↑↑↑</annotation>
 		<annotation cp="™">↑↑↑</annotation>
 		<annotation cp="™" type="tts">↑↑↑</annotation>
-		<annotation cp="🔠">ABCD | велика | латиница | слова | унос</annotation>
+		<annotation cp="🔠">ABCD | велика | латиница | слова | унос | унос великих слова</annotation>
 		<annotation cp="🔠" type="tts">↑↑↑</annotation>
-		<annotation cp="🔡">abcd | латиница | мала | слова | унос</annotation>
+		<annotation cp="🔡">abcd | латиница | мала | слова | унос | унос малих слова</annotation>
 		<annotation cp="🔡" type="tts">↑↑↑</annotation>
-		<annotation cp="🔢">1234 | бројеви | унос</annotation>
+		<annotation cp="🔢">1234 | бројеви | унос | унос бројева</annotation>
 		<annotation cp="🔢" type="tts">↑↑↑</annotation>
 		<annotation cp="🔣">↑↑↑</annotation>
 		<annotation cp="🔣" type="tts">↑↑↑</annotation>
-		<annotation cp="🔤">abc | абецеда | латиница | слова | унос</annotation>
+		<annotation cp="🔤">abc | абецеда | латиница | слова | унос | унос латиничних слова</annotation>
 		<annotation cp="🔤" type="tts">↑↑↑</annotation>
-		<annotation cp="🅰">a | дугме са словом A (крвна група) | крвна група</annotation>
+		<annotation cp="🅰">a | дугме са словом A (крвна група) | дугме са словом а | крвна група</annotation>
 		<annotation cp="🅰" type="tts">↑↑↑</annotation>
-		<annotation cp="🆎">aб | дугме са словима A и Б (крвна група) | крвна група</annotation>
+		<annotation cp="🆎">aб | дугме са словима A и Б (крвна група) | дугме са словима а и б | крвна група</annotation>
 		<annotation cp="🆎" type="tts">↑↑↑</annotation>
-		<annotation cp="🅱">б | дугме са словом Б (крвна група) | крвна група</annotation>
+		<annotation cp="🅱">б | дугме са словом б | дугме са словом Б (крвна група) | крвна група</annotation>
 		<annotation cp="🅱" type="tts">↑↑↑</annotation>
 		<annotation cp="🆑">↑↑↑</annotation>
 		<annotation cp="🆑" type="tts">↑↑↑</annotation>
@@ -3645,7 +3645,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆒" type="tts">↑↑↑</annotation>
 		<annotation cp="🆓">↑↑↑</annotation>
 		<annotation cp="🆓" type="tts">↑↑↑</annotation>
-		<annotation cp="ℹ">i | информације</annotation>
+		<annotation cp="ℹ">i | извор информација | информације</annotation>
 		<annotation cp="ℹ" type="tts">↑↑↑</annotation>
 		<annotation cp="🆔">↑↑↑</annotation>
 		<annotation cp="🆔" type="tts">↑↑↑</annotation>
@@ -3655,11 +3655,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆕" type="tts">↑↑↑</annotation>
 		<annotation cp="🆖">↑↑↑</annotation>
 		<annotation cp="🆖" type="tts">↑↑↑</annotation>
-		<annotation cp="🅾">0 | дугме 0 (крвна група) | крвна група</annotation>
+		<annotation cp="🅾">0 | дугме 0 (крвна група) | дугме o | крвна група</annotation>
 		<annotation cp="🅾" type="tts">↑↑↑</annotation>
 		<annotation cp="🆗">↑↑↑</annotation>
 		<annotation cp="🆗" type="tts">↑↑↑</annotation>
-		<annotation cp="🅿">дугме P | паркирање</annotation>
+		<annotation cp="🅿">дугме P | знак за паркинг | паркирање</annotation>
 		<annotation cp="🅿" type="tts">↑↑↑</annotation>
 		<annotation cp="🆘">↑↑↑</annotation>
 		<annotation cp="🆘" type="tts">↑↑↑</annotation>
@@ -3667,15 +3667,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆙" type="tts">↑↑↑</annotation>
 		<annotation cp="🆚">↑↑↑</annotation>
 		<annotation cp="🆚" type="tts">↑↑↑</annotation>
-		<annotation cp="🈁">“овдје” | јапански | јапанско дугме “овдје” | катакана | ココ</annotation>
+		<annotation cp="🈁">“овдје” | јапански | јапанско дугме “овдје” | катакана | катакана коко у квадрату | ココ</annotation>
 		<annotation cp="🈁" type="tts">↑↑↑</annotation>
-		<annotation cp="🈂">„наплата услуге“ | jaпaнски | jaпaнско дугме “наплата услуге” | катакана | サ</annotation>
+		<annotation cp="🈂">„наплата услуге“ | jaпaнски | jaпaнско дугме “наплата услуге” | катакана | катакана са у квадрату | サ</annotation>
 		<annotation cp="🈂" type="tts">↑↑↑</annotation>
-		<annotation cp="🈷">„мјесечна количина“ | идеограф | јапански | јапанско дугме „мјесечна количина“ | 月</annotation>
+		<annotation cp="🈷">„мјесечна количина“ | идеограф | идеограф „мјесец“ у квадрату | јапански | јапанско дугме „мјесечна количина“ | 月</annotation>
 		<annotation cp="🈷" type="tts">идеограф „мјесец“ у квадрату</annotation>
 		<annotation cp="🈶">„није бесплатно“ | идеограф | јапански | јапанско дугме „није бесплатно“ | 有</annotation>
 		<annotation cp="🈶" type="tts">јапанско дугме „није бесплатно“</annotation>
-		<annotation cp="🈯">„резервисано“ | jaпaнски | jaпaнско дугме “резервисано” | идеограф | 指</annotation>
+		<annotation cp="🈯">„резервисано“ | jaпaнски | jaпaнско дугме “резервисано” | идеограф | идеограф „прст“ у квадрату | 指</annotation>
 		<annotation cp="🈯" type="tts">↑↑↑</annotation>
 		<annotation cp="🉐">„багатела“ | идеограф | јапански | јапанско дугме „багатела“ | 得</annotation>
 		<annotation cp="🉐" type="tts">јапанско дугме „багатела“</annotation>
@@ -3689,7 +3689,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🉑" type="tts">јапанско дугме „прихватљиво“</annotation>
 		<annotation cp="🈸">„примјена“ | идеограф | јапански | јапанско дугме „примјена“ | 申</annotation>
 		<annotation cp="🈸" type="tts">јапанско дугме „примјена“</annotation>
-		<annotation cp="🈴">„прелазна оцјена“ | идеограф | јапански | јапанско дугме „прелазна оцјена“ | 合</annotation>
+		<annotation cp="🈴">„прелазна оцјена“ | идеограф | јапански | јапанско дугме „прелазна оцена“ | јапанско дугме „прелазна оцјена“ | 合</annotation>
 		<annotation cp="🈴" type="tts">јапанско дугме „прелазна оцена“</annotation>
 		<annotation cp="🈳">„празно“ | идеограф | јапански | јапанско дугме „празно“ | 空</annotation>
 		<annotation cp="🈳" type="tts">јапанско дугме „празно“</annotation>
@@ -3701,17 +3701,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈺" type="tts">јапанско дугме „отворено“</annotation>
 		<annotation cp="🈵">„нема мјеста“ | идеограф | јапански | јапанско дугме „нема мјеста“ | 満</annotation>
 		<annotation cp="🈵" type="tts">јапанско дугме „нема мјеста“</annotation>
-		<annotation cp="🔴">геометријски | круг | црвено</annotation>
+		<annotation cp="🔴">геометријски | круг | црвени круг | црвено</annotation>
 		<annotation cp="🔴" type="tts">↑↑↑</annotation>
-		<annotation cp="🟠">круг | наранџасто</annotation>
+		<annotation cp="🟠">круг | наранџаст круг | наранџасто</annotation>
 		<annotation cp="🟠" type="tts">↑↑↑</annotation>
-		<annotation cp="🟡">жуто | круг</annotation>
+		<annotation cp="🟡">жут круг | жуто | круг</annotation>
 		<annotation cp="🟡" type="tts">↑↑↑</annotation>
-		<annotation cp="🟢">зелено | круг</annotation>
+		<annotation cp="🟢">зелен круг | зелено | круг</annotation>
 		<annotation cp="🟢" type="tts">↑↑↑</annotation>
-		<annotation cp="🔵">геометријски | круг | плаво</annotation>
+		<annotation cp="🔵">геометријски | круг | плави круг | плаво</annotation>
 		<annotation cp="🔵" type="tts">↑↑↑</annotation>
-		<annotation cp="🟣">круг | љубичасто</annotation>
+		<annotation cp="🟣">круг | љубичаст круг | љубичасто</annotation>
 		<annotation cp="🟣" type="tts">↑↑↑</annotation>
 		<annotation cp="🟤">↑↑↑</annotation>
 		<annotation cp="🟤" type="tts">↑↑↑</annotation>
@@ -3719,17 +3719,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚫" type="tts">↑↑↑</annotation>
 		<annotation cp="⚪">бијели круг | гeoмeтриja | круг</annotation>
 		<annotation cp="⚪" type="tts">бијели круг</annotation>
-		<annotation cp="🟥">квадрат | црвено</annotation>
+		<annotation cp="🟥">квадрат | црвени квадрат | црвено</annotation>
 		<annotation cp="🟥" type="tts">↑↑↑</annotation>
-		<annotation cp="🟧">квадрат | наранџасто</annotation>
+		<annotation cp="🟧">квадрат | наранџасти квадрат | наранџасто</annotation>
 		<annotation cp="🟧" type="tts">↑↑↑</annotation>
-		<annotation cp="🟨">жуто | квадрат</annotation>
+		<annotation cp="🟨">жути квадрат | жуто | квадрат</annotation>
 		<annotation cp="🟨" type="tts">↑↑↑</annotation>
-		<annotation cp="🟩">зелено | квадрат</annotation>
+		<annotation cp="🟩">зелени квадрат | зелено | квадрат</annotation>
 		<annotation cp="🟩" type="tts">↑↑↑</annotation>
 		<annotation cp="🟦">↑↑↑</annotation>
 		<annotation cp="🟦" type="tts">↑↑↑</annotation>
-		<annotation cp="🟪">квадрат | љубичасто</annotation>
+		<annotation cp="🟪">квадрат | љубичасти квадрат | љубичасто</annotation>
 		<annotation cp="🟪" type="tts">↑↑↑</annotation>
 		<annotation cp="🟫">↑↑↑</annotation>
 		<annotation cp="🟫" type="tts">↑↑↑</annotation>
@@ -3769,7 +3769,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔳" type="tts">бијело квадратно дугме</annotation>
 		<annotation cp="🔲">↑↑↑</annotation>
 		<annotation cp="🔲" type="tts">↑↑↑</annotation>
-		<annotation cp="🏁">кариран | карирана застава | трка</annotation>
+		<annotation cp="🏁">застава за крај трке | кариран | карирана застава | трка</annotation>
 		<annotation cp="🏁" type="tts">↑↑↑</annotation>
 		<annotation cp="🚩">↑↑↑</annotation>
 		<annotation cp="🚩" type="tts">↑↑↑</annotation>

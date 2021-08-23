@@ -11,7 +11,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="so"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">baraakeet | fur qeybta qalooca | gullwing | qalooca qalooca | xargo | xargo guntin</annotation>
+		<annotation cp="{">baraakeet | fur baraakeetka qalooca | fur qeybta qalooca | gullwing | qalooca qalooca | xargo | xargo guntin</annotation>
 		<annotation cp="{" type="tts">fur baraakeetka qalooca</annotation>
 		<annotation cp="🏻">jidh | jidh fudud | nooc 1–2</annotation>
 		<annotation cp="🏻" type="tts">jidh fudud</annotation>
@@ -29,9 +29,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="-" type="tts">jiitin-ka jarid</annotation>
 		<annotation cp="‐">dhaash | jiitin gaaban</annotation>
 		<annotation cp="‐" type="tts">jiitin gaaban</annotation>
-		<annotation cp="–">dhaash | en</annotation>
+		<annotation cp="–">dhaash | en | xarakada erayga</annotation>
 		<annotation cp="–" type="tts">xarakada erayga</annotation>
-		<annotation cp="—">dhaash | em</annotation>
+		<annotation cp="—">dhaash | em | laynka astaameeynta</annotation>
 		<annotation cp="—" type="tts">laynka astaameeynta</annotation>
 		<annotation cp="―">dhaash | jiitin dheer | layn</annotation>
 		<annotation cp="―" type="tts">jiitin dheer</annotation>
@@ -39,137 +39,137 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="・" type="tts">dhibic dhexe katakana</annotation>
 		<annotation cp=",">hakad</annotation>
 		<annotation cp="," type="tts">hakad</annotation>
-		<annotation cp="،">carabi | hakad</annotation>
+		<annotation cp="،">carabi | hakad | hakad ka carabida</annotation>
 		<annotation cp="،" type="tts">hakad ka carabida</annotation>
-		<annotation cp="、">comma | feker ahaan</annotation>
+		<annotation cp="、">comma | feker ahaan | hakad fikirka ah</annotation>
 		<annotation cp="、" type="tts">hakad fikirka ah</annotation>
-		<annotation cp=";">semi kolon</annotation>
+		<annotation cp=";">joogsi dhiman | semi kolon</annotation>
 		<annotation cp=";" type="tts">joogsi dhiman</annotation>
-		<annotation cp="؛">carabi | joogsiga</annotation>
+		<annotation cp="؛">carabi | joogsi dhiman carabi | joogsiga</annotation>
 		<annotation cp="؛" type="tts">joogsi dhiman carabi</annotation>
 		<annotation cp=":">kolmo</annotation>
 		<annotation cp=":" type="tts">kolmo</annotation>
-		<annotation cp="!">calaamada la yaabka | calaamadaha la yaabka leh | cod dheer | la tacajubid</annotation>
+		<annotation cp="!">astaan dhawaaq | calaamada la yaabka | calaamadaha la yaabka leh | cod dheer | la tacajubid</annotation>
 		<annotation cp="!" type="tts">astaan dhawaaq</annotation>
-		<annotation cp="¡">calaamadaha la yaabka leh | calaamadda la yaabka oo la leexiyay | cod dheer | la yaab | qodob qaylodhaan | rogay</annotation>
+		<annotation cp="¡">astaan la yaab rogan | calaamadaha la yaabka leh | calaamadda la yaabka oo la leexiyay | cod dheer | la yaab | qodob qaylodhaan | rogay</annotation>
 		<annotation cp="¡" type="tts">astaan la yaab rogan</annotation>
-		<annotation cp="?">calaamadda su’aasha | su’aal</annotation>
+		<annotation cp="?">astaan su’aaleed | calaamadda su’aasha | su’aal</annotation>
 		<annotation cp="?" type="tts">astaan su’aaleed</annotation>
-		<annotation cp="¿">calaamadda su’aasha | rogay | su’aal | sumadda su’aasha la rogay</annotation>
+		<annotation cp="¿">astaan su’aaleed rogan | calaamadda su’aasha | rogay | su’aal | sumadda su’aasha la rogay</annotation>
 		<annotation cp="¿" type="tts">astaan su’aaleed rogan</annotation>
-		<annotation cp="؟">calaamadda su’aasha | calaamadda su’aasha carabiga | carabi | su’aal</annotation>
+		<annotation cp="؟">astaan su’aaleeda carabida | calaamadda su’aasha | calaamadda su’aasha carabiga | carabi | su’aal</annotation>
 		<annotation cp="؟" type="tts">astaan su’aaleeda carabida</annotation>
 		<annotation cp=".">dhibic | joogsi | joogsi buuxa</annotation>
 		<annotation cp="." type="tts">joogsi</annotation>
-		<annotation cp="…">dhibco | dhibco isxig xiga | ka tagid</annotation>
+		<annotation cp="…">dhibco | dhibco isxig xiga | dhico isxig xiga | ka tagid</annotation>
 		<annotation cp="…" type="tts">dhico isxig xiga</annotation>
-		<annotation cp="。">dhibic joogsi | fikrad | muddo</annotation>
+		<annotation cp="。">dhibic joogsi | fikrad | muddo | xilli fikirka</annotation>
 		<annotation cp="。" type="tts">xilli fikirka</annotation>
-		<annotation cp="·">dhexe | dhexgal | dhibic | dhibic dhex gal ah</annotation>
+		<annotation cp="·">dhexe | dhexgal | dhibic | dhibic dhex gal ah | dhibicda dhexdeeda</annotation>
 		<annotation cp="·" type="tts">dhibicda dhexdeeda</annotation>
-		<annotation cp="'">hal xigasho | hamsad kore | hamsada kore qoraalka | xigasho</annotation>
+		<annotation cp="'">hal xigasho | hamsad kore | hamsada kore ee qoraalka | hamsada kore qoraalka | xigasho</annotation>
 		<annotation cp="'" type="tts">hamsada kore ee qoraalka</annotation>
-		<annotation cp="‘">hal xigasho | hamsada kore | ka tagay hamsada kore | xigasho | xigasho wanaagsan</annotation>
+		<annotation cp="‘">hal xigasho | hamsada kore | hamsada kore ee bidix | ka tagay hamsada kore | xigasho | xigasho wanaagsan</annotation>
 		<annotation cp="‘" type="tts">hamsada kore ee bidix</annotation>
-		<annotation cp="’">hal xigasho | hamsada kore | hamsada kore ee midig | xigasho | xigasho wanaagsan</annotation>
+		<annotation cp="’">hal xigasho | hamsada kore | hamsada kore ee midig | hamsada midig ah | xigasho | xigasho wanaagsan</annotation>
 		<annotation cp="’" type="tts">hamsada midig ah</annotation>
-		<annotation cp="‚">hamsada kore | hamsada kore ee midig hooseeya | xigasho | xigasho hoose</annotation>
+		<annotation cp="‚">hamsada kore | hamsada kore ee midig hoose | hamsada kore ee midig hooseeya | xigasho | xigasho hoose</annotation>
 		<annotation cp="‚" type="tts">hamsada kore ee midig hoose</annotation>
-		<annotation cp="“">calaamadda oraah bidix | labo xigasho | xigasho | xigasho wanaagsan</annotation>
+		<annotation cp="“">calaamadda oraah bidix | calaamadda xigashada bidix | labo xigasho | xigasho | xigasho wanaagsan</annotation>
 		<annotation cp="“" type="tts">calaamadda xigashada bidix</annotation>
-		<annotation cp="”">labo xigasho | sumadda oraah sax ah | xigasho | xigasho wanaagsan</annotation>
+		<annotation cp="”">calaamadda xigashada saxda ah | labo xigasho | sumadda oraah sax ah | xigasho | xigasho wanaagsan</annotation>
 		<annotation cp="”" type="tts">calaamadda xigashada saxda ah</annotation>
-		<annotation cp="„">labo xigasho | oraah hoose | sumadda oraah midig hooseysa | xigasho | xigasho wanaagsan</annotation>
+		<annotation cp="„">calaamada xigashada midig | labo xigasho | oraah hoose | sumadda oraah midig hooseysa | xigasho | xigasho wanaagsan</annotation>
 		<annotation cp="„" type="tts">calaamada xigashada midig</annotation>
 		<annotation cp="«">bidix | calaamad hoosaad | gulimeetka bidix | layn | soodin | xagal | xigasho</annotation>
 		<annotation cp="«" type="tts">gulimeetka bidix</annotation>
-		<annotation cp="»">baraakeet | calaamad hoose | guillemet saxda | layn | sax | xagal | xigasho</annotation>
+		<annotation cp="»">baraakeet | calaamad hoose | guillemet saxda | layn | sax | xagal | xigasho | xuquuqda guillemetka</annotation>
 		<annotation cp="»" type="tts">xuquuqda guillemetka</annotation>
 		<annotation cp=")">baraakeet | baraakeet wareegsan | caajis | dhibco isku xiga | saxarada | xirid dhibcaha isku xiga</annotation>
 		<annotation cp=")" type="tts">xirid dhibcaha isku xiga</annotation>
-		<annotation cp="[">baraakeet | baraakeet laba jibbaaran | fur baraakeet laba jibbaaran | jeexjeex</annotation>
+		<annotation cp="[">baraakeet | baraakeet laba jibbaaran | fur baraakeet laba jibbaaran | fur baraakeetka laba jibbaaran | jeexjeex</annotation>
 		<annotation cp="[" type="tts">fur baraakeetka laba jibbaaran</annotation>
-		<annotation cp="]">baraakeet | baraakeet laba jibbaaran | jeexjeex | xiro baraakeet laba jibbaaran</annotation>
+		<annotation cp="]">baraakeet | baraakeet laba jibbaaran | jeexjeex | xiro baraakeet laba jibbaaran | xiro baraakeetka laba jibbaaran</annotation>
 		<annotation cp="]" type="tts">xiro baraakeetka laba jibbaaran</annotation>
-		<annotation cp="}">baraakeet | baraakeet qalooca | gulling | layn | xargo guntin | xiro qalooca curly</annotation>
+		<annotation cp="}">baraakeet | baraakeet qalooca | gulling | layn | xargo guntin | xiro baraakeetka qalooca | xiro qalooca curly</annotation>
 		<annotation cp="}" type="tts">xiro baraakeetka qalooca</annotation>
-		<annotation cp="〈">baraakeet | baraakeet dheeman | baraakeet xagalka | chevron | cufan | goobta baraakeet | qaansada xagal furan</annotation>
+		<annotation cp="〈">baraakeet | baraakeet dheeman | baraakeet xagalka | chevron | cufan | fur baraakeetka xagasha | goobta baraakeet | qaansada xagal furan</annotation>
 		<annotation cp="〈" type="tts">fur baraakeetka xagasha</annotation>
-		<annotation cp="〉">barakeetka | barakeetka dheeman | barakeetka xaglaha | cufan | goobta barakeetka | layn kor u jeeda | xirid barakeetka xagal</annotation>
+		<annotation cp="〉">barakeetka | barakeetka dheeman | barakeetka xaglaha | cufan | goobta barakeetka | layn kor u jeeda | xir baraakeetka xagasha ah | xirid barakeetka xagal</annotation>
 		<annotation cp="〉" type="tts">xir baraakeetka xagasha ah</annotation>
-		<annotation cp="《">fur laba baraakeet xagal | laba baraakeet xagal | qaansada</annotation>
+		<annotation cp="《">fur laba baraakeet xagal | fur laba baraaket xagal ah | laba baraakeet xagal | qaansada</annotation>
 		<annotation cp="《" type="tts">fur laba baraaket xagal ah</annotation>
-		<annotation cp="》">baraakeet | baraakeet labaale xagal | xir baraakeet laba xagal</annotation>
+		<annotation cp="》">baraakeet | baraakeet labaale xagal | xir baraakeet laba xagal | xiro baraakeetka xagaleed laba ah</annotation>
 		<annotation cp="》" type="tts">xiro baraakeetka xagaleed laba ah</annotation>
-		<annotation cp="「">baraakeet | baraakeetka geeska | fur baraakeet geeska</annotation>
+		<annotation cp="「">baraakeet | baraakeetka geeska | fur baraakeet geeska | fur barakeetka geeska</annotation>
 		<annotation cp="「" type="tts">fur barakeetka geeska</annotation>
-		<annotation cp="」">baraakeet | baraakeet geeska | xir baraakeet geeska</annotation>
+		<annotation cp="」">baraakeet | baraakeet geeska | xir baraakeet geeska | xir barakeetka geeska</annotation>
 		<annotation cp="」" type="tts">xir barakeetka geeska</annotation>
 		<annotation cp="『">baraakeet | fur baraakeet geeska godan | godka baraakeet godan</annotation>
 		<annotation cp="『" type="tts">fur baraakeet geeska godan</annotation>
-		<annotation cp="』">baraakeet | baraakeet geeska godan | xir baraakeet geeska godan</annotation>
+		<annotation cp="』">baraakeet | baraakeet geeska godan | xir baraakeet geeska godan | xir baraakeet godka godan</annotation>
 		<annotation cp="』" type="tts">xir baraakeet godka godan</annotation>
-		<annotation cp="【">baraakeet | baraakeet godan | baraakeet muraayadda | fur baraakeet muraayadaha madow</annotation>
+		<annotation cp="【">baraakeet | baraakeet godan | baraakeet muraayadda | fur baraakeet muraayadaha madow | fur barakeet muraayadaha madow</annotation>
 		<annotation cp="【" type="tts">fur barakeet muraayadaha madow</annotation>
-		<annotation cp="】">baraakeet | baraakeet muraayadda | xir baraakeet madow ee muraayadda</annotation>
+		<annotation cp="】">baraakeet | baraakeet muraayadda | xir baraakeet madow | xir baraakeet madow ee muraayadda</annotation>
 		<annotation cp="】" type="tts">xir baraakeet madow</annotation>
-		<annotation cp="〔">baraakeet | baraakeet qolof | baraakeet qolofta qaloocda furan | baraakeet qolofta#</annotation>
+		<annotation cp="〔">baraakeet | baraakeet qolof | baraakeet qolofta qaloocda furan | baraakeet qolofta# | fur baraakeetka qolofta diinka</annotation>
 		<annotation cp="〔" type="tts">fur baraakeetka qolofta diinka</annotation>
-		<annotation cp="〕">baraakeet | baraakeet qolofta | baraakeetka qolof | xir baraakeet qolofta dhejiska</annotation>
+		<annotation cp="〕">baraakeet | baraakeet qolofta | baraakeetka qolof | xir baraakeet qolofta dhejiska | xiro baraakeet qolofta</annotation>
 		<annotation cp="〕" type="tts">xiro baraakeet qolofta</annotation>
-		<annotation cp="〖">barakeet | barakeet furan | barakeet muraayadda godan | fur barakeet furan</annotation>
+		<annotation cp="〖">barakeet | barakeet furan | barakeet muraayadda godan | fur baraakeet furan | fur barakeet furan</annotation>
 		<annotation cp="〖" type="tts">fur baraakeet furan</annotation>
-		<annotation cp="〗">baraakeet | baraakeet godan | godad baraakeet godan | xir xijaabka baraakeet indhaha godan</annotation>
+		<annotation cp="〗">baraakeet | baraakeet godan | godad baraakeet godan | xir barakeetka furan | xir xijaabka baraakeet indhaha godan</annotation>
 		<annotation cp="〗" type="tts">xir barakeetka furan</annotation>
 		<annotation cp="§">baaragraaf | qayb | qaybta | silkroow</annotation>
 		<annotation cp="§" type="tts">qaybta</annotation>
-		<annotation cp="¶">alinea | barkin | cutubka | qoraal | sumadda sadarka</annotation>
+		<annotation cp="¶">alinea | astaan sadar | barkin | cutubka | qoraal | sumadda sadarka</annotation>
 		<annotation cp="¶" type="tts">astaan sadar</annotation>
-		<annotation cp="@">ampersat | arobase | arroba | calaamada | calaamadda | ganacsi | miro saxaro | xaga calaamadda</annotation>
+		<annotation cp="@">ampersat | arobase | arroba | calaamada | calaamadda | calamada-at | ganacsi | miro saxaro | xaga calaamadda</annotation>
 		<annotation cp="@" type="tts">calamada-at</annotation>
-		<annotation cp="*">duurjoogta | xiddig | xidigta</annotation>
+		<annotation cp="*">calaamada xiddigta | duurjoogta | xiddig | xidigta</annotation>
 		<annotation cp="*" type="tts">calaamada xiddigta</annotation>
 		<annotation cp="/">islaash | jiitin | qalooca | solidus | virgule | xariiq</annotation>
 		<annotation cp="/" type="tts">islaash</annotation>
 		<annotation cp="\">islaash dib u jeeda | jiitin | solidus rogan</annotation>
 		<annotation cp="\" type="tts">islaash dib u jeeda</annotation>
-		<annotation cp="&amp;">et | iyo | xaraashka</annotation>
+		<annotation cp="&amp;">calamada ampersand | et | iyo | xaraashka</annotation>
 		<annotation cp="&amp;" type="tts">calamada ampersand</annotation>
 		<annotation cp="#">afar-gees | haash | hashtag | lambar | lb</annotation>
 		<annotation cp="#" type="tts">afar-gees</annotation>
 		<annotation cp="%">boqolkiiba</annotation>
 		<annotation cp="%" type="tts">boqolkiiba</annotation>
-		<annotation cp="‰">halkii mil | mille</annotation>
+		<annotation cp="‰">halkii mil | mille | tobankii kunba</annotation>
 		<annotation cp="‰" type="tts">tobankii kunba</annotation>
-		<annotation cp="†">calaamada kiristaan | calaamadda tooreyda | tiir | toorrey</annotation>
+		<annotation cp="†">calaamada kiristaan | calaamada toorida | calaamadda tooreyda | tiir | toorrey</annotation>
 		<annotation cp="†" type="tts">calaamada toorida</annotation>
-		<annotation cp="‡">calaamadda seefta laba-geesoodka ah | labalaab | obelus | tiir | toorrey</annotation>
+		<annotation cp="‡">calaamada toorida oo labajibaaran | calaamadda seefta laba-geesoodka ah | labalaab | obelus | tiir | toorrey</annotation>
 		<annotation cp="‡" type="tts">calaamada toorida oo labajibaaran</annotation>
 		<annotation cp="•">dhibic | rasaas</annotation>
 		<annotation cp="•" type="tts">rasaas</annotation>
-		<annotation cp="‧">barta hayfanta | dash | dhibic | hayfen</annotation>
+		<annotation cp="‧">barta hayfanta | dash | dhibic | hayfen | meesha hayfanta</annotation>
 		<annotation cp="‧" type="tts">meesha hayfanta</annotation>
 		<annotation cp="′">hamse</annotation>
 		<annotation cp="′" type="tts">hamse</annotation>
 		<annotation cp="″">labo hamse</annotation>
 		<annotation cp="″" type="tts">labo hamse</annotation>
-		<annotation cp="‴">tiro aan qeybsamin | tiro seddex lambar uun u qeybsama</annotation>
+		<annotation cp="‴">tiro aan qeybsamin | tiro saddex lambar uun u qeybsama | tiro seddex lambar uun u qeybsama</annotation>
 		<annotation cp="‴" type="tts">tiro saddex lambar uun u qeybsama</annotation>
 		<annotation cp="※">astaan tixraac</annotation>
 		<annotation cp="※" type="tts">astaan tixraac</annotation>
-		<annotation cp="`">codka | lahjad | qabriga</annotation>
+		<annotation cp="`">codka | lahjad | lahjad qabow | qabriga</annotation>
 		<annotation cp="`" type="tts">lahjad qabow</annotation>
-		<annotation cp="´">codka | lahjad | qabriga</annotation>
+		<annotation cp="´">codka | lahjad | lahjad degdeg ah | qabriga</annotation>
 		<annotation cp="´" type="tts">lahjad degdeg ah</annotation>
-		<annotation cp="^">awood | calaamada xor | daryeele | koofiyad | lahjad | tilmaame | Wareeg wareeg ah | wedge | xakamaynta | xikmad</annotation>
+		<annotation cp="^">awood | calaamada xor | daryeele | koofiyad | lahjad | lahjad wareeg ah | tilmaame | Wareeg wareeg ah | wedge | xakamaynta | xikmad</annotation>
 		<annotation cp="^" type="tts">lahjad wareeg ah</annotation>
 		<annotation cp="¨">dhibco | laba dhibcood | tréma</annotation>
 		<annotation cp="¨" type="tts">laba dhibcood</annotation>
 		<annotation cp="°">cadeeyn | degree ga | saacada</annotation>
 		<annotation cp="°" type="tts">degree ga</annotation>
-		<annotation cp="℗">dhawaq | duubaya | xuquuqda daabacaadda</annotation>
+		<annotation cp="℗">dhawaq | duubaya | xuquuqda daabacaadda | xuquuqda duubista codka</annotation>
 		<annotation cp="℗" type="tts">xuquuqda duubista codka</annotation>
-		<annotation cp="←">bidix | falaadh | falaadh bidix u jeedda</annotation>
+		<annotation cp="←">bidix | falaadh | falaadh bidix u jeedda | fallaar ku aadan bidix</annotation>
 		<annotation cp="←" type="tts">fallaar ku aadan bidix</annotation>
 		<annotation cp="→">fallaa | fallaarta midigta ku aadan | midig</annotation>
 		<annotation cp="→" type="tts">fallaarta midigta ku aadan</annotation>
@@ -177,7 +177,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↑" type="tts">fallaar kor ku aadan</annotation>
 		<annotation cp="↓">fallaar | fallaar hoos ku aadan | hoos</annotation>
 		<annotation cp="↓" type="tts">fallaar hoos ku aadan</annotation>
-		<annotation cp="⇅">falaadh | fallaadho kor u jeeda iyo mid hoos u jeeda | hoos | kor</annotation>
+		<annotation cp="⇅">falaadh | fallaadho kor u jeeda iyo mid hoos u jeeda | fallaaro kor iyo hoos ku aadan | hoos | kor</annotation>
 		<annotation cp="⇅" type="tts">fallaaro kor iyo hoos ku aadan</annotation>
 		<annotation cp="⇆">bidix | fallaar | fallaaro bidix ku aadan oo ka sareeya kuwa midig ku aadan | midig</annotation>
 		<annotation cp="⇆" type="tts">fallaaro bidix ku aadan oo ka sareeya kuwa midig ku aadan</annotation>
@@ -187,7 +187,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">curiyaha | curiye | isku hagaajin | ka kooban | xubinimada</annotation>
 		<annotation cp="∈" type="tts">curiyaha</annotation>
-		<annotation cp="+">ku dar | oo lagu daray | oo lagu daray calaamadda</annotation>
+		<annotation cp="+">calamada balaas | ku dar | oo lagu daray | oo lagu daray calaamadda</annotation>
 		<annotation cp="+" type="tts">calamada balaas</annotation>
 		<annotation cp="±">balaas-maynas</annotation>
 		<annotation cp="±" type="tts">balaas-maynas</annotation>
@@ -199,23 +199,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="&lt;" type="tts">ka yar</annotation>
 		<annotation cp="=">la mida | la midtahay</annotation>
 		<annotation cp="=" type="tts">la mida</annotation>
-		<annotation cp="≠">ma sinna | sinnaan la’aan</annotation>
+		<annotation cp="≠">aan la mid ahayn | ma sinna | sinnaan la’aan</annotation>
 		<annotation cp="≠" type="tts">aan la mid ahayn</annotation>
 		<annotation cp="&gt;">ka wayn | tag | tag xidhan</annotation>
 		<annotation cp="&gt;" type="tts">ka wayn</annotation>
 		<annotation cp="¬">diidmo | maya</annotation>
 		<annotation cp="¬" type="tts">diidmo</annotation>
-		<annotation cp="|">baaskiil | istaroog | istaroog sheerer | khadka | layn | layn taagan | tuubo | ul | vbar | xariiq toosan</annotation>
+		<annotation cp="|">baaskiil | istaroog | istaroog sheerer | khadka | layn | layn taagan | tuubo | ul | vbar | xariiq qotonta | xariiq toosan</annotation>
 		<annotation cp="|" type="tts">xariiq qotonta</annotation>
 		<annotation cp="~">tilde</annotation>
 		<annotation cp="~" type="tts">tilde</annotation>
-		<annotation cp="−">calaamad laga jaray | kalagoyn | laga jaray</annotation>
+		<annotation cp="−">calaamad laga jaray | calamada maynas | kalagoyn | laga jaray</annotation>
 		<annotation cp="−" type="tts">calamada maynas</annotation>
-		<annotation cp="⁻">laga jaray | qoraalka sare</annotation>
+		<annotation cp="⁻">calaamada kajar | laga jaray | qoraalka sare</annotation>
 		<annotation cp="⁻" type="tts">calaamada kajar</annotation>
-		<annotation cp="√">a saasi ah | hooseeyaha tiro | laba jibbaaran | lambar jajab ah | xididka</annotation>
+		<annotation cp="√">a saasi ah | hooseeyaha tiro | laba jibbaaran | lambar jajab ah | lambarka laba jibaarma | xididka</annotation>
 		<annotation cp="√" type="tts">lambarka laba jibaarma</annotation>
-		<annotation cp="∞">aan xad lahayn | calaamadda dhammaadka</annotation>
+		<annotation cp="∞">aan xad lahayn | calaamada infinity | calaamadda dhammaadka</annotation>
 		<annotation cp="∞" type="tts">calaamada infinity</annotation>
 		<annotation cp="∩">is goys | isku hagaajin</annotation>
 		<annotation cp="∩" type="tts">is goys</annotation>
@@ -225,103 +225,103 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≈" type="tts">ku dhawaad la mida</annotation>
 		<annotation cp="≡">ay mataano yihiin | lamid ah | mataano | sadex</annotation>
 		<annotation cp="≡" type="tts">ay mataano yihiin</annotation>
-		<annotation cp="≤">ka yar | ka yar ama ka siman | sinnaan la’aan | u dhiganta | u dhigma</annotation>
+		<annotation cp="≤">ka yar | ka yar ama ka siman | ka yar ama la mid ah | sinnaan la’aan | u dhiganta | u dhigma</annotation>
 		<annotation cp="≤" type="tts">ka yar ama la mid ah</annotation>
-		<annotation cp="≥">ka weyn | ka weyn ama u dhigma | sinnaan la’aan | u dhiganta | u dhigma</annotation>
+		<annotation cp="≥">ka wayn ama leeg | ka weyn | ka weyn ama u dhigma | sinnaan la’aan | u dhiganta | u dhigma</annotation>
 		<annotation cp="≥" type="tts">ka wayn ama leeg</annotation>
-		<annotation cp="⊂">qayb hoosaad | qayb ka mid ah | qeyb</annotation>
+		<annotation cp="⊂">hoosaadka | qayb hoosaad | qayb ka mid ah | qeyb</annotation>
 		<annotation cp="⊂" type="tts">hoosaadka</annotation>
 		<annotation cp="▲">allaar | ka buuxda | kor | saddex xagal | saddex xagal buuxda oo kor u taagan</annotation>
 		<annotation cp="▲" type="tts">saddex xagal buuxda oo kor u taagan</annotation>
-		<annotation cp="▼">buuxiyey | falaadh | hoos | saddexagal | saddexagal hoos u sii jeeda oo buuxinaya</annotation>
+		<annotation cp="▼">buuxiyey | falaadh | hoos | saddex xagal hoos-u-fiiqan | saddexagal | saddexagal hoos u sii jeeda oo buuxinaya</annotation>
 		<annotation cp="▼" type="tts">saddex xagal hoos-u-fiiqan</annotation>
 		<annotation cp="◊">dheeman | qaab dheeman | rhombus</annotation>
 		<annotation cp="◊" type="tts">qaab dheeman</annotation>
 		<annotation cp="○">duleelka goobada | faraanti | goobad</annotation>
 		<annotation cp="○" type="tts">duleelka goobada</annotation>
-		<annotation cp="●">goobaabin | goobaabin buuxiyey</annotation>
+		<annotation cp="●">goobaabin | goobaabin buuxiyey | goobada buuxa</annotation>
 		<annotation cp="●" type="tts">goobada buuxa</annotation>
 		<annotation cp="◯">faraanti | goobad | goobad duleel weeyn</annotation>
 		<annotation cp="◯" type="tts">goobad duleel weeyn</annotation>
-		<annotation cp="♪">fiiro gaar ah | muusigga | sideedaad</annotation>
+		<annotation cp="♪">fiiro gaar ah | muusigga | sideedaad | xadhiga sideedaad</annotation>
 		<annotation cp="♪" type="tts">xadhiga sideedaad</annotation>
 		<annotation cp="♭">cod hoose | fidsan | fiiro gaar ah | muusigga</annotation>
 		<annotation cp="♭" type="tts">fidsan</annotation>
-		<annotation cp="♯">calaamada istalaabta | fiiqan | la soco | muusigga</annotation>
+		<annotation cp="♯">calaamada istalaabta | fiiqan | la soco | muusigga | Seef ah</annotation>
 		<annotation cp="♯" type="tts">Seef ah</annotation>
-		<annotation cp="🥹">hanweyn | iska caabin | murugsan | oohin | xanaaqsan</annotation>
+		<annotation cp="🥹">hanweyn | iska caabin | murugsan | oohin | wajah adoo oohinta celinaya | xanaaqsan</annotation>
 		<annotation cp="🥹" type="tts">wajah adoo oohinta celinaya</annotation>
-		<annotation cp="🧌">bahal | khayaali | sheeko xariir</annotation>
+		<annotation cp="🧌">bahal | foolxun | khayaali | sheeko xariir</annotation>
 		<annotation cp="🧌" type="tts">foolxun</annotation>
-		<annotation cp="🩻">caafimaad | dhakhtar | lafo | qalfoof</annotation>
+		<annotation cp="🩻">caafimaad | dhakhtar | lafo | qalfoof | raajo</annotation>
 		<annotation cp="🩻" type="tts">raajo</annotation>
-		<annotation cp="🩼">bakoorad | caawimaada socodka | dhaawacay | naafada | ul</annotation>
+		<annotation cp="🩼">bakoorad | caawimaada socodka | dhaawacay | naafada | qoryo | ul</annotation>
 		<annotation cp="🩼" type="tts">qoryo</annotation>
-		<annotation cp="🪩">dhaldhalaalka | diskoo | qoob ka ciyaar | xaflad</annotation>
+		<annotation cp="🪩">dhaldhalaalka | diskoo | kubada muraayadda | qoob ka ciyaar | xaflad</annotation>
 		<annotation cp="🪩" type="tts">kubada muraayadda</annotation>
-		<annotation cp="🪪">amniga | Aqoonsi | lambarada gelitaaan | liisanka</annotation>
+		<annotation cp="🪪">amniga | Aqoonsi | kaar aqoonsi | lambarada gelitaaan | liisanka</annotation>
 		<annotation cp="🪪" type="tts">kaar aqoonsi</annotation>
-		<annotation cp="🪫">elektaroonig ah | tamar hooseeya</annotation>
+		<annotation cp="🪫">batari dabka ka dhacay | elektaroonig ah | tamar hooseeya</annotation>
 		<annotation cp="🪫" type="tts">batari dabka ka dhacay</annotation>
-		<annotation cp="🪬">amulet | Fatima | gacan | ilaalin | Mary | Miriam</annotation>
+		<annotation cp="🪬">amulet | Fatima | gacan | hamsa | ilaalin | Mary | Miriam</annotation>
 		<annotation cp="🪬" type="tts">hamsa</annotation>
-		<annotation cp="🪷">Budhiism | daahirnimo | Fiyatnaam | Hindiya | Hinduuga | ubax</annotation>
+		<annotation cp="🪷">Budhiism | daahirnimo | Fiyatnaam | Hindiya | Hinduuga | lotus | ubax</annotation>
 		<annotation cp="🪷" type="tts">lotus</annotation>
-		<annotation cp="🪸">badweynta | dhagax dixeed</annotation>
+		<annotation cp="🪸">badweynta | dhagax badeed | dhagax dixeed</annotation>
 		<annotation cp="🪸" type="tts">dhagax badeed</annotation>
-		<annotation cp="🪹">buul samay</annotation>
+		<annotation cp="🪹">buul faaruq ah | buul samay</annotation>
 		<annotation cp="🪹" type="tts">buul faaruq ah</annotation>
-		<annotation cp="🪺">buul samayn</annotation>
+		<annotation cp="🪺">buul leh ukumo | buul samayn</annotation>
 		<annotation cp="🪺" type="tts">buul leh ukumo</annotation>
-		<annotation cp="🫃">bararsan | buuxa | caloosha | uur leedahay</annotation>
+		<annotation cp="🫃">bararsan | buuxa | caloosha | nin uur leh | uur leedahay</annotation>
 		<annotation cp="🫃" type="tts">nin uur leh</annotation>
-		<annotation cp="🫄">bararsan | buuxa | caloosha | uur leedahay</annotation>
+		<annotation cp="🫄">bararsan | buuxa | caloosha | qof uur leh | uur leedahay</annotation>
 		<annotation cp="🫄" type="tts">qof uur leh</annotation>
-		<annotation cp="🫅">boqortooyada | gob | xukun</annotation>
+		<annotation cp="🫅">boqortooyada | gob | qof leh taaj | xukun</annotation>
 		<annotation cp="🫅" type="tts">qof leh taaj</annotation>
-		<annotation cp="🫗">cab | daadi | dhamee | galaas</annotation>
+		<annotation cp="🫗">cab | daadi | dhamee | galaas | ku shubaya dareere</annotation>
 		<annotation cp="🫗" type="tts">ku shubaya dareere</annotation>
-		<annotation cp="🫘">badar | cuntada | kilyaha</annotation>
+		<annotation cp="🫘">badar | cuntada | digir | kilyaha</annotation>
 		<annotation cp="🫘" type="tts">digir</annotation>
-		<annotation cp="🫙">faaruq ah | kaydso | maraqa | udgoon | weel</annotation>
+		<annotation cp="🫙">dhalo | faaruq ah | kaydso | maraqa | udgoon | weel</annotation>
 		<annotation cp="🫙" type="tts">dhalo</annotation>
-		<annotation cp="🫠">baaba’a | dareere | dhalaalay | qasmau</annotation>
+		<annotation cp="🫠">baaba’a | dareere | dhalaalay | qasmau | waji dhalaalaya</annotation>
 		<annotation cp="🫠" type="tts">waji dhalaalaya</annotation>
-		<annotation cp="🫡">ciidamada | haa | haye | qorax leh | salaanta</annotation>
+		<annotation cp="🫡">ciidamada | haa | haye | qorax leh | salaanta | wajiga salaameed</annotation>
 		<annotation cp="🫡" type="tts">wajiga salaameed</annotation>
-		<annotation cp="🫢">aaminitaan la’aan | cabsan | cabsi | cajiib | ceeb | layaab</annotation>
+		<annotation cp="🫢">aaminitaan la’aan | cabsan | cabsi | cajiib | ceeb | ku wajah indhaha oo ku furan iyo gacmaha oo aad afka saaratay | layaab</annotation>
 		<annotation cp="🫢" type="tts">ku wajah indhaha oo ku furan iyo gacmaha oo aad afka saaratay</annotation>
-		<annotation cp="🫣">dhaqso u fiirin | dhugasho | soo jiitay</annotation>
+		<annotation cp="🫣">dhaqso u fiirin | dhugasho | soo jiitay | wajah indhaha oo fiirinaya</annotation>
 		<annotation cp="🫣" type="tts">wajah indhaha oo fiirinaya</annotation>
-		<annotation cp="🫤">aan danaynayn | hubin | niyad jabsan | shaki badan</annotation>
+		<annotation cp="🫤">aan danaynayn | hubin | ku wajah af dadban | niyad jabsan | shaki badan</annotation>
 		<annotation cp="🫤" type="tts">ku wajah af dadban</annotation>
-		<annotation cp="🫥">aan muuqan | baaba’aa | isbarasho | niyad jabsan | qarin | xishoonaya</annotation>
+		<annotation cp="🫥">aan muuqan | baaba’aa | isbarasho | niyad jabsan | qarin | wajiga ku leh dhibco | xishoonaya</annotation>
 		<annotation cp="🫥" type="tts">wajiga ku leh dhibco</annotation>
-		<annotation cp="🫦">cabsi | raaxo la’aan | walaacsan | walwalsan | xodxodasho</annotation>
+		<annotation cp="🫦">cabsi | faruurta qaniinaya | raaxo la’aan | walaacsan | walwalsan | xodxodasho</annotation>
 		<annotation cp="🫦" type="tts">faruurta qaniinaya</annotation>
-		<annotation cp="🫧">biyaha hoostooda | daacid | nadiif ah | saabuun</annotation>
+		<annotation cp="🫧">biyaha hoostooda | daacid | nadiif ah | saabuun | xumbo</annotation>
 		<annotation cp="🫧" type="tts">xumbo</annotation>
-		<annotation cp="🫰">dhaqso | jacayl | lacag | qaali | qalbi</annotation>
+		<annotation cp="🫰">dhaqso | gacanta farta caarada iyo suulka la dhaafay | jacayl | lacag | qaali | qalbi</annotation>
 		<annotation cp="🫰" type="tts">gacanta farta caarada iyo suulka la dhaafay</annotation>
-		<annotation cp="🫱">dhinaca midig | Gacanta | Midig</annotation>
+		<annotation cp="🫱">dhinaca gacanta midig | dhinaca midig | Gacanta | Midig</annotation>
 		<annotation cp="🫱" type="tts">dhinaca gacanta midig</annotation>
-		<annotation cp="🫲">bidix | dhinaca bidix | gacan</annotation>
+		<annotation cp="🫲">bidix | dhinaca bidix | dhinaca gacanta bidix | gacan</annotation>
 		<annotation cp="🫲" type="tts">dhinaca gacanta bidix</annotation>
-		<annotation cp="🫳">iska daa | iska dhaaaf | tuur</annotation>
+		<annotation cp="🫳">baabacada gacanta hoose | iska daa | iska dhaaaf | tuur</annotation>
 		<annotation cp="🫳" type="tts">baabacada gacanta hoose</annotation>
-		<annotation cp="🫴">imaw | q abo | sii | tusaalee</annotation>
+		<annotation cp="🫴">Baabacada kore | imaw | q abo | sii | tusaalee</annotation>
 		<annotation cp="🫴" type="tts">Baabacada kore</annotation>
-		<annotation cp="🫵">adiga | tilmaam</annotation>
+		<annotation cp="🫵">adiga | tilmaam | tusmo tilmaame daawadaha</annotation>
 		<annotation cp="🫵" type="tts">tusmo tilmaame daawadaha</annotation>
-		<annotation cp="🫶">jacayl</annotation>
+		<annotation cp="🫶">gacanta qalbiga | jacayl</annotation>
 		<annotation cp="🫶" type="tts">gacanta qalbiga</annotation>
-		<annotation cp="🛝">beerta madadaalada | ciyaaro</annotation>
+		<annotation cp="🛝">Barxadda ciyaarta | beerta madadaalada | ciyaaro</annotation>
 		<annotation cp="🛝" type="tts">Barxadda ciyaarta</annotation>
-		<annotation cp="🛞">goobaabin | leexo | taayir</annotation>
+		<annotation cp="🛞">gaari | goobaabin | leexo | taayir</annotation>
 		<annotation cp="🛞" type="tts">gaari</annotation>
-		<annotation cp="🛟">badqab | naf badbaadiyaha | naf-badbaadiyaha | sabayn | samatabbixin</annotation>
+		<annotation cp="🛟">badqab | giraan sabanaysa | naf badbaadiyaha | naf-badbaadiyaha | sabayn | samatabbixin</annotation>
 		<annotation cp="🛟" type="tts">giraan sabanaysa</annotation>
-		<annotation cp="🟰">sinnaanta | xisaabta</annotation>
+		<annotation cp="🟰">calaamado isku mid ah oo culus | sinnaanta | xisaabta</annotation>
 		<annotation cp="🟰" type="tts">calaamado isku mid ah oo culus</annotation>
 		<annotation cp="😀">dareenka wajiga | gariir | wajiga</annotation>
 		<annotation cp="😀" type="tts">dareenka wajiga</annotation>
@@ -365,7 +365,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚" type="tts">waji dhunkanaayo indho xiran</annotation>
 		<annotation cp="😙">dhunkasho | il | waji | waji dhunkanaayo indho dhoolo cadeynaya</annotation>
 		<annotation cp="😙" type="tts">waji dhunkanaayo indho dhoolo cadeynaya</annotation>
-		<annotation cp="🥲">dhoola cadeynaya | dhoola cadeynaya isagoo oynaya | ilin | ku faanaya | ladnaaday | Nabad qaba | taabtay</annotation>
+		<annotation cp="🥲">dhoola cadeynaya | dhoola cadeynaya isagoo oynaya | ilin | ku faanaya | ladnaaday | Nabad qaba | taabtay | waaji ilin ladhoola cadeeynaya</annotation>
 		<annotation cp="🥲" type="tts">waaji ilin ladhoola cadeeynaya</annotation>
 		<annotation cp="😋">dhadhamin | dhoolo cadeyn mac | macaan | waji | waji cunto dhadhaminaayo</annotation>
 		<annotation cp="😋" type="tts">waji cunto dhadhaminaayo</annotation>
@@ -449,7 +449,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤠" type="tts">waji koofid leh</annotation>
 		<annotation cp="🥳">dabaaldeg | gees | koofi | waji farxadeysan | xaflad</annotation>
 		<annotation cp="🥳" type="tts">waji farxadeysan</annotation>
-		<annotation cp="🥸">isqarin | muraayadaha indhaha | qarsoon | sanka | waji qarsoon | wajiga</annotation>
+		<annotation cp="🥸">isqarin | muraayadaha indhaha | qarsoon | sanka | waji badalan | waji qarsoon | wajiga</annotation>
 		<annotation cp="🥸" type="tts">waji badalan</annotation>
 		<annotation cp="😎">dhalaal | dhoola cadeyn | ookiyaale | qabow | qorrax | waji | waji dhoola cadeynaya ookiyaala wato</annotation>
 		<annotation cp="😎" type="tts">waji dhoola cadeynaya ookiyaala wato</annotation>
@@ -647,13 +647,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖖" type="tts">salaan sharaf</annotation>
 		<annotation cp="👌">gacan | gacanta saxda ah | sax</annotation>
 		<annotation cp="👌" type="tts">gacanta saxda ah</annotation>
-		<annotation cp="🤌">faraha | jees jees ah | qanjaruufo | su’aalo weydiin | tilmaanta gacanta</annotation>
+		<annotation cp="🤌">faraha | faro la isku wada duubay | jees jees ah | qanjaruufo | su’aalo weydiin | tilmaanta gacanta</annotation>
 		<annotation cp="🤌" type="tts">faro la isku wada duubay</annotation>
 		<annotation cp="🤏">qaddar yar | qanjaruufo</annotation>
 		<annotation cp="🤏" type="tts">qanjaruufo</annotation>
 		<annotation cp="✌">gacanta | guusha | v</annotation>
 		<annotation cp="✌" type="tts">gacanta guusha</annotation>
-		<annotation cp="🤞">faraha isdhaafay | farta | gacanta | iskutallaab | nasiib</annotation>
+		<annotation cp="🤞">faraha gudban; Alla bari | faraha isdhaafay | farta | gacanta | iskutallaab | nasiib</annotation>
 		<annotation cp="🤞" type="tts">faraha gudban; Alla bari</annotation>
 		<annotation cp="🤟">gacan | meedaarta waan ku jecelahay | meedaarta waan ku jecelahay ah | WKJ</annotation>
 		<annotation cp="🤟" type="tts">meedaarta waan ku jecelahay ah</annotation>
@@ -661,15 +661,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤘" type="tts">calaamadda geesaha</annotation>
 		<annotation cp="🤙">gacan | gacanta ah isoo wac | isoo wac | wac</annotation>
 		<annotation cp="🤙" type="tts">gacanta ah isoo wac</annotation>
-		<annotation cp="👈">dhibic | farta | gacanta | gadaal | tilmaame gadaal u jeeda bidix | tusmada</annotation>
+		<annotation cp="👈">dhibic | farta | Gacan tilmaamaysa bidix | gacanta | gadaal | tilmaame gadaal u jeeda bidix | tusmada</annotation>
 		<annotation cp="👈" type="tts">Gacan tilmaamaysa bidix</annotation>
-		<annotation cp="👉">dhibic | farta | gacanta | gacanta gadaal | tusaha gadaal u jeeda oo tilmaamaya midig | tusmada</annotation>
+		<annotation cp="👉">dhibic | farta | gacan tilmaamaysa midig | gacanta | gacanta gadaal | tusaha gadaal u jeeda oo tilmaamaya midig | tusmada</annotation>
 		<annotation cp="👉" type="tts">gacan tilmaamaysa midig</annotation>
-		<annotation cp="👆">dhibic | farta | gacanta | gadaal gacanta | kor | tilmaame gadaal u jeeda oo tilmaamaya</annotation>
+		<annotation cp="👆">dhibic | farta | gacan tilmaamaysa kor | gacanta | gadaal gacanta | kor | tilmaame gadaal u jeeda oo tilmaamaya</annotation>
 		<annotation cp="👆" type="tts">gacan tilmaamaysa kor</annotation>
 		<annotation cp="🖕">far | farta dhexe | gacan</annotation>
 		<annotation cp="🖕" type="tts">farta dhexe</annotation>
-		<annotation cp="👇">dhibic | farta | gacanta | gadaal gacanta | hoos | tilmaame gadaal u jeeda hoos u tilmaamaya</annotation>
+		<annotation cp="👇">dhibic | farta | gacan tilmaamaysa hoos | gacanta | gadaal gacanta | hoos | tilmaame gadaal u jeeda hoos u tilmaamaya</annotation>
 		<annotation cp="👇" type="tts">gacan tilmaamaysa hoos</annotation>
 		<annotation cp="☝">far | farta muujinta tilmaamaysa kor | gacan | kor | muujinta | muujinta tilmaamaysa kor | tilmaam</annotation>
 		<annotation cp="☝" type="tts">farta muujinta tilmaamaysa kor</annotation>
@@ -723,7 +723,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧠" type="tts">maskaxda</annotation>
 		<annotation cp="🫀">cilmiga wadnaha | garaaca | qaab dhismeedka | wadnaha | xubin</annotation>
 		<annotation cp="🫀" type="tts">garaaca wadnaha</annotation>
-		<annotation cp="🫁">neef qaadasho | neef turiitaanka | neefsasho | sambabo | xubin</annotation>
+		<annotation cp="🫁">neef qaadasho | neef turiitaanka | neefsasho | sambabka | sambabo | xubin</annotation>
 		<annotation cp="🫁" type="tts">sambabka</annotation>
 		<annotation cp="🦷">dhakhtarka ilkaha | ilig</annotation>
 		<annotation cp="🦷" type="tts">ilig</annotation>
@@ -1337,7 +1337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦒" type="tts">geri</annotation>
 		<annotation cp="🐘">maroodi</annotation>
 		<annotation cp="🐘" type="tts">maroodi</annotation>
-		<annotation cp="🦣">dabar go’a | dhogor leh | fool dheer | maroodi | weyn</annotation>
+		<annotation cp="🦣">dabar go’a | dhogor leh | fool dheer | maroodi | Maroodiga weeyn | weyn</annotation>
 		<annotation cp="🦣" type="tts">Maroodiga weeyn</annotation>
 		<annotation cp="🦏">wiyil</annotation>
 		<annotation cp="🦏" type="tts">wiyil</annotation>
@@ -1409,7 +1409,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦢" type="tts">booloboolo</annotation>
 		<annotation cp="🦉">caqli | guumays | shimbir</annotation>
 		<annotation cp="🦉" type="tts">guumays</annotation>
-		<annotation cp="🦤">booloboolo | dabar go’a | Mauritius | weyn</annotation>
+		<annotation cp="🦤">booloboolo | dabar go’a | Mauritius | shimbir boolo | weyn</annotation>
 		<annotation cp="🦤" type="tts">shimbir boolo</annotation>
 		<annotation cp="🪶">baalal | duulimaad | gooynta | shimbir</annotation>
 		<annotation cp="🪶" type="tts">baalal</annotation>
@@ -1643,7 +1643,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌮" type="tts">taako</annotation>
 		<annotation cp="🌯">duub ah | meksikaan | toortiila | toortiilada meksikaanka</annotation>
 		<annotation cp="🌯" type="tts">toortiilada meksikaanka</annotation>
-		<annotation cp="🫔">duuban | mexican | tamale</annotation>
+		<annotation cp="🫔">duuban | mexican | tamale | unno maksikaan</annotation>
 		<annotation cp="🫔" type="tts">unno maksikaan</annotation>
 		<annotation cp="🥙">cunto | falafeel | rooti khudrad laga buuxiyay</annotation>
 		<annotation cp="🥙" type="tts">rooti khudrad laga buuxiyay</annotation>
@@ -1657,7 +1657,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥘" type="tts">bir daawo gun-dhow oo cunno ah</annotation>
 		<annotation cp="🍲">digsi | digsi cunno ah | fuud</annotation>
 		<annotation cp="🍲" type="tts">digsi cunno ah</annotation>
-		<annotation cp="🫕">dhalaalay | dheriga | fondue | jiis | shukulaatada | Switzerland</annotation>
+		<annotation cp="🫕">dhalaalay | dheriga | digsi cunnno lagu diyaariyay | fondue | jiis | shukulaatada | Switzerland</annotation>
 		<annotation cp="🫕" type="tts">digsi cunnno lagu diyaariyay</annotation>
 		<annotation cp="🥣">baaquli iyo qaaddo | badar | qureec</annotation>
 		<annotation cp="🥣" type="tts">baaquli iyo qaaddo</annotation>
@@ -1773,7 +1773,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥃" type="tts">galaas dhalo</annotation>
 		<annotation cp="🥤">casiir | koob iyo istaroow | koob wata istaroow | soodha</annotation>
 		<annotation cp="🥤" type="tts">koob wata istaroow</annotation>
-		<annotation cp="🧋">caano | luul | shaah | xumbo</annotation>
+		<annotation cp="🧋">caano | luul | shaah | shaah xumbaale | xumbo</annotation>
 		<annotation cp="🧋" type="tts">shaah xumbaale</annotation>
 		<annotation cp="🧃">sanduuq cabitaan | sanduuq casiir ah</annotation>
 		<annotation cp="🧃" type="tts">sanduuq cabitaan</annotation>
@@ -1973,7 +1973,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚘" type="tts">gaari soo socda</annotation>
 		<annotation cp="🚙">gaadiidka cayaaraha | maddadaalo ah</annotation>
 		<annotation cp="🚙" type="tts">gaadiidka cayaaraha</annotation>
-		<annotation cp="🛻">gaari xamuul ah | gaariga soo qaadista | qaado</annotation>
+		<annotation cp="🛻">gaari xamuul ah | gaariga soo qaadista | qaado | qabaalka</annotation>
 		<annotation cp="🛻" type="tts">qabaalka</annotation>
 		<annotation cp="🚚">gaari xammuul | gaari xammuulka adeegga | geynta</annotation>
 		<annotation cp="🚚" type="tts">gaari xammuulka adeegga</annotation>
@@ -1999,7 +1999,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛴" type="tts">mooto laadid</annotation>
 		<annotation cp="🛹">alwaax | alwaaxa qalfoofka</annotation>
 		<annotation cp="🛹" type="tts">alwaaxa qalfoofka</annotation>
-		<annotation cp="🛼">duub | iskeeti ciyaarista</annotation>
+		<annotation cp="🛼">duub | iskeeti ciyaarista | skaytka kaha</annotation>
 		<annotation cp="🛼" type="tts">skaytka kaha</annotation>
 		<annotation cp="🚏">bas | boosteejada | joogsiga</annotation>
 		<annotation cp="🚏" type="tts">boosteejada</annotation>
@@ -2163,7 +2163,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌞" type="tts">qorrax wajiyeed</annotation>
 		<annotation cp="🪐">damman | meeraha gaaban | meeraha lixaad</annotation>
 		<annotation cp="🪐" type="tts">meeraha gaaban</annotation>
-		<annotation cp="⭐">xidig</annotation>
+		<annotation cp="⭐">Summadda xiddigta | xidig</annotation>
 		<annotation cp="⭐" type="tts">Summadda xiddigta</annotation>
 		<annotation cp="🌟">dhalaalaya | ifid | kaah | quruxsan | xiddig | xiddig kaahaya</annotation>
 		<annotation cp="🌟" type="tts">xiddig kaahaya</annotation>
@@ -2883,7 +2883,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚬" type="tts">sigaar</annotation>
 		<annotation cp="⚰">dhimasho | sanduuq | sanduuqa meydka</annotation>
 		<annotation cp="⚰" type="tts">sanduuq</annotation>
-		<annotation cp="🪦">dhagaxa madaxa | dhagxan | qabriga | qabuuraha</annotation>
+		<annotation cp="🪦">dhagaxa madaxa | dhagxan | qabriga | qabuuraha | qudbo</annotation>
 		<annotation cp="🪦" type="tts">qudbo</annotation>
 		<annotation cp="⚱">aas | dhimasho | hadhaaga meydka | weelka hadhaaga meydka</annotation>
 		<annotation cp="⚱" type="tts">aas</annotation>
@@ -2939,27 +2939,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📵" type="tts">ma jiraan taleefoonada gacanta</annotation>
 		<annotation cp="🔞">18 | da’ hoose | lama oggola qof ka yar siddeed iyo tobban | reebban | siddeed iyo tobban | xaddidaadda da’da</annotation>
 		<annotation cp="🔞" type="tts">lama oggola qof ka yar siddeed iyo tobban</annotation>
-		<annotation cp="☢">calaamad | shucaac</annotation>
+		<annotation cp="☢">calaamad | kaah fale | shucaac</annotation>
 		<annotation cp="☢" type="tts">kaah fale</annotation>
 		<annotation cp="☣">calaamad | halis ku ah noolaha | halista noolaha</annotation>
 		<annotation cp="☣" type="tts">halis ku ah noolaha</annotation>
-		<annotation cp="⬆">falaadh | jihada | kor u fallaadh | muhiim | waqooyi</annotation>
+		<annotation cp="⬆">falaadh | fallaarta kor | jihada | kor u fallaadh | muhiim | waqooyi</annotation>
 		<annotation cp="⬆" type="tts">fallaarta kor</annotation>
 		<annotation cp="↗">fallaar | fallaarta kor ee midig | isdhaafsiga jihooyinka | jihada | waqooyi bari</annotation>
 		<annotation cp="↗" type="tts">fallaarta kor ee midig</annotation>
-		<annotation cp="➡">bariga | falaadh | falaadh midig | jihada | muhiim</annotation>
+		<annotation cp="➡">bariga | falaadh | falaadh midig | fallarta midig | jihada | muhiim</annotation>
 		<annotation cp="➡" type="tts">fallarta midig</annotation>
 		<annotation cp="↘">fallaar | fallaarta hoose ee midig | isdhaafsiga jihooyinka | jihada | koonfur bari</annotation>
 		<annotation cp="↘" type="tts">fallaarta hoose ee midig</annotation>
-		<annotation cp="⬇">falaadh | hoos | jihada | jiho | Koonfur</annotation>
+		<annotation cp="⬇">falaadh | fallaarta hoose | hoos | jihada | jiho | Koonfur</annotation>
 		<annotation cp="⬇" type="tts">fallaarta hoose</annotation>
 		<annotation cp="↙">fallaar | fallaarta hoose ee bidix | isdhaafsiga jihooyinka | jihada | koonfur galbeed</annotation>
 		<annotation cp="↙" type="tts">fallaarta hoose ee bidix</annotation>
-		<annotation cp="⬅">falaadh | falaadh bidix | galbeed | jihada | jiho</annotation>
+		<annotation cp="⬅">falaadh | falaadh bidix | fallarta bidix | galbeed | jihada | jiho</annotation>
 		<annotation cp="⬅" type="tts">fallarta bidix</annotation>
-		<annotation cp="↖">falaadh | falaadh bidix | jihada | u dhexeeya jihooyinka | waqooyi galbeed</annotation>
+		<annotation cp="↖">falaadh | falaadh bidix | fallaarta kor ee bidix | jihada | u dhexeeya jihooyinka | waqooyi galbeed</annotation>
 		<annotation cp="↖" type="tts">fallaarta kor ee bidix</annotation>
-		<annotation cp="↕">fallaar | fallaarta kor-hoose</annotation>
+		<annotation cp="↕">falaadh kor u-jeeda | fallaar | fallaarta kor-hoose</annotation>
 		<annotation cp="↕" type="tts">falaadh kor u-jeeda</annotation>
 		<annotation cp="↔">fallaar | fallaarta bidix-midig</annotation>
 		<annotation cp="↔" type="tts">fallaarta bidix-midig</annotation>
@@ -3089,13 +3089,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♂" type="tts">calaamad lab</annotation>
 		<annotation cp="⚧">calaamada laba dhidiga | laba dhidig</annotation>
 		<annotation cp="⚧" type="tts">calaamada laba dhidiga</annotation>
-		<annotation cp="✖">baajiso | isku dhufashada | ku dhufo | saxiix | x</annotation>
+		<annotation cp="✖">baajiso | calaamadda isku dhufashada | isku dhufashada | ku dhufo | saxiix | x</annotation>
 		<annotation cp="✖" type="tts">calaamadda isku dhufashada</annotation>
-		<annotation cp="➕">+ | lagu daray | saxiix | xisaab</annotation>
+		<annotation cp="➕">+ | calaamadda isugeynta | lagu daray | saxiix | xisaab</annotation>
 		<annotation cp="➕" type="tts">calaamadda isugeynta</annotation>
 		<annotation cp="➖">- | − | calaamad | calaamadda ka jar | ka jar | xisaab</annotation>
 		<annotation cp="➖" type="tts">calaamadda ka jar</annotation>
-		<annotation cp="➗">÷ | calaamad | kala qaybinta | qaybi | xisaab</annotation>
+		<annotation cp="➗">÷ | calaamad | calaamadda isu qaybinta | kala qaybinta | qaybi | xisaab</annotation>
 		<annotation cp="➗" type="tts">calaamadda isu qaybinta</annotation>
 		<annotation cp="♾">aan xad lahayn | abid | guud ahaan | xad la’aan</annotation>
 		<annotation cp="♾" type="tts">xad la’aan</annotation>
@@ -3137,7 +3137,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☑" type="tts">ku calaamadee sanduuqa sax</annotation>
 		<annotation cp="✔">✓ | calaamad | calaamadee | ku calaamadee calaamad</annotation>
 		<annotation cp="✔" type="tts">ku calaamadee calaamad</annotation>
-		<annotation cp="❌">baajiso | isku dhufashada | iskutallaab | ku dhufo | sumad | x</annotation>
+		<annotation cp="❌">baajiso | calaamadda iskutallaabta | isku dhufashada | iskutallaab | ku dhufo | sumad | x</annotation>
 		<annotation cp="❌" type="tts">calaamadda iskutallaabta</annotation>
 		<annotation cp="❎">× | afar jibaar | badhanka calaamadda iskutallaabta | calaamad | x</annotation>
 		<annotation cp="❎" type="tts">badhanka calaamadda iskutallaabta</annotation>
@@ -3325,13 +3325,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¢" type="tts">senti</annotation>
 		<annotation cp="$">beeso | doolar | lacag | USD</annotation>
 		<annotation cp="$" type="tts">doolar</annotation>
-		<annotation cp="£">EGP | GBP | lacag | pound</annotation>
+		<annotation cp="£">´lacagta ingiriska laga isticmaalo | EGP | GBP | lacag | pound</annotation>
 		<annotation cp="£" type="tts">´lacagta ingiriska laga isticmaalo</annotation>
-		<annotation cp="¥">CNY | currency | JPY | yen | yuan</annotation>
+		<annotation cp="¥">CNY | currency | JPY | lacagta yen | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">lacagta yen</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
-		<annotation cp="₩">KPW | KRW | won</annotation>
+		<annotation cp="₩">guulaystay | KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">guulaystay</annotation>
 		<annotation cp="€">EUR | lacag | yuuro</annotation>
 		<annotation cp="€" type="tts">yuuro</annotation>
@@ -3343,11 +3343,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">cutub lacageedka raashiya</annotation>
 		<annotation cp="₿">bitkoyn | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkoyn</annotation>
-		<annotation cp="¹">mid | qoraalka sare</annotation>
+		<annotation cp="¹">calaamada koobaad | mid | qoraalka sare</annotation>
 		<annotation cp="¹" type="tts">calaamada koobaad</annotation>
-		<annotation cp="²">laba | laba jibbaaran | qoraalka sare</annotation>
+		<annotation cp="²">calaamada labaad | laba | laba jibbaaran | qoraalka sare</annotation>
 		<annotation cp="²" type="tts">calaamada labaad</annotation>
-		<annotation cp="³">la saddex jibaaray | qoraalka sare | saddex</annotation>
+		<annotation cp="³">calaamda sadexaad | la saddex jibaaray | qoraalka sare | saddex</annotation>
 		<annotation cp="³" type="tts">calaamda sadexaad</annotation>
 		<annotation cp="µ">astaanta micro | cabir</annotation>
 		<annotation cp="µ" type="tts">astaanta micro</annotation>

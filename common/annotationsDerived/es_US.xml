@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -14,6 +14,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="US"/>
 	</identity>
 	<annotations>
+		<annotation cp="🫃🏻">embarazado | estómago | hinchado | hombre embarazado | lleno | tono de piel claro</annotation>
+		<annotation cp="🫃🏼">embarazado | estómago | hinchado | hombre embarazado | lleno | tono de piel claro medio</annotation>
+		<annotation cp="🫃🏽">embarazado | estómago | hinchado | hombre embarazado | lleno | tono de piel medio</annotation>
+		<annotation cp="🫃🏾">embarazado | estómago | hinchado | hombre embarazado | lleno | tono de piel oscuro medio</annotation>
+		<annotation cp="🫃🏿">embarazado | estómago | hinchado | hombre embarazado | lleno | tono de piel oscuro</annotation>
+		<annotation cp="🫄🏻">embarazada | estómago | hinchado | lleno | persona embarazada | tono de piel claro</annotation>
+		<annotation cp="🫄🏼">embarazada | estómago | hinchado | lleno | persona embarazada | tono de piel claro medio</annotation>
+		<annotation cp="🫄🏽">embarazada | estómago | hinchado | lleno | persona embarazada | tono de piel medio</annotation>
+		<annotation cp="🫄🏾">embarazada | estómago | hinchado | lleno | persona embarazada | tono de piel oscuro medio</annotation>
+		<annotation cp="🫄🏿">embarazada | estómago | hinchado | lleno | persona embarazada | tono de piel oscuro</annotation>
+		<annotation cp="🫰🏻">amor | caro | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel claro | tronar los dedos</annotation>
+		<annotation cp="🫰🏼">amor | caro | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel claro medio | tronar los dedos</annotation>
+		<annotation cp="🫰🏽">amor | caro | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel medio | tronar los dedos</annotation>
+		<annotation cp="🫰🏾">amor | caro | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel oscuro medio | tronar los dedos</annotation>
+		<annotation cp="🫰🏿">amor | caro | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel oscuro | tronar los dedos</annotation>
+		<annotation cp="🫳🏻">bajar | espantar | fuera | mano con la palma hacia abajo | quitar | rechazar | tono de piel claro</annotation>
+		<annotation cp="🫳🏼">bajar | espantar | fuera | mano con la palma hacia abajo | quitar | rechazar | tono de piel claro medio</annotation>
+		<annotation cp="🫳🏽">bajar | espantar | fuera | mano con la palma hacia abajo | quitar | rechazar | tono de piel medio</annotation>
+		<annotation cp="🫳🏾">bajar | espantar | fuera | mano con la palma hacia abajo | quitar | rechazar | tono de piel oscuro medio</annotation>
+		<annotation cp="🫳🏿">bajar | espantar | fuera | mano con la palma hacia abajo | quitar | rechazar | tono de piel oscuro</annotation>
 		<annotation cp="🤚🏻">dorso de la mano | dorso de la mano levantada | dorso de la mano saludando | levantada | tono de piel claro</annotation>
 		<annotation cp="🤚🏻" type="tts">dorso de la mano levantada: tono de piel claro</annotation>
 		<annotation cp="🤚🏼">dorso de la mano | dorso de la mano levantada | dorso de la mano saludando | levantada | tono de piel claro medio</annotation>
@@ -34,26 +54,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="✋🏽">mano | mano levantada | tono de piel medio</annotation>
 		<annotation cp="✋🏾">mano | mano levantada | tono de piel oscuro medio</annotation>
 		<annotation cp="✋🏿">mano | mano levantada | tono de piel oscuro</annotation>
-		<annotation cp="✌🏻">amor y paz | mano con señal de victoria | tijera | tono de piel claro | victoria</annotation>
+		<annotation cp="✌🏻">mano | mano con señal de victoria | tono de piel claro | v | victoria</annotation>
 		<annotation cp="✌🏻" type="tts">mano con señal de victoria: tono de piel claro</annotation>
-		<annotation cp="✌🏼">amor y paz | mano con señal de victoria | tijera | tono de piel claro medio | victoria</annotation>
+		<annotation cp="✌🏼">mano | mano con señal de victoria | tono de piel claro medio | v | victoria</annotation>
 		<annotation cp="✌🏼" type="tts">mano con señal de victoria: tono de piel claro medio</annotation>
-		<annotation cp="✌🏽">amor y paz | mano con señal de victoria | tijera | tono de piel medio | victoria</annotation>
+		<annotation cp="✌🏽">mano | mano con señal de victoria | tono de piel medio | v | victoria</annotation>
 		<annotation cp="✌🏽" type="tts">mano con señal de victoria: tono de piel medio</annotation>
-		<annotation cp="✌🏾">amor y paz | mano con señal de victoria | tijera | tono de piel oscuro medio | victoria</annotation>
+		<annotation cp="✌🏾">mano | mano con señal de victoria | tono de piel oscuro medio | v | victoria</annotation>
 		<annotation cp="✌🏾" type="tts">mano con señal de victoria: tono de piel oscuro medio</annotation>
-		<annotation cp="✌🏿">amor y paz | mano con señal de victoria | tijera | tono de piel oscuro | victoria</annotation>
+		<annotation cp="✌🏿">mano | mano con señal de victoria | tono de piel oscuro | v | victoria</annotation>
 		<annotation cp="✌🏿" type="tts">mano con señal de victoria: tono de piel oscuro</annotation>
-		<annotation cp="🤘🏻">cuernos | dedos | mano haciendo los cuernos | rock | roll | tono de piel claro</annotation>
-		<annotation cp="🤘🏻" type="tts">mano haciendo los cuernos: tono de piel claro</annotation>
-		<annotation cp="🤘🏼">cuernos | dedos | mano haciendo los cuernos | rock | roll | tono de piel claro medio</annotation>
-		<annotation cp="🤘🏼" type="tts">mano haciendo los cuernos: tono de piel claro medio</annotation>
-		<annotation cp="🤘🏽">cuernos | dedos | mano haciendo los cuernos | rock | roll | tono de piel medio</annotation>
-		<annotation cp="🤘🏽" type="tts">mano haciendo los cuernos: tono de piel medio</annotation>
-		<annotation cp="🤘🏾">cuernos | dedos | mano haciendo los cuernos | rock | roll | tono de piel oscuro medio</annotation>
-		<annotation cp="🤘🏾" type="tts">mano haciendo los cuernos: tono de piel oscuro medio</annotation>
-		<annotation cp="🤘🏿">cuernos | dedos | mano haciendo los cuernos | rock | roll | tono de piel oscuro</annotation>
-		<annotation cp="🤘🏿" type="tts">mano haciendo los cuernos: tono de piel oscuro</annotation>
 		<annotation cp="🤙🏻">gesto | llamada | mano | mano haciendo el gesto de llamar | tono de piel claro</annotation>
 		<annotation cp="🤙🏻" type="tts">mano haciendo el gesto de llamar: tono de piel claro</annotation>
 		<annotation cp="🤙🏼">gesto | llamada | mano | mano haciendo el gesto de llamar | tono de piel claro medio</annotation>
@@ -69,16 +79,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👈🏽">apuntar | dedo | dorso de mano con índice a la izquierda | índice | índice hacia la izquierda | izquierda | señalar | tono de piel medio</annotation>
 		<annotation cp="👈🏾">apuntar | dedo | dorso de mano con índice a la izquierda | índice | índice hacia la izquierda | izquierda | señalar | tono de piel oscuro medio</annotation>
 		<annotation cp="👈🏿">apuntar | dedo | dorso de mano con índice a la izquierda | índice | índice hacia la izquierda | izquierda | señalar | tono de piel oscuro</annotation>
-		<annotation cp="👆🏻">apuntar | arriba | dedo | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | mano con dedo índice hacia arriba | tono de piel claro</annotation>
-		<annotation cp="👆🏻" type="tts">mano con dedo índice hacia arriba: tono de piel claro</annotation>
-		<annotation cp="👆🏼">apuntar | arriba | dedo | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | mano con dedo índice hacia arriba | tono de piel claro medio</annotation>
-		<annotation cp="👆🏼" type="tts">mano con dedo índice hacia arriba: tono de piel claro medio</annotation>
-		<annotation cp="👆🏽">apuntar | arriba | dedo | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | mano con dedo índice hacia arriba | tono de piel medio</annotation>
-		<annotation cp="👆🏽" type="tts">mano con dedo índice hacia arriba: tono de piel medio</annotation>
-		<annotation cp="👆🏾">apuntar | arriba | dedo | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | mano con dedo índice hacia arriba | tono de piel oscuro medio</annotation>
-		<annotation cp="👆🏾" type="tts">mano con dedo índice hacia arriba: tono de piel oscuro medio</annotation>
-		<annotation cp="👆🏿">apuntar | arriba | dedo | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | mano con dedo índice hacia arriba | tono de piel oscuro</annotation>
-		<annotation cp="👆🏿" type="tts">mano con dedo índice hacia arriba: tono de piel oscuro</annotation>
+		<annotation cp="👆🏻">apuntar | arriba | dedo | dorso de mano | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | tono de piel claro</annotation>
+		<annotation cp="👆🏼">apuntar | arriba | dedo | dorso de mano | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | tono de piel claro medio</annotation>
+		<annotation cp="👆🏽">apuntar | arriba | dedo | dorso de mano | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | tono de piel medio</annotation>
+		<annotation cp="👆🏾">apuntar | arriba | dedo | dorso de mano | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | tono de piel oscuro medio</annotation>
+		<annotation cp="👆🏿">apuntar | arriba | dedo | dorso de mano | dorso de mano con dedo índice hacia arriba | dorso de mano con índice hacia arriba | mano | tono de piel oscuro</annotation>
 		<annotation cp="👇🏻">abajo | apuntar | dorso de mano con dedo índice hacia abajo | índice | mano | señalar | tono de piel claro</annotation>
 		<annotation cp="👇🏼">abajo | apuntar | dorso de mano con dedo índice hacia abajo | índice | mano | señalar | tono de piel claro medio</annotation>
 		<annotation cp="👇🏽">abajo | apuntar | dorso de mano con dedo índice hacia abajo | índice | mano | señalar | tono de piel medio</annotation>
@@ -89,36 +94,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="☝🏽">apuntar | arriba | dedo índice hacia arriba | índice | señalar | tono de piel medio</annotation>
 		<annotation cp="☝🏾">apuntar | arriba | dedo índice hacia arriba | índice | señalar | tono de piel oscuro medio</annotation>
 		<annotation cp="☝🏿">apuntar | arriba | dedo índice hacia arriba | índice | señalar | tono de piel oscuro</annotation>
-		<annotation cp="🤛🏻">izquierda | puño | puño hacia la izquierda | tono de piel claro</annotation>
-		<annotation cp="🤛🏻" type="tts">puño hacia la izquierda: tono de piel claro</annotation>
-		<annotation cp="🤛🏼">izquierda | puño | puño hacia la izquierda | tono de piel claro medio</annotation>
-		<annotation cp="🤛🏼" type="tts">puño hacia la izquierda: tono de piel claro medio</annotation>
-		<annotation cp="🤛🏽">izquierda | puño | puño hacia la izquierda | tono de piel medio</annotation>
-		<annotation cp="🤛🏽" type="tts">puño hacia la izquierda: tono de piel medio</annotation>
-		<annotation cp="🤛🏾">izquierda | puño | puño hacia la izquierda | tono de piel oscuro medio</annotation>
-		<annotation cp="🤛🏾" type="tts">puño hacia la izquierda: tono de piel oscuro medio</annotation>
-		<annotation cp="🤛🏿">izquierda | puño | puño hacia la izquierda | tono de piel oscuro</annotation>
-		<annotation cp="🤛🏿" type="tts">puño hacia la izquierda: tono de piel oscuro</annotation>
-		<annotation cp="🤜🏻">derecha | puño | puño hacia la derecha | tono de piel claro</annotation>
-		<annotation cp="🤜🏻" type="tts">puño hacia la derecha: tono de piel claro</annotation>
-		<annotation cp="🤜🏼">derecha | puño | puño hacia la derecha | tono de piel claro medio</annotation>
-		<annotation cp="🤜🏼" type="tts">puño hacia la derecha: tono de piel claro medio</annotation>
-		<annotation cp="🤜🏽">derecha | puño | puño hacia la derecha | tono de piel medio</annotation>
-		<annotation cp="🤜🏽" type="tts">puño hacia la derecha: tono de piel medio</annotation>
-		<annotation cp="🤜🏾">derecha | puño | puño hacia la derecha | tono de piel oscuro medio</annotation>
-		<annotation cp="🤜🏾" type="tts">puño hacia la derecha: tono de piel oscuro medio</annotation>
-		<annotation cp="🤜🏿">derecha | puño | puño hacia la derecha | tono de piel oscuro</annotation>
-		<annotation cp="🤜🏿" type="tts">puño hacia la derecha: tono de piel oscuro</annotation>
-		<annotation cp="🙌🏻">chocar | cinco | festejo | manos | manos levantadas celebrando | tono de piel claro</annotation>
+		<annotation cp="👊🏻">cerrado | golpe | mano | puño | puño cerrado acercándose | tono de piel claro</annotation>
+		<annotation cp="👊🏻" type="tts">puño cerrado acercándose: tono de piel claro</annotation>
+		<annotation cp="👊🏼">cerrado | golpe | mano | puño | puño cerrado acercándose | tono de piel claro medio</annotation>
+		<annotation cp="👊🏼" type="tts">puño cerrado acercándose: tono de piel claro medio</annotation>
+		<annotation cp="👊🏽">cerrado | golpe | mano | puño | puño cerrado acercándose | tono de piel medio</annotation>
+		<annotation cp="👊🏽" type="tts">puño cerrado acercándose: tono de piel medio</annotation>
+		<annotation cp="👊🏾">cerrado | golpe | mano | puño | puño cerrado acercándose | tono de piel oscuro medio</annotation>
+		<annotation cp="👊🏾" type="tts">puño cerrado acercándose: tono de piel oscuro medio</annotation>
+		<annotation cp="👊🏿">cerrado | golpe | mano | puño | puño cerrado acercándose | tono de piel oscuro</annotation>
+		<annotation cp="👊🏿" type="tts">puño cerrado acercándose: tono de piel oscuro</annotation>
+		<annotation cp="👏🏻">aplaudir | mano | manos aplaudiendo | tono de piel claro</annotation>
+		<annotation cp="👏🏼">aplaudir | mano | manos aplaudiendo | tono de piel claro medio</annotation>
+		<annotation cp="👏🏽">aplaudir | mano | manos aplaudiendo | tono de piel medio</annotation>
+		<annotation cp="👏🏾">aplaudir | mano | manos aplaudiendo | tono de piel oscuro medio</annotation>
+		<annotation cp="👏🏿">aplaudir | mano | manos aplaudiendo | tono de piel oscuro</annotation>
+		<annotation cp="🙌🏻">celebración | gesto | levantadas | mano | manos levantadas celebrando | tono de piel claro</annotation>
 		<annotation cp="🙌🏻" type="tts">manos levantadas celebrando: tono de piel claro</annotation>
-		<annotation cp="🙌🏼">chocar | cinco | festejo | manos | manos levantadas celebrando | tono de piel claro medio</annotation>
+		<annotation cp="🙌🏼">celebración | gesto | levantadas | mano | manos levantadas celebrando | tono de piel claro medio</annotation>
 		<annotation cp="🙌🏼" type="tts">manos levantadas celebrando: tono de piel claro medio</annotation>
-		<annotation cp="🙌🏽">chocar | cinco | festejo | manos | manos levantadas celebrando | tono de piel medio</annotation>
+		<annotation cp="🙌🏽">celebración | gesto | levantadas | mano | manos levantadas celebrando | tono de piel medio</annotation>
 		<annotation cp="🙌🏽" type="tts">manos levantadas celebrando: tono de piel medio</annotation>
-		<annotation cp="🙌🏾">chocar | cinco | festejo | manos | manos levantadas celebrando | tono de piel oscuro medio</annotation>
+		<annotation cp="🙌🏾">celebración | gesto | levantadas | mano | manos levantadas celebrando | tono de piel oscuro medio</annotation>
 		<annotation cp="🙌🏾" type="tts">manos levantadas celebrando: tono de piel oscuro medio</annotation>
-		<annotation cp="🙌🏿">chocar | cinco | festejo | manos | manos levantadas celebrando | tono de piel oscuro</annotation>
+		<annotation cp="🙌🏿">celebración | gesto | levantadas | mano | manos levantadas celebrando | tono de piel oscuro</annotation>
 		<annotation cp="🙌🏿" type="tts">manos levantadas celebrando: tono de piel oscuro</annotation>
+		<annotation cp="👐🏻">abierta | mano | manos abiertas | tono de piel claro</annotation>
+		<annotation cp="👐🏼">abierta | mano | manos abiertas | tono de piel claro medio</annotation>
+		<annotation cp="👐🏽">abierta | mano | manos abiertas | tono de piel medio</annotation>
+		<annotation cp="👐🏾">abierta | mano | manos abiertas | tono de piel oscuro medio</annotation>
+		<annotation cp="👐🏿">abierta | mano | manos abiertas | tono de piel oscuro</annotation>
 		<annotation cp="🙏🏻">favor | gracias | manos en oración | oración | orar | rezar | tono de piel claro</annotation>
 		<annotation cp="🙏🏼">favor | gracias | manos en oración | oración | orar | rezar | tono de piel claro medio</annotation>
 		<annotation cp="🙏🏽">favor | gracias | manos en oración | oración | orar | rezar | tono de piel medio</annotation>
@@ -129,21 +134,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="✍🏽">escribir | mano | mano escribiendo | tono de piel medio</annotation>
 		<annotation cp="✍🏾">escribir | mano | mano escribiendo | tono de piel oscuro medio</annotation>
 		<annotation cp="✍🏿">escribir | mano | mano escribiendo | tono de piel oscuro</annotation>
-		<annotation cp="🤳🏻">selfi | tono de piel claro</annotation>
-		<annotation cp="🤳🏻" type="tts">selfi: tono de piel claro</annotation>
-		<annotation cp="🤳🏼">selfi | tono de piel claro medio</annotation>
-		<annotation cp="🤳🏼" type="tts">selfi: tono de piel claro medio</annotation>
-		<annotation cp="🤳🏽">selfi | tono de piel medio</annotation>
-		<annotation cp="🤳🏽" type="tts">selfi: tono de piel medio</annotation>
-		<annotation cp="🤳🏾">selfi | tono de piel oscuro medio</annotation>
-		<annotation cp="🤳🏾" type="tts">selfi: tono de piel oscuro medio</annotation>
-		<annotation cp="🤳🏿">selfi | tono de piel oscuro</annotation>
-		<annotation cp="🤳🏿" type="tts">selfi: tono de piel oscuro</annotation>
-		<annotation cp="🦵🏻">pierna | tono de piel claro</annotation>
-		<annotation cp="🦵🏼">pierna | tono de piel claro medio</annotation>
-		<annotation cp="🦵🏽">pierna | tono de piel medio</annotation>
-		<annotation cp="🦵🏾">pierna | tono de piel oscuro medio</annotation>
-		<annotation cp="🦵🏿">pierna | tono de piel oscuro</annotation>
+		<annotation cp="👶🏻">bebé | joven | tono de piel claro</annotation>
+		<annotation cp="👶🏼">bebé | joven | tono de piel claro medio</annotation>
+		<annotation cp="👶🏽">bebé | joven | tono de piel medio</annotation>
+		<annotation cp="👶🏾">bebé | joven | tono de piel oscuro medio</annotation>
+		<annotation cp="👶🏿">bebé | joven | tono de piel oscuro</annotation>
 		<annotation cp="🧒🏻">género neutro | género no especificado | infante | joven | tono de piel claro</annotation>
 		<annotation cp="🧒🏼">género neutro | género no especificado | infante | joven | tono de piel claro medio</annotation>
 		<annotation cp="🧒🏽">género neutro | género no especificado | infante | joven | tono de piel medio</annotation>
@@ -159,45 +154,50 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏽">género neutro | género no especificado | persona adulta | tono de piel medio</annotation>
 		<annotation cp="🧑🏾">género neutro | género no especificado | persona adulta | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿">género neutro | género no especificado | persona adulta | tono de piel oscuro</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">beso | persona adulta | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👱🏻">cabello | persona adulta rubia | rubia | rubio | tono de piel claro</annotation>
+		<annotation cp="👱🏼">cabello | persona adulta rubia | rubia | rubio | tono de piel claro medio</annotation>
+		<annotation cp="👱🏽">cabello | persona adulta rubia | rubia | rubio | tono de piel medio</annotation>
+		<annotation cp="👱🏾">cabello | persona adulta rubia | rubia | rubio | tono de piel oscuro medio</annotation>
+		<annotation cp="👱🏿">cabello | persona adulta rubia | rubia | rubio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">beso | pareja | persona adulta | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">beso: persona adulta, persona adulta, tono de piel claro y tono de piel claro medio</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">beso | persona adulta | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">beso | pareja | persona adulta | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽" type="tts">beso: persona adulta, persona adulta, tono de piel claro y tono de piel medio</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏾">beso | persona adulta | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏾">beso | pareja | persona adulta | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏾" type="tts">beso: persona adulta, persona adulta, tono de piel claro y tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏿">beso | persona adulta | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏿">beso | pareja | persona adulta | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏿" type="tts">beso: persona adulta, persona adulta, tono de piel claro y tono de piel oscuro</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏻">beso | persona adulta | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏻">beso | pareja | persona adulta | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏻" type="tts">beso: persona adulta, persona adulta, tono de piel claro medio y tono de piel claro</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏽">beso | persona adulta | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏽">beso | pareja | persona adulta | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏽" type="tts">beso: persona adulta, persona adulta, tono de piel claro medio y tono de piel medio</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏾">beso | persona adulta | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏾">beso | pareja | persona adulta | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏾" type="tts">beso: persona adulta, persona adulta, tono de piel claro medio y tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏿">beso | persona adulta | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏿">beso | pareja | persona adulta | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏿" type="tts">beso: persona adulta, persona adulta, tono de piel claro medio y tono de piel oscuro</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏻">beso | persona adulta | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏻">beso | pareja | persona adulta | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏻" type="tts">beso: persona adulta, persona adulta, tono de piel medio y tono de piel claro</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏼">beso | persona adulta | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏼">beso | pareja | persona adulta | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏼" type="tts">beso: persona adulta, persona adulta, tono de piel medio y tono de piel claro medio</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏾">beso | persona adulta | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏾">beso | pareja | persona adulta | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏾" type="tts">beso: persona adulta, persona adulta, tono de piel medio y tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏿">beso | persona adulta | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏿">beso | pareja | persona adulta | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏿" type="tts">beso: persona adulta, persona adulta, tono de piel medio y tono de piel oscuro</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏻">beso | persona adulta | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏻">beso | pareja | persona adulta | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏻" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro medio y tono de piel claro</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏼">beso | persona adulta | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏼">beso | pareja | persona adulta | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏼" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro medio y tono de piel claro medio</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏽">beso | persona adulta | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏽">beso | pareja | persona adulta | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏽" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro medio y tono de piel medio</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏿">beso | persona adulta | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏿">beso | pareja | persona adulta | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏿" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro medio y tono de piel oscuro</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏻">beso | persona adulta | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏻">beso | pareja | persona adulta | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏻" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro y tono de piel claro</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏼">beso | persona adulta | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏼">beso | pareja | persona adulta | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏼" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro y tono de piel claro medio</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽">beso | persona adulta | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽">beso | pareja | persona adulta | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro y tono de piel medio</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾">beso | persona adulta | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾">beso | pareja | persona adulta | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro y tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏼">amor | corazón | pareja | pareja enamorada | persona adulta | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏼" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro y tono de piel claro medio</annotation>
@@ -281,60 +281,75 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">persona adulta: tono de piel oscuro medio y calvo</annotation>
 		<annotation cp="🧑🏿‍🦲">calvo | género neutro | género no especificado | persona adulta | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">persona adulta: tono de piel oscuro y calvo</annotation>
+		<annotation cp="👨🏻">adulto | hombre | tono de piel claro</annotation>
+		<annotation cp="👨🏼">adulto | hombre | tono de piel claro medio</annotation>
+		<annotation cp="👨🏽">adulto | hombre | tono de piel medio</annotation>
+		<annotation cp="👨🏾">adulto | hombre | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏿">adulto | hombre | tono de piel oscuro</annotation>
+		<annotation cp="🧔🏻">barba | persona | persona con barba | tono de piel claro</annotation>
+		<annotation cp="🧔🏻" type="tts">persona con barba: tono de piel claro</annotation>
+		<annotation cp="🧔🏼">barba | persona | persona con barba | tono de piel claro medio</annotation>
+		<annotation cp="🧔🏼" type="tts">persona con barba: tono de piel claro medio</annotation>
+		<annotation cp="🧔🏽">barba | persona | persona con barba | tono de piel medio</annotation>
+		<annotation cp="🧔🏽" type="tts">persona con barba: tono de piel medio</annotation>
+		<annotation cp="🧔🏾">barba | persona | persona con barba | tono de piel oscuro medio</annotation>
+		<annotation cp="🧔🏾" type="tts">persona con barba: tono de piel oscuro medio</annotation>
+		<annotation cp="🧔🏿">barba | persona | persona con barba | tono de piel oscuro</annotation>
+		<annotation cp="🧔🏿" type="tts">persona con barba: tono de piel oscuro</annotation>
 		<annotation cp="👱🏻‍♂">hombre | hombre: rubio | rubio | tono de piel claro</annotation>
 		<annotation cp="👱🏼‍♂">hombre | hombre: rubio | rubio | tono de piel claro medio</annotation>
 		<annotation cp="👱🏽‍♂">hombre | hombre: rubio | rubio | tono de piel medio</annotation>
 		<annotation cp="👱🏾‍♂">hombre | hombre: rubio | rubio | tono de piel oscuro medio</annotation>
 		<annotation cp="👱🏿‍♂">hombre | hombre: rubio | rubio | tono de piel oscuro</annotation>
-		<annotation cp="👨🏻‍❤‍💋‍👨🏻">beso | hombre | tono de piel claro</annotation>
+		<annotation cp="👨🏻‍❤‍💋‍👨🏻">beso | hombre | pareja | tono de piel claro</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">beso: hombre, hombre y tono de piel claro</annotation>
-		<annotation cp="👨🏻‍❤‍💋‍👨🏼">beso | hombre | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👨🏻‍❤‍💋‍👨🏼">beso | hombre | pareja | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼" type="tts">beso: hombre, hombre, tono de piel claro y tono de piel claro medio</annotation>
-		<annotation cp="👨🏻‍❤‍💋‍👨🏽">beso | hombre | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👨🏻‍❤‍💋‍👨🏽">beso | hombre | pareja | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏽" type="tts">beso: hombre, hombre, tono de piel claro y tono de piel medio</annotation>
-		<annotation cp="👨🏻‍❤‍💋‍👨🏾">beso | hombre | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏻‍❤‍💋‍👨🏾">beso | hombre | pareja | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏾" type="tts">beso: hombre, hombre, tono de piel claro y tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏻‍❤‍💋‍👨🏿">beso | hombre | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👨🏻‍❤‍💋‍👨🏿">beso | hombre | pareja | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏿" type="tts">beso: hombre, hombre, tono de piel claro y tono de piel oscuro</annotation>
-		<annotation cp="👨🏼‍❤‍💋‍👨🏻">beso | hombre | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👨🏼‍❤‍💋‍👨🏻">beso | hombre | pareja | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👨🏼‍❤‍💋‍👨🏻" type="tts">beso: hombre, hombre, tono de piel claro medio y tono de piel claro</annotation>
-		<annotation cp="👨🏼‍❤‍💋‍👨🏼">beso | hombre | tono de piel claro medio</annotation>
+		<annotation cp="👨🏼‍❤‍💋‍👨🏼">beso | hombre | pareja | tono de piel claro medio</annotation>
 		<annotation cp="👨🏼‍❤‍💋‍👨🏼" type="tts">beso: hombre, hombre y tono de piel claro medio</annotation>
-		<annotation cp="👨🏼‍❤‍💋‍👨🏽">beso | hombre | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👨🏼‍❤‍💋‍👨🏽">beso | hombre | pareja | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👨🏼‍❤‍💋‍👨🏽" type="tts">beso: hombre, hombre, tono de piel claro medio y tono de piel medio</annotation>
-		<annotation cp="👨🏼‍❤‍💋‍👨🏾">beso | hombre | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏼‍❤‍💋‍👨🏾">beso | hombre | pareja | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏼‍❤‍💋‍👨🏾" type="tts">beso: hombre, hombre, tono de piel claro medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏼‍❤‍💋‍👨🏿">beso | hombre | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏼‍❤‍💋‍👨🏿">beso | hombre | pareja | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏼‍❤‍💋‍👨🏿" type="tts">beso: hombre, hombre, tono de piel claro medio y tono de piel oscuro</annotation>
-		<annotation cp="👨🏽‍❤‍💋‍👨🏻">beso | hombre | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍❤‍💋‍👨🏻">beso | hombre | pareja | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍❤‍💋‍👨🏻" type="tts">beso: hombre, hombre, tono de piel medio y tono de piel claro</annotation>
-		<annotation cp="👨🏽‍❤‍💋‍👨🏼">beso | hombre | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍❤‍💋‍👨🏼">beso | hombre | pareja | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍❤‍💋‍👨🏼" type="tts">beso: hombre, hombre, tono de piel medio y tono de piel claro medio</annotation>
-		<annotation cp="👨🏽‍❤‍💋‍👨🏽">beso | hombre | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍❤‍💋‍👨🏽">beso | hombre | pareja | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍❤‍💋‍👨🏽" type="tts">beso: hombre, hombre y tono de piel medio</annotation>
-		<annotation cp="👨🏽‍❤‍💋‍👨🏾">beso | hombre | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏽‍❤‍💋‍👨🏾">beso | hombre | pareja | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏽‍❤‍💋‍👨🏾" type="tts">beso: hombre, hombre, tono de piel medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏽‍❤‍💋‍👨🏿">beso | hombre | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏽‍❤‍💋‍👨🏿">beso | hombre | pareja | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏽‍❤‍💋‍👨🏿" type="tts">beso: hombre, hombre, tono de piel medio y tono de piel oscuro</annotation>
-		<annotation cp="👨🏾‍❤‍💋‍👨🏻">beso | hombre | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍💋‍👨🏻">beso | hombre | pareja | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍💋‍👨🏻" type="tts">beso: hombre, hombre, tono de piel oscuro medio y tono de piel claro</annotation>
-		<annotation cp="👨🏾‍❤‍💋‍👨🏼">beso | hombre | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍💋‍👨🏼">beso | hombre | pareja | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍💋‍👨🏼" type="tts">beso: hombre, hombre, tono de piel oscuro medio y tono de piel claro medio</annotation>
-		<annotation cp="👨🏾‍❤‍💋‍👨🏽">beso | hombre | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍💋‍👨🏽">beso | hombre | pareja | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍💋‍👨🏽" type="tts">beso: hombre, hombre, tono de piel oscuro medio y tono de piel medio</annotation>
-		<annotation cp="👨🏾‍❤‍💋‍👨🏾">beso | hombre | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍💋‍👨🏾">beso | hombre | pareja | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍💋‍👨🏾" type="tts">beso: hombre, hombre y tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏾‍❤‍💋‍👨🏿">beso | hombre | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍💋‍👨🏿">beso | hombre | pareja | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍💋‍👨🏿" type="tts">beso: hombre, hombre, tono de piel oscuro medio y tono de piel oscuro</annotation>
-		<annotation cp="👨🏿‍❤‍💋‍👨🏻">beso | hombre | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍💋‍👨🏻">beso | hombre | pareja | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏻" type="tts">beso: hombre, hombre, tono de piel oscuro y tono de piel claro</annotation>
-		<annotation cp="👨🏿‍❤‍💋‍👨🏼">beso | hombre | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍💋‍👨🏼">beso | hombre | pareja | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏼" type="tts">beso: hombre, hombre, tono de piel oscuro y tono de piel claro medio</annotation>
-		<annotation cp="👨🏿‍❤‍💋‍👨🏽">beso | hombre | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍💋‍👨🏽">beso | hombre | pareja | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏽" type="tts">beso: hombre, hombre, tono de piel oscuro y tono de piel medio</annotation>
-		<annotation cp="👨🏿‍❤‍💋‍👨🏾">beso | hombre | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏿‍❤‍💋‍👨🏾">beso | hombre | pareja | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏾" type="tts">beso: hombre, hombre, tono de piel oscuro y tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏿‍❤‍💋‍👨🏿">beso | hombre | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍💋‍👨🏿">beso | hombre | pareja | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏿" type="tts">beso: hombre, hombre y tono de piel oscuro</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏻">amor | corazón | hombre | pareja | pareja enamorada | tono de piel claro</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏻" type="tts">pareja enamorada: hombre, hombre y tono de piel claro</annotation>
@@ -386,146 +401,157 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏿‍❤‍👨🏾" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro y tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿">amor | corazón | hombre | pareja | pareja enamorada | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿" type="tts">pareja enamorada: hombre, hombre y tono de piel oscuro</annotation>
-		<annotation cp="👨‍🦰">cara | hombre | pelirrojo | persona | señor</annotation>
+		<annotation cp="👨‍🦰">adulto | hombre | pelirrojo</annotation>
 		<annotation cp="👨‍🦰" type="tts">hombre: pelirrojo</annotation>
-		<annotation cp="👨🏻‍🦰">cara | hombre | pelirrojo | persona | señor | tono de piel claro</annotation>
+		<annotation cp="👨🏻‍🦰">adulto | hombre | pelirrojo | tono de piel claro</annotation>
 		<annotation cp="👨🏻‍🦰" type="tts">hombre: tono de piel claro y pelirrojo</annotation>
-		<annotation cp="👨🏼‍🦰">cara | hombre | pelirrojo | persona | señor | tono de piel claro medio</annotation>
+		<annotation cp="👨🏼‍🦰">adulto | hombre | pelirrojo | tono de piel claro medio</annotation>
 		<annotation cp="👨🏼‍🦰" type="tts">hombre: tono de piel claro medio y pelirrojo</annotation>
-		<annotation cp="👨🏽‍🦰">cara | hombre | pelirrojo | persona | señor | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍🦰">adulto | hombre | pelirrojo | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍🦰" type="tts">hombre: tono de piel medio y pelirrojo</annotation>
-		<annotation cp="👨🏾‍🦰">cara | hombre | pelirrojo | persona | señor | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍🦰">adulto | hombre | pelirrojo | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍🦰" type="tts">hombre: tono de piel oscuro medio y pelirrojo</annotation>
-		<annotation cp="👨🏿‍🦰">cara | hombre | pelirrojo | persona | señor | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍🦰">adulto | hombre | pelirrojo | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍🦰" type="tts">hombre: tono de piel oscuro y pelirrojo</annotation>
-		<annotation cp="👨‍🦳">cara | hombre | pelo canoso | persona | señor</annotation>
+		<annotation cp="👨‍🦱">adulto | hombre | pelo rizado</annotation>
+		<annotation cp="👨🏻‍🦱">adulto | hombre | pelo rizado | tono de piel claro</annotation>
+		<annotation cp="👨🏼‍🦱">adulto | hombre | pelo rizado | tono de piel claro medio</annotation>
+		<annotation cp="👨🏽‍🦱">adulto | hombre | pelo rizado | tono de piel medio</annotation>
+		<annotation cp="👨🏾‍🦱">adulto | hombre | pelo rizado | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏿‍🦱">adulto | hombre | pelo rizado | tono de piel oscuro</annotation>
+		<annotation cp="👨‍🦳">adulto | hombre | pelo canoso</annotation>
 		<annotation cp="👨‍🦳" type="tts">hombre: pelo canoso</annotation>
-		<annotation cp="👨🏻‍🦳">cara | hombre | pelo canoso | persona | señor | tono de piel claro</annotation>
+		<annotation cp="👨🏻‍🦳">adulto | hombre | pelo canoso | tono de piel claro</annotation>
 		<annotation cp="👨🏻‍🦳" type="tts">hombre: tono de piel claro y pelo canoso</annotation>
-		<annotation cp="👨🏼‍🦳">cara | hombre | pelo canoso | persona | señor | tono de piel claro medio</annotation>
+		<annotation cp="👨🏼‍🦳">adulto | hombre | pelo canoso | tono de piel claro medio</annotation>
 		<annotation cp="👨🏼‍🦳" type="tts">hombre: tono de piel claro medio y pelo canoso</annotation>
-		<annotation cp="👨🏽‍🦳">cara | hombre | pelo canoso | persona | señor | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍🦳">adulto | hombre | pelo canoso | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍🦳" type="tts">hombre: tono de piel medio y pelo canoso</annotation>
-		<annotation cp="👨🏾‍🦳">cara | hombre | pelo canoso | persona | señor | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍🦳">adulto | hombre | pelo canoso | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍🦳" type="tts">hombre: tono de piel oscuro medio y pelo canoso</annotation>
-		<annotation cp="👨🏿‍🦳">cara | hombre | pelo canoso | persona | señor | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍🦳">adulto | hombre | pelo canoso | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍🦳" type="tts">hombre: tono de piel oscuro y pelo canoso</annotation>
-		<annotation cp="👨‍🦲">calvo | cara | hombre | persona | señor</annotation>
+		<annotation cp="👨‍🦲">adulto | calvo | hombre</annotation>
 		<annotation cp="👨‍🦲" type="tts">hombre: calvo</annotation>
-		<annotation cp="👨🏻‍🦲">calvo | cara | hombre | persona | señor | tono de piel claro</annotation>
+		<annotation cp="👨🏻‍🦲">adulto | calvo | hombre | tono de piel claro</annotation>
 		<annotation cp="👨🏻‍🦲" type="tts">hombre: tono de piel claro y calvo</annotation>
-		<annotation cp="👨🏼‍🦲">calvo | cara | hombre | persona | señor | tono de piel claro medio</annotation>
+		<annotation cp="👨🏼‍🦲">adulto | calvo | hombre | tono de piel claro medio</annotation>
 		<annotation cp="👨🏼‍🦲" type="tts">hombre: tono de piel claro medio y calvo</annotation>
-		<annotation cp="👨🏽‍🦲">calvo | cara | hombre | persona | señor | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍🦲">adulto | calvo | hombre | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍🦲" type="tts">hombre: tono de piel medio y calvo</annotation>
-		<annotation cp="👨🏾‍🦲">calvo | cara | hombre | persona | señor | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍🦲">adulto | calvo | hombre | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍🦲" type="tts">hombre: tono de piel oscuro medio y calvo</annotation>
-		<annotation cp="👨🏿‍🦲">calvo | cara | hombre | persona | señor | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍🦲">adulto | calvo | hombre | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">hombre: tono de piel oscuro y calvo</annotation>
+		<annotation cp="👩🏻">adulta | mujer | tono de piel claro</annotation>
+		<annotation cp="👩🏼">adulta | mujer | tono de piel claro medio</annotation>
+		<annotation cp="👩🏽">adulta | mujer | tono de piel medio</annotation>
+		<annotation cp="👩🏾">adulta | mujer | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏿">adulta | mujer | tono de piel oscuro</annotation>
 		<annotation cp="👱🏻‍♀">mujer | mujer: rubia | rubia | tono de piel claro</annotation>
 		<annotation cp="👱🏼‍♀">mujer | mujer: rubia | rubia | tono de piel claro medio</annotation>
 		<annotation cp="👱🏽‍♀">mujer | mujer: rubia | rubia | tono de piel medio</annotation>
 		<annotation cp="👱🏾‍♀">mujer | mujer: rubia | rubia | tono de piel oscuro medio</annotation>
 		<annotation cp="👱🏿‍♀">mujer | mujer: rubia | rubia | tono de piel oscuro</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👨🏻">beso | hombre | mujer | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👨🏻">beso | hombre | mujer | pareja | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">beso: mujer, hombre y tono de piel claro</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👨🏼">beso | hombre | mujer | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👨🏼">beso | hombre | mujer | pareja | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼" type="tts">beso: mujer, hombre, tono de piel claro y tono de piel claro medio</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👨🏽">beso | hombre | mujer | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👨🏽">beso | hombre | mujer | pareja | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏽" type="tts">beso: mujer, hombre, tono de piel claro y tono de piel medio</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👨🏾">beso | hombre | mujer | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👨🏾">beso | hombre | mujer | pareja | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏾" type="tts">beso: mujer, hombre, tono de piel claro y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👨🏿">beso | hombre | mujer | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👨🏿">beso | hombre | mujer | pareja | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏿" type="tts">beso: mujer, hombre, tono de piel claro y tono de piel oscuro</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👨🏻">beso | hombre | mujer | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👨🏻">beso | hombre | mujer | pareja | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👨🏻" type="tts">beso: mujer, hombre, tono de piel claro medio y tono de piel claro</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👨🏼">beso | hombre | mujer | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👨🏼">beso | hombre | mujer | pareja | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👨🏼" type="tts">beso: mujer, hombre y tono de piel claro medio</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👨🏽">beso | hombre | mujer | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👨🏽">beso | hombre | mujer | pareja | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👨🏽" type="tts">beso: mujer, hombre, tono de piel claro medio y tono de piel medio</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👨🏾">beso | hombre | mujer | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👨🏾">beso | hombre | mujer | pareja | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👨🏾" type="tts">beso: mujer, hombre, tono de piel claro medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👨🏿">beso | hombre | mujer | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👨🏿">beso | hombre | mujer | pareja | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👨🏿" type="tts">beso: mujer, hombre, tono de piel claro medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👨🏻">beso | hombre | mujer | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👨🏻">beso | hombre | mujer | pareja | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👨🏻" type="tts">beso: mujer, hombre, tono de piel medio y tono de piel claro</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👨🏼">beso | hombre | mujer | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👨🏼">beso | hombre | mujer | pareja | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👨🏼" type="tts">beso: mujer, hombre, tono de piel medio y tono de piel claro medio</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👨🏽">beso | hombre | mujer | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👨🏽">beso | hombre | mujer | pareja | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👨🏽" type="tts">beso: mujer, hombre y tono de piel medio</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👨🏾">beso | hombre | mujer | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👨🏾">beso | hombre | mujer | pareja | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👨🏾" type="tts">beso: mujer, hombre, tono de piel medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👨🏿">beso | hombre | mujer | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👨🏿">beso | hombre | mujer | pareja | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👨🏿" type="tts">beso: mujer, hombre, tono de piel medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👨🏻">beso | hombre | mujer | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👨🏻">beso | hombre | mujer | pareja | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👨🏻" type="tts">beso: mujer, hombre, tono de piel oscuro medio y tono de piel claro</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👨🏼">beso | hombre | mujer | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👨🏼">beso | hombre | mujer | pareja | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👨🏼" type="tts">beso: mujer, hombre, tono de piel oscuro medio y tono de piel claro medio</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👨🏽">beso | hombre | mujer | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👨🏽">beso | hombre | mujer | pareja | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👨🏽" type="tts">beso: mujer, hombre, tono de piel oscuro medio y tono de piel medio</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👨🏾">beso | hombre | mujer | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👨🏾">beso | hombre | mujer | pareja | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👨🏾" type="tts">beso: mujer, hombre y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👨🏿">beso | hombre | mujer | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👨🏿">beso | hombre | mujer | pareja | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👨🏿" type="tts">beso: mujer, hombre, tono de piel oscuro medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👨🏻">beso | hombre | mujer | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👨🏻">beso | hombre | mujer | pareja | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👨🏻" type="tts">beso: mujer, hombre, tono de piel oscuro y tono de piel claro</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👨🏼">beso | hombre | mujer | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👨🏼">beso | hombre | mujer | pareja | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👨🏼" type="tts">beso: mujer, hombre, tono de piel oscuro y tono de piel claro medio</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👨🏽">beso | hombre | mujer | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👨🏽">beso | hombre | mujer | pareja | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👨🏽" type="tts">beso: mujer, hombre, tono de piel oscuro y tono de piel medio</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👨🏾">beso | hombre | mujer | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👨🏾">beso | hombre | mujer | pareja | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👨🏾" type="tts">beso: mujer, hombre, tono de piel oscuro y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👨🏿">beso | hombre | mujer | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👨🏿">beso | hombre | mujer | pareja | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👨🏿" type="tts">beso: mujer, hombre y tono de piel oscuro</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👩🏻">beso | mujer | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👩🏻">beso | mujer | pareja | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👩🏻" type="tts">beso: mujer, mujer y tono de piel claro</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👩🏼">beso | mujer | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👩🏼">beso | mujer | pareja | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👩🏼" type="tts">beso: mujer, mujer, tono de piel claro y tono de piel claro medio</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👩🏽">beso | mujer | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👩🏽">beso | mujer | pareja | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👩🏽" type="tts">beso: mujer, mujer, tono de piel claro y tono de piel medio</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👩🏾">beso | mujer | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👩🏾">beso | mujer | pareja | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👩🏾" type="tts">beso: mujer, mujer, tono de piel claro y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏻‍❤‍💋‍👩🏿">beso | mujer | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏻‍❤‍💋‍👩🏿">beso | mujer | pareja | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👩🏿" type="tts">beso: mujer, mujer, tono de piel claro y tono de piel oscuro</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👩🏻">beso | mujer | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👩🏻">beso | mujer | pareja | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👩🏻" type="tts">beso: mujer, mujer, tono de piel claro medio y tono de piel claro</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👩🏼">beso | mujer | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👩🏼">beso | mujer | pareja | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👩🏼" type="tts">beso: mujer, mujer y tono de piel claro medio</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👩🏽">beso | mujer | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👩🏽">beso | mujer | pareja | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👩🏽" type="tts">beso: mujer, mujer, tono de piel claro medio y tono de piel medio</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👩🏾">beso | mujer | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👩🏾">beso | mujer | pareja | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👩🏾" type="tts">beso: mujer, mujer, tono de piel claro medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏼‍❤‍💋‍👩🏿">beso | mujer | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏼‍❤‍💋‍👩🏿">beso | mujer | pareja | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏼‍❤‍💋‍👩🏿" type="tts">beso: mujer, mujer, tono de piel claro medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👩🏻">beso | mujer | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👩🏻">beso | mujer | pareja | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👩🏻" type="tts">beso: mujer, mujer, tono de piel medio y tono de piel claro</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👩🏼">beso | mujer | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👩🏼">beso | mujer | pareja | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👩🏼" type="tts">beso: mujer, mujer, tono de piel medio y tono de piel claro medio</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👩🏽">beso | mujer | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👩🏽">beso | mujer | pareja | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👩🏽" type="tts">beso: mujer, mujer y tono de piel medio</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👩🏾">beso | mujer | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👩🏾">beso | mujer | pareja | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👩🏾" type="tts">beso: mujer, mujer, tono de piel medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏽‍❤‍💋‍👩🏿">beso | mujer | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏽‍❤‍💋‍👩🏿">beso | mujer | pareja | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏽‍❤‍💋‍👩🏿" type="tts">beso: mujer, mujer, tono de piel medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👩🏻">beso | mujer | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👩🏻">beso | mujer | pareja | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👩🏻" type="tts">beso: mujer, mujer, tono de piel oscuro medio y tono de piel claro</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👩🏼">beso | mujer | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👩🏼">beso | mujer | pareja | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👩🏼" type="tts">beso: mujer, mujer, tono de piel oscuro medio y tono de piel claro medio</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👩🏽">beso | mujer | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👩🏽">beso | mujer | pareja | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👩🏽" type="tts">beso: mujer, mujer, tono de piel oscuro medio y tono de piel medio</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👩🏾">beso | mujer | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👩🏾">beso | mujer | pareja | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👩🏾" type="tts">beso: mujer, mujer y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍❤‍💋‍👩🏿">beso | mujer | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍💋‍👩🏿">beso | mujer | pareja | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍💋‍👩🏿" type="tts">beso: mujer, mujer, tono de piel oscuro medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👩🏻">beso | mujer | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👩🏻">beso | mujer | pareja | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏻" type="tts">beso: mujer, mujer, tono de piel oscuro y tono de piel claro</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👩🏼">beso | mujer | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👩🏼">beso | mujer | pareja | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏼" type="tts">beso: mujer, mujer, tono de piel oscuro y tono de piel claro medio</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👩🏽">beso | mujer | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👩🏽">beso | mujer | pareja | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏽" type="tts">beso: mujer, mujer, tono de piel oscuro y tono de piel medio</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👩🏾">beso | mujer | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👩🏾">beso | mujer | pareja | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏾" type="tts">beso: mujer, mujer, tono de piel oscuro y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏿‍❤‍💋‍👩🏿">beso | mujer | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍💋‍👩🏿">beso | mujer | pareja | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏿" type="tts">beso: mujer, mujer y tono de piel oscuro</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏻">amor | corazón | hombre | mujer | pareja | pareja enamorada | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏻" type="tts">pareja enamorada: mujer, hombre y tono de piel claro</annotation>
@@ -627,47 +653,53 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏿‍❤‍👩🏾" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro y tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿">amor | corazón | mujer | pareja | pareja enamorada | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿" type="tts">pareja enamorada: mujer, mujer y tono de piel oscuro</annotation>
-		<annotation cp="👩‍🦰">cara | mujer | pelirrojo | persona | señora</annotation>
+		<annotation cp="👩‍🦰">adulta | mujer | pelirrojo</annotation>
 		<annotation cp="👩‍🦰" type="tts">mujer: pelirrojo</annotation>
-		<annotation cp="👩🏻‍🦰">cara | mujer | pelirrojo | persona | señora | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍🦰">adulta | mujer | pelirrojo | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍🦰" type="tts">mujer: tono de piel claro y pelirrojo</annotation>
-		<annotation cp="👩🏼‍🦰">cara | mujer | pelirrojo | persona | señora | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍🦰">adulta | mujer | pelirrojo | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍🦰" type="tts">mujer: tono de piel claro medio y pelirrojo</annotation>
-		<annotation cp="👩🏽‍🦰">cara | mujer | pelirrojo | persona | señora | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍🦰">adulta | mujer | pelirrojo | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍🦰" type="tts">mujer: tono de piel medio y pelirrojo</annotation>
-		<annotation cp="👩🏾‍🦰">cara | mujer | pelirrojo | persona | señora | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍🦰">adulta | mujer | pelirrojo | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍🦰" type="tts">mujer: tono de piel oscuro medio y pelirrojo</annotation>
-		<annotation cp="👩🏿‍🦰">cara | mujer | pelirrojo | persona | señora | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍🦰">adulta | mujer | pelirrojo | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍🦰" type="tts">mujer: tono de piel oscuro y pelirrojo</annotation>
-		<annotation cp="👩‍🦳">cara | mujer | pelo canoso | persona | señora</annotation>
+		<annotation cp="👩‍🦱">adulta | mujer | pelo rizado</annotation>
+		<annotation cp="👩🏻‍🦱">adulta | mujer | pelo rizado | tono de piel claro</annotation>
+		<annotation cp="👩🏼‍🦱">adulta | mujer | pelo rizado | tono de piel claro medio</annotation>
+		<annotation cp="👩🏽‍🦱">adulta | mujer | pelo rizado | tono de piel medio</annotation>
+		<annotation cp="👩🏾‍🦱">adulta | mujer | pelo rizado | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏿‍🦱">adulta | mujer | pelo rizado | tono de piel oscuro</annotation>
+		<annotation cp="👩‍🦳">adulta | mujer | pelo canoso</annotation>
 		<annotation cp="👩‍🦳" type="tts">mujer: pelo canoso</annotation>
-		<annotation cp="👩🏻‍🦳">cara | mujer | pelo canoso | persona | señora | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍🦳">adulta | mujer | pelo canoso | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍🦳" type="tts">mujer: tono de piel claro y pelo canoso</annotation>
-		<annotation cp="👩🏼‍🦳">cara | mujer | pelo canoso | persona | señora | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍🦳">adulta | mujer | pelo canoso | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍🦳" type="tts">mujer: tono de piel claro medio y pelo canoso</annotation>
-		<annotation cp="👩🏽‍🦳">cara | mujer | pelo canoso | persona | señora | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍🦳">adulta | mujer | pelo canoso | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍🦳" type="tts">mujer: tono de piel medio y pelo canoso</annotation>
-		<annotation cp="👩🏾‍🦳">cara | mujer | pelo canoso | persona | señora | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍🦳">adulta | mujer | pelo canoso | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍🦳" type="tts">mujer: tono de piel oscuro medio y pelo canoso</annotation>
-		<annotation cp="👩🏿‍🦳">cara | mujer | pelo canoso | persona | señora | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍🦳">adulta | mujer | pelo canoso | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍🦳" type="tts">mujer: tono de piel oscuro y pelo canoso</annotation>
-		<annotation cp="👩‍🦲">calvo | cara | mujer | persona | señora</annotation>
+		<annotation cp="👩‍🦲">adulta | calvo | mujer</annotation>
 		<annotation cp="👩‍🦲" type="tts">mujer: calvo</annotation>
-		<annotation cp="👩🏻‍🦲">calvo | cara | mujer | persona | señora | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍🦲">adulta | calvo | mujer | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍🦲" type="tts">mujer: tono de piel claro y calvo</annotation>
-		<annotation cp="👩🏼‍🦲">calvo | cara | mujer | persona | señora | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍🦲">adulta | calvo | mujer | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍🦲" type="tts">mujer: tono de piel claro medio y calvo</annotation>
-		<annotation cp="👩🏽‍🦲">calvo | cara | mujer | persona | señora | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍🦲">adulta | calvo | mujer | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍🦲" type="tts">mujer: tono de piel medio y calvo</annotation>
-		<annotation cp="👩🏾‍🦲">calvo | cara | mujer | persona | señora | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍🦲">adulta | calvo | mujer | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍🦲" type="tts">mujer: tono de piel oscuro medio y calvo</annotation>
-		<annotation cp="👩🏿‍🦲">calvo | cara | mujer | persona | señora | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍🦲">adulta | calvo | mujer | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">mujer: tono de piel oscuro y calvo</annotation>
-		<annotation cp="🧓🏻">adulto | género neutro | género no especificado | mayor | persona anciana | tono de piel claro</annotation>
-		<annotation cp="🧓🏼">adulto | género neutro | género no especificado | mayor | persona anciana | tono de piel claro medio</annotation>
-		<annotation cp="🧓🏽">adulto | género neutro | género no especificado | mayor | persona anciana | tono de piel medio</annotation>
-		<annotation cp="🧓🏾">adulto | género neutro | género no especificado | mayor | persona anciana | tono de piel oscuro medio</annotation>
-		<annotation cp="🧓🏿">adulto | género neutro | género no especificado | mayor | persona anciana | tono de piel oscuro</annotation>
+		<annotation cp="🧓🏻">adulto | adulto mayor | género neutro | género no especificado | tono de piel claro</annotation>
+		<annotation cp="🧓🏼">adulto | adulto mayor | género neutro | género no especificado | tono de piel claro medio</annotation>
+		<annotation cp="🧓🏽">adulto | adulto mayor | género neutro | género no especificado | tono de piel medio</annotation>
+		<annotation cp="🧓🏾">adulto | adulto mayor | género neutro | género no especificado | tono de piel oscuro medio</annotation>
+		<annotation cp="🧓🏿">adulto | adulto mayor | género neutro | género no especificado | tono de piel oscuro</annotation>
 		<annotation cp="👴🏻">adulto | anciano | hombre | hombre mayor | tono de piel claro</annotation>
 		<annotation cp="👴🏼">adulto | anciano | hombre | hombre mayor | tono de piel claro medio</annotation>
 		<annotation cp="👴🏽">adulto | anciano | hombre | hombre mayor | tono de piel medio</annotation>
@@ -783,6 +815,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾" type="tts">persona con la mano levantada: tono de piel oscuro medio</annotation>
 		<annotation cp="🙋🏿">gesto | levantar | mano | persona | persona con la mano levantada | tono de piel oscuro</annotation>
 		<annotation cp="🙋🏿" type="tts">persona con la mano levantada: tono de piel oscuro</annotation>
+		<annotation cp="🙇🏻">disculpa | perdón | persona haciendo una reverencia | reverencia | tono de piel claro</annotation>
+		<annotation cp="🙇🏼">disculpa | perdón | persona haciendo una reverencia | reverencia | tono de piel claro medio</annotation>
+		<annotation cp="🙇🏽">disculpa | perdón | persona haciendo una reverencia | reverencia | tono de piel medio</annotation>
+		<annotation cp="🙇🏾">disculpa | perdón | persona haciendo una reverencia | reverencia | tono de piel oscuro medio</annotation>
+		<annotation cp="🙇🏿">disculpa | perdón | persona haciendo una reverencia | reverencia | tono de piel oscuro</annotation>
 		<annotation cp="🤦🏻">cara | exasperación | frente | incredulidad | palma | persona con la mano en la frente | tono de piel claro</annotation>
 		<annotation cp="🤦🏼">cara | exasperación | frente | incredulidad | palma | persona con la mano en la frente | tono de piel claro medio</annotation>
 		<annotation cp="🤦🏽">cara | exasperación | frente | incredulidad | palma | persona con la mano en la frente | tono de piel medio</annotation>
@@ -928,11 +965,21 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏽‍🚒">bombero | tono de piel medio</annotation>
 		<annotation cp="🧑🏾‍🚒">bombero | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍🚒">bombero | tono de piel oscuro</annotation>
-		<annotation cp="🥷🏻">ninja | tono de piel claro</annotation>
-		<annotation cp="🥷🏼">ninja | tono de piel claro medio</annotation>
-		<annotation cp="🥷🏽">ninja | tono de piel medio</annotation>
-		<annotation cp="🥷🏾">ninja | tono de piel oscuro medio</annotation>
-		<annotation cp="🥷🏿">ninja | tono de piel oscuro</annotation>
+		<annotation cp="👮🏻">agente de policía | oficial | policía | tono de piel claro</annotation>
+		<annotation cp="👮🏼">agente de policía | oficial | policía | tono de piel claro medio</annotation>
+		<annotation cp="👮🏽">agente de policía | oficial | policía | tono de piel medio</annotation>
+		<annotation cp="👮🏾">agente de policía | oficial | policía | tono de piel oscuro medio</annotation>
+		<annotation cp="👮🏿">agente de policía | oficial | policía | tono de piel oscuro</annotation>
+		<annotation cp="🕵🏻">detective | espía | tono de piel claro</annotation>
+		<annotation cp="🕵🏼">detective | espía | tono de piel claro medio</annotation>
+		<annotation cp="🕵🏽">detective | espía | tono de piel medio</annotation>
+		<annotation cp="🕵🏾">detective | espía | tono de piel oscuro medio</annotation>
+		<annotation cp="🕵🏿">detective | espía | tono de piel oscuro</annotation>
+		<annotation cp="💂🏻">guardia | tono de piel claro</annotation>
+		<annotation cp="💂🏼">guardia | tono de piel claro medio</annotation>
+		<annotation cp="💂🏽">guardia | tono de piel medio</annotation>
+		<annotation cp="💂🏾">guardia | tono de piel oscuro medio</annotation>
+		<annotation cp="💂🏿">guardia | tono de piel oscuro</annotation>
 		<annotation cp="👷🏻">construcción | hombre | obrero | obrero de construcción | profesional de la construcción | tono de piel claro | trabajador</annotation>
 		<annotation cp="👷🏼">construcción | hombre | obrero | obrero de construcción | profesional de la construcción | tono de piel claro medio | trabajador</annotation>
 		<annotation cp="👷🏽">construcción | hombre | obrero | obrero de construcción | profesional de la construcción | tono de piel medio | trabajador</annotation>
@@ -943,6 +990,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤴🏽">cuento | fantasía | príncipe | tono de piel medio</annotation>
 		<annotation cp="🤴🏾">cuento | fantasía | príncipe | tono de piel oscuro medio</annotation>
 		<annotation cp="🤴🏿">cuento | fantasía | príncipe | tono de piel oscuro</annotation>
+		<annotation cp="👸🏻">cuento de hadas | fantasía | princesa | tono de piel claro</annotation>
+		<annotation cp="👸🏼">cuento de hadas | fantasía | princesa | tono de piel claro medio</annotation>
+		<annotation cp="👸🏽">cuento de hadas | fantasía | princesa | tono de piel medio</annotation>
+		<annotation cp="👸🏾">cuento de hadas | fantasía | princesa | tono de piel oscuro medio</annotation>
+		<annotation cp="👸🏿">cuento de hadas | fantasía | princesa | tono de piel oscuro</annotation>
+		<annotation cp="👳🏻">persona con turbante | tono de piel claro | turbante</annotation>
+		<annotation cp="👳🏼">persona con turbante | tono de piel claro medio | turbante</annotation>
+		<annotation cp="👳🏽">persona con turbante | tono de piel medio | turbante</annotation>
+		<annotation cp="👳🏾">persona con turbante | tono de piel oscuro medio | turbante</annotation>
+		<annotation cp="👳🏿">persona con turbante | tono de piel oscuro | turbante</annotation>
 		<annotation cp="👲🏻">gorro | gua pi mao | persona | persona con gorro chino | sombrero | tono de piel claro</annotation>
 		<annotation cp="👲🏻" type="tts">persona con gorro chino: tono de piel claro</annotation>
 		<annotation cp="👲🏼">gorro | gua pi mao | persona | persona con gorro chino | sombrero | tono de piel claro medio</annotation>
@@ -998,11 +1055,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦹🏽‍♀">supervillana | tono de piel medio</annotation>
 		<annotation cp="🦹🏾‍♀">supervillana | tono de piel oscuro medio</annotation>
 		<annotation cp="🦹🏿‍♀">supervillana | tono de piel oscuro</annotation>
+		<annotation cp="🧚🏻">hada | Oberon | Puck | Titania | tono de piel claro</annotation>
+		<annotation cp="🧚🏼">hada | Oberon | Puck | Titania | tono de piel claro medio</annotation>
+		<annotation cp="🧚🏽">hada | Oberon | Puck | Titania | tono de piel medio</annotation>
+		<annotation cp="🧚🏾">hada | Oberon | Puck | Titania | tono de piel oscuro medio</annotation>
+		<annotation cp="🧚🏿">hada | Oberon | Puck | Titania | tono de piel oscuro</annotation>
 		<annotation cp="🧜🏻‍♀">sirena | sirena mujer | tono de piel claro</annotation>
 		<annotation cp="🧜🏼‍♀">sirena | sirena mujer | tono de piel claro medio</annotation>
 		<annotation cp="🧜🏽‍♀">sirena | sirena mujer | tono de piel medio</annotation>
 		<annotation cp="🧜🏾‍♀">sirena | sirena mujer | tono de piel oscuro medio</annotation>
 		<annotation cp="🧜🏿‍♀">sirena | sirena mujer | tono de piel oscuro</annotation>
+		<annotation cp="🧝🏻">duende | magia | tono de piel claro</annotation>
+		<annotation cp="🧝🏻" type="tts">duende: tono de piel claro</annotation>
+		<annotation cp="🧝🏼">duende | magia | tono de piel claro medio</annotation>
+		<annotation cp="🧝🏼" type="tts">duende: tono de piel claro medio</annotation>
+		<annotation cp="🧝🏽">duende | magia | tono de piel medio</annotation>
+		<annotation cp="🧝🏽" type="tts">duende: tono de piel medio</annotation>
+		<annotation cp="🧝🏾">duende | magia | tono de piel oscuro medio</annotation>
+		<annotation cp="🧝🏾" type="tts">duende: tono de piel oscuro medio</annotation>
+		<annotation cp="🧝🏿">duende | magia | tono de piel oscuro</annotation>
+		<annotation cp="🧝🏿" type="tts">duende: tono de piel oscuro</annotation>
 		<annotation cp="💆🏻">masaje | masaje facial | relax | salón | spa | tono de piel claro</annotation>
 		<annotation cp="💆🏼">masaje | masaje facial | relax | salón | spa | tono de piel claro medio</annotation>
 		<annotation cp="💆🏽">masaje | masaje facial | relax | salón | spa | tono de piel medio</annotation>
@@ -1063,20 +1135,20 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏽‍🦽">persona en silla de ruedas manual | tono de piel medio</annotation>
 		<annotation cp="🧑🏾‍🦽">persona en silla de ruedas manual | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍🦽">persona en silla de ruedas manual | tono de piel oscuro</annotation>
-		<annotation cp="💃🏻">bailar | bailarín | bailarina | baile | flamenco | mujer bailando | tono de piel claro</annotation>
-		<annotation cp="💃🏼">bailar | bailarín | bailarina | baile | flamenco | mujer bailando | tono de piel claro medio</annotation>
-		<annotation cp="💃🏽">bailar | bailarín | bailarina | baile | flamenco | mujer bailando | tono de piel medio</annotation>
-		<annotation cp="💃🏾">bailar | bailarín | bailarina | baile | flamenco | mujer bailando | tono de piel oscuro medio</annotation>
-		<annotation cp="💃🏿">bailar | bailarín | bailarina | baile | flamenco | mujer bailando | tono de piel oscuro</annotation>
-		<annotation cp="🕴🏻">negocio | persona | persona en traje levitando | pesona en traje levitando | tono de piel claro | traje</annotation>
+		<annotation cp="💃🏻">bailar | baile | mujer | mujer bailando | tono de piel claro</annotation>
+		<annotation cp="💃🏼">bailar | baile | mujer | mujer bailando | tono de piel claro medio</annotation>
+		<annotation cp="💃🏽">bailar | baile | mujer | mujer bailando | tono de piel medio</annotation>
+		<annotation cp="💃🏾">bailar | baile | mujer | mujer bailando | tono de piel oscuro medio</annotation>
+		<annotation cp="💃🏿">bailar | baile | mujer | mujer bailando | tono de piel oscuro</annotation>
+		<annotation cp="🕴🏻">negocio | persona | persona en traje levitando | tono de piel claro | traje</annotation>
 		<annotation cp="🕴🏻" type="tts">persona en traje levitando: tono de piel claro</annotation>
-		<annotation cp="🕴🏼">negocio | persona | persona en traje levitando | pesona en traje levitando | tono de piel claro medio | traje</annotation>
+		<annotation cp="🕴🏼">negocio | persona | persona en traje levitando | tono de piel claro medio | traje</annotation>
 		<annotation cp="🕴🏼" type="tts">persona en traje levitando: tono de piel claro medio</annotation>
-		<annotation cp="🕴🏽">negocio | persona | persona en traje levitando | pesona en traje levitando | tono de piel medio | traje</annotation>
+		<annotation cp="🕴🏽">negocio | persona | persona en traje levitando | tono de piel medio | traje</annotation>
 		<annotation cp="🕴🏽" type="tts">persona en traje levitando: tono de piel medio</annotation>
-		<annotation cp="🕴🏾">negocio | persona | persona en traje levitando | pesona en traje levitando | tono de piel oscuro medio | traje</annotation>
+		<annotation cp="🕴🏾">negocio | persona | persona en traje levitando | tono de piel oscuro medio | traje</annotation>
 		<annotation cp="🕴🏾" type="tts">persona en traje levitando: tono de piel oscuro medio</annotation>
-		<annotation cp="🕴🏿">negocio | persona | persona en traje levitando | pesona en traje levitando | tono de piel oscuro | traje</annotation>
+		<annotation cp="🕴🏿">negocio | persona | persona en traje levitando | tono de piel oscuro | traje</annotation>
 		<annotation cp="🕴🏿" type="tts">persona en traje levitando: tono de piel oscuro</annotation>
 		<annotation cp="🧗🏻">alpinista | persona escalando | tono de piel claro</annotation>
 		<annotation cp="🧗🏼">alpinista | persona escalando | tono de piel claro medio</annotation>
@@ -1133,6 +1205,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="⛹🏾" type="tts">persona botando un balón: tono de piel oscuro medio</annotation>
 		<annotation cp="⛹🏿">balón | botar | pelota | persona botando un balón | tono de piel oscuro</annotation>
 		<annotation cp="⛹🏿" type="tts">persona botando un balón: tono de piel oscuro</annotation>
+		<annotation cp="🚵🏻">bicicleta | bicicleta de montaña | ciclista | montaña | persona | persona en bicicleta de montaña | tono de piel claro</annotation>
+		<annotation cp="🚵🏼">bicicleta | bicicleta de montaña | ciclista | montaña | persona | persona en bicicleta de montaña | tono de piel claro medio</annotation>
+		<annotation cp="🚵🏽">bicicleta | bicicleta de montaña | ciclista | montaña | persona | persona en bicicleta de montaña | tono de piel medio</annotation>
+		<annotation cp="🚵🏾">bicicleta | bicicleta de montaña | ciclista | montaña | persona | persona en bicicleta de montaña | tono de piel oscuro medio</annotation>
+		<annotation cp="🚵🏿">bicicleta | bicicleta de montaña | ciclista | montaña | persona | persona en bicicleta de montaña | tono de piel oscuro</annotation>
+		<annotation cp="🤸🏻">gimnasta | persona haciendo vuelta de carro | tono de piel claro | vuelta de carro</annotation>
+		<annotation cp="🤸🏻" type="tts">persona haciendo vuelta de carro: tono de piel claro</annotation>
+		<annotation cp="🤸🏼">gimnasta | persona haciendo vuelta de carro | tono de piel claro medio | vuelta de carro</annotation>
+		<annotation cp="🤸🏼" type="tts">persona haciendo vuelta de carro: tono de piel claro medio</annotation>
+		<annotation cp="🤸🏽">gimnasta | persona haciendo vuelta de carro | tono de piel medio | vuelta de carro</annotation>
+		<annotation cp="🤸🏽" type="tts">persona haciendo vuelta de carro: tono de piel medio</annotation>
+		<annotation cp="🤸🏾">gimnasta | persona haciendo vuelta de carro | tono de piel oscuro medio | vuelta de carro</annotation>
+		<annotation cp="🤸🏾" type="tts">persona haciendo vuelta de carro: tono de piel oscuro medio</annotation>
+		<annotation cp="🤸🏿">gimnasta | persona haciendo vuelta de carro | tono de piel oscuro | vuelta de carro</annotation>
+		<annotation cp="🤸🏿" type="tts">persona haciendo vuelta de carro: tono de piel oscuro</annotation>
+		<annotation cp="🤽🏻">agua | persona jugando al waterpolo | persona jugando waterpolo | polo acuático | tono de piel claro</annotation>
+		<annotation cp="🤽🏼">agua | persona jugando al waterpolo | persona jugando waterpolo | polo acuático | tono de piel claro medio</annotation>
+		<annotation cp="🤽🏽">agua | persona jugando al waterpolo | persona jugando waterpolo | polo acuático | tono de piel medio</annotation>
+		<annotation cp="🤽🏾">agua | persona jugando al waterpolo | persona jugando waterpolo | polo acuático | tono de piel oscuro medio</annotation>
+		<annotation cp="🤽🏿">agua | persona jugando al waterpolo | persona jugando waterpolo | polo acuático | tono de piel oscuro</annotation>
 		<annotation cp="🤾🏻">balonmano | handball | mano | pelota | persona | persona jugando handball | tono de piel claro</annotation>
 		<annotation cp="🤾🏻" type="tts">persona jugando handball: tono de piel claro</annotation>
 		<annotation cp="🤾🏼">balonmano | handball | mano | pelota | persona | persona jugando handball | tono de piel claro medio</annotation>
@@ -1153,6 +1245,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤾🏽‍♀">balonmano | handball | mano | mujer | mujer jugando handball | mujer jugando handboll | pelota | tono de piel medio</annotation>
 		<annotation cp="🤾🏾‍♀">balonmano | handball | mano | mujer | mujer jugando handball | mujer jugando handboll | pelota | tono de piel oscuro medio</annotation>
 		<annotation cp="🤾🏿‍♀">balonmano | handball | mano | mujer | mujer jugando handball | mujer jugando handboll | pelota | tono de piel oscuro</annotation>
+		<annotation cp="🤹🏻">equilibrio | habilidad | malabares | multitareas | persona haciendo malabares | tono de piel claro</annotation>
+		<annotation cp="🤹🏼">equilibrio | habilidad | malabares | multitareas | persona haciendo malabares | tono de piel claro medio</annotation>
+		<annotation cp="🤹🏽">equilibrio | habilidad | malabares | multitareas | persona haciendo malabares | tono de piel medio</annotation>
+		<annotation cp="🤹🏾">equilibrio | habilidad | malabares | multitareas | persona haciendo malabares | tono de piel oscuro medio</annotation>
+		<annotation cp="🤹🏿">equilibrio | habilidad | malabares | multitareas | persona haciendo malabares | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">personas que se toman de la mano | tono de piel claro</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">personas que se toman de la mano: tono de piel claro</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏼">personas que se toman de la mano | tono de piel claro | tono de piel claro medio</annotation>
@@ -1228,56 +1325,31 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏿‍🤝‍👩🏽">mano | mujeres | mujeres de la mano | pareja | tomándose de las manos | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏾">mano | mujeres | mujeres de la mano | pareja | tomándose de las manos | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👭🏿">mano | mujeres | mujeres de la mano | pareja | tomándose de las manos | tono de piel oscuro</annotation>
-		<annotation cp="👫🏻">hombre y mujer de la mano | tono de piel claro</annotation>
-		<annotation cp="👫🏻" type="tts">hombre y mujer de la mano: tono de piel claro</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">hombre y mujer de la mano | tono de piel claro | tono de piel claro medio</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">hombre y mujer de la mano: tono de piel claro y tono de piel claro medio</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">hombre y mujer de la mano | tono de piel claro | tono de piel medio</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">hombre y mujer de la mano: tono de piel claro y tono de piel medio</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">hombre y mujer de la mano | tono de piel claro | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">hombre y mujer de la mano: tono de piel claro y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">hombre y mujer de la mano | tono de piel claro | tono de piel oscuro</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">hombre y mujer de la mano: tono de piel claro y tono de piel oscuro</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">hombre y mujer de la mano | tono de piel claro | tono de piel claro medio</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">hombre y mujer de la mano: tono de piel claro medio y tono de piel claro</annotation>
-		<annotation cp="👫🏼">hombre y mujer de la mano | tono de piel claro medio</annotation>
-		<annotation cp="👫🏼" type="tts">hombre y mujer de la mano: tono de piel claro medio</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">hombre y mujer de la mano | tono de piel claro medio | tono de piel medio</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">hombre y mujer de la mano: tono de piel claro medio y tono de piel medio</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">hombre y mujer de la mano | tono de piel claro medio | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">hombre y mujer de la mano: tono de piel claro medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">hombre y mujer de la mano | tono de piel claro medio | tono de piel oscuro</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">hombre y mujer de la mano: tono de piel claro medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">hombre y mujer de la mano | tono de piel claro | tono de piel medio</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">hombre y mujer de la mano: tono de piel medio y tono de piel claro</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">hombre y mujer de la mano | tono de piel claro medio | tono de piel medio</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">hombre y mujer de la mano: tono de piel medio y tono de piel claro medio</annotation>
-		<annotation cp="👫🏽">hombre y mujer de la mano | tono de piel medio</annotation>
-		<annotation cp="👫🏽" type="tts">hombre y mujer de la mano: tono de piel medio</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">hombre y mujer de la mano | tono de piel medio | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">hombre y mujer de la mano: tono de piel medio y tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">hombre y mujer de la mano | tono de piel medio | tono de piel oscuro</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">hombre y mujer de la mano: tono de piel medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">hombre y mujer de la mano | tono de piel claro | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">hombre y mujer de la mano: tono de piel oscuro medio y tono de piel claro</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">hombre y mujer de la mano | tono de piel claro medio | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">hombre y mujer de la mano: tono de piel oscuro medio y tono de piel claro medio</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">hombre y mujer de la mano | tono de piel medio | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">hombre y mujer de la mano: tono de piel oscuro medio y tono de piel medio</annotation>
-		<annotation cp="👫🏾">hombre y mujer de la mano | tono de piel oscuro medio</annotation>
-		<annotation cp="👫🏾" type="tts">hombre y mujer de la mano: tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">hombre y mujer de la mano | tono de piel oscuro | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">hombre y mujer de la mano: tono de piel oscuro medio y tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">hombre y mujer de la mano | tono de piel claro | tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">hombre y mujer de la mano: tono de piel oscuro y tono de piel claro</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">hombre y mujer de la mano | tono de piel claro medio | tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">hombre y mujer de la mano: tono de piel oscuro y tono de piel claro medio</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">hombre y mujer de la mano | tono de piel medio | tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">hombre y mujer de la mano: tono de piel oscuro y tono de piel medio</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">hombre y mujer de la mano | tono de piel oscuro | tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">hombre y mujer de la mano: tono de piel oscuro y tono de piel oscuro medio</annotation>
-		<annotation cp="👫🏿">hombre y mujer de la mano | tono de piel oscuro</annotation>
-		<annotation cp="👫🏿" type="tts">hombre y mujer de la mano: tono de piel oscuro</annotation>
+		<annotation cp="👫🏻">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👫🏼">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👫🏽">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👫🏾">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👫🏿">hombre | hombre y mujer de la mano | mano | mujer | mujer y hombre de la mano | pareja | tomándose de la mano | tono de piel oscuro</annotation>
 		<annotation cp="👬🏻">dos hombres de la mano | gemelos | Géminis | hombre | hombres | pareja | tomándose de las manos | tono de piel claro</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏼">dos hombres de la mano | gemelos | Géminis | hombre | hombres | pareja | tomándose de las manos | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏽">dos hombres de la mano | gemelos | Géminis | hombre | hombres | pareja | tomándose de las manos | tono de piel claro | tono de piel medio</annotation>
@@ -1303,21 +1375,21 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏿‍🤝‍👨🏽">dos hombres de la mano | gemelos | Géminis | hombre | hombres | pareja | tomándose de las manos | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏾">dos hombres de la mano | gemelos | Géminis | hombre | hombres | pareja | tomándose de las manos | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👬🏿">dos hombres de la mano | gemelos | Géminis | hombre | hombres | pareja | tomándose de las manos | tono de piel oscuro</annotation>
-		<annotation cp="💏🏻">beso | tono de piel claro</annotation>
+		<annotation cp="💏🏻">beso | pareja | tono de piel claro</annotation>
 		<annotation cp="💏🏻" type="tts">beso: tono de piel claro</annotation>
-		<annotation cp="💏🏼">beso | tono de piel claro medio</annotation>
+		<annotation cp="💏🏼">beso | pareja | tono de piel claro medio</annotation>
 		<annotation cp="💏🏼" type="tts">beso: tono de piel claro medio</annotation>
-		<annotation cp="💏🏽">beso | tono de piel medio</annotation>
+		<annotation cp="💏🏽">beso | pareja | tono de piel medio</annotation>
 		<annotation cp="💏🏽" type="tts">beso: tono de piel medio</annotation>
-		<annotation cp="💏🏾">beso | tono de piel oscuro medio</annotation>
+		<annotation cp="💏🏾">beso | pareja | tono de piel oscuro medio</annotation>
 		<annotation cp="💏🏾" type="tts">beso: tono de piel oscuro medio</annotation>
-		<annotation cp="💏🏿">beso | tono de piel oscuro</annotation>
+		<annotation cp="💏🏿">beso | pareja | tono de piel oscuro</annotation>
 		<annotation cp="💏🏿" type="tts">beso: tono de piel oscuro</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">beso | hombre | mujer</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">beso | hombre | mujer | pareja</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">beso: mujer y hombre</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">beso | hombre</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">beso | hombre | pareja</annotation>
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">beso: hombre y hombre</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">beso | mujer</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">beso | mujer | pareja</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">beso: mujer y mujer</annotation>
 		<annotation cp="💑🏻">amor | corazón | pareja | pareja enamorada | tono de piel claro</annotation>
 		<annotation cp="💑🏼">amor | corazón | pareja | pareja enamorada | tono de piel claro medio</annotation>
@@ -1381,7 +1453,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟" type="tts">tecla: 10</annotation>
 		<annotation cp="🇦🇨" type="tts">bandera: Isla de la Ascensión</annotation>
 		<annotation cp="🇧🇦" type="tts">bandera: Bosnia y Herzegovina</annotation>
-		<annotation cp="🇨🇮" type="tts">bandera: Côte d’Ivoire</annotation>
+		<annotation cp="🇪🇭" type="tts">bandera: Sahara Occidental</annotation>
 		<annotation cp="🇬🇬" type="tts">bandera: Guernsey</annotation>
 		<annotation cp="🇹🇦" type="tts">bandera: Tristán de Acuña</annotation>
 		<annotation cp="🇺🇲" type="tts">bandera: Islas menores alejadas de EE. UU.</annotation>

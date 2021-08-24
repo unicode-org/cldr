@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -72,12 +72,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">naso: tono de pelle medio-obscur</annotation>
 		<annotation cp="👃🏿">corpore | naso | tono de pelle obscur</annotation>
 		<annotation cp="👃🏿" type="tts">naso: tono de pelle obscur</annotation>
+		<annotation cp="🤵🏻">fidantiato | homine | marito | persona in tuxedo | sponso | sposo | tono de pelle clar | tuxedo</annotation>
+		<annotation cp="🤵🏻" type="tts">persona in tuxedo: tono de pelle clar</annotation>
+		<annotation cp="🤵🏼">fidantiato | homine | marito | persona in tuxedo | sponso | sposo | tono de pelle medio clar | tuxedo</annotation>
+		<annotation cp="🤵🏼" type="tts">persona in tuxedo: tono de pelle medio clar</annotation>
+		<annotation cp="🤵🏽">fidantiato | homine | marito | persona in tuxedo | sponso | sposo | tono de pelle medie | tuxedo</annotation>
+		<annotation cp="🤵🏽" type="tts">persona in tuxedo: tono de pelle medie</annotation>
+		<annotation cp="🤵🏾">fidantiato | homine | marito | persona in tuxedo | sponso | sposo | tono de pelle medio-obscur | tuxedo</annotation>
+		<annotation cp="🤵🏾" type="tts">persona in tuxedo: tono de pelle medio-obscur</annotation>
+		<annotation cp="🤵🏿">fidantiato | homine | marito | persona in tuxedo | sponso | sposo | tono de pelle obscur | tuxedo</annotation>
+		<annotation cp="🤵🏿" type="tts">persona in tuxedo: tono de pelle obscur</annotation>
+		<annotation cp="👰🏻">femina | fidantiata | marita | persona con vela | sponsa | sposa | tono de pelle clar | vela</annotation>
+		<annotation cp="👰🏻" type="tts">persona con vela: tono de pelle clar</annotation>
+		<annotation cp="👰🏼">femina | fidantiata | marita | persona con vela | sponsa | sposa | tono de pelle medio clar | vela</annotation>
+		<annotation cp="👰🏼" type="tts">persona con vela: tono de pelle medio clar</annotation>
+		<annotation cp="👰🏽">femina | fidantiata | marita | persona con vela | sponsa | sposa | tono de pelle medie | vela</annotation>
+		<annotation cp="👰🏽" type="tts">persona con vela: tono de pelle medie</annotation>
+		<annotation cp="👰🏾">femina | fidantiata | marita | persona con vela | sponsa | sposa | tono de pelle medio-obscur | vela</annotation>
+		<annotation cp="👰🏾" type="tts">persona con vela: tono de pelle medio-obscur</annotation>
+		<annotation cp="👰🏿">femina | fidantiata | marita | persona con vela | sponsa | sposa | tono de pelle obscur | vela</annotation>
+		<annotation cp="👰🏿" type="tts">persona con vela: tono de pelle obscur</annotation>
 		<annotation cp="#⃣">clave</annotation>
 		<annotation cp="#⃣" type="tts">clave: #</annotation>
 		<annotation cp="*⃣">clave</annotation>
 		<annotation cp="*⃣" type="tts">clave: *</annotation>
 		<annotation cp="🔟">clave</annotation>
 		<annotation cp="🔟" type="tts">clave: 10</annotation>
+		<annotation cp="🇦🇨">bandiera</annotation>
+		<annotation cp="🇦🇨" type="tts">bandiera: Insula del Ascension</annotation>
 		<annotation cp="🇦🇩">bandiera</annotation>
 		<annotation cp="🇦🇩" type="tts">bandiera: Andorra</annotation>
 		<annotation cp="🇦🇪">bandiera</annotation>
@@ -86,6 +108,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇫" type="tts">bandiera: Afghanistan</annotation>
 		<annotation cp="🇦🇬">bandiera</annotation>
 		<annotation cp="🇦🇬" type="tts">bandiera: Antigua e Barbuda</annotation>
+		<annotation cp="🇦🇮">bandiera</annotation>
+		<annotation cp="🇦🇮" type="tts">bandiera: Anguilla</annotation>
 		<annotation cp="🇦🇱">bandiera</annotation>
 		<annotation cp="🇦🇱" type="tts">bandiera: Albania</annotation>
 		<annotation cp="🇦🇲">bandiera</annotation>
@@ -102,12 +126,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇹" type="tts">bandiera: Austria</annotation>
 		<annotation cp="🇦🇺">bandiera</annotation>
 		<annotation cp="🇦🇺" type="tts">bandiera: Australia</annotation>
+		<annotation cp="🇦🇼">bandiera</annotation>
+		<annotation cp="🇦🇼" type="tts">bandiera: Aruba</annotation>
 		<annotation cp="🇦🇽">bandiera</annotation>
 		<annotation cp="🇦🇽" type="tts">bandiera: Insulas Åland</annotation>
 		<annotation cp="🇦🇿">bandiera</annotation>
 		<annotation cp="🇦🇿" type="tts">bandiera: Azerbaidzhan</annotation>
 		<annotation cp="🇧🇦">bandiera</annotation>
 		<annotation cp="🇧🇦" type="tts">bandiera: Bosnia e Herzegovina</annotation>
+		<annotation cp="🇧🇧">bandiera</annotation>
+		<annotation cp="🇧🇧" type="tts">bandiera: Barbados</annotation>
 		<annotation cp="🇧🇩">bandiera</annotation>
 		<annotation cp="🇧🇩" type="tts">bandiera: Bangladesh</annotation>
 		<annotation cp="🇧🇪">bandiera</annotation>
@@ -116,14 +144,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇫" type="tts">bandiera: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">bandiera</annotation>
 		<annotation cp="🇧🇬" type="tts">bandiera: Bulgaria</annotation>
+		<annotation cp="🇧🇭">bandiera</annotation>
+		<annotation cp="🇧🇭" type="tts">bandiera: Bahrain</annotation>
 		<annotation cp="🇧🇮">bandiera</annotation>
 		<annotation cp="🇧🇮" type="tts">bandiera: Burundi</annotation>
 		<annotation cp="🇧🇯">bandiera</annotation>
 		<annotation cp="🇧🇯" type="tts">bandiera: Benin</annotation>
+		<annotation cp="🇧🇱">bandiera</annotation>
+		<annotation cp="🇧🇱" type="tts">bandiera: Sancte Bartholomeo</annotation>
 		<annotation cp="🇧🇲">bandiera</annotation>
 		<annotation cp="🇧🇲" type="tts">bandiera: Bermuda</annotation>
+		<annotation cp="🇧🇳">bandiera</annotation>
+		<annotation cp="🇧🇳" type="tts">bandiera: Brunei</annotation>
 		<annotation cp="🇧🇴">bandiera</annotation>
 		<annotation cp="🇧🇴" type="tts">bandiera: Bolivia</annotation>
+		<annotation cp="🇧🇶">bandiera</annotation>
+		<annotation cp="🇧🇶" type="tts">bandiera: Paises Basse caribe</annotation>
 		<annotation cp="🇧🇷">bandiera</annotation>
 		<annotation cp="🇧🇷" type="tts">bandiera: Brasil</annotation>
 		<annotation cp="🇧🇸">bandiera</annotation>
@@ -140,12 +176,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇿" type="tts">bandiera: Belize</annotation>
 		<annotation cp="🇨🇦">bandiera</annotation>
 		<annotation cp="🇨🇦" type="tts">bandiera: Canada</annotation>
+		<annotation cp="🇨🇨">bandiera</annotation>
+		<annotation cp="🇨🇨" type="tts">bandiera: Insulas Cocos (Keeling)</annotation>
+		<annotation cp="🇨🇩">bandiera</annotation>
+		<annotation cp="🇨🇩" type="tts">bandiera: Congo - Kinshasa</annotation>
 		<annotation cp="🇨🇫">bandiera</annotation>
 		<annotation cp="🇨🇫" type="tts">bandiera: Republica African Central</annotation>
 		<annotation cp="🇨🇬">bandiera</annotation>
-		<annotation cp="🇨🇬" type="tts">bandiera: Congo</annotation>
+		<annotation cp="🇨🇬" type="tts">bandiera: Congo - Brazzaville</annotation>
 		<annotation cp="🇨🇭">bandiera</annotation>
 		<annotation cp="🇨🇭" type="tts">bandiera: Suissa</annotation>
+		<annotation cp="🇨🇮">bandiera</annotation>
+		<annotation cp="🇨🇮" type="tts">bandiera: Costa de Ebore</annotation>
 		<annotation cp="🇨🇰">bandiera</annotation>
 		<annotation cp="🇨🇰" type="tts">bandiera: Insulas Cook</annotation>
 		<annotation cp="🇨🇱">bandiera</annotation>
@@ -156,10 +198,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇳" type="tts">bandiera: China</annotation>
 		<annotation cp="🇨🇴">bandiera</annotation>
 		<annotation cp="🇨🇴" type="tts">bandiera: Colombia</annotation>
+		<annotation cp="🇨🇵">bandiera</annotation>
+		<annotation cp="🇨🇵" type="tts">bandiera: Insula Clipperton</annotation>
 		<annotation cp="🇨🇷">bandiera</annotation>
 		<annotation cp="🇨🇷" type="tts">bandiera: Costa Rica</annotation>
 		<annotation cp="🇨🇺">bandiera</annotation>
 		<annotation cp="🇨🇺" type="tts">bandiera: Cuba</annotation>
+		<annotation cp="🇨🇻">bandiera</annotation>
+		<annotation cp="🇨🇻" type="tts">bandiera: Capo Verde</annotation>
+		<annotation cp="🇨🇼">bandiera</annotation>
+		<annotation cp="🇨🇼" type="tts">bandiera: Curaçao</annotation>
 		<annotation cp="🇨🇽">bandiera</annotation>
 		<annotation cp="🇨🇽" type="tts">bandiera: Insula de Natal</annotation>
 		<annotation cp="🇨🇾">bandiera</annotation>
@@ -168,12 +216,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇿" type="tts">bandiera: Chechia</annotation>
 		<annotation cp="🇩🇪">bandiera</annotation>
 		<annotation cp="🇩🇪" type="tts">bandiera: Germania</annotation>
+		<annotation cp="🇩🇬">bandiera</annotation>
+		<annotation cp="🇩🇬" type="tts">bandiera: Diego Garcia</annotation>
+		<annotation cp="🇩🇯">bandiera</annotation>
+		<annotation cp="🇩🇯" type="tts">bandiera: Djibuti</annotation>
 		<annotation cp="🇩🇰">bandiera</annotation>
 		<annotation cp="🇩🇰" type="tts">bandiera: Danmark</annotation>
+		<annotation cp="🇩🇲">bandiera</annotation>
+		<annotation cp="🇩🇲" type="tts">bandiera: Dominica</annotation>
 		<annotation cp="🇩🇴">bandiera</annotation>
 		<annotation cp="🇩🇴" type="tts">bandiera: Republica Dominican</annotation>
 		<annotation cp="🇩🇿">bandiera</annotation>
 		<annotation cp="🇩🇿" type="tts">bandiera: Algeria</annotation>
+		<annotation cp="🇪🇦">bandiera</annotation>
+		<annotation cp="🇪🇦" type="tts">bandiera: Ceuta e Melilla</annotation>
 		<annotation cp="🇪🇨">bandiera</annotation>
 		<annotation cp="🇪🇨" type="tts">bandiera: Ecuador</annotation>
 		<annotation cp="🇪🇪">bandiera</annotation>
@@ -192,6 +248,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇪🇺" type="tts">bandiera: Union Europee</annotation>
 		<annotation cp="🇫🇮">bandiera</annotation>
 		<annotation cp="🇫🇮" type="tts">bandiera: Finlandia</annotation>
+		<annotation cp="🇫🇯">bandiera</annotation>
+		<annotation cp="🇫🇯" type="tts">bandiera: Fiji</annotation>
+		<annotation cp="🇫🇰">bandiera</annotation>
+		<annotation cp="🇫🇰" type="tts">bandiera: Insulas Falkland</annotation>
 		<annotation cp="🇫🇲">bandiera</annotation>
 		<annotation cp="🇫🇲" type="tts">bandiera: Micronesia</annotation>
 		<annotation cp="🇫🇴">bandiera</annotation>
@@ -202,6 +262,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇦" type="tts">bandiera: Gabon</annotation>
 		<annotation cp="🇬🇧">bandiera</annotation>
 		<annotation cp="🇬🇧" type="tts">bandiera: Regno Unite</annotation>
+		<annotation cp="🇬🇩">bandiera</annotation>
+		<annotation cp="🇬🇩" type="tts">bandiera: Grenada</annotation>
 		<annotation cp="🇬🇪">bandiera</annotation>
 		<annotation cp="🇬🇪" type="tts">bandiera: Georgia</annotation>
 		<annotation cp="🇬🇫">bandiera</annotation>
@@ -218,14 +280,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇲" type="tts">bandiera: Gambia</annotation>
 		<annotation cp="🇬🇳">bandiera</annotation>
 		<annotation cp="🇬🇳" type="tts">bandiera: Guinea</annotation>
+		<annotation cp="🇬🇵">bandiera</annotation>
+		<annotation cp="🇬🇵" type="tts">bandiera: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">bandiera</annotation>
 		<annotation cp="🇬🇶" type="tts">bandiera: Guinea equatorial</annotation>
 		<annotation cp="🇬🇷">bandiera</annotation>
 		<annotation cp="🇬🇷" type="tts">bandiera: Grecia</annotation>
+		<annotation cp="🇬🇸">bandiera</annotation>
+		<annotation cp="🇬🇸" type="tts">bandiera: Georgia del Sud e Insulas Sandwich Austral</annotation>
 		<annotation cp="🇬🇹">bandiera</annotation>
 		<annotation cp="🇬🇹" type="tts">bandiera: Guatemala</annotation>
+		<annotation cp="🇬🇺">bandiera</annotation>
+		<annotation cp="🇬🇺" type="tts">bandiera: Guam</annotation>
 		<annotation cp="🇬🇼">bandiera</annotation>
 		<annotation cp="🇬🇼" type="tts">bandiera: Guinea-Bissau</annotation>
+		<annotation cp="🇬🇾">bandiera</annotation>
+		<annotation cp="🇬🇾" type="tts">bandiera: Guyana</annotation>
+		<annotation cp="🇭🇰">bandiera</annotation>
+		<annotation cp="🇭🇰" type="tts">bandiera: Hongkong, R.A.S. de China</annotation>
+		<annotation cp="🇭🇲">bandiera</annotation>
+		<annotation cp="🇭🇲" type="tts">bandiera: Insulas Heard e McDonald</annotation>
 		<annotation cp="🇭🇳">bandiera</annotation>
 		<annotation cp="🇭🇳" type="tts">bandiera: Honduras</annotation>
 		<annotation cp="🇭🇷">bandiera</annotation>
@@ -234,6 +308,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇭🇹" type="tts">bandiera: Haiti</annotation>
 		<annotation cp="🇭🇺">bandiera</annotation>
 		<annotation cp="🇭🇺" type="tts">bandiera: Hungaria</annotation>
+		<annotation cp="🇮🇨">bandiera</annotation>
+		<annotation cp="🇮🇨" type="tts">bandiera: Insulas Canari</annotation>
 		<annotation cp="🇮🇩">bandiera</annotation>
 		<annotation cp="🇮🇩" type="tts">bandiera: Indonesia</annotation>
 		<annotation cp="🇮🇪">bandiera</annotation>
@@ -256,6 +332,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇮🇹" type="tts">bandiera: Italia</annotation>
 		<annotation cp="🇯🇪">bandiera</annotation>
 		<annotation cp="🇯🇪" type="tts">bandiera: Jersey</annotation>
+		<annotation cp="🇯🇲">bandiera</annotation>
+		<annotation cp="🇯🇲" type="tts">bandiera: Jamaica</annotation>
 		<annotation cp="🇯🇴">bandiera</annotation>
 		<annotation cp="🇯🇴" type="tts">bandiera: Jordania</annotation>
 		<annotation cp="🇯🇵">bandiera</annotation>
@@ -276,10 +354,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇵" type="tts">bandiera: Corea del Nord</annotation>
 		<annotation cp="🇰🇷">bandiera</annotation>
 		<annotation cp="🇰🇷" type="tts">bandiera: Corea del Sud</annotation>
+		<annotation cp="🇰🇼">bandiera</annotation>
+		<annotation cp="🇰🇼" type="tts">bandiera: Kuwait</annotation>
 		<annotation cp="🇰🇾">bandiera</annotation>
 		<annotation cp="🇰🇾" type="tts">bandiera: Insulas de Caiman</annotation>
 		<annotation cp="🇰🇿">bandiera</annotation>
 		<annotation cp="🇰🇿" type="tts">bandiera: Kazakhstan</annotation>
+		<annotation cp="🇱🇦">bandiera</annotation>
+		<annotation cp="🇱🇦" type="tts">bandiera: Laos</annotation>
 		<annotation cp="🇱🇧">bandiera</annotation>
 		<annotation cp="🇱🇧" type="tts">bandiera: Libano</annotation>
 		<annotation cp="🇱🇨">bandiera</annotation>
@@ -308,24 +390,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇩" type="tts">bandiera: Moldavia</annotation>
 		<annotation cp="🇲🇪">bandiera</annotation>
 		<annotation cp="🇲🇪" type="tts">bandiera: Montenegro</annotation>
+		<annotation cp="🇲🇫">bandiera</annotation>
+		<annotation cp="🇲🇫" type="tts">bandiera: Sancte Martino francese</annotation>
 		<annotation cp="🇲🇬">bandiera</annotation>
 		<annotation cp="🇲🇬" type="tts">bandiera: Madagascar</annotation>
 		<annotation cp="🇲🇭">bandiera</annotation>
 		<annotation cp="🇲🇭" type="tts">bandiera: Insulas Marshall</annotation>
 		<annotation cp="🇲🇰">bandiera</annotation>
-		<annotation cp="🇲🇰" type="tts">bandiera: Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">bandiera: Macedonia del Nord</annotation>
 		<annotation cp="🇲🇱">bandiera</annotation>
 		<annotation cp="🇲🇱" type="tts">bandiera: Mali</annotation>
 		<annotation cp="🇲🇲">bandiera</annotation>
-		<annotation cp="🇲🇲" type="tts">bandiera: Birmania/Myanmar</annotation>
+		<annotation cp="🇲🇲" type="tts">bandiera: Myanmar (Birmania)</annotation>
 		<annotation cp="🇲🇳">bandiera</annotation>
 		<annotation cp="🇲🇳" type="tts">bandiera: Mongolia</annotation>
+		<annotation cp="🇲🇴">bandiera</annotation>
+		<annotation cp="🇲🇴" type="tts">bandiera: Macao, R.A.S. de China</annotation>
 		<annotation cp="🇲🇵">bandiera</annotation>
 		<annotation cp="🇲🇵" type="tts">bandiera: Insulas Marianna del Nord</annotation>
+		<annotation cp="🇲🇶">bandiera</annotation>
+		<annotation cp="🇲🇶" type="tts">bandiera: Martinica</annotation>
 		<annotation cp="🇲🇷">bandiera</annotation>
 		<annotation cp="🇲🇷" type="tts">bandiera: Mauritania</annotation>
+		<annotation cp="🇲🇸">bandiera</annotation>
+		<annotation cp="🇲🇸" type="tts">bandiera: Montserrat</annotation>
 		<annotation cp="🇲🇹">bandiera</annotation>
 		<annotation cp="🇲🇹" type="tts">bandiera: Malta</annotation>
+		<annotation cp="🇲🇺">bandiera</annotation>
+		<annotation cp="🇲🇺" type="tts">bandiera: Mauritio</annotation>
+		<annotation cp="🇲🇻">bandiera</annotation>
+		<annotation cp="🇲🇻" type="tts">bandiera: Maldivas</annotation>
 		<annotation cp="🇲🇼">bandiera</annotation>
 		<annotation cp="🇲🇼" type="tts">bandiera: Malawi</annotation>
 		<annotation cp="🇲🇽">bandiera</annotation>
@@ -352,6 +446,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇳🇴" type="tts">bandiera: Norvegia</annotation>
 		<annotation cp="🇳🇵">bandiera</annotation>
 		<annotation cp="🇳🇵" type="tts">bandiera: Nepal</annotation>
+		<annotation cp="🇳🇷">bandiera</annotation>
+		<annotation cp="🇳🇷" type="tts">bandiera: Nauru</annotation>
+		<annotation cp="🇳🇺">bandiera</annotation>
+		<annotation cp="🇳🇺" type="tts">bandiera: Niue</annotation>
 		<annotation cp="🇳🇿">bandiera</annotation>
 		<annotation cp="🇳🇿" type="tts">bandiera: Nove Zelanda</annotation>
 		<annotation cp="🇴🇲">bandiera</annotation>
@@ -372,10 +470,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇱" type="tts">bandiera: Polonia</annotation>
 		<annotation cp="🇵🇲">bandiera</annotation>
 		<annotation cp="🇵🇲" type="tts">bandiera: St. Pierre e Miquelon</annotation>
+		<annotation cp="🇵🇳">bandiera</annotation>
+		<annotation cp="🇵🇳" type="tts">bandiera: Insulas Pitcairn</annotation>
+		<annotation cp="🇵🇷">bandiera</annotation>
+		<annotation cp="🇵🇷" type="tts">bandiera: Porto Rico</annotation>
+		<annotation cp="🇵🇸">bandiera</annotation>
+		<annotation cp="🇵🇸" type="tts">bandiera: Territorios palestin</annotation>
 		<annotation cp="🇵🇹">bandiera</annotation>
 		<annotation cp="🇵🇹" type="tts">bandiera: Portugal</annotation>
+		<annotation cp="🇵🇼">bandiera</annotation>
+		<annotation cp="🇵🇼" type="tts">bandiera: Palau</annotation>
 		<annotation cp="🇵🇾">bandiera</annotation>
 		<annotation cp="🇵🇾" type="tts">bandiera: Paraguay</annotation>
+		<annotation cp="🇶🇦">bandiera</annotation>
+		<annotation cp="🇶🇦" type="tts">bandiera: Qatar</annotation>
+		<annotation cp="🇷🇪">bandiera</annotation>
+		<annotation cp="🇷🇪" type="tts">bandiera: Reunion</annotation>
 		<annotation cp="🇷🇴">bandiera</annotation>
 		<annotation cp="🇷🇴" type="tts">bandiera: Romania</annotation>
 		<annotation cp="🇷🇸">bandiera</annotation>
@@ -394,6 +504,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇩" type="tts">bandiera: Sudan</annotation>
 		<annotation cp="🇸🇪">bandiera</annotation>
 		<annotation cp="🇸🇪" type="tts">bandiera: Svedia</annotation>
+		<annotation cp="🇸🇬">bandiera</annotation>
+		<annotation cp="🇸🇬" type="tts">bandiera: Singapur</annotation>
+		<annotation cp="🇸🇭">bandiera</annotation>
+		<annotation cp="🇸🇭" type="tts">bandiera: Sancte Helena</annotation>
 		<annotation cp="🇸🇮">bandiera</annotation>
 		<annotation cp="🇸🇮" type="tts">bandiera: Slovenia</annotation>
 		<annotation cp="🇸🇯">bandiera</annotation>
@@ -412,12 +526,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇷" type="tts">bandiera: Suriname</annotation>
 		<annotation cp="🇸🇸">bandiera</annotation>
 		<annotation cp="🇸🇸" type="tts">bandiera: Sudan del Sud</annotation>
+		<annotation cp="🇸🇹">bandiera</annotation>
+		<annotation cp="🇸🇹" type="tts">bandiera: São Tomé e Príncipe</annotation>
 		<annotation cp="🇸🇻">bandiera</annotation>
 		<annotation cp="🇸🇻" type="tts">bandiera: El Salvador</annotation>
+		<annotation cp="🇸🇽">bandiera</annotation>
+		<annotation cp="🇸🇽" type="tts">bandiera: Sancte Martino nederlandese</annotation>
 		<annotation cp="🇸🇾">bandiera</annotation>
 		<annotation cp="🇸🇾" type="tts">bandiera: Syria</annotation>
 		<annotation cp="🇸🇿">bandiera</annotation>
-		<annotation cp="🇸🇿" type="tts">bandiera: Swazilandia</annotation>
+		<annotation cp="🇸🇿" type="tts">bandiera: Eswatini</annotation>
+		<annotation cp="🇹🇦">bandiera</annotation>
+		<annotation cp="🇹🇦" type="tts">bandiera: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">bandiera</annotation>
 		<annotation cp="🇹🇨" type="tts">bandiera: Insulas Turcos e Caicos</annotation>
 		<annotation cp="🇹🇩">bandiera</annotation>
@@ -454,6 +574,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇺🇦" type="tts">bandiera: Ukraina</annotation>
 		<annotation cp="🇺🇬">bandiera</annotation>
 		<annotation cp="🇺🇬" type="tts">bandiera: Uganda</annotation>
+		<annotation cp="🇺🇲">bandiera</annotation>
+		<annotation cp="🇺🇲" type="tts">bandiera: Insulas peripheric del SUA</annotation>
 		<annotation cp="🇺🇳">bandiera</annotation>
 		<annotation cp="🇺🇳" type="tts">bandiera: Nationes Unite</annotation>
 		<annotation cp="🇺🇸">bandiera</annotation>
@@ -468,16 +590,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇻🇨" type="tts">bandiera: Sancte Vincente e le Grenadinas</annotation>
 		<annotation cp="🇻🇪">bandiera</annotation>
 		<annotation cp="🇻🇪" type="tts">bandiera: Venezuela</annotation>
+		<annotation cp="🇻🇬">bandiera</annotation>
+		<annotation cp="🇻🇬" type="tts">bandiera: Insulas Virgine britannic</annotation>
+		<annotation cp="🇻🇮">bandiera</annotation>
+		<annotation cp="🇻🇮" type="tts">bandiera: Insulas Virgine statounitese</annotation>
+		<annotation cp="🇻🇳">bandiera</annotation>
+		<annotation cp="🇻🇳" type="tts">bandiera: Vietnam</annotation>
 		<annotation cp="🇻🇺">bandiera</annotation>
 		<annotation cp="🇻🇺" type="tts">bandiera: Vanuatu</annotation>
+		<annotation cp="🇼🇫">bandiera</annotation>
+		<annotation cp="🇼🇫" type="tts">bandiera: Wallis e Futuna</annotation>
 		<annotation cp="🇼🇸">bandiera</annotation>
 		<annotation cp="🇼🇸" type="tts">bandiera: Samoa</annotation>
 		<annotation cp="🇽🇰">bandiera</annotation>
 		<annotation cp="🇽🇰" type="tts">bandiera: Kosovo</annotation>
 		<annotation cp="🇾🇪">bandiera</annotation>
 		<annotation cp="🇾🇪" type="tts">bandiera: Yemen</annotation>
+		<annotation cp="🇾🇹">bandiera</annotation>
+		<annotation cp="🇾🇹" type="tts">bandiera: Mayotte</annotation>
 		<annotation cp="🇿🇦">bandiera</annotation>
-		<annotation cp="🇿🇦" type="tts">bandiera: Sudafrica</annotation>
+		<annotation cp="🇿🇦" type="tts">bandiera: Africa del Sud</annotation>
 		<annotation cp="🇿🇲">bandiera</annotation>
 		<annotation cp="🇿🇲" type="tts">bandiera: Zambia</annotation>
 		<annotation cp="🇿🇼">bandiera</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -15,6 +15,95 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="HK"/>
 	</identity>
 	<annotations>
+		<annotation cp="🫃🏻">大肚 | 懷孕 | 懷孕嘅男人 | 白皮膚 | 肚子 | 膨脹 | 臃腫</annotation>
+		<annotation cp="🫃🏻" type="tts">懷孕嘅男人: 白皮膚</annotation>
+		<annotation cp="🫃🏼">大肚 | 懷孕 | 懷孕嘅男人 | 肚子 | 膨脹 | 臃腫 | 黃皮膚</annotation>
+		<annotation cp="🫃🏼" type="tts">懷孕嘅男人: 黃皮膚</annotation>
+		<annotation cp="🫃🏽">中等皮膚 | 大肚 | 懷孕 | 懷孕嘅男人 | 肚子 | 膨脹 | 臃腫</annotation>
+		<annotation cp="🫃🏽" type="tts">懷孕嘅男人: 中等皮膚</annotation>
+		<annotation cp="🫃🏾">中深皮膚 | 大肚 | 懷孕 | 懷孕嘅男人 | 肚子 | 膨脹 | 臃腫</annotation>
+		<annotation cp="🫃🏾" type="tts">懷孕嘅男人: 中深皮膚</annotation>
+		<annotation cp="🫃🏿">大肚 | 懷孕 | 懷孕嘅男人 | 肚子 | 膨脹 | 臃腫 | 黑皮膚</annotation>
+		<annotation cp="🫃🏿" type="tts">懷孕嘅男人: 黑皮膚</annotation>
+		<annotation cp="🫄🏻">大肚 | 懷孕 | 懷孕的人 | 白皮膚 | 肚子 | 膨脹 | 臃腫</annotation>
+		<annotation cp="🫄🏼">大肚 | 懷孕 | 懷孕的人 | 肚子 | 膨脹 | 臃腫 | 黃皮膚</annotation>
+		<annotation cp="🫄🏽">中等皮膚 | 大肚 | 懷孕 | 懷孕的人 | 肚子 | 膨脹 | 臃腫</annotation>
+		<annotation cp="🫄🏽" type="tts">懷孕的人: 中等皮膚</annotation>
+		<annotation cp="🫄🏾">中深皮膚 | 大肚 | 懷孕 | 懷孕的人 | 肚子 | 膨脹 | 臃腫</annotation>
+		<annotation cp="🫄🏾" type="tts">懷孕的人: 中深皮膚</annotation>
+		<annotation cp="🫄🏿">大肚 | 懷孕 | 懷孕的人 | 肚子 | 膨脹 | 臃腫 | 黑皮膚</annotation>
+		<annotation cp="🫅🏽">中等皮膚 | 君主 | 戴皇冠的人 | 王室 | 皇家 | 貴族</annotation>
+		<annotation cp="🫅🏽" type="tts">戴皇冠的人: 中等皮膚</annotation>
+		<annotation cp="🫅🏾">中深皮膚 | 君主 | 戴皇冠的人 | 王室 | 皇家 | 貴族</annotation>
+		<annotation cp="🫅🏾" type="tts">戴皇冠的人: 中深皮膚</annotation>
+		<annotation cp="🫰🏽">中等皮膚 | 彈響指 | 愛 | 愛心 | 昂貴 | 錢 | 食指和拇指交叉的手</annotation>
+		<annotation cp="🫰🏽" type="tts">食指和拇指交叉的手: 中等皮膚</annotation>
+		<annotation cp="🫰🏾">中深皮膚 | 彈響指 | 愛 | 愛心 | 昂貴 | 錢 | 食指和拇指交叉的手</annotation>
+		<annotation cp="🫰🏾" type="tts">食指和拇指交叉的手: 中深皮膚</annotation>
+		<annotation cp="🫱🏽">中等皮膚 | 右 | 向右 | 向右的手 | 手</annotation>
+		<annotation cp="🫱🏽" type="tts">向右的手: 中等皮膚</annotation>
+		<annotation cp="🫱🏾">中深皮膚 | 右 | 向右 | 向右的手 | 手</annotation>
+		<annotation cp="🫱🏾" type="tts">向右的手: 中深皮膚</annotation>
+		<annotation cp="🫱🏻‍🫲🏽">中等皮膚 | 手 | 握 | 握手 | 白皮膚</annotation>
+		<annotation cp="🫱🏻‍🫲🏽" type="tts">握手: 白皮膚 中等皮膚</annotation>
+		<annotation cp="🫱🏻‍🫲🏾">中深皮膚 | 手 | 握 | 握手 | 白皮膚</annotation>
+		<annotation cp="🫱🏻‍🫲🏾" type="tts">握手: 白皮膚 中深皮膚</annotation>
+		<annotation cp="🫱🏼‍🫲🏽">中等皮膚 | 手 | 握 | 握手 | 黃皮膚</annotation>
+		<annotation cp="🫱🏼‍🫲🏽" type="tts">握手: 黃皮膚 中等皮膚</annotation>
+		<annotation cp="🫱🏼‍🫲🏾">中深皮膚 | 手 | 握 | 握手 | 黃皮膚</annotation>
+		<annotation cp="🫱🏼‍🫲🏾" type="tts">握手: 黃皮膚 中深皮膚</annotation>
+		<annotation cp="🫱🏽‍🫲🏻">中等皮膚 | 手 | 握 | 握手 | 白皮膚</annotation>
+		<annotation cp="🫱🏽‍🫲🏻" type="tts">握手: 中等皮膚 白皮膚</annotation>
+		<annotation cp="🫱🏽‍🫲🏼">中等皮膚 | 手 | 握 | 握手 | 黃皮膚</annotation>
+		<annotation cp="🫱🏽‍🫲🏼" type="tts">握手: 中等皮膚 黃皮膚</annotation>
+		<annotation cp="🫱🏽‍🫲🏾">中深皮膚 | 中等皮膚 | 手 | 握 | 握手</annotation>
+		<annotation cp="🫱🏽‍🫲🏾" type="tts">握手: 中等皮膚 中深皮膚</annotation>
+		<annotation cp="🫱🏽‍🫲🏿">中等皮膚 | 手 | 握 | 握手 | 黑皮膚</annotation>
+		<annotation cp="🫱🏽‍🫲🏿" type="tts">握手: 中等皮膚 黑皮膚</annotation>
+		<annotation cp="🫱🏾‍🫲🏻">中深皮膚 | 手 | 握 | 握手 | 白皮膚</annotation>
+		<annotation cp="🫱🏾‍🫲🏻" type="tts">握手: 中深皮膚 白皮膚</annotation>
+		<annotation cp="🫱🏾‍🫲🏼">中深皮膚 | 手 | 握 | 握手 | 黃皮膚</annotation>
+		<annotation cp="🫱🏾‍🫲🏼" type="tts">握手: 中深皮膚 黃皮膚</annotation>
+		<annotation cp="🫱🏾‍🫲🏽">中深皮膚 | 中等皮膚 | 手 | 握 | 握手</annotation>
+		<annotation cp="🫱🏾‍🫲🏽" type="tts">握手: 中深皮膚 中等皮膚</annotation>
+		<annotation cp="🫱🏾‍🫲🏿">中深皮膚 | 手 | 握 | 握手 | 黑皮膚</annotation>
+		<annotation cp="🫱🏾‍🫲🏿" type="tts">握手: 中深皮膚 黑皮膚</annotation>
+		<annotation cp="🫱🏿‍🫲🏽">中等皮膚 | 手 | 握 | 握手 | 黑皮膚</annotation>
+		<annotation cp="🫱🏿‍🫲🏽" type="tts">握手: 黑皮膚 中等皮膚</annotation>
+		<annotation cp="🫱🏿‍🫲🏾">中深皮膚 | 手 | 握 | 握手 | 黑皮膚</annotation>
+		<annotation cp="🫱🏿‍🫲🏾" type="tts">握手: 黑皮膚 中深皮膚</annotation>
+		<annotation cp="🫲🏽">中等皮膚 | 向左 | 向左的手 | 左 | 手</annotation>
+		<annotation cp="🫲🏽" type="tts">向左的手: 中等皮膚</annotation>
+		<annotation cp="🫲🏾">中深皮膚 | 向左 | 向左的手 | 左 | 手</annotation>
+		<annotation cp="🫲🏾" type="tts">向左的手: 中深皮膚</annotation>
+		<annotation cp="🫳🏽">中等皮膚 | 手掌向下 | 打發 | 放下 | 趕走</annotation>
+		<annotation cp="🫳🏽" type="tts">手掌向下: 中等皮膚</annotation>
+		<annotation cp="🫳🏾">中深皮膚 | 手掌向下 | 打發 | 放下 | 趕走</annotation>
+		<annotation cp="🫳🏾" type="tts">手掌向下: 中深皮膚</annotation>
+		<annotation cp="🫴🏽">中等皮膚 | 來 | 出示 | 召喚 | 手掌向上 | 接住</annotation>
+		<annotation cp="🫴🏽" type="tts">手掌向上: 中等皮膚</annotation>
+		<annotation cp="🫴🏾">中深皮膚 | 來 | 出示 | 召喚 | 手掌向上 | 接住</annotation>
+		<annotation cp="🫴🏾" type="tts">手掌向上: 中深皮膚</annotation>
+		<annotation cp="🫵🏻">你 | 對準 | 您 | 指向 | 白皮膚 | 食指指向觀眾</annotation>
+		<annotation cp="🫵🏻" type="tts">食指指向觀眾: 白皮膚</annotation>
+		<annotation cp="🫵🏼">你 | 對準 | 您 | 指向 | 食指指向觀眾 | 黃皮膚</annotation>
+		<annotation cp="🫵🏼" type="tts">食指指向觀眾: 黃皮膚</annotation>
+		<annotation cp="🫵🏽">中等皮膚 | 你 | 對準 | 您 | 指向 | 食指指向觀眾</annotation>
+		<annotation cp="🫵🏽" type="tts">食指指向觀眾: 中等皮膚</annotation>
+		<annotation cp="🫵🏾">中深皮膚 | 你 | 對準 | 您 | 指向 | 食指指向觀眾</annotation>
+		<annotation cp="🫵🏾" type="tts">食指指向觀眾: 中深皮膚</annotation>
+		<annotation cp="🫵🏿">你 | 對準 | 您 | 指向 | 食指指向觀眾 | 黑皮膚</annotation>
+		<annotation cp="🫵🏿" type="tts">食指指向觀眾: 黑皮膚</annotation>
+		<annotation cp="🫶🏻">愛心 | 白皮膚 | 雙手比心</annotation>
+		<annotation cp="🫶🏻" type="tts">雙手比心: 白皮膚</annotation>
+		<annotation cp="🫶🏼">愛心 | 雙手比心 | 黃皮膚</annotation>
+		<annotation cp="🫶🏼" type="tts">雙手比心: 黃皮膚</annotation>
+		<annotation cp="🫶🏽">中等皮膚 | 愛心 | 雙手比心</annotation>
+		<annotation cp="🫶🏽" type="tts">雙手比心: 中等皮膚</annotation>
+		<annotation cp="🫶🏾">中深皮膚 | 愛心 | 雙手比心</annotation>
+		<annotation cp="🫶🏾" type="tts">雙手比心: 中深皮膚</annotation>
+		<annotation cp="🫶🏿">愛心 | 雙手比心 | 黑皮膚</annotation>
+		<annotation cp="🫶🏿" type="tts">雙手比心: 黑皮膚</annotation>
 		<annotation cp="👋🏽">中等皮膚 | 手 | 揮手</annotation>
 		<annotation cp="👋🏽" type="tts">揮手: 中等皮膚</annotation>
 		<annotation cp="👋🏾">中深皮膚 | 手 | 揮手</annotation>
@@ -194,6 +283,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤲🏾" type="tts">雙手掌心向上: 中深皮膚</annotation>
 		<annotation cp="🤲🏿">祈禱 | 雙手掌心向上 | 黑皮膚</annotation>
 		<annotation cp="🤲🏿" type="tts">雙手掌心向上: 黑皮膚</annotation>
+		<annotation cp="🤝🏽">中等皮膚 | 手 | 握 | 握手</annotation>
+		<annotation cp="🤝🏽" type="tts">握手: 中等皮膚</annotation>
+		<annotation cp="🤝🏾">中深皮膚 | 手 | 握 | 握手</annotation>
+		<annotation cp="🤝🏾" type="tts">握手: 中深皮膚</annotation>
 		<annotation cp="🙏🏽">中等皮膚 | 感恩 | 雙手合一</annotation>
 		<annotation cp="🙏🏽" type="tts">感恩: 中等皮膚</annotation>
 		<annotation cp="🙏🏾">中深皮膚 | 感恩 | 雙手合一</annotation>

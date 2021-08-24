@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,15 +12,155 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ms"/>
 	</identity>
 	<annotations>
-		<annotation cp="👋🏻">badan | lambai | melambai | tangan | ton kulit cerah</annotation>
+		<annotation cp="🫃🏻">berangin | hamil | lelaki bunting | penuh | perut | ton kulit cerah</annotation>
+		<annotation cp="🫃🏻" type="tts">lelaki bunting: ton kulit cerah</annotation>
+		<annotation cp="🫃🏼">berangin | hamil | lelaki bunting | penuh | perut | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫃🏼" type="tts">lelaki bunting: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫃🏽">berangin | hamil | lelaki bunting | penuh | perut | ton kulit sederhana</annotation>
+		<annotation cp="🫃🏽" type="tts">lelaki bunting: ton kulit sederhana</annotation>
+		<annotation cp="🫃🏾">berangin | hamil | lelaki bunting | penuh | perut | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫃🏾" type="tts">lelaki bunting: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫃🏿">berangin | hamil | lelaki bunting | penuh | perut | ton kulit gelap</annotation>
+		<annotation cp="🫃🏿" type="tts">lelaki bunting: ton kulit gelap</annotation>
+		<annotation cp="🫄🏻">hamil | kembung | kenyang | orang hamil | perut | ton kulit cerah</annotation>
+		<annotation cp="🫄🏻" type="tts">orang hamil: ton kulit cerah</annotation>
+		<annotation cp="🫄🏼">hamil | kembung | kenyang | orang hamil | perut | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫄🏼" type="tts">orang hamil: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫄🏽">hamil | kembung | kenyang | orang hamil | perut | ton kulit sederhana</annotation>
+		<annotation cp="🫄🏽" type="tts">orang hamil: ton kulit sederhana</annotation>
+		<annotation cp="🫄🏾">hamil | kembung | kenyang | orang hamil | perut | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫄🏾" type="tts">orang hamil: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫄🏿">hamil | kembung | kenyang | orang hamil | perut | ton kulit gelap</annotation>
+		<annotation cp="🫄🏿" type="tts">orang hamil: ton kulit gelap</annotation>
+		<annotation cp="🫅🏻">agung | kerabat diraja | mulia | orang memakai mahkota | raja | ton kulit cerah</annotation>
+		<annotation cp="🫅🏻" type="tts">orang memakai mahkota: ton kulit cerah</annotation>
+		<annotation cp="🫅🏼">agung | kerabat diraja | mulia | orang memakai mahkota | raja | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫅🏼" type="tts">orang memakai mahkota: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫅🏽">agung | kerabat diraja | mulia | orang memakai mahkota | raja | ton kulit sederhana</annotation>
+		<annotation cp="🫅🏽" type="tts">orang memakai mahkota: ton kulit sederhana</annotation>
+		<annotation cp="🫅🏾">agung | kerabat diraja | mulia | orang memakai mahkota | raja | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫅🏾" type="tts">orang memakai mahkota: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫅🏿">agung | kerabat diraja | mulia | orang memakai mahkota | raja | ton kulit gelap</annotation>
+		<annotation cp="🫅🏿" type="tts">orang memakai mahkota: ton kulit gelap</annotation>
+		<annotation cp="🫰🏻">bentuk hati | mahal | petik | suka | tangan dengan jari telunjuk dan ibu jari bersilang | ton kulit cerah | wang</annotation>
+		<annotation cp="🫰🏻" type="tts">tangan dengan jari telunjuk dan ibu jari bersilang: ton kulit cerah</annotation>
+		<annotation cp="🫰🏼">bentuk hati | mahal | petik | suka | tangan dengan jari telunjuk dan ibu jari bersilang | ton kulit sederhana cerah | wang</annotation>
+		<annotation cp="🫰🏼" type="tts">tangan dengan jari telunjuk dan ibu jari bersilang: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫰🏽">bentuk hati | mahal | petik | suka | tangan dengan jari telunjuk dan ibu jari bersilang | ton kulit sederhana | wang</annotation>
+		<annotation cp="🫰🏽" type="tts">tangan dengan jari telunjuk dan ibu jari bersilang: ton kulit sederhana</annotation>
+		<annotation cp="🫰🏾">bentuk hati | mahal | petik | suka | tangan dengan jari telunjuk dan ibu jari bersilang | ton kulit sederhana gelap | wang</annotation>
+		<annotation cp="🫰🏾" type="tts">tangan dengan jari telunjuk dan ibu jari bersilang: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫰🏿">bentuk hati | mahal | petik | suka | tangan dengan jari telunjuk dan ibu jari bersilang | ton kulit gelap | wang</annotation>
+		<annotation cp="🫰🏿" type="tts">tangan dengan jari telunjuk dan ibu jari bersilang: ton kulit gelap</annotation>
+		<annotation cp="🫱🏻">arah kanan | kanan | tangan | ton kulit cerah</annotation>
+		<annotation cp="🫱🏻" type="tts">tangan kanan: ton kulit cerah</annotation>
+		<annotation cp="🫱🏼">arah kanan | kanan | tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏼" type="tts">tangan kanan: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏽">arah kanan | kanan | tangan | ton kulit sederhana</annotation>
+		<annotation cp="🫱🏽" type="tts">tangan kanan: ton kulit sederhana</annotation>
+		<annotation cp="🫱🏾">arah kanan | kanan | tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏾" type="tts">tangan kanan: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏿">arah kanan | kanan | tangan | ton kulit gelap</annotation>
+		<annotation cp="🫱🏿" type="tts">tangan kanan: ton kulit gelap</annotation>
+		<annotation cp="🫱🏻‍🫲🏼">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏻‍🫲🏼" type="tts">berjabat tangan: ton kulit cerah dan ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏻‍🫲🏽">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit sederhana</annotation>
+		<annotation cp="🫱🏻‍🫲🏽" type="tts">berjabat tangan: ton kulit cerah dan ton kulit sederhana</annotation>
+		<annotation cp="🫱🏻‍🫲🏾">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏻‍🫲🏾" type="tts">berjabat tangan: ton kulit cerah dan ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏻‍🫲🏿">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit gelap</annotation>
+		<annotation cp="🫱🏻‍🫲🏿" type="tts">berjabat tangan: ton kulit cerah dan ton kulit gelap</annotation>
+		<annotation cp="🫱🏼‍🫲🏻">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏼‍🫲🏻" type="tts">berjabat tangan: ton kulit sederhana cerah dan ton kulit cerah</annotation>
+		<annotation cp="🫱🏼‍🫲🏽">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏼‍🫲🏽" type="tts">berjabat tangan: ton kulit sederhana cerah dan ton kulit sederhana</annotation>
+		<annotation cp="🫱🏼‍🫲🏾">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana cerah | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏼‍🫲🏾" type="tts">berjabat tangan: ton kulit sederhana cerah dan ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏼‍🫲🏿">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit gelap | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏼‍🫲🏿" type="tts">berjabat tangan: ton kulit sederhana cerah dan ton kulit gelap</annotation>
+		<annotation cp="🫱🏽‍🫲🏻">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit sederhana</annotation>
+		<annotation cp="🫱🏽‍🫲🏻" type="tts">berjabat tangan: ton kulit sederhana dan ton kulit cerah</annotation>
+		<annotation cp="🫱🏽‍🫲🏼">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏽‍🫲🏼" type="tts">berjabat tangan: ton kulit sederhana dan ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏽‍🫲🏾">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏽‍🫲🏾" type="tts">berjabat tangan: ton kulit sederhana dan ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏽‍🫲🏿">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit gelap | ton kulit sederhana</annotation>
+		<annotation cp="🫱🏽‍🫲🏿" type="tts">berjabat tangan: ton kulit sederhana dan ton kulit gelap</annotation>
+		<annotation cp="🫱🏾‍🫲🏻">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏾‍🫲🏻" type="tts">berjabat tangan: ton kulit sederhana gelap dan ton kulit cerah</annotation>
+		<annotation cp="🫱🏾‍🫲🏼">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana cerah | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏾‍🫲🏼" type="tts">berjabat tangan: ton kulit sederhana gelap dan ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏾‍🫲🏽">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏾‍🫲🏽" type="tts">berjabat tangan: ton kulit sederhana gelap dan ton kulit sederhana</annotation>
+		<annotation cp="🫱🏾‍🫲🏿">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit gelap | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏾‍🫲🏿" type="tts">berjabat tangan: ton kulit sederhana gelap dan ton kulit gelap</annotation>
+		<annotation cp="🫱🏿‍🫲🏻">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah | ton kulit gelap</annotation>
+		<annotation cp="🫱🏿‍🫲🏻" type="tts">berjabat tangan: ton kulit gelap dan ton kulit cerah</annotation>
+		<annotation cp="🫱🏿‍🫲🏼">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit gelap | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏿‍🫲🏼" type="tts">berjabat tangan: ton kulit gelap dan ton kulit sederhana cerah</annotation>
+		<annotation cp="🫱🏿‍🫲🏽">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit gelap | ton kulit sederhana</annotation>
+		<annotation cp="🫱🏿‍🫲🏽" type="tts">berjabat tangan: ton kulit gelap dan ton kulit sederhana</annotation>
+		<annotation cp="🫱🏿‍🫲🏾">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit gelap | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫱🏿‍🫲🏾" type="tts">berjabat tangan: ton kulit gelap dan ton kulit sederhana gelap</annotation>
+		<annotation cp="🫲🏻">arah kiri | kiri | tangan | ton kulit cerah</annotation>
+		<annotation cp="🫲🏻" type="tts">tangan kiri: ton kulit cerah</annotation>
+		<annotation cp="🫲🏼">arah kiri | kiri | tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫲🏼" type="tts">tangan kiri: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫲🏽">arah kiri | kiri | tangan | ton kulit sederhana</annotation>
+		<annotation cp="🫲🏽" type="tts">tangan kiri: ton kulit sederhana</annotation>
+		<annotation cp="🫲🏾">arah kiri | kiri | tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫲🏾" type="tts">tangan kiri: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫲🏿">arah kiri | kiri | tangan | ton kulit gelap</annotation>
+		<annotation cp="🫲🏿" type="tts">tangan kiri: ton kulit gelap</annotation>
+		<annotation cp="🫳🏻">abaikan | jatuhkan | syuh | tapak tangan ke bawah | ton kulit cerah</annotation>
+		<annotation cp="🫳🏻" type="tts">tapak tangan ke bawah: ton kulit cerah</annotation>
+		<annotation cp="🫳🏼">abaikan | jatuhkan | syuh | tapak tangan ke bawah | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫳🏼" type="tts">tapak tangan ke bawah: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫳🏽">abaikan | jatuhkan | syuh | tapak tangan ke bawah | ton kulit sederhana</annotation>
+		<annotation cp="🫳🏽" type="tts">tapak tangan ke bawah: ton kulit sederhana</annotation>
+		<annotation cp="🫳🏾">abaikan | jatuhkan | syuh | tapak tangan ke bawah | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫳🏾" type="tts">tapak tangan ke bawah: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫳🏿">abaikan | jatuhkan | syuh | tapak tangan ke bawah | ton kulit gelap</annotation>
+		<annotation cp="🫳🏿" type="tts">tapak tangan ke bawah: ton kulit gelap</annotation>
+		<annotation cp="🫴🏻">ajak | mari | tangkap | tapak tangan ke atas | tawarkan | ton kulit cerah</annotation>
+		<annotation cp="🫴🏻" type="tts">tapak tangan ke atas: ton kulit cerah</annotation>
+		<annotation cp="🫴🏼">ajak | mari | tangkap | tapak tangan ke atas | tawarkan | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫴🏼" type="tts">tapak tangan ke atas: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫴🏽">ajak | mari | tangkap | tapak tangan ke atas | tawarkan | ton kulit sederhana</annotation>
+		<annotation cp="🫴🏽" type="tts">tapak tangan ke atas: ton kulit sederhana</annotation>
+		<annotation cp="🫴🏾">ajak | mari | tangkap | tapak tangan ke atas | tawarkan | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫴🏾" type="tts">tapak tangan ke atas: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫴🏿">ajak | mari | tangkap | tapak tangan ke atas | tawarkan | ton kulit gelap</annotation>
+		<annotation cp="🫴🏿" type="tts">tapak tangan ke atas: ton kulit gelap</annotation>
+		<annotation cp="🫵🏻">anda | jari telunjuk menunjuk ke arah pemandang | ton kulit cerah | tunjuk</annotation>
+		<annotation cp="🫵🏻" type="tts">jari telunjuk menunjuk ke arah pemandang: ton kulit cerah</annotation>
+		<annotation cp="🫵🏼">anda | jari telunjuk menunjuk ke arah pemandang | ton kulit sederhana cerah | tunjuk</annotation>
+		<annotation cp="🫵🏼" type="tts">jari telunjuk menunjuk ke arah pemandang: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫵🏽">anda | jari telunjuk menunjuk ke arah pemandang | ton kulit sederhana | tunjuk</annotation>
+		<annotation cp="🫵🏽" type="tts">jari telunjuk menunjuk ke arah pemandang: ton kulit sederhana</annotation>
+		<annotation cp="🫵🏾">anda | jari telunjuk menunjuk ke arah pemandang | ton kulit sederhana gelap | tunjuk</annotation>
+		<annotation cp="🫵🏾" type="tts">jari telunjuk menunjuk ke arah pemandang: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫵🏿">anda | jari telunjuk menunjuk ke arah pemandang | ton kulit gelap | tunjuk</annotation>
+		<annotation cp="🫵🏿" type="tts">jari telunjuk menunjuk ke arah pemandang: ton kulit gelap</annotation>
+		<annotation cp="🫶🏻">cinta | tangan berbentuk hati | ton kulit cerah</annotation>
+		<annotation cp="🫶🏻" type="tts">tangan berbentuk hati: ton kulit cerah</annotation>
+		<annotation cp="🫶🏼">cinta | tangan berbentuk hati | ton kulit sederhana cerah</annotation>
+		<annotation cp="🫶🏼" type="tts">tangan berbentuk hati: ton kulit sederhana cerah</annotation>
+		<annotation cp="🫶🏽">cinta | tangan berbentuk hati | ton kulit sederhana</annotation>
+		<annotation cp="🫶🏽" type="tts">tangan berbentuk hati: ton kulit sederhana</annotation>
+		<annotation cp="🫶🏾">cinta | tangan berbentuk hati | ton kulit sederhana gelap</annotation>
+		<annotation cp="🫶🏾" type="tts">tangan berbentuk hati: ton kulit sederhana gelap</annotation>
+		<annotation cp="🫶🏿">cinta | tangan berbentuk hati | ton kulit gelap</annotation>
+		<annotation cp="🫶🏿" type="tts">tangan berbentuk hati: ton kulit gelap</annotation>
+		<annotation cp="👋🏻">lambai | melambai | tangan | ton kulit cerah</annotation>
 		<annotation cp="👋🏻" type="tts">lambai tangan: ton kulit cerah</annotation>
-		<annotation cp="👋🏼">badan | lambai | melambai | tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="👋🏼">lambai | melambai | tangan | ton kulit sederhana cerah</annotation>
 		<annotation cp="👋🏼" type="tts">lambai tangan: ton kulit sederhana cerah</annotation>
-		<annotation cp="👋🏽">badan | lambai | melambai | tangan | ton kulit sederhana</annotation>
+		<annotation cp="👋🏽">lambai | melambai | tangan | ton kulit sederhana</annotation>
 		<annotation cp="👋🏽" type="tts">lambai tangan: ton kulit sederhana</annotation>
-		<annotation cp="👋🏾">badan | lambai | melambai | tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="👋🏾">lambai | melambai | tangan | ton kulit sederhana gelap</annotation>
 		<annotation cp="👋🏾" type="tts">lambai tangan: ton kulit sederhana gelap</annotation>
-		<annotation cp="👋🏿">badan | lambai | melambai | tangan | ton kulit gelap</annotation>
+		<annotation cp="👋🏿">lambai | melambai | tangan | ton kulit gelap</annotation>
 		<annotation cp="👋🏿" type="tts">lambai tangan: ton kulit gelap</annotation>
 		<annotation cp="🤚🏻">angkat | angkat belakang tapak tangan | tapak tangan | ton kulit cerah</annotation>
 		<annotation cp="🤚🏻" type="tts">angkat belakang tapak tangan: ton kulit cerah</annotation>
@@ -282,15 +422,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">orang mengangkat tangan: ton kulit sederhana gelap</annotation>
 		<annotation cp="🙌🏿">angkat | badan | hore | isyarat | orang mengangkat tangan | perayaan | tangan | ton kulit gelap</annotation>
 		<annotation cp="🙌🏿" type="tts">orang mengangkat tangan: ton kulit gelap</annotation>
-		<annotation cp="👐🏻">badan | tangan | terbuka | ton kulit cerah</annotation>
+		<annotation cp="👐🏻">tangan | terbuka | ton kulit cerah</annotation>
 		<annotation cp="👐🏻" type="tts">tangan terbuka: ton kulit cerah</annotation>
-		<annotation cp="👐🏼">badan | tangan | terbuka | ton kulit sederhana cerah</annotation>
+		<annotation cp="👐🏼">tangan | terbuka | ton kulit sederhana cerah</annotation>
 		<annotation cp="👐🏼" type="tts">tangan terbuka: ton kulit sederhana cerah</annotation>
-		<annotation cp="👐🏽">badan | tangan | terbuka | ton kulit sederhana</annotation>
+		<annotation cp="👐🏽">tangan | terbuka | ton kulit sederhana</annotation>
 		<annotation cp="👐🏽" type="tts">tangan terbuka: ton kulit sederhana</annotation>
-		<annotation cp="👐🏾">badan | tangan | terbuka | ton kulit sederhana gelap</annotation>
+		<annotation cp="👐🏾">tangan | terbuka | ton kulit sederhana gelap</annotation>
 		<annotation cp="👐🏾" type="tts">tangan terbuka: ton kulit sederhana gelap</annotation>
-		<annotation cp="👐🏿">badan | tangan | terbuka | ton kulit gelap</annotation>
+		<annotation cp="👐🏿">tangan | terbuka | ton kulit gelap</annotation>
 		<annotation cp="👐🏿" type="tts">tangan terbuka: ton kulit gelap</annotation>
 		<annotation cp="🤲🏻">berdoa | tapak tangan rapat | ton kulit cerah</annotation>
 		<annotation cp="🤲🏻" type="tts">tapak tangan rapat: ton kulit cerah</annotation>
@@ -302,6 +442,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤲🏾" type="tts">tapak tangan rapat: ton kulit sederhana gelap</annotation>
 		<annotation cp="🤲🏿">berdoa | tapak tangan rapat | ton kulit gelap</annotation>
 		<annotation cp="🤲🏿" type="tts">tapak tangan rapat: ton kulit gelap</annotation>
+		<annotation cp="🤝🏻">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit cerah</annotation>
+		<annotation cp="🤝🏻" type="tts">berjabat tangan: ton kulit cerah</annotation>
+		<annotation cp="🤝🏼">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤝🏼" type="tts">berjabat tangan: ton kulit sederhana cerah</annotation>
+		<annotation cp="🤝🏽">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana</annotation>
+		<annotation cp="🤝🏽" type="tts">berjabat tangan: ton kulit sederhana</annotation>
+		<annotation cp="🤝🏾">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤝🏾" type="tts">berjabat tangan: ton kulit sederhana gelap</annotation>
+		<annotation cp="🤝🏿">berjabat tangan | perjumpaan | persetujuan | tangan | ton kulit gelap</annotation>
+		<annotation cp="🤝🏿" type="tts">berjabat tangan: ton kulit gelap</annotation>
 		<annotation cp="🙏🏻">doa | menyusun jari | tangan | tanya | terima kasih | tolong | ton kulit cerah</annotation>
 		<annotation cp="🙏🏻" type="tts">menyusun jari: ton kulit cerah</annotation>
 		<annotation cp="🙏🏼">doa | menyusun jari | tangan | tanya | terima kasih | tolong | ton kulit sederhana cerah</annotation>
@@ -2216,15 +2366,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🎄" type="tts">orang claus: ton kulit sederhana gelap</annotation>
 		<annotation cp="🧑🏿‍🎄">Claus, krismas | orang claus | ton kulit gelap</annotation>
 		<annotation cp="🧑🏿‍🎄" type="tts">orang claus: ton kulit gelap</annotation>
-		<annotation cp="🦸🏻">adi wira | adiwira | baik | sangat berkuasa | ton kulit cerah | wira | wirawati</annotation>
+		<annotation cp="🦸🏻">adiwira | baik | sangat berkuasa | ton kulit cerah | wira | wirawati</annotation>
 		<annotation cp="🦸🏻" type="tts">adiwira: ton kulit cerah</annotation>
-		<annotation cp="🦸🏼">adi wira | adiwira | baik | sangat berkuasa | ton kulit sederhana cerah | wira | wirawati</annotation>
+		<annotation cp="🦸🏼">adiwira | baik | sangat berkuasa | ton kulit sederhana cerah | wira | wirawati</annotation>
 		<annotation cp="🦸🏼" type="tts">adiwira: ton kulit sederhana cerah</annotation>
-		<annotation cp="🦸🏽">adi wira | adiwira | baik | sangat berkuasa | ton kulit sederhana | wira | wirawati</annotation>
+		<annotation cp="🦸🏽">adiwira | baik | sangat berkuasa | ton kulit sederhana | wira | wirawati</annotation>
 		<annotation cp="🦸🏽" type="tts">adiwira: ton kulit sederhana</annotation>
-		<annotation cp="🦸🏾">adi wira | adiwira | baik | sangat berkuasa | ton kulit sederhana gelap | wira | wirawati</annotation>
+		<annotation cp="🦸🏾">adiwira | baik | sangat berkuasa | ton kulit sederhana gelap | wira | wirawati</annotation>
 		<annotation cp="🦸🏾" type="tts">adiwira: ton kulit sederhana gelap</annotation>
-		<annotation cp="🦸🏿">adi wira | adiwira | baik | sangat berkuasa | ton kulit gelap | wira | wirawati</annotation>
+		<annotation cp="🦸🏿">adiwira | baik | sangat berkuasa | ton kulit gelap | wira | wirawati</annotation>
 		<annotation cp="🦸🏿" type="tts">adiwira: ton kulit gelap</annotation>
 		<annotation cp="🦸🏻‍♂">adi wira lelaki | baik | lelaki | sangat berkuasa | ton kulit cerah | wira</annotation>
 		<annotation cp="🦸🏻‍♂" type="tts">adi wira lelaki: ton kulit cerah</annotation>

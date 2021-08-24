@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -34,6 +34,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤘🏾" type="tts">Teufelsgruss: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🤘🏿">dunkle Hautfarbe | Finger | Hand | Hörner | Rock | Teufel | Teufelsgruss</annotation>
 		<annotation cp="🤘🏿" type="tts">Teufelsgruss: dunkle Hautfarbe</annotation>
+		<annotation cp="🙏🏻">beten | betende Hände | bitten | danken | Gebet | grüssen | helle Hautfarbe</annotation>
+		<annotation cp="🙏🏼">beten | betende Hände | bitten | danken | Gebet | grüssen | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🙏🏽">beten | betende Hände | bitten | danken | Gebet | grüssen | mittlere Hautfarbe</annotation>
+		<annotation cp="🙏🏾">beten | betende Hände | bitten | danken | Gebet | grüssen | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🙏🏿">beten | betende Hände | bitten | danken | dunkle Hautfarbe | Gebet | grüssen</annotation>
 		<annotation cp="🦶🏻">Fuss | helle Hautfarbe | Kick | stampfen</annotation>
 		<annotation cp="🦶🏻" type="tts">Fuss: helle Hautfarbe</annotation>
 		<annotation cp="🦶🏼">Fuss | Kick | mittelhelle Hautfarbe | stampfen</annotation>
@@ -44,18 +49,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦶🏾" type="tts">Fuss: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🦶🏿">dunkle Hautfarbe | Fuss | Kick | stampfen</annotation>
 		<annotation cp="🦶🏿" type="tts">Fuss: dunkle Hautfarbe</annotation>
-		<annotation cp="🧑‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | Person | weisses Haar</annotation>
-		<annotation cp="🧑‍🦳" type="tts">Erwachsener: weisses Haar</annotation>
-		<annotation cp="🧑🏻‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | helle Hautfarbe | Mensch | Person | weisses Haar</annotation>
-		<annotation cp="🧑🏻‍🦳" type="tts">Erwachsener: helle Hautfarbe, weisses Haar</annotation>
-		<annotation cp="🧑🏼‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittelhelle Hautfarbe | Person | weisses Haar</annotation>
-		<annotation cp="🧑🏼‍🦳" type="tts">Erwachsener: mittelhelle Hautfarbe, weisses Haar</annotation>
-		<annotation cp="🧑🏽‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittlere Hautfarbe | Person | weisses Haar</annotation>
-		<annotation cp="🧑🏽‍🦳" type="tts">Erwachsener: mittlere Hautfarbe, weisses Haar</annotation>
-		<annotation cp="🧑🏾‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mitteldunkle Hautfarbe | Person | weisses Haar</annotation>
-		<annotation cp="🧑🏾‍🦳" type="tts">Erwachsener: mitteldunkle Hautfarbe, weisses Haar</annotation>
-		<annotation cp="🧑🏿‍🦳">dunkle Hautfarbe | erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | Person | weisses Haar</annotation>
-		<annotation cp="🧑🏿‍🦳" type="tts">Erwachsener: dunkle Hautfarbe, weisses Haar</annotation>
+		<annotation cp="🧑‍🦳">erwachsene Person | geschlechtsneutral | Mensch | ohne eindeutiges Geschlecht | Person | weisses Haar</annotation>
+		<annotation cp="🧑‍🦳" type="tts">Person: weisses Haar</annotation>
+		<annotation cp="🧑🏻‍🦳">erwachsene Person | geschlechtsneutral | helle Hautfarbe | Mensch | ohne eindeutiges Geschlecht | Person | weisses Haar</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">Person: helle Hautfarbe, weisses Haar</annotation>
+		<annotation cp="🧑🏼‍🦳">erwachsene Person | geschlechtsneutral | Mensch | mittelhelle Hautfarbe | ohne eindeutiges Geschlecht | Person | weisses Haar</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">Person: mittelhelle Hautfarbe, weisses Haar</annotation>
+		<annotation cp="🧑🏽‍🦳">erwachsene Person | geschlechtsneutral | Mensch | mittlere Hautfarbe | ohne eindeutiges Geschlecht | Person | weisses Haar</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">Person: mittlere Hautfarbe, weisses Haar</annotation>
+		<annotation cp="🧑🏾‍🦳">erwachsene Person | geschlechtsneutral | Mensch | mitteldunkle Hautfarbe | ohne eindeutiges Geschlecht | Person | weisses Haar</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">Person: mitteldunkle Hautfarbe, weisses Haar</annotation>
+		<annotation cp="🧑🏿‍🦳">dunkle Hautfarbe | erwachsene Person | geschlechtsneutral | Mensch | ohne eindeutiges Geschlecht | Person | weisses Haar</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">Person: dunkle Hautfarbe, weisses Haar</annotation>
 		<annotation cp="👨‍🦳">Mann | weisses Haar</annotation>
 		<annotation cp="👨‍🦳" type="tts">Mann: weisses Haar</annotation>
 		<annotation cp="👨🏻‍🦳">helle Hautfarbe | Mann | weisses Haar</annotation>
@@ -100,11 +105,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏽‍🔬">mittlere Hautfarbe | Wissenschaftler(in)</annotation>
 		<annotation cp="🧑🏾‍🔬">mitteldunkle Hautfarbe | Wissenschaftler(in)</annotation>
 		<annotation cp="🧑🏿‍🔬">dunkle Hautfarbe | Wissenschaftler(in)</annotation>
-		<annotation cp="🥷🏻">helle Hautfarbe | Ninja</annotation>
-		<annotation cp="🥷🏼">mittelhelle Hautfarbe | Ninja</annotation>
-		<annotation cp="🥷🏽">mittlere Hautfarbe | Ninja</annotation>
-		<annotation cp="🥷🏾">mitteldunkle Hautfarbe | Ninja</annotation>
-		<annotation cp="🥷🏿">dunkle Hautfarbe | Ninja</annotation>
+		<annotation cp="🎅🏻">helle Hautfarbe | Samichlaus | Weihnachten | Weihnachtsmann</annotation>
+		<annotation cp="🎅🏼">mittelhelle Hautfarbe | Samichlaus | Weihnachten | Weihnachtsmann</annotation>
+		<annotation cp="🎅🏽">mittlere Hautfarbe | Samichlaus | Weihnachten | Weihnachtsmann</annotation>
+		<annotation cp="🎅🏾">mitteldunkle Hautfarbe | Samichlaus | Weihnachten | Weihnachtsmann</annotation>
+		<annotation cp="🎅🏿">dunkle Hautfarbe | Samichlaus | Weihnachten | Weihnachtsmann</annotation>
 		<annotation cp="🚶🏻">Fussgänger(in) | gehen | gehend | helle Hautfarbe | wandern</annotation>
 		<annotation cp="🚶🏻" type="tts">Fussgänger(in): helle Hautfarbe</annotation>
 		<annotation cp="🚶🏼">Fussgänger(in) | gehen | gehend | mittelhelle Hautfarbe | wandern</annotation>

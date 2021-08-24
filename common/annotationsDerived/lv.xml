@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,146 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="lv"/>
 	</identity>
 	<annotations>
+		<annotation cp="🫃🏻">apaļš | gaišs ādas tonis | pilns | stāvoklī | vēders | vīrietis stāvoklī</annotation>
+		<annotation cp="🫃🏻" type="tts">vīrietis stāvoklī: gaišs ādas tonis</annotation>
+		<annotation cp="🫃🏼">apaļš | pilns | stāvoklī | vēders | vidēji gaišs ādas tonis | vīrietis stāvoklī</annotation>
+		<annotation cp="🫃🏼" type="tts">vīrietis stāvoklī: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫃🏽">apaļš | pilns | stāvoklī | vēders | vidējs ādas tonis | vīrietis stāvoklī</annotation>
+		<annotation cp="🫃🏽" type="tts">vīrietis stāvoklī: vidējs ādas tonis</annotation>
+		<annotation cp="🫃🏾">apaļš | pilns | stāvoklī | vēders | vidēji tumšs ādas tonis | vīrietis stāvoklī</annotation>
+		<annotation cp="🫃🏾" type="tts">vīrietis stāvoklī: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫃🏿">apaļš | pilns | stāvoklī | tumšs ādas tonis | vēders | vīrietis stāvoklī</annotation>
+		<annotation cp="🫃🏿" type="tts">vīrietis stāvoklī: tumšs ādas tonis</annotation>
+		<annotation cp="🫄🏻">apaļš | cilvēks stāvoklī | gaišs ādas tonis | pilns | stāvoklī | vēders</annotation>
+		<annotation cp="🫄🏻" type="tts">cilvēks stāvoklī: gaišs ādas tonis</annotation>
+		<annotation cp="🫄🏼">apaļš | cilvēks stāvoklī | pilns | stāvoklī | vēders | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫄🏼" type="tts">cilvēks stāvoklī: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫄🏽">apaļš | cilvēks stāvoklī | pilns | stāvoklī | vēders | vidējs ādas tonis</annotation>
+		<annotation cp="🫄🏽" type="tts">cilvēks stāvoklī: vidējs ādas tonis</annotation>
+		<annotation cp="🫄🏾">apaļš | cilvēks stāvoklī | pilns | stāvoklī | vēders | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫄🏾" type="tts">cilvēks stāvoklī: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫄🏿">apaļš | cilvēks stāvoklī | pilns | stāvoklī | tumšs ādas tonis | vēders</annotation>
+		<annotation cp="🫄🏿" type="tts">cilvēks stāvoklī: tumšs ādas tonis</annotation>
+		<annotation cp="🫅🏻">cēls | gaišs ādas tonis | honorārs | monarhs | persona ar vainagu | valdnieks</annotation>
+		<annotation cp="🫅🏻" type="tts">persona ar vainagu: gaišs ādas tonis</annotation>
+		<annotation cp="🫅🏼">cēls | honorārs | monarhs | persona ar vainagu | valdnieks | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫅🏼" type="tts">persona ar vainagu: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫅🏽">cēls | honorārs | monarhs | persona ar vainagu | valdnieks | vidējs ādas tonis</annotation>
+		<annotation cp="🫅🏽" type="tts">persona ar vainagu: vidējs ādas tonis</annotation>
+		<annotation cp="🫅🏾">cēls | honorārs | monarhs | persona ar vainagu | valdnieks | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫅🏾" type="tts">persona ar vainagu: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫅🏿">cēls | honorārs | monarhs | persona ar vainagu | tumšs ādas tonis | valdnieks</annotation>
+		<annotation cp="🫅🏿" type="tts">persona ar vainagu: tumšs ādas tonis</annotation>
+		<annotation cp="🫰🏻">dārgs | gaišs ādas tonis | knipis | mīlestība | nauda | roka ar rādītājpirkstu un īkšķi sakrustota | sirds</annotation>
+		<annotation cp="🫰🏻" type="tts">roka ar rādītājpirkstu un īkšķi sakrustota: gaišs ādas tonis</annotation>
+		<annotation cp="🫰🏼">dārgs | knipis | mīlestība | nauda | roka ar rādītājpirkstu un īkšķi sakrustota | sirds | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫰🏼" type="tts">roka ar rādītājpirkstu un īkšķi sakrustota: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫰🏽">dārgs | knipis | mīlestība | nauda | roka ar rādītājpirkstu un īkšķi sakrustota | sirds | vidējs ādas tonis</annotation>
+		<annotation cp="🫰🏽" type="tts">roka ar rādītājpirkstu un īkšķi sakrustota: vidējs ādas tonis</annotation>
+		<annotation cp="🫰🏾">dārgs | knipis | mīlestība | nauda | roka ar rādītājpirkstu un īkšķi sakrustota | sirds | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫰🏾" type="tts">roka ar rādītājpirkstu un īkšķi sakrustota: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫰🏿">dārgs | knipis | mīlestība | nauda | roka ar rādītājpirkstu un īkšķi sakrustota | sirds | tumšs ādas tonis</annotation>
+		<annotation cp="🫰🏿" type="tts">roka ar rādītājpirkstu un īkšķi sakrustota: tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏻">gaišs ādas tonis | labā roka | pa labi | pareizi | roka</annotation>
+		<annotation cp="🫱🏻" type="tts">labā roka: gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏼">labā roka | pa labi | pareizi | roka | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏼" type="tts">labā roka: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏽">labā roka | pa labi | pareizi | roka | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏽" type="tts">labā roka: vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏾">labā roka | pa labi | pareizi | roka | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏾" type="tts">labā roka: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏿">labā roka | pa labi | pareizi | roka | tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏿" type="tts">labā roka: tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏼">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏼" type="tts">rokasspiediens: gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏽">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏽" type="tts">rokasspiediens: gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏾">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏾" type="tts">rokasspiediens: gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏿">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏻‍🫲🏿" type="tts">rokasspiediens: gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏻">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏻" type="tts">rokasspiediens: vidēji gaišs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏽">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji gaišs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏽" type="tts">rokasspiediens: vidēji gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏾">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏾" type="tts">rokasspiediens: vidēji gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏿">līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏼‍🫲🏿" type="tts">rokasspiediens: vidēji gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏻">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏻" type="tts">rokasspiediens: vidējs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏼">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji gaišs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏼" type="tts">rokasspiediens: vidējs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏾">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏾" type="tts">rokasspiediens: vidējs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏿">līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏽‍🫲🏿" type="tts">rokasspiediens: vidējs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏻">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏻" type="tts">rokasspiediens: vidēji tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏼">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏼" type="tts">rokasspiediens: vidēji tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏽">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏽" type="tts">rokasspiediens: vidēji tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏿">līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏾‍🫲🏿" type="tts">rokasspiediens: vidēji tumšs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏻">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏻" type="tts">rokasspiediens: tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏼">līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏼" type="tts">rokasspiediens: tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏽">līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏽" type="tts">rokasspiediens: tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏾">līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫱🏿‍🫲🏾" type="tts">rokasspiediens: tumšs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫲🏻">gaišs ādas tonis | kreiso roku | pa kreisi | roka</annotation>
+		<annotation cp="🫲🏻" type="tts">kreiso roku: gaišs ādas tonis</annotation>
+		<annotation cp="🫲🏼">kreiso roku | pa kreisi | roka | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫲🏼" type="tts">kreiso roku: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫲🏽">kreiso roku | pa kreisi | roka | vidējs ādas tonis</annotation>
+		<annotation cp="🫲🏽" type="tts">kreiso roku: vidējs ādas tonis</annotation>
+		<annotation cp="🫲🏾">kreiso roku | pa kreisi | roka | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫲🏾" type="tts">kreiso roku: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫲🏿">kreiso roku | pa kreisi | roka | tumšs ādas tonis</annotation>
+		<annotation cp="🫲🏿" type="tts">kreiso roku: tumšs ādas tonis</annotation>
+		<annotation cp="🫳🏻">atlaist | gaišs ādas tonis | nomest | plaukstu uz leju | shoo</annotation>
+		<annotation cp="🫳🏻" type="tts">plaukstu uz leju: gaišs ādas tonis</annotation>
+		<annotation cp="🫳🏼">atlaist | nomest | plaukstu uz leju | shoo | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫳🏼" type="tts">plaukstu uz leju: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫳🏽">atlaist | nomest | plaukstu uz leju | shoo | vidējs ādas tonis</annotation>
+		<annotation cp="🫳🏽" type="tts">plaukstu uz leju: vidējs ādas tonis</annotation>
+		<annotation cp="🫳🏾">atlaist | nomest | plaukstu uz leju | shoo | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫳🏾" type="tts">plaukstu uz leju: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫳🏿">atlaist | nomest | plaukstu uz leju | shoo | tumšs ādas tonis</annotation>
+		<annotation cp="🫳🏿" type="tts">plaukstu uz leju: tumšs ādas tonis</annotation>
+		<annotation cp="🫴🏻">aicināt | gaišs ādas tonis | nāc | nozveja | piedāvājums | plaukstu uz augšu</annotation>
+		<annotation cp="🫴🏻" type="tts">plaukstu uz augšu: gaišs ādas tonis</annotation>
+		<annotation cp="🫴🏼">aicināt | nāc | nozveja | piedāvājums | plaukstu uz augšu | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫴🏼" type="tts">plaukstu uz augšu: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫴🏽">aicināt | nāc | nozveja | piedāvājums | plaukstu uz augšu | vidējs ādas tonis</annotation>
+		<annotation cp="🫴🏽" type="tts">plaukstu uz augšu: vidējs ādas tonis</annotation>
+		<annotation cp="🫴🏾">aicināt | nāc | nozveja | piedāvājums | plaukstu uz augšu | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫴🏾" type="tts">plaukstu uz augšu: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫴🏿">aicināt | nāc | nozveja | piedāvājums | plaukstu uz augšu | tumšs ādas tonis</annotation>
+		<annotation cp="🫴🏿" type="tts">plaukstu uz augšu: tumšs ādas tonis</annotation>
+		<annotation cp="🫵🏻">gaišs ādas tonis | jūs | punkts | rādītājpirksts pret sevi</annotation>
+		<annotation cp="🫵🏻" type="tts">rādītājpirksts pret sevi: gaišs ādas tonis</annotation>
+		<annotation cp="🫵🏼">jūs | punkts | rādītājpirksts pret sevi | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫵🏼" type="tts">rādītājpirksts pret sevi: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫵🏽">jūs | punkts | rādītājpirksts pret sevi | vidējs ādas tonis</annotation>
+		<annotation cp="🫵🏽" type="tts">rādītājpirksts pret sevi: vidējs ādas tonis</annotation>
+		<annotation cp="🫵🏾">jūs | punkts | rādītājpirksts pret sevi | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫵🏾" type="tts">rādītājpirksts pret sevi: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫵🏿">jūs | punkts | rādītājpirksts pret sevi | tumšs ādas tonis</annotation>
+		<annotation cp="🫵🏿" type="tts">rādītājpirksts pret sevi: tumšs ādas tonis</annotation>
+		<annotation cp="🫶🏻">gaišs ādas tonis | mīlestība | sirds žests</annotation>
+		<annotation cp="🫶🏻" type="tts">sirds žests: gaišs ādas tonis</annotation>
+		<annotation cp="🫶🏼">mīlestība | sirds žests | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫶🏼" type="tts">sirds žests: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🫶🏽">mīlestība | sirds žests | vidējs ādas tonis</annotation>
+		<annotation cp="🫶🏽" type="tts">sirds žests: vidējs ādas tonis</annotation>
+		<annotation cp="🫶🏾">mīlestība | sirds žests | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫶🏾" type="tts">sirds žests: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🫶🏿">mīlestība | sirds žests | tumšs ādas tonis</annotation>
+		<annotation cp="🫶🏿" type="tts">sirds žests: tumšs ādas tonis</annotation>
 		<annotation cp="👋🏻">gaišs ādas tonis | ķermenis | mājoša roka | māt | roka</annotation>
 		<annotation cp="👋🏻" type="tts">mājoša roka: gaišs ādas tonis</annotation>
 		<annotation cp="👋🏼">ķermenis | mājoša roka | māt | roka | vidēji gaišs ādas tonis</annotation>
@@ -302,6 +442,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤲🏾" type="tts">plaukstas kopā: vidēji tumšs ādas tonis</annotation>
 		<annotation cp="🤲🏿">lūdzējs | plaukstas kopā | tumšs ādas tonis</annotation>
 		<annotation cp="🤲🏿" type="tts">plaukstas kopā: tumšs ādas tonis</annotation>
+		<annotation cp="🤝🏻">gaišs ādas tonis | līgums | roka | rokasspiediens | sarokoties | tikšanās</annotation>
+		<annotation cp="🤝🏻" type="tts">rokasspiediens: gaišs ādas tonis</annotation>
+		<annotation cp="🤝🏼">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🤝🏼" type="tts">rokasspiediens: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🤝🏽">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidējs ādas tonis</annotation>
+		<annotation cp="🤝🏽" type="tts">rokasspiediens: vidējs ādas tonis</annotation>
+		<annotation cp="🤝🏾">līgums | roka | rokasspiediens | sarokoties | tikšanās | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🤝🏾" type="tts">rokasspiediens: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🤝🏿">līgums | roka | rokasspiediens | sarokoties | tikšanās | tumšs ādas tonis</annotation>
+		<annotation cp="🤝🏿" type="tts">rokasspiediens: tumšs ādas tonis</annotation>
 		<annotation cp="🙏🏻">gaišs ādas tonis | lūgšanā saliktas rokas | lūgt | lūgties | rokas | žests</annotation>
 		<annotation cp="🙏🏻" type="tts">lūgšanā saliktas rokas: gaišs ādas tonis</annotation>
 		<annotation cp="🙏🏼">lūgšanā saliktas rokas | lūgt | lūgties | rokas | vidēji gaišs ādas tonis | žests</annotation>

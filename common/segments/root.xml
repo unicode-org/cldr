@@ -106,6 +106,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$EM">\p{Line_Break=E_Modifier}</variable>
 				<variable id="$ZWJ_O">\p{Line_Break=ZWJ}</variable>
 				<variable id="$ZWJ">\p{Line_Break=ZWJ}</variable>
+				<variable id="$ExtPictUnassigned">[\p{Extended_Pictographic}&amp;\p{gc=Cn}]</variable>
 				<!-- SPECIAL EXTENSIONS -->
 				<variable id="$CM">[$CM1 $ZWJ]</variable>
 				<!-- LB 1  Assign a line breaking class to each code point of the input. -->
@@ -269,7 +270,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="30.11"> ^ ($RI $RI)* $RI × $RI </rule>
 				<rule id="30.12"> [^$RI] ($RI $RI)* $RI × $RI </rule>
 				<rule id="30.13"> $RI ÷ $RI </rule>
-				<rule id="30.2"> $EB × $EM </rule>
+				<!-- LB 30b Do not break between an emoji base (or potential emoji) and an emoji modifier. -->
+				<rule id="30.21"> $EB × $EM </rule>
+				<rule id="30.22"> $ExtPictUnassigned × $EM </rule>
 			</segmentRules>
 		</segmentation>
 		<segmentation type="SentenceBreak">

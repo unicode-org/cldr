@@ -376,12 +376,7 @@ public class Ldml2JsonConverter {
                 activeNumberingSystems.add(ns);
             }
         }
-        DtdType fileDtdType;
-        if (CLDRFile.isSupplementalName(locID)) {
-            fileDtdType = DtdType.supplementalData;
-        } else {
-            fileDtdType = DtdType.ldml;
-        }
+        final DtdType fileDtdType = file.getDtdType();
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (Iterator<String> it = file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null)); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();

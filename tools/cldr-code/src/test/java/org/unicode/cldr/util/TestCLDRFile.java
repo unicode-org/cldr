@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.nio.file.Path;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -63,5 +66,76 @@ public class TestCLDRFile {
             () -> assertEquals(status, DraftStatus.forString(status.name())),
             () -> assertEquals(status, DraftStatus.forString(status.name().toUpperCase()))
         );
+    }
+
+    /**
+     * Test that we can read all XML files in common.
+     * Comment out from the ValueSource any dirs that don't have XML that is suitable for CLDRFile.
+     * @param subdir
+     */
+    @ParameterizedTest
+    @ValueSource(strings = {
+        // common stuff
+        "common/bcp47",
+        "common/subdivisions",
+        "common/supplemental",
+        "common/annotations",
+        "common/collation",
+        "common/rbnf",
+        /*"common/testData",*/
+        "common/annotationsDerived",
+        /* common/dtd */
+        "common/segments",
+        "common/transforms",
+        "common/bcp47",
+        "common/main",
+        "common/subdivisions",
+        /*"common/uca",*/
+        "common/casing",
+        /*"common/properties",*/
+        "common/supplemental",
+        "common/validity",
+
+        // Test a couple of others:
+        "seed/main",
+        "exemplars/main",
+    })
+    public void TestReadAllDTDs(final String subdir) {
+        Path aPath = CLDRConfig.getInstance().getCldrBaseDirectory().toPath().resolve(subdir);
+        Factory factory = Factory.make(aPath.toString(), ".*");
+        assertNotNull(factory);
+
+        // Just test one file from each dir.
+        {
+            final String id = factory.getAvailable().iterator().next(); // Get the first id.
+            TestReadAllDTDs(subdir, factory, id);
+        }
+
+        // Test ALL files in each dir. Adds ~35s not including seed or exemplars.
+        // for (final String id : factory.getAvailable()) {
+        //     TestReadAllDTDs(subdir, factory, id);
+        // }
+    }
+
+    private void TestReadAllDTDs(final String subdir, Factory factory, final String id) {
+        CLDRFile file = factory.make(id, false);
+
+        assertNotNull(file, id);
+        for (final String xpath : file.fullIterable()) {
+            assertNotNull(xpath, subdir + ":" + id + " xpath");
+            /*final String value = */ file.getStringValue(xpath);
+        }
+
+        for (Iterator<String> i = file.iterator(); i.hasNext();) {
+            final String xpath = i.next();
+            assertNotNull(xpath, subdir + ":" + id + " xpath");
+            /*final String value = */ file.getStringValue(xpath);
+        }
+        // This is to simulate what is in the LDML2JsonConverter
+        final Comparator<String> comparator = DtdData.getInstance(file.getDtdType()).getDtdComparator(null);
+        for (Iterator<String> it = file.iterator("", comparator); it.hasNext();) {
+            final String xpath = it.next();
+            assertNotNull(xpath, subdir + ":" + id + " xpath");
+        }
     }
 }

@@ -1430,12 +1430,8 @@ public class ConsoleCheckCLDR {
 
     private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PathHeader.Factory pathHeaderFactory,
         boolean noaliases, boolean filterDraft, Collection<String> target) {
-        // Status pathStatus = new Status();
         for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
             String path = pit.next();
-            if (file.isPathExcludedForSurvey(path)) {
-                continue;
-            }
             addPrettyPath(file, pathHeaderFactory, noaliases, filterDraft, target, path);
         }
     }

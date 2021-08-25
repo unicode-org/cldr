@@ -1863,9 +1863,6 @@ public class DataSection implements JSONString {
                     if (excludeAlways.matcher(base_xpath_string).matches()) {
                         continue;
                     }
-                    if (resolvedFile.isPathExcludedForSurvey(base_xpath_string)) {
-                        continue;
-                    }
 
                     // Only display metazone data for which an English value exists
                     if (isMetazones && suff != "/commonlyUsed") {
@@ -2031,11 +2028,6 @@ public class DataSection implements JSONString {
                 if (!xpath.startsWith(workPrefix)) {
                     if (DEBUG && SurveyMain.isUnofficial()) {
                         System.err.println("@@ BAD XPATH " + xpath);
-                    }
-                    continue;
-                } else if (ourSrc.isPathExcludedForSurvey(xpath)) {
-                    if (DEBUG && SurveyMain.isUnofficial()) {
-                        System.err.println("@@ excluded:" + xpath);
                     }
                     continue;
                 } else if (DEBUG) {

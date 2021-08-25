@@ -60,9 +60,6 @@ public class CheckCoverage extends FactoryCheckCLDR {
         }
 
         CLDRFile resolvedCldrFileToCheck = getResolvedCldrFileToCheck();
-        if (resolvedCldrFileToCheck.isPathExcludedForSurvey(path)) {
-            return this;
-        }
 
         // skip if we are not the winning path
         if (!resolvedCldrFileToCheck.isWinningPath(path)) {

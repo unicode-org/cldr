@@ -357,20 +357,15 @@ public class TestPathHeader extends TestFmwkPlus {
                     continue;
                 }
 
-                PathHeader p = pathHeaderFactory.fromPath(path);
-                final SurveyToolStatus status = p.getSurveyToolStatus();
-                /*
-                 * TODO: is it intentional that SurveyToolStatus.DEPRECATED is distinguished from
-                 * SurveyToolStatus.HIDE here? If so, add a comment to make the intention clear; otherwise,
-                 * call PathHeader.shouldHide(). Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-                 */
-                if (status == SurveyToolStatus.DEPRECATED) {
+                PathHeader ph = pathHeaderFactory.fromPath(path);
+                if (ph == null || ph.shouldHide()) {
                     continue;
                 }
+                final SurveyToolStatus status = ph.getSurveyToolStatus();
                 sorted.put(
-                    p,
-                    locale + "\t" + status + "\t" + p + "\t"
-                        + p.getOriginalPath());
+                    ph,
+                    locale + "\t" + status + "\t" + ph + "\t"
+                        + ph.getOriginalPath());
             }
             Set<String> codes = new LinkedHashSet<>();
             PathHeader old = null;
@@ -673,7 +668,6 @@ public class TestPathHeader extends TestFmwkPlus {
             SurveyToolStatus.class);
         Set<String> nuked = new HashSet<>();
         Set<String> deprecatedStar = new HashSet<>();
-        Set<String> differentStar = new HashSet<>();
 
         for (String path : nativeFile.fullIterable()) {
 
@@ -686,30 +680,10 @@ public class TestPathHeader extends TestFmwkPlus {
                     + ": " + p);
             }
 
-            /*
-             * TODO: if the goal here is to treat SurveyToolStatus.DEPRECATED and SurveyToolStatus.HIDE
-             * the same for the purpose of this test, then call PathHeader.shouldHide(). Otherwise, add a
-             * comment to explain this mysterious code. Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-             */
-            final SurveyToolStatus tempSTS = surveyToolStatus == SurveyToolStatus.DEPRECATED ? SurveyToolStatus.HIDE
-                : surveyToolStatus;
             String starred = starrer.set(path);
             List<String> attr = starrer.getAttributes();
             if (surveyToolStatus != SurveyToolStatus.READ_WRITE) {
                 nuked.add(starred);
-            }
-
-            // check against old
-            SurveyToolStatus oldStatus = SurveyToolStatus.READ_WRITE;
-
-            if (tempSTS != oldStatus
-                && oldStatus != SurveyToolStatus.READ_WRITE
-                && !path.endsWith(APPEND_TIMEZONE_END)) {
-                if (!differentStar.contains(starred)) {
-                    errln("Different from old:\t" + oldStatus + "\tnew:\t"
-                        + surveyToolStatus + "\t" + path);
-                    differentStar.add(starred);
-                }
             }
 
             // check against deprecated

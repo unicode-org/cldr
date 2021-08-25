@@ -169,7 +169,13 @@ abstract public class CheckCLDR {
             ) {
 
             PathHeader.SurveyToolStatus status = ph.getSurveyToolStatus();
-            // always forbid deprecated items - don't show.
+            /*
+             * Always forbid DEPRECATED items - don't show.
+             *
+             * Currently, bulk submission and TC voting are allowed even for SurveyToolStatus.HIDE,
+             * but not for SurveyToolStatus.DEPRECATED. If we ever want to treat HIDE and DEPRECATED
+             * the same here, then it would be simpler to call ph.shouldHide which is true for both.
+             */
             if (status == SurveyToolStatus.DEPRECATED) {
                 return StatusAction.FORBID_READONLY;
             }
@@ -178,12 +184,6 @@ abstract public class CheckCLDR {
                 return StatusAction.ALLOW_TICKET_ONLY;
             }
 
-            /*
-             * TODO: is it intentional that bulk submission and TC voting are allowed even for SurveyToolStatus.HIDE?
-             * If not, fix it by calling PathHeader.shouldHide() above instead of referencing SurveyToolStatus.DEPRECATED
-             * above and SurveyToolStatus.HIDE below. Otherwise add a comment here confirming that these are allowed for
-             * SurveyToolStatus.HIDE. Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-             */
 
             // always forbid bulk import except in data submission.
             if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {

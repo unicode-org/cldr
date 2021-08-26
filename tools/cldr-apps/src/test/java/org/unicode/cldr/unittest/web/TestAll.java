@@ -29,6 +29,7 @@ import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;
@@ -409,4 +410,17 @@ public class TestAll extends TestGroup {
         return FileReaders.openFile(TestAll.class, "data/" + name);
     }
 
+    /**
+     * Print a warning and skip if the test is derby-sensitive.
+     * Usage:   if(skipIfDerby(this)) return;
+     * @return true if skip
+     */
+    public static boolean skipIfDerby(TestFmwk t) {
+        if (DBUtils.getDBKind().equals("Derby")
+            && t.logKnownIssue("CLDR-14213", "May not work with Derby")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

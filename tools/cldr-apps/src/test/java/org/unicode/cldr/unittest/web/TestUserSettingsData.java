@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest.web;
 
 import java.sql.SQLException;
 
+import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.UserSettings;
 import org.unicode.cldr.web.UserSettingsData;
 
@@ -38,6 +39,7 @@ public class TestUserSettingsData extends TestFmwk {
 
     public void TestSeparate() throws SQLException {
         {
+            if (TestAll.skipIfDerby(this)) return;
             setupDB();
             UserSettingsData d = getData();
 

@@ -14,6 +14,7 @@ import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.StandardCodes;
 
+import com.ibm.icu.text.ListFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -64,6 +65,7 @@ public class AddPopulationData {
         private static Counter2<String> literacy = new Counter2<>();
     }
 
+    final static Set<String> missing = new TreeSet<String>();
     public static void main(String[] args) throws IOException {
 
         System.out.println("Code"
@@ -97,7 +99,7 @@ public class AddPopulationData {
         Set<String> altNames = new TreeSet<>();
         String oldCode = "";
         for (String display : CountryCodeConverter.names()) {
-            String code = CountryCodeConverter.getCodeFromName(display, true);
+            String code = CountryCodeConverter.getCodeFromName(display, true, missing);
             String icu = ULocale.getDisplayCountry("und-" + code, "en");
             if (!display.equalsIgnoreCase(icu)) {
                 altNames.add(code + "\t" + display + "\t" + icu);
@@ -117,6 +119,10 @@ public class AddPopulationData {
                 // System.out.println("<territory type=\"" + code + "\" alt=\"v" + (++alt) + "\">" + pieces[1] +
                 // "</territory> <!-- " + pieces[2] + " -->");
             }
+        }
+        if (!missing.isEmpty()) {
+            throw new RuntimeException("Could not load codes for: " +
+                ListFormat.getInstance(Locale.getDefault()).format(missing));
         }
     }
 
@@ -202,7 +208,7 @@ public class AddPopulationData {
                     return false;
                 }
                 String[] pieces = line.split("\\s{2,}");
-                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces), true);
+                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces), true, missing);
                 if (code == null) {
                     return false;
                 }
@@ -296,7 +302,7 @@ public class AddPopulationData {
             @Override
             public boolean handle(String line) {
                 String[] pieces = line.split("\\t");
-                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces), true);
+                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces), true, missing);
                 if (code == null) {
                     return false;
                 }
@@ -348,7 +354,7 @@ public class AddPopulationData {
                 if (last == null) {
                     return false;
                 }
-                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces), true);
+                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces), true, missing);
                 if (country == null) {
                     return false;
                 }
@@ -388,7 +394,7 @@ public class AddPopulationData {
                 if (pieces.length != 14 || pieces[1].length() == 0 || !DIGITS.containsAll(pieces[1])) {
                     return false;
                 }
-                String code = CountryCodeConverter.getCodeFromName(pieces[0], true);
+                String code = CountryCodeConverter.getCodeFromName(pieces[0], true, missing);
                 if (code == null) {
                     return false;
                 }

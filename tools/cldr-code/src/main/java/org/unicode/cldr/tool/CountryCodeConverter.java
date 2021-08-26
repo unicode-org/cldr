@@ -24,6 +24,17 @@ public class CountryCodeConverter {
     private static Set<String> parseErrors = new LinkedHashSet<>();
 
     public static String getCodeFromName(String display, boolean showMissing) {
+        return getCodeFromName(display, showMissing, null);
+    }
+
+    /**
+     *
+     * @param display
+     * @param showMissing
+     * @param missing will contain a list of missing names (if showMissing is true)
+     * @return
+     */
+    public static String getCodeFromName(String display, boolean showMissing, Set<String> missing) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
         if (trial.startsWith("\"") && trial.endsWith("\"")) {
             trial = trial.substring(1, trial.length() - 2);
@@ -45,8 +56,12 @@ public class CountryCodeConverter {
             }
         }
         if (result == null && (showMissing || SHOW_SKIP)) {
-            System.err.println("CountryCodeConverter missing code; add to external/alternate_country_names.txt a line like:" +
+            System.err.println("ERROR: CountryCodeConverter missing code for " + display + ".\n" +
+            "To fix: add to external/alternate_country_names.txt a line such as:\n" +
                 "\t<code>;\t<name>;\t" + display);
+            if (missing != null ) {
+                missing.add(display);
+            }
         }
         return result;
     }

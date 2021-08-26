@@ -23,6 +23,7 @@ public class TestUserRegistry extends TestFmwk {
      * org.unicode.cldr.unittest.TestUtilities.TestCanCreateOrSetLevelTo()
      */
     public void TestCanSetUserLevel() {
+        if (TestAll.skipIfDerby(this)) return;
         UserRegistry reg = CookieSession.sm.reg;
         int id = 2468;
 

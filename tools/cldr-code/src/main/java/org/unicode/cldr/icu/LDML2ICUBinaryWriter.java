@@ -17,6 +17,8 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
 import com.ibm.icu.text.UTF16;
 
+import org.unicode.cldr.util.CldrUtility;
+
 /**
  * The LDML2ICUBinaryWriter class is a set of methods which can be used
  * to generate Binary (.res) files in the ICU Binary format.
@@ -29,7 +31,7 @@ public class LDML2ICUBinaryWriter {
      * This string is the copyright to be written into the file.
      * In the C version, can be found in <I>icu4c_root</I>/source/common/unicode/uversion.h
      */
-    private static final String COPYRIGHT = " Copyright (C) 2012, International Business Machines Corporation and others. All Rights Reserved. ";
+    private static final String COPYRIGHT = CldrUtility.getCopyrightString();
 
     public static int written = 0;
 

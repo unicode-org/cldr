@@ -32,6 +32,7 @@ public class GenerateDtd {
             }
             try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(CLDRPaths.BASE_DIRECTORY + type.dtdPath)) {
                 out.println(data);
+                System.err.println("Wrote: " + CLDRPaths.BASE_DIRECTORY + type.dtdPath);
             }
         }
     }

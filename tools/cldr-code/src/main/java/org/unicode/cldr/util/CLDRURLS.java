@@ -31,6 +31,10 @@ public abstract class CLDRURLS {
      */
     public static final String UNICODE_SPDX = "Unicode-DFS-2016";
     /**
+     * See: https://spdx.github.io/spdx-spec/appendix-V-using-SPDX-short-identifiers-in-source-files/
+     */
+    public static final String UNICODE_SPDX_HEADER = "SPDX-License-Identifier: " + UNICODE_SPDX;
+    /**
      * Override this property if you want to change the absolute URL to the SurveyTool base from DEFAULT_BASE
      */
     public static final String CLDR_SURVEY_BASE = "CLDR_SURVEY_BASE";

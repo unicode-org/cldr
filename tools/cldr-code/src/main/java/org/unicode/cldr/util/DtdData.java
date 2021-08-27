@@ -645,6 +645,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     @Deprecated
     @Override
     public void handleComment(String path, String comment) {
+        if (comment.contains("Copyright")) {
+            // Zap the copyright comment, replace it with the current one.
+            comment = CldrUtility.getCopyrightString();
+        }
         if (SHOW_ALL) {
             // <!-- true and false are deprecated. -->
             System.out.println("<!-- " + comment.trim() + " -->");

@@ -579,7 +579,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     || line.contains("©")
                     || line.contains("trademark")
                     || line.startsWith("CLDR data files are interpreted")
-                    || line.startsWith("For terms of use")) {
+                    || line.startsWith("SPDX-License-Identifier")
+                    || line.startsWith("Warnings: All cp values have U+FE0F characters removed.")
+                    || line.startsWith("For terms of use")
+                    || line.startsWith("according to the LDML specification")
+                    || line.startsWith("terms of use, see http://www.unicode.org/copyright.html")
+                    ) {
                     continue;
                 }
                 sb.append(XPathParts.NEWLINE).append(line);

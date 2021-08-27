@@ -18,6 +18,7 @@ import java.math.BigInteger;
 import java.util.Date;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
@@ -86,9 +87,7 @@ public class RBNFWriter {
         if (options[COPYRIGHT].value.equals("true")) {
             sdf.applyPattern("yyyy");
             out.println("<!--");
-            out.println("Copyright © 1991-" + sdf.format(now) + " Unicode, Inc.\n" +
-                "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n" +
-                "For terms of use, see http://www.unicode.org/copyright.html");
+            out.println(CldrUtility.getCopyrightString());
             out.println("-->");
             sdf.applyPattern("yyyy/MM/dd HH:mm:ss");
 

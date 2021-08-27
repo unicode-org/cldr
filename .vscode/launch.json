@@ -6,6 +6,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch CheckoutArchive",
+            "request": "launch",
+            "mainClass": "org.unicode.cldr.tool.CheckoutArchive",
+            "projectName": "cldr-code",
+            "vmArgs": [
+                "-DCLDR_DIR=${workspaceFolder}"
+            ]
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}",

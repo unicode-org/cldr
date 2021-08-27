@@ -9,6 +9,7 @@ package com.ibm.icu.dev.test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.CharArrayWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -17,28 +18,28 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.MissingResourceException;
+import java.util.NoSuchElementException;
 import java.util.Random;
-import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
+import com.google.common.cache.CacheBuilder;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
-import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Pair;
 /**
  * TestFmwk is a base class for tests that can be run conveniently from the
  * command line as well as under the Java test harness.
@@ -1576,27 +1577,21 @@ public class TestFmwk extends AbstractTestLog {
             }
 
             final SourceLocation testLocation = sourceLocation();
+            final String[] MSGNAMES = {"", "Warning: ", "Error: "};
 
             if (newln && CLDR_GITHUB_ANNOTATIONS && (level == WARN || level == ERR)) {
                 // when -DCLDR_GITHUB_ANNOTATIONS=true, bypass usual output for warn and err:
-                final String[] MSGNAMES = {"", "::warning ", "::error "};
-                log.println(); // skip indentation for github
-                log.print(MSGNAMES[oldLevel] + testLocation.forGitHub() + "::");
+                final String[] GH_MSGNAMES = {"", "::warning ", "::error "};
+                System.out.println(); // skip indentation for github
+                System.out.println(GH_MSGNAMES[oldLevel] + testLocation.forGitHub() + "::"
+                    + " " + testLocation + " " + MSGNAMES[oldLevel] + message);
                 // TODO: somehow, our github location format is not right
                 // For now, just repeat the location in the message.
-                log.print(" "+testLocation + message);
-                // if( message.startsWith(":") ) {
-                //     // Make sure there isn't another colon here
-                //     log.print(" " + message.substring(1));
-                // } else {
-                //     log.print(message);
-                // }
                 log.println();
             } else if (verbose || level > (quiet ? WARN : LOG)) {
                 // should roll indentation stuff into log ???
                 if (!suppressIndent) {
                     indent(indentLevel + 1);
-                    final String[] MSGNAMES = {"", "Warning: ", "Error: "};
                     log.print(MSGNAMES[oldLevel]);
                 }
 
@@ -2009,15 +2004,18 @@ public class TestFmwk extends AbstractTestLog {
     public static final class SourceLocation {
         public final int lineNumber;
         public final String file;
+        public final String className;
 
-        public SourceLocation(int lineNumber2, String source) {
+        public SourceLocation(int lineNumber2, String source, StackTraceElement st) {
             this.lineNumber = lineNumber2;
+            this.className = st.getClassName();
             this.file = source;
         }
 
         public SourceLocation() {
             this.lineNumber = -1;
             this.file = null;
+            this.className = null;
         }
 
         @Override
@@ -2030,8 +2028,64 @@ public class TestFmwk extends AbstractTestLog {
         }
 
         public String forGitHub() {
-            return "file="+file+",line="+lineNumber;
+            return "file="+getFullFile()+",line="+lineNumber;
         }
+
+        /**
+         * Attempt to locate the relative filename, for GitHub annotations purposes
+         * @return
+         */
+        public String getFullFile() {
+            if (file == null) {
+                return "no-file";
+            } else if(className == null) {
+                return file;
+            } else {
+                try {
+                    final String s = locationToRelativeFile
+                        .computeIfAbsent(Pair.of(className, file),
+                            (Pair<String, String> loc) -> findSource(loc.getFirst(), loc.getSecond()));
+                    if (s == null) {
+                        return file;
+                    }
+                    return s;
+                } catch (Throwable t) {
+                    System.err.println("SourceLocation: err-"+t.getMessage()+" fetching " + this);
+                    return file;
+                }
+            }
+        }
+
+        /**
+         * Attempt to find 'org.unicode.Foo', 'Foo.class' -> tools/cldr-code/src/test/java/org/unicode/Foo.java
+         */
+        public static final String findSource(String clazz, String fyle) {
+            final String classSubPath = clazz.replaceAll("\\.", "/"); // a.b.c -> a/b/c
+            final Path basePath = new File(CLDRPaths.BASE_DIRECTORY).toPath().toAbsolutePath();
+            final Path subPath = new File(classSubPath).toPath()       // a/b/c/Class
+                                                       .getParent()    // a/b/c
+                                                       .resolve(fyle); // a/b/c/Class.java
+            try {
+                    Path p = Files.find(basePath,
+                        Integer.MAX_VALUE,
+                        (Path path, BasicFileAttributes attrs) -> path.endsWith(subPath) && Files.isReadable(path))
+                        .findFirst().get().toAbsolutePath();
+                    return p.subpath(basePath.getNameCount(), p.getNameCount()).toString();
+                    // return p.toString();
+                } catch (IOException | NoSuchElementException e) {
+                    System.err.println("SourceLocation.findSource err-"+e.getMessage()+" fetching " + subPath);
+                    if (!(e instanceof NoSuchElementException)) {
+                        // Skip for not-found
+                        e.printStackTrace();
+                    }
+                    return fyle;
+                }
+        }
+
+        public boolean isEmpty() {
+            return (file == null) || (className == null) || (lineNumber == -1);
+        }
+        static final ConcurrentHashMap<Pair<String, String>, String> locationToRelativeFile = new ConcurrentHashMap<>();
     }
 
     // Return the source code location of the specified throwable's calling test
@@ -2051,7 +2105,7 @@ public class TestFmwk extends AbstractTestLog {
                 if (methodName != null &&
                        (methodName.startsWith("Test") || methodName.startsWith("test") || methodName.equals("main"))) {
                 }
-                return new SourceLocation(st.getLineNumber(), source);
+                return new SourceLocation(st.getLineNumber(), source, st);
             }
         }
         return new SourceLocation(); // not found

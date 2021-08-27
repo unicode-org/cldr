@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -1583,10 +1584,11 @@ public class ConsoleCheckCLDR {
             ErrorFile.addDataToErrorFile(localeID, path, shortStatus, subType);
         }
         if (CLDR_GITHUB_ANNOTATIONS) {
+            final String filePath = localeXpathToFilePath.computeIfAbsent(Pair.of(localeID, path), locPath -> guessFilePath(locPath));
             // Annotate anything that needs annotation
             if (shortStatus == ErrorType.error || shortStatus == ErrorType.warning) {
                 String cleanPrettyPath = path == null ? "—" : prettyPath; // prettyPathMaker.getOutputForm(prettyPath);
-                System.out.println("::" + shortStatus + " file=" + localeID + ".xml:: " + localeID + ": " + subType + " @ " + cleanPrettyPath);
+                System.out.println("::" + shortStatus + " file=" + filePath + ":: " + localeID + ": " + subType + " @ " + cleanPrettyPath);
             }
         }
         if (PATH_IN_COUNT && ErrorFile.generated_html_count != null) {
@@ -1691,4 +1693,33 @@ public class ConsoleCheckCLDR {
     }
 
 
+    /**
+     * Approximate xml path
+     */
+    public static String guessFilePath(Pair<String, String> locPath) {
+        final File base = new File(CLDRPaths.BASE_DIRECTORY);
+        final String loc = locPath.getFirst();
+        final String path = locPath.getSecond();
+        String subdir = "main";
+        if (path.startsWith("//ldml/annotations")) {
+            subdir = "annotations";
+        } else if(path.startsWith("//ldml/subdivisions")) {
+            subdir = "subdivisions";
+        }
+        File inCommon = new File(base, "common");
+        File subsub = new File(inCommon, subdir);
+        if (subsub.isDirectory()) {
+            File subFile = new File(subsub, loc+".xml");
+            if (subFile.canRead()) return subFile.getAbsolutePath().substring(base.getAbsolutePath().length() + 1);
+        }
+
+        File inSeed = new File(base, "seed");
+        subsub = new File(inSeed, subdir);
+        if (subsub.isDirectory()) {
+            File subFile = new File(subsub, loc+".xml");
+            if (subFile.canRead()) return subFile.getAbsolutePath().substring(base.getAbsolutePath().length() + 1);
+        }
+        return loc+".xml";
+    }
+    final static ConcurrentHashMap<Pair<String, String>, String> localeXpathToFilePath = new ConcurrentHashMap<>();
 }

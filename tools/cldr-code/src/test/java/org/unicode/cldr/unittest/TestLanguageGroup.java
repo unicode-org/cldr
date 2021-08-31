@@ -30,11 +30,15 @@ public class TestLanguageGroup extends TestFmwk {
     static Multimap<String, String> CHILDREN_TO_PARENT = ImmutableMultimap.copyOf(Multimaps.invertFrom(PARENT_TO_CHILDREN, TreeMultimap.create()));
 
     public static void main(String[] args) {
+        System.out.println("See the class description for GenerateLanguageContainment.java about fixing problems, or the javadoc for the test code");
         new TestLanguageGroup().run(args);
     }
 
-    static final Set<String> ISOLATES = ImmutableSet.of("ko", "qu", "root");
+    static final Set<String> ISOLATES = ImmutableSet.of("ko", "qu", "root", "ce", "kgp", "und");
 
+    /**
+     * Checks that items with no parent are not in that category by mistake.
+     */
     public void TestCodes() {
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> seen = new HashSet<>();
@@ -48,15 +52,20 @@ public class TestLanguageGroup extends TestFmwk {
             }
             seen.add(lang);
             Set<List<String>> targets = getAllAncestors(lang);
-            assertEquals(targets.toString(), 1, targets.size());
+            assertEquals(getName(lang) + " has multiple ancestors: " + targets, 1, targets.size());
             List<String> target = targets.iterator().next();
-            if ((target.size() == 1) != ISOLATES.contains(lang)) {
-                errln(getName(lang) + "\t" + target);
+            if ((target.size() == 1) && !ISOLATES.contains(lang)) {
+                errln("Single ancestor but not in ISOLATES: " + getName(lang) + "\t" + target);
+                /** If this fails, check the ancestors on wikipedia, and if none of them have */
+            } else if (!(target.size() == 1) && ISOLATES.contains(lang)) {
+                errln("Multiple ancestors but in ISOLATES: " + getName(lang) + "\t" + target);
             } else {
                 logln(getName(lang) + "\t" + target);
             }
         }
     }
+
+    static final Set<String> MIXED_LANGUAGES = ImmutableSet.of("sth");
 
     public void TestSingleParent() {
         for (Entry<String, Collection<String>> entry : CHILDREN_TO_PARENT.asMap().entrySet()) {
@@ -65,16 +74,16 @@ public class TestLanguageGroup extends TestFmwk {
             if (parents.size() != 1) {
                 StringBuilder parentsString = new StringBuilder();
                 parents.forEach(code -> parentsString.append(getName(code) + "; "));
-                errln("\tThere are multiple parents\t" + parentsString + "\tfor\t" + getName(child));
+                msg("\tThere are multiple parents\t" + parentsString + "\tfor\t" + getName(child), MIXED_LANGUAGES.contains(child) ? LOG : ERR, true, true);
             }
         }
     }
 
-    public static Set<LanguageGroup> SPECIALS = ImmutableSet.of(LanguageGroup.root, LanguageGroup.cjk, LanguageGroup.other, LanguageGroup.american);
+    public static Set<LanguageGroup> OLD_SPECIALS = ImmutableSet.of(LanguageGroup.root, LanguageGroup.cjk, LanguageGroup.other, LanguageGroup.american, LanguageGroup.caucasian);
 
     public void TestOldLangaugeGroup() {
         for (LanguageGroup item : LanguageGroup.values()) {
-            if (SPECIALS.contains(item)) { // special cases
+            if (OLD_SPECIALS.contains(item)) { // special cases
                 continue;
             }
             Set<ULocale> locales = LanguageGroup.getLocales(item);
@@ -111,8 +120,13 @@ public class TestLanguageGroup extends TestFmwk {
             if (parents == null || parents.isEmpty()) {
                 return false;
             }
-            if (parents.size() != 1) {
-                throw new IllegalArgumentException(lang + " has two parents " + parents);
+            if (parents.size() != 1) { // recurse with 2 since is simpler
+                for (String parent : parents) {
+                    if (parent.equals(ancestor) || isAncestorOf(ancestor, parent)) {
+                        return true;
+                    }
+                }
+                return false;
             }
             lang = parents.iterator().next();
             if (lang.equals(ancestor)) {

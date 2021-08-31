@@ -92,14 +92,14 @@ If a test or status check does not pass, see [Running Tests][] on the CLDR devel
 Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved. [Terms of use][]
 
-[Survey Tool]: http://cldr.unicode.org/index/survey-tool
+[Survey Tool]: https://cldr.unicode.org/index/survey-tool
 [Terms of use]: http://www.unicode.org/copyright.html
-[Jira]: http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket
+[Jira]: https://cldr.unicode.org/index/bug-reports#h.o5tktlfjc4iw
 [Tools source]: https://github.com/unicode-org/cldr/tree/master/tools
-[Maven setup]: http://cldr.unicode.org/development/maven
-[Repository Organization]: http://cldr.unicode.org/index/downloads#Repository_Organization
-[How to contribute]: http://cldr.unicode.org/#TOC-How-to-Contribute-
+[Maven setup]: https://cldr.unicode.org/development/cldr-development-site/maven-setup
+[Repository Organization]: https://cldr.unicode.org/index/downloads#h.lf1z45b9du36
+[How to contribute]: https://cldr.unicode.org/#h.vw32p8sealpj
 [Unicode member]: https://home.unicode.org/membership/why-join/
 [supplemental data]: https://github.com/unicode-org/cldr/tree/master/common/supplemental
 [About Status Checks]: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks
-[Running Tests]: http://cldr.unicode.org/development/running-tests
+[Running Tests]: https://cldr.unicode.org/development/cldr-development-site/running-tests

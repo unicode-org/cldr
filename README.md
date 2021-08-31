@@ -1,6 +1,6 @@
 # Unicode CLDR Project
 
-Latest Release: [v40.0](http://cldr.unicode.org/index/downloads/cldr-40) published 2021-10-20
+Latest Release: [v40.0](https://cldr.unicode.org/index/downloads/cldr-40) published 2021-10-20
 
 ## Build Status
 
@@ -13,10 +13,10 @@ The Unicode CLDR provides key building blocks for software to support the world'
 
 See For further information:
 
-- Information about [CLDR releases and downloads](http://cldr.unicode.org/index/downloads "CLDR Download Page"),
+- Information about [CLDR releases and downloads](https://cldr.unicode.org/index/downloads "CLDR Download Page"),
 including the data files and LDML specification associated with each release.
 
-- Information about [Building and running CLDR Tools](http://cldr.unicode.org/tools "CLDR Tools Page")
+- Information about [Building and running CLDR Tools](https://cldr.unicode.org/development/cldr-tools "CLDR Tools Page")
 
 ### Contributing
 

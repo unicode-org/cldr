@@ -4,7 +4,7 @@ Latest Release: [v40.0](https://cldr.unicode.org/index/downloads/cldr-40) publis
 
 ## Build Status
 
-GitHub: 
+GitHub:
 [![cldr-mvn](https://github.com/unicode-org/cldr/workflows/cldr-mvn/badge.svg)](https://github.com/unicode-org/cldr/actions?query=branch%3Amaster+workflow%3A%22cldr-mvn%22)
 [![Ansible Lint](https://github.com/unicode-org/cldr/workflows/Ansible%20Lint/badge.svg)](https://github.com/unicode-org/cldr/actions?query=branch%3Amaster+workflow%3A%22Ansible+Lint%22)
 
@@ -26,22 +26,17 @@ Click [HERE](http://unicode.org/cldr/survey_tool.html) for information on how to
 For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ### Licenses
- 
+
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)
 a copy of which is included as [unicode-license.txt](./unicode-license.txt).
 
 - Some CLDR tools depend on library dependencies managed via Maven,
-  use of these libraries is governed by separate license agreements.  
-- Use of the ICU libraries is subject to the
-[ICU License]("https://github.com/unicode-org/icu/blob/master/icu4j/main/shared/licenses/LICENSE"),
-included as [ICU-LICENSE](./ICU-LICENSE).
-- Use of the Guava, Xerces, and Myanmar Tools libraries is subject to the
-[Apache License]("http://www.apache.org/licenses/LICENSE-2.0.html")
-included as [apache-license.txt](./apache-license.txt).
+  use of these libraries is governed by separate license agreements.
+
+SPDX-License-Identifier: Unicode-DFS-2016
 
 ### Copyright
 
 Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved.
 [Terms of use](http://www.unicode.org/copyright.html)
-

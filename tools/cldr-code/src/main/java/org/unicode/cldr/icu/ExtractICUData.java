@@ -68,9 +68,7 @@ public class ExtractICUData {
 
     static Set<String> skipLines = new HashSet<>(Arrays.asList(new String[] {
         "#--------------------------------------------------------------------",
-        "# Copyright (c) 1999-2005, International Business Machines",
-        "# Copyright (c) 1999-2004, International Business Machines",
-        "# Corporation and others. All Rights Reserved.",
+
         "#--------------------------------------------------------------------"
     }));
     static Set<String> skipFiles = new HashSet<>(Arrays.asList(new String[] {

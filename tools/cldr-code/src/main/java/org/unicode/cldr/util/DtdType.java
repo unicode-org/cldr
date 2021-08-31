@@ -81,10 +81,7 @@ public enum DtdType {
         return "<?xml version='1.0' encoding='UTF-8' ?>\n"
         + "<!DOCTYPE " + this + " SYSTEM '../../" + dtdPath + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
         + "<!--\n"
-        + "\t© 1991-2017 Unicode, Inc.\n"
-        + "\tUnicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.\n"
-        + "\tFor terms of use, see http://www.unicode.org/copyright.html.\n"
-        + "\tCLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/).\n"
+        + CldrUtility.getCopyrightString("\t")
         + gline
         + " -->\n"
         + "<" + this + ">\n";

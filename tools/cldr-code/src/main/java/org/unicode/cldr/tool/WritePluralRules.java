@@ -9,6 +9,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
@@ -113,9 +114,7 @@ public class WritePluralRules {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
             + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">\n"
             + "<!--\n"
-            + "Copyright © 1991-2015 Unicode, Inc.\n"
-            + "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
-            + "For terms of use, see http://www.unicode.org/copyright.html\n"
+            + CldrUtility.getCopyrightString() + "\n"
             + "-->\n"
             + "<supplementalData>\n"
             + "    <version number=\"$Revision" +

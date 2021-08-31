@@ -498,17 +498,6 @@ public class SubdivisionNode {
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");
         }
 
-//        private static String header(DtdType type) {
-//            return "<?xml version='1.0' encoding='UTF-8' ?>\n"
-//                + "<!DOCTYPE " + type // supplementalData
-//                + " SYSTEM '../../" + type.dtdPath + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
-//                + "<!--\n"
-//                + "Copyright © 1991-2013 Unicode, Inc.\n"
-//                + "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
-//                + "For terms of use, see http://www.unicode.org/copyright.html\n"
-//                + "-->\n";
-//        }
-
         void printAliases(Appendable output) throws IOException {
             addAliases(output, sdset.TO_COUNTRY_CODE.keySet());
 

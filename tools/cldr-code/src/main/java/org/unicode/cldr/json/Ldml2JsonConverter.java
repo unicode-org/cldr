@@ -78,7 +78,7 @@ public class Ldml2JsonConverter {
     private enum RunType {
         main,
         supplemental(false), // aka 'core'
-        segments, rbnf(false), annotations, annotationsDerived;
+        segments, rbnf(false), annotations, annotationsDerived, bcp47(false);
 
         private final boolean isTiered;
         RunType() {
@@ -508,7 +508,7 @@ public class Ldml2JsonConverter {
             }
             String outFilename;
             final String filenameAsLangTag = localeIdToLangTag(filename);
-            if (type == RunType.rbnf) {
+            if (type == RunType.rbnf || type == RunType.bcp47) {
                 outFilename = filenameAsLangTag + ".json";
             } else if(js.section.equals("other")) {
                 // If you see other-___.json, it means items that were missing from JSON_config_*.txt
@@ -547,6 +547,9 @@ public class Ldml2JsonConverter {
                         }
                     } else if (type == RunType.rbnf) {
                         js.packageName = "rbnf";
+                        tier = "";
+                    } else if (type == RunType.bcp47) {
+                        js.packageName = "bcp47";
                         tier = "";
                     }
                     if (js.packageName != null) {
@@ -862,8 +865,8 @@ public class Ldml2JsonConverter {
         if (dependency != null) {
             String[] dependentPackageNames = new String[1];
             String tier = packageNameParts[packageNameParts.length - 1];
-            if (dependency.equals("core")) {
-                dependentPackageNames[0] = "cldr-core";
+            if (dependency.equals("core") || dependency.equals("bcp47")) {
+                dependentPackageNames[0] = CLDR_PKG_PREFIX + dependency;
             } else {
                 dependentPackageNames[0] = CLDR_PKG_PREFIX + dependency + "-" + tier;
             }

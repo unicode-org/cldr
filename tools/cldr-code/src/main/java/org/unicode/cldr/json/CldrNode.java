@@ -13,8 +13,12 @@ public class CldrNode {
 
     public static CldrNode createNode(String parent, String pathSegment,
         String fullPathSegment) throws ParseException {
+            return createNode(parent, pathSegment, fullPathSegment, null);
+    }
+    public static CldrNode createNode(String parent, String pathSegment,
+    String fullPathSegment, CldrItem item) throws ParseException {
         CldrNode node = new CldrNode();
-
+        node.item = item;
         node.parent = parent;
         node.name = extractAttrs(pathSegment, node.distinguishingAttributes);
         String fullTrunk = extractAttrs(fullPathSegment,
@@ -122,6 +126,19 @@ public class CldrNode {
      * parent element for this element.
      */
     private String parent;
+
+    /**
+     * CldrItem, if any
+     */
+    private CldrItem item;
+
+    public String getUntransformedPath() {
+        if (item != null) {
+            return item.getUntransformedPath();
+        } else {
+            return "noitem";
+        }
+    }
 
     /**
      * This name is derived from element name and attributes. Once it is

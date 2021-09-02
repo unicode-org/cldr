@@ -65,7 +65,7 @@
 < (.*/numbers/(decimal|scientific|percent|currency)Formats\[@numberSystem="([^"]*)"\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\[@type="standard"]/pattern.*$
 > $1/standard
 
-# 
+#
 < (.*/numbers/currencyFormats\[@numberSystem="([^"]*)"\])/currencyFormatLength/currencyFormat\[@type="accounting"]/pattern.*$
 > $1/accounting
 
@@ -73,59 +73,59 @@
 < (.*/numbers/(decimal|scientific|percent)Formats\[@numberSystem="([^"]*)"\]/(decimal|scientific|percent)FormatLength)/(.*)$
 > $1[@type="standard"]/$5
 
-# 
+#
 < (.*/listPattern)/(.*)$
 > $1[@type="standard"]/$2
 
-# 
+#
 < (.*/languagePopulation)\[@type="([^"]*)"\](.*)
 > $1/$2$3
 
-# 
+#
 < (.*/languageAlias)\[@type="([^"]*)"\](.*)
 > $1/$2$3
 
-# 
+#
 < (.*/scriptAlias)\[@type="([^"]*)"\](.*)
 > $1/$2$3
 
-# 
+#
 < (.*/territoryAlias)\[@type="([^"]*)"\](.*)
 > $1/$2$3
 
-# 
+#
 < (.*/subdivisionAlias)\[@type="([^"]*)"\](.*)
 > $1/$2$3
 
-# 
+#
 < (.*/variantAlias)\[@type="([^"]*)"\](.*)
 > $1/$2$3
 
-# 
+#
 < (.*/zoneAlias)\[@type="([^"]*)"\](.*)
 > $1/$2$3
 
-# 
+#
 < (.*/alias)(.*)
 > $1/alias$2
 
-# 
+#
 < (.*currencyData/region)(.*)
 > $1/region$2
 
 # Skip exemplar city in /etc/GMT or UTC timezones, since they don't have them
 < (.*(GMT|UTC).*/exemplarCity)(.*)
-> 
+>
 
-# 
+#
 < (.*/transforms/transform[^/]*)/(.*)
 > $1/tRules/$2
 
-# 
+#
 < (.*)\[@territories="([^"]*)"\](.*)\[@alt="variant"\](.*)
 > $1\[@territories="$2-alt-variant"\]
 
-# 
+#
 < (.*)/weekData/(.*)\[@alt="variant"\](.*)
 > $1/weekData/$2$3
 
@@ -141,3 +141,10 @@
 < (.*)/(grammaticalData)/(.*)/(grammaticalGender)(.*)$
 > $1/grammaticalGenderData/$3/$4$5
 
+# BCP47 (No extension, assume 'u')
+< (.*)/(keyword)/(key)\[@name="([^"]*)"\](.*)$
+> $1/$2/u/$4$5
+
+# BCP47 (Some other extension)
+< (.*)/(keyword)/(key)\[@extension="([^"]*)"\]\[@name="([^"]*)"\](.*)$
+> $1/$2/$4/$5$6

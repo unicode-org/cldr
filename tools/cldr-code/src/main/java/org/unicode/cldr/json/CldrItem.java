@@ -184,7 +184,7 @@ public class CldrItem implements Comparable<CldrItem> {
         String parent = "";
         for (int i = 0; i < pathSegments.length; i++) {
             CldrNode node = CldrNode.createNode(parent, pathSegments[i],
-                fullPathSegments[i]);
+                fullPathSegments[i], this);
 
             // Zone and time zone element has '/' in attribute value, like
             // .../zone[@type="America/Adak"]/...
@@ -195,13 +195,13 @@ public class CldrItem implements Comparable<CldrItem> {
             String nodeName = node.getName();
             if (node.isTimezoneType()) {
                 nodesInPath.add(CldrNode.createNode(parent, node.getName(),
-                    node.getName()));
+                    node.getName(), this));
                 String typeValue = node.getDistinguishingAttributes().get("type");
                 typeValue = typeValue.replaceAll("Asia:Taipei", "Asia/Taipei");
                 String[] segments = typeValue.split("/");
                 for (int j = 0; j < segments.length; j++) {
                     CldrNode newNode = CldrNode.createNode(parent, node.getName(),
-                        node.getName());
+                        node.getName(), this);
                     if (j == segments.length - 1) {
                         newNode.getDistinguishingAttributes().putAll(
                             node.getDistinguishingAttributes());

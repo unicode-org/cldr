@@ -1398,7 +1398,7 @@ public class TestUtilities extends TestFmwkPlus {
     public void TestMissingGrammar() {
         // https://cldr-smoke.unicode.org/cldr-apps/v#/hu/Length/a4915bf505ffb49
         final String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
-        checkGrammarCoverage("hr", path,    MissingStatus.ABSENT, DEBUG, 0, 0, 1, 1, 0);
+        checkGrammarCoverage("hr", path,    MissingStatus.PRESENT, DEBUG, 1, 0, 0, 0, 0); // this isn't a very good test, since we have to adjust each time. Should create fake cldr data instead
         checkGrammarCoverage("kw", path, MissingStatus.ABSENT, false, 0, 0, 1, 1, 0);
         checkGrammarCoverage("en_NZ", path, MissingStatus.ALIASED, DEBUG, 1, 0, 0, 0, 0);
     }
@@ -1415,7 +1415,7 @@ public class TestUtilities extends TestFmwkPlus {
         final MissingStatus expected = statusExpected;
         final MissingStatus status = VettingViewer.getMissingStatus(cldrFile, path, true /* latin */);
         if (status != expected) {
-            errln("Got getMissingStatus = " + status.toString() + "; expected " + expected.toString());
+            errln(locale + " got getMissingStatus = " + status.toString() + "; expected " + expected.toString());
         }
         Iterable<String> pathsToTest = Collections.singleton(path);
         Counter<org.unicode.cldr.util.Level> foundCounter = new Counter<>();
@@ -1425,11 +1425,11 @@ public class TestUtilities extends TestFmwkPlus {
         Set<String> unconfirmedPaths = new TreeSet<>();
         VettingViewer.getStatus(pathsToTest, cldrFile, PathHeader.getFactory(),
             foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
-        assertEquals(locale + " foundCounter", sizes[0], foundCounter.getTotal());
-        assertEquals(locale + " unconfirmedCounter", sizes[1], unconfirmedCounter.getTotal());
-        assertEquals(locale + " missingCounter", sizes[2], missingCounter.getTotal());
-        assertEquals(locale + " missingPaths", sizes[3], missingPaths.size());
-        assertEquals(locale + " unconfirmedPaths", sizes[4], unconfirmedPaths.size());
+        assertEquals(locale + " foundCounter (0)", sizes[0], foundCounter.getTotal());
+        assertEquals(locale + " unconfirmedCounter (1)", sizes[1], unconfirmedCounter.getTotal());
+        assertEquals(locale + " missingCounter (2)", sizes[2], missingCounter.getTotal());
+        assertEquals(locale + " missingPaths (3)", sizes[3], missingPaths.size());
+        assertEquals(locale + " unconfirmedPaths (4)", sizes[4], unconfirmedPaths.size());
         showStatusResults(locale, foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
         if (debug) {
             foundCounter.clear();

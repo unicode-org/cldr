@@ -1,0 +1,72 @@
+# Build ICU
+
+name: Build ICU from CLDR
+
+# Triggered on push to master,
+# or PR against master.
+on:
+  workflow_dispatch:
+    inputs:
+      cldr-ref:
+        description: CLDR ref to build
+        required: true
+        default: 'master'
+      cldr-repo:
+        description: CLDR repo to build
+        required: true
+        default: 'unicode-org/cldr'
+      icu-repo:
+        description: ICU repo
+        required: true
+        default: 'unicode-org/icu'
+      icu-ref:
+        description: ICU branch/tag
+        required: true
+        default: 'main'
+jobs:
+  proddata:
+    name: Build Production Data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository (Custom Ref)
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.cldr-ref }}
+          lfs: false
+          repository: ${{ github.event.inputs.cldr-repo }}
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true -pl cldr-code
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload cldr-code
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-code
+          path: tools/cldr-code/target/cldr-code.jar
+      - name: Build prod Data
+        run: |
+          rm -rf target/cldr-prod
+          mkdir -p target/cldr-prod
+          mvn  -s .github/workflows/mvn-settings.xml -B  -DCLDR_DIR=$(pwd) -DCLDR_GITHUB_ANNOTATIONS=true --file=tools/pom.xml -pl cldr-code  \
+            exec:java -Dexec.mainClass=org.unicode.cldr.tool.GenerateProductionData \
+            -Dexec.args="-d target/cldr-prod"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload cldr-prod
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-prod
+          path: target/cldr-prod

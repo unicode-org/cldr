@@ -548,6 +548,7 @@ public class TestDtdData extends TestFmwk {
                 && attribute.equals("path")
                 || elementName.equals("timezone")
                 && attribute.equals("type")
+                || (elementName.equals("metazoneId") && attribute.equals("shortId"))
                 || elementName.equals("usesMetazone")
                 && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
                 || elementName.equals("numberingSystem")

@@ -22,10 +22,11 @@ public abstract class CLDRURLS {
     /**
      * URL for filing a new ticket
      */
-    public static final String CLDR_NEWTICKET_URL = "http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
+    public static final String CLDR_NEWTICKET_URL = "https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
     public static final String CLDR_REPO_ROOT = "https://github.com/unicode-org/cldr";
-    public static final String CLDR_HOMEPAGE = "http://cldr.unicode.org";
+    public static final String CLDR_HOMEPAGE = "https://cldr.unicode.org";
     public static final String UNICODE_CONSORTIUM = "The Unicode Consortium";
+    public static final String CLDR_UPDATINGDTD_URL = CLDR_HOMEPAGE + "/development/updating-dtds";
     /**
      * Our license, in SPDX format
      */

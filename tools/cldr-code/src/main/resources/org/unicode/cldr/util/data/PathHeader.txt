@@ -1,4 +1,5 @@
-# Date for generating Section/Page/Header/Code in Survey Tool and elsewhere.
+# Data for generating Section/Page/Header/Code in Survey Tool and elsewhere.
+# Details: <https://cldr.unicode.org/development/updating-dtds>
 # IMPORTANT:
 # Be careful, order matters. It is used to determine the order on the page and in menus. Also, be sure to put longer matches first, unless terminated with $.
 # The quoting of \[ is handled automatically, as is alt=X
@@ -7,6 +8,7 @@
 # To use alphabetic ordering for a header or code, call &alphaOrder()
 # The only function that can be in Page right now are &metazone and &calendar, and NO functions can be in Section
 # A * at the front (like *$1) means to not change the sorting group.
+
 
 # VARIABLES
 %a = [^"]*+
@@ -27,6 +29,7 @@
 %X = (energy|power)
 
 #RULES
+# <regex> ; <section> ; <page> ; <header> ; <code>
 //ldml/identity/%E[@type="%A"]    ; Special ; Identity ; $1 ; $2 ; HIDE
 //ldml/identity/version                 ; Special ; Version ; null ; version ; HIDE
 //ldml/identity/generation                 ; Special ; Version ; null ; generation ; HIDE
@@ -417,6 +420,7 @@
 //supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_mzone			; Supplemental ; Metazone ; $1 ; -∞..∞ ; HIDE
 
 //supplementalData/metaZones/mapTimezones[@type="%A"]/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; Metazone ; $1 ; $2-$3 ; HIDE
+//supplementalData/metaZones/metazoneIds/metazoneId[@shortId="%A"]/_%E ; Supplemental ; Metazone ; $1 ; $2 ; HIDE
 //supplementalData/primaryZones/primaryZone[@iso3166="%A"]			; Supplemental ; Metazone ; Primary ; $1 ; HIDE
 
 //supplementalData/numberingSystems/numberingSystem[@id="%A"]/_%E			; Supplemental ; NumberSystem ; $1 ; $2 ; HIDE

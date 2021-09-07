@@ -17,6 +17,14 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import com.google.common.io.Files;
+import com.ibm.icu.util.Output;
+
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
@@ -32,14 +40,6 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
-import com.google.common.io.Files;
-import com.ibm.icu.util.Output;
 
 public class GenerateProductionData {
     static boolean DEBUG = false;
@@ -150,7 +150,9 @@ public class GenerateProductionData {
 
         // get directories
 
-        for (DtdType type : DtdType.values()) {
+        Arrays.asList(DtdType.values()).parallelStream()
+            .unordered()
+            .forEach(type -> {
             boolean isLdmlDtdType = type == DtdType.ldml;
 
             // bit of a hack, using the ldmlICU — otherwise unused! — to get the nonXML files.
@@ -162,7 +164,7 @@ public class GenerateProductionData {
                 Stats stats = new Stats();
                 copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType, stats);
             }
-        }
+        });
         if (!localeToSubdivisionsToMigrate.isEmpty()) {
             System.err.println("WARNING: Subdivision files not written");
             for (Entry<String, Pair<String, String>> entry : localeToSubdivisionsToMigrate.entries()) {
@@ -207,7 +209,7 @@ public class GenerateProductionData {
      * @return true if the file is an ldml file with empty content.
      */
     private static boolean copyFilesAndReturnIsEmpty(File sourceFile, File destinationFile,
-        Factory factory, boolean isLdmlDtdType, Stats stats) {
+        Factory factory, boolean isLdmlDtdType, final Stats stats) {
         if (sourceFile.isDirectory()) {
 
             System.out.println(sourceFile + " => " + destinationFile);
@@ -232,29 +234,33 @@ public class GenerateProductionData {
             boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
 
             Set<String> emptyLocales = new HashSet<>();
-            stats = new Stats();
-            for (String file : sorted) {
-                File sourceFile2 = new File(sourceFile, file);
-                File destinationFile2 = new File(destinationFile, file);
-                if (VERBOSE) System.out.println("\t" + file);
+            final Stats stats2 = new Stats();
+            final Factory theFactory = factory;
+            final boolean isLdmlDtdType2 = isLdmlDtdType;
+            sorted
+                .parallelStream()
+                .forEach(file -> {
+                    File sourceFile2 = new File(sourceFile, file);
+                    File destinationFile2 = new File(destinationFile, file);
+                    if (VERBOSE) System.out.println("\t" + file);
 
-                // special step to just copy certain files like main/root.xml file
-                Factory currFactory = factory;
-                if (isMainDir) {
-                    if (file.equals("root.xml")) {
+                    // special step to just copy certain files like main/root.xml file
+                    Factory currFactory = theFactory;
+                    if (isMainDir) {
+                        if (file.equals("root.xml")) {
+                            currFactory = null;
+                        }
+                    } else if (isRbnfDir) {
                         currFactory = null;
                     }
-                } else if (isRbnfDir) {
-                    currFactory = null;
-                }
 
-                // when the currFactory is null, we just copy files as-is
-                boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, currFactory, isLdmlDtdType, stats);
-                if (isEmpty) { // only happens for ldml
-                    emptyLocales.add(file.substring(0,file.length()-4)); // remove .xml for localeId
-                }
-            }
-            stats.showNonZero("\tTOTAL:\t");
+                    // when the currFactory is null, we just copy files as-is
+                    boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, currFactory, isLdmlDtdType2, stats2);
+                    if (isEmpty) { // only happens for ldml
+                        emptyLocales.add(file.substring(0,file.length()-4)); // remove .xml for localeId
+                    }
+                });
+            stats2.showNonZero("\tTOTAL:\t");
             // if there are empty ldml files, AND we aren't in /main/,
             // then remove any without children
             if (!emptyLocales.isEmpty() && !sourceFile.getName().equals("main")) {

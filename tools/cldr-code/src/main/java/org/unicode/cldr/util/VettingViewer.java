@@ -1274,7 +1274,7 @@ public class VettingViewer<T> {
 
         String value = sourceFile.getStringValue(path);
         Status status = new Status();
-        String sourceLocale = sourceFile.getSourceLocaleID(path, status); // does not skip inheritance marker
+        String sourceLocale = sourceFile.getSourceLocaleIdExtended(path, status, false); // does not skip inheritance marker
 
         boolean isAliased = !path.equals(status.pathWhereFound); // this was path.equals, which would be incorrect!
         if (DEBUG) {

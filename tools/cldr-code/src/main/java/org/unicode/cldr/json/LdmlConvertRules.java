@@ -152,17 +152,15 @@ class LdmlConvertRules {
         "grammaticalDerivations:deriveComponent:value0",
         "grammaticalDerivations:deriveComponent:value1",
 
-        // in common/bcp47/*.xml
-        "keyword:key:alias",
-        "keyword:key:name",
-        "key:type:alias",
-        "key:type:name",
-
         // identity elements
         "identity:language:type",
         "identity:script:type",
         "identity:territory:type",
-        "identity:variant:type");
+        "identity:variant:type",
+
+        // in common/bcp47/*.xml
+        "keyword:key:name"
+    );
 
     /**
      * The set of element:attribute pair in which the attribute should be
@@ -597,5 +595,17 @@ class LdmlConvertRules {
     public static final boolean valueIsSpacesepArray(final String nodeName, String parent) {
         return VALUE_IS_SPACESEP_ARRAY.matcher(nodeName).matches()
             || (parent!=null && CHILD_VALUE_IS_SPACESEP_ARRAY.contains(parent));
+    }
+
+    static final Set<String> BCP47_BOOLEAN_OMIT_FALSE = ImmutableSet.of(
+        // attribute names within bcp47 that are booleans, but omitted if false.
+        "deprecated"
+    );
+
+    // These attributes are booleans, and should be omitted if false
+    public static final boolean attrIsBooleanOmitFalse(final String fullPath, final String nodeName, final String parent, final String key) {
+        return (fullPath != null &&
+            (fullPath.startsWith("//ldmlBCP47/keyword/key") &&
+            BCP47_BOOLEAN_OMIT_FALSE.contains(key)));
     }
 }

@@ -1241,9 +1241,19 @@ public class Ldml2JsonConverter {
 
         out.beginObject();
         for (String key : attrAsValueMap.keySet()) {
-            String value = escapeValue(attrAsValueMap.get(key));
+            String rawAttrValue = attrAsValueMap.get(key);
+            String value = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
-            out.name("_" + key).value(value);
+            String attrAsKey = "_" + key;
+            if (LdmlConvertRules.attrIsBooleanOmitFalse(node.getUntransformedPath(), node.getName(), node.getParent(), key)) {
+                final Boolean v = Boolean.parseBoolean(rawAttrValue);
+                if (v) {
+                    out.name(attrAsKey).value(v);
+                } // else, omit
+            } else {
+                System.err.println(node.getUntransformedPath()+ "@BOOOOL@"+ node.getName() +":"+ node.getParent() +":"+ key+"="+rawAttrValue);
+                out.name(attrAsKey).value(value);
+            }
         }
     }
 
@@ -1321,7 +1331,7 @@ public class Ldml2JsonConverter {
                 writeRbnfLeafNode(out, item, attrAsValueMap);
             } else {
                 out.beginObject();
-                writeLeafNode(out, objName, attrAsValueMap, value, nodesNum, cldrNode.getName(), cldrNode.getParent());
+                writeLeafNode(out, objName, attrAsValueMap, value, nodesNum, cldrNode.getName(), cldrNode.getParent(), cldrNode);
                 out.endObject();
             }
             // the last node is closed, remove it.
@@ -1558,7 +1568,7 @@ public class Ldml2JsonConverter {
 
         String objName = node.getNodeKeyName();
         Map<String, String> attrAsValueMaps = node.getAttrAsValueMap();
-        writeLeafNode(out, objName, attrAsValueMaps, value, level, node.getName(), node.getParent());
+        writeLeafNode(out, objName, attrAsValueMaps, value, level, node.getName(), node.getParent(), node);
     }
 
     /**
@@ -1579,7 +1589,7 @@ public class Ldml2JsonConverter {
      */
     private void writeLeafNode(JsonWriter out, String objName,
         Map<String, String> attrAsValueMap, String value, int level, final String nodeName,
-            String parent)
+            String parent, CldrNode node)
         throws IOException {
         if (objName == null) {
             return;
@@ -1635,18 +1645,26 @@ public class Ldml2JsonConverter {
         }
 
         for (String key : attrAsValueMap.keySet()) {
-            String attrValue = escapeValue(attrAsValueMap.get(key));
+            String rawAttrValue = attrAsValueMap.get(key);
+            String attrValue = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
+            String attrAsKey = "_" + key;
             if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
                 String[] strings = attrValue.trim().split("\\s+");
-                out.name("_" + key);
+                out.name(attrAsKey);
                 out.beginArray();
                 for (String s : strings) {
                     out.value(s);
                 }
                 out.endArray();
+            } else if (node != null &&
+                LdmlConvertRules.attrIsBooleanOmitFalse(node.getUntransformedPath(), nodeName, parent, key)) {
+                final Boolean v = Boolean.parseBoolean(rawAttrValue);
+                if (v) {
+                    out.name(attrAsKey).value(v);
+                } // else: omit falsy value
             } else {
-                out.name("_" + key).value(attrValue);
+                out.name(attrAsKey).value(attrValue);
             }
         }
         out.endObject();

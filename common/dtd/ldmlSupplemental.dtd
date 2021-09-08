@@ -1168,7 +1168,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST metazoneId longId CDATA #IMPLIED >
     <!--@MATCH:metazone-->
     <!--@VALUE-->
-    <!ATTLIST metazoneId deprecated (true | false) "false" >
+<!ATTLIST metazoneId deprecated (true | false) "false" >
     <!--@VALUE-->
 <!ATTLIST metazoneId preferred NMTOKEN #IMPLIED >
     <!--@MATCH:metazone-->

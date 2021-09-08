@@ -1251,7 +1251,6 @@ public class Ldml2JsonConverter {
                     out.name(attrAsKey).value(v);
                 } // else, omit
             } else {
-                System.err.println(node.getUntransformedPath()+ "@BOOOOL@"+ node.getName() +":"+ node.getParent() +":"+ key+"="+rawAttrValue);
                 out.name(attrAsKey).value(value);
             }
         }

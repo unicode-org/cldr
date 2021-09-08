@@ -24,6 +24,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
@@ -124,6 +125,9 @@ public class TestPathHeader extends TestFmwkPlus {
             for (String e : missing) {
                 errln("Path Regex never matched:\t" + e);
             }
+        }
+        if (!pathChecker.badHeaders.isEmpty()) {
+            System.out.println("For help with DTD updates: " + CLDRURLS.CLDR_UPDATINGDTD_URL);
         }
     }
 
@@ -1247,6 +1251,9 @@ public class TestPathHeader extends TestFmwkPlus {
                     }
                 }
             }
+        }
+        if (!pathChecker.badHeaders.isEmpty()) {
+            System.out.println("For help with DTD updates: " + CLDRURLS.CLDR_UPDATINGDTD_URL);
         }
     }
 

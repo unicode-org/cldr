@@ -53,12 +53,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>xml-apis</groupId>
 			<artifactId>xml-apis</artifactId>
 		</dependency>
@@ -93,7 +87,7 @@
 				<artifactId>license-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>download-licenses</id>
+						<id>add-third-party</id>
 						<phase>package</phase>
 						<goals>
 							<goal>add-third-party</goal>
@@ -107,6 +101,8 @@
 						exclude the "for-cldr" dependencies.
 						see https://unicode-org.atlassian.net/browse/ICU-21425
 						these are actually under Unicode-DFS-2016 the same as CLDR is.
+						The ICU license file itself is pulled in during assembly, which contains
+						all of ICU's third party license information.
 					-->
 					<excludedArtifacts>.*-for-cldr.*</excludedArtifacts>
 				</configuration>
@@ -132,26 +128,49 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
- 				<configuration>
-					<attach>false</attach>
-					<finalName>cldr-code</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-					<descriptors>
-						<descriptor>src/main/assembly/cldr-code.xml</descriptor>
-					</descriptors>
-					<archive>
-						<manifest>
-							<mainClass>${mainClass}</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
+		        <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
 				<executions>
 					<execution>
 						<phase>package</phase>
 						<goals>
-							<goal>single</goal>
+							<goal>shade</goal>
 						</goals>
+						<configuration>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<!-- exclude other manifests -->
+										<exclude>META-INF/MANIFEST.MF</exclude>
+										<!-- don't care about modules for this purpose -->
+										<exclude>module-info.class</exclude>
+									</excludes>
+								</filter>
+							</filters>
+							<minimizeJar>false</minimizeJar>
+							<finalName>${project.artifactId}</finalName>
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>${mainClass}</mainClass>
+									<manifestEntries>
+										<Main-Class>${mainClass}</Main-Class>
+										<Built-By>${user.name}</Built-By>
+										<Build-Time>${maven.build.timestamp}</Build-Time>
+										<CLDR-Tools-Git-Commit>${buildNumber}</CLDR-Tools-Git-Commit>
+										<CLDR-Tools-Git-Branch>${scmBranch}</CLDR-Tools-Git-Branch>
+									</manifestEntries>
+								</transformer>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+									<file>${project.basedir}/target/generated-sources/license/THIRD-PARTY.txt</file>
+									<resource>CLDR-THIRD-PARTY.txt</resource>
+								</transformer>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+									<file>${project.basedir}/../../unicode-license.txt</file>
+									<resource>unicode-license.txt</resource>
+								</transformer>
+							</transformers>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

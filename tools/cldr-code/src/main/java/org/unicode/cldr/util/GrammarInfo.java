@@ -14,12 +14,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
 
@@ -81,9 +85,9 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         public String getDefault(Collection<String> featureValuesFromGrammaticalInfo) {
             return this == grammaticalGender
                 && featureValuesFromGrammaticalInfo != null
-                    && !featureValuesFromGrammaticalInfo.contains("neuter")
-                    ? "masculine"
-                        : defaultValue;
+                && !featureValuesFromGrammaticalInfo.contains("neuter")
+                ? "masculine"
+                    : defaultValue;
         }
         public static Matcher pathHasFeature(String path) {
             Matcher result = PATH_HAS_FEATURE.matcher(path);
@@ -107,6 +111,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
 
     private Map<GrammaticalTarget, Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>>> targetToFeatureToUsageToValues = new TreeMap<>();
     private boolean frozen = false;
+    static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
 
     /** Only internal */
     @Deprecated
@@ -490,6 +495,62 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     }
 
     /**
+     * Get paths that need to be present in a locale, based on the GrammarInfo. The units
+     * @param localeID
+     * @param pluralCounts
+     * @param unitsToAddGrammar
+     * @param toAddTo
+     */
+    public void addGrammarPaths(String localeID, Collection<String> unitsToAddGrammar, Collection<String> toAddTo) {
+        Set<Count> pluralCounts = SupplementalDataInfo.getInstance().getPlurals(localeID).getCounts();
+        GrammarInfo grammarInfo = this;
+        if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
+            Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+            Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+            Collection<String> nomCases = rawCases.isEmpty() ? GrammarInfo.casesNominativeOnly : rawCases;
+            Collection<Count> adjustedPlurals = pluralCounts;
+            // There was code here allowing fewer plurals to be used, but is retracted for now (needs more thorough integration in logical groups, etc.)
+            // This note is left for 'blame' to find the old code in case we revive that.
+
+            // TODO use UnitPathType to get paths
+            if (!genders.isEmpty()) {
+                for (String unit : unitsToAddGrammar) {
+                    toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender");
+                }
+                for (Count plural : adjustedPlurals) {
+                    for (String gender : genders) {
+                        for (String case1 : nomCases) {
+                            final String grammaticalAttributes = getGrammaticalInfoAttributes(grammarInfo, UnitPathType.power, plural.toString(),
+                                gender, case1);
+                            toAddTo
+                            .add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1" + grammaticalAttributes);
+                            toAddTo
+                            .add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1" + grammaticalAttributes);
+                        }
+                    }
+                }
+                //             <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>
+                for (String gender : genders) {
+                    toAddTo.add("//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + gender + "\"]");
+                }
+            }
+            if (!rawCases.isEmpty()) {
+                for (String case1 : rawCases) {
+                    //          <caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
+                    toAddTo.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
+
+                    for (Count plural : adjustedPlurals) {
+                        for (String unit : unitsToAddGrammar) {
+                            toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
+                                + getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, plural.toString(), null, case1));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Internal class for thread-safety
      */
     static class GrammarLocales {
@@ -510,7 +571,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         return GrammarLocales.data;
     }
 
-    static final Set<String> INCLUDE_OTHER = ImmutableSet.of(
+    static final Set<String> INCLUDE_NON_METRIC = ImmutableSet.of(
         "g-force",
         "arc-minute",
         "arc-second",
@@ -538,45 +599,66 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     /**
      * Internal class for thread-safety
      */
-    static class UnitsToAddGrammar {
-        static final Set<String> data;
+
+    public enum Group {minimal, metric, root}
+
+    private static class UnitsToAddGrammar {
+        private static Multimap<Group, String> data;
         static {
             final CLDRConfig config = CLDRConfig.getInstance();
             final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
-            Set<String> missing = new TreeSet<>();
-            Set<String> _data = new TreeSet<>();
+            Multimap<Group, String> _data = TreeMultimap.create();
             for (String path : With.in(config.getRoot().iterator("//ldml/units/unitLength[@type=\"short\"]/unit"))) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String unit = parts.getAttributeValue(3, "type");
+                _data.put(Group.root, unit);
+
                 // Add simple units
                 String shortUnit = converter.getShortId(unit);
-                if (INCLUDE_OTHER.contains(shortUnit)) {
-                    _data.add(unit);
+                if (INCLUDE_NON_METRIC.contains(shortUnit)) {
+                    _data.put(Group.metric, unit);
+                    _data.put(Group.minimal, unit);
                     continue;
                 }
                 Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
-                if (converter.isSimple(shortUnit)
-                    && !Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
-                    _data.add(unit);
-                    continue;
+                if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
+                    if (converter.isSimple(shortUnit)) {
+                        _data.put(Group.metric, unit);
+                        _data.put(Group.minimal, unit);
+                        continue;
+                    } else {
+                        _data.put(Group.metric, unit);
+                        continue;
+                    }
                 }
-                missing.add(unit);
             }
-            if (DEBUG) for (String unit : missing) {
-                String shortUnit = converter.getShortId(unit);
-                System.out.println("*Skipping\t" + unit
-                    + "\t" + converter.getQuantityFromUnit(shortUnit, false)
-                    + "\t" + converter.getSystemsEnum(shortUnit)
-                    + "\t" + (converter.isSimple(shortUnit) ? "SIMPLE" : ""));
+            if (DEBUG) for (Entry<Group, Collection<String>> entry : _data.asMap().entrySet()) {
+                Group group = entry.getKey();
+                for (String unit : entry.getValue()) {
+                    String shortUnit = converter.getShortId(unit);
+                    System.out.println("*Skipping\t" + unit
+                        + "\t" + converter.getQuantityFromUnit(shortUnit, false)
+                        + "\t" + converter.getSystemsEnum(shortUnit)
+                        + "\t" + (converter.isSimple(shortUnit) ? "SIMPLE" : ""));
+                }
             }
-            data = ImmutableSet.copyOf(_data);
+            data = ImmutableMultimap.copyOf(_data);
         }
     }
 
     /**
-     * Return the units that we should get grammar information for.
+     * Return the set of units that we should get grammar information for.
      */
-    public static Set<String> getUnitsToAddGrammar() {
-        return UnitsToAddGrammar.data;
+    public static Collection<String> getUnitsToAddGrammar(Group group) {
+        return UnitsToAddGrammar.data.get(group);
     }
+
+    /**
+     * Return the set of units that we should get grammar information for.
+     */
+    public static Collection<String> getUnitsToAddGrammar() {
+        return getUnitsToAddGrammar(Group.minimal);
+    }
+
+
 }

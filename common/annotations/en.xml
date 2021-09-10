@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 the U.S. and other countries. CLDR data files are interpreted according to
@@ -925,7 +925,7 @@ annotations.
 		<annotation cp="😎" type="tts">smiling face with sunglasses</annotation>
 		<annotation cp="🤓">face | geek | nerd</annotation>
 		<annotation cp="🤓" type="tts">nerd face</annotation>
-		<annotation cp="🧐">face | monocle | stuffy</annotation>
+		<annotation cp="🧐">face | face with monocle | monocle | stuffy</annotation>
 		<annotation cp="🧐" type="tts">face with monocle</annotation>
 		<annotation cp="😕">confused | face | meh</annotation>
 		<annotation cp="😕" type="tts">confused face</annotation>
@@ -1692,7 +1692,7 @@ annotations.
 		<annotation cp="🧘‍♀" type="tts">woman in lotus position</annotation>
 		<annotation cp="🛀">bath | bathtub | person taking bath</annotation>
 		<annotation cp="🛀" type="tts">person taking bath</annotation>
-		<annotation cp="🛌">hotel | good night | person in bed | sleep</annotation>
+		<annotation cp="🛌">good night | hotel | person in bed | sleep</annotation>
 		<annotation cp="🛌" type="tts">person in bed</annotation>
 		<annotation cp="🧑‍🤝‍🧑">couple | hand | hold | holding hands | people holding hands | person</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">people holding hands</annotation>
@@ -3040,7 +3040,7 @@ annotations.
 		<annotation cp="💾" type="tts">floppy disk</annotation>
 		<annotation cp="💿">CD | computer | disk | optical</annotation>
 		<annotation cp="💿" type="tts">optical disk</annotation>
-		<annotation cp="📀">Blu-ray | computer | disk | DVD | optical</annotation>
+		<annotation cp="📀">Blu-ray | computer | disk | dvd | DVD | optical</annotation>
 		<annotation cp="📀" type="tts">dvd</annotation>
 		<annotation cp="🧮">abacus | calculation</annotation>
 		<annotation cp="🧮" type="tts">abacus</annotation>
@@ -3448,15 +3448,15 @@ annotations.
 		<annotation cp="🔃" type="tts">clockwise vertical arrows</annotation>
 		<annotation cp="🔄">anticlockwise | arrow | counterclockwise | counterclockwise arrows button | withershins</annotation>
 		<annotation cp="🔄" type="tts">counterclockwise arrows button</annotation>
-		<annotation cp="🔙">arrow | BACK | BACK arrow</annotation>
+		<annotation cp="🔙">arrow | BACK</annotation>
 		<annotation cp="🔙" type="tts">BACK arrow</annotation>
-		<annotation cp="🔚">arrow | END | END arrow</annotation>
+		<annotation cp="🔚">arrow | END</annotation>
 		<annotation cp="🔚" type="tts">END arrow</annotation>
-		<annotation cp="🔛">arrow | mark | ON | ON! | ON! arrow</annotation>
+		<annotation cp="🔛">arrow | mark | ON | ON!</annotation>
 		<annotation cp="🔛" type="tts">ON! arrow</annotation>
-		<annotation cp="🔜">arrow | SOON | SOON arrow</annotation>
+		<annotation cp="🔜">arrow | SOON</annotation>
 		<annotation cp="🔜" type="tts">SOON arrow</annotation>
-		<annotation cp="🔝">arrow | TOP | TOP arrow | up</annotation>
+		<annotation cp="🔝">arrow | TOP | up</annotation>
 		<annotation cp="🔝" type="tts">TOP arrow</annotation>
 		<annotation cp="🛐">place of worship | religion | worship</annotation>
 		<annotation cp="🛐" type="tts">place of worship</annotation>

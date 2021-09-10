@@ -573,8 +573,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (initialComment == null || initialComment.isEmpty()) {
             return CldrUtility.getCopyrightString();
         } else {
+            boolean fe0fNote = false;
             StringBuilder sb = new StringBuilder(CldrUtility.getCopyrightString()).append(XPathParts.NEWLINE);
             for (String line : LINE_SPLITTER.split(initialComment)) {
+                if (line.startsWith("Warnings: All cp values have U+FE0F characters removed.")) {
+                    fe0fNote = true;
+                    continue;
+                }
                 if (line.contains("Copyright")
                     || line.contains("©")
                     || line.contains("trademark")
@@ -588,6 +593,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     continue;
                 }
                 sb.append(XPathParts.NEWLINE).append(line);
+            }
+            if (fe0fNote) {
+                // Keep this on a separate line.
+                sb.append(XPathParts.NEWLINE)
+                .append("Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.")
+                .append(XPathParts.NEWLINE);
             }
             return sb.toString();
         }

@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -1120,7 +1120,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤟" type="tts">↑↑↑</annotation>
 		<annotation cp="🤘">↑↑↑</annotation>
 		<annotation cp="🤘" type="tts">↑↑↑</annotation>
-		<annotation cp="🤙">call | call-me hand | hand | shaka</annotation>
+		<annotation cp="🤙">call | call me hand | call-me hand | hand | shaka</annotation>
 		<annotation cp="🤙" type="tts">↑↑↑</annotation>
 		<annotation cp="👈">↑↑↑</annotation>
 		<annotation cp="👈" type="tts">↑↑↑</annotation>
@@ -1452,7 +1452,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👼" type="tts">↑↑↑</annotation>
 		<annotation cp="🎅">celebration | Christmas | Father Christmas | Santa | Santa Claus</annotation>
 		<annotation cp="🎅" type="tts">Santa</annotation>
-		<annotation cp="🤶">celebration | Christmas | Mrs Claus | Mrs Santa Claus</annotation>
+		<annotation cp="🤶">celebration | Christmas | Mrs Claus | Mrs Santa Claus | Mrs. Claus</annotation>
 		<annotation cp="🤶" type="tts">↑↑↑</annotation>
 		<annotation cp="🧑‍🎄">↑↑↑</annotation>
 		<annotation cp="🧑‍🎄" type="tts">↑↑↑</annotation>
@@ -2044,7 +2044,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥕" type="tts">↑↑↑</annotation>
 		<annotation cp="🌽">corn | corn on the cob | sweetcorn</annotation>
 		<annotation cp="🌽" type="tts">sweetcorn</annotation>
-		<annotation cp="🌶">chilli | pepper</annotation>
+		<annotation cp="🌶">chilli | hot pepper | pepper</annotation>
 		<annotation cp="🌶" type="tts">↑↑↑</annotation>
 		<annotation cp="🫑">↑↑↑</annotation>
 		<annotation cp="🫑" type="tts">capsicum</annotation>
@@ -2092,7 +2092,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥓" type="tts">↑↑↑</annotation>
 		<annotation cp="🍔">beefburger | burger | hamburger</annotation>
 		<annotation cp="🍔" type="tts">hamburger</annotation>
-		<annotation cp="🍟">chips | fries</annotation>
+		<annotation cp="🍟">chips | french fries | fries</annotation>
 		<annotation cp="🍟" type="tts">↑↑↑</annotation>
 		<annotation cp="🍕">↑↑↑</annotation>
 		<annotation cp="🍕" type="tts">↑↑↑</annotation>
@@ -2374,7 +2374,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌉" type="tts">↑↑↑</annotation>
 		<annotation cp="♨">↑↑↑</annotation>
 		<annotation cp="♨" type="tts">↑↑↑</annotation>
-		<annotation cp="🎠">↑↑↑</annotation>
+		<annotation cp="🎠">carousel | horse | merry-go-round</annotation>
 		<annotation cp="🎠" type="tts">merry-go-round</annotation>
 		<annotation cp="🎡">↑↑↑</annotation>
 		<annotation cp="🎡" type="tts">↑↑↑</annotation>
@@ -3040,7 +3040,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎞" type="tts">↑↑↑</annotation>
 		<annotation cp="📽">↑↑↑</annotation>
 		<annotation cp="📽" type="tts">↑↑↑</annotation>
-		<annotation cp="🎬">clapper | clapperboard | film</annotation>
+		<annotation cp="🎬">clapper | clapper board | clapperboard | film</annotation>
 		<annotation cp="🎬" type="tts">↑↑↑</annotation>
 		<annotation cp="📺">television | TV | video</annotation>
 		<annotation cp="📺" type="tts">↑↑↑</annotation>
@@ -3226,7 +3226,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛏" type="tts">↑↑↑</annotation>
 		<annotation cp="⚒">↑↑↑</annotation>
 		<annotation cp="⚒" type="tts">↑↑↑</annotation>
-		<annotation cp="🛠">hammer | hammer and spanner | spanner | tool | wrench</annotation>
+		<annotation cp="🛠">hammer | hammer and spanner | hammer and wrench | spanner | tool | wrench</annotation>
 		<annotation cp="🛠" type="tts">↑↑↑</annotation>
 		<annotation cp="🗡">↑↑↑</annotation>
 		<annotation cp="🗡" type="tts">↑↑↑</annotation>
@@ -3362,7 +3362,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♿" type="tts">↑↑↑</annotation>
 		<annotation cp="🚹">↑↑↑</annotation>
 		<annotation cp="🚹" type="tts">↑↑↑</annotation>
-		<annotation cp="🚺">ladies room | lavatory | restroom | wc | woman | women’s toilet</annotation>
+		<annotation cp="🚺">ladies room | lavatory | restroom | wc | woman | women’s room | women’s toilet</annotation>
 		<annotation cp="🚺" type="tts">↑↑↑</annotation>
 		<annotation cp="🚻">↑↑↑</annotation>
 		<annotation cp="🚻" type="tts">↑↑↑</annotation>
@@ -3596,9 +3596,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⭕" type="tts">↑↑↑</annotation>
 		<annotation cp="✅">↑↑↑</annotation>
 		<annotation cp="✅" type="tts">↑↑↑</annotation>
-		<annotation cp="☑">ballot | box | tick | tick box with tick</annotation>
+		<annotation cp="☑">ballot | box | check box with check | tick | tick box with tick</annotation>
 		<annotation cp="☑" type="tts">↑↑↑</annotation>
-		<annotation cp="✔">heavy tick mark | mark | tick</annotation>
+		<annotation cp="✔">check mark | heavy tick mark | mark | tick</annotation>
 		<annotation cp="✔" type="tts">↑↑↑</annotation>
 		<annotation cp="❌">↑↑↑</annotation>
 		<annotation cp="❌" type="tts">↑↑↑</annotation>
@@ -3814,7 +3814,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₶" type="tts">↑↑↑</annotation>
 		<annotation cp="₷">↑↑↑</annotation>
 		<annotation cp="₷" type="tts">↑↑↑</annotation>
-		<annotation cp="₹">currency | indian rupee | INR | rupee</annotation>
+		<annotation cp="₹">currency | indian rupee | Indian rupee | INR | rupee</annotation>
 		<annotation cp="₹" type="tts">↑↑↑</annotation>
 		<annotation cp="₽">↑↑↑</annotation>
 		<annotation cp="₽" type="tts">↑↑↑</annotation>

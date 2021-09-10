@@ -777,12 +777,7 @@ public class TestCheckCLDR extends TestFmwk {
                             ph,
                             dummyUserInfo);
 
-                        /*
-                         * TODO: if there is a reason to distinguish between SurveyToolStatus.HIDE and
-                         * SurveyToolStatus.DEPRECATED here, explain it with a comment; otherwise, call
-                         * ph.shouldHide() instead. Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-                         */
-                        if (surveyToolStatus == SurveyToolStatus.HIDE) {
+                        if (ph.shouldHide()) {
                             assertEquals("HIDE ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
                         } else if (CheckCLDR.LIMITED_SUBMISSION) {
                             if (status == CheckStatus.Type.Error) {

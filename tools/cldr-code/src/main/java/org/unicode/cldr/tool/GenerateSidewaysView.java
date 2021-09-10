@@ -637,7 +637,7 @@ public class GenerateSidewaysView {
                 if (path.indexOf("/identity") >= 0) continue;
                 if (path.indexOf("/references") >= 0) continue;
                 PathHeader ph = fixPath(path, postFix);
-                if (ph.shouldHide()) {
+                if (ph == null || ph.shouldHide()) {
                     continue;
                 }
                 String fullPath = cldrFile.getFullXPath(path);

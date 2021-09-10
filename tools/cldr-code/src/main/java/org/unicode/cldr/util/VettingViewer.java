@@ -17,12 +17,12 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
@@ -61,8 +61,6 @@ public class VettingViewer<T> {
     private static final String TH_AND_STYLES = "<th class='tv-th' style='text-align:left'>";
 
     private static final String SPLIT_CHAR = "\uFFFE";
-
-    private static final Pattern ALT_PROPOSED = PatternCache.get("\\[@alt=\"[^\"]*proposed");
 
     private static final boolean DEBUG_THREADS = false;
 
@@ -338,7 +336,7 @@ public class VettingViewer<T> {
             options = new HashMap<>();
             result = new ArrayList<>();
             checkCldr = CheckCLDR.getCheckAll(factory, ".*");
-            checkCldr.setCldrFileToCheck(cldrFile, options, result);
+            checkCldr.setCldrFileToCheck(cldrFile, new Options(options), result);
             return Status.ok;
         }
 
@@ -545,7 +543,6 @@ public class VettingViewer<T> {
             final DefaultErrorStatus errorChecker = new DefaultErrorStatus(cldrFactory);
 
             errorChecker.initErrorStatus(sourceFile);
-            Matcher altProposed = ALT_PROPOSED.matcher("");
             problems = EnumSet.noneOf(Choice.class);
 
             // now look through the paths
@@ -557,9 +554,9 @@ public class VettingViewer<T> {
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
             CLDRFile baselineFileUnresolved = (baselineFile == null) ? null : baselineFile.getUnresolved();
             for (String path : sourceFile.fullIterable()) {
-                if (specificSinglePath != null && !specificSinglePath.equals(path))
+                if (specificSinglePath != null && !specificSinglePath.equals(path)) {
                     continue;
-
+                }
                 String value = sourceFile.getWinningValueForVettingViewer(path);
                 statusMessage.setLength(0);
                 subtypes.clear();
@@ -572,33 +569,11 @@ public class VettingViewer<T> {
                 progressCallback.nudge(); // Let the user know we're moving along.
 
                 PathHeader ph = pathTransform.fromPath(path);
-                if (ph.shouldHide()) {
+                if (ph == null || ph.shouldHide()) {
                     continue;
                 }
 
                 // note that the value might be missing!
-
-                // make sure we only look at the real values
-                if (altProposed.reset(path).find()) {
-                    /*
-                     * TODO: explain this exclusion mechanism and why it's not implemented with
-                     * PathHeader.SurveyToolStatus.HIDE and PathHeader.shouldHide().
-                     * I put a breakpoint on this “continue” and never hit it. Is this dead code?
-                     * If there are any matching paths, are they getting filtered out earlier for
-                     * some other reason? Does DataSection have or need a similar filter?
-                     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-                     */
-                    continue;
-                }
-
-                /*
-                 * TODO: as above, explain this exclusion mechanism, and encapsulate it better;
-                 * where else do we (or should we) skip such paths?
-                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-                 */
-                if (path.contains("/references")) {
-                    continue;
-                }
 
                 Level level = supplementalDataInfo.getCoverageLevel(path, sourceFile.getLocaleID());
 

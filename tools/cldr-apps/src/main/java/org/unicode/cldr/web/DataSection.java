@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import org.json.JSONArray;
@@ -75,6 +76,8 @@ import com.ibm.icu.util.Output;
  * This class was formerly named DataPod
  */
 public class DataSection implements JSONString {
+
+    private final static Logger logger = SurveyLog.forClass(DataSection.class);
 
     /*
      * For debugging only (so far), setting USE_CANDIDATE_HISTORY to true causes
@@ -212,9 +215,8 @@ public class DataSection implements JSONString {
                 try {
                     return getProcessor().processForDisplay(xpath, rawValue);
                 } catch (Throwable t) {
-                    if (SurveyLog.DEBUG) {
-                        SurveyLog.logException(t, "While processing " + xpath + ":" + rawValue);
-                    }
+                    String msg = "getProcessedValue, while processing " + xpath + ":" + rawValue;
+                    logger.log(java.util.logging.Level.FINE, msg, t);
                     return rawValue;
                 }
             }
@@ -1773,119 +1775,119 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Makes sure this DataSection contains the rows we'd like to see.
+     * Makes sure this DataSection contains the rows we'd like to see related to timeZoneNames
      *
      * Called only by DataSection.make, only when pageId == null
+     *
+     * TODO: explain this mechanism and why it's limited to DataSection, not shared with Dashboard,
+     * CLDRFile, or any other module. Is it in any way related to CLDRFile.getRawExtraPathsPrivate?
      */
     private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr) {
-
+        if (!xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
+            return;
+        }
         STFactory stf = sm.getSTFactory();
+        // work on zones
+        boolean isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
+        boolean isSingleXPath = false;
+        // Make sure the DataSection contains the rows we'd like to see.
+        // regular zone
 
-         if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
-            // work on zones
-            boolean isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
-            boolean isSingleXPath = false;
-            // Make sure the DataSection contains the rows we'd like to see.
-            // regular zone
+        Set<String> zoneIterator;
+        String podBase = xpathPrefix;
 
-            Set<String> zoneIterator;
-            String podBase = xpathPrefix;
-
-            if (isMetazones) {
-                if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
-                    String[] pieces = xpathPrefix.split(CONTINENT_DIVIDER, 2);
-                    xpathPrefix = pieces[0];
-                    zoneIterator = sm.getMetazones(pieces[1]);
-                } else { // This is just a single metazone from a zoom-in
-                    Set<String> singleZone = new HashSet<>();
-                    XPathParts xpp = XPathParts.getFrozenInstance(xpathPrefix);
-                    String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
-                    if (singleMetazoneName == null) {
-                        throw new NullPointerException("singleMetazoneName is null for xpp:" + xpathPrefix);
-                    }
-                    singleZone.add(singleMetazoneName);
-                    zoneIterator = singleZone;
-
-                    isSingleXPath = true;
+        if (isMetazones) {
+            if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
+                String[] pieces = xpathPrefix.split(CONTINENT_DIVIDER, 2);
+                xpathPrefix = pieces[0];
+                zoneIterator = sm.getMetazones(pieces[1]);
+            } else { // This is just a single metazone from a zoom-in
+                Set<String> singleZone = new HashSet<>();
+                XPathParts xpp = XPathParts.getFrozenInstance(xpathPrefix);
+                String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
+                if (singleMetazoneName == null) {
+                    throw new NullPointerException("singleMetazoneName is null for xpp:" + xpathPrefix);
                 }
-                podBase = "//ldml/dates/timeZoneNames/metazone";
-            } else {
-                if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
-                    throw new InternalError("Error: CONTINENT_DIVIDER found on non-metazone xpath " + xpathPrefix);
-                }
-                zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid");
-                podBase = "//ldml/dates/timeZoneNames/zone";
-            }
-            if (!isSingleXPath && xpathPrefix.contains("@type")) {
+                singleZone.add(singleMetazoneName);
+                zoneIterator = singleZone;
+
                 isSingleXPath = true;
             }
-
-            final String tzsuffs[] = {
-                "/exemplarCity" };
-            final String mzsuffs[] = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
-                "/short/standard" };
-
-            String suffs[];
-            if (isMetazones) {
-                suffs = mzsuffs;
-            } else {
-                suffs = tzsuffs;
+            podBase = "//ldml/dates/timeZoneNames/metazone";
+        } else {
+            if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
+                throw new InternalError("Error: CONTINENT_DIVIDER found on non-metazone xpath " + xpathPrefix);
             }
+            zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid");
+            podBase = "//ldml/dates/timeZoneNames/zone";
+        }
+        if (!isSingleXPath && xpathPrefix.contains("@type")) {
+            isSingleXPath = true;
+        }
 
-            CLDRFile resolvedFile = ourSrc;
+        final String tzsuffs[] = {
+            "/exemplarCity" };
+        final String mzsuffs[] = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
+            "/short/standard" };
 
-            for (String zone : zoneIterator) {
-                if (zone == null) {
-                    throw new NullPointerException("zoneIterator.next() returned null! zoneIterator.size: " + zoneIterator.size()
-                        + ", isEmpty: " + zoneIterator.isEmpty());
+        String suffs[];
+        if (isMetazones) {
+            suffs = mzsuffs;
+        } else {
+            suffs = tzsuffs;
+        }
+
+        for (String zone : zoneIterator) {
+            if (zone == null) {
+                throw new NullPointerException("zoneIterator.next() returned null! zoneIterator.size: " + zoneIterator.size()
+                    + ", isEmpty: " + zoneIterator.isEmpty());
+            }
+            /** some compatibility **/
+            String ourSuffix = "[@type=\"" + zone + "\"]";
+
+            for (int i = 0; i < suffs.length; i++) {
+                String suff = suffs[i];
+
+                if (isSingleXPath && !xpathPrefix.contains(suff)) {
+                    continue; // Try not to add paths that won't be shown.
                 }
-                /** some compatibility **/
-                String ourSuffix = "[@type=\"" + zone + "\"]";
+                // synthesize a new row..
+                String base_xpath_string = podBase + ourSuffix + suff;
 
-                for (int i = 0; i < suffs.length; i++) {
-                    String suff = suffs[i];
+                PathHeader ph = stf.getPathHeader(base_xpath_string);
+                if (ph == null || ph.shouldHide()) {
+                    continue;
+                }
 
-                    if (isSingleXPath && !xpathPrefix.contains(suff)) {
-                        continue; // Try not to add paths that won't be shown.
-                    }
-                    // synthesize a new row..
-                    String base_xpath_string = podBase + ourSuffix + suff;
+                int xpid = sm.xpt.getByXpath(base_xpath_string);
+                if (matcher != null && !matcher.matches(base_xpath_string, xpid)) {
+                    continue;
+                }
+                if (excludeAlways.matcher(base_xpath_string).matches()) {
+                    continue;
+                }
 
-                    PathHeader ph = stf.getPathHeader(base_xpath_string);
-                    if (ph == null || ph.shouldHide()) {
+                // Only display metazone data for which an English value exists
+                if (isMetazones && suff != "/commonlyUsed") {
+                    String engValue = translationHintsFile.getStringValue(base_xpath_string);
+                    if (engValue == null || engValue.length() == 0) {
                         continue;
                     }
+                }
+                // Filter out data that is higher than the desired coverage level
+                int coverageValue = getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
 
-                    int xpid = sm.xpt.getByXpath(base_xpath_string);
-                    if (matcher != null && !matcher.matches(base_xpath_string, xpid)) {
-                        continue;
-                    }
-                    if (excludeAlways.matcher(base_xpath_string).matches()) {
-                        continue;
-                    }
+                DataSection.DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
 
-                    // Only display metazone data for which an English value exists
-                    if (isMetazones && suff != "/commonlyUsed") {
-                        String engValue = translationHintsFile.getStringValue(base_xpath_string);
-                        if (engValue == null || engValue.length() == 0) {
-                            continue;
-                        }
-                    }
-                    // Filter out data that is higher than the desired coverage level
-                    int coverageValue = getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
+                myp.coverageValue = coverageValue;
 
-                    DataSection.DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
+                // set it up..
+                int base_xpath = sm.xpt.getByXpath(base_xpath_string);
 
-                    myp.coverageValue = coverageValue;
-
-                    // set it up..
-                    int base_xpath = sm.xpt.getByXpath(base_xpath_string);
-
-                    // set up tests
-                    myp.setShimTests(base_xpath, base_xpath_string, checkCldr);
-                } // end inner for loop
-            } // end outer for loop
-        } // end if timezone
+                // set up tests
+                myp.setShimTests(base_xpath, base_xpath_string, checkCldr);
+            } // end inner for loop
+        } // end outer for loop
     }
 
     /**
@@ -1939,9 +1941,6 @@ public class DataSection implements JSONString {
      *
      * @param ourSrc the CLDRFile
      * @param checkCldr the TestResultBundle
-     * Old param workingCoverageLevel was always "comprehensive"
-     *
-     * Called only by DataSection.make, as section.populateFrom(ourSrc, checkCldr, workingCoverageLevel).
      */
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr) {
         STFactory stf = sm.getSTFactory();
@@ -2322,8 +2321,9 @@ public class DataSection implements JSONString {
                     JSONObject obj = new JSONObject(str);
                     itemList.put(d.fieldHash(), obj);
                 } catch (JSONException ex) {
-                    SurveyLog.logException(ex, "JSON serialization error for row: "
-                        + d.xpath + " : Full row is: " + d.toString());
+                    String msg = "JSON serialization error for row: "
+                        + d.xpath + " : Full row is: " + d.toString();
+                    logger.log(java.util.logging.Level.WARNING, msg, ex);
                     throw new JSONException(ex);
                 }
             }
@@ -2331,7 +2331,8 @@ public class DataSection implements JSONString {
             result.put("xpathPrefix", xpathPrefix);
             return result.toString();
         } catch (Throwable t) {
-            SurveyLog.logException(t, "Trying to load rows for " + this.toString());
+            String msg = "Trying to load rows for " + this.toString();
+            logger.log(java.util.logging.Level.WARNING, msg, t);
             throw new JSONException(t);
         }
     }

@@ -73,5 +73,5 @@
         name: "backup db"
         user: cldrbackup
         minute: "53"
-        hour: "14" # 14:53 UTC = 7:53 PDT or 6:53 PST
+        hour: "13" # 13:53 UTC = 6:53 PDT or 5:53 PST
         job: "sh /home/cldrbackup/backup.sh >/dev/null 2>&1"

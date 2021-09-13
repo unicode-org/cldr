@@ -10,6 +10,12 @@
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
+#### _Important Note_
+
+> The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
+> developing major changes to the CLDR keyboard specification. These changes are targeted for
+> CLDR version 41. Please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
+> the latest information.
 ### _Summary_
 
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://unicode.org/cldr/).
@@ -46,7 +52,7 @@ The LDML specification is divided into the following parts:
     *   5.1 [Element: keyboard](#Element_Keyboard)
     *   5.2 [Element: version](#Element_version)
     *   5.3 [Element: generation](#Element_generation)
-    *   5.4 [Element: info](#Element_info) 
+    *   5.4 [Element: info](#Element_info)
     *   5.5 [Element: names](#Element_names)
     *   5.6 [Element: name](#Element_name)
     *   5.7 [Element: settings](#Element_settings)
@@ -136,17 +142,17 @@ To illustrate this specification, here is an abridged layout representing the En
 And its associated platform file (which includes the hardware mapping):
 
 ```xml
-<platform id="osx">  
-    <hardwareMap>  
-        <map keycode="0" iso="C01" />  
-        <map keycode="1" iso="C02" />  
-        <map keycode="6" iso="B01" />  
-        <map keycode="7" iso="B02" />  
-        <map keycode="12" iso="D01" />  
-        <map keycode="13" iso="D02" />  
-        <map keycode="18" iso="E01" />  
-        <map keycode="50" iso="E00" />  
-    </hardwareMap>  
+<platform id="osx">
+    <hardwareMap>
+        <map keycode="0" iso="C01" />
+        <map keycode="1" iso="C02" />
+        <map keycode="6" iso="B01" />
+        <map keycode="7" iso="B02" />
+        <map keycode="12" iso="D01" />
+        <map keycode="13" iso="D02" />
+        <map keycode="18" iso="E01" />
+        <map keycode="50" iso="E00" />
+    </hardwareMap>
 </platform>
 ```
 
@@ -264,11 +270,11 @@ This is the top level element. All other elements defined below are under this e
 ```
 
 > <small>
-> 
-> Parents: _none_  
-> Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_KeyMap), [displayMap](#Element_DisplayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces)  
-> Occurence: required, single  
-> 
+>
+> Parents: _none_
+> Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_KeyMap), [displayMap](#Element_DisplayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces)
+> Occurence: required, single
+>
 > </small>
 
 _Attribute:_ `locale` (required)
@@ -292,20 +298,20 @@ This mandatory attribute represents the locale of the keyboard using Unicode loc
 
 ### 5.2 <a name="Element_version" href="#Element_version">Element: version</a>
 
-Element used to keep track of the source data version.  
-  
+Element used to keep track of the source data version.
+
 **Syntax**
 
 ```xml
-<version platform=".." number="..">  
+<version platform=".." number="..">
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: _none_  
-> Occurence: required, single  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: _none_
+> Occurence: required, single
+>
 > </small>
 
 _Attribute:_ `platform` (required)
@@ -345,18 +351,18 @@ Element containing informative properties about the layout, for displaying in us
 **Syntax**
 
 ```xml
-<info [author="{author}"] 
-      [normalization="{form}"] 
-      [layout="{hint of the layout}"] 
+<info [author="{author}"]
+      [normalization="{form}"]
+      [layout="{hint of the layout}"]
       [indicator="{short identifier}"] />
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: _none_  
-> Occurence: optional, single  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: _none_
+> Occurence: optional, single
+>
 > </small>
 
 _Attribute:_ `author` (optional)
@@ -374,46 +380,46 @@ _Attribute:_ `layout` (optional)
 
 _Attribute:_ `indicator` (optional)
 
-> The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc. 
+> The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 
 * * *
 
 ### 5.5 <a name="Element_names" href="#Element_names">Element: names</a>
 
-Element used to store any names given to the layout by the platform.  
-  
+Element used to store any names given to the layout by the platform.
+
 **Syntax**
 
 ```xml
 <names>
     {set of name elements}
-</names>  
+</names>
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: [name](#Element_name)  
-> Occurence: required, single  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: [name](#Element_name)
+> Occurence: required, single
+>
 > </small>
 
 ### 5.6 <a name="Element_name" href="#Element_name">Element: name</a>
 
-A single name given to the layout by the platform.  
-  
+A single name given to the layout by the platform.
+
 **Syntax**
 
 ```xml
-<name value="..">  
+<name value="..">
 ```
 
 > <small>
-> 
-> Parents: [names](#Element_names)  
-> Children: _none_  
-> Occurence: required, multiple  
+>
+> Parents: [names](#Element_names)
+> Children: _none_
+> Occurence: required, multiple
 > </small>
 
 _Attribute:_ `value` (required)
@@ -436,20 +442,20 @@ _Attribute:_ `value` (required)
 
 ### 5.7 <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for `transformFailure` the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).  
-  
+An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for `transformFailure` the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).
+
 **Syntax**
 
 ```xml
-<settings [fallback="omit"] [transformFailure="omit"] [transformPartial="hide"] />  
+<settings [fallback="omit"] [transformFailure="omit"] [transformPartial="hide"] />
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: _none_  
-> Occurence: optional, single  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: _none_
+> Occurence: optional, single
+>
 > </small>
 
 _Attribute:_ `fallback="omit"` (optional)
@@ -517,17 +523,17 @@ This element defines the group of mappings for all the keys that use the same se
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: [map](#Element_map), [flicks](#Element_flicks)  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: [map](#Element_map), [flicks](#Element_flicks)
+> Occurence: required, multiple
+>
 > </small>
 
 _Attribute:_ `modifiers` (optional)
 
-> A set of modifier combinations that cause this key map to be "active". Each combination is separated by a space. The interpretation is that there is a match if any of the combinations match, that is, they are ORed. Therefore, the order of the combinations within this attribute does not matter.  
-  
+> A set of modifier combinations that cause this key map to be "active". Each combination is separated by a space. The interpretation is that there is a match if any of the combinations match, that is, they are ORed. Therefore, the order of the combinations within this attribute does not matter.
+
 > A combination is simply a concatenation of words to represent the simultaneous activation of one or more modifier keys. The order of the modifier keys within a combination does not matter, although don't care cases are generally added to the end of the string for readability (see next paragraph). For example: `"cmd+caps"` represents the Caps Lock and Command modifier key combination. Some keys have right or left variant keys, specified by a 'R' or 'L' suffix. For example: `"ctrlR+caps"` would represent the Right-Control and Caps Lock combination. For simplicity, the presence of a modifier without a 'R' or 'L' suffix means that either its left or right variants are valid. So `"ctrl+caps"` represents the same as `"ctrlL+ctrlR?+caps ctrlL?+ctrlR+caps"`.
 
 A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example `"ctrl+shift?"` could be expanded into `"ctrl ctrl+shift"`.
@@ -597,19 +603,19 @@ If a `map` element for a particular ISO layout position has not been defined the
  to="{the output}"
  [longPress="{long press keys}"]
  [transform="no"]
- [multitap="{the output on subsequent taps}"] 
- [longPress-status="optional"] 
- [optional="{optional mappings}"] 
- [hint="{hint to long press content}"] 
+ [multitap="{the output on subsequent taps}"]
+ [longPress-status="optional"]
+ [optional="{optional mappings}"]
+ [hint="{hint to long press content}"]
  /><!-- {Comment to improve readability (if needed)} -->
 ```
 
 > <small>
-> 
-> Parents: [keyMap](#Element_keyMap)  
-> Children: _none_  
-> Occurence: optional, multiple  
-> 
+>
+> Parents: [keyMap](#Element_keyMap)
+> Children: _none_
+> Occurence: optional, multiple
+>
 > </small>
 
 _Attribute:_ `iso` (exactly one of base and iso is required)
@@ -630,23 +636,23 @@ _Attribute:_ `transform="no"` (optional)
 
 _Attribute:_ `multitap` (optional)
 
-> A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, three taps on the key C01 will produce a “c” in the following example (first tap produces “a”, two taps produce “bb” etc.).  
-> 
-> _Example:_  
-> 
-> ```xml  
+> A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, three taps on the key C01 will produce a “c” in the following example (first tap produces “a”, two taps produce “bb” etc.).
+>
+> _Example:_
+>
+> ```xml
 > <map iso="C01" to="a" multitap="bb c d">
 > ```
 > Control characters, combining marks and whitespace (which is intended to be a multitap option) in this attribute are escaped using the `\u{...}` notation.
- 
+
 _Attribute:_ `longPress-status` (optional)
 
-> Indicates optional `longPress` values. Must only occur with a `longPress` value. May be suppressed or shown, depending on user settings. There can be two `map` elements that differ only by `longPress-status`, allowing two different sets of `longPress` values.  
-> 
-> _Example:_  
-> 
-> ```xml  
-> <map iso="D01" to="a" longPress="à â % æ á ä ã å ā ª" />  
+> Indicates optional `longPress` values. Must only occur with a `longPress` value. May be suppressed or shown, depending on user settings. There can be two `map` elements that differ only by `longPress-status`, allowing two different sets of `longPress` values.
+>
+> _Example:_
+>
+> ```xml
+> <map iso="D01" to="a" longPress="à â % æ á ä ã å ā ª" />
 > <map iso="D01" to="a" longPress="à â á ä ã å ā" longPress-status="optional" />
 > ```
 
@@ -657,9 +663,9 @@ _Attribute:_ `optional` (optional)
 _Attribute:_ `hint` (optional)
 
 > Indicates a hint as to long-press contents, such as the first character of the `longPress` value, that can be displayed on the key. May be suppressed or shown, depending on user Settings. Characters in this attribute can be escaped using the `\u{...}` notation.
-> 
-> _Example:_ where the hint is "{":  
-> 
+>
+> _Example:_ where the hint is "{":
+>
 > ![keycap hint](images/keycapHint.png)
 
 For example, suppose there are the following keys, their output and one transform:
@@ -679,31 +685,31 @@ In the generated files, a comment is included to help the readability of the doc
 **Example**
 
 ```xml
-<keyboard locale="fr-BE-t-k0-windows">  
-    …  
-    <keyMap modifiers="shift">  
-        <map iso="D01" to="A" /> <!-- key=Q -->  
-        <map iso="D02" to="Z" /> <!-- key=W -->  
-        <map iso="D03" to="E" />  
-        <map iso="D04" to="R" />  
-        <map iso="D05" to="T" />  
-        <map iso="D06" to="Y" />  
-        …  
-    </keyMap>  
-     …  
-</keyboard>  
+<keyboard locale="fr-BE-t-k0-windows">
+    …
+    <keyMap modifiers="shift">
+        <map iso="D01" to="A" /> <!-- key=Q -->
+        <map iso="D02" to="Z" /> <!-- key=W -->
+        <map iso="D03" to="E" />
+        <map iso="D04" to="R" />
+        <map iso="D05" to="T" />
+        <map iso="D06" to="Y" />
+        …
+    </keyMap>
+     …
+</keyboard>
 ```
 
 ```xml
-<keyboard locale="ps-t-k0-windows">  
-    …  
-    <keyMap modifiers='altR+caps? ctrl+alt+caps?'>  
-        <map iso="D04" to="\u{200e}" /> <!-- key=R base=ق -->  
-        <map iso="D05" to="\u{200f}" /> <!-- key=T base=ف -->  
-        <map iso="D08" to="\u{670}" /> <!-- key=I base=ه to= ٰ -->  
-        …  
-    </keyMap>  
-    …  
+<keyboard locale="ps-t-k0-windows">
+    …
+    <keyMap modifiers='altR+caps? ctrl+alt+caps?'>
+        <map iso="D04" to="\u{200e}" /> <!-- key=R base=ق -->
+        <map iso="D05" to="\u{200f}" /> <!-- key=T base=ف -->
+        <map iso="D08" to="\u{670}" /> <!-- key=I base=ه to= ٰ -->
+        …
+    </keyMap>
+    …
 </keyboard>
 ```
 
@@ -711,22 +717,22 @@ In the generated files, a comment is included to help the readability of the doc
 
 #### 5.9.1 <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
 
-The `flicks` element is used to generate results from a "flick" of the finger on a mobile device. 
+The `flicks` element is used to generate results from a "flick" of the finger on a mobile device.
 
 **Syntax**
 
 ```xml
-<flicks iso="{the iso position}"> 
-    {a set of flick elements} 
-</flicks> 
+<flicks iso="{the iso position}">
+    {a set of flick elements}
+</flicks>
 ```
 
 > <small>
-> 
-> Parents: [keyMap](#Element_keyMap)  
-> Children: [flick](#Element_flicks)  
-> Occurence: optional, multiple  
-> 
+>
+> Parents: [keyMap](#Element_keyMap)
+> Children: [flick](#Element_flicks)
+> Occurence: optional, multiple
+>
 > </small>
 
 _Attribute:_ `iso` (required)
@@ -736,26 +742,26 @@ _Attribute:_ `iso` (required)
 **Syntax**
 
 ```xml
-<flick directions="{list of directions}" to="{the output}" /> 
+<flick directions="{list of directions}" to="{the output}" />
 ```
- 
+
 > <small>
-> 
-> Parents: [flicks](#Element_flicks)  
-> Children: _none_  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [flicks](#Element_flicks)
+> Children: _none_
+> Occurence: required, multiple
+>
 > </small>
 
-_Attribute:_ `directions` (required) 
+_Attribute:_ `directions` (required)
 
-> The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`. 
+> The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`.
 
-_Attribute:_ `to` (required) 
+_Attribute:_ `to` (required)
 
-> The to attribute value is the result of (one or more) flicks. 
+> The to attribute value is the result of (one or more) flicks.
 
-**Example**  
+**Example**
 where a flick to the Northeast then South produces two code points.
 
 ```xml
@@ -777,11 +783,11 @@ The `import` element references another file of the same type and includes all t
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: _none_  
-> Occurence: optional, multiple  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: _none_
+> Occurence: optional, multiple
+>
 > </small>
 
 _Attribute:_ `path` (required)
@@ -830,16 +836,16 @@ DisplayMaps are designed to be shared across many different keyboard layout desc
 
 ```xml
 <displayMap>
-    {a set of display elements} 
+    {a set of display elements}
 </displayMap>
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: [display](#Element_display)  
-> Occurence: optional, single  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: [display](#Element_display)
+> Occurence: optional, single
+>
 > </small>
 
 * * *
@@ -855,11 +861,11 @@ The `display` element describes how a character, that has come from a `keyMap/ma
 ```
 
 > <small>
-> 
-> Parents: [displayMap](#Element_displayMap)  
-> Children: _none_  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [displayMap](#Element_displayMap)
+> Children: _none_
+> Occurence: required, multiple
+>
 > </small>
 
 _Attribute:_ `to` (required)
@@ -880,7 +886,7 @@ _Attribute:_ `display` (required)
     <displayMap>
         <display to="\u0300" display="\u02CB" />
         <display to="\u0301" display="\u02CA" />
-    </displayMap>  
+    </displayMap>
 </keyboard>
 ```
 
@@ -901,11 +907,11 @@ A `layer` element describes the configuration of keys on a particular layer of a
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: [row](#Element_row), [switch](#Element_switch), [vkeys](#Element_vkeys)  
-> Occurence: optional, multiple  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: [row](#Element_row), [switch](#Element_switch), [vkeys](#Element_vkeys)
+> Occurence: optional, multiple
+>
 > </small>
 
 _Attribute:_ `modifier` (required)
@@ -939,8 +945,8 @@ A `row` element describes the keys that are present in the row of a keyboard. `r
 The row element introduces the `keyId` which may be an `ISOKey` or a `specialKey`. More formally:
 
 ```
-keyId = ISOKey | specialKey  
-ISOKey = [A-Z][0-9][0-9]  
+keyId = ISOKey | specialKey
+ISOKey = [A-Z][0-9][0-9]
 specialKey = [a-z][a-zA-Z0-9]{2,7}
 ```
 
@@ -953,11 +959,11 @@ ISOKey denotes a key having an [ISO Position](#Definitions). SpecialKey is used 
 ```
 
 > <small>
-> 
-> Parents: [layer](#Element_layer)  
-> Children: _none_  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [layer](#Element_layer)
+> Children: _none_
+> Occurence: required, multiple
+>
 > </small>
 
 _Attribute:_ `keys` (required)
@@ -981,7 +987,7 @@ Here is an example of a `row` element:
     <row keys="shift B01-B07 bksp" />
     <row keys="sym A01 smilies A02-A03 enter" />
 </layer>
-```                
+```
 
 * * *
 
@@ -998,11 +1004,11 @@ The `switch` element describes a function key that has been included in the layo
 ```
 
 > <small>
-> 
-> Parents: [layer](#Element_layer)  
-> Children: _none_  
-> Occurence: optional, multiple  
-> 
+>
+> Parents: [layer](#Element_layer)
+> Children: _none_
+> Occurence: optional, multiple
+>
 > </small>
 
 _Attribute:_ `iso` (required)
@@ -1053,16 +1059,16 @@ On some architectures, applications may directly interact with keys before they 
 ```
 
 > <small>
-> 
-> Parents: [layer](#Element_layer), [keyboard](#Element_keyboard)  
-> Children: [vkey](#Element_vkey)  
-> Occurence: optional, multiple  
-> 
+>
+> Parents: [layer](#Element_layer), [keyboard](#Element_keyboard)
+> Children: [vkey](#Element_vkey)
+> Occurence: optional, multiple
+>
 > </small>
 
 _Attribute:_ `type`
 
-> Current values: android, chromeos, osx, und, windows. 
+> Current values: android, chromeos, osx, und, windows.
 
 For a physical keyboard there is a layout specific default mapping of keys to vkeys. These are listed in a `vkeys` element which takes a list of `vkey` element mappings and is identified by a type. There are different vkey mappings required for different platforms. While `type="windows"` vkeys are very similar to `type="osx"` vkeys, they are not identical and require their own mapping.
 
@@ -1086,11 +1092,11 @@ A `vkey` element describes a mapping between a key and a vkey for a particular p
 ```
 
 > <small>
-> 
-> Parents: [vkeys](#Element_vkeys)  
-> Children: _none_  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [vkeys](#Element_vkeys)
+> Children: _none_
+> Occurence: required, multiple
+>
 > </small>
 
 _Attribute:_ `iso` (required)
@@ -1118,7 +1124,7 @@ This example shows some of the mappings for a French keyboard layout:
         <vkey iso="C01" vkey="VK_A" />
         <vkey iso="B01" vkey="VK_Z" />
     </vkeys>
-</keyboard>  
+</keyboard>
 ```
 
 _shared/win-fr.xml_
@@ -1131,13 +1137,13 @@ _shared/win-fr.xml_
         <map iso="D02" to="z" />
         <map iso="C01" to="q" />
         <map iso="B01" to="w" />
-    </keyMap>  
+    </keyMap>
     <keyMap modifiers="shift">
         <map iso="D01" to="A" />
         <map iso="D02" to="Z" />
         <map iso="C01" to="Q" />
         <map iso="B01" to="W" />
-    </keyMap>  
+    </keyMap>
     <vkeys type="windows">
         <vkey iso="D01" vkey="VK_A" />
         <vkey iso="D02" vkey="VK_Z" />
@@ -1162,7 +1168,7 @@ In the context of a virtual keyboard there might be a symbol layer with the foll
         ...
         <map iso="C09" to="(" />
         <map iso="C10" to=")" />
-    </keyMap>  
+    </keyMap>
     <layer modifier="sym">
         <row keys="D01-D10" />
         <row keys="C01-C09" />
@@ -1199,11 +1205,11 @@ Syntax
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: [transform](#Element_transform)  
-> Occurence: optional, multiple  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: [transform](#Element_transform)
+> Occurence: optional, multiple
+>
 > </small>
 
 _Attribute:_ `type` (required)
@@ -1229,17 +1235,17 @@ This element must have the `transforms` element as its parent. This element repr
 
 ```xml
 <transform from="{combination of characters}" to="{output}"
-   [before="{look-behind required match}"] 
-   [after="{look-ahead required match}"] 
+   [before="{look-behind required match}"]
+   [after="{look-ahead required match}"]
    [error="fail"] />
 ```
 
 > <small>
-> 
-> Parents: [transforms](#Element_transforms)  
-> Children: _none_  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [transforms](#Element_transforms)
+> Children: _none_
+> Occurence: required, multiple
+>
 > </small>
 
 _Attribute:_ `from` (required)
@@ -1249,8 +1255,8 @@ _Attribute:_ `from` (required)
 For example, suppose there are the following transforms:
 
 ```
-^e → ê 
-^a → â 
+^e → ê
+^a → â
 ^o → ô
 ```
 
@@ -1295,32 +1301,32 @@ Control characters, whitespace (other than the regular space character) and comb
 Examples
 
 ```xml
-<keyboard locale="fr-CA-t-k0-CSA-osx">  
-    <transforms type="simple">  
-        <transform from="´a" to="á" />  
-        <transform from="´A" to="Á" />  
-        <transform from="´e" to="é" />  
-        <transform from="´E" to="É" />  
-        <transform from="´i" to="í" />  
-        <transform from="´I" to="Í" />  
-        <transform from="´o" to="ó" />  
-        <transform from="´O" to="Ó" />  
-        <transform from="´u" to="ú" />  
-        <transform from="´U" to="Ú" />  
-    </transforms>  
-    ...  
-</keyboard>  
+<keyboard locale="fr-CA-t-k0-CSA-osx">
+    <transforms type="simple">
+        <transform from="´a" to="á" />
+        <transform from="´A" to="Á" />
+        <transform from="´e" to="é" />
+        <transform from="´E" to="É" />
+        <transform from="´i" to="í" />
+        <transform from="´I" to="Í" />
+        <transform from="´o" to="ó" />
+        <transform from="´O" to="Ó" />
+        <transform from="´u" to="ú" />
+        <transform from="´U" to="Ú" />
+    </transforms>
+    ...
+</keyboard>
 ```
 
 ```xml
-<keyboard locale="nl-BE-t-k0-chromeos">  
-    <transforms type="simple">  
-        <transform from="\u{30c}a" to="ǎ" /> <!-- ̌a → ǎ -->  
-        <transform from="\u{30c}A" to="Ǎ" /> <!-- ̌A → Ǎ -->  
-        <transform from="\u{30a}a" to="å" /> <!-- ̊a → å -->  
-        <transform from="\u{30a}A" to="Å" /> <!-- ̊A → Å -->  
-    </transforms>  
-    ...  
+<keyboard locale="nl-BE-t-k0-chromeos">
+    <transforms type="simple">
+        <transform from="\u{30c}a" to="ǎ" /> <!-- ̌a → ǎ -->
+        <transform from="\u{30c}A" to="Ǎ" /> <!-- ̌A → Ǎ -->
+        <transform from="\u{30a}a" to="å" /> <!-- ̊a → å -->
+        <transform from="\u{30a}A" to="Å" /> <!-- ̊A → Å -->
+    </transforms>
+    ...
 </keyboard>
 ```
 
@@ -1394,8 +1400,8 @@ The reorder transform consists of a single element type: `<reorder>` encapsulate
 
 ```xml
 <reorder from="{combination of characters}"
-   [before="{look-behind required match}"] 
-   [after="{look-ahead required match}"] 
+   [before="{look-behind required match}"]
+   [after="{look-ahead required match}"]
    [order="{list of weights}"]
    [tertiary="{list of weights}"]
    [tertiary_base="{list of true/false}"]
@@ -1403,11 +1409,11 @@ The reorder transform consists of a single element type: `<reorder>` encapsulate
 ```
 
 > <small>
-> 
-> Parents: [reorders](#Element_reorder)  
-> Children: _none_  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [reorders](#Element_reorder)
+> Children: _none_
+> Occurence: required, multiple
+>
 > </small>
 
 _Attribute:_ `from` (required)
@@ -1425,14 +1431,14 @@ _Attribute:_ `after`
 _Attribute:_ `order`
 
 > This attribute gives the primary order for the elements in the matched string in the `@from` attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.
-> 
+>
 > * If the value is 0 and its tertiary value is 0, then the character is the base of a new run.
 > * If the value is 0 and its tertiary value is non-zero, then it is a normal character in a run, with ordering semantics as described in the `@tertiary` attribute.
 > * If the value is negative, then the character is a primary character and will reorder to be before the base of the run.
 > * If the value is positive, then the character is a primary character and is sorted based on the order value as the primary key following a previous base character.
-> 
+>
 > A character with a zero tertiary value is a primary character and receives a sort key consisting of:
-> 
+>
 > * Primary weight is the order value
 > * Secondary weight is the index of the character. This may be any value (character index, codepoint index) such that its value is greater than the character before it and less than the character after it.
 > * Tertiary weight is 0.
@@ -1441,12 +1447,12 @@ _Attribute:_ `order`
 _Attribute:_ `tertiary`
 
 > This attribute gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.
-> 
+>
 > * If the value is 0 then the character is considered to have a primary order as specified in its order value and is a primary character.
 > * If the value is non zero, then the order value must be zero otherwise it is an error. The character is considered as a tertiary character for the purposes of ordering.
-> 
+>
 > A tertiary character receives its primary order and index from a previous character, which it is intended to sort closely after. The sort key for a tertiary character consists of:
-> 
+>
 > * Primary weight is the primary weight of the primary character
 > * Secondary weight is the index of the primary character, not the tertiary character
 > * Tertiary weight is the tertiary value for the character.
@@ -1467,10 +1473,10 @@ There is no `@error` attribute.
 For `@from` attributes with a match string length greater than 1, the sort key information (`@order`, `@tertiary`, `@tertiary_base`, `@prebase`) may consist of a space separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the `@from` attribute:
 
 ```
-if len(@from) < len(@list) then error  
-else 
-    while len(@from) > len(@list)  
-        append lastitem(@list) to @list  
+if len(@from) < len(@list) then error
+else
+    while len(@from) > len(@list)
+        append lastitem(@list) to @list
     endwhile
 endif
 ```
@@ -1515,8 +1521,8 @@ We want all of these sequences to end up ordered as the first. To do this, we us
 <reorder from="\u1A60" order="127" />      <!-- max possible order -->
 <reorder from="\u1A6B" order="42" />
 <reorder from="[\u1A75-\u1A79]" order="55" />
-<reorder before="\u1A6B" from="\u1A60\u1A45" order="10" />  
-<reorder before="\u1A6B[\u1A75-\u1A79]" from="\u1A60\u1A45" order="10" />  
+<reorder before="\u1A6B" from="\u1A60\u1A45" order="10" />
+<reorder before="\u1A6B[\u1A75-\u1A79]" from="\u1A60\u1A45" order="10" />
 <reorder before="\u1A6B" from="\u1A60[\u1A75-\u1A79]\u1A45" order="10 55 10" />
 ```
 
@@ -1557,30 +1563,30 @@ Consider this fragment from a shared reordering for the Myanmar script:
 <!-- [medial-wa or shan-medial-wa] -->
 <reorder from="[\u103D\u1082]" order="25" />
 
-<!-- [medial-ha or shan-medial-wa]+asat = Mon asat -->  
+<!-- [medial-ha or shan-medial-wa]+asat = Mon asat -->
 <reorder from="[\u103E\u1082]\u103A" order="27" />
 
-<!-- [medial-ha or mon-medial-wa] -->  
+<!-- [medial-ha or mon-medial-wa] -->
 <reorder from="[\u103E\u1060]" order="27" />
 
-<!-- [e-vowel or shan-e-vowel] -->  
+<!-- [e-vowel or shan-e-vowel] -->
 <reorder from="[\u1031\u1084]" order="30" />
-  
+
 <reorder from="[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]" order="35" />
 ```
 
 A particular Myanmar keyboard layout can have this `reorders` element:
 
 ```xml
-<reorders>  
+<reorders>
     <!-- Kinzi -->
     <reorder from="\u1004\u103A\u1039" order="-1" />
 
     <!-- e-vowel -->
-    <reorder from="\u1031" prebase="1" /> 
+    <reorder from="\u1031" prebase="1" />
 
     <!-- medial-r -->
-    <reorder from="\u103C" prebase="1" />  
+    <reorder from="\u103C" prebase="1" />
 </reorders>
 ```
 
@@ -1638,11 +1644,11 @@ In text editing mode, different keyboard layouts may behave differently in the s
 ```
 
 > <small>
-> 
-> Parents: [keyboard](#Element_keyboard)  
-> Children: [backspace](#Element_backspace)  
-> Occurence: optional, single  
-> 
+>
+> Parents: [keyboard](#Element_keyboard)
+> Children: [backspace](#Element_backspace)
+> Occurence: optional, single
+>
 > </small>
 
 * * *
@@ -1653,17 +1659,17 @@ In text editing mode, different keyboard layouts may behave differently in the s
 
 ```xml
 <backspace from="{combination of characters}" [to="{output}"]
-   [before="{look-behind required match}"] 
-   [after="{look-ahead required match}"] 
+   [before="{look-behind required match}"]
+   [after="{look-ahead required match}"]
    [error="fail"] />
 ```
 
 > <small>
-> 
-> Parents: [backspaces](#Element_backspaces)  
-> Children: _none_  
-> Occurence: required, multiple  
-> 
+>
+> Parents: [backspaces](#Element_backspaces)
+> Children: _none_
+> Occurence: required, multiple
+>
 > </small>
 
 The `backspace` element has the same `@before`, `@from`, `@after`, `@to`, `@error` of the `transform` element. The `@to` is optional with `backspace`.
@@ -1684,36 +1690,36 @@ A more complex example comes from a Burmese visually ordered keyboard:
 
 ```xml
 <backspaces>
-    <!-- Kinzi -->  
+    <!-- Kinzi -->
     <backspace from="[\u1004\u101B\u105A]\u103A\u1039" />
 
-    <!-- subjoined consonant -->  
+    <!-- subjoined consonant -->
     <backspace from="\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]" />
-  
+
     <!-- tone mark -->
     <backspace from="\u102B\u103A" />
-  
+
     <!-- Handle prebases -->
-    <!-- diacritics stored before e-vowel -->  
+    <!-- diacritics stored before e-vowel -->
     <backspace from="[\u103A-\u103F\u105E-\u1060\u1082]\u1031" to="\u1031" />
 
-    <!-- diacritics stored before medial r -->  
+    <!-- diacritics stored before medial r -->
     <backspace from="[\u103A-\u103B\u105E-\u105F]\u103C" to="\u103C" />
-  
+
     <!-- subjoined consonant before e-vowel -->
     <backspace from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031" to="\u1031" />
-  
+
     <!-- base consonant before e-vowel -->
     <backspace from="[\u1000-\u102A\u103F-\u1049\u104E]\u1031" to="\uFDDF\u1031" />
-  
+
     <!-- subjoined consonant before medial r -->
     <backspace from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C" to="\u103C" />
-  
+
     <!-- base consonant before medial r -->
     <backspace from="[\u1000-\u102A\u103F-\u1049\u104E]\u103C" to="\uFDDF\u103C" />
-  
+
     <!-- delete lone medial r or e-vowel -->
-    <backspace from="\uFDDF[\u1031\u103C]" />  
+    <backspace from="\uFDDF[\u1031\u103C]" />
 </backspaces>
 ```
 
@@ -1762,11 +1768,11 @@ This is the top level element. This element contains a set of elements defined b
 ```
 
 > <small>
-> 
-> Parents: _none_  
-> Children: [hardwareMap](#Element_hardwareMap)  
-> Occurence: required, single  
-> 
+>
+> Parents: _none_
+> Children: [hardwareMap](#Element_hardwareMap)
+> Occurence: required, single
+>
 > </small>
 
 
@@ -1785,11 +1791,11 @@ This element must have a `platform` element as its parent. This element contains
 ```
 
 > <small>
-> 
-> Parents: [platform](#Element_platform)  
-> Children: [map](#Element_hardwareMap_map)  
-> Occurence: optional, single  
-> 
+>
+> Parents: [platform](#Element_platform)
+> Children: [map](#Element_hardwareMap_map)
+> Occurence: optional, single
+>
 > </small>
 
 ### 6.3 <a name="Element_hardwareMap_map" href="#Element_hardwareMap_map">Element: map</a>
@@ -1803,10 +1809,10 @@ This element must have a `hardwareMap` element as its parent. This element maps 
 ```
 
 > <small>
-> 
-> Parents: [hardwareMap](#Element_hardwareMap)  
-> Children: _none_  
-> Occurence: required, multiple  
+>
+> Parents: [hardwareMap](#Element_hardwareMap)
+> Children: _none_
+> Occurence: required, multiple
 > </small>
 
 _Attribute:_ `keycode` (required)
@@ -1820,16 +1826,16 @@ _Attribute:_ `iso` (required)
 **Example**
 
 ```xml
-<platform>  
-    <hardwareMap>  
-        <map keycode="2" iso="E01" />  
-        <map keycode="3" iso="E02" />  
-        <map keycode="4" iso="E03" />  
-        <map keycode="5" iso="E04" />  
-        <map keycode="6" iso="E05" />  
-        <map keycode="7" iso="E06" />  
-        <map keycode="41" iso="E00" />  
-    </hardwareMap>  
+<platform>
+    <hardwareMap>
+        <map keycode="2" iso="E01" />
+        <map keycode="3" iso="E02" />
+        <map keycode="4" iso="E03" />
+        <map keycode="5" iso="E04" />
+        <map keycode="6" iso="E05" />
+        <map keycode="7" iso="E06" />
+        <map keycode="41" iso="E00" />
+    </hardwareMap>
 </platform>
 ```
 
@@ -1850,9 +1856,9 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 7.  A modifier set will never have ? (optional) on all values
     * eg, you'll never have `RCtrl?Caps?LShift?`
 8.  Every `base[@base`] value must be unique.
-9. A `modifier` attribute value will aways be minimal, observing the following simplification rules.  
-    
-| Notation                                 | Notes | 
+9. A `modifier` attribute value will aways be minimal, observing the following simplification rules.
+
+| Notation                                 | Notes |
 |------------------------------------------|-------|
 | Lower case character (eg. _x_ )          | Interpreted as any combination of modifiers. <br/> (eg. _x_ = CtrlShiftOption) |
 | Upper-case character (eg. _Y_ )          | Interpreted as a single modifier key (which may or may not have a L and R variant) <br/> (eg. _Y_ = Ctrl, _RY_ = RCtrl, etc..) |
@@ -1873,7 +1879,7 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 | xLY? ⋁ x ⇒ xLY?                            |                                              |
 | xLY ⋁ x ⇒ xLY?                             |                                              |
 
-* * * 
+* * *
 
 ## 8 <a name="Data_Sources" href="#Data_Sources">Data Sources</a>
 

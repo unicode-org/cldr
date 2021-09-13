@@ -5,6 +5,16 @@ SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 
+<!--
+Important Note:
+
+The CLDR Keyboard Workgroup is currently developing major changes to the
+CLDR keyboard specification.
+These changes are targeted for CLDR version 41.
+
+Please see CLDR-15034 for the latest information.
+-->
+
 <!ELEMENT keyboard ( version, generation?, info?, names, settings?, import*, keyMap+, displayMap?, layer*, vkeys*, transforms*, reorders?, backspaces? ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:any/TODO-->

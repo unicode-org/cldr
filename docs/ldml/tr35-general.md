@@ -207,7 +207,7 @@ When the display name contains "(" or ")" characters (or full-width equivalents)
 | en-u-nu-deva-t-de             | English (Transform: German, Devanagari Digits) |
 | fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x | French (Transform: Russian \[Cyrillic\], uu: uuu, a: aa-aaa, s: ss-sss, v: vv-vvv, x: u-x, z: zz-zzz) |
 
-  
+
 
 ### 1.2 <a name="locale_display_name_fields" href="#locale_display_name_fields">Locale Display Name Fields</a>
 
@@ -247,7 +247,7 @@ Alternate short forms may be provided for some languages (and for territories an
 <language type="en_US" alt="short">U.S. English</language>
 ```
 
-* * * 
+* * *
 
 ```xml
 <scripts>
@@ -387,16 +387,16 @@ This contains a list of elements that provide the user-translated names for syst
 * * *
 
 ```xml
-<!ELEMENT subdivisions ( alias | ( subdivision | special )* ) >  
+<!ELEMENT subdivisions ( alias | ( subdivision | special )* ) >
 <!ELEMENT subdivision ( #PCDATA )>
 ```
 
 Note that the subdivision names are in separate files, in the subdivisions/ directory. The type values are the fully qualified subdivsion names. For example:
 
 ```xml
-<subdivision type="AL-04">Fier County</subdivision>  
-<subdivision type="AL-FR">Fier</subdivision> <!-- in AL-04 : Fier County -->  
-<subdivision type="AL-LU">Lushnjë</subdivision> <!-- in AL-04 : Fier County -->  
+<subdivision type="AL-04">Fier County</subdivision>
+<subdivision type="AL-FR">Fier</subdivision> <!-- in AL-04 : Fier County -->
+<subdivision type="AL-LU">Lushnjë</subdivision> <!-- in AL-04 : Fier County -->
 <subdivision type="AL-MK">Mallakastër</subdivision> <!-- in AL-04 : Fier County -->
 ```
 
@@ -411,8 +411,8 @@ See also **Part 6** _Section 2.1.1 [Subdivision Containment](tr35-info.md#Subdiv
 This top-level element specifies general layout features. It currently only has one possible element (other than `<special>`, which is always permitted).
 
 ```xml
-<!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) >  
-<!ELEMENT characterOrder ( #PCDATA ) >  
+<!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) >
+<!ELEMENT characterOrder ( #PCDATA ) >
 <!ELEMENT lineOrder ( #PCDATA ) >
 ```
 
@@ -495,7 +495,7 @@ The basic exemplar character sets (main and auxiliary) contain the commonly used
 There are five sets altogether: main, auxiliary, punctuation, numbers, and index. The _main_ set should contain the minimal set required for users of the language, while the _auxiliary_ exemplar set is designed to encompass additional characters: those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. Major style guidelines are good references for the auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:
 
 ```xml
-<exemplarCharacters>[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>  
+<exemplarCharacters>[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 <exemplarCharacters type="auxiliary">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 ```
 
@@ -508,12 +508,12 @@ For example, the exemplar character set for en (English) is the set \[a-z\]. Thi
 
 The _punctuation_ set consists of common punctuation characters that are used with the language (corresponding to main and auxiliary). Symbols may also be included where they are common in plain text, such as ©. It does not include characters with narrow technical usage, such as dictionary punctuation/symbols or copy-edit symbols. For example, English would have something like the following:
 
-> - ‐ – —  
-> , ; : ! ? . …  
-> ' ‘ ’ " “ ” ′ ″  
-> ( ) [ \] { } ⟨ ⟩  
-> © ® ™ @ & ° ‧ ·/ # % ¶ § * † ‡  
-> + − ± × ÷ < ≤ = ≅ ≥ > √  
+> - ‐ – —
+> , ; : ! ? . …
+> ' ‘ ’ " “ ” ′ ″
+> ( ) [ \] { } ⟨ ⟩
+> © ® ™ @ & ° ‧ ·/ # % ¶ § * † ‡
+> + − ± × ÷ < ≤ = ≅ ≥ > √
 
 The numbers exemplars does not currently include lesser-used characters: exponential notation (3.1 × 10²³, ∞, NAN). Nor does it contain the units or currency symbols such as $, ¥, ₹,… It does contain %, because that occurs in the percent format. It may contain some special formatting characters like the RLM. A full list of the currency symbols used with that locale are in the `<currencies>` element, while the units can be gotten from the `<units>` element (both using inheritance, of course).The digits used in each numbering system are accessed in numberingSystems.xml. For more information, see _**Part 3: [Numbers](tr35-numbers.md#Contents)** , Section 2 [Number Elements](tr35-numbers.md#Number_Elements)_.
 
@@ -576,7 +576,7 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 ### 3.4 <a name="Ellipsis" href="#Ellipsis">Ellipsis</a>
 
 ```xml
-<!ELEMENT ellipsis ( #PCDATA ) >  
+<!ELEMENT ellipsis ( #PCDATA ) >
 <!ATTLIST ellipsis type ( initial | medial | final | word-initial | word-medial | word-final ) #IMPLIED >
 ```
 
@@ -605,14 +605,14 @@ The moreInformation string is one that can be displayed in an interface to indic
 ### 3.6 <a name="Character_Parse_Lenient" href="#Character_Parse_Lenient">Parse Lenient</a>
 
 ```xml
-<!ELEMENT parseLenients ( alias | ( parseLenient*, special* ) ) >  
-<!ATTLIST parseLenients scope (general | number | date) #REQUIRED >  
+<!ELEMENT parseLenients ( alias | ( parseLenient*, special* ) ) >
+<!ATTLIST parseLenients scope (general | number | date) #REQUIRED >
 <!ATTLIST parseLenients level (lenient | stricter) #REQUIRED >
 
-<!ELEMENT parseLenient ( #PCDATA ) >  
-<!ATTLIST parseLenient sample CDATA #REQUIRED >  
-<!ATTLIST parseLenient alt NMTOKENS #IMPLIED >  
-<!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED >  
+<!ELEMENT parseLenient ( #PCDATA ) >
+<!ATTLIST parseLenient sample CDATA #REQUIRED >
+<!ATTLIST parseLenient alt NMTOKENS #IMPLIED >
+<!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
 ```
 
 Example:
@@ -643,9 +643,9 @@ When quotations are nested, the quotation marks and alternate marks are used in 
 > He said, “Remember what the Mad Hatter said: ‘Not the same thing a bit! Why you might just as well say that “I see what I eat” is the same thing as “I eat what I see”!’”
 
 ```xml
-<quotationStart>“</quotationStart>  
-<quotationEnd>”</quotationEnd>  
-<alternateQuotationStart>‘</alternateQuotationStart>  
+<quotationStart>“</quotationStart>
+<quotationEnd>”</quotationEnd>
+<alternateQuotationStart>‘</alternateQuotationStart>
 <alternateQuotationEnd>’</alternateQuotationEnd>
 ```
 
@@ -669,15 +669,15 @@ Some characters with multiple uses should generally be excluded from this linebr
 ## 5 <a name="Measurement_System_Data" href="#Measurement_System_Data">Measurement System Data</a>
 
 ```xml
-<!ELEMENT measurementData ( measurementSystem*, paperSize* ) >  
-  
-<!ELEMENT measurementSystem EMPTY >  
-<!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED >  
-<!ATTLIST measurementSystem category ( temperature ) #IMPLIED >  
-<!ATTLIST measurementSystem territories NMTOKENS #REQUIRED >  
-  
-<!ELEMENT paperSize EMPTY >  
-<!ATTLIST paperSize type ( A4 | US-Letter ) #REQUIRED >  
+<!ELEMENT measurementData ( measurementSystem*, paperSize* ) >
+
+<!ELEMENT measurementSystem EMPTY >
+<!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED >
+<!ATTLIST measurementSystem category ( temperature ) #IMPLIED >
+<!ATTLIST measurementSystem territories NMTOKENS #REQUIRED >
+
+<!ELEMENT paperSize EMPTY >
+<!ATTLIST paperSize type ( A4 | US-Letter ) #REQUIRED >
 <!ATTLIST paperSize territories NMTOKENS #REQUIRED >
 ```
 
@@ -705,7 +705,7 @@ In some cases, it may be common to use different measurement systems for differe
 
 ```xml
 <measurementSystem type="metric" category="temperature" territories="LR MM"/>
-```                
+```
 
 The `paperSize` attribute gives the height and width of paper used for normal business letters. The values are "A4" and "US-Letter".
 
@@ -726,38 +726,38 @@ The `measurement` element is deprecated in the main LDML files, because the data
 ## 6 <a name="Unit_Elements" href="#Unit_Elements">Unit Elements</a>
 
 ```xml
-<!ELEMENT units (alias | (unit*, unitLength*, durationUnit*, special*) ) >  
-  
-<!ELEMENT unitLength (alias | (compoundUnit*, unit*, coordinateUnit*, special*) ) >  
-<!ATTLIST unitLength type (long | short | narrow) #REQUIRED >  
-  
-<!ELEMENT compoundUnit (alias | (compoundUnitPattern*, special*) ) >  
-<!ATTLIST compoundUnit type NMTOKEN #REQUIRED >  
-  
-<!ELEMENT unit ( alias | ( gender*, displayName*, unitPattern*, perUnitPattern*, special* ) ) >  
-<!ATTLIST unit type NMTOKEN #REQUIRED >  
-  
-<!ELEMENT gender ( #PCDATA )>  
-  
-<!ELEMENT durationUnit (alias | (durationUnitPattern*, special*) ) >  
-<!ATTLIST durationUnit type NMTOKEN #REQUIRED >  
-  
-<!ELEMENT unitPattern ( #PCDATA ) >  
-<!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >  
-  
-<!ELEMENT compoundUnitPattern ( #PCDATA ) >  
-<!ATTLIST compoundUnitPattern case NMTOKENS #IMPLIED >  
-  
-<!ELEMENT compoundUnitPattern1 ( #PCDATA ) >  
-<!ATTLIST compoundUnitPattern1 count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >  
-<!ATTLIST compoundUnitPattern1 gender NMTOKENS #IMPLIED >  
-<!ATTL IST compoundUnitPattern1 case NMTOKENS #IMPLIED >  
-  
-<!ELEMENT coordinateUnit ( alias | ( displayName*, coordinateUnitPattern*, special* ) ) >  
-<!ELEMENT coordinateUnitPattern ( #PCDATA ) >  
-<!ATTLIST coordinateUnitPattern type (north | east | south | west) #REQUIRED >  
-  
-<!ELEMENT durationUnitPattern ( #PCDATA ) >  
+<!ELEMENT units (alias | (unit*, unitLength*, durationUnit*, special*) ) >
+
+<!ELEMENT unitLength (alias | (compoundUnit*, unit*, coordinateUnit*, special*) ) >
+<!ATTLIST unitLength type (long | short | narrow) #REQUIRED >
+
+<!ELEMENT compoundUnit (alias | (compoundUnitPattern*, special*) ) >
+<!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
+
+<!ELEMENT unit ( alias | ( gender*, displayName*, unitPattern*, perUnitPattern*, special* ) ) >
+<!ATTLIST unit type NMTOKEN #REQUIRED >
+
+<!ELEMENT gender ( #PCDATA )>
+
+<!ELEMENT durationUnit (alias | (durationUnitPattern*, special*) ) >
+<!ATTLIST durationUnit type NMTOKEN #REQUIRED >
+
+<!ELEMENT unitPattern ( #PCDATA ) >
+<!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >
+
+<!ELEMENT compoundUnitPattern ( #PCDATA ) >
+<!ATTLIST compoundUnitPattern case NMTOKENS #IMPLIED >
+
+<!ELEMENT compoundUnitPattern1 ( #PCDATA ) >
+<!ATTLIST compoundUnitPattern1 count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
+<!ATTLIST compoundUnitPattern1 gender NMTOKENS #IMPLIED >
+<!ATTL IST compoundUnitPattern1 case NMTOKENS #IMPLIED >
+
+<!ELEMENT coordinateUnit ( alias | ( displayName*, coordinateUnitPattern*, special* ) ) >
+<!ELEMENT coordinateUnitPattern ( #PCDATA ) >
+<!ATTLIST coordinateUnitPattern type (north | east | south | west) #REQUIRED >
+
+<!ELEMENT durationUnitPattern ( #PCDATA ) >
 ```
 
 These elements specify the localized way of formatting quantities of units such as years, months, days, hours, minutes and seconds— for example, in English, "1 day" or "3 days". The English rules that produce this example are as follows ({0} indicates the position of the formatted numeric value):
@@ -805,7 +805,7 @@ The displayName is used for labels, such as in a UI. It is typically lowercased 
 <tr><td>Days</td><td style="color: silver;">enter the vacation length</td></tr>
 </tbody></table>
 
- 
+
 ### 6.1 <a name="Unit_Preference_and_Conversion" href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a>
 
 Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
@@ -824,7 +824,7 @@ Units are identified internally as described in this section. As with other iden
 | -------------------- | ------- |
 | long unit identifier | length-meter, mass-pound, duration-day |
 | core unit identifier | meter, pound, day |
-  
+
 
 Both the _unit identifier_ and the _core unit identifier_ are guaranteed to be unique, and clients can use either one to identify a unit. The associations between types and core unit identifiers are as prescribed in CLDR data; it is invalid for a client to create any additional associations. Except as specified in _Section 6.6 [Private-Use Units](https://www.unicode.org/reports/tr35/tr35-general.md#Private_Use_Units)_, all values are reserved by CLDR.
 
@@ -835,7 +835,7 @@ Both the _unit identifier_ and the _core unit identifier_ are guaranteed to be u
 | single unit ID   | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
 | core unit ID     | kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, … <br/> _plus single unit IDs_ |
 | mixed unit ID    | foot-and-pound |
- 
+
 A core unit that is not a simple unit is called a _complex unit_. It is valid to construct a complex unit identifier from multiple simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter). As usual, with division the part before the (first) -per- is called the _numerator_, and the part after it is called the _denominator_.
 
 The conversion information uses the short unit identifiers, discarding the unitType. Thus “meter” is used instead of “length-meter”. The translation data currently uses the long unit identifiers, for backwards compatibility. However, that is likely to change in a future version.
@@ -1085,7 +1085,7 @@ There are different types of structure used to build the localized name of compo
 <compoundUnit type="10p9">
   <unitPrefixPattern>Giga{0}</unitPrefixPattern>
 </compoundUnit>
-	
+
 <compoundUnit type="1024p3">
   <unitPrefixPattern>Gibi{0}</unitPrefixPattern>
 </compoundUnit>
@@ -1108,31 +1108,31 @@ There can be at most one "per" pattern used in producing a compound unit, while 
 `compoundUnitPattern1`s are used for expressing powers, such as square meter or cubic foot. These are the most complicated, since they can vary by plural category (count), by case, and by gender. However, these extra attributes are only used if the are present in the `grammaticalFeatures` element for the language in question. See [Section 15, Grammatical Features](tr35-general.md#Grammatical_Features). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
 
 ```xml
-<compoundUnit type="power2">  
-  <compoundUnitPattern1>{0} kw.</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one">{0} kwadratowe</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" case="accusative">{0} kwadratowe</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" case="dative">{0} kwadratowemu</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" case="genitive">{0} kwadratowego</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" case="instrumental">{0} kwadratowym</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" case="locative">{0} kwadratowym</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" case="vocative">{0} kwadratowe</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="feminine">{0} kwadratowa</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="feminine" case="accusative">{0} kwadratową</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="feminine" case="dative">{0} kwadratowej</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="feminine" case="genitive">{0} kwadratowej</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="feminine" case="instrumental">{0} kwadratową</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="feminine" case="locative">{0} kwadratowej</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="feminine" case="vocative">{0} kwadratowa</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="inanimate">{0} kwadratowy</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="inanimate" case="accusative">{0} kwadratowy</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="inanimate" case="dative">{0} kwadratowemu</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="inanimate" case="genitive">{0} kwadratowego</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="inanimate" case="instrumental">{0} kwadratowym</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="inanimate" case="locative">{0} kwadratowym</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="one" gender="inanimate" case="vocative">{0} kwadratowy</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="few">{0} kwadratowe</compoundUnitPattern1>  
-  <compoundUnitPattern1 count="few" case="accusative">{0} kwadratowe</compoundUnitPattern1>  
+<compoundUnit type="power2">
+  <compoundUnitPattern1>{0} kw.</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one">{0} kwadratowe</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" case="accusative">{0} kwadratowe</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" case="dative">{0} kwadratowemu</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" case="genitive">{0} kwadratowego</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" case="instrumental">{0} kwadratowym</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" case="locative">{0} kwadratowym</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" case="vocative">{0} kwadratowe</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="feminine">{0} kwadratowa</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="feminine" case="accusative">{0} kwadratową</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="feminine" case="dative">{0} kwadratowej</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="feminine" case="genitive">{0} kwadratowej</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="feminine" case="instrumental">{0} kwadratową</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="feminine" case="locative">{0} kwadratowej</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="feminine" case="vocative">{0} kwadratowa</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="inanimate">{0} kwadratowy</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="inanimate" case="accusative">{0} kwadratowy</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="inanimate" case="dative">{0} kwadratowemu</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="inanimate" case="genitive">{0} kwadratowego</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="inanimate" case="instrumental">{0} kwadratowym</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="inanimate" case="locative">{0} kwadratowym</compoundUnitPattern1>
+  <compoundUnitPattern1 count="one" gender="inanimate" case="vocative">{0} kwadratowy</compoundUnitPattern1>
+  <compoundUnitPattern1 count="few">{0} kwadratowe</compoundUnitPattern1>
+  <compoundUnitPattern1 count="few" case="accusative">{0} kwadratowe</compoundUnitPattern1>
   <compoundUnitPattern1 count="few" case="dative">{0} kwadratowym</compoundUnitPattern1>
   …
 ```
@@ -1254,10 +1254,10 @@ The type contains a skeleton, where 'h' stands for hours, 'm' for minutes, and '
 The **coordinateUnitPattern** is a special type of pattern used for composing degrees of latitude and longitude, with an indicator of the quadrant. There are exactly 4 type values, plus a displayName for the items in this category. An angle is composed using the appropriate combination of the **angle-degrees**, **angle-arc-minute** and **angle-arc-second** values. It is then substituted for the placeholder field {0} in the appropriate **coordinateUnit** pattern.
 
 ```xml
-<displayName>direction</displayName>  
-<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>  
-<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>  
-<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>  
+<displayName>direction</displayName>
+<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
 <coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
 ```
 
@@ -1282,18 +1282,18 @@ The older syntax used “x-”, which was expanded to “xxx-” to simplify use
 ## 7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 
 ```xml
-<!ELEMENT posix (alias | (messages*, special*)) >  
+<!ELEMENT posix (alias | (messages*, special*)) >
 <!ELEMENT messages (alias | ( yesstr*, nostr*)) >
 ```
 
 The following are included for compatibility with POSIX.
 
 ```xml
-<posix>  
-    <posix:messages>  
-        <posix:yesstr>ja</posix:yesstr>  
-        <posix:nostr>nein</posix:nostr>  
-    </posix:messages>  
+<posix>
+    <posix:messages>
+        <posix:yesstr>ja</posix:yesstr>
+        <posix:nostr>nein</posix:nostr>
+    </posix:messages>
 <posix>
 ```
 
@@ -1316,7 +1316,7 @@ yesexpr "^([yY]([eE][sS])?)"
 ```
 
 This would match y,Y,yes,yeS,yEs,yES,Yes,YeS,YEs,YES.
-  
+
 ```
 noexpr "^([nN][oO]?)"
 ```
@@ -1328,17 +1328,17 @@ This would match n,N,no,nO,No,NO.
 (Use only in supplemental data; deprecated for ldml.dtd and locale data)
 
 ```xml
-<!ELEMENT references ( reference* ) >  
-<!ELEMENT reference ( #PCDATA ) >  
-<!ATTLIST reference type NMTOKEN #REQUIRED>  
-<!ATTLIST reference standard ( true | false ) #IMPLIED >  
+<!ELEMENT references ( reference* ) >
+<!ELEMENT reference ( #PCDATA ) >
+<!ATTLIST reference type NMTOKEN #REQUIRED>
+<!ATTLIST reference standard ( true | false ) #IMPLIED >
 <!ATTLIST reference uri CDATA #IMPLIED >
 ```
 
 The references section supplies a central location for specifying references and standards. The uri should be supplied if at all possible. If not online, then a ISBN number should be supplied, such as in the following example:
 
 ```xml
-<reference type="R2" uri="https://www.ur.se/nyhetsjournalistik/3lan.html">Landskoder på Internet</reference>  
+<reference type="R2" uri="https://www.ur.se/nyhetsjournalistik/3lan.html">Landskoder på Internet</reference>
 <reference type="R3" uri="URN:ISBN:91-47-04974-X">Svenska skrivregler</reference>
 ```
 
@@ -1347,17 +1347,17 @@ The references section supplies a central location for specifying references and
 ```xml
 <!ELEMENT segmentations ( alias | segmentation*) >
 
-<!ELEMENT segmentation ( alias | (variables?, segmentRules? , exceptions?, suppressions?) | special*) >  
+<!ELEMENT segmentation ( alias | (variables?, segmentRules? , exceptions?, suppressions?) | special*) >
 <!ATTLIST segmentation type NMTOKEN #REQUIRED >
 
 <!ELEMENT variables ( alias | variable*) >
 
-<!ELEMENT variable ( #PCDATA ) >  
+<!ELEMENT variable ( #PCDATA ) >
 <!ATTLIST variable id CDATA #REQUIRED >
 
 <!ELEMENT segmentRules ( alias | rule*) >
 
-<!ELEMENT rule ( #PCDATA ) >  
+<!ELEMENT rule ( #PCDATA ) >
 <!ATTLIST rule id NMTOKEN #REQUIRED >
 
 <!ELEMENT suppressions ( suppression* ) >
@@ -1412,7 +1412,7 @@ There are some implicit rules:
 *   The implicit final rule is always "Any ÷ Any". This is not to be included explicitly.
 
 > **Note:** A rule like X Format\* -> X in [[UAX29](https://www.unicode.org/reports/tr41/#UAX29)] and [[UAX14](https://www.unicode.org/reports/tr41/#UAX14)] is not supported. Instead, this needs to be expressed as normal regular expressions. The normal way to support this is to modify the variables, such as in the following example:
-> 
+>
 > ```xml
 > <variable id="$Format">\p{Word_Break=Format}</variable>
 > <variable id="$Katakana">\p{Word_Break=Katakana}</variable>
@@ -1431,12 +1431,12 @@ Variables and rules both inherit from the parent.
 **Variables:** The child's variable list is logically appended to the parent's, and evaluated in that order. For example:
 
 ```xml
-// in parent  
-<variable id="$AL">[:linebreak=AL:]</variable>  
+// in parent
+<variable id="$AL">[:linebreak=AL:]</variable>
 <variable id="$YY">[[:linebreak=XX:]$AL]</variable> // adds $AL
 
 // in child
-<variable id="$AL">[$AL && [^a-z]]</variable> // changes $AL, does not affect $YY  
+<variable id="$AL">[$AL && [^a-z]]</variable> // changes $AL, does not affect $YY
 <variable id="$ABC">[abc]</variable> // adds new rule
 ```
 
@@ -1655,30 +1655,30 @@ The rules for transforms are described in Section 10.3 [Transform Rules Syntax](
 ### 10.3 <a name="Transform_Rules_Syntax" href="#Transform_Rules_Syntax">Transform Rules Syntax</a>
 
 ```xml
-<!ELEMENT transforms ( transform*) >  
-<!ELEMENT transform ((comment | tRule)*) >  
-<!ATTLIST transform source CDATA #IMPLIED >  
-<!ATTLIST transform target CDATA #IMPLIED >  
-<!ATTLIST transform variant CDATA #IMPLIED >  
-<!ATTLIST transform direction ( forward | backward | both ) "both" >  
-<!ATTLIST transform alias CDATA #IMPLIED >  
-<!--@VALUE-->  
-<!ATTLIST transform backwardAlias CDATA #IMPLIED >  
-<!--@VALUE-->  
-<!ATTLIST transform visibility ( internal | external ) "external" >  
-<!ELEMENT comment (#PCDATA) >  
+<!ELEMENT transforms ( transform*) >
+<!ELEMENT transform ((comment | tRule)*) >
+<!ATTLIST transform source CDATA #IMPLIED >
+<!ATTLIST transform target CDATA #IMPLIED >
+<!ATTLIST transform variant CDATA #IMPLIED >
+<!ATTLIST transform direction ( forward | backward | both ) "both" >
+<!ATTLIST transform alias CDATA #IMPLIED >
+<!--@VALUE-->
+<!ATTLIST transform backwardAlias CDATA #IMPLIED >
+<!--@VALUE-->
+<!ATTLIST transform visibility ( internal | external ) "external" >
+<!ELEMENT comment (#PCDATA) >
 <!ELEMENT tRule (#PCDATA) >
 ```
 
 The `transform` attributes indicate the `source`, `target`, `direction`, and `alias`es. For example:
 
 ```xml
-<transform  
-  source="ja_Hrkt"  
-  target="ja_Latn"  
-  variant="BGN"  
-  direction="forward"  
-  draft="provisional"  
+<transform
+  source="ja_Hrkt"
+  target="ja_Latn"
+  variant="BGN"
+  direction="forward"
+  draft="provisional"
   alias="Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn">
 ```
 
@@ -1876,13 +1876,13 @@ If either the source or target is 'und', it can be omitted, thus 'und_NFC' is eq
 
 The following transforms are defined not by rules, but by the operations in the Unicode Standard, and may be used in building any other transform:
 
-> **Any-NFC, Any-NFD, Any-NFKD, Any-NFKC** - the normalization forms defined by [[UAX15](https://www.unicode.org/reports/tr41/#UAX15)].  
-> 
+> **Any-NFC, Any-NFD, Any-NFKD, Any-NFKC** - the normalization forms defined by [[UAX15](https://www.unicode.org/reports/tr41/#UAX15)].
+>
 > **Any-Lower, Any-Upper, Any-Title** - full case transformations, defined by [[Unicode](tr35.md#Unicode)] Chapter 3.
 
 In addition, the following special cases are defined:
 
-> **Any-Null** - has no effect; that is, each character is left alone.  
+> **Any-Null** - has no effect; that is, each character is left alone.
 > **Any-Remove** - maps each character to the empty string; this, removes each character.
 
 The inverse of a transform rule uses parentheses to indicate what should be done when the inverse transform is used. For example:
@@ -1950,13 +1950,13 @@ Conversion rules can be forward, backward, or double. The complete conversion ru
 **Dual**
 
 > A dual conversion rule combines a forward conversion rule and a backward conversion rule into one, as discussed above. It is of the form:
-> 
+>
 > ```
 > a { b | c } d ↔ e { f | g } h ;
 > ```
-> 
+>
 > When generating the normal transform and the inverse, the revisit mark "|" and the before and after contexts are ignored on the sides where they do not belong. Thus, the above is exactly equivalent to the sequence of the following two rules:
-> 
+>
 > ```
 > a { b c } d → f | g  ;
 > b | c  ←  e { f g } h ;
@@ -2089,7 +2089,7 @@ Note how the irrelevant rules (the inverse filter rule and the rules containing 
 ```xml
 <!ELEMENT listPatterns (alias | (listPattern*, special*)) >
 
-<!ELEMENT listPattern (alias | (listPatternPart*, special*)) >  
+<!ELEMENT listPattern (alias | (listPatternPart*, special*)) >
 <!ATTLIST listPattern type (NMTOKEN) #IMPLIED >
 
 <!ELEMENT listPatternPart ( #PCDATA ) >
@@ -2180,10 +2180,10 @@ In many languages there may not be a difference among many of these lists. In ot
 
 ```xml
 <!-- Gender List support -->
-<!ELEMENT gender ( personList+ ) >  
-<!ELEMENT personList EMPTY >  
-<!ATTLIST personList type ( neutral | mixedNeutral | maleTaints ) #REQUIRED >  
-<!ATTLIST personList locales NMTOKENS #REQUIRED >  
+<!ELEMENT gender ( personList+ ) >
+<!ELEMENT personList EMPTY >
+<!ATTLIST personList type ( neutral | mixedNeutral | maleTaints ) #REQUIRED >
+<!ATTLIST personList locales NMTOKENS #REQUIRED >
 ```
 
 This can be used to determine the gender of a list of 2 or more persons, such as "Tom and Mary", for use with gender-selection messages. For example,
@@ -2212,10 +2212,10 @@ There are three ways the gender of a list can be formatted:
 ## 12 <a name="Context_Transform_Elements" href="#Context_Transform_Elements">ContextTransform Elements</a>
 
 ```xml
-<!ELEMENT contextTransforms ( alias | (contextTransformUsage*, special*)) >  
-<!ELEMENT contextTransformUsage ( alias | (contextTransform*, special*)) >  
-<!ATTLIST contextTransformUsage type CDATA #REQUIRED >  
-<!ELEMENT contextTransform ( #PCDATA ) >  
+<!ELEMENT contextTransforms ( alias | (contextTransformUsage*, special*)) >
+<!ELEMENT contextTransformUsage ( alias | (contextTransform*, special*)) >
+<!ATTLIST contextTransformUsage type CDATA #REQUIRED >
+<!ELEMENT contextTransform ( #PCDATA ) >
 <!ATTLIST contextTransform type ( uiListOrMenu | stand-alone ) #REQUIRED >
 ```
 
@@ -2295,9 +2295,9 @@ Example:
 A choice pattern is a string that chooses among a number of strings, based on numeric value. It has the following form:
 
 ```
-<choice_pattern> = <choice> ( '|' <choice> )*  
-<choice> = <number><relation><string>  
-<number> = ('+' | '-')? ('∞' | [0-9]+ ('.' [0-9]+)?)  
+<choice_pattern> = <choice> ( '|' <choice> )*
+<choice> = <number><relation><string>
+<number> = ('+' | '-')? ('∞' | [0-9]+ ('.' [0-9]+)?)
 <relation> = '<' | ' ≤'
 ```
 
@@ -2319,7 +2319,7 @@ Quoting is done using ' characters, as in date or number formats.
 
 Annotations provide information about characters, typically used in input. For example, on a mobile keyboard they can be used to do completion. They are typically used for symbols, especially emoji characters.
 
-For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://unicode.org/reports/tr51/). (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)  
+For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://unicode.org/reports/tr51/). (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)
 
 ```xml
 <!ELEMENT annotations ( annotation* ) >
@@ -2495,17 +2495,17 @@ The following are character labels. Where the meaning of the label is fairly cle
 ```xml
 <!ELEMENT typographicNames ( alias | ( axisName*, styleName*, featureName*, special* ) ) >
 
-<!ELEMENT axisName ( #PCDATA ) >  
-<!ATTLIST axisName type (ital | opsz | slnt | wdth | wght) #REQUIRED >  
+<!ELEMENT axisName ( #PCDATA ) >
+<!ATTLIST axisName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
 <!ATTLIST axisName alt NMTOKENS #IMPLIED >
 
-<!ELEMENT styleName ( #PCDATA ) >  
-<!ATTLIST styleName type (ital | opsz | slnt | wdth | wght) #REQUIRED >  
-<!ATTLIST styleName subtype NMTOKEN #REQUIRED >  
+<!ELEMENT styleName ( #PCDATA ) >
+<!ATTLIST styleName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
+<!ATTLIST styleName subtype NMTOKEN #REQUIRED >
 <!ATTLIST styleName alt NMTOKENS #IMPLIED >
 
-<!ELEMENT featureName ( #PCDATA ) >  
-<!ATTLIST featureName type (afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero) #REQUIRED >  
+<!ELEMENT featureName ( #PCDATA ) >
+<!ATTLIST featureName type (afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero) #REQUIRED >
 <!ATTLIST featureName alt NMTOKENS #IMPLIED >
 ```
 
@@ -2516,15 +2516,15 @@ The identifers (types) use the tags from the OpenType Feature Tag Registry. Give
 To find a localized subfamily name such as “Extraleicht Schmal” for a font called “Extralight Condensed”, a system or application library might do the following:
 
 1. Determine the set of languages in which the subfamily name can potentially be returned. This is the union of the languages for which the font contains ‘name’ table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names.
-   
+
 2. Use a language matching algorithm such as in ICU to find the best available language given the user preferences. The resulting subfamily name will be localized to this language.
-   
+
 3. If the font’s ‘name’ table contains a typographic subfamily name (ID17) in this language and all font variation axes are set to their defaults, return this name.
-   
+
 4. If the font’s ‘name’ table contains a font subfamilyname (‘name’ID2) in this language and all font variation axes are set to their defaults, return this name.
-   
+
 5. If the font has a style attributes (STAT) table, lookup the design axis tags and their ordering. If the font has no STAT table, assume \[Width, Weight, Slant\] as axis ordering, and infer the font’s style atributes from other available data in the font (eg. the OS/2 table).
-   
+
 6. For each design axis, find a localized style name for its value.
    1. If the font’s style attributes point to a ‘name’ table entry that is available the result language, use this name.
    2. Otherwise, generate a fallback name from CLDR style Name data.
@@ -2538,17 +2538,17 @@ LDML supplies grammatical information that can be used to distinguish localized 
 
 The current data includes the following:
 
-*   There are currently 3 grammatical features found in the [DTD](https://github.com/unicode-org/cldr/blob/master/common/dtd/ldmlSupplemental.dtd#1229): Gender, Case, Definiteness
-*   There are mappings from supported locales to grammatical features they exhibit in the file [grammaticalFeatures.xml](https://github.com/unicode-org/cldr/blob/master/common/supplemental/grammaticalFeatures.xml). Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.
+*   There are currently 3 grammatical features found in the [DTD](https://github.com/unicode-org/cldr/blob/main/common/dtd/ldmlSupplemental.dtd#1229): Gender, Case, Definiteness
+*   There are mappings from supported locales to grammatical features they exhibit in the file [grammaticalFeatures.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/grammaticalFeatures.xml). Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.
 
 Note that the CLDR plural categories overlap some of these features, since some languages use case and other devices to change words based on the numeric values.
 
 ## Features
 
 ```xml
-<!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) >  
-<!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) >  
-<!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >  
+<!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) >
+<!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) >
+<!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
 <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
 
 <!ELEMENT grammaticalCase EMPTY>
@@ -2665,15 +2665,15 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 <!ELEMENT grammaticalDerivations (deriveCompound*, deriveComponent*) >
 <!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED >
 
-<!ELEMENT deriveCompound EMPTY > 
-<!ATTLIST deriveCompound feature NMTOKENS #REQUIRED >     
-<!ATTLIST deriveCompound structure NMTOKENS #REQUIRED >     
-<!ATTLIST deriveCompound value NMTOKEN #REQUIRED >     
+<!ELEMENT deriveCompound EMPTY >
+<!ATTLIST deriveCompound feature NMTOKENS #REQUIRED >
+<!ATTLIST deriveCompound structure NMTOKENS #REQUIRED >
+<!ATTLIST deriveCompound value NMTOKEN #REQUIRED >
 
-<!ATTLIST deriveComponent feature NMTOKENS #REQUIRED >     
-<!ATTLIST deriveComponent structure NMTOKENS #REQUIRED >     
-<!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED >     
-<!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED >    
+<!ATTLIST deriveComponent feature NMTOKENS #REQUIRED >
+<!ATTLIST deriveComponent structure NMTOKENS #REQUIRED >
+<!ATTLIST deriveComponent value0 NMTOKEN #REQUIRED >
+<!ATTLIST deriveComponent value1 NMTOKEN #REQUIRED >
 ```
 
 The grammatical derivation data contains information about the case, gender, and plural categories of compound units. This is supplemental data, so the inheritance by locale needs to be done by the client.
@@ -2716,21 +2716,21 @@ For a description of how to use these fields to construct a localized name, see 
 
 ### 16.1 <a name="gender_compound_units" href="#gender_compound_units">Deriving the Gender of Compound Units</a>
 
-The **deriveCompound\[@feature="gender"\]** data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The `attributeValues` of value are: **`0` (=gender of the first element), `1` (=gender of second element), or one of the valid gender values for the language.** In the unusual case that the 'per' compound has no first element and 0 is supplied, then the value is 1.  
+The **deriveCompound\[@feature="gender"\]** data provides information for how to derive the gender of the whole compound from the gender of its atomic units and structure. The `attributeValues` of value are: **`0` (=gender of the first element), `1` (=gender of second element), or one of the valid gender values for the language.** In the unusual case that the 'per' compound has no first element and 0 is supplied, then the value is 1.
 
 Example:
 
 ```xml
-<deriveCompound feature="gender" structure="per" value="0" /> <!-- gender(gram-per-meter) ← gender(gram) -->   
-<deriveCompound feature="gender" structure="times" value="1" /> <!-- gender(newton-meter) ← gender(meter) -->   
-<deriveCompound feature="gender" structure="power" value="0" /> <!-- gender(square-meter) ← gender(meter) -->   
-<deriveCompound feature="gender" structure="prefix" value="0" /> <!-- gender(kilometer) ← gender(meter) --> 
+<deriveCompound feature="gender" structure="per" value="0" /> <!-- gender(gram-per-meter) ← gender(gram) -->
+<deriveCompound feature="gender" structure="times" value="1" /> <!-- gender(newton-meter) ← gender(meter) -->
+<deriveCompound feature="gender" structure="power" value="0" /> <!-- gender(square-meter) ← gender(meter) -->
+<deriveCompound feature="gender" structure="prefix" value="0" /> <!-- gender(kilometer) ← gender(meter) -->
 ```
 
 For example, for gram-per-meter, the first line above means:
 
 * The gender of the compound is the gender of the first component of the 'per', that is, of the "gram". So if gram is feminine in that language, the gender of the compound is feminine.
-    
+
 
 ### 16.2 <a name="plural_compound_units" href="#plural_compound_units">Deriving the Plural Category of Unit Components</a>
 
@@ -2748,7 +2748,7 @@ Example:
 For example, for gram-per-meter, the first line above means:
 
 *   When the plural form of gram-per-meter is needed (rather than singular), then the gram part of the translation has to have a plural form like “grams”, while the meter part of the translation has to have a singular form like “metre”. This would be composed with the pattern for "per" (say "{0} pro {1}") to get "grams pro metre".
-    
+
 
 ### 16.3 <a name="case_compound_units" href="#case_compound_units">Deriving the Case of Unit Components</a>
 
@@ -2757,9 +2757,9 @@ The `deriveComponent[@feature="case"]` data provides information for how to deri
 Example:
 
 ```xml
-<deriveComponent feature="case" structure="per" value0="compound" value1="nominative" /> <!-- compound(gram-per-meter) ⇒ compound(gram) “per" accusative(meter) --> 	  
-<deriveComponent feature="case" structure="times" value0="nominative"  value1="compound" /> <!-- compound(newton-meter) ⇒  nominative(newton) “-" compound(meter) --> 	  
-<deriveComponent feature="case" structure="power" value0="nominative"  value1="compound" /> <!-- compound(square-meter) ⇒  nominative(square) compound(meter) --> 	  
+<deriveComponent feature="case" structure="per" value0="compound" value1="nominative" /> <!-- compound(gram-per-meter) ⇒ compound(gram) “per" accusative(meter) -->
+<deriveComponent feature="case" structure="times" value0="nominative"  value1="compound" /> <!-- compound(newton-meter) ⇒  nominative(newton) “-" compound(meter) -->
+<deriveComponent feature="case" structure="power" value0="nominative"  value1="compound" /> <!-- compound(square-meter) ⇒  nominative(square) compound(meter) -->
 <deriveComponent feature="case" structure="prefix" value0="nominative"  value1="compound" /><!--compound(kilometer) ⇒  nominative(kilo) compound(meter) -->
 ```
 

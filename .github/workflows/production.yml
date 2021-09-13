@@ -2,13 +2,11 @@
 
 name: production
 
-# Triggered on push to master,
-# or PR against master.
 on:
   workflow_dispatch:
     inputs:
       git-ref:
-        description: Git Ref to Deploy (master, hash, tag)
+        description: Git Ref to Deploy (main, hash, tag)
         required: true
       option:
         description: use --override to allow any ref
@@ -78,7 +76,7 @@ jobs:
       with:
         name: cldr-apps-server
     - name: Deploy to st
-      # Deploys only on push to master.
+      # Deploys only on push to main.
       # Does not deploy for PRs.
       shell: bash
       env:

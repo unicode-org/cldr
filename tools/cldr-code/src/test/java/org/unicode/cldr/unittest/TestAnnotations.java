@@ -294,7 +294,7 @@ public class TestAnnotations extends TestFmwkPlus {
     }
     public void testEmojiImages() {
         if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/"))  {
-            return; // don't bother checking production for this: the images are only in master, not production
+            return; // don't bother checking production for this: the images are only in main, not production
         }
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);

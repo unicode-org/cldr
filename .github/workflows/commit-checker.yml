@@ -6,7 +6,7 @@ on:
     inputs:
       # NB: the version numbers don't need to be updated here, they are only examples.
       end-ref:
-        description: CLDR Commit (e.g. master or maint/maint-38)
+        description: CLDR Commit (e.g. main or maint/maint-38)
         required: true
       fix-version:
         description: Fix Version (e.g. 38)

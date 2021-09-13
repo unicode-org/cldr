@@ -53,8 +53,8 @@
         dest: "{{ cldr_trunk_path }}"
         force: no
         update: no
-        version: master
-        # this is deep because we will need to keep updating
+        version: main
+        # this is a deep clone because we will need to keep updating
         # it with history. It does not include LFS as that
         # is not needed for the surveytool.
   handlers:

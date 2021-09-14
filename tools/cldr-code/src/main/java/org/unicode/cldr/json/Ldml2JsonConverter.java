@@ -82,15 +82,18 @@ public class Ldml2JsonConverter {
     private enum RunType {
         all,
         main,
-        supplemental(false), // aka 'core'
-        segments, rbnf(false), annotations, annotationsDerived, bcp47(false);
+        supplemental(false, false), // aka 'core'
+        segments, rbnf(false, true), annotations, annotationsDerived, bcp47(false, false);
 
         private final boolean isTiered;
+        private final boolean hasLocales;
         RunType() {
             this.isTiered = true;
+            this.hasLocales = true;
         }
-        RunType(boolean isTiered) {
+        RunType(boolean isTiered, boolean hasLocales) {
             this.isTiered = isTiered;
+            this.hasLocales = hasLocales;
         }
         /**
          * Is it split into modern/full?
@@ -98,6 +101,13 @@ public class Ldml2JsonConverter {
          */
         public boolean tiered() {
             return isTiered;
+        }
+        /**
+         * Does it have locale IDs?
+         * @return
+         */
+        public boolean locales() {
+            return hasLocales;
         }
         /**
          * return the options as a pipe-delimited list
@@ -130,6 +140,8 @@ public class Ldml2JsonConverter {
             "\texample: org.unicode.cldr.json.Ldml2JsonConverter -c xxx -d yyy")
                 .add("bcp47", 'B', "(true|false)", "true",
                     "Whether to strictly use BCP47 tags in filenames and data. Defaults to true.")
+                .add("bcp47-no-subtags", 'T', "(true|false)", "true",
+                    "In BCP47 mode, ignore locales with subtags such as en-US-u-va-posix. Defaults to true.")
                 .add("commondir", 'c', ".*", CLDRPaths.COMMON_DIRECTORY,
                     "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
                 .add("destdir", 'd', ".*", CLDRPaths.GEN_DIRECTORY,
@@ -170,14 +182,14 @@ public class Ldml2JsonConverter {
                 Timer subTimer = new Timer();
                 subTimer.start();
                 processType(t.name());
-                System.out.println("Finished " + t + " in " + subTimer.toMeasureString());
+                System.out.println(t + "\tFinished in " + subTimer.toMeasureString());
                 System.out.println();
             }
         } else {
             processType(rawType);
         }
 
-        System.out.println("Finished everything in " + overallTimer.toMeasureString());
+        System.out.println("\n\n###\n\nFinished everything in " + overallTimer.toMeasureString());
     }
 
     static void processType(final String runType) throws Exception {
@@ -192,7 +204,9 @@ public class Ldml2JsonConverter {
             Boolean.parseBoolean(options.get("packages").getValue()),
             options.get("konfig").getValue(),
             options.get("pkgversion").getValue(),
-            Boolean.parseBoolean(options.get("bcp47").getValue()));
+            Boolean.parseBoolean(options.get("bcp47").getValue()),
+            Boolean.parseBoolean(options.get("bcp47-no-subtags").getValue())
+        );
 
         DraftStatus status = DraftStatus.valueOf(options.get("draftstatus").getValue());
         l2jc.processDirectory(runType, status);
@@ -232,11 +246,13 @@ public class Ldml2JsonConverter {
     private Set<String> packages;
     final private String pkgVersion;
     final private boolean strictBcp47;
+    final private boolean skipBcp47LocalesWithSubtags;
 
     public Ldml2JsonConverter(String cldrDir, String outputDir, String runType, boolean fullNumbers, boolean resolve, String coverage, String match,
         boolean writePackages, String configFile, String pkgVersion,
-        boolean strictBcp47) {
+        boolean strictBcp47, boolean skipBcp47LocalesWithSubtags) {
         this.strictBcp47 = strictBcp47;
+        this.skipBcp47LocalesWithSubtags = strictBcp47 && skipBcp47LocalesWithSubtags;
         this.cldrCommonDir = cldrDir;
         this.outputDir = outputDir;
         try {
@@ -532,6 +548,8 @@ public class Ldml2JsonConverter {
         return sectionItems;
     }
 
+    final static Pattern HAS_SUBTAG = PatternCache.get(".*-[a-z]-.*");
+
     /**
      * Convert CLDR's XML data to JSON format.
      *
@@ -550,6 +568,16 @@ public class Ldml2JsonConverter {
         // zone and timezone items are queued for sorting first before they are
         // processed.
 
+        final String filenameAsLangTag = unicodeLocaleToString(filename);
+
+        if (skipBcp47LocalesWithSubtags &&
+            type.locales() &&
+            HAS_SUBTAG.matcher(filenameAsLangTag).matches()) {
+            // Has a subtag, so skip it.
+            // It will show up in the "no output" list.
+            return 0;
+        }
+
         int totalItemsInFile = 0;
 
         List<Pair<String,Integer>> outputProgress = new LinkedList<>();
@@ -559,7 +587,6 @@ public class Ldml2JsonConverter {
                 continue;
             }
             String outFilename;
-            final String filenameAsLangTag = unicodeLocaleToString(filename);
             if (type == RunType.rbnf) {
                 outFilename = filenameAsLangTag + ".json";
             } else if (type == RunType.bcp47) {
@@ -980,7 +1007,7 @@ public class Ldml2JsonConverter {
 
     public void writePackageJson(String outputDir, String packageName) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "package.json");
-        System.out.println("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "package.json");
+        logger.fine("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "package.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, true);
 
@@ -1011,7 +1038,7 @@ public class Ldml2JsonConverter {
 
     public void writeBowerJson(String outputDir, String packageName) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "bower.json");
-        System.out.println("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "bower.json");
+        logger.fine("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "bower.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, false);
         if (type == RunType.supplemental) {
@@ -1577,7 +1604,13 @@ public class Ldml2JsonConverter {
         if (noOutputFiles.length > 0) {
             System.err.println("WARNING: These " + noOutputFiles.length + " file(s) did not produce any output (check JSON config):");
             for (final Object f : noOutputFiles) {
-                System.err.println("\t- " + f.toString());
+                final String loc = f.toString();
+                final String uloc = unicodeLocaleToString(f.toString());
+                if (skipBcp47LocalesWithSubtags && type.locales() && HAS_SUBTAG.matcher(uloc).matches()) {
+                    System.err.println("\t- " + loc + " (Skipped due to '-T true': " + uloc + ")");
+                } else {
+                    System.err.println("\t- " + loc);
+                }
             }
         }
 

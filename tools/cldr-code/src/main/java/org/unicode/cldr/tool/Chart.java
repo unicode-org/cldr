@@ -113,8 +113,8 @@ public abstract class Chart {
     private static void standardFooter(FormattedFileWriter pw, AnalyticsID analytics) throws IOException {
         pw.write("<div style='text-align: center; margin-top:2em; margin-bottom: 60em;'><br>\n"
             + "<a href='https://www.unicode.org/copyright.html'>\n"
-            + "<img src='http://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height:50px;' alt='Access to Copyright and terms of use'>"
-            + "</a><br>\n<script src='http://www.unicode.org/webscripts/lastModified.js'></script>"
+            + "<img src='https://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height:50px;' alt='Access to Copyright and terms of use'>"
+            + "</a>\n"
             + "</div><script>\n\n"
             + "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
             + "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"

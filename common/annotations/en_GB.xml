@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -326,9 +326,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇢" type="tts">↑↑↑</annotation>
 		<annotation cp="⇣">↑↑↑</annotation>
 		<annotation cp="⇣" type="tts">↑↑↑</annotation>
-		<annotation cp="⇤">↑↑↑</annotation>
+		<annotation cp="⇤">leftwards arrow bar | leftwards arrow to bar</annotation>
 		<annotation cp="⇤" type="tts">leftwards arrow to bar</annotation>
-		<annotation cp="⇥">↑↑↑</annotation>
+		<annotation cp="⇥">rightwards arrow bar | rightwards arrow to bar</annotation>
 		<annotation cp="⇥" type="tts">rightwards arrow to bar</annotation>
 		<annotation cp="⇦">↑↑↑</annotation>
 		<annotation cp="⇦" type="tts">↑↑↑</annotation>
@@ -828,7 +828,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😙" type="tts">↑↑↑</annotation>
 		<annotation cp="🥲">↑↑↑</annotation>
 		<annotation cp="🥲" type="tts">↑↑↑</annotation>
-		<annotation cp="😋">delicious | face | face savouring food | savouring | smile | yum</annotation>
+		<annotation cp="😋">delicious | face | face savoring food | face savouring food | savouring | smile | yum</annotation>
 		<annotation cp="😋" type="tts">↑↑↑</annotation>
 		<annotation cp="😛">↑↑↑</annotation>
 		<annotation cp="😛" type="tts">↑↑↑</annotation>
@@ -1540,13 +1540,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="🧎‍♀">↑↑↑</annotation>
 		<annotation cp="🧎‍♀" type="tts">↑↑↑</annotation>
-		<annotation cp="🧑‍🦯">↑↑↑</annotation>
+		<annotation cp="🧑‍🦯">accessibility | blind | person with guide cane | person with white cane</annotation>
 		<annotation cp="🧑‍🦯" type="tts">person with guide cane</annotation>
 		<annotation cp="👨‍🦯">accessibility | blind | man | man with guide cane</annotation>
 		<annotation cp="👨‍🦯" type="tts">man with guide cane</annotation>
 		<annotation cp="👩‍🦯">accessibility | blind | woman | woman with guide cane</annotation>
 		<annotation cp="👩‍🦯" type="tts">woman with guide cane</annotation>
-		<annotation cp="🧑‍🦼">↑↑↑</annotation>
+		<annotation cp="🧑‍🦼">accessibility | person in motorized wheelchair | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑‍🦼" type="tts">person in powered wheelchair</annotation>
 		<annotation cp="👨‍🦼">accessibility | man | man in powered wheelchair | wheelchair</annotation>
 		<annotation cp="👨‍🦼" type="tts">man in powered wheelchair</annotation>

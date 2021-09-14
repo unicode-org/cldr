@@ -2,15 +2,13 @@
 
 name: Build ICU from CLDR
 
-# Triggered on push to master,
-# or PR against master.
 on:
   workflow_dispatch:
     inputs:
       cldr-ref:
         description: CLDR ref to build
         required: true
-        default: 'master'
+        default: 'main'
       cldr-repo:
         description: CLDR repo to build
         required: true

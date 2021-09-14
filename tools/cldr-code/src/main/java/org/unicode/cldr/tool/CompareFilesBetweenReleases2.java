@@ -58,9 +58,9 @@ public class CompareFilesBetweenReleases2 {
             commonToSeed.forEach((final String f) -> System.out.println(f));
         }
 
-        System.out.println("\nIn master, but not "+ToolConstants.LAST_RELEASE_VERSION+":\n");
+        System.out.println("\nIn main, but not "+ToolConstants.LAST_RELEASE_VERSION+":\n");
         showDiff(staging, lastRelease, seedToCommon);
-        System.out.println("\nIn "+ToolConstants.LAST_RELEASE_VERSION+", but not master:\n");
+        System.out.println("\nIn "+ToolConstants.LAST_RELEASE_VERSION+", but not main:\n");
         showDiff(lastRelease, staging, commonToSeedExclude);
     }
 

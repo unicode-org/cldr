@@ -9,10 +9,10 @@ SERVICE="{{ cldr_openliberty_service }}"
 # TODO: "dogit" could be split out as a separate script
 dogit() {
     rm -f ${WORKDIR}/git-list.txt
-    if [[ ${GITHUB_SHA} = "master" ]];
+    if [[ ${GITHUB_SHA} = "main" ]];
     then
-        echo "changing 'master' to 'origin/master' to get the latest"
-        GITHUB_SHA=origin/master
+        echo "changing ${GITHUB_SHA} to 'origin/main' to get the latest"
+        GITHUB_SHA=origin/main
     fi
     git fetch -p || exit 1
     git clean -f -d || echo 'warning: err on cleanup'
@@ -51,7 +51,7 @@ dogit() {
 
 # Check git first, before undeploying. Want to exit early
 (cd  {{ cldr_trunk_path }} && dogit ) || exit 1
-# 
+#
 # stop server
 sudo -u root /usr/sbin/service ${SERVICE} stop
 # clear cache

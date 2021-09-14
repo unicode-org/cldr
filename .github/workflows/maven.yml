@@ -111,7 +111,7 @@ jobs:
         run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
   deploy:
     # don't run deploy on manual builds!
-    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.inputs.git-ref == ''
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.inputs.git-ref == ''
     needs:
       - build
       - check
@@ -122,7 +122,7 @@ jobs:
       with:
         name: cldr-apps-server
     - name: Deploy to cldr-smoke
-      # Deploys only on push to master.
+      # Deploys only on push to main.
       # Does not deploy for PRs.
       if: ${{ github.event_name == 'push' }}
       shell: bash

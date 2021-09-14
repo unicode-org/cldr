@@ -41,7 +41,7 @@ with the following contents:
 ```
 [Unit]
 Description=Prometheus exporter for CLDR SurveyTool
-Documentation=https://github.com/unicode-org/cldr/tree/master/tools/st-prom-exporter
+Documentation=https://github.com/unicode-org/cldr/tree/main/tools/st-prom-exporter
 
 [Service]
 Restart=always

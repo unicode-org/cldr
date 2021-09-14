@@ -95,11 +95,11 @@ All rights reserved. [Terms of use][]
 [Survey Tool]: https://cldr.unicode.org/index/survey-tool
 [Terms of use]: http://www.unicode.org/copyright.html
 [Jira]: https://cldr.unicode.org/index/bug-reports#h.o5tktlfjc4iw
-[Tools source]: https://github.com/unicode-org/cldr/tree/master/tools
+[Tools source]: https://github.com/unicode-org/cldr/tree/main/tools
 [Maven setup]: https://cldr.unicode.org/development/cldr-development-site/maven-setup
 [Repository Organization]: https://cldr.unicode.org/index/downloads#h.lf1z45b9du36
 [How to contribute]: https://cldr.unicode.org/#h.vw32p8sealpj
 [Unicode member]: https://home.unicode.org/membership/why-join/
-[supplemental data]: https://github.com/unicode-org/cldr/tree/master/common/supplemental
+[supplemental data]: https://github.com/unicode-org/cldr/tree/main/common/supplemental
 [About Status Checks]: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks
 [Running Tests]: https://cldr.unicode.org/development/cldr-development-site/running-tests

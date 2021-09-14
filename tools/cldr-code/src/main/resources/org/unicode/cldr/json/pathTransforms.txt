@@ -26,6 +26,7 @@
 ## (Note: CLDR version is added in code)
 
 # Transform underscore to hyphen-minus in language keys
+# Does not produce valid bcp47, see Ldml2JsonConverter.fixXpathBcp47()
 < (.*/language\[@type="[a-z]{2,3})_([^"]*"\](\[@alt="short"])?)
 > $1-$2
 

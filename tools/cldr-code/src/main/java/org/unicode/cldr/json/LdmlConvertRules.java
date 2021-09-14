@@ -599,13 +599,14 @@ class LdmlConvertRules {
 
     static final Set<String> BOOLEAN_OMIT_FALSE = ImmutableSet.of(
         // attribute names within bcp47 that are booleans, but omitted if false.
-        "deprecated"
-    );
+        "deprecated");
 
     // These attributes are booleans, and should be omitted if false
     public static final boolean attrIsBooleanOmitFalse(final String fullPath, final String nodeName, final String parent, final String key) {
         return (fullPath != null &&
-            (fullPath.startsWith("//supplementalData/metaZones/metazoneIds") &&
-            BOOLEAN_OMIT_FALSE.contains(key)));
+            (fullPath.startsWith("//supplementalData/metaZones/metazoneIds") ||
+             fullPath.startsWith("//ldmlBCP47/keyword/key"))
+              &&
+            BOOLEAN_OMIT_FALSE.contains(key));
     }
 }

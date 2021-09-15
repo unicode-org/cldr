@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -54,10 +54,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤵🏽‍♀">medium skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
 		<annotation cp="🤵🏾‍♀">medium-dark skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
 		<annotation cp="🤵🏿‍♀">dark skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
+		<annotation cp="🧑🏻‍🦯">accessibility | blind | light skin tone | person with guide cane | person with white cane</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">person with guide cane: light skin tone</annotation>
+		<annotation cp="🧑🏼‍🦯">accessibility | blind | medium-light skin tone | person with guide cane | person with white cane</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">person with guide cane: medium-light skin tone</annotation>
+		<annotation cp="🧑🏽‍🦯">accessibility | blind | medium skin tone | person with guide cane | person with white cane</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">person with guide cane: medium skin tone</annotation>
+		<annotation cp="🧑🏾‍🦯">accessibility | blind | medium-dark skin tone | person with guide cane | person with white cane</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">person with guide cane: medium-dark skin tone</annotation>
+		<annotation cp="🧑🏿‍🦯">accessibility | blind | dark skin tone | person with guide cane | person with white cane</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">person with guide cane: dark skin tone</annotation>
 		<annotation cp="👨🏻‍🦯">accessibility | blind | light skin tone | man | man with guide cane</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">man with guide cane: light skin tone</annotation>
@@ -79,10 +84,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦯" type="tts">woman with guide cane: medium-dark skin tone</annotation>
 		<annotation cp="👩🏿‍🦯">accessibility | blind | dark skin tone | woman | woman with guide cane</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">woman with guide cane: dark skin tone</annotation>
+		<annotation cp="🧑🏻‍🦼">accessibility | light skin tone | person in motorized wheelchair | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">person in powered wheelchair: light skin tone</annotation>
+		<annotation cp="🧑🏼‍🦼">accessibility | medium-light skin tone | person in motorized wheelchair | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">person in powered wheelchair: medium-light skin tone</annotation>
+		<annotation cp="🧑🏽‍🦼">accessibility | medium skin tone | person in motorized wheelchair | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">person in powered wheelchair: medium skin tone</annotation>
+		<annotation cp="🧑🏾‍🦼">accessibility | medium-dark skin tone | person in motorized wheelchair | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">person in powered wheelchair: medium-dark skin tone</annotation>
+		<annotation cp="🧑🏿‍🦼">accessibility | dark skin tone | person in motorized wheelchair | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">person in powered wheelchair: dark skin tone</annotation>
 		<annotation cp="👨🏻‍🦼">accessibility | light skin tone | man | man in powered wheelchair | wheelchair</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">man in powered wheelchair: light skin tone</annotation>

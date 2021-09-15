@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import com.ibm.icu.impl.duration.DurationFormatter;
 import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.DurationFormat;
 import com.ibm.icu.text.MeasureFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RelativeDateTimeFormatter;
@@ -58,8 +59,13 @@ public final class Timer {
      * @return the duration as a measureformat string
      */
     public String toMeasureString() {
+        double seconds = getSeconds();
+        double minutes = Math.floorDiv((int) seconds, 60);
+        seconds = seconds - (minutes * 60.0);
+
         return MeasureFormat.getInstance(ULocale.ENGLISH, FormatWidth.SHORT)
-            .formatMeasures(new Measure(getNanoseconds(), MeasureUnit.NANOSECOND));
+            .formatMeasures(new Measure(seconds, MeasureUnit.SECOND),
+                new Measure(minutes, MeasureUnit.MINUTE));
     }
 
     public String toString(Timer other) {

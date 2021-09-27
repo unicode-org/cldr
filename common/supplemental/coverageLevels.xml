@@ -30,6 +30,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			   paths="//ldml/dates/calendars/calendar\[@type=.gregorian.\]/(date|time)Formats/.*"/>
 			<!--  "high bar" items for specific locales -->
 			<approvalRequirement votes="20" locales="de" paths="//ldml/dates/calendars/calendar[^/]++/dayPeriods/dayPeriodContext\[@type=.format.\]/dayPeriodWidth[^/]++/dayPeriod\[@type=.(am|pm).\]"/>
+			<approvalRequirement votes="20" locales="de" paths="//ldml/numbers/decimalFormats\[@numberSystem=.latn.\]/decimalFormatLength\[@type=.short.\]/decimalFormat\[@type=.standard.\]/pattern\[@type=.10{3,5}.\]\[@count=.(one|other).\]"/>
+			<approvalRequirement votes="20" locales="de" paths="//ldml/numbers/currencyFormats\[@numberSystem=.latn.\]/currencyFormatLength\[@type=.short.\]/currencyFormat\[@type=.standard.\]/pattern\[@type=.10{3,5}.\]\[@count=.(one|other).\]"/>
 			<approvalRequirement votes="20" locales="sk" paths="//ldml/dates/calendars/calendar[^/]++/dayPeriods/dayPeriodContext\[@type=.format.\]/dayPeriodWidth[^/]++/dayPeriod\[@type=.(am|pm).\]"/>
 			<approvalRequirement votes="20" locales="tr" paths="//ldml/localeDisplayNames/territories/territory\[@type=.CY.\]"/>
 			<approvalRequirement votes="20" locales="kea pt_CV" paths="//ldml/numbers/currencies/currency\[@type=.CVE.\]/(symbol|decimal)"/>

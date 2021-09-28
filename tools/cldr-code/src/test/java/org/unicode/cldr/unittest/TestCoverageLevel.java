@@ -75,19 +75,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         String[][] rows = {
             { "//ldml/characters/parseLenients[@scope=\"number\"][@level=\"lenient\"]/parseLenient[@sample=\",\"]", "moderate", "20" }
         };
-        Factory phf = PathHeader.getFactory(ENGLISH);
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SDI, "fr");
-        CLDRLocale loc = CLDRLocale.getInstance("fr");
-        for (String[] row : rows) {
-            String path = row[0];
-            Level expectedLevel = Level.fromString(row[1]);
-            Level level = coverageLevel.getLevel(path);
-            assertEquals("Level for " + path, expectedLevel, level);
-
-            int expectedRequiredVotes = Integer.parseInt(row[2]);
-            int votes = SDI.getRequiredVotes(loc, phf.fromPath(path));
-            assertEquals("Votes for " + path, expectedRequiredVotes, votes);
-        }
+        doSpecificPathTest("fr", rows);
     }
 
     public void testSpecificPathsPersCal() {
@@ -95,9 +83,36 @@ public class TestCoverageLevel extends TestFmwkPlus {
             { "//ldml/dates/calendars/calendar[@type=\"persian\"]/eras/eraAbbr/era[@type=\"0\"]", "basic", "4" },
             { "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]", "basic", "4" }
         };
+        doSpecificPathTest("ckb_IR", rows);
+    }
+
+    public void testSpecificPathsDeFormatLength() {
+        String[][] rows = {
+            /* For German (de) these should be high-bar (20) per https://unicode-org.atlassian.net/browse/CLDR-14988 */
+            { "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", "modern", "20" },
+            { "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]", "modern", "20" },
+            { "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]", "modern", "20" },
+            { "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"other\"]", "modern", "20" },
+            { "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"one\"]", "modern", "20" },
+            { "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"other\"]", "modern", "20" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", "modern", "20" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]", "modern", "20" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]", "modern", "20" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"other\"]", "modern", "20" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"one\"]", "modern", "20" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"other\"]", "modern", "20" },
+            /* not high-bar (20): wrong number of zeroes, or count many*/
+            { "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100\"][@count=\"other\"]", "comprehensive", "8" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"other\"]", "modern", "8" },
+            { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"many\"]", "modern", "8" },
+        };
+        doSpecificPathTest("de", rows);
+    }
+
+    private void doSpecificPathTest(String localeStr, String[][] rows) {
         Factory phf = PathHeader.getFactory(ENGLISH);
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SDI, "ckb_IR");
-        CLDRLocale loc = CLDRLocale.getInstance("ckb_IR");
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SDI, localeStr);
+        CLDRLocale loc = CLDRLocale.getInstance(localeStr);
         for (String[] row : rows) {
             String path = row[0];
             Level expectedLevel = Level.fromString(row[1]);

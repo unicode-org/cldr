@@ -32,7 +32,7 @@ import com.ibm.icu.util.ULocale;
  * transliterator
  *
  * @author markdavis
- *         http://en.wikipedia.org/wiki/English_phonology
+ *         https://en.wikipedia.org/wiki/English_phonology
  */
 public class MakeTransliterator {
     // DEBUGGING

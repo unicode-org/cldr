@@ -166,7 +166,7 @@ const strings = {
   valueIsLocked:
     "This item has been locked by the CLDR Technical Committee. See the forum entry.",
   xpath_desc:
-    "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",
+    "This is the XPath denoting the currently clicked item. For more information, see https://cldr.unicode.org (click to select)",
 
   winningStatus_disputed: "Disputed",
   winningStatus_msg: "${1} ${0} Value ",

@@ -706,7 +706,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * st.unicode.org receives many
      * requests with "x=r_steps" from web-crawling robots. Sample July 2019 from /var/log/nginx/access.log:
      * "GET /cldr-apps/survey?_=ar_AE&s__=93A...&step=time_formats&x=r_steps HTTP/1.1"
-     * 200 5284 "-" "Mozilla/5.0 (compatible; SemrushBot/3~bl; +http://www.semrush.com/bot.html)"
+     * 200 5284 "-" "Mozilla/5.0 (compatible; SemrushBot/3~bl; +https://www.semrush.com/bot.html)"
      *
      * Since r_vetting.jsp was removed, we also get bogus requests for "r_vetting.jsp".
      *

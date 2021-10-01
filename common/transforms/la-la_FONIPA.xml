@@ -9,8 +9,8 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 		<transform source="la" target="la_FONIPA" direction="forward" draft="contributed" alias="la-fonipa-t-la">
 			<tRule>
 # Transformation from Latin (la) to its IPA transcription (la_FONIPA).
-# http://en.wikipedia.org/wiki/Latin_spelling_and_pronunciation
-# http://en.wikipedia.org/wiki/Wikipedia:IPA_for_Latin
+# https://en.wikipedia.org/wiki/Latin_spelling_and_pronunciation
+# https://en.wikipedia.org/wiki/Wikipedia:IPA_for_Latin
 #
 # These rules follow the Wikipedia description of the presumed pronunciation
 # of Classical Latin. This is different from Medieval Latin, and it is also
@@ -73,7 +73,7 @@ z → d͡z; # eg. zerum
 ::Null;
 
 # Gemination of double consonants.
-# http://en.wikipedia.org/wiki/Latin_spelling_and_pronunciation#Double_consonants
+# https://en.wikipedia.org/wiki/Latin_spelling_and_pronunciation#Double_consonants
 
 bb → bː;
 dd → dː;
@@ -89,7 +89,7 @@ ss → sː;
 tt → tː;
 
 # Velarization of [l].
-# http://en.wikipedia.org/wiki/Latin_spelling_and_pronunciation#cite_note-20
+# https://en.wikipedia.org/wiki/Latin_spelling_and_pronunciation#cite_note-20
 {l} [^aeɛiouː] → ɫ;
 
 ::NFC;

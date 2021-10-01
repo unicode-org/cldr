@@ -9,14 +9,14 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 		<transform source="ia" target="ia_FONIPA" direction="forward" draft="contributed" alias="ia-fonipa-t-ia">
 			<tRule>
 # Transformation from Interlingua (ia) to its IPA transcription (ia_FONIPA).
-# http://en.wikipedia.org/wiki/Interlingua#Interlingua_alphabet
+# https://en.wikipedia.org/wiki/Interlingua#Interlingua_alphabet
 # http://www.omniglot.com/writing/interlingua.htm
 
 ::NFC;
 ::Lower;
 
 # Interlinua has five falling diphthongs.
-# http://en.wikipedia.org/wiki/Interlingua#Orthography_and_pronunciation
+# https://en.wikipedia.org/wiki/Interlingua#Orthography_and_pronunciation
 ai → ai̯;
 au → au̯;
 ei → ei̯;  # rare

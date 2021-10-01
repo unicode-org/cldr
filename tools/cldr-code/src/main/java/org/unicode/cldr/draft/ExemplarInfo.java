@@ -83,7 +83,7 @@ public class ExemplarInfo {
         // gn - Guaraní = gug
         languageToExemplars.put("gn", new ExemplarInfo("[a-vx-zá é í ó ú ý ñ ã ẽ ĩ õ ũ ỹ {g\u0303}]", "[a-z]"));
     }
-    // http://ja.wikipedia.org/wiki/学年別漢字配当表, http://kanji-a.seesaa.net/category/2203790-1.html
+    // https://ja.wikipedia.org/wiki/学年別漢字配当表, http://kanji-a.seesaa.net/category/2203790-1.html
     private static UnicodeMap<String> JapaneseEducationLevels = new UnicodeMap<String>()
         .putAll(new UnicodeSet("[一七三-下中九二五人休先入八六円出力十千口右名四土夕大天女子字学小山川左年手文日早月木本村林校森正気水火犬玉王生田男町白百目石空立竹糸耳花草虫見貝赤足車金雨青音]"),
             "1")

@@ -207,7 +207,7 @@ public class AdminPanel {
     }
 
     static final String allNames[] = {
-        // http://en.wikipedia.org/wiki/List_of_most_popular_given_names (Greenland)
+        // https://en.wikipedia.org/wiki/List_of_most_popular_given_names (Greenland)
         "Ivaana", "Pipaluk", "Nivi", "Paninnguaq", "Ivalu", "Naasunnguaq", "Julie", "Ane", "Isabella", "Kimmernaq",
         "Malik", "Aputsiaq", "Minik", "Hans", "Inunnguaq", "Kristian", "Nuka", "Salik", "Peter", "Inuk",
     };

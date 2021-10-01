@@ -17,7 +17,7 @@
         ctx.print(" served in " + ctx.reqTimer + " <span id='dynload'></span></div>");
 
 
-        ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='" + SurveyMain.URL_CLDR + "'>Common Locale Data Repository</a>");
+        ctx.println("<a href='https://www.unicode.org'>Unicode</a> | <a href='" + SurveyMain.URL_CLDR + "'>Common Locale Data Repository</a>");
        // if (ctx.request != null)
             try {
                 Map m = new TreeMap(ctx.getParameterMap());

@@ -193,7 +193,7 @@ public class ShowPathHeaderDescriptions {
     }
 
     private static String extractUrl(String pd) {
-        String value = pd.replaceAll("^.*(http://.*)$", "$1");
+        String value = pd.replaceAll("^.*(https?://.*)$", "$1");
         if (value.endsWith(".")) {
             value = value.substring(0, value.length() - 1);
         }

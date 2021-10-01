@@ -1,5 +1,5 @@
-prefix wdt: <http://www.wikidata.org/prop/direct/>
-prefix wd: <http://www.wikidata.org/entity/>
+prefix wdt: <https://www.wikidata.org/prop/direct/>
+prefix wd: <https://www.wikidata.org/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?item ?label ?code ?codeLabel
 WHERE {

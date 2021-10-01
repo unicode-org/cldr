@@ -24,7 +24,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
- * To update, copy the list from http://en.wikipedia.org/wiki/List_of_official_languages_by_state into WikipediaOfficialLanguages.txt
+ * To update, copy the list from https://en.wikipedia.org/wiki/List_of_official_languages_by_state into WikipediaOfficialLanguages.txt
  * May take some code updates, since they are not consistent, so a number of tests below are hacks based on current behavior.
  */
 public class WikipediaOfficialLanguages {

@@ -18,7 +18,7 @@ import com.google.common.io.Files;
 @Testable
 public class TestMapAll {
 	private static final String TEST_XPATH = "//ldml";
-	private static final String TEST_URL = "http://cldr.unicode.org";
+	private static final String TEST_URL = "https://cldr.unicode.org";
 	public static final boolean CLDR_TEST_ENABLE_NET = Boolean.parseBoolean(System.getProperty("CLDR_TEST_ENABLE_NET", "false"));
 	
 	@Test

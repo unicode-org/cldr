@@ -2080,6 +2080,12 @@ public class DataSection implements JSONString {
              * at http://localhost:8080/cldr-apps/v#/fr_CA/CAsia/
              *
              * getStringValue calls getFallbackPath which calls getRawExtraPaths which contains xpath
+             *
+             * However, we could get ourValue == null due to various bugs when in reality the path is NOT "extra",
+             * so this code is fragile and problematic. Possibly rename from isExtraPath to hasNullValue; possibly
+             * don't use extraXpaths at all; possibly change the code further below that depends on this
+             * boolean value...
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-14945
              */
             if (DEBUG) {
                 System.err.println("warning: populateFromThisXpath " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
@@ -2103,6 +2109,10 @@ public class DataSection implements JSONString {
         CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
         String sourceLocale = ourSrc.getSourceLocaleID(xpath, sourceLocaleStatus);
 
+        /**
+         * Dubious! The value could be inherited from another path in the same locale.
+         * "ourValueIsInherited" doesn't appear to mean what the name seems to imply.
+         */
         boolean ourValueIsInherited = !(sourceLocale.equals(locale.toString()));
 
         /*

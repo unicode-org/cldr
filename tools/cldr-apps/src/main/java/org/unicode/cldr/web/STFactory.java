@@ -204,7 +204,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          *
          * TODO: reevaluate whether resolveMorePaths is needed anymore.
          */
-        public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver, boolean resolveMorePaths) {
+        private VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver, boolean resolveMorePaths) {
             PerLocaleData.PerXPathData xpd = ballotBox.peekXpathData(path);
             String res;
             String fullPath = null;
@@ -239,10 +239,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                  * Catch VoteResolver.Status.missing, or it will trigger an exception
                  * in draftStatusFromWinningStatus since there is no "missing" in DraftStatus.
                  * This may happen especially when resolveMorePaths is true for making vxml.
+                 *
+                 * Status.missing can also occur when a user submits a new value, then abstains;
+                 * in that case, delegate.removeValueAtDPath and/or delegate.putValueAtPath is required
+                 * to clear out the submitted value; then possibly res = inheritance marker
                  */
-                if (win == Status.missing) {
-                   return resolver;
-                } else if (win == Status.approved) {
+                if (win == Status.missing || win == Status.approved) {
                     fullPath = baseXPath;
                 } else {
                     DraftStatus draftStatus = draftStatusFromWinningStatus(win);
@@ -1172,7 +1174,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 doPermanentVote(distinguishingXpath, xpathId, value);
             }
 
-            xmlsource.setValueFromResolver(distinguishingXpath, null, false /* resolveMorePaths */);
+            /*
+             * resolveMorePaths = true here. Otherwise an Abstain can result in "no votes",
+             * "skip vote resolution", failure to get the right winning value, possibly inherited.
+             */
+            xmlsource.setValueFromResolver(distinguishingXpath, null, true /* resolveMorePaths */);
 
             String newVal = xmlsource.getValueAtDPath(distinguishingXpath);
             if (newVal != null && !newVal.equals(oldVal)) {

@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StackTracker;
@@ -297,17 +298,17 @@ public class TestSTFactory extends TestFmwk {
         String originalValue2 = null;
         String changedTo2 = null;
         CLDRLocale locale2 = CLDRLocale.getInstance("fr_BE");
-        // Can't (and shouldn't) try to do this test if de_CH is configured as read-only.
+        // Can't (and shouldn't) try to do this test if the locale is configured as read-only.
         if (SpecialLocales.Type.readonly.equals(SpecialLocales.getType(locale2))) {
             return;
         }
 
         // test sparsity
         {
-            CLDRFile mt_MT = fac.make(locale2, false);
+            CLDRFile cldrFile = fac.make(locale2, false);
             BallotBox<User> box = fac.ballotBoxForLocale(locale2);
 
-            originalValue2 = expect(somePath2, null, false, mt_MT, box);
+            originalValue2 = expect(somePath2, null, false, cldrFile, box);
 
             changedTo2 = "The alternate pump fixing screws with the incorrect strength class";
 
@@ -317,28 +318,30 @@ public class TestSTFactory extends TestFmwk {
 
             box.voteForValue(getMyUser(), somePath2, changedTo2);
 
-            expect(somePath2, changedTo2, true, mt_MT, box);
+            expect(somePath2, changedTo2, true, cldrFile, box);
         }
         // Restart STFactory.
         fac = resetFactory();
         {
-            CLDRFile mt_MT = fac.make(locale2, false);
+            CLDRFile cldrFile = fac.make(locale2, false);
             BallotBox<User> box = fac.ballotBoxForLocale(locale2);
 
-            expect(somePath2, changedTo2, true, mt_MT, box);
+            expect(somePath2, changedTo2, true, cldrFile, box);
 
             // unvote
             box.voteForValue(getMyUser(), somePath2, null);
 
-            expect(somePath2, null, false, mt_MT, box); // Expect null - no one
-            // has voted.
+            /*
+             * No one has voted; expect inheritance to win
+             */
+            expect(somePath2, CldrUtility.INHERITANCE_MARKER, false, cldrFile, box);
         }
         fac = resetFactory();
         {
-            CLDRFile mt_MT = fac.make(locale2, false);
+            CLDRFile cldrFile = fac.make(locale2, false);
             BallotBox<User> box = fac.ballotBoxForLocale(locale2);
 
-            expect(somePath2, null, false, mt_MT, box);
+            expect(somePath2, null, false, cldrFile, box);
 
             // vote for ____2
             changedTo2 = changedTo2 + "2";
@@ -346,13 +349,13 @@ public class TestSTFactory extends TestFmwk {
             logln("VoteFor: " + changedTo2);
             box.voteForValue(getMyUser(), somePath2, changedTo2);
 
-            expect(somePath2, changedTo2, true, mt_MT, box);
+            expect(somePath2, changedTo2, true, cldrFile, box);
 
             logln("Write out..");
             File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
             File outFile = new File(targDir, locale2.getBaseName() + ".xml");
             PrintWriter pw = FileUtilities.openUTF8Writer(targDir.getAbsolutePath(), locale2.getBaseName() + ".xml");
-            mt_MT.write(pw, noDtdPlease);
+            cldrFile.write(pw, noDtdPlease);
             pw.close();
 
             logln("Read back..");

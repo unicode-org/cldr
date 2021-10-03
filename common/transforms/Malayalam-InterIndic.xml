@@ -48,6 +48,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 ദ→\uE026;      # LETTER DA
 ധ→\uE027;      # LETTER DHA
 ന→\uE028;      # LETTER NA
+ഩ→\uE029;      # LETTER NNNA
 പ→\uE02A;      # LETTER PA
 ഫ→\uE02B;      # LETTER PHA
 ബ→\uE02C;      # LETTER BA
@@ -64,19 +65,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 ഷ→\uE037;      # LETTER SSA
 സ→\uE038;      # LETTER SA
 ഹ→\uE039;      # LETTER HA
+ഺ→\uE024;      # LETTER TTTA, remapped to LETTER TA
+഻→\uE04D;      # SIGN VERTICAL BAR VIRAMA, remapped to SIGN VIRAMA
+഼→\uE04D;      # SIGN CIRCULAR VIRAMA, remapped to SIGN VIRAMA
+ഽ→\uE03D;      # SIGN AVAGRAHA
 ാ→\uE03E;      # VOWEL SIGN AA
 ി→\uE03F;      # VOWEL SIGN I
 ീ→\uE040;      # VOWEL SIGN II
 ു→\uE041;      # VOWEL SIGN U
 ൂ→\uE042;      # VOWEL SIGN UU
 ൃ→\uE043;      # VOWEL SIGN VOCALIC R
+ൄ→\uE044;      # VOWEL SIGN VOCALIC RR
+ൊ→\uE04A;      # VOWEL SIGN O, decomposed
+ോ→\uE04B;      # VOWEL SIGN OO, decomposed
+ൌ→\uE04C;      # VOWEL SIGN AU (archaic form), decomposed
 െ→\uE046;      # VOWEL SIGN E
 േ→\uE047;      # VOWEL SIGN EE
 ൈ→\uE048;      # VOWEL SIGN AI
+ൊ→\uE04A;      # VOWEL SIGN O
+ോ→\uE04B;      # VOWEL SIGN OO
+ൌ→\uE04C;      # VOWEL SIGN AU (archaic form)
 ്→\uE04D;      # SIGN VIRAMA
-ൗ→\uE057;      # AU LENGTH MARK
+ൎ→\uE030\uE04D;      # LETTER DOT REPH, remapped to RA VIRAMA
+ൔ→\uE02E\uE04D;      # LETTER CHILLU M, remapped to MA VIRAMA
+ൕ→\uE02F\uE04D;      # LETTER CHILLU Y, remapped to YA VIRAMA
+ൖ→\uE034\uE04D;      # LETTER CHILLU LLL, remapped to LLLA VIRAMA
+ൗ→\uE04C;      # AU LENGTH MARK, remapped to VOWEL SIGN AU
+ൟ→\uE008;      # LETTER ARCHAIC II, remapped to LETTER II
 ൠ→\uE060;      # LETTER VOCALIC RR
 ൡ→\uE061;      # LETTER VOCALIC LL
+ൢ→\uE062;      # VOWEL SIGN VOCALIC L
+ൣ→\uE063;      # VOWEL SIGN VOCALIC LL
 ൦→\uE066;      # DIGIT ZERO
 ൧→\uE067;      # DIGIT ONE
 ൨→\uE068;      # DIGIT TWO
@@ -87,6 +106,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 ൭→\uE06D;      # DIGIT SEVEN
 ൮→\uE06E;      # DIGIT EIGHT
 ൯→\uE06F;      # DIGIT NINE
+൰→\uE067\uE066;            # UNMAPPED Malayalam-InterIndic: NUMBER TEN
+൱→\uE067\uE066\uE066;      # UNMAPPED Malayalam-InterIndic: NUMBER ONE HUNDRED
+൲→\uE067\uE066\uE066\uE066;# UNMAPPED Malayalam-InterIndic: NUMBER ONE THOUSAND
+ൺ→\uE023\uE04D;      # LETTER CHILLU NN, remapped to NNA VIRAMA
+ൻ→\uE028\uE04D;      # LETTER CHILLU N, remapped to NA VIRAMA
+ർ→\uE030\uE04D;      # LETTER CHILLU RR, remapped to RA (!) VIRAMA
+ൽ→\uE032\uE04D;      # LETTER CHILLU L, remapped to LA VIRAMA
+ൾ→\uE033\uE04D;      # LETTER CHILLU LL, remapped to LLA VIRAMA
+ൿ→\uE015\uE04D;      # LETTER CHILLU K, remapped to KA VIRAMA
 #    :: NFC (NFD) ;
 # eof
 			</tRule>

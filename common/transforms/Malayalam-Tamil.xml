@@ -10,10 +10,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="Mlym" target="Taml" direction="forward" alias="Malayalam-Tamil und-Taml-t-und-mlym">
 			<tRule>
-::[ം-ഃഅ-ഌഎ-ഐഒ-നപ-ഹാ-ൃെ-ൈൊ-്ൗൠ-ൡ൦-൯];
+::[[:Malayalam:]\u200C\u200D];
 ::NFD;
+൰→௰;      # NUMBER TEN
+൱→௱;      # NUMBER ONE HUNDRED
+൲→௲;      # NUMBER ONE THOUSAND
 ::Malayalam-InterIndic;
 ::InterIndic-Tamil;
+\u200C→;      # ZWNJ, deleted
+\u200D→;      # ZWJ, deleted
 ::NFC;
 			</tRule>
 		</transform>

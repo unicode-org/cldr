@@ -54,7 +54,7 @@ async function renderit(infile) {
     `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>`;
 
   // Is there a title?
-  if(dom.window.document.getElementsByTagName("title").length >= 1) {
+  if (dom.window.document.getElementsByTagName("title").length >= 1) {
     console.log("Already had a <title>… not changing.");
   } else {
     const title = document.createElement("title");
@@ -87,9 +87,24 @@ async function renderit(infile) {
   const bp = body.parentNode;
   div = dom.window.document.createElement("div");
   div.setAttribute("class", "body");
+  let sawFirstTable = false;
   for (const e of body.childNodes) {
     body.removeChild(e);
-    div.appendChild(e);
+    if (div.childNodes.length === 0 && e.tagName === 'P') {
+      // update title element to <h2 class="uaxtitle"/>
+      const newTitle = document.createElement('h2');
+      newTitle.setAttribute("class", "uaxtitle");
+      newTitle.appendChild(document.createTextNode(e.textContent));
+      div.appendChild(newTitle);
+    } else {
+      if (!sawFirstTable && e.tagName === 'TABLE') {
+        // Update first table to simple width=90%
+        e.setAttribute("class", "simple");
+        e.setAttribute("width", "90%");
+        sawFirstTable = true;
+      }
+      div.appendChild(e);
+    }
   }
   body.appendChild(header);
   body.appendChild(div);

@@ -71,6 +71,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * Q: Do we want different loggers for the multiplicity of inner classes?
      */
     static final Logger logger = SurveyLog.forClass(STFactory.class);
+
+    private enum VoteLoadingContext {
+        /**
+         * The ordinary context when loadVoteValues is called by makeSource, such as when displaying the
+         * main vetting view in Survey Tool
+         */
+        ORDINARY_LOAD_VOTES,
+
+        /**
+         * The special context when loadVoteValues is called by makeVettedSource for generating VXML
+         */
+        VXML_GENERATION,
+
+        /**
+         * The context when a voting (or abstaining) event occurs and setValueFromResolver is
+         * called by voteForValue (not used for loadVoteValues)
+         */
+        SINGLE_VOTE,
+    }
+
     /**
      * This class tracks the expected maximum size of strings in the locale.
      * @author srl
@@ -139,11 +159,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     private static final String VOTE_OVERRIDE = "vote_override";
 
-    public class DataBackedSource extends DelegateXMLSource {
+    private class DataBackedSource extends DelegateXMLSource {
         PerLocaleData ballotBox;
-        XMLSource aliasOf; // original XMLSource
 
-        public DataBackedSource(PerLocaleData makeFrom) {
+        private DataBackedSource(PerLocaleData makeFrom) {
             super(makeFrom.diskData.cloneAsThawed());
             ballotBox = makeFrom;
         }
@@ -198,70 +217,78 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * This is the bottleneck for processing values.
          *
          * @param path the xpath
-         * @param resolver the VoteResolver
-         * @param resolveMorePaths true for making vxml, else false
+         * @param resolver the VoteResolver (for recycling), or null
+         * @param voteLoadingContext the VoteLoadingContext
          * @return the VoteResolver
-         *
-         * TODO: reevaluate whether resolveMorePaths is needed anymore.
          */
-        private VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver, boolean resolveMorePaths) {
+        private VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver, VoteLoadingContext voteLoadingContext) {
             PerLocaleData.PerXPathData xpd = ballotBox.peekXpathData(path);
-            String res;
+            String value = null;
             String fullPath = null;
-            if (resolveMorePaths == false && (xpd == null || xpd.isEmpty())) {
+            /*
+             * If there are no votes, it may be more efficient (or anyway expected) to skip vote resolution
+             * and use diskData instead. This has far-reaching effects and should be better documented.
+             * When and how does it change the outcome and/or performance?
+             * Currently only skip for VoteLoadingContext.ORDINARY_LOAD_VOTES with null/empty xpd.
+             *
+             * Do not skip vote resolution if VoteLoadingContext.SINGLE_VOTE, even for empty xpd. Otherwise an Abstain can
+             * result in "no votes", "skip vote resolution", failure to get the right winning value, possibly inherited.
+             *
+             * Do not skip vote resolution if VoteLoadingContext.VXML_GENERATION, even for empty xpd. We may need to call
+             * getWinningValue for vote resolution for a larger set of paths to get baseline, etc.
+             */
+            if (voteLoadingContext == VoteLoadingContext.ORDINARY_LOAD_VOTES && (xpd == null || xpd.isEmpty())) {
                 /*
-                 * If resolveMorePaths is false and there are no votes, it may be more efficient
-                 * (or anyway expected) to skip vote resolution and use diskData instead.
-                 * This has far-reaching effects and should be better documented.
+                 * Skip vote resolution
                  */
-                res = ballotBox.diskData.getValueAtDPath(path);
+                value = ballotBox.diskData.getValueAtDPath(path);
                 fullPath = ballotBox.diskData.getFullPathAtDPath(path);
             } else {
-                /*
-                 * If resolveMorePaths is true, especially for generating vxml, we need to call
-                 * getWinningValue for vote resolution for a larger set of paths to get baseline etc. even
-                 * if there are no votes.
-                 */
-                res = (resolver = ballotBox.getResolver(xpd, path, resolver)).getWinningValue();
-                String diskFullPath = ballotBox.diskData.getFullPathAtDPath(path);
-                if (diskFullPath == null) {
-                    /*
-                     * If the disk didn't have a full path, just use the inbound path.
-                     */
-                    diskFullPath = path;
-                }
-                /*
-                 * Remove JUST draft alt proposed. Leave 'numbers=' etc.
-                 */
-                String baseXPath = XPathTable.removeDraftAltProposed(diskFullPath);
-                Status win = resolver.getWinningStatus();
-                /*
-                 * Catch VoteResolver.Status.missing, or it will trigger an exception
-                 * in draftStatusFromWinningStatus since there is no "missing" in DraftStatus.
-                 * This may happen especially when resolveMorePaths is true for making vxml.
-                 *
-                 * Status.missing can also occur when a user submits a new value, then abstains;
-                 * in that case, delegate.removeValueAtDPath and/or delegate.putValueAtPath is required
-                 * to clear out the submitted value; then possibly res = inheritance marker
-                 */
-                if (win == Status.missing || win == Status.approved) {
-                    fullPath = baseXPath;
-                } else {
-                    DraftStatus draftStatus = draftStatusFromWinningStatus(win);
-                    fullPath = baseXPath + "[@draft=\"" + draftStatus.toString() + "\"]";
-                }
+                resolver = ballotBox.getResolver(xpd, path, resolver);
+                value = resolver.getWinningValue();
+                fullPath = getFullPathWithResolver(path, resolver);
             }
-            if (res != null) {
+            if (value != null) {
                 /*
-                 * TODO: needed to clear fullpath? Otherwise, fullpath may be ignored if
+                 * TODO: needed to clear fullPath? Otherwise, fullPath may be ignored if
                  * value is extant.
                  */
                 delegate.removeValueAtDPath(path);
-                delegate.putValueAtPath(fullPath, res);
+                delegate.putValueAtPath(fullPath, value);
             } else {
                 delegate.removeValueAtDPath(path);
             }
             return resolver;
+        }
+
+        private String getFullPathWithResolver(String path, VoteResolver<String> resolver) {
+            String diskFullPath = ballotBox.diskData.getFullPathAtDPath(path);
+            if (diskFullPath == null) {
+                /*
+                 * If the disk didn't have a full path, just use the inbound path.
+                 */
+                diskFullPath = path;
+            }
+            /*
+             * Remove JUST draft alt proposed. Leave 'numbers=' etc.
+             */
+            String baseXPath = XPathTable.removeDraftAltProposed(diskFullPath);
+            Status win = resolver.getWinningStatus();
+            /*
+             * Catch Status.missing, or it will trigger an exception in draftStatusFromWinningStatus
+             * since there is no "missing" in DraftStatus.
+             * This may happen especially for VoteLoadingContext.VXML_GENERATION.
+             *
+             * Status.missing can also occur for VoteLoadingContext.SINGLE_VOTE, when a user abstains
+             * after submitting a new value. Then, delegate.removeValueAtDPath and/or delegate.putValueAtPath
+             * is required to clear out the submitted value; then possibly res = inheritance marker
+             */
+            if (win == Status.missing || win == Status.approved) {
+                return baseXPath;
+            } else {
+                DraftStatus draftStatus = draftStatusFromWinningStatus(win);
+                return baseXPath + "[@draft=\"" + draftStatus.toString() + "\"]";
+            }
         }
 
         /**
@@ -286,7 +313,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 DraftStatus draftStatus = DraftStatus.forString(win.toString());
                 return draftStatus;
             } catch (IllegalArgumentException e) {
-                SurveyLog.logException(e, "Exception in draftStatusFromWinningStatus of " + win);
+                SurveyLog.logException(logger, e, "Exception in draftStatusFromWinningStatus of " + win);
                 return DraftStatus.unconfirmed;
             }
         }
@@ -677,143 +704,128 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param targetXmlSource the DataBackedSource which might or might not equal this.xmlsource;
          *                        for makeVettedSource, it is a different (uncached) DataBackedSource.
          *
-         * @param resolveMorePaths false to do vote resolution only on paths with votes in current votes table, or
-         *                         true to do vote resolution also on all paths in trunk (for making vxml).
+         * @param voteLoadingContext VoteLoadingContext.ORDINARY_LOAD_VOTES or VoteLoadingContext.VXML_GENERATION
+         *                           (not VoteLoadingContext.SINGLE_VOTE)
          *
-         * @param doStampAndListen true if we should do stamp.next() and xmlsource.addListener, or false (for making vxml).
-         *
-         * Called by PerLocaleData.makeSource(resolve = false), and by PerLocaleData.makeVettedSource.
-         *
-         * TODO: revisit whether resolveMorePaths is still necessary; when added for vxml generation it involved
-         * cases where last-release value made a difference to vote resolution; now that "baseline" = trunk not
-         * last-release it's possible that vote resolution isn't needed for items without current votes.
+         * Called by PerLocaleData.makeSource (with VoteLoadingContext.ORDINARY_LOAD_VOTES)
+         * and by PerLocaleData.makeVettedSource (with VoteLoadingContext.VXML_GENERATION).
          */
-        private void loadVoteValues(DataBackedSource targetXmlSource, boolean resolveMorePaths, boolean doStampAndListen) {
-            /*
-             * TODO: move the readonly check to the caller
-             */
-            if (!readonly) {
-                VoteResolver<String> resolver = null; // save recalculating this.
-                ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
-                Connection conn = null;
-                PreparedStatement ps = null;
-                ResultSet rs = null;
-                int n = 0;
-                int del = 0;
+        private void loadVoteValues(DataBackedSource targetXmlSource, VoteLoadingContext voteLoadingContext) {
+            VoteResolver<String> resolver = null; // save recalculating this.
+            ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
+            Connection conn = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            int n = 0;
+            int del = 0;
 
-                try {
+            try {
+                /*
+                 * Select several columns (xp, submitter, value, override, last_mod),
+                 * from all rows with the given locale in the votes table.
+                 */
+                conn = DBUtils.getInstance().getAConnection();
+                ps = openQueryByLocaleRW(conn);
+                ps.setString(1, locale.getBaseName());
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    int xp = rs.getInt(1);
+                    String xpath = sm.xpt.getById(xp);
+                    int submitter = rs.getInt(2);
+                    String value = DBUtils.getStringUTF8(rs, 3);
                     /*
-                     * Select several columns (xp, submitter, value, override, last_mod),
-                     * from all rows with the given locale in the votes table.
+                     * 4 = locale is unused here, but is required in the query in case deleteRow
+                     * is called below. See openQueryByLocaleRW for explanation.
                      */
-                    conn = DBUtils.getInstance().getAConnection();
-                    ps = openQueryByLocaleRW(conn);
-                    ps.setString(1, locale.getBaseName());
-                    rs = ps.executeQuery();
-
-                    while (rs.next()) {
-                        int xp = rs.getInt(1);
-                        String xpath = sm.xpt.getById(xp);
-                        int submitter = rs.getInt(2);
-                        String value = DBUtils.getStringUTF8(rs, 3);
-                        /*
-                         * 4 = locale is unused here, but is required in the query in case deleteRow
-                         * is called below. See openQueryByLocaleRW for explanation.
-                         */
-                        Integer voteOverride = rs.getInt(5); // 5 override
-                        if (voteOverride == 0 && rs.wasNull()) { // if override was a null..
-                            voteOverride = null;
-                        }
-                        Timestamp last_mod = rs.getTimestamp(6); // last mod
-                        User theSubmitter = sm.reg.getInfo(submitter);
-                        if (theSubmitter == null) {
-                            SurveyLog.warnOnce(logger, "Ignoring votes for deleted user #" + submitter);
-                        }
-                        if (!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // check user permission to submit
-                            continue;
-                        }
-                        if (!isValidSurveyToolVote(theSubmitter, xpath)) { // Make sure it is a visible path
-                            continue;
-                        }
-                        try {
-                            internalSetVoteForValue(theSubmitter, xpath, value, voteOverride, last_mod);
-                            n++;
-                        } catch (BallotBox.InvalidXPathException e) {
-                            logger.severe("InvalidXPathException: Deleting vote for " + theSubmitter + ":" + locale + ":" + xpath);
-                            rs.deleteRow();
-                            del++;
-                        }
+                    Integer voteOverride = rs.getInt(5); // 5 override
+                    if (voteOverride == 0 && rs.wasNull()) { // if override was a null..
+                        voteOverride = null;
                     }
-                    if (del > 0) {
-                        logger.warning ("Summary: delete of " + del + " invalid votes from " + locale);
+                    Timestamp last_mod = rs.getTimestamp(6); // last mod
+                    User theSubmitter = sm.reg.getInfo(submitter);
+                    if (theSubmitter == null) {
+                        SurveyLog.warnOnce(logger, "Ignoring votes for deleted user #" + submitter);
                     }
-                    DBUtils.close(rs, ps);
-                    ps = openPermVoteQuery(conn);
-                    ps.setString(1, locale.getBaseName());
-                    rs = ps.executeQuery();
-                    while (rs.next()) {
-                        int xp = rs.getInt(1);
-                        String xpath = sm.xpt.getById(xp);
-                        String value = DBUtils.getStringUTF8(rs, 2);
-                        Timestamp last_mod = rs.getTimestamp(3);
-                        try {
-                            internalSetVoteForValue(sm.reg.getInfo(UserRegistry.ADMIN_ID), xpath, value, VoteResolver.Level.LOCKING_VOTES, last_mod);
-                            n++;
-                        } catch (BallotBox.InvalidXPathException e) {
-                            System.err.println("InvalidXPathException: Ignoring permanent vote for:" + locale + ":" + xpath);
-                        }
+                    if (!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // check user permission to submit
+                        continue;
                     }
-                } catch (SQLException e) {
-                    SurveyLog.logException(e);
-                    SurveyMain.busted("Could not read locale " + locale, e);
-                    throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
-                } finally {
-                    DBUtils.close(rs, ps, conn);
-                }
-                SurveyLog.debug(et + " - read " + n + " items  (" + xpathToData.size() + " xpaths.)");
-
-                et = (SurveyLog.DEBUG) ? new ElapsedTimer("Resolver loading for xpaths in " + locale) : null;
-                /*
-                 * Now that we've loaded all the votes, resolve the votes for each path.
-                 *
-                 * When producing vxml, resolveMorePaths is true and we use all paths in diskData (trunk) in
-                 * addition to allPXDPaths(); otherwise, vxml produced by admin-OutputAllFiles.jsp is missing some paths.
-                 * allPXDPaths() may return an empty array if there are no votes in current votes table.
-                 * (However, we assume that last-release value soon won't be used anymore for vote resolution.
-                 * If we did need paths from last-release, or any paths missing from trunk and current votes table,
-                 * we could loop through sm.getSTFactory().getPathsForFile(locale); however, that would generally
-                 * include more paths than are wanted for vxml.)
-                 * Reference: https://unicode.org/cldr/trac/ticket/11909
-                 */
-                // Set<String> xpathSet = resolveMorePaths ? sm.getSTFactory().getPathsForFile(locale) : allPXDPaths();
-                Set<String> xpathSet;
-                if (resolveMorePaths) {
-                    xpathSet = new HashSet<>(allPXDPaths());
-                    for (String xp : diskData) {
-                        xpathSet.add(xp);
+                    if (!isValidSurveyToolVote(theSubmitter, xpath)) { // Make sure it is a visible path
+                        continue;
                     }
-                } else {
-                    xpathSet = allPXDPaths();
-                }
-                int j = 0;
-                for (String xp : xpathSet) {
                     try {
-                        resolver = targetXmlSource.setValueFromResolver(xp, resolver, resolveMorePaths);
-                    } catch (Exception e) {
-                        SurveyLog.logException(logger, e, "In setValueFromResolver, xp = " + xp);
+                        internalSetVoteForValue(theSubmitter, xpath, value, voteOverride, last_mod);
+                        n++;
+                    } catch (BallotBox.InvalidXPathException e) {
+                        logger.severe("InvalidXPathException: Deleting vote for " + theSubmitter + ":" + locale + ":" + xpath);
+                        rs.deleteRow();
+                        del++;
                     }
-                    j++;
                 }
-                SurveyLog.debug(et + " - resolved " + j + " items, " + n + " total.");
+                if (del > 0) {
+                    logger.warning ("Summary: delete of " + del + " invalid votes from " + locale);
+                }
+                DBUtils.close(rs, ps);
+                ps = openPermVoteQuery(conn);
+                ps.setString(1, locale.getBaseName());
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    int xp = rs.getInt(1);
+                    String xpath = sm.xpt.getById(xp);
+                    String value = DBUtils.getStringUTF8(rs, 2);
+                    Timestamp last_mod = rs.getTimestamp(3);
+                    try {
+                        internalSetVoteForValue(sm.reg.getInfo(UserRegistry.ADMIN_ID), xpath, value, VoteResolver.Level.LOCKING_VOTES, last_mod);
+                        n++;
+                    } catch (BallotBox.InvalidXPathException e) {
+                        System.err.println("InvalidXPathException: Ignoring permanent vote for:" + locale + ":" + xpath);
+                    }
+                }
+            } catch (SQLException e) {
+                SurveyLog.logException(logger, e, "In setValueFromResolver");
+                SurveyMain.busted("Could not read locale " + locale, e);
+                throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
+            } finally {
+                DBUtils.close(rs, ps, conn);
             }
-            if (doStampAndListen) {
-                /*
-                 * This is true when targetXmlSource == this.xmlsource (not making vxml).
-                 * TODO: do this in caller, instead; also maybe move this whole function inside DataBackedSource constructor
-                 */
-                stamp.next();
-                targetXmlSource.addListener(gTestCache);
+            SurveyLog.debug(et + " - read " + n + " items  (" + xpathToData.size() + " xpaths.)");
+
+            et = (SurveyLog.DEBUG) ? new ElapsedTimer("Resolver loading for xpaths in " + locale) : null;
+            /*
+             * Now that we've loaded all the votes, resolve the votes for each path.
+             *
+             * For VoteLoadingContext.VXML_GENERATION we use all paths in diskData (trunk) in
+             * addition to allPXDPaths(); otherwise, vxml produced by OutputFileManager is missing some paths.
+             * allPXDPaths() may return an empty array if there are no votes in current votes table.
+             * (However, we assume that last-release value soon won't be used anymore for vote resolution.
+             * If we did need paths from last-release, or any paths missing from trunk and current votes table,
+             * we could loop through sm.getSTFactory().getPathsForFile(locale); however, that would generally
+             * include more paths than are wanted for vxml.)
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-11909
+             *
+             * TODO: revisit whether this difference for VoteLoadingContext.VXML_GENERATION is still necessary; when added
+             * cases where last-release value made a difference to vote resolution; now that "baseline" = trunk not
+             * last-release it's possible that vote resolution isn't needed for items without current votes.
+             */
+            Set<String> xpathSet;
+            if (voteLoadingContext == VoteLoadingContext.VXML_GENERATION) {
+                xpathSet = new HashSet<>(allPXDPaths());
+                for (String xp : diskData) {
+                    xpathSet.add(xp);
+                }
+            } else { // voteLoadingContext == VoteLoadingContext.ORDINARY_LOAD_VOTES
+                xpathSet = allPXDPaths();
             }
+            int j = 0;
+            for (String xp : xpathSet) {
+                try {
+                    resolver = targetXmlSource.setValueFromResolver(xp, resolver, voteLoadingContext);
+                } catch (Exception e) {
+                    SurveyLog.logException(logger, e, "In setValueFromResolver, xp = " + xp);
+                }
+                j++;
+            }
+            SurveyLog.debug(et + " - resolved " + j + " items, " + n + " total.");
         }
 
         @Override
@@ -979,7 +991,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 try {
                     r = getResolverInternal(perXPathData, path, r);
                 } catch (VoteResolver.UnknownVoterException uve2) {
-                    SurveyLog.logException(uve2);
+                    SurveyLog.logException(logger, uve2, "Exception in getResolver");
                     SurveyMain.busted(uve2.toString(), uve2);
                     throw new InternalError(uve2.toString());
                 }
@@ -1070,7 +1082,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
-        public synchronized XMLSource makeSource(boolean resolved) {
+        private synchronized XMLSource makeSource(boolean resolved) {
             if (resolved == true) {
                 if (resolvedXmlsource == null) {
                     resolvedXmlsource = makeResolvingSource(locale.getBaseName(), getMinimalDraftStatus());
@@ -1082,7 +1094,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 } else {
                     if (xmlsource == null) {
                         xmlsource = new DataBackedSource(this);
-                        loadVoteValues(xmlsource, false /* resolveMorePaths */, true /* doStampAndListen */);
+                        if (!readonly) {
+                            loadVoteValues(xmlsource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
+                        }
+                        stamp.next();
+                        xmlsource.addListener(gTestCache);
                     }
                     return xmlsource;
                 }
@@ -1093,13 +1109,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * Make a vetted source for this PerLocaleData, suitable for producing vxml
          * with vote-resolution done on more paths.
          *
-         * This function is similar to makeSource, but with resolveMorePaths true.
+         * This function is similar to makeSource, but with VoteLoadingContext.VXML_GENERATION.
          *
          * @return the DataBackedSource (NOT the same as PerLocaleData.xmlsource)
          */
-        public synchronized XMLSource makeVettedSource() {
+        private synchronized XMLSource makeVettedSource() {
             DataBackedSource vxmlSource = new DataBackedSource(this);
-            loadVoteValues(vxmlSource, true /* resolveMorePaths */, false /* doStampAndListen */);
+            if (!readonly) {
+                loadVoteValues(vxmlSource, VoteLoadingContext.VXML_GENERATION);
+            }
             return vxmlSource;
         }
 
@@ -1174,11 +1192,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 doPermanentVote(distinguishingXpath, xpathId, value);
             }
 
-            /*
-             * resolveMorePaths = true here. Otherwise an Abstain can result in "no votes",
-             * "skip vote resolution", failure to get the right winning value, possibly inherited.
-             */
-            xmlsource.setValueFromResolver(distinguishingXpath, null, true /* resolveMorePaths */);
+            xmlsource.setValueFromResolver(distinguishingXpath, null, VoteLoadingContext.SINGLE_VOTE);
 
             String newVal = xmlsource.getValueAtDPath(distinguishingXpath);
             if (newVal != null && !newVal.equals(oldVal)) {
@@ -1273,7 +1287,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 conn.commit();
             } catch (SQLException e) {
-                SurveyLog.logException(e);
+                SurveyLog.logException(logger, e, "Exception in saveVoteToDb");
                 SurveyMain.busted("Could not vote for value in locale locale " + locale, e);
                 throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
             } finally {
@@ -1957,7 +1971,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 System.err.println("Created table " + tableName);
              }
         } catch (SQLException se) {
-            SurveyLog.logException(se, "SQL: " + sql);
+            SurveyLog.logException(logger, se, "SQL: " + sql);
             SurveyMain.busted("Setting up DB for STFactory, SQL: " + sql, se);
             throw new InternalError("Setting up DB for STFactory, SQL: " + sql);
         } finally {
@@ -2098,7 +2112,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try {
             return phf.fromPath(xpath);
         } catch (Throwable t) {
-            SurveyLog.warnOnce("PH for path " + xpath + t.toString());
+            SurveyLog.warnOnce(logger, "PH for path " + xpath + t.toString());
             return null;
         }
     }
@@ -2210,7 +2224,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             CLDRFile f = new CLDRFile(sxs);
             return f;
         } catch (SQLException e) {
-            SurveyLog.logException(e);
+            SurveyLog.logException(logger, e, "In makeProposedFile");
             SurveyMain.busted("Could not read locale " + locale, e);
             throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
         } finally {
@@ -2277,7 +2291,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         DBUtils.setStringUTF8(myInsert, 4, value);
                         myInsert.executeUpdate();
                     } catch (SQLException e) {
-                        SurveyLog.logException(e, "importing  - " + path + " = " + value);
+                        SurveyLog.logException(logger, e, "importing  - " + path + " = " + value);
                         throw new IllegalArgumentException(e);
                     }
                 }
@@ -2301,7 +2315,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             conn.commit();
         } catch (SQLException e) {
-            SurveyLog.logException(e, "importing locale data from files");
+            SurveyLog.logException(logger, e, "importing locale data from files");
         } finally {
             DBUtils.close(ps2, ps, conn);
         }

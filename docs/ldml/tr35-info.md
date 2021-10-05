@@ -817,6 +817,8 @@ An implementation need not use rationals directly for conversion; it could use d
 <!ATTLIST convertUnit offset CDATA #IMPLIED >
 
 <!ATTLIST convertUnit description CDATA #IMPLIED >
+
+<!ATTLIST convertUnit systems NMTOKENS #IMPLIED >
 ```
 
 The conversion data provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.

@@ -890,9 +890,8 @@ The formal syntax for identifiers is provided below.
             </ul></td></tr>
 
 <tr><td>single_unit</td><td>:=</td>
-    <td>(dimensionality_prefix)? prefixed_unit<br/>
-		| currency_unit
-        <ul><li><em>Example: </em>square-meter</li></ul></td></tr>
+    <td>number_prefix? dimensionality_prefix? prefixed_unit
+        <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
     <td>“xxx-” single-unit | “x-” single-unit
@@ -900,6 +899,16 @@ The formal syntax for identifiers is provided below.
         <li><em>Note:</em> “x-” is only for backwards compatibility</li>
         <li>See Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
+
+<tr><td>number_prefix</td><td>:=</td>
+    <td>("1"[0-9]+ | [2-9][0-9]*) "-"
+        <ul><li><em>Examples:</em>
+            <ul><li>kilowatt-hour-per-100-kilometer</li>
+                <li>gallon-per-100-miles</li>
+                <li>per-200-pounds</li>
+            </ul></li>
+            <li><em>Note:</em> The number is an integer greater than one.</li>
+        </ul></td></tr>
 
 <tr><td>dimensionality_prefix</td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
@@ -948,6 +957,8 @@ The formal syntax for identifiers is provided below.
         </ul></td></tr>
 
 </tbody></table>
+
+Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
 
 ### 6.3 <a name="Example_Units" href="#Example_Units">Example Units</a>
 
@@ -1100,6 +1111,8 @@ There are different types of structure used to build the localized name of compo
 </compoundUnit>
 ```
 
+**number prefixes** are integers within a single_unit, such as in liter-per-**100-kilometer**. The formatting for these uses the normal number formats for the locale. Their presence does have an effect on the plural formatting of the simple unit in a "per" form. For example, in English you would write 3 liters per kilometer (singular "kilometer") but 3 liters per 100 kilometers (plural kilometers).
+
 **compoundUnitPatterns** are used for compounding units by multiplication or division: kilowatt-hours, or meters per second. These are invariant for case, gender, or plural (though those could be added in the future if needed by a language).
 
 ```xml
@@ -1169,6 +1182,7 @@ If there is no precomputed form, the following process in pseudocode is used to 
 1. Set hasMultiple to true iff product_unit has more than one single_unit
 2. Set timesPattern to be getValue(times, locale, length)
 3. Set result to be empty
+4. Set multiplier to be empty
 4. For each single_unit in product_unit
    1.  If hasMultiple
        1. Set singlePluralCategory to be times0(pluralCategory)
@@ -1185,11 +1199,12 @@ If there is no precomputed form, the following process in pseudocode is used to 
        2. set singlePluralCategory to be power0(singlePluralCategory)
        3. set singleCaseVariant to be power0(singleCaseVariant)
        4. remove the dimensionality_prefix from singleUnit
-   4.  if singleUnit starts with an si_prefix, such as 'centi'
+   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a number_prefix such as '100'
        1. set siPrefixPattern to be getValue(that si_prefix, locale, length), such as "centy{0}"
        2. set singlePluralCategory to be prefix0(singlePluralCategory)
        3. set singleCaseVariant to be prefix0(singleCaseVariant)
        4. remove the si_prefix from singleUnit
+	   5. set multiplier to be the locales integer numberFormat of number_prefix.
    5.  Set corePattern to be the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as "{0} metrem"
    6.  Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.
    7.  If the position is _middle_, then fail
@@ -1200,6 +1215,8 @@ If there is no precomputed form, the following process in pseudocode is used to 
        1. Set coreUnit to be the combineLowercasing(locale, length, siPrefixPattern, coreUnit)
    10. If dimensionalityPrefixPattern is not empty
        1. Set coreUnit to be the combineLowercasing(locale, length, dimensionalityPrefixPattern, coreUnit)
+   10. If multiplier is not empty
+       1. Combine the multiplier with coreUnit, using placeholder and placeholderPosition 
    11. If the result is empty, set result to be coreUnit
    12. Otherwise set result to be format(timesPattern, result, coreUnit)
 5. Return result

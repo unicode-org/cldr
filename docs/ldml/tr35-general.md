@@ -890,7 +890,8 @@ The formal syntax for identifiers is provided below.
             </ul></td></tr>
 
 <tr><td>single_unit</td><td>:=</td>
-    <td>(dimensionality_prefix)? prefixed_unit
+    <td>(dimensionality_prefix)? prefixed_unit<br/>
+		| currency_unit
         <ul><li><em>Example: </em>square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
@@ -936,6 +937,14 @@ The formal syntax for identifiers is provided below.
                 <li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.</li>
             </ul></li>
             <li><em>Example:</em> foot</li>
+        </ul></td></tr>
+
+<tr><td>currency_unit</td><td>:=</td>
+    <td>"curr-" [a-z]{3}
+        <ul><li><em>Constraints:</em>
+            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid [Unicode currency identifier](tr35.md#UnicodeCurrencyIdentifier). Note: CLDR does not provide conversions for currencies; this is only intended for formatting.</li>
+            </ul></li>
+            <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
         </ul></td></tr>
 
 </tbody></table>
@@ -1166,6 +1175,10 @@ If there is no precomputed form, the following process in pseudocode is used to 
        2. Set singleCaseVariant to be times0(caseVariant)
        3. Set pluralCategory to be times1(pluralCategory)
        4. Set caseVariant to be times1(caseVariant)
+   2.  If the singleUnit is a currency_unit
+       1. Set coreUnit to be the formatted currency according to the pluralCategory
+	   2. Set the gender to the default unit gender for the locale
+	   3. Goto step 11
    2.  Get the gender of that single_unit
    3.  If singleUnit starts with a dimensionality_prefix, such as 'square-'
        1. set dimensionalityPrefixPattern to be getValue(that dimensionality_prefix, locale, length, singlePluralCategory, singleCaseVariant, gender), such as "{0} kwadratowym"
@@ -1190,6 +1203,8 @@ If there is no precomputed form, the following process in pseudocode is used to 
    11. If the result is empty, set result to be coreUnit
    12. Otherwise set result to be format(timesPattern, result, coreUnit)
 5. Return result
+
+__Note: CLDR does not currently have gender or case data for currency units, so the formatting will not be optimal for inflected languages.__
 
 **combineLowercasing(locale, length, prefixPattern, coreUnit)**
 

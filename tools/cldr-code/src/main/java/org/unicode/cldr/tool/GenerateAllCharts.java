@@ -33,7 +33,6 @@ public class GenerateAllCharts {
         GenerateSidewaysView.main(args);
         ShowData.main(args);
         //GenerateTransformCharts.main(args);
-        ShowKeyboards.main(args);
         ChartDelta.main(args);
         ChartDelta.main(args, true); // churn
         ChartCollation.main(args);
@@ -41,5 +40,6 @@ public class GenerateAllCharts {
         VerifyCompactNumbers.main(args);
         VerifyZones.main(args);
         DateTimeFormats.main(args);
+        ShowKeyboards.main(args);
     }
 }

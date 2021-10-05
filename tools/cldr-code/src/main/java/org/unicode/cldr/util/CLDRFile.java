@@ -38,8 +38,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckMetazones;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -101,7 +99,6 @@ import com.ibm.icu.util.VersionInfo;
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleStringProvider {
 
     private static final boolean SEED_ONLY = true;
-    private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
      * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different
@@ -3475,53 +3472,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
 
         // grammatical info
-
         GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), true);
         if (grammarInfo != null) {
-            if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
-                Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
-                Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
-                Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
-                Collection<Count> adjustedPlurals = pluralCounts;
-                // There was code here allowing fewer plurals to be used, but is retracted for now (needs more thorough integration in logical groups, etc.)
-                // This note is left for 'blame' to find the old code in case we revive that.
-
-                // TODO use UnitPathType to get paths
-                if (!genders.isEmpty()) {
-                    for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
-                        toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender");
-                    }
-                    for (Count plural : adjustedPlurals) {
-                        for (String gender : genders) {
-                            for (String case1 : nomCases) {
-                                final String grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.power, plural.toString(),
-                                    gender, case1);
-                                toAddTo
-                                    .add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1" + grammaticalAttributes);
-                                toAddTo
-                                    .add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1" + grammaticalAttributes);
-                            }
-                        }
-                    }
-                    //             <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>
-                    for (String gender : genders) {
-                        toAddTo.add("//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + gender + "\"]");
-                    }
-                }
-                if (!rawCases.isEmpty()) {
-                    for (String case1 : rawCases) {
-                        //          <caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
-                        toAddTo.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
-
-                        for (Count plural : adjustedPlurals) {
-                            for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
-                                toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
-                                    + GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, plural.toString(), null, case1));
-                            }
-                        }
-                    }
-                }
-            }
+            grammarInfo.addGrammarPaths(getLocaleID(), GrammarInfo.getUnitsToAddGrammar(GrammarInfo.Group.minimal), toAddTo);
         }
         return toAddTo;
     }

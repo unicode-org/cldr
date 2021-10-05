@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -16,6 +17,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -322,7 +324,8 @@ public class ChartGrammaticalForms extends Chart {
 
         // collect the "best unit ordering"
         Map<String, BestUnitForGender> unitToBestUnit = new TreeMap<>();
-        Set<String> rawUnitsToAddGrammar = GrammarInfo.getUnitsToAddGrammar();
+        Collection<String> rawUnitsToAddGrammar = GrammarInfo.getUnitsToAddGrammar(GrammarInfo.Group.minimal);
+        Collection<String> metricToAddGrammar = GrammarInfo.getUnitsToAddGrammar(GrammarInfo.Group.metric);
         for (String longUnit : rawUnitsToAddGrammar) {
             final String shortUnit = uc.getShortId(longUnit);
             if (shortUnit.equals("generic")) {
@@ -346,6 +349,9 @@ public class ChartGrammaticalForms extends Chart {
         PlaceholderLocation placeholderPosition = PlaceholderLocation.missing;
         Matcher placeholderMatcher = UnitConverter.PLACEHOLDER.matcher("");
         Output<String> unitPatternOut = new Output<>();
+        List<String> coverage = new ArrayList<>();
+        coverage.add("#locale" + "\t" + "present" + "\t" + "missing\tmissingGender\tmissingCase\tmissingPower");
+        Matcher unitMatcher = Pattern.compile("//ldml/units/unitLength\\[@type=\"([^\"]*+)\"]/(unit|compoundUnit)\\[@type=\"([^\"]*+)\"]").matcher("");
 
         for (String locale : locales) {
             if (locale.equals("root")) {
@@ -361,6 +367,37 @@ public class ChartGrammaticalForms extends Chart {
                 continue;
             }
             CLDRFile cldrFile = factory.make(locale, true);
+
+            // Check for coverage
+            Set<String> toAddTo = new LinkedHashSet<>();
+            grammarInfo.addGrammarPaths(locale, metricToAddGrammar, toAddTo);
+            CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
+            int missing = 0;
+            int present = 0;
+            Set<String> missingGender = new TreeSet<>();
+            Set<String> missingCase = new TreeSet<>();
+            Set<String> missingPower = new TreeSet<>();
+            for (String path : toAddTo) {
+                String value = cldrFileUnresolved.getStringValue(path);
+                if (value == null) {
+                    ++missing;
+                    if (unitMatcher.reset(path).lookingAt()) {
+                        String unit = uc.getShortId(unitMatcher.group(3));
+                        if (unitMatcher.group(2).equals("compoundUnit")) {
+                            missingPower.add(unit);
+                        } else if (path.endsWith("gender")) {
+                            missingGender.add(unit);
+                        } else {
+                            missingCase.add(unit);
+                        }
+                    } else {
+                        System.out.println("#no match for: " + path);
+                    }
+                } else {
+                    ++present;
+                }
+            }
+            coverage.add(locale + "\t" + present + "\t" + missing + "\t" + missingGender  + "\t" + missingCase  + "\t" + missingPower);
 
             {
                 Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
@@ -699,6 +736,11 @@ public class ChartGrammaticalForms extends Chart {
             if (!info.isEmpty()) {
                 String name = ENGLISH.getName(locale);
                 new Subchart(name + ": Unit Grammar Info", locale, info).writeChart(anchors);
+            }
+        }
+        try (PrintWriter tsv = FileUtilities.openUTF8Writer(getDirectory() + "tsv/", "unitCoverage.tsv");) {
+            for (String c : coverage) {
+                tsv.println(c);
             }
         }
     }

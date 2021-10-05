@@ -818,29 +818,48 @@ This data is supplied in **Part 6: [Supplemental](tr35-info.md#Contents)**: [Sec
 
 ### 6.2 <a name="Unit_Identifiers" href="#Unit_Identifiers">Unit Identifiers</a>
 
-Units are identified internally as described in this section. As with other identifiers in CLDR, the American English spelling is used for unit identifiers. These names should not be presented to end users, however. As in other cases, the translated names for different languages (or variants of English) are available in the CLDR localized data.
-
-| Name                 | Example |
-| -------------------- | ------- |
-| long unit identifier | length-meter, mass-pound, duration-day |
-| core unit identifier | meter, pound, day |
-  
-
-Both the _unit identifier_ and the _core unit identifier_ are guaranteed to be unique, and clients can use either one to identify a unit. The associations between types and core unit identifiers are as prescribed in CLDR data; it is invalid for a client to create any additional associations. Except as specified in _Section 6.6 [Private-Use Units](https://www.unicode.org/reports/tr35/tr35-general.md#Private_Use_Units)_, all values are reserved by CLDR.
+Units of measurement, such as _meter_, have defined programmatic identifiers as described in this section. 
+The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows. 
+A secondary type of identifier is a _mixed unit identifier_, which combines a series of units such as _5° 30′_ or _3 feet 7 inches_.
 
 | Name             | Examples |
 | ---------------- | -------- |
-| simple unit ID   | meter, foot, inch, pound, pound-force, … |
-| prefixed unit ID | kilometer, centigram, … <br/> _plus simple unit IDs_ |
-| single unit ID   | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
 | core unit ID     | kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, … <br/> _plus single unit IDs_ |
-| mixed unit ID    | foot-and-pound |
+| single unit ID   | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
+| prefixed unit ID | kilometer, centigram, … <br/> _plus simple unit IDs_ |
+| simple unit ID   | meter, foot, inch, pound, pound-force, … |
+| mixed unit ID    | foot-and-inch, degree-and-arc-minute-and-arc-second |
+
+
+There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below. 
+The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together. 
+The long unit identifers are used as a key in the translated unit names for locales, but dealing with these two styles is unnecessarily complicated, so the long unit identifiers are slated for deprecation (after replacing their use as a key for translations).
+
+| core unit ID | long unit ID |
+| ------------ | ------------ |
+| meter        | length-meter |
+| pound        | mass-pound   |
+| day          | duration-day |
  
-A core unit that is not a simple unit is called a _complex unit_. It is valid to construct a complex unit identifier from multiple simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter). As usual, with division the part before the (first) -per- is called the _numerator_, and the part after it is called the _denominator_.
 
-The conversion information uses the short unit identifiers, discarding the unitType. Thus “meter” is used instead of “length-meter”. The translation data currently uses the long unit identifiers, for backwards compatibility. However, that is likely to change in a future version.
+The list of valid CLDR simple unit identifiers is found in _Section [3.11 Validity Data](tr35.md#Validity_Data)_. 
+These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data. 
+All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units. 
+There is one exception: implementations that need to define their own unit identifiers can do so via _Section 6.6 [Private-Use Units](https://www.unicode.org/reports/tr35/tr35-general.md#Private_Use_Units)_.
 
-The identifiers and unit conversion data are built to handle arbitrary combinations of core unit IDs using division (kilometer-per-hour), multiplication (kilogram-meter), powers (square-second), and SI prefixes (kilo-). Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
+A core unit identifier that is not a simple unit is called a _complex unit_ (aka _compound unit_). 
+A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi). 
+As usual, with division the part before the (first) -per- is called the _numerator_, and the part after it is called the _denominator_.
+
+The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers. 
+Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
+
+Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers. 
+See _Section 6.4 [Compound Units](#compound-units)_. 
+That can be used for less common units, such as _petasecond_. 
+However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words. 
+For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent). 
+Thus the most commonly-used complex units have explicit translations in CLDR.
 
 * A power (square, cubic, pow4, etc) modifies one prefixed unit ID, and must occur immediately before it in the identifier: square-foot, not foot-square.
 * Multiplication binds more tightly than division, so kilogram-meter-per-second-ampere is interpreted as (kg ⋅ m) / (s ⋅ a).
@@ -849,7 +868,7 @@ The identifiers and unit conversion data are built to handle arbitrary combinati
 
 #### Nomenclature
 
-For the US spelling, see the [Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811](https://www.nist.gov/pml/special-publication-811), which is explicit about the discrepancy with the English-language BIPM spellings:
+As with other identifiers in CLDR, the American English spelling is used for unit identifiers. For the US spelling, see the [Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811](https://www.nist.gov/pml/special-publication-811), which is explicit about the discrepancy with the English-language BIPM spellings:
 
 > In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”
 
@@ -861,12 +880,9 @@ The formal syntax for identifiers is provided below.
 
 <table><tbody>
 <tr><td>unit_identifier</td><td>:=</td>
-    <td>long_unit_identifier<br/>
+    <td>core_unit_identifier<br/>
         | mixed_unit_identifier<br/>
-        | core_unit_identifier</td></tr>
-
-<tr><td>long_unit_identifier</td><td>:=</td>
-    <td>type "-" core_unit_identifier</td></tr>
+        | long_unit_identifier</td></tr>
 
 <tr><td>core_unit_identifier</td><td>:=</td>
     <td>product_unit ("-per-" product_unit)*<br/>
@@ -877,10 +893,6 @@ The formal syntax for identifiers is provided below.
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
         </ul></td></tr>
-
-<tr><td>mixed_unit_identifier</td><td>:=</td>
-    <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
-        <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
@@ -894,7 +906,7 @@ The formal syntax for identifiers is provided below.
         <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
-    <td>“xxx-” single-unit | “x-” single-unit
+    <td>“xxx-” single_unit | “x-” single_unit
     <ul><li><em>Example:</em> xxx-square-knuts (a Harry Potter unit)</li>
         <li><em>Note:</em> “x-” is only for backwards compatibility</li>
         <li>See Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a></li>
@@ -947,6 +959,16 @@ The formal syntax for identifiers is provided below.
             </ul></li>
             <li><em>Example:</em> foot</li>
         </ul></td></tr>
+		
+<tr><td>mixed_unit_identifier</td><td>:=</td>
+    <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
+        <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
+
+<tr><td>long_unit_identifier</td><td>:=</td>
+    <td>grouping "-" core_unit_identifier</td></tr>
+
+<tr><td>grouping</td><td>:=</td>
+    <td>unit_component</td></tr>
 
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
@@ -962,7 +984,9 @@ Note that while the syntax allows for number_prefixes in multiple places, the ty
 
 ### 6.3 <a name="Example_Units" href="#Example_Units">Example Units</a>
 
-The following table contains examples of types and units currently defined by CLDR. The units in CLDR are not comprehensive; it is anticipated that more will be added over time. The complete list of supported units is in the validity data: see _Section [3.11 Validity Data](tr35.md#Validity_Data)_. The compound units in the table below either require specialized formatting or have a numerator and/or demoninator that are not defined as valid standalone units. Note: as explained in _Section 6.4 [Compound Units](#compound-units)_, CLDR provides data to format any compound unit composed of two simple units from the following table.
+The following table contains examples of groupings and units currently defined by CLDR. 
+The units in CLDR are not comprehensive; it is anticipated that more will be added over time. 
+The complete list of supported units is in the validity data: see _Section [3.11 Validity Data](tr35.md#Validity_Data)_.
 
 | Type           | Core Unit Identifier     | Compound? | Sample Format  |
 | -------------- | ------------------------ | --------- | -------------- |

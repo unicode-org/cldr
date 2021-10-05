@@ -37,6 +37,14 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+      - name: Cache local npm repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            node-
       - name: Build with Maven
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml

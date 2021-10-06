@@ -165,7 +165,10 @@ The month and quarter names are identified numerically, starting at 1. The weekd
 
 Month, day, and quarter names may vary along two axes: the width and the context.
 
-The context is either _format_ (the default), the form used within a complete date format string (such as "Saturday, November 12"), or _stand-alone_, the form for date elements used independently, such as in calendar headers. The most important distinction between format and stand-alone forms is a grammatical distinction, for languages that require it. For example, many languages require that a month name without an associated day number (i.e. an independent form) be in the basic _nominative_ form, while a month name with an associated day number (as in a complete date format) should be in a different grammatical form: _genitive_, _partitive_, etc. In past versions of CLDR, the distinction between format and stand-alone forms was also used to control capitalization (with stand-alone forms using titlecase); however, this can be controlled separately and more precisely using the `<contextTransforms>` element as described in _[ContextTransform Elements](tr35-general.md#Context_Transform_Elements)_, so stand-alone forms should generally use middle-of-sentence capitalization. However, if in a given language, certain context/width combinations are always used in a titlecase form — for example, stand-alone narrow forms for months or weekdays — then these should be provided in that form.
+The context is either _format_ (the default), the form used within a complete date format string (such as "Saturday, November 12"), or _stand-alone_, the form for date elements used independently, such as in calendar headers. The _stand-alone_ form may be used in any other date format that shares the same form of the name. For month names, this is typically the nominative grammatical form, and might also be used in patterns such as "LLLL y" (month name + year). The _format_ form is an additional form that can be used in contexts where it is different than the stand-alone form. For example, in many languages, patterns that combine month name with day-of-month (and possibly other elements) may require the month name to be in a grammatical form such as genitive or partitive.
+* In past versions of CLDR, the distinction between format and stand-alone forms was used to control capitalization (with stand-alone forms using titlecase); however, this can be controlled separately and more precisely using the `<contextTransforms>` element as described in _[ContextTransform Elements](tr35-general.md#Context_Transform_Elements)_, so both format and stand-alone forms should generally use middle-of-sentence capitalization.
+* However, if in a given language, certain context/width combinations are always used in a titlecase form — for example, stand-alone narrow forms for months or weekdays — then these should be provided in that form.
+* The distinctions between stand-alone (e.g. LLLL) and format (e.g. MMMM) forms are only relevant for how date elements are used within a date format. They are not intended to reflect how a date format is used within a sentence. For example, they are not intended to be used to generate the dative form of a date format when that format is used after a preposition that takes dative form.
 
 The width can be _wide_ (the default), _abbreviated_, or _narrow_; for days only, the width can also be _short,_ which is ideally between the abbreviated and narrow widths, but must be no longer than abbreviated and no shorter than narrow (if short day names are not explicitly specified, abbreviated day names are used instead). Note that for `<monthPattern>`, described in the next section:
 
@@ -508,9 +511,9 @@ The patterns for date formats and time formats are defined in _[Date Format Patt
 
 Standard date and time patterns are each normally provided in four types: full (usually with weekday name), long (with wide month name), medium, and short (usually with numeric month).
 
-The `numbers` attribute can be used to explicitly specify a number system to be used for all of the numeric fields in the date format (as in `numbers="hebr"`), or for a specifi field in the date format (as in `numbers="d=hanidays"`). This attributes overrides any default numbering system specified for the locale.
+The `numbers` attribute can be used to explicitly specify a number system to be used for all of the numeric fields in the date format (as in `numbers="hebr"`), or for a specific field in the date format (as in `numbers="d=hanidays"`). This attribute overrides any default numbering system specified for the locale.
 
-The `datetimeSkeleton` element contains a _skeleton_ (see [availableFormats](#availableFormats_appendItems) derived from the pattern. In the future the intent is to be able to generate the standard patterns from these `datetimeSkeleton` elements. However, in CLDR 40, the mechanisms associated with the `availableFormats` elements are not quite powerful enough to generate patterns that exactly match the ones provided in the `pattern` elements.
+The `datetimeSkeleton` element contains a _skeleton_ (see [availableFormats](#availableFormats_appendItems) derived from the pattern. In the future the intent is to be able to generate the standard patterns from these `datetimeSkeleton` elements. However, in CLDR 40, the mechanisms associated with the `availableFormats` elements are not quite powerful enough to generate patterns that exactly match all of the ones provided in the `pattern` elements.
 
 ### 2.5 <a name="timeFormats" href="#timeFormats">Element timeFormats</a>
 
@@ -1949,13 +1952,13 @@ Notes for the table below:
     <tr><td>qqqqq</td><td>2</td><td>Narrow</td></tr>
 
 <!-- == == == MONTH == == == -->
-<tr><th rowspan="11"><a name="dfst-month" id="dfst-month" href="#dfst-month">month</a></th><td rowspan="5">M</td><td>M</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5">Month number/name, format style (intended to be used in conjunction with ‘d’ for day number).</td></tr>
+<tr><th rowspan="11"><a name="dfst-month" id="dfst-month" href="#dfst-month">month</a></th><td rowspan="5">M</td><td>M</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Format</b> style month number/name: The format style name is an additional form of the month name (besides the stand-alone style) that can be used in contexts where it is different than the stand-alone form. For example, depending on the language, patterns that combine month with day-of month (e.g. "d MMMM") may require the month to be in genitive form. See discussion of [month element](#months_days_quarters_eras). If a separate form is not needed, the format and stand-alone forms can be the same.</td></tr>
     <tr><td>MM</td><td>09, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>MMM</td><td>Sep</td><td>Abbreviated</td></tr>
     <tr><td>MMMM</td><td>September</td><td>Wide</td></tr>
     <tr><td>MMMMM</td><td>S</td><td>Narrow</td></tr>
     <!--  L  -->    
-    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Stand-Alone</b> Month number/name (intended to be used without ‘d’ for day number).</td></tr>
+    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Stand-Alone</b> month number/name: For use when the month is displayed by itself, and in any other date pattern (e.g. just month and year, e.g. "LLLL y") that shares the same form of the month name. For month names, this is typically the nominative form. See discussion of [month element](#months_days_quarters_eras).</td></tr>
     <tr><td>LL</td><td>09, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>LLL</td><td>Sep</td><td>Abbreviated</td></tr>
     <tr><td>LLLL</td><td>September</td><td>Wide</td></tr>

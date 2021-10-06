@@ -1141,6 +1141,11 @@ Once you have a list of `unitPreference` elements, find the applicable unitPrefe
   * ≥ 30.48 meters ⇒ foot:inch
 * Search for the first matching unitPreference for the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0"
 
+For completeness, when comparing doubles to the geq values:
+* Negative numbers are treated as if they were positive.
+* _infinity_ is treated as being the largest possible value.
+* NaN is treated as the smallest possible value.
+
 Once a matching `unitPreference` element is found:
 
 * The unit is the element value

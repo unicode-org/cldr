@@ -451,7 +451,15 @@ Example:
 <!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) >  
 <!ELEMENT dateFormatLength (alias | (default*, dateFormat*, special*)) >  
 <!ATTLIST dateFormatLength type ( full | long | medium | short ) #REQUIRED >  
-<!ELEMENT dateFormat (alias | (pattern*, displayName*, special*)) >
+<!ELEMENT dateFormat (alias | (pattern*, datetimeSkeleton*, displayName*, special*)) >
+<!ELEMENT pattern ( #PCDATA ) >
+<!ATTLIST pattern numbers CDATA #IMPLIED >
+<!ATTLIST pattern alt NMTOKENS #IMPLIED >
+<!ATTLIST pattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+<!ELEMENT datetimeSkeleton ( #PCDATA ) >
+<!ATTLIST datetimeSkeleton numbers CDATA #IMPLIED >
+<!ATTLIST datetimeSkeleton alt NMTOKENS #IMPLIED >
+<!ATTLIST datetimeSkeleton draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
 ```
 
 Standard date formats have the following form:
@@ -461,19 +469,48 @@ Standard date formats have the following form:
         <dateFormatLength type=”full”>
             <dateFormat>
                 <pattern>EEEE, MMMM d, y</pattern>
+                <datetimeSkeleton>yMMMMEEEEd</datetimeSkeleton>
             </dateFormat>
         </dateFormatLength>
+        ...
         <dateFormatLength type="medium">
-            <dateFormat type="DateFormatsKey2">
+            <dateFormat>
                 <pattern>MMM d, y</pattern>
+                <datetimeSkeleton>yMMMd</datetimeSkeleton>
             </dateFormat>
         </dateFormatLength>
+        ...
     <dateFormats>
+
+    <dateFormats>
+        ...
+        <dateFormatLength type="medium">
+            <dateFormat>
+                <pattern numbers="hebr">d בMMMM y</pattern>
+                <datetimeSkeleton numbers="hebr">yMMMMd</datetimeSkeleton>
+            </dateFormat>
+        </dateFormatLength>
+        ...
+    <dateFormats>
+
+    <dateFormats>
+        ...
+        <dateFormatLength type="long">
+            <dateFormat>
+                <pattern numbers="d=hanidays">rU年MMMMd</pattern>
+                <datetimeSkeleton numbers="d=hanidays">rMMMMd</datetimeSkeleton>
+            </dateFormat>
+        </dateFormatLength>
+        ...
 ```
 
 The patterns for date formats and time formats are defined in _[Date Format Patterns](#Date_Format_Patterns)._ These patterns are intended primarily for display of isolated date and time strings in user-interface elements, rather than for date and time strings in the middle of running text, so capitalization and grammatical form should be chosen appropriately.
 
 Standard date and time patterns are each normally provided in four types: full (usually with weekday name), long (with wide month name), medium, and short (usually with numeric month).
+
+The `numbers` attribute can be used to explicitly specify a number system to be used for all of the numeric fields in the date format (as in `numbers="hebr"`), or for a specifi field in the date format (as in `numbers="d=hanidays"`). This attributes overrides any default numbering system specified for the locale.
+
+The `datetimeSkeleton` element contains a _skeleton_ (see [availableFormats](#availableFormats_appendItems) derived from the pattern. In the future the intent is to be able to generate the standard patterns from these `datetimeSkeleton` elements. However, in CLDR 40, the mechanisms associated with the `availableFormats` elements are not quite powerful enough to generate patterns that exactly match the ones provided in the `pattern` elements.
 
 ### 2.5 <a name="timeFormats" href="#timeFormats">Element timeFormats</a>
 
@@ -481,7 +518,7 @@ Standard date and time patterns are each normally provided in four types: full (
 <!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) >  
 <!ELEMENT timeFormatLength (alias | (default*, timeFormat*, special*)) >  
 <!ATTLIST timeFormatLength type ( full | long | medium | short ) #REQUIRED >  
-<!ELEMENT timeFormat (alias | (pattern*, displayName*, special*)) >
+<!ELEMENT timeFormat (alias | (pattern*, datetimeSkeleton*, displayName*, special*)) >
 ```
 Standard time formats have the following form:
 
@@ -491,11 +528,13 @@ Standard time formats have the following form:
             <timeFormat>
                 <displayName>DIN 5008 (EN 28601)</displayName>
                 <pattern>h:mm:ss a z</pattern>
+                <datetimeSkeleton>ahmmssz</datetimeSkeleton>
             </timeFormat>
         </timeFormatLength>
         <timeFormatLength type="medium">
             <timeFormat>
                 <pattern>h:mm:ss a</pattern>
+                <datetimeSkeleton>ahmmss</datetimeSkeleton>
             </timeFormat>
         </timeFormatLength>
     </timeFormats>

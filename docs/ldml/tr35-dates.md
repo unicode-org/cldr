@@ -1408,6 +1408,11 @@ When formatting a date and time value using this data, an application can proper
 
 Metazones are used with the 'z', 'zzzz', 'v', and 'vvvv date time pattern characters, and not with the 'Z', 'ZZZZ', 'VVVV' and other pattern characters for time zone formatting. For more information, see [Date Format Patterns](#Date_Format_Patterns) .
 
+Note that several of the CLDR metazone IDs are the same as TZID aliases provided by the _TZ time zone database_ and also included in ICU data. For example:
+* “Japan” is a CLDR metazone ID (which has short ID “japa”), but also an alias to the TZID “Asia/Tokyo” (which has BCP 47 ID “jptyo”).
+* “GMT” is a CLDR metazone ID (which has short ID “mgmt”), but also an alias to the TZID “Etc/GMT” (which has BCP 47 ID “gmt”).
+In practice this is not an issue, since metazone IDs and TZIDs are never used in the same way in any data structure, or in the same APIs in a library such as ICU.
+
 The `commonlyUsed` element is now deprecated. The CLDR committee has found it nearly impossible to obtain accurate and reliable data regarding which time zone abbreviations may be understood in a given territory, and therefore has changed to a simpler approach. Thus, if the short metazone form is available in a given locale, it is to be used for formatting regardless of the value of commonlyUsed. If a given short metazone form is known NOT to be understood in a given locale and the parent locale has this value such that it would normally be inherited, the inheritance of this value can be explicitly disabled by use of the 'no inheritance marker' as the value, which is 3 simultaneous empty set characters ( U+2205 ).
 
 ## 6 <a name="Supplemental_Time_Zone_Data" href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>

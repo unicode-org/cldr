@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 2021 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Any" target="Preferred" direction="forward" alias="und-t-d0-prefer">
+			<tRule><![CDATA[
+# Armenian.
+# https://unicode.org/versions/Unicode14.0.0/UnicodeStandard-14.0.pdf#page=348
+\u0559 → \u02BB;  # ARMENIAN LEFT HALF RING → TURNED COMMA
+\u055A → \u2019;  # ARMENIAN APOSTROPHE → preferred apostrophe
+
+# Sindhi implosives.
+# Preferred representation changed in Unicode 5.0.
+# https://unicode.org/versions/Unicode14.0.0/UnicodeStandard-14.0.pdf#page=503
+\u0917\u093C\u0952 → \u097B;  # GA,  NUKTA, ANUDATTA → GGA
+\u091C\u093C\u0952 → \u097C;  # JA,  NUKTA, ANUDATTA → JJA
+\u0921\u093C\u0952 → \u097E;  # DDA, NUKTA, ANUDATTA → DDDA
+\u092C\u093C\u0952 → \u097F;  # BA,  NUKTA, ANUDATTA → BBA
+
+# Bengali KHANDA TA.
+# Preferred representation changed in Unicode 4.1.
+# https://unicode.org/versions/Unicode14.0.0/UnicodeStandard-14.0.pdf#page=512
+\u09A4\u09CD\u200D → \u09CE;  # TA, VIRAMA, ZWJ → KHANDA TA
+
+# Tamil ligature SHRII.
+# Preferred representation changed in Unicode 4.1.
+# https://unicode.org/versions/Unicode14.0.0/UnicodeStandard-14.0.pdf#page=531
+\u0BB8\u0BCD\u0BB0\u0BC0 → \u0BB6\u0BCD\u0BB0\u0BC0;  # SRII → SHRII
+
+# Malayalam legacy ṉṯ conjunct.
+# Preferred representation changed in Unicode 5.1.
+# https://unicode.org/versions/Unicode14.0.0/UnicodeStandard-14.0.pdf#page=550
+\u0D28\u0D4D\u0D31 → \u0D7B\u0D4D\u0D31;  # NA, VIRAMA, RRA → CHILLU N, VIRAMA, RRA
+
+# Malayalam legacy chillu sequences.
+# Preferred representation changed in Unicode 5.1.
+# https://unicode.org/versions/Unicode14.0.0/UnicodeStandard-14.0.pdf#page=551
+\u0D23\u0D4D\u200D → \u0D7A;  # NNA, VIRAMA, ZWJ → CHILLU NN
+\u0D28\u0D4D\u200D → \u0D7B;  # NA,  VIRAMA, ZWJ → CHILLU N
+\u0D30\u0D4D\u200D → \u0D7C;  # RRA, VIRAMA, ZWJ → CHILLU RR
+\u0D32\u0D4D\u200D → \u0D7D;  # LA,  VIRAMA, ZWJ → CHILLU L
+\u0D33\u0D4D\u200D → \u0D7E;  # LLA, VIRAMA, ZWJ → CHILLU LL
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

@@ -14,6 +14,14 @@ jobs:
       uses: ansible/ansible-lint-action@c37fb7b4bda2c8cb18f4942716bae9f11b0dc9bc
       with:
         targets: tools/scripts/ansible/*-playbook.yml
+    - name: Cache lint npm repository
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-lint-${{ hashFiles('.github/workflows/ansible-lint.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-lint-
+          lint-
     - name: Lint Markdown
       # Warn, don't fail yet
       run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Ethi" target="BetaMetsehaf_Latn_AutoGeminated" direction="forward" alias="Ethiopic-Latin/BetaMetsehaf-AutoGeminated">
+			<tRule><![CDATA[
+########################################################################
+#
+# Preemptive gemination for the Beta Maṣāḥǝft Transliteration system.
+#
+# This transformation applies the Ethiopic-to-Ethiopic gemination mappings prior to
+# performing the regular Ethiopic-to-BetaMetsehaf-Latin transform.  These mappings
+# are supported in the forward direction (Ethiopic-to-Latin) only at this time.
+#
+# Documentation for these transforms are given in the Ethiopic-Ethiopic-Geminated.xml,
+# and Ethiopic-Latin-BetaMetsehaf.xml files respectively.
+#
+########################################################################
+#
+:: Ethi-Geminated_Ethi ;
+:: Ethi-BetaMetsehaf_Latn ;
+#
+########################################################################
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

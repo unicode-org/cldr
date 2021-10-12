@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Ethi" target="Aethiopica_Latn_AutoGeminated" direction="forward" alias="Ethiopic-Latin/Aethiopica-AutoGeminated">
+			<tRule><![CDATA[
+########################################################################
+#
+# Preemptive gemination for the Encylopedia Aethiopica Transliteration system.
+#
+# This transformation applies the Ethiopic-to-Ethiopic gemination mappings prior to
+# performing the regular Ethiopic-to-Aethiopica-Latin transform.  These mappings
+# are supported in the forward direction (Ethiopic-to-Latin) only at this time.
+#
+# Documentation for these transforms are given in the Ethiopic-Ethiopic-Geminated.xml,
+# and Ethiopic-Latin-Aethiopica.xml files respectively.
+#
+########################################################################
+#
+:: Ethi-Geminated_Ethi ;
+:: Ethi-Aethiopica_Latn ;
+#
+########################################################################
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

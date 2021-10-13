@@ -210,6 +210,10 @@ export default {
     },
 
     fetchData() {
+      if (!cldrStatus.getSurveyUser()) {
+        this.fetchErr = "Please log in to see the Dashboard.";
+        return;
+      }
       this.locale = cldrStatus.getCurrentLocale();
       this.level = cldrCoverage.effectiveName(this.locale);
       if (!this.locale || !this.level) {
@@ -218,8 +222,13 @@ export default {
       }
       this.localeName = cldrLoad.getLocaleName(this.locale);
       this.loadingMessage = `Loading ${this.localeName} dashboard at ${this.level} level`;
+      this.reallyFetch();
+    },
+
+    reallyFetch() {
+      const url = `api/summary/dashboard/${this.locale}/${this.level}`;
       cldrAjax
-        .doFetch(this.getUrl())
+        .doFetch(url)
         .then((response) => {
           if (!response.ok) {
             throw Error(response.statusText);
@@ -235,13 +244,6 @@ export default {
           console.error("Error loading Dashboard data: " + err);
           this.fetchErr = err;
         });
-    },
-
-    getUrl() {
-      const api = `summary/dashboard/${this.locale}/${this.level}`;
-      const p = new URLSearchParams();
-      p.append("session", cldrStatus.getSessionId());
-      return cldrAjax.makeApiUrl(api, p);
     },
 
     /**

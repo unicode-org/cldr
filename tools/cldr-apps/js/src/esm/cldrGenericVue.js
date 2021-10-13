@@ -20,7 +20,7 @@ function load(specialPage) {
  * @returns true if the change was handled
  */
 function handleCoverageChanged(newLevel) {
-  return cldrBundle.handleCoverageChanged(newLevel);
+  return cldrBundle.handleCoverageChanged(newLevel); // = cldrVueRouter.handleCoverageChanged
 }
 
 function loadHandler(json, specialPage) {

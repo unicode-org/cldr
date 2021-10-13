@@ -15,10 +15,10 @@
 
 <script>
 import { ref } from "vue";
+import * as cldrAjax from "../esm/cldrAjax.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as localesTxtGenerator from "../esm/localesTxtGenerator.mjs";
-import * as cldrAjax from "../esm/cldrAjax.js";
-const fetch = cldrAjax.doFetch; // shadow global fetch
+
 export default {
   setup() {
     return {
@@ -32,9 +32,7 @@ export default {
     async fetchData() {
       try {
         this.loading = true;
-        const raw = await fetch(`api/voting/participation`, {
-          headers: cldrStatus.sessionHeaders(),
-        });
+        const raw = await cldrAjax.doFetch("api/voting/participation");
         this.participationData = await raw.json();
         this.localeTxt = localesTxtGenerator
           .generateLocalesTxt(this.participationData)

@@ -5,9 +5,25 @@ import * as cldrStatus from "./cldrStatus.js";
 
 const ST_AJAX_DEBUG = true;
 
+/**
+ * Call the standard js fetch function, possibly with additional handling suitable
+ * for Survey Tool such as setting session headers and debugging
+ *
+ * Session headers are automatically added unless init.headers is already set
+ *
+ * @param {String} resource the url or other resource, or Request object
+ * @param {Object} init an object containing any custom settings for the request
+ * @returns a Promise that resolves to a Response object
+ */
 function doFetch(resource, init) {
   if (ST_AJAX_DEBUG) {
     console.log("cldrAjax.doFetch: " + resource);
+  }
+  if (!init) {
+    init = {};
+  }
+  if (!init.headers) {
+    init.headers = cldrStatus.sessionHeaders();
   }
   return fetch(resource, init);
 }

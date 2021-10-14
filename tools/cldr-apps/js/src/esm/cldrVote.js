@@ -121,7 +121,7 @@ function handleWiredClick(tr, theRow, vHash, box, button) {
     "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
   );
   var ourContent = {
-    what: "submit", /* cf. WHAT_SUBMIT in SurveyAjax.java */
+    what: "submit" /* cf. WHAT_SUBMIT in SurveyAjax.java */,
     xpath: tr.xpathId,
     _: cldrStatus.getCurrentLocale(),
     fhash: tr.rowHash,

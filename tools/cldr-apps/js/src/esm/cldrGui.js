@@ -9,17 +9,23 @@ import * as cldrMenu from "./cldrMenu.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
-import { createCldrApp } from "../cldrVueRouter";
-import MainHeader from "../views/MainHeader.vue";
 import DashboardWidget from "../views/DashboardWidget.vue";
+import MainHeader from "../views/MainHeader.vue";
+import VotingCompletion from "../views/VotingCompletion.vue";
+
+import { createCldrApp } from "../cldrVueRouter";
+
 import { notification } from "ant-design-vue";
 
 const GUI_DEBUG = true;
+
+const GUI_HAS_COMPLETION_WIDGET = false;
 
 const runGuiId = "st-run-gui";
 
 let mainHeaderWrapper = null;
 let dashboardWidgetWrapper = null;
+let votingCompletionWrapper = null;
 
 let rightPanelVisible = true;
 let dashboardVisible = false;
@@ -56,6 +62,7 @@ function run() {
     }
     setOnClicks();
     window.addEventListener("resize", handleResize);
+    insertCompletionWidget();
   } catch (e) {
     return Promise.reject(e);
   }
@@ -147,6 +154,35 @@ function insertHeader() {
     );
     notification.error({
       message: `${e.name} while loading MainHeader.vue`,
+      description: `${e.message}`,
+      duration: 0,
+    });
+  }
+}
+
+function insertCompletionWidget() {
+  if (GUI_HAS_COMPLETION_WIDGET) {
+    setTimeout(function () {
+      insertVotingCompletion();
+    }, 3000 /* three seconds -- temporary work-around for delays in initializing locale and coverage level */);
+  }
+}
+
+/**
+ * Create the VotingCompletion component
+ */
+function insertVotingCompletion() {
+  try {
+    const fragment = document.createDocumentFragment();
+    votingCompletionWrapper = createCldrApp(VotingCompletion).mount(fragment);
+    const el = document.getElementById("CompletionSpan");
+    el.replaceWith(fragment);
+  } catch (e) {
+    console.error(
+      "Error mounting voting completion vue " + e.message + " / " + e.name
+    );
+    notification.error({
+      message: `${e.name} while loading VotingCompletion.vue`,
       description: `${e.message}`,
       duration: 0,
     });
@@ -271,6 +307,7 @@ const topTitle =
           <span id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title="Abstain" style="width: 0%"></span>
         </span>
       </span>
+      <span id="CompletionSpan"></span>
       <button class="cldr-nav-btn cldr-nav-right open-dash" type="button">Open Dashboard</button>
       <button class="cldr-nav-btn toggle-right" type="button">Toggle Info Panel</button>
     </nav>
@@ -514,6 +551,24 @@ function hideRightPanel() {
 }
 
 /**
+ * The user's coverage level has changed. Inform all widgets we know about that need
+ * updating to reflect the change.
+ *
+ * @param {String} newLevel the new coverage level, such as "modern" or "comprehensive"
+ *
+ * This should be implemented in a more general way, maybe with listeners, as we
+ * add more widgets/components that depend on coverage level.
+ */
+function updateWidgetsWithCoverage(newLevel) {
+  if (dashboardVisible && dashboardWidgetWrapper) {
+    dashboardWidgetWrapper.handleCoverageChanged(newLevel);
+  }
+  if (votingCompletionWrapper) {
+    votingCompletionWrapper.handleCoverageChanged(newLevel);
+  }
+}
+
+/**
  * Create the DashboardWidget Vue component
  */
 function insertDashboard() {
@@ -580,12 +635,6 @@ function hideDashboard() {
 
 function dashboardIsVisible() {
   return dashboardVisible; // boolean
-}
-
-function updateDashboardCoverage(newLevel) {
-  if (dashboardVisible && dashboardWidgetWrapper) {
-    dashboardWidgetWrapper.handleCoverageChanged(newLevel);
-  }
 }
 
 function updateDashboardRow(json) {
@@ -656,8 +705,8 @@ export {
   setToptitleVisibility,
   showDashboard,
   showRightPanel,
-  updateDashboardCoverage,
   updateDashboardRow,
+  updateWidgetsWithCoverage,
   updateWithStatus,
   /*
    * The following are meant to be accessible for unit testing only:

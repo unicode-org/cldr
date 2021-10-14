@@ -533,29 +533,36 @@ function reloadV() {
 } // end reloadV
 
 /**
- * The coverage level changed. Pass this off to the Vue component or the Special page.
+ * The coverage level changed. Pass this off to the Vue component(s) or the Special page(s).
  * @param {String} newLevel
  * @returns true if the change was handled.
+ *
+ * This works for some "special pages" (of which it is assumed no more than one can exist
+ * simultaneously). It also works for certain components that are not "special pages",
+ * but rather "widgets" such as DashboardWidget.vue.
+ *
+ * TODO: does any caller really need to know "if the change was handled"? If so,
+ * explain, and revise updateWidgetsWithCoverage to return that boolean; otherwise
+ * simplify all "handleCoverageChanged" functions -- no need for boolean return
  */
 function handleCoverageChanged(newLevel) {
   const currentSpecial = cldrStatus.getCurrentSpecial();
+  let anyChangeWasHandled = false;
   if (currentSpecial) {
     const special = getSpecial(currentSpecial);
     if (
       special.handleCoverageChanged &&
       special.handleCoverageChanged(newLevel)
     ) {
-      return true;
-    }
-    if (isReport(currentSpecial)) {
+      anyChangeWasHandled = true;
+    } else if (isReport(currentSpecial)) {
       // Cause the page to reload.
       reloadV();
-      return true;
+      anyChangeWasHandled = true;
     }
-  } else {
-    cldrGui.updateDashboardCoverage(newLevel);
   }
-  return false;
+  cldrGui.updateWidgetsWithCoverage(newLevel);
+  return anyChangeWasHandled;
 }
 
 function ignoreReloadRequest() {

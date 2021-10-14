@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -97,13 +98,9 @@ public class Summary {
         }
     )
     public Response getDashboard(
-        @QueryParam("session") @Schema(required = true, description = "Session ID")
-        String session,
-        @PathParam("locale") @Schema(required = true, description = "Locale ID")
-        String locale,
-        @PathParam("level") @Schema(required = true, description = "Coverage Level")
-        String level
-    ) {
+        @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
+        @PathParam("level") @Schema(required = true, description = "Coverage Level") String level,
+        @HeaderParam(Auth.SESSION_HEADER) String session) {
         CLDRLocale loc = CLDRLocale.getInstance(locale);
         CookieSession cs = Auth.getSession(session);
         if (cs == null) {

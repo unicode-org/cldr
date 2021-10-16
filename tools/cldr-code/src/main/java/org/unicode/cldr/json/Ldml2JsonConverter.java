@@ -389,18 +389,39 @@ public class Ldml2JsonConverter {
         if (result.startsWith("//cldr/supplemental/references/reference")) {
             // no change
         } else if (strictBcp47) {
+            // Look for something like <!--@MATCH:set/validity/locale--> in DTD
             if (result.contains("localeDisplayNames/languages/language")) {
                 result = fixXpathBcp47(result, "language", "type");
             } else if (result.contains("likelySubtags/likelySubtag")) {
-                result = fixXpathBcp47(result, "likelySubtag", "from", "to");
+                if (!result.contains("\"iw\"") &&
+                    !result.contains("\"in\"") &&
+                    !result.contains("\"ji\"")) {
+                    // Special case: preserve 'iw' and 'in' likely subtags
+                    result = fixXpathBcp47(result, "likelySubtag", "from", "to");
+                } else {
+                    result = underscoreToHypen(result);
+                    logger.warning("Including aliased likelySubtags: " + result);
+                }
             } else if (result.startsWith("//cldr/supplemental/weekData/weekOfPreference")) {
                 result = fixXpathBcp47(result, "weekOfPreference", "locales");
             } else if (result.startsWith("//cldr/supplemental/metadata/defaultContent")) {
                 result = fixXpathBcp47(result, "defaultContent", "locales");
+            } else if (result.startsWith("//cldr/supplemental/grammatical") && result.contains("Data/grammaticalFeatures")) {
+                result = fixXpathBcp47(result, "grammaticalFeatures", "locales");
+            } else if (result.startsWith("//cldr/supplemental/grammatical") && result.contains("Data/grammaticalDerivations")) {
+                result = fixXpathBcp47(result, "grammaticalDerivations", "locales");
+            } else if (result.startsWith("//cldr/supplemental/dayPeriodRuleSet")) {
+                result = fixXpathBcp47(result, "dayPeriodRules", "locales");
             } else if (result.startsWith("//cldr/supplemental/plurals")) {
                 result = fixXpathBcp47(result, "pluralRules", "locales");
+            } else if (result.startsWith("//cldr/supplemental/timeData/hours")) {
+                result = fixXpathBcp47MishMash(result, "hours", "regions");
             } else if (result.startsWith("//cldr/supplemental/parentLocales/parentLocale")) {
                 result = fixXpathBcp47(result, "parentLocale", "parent", "locales");
+            } else if (result.startsWith("//cldr/supplemental/territoryInfo/territory/languagePopulation")) {
+                result = fixXpathBcp47(result, "languagePopulation", "type");
+            } else if (result.contains("dayPeriod")) {
+                System.err.println(result);
             } else if (result.contains("languages") ||
             result.contains("languageAlias") ||
             result.contains("languageMatches") ||
@@ -835,6 +856,35 @@ public class Ldml2JsonConverter {
         }
     }
 
+    Pattern IS_REGION_CODE = PatternCache.get("([A-Z][A-Z])|([0-9][0-9][0-9])");
+    /**
+     * Bottleneck for converting Unicode Locale ID (root, ca_ES_VALENCIA)
+     * to String for filename or data item.
+     * If strictBcp47 is true (default) then it will convert to (und, ca-ES-valencia)
+     * Differs from unicodeLocaleToString in that it will preserve all uppercase
+     * region ids
+     * @param locale
+     * @return
+     */
+    private final String unicodeLocaleMishMashToString(String locale) {
+        if(strictBcp47) {
+            if (IS_REGION_CODE.matcher(locale).matches()) {
+                return locale;
+            } else {
+                return CLDRLocale.toLanguageTag(locale);
+            }
+        } else {
+            return underscoreToHypen(locale);
+        }
+    }
+
+    /**
+     * Fixup a path to be BCP47 compliant
+     * @param path XPath (usually ends in elementName, but not necessarily)
+     * @param elementName element to fixup
+     * @param attributeNames list of attributes to fix
+     * @return new path
+     */
     final String fixXpathBcp47(final String path, String elementName, String... attributeNames) {
         final XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed();
         for(final String attributeName : attributeNames) {
@@ -843,6 +893,31 @@ public class Ldml2JsonConverter {
             final String oldValues[] = oldValue.split(" ");
             String newValue = Arrays.stream(oldValues)
                 .map((String s) -> unicodeLocaleToString(s))
+                .collect(Collectors.joining(" "));
+            if (!oldValue.equals(newValue)) {
+                xpp.setAttribute(elementName, attributeName, newValue);
+                logger.finest(attributeName + " = " + oldValue + " -> " + newValue);
+            }
+        }
+        return xpp.toString();
+    }
+
+    /**
+     * Fixup a path to be BCP47 compliant
+     * …but support a mishmash of regions and locale ids CLDR-15069
+     * @param path XPath (usually ends in elementName, but not necessarily)
+     * @param elementName element to fixup
+     * @param attributeNames list of attributes to fix
+     * @return new path
+     */
+    final String fixXpathBcp47MishMash(final String path, String elementName, String... attributeNames) {
+        final XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed();
+        for(final String attributeName : attributeNames) {
+            final String oldValue = xpp.findAttributeValue(elementName, attributeName);
+            if (oldValue == null) continue;
+            final String oldValues[] = oldValue.split(" ");
+            String newValue = Arrays.stream(oldValues)
+                .map((String s) -> unicodeLocaleMishMashToString(s))
                 .collect(Collectors.joining(" "));
             if (!oldValue.equals(newValue)) {
                 xpp.setAttribute(elementName, attributeName, newValue);

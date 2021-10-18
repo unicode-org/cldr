@@ -201,7 +201,6 @@ export default {
     handleCoverageChanged(level) {
       console.log("Dashboard changing level: " + level);
       this.reloadDashboard();
-      return true;
     },
 
     reloadDashboard() {

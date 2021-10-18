@@ -29,10 +29,6 @@ import LoginButton from "./views/LoginButton.vue";
  * The App created and mounted most recently. For .unmount …
  */
 let lastMounted = null;
-/**
- * The root Component instance used most recently.  For calling methods on.
- */
-let lastRoot = null;
 
 /**
  * Mount a Vue component.
@@ -45,34 +41,10 @@ function showPanel(type, el, opts) {
   if (lastMounted) {
     lastMounted.unmount();
     lastMounted = null;
-    lastRoot = null;
   }
   let component = specialToComponent(type);
   lastMounted = show(component, el, type, opts);
   return lastMounted;
-}
-
-/**
- * Handle a coverage level change.
- * @param {String} newLevel new coverage level
- * @returns true if handled
- *
- * Note: this mechanism is limited to the "most recent" Vue component (lastRoot).
- * It may work for some "special page" components that are shown only one at a
- * time. As it stands, it isn't suitable for general components such as widgets.
- *
- * Compare cldrLoad.handleCoverageChanged, which is somewhat more general; how does it
- * compare to this function (cldrVueRouter.handleCoverageChanged), and do we need both?
- *
- * Note: cldrBundle.handleCoverageChanged is the same as cldrVueRouter.handleCoverageChanged
- *
- * Compare cldrGenericVue.handleCoverageChanged which calls cldrBundle.handleCoverageChanged
- */
-function handleCoverageChanged(newLevel) {
-  if (!lastRoot || !lastRoot.handleCoverageChanged) {
-    return false;
-  }
-  return lastRoot.handleCoverageChanged(newLevel);
 }
 
 /**
@@ -120,7 +92,7 @@ function show(component, el, specialPage, extraProps) {
   let app;
   try {
     app = createCldrApp(component, specialPage, extraProps);
-    lastRoot = app.mount(el);
+    app.mount(el);
   } catch (e) {
     errBox(e, !!app ? "showing" : "creating");
     return null;
@@ -170,4 +142,4 @@ function setupComponents(app) {
   app.component("cldr-value", CldrValue);
 }
 
-export { showPanel, handleCoverageChanged, createCldrApp, setupComponents };
+export { showPanel, createCldrApp, setupComponents };

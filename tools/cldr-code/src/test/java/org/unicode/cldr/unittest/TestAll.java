@@ -201,6 +201,7 @@ public class TestAll extends TestGroup {
             "org.unicode.cldr.unittest.TestCLDRUtils",
             "org.unicode.cldr.unittest.TestCanonicalIds",
             "org.unicode.cldr.unittest.TestCasingInfo",
+            "org.unicode.cldr.unittest.TestCheckAltOnly",
             "org.unicode.cldr.unittest.TestCheckCLDR",
             "org.unicode.cldr.unittest.TestComparisonBuilder",
             "org.unicode.cldr.unittest.TestCoverageLevel",

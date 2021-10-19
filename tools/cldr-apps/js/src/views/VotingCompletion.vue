@@ -43,7 +43,6 @@ export default {
     handleCoverageChanged(level) {
       console.log("Completion changing level: " + level);
       this.fetchData();
-      return true;
     },
 
     fetchData() {

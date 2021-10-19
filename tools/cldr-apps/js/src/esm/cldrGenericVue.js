@@ -14,15 +14,6 @@ function load(specialPage) {
   loadHandler({}, specialPage); // null load
 }
 
-/**
- * Attempt to update the application with a new coverage level
- * @param {String} newLevel
- * @returns true if the change was handled
- */
-function handleCoverageChanged(newLevel) {
-  return cldrBundle.handleCoverageChanged(newLevel); // = cldrVueRouter.handleCoverageChanged
-}
-
 function loadHandler(json, specialPage) {
   if (testCldrRetry && Math.random() > 0.5) {
     cldrRetry.handleDisconnect(
@@ -75,4 +66,4 @@ function loadHandler(json, specialPage) {
   }
 }
 
-export { load, handleCoverageChanged };
+export { load };

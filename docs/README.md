@@ -4,7 +4,7 @@ CLDR main page: [https://unicode.org/cldr](unicode.org/cldr)
 
 ## TR35
 
-- [Unicode Technical Standard #35 UNICODE LOCALE DATA MARKUP LANGUAGE (LDML)](ldml/tr35.html)
+- [Unicode Technical Standard #35 UNICODE LOCALE DATA MARKUP LANGUAGE (LDML)](https://unicode-org.github.io/cldr/ldml/tr35.html)
 
 ## RFC
 

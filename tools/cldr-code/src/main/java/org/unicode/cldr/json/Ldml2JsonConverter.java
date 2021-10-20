@@ -420,8 +420,6 @@ public class Ldml2JsonConverter {
                 result = fixXpathBcp47(result, "parentLocale", "parent", "locales");
             } else if (result.startsWith("//cldr/supplemental/territoryInfo/territory/languagePopulation")) {
                 result = fixXpathBcp47(result, "languagePopulation", "type");
-            } else if (result.contains("dayPeriod")) {
-                System.err.println(result);
             } else if (result.contains("languages") ||
             result.contains("languageAlias") ||
             result.contains("languageMatches") ||

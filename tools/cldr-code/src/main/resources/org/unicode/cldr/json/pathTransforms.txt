@@ -143,8 +143,8 @@
 > $1/$2/$4/default$5
 
 # Grammar : put grammaticalGender into a separate section
-< (.*)/(grammaticalData)/(.*)/(grammaticalGender)(.*)$
-> $1/grammaticalGenderData/$3/$4$5
+#< (.*)/(grammaticalData)/(.*)/(grammaticalGender)(.*)$
+#> $1/grammaticalGenderData/$3/$4$5
 
 # BCP47 (No extension, assume 'u')
 < (.*)/(keyword)/(key)\[@name="([^"]*)"\](.*)$

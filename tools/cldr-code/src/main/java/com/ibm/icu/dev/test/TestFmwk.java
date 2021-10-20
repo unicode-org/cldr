@@ -33,13 +33,13 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-
-import com.google.common.cache.CacheBuilder;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
+import java.util.stream.Stream;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Pair;
+
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 /**
  * TestFmwk is a base class for tests that can be run conveniently from the
  * command line as well as under the Java test harness.
@@ -2065,11 +2065,11 @@ public class TestFmwk extends AbstractTestLog {
             final Path subPath = new File(classSubPath).toPath()       // a/b/c/Class
                                                        .getParent()    // a/b/c
                                                        .resolve(fyle); // a/b/c/Class.java
-            try {
-                    Path p = Files.find(basePath,
+            try (
+                    Stream<Path> paths = Files.find(basePath,
                         Integer.MAX_VALUE,
-                        (Path path, BasicFileAttributes attrs) -> path.endsWith(subPath) && Files.isReadable(path))
-                        .findFirst().get().toAbsolutePath();
+                        (Path path, BasicFileAttributes attrs) -> path.endsWith(subPath) && Files.isReadable(path))) {
+                    Path p = paths.findFirst().get().toAbsolutePath();
                     return p.subpath(basePath.getNameCount(), p.getNameCount()).toString();
                     // return p.toString();
                 } catch (IOException | NoSuchElementException e) {

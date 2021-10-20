@@ -34,6 +34,10 @@
 < (.*/ellipsis)\[@type="([^"]*)"\](.*)$
 > $1/$2$3
 
+# move datetimeSkeleton to a separate path
+< (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="([^"]*)"\]/datetimeSkeleton(.*)
+> $1/$2/$5Formats/$4-datetimeSkeleton$7
+
 # Remove unnecessary dateFormat/pattern
 < (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="([^"]*)"\]/pattern\[@type="([^"]*)"\](.*)
 > $1/$2/$5Formats/$4$8

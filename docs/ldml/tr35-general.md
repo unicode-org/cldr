@@ -916,8 +916,8 @@ The formal syntax for identifiers is provided below.
     <td>("1"[0-9]+ | [2-9][0-9]*) "-"
         <ul><li><em>Examples:</em>
             <ul><li>kilowatt-hour-per-100-kilometer</li>
-                <li>gallon-per-100-miles</li>
-                <li>per-200-pounds</li>
+                <li>gallon-per-100-mile</li>
+                <li>per-200-pound</li>
             </ul></li>
             <li><em>Note:</em> The number is an integer greater than one.</li>
         </ul></td></tr>

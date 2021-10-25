@@ -50,7 +50,6 @@ import org.unicode.cldr.util.DtdData.IllegalByDtdException;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
@@ -729,43 +728,7 @@ public class SurveyAjax extends HttpServlet {
                     } else if (what.equals(WHAT_GETSIDEWAYS) && l != null) {
                         mySession.userDidAction();
                         final SurveyJSONWrapper r = newJSONStatusQuick(sm);
-                        r.put("what", what);
-                        r.put("loc", loc);
-                        r.put("xpath", xpath);
-                        final String xpathString = sm.xpt.getByStringID(xpath);
-
-                        if (xpathString == null) {
-                            throw new IllegalArgumentException("could not find strid: " + xpath);
-                        }
-                        final CLDRLocale topLocale = l.getHighestNonrootParent();
-                        r.put("topLocale", topLocale);
-                        final Collection<CLDRLocale> relatedLocs = sm.getRelatedLocs(topLocale); // sublocales of the 'top' locale
-                        JSONObject others = new JSONObject(); // values
-                        JSONArray novalue = new JSONArray(); // no value
-                        for (CLDRLocale ol : relatedLocs) {
-                            /*
-                             * Use resolved = true for src to get the winning value for each related locale.
-                             * Formerly it was false, leading to a bug in which the client wrongly guessed
-                             * the values for locales in json.novalue.
-                             * Reference: https://unicode.org/cldr/trac/ticket/11688
-                             */
-                            XMLSource src = sm.getSTFactory().makeSource(ol.getBaseName(), true);
-                            String ov = src.getValueAtDPath(xpathString);
-                            if (ov != null) {
-                                JSONArray other = null;
-                                if (others.has(ov)) {
-                                    other = others.getJSONArray(ov);
-                                } else {
-                                    other = new JSONArray();
-                                    others.put(ov, other);
-                                }
-                                other.put(ol.getBaseName());
-                            } else {
-                                novalue.put(ol.getBaseName());
-                            }
-                        }
-                        r.put("others", others);
-                        r.put("novalue", novalue);
+                        getSidewaysLocales(r, sm, l, xpath);
                         send(r, out);
                     } else if (what.equals(WHAT_SEARCH)) {
                         mySession.userDidAction();
@@ -1756,9 +1719,10 @@ public class SurveyAjax extends HttpServlet {
                     importAnonymousOldLosingVote(box, locale, xpathString, xp, unprocessedValue, processedValue, sm.reg);
                 }
             } catch (InvalidXPathException ix) {
-                SurveyLog.logException(ix, "Bad XPath: Trying to import for " + xpathString);
+                SurveyLog.logException(logger, ix, "Bad XPath: Trying to import for " + xpathString);
+
             } catch (VoteNotAcceptedException ix) {
-                SurveyLog.logException(ix, "Vote not accepted: Trying to import for " + xpathString);
+                SurveyLog.logException(logger, ix, "Vote not accepted: Trying to import for " + xpathString);
             }
         }
         oldvotes.put("ok", true);
@@ -2355,7 +2319,6 @@ public class SurveyAjax extends HttpServlet {
 
         PathHeader ph = stf.getPathHeader(xp);
         CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
-        SurveyToolStatus phStatus = ph.getSurveyToolStatus();
 
         final String candVal = val;
 
@@ -2853,8 +2816,6 @@ public class SurveyAjax extends HttpServlet {
                     checkResult.clear();
                     cc.check(base, checkResult, val0);
 
-                    SurveyToolStatus phStatus = ph.getSurveyToolStatus();
-
                     DataSection section = DataSection.make(null, null, cs, loc, base, null);
                     section.setUserForVotelist(cs.user);
 
@@ -3077,5 +3038,55 @@ public class SurveyAjax extends HttpServlet {
         out.write("<p>Please read the <a target='CLDR-ST-DOCS' href='"
             + "http://cldr.unicode.org/translation/getting-started/review-formats"
             + "'>instructions</a> before continuing.</p>");
+    }
+
+    /**
+     * Serve information about the values for the given path in locales
+     * related to ("sideways from") this locale. Locales may be related
+     * or "sideways" if, for example, they are all sublocales of the
+     * same locale.
+     *
+     * @param r the SurveyJSONWrapper to be filled in with the information
+     * @param sm the SurveyMain
+     * @param locale the CLDRLocale of interest
+     * @param xpath the path of interest
+     * @throws JSONException
+     */
+    private void getSidewaysLocales(SurveyJSONWrapper r, SurveyMain sm,
+        CLDRLocale locale, String xpath) throws JSONException {
+
+        final String xpathString = sm.xpt.getByStringID(xpath);
+        if (xpathString == null) {
+            throw new IllegalArgumentException("could not find strid: " + xpath);
+        }
+        JSONObject others = new JSONObject(); // values
+        JSONArray novalue = new JSONArray(); // no value
+        final CLDRLocale topLocale = locale.getHighestNonrootParent();
+        if (topLocale != null) {
+            final Collection<CLDRLocale> relatedLocs = sm.getRelatedLocs(topLocale); // sublocales of the 'top' locale
+            for (CLDRLocale ol : relatedLocs) {
+                String baseName = ol.getBaseName();
+                XMLSource src = sm.getSTFactory().makeSource(baseName, true /* resolved */);
+                String ov = src.getValueAtDPath(xpathString);
+                if (ov != null) {
+                    JSONArray other = null;
+                    if (others.has(ov)) {
+                        other = others.getJSONArray(ov);
+                    } else {
+                        other = new JSONArray();
+                        others.put(ov, other);
+                    }
+                    other.put(baseName);
+                } else {
+                    novalue.put(baseName);
+                }
+            }
+        }
+        r.put("what", WHAT_GETSIDEWAYS);
+        r.put("loc", locale.toString());
+        r.put("xpath", xpath);
+        r.put("topLocale", topLocale);
+        r.put("others", others);
+        r.put("novalue", novalue);
     }
 }

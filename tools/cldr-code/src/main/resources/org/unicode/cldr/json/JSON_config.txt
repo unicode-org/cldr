@@ -1,36 +1,39 @@
+package=localenames ; packageDesc=Translated versions of locale display name elements: languages, scripts, territories, and variants.
 section=languages ; path=//cldr/main/[^/]++/localeDisplayNames/languages/.* ; package=localenames
 section=scripts ; path=//cldr/main/[^/]++/localeDisplayNames/scripts/.* ; package=localenames
 section=territories ; path=//cldr/main/[^/]++/localeDisplayNames/territories/.* ; package=localenames
 section=variants ; path=//cldr/main/[^/]++/localeDisplayNames/variants/.* ; package=localenames
 section=transformNames ; path=//cldr/main/[^/]++/localeDisplayNames/transformNames/.* ; package=localenames
-section=measurementSystemNames ; path=//cldr/main/[^/]++/localeDisplayNames/measurementSystemNames/.* ; package=units
+section=measurementSystemNames ; path=//cldr/main/[^/]++/localeDisplayNames/measurementSystemNames/.* ; package=units ; packageDesc=Data for units formatting.
 section=localeDisplayNames ; path=//cldr/main/[^/]++/localeDisplayNames/.* ; package=localenames
-section=contextTransforms ; path=//cldr/main/[^/]++/contextTransforms/.* ; package=misc
+section=contextTransforms ; path=//cldr/main/[^/]++/contextTransforms/.* ; package=misc ; packageDesc=Other CLDR data not defined elsewhere
 section=layout ; path=//cldr/main/[^/]++/layout/.* ; package=misc
 section=characters ; path=//cldr/main/[^/]++/characters/.* ; package=misc
 section=typographic ; path=//cldr/main/[^/]++/typographicNames/.* ; package=misc
 section=characterLabels ; path=//cldr/main/[^/]++/characterLabel.*/.* ; package=misc
 section=delimiters ; path=//cldr/main/[^/]++/delimiters/.* ; package=misc
-section=ca-buddhist ; path=//cldr/main/[^/]++/dates/calendars/buddhist/.* ; package=cal-buddhist
-section=ca-chinese ; path=//cldr/main/[^/]++/dates/calendars/chinese/.* ; package=cal-chinese
-section=ca-coptic ; path=//cldr/main/[^/]++/dates/calendars/coptic/.* ; package=cal-coptic
-section=ca-dangi ; path=//cldr/main/[^/]++/dates/calendars/dangi/.* ; package=cal-dangi
-section=ca-ethiopic ; path=//cldr/main/[^/]++/dates/calendars/ethiopic/.* ; package=cal-ethiopic
+section=ca-buddhist ; path=//cldr/main/[^/]++/dates/calendars/buddhist/.* ; package=cal-buddhist ; packageDesc=CLDR data for Buddhist calendars.
+section=ca-chinese ; path=//cldr/main/[^/]++/dates/calendars/chinese/.* ; package=cal-chinese ; packageDesc=CLDR data for Chinese calendars.
+section=ca-coptic ; path=//cldr/main/[^/]++/dates/calendars/coptic/.* ; package=cal-coptic ; packageDesc=CLDR data for Coptic calendars.
+section=ca-dangi ; path=//cldr/main/[^/]++/dates/calendars/dangi/.* ; package=cal-dangi ; packageDesc=CLDR data for Dangi calendars.
+section=ca-ethiopic ; path=//cldr/main/[^/]++/dates/calendars/ethiopic/.* ; package=cal-ethiopic ; packageDesc=CLDR data for Ethiopic calendars.
 section=ca-ethiopic-amete-alem ; path=//cldr/main/[^/]++/dates/calendars/ethiopic-amete-alem/.* ; package=cal-ethiopic
+package=dates ; packageDesc=Data for date/time formatting, including data for Gregorian calendar.
 section=ca-generic ; path=//cldr/main/[^/]++/dates/calendars/generic/.* ; package=dates
 section=ca-gregorian ; path=//cldr/main/[^/]++/dates/calendars/gregorian/.* ; package=dates
-section=ca-hebrew ; path=//cldr/main/[^/]++/dates/calendars/hebrew/.* ; package=cal-hebrew
-section=ca-indian ; path=//cldr/main/[^/]++/dates/calendars/indian/.* ; package=cal-indian
-section=ca-islamic ; path=//cldr/main/[^/]++/dates/calendars/islamic/.* ; package=cal-islamic
+section=ca-hebrew ; path=//cldr/main/[^/]++/dates/calendars/hebrew/.* ; package=cal-hebrew ; packageDesc=CLDR data for Hebrew calendars.
+section=ca-indian ; path=//cldr/main/[^/]++/dates/calendars/indian/.* ; package=cal-indian ; packageDesc=CLDR data for Indian calendars.
+section=ca-islamic ; path=//cldr/main/[^/]++/dates/calendars/islamic/.* ; package=cal-islamic ; packageDesc=CLDR data for Islamic calendars.
 section=ca-islamic-civil ; path=//cldr/main/[^/]++/dates/calendars/islamic-civil/.* ; package=cal-islamic
 section=ca-islamic-rgsa ; path=//cldr/main/[^/]++/dates/calendars/islamic-rgsa/.* ; package=cal-islamic
 section=ca-islamic-tbla ; path=//cldr/main/[^/]++/dates/calendars/islamic-tbla/.* ; package=cal-islamic
 section=ca-islamic-umalqura ; path=//cldr/main/[^/]++/dates/calendars/islamic-umalqura/.* ; package=cal-islamic
-section=ca-japanese ; path=//cldr/main/[^/]++/dates/calendars/japanese/.* ; package=cal-japanese
-section=ca-persian ; path=//cldr/main/[^/]++/dates/calendars/persian/.* ; package=cal-persian
-section=ca-roc ; path=//cldr/main/[^/]++/dates/calendars/roc/.* ; package=cal-roc
+section=ca-japanese ; path=//cldr/main/[^/]++/dates/calendars/japanese/.* ; package=cal-japanese ; packageDesc=CLDR data for Japanese calendars.
+section=ca-persian ; path=//cldr/main/[^/]++/dates/calendars/persian/.* ; package=cal-persian ; packageDesc=CLDR data for Persian calendars.
+section=ca-roc ; path=//cldr/main/[^/]++/dates/calendars/roc/.* ; package=cal-roc ; packageDesc=CLDR data for ROC calendars.
 section=dateFields ; path=//cldr/main/[^/]++/dates/fields/.* ; package=dates
 section=timeZoneNames ; path=//cldr/main/[^/]++/dates/timeZoneNames/.* ; package=dates
+package=numbers ; packageDesc = Data for number formatting.
 section=currencies ; path=//cldr/main/[^/]++/numbers/currencies/.* ; package=numbers
 section=numbers ; path=//cldr/main/[^/]++/numbers/.* ; package=numbers
 section=units ; path=//cldr/main/[^/]++/units/.* ; package=units

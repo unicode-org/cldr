@@ -32,13 +32,17 @@ let voteLevelChanged = 0;
  */
 function wireUpButton(button, tr, theRow, vHash) {
   if (vHash == null) {
+    // this is an "Abstain" ("no") button
     button.id = "NO_" + tr.rowHash;
     vHash = "";
   } else {
+    // this is a vote button for a candidate item
     button.id = "v" + vHash + "_" + tr.rowHash;
   }
-  cldrDom.listenFor(button, "click", function (e) {
-    handleWiredClick(tr, theRow, vHash, undefined, button);
+  cldrDom.listenFor(button, "change", function (e) {
+    if (button.checked) {
+      handleWiredClick(tr, theRow, vHash, undefined, button);
+    }
     cldrEvent.stopPropagation(e);
     return false;
   });

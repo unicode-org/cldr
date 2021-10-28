@@ -5,7 +5,7 @@
 <!-- HTML: no th -->
 <table><tbody>
 <tr><td>Version</td><td>40</td></tr>
-<tr><td>Editors</td><td>Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
@@ -981,7 +981,7 @@ This happens even if nouns are invariant; even if all English nouns were invaria
 1. 1 sheep **is** here. Do you want to buy **it**?
 2. 2 sheep **are** here. Do you want to buy **them**?
 
-For more information, see [Determining-Plural-Categories](http://cldr.unicode.org/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories).
+For more information, see [Determining-Plural-Categories](http://cldr.unicode.org/index/cldr-spec/plural-rules#h.44ozdx564iez).
 
 English does not have a separate plural category for “zero”, because it does not require a different message for “0”. For example, the same message can be used below, with just the numeric placeholder changing.
 

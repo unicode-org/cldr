@@ -5,7 +5,7 @@
 <!-- HTML: no header -->
 <table><tbody>
 <tr><td>Version</td><td>40</td></tr>
-<tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
@@ -159,7 +159,7 @@ The subdivision containment data is similar to the territory containment. It is 
 <subgroup type="bda" contains="bd02 bd06 bd07 bd25 bd50 bd51" />
 ```
 
-The `type` is a [`unicode_region_subtag`](tr35.md#unicode_region_subtag) (territory) identifier for the top level of containment, or a [`unicode_subdivision_id`](tr35.md#unicode_subdivision_subtag) for lower levels of containment when there are multiple levels. The `contains` value is a space-delimited list of one or more [`unicode_subdivision_id`](tr35.md#unicode_subdivision_subtag) values. In the example above, subdivision bda contains other subdivisions bd02, bd06, bd07, bd25, bd50, bd51.
+The `type` is a [`unicode_region_subtag`](tr35.md#unicode_region_subtag) (territory) identifier for the top level of containment, or a [`unicode_subdivision_id`](tr35.md#unicode_subdivision_id) for lower levels of containment when there are multiple levels. The `contains` value is a space-delimited list of one or more [`unicode_subdivision_id`](tr35.md#unicode_subdivision_id) values. In the example above, subdivision bda contains other subdivisions bd02, bd06, bd07, bd25, bd50, bd51.
 
 Note: Formerly (in CLDR 28 through 30):
 
@@ -681,7 +681,7 @@ Attribute values for the \*Alias values include the following:
 | replacement | NMTOKEN       | The code(s) to replace it, space-delimited. |
 | reason      | deprecated    | The code in type is deprecated, such as 'iw' by 'he', or 'CS' by 'RS ME'. |
 |             | overlong      | The code in type is too long, such as 'eng' by 'en' or 'USA' or '840' by 'US' |
-|             | macrolanguage | The code in type is an encompassed language that is replaced by a macrolanguage, such as '[arb'](https://www.sil.org/iso639-3/documentation.asp?id=arb) by 'ar'. |
+|             | macrolanguage | The code in type is an encompassed language that is replaced by a macrolanguage, such as '[arb'](https://iso639-3.sil.org/code/arb) by 'ar'. |
 |             | legacy        | The code in type is a legacy code that is replaced by another code for compatiblity with established legacy usage, such as 'sh' by 'sr_Latn' |
 |             | bibliographic | The code in type is a [bibliographic code](https://www.loc.gov/standards/iso639-2/langhome.html), which is replaced by a terminology code, such as 'alb' by 'sq'. |
 
@@ -817,6 +817,8 @@ An implementation need not use rationals directly for conversion; it could use d
 <!ATTLIST convertUnit offset CDATA #IMPLIED >
 
 <!ATTLIST convertUnit description CDATA #IMPLIED >
+
+<!ATTLIST convertUnit systems NMTOKENS #IMPLIED >
 ```
 
 The conversion data provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
@@ -1138,6 +1140,11 @@ Once you have a list of `unitPreference` elements, find the applicable unitPrefe
   * ≥ 804.672 meters ⇒ mile
   * ≥ 30.48 meters ⇒ foot:inch
 * Search for the first matching unitPreference for the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0"
+
+For completeness, when comparing doubles to the geq values:
+* Negative numbers are treated as if they were positive.
+* _infinity_ is treated as being the largest possible value.
+* NaN is treated as the smallest possible value.
 
 Once a matching `unitPreference` element is found:
 

@@ -26,12 +26,17 @@
 ## (Note: CLDR version is added in code)
 
 # Transform underscore to hyphen-minus in language keys
+# Does not produce valid bcp47, see Ldml2JsonConverter.fixXpathBcp47()
 < (.*/language\[@type="[a-z]{2,3})_([^"]*"\](\[@alt="short"])?)
 > $1-$2
 
 # Separate "ellipsis" from its type as another layer.
 < (.*/ellipsis)\[@type="([^"]*)"\](.*)$
 > $1/$2$3
+
+# move datetimeSkeleton to a parallel path
+< (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="([^"]*)"\]/(datetimeSkeleton)(.*)
+> $1/$2/$5Skeletons/$4$8
 
 # Remove unnecessary dateFormat/pattern
 < (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="([^"]*)"\]/pattern\[@type="([^"]*)"\](.*)
@@ -138,8 +143,8 @@
 > $1/$2/$4/default$5
 
 # Grammar : put grammaticalGender into a separate section
-< (.*)/(grammaticalData)/(.*)/(grammaticalGender)(.*)$
-> $1/grammaticalGenderData/$3/$4$5
+#< (.*)/(grammaticalData)/(.*)/(grammaticalGender)(.*)$
+#> $1/grammaticalGenderData/$3/$4$5
 
 # BCP47 (No extension, assume 'u')
 < (.*)/(keyword)/(key)\[@name="([^"]*)"\](.*)$

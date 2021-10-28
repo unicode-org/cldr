@@ -5,7 +5,7 @@
 <!-- HTML: no header -->
 <table><tbody>
 <tr><td>Version</td><td>40</td></tr>
-<tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
@@ -556,18 +556,18 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 
 #### 3.1.2 <a name="Restrictions" href="#Restrictions">Restrictions</a>
 
-1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](#Katakana), [ALetter](#ALetter), or [MidLetter](#MidLetter).
+1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](https://www.unicode.org/reports/tr29/#Katakana), [ALetter](https://www.unicode.org/reports/tr29/#ALetter), or [MidLetter](https://www.unicode.org/reports/tr29/#MidLetter).
 2.  The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the sets.
 3.  Any [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt)s should be in the auxiliary set , or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.
 4.  For exemplar characters the [Unicode Set](tr35.md#Unicode_Sets) format is restricted so as to not use properties or boolean combinations.
 
 ### 3.2 ~~<a name="Character_Mapping" href="#Character_Mapping">Mapping</a>~~
 
-**This element has been deprecated.** For information on its structure and how it was intended to specify locale-specific preferred encodings for various purposes (e-mail, web), see the [Mapping](https://www.unicode.org/reports/tr35/tr35-39/tr35-general.md#Character_Mapping) section from the CLDR 27 version of the LDML Specification.
+**This element has been deprecated.** For information on its structure and how it was intended to specify locale-specific preferred encodings for various purposes (e-mail, web), see the [Mapping](https://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping) section from the CLDR 27 version of the LDML Specification.
 
 ### 3.3 ~~<a name="IndexLabels" href="#IndexLabels">Index Labels</a>~~
 
-**This element and its subelements have been deprecated.** For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the [Index Labels](https://www.unicode.org/reports/tr35/tr35-39/tr35-general.md#IndexLabels) section from the CLDR 27 version of the LDML Specification.
+**This element and its subelements have been deprecated.** For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the [Index Labels](https://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels) section from the CLDR 27 version of the LDML Specification.
 
 ```xml
 <!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >
@@ -818,29 +818,48 @@ This data is supplied in **Part 6: [Supplemental](tr35-info.md#Contents)**: [Sec
 
 ### 6.2 <a name="Unit_Identifiers" href="#Unit_Identifiers">Unit Identifiers</a>
 
-Units are identified internally as described in this section. As with other identifiers in CLDR, the American English spelling is used for unit identifiers. These names should not be presented to end users, however. As in other cases, the translated names for different languages (or variants of English) are available in the CLDR localized data.
-
-| Name                 | Example |
-| -------------------- | ------- |
-| long unit identifier | length-meter, mass-pound, duration-day |
-| core unit identifier | meter, pound, day |
-
-
-Both the _unit identifier_ and the _core unit identifier_ are guaranteed to be unique, and clients can use either one to identify a unit. The associations between types and core unit identifiers are as prescribed in CLDR data; it is invalid for a client to create any additional associations. Except as specified in _Section 6.6 [Private-Use Units](https://www.unicode.org/reports/tr35/tr35-general.md#Private_Use_Units)_, all values are reserved by CLDR.
+Units of measurement, such as _meter_, have defined programmatic identifiers as described in this section. 
+The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows. 
+A secondary type of identifier is a _mixed unit identifier_, which combines a series of units such as _5° 30′_ or _3 feet 7 inches_.
 
 | Name             | Examples |
 | ---------------- | -------- |
-| simple unit ID   | meter, foot, inch, pound, pound-force, … |
-| prefixed unit ID | kilometer, centigram, … <br/> _plus simple unit IDs_ |
-| single unit ID   | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
 | core unit ID     | kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, … <br/> _plus single unit IDs_ |
-| mixed unit ID    | foot-and-pound |
+| single unit ID   | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
+| prefixed unit ID | kilometer, centigram, … <br/> _plus simple unit IDs_ |
+| simple unit ID   | meter, foot, inch, pound, pound-force, … |
+| mixed unit ID    | foot-and-inch, degree-and-arc-minute-and-arc-second |
 
-A core unit that is not a simple unit is called a _complex unit_. It is valid to construct a complex unit identifier from multiple simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter). As usual, with division the part before the (first) -per- is called the _numerator_, and the part after it is called the _denominator_.
 
-The conversion information uses the short unit identifiers, discarding the unitType. Thus “meter” is used instead of “length-meter”. The translation data currently uses the long unit identifiers, for backwards compatibility. However, that is likely to change in a future version.
+There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below. 
+The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together. 
+The long unit identifers are used as a key in the translated unit names for locales, but dealing with these two styles is unnecessarily complicated, so the long unit identifiers are slated for deprecation (after replacing their use as a key for translations).
 
-The identifiers and unit conversion data are built to handle arbitrary combinations of core unit IDs using division (kilometer-per-hour), multiplication (kilogram-meter), powers (square-second), and SI prefixes (kilo-). Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
+| core unit ID | long unit ID |
+| ------------ | ------------ |
+| meter        | length-meter |
+| pound        | mass-pound   |
+| day          | duration-day |
+ 
+
+The list of valid CLDR simple unit identifiers is found in _Section [3.11 Validity Data](tr35.md#Validity_Data)_. 
+These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data. 
+All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units. 
+There is one exception: implementations that need to define their own unit identifiers can do so via _Section 6.6 [Private-Use Units](#Private_Use_Units)_.
+
+A core unit identifier that is not a simple unit is called a _complex unit_ (aka _compound unit_). 
+A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi). 
+As usual, with division the part before the (first) -per- is called the _numerator_, and the part after it is called the _denominator_.
+
+The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers. 
+Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
+
+Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers. 
+See _Section 6.4 [Compound Units](#compound-units)_. 
+That can be used for less common units, such as _petasecond_. 
+However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words. 
+For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent). 
+Thus the most commonly-used complex units have explicit translations in CLDR.
 
 * A power (square, cubic, pow4, etc) modifies one prefixed unit ID, and must occur immediately before it in the identifier: square-foot, not foot-square.
 * Multiplication binds more tightly than division, so kilogram-meter-per-second-ampere is interpreted as (kg ⋅ m) / (s ⋅ a).
@@ -849,7 +868,7 @@ The identifiers and unit conversion data are built to handle arbitrary combinati
 
 #### Nomenclature
 
-For the US spelling, see the [Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811](https://www.nist.gov/pml/special-publication-811), which is explicit about the discrepancy with the English-language BIPM spellings:
+As with other identifiers in CLDR, the American English spelling is used for unit identifiers. For the US spelling, see the [Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811](https://www.nist.gov/pml/special-publication-811), which is explicit about the discrepancy with the English-language BIPM spellings:
 
 > In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”
 
@@ -861,12 +880,9 @@ The formal syntax for identifiers is provided below.
 
 <table><tbody>
 <tr><td>unit_identifier</td><td>:=</td>
-    <td>long_unit_identifier<br/>
+    <td>core_unit_identifier<br/>
         | mixed_unit_identifier<br/>
-        | core_unit_identifier</td></tr>
-
-<tr><td>long_unit_identifier</td><td>:=</td>
-    <td>type "-" core_unit_identifier</td></tr>
+        | long_unit_identifier</td></tr>
 
 <tr><td>core_unit_identifier</td><td>:=</td>
     <td>product_unit ("-per-" product_unit)*<br/>
@@ -878,10 +894,6 @@ The formal syntax for identifiers is provided below.
             <li><em>Note:</em> The normalized form will have only one "per"</li>
         </ul></td></tr>
 
-<tr><td>mixed_unit_identifier</td><td>:=</td>
-    <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
-        <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
-
 <tr><td>product_unit</td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
             | pu_single_unit ("-" pu_single_unit)*
@@ -890,15 +902,25 @@ The formal syntax for identifiers is provided below.
             </ul></td></tr>
 
 <tr><td>single_unit</td><td>:=</td>
-    <td>(dimensionality_prefix)? prefixed_unit
-        <ul><li><em>Example: </em>square-meter</li></ul></td></tr>
+    <td>number_prefix? dimensionality_prefix? prefixed_unit
+        <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
-    <td>“xxx-” single-unit | “x-” single-unit
+    <td>“xxx-” single_unit | “x-” single_unit
     <ul><li><em>Example:</em> xxx-square-knuts (a Harry Potter unit)</li>
         <li><em>Note:</em> “x-” is only for backwards compatibility</li>
         <li>See Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
+
+<tr><td>number_prefix</td><td>:=</td>
+    <td>("1"[0-9]+ | [2-9][0-9]*) "-"
+        <ul><li><em>Examples:</em>
+            <ul><li>kilowatt-hour-per-100-kilometer</li>
+                <li>gallon-per-100-mile</li>
+                <li>per-200-pound</li>
+            </ul></li>
+            <li><em>Note:</em> The number is an integer greater than one.</li>
+        </ul></td></tr>
 
 <tr><td>dimensionality_prefix</td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
@@ -937,12 +959,34 @@ The formal syntax for identifiers is provided below.
             </ul></li>
             <li><em>Example:</em> foot</li>
         </ul></td></tr>
+		
+<tr><td>mixed_unit_identifier</td><td>:=</td>
+    <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
+        <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
+
+<tr><td>long_unit_identifier</td><td>:=</td>
+    <td>grouping "-" core_unit_identifier</td></tr>
+
+<tr><td>grouping</td><td>:=</td>
+    <td>unit_component</td></tr>
+
+<tr><td>currency_unit</td><td>:=</td>
+    <td>"curr-" [a-z]{3}
+        <ul><li><em>Constraints:</em>
+            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid [Unicode currency identifier](tr35.md#UnicodeCurrencyIdentifier). Note: CLDR does not provide conversions for currencies; this is only intended for formatting.</li>
+            </ul></li>
+            <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
+        </ul></td></tr>
 
 </tbody></table>
 
+Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
+
 ### 6.3 <a name="Example_Units" href="#Example_Units">Example Units</a>
 
-The following table contains examples of types and units currently defined by CLDR. The units in CLDR are not comprehensive; it is anticipated that more will be added over time. The complete list of supported units is in the validity data: see _Section [3.11 Validity Data](tr35.md#Validity_Data)_. The compound units in the table below either require specialized formatting or have a numerator and/or demoninator that are not defined as valid standalone units. Note: as explained in _Section 6.4 [Compound Units](#compound-units)_, CLDR provides data to format any compound unit composed of two simple units from the following table.
+The following table contains examples of groupings and units currently defined by CLDR. 
+The units in CLDR are not comprehensive; it is anticipated that more will be added over time. 
+The complete list of supported units is in the validity data: see _Section [3.11 Validity Data](tr35.md#Validity_Data)_.
 
 | Type           | Core Unit Identifier     | Compound? | Sample Format  |
 | -------------- | ------------------------ | --------- | -------------- |
@@ -1091,6 +1135,8 @@ There are different types of structure used to build the localized name of compo
 </compoundUnit>
 ```
 
+**number prefixes** are integers within a single_unit, such as in liter-per-**100-kilometer**. The formatting for these uses the normal number formats for the locale. Their presence does have an effect on the plural formatting of the simple unit in a "per" form. For example, in English you would write 3 liters per kilometer (singular "kilometer") but 3 liters per 100 kilometers (plural kilometers).
+
 **compoundUnitPatterns** are used for compounding units by multiplication or division: kilowatt-hours, or meters per second. These are invariant for case, gender, or plural (though those could be added in the future if needed by a language).
 
 ```xml
@@ -1105,7 +1151,7 @@ There are different types of structure used to build the localized name of compo
 
 There can be at most one "per" pattern used in producing a compound unit, while the "times" pattern can be used multiple times.
 
-`compoundUnitPattern1`s are used for expressing powers, such as square meter or cubic foot. These are the most complicated, since they can vary by plural category (count), by case, and by gender. However, these extra attributes are only used if the are present in the `grammaticalFeatures` element for the language in question. See [Section 15, Grammatical Features](tr35-general.md#Grammatical_Features). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
+`compoundUnitPattern1`s are used for expressing powers, such as square meter or cubic foot. These are the most complicated, since they can vary by plural category (count), by case, and by gender. However, these extra attributes are only used if the are present in the `grammaticalFeatures` element for the language in question. See [Section 15, Grammatical Features](#Grammatical_Features). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
 
 ```xml
 <compoundUnit type="power2">
@@ -1160,23 +1206,29 @@ If there is no precomputed form, the following process in pseudocode is used to 
 1. Set hasMultiple to true iff product_unit has more than one single_unit
 2. Set timesPattern to be getValue(times, locale, length)
 3. Set result to be empty
+4. Set multiplier to be empty
 4. For each single_unit in product_unit
    1.  If hasMultiple
        1. Set singlePluralCategory to be times0(pluralCategory)
        2. Set singleCaseVariant to be times0(caseVariant)
        3. Set pluralCategory to be times1(pluralCategory)
        4. Set caseVariant to be times1(caseVariant)
+   2.  If the singleUnit is a currency_unit
+       1. Set coreUnit to be the formatted currency according to the pluralCategory
+	   2. Set the gender to the default unit gender for the locale
+	   3. Goto step 11
    2.  Get the gender of that single_unit
    3.  If singleUnit starts with a dimensionality_prefix, such as 'square-'
        1. set dimensionalityPrefixPattern to be getValue(that dimensionality_prefix, locale, length, singlePluralCategory, singleCaseVariant, gender), such as "{0} kwadratowym"
        2. set singlePluralCategory to be power0(singlePluralCategory)
        3. set singleCaseVariant to be power0(singleCaseVariant)
        4. remove the dimensionality_prefix from singleUnit
-   4.  if singleUnit starts with an si_prefix, such as 'centi'
+   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a number_prefix such as '100'
        1. set siPrefixPattern to be getValue(that si_prefix, locale, length), such as "centy{0}"
        2. set singlePluralCategory to be prefix0(singlePluralCategory)
        3. set singleCaseVariant to be prefix0(singleCaseVariant)
        4. remove the si_prefix from singleUnit
+	   5. set multiplier to be the locales integer numberFormat of number_prefix.
    5.  Set corePattern to be the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as "{0} metrem"
    6.  Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.
    7.  If the position is _middle_, then fail
@@ -1187,9 +1239,13 @@ If there is no precomputed form, the following process in pseudocode is used to 
        1. Set coreUnit to be the combineLowercasing(locale, length, siPrefixPattern, coreUnit)
    10. If dimensionalityPrefixPattern is not empty
        1. Set coreUnit to be the combineLowercasing(locale, length, dimensionalityPrefixPattern, coreUnit)
+   10. If multiplier is not empty
+       1. Combine the multiplier with coreUnit, using placeholder and placeholderPosition 
    11. If the result is empty, set result to be coreUnit
    12. Otherwise set result to be format(timesPattern, result, coreUnit)
 5. Return result
+
+__Note: CLDR does not currently have gender or case data for currency units, so the formatting will not be optimal for inflected languages.__
 
 **combineLowercasing(locale, length, prefixPattern, coreUnit)**
 
@@ -1202,7 +1258,7 @@ If there is no precomputed form, the following process in pseudocode is used to 
 
 **getValue(key, locale, length, variants…)**
 
-1. return the element value in the locale for the path corresponding to the key, locale, length, and variants — using normal inheritance including [Lateral Inheritance](https://unicode-org.github.io/cldr/ldml/tr35.md#Multiple_Inheritance) and [Parent Locales](https://unicode-org.github.io/cldr/ldml/tr35.md#Parent_Locales).
+1. return the element value in the locale for the path corresponding to the key, locale, length, and variants — using normal inheritance including [Lateral Inheritance](tr35.md#Multiple_Inheritance) and [Parent Locales](tr35.md#Parent_Locales).
 
 **Extract(corePattern, coreUnit, placeholder, placeholderPosition)**
 
@@ -2147,7 +2203,7 @@ More sophisticated implementations can customize the process to improve the resu
                     <li><i>10 <b>o</b> 111,</i> not <i>10 <b>u</b> 111</i></li></ol>
             </li></ol></td></tr>
 
-<tr><td colspan="2">See <a href="https://www.rae.es/consultas/cambio-de-la-y-copulativa-en-e">Cambio de la y copulativa en e</a><br><b>Note: </b>more advanced implementations may also consider the pronunciation, such as foreign words where the ‘h’ is not mute.</td></tr>
+<tr><td colspan="2">See <a href="https://www.rae.es/espanol-al-dia/cambio-de-la-y-copulativa-en-e-0">Cambio de la y copulativa en e</a><br><b>Note: </b>more advanced implementations may also consider the pronunciation, such as foreign words where the ‘h’ is not mute.</td></tr>
 
 <tr><td rowspan="2">Hebrew</td><td>AND</td>
     <td>Use ‘-ו’ instead of ‘ו’ in the listPatternPart for "end" and "2" in the following case:
@@ -2356,7 +2412,7 @@ The cp value may contain sequences, but does not contain any Emoji or Text Varia
 
 ### 14.1 <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>
 
-Many emoji are represented by sequences of characters. When there are no `annotation` elements for that string, the short name can be synthesized as follows. **Note:** The process details may change after the release of this specification, and may further change in the future if other sequences are added. Please see the [Known Issues](https://sites.google.com/site/cldr/index/downloads/cldr-30#TOC-Known-Issues) section of the CLDR download page for any updates.
+Many emoji are represented by sequences of characters. When there are no `annotation` elements for that string, the short name can be synthesized as follows. **Note:** The process details may change after the release of this specification, and may further change in the future if other sequences are added. Please see the [Known Issues](https://cldr.unicode.org/index/downloads/cldr-40#h.uanqoyl5dqt3) section of the CLDR download page for any updates.
 
 1.  If **sequence** is an **emoji flag sequence**, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.
 2.  If **sequence** is an **emoji tag sequence**, look up the subdivision name in CLDR for the corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.
@@ -2538,7 +2594,7 @@ LDML supplies grammatical information that can be used to distinguish localized 
 
 The current data includes the following:
 
-*   There are currently 3 grammatical features found in the [DTD](https://github.com/unicode-org/cldr/blob/main/common/dtd/ldmlSupplemental.dtd#1229): Gender, Case, Definiteness
+*   There are currently 3 grammatical features found in the [DTD](https://github.com/unicode-org/cldr/blob/main/common/dtd/ldmlSupplemental.dtd#1254): Gender, Case, Definiteness
 *   There are mappings from supported locales to grammatical features they exhibit in the file [grammaticalFeatures.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/grammaticalFeatures.xml). Note that this is supplemental data, so the inheritance to the available locales needs to be done by the client.
 
 Note that the CLDR plural categories overlap some of these features, since some languages use case and other devices to change words based on the numeric values.
@@ -2615,21 +2671,21 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 
 | Value              | Definition | References |
 | ------------------ | ---------- | ---------- |
-| abessive          | The abessive case expresses the absence of the referent it marks. It has the meaning of 'without'. | [purl.org/olia/olia.owl#AbessiveCase](http://purl.org/olia/olia.owl#AbessiveCase) [linguistics-ontology.org/gold/2010/AbessiveCase](http://linguistics-ontology.org/gold/2010/AbessiveCase)|
+| abessive          | The abessive case expresses the absence of the referent it marks. It has the meaning of 'without'. | [purl.org/olia/olia.owl#AbessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#AbessiveCase) [linguistics-ontology.org/gold/2010/AbessiveCase](http://linguistics-ontology.org/gold/2010/AbessiveCase)|
 | ablative           | The ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'. | [purl.org/olia/olia.owl#AblativeCase](https://purl.org/olia/olia.owl#AblativeCase), [linguistics-ontology.org/gold/2010/AblativeCase](http://linguistics-ontology.org/gold/2010/AblativeCase) |
 | accusative         | Accusative case marks certain syntactic functions, usually direct objects. | [purl.org/olia/olia.owl#Accusative](https://purl.org/olia/olia.owl#Accusative), [linguistics-ontology.org/gold/2010/AccusativeCase](http://linguistics-ontology.org/gold/2010/AccusativeCase) |
-| adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | [purl.org/olia/olia.owl#AdessiveCase](http://purl.org/olia/olia.owl#AdessiveCase), [linguistics-ontology.org/gold/2010/AdessiveCase](http://linguistics-ontology.org/gold/2010/AdessiveCase) |
-| allative | The allative case expresses motion to or toward the referent of the noun it marks. | [purl.org/olia/olia.owl#AllativeCase](http://purl.org/olia/olia.owl#AllativeCase), [linguistics-ontology.org/gold/2010/AllativeCase](http://linguistics-ontology.org/gold/2010/AllativeCase) |
+| adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | [purl.org/olia/olia.owl#AdessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#AdessiveCase), [linguistics-ontology.org/gold/2010/AdessiveCase](http://linguistics-ontology.org/gold/2010/AdessiveCase) |
+| allative | The allative case expresses motion to or toward the referent of the noun it marks. | [purl.org/olia/olia.owl#AllativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#AllativeCase), [linguistics-ontology.org/gold/2010/AllativeCase](http://linguistics-ontology.org/gold/2010/AllativeCase) |
 | causal | The causal (causal-final, not causative) case expresses that the marked noun is the objective or reason for something. It carries the meaning of 'for the purpose of'. | http://en.wikipedia.org/wiki/Causative#Causal-final_case, http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx |
 | comitative         | Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by' . | [purl.org/olia/olia.owl#ComitativeCase](https://purl.org/olia/olia.owl#ComitativeCase), [linguistics-ontology.org/gold/2010/ComitativeCase](http://linguistics-ontology.org/gold/2010/ComitativeCase) |
 | dative             | Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item. | [purl.org/olia/olia.owl#DativeCase](https://purl.org/olia/olia.owl#DativeCase), [linguistics-ontology.org/gold/2010/DativeCase](http://linguistics-ontology.org/gold/2010/DativeCase) |
-| delative | The delative case expresses motion downward from the referent of the noun it marks. | [purl.org/olia/olia.owl#DelativeCase](http://purl.org/olia/olia.owl#DelativeCase), [linguistics-ontology.org/gold/2010/DelativeCase](http://linguistics-ontology.org/gold/2010/DelativeCase) |
-| elative | The elative case expresses that the referent of the noun it marks is the location out of which another referent is moving. It has the meaning 'out of'. | [purl.org/olia/olia.owl#ElativeCase](http://purl.org/olia/olia.owl#ElativeCase), [linguistics-ontology.org/gold/2010/ElativeCase](http://linguistics-ontology.org/gold/2010/ElativeCase) |
+| delative | The delative case expresses motion downward from the referent of the noun it marks. | [purl.org/olia/olia.owl#DelativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#DelativeCase), [linguistics-ontology.org/gold/2010/DelativeCase](http://linguistics-ontology.org/gold/2010/DelativeCase) |
+| elative | The elative case expresses that the referent of the noun it marks is the location out of which another referent is moving. It has the meaning 'out of'. | [purl.org/olia/olia.owl#ElativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#ElativeCase), [linguistics-ontology.org/gold/2010/ElativeCase](http://linguistics-ontology.org/gold/2010/ElativeCase) |
 | ergative           | In ergative-absolutive languages, the ergative case identifies the subject of a transitive verb. | [purl.org/olia/olia.owl#ErgativeCase](https://purl.org/olia/olia.owl#ErgativeCase), [linguistics-ontology.org/gold/2010/ErgativeCase](http://linguistics-ontology.org/gold/2010/ErgativeCase) |
-| essive | The essive case expresses that the referent of the noun it marks is the location at which another referent exists. | [purl.org/olia/olia.owl#EssiveCase](http://purl.org/olia/olia.owl#EssiveCase), [linguistics-ontology.org/gold/2010/EssiveCase](http://linguistics-ontology.org/gold/2010/EssiveCase) |
+| essive | The essive case expresses that the referent of the noun it marks is the location at which another referent exists. | [purl.org/olia/olia.owl#EssiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#EssiveCase), [linguistics-ontology.org/gold/2010/EssiveCase](http://linguistics-ontology.org/gold/2010/EssiveCase) |
 | genitive           | Genitive case signals that the referent of the marked noun is the possessor of the referent of another noun, e.g. "the man's foot". In some languages, genitive case may express an associative relation between the marked noun and another noun. | [purl.org/olia/olia.owl#GenitiveCase](https://purl.org/olia/olia.owl#GenitiveCase), [linguistics-ontology.org/gold/2010/GenitiveCase](http://linguistics-ontology.org/gold/2010/GenitiveCase) |
-| illative | The illative case expresses that the referent of the noun it marks is the location into which another referent is moving. It has the meaning 'into'. | [purl.org/olia/olia.owl#IllativeCase](http://purl.org/olia/olia.owl#IllativeCase), [linguistics-ontology.org/gold/2010/IllativeCase](http://linguistics-ontology.org/gold/2010/IllativeCase) |
-| inessive  | The inessive case expresses that the referent of the noun it marks is the location within which another referent exists. It has the meaning of 'within' or 'inside'.  | [purl.org/olia/olia.owl#InessiveCase](http://purl.org/olia/olia.owl#InessiveCase), [linguistics-ontology.org/gold/2010/InessiveCase](http://linguistics-ontology.org/gold/2010/InessiveCase) |
+| illative | The illative case expresses that the referent of the noun it marks is the location into which another referent is moving. It has the meaning 'into'. | [purl.org/olia/olia.owl#IllativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#IllativeCase), [linguistics-ontology.org/gold/2010/IllativeCase](http://linguistics-ontology.org/gold/2010/IllativeCase) |
+| inessive  | The inessive case expresses that the referent of the noun it marks is the location within which another referent exists. It has the meaning of 'within' or 'inside'.  | [purl.org/olia/olia.owl#InessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#InessiveCase), [linguistics-ontology.org/gold/2010/InessiveCase](http://linguistics-ontology.org/gold/2010/InessiveCase) |
 | instrumental       | The instrumental case indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause. | [purl.org/olia/olia.owl#InstrumentalCase](https://purl.org/olia/olia.owl#InstrumentalCase), [linguistics-ontology.org/gold/2010/InstrumentalCase](http://linguistics-ontology.org/gold/2010/InstrumentalCase) |
 | locative           | Case that indicates a final location of action or a time of the action. | [purl.org/olia/olia.owl#LocativeCase](https://purl.org/olia/olia.owl#LocativeCase), [linguistics-ontology.org/gold/2010/LocativeCase](http://linguistics-ontology.org/gold/2010/LocativeCase) |
 | locativecopulative | Copulative Case marker that indicates a location. | TBD Add reference, example |
@@ -2638,10 +2694,10 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 | partitive          | The partitive case is a grammatical case which denotes 'partialness', 'without result', or 'without specific identity'. | [purl.org/olia/olia.owl#PartitiveCase](https://purl.org/olia/olia.owl#PartitiveCase), [linguistics-ontology.org/gold/2010/PartitiveCase](http://linguistics-ontology.org/gold/2010/PartitiveCase) |
 | prepositional      | Prepositional case refers to case marking that only occurs in combination with prepositions. | [purl.org/olia/olia.owl#PrepositionalCase](https://purl.org/olia/olia.owl#PrepositionalCase) |
 | sociative          | Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action. | [purl.org/olia/olia.owl#SociativeCase](https://purl.org/olia/olia.owl#SociativeCase) |
-| sublative  | The sublative case expresses that the referent of the noun it marks is the location under which another referent is moving toward. It has the meaning 'towards the underneath of'. | [purl.org/olia/olia.owl#SublativeCase](http://purl.org/olia/olia.owl#SublativeCase), [linguistics-ontology.org/gold/2010/SublativeCase](http://linguistics-ontology.org/gold/2010/SublativeCase) |
-| superessive  | The superessive case expresses that the referent of the noun it marks is the location on which another referent exists. It has the meaning of 'on' or 'upon'. | [purl.org/olia/olia.owl#SuperessiveCase](http://purl.org/olia/olia.owl#SuperessiveCase), [linguistics-ontology.org/gold/2010/SuperessiveCase](http://linguistics-ontology.org/gold/2010/SuperessiveCase) |
-| terminative  | The terminative case expresses the motion of something into but not further than (ie, not through) the referent of the noun it marks. It has the meaning 'into but not through'.  | [purl.org/olia/olia.owl#TerminativeCase](http://purl.org/olia/olia.owl#TerminativeCase), [linguistics-ontology.org/gold/2010/TerminativeCase](http://linguistics-ontology.org/gold/2010/TerminativeCase) |
-| translative  | The translative case expresses that the referent of the noun that it marks is the result of a process of change. It has the meaning of 'becoming' or 'changing into'.  | [purl.org/olia/olia.owl#TranslativeCase](http://purl.org/olia/olia.owl#TranslativeCase), [linguistics-ontology.org/gold/2010/TranslativeCase](http://linguistics-ontology.org/gold/2010/TranslativeCase) |
+| sublative  | The sublative case expresses that the referent of the noun it marks is the location under which another referent is moving toward. It has the meaning 'towards the underneath of'. | [purl.org/olia/olia.owl#SublativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#SublativeCase), [linguistics-ontology.org/gold/2010/SublativeCase](http://linguistics-ontology.org/gold/2010/SublativeCase) |
+| superessive  | The superessive case expresses that the referent of the noun it marks is the location on which another referent exists. It has the meaning of 'on' or 'upon'. | [purl.org/olia/olia.owl#SuperessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#SuperessiveCase), [linguistics-ontology.org/gold/2010/SuperessiveCase](http://linguistics-ontology.org/gold/2010/SuperessiveCase) |
+| terminative  | The terminative case expresses the motion of something into but not further than (ie, not through) the referent of the noun it marks. It has the meaning 'into but not through'.  | [purl.org/olia/olia.owl#TerminativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#TerminativeCase), [linguistics-ontology.org/gold/2010/TerminativeCase](http://linguistics-ontology.org/gold/2010/TerminativeCase) |
+| translative  | The translative case expresses that the referent of the noun that it marks is the result of a process of change. It has the meaning of 'becoming' or 'changing into'.  | [purl.org/olia/olia.owl#TranslativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#TranslativeCase), [linguistics-ontology.org/gold/2010/TranslativeCase](http://linguistics-ontology.org/gold/2010/TranslativeCase) |
 | vocative           | Vocative case marks a noun whose referent is being addressed. | [purl.org/olia/olia.owl#VocativeCase](https://purl.org/olia/olia.owl#VocativeCase), [linguistics-ontology.org/gold/2010/VocativeCase](http://linguistics-ontology.org/gold/2010/VocativeCase) |
 
 ### Definiteness

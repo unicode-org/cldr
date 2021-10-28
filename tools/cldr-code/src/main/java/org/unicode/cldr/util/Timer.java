@@ -1,7 +1,16 @@
 package org.unicode.cldr.util;
 
+import java.util.Locale;
+
+import com.ibm.icu.impl.duration.DurationFormatter;
 import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.DurationFormat;
+import com.ibm.icu.text.MeasureFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.RelativeDateTimeFormatter;
+import com.ibm.icu.text.MeasureFormat.FormatWidth;
+import com.ibm.icu.util.Measure;
+import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;
 
 public final class Timer {
@@ -44,6 +53,19 @@ public final class Timer {
     @Override
     public String toString() {
         return nf.format(getDuration() / NANOS_PER_SECOND) + "s";
+    }
+
+    /**
+     * @return the duration as a measureformat string
+     */
+    public String toMeasureString() {
+        double seconds = getSeconds();
+        double minutes = Math.floorDiv((int) seconds, 60);
+        seconds = seconds - (minutes * 60.0);
+
+        return MeasureFormat.getInstance(ULocale.ENGLISH, FormatWidth.SHORT)
+            .formatMeasures(new Measure(seconds, MeasureUnit.SECOND),
+                new Measure(minutes, MeasureUnit.MINUTE));
     }
 
     public String toString(Timer other) {

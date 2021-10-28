@@ -31,12 +31,12 @@ public class Units {
 
         // extract the unit
         String modUnit = (String) SPACE_SPANNER.trim(unitFormat.replace("{0}", ""));
-        String[] parameters = { modUnit };
+        Object[] parameters = { modUnit };
 
         String modFormat = unitFormat.replace(modUnit, MessageFormat.format(compoundPattern, parameters));
         if (modFormat.equals(unitFormat)) {
             // didn't work, so fall back
-            String[] parameters1 = { unitFormat };
+            Object[] parameters1 = { unitFormat };
             modFormat = MessageFormat.format(compoundPattern, parameters1);
         }
 

@@ -262,6 +262,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     /**
+     * Return BCP47 languageTag, using special rules for root
+     * @param locale
+     * @return
+     */
+    public static String toLanguageTag(final String locale) {
+        return getInstance(locale).toLanguageTag();
+    }
+
+    /**
      * Construct a CLDRLocale from a string with the full locale ID.
      * Internal, called by the factory function.
      *

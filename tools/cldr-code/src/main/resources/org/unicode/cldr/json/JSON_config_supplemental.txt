@@ -1,3 +1,4 @@
+package=core ; packageDesc=Basic CLDR supplemental data
 section=characterFallbacks ; path=//cldr/supplemental/characters/.* ; package=core
 section=dayPeriods ; path=//cldr/supplemental/(dayPeriodRuleSet).* ; package=core
 section=gender ; path=//cldr/supplemental/gender/.* ; package=core
@@ -20,7 +21,7 @@ section=calendarData ; path=//cldr/supplemental/calendarData/.* ; package=core
 section=calendarPreferenceData ; path=//cldr/supplemental/calendarPreferenceData/.* ; package=core
 section=unitPreferenceData ; path=//cldr/supplemental/unitPreferenceData/.* ; package=core
 section=grammaticalFeatures ; path=//cldr/supplemental/(grammaticalData)/.* ; package=core
-section=grammaticalGenderFeatures ; path=//cldr/supplemental/(grammaticalGenderData).* ; package=core
+#section=grammaticalGenderFeatures ; path=//cldr/supplemental/(grammaticalGenderData).* ; package=core
 section=weekData ; path=//cldr/supplemental/weekData/.* ; package=core
 section=timeData ; path=//cldr/supplemental/timeData/.* ; package=core
 section=measurementData ; path=//cldr/supplemental/measurementData/.* ; package=core

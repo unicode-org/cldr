@@ -68,26 +68,26 @@ function wireUpButton(button, tr, theRow, vHash) {
  *
  * @param {Element} tr the table row
  * @param {Object} theRow object describing the table row
- * @param {String} vHash hash of the value of the candidate item (cf. DataSection.getValueHash on back end)
- * @param {Object} box object like { value: newValue }, or undefined (use button.value instead)
+ * @param {String} vHash hash of the value of the candidate item (cf. DataSection.getValueHash on back end),
+ *                       or empty string for newly submitted value
+ * @param {Object} newValue the newly submitted value, or undefined if it's a vote for an already existing value (button.value)
  * @param {Element} button the GUI button
  *
  * TODO: shorten this function, using (non-nested) subroutines
+ *
+ * Called from cldrTable.addValueVote (for new value submission)
+ * as well as locally in cldrVote (vote for existing value or abstain)
  */
-function handleWiredClick(tr, theRow, vHash, box, button) {
+function handleWiredClick(tr, theRow, vHash, newValue, button) {
   if (!tr || !theRow || tr.wait) {
     return;
   }
   var value = "";
   var valToShow;
-  if (box) {
-    valToShow = box.value;
-    value = box.value;
+  if (newValue) {
+    valToShow = newValue;
+    value = newValue;
     if (value.length == 0) {
-      if (box.focus) {
-        box.focus();
-        myUnDefer();
-      }
       return; // nothing entered.
     }
   } else {
@@ -179,9 +179,6 @@ function handleWiredClick(tr, theRow, vHash, box, button) {
                   json.testResults
                 );
               }
-              if (box) {
-                box.value = ""; // submitted - dont show.
-              }
               myUnDefer();
             },
             function (err) {
@@ -205,9 +202,6 @@ function handleWiredClick(tr, theRow, vHash, box, button) {
               json
             );
           } // else no errors, not submitted.  Nothing to do.
-          if (box) {
-            box.value = ""; // submitted - dont show.
-          }
           button.className = "ichoice-o";
           button.checked = false;
           cldrSurvey.hideLoader();
@@ -241,7 +235,7 @@ function handleWiredClick(tr, theRow, vHash, box, button) {
       "</div>";
     myUnDefer();
   };
-  if (box) {
+  if (newValue) {
     ourContent.value = value;
   }
   const xhrArgs = {
@@ -259,7 +253,7 @@ function handleWiredClick(tr, theRow, vHash, box, button) {
 /**
  * Show an item that's not in the saved data, but has been proposed newly by the user.
  * Called only by loadHandler in handleWiredClick.
- * Used for "+" button, both in Dashboard Fix pop-up window and in regular (non-Dashboard) table.
+ * Used for "+" button in table.
  */
 function showProposedItem(inTd, tr, theRow, value, tests, json) {
   // Find where our value went.

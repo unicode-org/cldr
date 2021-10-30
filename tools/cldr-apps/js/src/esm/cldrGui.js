@@ -6,12 +6,12 @@ import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForum from "./cldrForum.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrMenu from "./cldrMenu.js";
+import * as cldrProgress from "./cldrProgress.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
 import DashboardWidget from "../views/DashboardWidget.vue";
 import MainHeader from "../views/MainHeader.vue";
-import VotingCompletion from "../views/VotingCompletion.vue";
 
 import { createCldrApp } from "../cldrVueRouter";
 
@@ -19,13 +19,10 @@ import { notification } from "ant-design-vue";
 
 const GUI_DEBUG = true;
 
-const GUI_HAS_COMPLETION_WIDGET = false;
-
 const runGuiId = "st-run-gui";
 
 let mainHeaderWrapper = null;
 let dashboardWidgetWrapper = null;
-let votingCompletionWrapper = null;
 
 let rightPanelVisible = true;
 let dashboardVisible = false;
@@ -39,8 +36,7 @@ let dashboardVisible = false;
 function run() {
   try {
     if (GUI_DEBUG) {
-      console.log("Hello my name is cldrGui.run");
-      debugParse();
+      console.log("This is cldrGui.run");
     }
     const guiContainer = document.getElementById(runGuiId);
     if (!guiContainer) {
@@ -57,12 +53,9 @@ function run() {
     }
     guiContainer.innerHTML = getBodyHtml();
     insertHeader();
-    if (GUI_DEBUG) {
-      debugElements();
-    }
     setOnClicks();
     window.addEventListener("resize", handleResize);
-    insertCompletionWidget();
+    cldrProgress.insertWidget("CompletionSpan");
   } catch (e) {
     return Promise.reject(e);
   }
@@ -154,35 +147,6 @@ function insertHeader() {
     );
     notification.error({
       message: `${e.name} while loading MainHeader.vue`,
-      description: `${e.message}`,
-      duration: 0,
-    });
-  }
-}
-
-function insertCompletionWidget() {
-  if (GUI_HAS_COMPLETION_WIDGET) {
-    setTimeout(function () {
-      insertVotingCompletion();
-    }, 3000 /* three seconds -- temporary work-around for delays in initializing locale and coverage level */);
-  }
-}
-
-/**
- * Create the VotingCompletion component
- */
-function insertVotingCompletion() {
-  try {
-    const fragment = document.createDocumentFragment();
-    votingCompletionWrapper = createCldrApp(VotingCompletion).mount(fragment);
-    const el = document.getElementById("CompletionSpan");
-    el.replaceWith(fragment);
-  } catch (e) {
-    console.error(
-      "Error mounting voting completion vue " + e.message + " / " + e.name
-    );
-    notification.error({
-      message: `${e.name} while loading VotingCompletion.vue`,
       description: `${e.message}`,
       duration: 0,
     });
@@ -298,13 +262,15 @@ const topTitle =
       >
       <span class="counter-infos">
         <a id="reloadForum">Forum:</a>
-        <span id="vForum"><span id="forumSummary"> 0</span> </span> ● Votes:
-        <span id="count-voted">0</span> - Abstain:
-        <span id="count-abstain">0</span> - Total:
-        <span id="count-total">0</span>
-        <span class="progress nav-progress">
-          <span id="progress-voted" class="progress-bar progress-bar-info tip-log" title="Votes" style="width: 0%"></span>
-          <span id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title="Abstain" style="width: 0%"></span>
+        <span id="vForum"><span id="forumSummary"> 0</span> </span>
+        <span id="legacyCompletionSpan"> ● Votes:
+          <span id="count-voted">0</span> - Abstain:
+          <span id="count-abstain">0</span> - Total:
+          <span id="count-total">0</span>
+          <span class="progress nav-progress">
+            <span id="progress-voted" class="progress-bar progress-bar-info tip-log" title="Votes" style="width: 0%"></span>
+            <span id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title="Abstain" style="width: 0%"></span>
+          </span>
         </span>
       </span>
       <span id="CompletionSpan"></span>
@@ -448,62 +414,7 @@ function handleResize() {
 }
 
 function updateWithStatus() {
-  if (mainHeaderWrapper) {
-    mainHeaderWrapper.updateData();
-  }
-}
-
-function debugParse() {
-  for (let h of [
-    leftSidebar,
-    topTitle,
-    sideBySide,
-    overlay,
-    postModal,
-    hiddenHtml,
-  ]) {
-    if (!parseAsMimeType(h, "text/html")) {
-      console.log("🐧 BAD HTML:\n" + h + "\n");
-    }
-    if (!parseAsMimeType(h, "application/xml")) {
-      console.log("🐧 INVALID XML:\n" + h + "\n");
-    }
-  }
-}
-
-// Temporary debugging (cf. parseAsMimeType in TestCldrTest.js):
-function parseAsMimeType(inputString, mimeType) {
-  const doc = new DOMParser().parseFromString(inputString, mimeType);
-  if (!doc) {
-    console.log("no doc for " + mimeType + ", " + inputString);
-    return null;
-  }
-  const outputString = new XMLSerializer().serializeToString(doc);
-  if (!outputString) {
-    console.log("no output string for " + mimeType + ", " + inputString);
-    return null;
-  }
-  if (outputString.indexOf("error") !== -1) {
-    console.log(
-      "parser error for " + mimeType + ", " + inputString + ", " + outputString
-    );
-    return null;
-  }
-  return outputString;
-}
-
-function debugElements() {
-  for (let id of [
-    "DynamicDataSection",
-    "nav-page",
-    "progress",
-    "progress-refresh",
-    "title-section-container",
-  ]) {
-    if (!document.getElementById(id)) {
-      console.log(id + " is MISSING 🐞🐞🐞");
-    }
-  }
+  mainHeaderWrapper?.updateData();
 }
 
 /**
@@ -560,16 +471,14 @@ function hideRightPanel() {
  * add more widgets/components that depend on coverage level.
  */
 function updateWidgetsWithCoverage(newLevel) {
-  if (dashboardVisible && dashboardWidgetWrapper) {
-    dashboardWidgetWrapper.handleCoverageChanged(newLevel);
+  if (dashboardVisible) {
+    dashboardWidgetWrapper?.handleCoverageChanged(newLevel);
   }
-  if (votingCompletionWrapper) {
-    votingCompletionWrapper.handleCoverageChanged(newLevel);
-  }
+  cldrProgress.updateWidgetsWithCoverage(newLevel);
 }
 
 /**
- * Create the DashboardWidget Vue component
+ * Create or reopen the DashboardWidget Vue component
  */
 function insertDashboard() {
   if (dashboardVisible) {
@@ -638,8 +547,8 @@ function dashboardIsVisible() {
 }
 
 function updateDashboardRow(json) {
-  if (dashboardVisible && dashboardWidgetWrapper) {
-    dashboardWidgetWrapper.updateRow(json);
+  if (dashboardVisible) {
+    dashboardWidgetWrapper?.updateRow(json);
   }
 }
 
@@ -661,36 +570,23 @@ function refreshCounterVetting() {
     $("#nav-page .counter-infos").hide();
     return;
   }
-  // TODO: avoid using the DOM for calculations -- calculate total, voted, and abstain using
-  // the original data, not the elements that we've put in the DOM
-  // Reference: https://unicode-org.atlassian.net/browse/CLDR-14877
-  const inputs = $(".vetting-page input:visible:checked");
-  let total = inputs.length;
-  const abstain = inputs.filter(function () {
-    return this.id.substr(0, 2) === "NO";
-  }).length;
-  const voted = total - abstain;
+  refreshForumSummary();
+  cldrProgress.refresh();
+}
 
-  document.getElementById("count-total").innerHTML = total;
-  document.getElementById("count-abstain").innerHTML = abstain;
-  document.getElementById("count-voted").innerHTML = voted;
-  if (total === 0) {
-    total = 1; // avoid division by zero
-  }
-  document.getElementById("progress-voted").style.width =
-    (voted * 100) / total + "%";
-  document.getElementById("progress-abstain").style.width =
-    (abstain * 100) / total + "%";
-
-  if (cldrStatus.getCurrentLocale()) {
+function refreshForumSummary() {
+  const locale = cldrStatus.getCurrentLocale();
+  if (locale) {
     const surveyUser = cldrStatus.getSurveyUser();
-    if (surveyUser && surveyUser.id) {
-      const forumSummary = cldrForum.getForumSummaryHtml(
-        cldrStatus.getCurrentLocale(),
-        surveyUser.id,
-        false
-      );
-      document.getElementById("vForum").innerHTML = forumSummary;
+    if (surveyUser?.id) {
+      const el = document.getElementById("vForum");
+      if (el) {
+        el.innerHTML = cldrForum.getForumSummaryHtml(
+          locale,
+          surveyUser.id,
+          false
+        );
+      }
     }
   }
 }

@@ -336,19 +336,22 @@ function showCurrentId() {
 }
 
 function unspecialHandleIdChanged() {
+  const reportProblems = false;
   const curId = cldrStatus.getCurrentId();
   if (curId) {
     var xtr = document.getElementById("r@" + curId);
     if (!xtr) {
-      console.log("Warning could not load id " + curId + " does not exist");
-      notification.warning({
-        message: "Could not load XPath",
-        description: `The XPath ID ${curId} does not exist.`,
-        duration: 8,
-      });
+      if (reportProblems) {
+        console.log("Warning could not load id " + curId + " does not exist");
+        notification.warning({
+          message: "Could not load XPath",
+          description: `The XPath ID ${curId} does not exist.`,
+          duration: 8,
+        });
+      }
       updateCurrentId(null);
     } else {
-      if (!xtr.proposedcell || xtr.proposedcell.showFn) {
+      if (reportProblems && (!xtr.proposedcell || xtr.proposedcell.showFn)) {
         // warn, but show it anyway
         console.log(
           "Warning: now proposed cell && showFn " +
@@ -860,6 +863,13 @@ function loadAllRowsFromJson(json, theDiv) {
       cldrCoverage.updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
       flipper.flipTo(pages.data); // TODO now? or later?
       showCurrentId(); // already calls scroll
+      /*
+       * TODO: refreshCounterVetting here may be partly redundant after updateSectionCompletion
+       * is called by cldrTable.insertRows -- however, refreshCounterVetting may also update
+       * forum data and other counters -- "load all rows" isn't necessarily the best time to
+       * update the forum data, though...
+       * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
+       */
       cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
     }

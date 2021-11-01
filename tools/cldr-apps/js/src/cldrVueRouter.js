@@ -15,6 +15,7 @@ import {
   Icon,
   Input,
   Popover,
+  Progress,
   Spin,
   Steps,
   // functions
@@ -135,6 +136,7 @@ function setupComponents(app) {
   app.component("a-input-password", Input.Password);
   app.component("a-input", Input);
   app.component("a-popover", Popover);
+  app.component("a-progress", Progress);
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
   app.component("a-steps", Steps);

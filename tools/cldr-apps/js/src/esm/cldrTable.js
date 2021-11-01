@@ -15,6 +15,7 @@ import * as cldrForumPanel from "./cldrForumPanel.js";
 import * as cldrGui from "./cldrGui.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrProgress from "./cldrProgress.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
@@ -47,6 +48,8 @@ const NO_WINNING_VALUE = "no-winning-value";
  *  		json.section.rows, with info for each row
  */
 function insertRows(theDiv, xpath, session, json) {
+  cldrProgress.updateSectionCompletion(json.section.rows);
+
   if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
     cldrDom.removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table
   }
@@ -344,6 +347,15 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
       onSuccess(theRow);
       cldrGui.updateDashboardRow(json);
       cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+      cldrProgress.updateSectionCompletionOneVote(theRow.hasVoted);
+      /*
+       * TODO: refreshCounterVetting here may be partly redundant after we
+       * have called cldrProgress.updateSectionCompletionOneVote
+       * -- however,refreshCounterVetting may also update
+       * forum data and other counters -- "singleRowLoadHandler" isn't necessarily
+       * the best time to update the forum data, though...
+       * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
+       */
       cldrGui.refreshCounterVetting();
     } else {
       tr.className = "ferrbox";
@@ -1142,7 +1154,7 @@ function appendExample(parent, text, loc) {
  */
 function addValueVote(td, tr, theRow, newValue, newButton) {
   tr.inputTd = td; // cause the proposed item to show up in the right box
-  cldrVote.handleWiredClick(tr, theRow, "", { value: newValue }, newButton);
+  cldrVote.handleWiredClick(tr, theRow, "", newValue, newButton);
 }
 
 /**

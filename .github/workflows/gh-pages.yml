@@ -1,0 +1,56 @@
+name: Publish to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: false
+      - name: Cache local npm repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nodetr-${{ hashFiles('tools/scripts/tr-archive/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nodetr-
+            nodetr-
+      - name: Ruby cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/vendor
+          key: ${{ runner.os }}-gems-${{ hashFiles('docs/**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Build Jekyll part of the site
+        run: |
+          gem install bundler github-pages kramdown-parser-gfm  # should pull in jekyll, etc.
+          jekyll build -s docs -d _site
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Run TR archiver
+        run: 'cd tools/scripts/tr-archive/ && bash make-tr-archive.sh'
+      - name: Rearrange stuff
+        run: 'cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/'
+      - name: Deploy to GitHub Pages
+        uses: Cecilapp/GitHub-Pages-deploy@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # email: username@domain.tld
+          build_dir: _site               # optional
+          branch: gh-pages                # optional
+          # cname: domain.tld              # optional
+          # jekyll: no                     # optional
+          commit_message: CLDR-00000 Automated Build of Pages # optional
+
+# zero change

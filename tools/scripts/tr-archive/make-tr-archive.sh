@@ -12,5 +12,5 @@ then
     wget -c 'https://www.unicode.org/reports/logo60s2.gif'
 fi
 mkdir -p dist
-cp -vR ../../../docs/ldml/ ./dist/
+cp -vR ../../../docs/ldml/* ./dist/
 node archive.js && zip -r tr35.zip dist/*.html dist/images

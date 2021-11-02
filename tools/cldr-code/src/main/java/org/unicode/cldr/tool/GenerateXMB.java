@@ -709,7 +709,7 @@ public class GenerateXMB {
         /*
          * Desired output for English XMB
          * <msg desc=
-         * "[ICU Syntax] Plural forms for a number of hours. These are special messages: before translating, see cldr.org/translation/plurals."
+         * "[ICU Syntax] Plural forms for a number of hours. These are special messages: before translating, see ..."
          * >
          * {LENGTH, select,
          * abbreviated {
@@ -1171,8 +1171,6 @@ public class GenerateXMB {
             out = FileUtilities.openUTF8Writer(targetDir + "/log/", "en-missingDescriptions.txt");
             out.println("# " + DATE);
             for (String starredPath : missingDescriptions) {
-                // ^//ldml/dates/timeZoneNames/zone\[@type=".*"]/exemplarCity ; ROOT timezone ; The name of a city in:
-                // {0}. See cldr.org/xxxx.
                 out.println(toRegexPath(starredPath) + "\t;\tDESCRIPTION\t" + starredPaths.get(starredPath));
             }
             out.close();

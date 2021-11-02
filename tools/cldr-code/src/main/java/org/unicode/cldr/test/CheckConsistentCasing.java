@@ -294,10 +294,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         return info;
     }
 
+    private static final String CAPITALIZATION_URL = "https://cldr.unicode.org/translation/capitalization";
     private static final String CASE_WARNING = "The first letter of 〈{0}〉 is {1}, which differs from what is expected " +
         "for the {2} category: that almost all values be {3}.\n\n" +
-        "For guidance, see ​http://cldr.org/translation/capitalization. " +
-        "If this warning is wrong, please file a ticket at http://unicode.org/cldr/trac/.";
+        "For guidance, see " + CAPITALIZATION_URL;
 
     private void checkConsistentCasing(Category category, String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {

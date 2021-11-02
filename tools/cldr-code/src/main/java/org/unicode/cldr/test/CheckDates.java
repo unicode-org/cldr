@@ -67,9 +67,9 @@ public class CheckDates extends FactoryCheckCLDR {
     private CoverageLevel2 coverageLevel;
     private SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
     // Ordered list of this CLDRFile and parent CLDRFiles up to root
-    List<CLDRFile> parentCLDRFiles = new ArrayList<CLDRFile>();
+    List<CLDRFile> parentCLDRFiles = new ArrayList<>();
     // Map from calendar type (i.e. "gregorian", "generic", "chinese") to DateTimePatternGenerator instance for that type
-    Map<String, DateTimePatternGenerator> dtpgForType = new HashMap<String, DateTimePatternGenerator>();
+    Map<String, DateTimePatternGenerator> dtpgForType = new HashMap<>();
 
     // Use the width of the character "0" as the basic unit for checking widths
     // It's not perfect, but I'm not sure that anything can be. This helps us
@@ -776,13 +776,14 @@ public class CheckDates extends FactoryCheckCLDR {
         }
 
         if (dateTypePatternType == DateTimePatternType.AVAILABLE || dateTypePatternType == DateTimePatternType.INTERVAL) {
+            final String DATE_TIME_PATTERNS_URL = "https://cldr.unicode.org/translation/date-time/datetime-patterns";
             String idCanonical = dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(id);
             if (skeleton.isEmpty()) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.incorrectDatePattern)
                     // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
                     .setMessage("Your pattern ({1}) is incorrect for ID ({0}). " +
-                        "You need to supply a pattern according to http://cldr.org/translation/date-time-patterns.",
+                        "You need to supply a pattern according to " + DATE_TIME_PATTERNS_URL + ".",
                         id, value));
             } else if (!dateTimePatternGenerator.skeletonsAreSimilar(idCanonical, skeletonCanonical)) {
                 String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
@@ -795,7 +796,8 @@ public class CheckDates extends FactoryCheckCLDR {
                         .setMessage(
                             "Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). "
                                 +
-                                "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language. See http://cldr.org/translation/date-time-patterns.",
+                                "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language. See "
+                                + DATE_TIME_PATTERNS_URL + ".",
                             id, skeletonCanonical, value, fixedValue));
             }
             if (dateTypePatternType == DateTimePatternType.AVAILABLE) {

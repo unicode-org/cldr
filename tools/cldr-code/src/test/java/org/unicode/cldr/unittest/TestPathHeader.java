@@ -756,8 +756,8 @@ public class TestPathHeader extends TestFmwkPlus {
         PathDescription pathDescription = new PathDescription(supplemental,
             english, null, null, PathDescription.ErrorHandling.CONTINUE);
         Matcher normal = PatternCache.get(
-            "http://cldr.org/translation/[-a-zA-Z0-9_]").matcher("");
-        // http://cldr.unicode.org/translation/plurals#TOC-Minimal-Pairs
+            "https://cldr.unicode.org/translation/[-a-zA-Z0-9_]").matcher("");
+        // https://cldr.unicode.org/translation/plurals#TOC-Minimal-Pairs
         Set<String> alreadySeen = new HashSet<>();
         PathStarrer starrer = new PathStarrer();
 

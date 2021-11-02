@@ -10,6 +10,8 @@ import org.unicode.cldr.util.PatternCache;
 import com.ibm.icu.text.UnicodeSet;
 
 public class CheckQuotes extends CheckCLDR {
+    private static final String VALID_DELIMITER_URL = "https://cldr.unicode.org/translation/characters";
+
     private static final Pattern ASCII_QUOTES = PatternCache.get("[\'\"]");
     private static final Pattern UNITS = PatternCache.get("//ldml/units/.*");
     private static final Pattern DELIMITERS = PatternCache.get("//ldml/delimiters/.*");
@@ -46,11 +48,9 @@ public class CheckQuotes extends CheckCLDR {
                 result.add(new CheckStatus().setCause(this)
                     .setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.invalidDelimiter)
-                    .setMessage("Invalid delimiter. See https://sites.google.com/site/cldr/translation/characters for a list of valid delimiters."));
+                    .setMessage("Invalid delimiter. See " + VALID_DELIMITER_URL + " for a list of valid delimiters."));
             }
         }
-
         return this;
     }
-
 }

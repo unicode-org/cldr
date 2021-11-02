@@ -27,13 +27,14 @@ describe("cldrErrorSubtypes.getHtml", function () {
       {
         names: ["displayCollision"],
         strings: ["display collision"],
+        // TODO: fix link for short-names-and-keywords per https://unicode-org.atlassian.net/browse/CLDR-15080
         url:
           "https://sites.google.com/site/cldr/translation/short-names-and-keywords",
         status: 200,
       },
     ],
     CLDR_SUBTYPE_URL:
-      '<a href="https://sites.google.com/site/cldr/development/subtypes">https://sites.google.com/site/cldr/development/subtypes</a>',
+      '<a href="https://cldr.unicode.org/development/subtypes">https://cldr.unicode.org/development/subtypes</a>',
     END_MARKER: "-*- END CheckCLDR.Subtype Mapping -*-",
   };
   // replace one "error" with "snafu" in the html to avoid spurious "error" detection in parseAsMimeType

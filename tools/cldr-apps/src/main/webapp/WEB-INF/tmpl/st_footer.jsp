@@ -40,8 +40,6 @@
                     }
                     u = u + "|" + k + "=" + v;
                 }
-                ctx.println("| <a " + (SurveyMain.isUnofficial() ? "title" : "href") + "='" + SurveyMain.bugFeedbackUrl("Feedback on URL ?" + u)
-                        + "'>Report Problem in Tool</a>");
             } catch (Throwable t) {
                 SurveyLog.logException(t, ctx);
                 SurveyLog.errln(t.toString()); // TODO: remove this JSP!

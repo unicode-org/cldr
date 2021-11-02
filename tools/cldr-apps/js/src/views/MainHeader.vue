@@ -36,7 +36,7 @@
         </select>
       </li>
       <li>
-        <a href="https://sites.google.com/site/cldr/translation" target="_blank"
+        <a href="https://cldr.unicode.org/translation/" target="_blank"
           >Instructions</a
         >
       </li>

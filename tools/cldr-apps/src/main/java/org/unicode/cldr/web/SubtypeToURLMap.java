@@ -25,10 +25,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.jsoup.Jsoup;
@@ -372,8 +372,7 @@ public class SubtypeToURLMap {
             return new SubtypeToURLMap(br);
         }
     }
-    static final String DEFAULT_URL = /*CLDRConfig.getInstance().getProperty("CLDR_SUBTYPE_URL", */
-        "https://sites.google.com/site/cldr/development/subtypes" /* ) */;
+    static final String DEFAULT_URL = "https://cldr.unicode.org/development/subtypes";
 
     private static String CACHE_SUBTYPE_FILE = "urlmap-cache.txt";
 

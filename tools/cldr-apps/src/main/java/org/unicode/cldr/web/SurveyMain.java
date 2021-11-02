@@ -247,12 +247,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String URL_HOST = "http://www.unicode.org/";
     public static final String URL_CLDR = URL_HOST + "cldr/";
 
-    /*
-     * TODO: CLDR no longer uses trac; change BUG_URL_BASE to link to github instead
-     */
-    public static final String BUG_URL_BASE = URL_CLDR + "trac";
-
-    public static final String GENERAL_HELP_URL = "https://sites.google.com/site/cldr/translation";
+    public static final String GENERAL_HELP_URL = "https://cldr.unicode.org/translation/";
     public static final String GENERAL_HELP_NAME = "Instructions";
 
     public static final String ADMIN_HELP_URL = "http://cldr.unicode.org/index/survey-tool/admin";
@@ -3588,10 +3583,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         } catch (Exception e) {
             return "UNKNOWN";
         }
-    }
-
-    public static String bugFeedbackUrl(String subject) {
-        return BUG_URL_BASE + "/newticket?component=survey&amp;summary=" + java.net.URLEncoder.encode(subject);
     }
 
     // ============= Following have to do with phases

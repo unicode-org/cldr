@@ -869,6 +869,7 @@ function chgPage(shift) {
   }
   cldrStatus.setCurrentSection(menus[parentIndex].id);
   cldrStatus.setCurrentPage(menus[parentIndex].pagesFiltered[index].id);
+  cldrStatus.setCurrentId(null);
 
   cldrLoad.reloadV();
 

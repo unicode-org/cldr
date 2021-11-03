@@ -99,6 +99,10 @@ public abstract class CLDRURLS {
 
     public static final String DATE_TIME_PATTERNS_URL = "https://cldr.unicode.org/translation/date-time/datetime-patterns";
 
+    public static final String ERRORS_URL = "https://cldr.unicode.org/translation/error-and-warning-codes";
+
+    public static final String CHARTS_URL = "https://cldr.unicode.org/index/charts#TOC-Summary";
+
     /**
      * Get the relative base URL for the SurveyTool.
      * This may be "/cldr-apps", for example.

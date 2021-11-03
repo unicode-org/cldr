@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.logging.Logger;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,7 +57,7 @@ public class PathDescription {
     private Output<String[]> pathArguments = new Output<>();
     private EnumSet<Status> status = EnumSet.noneOf(Status.class);
 
-    public static final String MISSING_DESCRIPTION = "Before translating, please see http://cldr.org/translation.";
+    public static final String MISSING_DESCRIPTION = "Before translating, please see " + CLDRURLS.GENERAL_HELP_URL + ".";
 
     public PathDescription(SupplementalDataInfo supplementalDataInfo,
         CLDRFile english,

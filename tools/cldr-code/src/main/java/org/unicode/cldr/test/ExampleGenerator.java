@@ -2139,7 +2139,6 @@ public class ExampleGenerator {
         if (description == null || description.equals("SKIP")) {
             return null;
         }
-        // http://cldr.org/translation/timezones
         int start = 0;
         StringBuilder buffer = new StringBuilder();
 

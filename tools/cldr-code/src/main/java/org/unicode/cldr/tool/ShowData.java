@@ -346,7 +346,8 @@ public class ShowData {
                         for (Entry<String, Set<String>> x : childValueToLocales.keyValuesSet()) {
                             showValue(pw, x.getKey(), x.getValue(), isExemplar);
                         }
-                        pw.println("<td class='info'><a class='rightLink' target='CLDR-ST-DOCS' href='http://cldr.org/index/charts#TOC-Summary'>ⓘ</a></td>");
+                        final String CHARTS_URL = "https://cldr.unicode.org/index/charts#TOC-Summary";
+                        pw.println("<td class='info'><a class='rightLink' target='CLDR-ST-DOCS' href='" + CHARTS_URL + "'>ⓘ</a></td>");
                     }
                     pw.println("</tr>");
                     oldParts = prettyPath;

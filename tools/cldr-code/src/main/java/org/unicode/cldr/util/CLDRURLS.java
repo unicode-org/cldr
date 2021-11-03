@@ -88,6 +88,17 @@ public abstract class CLDRURLS {
      */
     public static final String UNKNOWN_REVISION = "(unknown)";
 
+    public static final String GENERAL_HELP_URL = "https://cldr.unicode.org/translation/";
+
+    /*
+     * TODO: fix ADMIN_HELP_URL; reference: https://unicode-org.atlassian.net/browse/CLDR-15080
+     */
+    public static final String ADMIN_HELP_URL = "https://cldr.unicode.org/index/survey-tool/admin";
+
+    public static final String CAPITALIZATION_URL = "https://cldr.unicode.org/translation/capitalization";
+
+    public static final String DATE_TIME_PATTERNS_URL = "https://cldr.unicode.org/translation/date-time/datetime-patterns";
+
     /**
      * Get the relative base URL for the SurveyTool.
      * This may be "/cldr-apps", for example.

@@ -13,13 +13,13 @@ public class ReadXMB {
      * Two cases:
      * <!-- //ldml/characters/ellipsis[@type="final"] -->
      * <msg id='8185172660664561036' desc='Supply the elipsis pattern for when the final part of a string is omitted.
-     * Note: before translating, be sure to read http://cldr.org/translation/characters.'
+     * Note: before translating, be sure to read https://cldr.unicode.org/translation/characters.'
      * ><ph name='FIRST_PART_OF_TEXT'><ex>very long na</ex>{0}</ph>…</msg>
      * <!-- English original: {0}… -->
      * and
      * <!-- //ldml/characters/exemplarCharacters[@type="currencySymbol"] -->
      * <msg id='684343635911473473' desc='Supply the characters used in your language for the "currencySymbol" category.
-     * Note: before translating, be sure to read http://cldr.org/translation/exemplars.'
+     * Note: before translating, be sure to read ...'
      * >[a b c č d e f g h i j k l ł m n o º p q r s t u v w x y z]</msg>
      */
     public static Map<String, String> load(String directory, String file) {

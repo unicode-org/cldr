@@ -3,10 +3,8 @@ package org.unicode.cldr.util;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.RegexLookup.Merger;
 
 import com.google.common.collect.ImmutableMap;
@@ -118,9 +116,6 @@ public class PatternPlaceholders {
                 }
             } catch (Exception e) {
                 throw new IllegalArgumentException("Failed to parse " + source, e);
-            }
-            for (Entry<String, PlaceholderInfo> entry : result.data.entrySet()) {
-                if (GenerateXMB.DEBUG) System.out.println(entry);
             }
             return result;
         }

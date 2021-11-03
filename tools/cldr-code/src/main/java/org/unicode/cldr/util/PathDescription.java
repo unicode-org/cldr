@@ -100,12 +100,7 @@ public class PathDescription {
                 return null;
             }
         }
-
-        // String localeWhereFound = english.getSourceLocaleID(path, status);
-        // if (!status.pathWhereFound.equals(path)) {
-        // reasonsToPaths.put("alias", path + "  " + value);
-        // continue;
-        // }
+        description = replaceDescriptionUrl(description);
         if (value == null) { // a count item?
             String xpath = extras.get(path);
             if (xpath != null) {
@@ -198,6 +193,20 @@ public class PathDescription {
         }
 
         return description;
+    }
+
+    private String replaceDescriptionUrl(String description) {
+        String newDescription = description;
+        Pattern pattern = Pattern.compile("CLDRURLS\\.([^ \\.]+)");
+        Matcher matcher = pattern.matcher(newDescription);
+        if (matcher.find()) {
+            String constant = matcher.group(1);
+            String url = CLDRURLS.getUrlFromConstant(constant);
+            if (url != null) {
+                newDescription = newDescription.replace("CLDRURLS." + constant, url);
+            }
+        }
+        return newDescription;
     }
 
     /**

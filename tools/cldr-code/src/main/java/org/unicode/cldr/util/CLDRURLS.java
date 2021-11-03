@@ -114,6 +114,7 @@ public abstract class CLDRURLS {
     public static final String DATE_TIME_PATTERNS_URL = "https://cldr.unicode.org/translation/date-time/datetime-patterns";
     public static final String ERRORS_URL = "https://cldr.unicode.org/translation/error-and-warning-codes";
     public static final String EXEMPLAR_CHARACTERS = "https://cldr.unicode.org/translation/core-data/exemplar-characters";
+    public static final String GRAMMATICAL_INFLECTION = "https://cldr.unicode.org/translation/grammatical-inflection";
     public static final String KEY_NAMES = "https://cldr.unicode.org/translation/displaynames/key-names";
     public static final String LANGUAGE_NAMES = "https://cldr.unicode.org/translation/displaynames/languagelocale-names";
     public static final String LISTS_HELP = "https://cldr.unicode.org/translation/lists"; // TODO: MAYBE https://cldr.unicode.org/translation/miscellaneous-displaying-lists
@@ -345,6 +346,10 @@ public abstract class CLDRURLS {
     private static Map<String,String> pathDescriptionUrls = new HashMap<>();
 
     static {
+        /*
+         * There must be a better way to do this. The problem is complicated by the
+         * fact that PathDescription.txt is a text file, not a Java file.
+         */
         pathDescriptionUrls.put("CAPITALIZATION_URL", CAPITALIZATION_URL);
         pathDescriptionUrls.put("CHARACTER_LABELS", CHARACTER_LABELS);
         pathDescriptionUrls.put("CHARACTERS_HELP", CHARACTERS_HELP);
@@ -361,6 +366,7 @@ public abstract class CLDRURLS {
         pathDescriptionUrls.put("DATE_TIME_PATTERNS_URL", DATE_TIME_PATTERNS_URL);
         pathDescriptionUrls.put("ERRORS_URL", ERRORS_URL);
         pathDescriptionUrls.put("EXEMPLAR_CHARACTERS", EXEMPLAR_CHARACTERS);
+        pathDescriptionUrls.put("GRAMMATICAL_INFLECTION", GRAMMATICAL_INFLECTION);
         pathDescriptionUrls.put("KEY_NAMES", KEY_NAMES);
         pathDescriptionUrls.put("LANGUAGE_NAMES", LANGUAGE_NAMES);
         pathDescriptionUrls.put("LISTS_HELP", LISTS_HELP);

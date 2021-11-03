@@ -95,7 +95,7 @@ public abstract class CLDRURLS {
      */
     public static final String ADMIN_HELP_URL = "https://cldr.unicode.org/index/survey-tool/admin";
 
-    public static final String CAPITALIZATION_URL = "https://cldr.unicode.org/translation/capitalization";
+    public static final String CAPITALIZATION_URL = "https://cldr.unicode.org/translation/translation-guide-general/capitalization ";
 
     public static final String DATE_TIME_PATTERNS_URL = "https://cldr.unicode.org/translation/date-time/datetime-patterns";
 

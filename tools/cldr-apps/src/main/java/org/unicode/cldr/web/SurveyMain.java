@@ -247,10 +247,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String URL_HOST = "http://www.unicode.org/";
     public static final String URL_CLDR = URL_HOST + "cldr/";
 
-    public static final String GENERAL_HELP_URL = "https://cldr.unicode.org/translation/";
-    public static final String GENERAL_HELP_NAME = "Instructions";
+    public static final String BUG_URL_BASE = CLDRURLS.CLDR_NEWTICKET_URL;
 
-    public static final String ADMIN_HELP_URL = "http://cldr.unicode.org/index/survey-tool/admin";
+    public static final String GENERAL_HELP_URL = CLDRURLS.GENERAL_HELP_URL;
+    public static final String GENERAL_HELP_NAME = "Instructions";
 
     // ===== url prefix for help
     public static final String CLDR_HELP_LINK = URL_CLDR + "survey_tool.html" + "#";
@@ -1227,7 +1227,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.print(" | ");
         ctx.print("<a class='" + (isSql ? "" : "not") + "selected' href='" + ctx.base() + "?sql=" + vap + "'>SQL</a>");
         ctx.print("<br>");
-        ctx.print("<a href=\"" + SurveyMain.ADMIN_HELP_URL + "\">Admin Help</a>");
+        ctx.print("<a href=\"" + CLDRURLS.ADMIN_HELP_URL + "\">Admin Help</a>");
         ctx.println("</div>");
     }
 

@@ -31,10 +31,9 @@ import com.ibm.icu.util.Output;
  * @param <T>
  */
 public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
+    protected static final String SEPARATOR = "; ";
     private VariableReplacer variables = new VariableReplacer();
     private StorageInterfaceBase<T> storage;
-//    private StarPatternMap<T> SPEntries;
-//    private RegexTree<T> RTEntries;
     private Map<Finder, T> MEntries;
     private Transform<String, ? extends Finder> patternTransform = RegexFinderTransform;
     private Transform<String, ? extends T> valueTransform;
@@ -1029,7 +1028,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         parser.setLineParser(new RegexLineParser() {
             @Override
             public void parse(String line) {
-                int pos = line.indexOf("; ");
+                int pos = line.indexOf(RegexLookup.SEPARATOR);
                 if (pos < 0) {
                     throw new IllegalArgumentException("Illegal line, doesn't contain semicolon: " + line);
                 }

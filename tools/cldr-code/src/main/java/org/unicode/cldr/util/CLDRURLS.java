@@ -12,7 +12,7 @@ public abstract class CLDRURLS {
      * Base URL for the CLDR repository
      */
     public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr";
-    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE+"/commit/";
+    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "/commit/";
     /**
      * Hostname for the Survey Tool
      */
@@ -44,6 +44,7 @@ public abstract class CLDRURLS {
      */
     public static final String CLDR_SURVEY_PATH = "CLDR_SURVEY_PATH";
     public static final String TOOLSURL = "http://cldr.unicode.org/tools/";
+
     /**
      *  "special" pages
      * @author srl
@@ -87,6 +88,50 @@ public abstract class CLDRURLS {
      * Use the same in the builders.
      */
     public static final String UNKNOWN_REVISION = "(unknown)";
+
+    public static final String GENERAL_HELP_URL = "https://cldr.unicode.org/translation/";
+    public static final String ADMIN_HELP_URL = "https://cldr.unicode.org/index/survey-tool/survey-tool-administration";
+    public static final String CAPITALIZATION_URL = "https://cldr.unicode.org/translation/translation-guide-general/capitalization";
+    public static final String CHARACTERS_HELP = "https://cldr.unicode.org/translation/characters";
+    public static final String CHARACTER_LABELS = "https://cldr.unicode.org/translation/characters/character-labels";
+    public static final String CHARTS_URL = "https://cldr.unicode.org/index/charts#TOC-Summary";
+    public static final String COUNTRY_NAMES = "https://cldr.unicode.org/translation/displaynames/countryregion-territory-names";
+    public static final String CURRENCY_NAMES = "https://cldr.unicode.org/translation/currency-names-and-symbols";
+    public static final String DATE_TIME_HELP = "https://cldr.unicode.org/translation/date-time/datetime-names#h.ewzjebmpoi4k";
+    public static final String DATE_TIME_NAMES = "https://cldr.unicode.org/translation/date-time/datetime-names";
+    public static final String DATE_TIME_NAMES_CYCLIC = "https://cldr.unicode.org/translation/date-time/datetime-names#h.h0vy2eyzcj0n";
+    public static final String DATE_TIME_NAMES_FIELD = "https://cldr.unicode.org/translation/date-time/datetime-names#h.8wfk3599ck9x";
+    public static final String DATE_TIME_NAMES_MONTH = "https://cldr.unicode.org/translation/date-time/datetime-names#h.fww3pfyk0uwn";
+    public static final String DATE_TIME_NAMES_RELATIVE = "https://cldr.unicode.org/translation/date-time/datetime-names#h.aevw0tiix80v";
+    public static final String DATE_TIME_PATTERNS = "https://cldr.unicode.org/translation/date-time/datetime-patterns";
+    public static final String DATE_TIME_PATTERNS_URL = "https://cldr.unicode.org/translation/date-time/datetime-patterns";
+    public static final String ERRORS_URL = "https://cldr.unicode.org/translation/error-and-warning-codes";
+    public static final String EXEMPLAR_CHARACTERS = "https://cldr.unicode.org/translation/core-data/exemplar-characters";
+    public static final String GRAMMATICAL_INFLECTION = "https://cldr.unicode.org/translation/grammatical-inflection";
+    public static final String KEY_NAMES = "https://cldr.unicode.org/translation/displaynames/countryregion-territory-names#h.x27jspwj91af";
+    public static final String LANGUAGE_NAMES = "https://cldr.unicode.org/translation/displaynames/languagelocale-names";
+    public static final String LISTS_HELP = "https://cldr.unicode.org/translation/miscellaneous-displaying-lists";
+    public static final String LOCALE_PATTERN = "https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns";
+    public static final String NUMBERING_SYSTEMS = "https://cldr.unicode.org/translation/core-data/numbering-systems";
+    public static final String NUMBERS_HELP = "https://cldr.unicode.org/translation/currency-names-and-symbols";
+    public static final String NUMBERS_PLURAL = "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.mnb2fmj0pt72";
+    public static final String NUMBERS_SHORT = "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.eradhhuxzqqz";
+    public static final String NUMBER_PATTERNS = "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.j899g3kk2p1z";
+    public static final String PARSE_LENIENT = "https://cldr.unicode.org/translation/core-data/alphabetic-information#h.j3x0cwalqgqt";
+    public static final String PLURALS_HELP = "https://cldr.unicode.org/index/cldr-spec/plural-rules";
+    public static final String PLURALS_HELP_MINIMAL = "https://cldr.unicode.org/index/cldr-spec/plural-rules#h.6o6mp8cxlg8x";
+    public static final String SCRIPT_NAMES = "https://cldr.unicode.org/translation/displaynames/script-names";
+    public static final String SHORT_CHARACTER_NAMES = "https://cldr.unicode.org/translation/characters/short-names-and-keywords#h.4a8wthj27m74";
+    public static final String TRANSFORMS_HELP = "https://cldr.unicode.org/translation/transforms";
+    public static final String TYPOGRAPHIC_NAMES = "https://cldr.unicode.org/translation/characters/typographic-names";
+    public static final String TZ_CITY_NAMES = "https://cldr.unicode.org/translation/time-zones-and-city-names";
+    public static final String UNITS_HELP = "https://cldr.unicode.org/translation/units";
+    /*
+     * TODO: UNITS_MISC_HELP, formerly "https://cldr.unicode.org/translation/units-1/misc",
+     * now temporarily (?) the same as UNITS_HELP until a distinct URL is identified
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15080
+     */
+    public static final String UNITS_MISC_HELP = UNITS_HELP;
 
     /**
      * Get the relative base URL for the SurveyTool.
@@ -272,10 +317,10 @@ public abstract class CLDRURLS {
      * @return
      */
     public static String gitHashToLink(String hash) {
-        if(!isKnownHash(hash)) return "<span class=\"githashLink\">"+hash+"</span>"; // Not linkifiable
+        if (!isKnownHash(hash)) return "<span class=\"githashLink\">" + hash + "</span>"; // Not linkifiable
         return "<a class=\"githashLink\" href=\"" +
-                CldrUtility.getProperty("CLDR_COMMIT_BASE", DEFAULT_COMMIT_BASE)
-                + hash + "\">" + hash.substring(0, 8) + "</a>";
+            CldrUtility.getProperty("CLDR_COMMIT_BASE", DEFAULT_COMMIT_BASE)
+            + hash + "\">" + hash.substring(0, 8) + "</a>";
     }
 
     /**
@@ -293,6 +338,6 @@ public abstract class CLDRURLS {
      * @return
      */
     public static final String toHTML(String url) {
-        return "<a href=\""+ url + "\">" + url + "</a>";
+        return "<a href=\"" + url + "\">" + url + "</a>";
     }
 }

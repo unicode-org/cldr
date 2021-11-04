@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
@@ -220,7 +221,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                 .setSubtype(Subtype.sameAsEnglish)
                 .setCheckOnSubmit(false)
                 .setMessage(
-                    "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                    "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='" + CLDRURLS.ERRORS_URL + "'>Fixing Errors and Warnings</a>.",
                     new Object[] {}));
             break;
         case same_as_code:
@@ -231,7 +232,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                 .setSubtype(Subtype.sameAsCode)
                 .setCheckOnSubmit(false)
                 .setMessage(
-                    "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                    "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='" + CLDRURLS.ERRORS_URL + "'>Fixing Errors and Warnings</a>.",
                     new Object[] {}));
             break;
         default:

@@ -5,11 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import org.json.JSONException;
 import org.unicode.cldr.util.XMLSource;
 
 public class SurveyBulkClosePosts {
+
+    private static final Logger logger = SurveyLog.forClass(SurveyBulkClosePosts.class);
 
     private SurveyMain sm;
 
@@ -62,7 +65,7 @@ public class SurveyBulkClosePosts {
             }
             threadCount = rootIdList.size();
         } catch (SQLException e) {
-            SurveyLog.logException(e, "getJson");
+            SurveyLog.logException(logger, e, "reportOrExecute");
             errCode = e.toString();
         } finally {
             DBUtils.close(rs, ps, conn);
@@ -114,9 +117,8 @@ public class SurveyBulkClosePosts {
     private void doExecute() {
         try {
             postCount = SurveyForum.closeThreads(conn, rootIdList);
-            conn.commit(); // without commit here, posts are not closed
         } catch (SQLException e) {
-            SurveyLog.logException(e, "doExecute");
+            SurveyLog.logException(logger, e, "doExecute");
             errCode = e.toString();
         }
     }

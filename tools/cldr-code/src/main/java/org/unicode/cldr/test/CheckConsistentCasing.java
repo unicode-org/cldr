@@ -14,6 +14,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -296,8 +297,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     private static final String CASE_WARNING = "The first letter of 〈{0}〉 is {1}, which differs from what is expected " +
         "for the {2} category: that almost all values be {3}.\n\n" +
-        "For guidance, see ​http://cldr.org/translation/capitalization. " +
-        "If this warning is wrong, please file a ticket at http://unicode.org/cldr/trac/.";
+        "For guidance, see " + CLDRURLS.CAPITALIZATION_URL + ". " +
+        "If this warning is wrong, please file a ticket at " + CLDRURLS.CLDR_NEWTICKET_URL + ".";
 
     private void checkConsistentCasing(Category category, String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {

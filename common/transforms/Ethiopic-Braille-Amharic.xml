@@ -3,8 +3,8 @@
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="am_Ethi" target="am_Brai" direction="both" draft="contributed" alias="am-Ethi-t-am-brai" backwardAlias="am-Brai-t-am-ethi">
-                <!--  
+		<transform source="am_Ethi" target="am_Brai" direction="both" draft="contributed" alias="Ethiopic-Braille/Amharic am-Ethi-t-am-brai" backwardAlias="Braille-Ethiopic/Amharic am-Brai-t-am-ethi">
+		<!-- The transform described in prose:
 		  This is a conversion from the Amharic convention for the utilization of Ethiopic script to the Amharic convention for the utilization of Braille (6 dot) script, and the reversal.
                   No "variant" attribute is used, but might be in the future, to distinguish this conversion from another Amharic convetion for Ethiopic, or from another Amharic convention for Braille.
                 -->

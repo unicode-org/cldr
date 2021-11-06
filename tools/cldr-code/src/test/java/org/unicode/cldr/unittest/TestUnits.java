@@ -80,6 +80,7 @@ import org.unicode.cldr.util.UnitPreferences.UnitPreference;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -2635,6 +2636,39 @@ public class TestUnits extends TestFmwk {
                     cleaned, displayName);
                 }
             }
+        }
+    }
+
+    enum TranslationStatus {translate, skip, notRoot}
+
+    public void TestUnitsToTranslate() {
+    	Set<String> toTranslate = GrammarInfo.getUnitsToAddGrammar();
+        final CLDRConfig config = CLDRConfig.getInstance();
+        final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
+        Set<String> missing = new TreeSet<>();
+        Set<String> _data = new TreeSet<>();
+        Map<String, TranslationStatus> shortUnitToTranslationStatus = new TreeMap<>();
+        for (String shortUnit : Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
+        	shortUnitToTranslationStatus.put(shortUnit, TranslationStatus.notRoot);
+        }
+        for (String path : With.in(config.getRoot().iterator("//ldml/units/unitLength[@type=\"short\"]/unit"))) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String unit = parts.getAttributeValue(3, "type");
+            // Add simple units
+            String shortUnit = converter.getShortId(unit);
+
+        	TranslationStatus status = toTranslate.contains(shortUnit) ? TranslationStatus.translate : TranslationStatus.notRoot;
+            shortUnitToTranslationStatus.put(shortUnit, status);
+
+        }
+        for (Entry<String, TranslationStatus> entry : shortUnitToTranslationStatus.entrySet()) {
+        	String shortUnit = entry.getKey();
+        	TranslationStatus status = entry.getValue();
+                System.out.println(shortUnit
+                	+ "\t" + status
+                    + "\t" + converter.getQuantityFromUnit(shortUnit, false)
+                    + "\t" + converter.getSystemsEnum(shortUnit)
+                    + "\t" + (converter.isSimple(shortUnit) ? "SIMPLE" : ""));
         }
     }
 }

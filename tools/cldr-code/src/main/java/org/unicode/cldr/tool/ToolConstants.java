@@ -96,7 +96,7 @@ public class ToolConstants {
         if (vi.equals(DEV_VERSION_VI)) {
             return CLDRPaths.BASE_DIRECTORY;
         } else if (CLDR_VERSIONS_VI.contains(vi)) {
-            return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + vi.getVersionString(2, 2) + "/";
+            return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + vi.getVersionString(2, 3) + "/";
         } else {
             throw new IllegalArgumentException("not a known version: " + vi.getVersionString(2, 2)
                 + ", must be in: " + CLDR_VERSIONS_VI);

@@ -111,8 +111,7 @@ function setContextPath(path) {
 
 /**
  * A string such as '' (empty), or '821c2a2fc5c206d' (identifying an xpath),
- * or '12345' (identifying a user)
- * a.k.a. surveyCurrentId
+ * or '12345' (identifying a user) or other string (identifying a forum post)
  */
 let currentId = "";
 
@@ -121,7 +120,21 @@ function getCurrentId() {
 }
 
 function setCurrentId(id) {
-  currentId = id ? id : "";
+  currentId = idIsAllowed(id) ? id : "";
+}
+
+function idIsAllowed(id) {
+  if (!id) {
+    return false;
+  }
+  /*
+   * The hash character # (U+0023 NUMBER SIGN) is not allowed in the id; probably
+   * other URL reserved characters should not be allowed either
+   */
+  if (id.includes("#")) {
+    return false;
+  }
+  return true;
 }
 
 /**

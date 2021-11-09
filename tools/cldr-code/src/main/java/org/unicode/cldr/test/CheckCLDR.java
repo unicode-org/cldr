@@ -589,6 +589,7 @@ abstract public class CheckCLDR {
             .add(new CheckMetazones())
             .add(new CheckLogicalGroupings(factory))
             .add(new CheckAlt())
+            .add(new CheckAltOnly(factory))
             .add(new CheckCurrencies())
             .add(new CheckCasing())
             .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
@@ -728,7 +729,8 @@ abstract public class CheckCLDR {
             invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods,
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
-            mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences
+            mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences,
+            missingNonAltPath
             ;
 
             @Override

@@ -46,6 +46,7 @@ public enum Organization {
     oracle("Oracle", "sun", "Sun Micro"),
     pakistan("Pakistan"),
     rodakych("Rodakych", "Nigerian Pidgin"),
+    rohingyazuban("Rohingya Language Council", "RLC", "Rohingya Zuban"),
     rumantscha("Lia Rumantscha"),
     sardware("Sardware", "Sardware"),
     sil("SIL", "SIL International"),

@@ -18,6 +18,7 @@ const USE_NEW_PROGRESS_WIDGET = false;
 let progressWrapper = null;
 
 let sectionProgressStats = null;
+let voterProgressStats = null;
 
 /**
  * Create the ProgressMeters component
@@ -27,9 +28,7 @@ let sectionProgressStats = null;
 function insertWidget(spanId) {
   if (USE_NEW_PROGRESS_WIDGET) {
     hideLegacyCompletionWidget();
-    setTimeout(function () {
-      reallyInsertWidget(spanId);
-    }, 3000 /* three seconds -- temporary work-around for delays in initializing locale and coverage level */);
+    reallyInsertWidget(spanId);
   }
 }
 
@@ -59,8 +58,11 @@ function reallyInsertWidget(spanId) {
  */
 function updateWidgetsWithCoverage(newLevel) {
   if (progressWrapper) {
-    console.log("cldrProgress changing level: " + newLevel);
     fetchVoterData(); // for voterBar
+
+    // sectionBar will get updated after getting row data from server
+
+    // localeBar does NOT depend on the user's chosen coverage level
   }
 }
 
@@ -74,6 +76,12 @@ function refresh() {
     } else {
       updateLegacyCompletionWidget(sectionProgressStats);
     }
+  }
+  if (voterProgressStats && USE_NEW_PROGRESS_WIDGET) {
+    progressWrapper?.updateVoterVotesAndTotal(
+      voterProgressStats.votes,
+      voterProgressStats.total
+    );
   }
 }
 
@@ -98,17 +106,24 @@ function getSectionCompletionFromRows(rows) {
 }
 
 function updateSectionCompletionOneVote(hasVoted) {
-  if (sectionProgressStats) {
+  if (sectionProgressStats || voterProgressStats) {
+    updateStatsOneVote(sectionProgressStats, hasVoted);
+    updateStatsOneVote(voterProgressStats, hasVoted);
+    refresh();
+  }
+}
+
+function updateStatsOneVote(stats, hasVoted) {
+  if (stats) {
     if (hasVoted) {
-      if (sectionProgressStats.votes < sectionProgressStats.total) {
-        sectionProgressStats.votes++;
+      if (stats.votes < stats.total) {
+        stats.votes++;
       }
     } else {
-      if (sectionProgressStats.votes > 0) {
-        sectionProgressStats.votes--;
+      if (stats.votes > 0) {
+        stats.votes--;
       }
     }
-    refresh();
   }
 }
 
@@ -147,6 +162,10 @@ function reallyFetchVoterData(locale, level) {
     .then((data) => data.json())
     .then((json) => {
       progressWrapper.setHidden(false);
+      voterProgressStats = {
+        votes: json.votes,
+        total: json.total,
+      };
       progressWrapper.updateVoterVotesAndTotal(json.votes, json.total);
     })
     .catch((err) => {
@@ -179,7 +198,6 @@ function updateLegacyCompletionWidget(sectionVotesTotal) {
 }
 
 export {
-  fetchVoterData,
   insertWidget,
   refresh,
   updateSectionCompletion,

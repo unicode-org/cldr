@@ -136,7 +136,6 @@ function updateCoverage(theDiv) {
 export {
   covName,
   covValue,
-  effectiveCoverage,
   effectiveName,
   getSurveyOrgCov,
   getSurveyUserCov,

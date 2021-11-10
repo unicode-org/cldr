@@ -28,7 +28,6 @@
 
 <script>
 import * as cldrLoad from "../esm/cldrLoad.js";
-import * as cldrProgress from "../esm/cldrProgress.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 
 export default {

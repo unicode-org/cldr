@@ -4,11 +4,11 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import java.io.PrintWriter;
 
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.TestShimUtils;
+
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 
 public class AllTests extends TestGroup {
     private static final ImmutableList<Class<?>> TEST_CLASSES = ImmutableList.of(

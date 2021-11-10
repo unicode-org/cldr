@@ -8,10 +8,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
+import org.unicode.cldr.web.SurveyLog;
 
 import com.google.common.io.Files;
-
-import org.unicode.cldr.web.SurveyLog;
 
 /**
  * Central management for cache files.

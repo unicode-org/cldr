@@ -1,14 +1,9 @@
 package org.unicode.cldr.util;
 
-import java.util.Locale;
-
-import com.ibm.icu.impl.duration.DurationFormatter;
 import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.DurationFormat;
 import com.ibm.icu.text.MeasureFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.RelativeDateTimeFormatter;
 import com.ibm.icu.text.MeasureFormat.FormatWidth;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.Measure;
 import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;

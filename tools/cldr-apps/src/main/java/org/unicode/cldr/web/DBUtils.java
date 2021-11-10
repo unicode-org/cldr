@@ -41,8 +41,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
-
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,6 +52,8 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.SurveyMain.Phase;
+
+import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
  * Singleton utility class for simple(r) DB access.

@@ -13,11 +13,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Hashtable;
 
+import org.unicode.cldr.util.CldrUtility;
+
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
 import com.ibm.icu.text.UTF16;
-
-import org.unicode.cldr.util.CldrUtility;
 
 /**
  * The LDML2ICUBinaryWriter class is a set of methods which can be used

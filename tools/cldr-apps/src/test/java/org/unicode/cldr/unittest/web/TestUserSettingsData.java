@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest.web;
 
 import java.sql.SQLException;
 
-import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.UserSettings;
 import org.unicode.cldr.web.UserSettingsData;
 

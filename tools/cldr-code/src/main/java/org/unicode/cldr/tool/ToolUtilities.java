@@ -12,7 +12,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineComparer;
 import org.unicode.cldr.util.FileReaders;
-import org.unicode.cldr.util.PathUtilities;
 
 /**
  * Utilities for CLDR tools.

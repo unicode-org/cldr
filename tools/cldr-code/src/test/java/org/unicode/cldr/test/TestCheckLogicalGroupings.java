@@ -1,10 +1,7 @@
 package org.unicode.cldr.test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.LinkedList;
@@ -16,11 +13,11 @@ import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 public class TestCheckLogicalGroupings {
     @Test

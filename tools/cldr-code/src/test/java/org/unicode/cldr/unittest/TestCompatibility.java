@@ -10,7 +10,6 @@ import java.io.StringWriter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.PathUtilities;
 
 public class TestCompatibility extends TestFmwkPlus {
     private static final File ARCHIVE = new File(CLDRPaths.ARCHIVE_DIRECTORY);

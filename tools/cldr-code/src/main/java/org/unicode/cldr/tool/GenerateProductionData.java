@@ -17,14 +17,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
-import com.google.common.io.Files;
-import com.ibm.icu.util.Output;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
@@ -40,6 +32,14 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import com.google.common.io.Files;
+import com.ibm.icu.util.Output;
 
 public class GenerateProductionData {
     static boolean DEBUG = false;

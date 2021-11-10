@@ -809,7 +809,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">බොදු දින දසුන</type>
-			<type key="calendar" type="chinese">චීන දින දසුන </type>
+			<type key="calendar" type="chinese">චීන දින දසුන</type>
 			<type key="calendar" type="dangi">ඩැන්ගී දින දසුන</type>
 			<type key="calendar" type="ethiopic">ඉතියෝපියානු දින දසුන</type>
 			<type key="calendar" type="gregorian">ග්‍රෙගරියානු දින දසුන</type>
@@ -2329,7 +2329,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="minute-short">
-				<displayName>මිනි.</displayName>
+				<displayName>විනා.</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">විනාඩි {0}කින්</relativeTimePattern>
 					<relativeTimePattern count="other">විනාඩි {0}කින්</relativeTimePattern>
@@ -2340,7 +2340,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>මිනි.</displayName>
+				<displayName>විනා.</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">විනාඩි {0}කින්</relativeTimePattern>
 					<relativeTimePattern count="other">විනාඩි {0}කින්</relativeTimePattern>
@@ -6195,7 +6195,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">අංශක {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>චාපමිනිත්තු</displayName>
+				<displayName>චාපවිනාඩි</displayName>
 				<unitPattern count="one">චාපවිනාඩි {0}</unitPattern>
 				<unitPattern count="other">චාපවිනාඩි {0}</unitPattern>
 			</unit>
@@ -6393,43 +6393,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>වසර</displayName>
 				<unitPattern count="one">වසර {0}</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
-				<perUnitPattern>වසරට {0}</perUnitPattern>
+				<perUnitPattern>වසර {0} කට</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>මාස</displayName>
 				<unitPattern count="one">මාස {0}</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
-				<perUnitPattern>මාසයට {0}</perUnitPattern>
+				<perUnitPattern>මාස {0} කට</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>සති</displayName>
 				<unitPattern count="one">සති {0}</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
-				<perUnitPattern>සතියට {0}</perUnitPattern>
+				<perUnitPattern>සති {0} කට</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>දින</displayName>
 				<unitPattern count="one">දින {0}</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
-				<perUnitPattern>දිනයට {0}</perUnitPattern>
+				<perUnitPattern>දින {0} කට</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>පැය</displayName>
 				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
-				<perUnitPattern>පැයට {0}</perUnitPattern>
+				<perUnitPattern>පැය {0} කට</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName>මිනිත්තු</displayName>
+				<displayName>විනාඩි</displayName>
 				<unitPattern count="one">විනාඩි {0}</unitPattern>
 				<unitPattern count="other">විනාඩි {0}</unitPattern>
-				<perUnitPattern>මිනිත්තුවට {0}</perUnitPattern>
+				<perUnitPattern>විනාඩි {0} කට</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>තත්පර</displayName>
 				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
-				<perUnitPattern>තත්පරයට {0}</perUnitPattern>
+				<perUnitPattern>තත්පර {0} කට</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>මිලිතත්පර</displayName>
@@ -7240,9 +7240,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">අංශක {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>චාපමිනිත්තු</displayName>
-				<unitPattern count="one">චාපමිනිත්තු {0}</unitPattern>
-				<unitPattern count="other">චාපමිනිත්තු {0}</unitPattern>
+				<displayName>චාපවිනාඩි</displayName>
+				<unitPattern count="one">චාපවිනාඩි {0}</unitPattern>
+				<unitPattern count="other">චාපවිනාඩි {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>චාපතත්පර</displayName>
@@ -7462,19 +7462,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>පැය</displayName>
 				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
-				<perUnitPattern>පැයට {0}</perUnitPattern>
+				<perUnitPattern>{0}/පැ</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName>මිනි</displayName>
+				<displayName>විනා</displayName>
 				<unitPattern count="one">විනා {0}</unitPattern>
 				<unitPattern count="other">විනා {0}</unitPattern>
-				<perUnitPattern>{0}/මිනි</perUnitPattern>
+				<perUnitPattern>{0}/විනා</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>තත්පර</displayName>
 				<unitPattern count="one">තත් {0}</unitPattern>
 				<unitPattern count="other">තත් {0}</unitPattern>
-				<perUnitPattern>තත්පරයට {0}</perUnitPattern>
+				<perUnitPattern>{0}/තත්</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>මිලිතත්පර</displayName>
@@ -8285,7 +8285,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>චාපමිනිත්තු</displayName>
+				<displayName>චාපවිනාඩි</displayName>
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>

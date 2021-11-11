@@ -534,6 +534,11 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         "month",
         "year"
         );
+
+    public static Set<String> getSpecialsToTranslate() {
+        return INCLUDE_OTHER;
+    }
+
     public static final boolean DEBUG = false;
     /**
      * Internal class for thread-safety
@@ -555,20 +560,20 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
                     continue;
                 }
                 Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
-                // former code added simple units that were metric
-//                if (converter.isSimple(shortUnit)
-//                    && !Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
-//                    _data.add(unit);
-//                    continue;
-//                }
-                // we now add all metric
-                if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
+                // v40 code added simple units that were metric
+                if (converter.isSimple(shortUnit)
+                    && !Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
                     _data.add(unit);
                     continue;
                 }
+                // we now add all metric
+//                if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
+//                    _data.add(unit);
+//                    continue;
+//                }
                 missing.add(unit);
             }
-            if (true) for (String unit : missing) {
+            if (DEBUG) for (String unit : missing) {
                 String shortUnit = converter.getShortId(unit);
                 System.out.println("*Skipping\t" + unit
                     + "\t" + converter.getQuantityFromUnit(shortUnit, false)

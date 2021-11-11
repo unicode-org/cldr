@@ -2633,42 +2633,47 @@ public class TestUnits extends TestFmwk {
                 } else {
                     String cleaned = pluralForm.replace("{0}", "").trim();
                     assertEquals("Unit display name should correspond to plural in English " + width + ", " + longUnitId,
-                    cleaned, displayName);
+                        cleaned, displayName);
                 }
             }
         }
     }
 
-    enum TranslationStatus {translate, skip, notRoot}
+    enum TranslationStatus {has_grammar_M, has_grammar_X, add_grammar, skip_grammar, skip_trans}
 
     public void TestUnitsToTranslate() {
-    	Set<String> toTranslate = GrammarInfo.getUnitsToAddGrammar();
+        Set<String> toTranslate = GrammarInfo.getUnitsToAddGrammar();
         final CLDRConfig config = CLDRConfig.getInstance();
         final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
-        Set<String> missing = new TreeSet<>();
-        Set<String> _data = new TreeSet<>();
-        Map<String, TranslationStatus> shortUnitToTranslationStatus = new TreeMap<>();
-        for (String shortUnit : Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
-        	shortUnitToTranslationStatus.put(shortUnit, TranslationStatus.notRoot);
+        Map<String, TranslationStatus> shortUnitToTranslationStatus40 = new TreeMap<>();
+        for (String longUnit : Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
+            String shortUnit = converter.getShortId(longUnit);
+            shortUnitToTranslationStatus40.put(shortUnit, TranslationStatus.skip_trans);
         }
         for (String path : With.in(config.getRoot().iterator("//ldml/units/unitLength[@type=\"short\"]/unit"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
-            String unit = parts.getAttributeValue(3, "type");
+            String longUnit = parts.getAttributeValue(3, "type");
             // Add simple units
-            String shortUnit = converter.getShortId(unit);
+            String shortUnit = converter.getShortId(longUnit);
+            Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
 
-        	TranslationStatus status = toTranslate.contains(shortUnit) ? TranslationStatus.translate : TranslationStatus.notRoot;
-            shortUnitToTranslationStatus.put(shortUnit, status);
+            boolean siOrMetric = !Collections.disjoint(systems, UnitSystem.SiOrMetric);
 
+            TranslationStatus status =
+
+                toTranslate.contains(longUnit) ? (siOrMetric ? TranslationStatus.has_grammar_M : TranslationStatus.has_grammar_X)
+                    : siOrMetric ? TranslationStatus.add_grammar : TranslationStatus.skip_grammar;
+            shortUnitToTranslationStatus40.put(shortUnit, status);
         }
-        for (Entry<String, TranslationStatus> entry : shortUnitToTranslationStatus.entrySet()) {
-        	String shortUnit = entry.getKey();
-        	TranslationStatus status = entry.getValue();
-                System.out.println(shortUnit
-                	+ "\t" + status
-                    + "\t" + converter.getQuantityFromUnit(shortUnit, false)
-                    + "\t" + converter.getSystemsEnum(shortUnit)
-                    + "\t" + (converter.isSimple(shortUnit) ? "SIMPLE" : ""));
+        for (Entry<String, TranslationStatus> entry : shortUnitToTranslationStatus40.entrySet()) {
+            String shortUnit = entry.getKey();
+            TranslationStatus status40 = entry.getValue();
+            System.out.println(shortUnit
+                + "\t" + converter.getQuantityFromUnit(shortUnit, false)
+                + "\t" + converter.getSystemsEnum(shortUnit)
+                + "\t" + (converter.isSimple(shortUnit) ? "simple" : "complex")
+                + "\t" + status40
+                );
         }
     }
 }

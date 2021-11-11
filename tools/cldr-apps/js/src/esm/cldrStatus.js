@@ -56,7 +56,6 @@ function updateAll(status) {
 /**
  * When this changes from one non-null value to another, the server has restarted
  * a.k.a. org.unicode.cldr.web.SurveyMain.surveyRunningStamp
- * a.k.a. status.surveyRunningStamp
  */
 let runningStamp = null;
 
@@ -120,7 +119,12 @@ function getCurrentId() {
 }
 
 function setCurrentId(id) {
-  currentId = idIsAllowed(id) ? id : "";
+  if (!id) {
+    currentId = "";
+  } else {
+    id = id.toString();
+    currentId = idIsAllowed(id) ? id : "";
+  }
 }
 
 function idIsAllowed(id) {
@@ -139,7 +143,6 @@ function idIsAllowed(id) {
 
 /**
  * A string such as '' (empty), 'Gregorian', 'Languages_K_N'
- * a.k.a. surveyCurrentPage
  */
 let currentPage = "";
 
@@ -171,7 +174,7 @@ function setCurrentSpecial(special) {
 
 /**
  * A string such as 'en', 'fr', etc., identifying a locale
- * a.k.a. surveyCurrentLocale
+ *
  * Caution: cldrLoad.updateHashAndMenus makes a distinction between null and
  * empty string "" for getCurrentLocale, seemingly with the assumption that
  * null is the original value. Later it may become empty string "", and
@@ -189,7 +192,6 @@ function setCurrentLocale(loc) {
 
 /**
  * A string such as 'French', etc., naming a locale
- * a.k.a. surveyCurrentLocaleName
  */
 let currentLocaleName = null;
 
@@ -203,7 +205,6 @@ function setCurrentLocaleName(name) {
 
 /**
  * A string such as 'Timezones', etc., naming a data section
- * a.k.a. surveyCurrentSection
  */
 let currentSection = "";
 
@@ -269,7 +270,6 @@ function setIsPhaseBeta(i) {
 
 /**
  * A string such as 'B0752471848DE78128A234F992BB3116', etc., identifying an HttpSession
- * a.k.a. surveySessionId
  */
 let sessionId = null;
 
@@ -355,7 +355,6 @@ function setOrganizationName(n) {
 
 /**
  * An object describing the current user's permissions
- * a.k.a. surveyUserPerms
  */
 let permissions = null;
 

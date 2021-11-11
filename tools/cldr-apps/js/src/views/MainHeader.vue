@@ -61,7 +61,7 @@
           class="glyphicon glyphicon-user tip-log"
           v-bind:title="org"
         ></span>
-        &nbsp;|&nbsp;
+        &nbsp;
         <cldr-loginbutton />
       </li>
     </ul>

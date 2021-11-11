@@ -347,10 +347,10 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
       onSuccess(theRow);
       cldrGui.updateDashboardRow(json);
       cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
-      cldrProgress.updateSectionCompletionOneVote(theRow.hasVoted);
+      cldrProgress.updateCompletionOneVote(theRow.hasVoted);
       /*
        * TODO: refreshCounterVetting here may be partly redundant after we
-       * have called cldrProgress.updateSectionCompletionOneVote
+       * have called cldrProgress.updateCompletionOneVote
        * -- however,refreshCounterVetting may also update
        * forum data and other counters -- "singleRowLoadHandler" isn't necessarily
        * the best time to update the forum data, though...

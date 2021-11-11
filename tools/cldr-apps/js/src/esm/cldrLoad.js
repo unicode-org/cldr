@@ -1093,6 +1093,7 @@ function flipToEmptyOther() {
 
 function coverageUpdate() {
   cldrCoverage.updateCoverage(flipper.get(pages.data));
+  handleCoverageChanged(cldrCoverage.effectiveName());
 }
 
 function setLoading(loading) {

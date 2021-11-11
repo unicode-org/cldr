@@ -274,8 +274,10 @@ const topTitle =
         </span>
       </span>
       <span id="CompletionSpan"></span>
-      <button class="cldr-nav-btn cldr-nav-right open-dash" type="button">Open Dashboard</button>
-      <button class="cldr-nav-btn toggle-right" type="button">Toggle Info Panel</button>
+      <span>
+        <button class="cldr-nav-btn btn-primary open-dash" type="button">Open Dashboard</button>
+        <button class="cldr-nav-btn btn-primary toggle-right" type="button">Toggle Info Panel</button>
+      </span>
     </nav>
   </header>
 `;
@@ -474,7 +476,7 @@ function updateWidgetsWithCoverage(newLevel) {
   if (dashboardVisible) {
     dashboardWidgetWrapper?.handleCoverageChanged(newLevel);
   }
-  cldrProgress.updateWidgetsWithCoverage(newLevel);
+  cldrProgress.updateWidgetsWithCoverage();
 }
 
 /**
@@ -536,7 +538,7 @@ function hideDashboard() {
     dash.style.display = "none";
     let els = document.getElementsByClassName("open-dash");
     for (let i = 0; i < els.length; i++) {
-      els[i].style.display = "inherit";
+      els[i].style.display = "inline";
     }
     dashboardVisible = false;
   }

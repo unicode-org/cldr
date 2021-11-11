@@ -42,11 +42,23 @@ describe("cldrStatus.runningStampChanged", function () {
 });
 
 describe("cldrStatus.getCurrentId and setCurrentId", function () {
-  const id1 = 42;
+  const id1 = "42abc";
   cldrStatus.setCurrentId(id1);
   const id2 = cldrStatus.getCurrentId();
 
   it("should get what is set", function () {
     assert(id2 === id1, "id2 = " + id2 + " should be same as id1 = " + id1);
+  });
+
+  const id3number = 1234;
+  const id3string = id3number.toString();
+  cldrStatus.setCurrentId(id3number);
+  const id4 = cldrStatus.getCurrentId();
+
+  it("should convert a number to a string", function () {
+    assert(
+      id4 === id3string,
+      "id4 = " + id4 + " should be same as id3string = " + id3string
+    );
   });
 });

@@ -5,6 +5,7 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
+import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 
 import ProgressMeters from "../views/ProgressMeters.vue";
@@ -18,6 +19,43 @@ const USE_NEW_PROGRESS_WIDGET = false;
 let progressWrapper = null;
 
 let sectionProgressStats = null;
+let voterProgressStats = null;
+let localeProgressStats = null;
+
+let sectionProgressRows = null;
+
+class MeterData {
+  constructor(description, votes, total, level) {
+    this.description = description;
+    this.votes = votes;
+    this.total = total;
+    this.level = level;
+    if (!description) {
+      this.percent = 0;
+      this.title = "No data";
+      return;
+    }
+    this.percent = friendlyPercent(votes, total);
+    const locale = cldrStatus.getCurrentLocale();
+    const localeName = cldrLoad.getLocaleName(locale);
+    this.title =
+      `${this.description}:` +
+      "\n" +
+      `${this.votes} / ${this.total} ≈ ${this.percent}%` +
+      "\n" +
+      `Locale: ${localeName} (${locale})` +
+      "\n" +
+      `Coverage: ${this.level}`;
+  }
+
+  getPercent() {
+    return this.percent;
+  }
+
+  getTitle() {
+    return this.title;
+  }
+}
 
 /**
  * Create the ProgressMeters component
@@ -25,15 +63,10 @@ let sectionProgressStats = null;
  * @param spanId the id of the element that will contain the new component
  */
 function insertWidget(spanId) {
-  if (USE_NEW_PROGRESS_WIDGET) {
-    hideLegacyCompletionWidget();
-    setTimeout(function () {
-      reallyInsertWidget(spanId);
-    }, 3000 /* three seconds -- temporary work-around for delays in initializing locale and coverage level */);
+  if (!USE_NEW_PROGRESS_WIDGET) {
+    return;
   }
-}
-
-function reallyInsertWidget(spanId) {
+  hideLegacyCompletionWidget();
   try {
     const fragment = document.createDocumentFragment();
     progressWrapper = createCldrApp(ProgressMeters).mount(fragment);
@@ -41,7 +74,7 @@ function reallyInsertWidget(spanId) {
     el.replaceWith(fragment);
   } catch (e) {
     console.error(
-      "Error mounting voting completion vue " + e.message + " / " + e.name
+      "Error loading ProgressMeters vue " + e.message + " / " + e.name
     );
     notification.error({
       message: `${e.name} while loading ProgressMeters.vue`,
@@ -54,38 +87,114 @@ function reallyInsertWidget(spanId) {
 /**
  * The user's coverage level has changed. Inform all widgets we know about that need
  * updating to reflect the change.
- *
- * @param {String} newLevel the new coverage level, such as "modern" or "comprehensive"
  */
-function updateWidgetsWithCoverage(newLevel) {
+function updateWidgetsWithCoverage() {
   if (progressWrapper) {
-    console.log("cldrProgress changing level: " + newLevel);
-    fetchVoterData(); // for voterBar
+    if (sectionProgressRows) {
+      // For sectionBar, we have saved a pointer to the rows; we need to recalculate
+      // the votes and total based on the coverage level of each row
+      sectionProgressStats = getSectionCompletionFromRows(sectionProgressRows);
+    }
+    // For voterBar
+    fetchVoterData();
+
+    // localeBar does NOT depend on the user's chosen coverage level
+    // Nevertheless, temporarily this is when we update it
+    // TODO: when to call fetchLocaleData?
+    fetchLocaleData();
   }
+  refresh();
 }
 
 function refresh() {
-  if (sectionProgressStats) {
-    if (USE_NEW_PROGRESS_WIDGET) {
-      progressWrapper?.updateSectionVotesAndTotal(
-        sectionProgressStats.votes,
-        sectionProgressStats.total
-      );
-    } else {
+  if (!USE_NEW_PROGRESS_WIDGET) {
+    if (sectionProgressStats) {
       updateLegacyCompletionWidget(sectionProgressStats);
     }
+    return;
+  }
+  refreshSectionMeter();
+  refreshVoterMeter();
+  refreshLocaleMeter();
+}
+
+function refreshSectionMeter() {
+  if (sectionProgressStats) {
+    const md = new MeterData(
+      "Your voting in this section",
+      sectionProgressStats.votes,
+      sectionProgressStats.total,
+      sectionProgressStats.level
+    );
+    progressWrapper?.updateSectionMeter(md);
+  }
+}
+
+function refreshVoterMeter() {
+  if (voterProgressStats) {
+    progressWrapper?.updateVoterMeter(
+      new MeterData(
+        "Your voting in this locale",
+        voterProgressStats.votes,
+        voterProgressStats.total,
+        voterProgressStats.level
+      )
+    );
+  }
+}
+
+function refreshLocaleMeter() {
+  if (localeProgressStats) {
+    progressWrapper?.updateLocaleMeter(
+      new MeterData(
+        "Completion for all vetters in this locale",
+        localeProgressStats.votes,
+        localeProgressStats.total,
+        localeProgressStats.level
+      )
+    );
   }
 }
 
 function updateSectionCompletion(rows) {
+  sectionProgressRows = rows;
   sectionProgressStats = getSectionCompletionFromRows(rows);
   refresh();
 }
 
 function getSectionCompletionFromRows(rows) {
+  const locale = cldrStatus.getCurrentLocale();
+  if (!locale) {
+    return null;
+  }
+  const levelNumber = cldrCoverage.effectiveCoverage(locale); // an integer
+  const level = cldrCoverage.effectiveName(locale); // a string
+  if (!levelNumber || !level) {
+    return null;
+  }
+  return getSectionStats(rows, levelNumber, level);
+}
+
+/**
+ * Get the stats (votes and total) for the given set of rows and the given
+ * coverage level
+ *
+ * Count only rows for which row.coverageValue <= cov
+ * A row has been voted on by this user if row.hasVoted is truthy
+ *
+ * @param {Object} rows - the object whose values are rows from json
+ * @param {Number} levelNumber - the coverage level as an integer like 100
+ * @param {String} level - the coverage level as a name like "comprehensive"
+ *
+ * @return an object with votes, total, and level
+ */
+function getSectionStats(rows, levelNumber, level) {
   let votes = 0;
   let total = 0;
   for (let row of Object.values(rows)) {
+    if (parseInt(row.coverageValue) > levelNumber) {
+      continue;
+    }
     ++total;
     if (row.hasVoted) {
       ++votes;
@@ -94,29 +203,34 @@ function getSectionCompletionFromRows(rows) {
   return {
     votes,
     total,
+    level,
   };
 }
 
-function updateSectionCompletionOneVote(hasVoted) {
-  if (sectionProgressStats) {
-    if (hasVoted) {
-      if (sectionProgressStats.votes < sectionProgressStats.total) {
-        sectionProgressStats.votes++;
-      }
-    } else {
-      if (sectionProgressStats.votes > 0) {
-        sectionProgressStats.votes--;
-      }
-    }
+function updateCompletionOneVote(hasVoted) {
+  if (sectionProgressStats || voterProgressStats) {
+    updateStatsOneVote(sectionProgressStats, hasVoted);
+    updateStatsOneVote(voterProgressStats, hasVoted);
     refresh();
   }
 }
 
-function fetchVoterData() {
-  if (!progressWrapper) {
-    return;
+function updateStatsOneVote(stats, hasVoted) {
+  if (stats) {
+    if (hasVoted) {
+      if (stats.votes < stats.total) {
+        stats.votes++;
+      }
+    } else {
+      if (stats.votes > 0) {
+        stats.votes--;
+      }
+    }
   }
-  if (!cldrStatus.getSurveyUser()) {
+}
+
+function fetchVoterData() {
+  if (!progressWrapper || !cldrStatus.getSurveyUser()) {
     return;
   }
   const locale = cldrStatus.getCurrentLocale();
@@ -128,8 +242,6 @@ function fetchVoterData() {
     return;
   }
   progressWrapper.setHidden(false);
-  progressWrapper.setLevel(level);
-  progressWrapper.setLocale(locale);
   reallyFetchVoterData(locale, level);
 }
 
@@ -147,12 +259,78 @@ function reallyFetchVoterData(locale, level) {
     .then((data) => data.json())
     .then((json) => {
       progressWrapper.setHidden(false);
-      progressWrapper.updateVoterVotesAndTotal(json.votes, json.total);
+      voterProgressStats = {
+        votes: json.votes,
+        total: json.total,
+        /*
+         * Here level is NOT from json
+         */
+        level: level,
+      };
+      refreshVoterMeter();
     })
     .catch((err) => {
-      console.error("Error loading Completion data: " + err);
+      console.error("Error loading Voter Completion data: " + err);
       progressWrapper.setHidden(true);
     });
+}
+
+function fetchLocaleData() {
+  if (!progressWrapper || !cldrStatus.getSurveyUser()) {
+    return;
+  }
+  const locale = cldrStatus.getCurrentLocale();
+  if (!locale) {
+    return;
+  }
+  progressWrapper.setHidden(false);
+  reallyFetchLocaleData(locale);
+}
+
+function reallyFetchLocaleData(locale) {
+  const url = `api/completion/locale/${locale}`;
+  cldrAjax
+    .doFetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        progressWrapper.setHidden(true);
+        throw Error(response.statusText);
+      }
+      return response;
+    })
+    .then((data) => data.json())
+    .then((json) => {
+      progressWrapper.setHidden(false);
+      localeProgressStats = {
+        votes: json.votes,
+        total: json.total,
+        level: json.level,
+      };
+      refreshLocaleMeter();
+    })
+    .catch((err) => {
+      console.error("Error loading Locale Completion data: " + err);
+      progressWrapper.setHidden(true);
+    });
+}
+
+function friendlyPercent(votes, total) {
+  if (!total) {
+    // The task is finished since nothing needed to be done
+    // Do not divide by zero (0 / 0 = NaN%)
+    return 100;
+  }
+  if (!votes) {
+    return 0;
+  }
+  // Do not round 99.9 up to 100
+  const floor = Math.floor((100 * votes) / total);
+  if (!floor) {
+    // Do not round 0.001 down to zero
+    // Instead, provide indication of slight progress
+    return 1;
+  }
+  return floor;
 }
 
 function hideLegacyCompletionWidget() {
@@ -179,10 +357,10 @@ function updateLegacyCompletionWidget(sectionVotesTotal) {
 }
 
 export {
-  fetchVoterData,
+  MeterData,
   insertWidget,
   refresh,
   updateSectionCompletion,
-  updateSectionCompletionOneVote,
+  updateCompletionOneVote,
   updateWidgetsWithCoverage,
 };

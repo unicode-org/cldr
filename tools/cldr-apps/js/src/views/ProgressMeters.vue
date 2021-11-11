@@ -28,7 +28,6 @@
 
 <script>
 import * as cldrLoad from "../esm/cldrLoad.js";
-import * as cldrProgress from "../esm/cldrProgress.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 
 export default {
@@ -96,16 +95,34 @@ export default {
     makeBar(bar, votes, total) {
       bar.votes = votes;
       bar.total = total;
-      // do not round 99.9 up to 100
-      bar.percent = Math.floor((100 * votes) / total);
+      bar.percent = this.friendlyPercent(votes, total);
       bar.title =
         `${bar.description}:` +
         "\n" +
-        `${votes} / ${total} = ${bar.percent}%` +
+        `${votes} / ${total} ≈ ${bar.percent}%` +
         "\n" +
         `Locale: ${this.localeName} (${this.locale})` +
         "\n" +
         `Coverage: ${this.level}`;
+    },
+
+    friendlyPercent(votes, total) {
+      if (!total) {
+        // The task is finished since nothing needed to be done
+        // Do not divide by zero (0 / 0 = NaN%)
+        return 100;
+      }
+      if (!votes) {
+        return 0;
+      }
+      // Do not round 99.9 up to 100
+      const floor = Math.floor((100 * votes) / total);
+      if (!floor) {
+        // Do not round 0.001 down to zero
+        // Instead, provide indication of slight progress
+        return 1;
+      }
+      return floor;
     },
   },
 

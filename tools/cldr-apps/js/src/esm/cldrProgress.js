@@ -18,6 +18,9 @@ const USE_NEW_PROGRESS_WIDGET = false;
 let progressWrapper = null;
 
 let sectionProgressStats = null;
+let voterProgressStats = null;
+
+let sectionProgressRows = null;
 
 /**
  * Create the ProgressMeters component
@@ -27,9 +30,7 @@ let sectionProgressStats = null;
 function insertWidget(spanId) {
   if (USE_NEW_PROGRESS_WIDGET) {
     hideLegacyCompletionWidget();
-    setTimeout(function () {
-      reallyInsertWidget(spanId);
-    }, 3000 /* three seconds -- temporary work-around for delays in initializing locale and coverage level */);
+    reallyInsertWidget(spanId);
   }
 }
 
@@ -59,8 +60,16 @@ function reallyInsertWidget(spanId) {
  */
 function updateWidgetsWithCoverage(newLevel) {
   if (progressWrapper) {
-    console.log("cldrProgress changing level: " + newLevel);
-    fetchVoterData(); // for voterBar
+    if (sectionProgressRows) {
+      // For sectionBar, we have saved a pointer to the rows; we need to recalculate
+      // the votes and total based on the coverage level of each row
+      sectionProgressStats = getSectionCompletionFromRows(sectionProgressRows);
+      refresh();
+    }
+    // For voterBar
+    fetchVoterData();
+
+    // localeBar does NOT depend on the user's chosen coverage level
   }
 }
 
@@ -75,17 +84,51 @@ function refresh() {
       updateLegacyCompletionWidget(sectionProgressStats);
     }
   }
+  if (voterProgressStats && USE_NEW_PROGRESS_WIDGET) {
+    progressWrapper?.updateVoterVotesAndTotal(
+      voterProgressStats.votes,
+      voterProgressStats.total
+    );
+  }
 }
 
 function updateSectionCompletion(rows) {
+  sectionProgressRows = rows;
   sectionProgressStats = getSectionCompletionFromRows(rows);
   refresh();
 }
 
 function getSectionCompletionFromRows(rows) {
+  const locale = cldrStatus.getCurrentLocale();
+  if (!locale) {
+    return null;
+  }
+  const cov = cldrCoverage.effectiveCoverage(locale); // an integer
+  if (!cov) {
+    return null;
+  }
+  return getSectionStats(rows, cov);
+}
+
+/**
+ * Get the stats (votes and total) for the given set of rows and the given
+ * coverage level
+ *
+ * Count only rows for which row.coverageValue <= cov
+ * A row has been voted on by this user if row.hasVoted is truthy
+ *
+ * @param {Object} rows - the object whose values are rows from json
+ * @param {number} cov - the coverage level as an integer
+ *
+ * @return an object with votes and total
+ */
+function getSectionStats(rows, cov) {
   let votes = 0;
   let total = 0;
   for (let row of Object.values(rows)) {
+    if (parseInt(row.coverageValue) > cov) {
+      continue;
+    }
     ++total;
     if (row.hasVoted) {
       ++votes;
@@ -98,17 +141,24 @@ function getSectionCompletionFromRows(rows) {
 }
 
 function updateSectionCompletionOneVote(hasVoted) {
-  if (sectionProgressStats) {
+  if (sectionProgressStats || voterProgressStats) {
+    updateStatsOneVote(sectionProgressStats, hasVoted);
+    updateStatsOneVote(voterProgressStats, hasVoted);
+    refresh();
+  }
+}
+
+function updateStatsOneVote(stats, hasVoted) {
+  if (stats) {
     if (hasVoted) {
-      if (sectionProgressStats.votes < sectionProgressStats.total) {
-        sectionProgressStats.votes++;
+      if (stats.votes < stats.total) {
+        stats.votes++;
       }
     } else {
-      if (sectionProgressStats.votes > 0) {
-        sectionProgressStats.votes--;
+      if (stats.votes > 0) {
+        stats.votes--;
       }
     }
-    refresh();
   }
 }
 
@@ -147,6 +197,10 @@ function reallyFetchVoterData(locale, level) {
     .then((data) => data.json())
     .then((json) => {
       progressWrapper.setHidden(false);
+      voterProgressStats = {
+        votes: json.votes,
+        total: json.total,
+      };
       progressWrapper.updateVoterVotesAndTotal(json.votes, json.total);
     })
     .catch((err) => {
@@ -179,7 +233,6 @@ function updateLegacyCompletionWidget(sectionVotesTotal) {
 }
 
 export {
-  fetchVoterData,
   insertWidget,
   refresh,
   updateSectionCompletion,

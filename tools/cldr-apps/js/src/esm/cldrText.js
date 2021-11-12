@@ -366,6 +366,7 @@ const strings = {
   coverage_no_items: "No items at this current coverage level.",
   coverage_menu_desc:
     'Change the displayed coverage level. "Default" will use your organization\'s preferred value for this locale, if any.',
+  coverage_unknown: "Unknown",
 
   section_mail: "Messages",
 
@@ -478,6 +479,10 @@ const strings = {
   lock_account_err_reason: "The reason for the request must be filled in.",
   lock_account_success:
     "The account has been locked successfully. Thank you for using the Survey Tool. If you have difficulty still, contact the person who set up your account.",
+
+  progress_section: "Your voting in this section",
+  progress_locale: "Your voting in this locale",
+  progress_completion: "Completion for all vetters in this locale"
 };
 
 /**

@@ -15,7 +15,7 @@ import { createCldrApp } from "../cldrVueRouter";
 
 import { notification } from "ant-design-vue";
 
-const USE_NEW_PROGRESS_WIDGET = false;
+const USE_NEW_PROGRESS_WIDGET = true;
 
 let progressWrapper = null;
 

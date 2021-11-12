@@ -19,7 +19,7 @@ import { notification } from "ant-design-vue";
 
 const USE_NEW_PROGRESS_WIDGET = true;
 const CAN_GET_VOTER_PROGRESS = true;
-const CAN_GET_LOCALE_PROGRESS = false;
+const CAN_GET_LOCALE_PROGRESS = false;  // For now
 
 let progressWrapper = null;
 
@@ -119,12 +119,10 @@ function updateWidgetsWithCoverage() {
       pageProgressStats = getPageCompletionFromRows(pageProgressRows);
     }
     // For voter meter, the back end delivers data along with dashboard, and dashboard
-    // itself gets updated when coverage changes, and updateVoterCompletion is called
+    // itself gets updated when coverage changes, and updateVoterCompletion is called.
 
-    // localeBar does NOT depend on the user's chosen coverage level
-    // Nevertheless, temporarily this is when we update it
-    // TODO: when to call fetchLocaleData?
-    fetchLocaleData();
+    // No reason to fetch the locale data here, it is unaffected by
+    // the coverage setting.
   }
   refresh();
 }
@@ -264,6 +262,7 @@ function updateCompletionOneVote(hasVoted) {
     updateStatsOneVote(voterProgressStats, hasVoted);
     refresh();
   }
+  fetchLocaleData(false);  // refresh 3rd meter if there is a vote
 }
 
 function updateStatsOneVote(stats, hasVoted) {
@@ -330,7 +329,12 @@ function updateVoterStats(votes, total) {
   refreshVoterMeter();
 }
 
-function fetchLocaleData() {
+/**
+ *
+ * @param {Boolean} unlessLoaded if true, skip if already present
+ * @returns
+ */
+function fetchLocaleData(unlessLoaded) {
   if (
     !CAN_GET_LOCALE_PROGRESS ||
     !progressWrapper ||
@@ -340,6 +344,13 @@ function fetchLocaleData() {
   }
   const locale = cldrStatus.getCurrentLocale();
   if (!locale) {
+    return;  // no locale
+  }
+  if (unlessLoaded &&
+    localeProgressStats &&
+    localeProgressStats.locale === locale) {
+    // LocaleMeter is already set
+    // TODO: still refresh if it's been too long
     return;
   }
   progressWrapper.setHidden(false);
@@ -364,6 +375,7 @@ function reallyFetchLocaleData(locale) {
         votes: json.votes,
         total: json.total,
         level: json.level,
+        locale,
       };
       refreshLocaleMeter();
     })
@@ -417,6 +429,7 @@ function updateLegacyCompletionWidget(pageVotesTotal) {
 
 export {
   MeterData,
+  fetchLocaleData,
   insertWidget,
   refresh,
   updateCompletionOneVote,

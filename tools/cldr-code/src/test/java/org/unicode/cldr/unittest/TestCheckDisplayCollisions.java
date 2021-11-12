@@ -83,7 +83,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         CLDRFile frResolved = factory.make("fr", true);
         checkFile(cdc, fr, frResolved);
 
-        CLDRFile frCaResolved = factory.make("fr_CA", false);
+        CLDRFile frCaResolved = factory.make("fr_CA", true);
         checkFile(cdc, frCA, frCaResolved,
             scorpioEmoji, ukRegion);
     }

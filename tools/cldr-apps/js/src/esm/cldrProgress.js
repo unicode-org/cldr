@@ -7,6 +7,7 @@ import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
+import * as cldrText from "./cldrText.js";
 
 import ProgressMeters from "../views/ProgressMeters.vue";
 
@@ -25,11 +26,19 @@ let localeProgressStats = null;
 let sectionProgressRows = null;
 
 class MeterData {
+  /**
+   *
+   * @param {String?} description description of this meter
+   * @param {Number?} votes number of votes for this meter
+   * @param {Number?} total number of total votes for this meter
+   * @param {String?} level coverage level
+   * @returns
+   */
   constructor(description, votes, total, level) {
     this.description = description;
-    this.votes = votes;
-    this.total = total;
-    this.level = level;
+    this.votes = votes || 0;
+    this.total = total || 0;
+    this.level = level || cldrText.get("coverage_unknown");
     if (!description) {
       this.percent = 0;
       this.title = "No data";
@@ -121,7 +130,7 @@ function refresh() {
 function refreshSectionMeter() {
   if (sectionProgressStats) {
     const md = new MeterData(
-      "Your voting in this section",
+      cldrText.get("progress_section"),
       sectionProgressStats.votes,
       sectionProgressStats.total,
       sectionProgressStats.level
@@ -134,7 +143,7 @@ function refreshVoterMeter() {
   if (voterProgressStats) {
     progressWrapper?.updateVoterMeter(
       new MeterData(
-        "Your voting in this locale",
+        cldrText.get("progress_locale"),
         voterProgressStats.votes,
         voterProgressStats.total,
         voterProgressStats.level
@@ -147,7 +156,7 @@ function refreshLocaleMeter() {
   if (localeProgressStats) {
     progressWrapper?.updateLocaleMeter(
       new MeterData(
-        "Completion for all vetters in this locale",
+        cldrText.get("progress_completion"),
         localeProgressStats.votes,
         localeProgressStats.total,
         localeProgressStats.level

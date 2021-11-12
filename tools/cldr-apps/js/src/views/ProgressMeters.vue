@@ -34,9 +34,9 @@ export default {
   data() {
     return {
       hide: true,
-      sectionMeter: new cldrProgress.MeterData("", 0, 0, 0),
-      voterMeter: new cldrProgress.MeterData("", 0, 0, 0),
-      localeMeter: new cldrProgress.MeterData("", 0, 0, 0),
+      sectionMeter: new cldrProgress.MeterData(),
+      voterMeter: new cldrProgress.MeterData(),
+      localeMeter: new cldrProgress.MeterData(),
     };
   },
 

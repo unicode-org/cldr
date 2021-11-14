@@ -2641,6 +2641,9 @@ public class TestUnits extends TestFmwk {
 
     enum TranslationStatus {has_grammar_M, has_grammar_X, add_grammar, skip_grammar, skip_trans}
 
+    /** Check which units are enabled for translation.
+     * If -v, then generates lines for spreadsheet checks.
+     */
     public void TestUnitsToTranslate() {
         Set<String> toTranslate = GrammarInfo.getUnitsToAddGrammar();
         final CLDRConfig config = CLDRConfig.getInstance();
@@ -2667,7 +2670,7 @@ public class TestUnits extends TestFmwk {
         for (Entry<String, TranslationStatus> entry : shortUnitToTranslationStatus40.entrySet()) {
             String shortUnit = entry.getKey();
             TranslationStatus status40 = entry.getValue();
-            System.out.println(shortUnit
+            if (isVerbose()) System.out.println(shortUnit
                 + "\t" + converter.getQuantityFromUnit(shortUnit, false)
                 + "\t" + converter.getSystemsEnum(shortUnit)
                 + "\t" + (converter.isSimple(shortUnit) ? "simple" : "complex")

@@ -12,7 +12,7 @@ import com.google.common.collect.ImmutableSet;
 
 public final class SubmissionLocales {
     public static Set<String> NEW_CLDR_LOCALES = ImmutableSet.of(
-        // "brx"  // Bodo
+        // "brx"  // Bodo — ADD this once in Locales.txt
         );
 
     public static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of(

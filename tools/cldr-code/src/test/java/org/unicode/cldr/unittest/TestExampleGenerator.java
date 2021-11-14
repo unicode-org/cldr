@@ -25,6 +25,7 @@ import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -35,8 +36,6 @@ import org.unicode.cldr.util.With;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.locale.XCldrStub.Splitter;
-import com.sun.tools.javac.util.Pair;
 
 public class TestExampleGenerator extends TestFmwk {
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
@@ -995,8 +994,8 @@ public class TestExampleGenerator extends TestFmwk {
             } else {
                 for (Entry<String, Pair<String, String>> pathAndLabel : paths.entrySet()) {
                     String path = pathAndLabel.getKey();
-                    String label = pathAndLabel.getValue().fst;
-                    String code = pathAndLabel.getValue().snd;
+                    String label = pathAndLabel.getValue().getFirst();
+                    String code = pathAndLabel.getValue().getSecond();
                     if (!label.equals("plural")) {
                         pluralOnly = false;
                     }
@@ -1004,8 +1003,8 @@ public class TestExampleGenerator extends TestFmwk {
                 String lastLabel = "";
                 for (Entry<String, Pair<String, String>> pathAndLabel : paths.entrySet()) {
                     String path = pathAndLabel.getKey();
-                    String label = pathAndLabel.getValue().fst;
-                    String code = pathAndLabel.getValue().snd;
+                    String label = pathAndLabel.getValue().getFirst();
+                    String code = pathAndLabel.getValue().getSecond();
                     String pattern = "";
                     String examples = "";
                     if (!label.equals(lastLabel)) {
@@ -1026,7 +1025,7 @@ public class TestExampleGenerator extends TestFmwk {
                             .replace("〗", "")
                             .replace("〖", "")
                             ;
-                        List<String> exampleList = Splitter.on('\t').trimResults().splitToList(examples);
+                        List<String> exampleList = com.google.common.base.Splitter.on('\t').trimResults().splitToList(examples);
                         if (exampleList.size() != 2) {
                             throw new IllegalArgumentException("Expecting exactly 2 examples: " + exampleList);
                         }

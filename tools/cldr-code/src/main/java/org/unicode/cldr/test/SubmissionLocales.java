@@ -12,16 +12,7 @@ import com.google.common.collect.ImmutableSet;
 
 public final class SubmissionLocales {
     public static Set<String> NEW_CLDR_LOCALES = ImmutableSet.of(
-        "ceb",  // Cebuano (not new in release, but needs major changes)
-        "mai",  // Maithili
-        "mni",  // Manipuri (Bengali script)-Apple as well
-        "sat",  // Santali -(Apple use Olck script)
-        "kok",  // Konkani -(Note: this is already covered by a MS vetter at Modern level)
-        "sd_Deva",   // Sindhi (Devanagari)
-        "su",   // Sundanese (script TBD)
-        "pcm"  // Nigerian Pidgin
-//        "cad",  // Caddo
-//        "gn"    // Guarani
+        "brx"  // Bodo
         );
 
     public static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of(
@@ -45,8 +36,7 @@ public final class SubmissionLocales {
 //            }
 
     public static final Pattern ALLOWED_IN_LIMITED_PATHS =
-    Pattern.compile("//ldml/annotations/annotation.*[🤵👰⬆➡⬇⬅♾✖➕➖➗]");
-
+    Pattern.compile("//ldml/units/unitLength\\[@type=\"long\"]");
 
     /* Example of special paths
      * Pattern.compile(

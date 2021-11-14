@@ -452,9 +452,9 @@ public class ExampleGenerator {
             result = handleLabelPattern(parts, value);
         }
         if (result != null) {
-            if (!typeIsEnglish) {
-                result = addTransliteration(result, value);
-            }
+//            if (!typeIsEnglish) {
+//                result = addTransliteration(result, value);
+//            }
             result = finalizeBackground(result);
         }
         return result;
@@ -645,36 +645,90 @@ public class ExampleGenerator {
         List<String> examples = new ArrayList<>();
 
         Output<String> output = new Output<>();
-        String count;
+        String count = null;
+        String otherCount = null;
         String sample = null;
+        String sampleBad = null;
+        String locale = getCldrFile().getLocaleID();
 
         switch(parts.getElement(-1)) {
 
         case "ordinalMinimalPairs":   //ldml/numbers/minimalPairs/ordinalMinimalPairs[@count="one"]
             count = parts.getAttributeValue(-1, "count");
             sample = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, count); // Pick a unit that exhibits the most variation
+            otherCount = getOtherCount(locale, PluralType.ordinal, count);
+            sampleBad = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, otherCount); // Pick a unit that exhibits the most variation
             break;
 
         case "pluralMinimalPairs":   //ldml/numbers/minimalPairs/pluralMinimalPairs[@count="one"]
             count = parts.getAttributeValue(-1, "count");
             sample = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.cardinal, count); // Pick a unit that exhibits the most variation
+            otherCount = getOtherCount(locale, PluralType.cardinal, count);
+            sampleBad = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.cardinal, otherCount); // Pick a unit that exhibits the most variation
             break;
 
         case "caseMinimalPairs":   //ldml/numbers/minimalPairs/caseMinimalPairs[@case="accusative"]
             String gCase = parts.getAttributeValue(-1, "case");
             sample = bestMinimalPairSamples.getBestUnitWithCase(gCase, output); // Pick a unit that exhibits the most variation
+            sampleBad = getOtherCase(bestMinimalPairSamples, locale, gCase, sample);
             break;
 
         case "genderMinimalPairs": //ldml/numbers/minimalPairs/genderMinimalPairs[@gender="feminine"]
             String gender = parts.getAttributeValue(-1, "gender");
             sample = bestMinimalPairSamples.getBestUnitWithGender(gender, output);
-            break;
+            String otherGender = getOtherGender(locale, gender);
+            sampleBad = bestMinimalPairSamples.getBestUnitWithGender(otherGender, output);
+           break;
         default:
             return null;
         }
         String formattedUnit = format(minimalPattern, backgroundStartSymbol + sample + backgroundEndSymbol);
         examples.add(formattedUnit);
+        if (sampleBad == null) {
+            sampleBad = "n/a";
+        }
+        formattedUnit = format(minimalPattern, backgroundStartSymbol + sampleBad + backgroundEndSymbol);
+        examples.add("❌  " + formattedUnit);
         return formatExampleList(examples);
+    }
+
+    private String getOtherGender(String locale, String gender) {
+        Collection<String> unitGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+        for (String otherGender : unitGenders) {
+            if (!gender.equals(otherGender)) {
+                return otherGender;
+            }
+        }
+        return null;
+    }
+
+    private String getOtherCase(BestMinimalPairSamples bestMinimalPairSamples2, String locale, String gCase, String sample) {
+        Collection<String> unitCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+        Output<String> output = new Output<>();
+        for (String otherCase : unitCases) {
+            String sampleBad = bestMinimalPairSamples.getBestUnitWithCase(otherCase, output); // Pick a unit that exhibits the most variation
+            if (!sampleBad.equals(sample)) {
+                return sampleBad;
+            }
+        }
+        return null;
+    }
+
+    private static String getOtherCount(String locale, PluralType ordinal, String count) {
+        String otherCount = null;
+        if (!count.equals("other"))  {
+            otherCount = "other";
+        } else {
+            PluralInfo rules = SupplementalDataInfo.getInstance().getPlurals(ordinal, locale);
+            Set<String> counts = rules.getAdjustedCountStrings();
+            for (String tryCount : counts) {
+                if (!tryCount.equals("other")) {
+                    otherCount = tryCount;
+                    break;
+                }
+            }
+        }
+        return otherCount;
     }
 
     private UnitLength getUnitLength(XPathParts parts) {
@@ -1517,7 +1571,7 @@ public class ExampleGenerator {
                         .getWinningValue("//ldml/localeDisplayNames/territories/territory[@type=\"" + countryCode
                             + "\"]");
                     result = setBackground(getMZTimeFormat() + " " +
-                            format(regionFormat, countryName));
+                        format(regionFormat, countryName));
                 } else {
                     String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
                     String hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -297,6 +298,7 @@ public class ShowLocaleCoverage {
             String dir = ToolConstants.getBaseDirectory(version.getVersionString(2, 3));
             Map<String, FoundAndTotal> currentData = addGrowth(factory, dir, matcher, false);
             System.out.println("year: " + year + "; version: " + version + "; size: " + currentData);
+            out.flush();
             if (latestData == null) {
                 latestData = currentData;
             }
@@ -358,7 +360,8 @@ public class ShowLocaleCoverage {
     static final List<ReleaseInfo> versionToYear;
     static {
         Object[][] mapping = {
-            { VersionInfo.getInstance(37), 2020 },
+            { VersionInfo.getInstance(40), 2021 },
+            { VersionInfo.getInstance(38), 2020 },
             { VersionInfo.getInstance(36), 2019 },
             { VersionInfo.getInstance(34), 2018 },
             { VersionInfo.getInstance(32), 2017 },
@@ -469,7 +472,12 @@ public class ShowLocaleCoverage {
         final File mainDir = new File(dir + "/common/main/");
         final File annotationDir = new File(dir + "/common/annotations/");
         File[] paths = annotationDir.exists() ? new File[] {mainDir, annotationDir} : new File[] {mainDir};
-        org.unicode.cldr.util.Factory newFactory = SimpleFactory.make(paths, ".*");
+        org.unicode.cldr.util.Factory newFactory;
+        try {
+            newFactory = SimpleFactory.make(paths, ".*");
+        } catch (RuntimeException e1) {
+            throw e1;
+        }
         Map<String, FoundAndTotal> data = new HashMap<>();
         char c = 0;
         Set<String> latestAvailable = newFactory.getAvailableLanguages();
@@ -497,9 +505,16 @@ public class ShowLocaleCoverage {
             try {
                 latestFile = latestFactory.make(locale, true);
             } catch (Exception e2) {
+                System.out.println("Can't make latest CLDRFile for: " + locale + "\tlatest: " + Arrays.asList(latestFactory.getSourceDirectories()));
                 continue;
             }
-            final CLDRFile file = newFactory.make(locale, true);
+            CLDRFile file = null;
+            try {
+                file = newFactory.make(locale, true);
+            } catch (Exception e2) {
+                System.out.println("Can't make CLDRFile for: " + locale + "\tpast: " + mainDir);
+                continue;
+            }
             // HACK check bogus
 //            Collection<String> extra = file.getExtraPaths();
 //

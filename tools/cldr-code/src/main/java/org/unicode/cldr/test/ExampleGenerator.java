@@ -13,6 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -716,7 +717,7 @@ public class ExampleGenerator {
 
     private static String getOtherCount(String locale, PluralType ordinal, String count) {
         String otherCount = null;
-        if (!count.equals("other"))  {
+        if (!Objects.equals(count, "other"))  {
             otherCount = "other";
         } else {
             PluralInfo rules = SupplementalDataInfo.getInstance().getPlurals(ordinal, locale);

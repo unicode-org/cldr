@@ -898,29 +898,31 @@ public class TestExampleGenerator extends TestFmwk {
         final CLDRFile cldrFile = info.getCLDRFile("de", true);
         ExampleGenerator exampleGenerator = getExampleGenerator("de");
         String[][] tests = {
-            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "〖❬1❭ Tag〗"},
-            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬2❭ Tage〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "〖… für ❬1 metrische Pint❭ …〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", "〖… mit ❬1 metrischen Pint❭ …〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖Anstatt ❬1 metrischen Pints❭ …〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖❬2 metrische Pints❭ kostet (kosten) € 3,50.〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Die ❬Stunde❭ ist …〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Meter❭ ist …〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬mol❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "〖❬1❭ Tag〗〖❌  ❬2❭ Tag〗"},
+            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬2❭ Tage〗〖❌  ❬1❭ Tage〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "〖… für ❬1 metrische Pint❭ …〗〖❌  … für ❬1 metrischen Pint❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", "〖… mit ❬1 metrischen Pint❭ …〗〖❌  … mit ❬1 metrische Pint❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖Anstatt ❬1 metrischen Pints❭ …〗〖❌  Anstatt ❬1 metrische Pint❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖❬2 metrische Pints❭ kostet (kosten) € 3,50.〗〖❌  ❬1 metrische Pint❭ kostet (kosten) € 3,50.〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Die ❬Stunde❭ ist …〗〖❌  Die ❬Zentimeter❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Zentimeter❭ ist …〗〖❌  Der ❬Stunde❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬Jahrhundert❭ ist …〗〖❌  Das ❬Stunde❭ ist …〗"},
         };
+        boolean showWorkingExamples = false;
         for (String[] row : tests) {
             String path = row[0];
             String expected = row[1];
             String value = cldrFile.getStringValue(path);
             String actualRaw = exampleGenerator.getExampleHtml(path, value);
             String actual = ExampleGenerator.simplify(actualRaw, false);
-            assertEquals(row[0] + ", " + row[1], expected, actual);
+            showWorkingExamples |= !assertEquals(row[0] + ", " + row[1], expected, actual);
         }
 
         // If a test fails, verbose will regenerate what the code thinks they should be.
         // Review, and then replace the test cases
 
-        if (isVerbose()) {
+        if (showWorkingExamples) {
+            System.out.println("The following would satisfy the test, but check to make sure they are really expected!");
             PluralInfo pluralInfo = SDI.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
             ArrayList<String> paths = new ArrayList<>();
 
@@ -943,9 +945,14 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
+    /** Test the production of minimal pair examples, to make sure we get no exceptions.
+     * If -v, then generates lines for spreadsheet survey
+     */
     public void TestListMinimalPairExamples() {
         Set<String> localesWithGrammar = SDI.hasGrammarInfo();
-        System.out.println("\nLC\tLocale\tType\tCode\tCurrent Pattern\tVerify this is correct!\tVerify this is wrong!");
+        if (isVerbose()) {
+            System.out.println("\nLC\tLocale\tType\tCode\tCurrent Pattern\tVerify this is correct!\tVerify this is wrong!");
+        }
         final String unused = "∅";
         List<String> pluralSheet = new ArrayList();
         for (String locale : localesWithGrammar) {
@@ -1004,7 +1011,9 @@ public class TestExampleGenerator extends TestFmwk {
                     if (!label.equals(lastLabel)) {
                         lastLabel = label;
                         if (!pluralOnly) {
-                            System.out.println();
+                            if (isVerbose()) {
+                                System.out.println();
+                            }
                         }
                     }
                     if (path.startsWith(unused)) {
@@ -1034,8 +1043,8 @@ public class TestExampleGenerator extends TestFmwk {
                                 exampleBuffer.append('\t');
                             }
                             exampleBuffer.append(exampleItem);
-                       }
-                       examples = exampleBuffer.toString();
+                        }
+                        examples = exampleBuffer.toString();
                     }
                     String line = (locale
                         + "\t" + localeName
@@ -1046,19 +1055,23 @@ public class TestExampleGenerator extends TestFmwk {
                     if (pluralOnly) {
                         pluralSheet.add(line);
                     } else {
-                        System.out.println(line);
+                        if (isVerbose()) {
+                            System.out.println(line);
+                        }
                     }
                 }
             }
             if (pluralOnly) {
                 pluralSheet.add("");
-            } else {
+            } else if (isVerbose()) {
                 System.out.println();
             }
         }
-        System.out.println("#################### Plural Only ###################");
-        for (String line : pluralSheet) {
-            System.out.println(line);
+        if (isVerbose()) {
+            System.out.println("#################### Plural Only ###################");
+            for (String line : pluralSheet) {
+                System.out.println(line);
+            }
         }
     }
 }

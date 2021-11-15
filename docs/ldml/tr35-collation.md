@@ -1,10 +1,10 @@
-﻿## Unicode Technical Standard #35
+## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 5: Collation
 
 <!-- HTML: no header -->
 <table><tbody>
-<tr><td>Version</td><td>40</td></tr>
+<tr><td>Version</td><td>41</td></tr>
 <tr><td>Editors</td><td>Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 

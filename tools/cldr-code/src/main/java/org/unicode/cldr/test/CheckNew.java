@@ -71,10 +71,12 @@ public class CheckNew extends FactoryCheckCLDR {
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
         if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
             CldrVersion birth = outdatedPaths.getEnglishBirth(path);
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                .setSubtype(Subtype.modifiedEnglishValue)
-                .setMessage("In CLDR {2} the English value for this field changed from “{0}” to “{1}”, but the corresponding value for your locale didn't change.",
-                    oldEnglishValue, englishValue, birth.toString()));
+            if (birth != null) {
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.modifiedEnglishValue)
+                    .setMessage("In CLDR {2} the English value for this field changed from “{0}” to “{1}”, but the corresponding value for your locale didn't change.",
+                        oldEnglishValue, englishValue, birth.toString()));
+            }
         }
         return this;
     }

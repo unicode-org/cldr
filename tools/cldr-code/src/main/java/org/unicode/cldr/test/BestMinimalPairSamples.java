@@ -103,7 +103,7 @@ public class BestMinimalPairSamples {
      * @param shortUnitId
      */
     public synchronized String getBestUnitWithGender(String gender, Output<String> shortUnitId) {
-        if (grammarInfo == null) {
+        if (gender == null || grammarInfo == null) {
             return null;
         }
         if (caseAndGenderSamples == null) {
@@ -117,7 +117,7 @@ public class BestMinimalPairSamples {
      * @param shortUnitId
      */
     public synchronized String getBestUnitWithCase(String unitCase, Output<String> shortUnitId) {
-        if (grammarInfo == null) {
+        if (unitCase == null || grammarInfo == null) {
             return null;
         }
         if (caseAndGenderSamples == null) {

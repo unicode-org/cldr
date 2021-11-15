@@ -65,6 +65,7 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.XMLSource;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
@@ -746,11 +747,19 @@ public class TestCheckCLDR extends TestFmwk {
         }
     }
 
+    /**
+     * Should be some CLDR locales, plus a locale specially allowed in limited submission
+     */
+    final List<String> localesForRowAction = ImmutableList.of("cs", "fr");
+
+    /**
+     * Needs adjustment for Limited Submission!
+     */
     public void TestShowRowAction() {
         Map<Key,Pair<Boolean,String>> actionToExamplePath = new TreeMap<>();
         Counter<Key> counter = new Counter<>();
 
-        for (String locale : Arrays.asList("jv", "fr", "nds")) {
+        for (String locale : localesForRowAction) {
             DummyPathValueInfo dummyPathValueInfo = new DummyPathValueInfo();
             dummyPathValueInfo.locale = CLDRLocale.getInstance(locale);
             CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
@@ -785,7 +794,9 @@ public class TestCheckCLDR extends TestFmwk {
                             } else if (locale.equalsIgnoreCase("vo")) {
                                 assertEquals("vo ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
                             } else if (dummyPathValueInfo.baselineValue == null) {
-                                assertEquals("missing ==> ALLOW", StatusAction.ALLOW, action);
+                                if (!assertEquals("missing ==> ALLOW", StatusAction.ALLOW, action)) {
+                                    warnln("\t\t" + locale + "\t" + ph);
+                                }
                             }
                         }
 
@@ -965,23 +976,30 @@ public class TestCheckCLDR extends TestFmwk {
         }
     }
 
+    /**
+     * These are paths that are allowed if missing (from allowed locales)
+     * Needs to be changed for each Limited Submission cycle. Is ignored for full submission cycles.
+     */
     final Set<String> sampleNewPaths = ImmutableSet.of(
-        "//ldml/annotations/annotation[@cp=\\\"🐻‍❄\\\"][@type=\\\"tts\\\"]",
-        "//ldml/annotations/annotation[@cp=\\\"√\\\"][@type=\\\"tts\\\"]",
-        "//ldml/units/unitLength[@type=\\\"short\\\"]/compoundUnit[@type=\\\"10p-1\\\"]/unitPrefixPattern",
-        "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]",
-        "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1"
+//        "//ldml/annotations/annotation[@cp=\\\"🐻‍❄\\\"][@type=\\\"tts\\\"]",
+//        "//ldml/annotations/annotation[@cp=\\\"√\\\"][@type=\\\"tts\\\"]",
+//        "//ldml/units/unitLength[@type=\\\"short\\\"]/compoundUnit[@type=\\\"10p-1\\\"]/unitPrefixPattern",
+//        "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]",
+//        "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1"
         );
 
+    /**
+     * These are paths that are allowed whether missing or not (from allowed locales)
+     * Needs to be changed for each Limited Submission cycle. Is ignored for full submission cycles.
+     */
     final Set<String> SAMPLE_EXCEPTIONAL_PATHS = ImmutableSet.of(
-        "//ldml/annotations/annotation[@cp=\"🤵\"]",
-        "//ldml/annotations/annotation[@cp=\"🤵‍♂\"][@type=\"tts\"]"
+        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-kilometer\"]/gender"
         );
 
     final String sampleDisallowedInLimitedSubmission = "//ldml/annotations/annotation[@cp=\"🎅\"]";
 
     /**
-     * will need to change this for new releases!!
+     * Depends on correct values in the above constants.
      */
     public void TestALLOWED_IN_LIMITED_PATHS() {
         if (!CheckCLDR.LIMITED_SUBMISSION) {

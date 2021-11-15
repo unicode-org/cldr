@@ -3,10 +3,16 @@ package org.unicode.cldr.unittest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
@@ -15,9 +21,11 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -889,25 +897,31 @@ public class TestExampleGenerator extends TestFmwk {
         final CLDRFile cldrFile = info.getCLDRFile("de", true);
         ExampleGenerator exampleGenerator = getExampleGenerator("de");
         String[][] tests = {
-            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "〖❬1❭ Tag〗"},
-            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬2❭ Tage〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "〖… für ❬1 metrische Pint❭ …〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", "〖… mit ❬1 metrischen Pint❭ …〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖Anstatt ❬1 metrischen Pints❭ …〗"},
-            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖❬2 metrische Pints❭ kostet (kosten) € 3,50.〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Die ❬Stunde❭ ist …〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Meter❭ ist …〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬mol❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "〖❬1❭ Tag〗〖❌  ❬2❭ Tag〗"},
+            {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬2❭ Tage〗〖❌  ❬1❭ Tage〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "〖… für ❬1 metrische Pint❭ …〗〖❌  … für ❬1 metrischen Pint❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", "〖… mit ❬1 metrischen Pint❭ …〗〖❌  … mit ❬1 metrische Pint❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖Anstatt ❬1 metrischen Pints❭ …〗〖❌  Anstatt ❬1 metrische Pint❭ …〗"},
+            {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖❬2 metrische Pints❭ kostet (kosten) € 3,50.〗〖❌  ❬1 metrische Pint❭ kostet (kosten) € 3,50.〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Die ❬Stunde❭ ist …〗〖❌  Die ❬Zentimeter❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Der ❬Zentimeter❭ ist …〗〖❌  Der ❬Stunde❭ ist …〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Das ❬Jahrhundert❭ ist …〗〖❌  Das ❬Stunde❭ ist …〗"},
         };
+        boolean showWorkingExamples = false;
         for (String[] row : tests) {
             String path = row[0];
             String expected = row[1];
             String value = cldrFile.getStringValue(path);
             String actualRaw = exampleGenerator.getExampleHtml(path, value);
             String actual = ExampleGenerator.simplify(actualRaw, false);
-            assertEquals(row[0] + ", " + row[1], expected, actual);
+            showWorkingExamples |= !assertEquals(row[0] + ", " + row[1], expected, actual);
         }
-        if (isVerbose()) { // generate examples
+
+        // If a test fails, verbose will regenerate what the code thinks they should be.
+        // Review, and then replace the test cases
+
+        if (showWorkingExamples) {
+            System.out.println("The following would satisfy the test, but check to make sure they are really expected!");
             PluralInfo pluralInfo = SDI.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
             ArrayList<String> paths = new ArrayList<>();
 
@@ -930,4 +944,133 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
+    /** Test the production of minimal pair examples, to make sure we get no exceptions.
+     * If -v, then generates lines for spreadsheet survey
+     */
+    public void TestListMinimalPairExamples() {
+        Set<String> localesWithGrammar = SDI.hasGrammarInfo();
+        if (isVerbose()) {
+            System.out.println("\nLC\tLocale\tType\tCode\tCurrent Pattern\tVerify this is correct!\tVerify this is wrong!");
+        }
+        final String unused = "∅";
+        List<String> pluralSheet = new ArrayList();
+        for (String locale : localesWithGrammar) {
+            final CLDRFile cldrFile = info.getCLDRFile(locale, true);
+            ExampleGenerator exampleGenerator = getExampleGenerator(locale);
+
+            PluralInfo pluralInfo = SDI.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
+            Map<String, Pair<String,String>> paths = new LinkedHashMap<>();
+
+            Set<Count> counts = pluralInfo.getCounts();
+            if (counts.size() > 1) {
+                for (Count plural : counts) {
+                    paths.put("//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"" + plural +  "\"]", Pair.of("plural",plural.toString()));
+                }
+            }
+            GrammarInfo grammarInfo = SDI.getGrammarInfo(locale);
+            Collection<String> unitCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+            Collection<String> generalCasesRaw = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.general);
+            Collection<CaseValues> generalCases = generalCasesRaw.stream().map(x -> CaseValues.valueOf(x)).collect(Collectors.toCollection(TreeSet::new));
+            for (CaseValues unitCase0 : generalCases) {
+                String unitCase = unitCase0.toString();
+                paths.put((unitCases.contains(unitCase) ? "" : unused) + "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + unitCase +  "\"]",
+                    Pair.of("case",unitCase));
+            }
+            Collection<String> unitGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+            Collection<String> generalGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.general);
+            for (String unitGender : generalGenders) {
+                paths.put((unitGenders.contains(unitGender) ? "" : unused) + "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + unitGender +  "\"]",
+                    Pair.of("gender",unitGender));
+            }
+            String localeName = CLDRConfig.getInstance().getEnglish().getName(locale);
+            boolean pluralOnly = true;
+            if (paths.isEmpty()) {
+                pluralSheet.add(locale
+                    + "\t" + localeName
+                    + "\t" + "N/A"
+                    + "\t" + "N/A"
+                    + "\t" + "N/A"
+                    );
+            } else {
+                for (Entry<String, Pair<String, String>> pathAndLabel : paths.entrySet()) {
+                    String path = pathAndLabel.getKey();
+                    String label = pathAndLabel.getValue().getFirst();
+                    String code = pathAndLabel.getValue().getSecond();
+                    if (!label.equals("plural")) {
+                        pluralOnly = false;
+                    }
+                }
+                String lastLabel = "";
+                for (Entry<String, Pair<String, String>> pathAndLabel : paths.entrySet()) {
+                    String path = pathAndLabel.getKey();
+                    String label = pathAndLabel.getValue().getFirst();
+                    String code = pathAndLabel.getValue().getSecond();
+                    String pattern = "";
+                    String examples = "";
+                    if (!label.equals(lastLabel)) {
+                        lastLabel = label;
+                        if (!pluralOnly) {
+                            if (isVerbose()) {
+                                System.out.println();
+                            }
+                        }
+                    }
+                    if (path.startsWith(unused)) {
+                        pattern = "🚫  Not used with formatted units";
+                    } else {
+                        pattern = cldrFile.getStringValue(path);
+                        String actualRaw = exampleGenerator.getExampleHtml(path, pattern);
+                        examples = ExampleGenerator.simplify(actualRaw, false)
+                            .replace("〗〖", "\t")
+                            .replace("〗", "")
+                            .replace("〖", "")
+                            ;
+                        List<String> exampleList = com.google.common.base.Splitter.on('\t').trimResults().splitToList(examples);
+                        if (exampleList.size() != 2) {
+                            throw new IllegalArgumentException("Expecting exactly 2 examples: " + exampleList);
+                        }
+                        StringBuilder exampleBuffer = new StringBuilder();
+                        for (String exampleItem : exampleList) {
+                            if (exampleItem.contains("❬null❭") || exampleItem.contains("❬n/a❭")) {
+                                boolean bad = (exampleItem.contains("❌"));
+                                exampleItem = "🆖  No unit available";
+                                if (bad) {
+                                    exampleItem = "❌  " + exampleItem;
+                                }
+                            }
+                            if (exampleBuffer.length() != 0) {
+                                exampleBuffer.append('\t');
+                            }
+                            exampleBuffer.append(exampleItem);
+                        }
+                        examples = exampleBuffer.toString();
+                    }
+                    String line = (locale
+                        + "\t" + localeName
+                        + "\t" + label
+                        + "\t" + code
+                        + "\t" + pattern
+                        + "\t" + examples);
+                    if (pluralOnly) {
+                        pluralSheet.add(line);
+                    } else {
+                        if (isVerbose()) {
+                            System.out.println(line);
+                        }
+                    }
+                }
+            }
+            if (pluralOnly) {
+                pluralSheet.add("");
+            } else if (isVerbose()) {
+                System.out.println();
+            }
+        }
+        if (isVerbose()) {
+            System.out.println("#################### Plural Only ###################");
+            for (String line : pluralSheet) {
+                System.out.println(line);
+            }
+        }
+    }
 }

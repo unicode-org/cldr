@@ -69,7 +69,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  */
 abstract public class CheckCLDR {
 
-    public static final boolean LIMITED_SUBMISSION = false; // TODO represent differently
+    public static final boolean LIMITED_SUBMISSION = true; // TODO represent differently
 
     private static CLDRFile displayInformation;
 
@@ -205,7 +205,11 @@ abstract public class CheckCLDR {
             // if limited submission, and winner doesn't have an error, limit the values
 
             if (LIMITED_SUBMISSION) {
-                if (!SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(), valueStatus == ValueStatus.ERROR, pathValueInfo.getBaselineStatus() == Status.missing)) {
+                if (!SubmissionLocales.allowEvenIfLimited(
+                    pathValueInfo.getLocale().toString(),
+                    pathValueInfo.getXpath(),
+                    valueStatus == ValueStatus.ERROR,
+                    pathValueInfo.getBaselineStatus() == Status.missing)) {
                     return StatusAction.FORBID_READONLY;
                 }
             }

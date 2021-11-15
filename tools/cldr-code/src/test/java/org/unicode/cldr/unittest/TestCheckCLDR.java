@@ -471,24 +471,33 @@ public class TestCheckCLDR extends TestFmwk {
             possibleErrors.size());
     }
 
+/**
+ * Check that at least one path in a locale is outdated and one path is not. That may change each time.
+ * This needs to be a <locale,path> that is currently outdated (birth older than English's)
+     * if the test fails with "no failure message"
+     * run GenerateBirths (if you haven't done so)
+     * look at readable results in the log file in https://github.com/unicode-org/cldr-staging/blob/main/births/41.0/fr.txt
+        * (for the current version, not nec. 41.0)
+        * for a reasonable locale ( may change locale to something other than fr)
+     * find a path that is outdated.
+       * To work on both limited and full submissions, choose one with English = trunk
+       * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
+     * check the data files to ensure that it is in fact outdated.
+     * change the path to that value
+     * the 3rd parameter is the message displayed to the user, or "" if not 'English Changed'
+     * So the first group of tests are for items that should not be outdated
+     * And the second group is ones that should be outdated.
+ */
     public void TestCheckNew() {
-        // this needs to be a <locale,path> that is currently outdated (birth older than English's)
-        // if the test fails with "no failure message"
-        // * run GenerateBirths (if you haven't done so)
-        // * look at readable results in the log file in CLDRPaths.TMP_DIRECTORY + "dropbox/births/"
-        // * for fr.txt (or may change locale)
-        // * find a path that is outdated.
-        //   * To work on both limited and full submissions, choose one with English = trunk
-        //   * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
-        // * check the data files to ensure that it is in fact outdated.
-        // * change the path to that value
-
-        checkCheckNew("de", "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"duration-century\"]/displayName",
-            "");
-        checkCheckNew("de", "//ldml/localeDisplayNames/languages/language[@type=\"mi\"]",
-            "In CLDR baseline the English value for this field changed from “Maori” to “Māori”, but the corresponding value for your locale didn't change.");
+        // Not outdated
         checkCheckNew("de", "//ldml/localeDisplayNames/languages/language[@type=\"en\"]",
             "");
+
+        // Outdated
+        checkCheckNew("de", "//ldml/localeDisplayNames/territories/territory[@type=\"001\"]",
+            "In CLDR 39.0 the English value for this field changed from “World” to “world”, but the corresponding value for your locale didn't change.");
+        checkCheckNew("fr", "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"digital-gigabit\"]/displayName",
+            "In CLDR 38.0 the English value for this field changed from “Gbit” to “Gb”, but the corresponding value for your locale didn't change.");
     }
 
     public void checkCheckNew(String locale, String path, String expectedMessage) {

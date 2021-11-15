@@ -61,14 +61,15 @@ public class ToolConstants {
         "37.0",
         "38.0",
         "38.1",
-        "39.0"
+        "39.0",
+        "40.0"
         // add to this once the release is final!
         );
     public static final Set<VersionInfo> CLDR_VERSIONS_VI = ImmutableSet.copyOf(CLDR_VERSIONS.stream()
         .map(x -> VersionInfo.getInstance(x))
         .collect(Collectors.toList()));
 
-    public static final String DEV_VERSION = "40";
+    public static final String DEV_VERSION = "41";
     public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET = ImmutableSet.copyOf(ToolConstants.CLDR_VERSIONS);

@@ -12,7 +12,6 @@ import java.util.Set;
 import org.unicode.cldr.draft.Keyboard;
 import org.unicode.cldr.draft.Keyboard.KeyboardWarningException;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.PathUtilities;
 
 public class TestKeyboard extends TestFmwkPlus {
     public static void main(String[] args) {

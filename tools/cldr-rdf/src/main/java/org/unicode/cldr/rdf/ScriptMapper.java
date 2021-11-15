@@ -9,9 +9,6 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.sparql.lang.sparql_11.ParseException;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CoverageInfo;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.XPathParts;
 
 /**

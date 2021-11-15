@@ -6,10 +6,10 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
+import java.util.logging.Logger;
 
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.Partition.Membership;

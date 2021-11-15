@@ -1,7 +1,6 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.EnumSet;

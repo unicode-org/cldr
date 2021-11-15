@@ -28,8 +28,8 @@ import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;

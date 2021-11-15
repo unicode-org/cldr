@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -22,26 +21,23 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.rdf.QueryClient;
 import org.unicode.cldr.rdf.TsvWriter;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.tool.SubdivisionNode;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.NumberingSystem;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Validity;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.NumberingSystem;
-import org.unicode.cldr.util.CLDRFile.WinningChoice;
-import org.unicode.cldr.util.ChainedMap.M3;
-import org.unicode.cldr.util.ChainedMap.M4;
-import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Splitter;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;

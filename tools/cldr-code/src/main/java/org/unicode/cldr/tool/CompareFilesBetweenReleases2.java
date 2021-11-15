@@ -8,11 +8,11 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import com.google.common.collect.ImmutableSet;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.PathUtilities;
+
+import com.google.common.collect.ImmutableSet;
 
 @CLDRTool(alias = "CompareFilesBetweenReleases", description = "Print a report of which files changed since the last release")
 public class CompareFilesBetweenReleases2 {

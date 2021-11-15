@@ -13,7 +13,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.function.IntFunction;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.StandardCodes.LstrType;

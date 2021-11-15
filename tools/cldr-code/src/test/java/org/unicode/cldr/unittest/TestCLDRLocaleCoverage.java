@@ -11,7 +11,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.junit.jupiter.api.DisplayNameGenerator.Standard;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.MinimizeRegex;
 import org.unicode.cldr.util.CLDRConfig;

@@ -1502,7 +1502,7 @@ public class SurveyAjax extends HttpServlet {
          */
         JSONObject oldVotesNull = null;
         localeCount.forEach((loc, count) -> {
-            if ("und".equals(loc)) {
+            if (skipLocForImportingVotes(loc)) {
                 return;
             }
             /*
@@ -2098,6 +2098,9 @@ public class SurveyAjax extends HttpServlet {
         if (value == null) {
             return true;
         }
+        if (skipLocForImportingVotes(loc)) {
+            return false;
+        }
         if (!diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString)) {
             return false;
         }
@@ -2106,6 +2109,13 @@ public class SurveyAjax extends HttpServlet {
             return false;
         }
         return true;
+    }
+
+    private boolean skipLocForImportingVotes(String loc) {
+        if (CLDRLocale.UNKNOWN_LOCALE_NAME.equals(loc) || CLDRLocale.ROOT_NAME.equals(loc)) {
+            return true;
+        }
+        return false;
     }
 
     /**

@@ -18,6 +18,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRLocale;
+
 import com.ibm.icu.impl.ICUData;
 import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.impl.Relation;
@@ -52,7 +54,7 @@ public class LocaleMatcher {
 
     public static final boolean DEBUG = false;
 
-    private static final ULocale UNKNOWN_LOCALE = new ULocale("und");
+    private static final ULocale UNKNOWN_LOCALE = new ULocale(CLDRLocale.UNKNOWN_LOCALE_NAME);
 
     /**
      * Threshold for falling back to the default (first) language. May make this
@@ -358,7 +360,7 @@ public class LocaleMatcher {
             final String language = languageCode.getLanguage();
             final String script = languageCode.getScript();
             final String region = languageCode.getCountry();
-            return new ULocale((language.length() == 0 ? "und"
+            return new ULocale((language.length() == 0 ? CLDRLocale.UNKNOWN_LOCALE_NAME
                 : language)
                 + "_"
                 + (script.length() == 0 ? "Zzzz" : script)

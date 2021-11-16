@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       git-ref:
-        description: Git Ref to Deploy (main, hash, tag)
+        description: Git Ref to Deploy (hash: 40 hex digits)
         required: true
       option:
         description: use --override to allow any ref

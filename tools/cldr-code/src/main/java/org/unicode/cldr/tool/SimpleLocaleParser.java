@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.PatternCache;
 
 /**
@@ -91,7 +92,7 @@ class SimpleLocaleParser {
         if (language == null) {
             language = root.group(8); // marked as “Type: grandfathered” in BCP 47
             if (language == null) {
-                language = "und"; // placeholder for completely private use
+                language = CLDRLocale.UNKNOWN_LOCALE_NAME; // placeholder for completely private use
             }
         }
         script = root.group(2);

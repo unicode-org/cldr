@@ -30,7 +30,14 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /*
      * The name of the root locale. This is widely assumed to be "root".
      */
-    private static final String ROOT_NAME = "root";
+    public static final String ROOT_NAME = "root";
+
+    public static final String UNKNOWN_LOCALE_NAME = "und";
+
+    /**
+     * The root locale, a singleton.
+     */
+    public static final CLDRLocale ROOT = getInstance(ULocale.ROOT);
 
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);
@@ -528,11 +535,6 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         if (!(o instanceof CLDRLocale)) return false;
         return (0 == compareTo((CLDRLocale) o));
     }
-
-    /**
-     * The root locale, a singleton.
-     */
-    public static final CLDRLocale ROOT = getInstance(ULocale.ROOT);
 
     public String getDisplayName() {
         return getDisplayName(getDefaultFormatter());

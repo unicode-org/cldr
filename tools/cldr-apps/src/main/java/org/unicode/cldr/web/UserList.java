@@ -17,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -539,7 +538,7 @@ public class UserList {
      */
     private class EmailInfo {
         SurveyJSONWrapper r;
-        String sendWhat = getParam(LIST_MAILUSER_WHAT);
+        String sendWhat = null;
         boolean areSendingMail = false;
         boolean didConfirmMail = false;
         // sending a dispute note?
@@ -549,6 +548,10 @@ public class UserList {
 
         public EmailInfo(SurveyJSONWrapper r) {
             this.r = r;
+            sendWhat = getParam(LIST_MAILUSER_WHAT);
+            if (sendWhat != null && !sendWhat.isEmpty()) {
+                sendWhat = sendWhat.replaceAll("<br>", "\n");
+            }
             if (UserRegistry.userCanEmailUsers(me)) {
                 if (getParam(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)) {
                     r.put("emailSendingMessage", true);
@@ -577,10 +580,8 @@ public class UserList {
             if (getParam(LIST_MAILUSER).length() == 0) {
                 r.put("emailStatus", "start");
             } else {
-                String sendWhatTranslit = "";
                 boolean mismatch = false;
                 if (sendWhat.length() > 0) {
-                    sendWhatTranslit = TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n", "<br>");
                     if (!didConfirmMail) {
                         if (!getParam(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)
                             && (getParam(LIST_MAILUSER_CONFIRM).length() > 0)) {
@@ -592,7 +593,6 @@ public class UserList {
                 r.put("emailDidConfirm", didConfirmMail);
                 r.put("emailSendingDisp", areSendingDisp);
                 r.put("emailSendWhat", sendWhat);
-                r.put("emailSendWhatTranslit", sendWhatTranslit);
                 r.put("emailConfirmationMismatch", mismatch);
             }
         }

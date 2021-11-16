@@ -2041,6 +2041,9 @@ public class SurveyAjax extends HttpServlet {
             int xp = (Integer) m.get("xpath");
             String xpathString = sm.xpt.getById(xp);
             String loc = m.get("locale").toString();
+            if (skipLocForImportingVotes(loc)) {
+                continue;
+            }
             CLDRLocale locale = CLDRLocale.getInstance(loc);
             XMLSource diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
             DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
@@ -2113,7 +2116,15 @@ public class SurveyAjax extends HttpServlet {
 
     private boolean skipLocForImportingVotes(String loc) {
         if (CLDRLocale.UNKNOWN_LOCALE_NAME.equals(loc) || CLDRLocale.ROOT_NAME.equals(loc)) {
-            return true;
+            return true; // skip
+        }
+        CLDRLocale locale = CLDRLocale.getInstance(loc);
+        if (locale == null) {
+            return true; // skip
+        }
+        SpecialLocales.Type type = SpecialLocales.getType(locale);
+        if (type == SpecialLocales.Type.readonly || type == SpecialLocales.Type.scratch) {
+            return true; // skip
         }
         return false;
     }

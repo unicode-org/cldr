@@ -482,7 +482,7 @@ const strings = {
 
   progress_section: "Your voting in this section",
   progress_locale: "Your voting in this locale",
-  progress_completion: "Completion for all vetters in this locale"
+  progress_completion: "Completion for all vetters in this locale",
 };
 
 /**

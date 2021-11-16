@@ -336,6 +336,10 @@ function numberOfUsersShown(number) {
 }
 
 function submitTableForm() {
+  const textArea = document.getElementsByTagName("textarea")[0];
+  if (textArea) {
+    textArea.value = textArea.value.replaceAll("\n", "<br>\n");
+  }
   const formEl = document.getElementById("tableForm"); // maybe not event.target
   const data = new FormData(formEl);
   const xhrArgs = {
@@ -824,6 +828,10 @@ function makeUserCharts(loc2name, userRow) {
 function setupLoc2Name(json, rowById, rows) {
   const loc2name = {};
   const stats = json.stats_bydayuserloc;
+  if (!stats) {
+    console.log("Missing json.stats_bydayuserloc in cldrAccount.setupLoc2Name");
+    return loc2name;
+  }
   const header = stats.header;
   for (let i in stats.data) {
     const row = stats.data[i];
@@ -1092,7 +1100,9 @@ function detailedEmailControls(json) {
   }
   html += "From: <b>(depends on recipient organization)</b><br>";
   if (json.emailSendWhat) {
-    html += "<div class='odashbox'>" + json.emailSendWhatTranslit + "</div>";
+    const message = json.emailSendWhat;
+    html +=
+      "<div class='odashbox' style='white-space:pre'>" + message + "</div>";
     if (!json.emailDidConfirm) {
       html += emailPleaseConfirm(json);
     }
@@ -1111,7 +1121,10 @@ function emailPleaseConfirm(json) {
     "<input type='hidden' name='" +
     LIST_MAILUSER_WHAT +
     "' value='" +
-    json.emailSendWhat.replaceAll("&", "&amp;").replaceAll("'", "&quot;") +
+    json.emailSendWhat
+      .replaceAll("&", "&amp;")
+      .replaceAll("'", "&#39;")
+      .replaceAll("\n", "<br>\n") +
     "'>";
   if (json.emailConfirmationMismatch) {
     html +=

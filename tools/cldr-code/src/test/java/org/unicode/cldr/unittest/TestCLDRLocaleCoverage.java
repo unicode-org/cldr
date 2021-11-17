@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
@@ -31,6 +30,7 @@ import org.unicode.cldr.util.Validity.Status;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
@@ -50,7 +50,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
     public void TestLanguageNameCoverage() {
         // not sure why we need rhg here, since it is in seed it should be in mainLocales
-        Set<String> additionsToTranslate = new TreeSet<>(Arrays.asList("zxx", "ceb", "ny", "co", "ht", "hmn", "la", "sm", "st", "sa", "mul", "rhg"));
+        Set<String> additionsToTranslate = ImmutableSortedSet.of("zxx", "ceb", "ny", "co", "ht", "hmn", "la", "sm", "st", "sa", "mul", "rhg");
+        warnln("Locales added for translation; revisit each release: " + additionsToTranslate);
+
+        Set<String> localeIdsAtComprehensive = ImmutableSortedSet.of("kgp", "yrl");
+        warnln("Locales set to comprehensive; revisit each release: " + localeIdsAtComprehensive);
 
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang = Multimaps.invertFrom(Multimaps.forMap(validity), TreeMultimap.create());
@@ -70,6 +74,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Set<String> localesForNames = new TreeSet<>();
         localesForNames.addAll(mainLocales);
         localesForNames.addAll(additionsToTranslate);
+        localesForNames.removeAll(localeIdsAtComprehensive);
         localesForNames = ImmutableSet.copyOf(localesForNames);
 
         assertContains("regularPlus.containsAll(mainLocales)", regularPlus, localesForNames);

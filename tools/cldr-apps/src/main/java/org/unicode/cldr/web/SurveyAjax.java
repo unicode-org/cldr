@@ -1511,7 +1511,10 @@ public class SurveyAjax extends HttpServlet {
              */
             long realCount = count;
             try {
-                realCount = viewOldVotes(user, sm, loc, CLDRLocale.getInstance(loc), newVotesTable, oldVotesNull, fac);
+                CLDRLocale locale = CLDRLocale.getInstance(loc);
+                if (locale != null) {
+                    realCount = viewOldVotes(user, sm, loc, locale, newVotesTable, oldVotesNull, fac);
+                }
             } catch (Throwable t) {
                 SurveyLog.logException(logger, t, "listLocalesForImportOldVotes: loc = " + loc);
             }
@@ -2045,6 +2048,9 @@ public class SurveyAjax extends HttpServlet {
                 continue;
             }
             CLDRLocale locale = CLDRLocale.getInstance(loc);
+            if (locale == null) {
+                continue;
+            }
             XMLSource diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
             DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
             if (value != null) {
@@ -2116,14 +2122,6 @@ public class SurveyAjax extends HttpServlet {
 
     private boolean skipLocForImportingVotes(String loc) {
         if (CLDRLocale.UNKNOWN_LOCALE_NAME.equals(loc) || CLDRLocale.ROOT_NAME.equals(loc)) {
-            return true; // skip
-        }
-        CLDRLocale locale = CLDRLocale.getInstance(loc);
-        if (locale == null) {
-            return true; // skip
-        }
-        SpecialLocales.Type type = SpecialLocales.getType(locale);
-        if (type == SpecialLocales.Type.readonly || type == SpecialLocales.Type.scratch) {
             return true; // skip
         }
         return false;

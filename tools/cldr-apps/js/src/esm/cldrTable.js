@@ -48,7 +48,9 @@ const NO_WINNING_VALUE = "no-winning-value";
  *  		json.section.rows, with info for each row
  */
 function insertRows(theDiv, xpath, session, json) {
-  cldrProgress.updateSectionCompletion(json.section.rows);
+  cldrProgress.updateSectionCompletion(
+    json.canModify ? json.section.rows : null
+  );
 
   if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
     cldrDom.removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table

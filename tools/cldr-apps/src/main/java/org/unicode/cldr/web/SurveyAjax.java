@@ -1502,7 +1502,7 @@ public class SurveyAjax extends HttpServlet {
          */
         JSONObject oldVotesNull = null;
         localeCount.forEach((loc, count) -> {
-            if ("und".equals(loc)) {
+            if (skipLocForImportingVotes(loc)) {
                 return;
             }
             /*
@@ -1511,7 +1511,10 @@ public class SurveyAjax extends HttpServlet {
              */
             long realCount = count;
             try {
-                realCount = viewOldVotes(user, sm, loc, CLDRLocale.getInstance(loc), newVotesTable, oldVotesNull, fac);
+                CLDRLocale locale = CLDRLocale.getInstance(loc);
+                if (locale != null) {
+                    realCount = viewOldVotes(user, sm, loc, locale, newVotesTable, oldVotesNull, fac);
+                }
             } catch (Throwable t) {
                 SurveyLog.logException(logger, t, "listLocalesForImportOldVotes: loc = " + loc);
             }
@@ -2041,7 +2044,13 @@ public class SurveyAjax extends HttpServlet {
             int xp = (Integer) m.get("xpath");
             String xpathString = sm.xpt.getById(xp);
             String loc = m.get("locale").toString();
+            if (skipLocForImportingVotes(loc)) {
+                continue;
+            }
             CLDRLocale locale = CLDRLocale.getInstance(loc);
+            if (locale == null) {
+                continue;
+            }
             XMLSource diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
             DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
             if (value != null) {
@@ -2098,6 +2107,9 @@ public class SurveyAjax extends HttpServlet {
         if (value == null) {
             return true;
         }
+        if (skipLocForImportingVotes(loc)) {
+            return false;
+        }
         if (!diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString)) {
             return false;
         }
@@ -2106,6 +2118,13 @@ public class SurveyAjax extends HttpServlet {
             return false;
         }
         return true;
+    }
+
+    private boolean skipLocForImportingVotes(String loc) {
+        if ("und".equals(loc) || "root".equals(loc)) {
+            return true; // skip
+        }
+        return false;
     }
 
     /**

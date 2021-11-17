@@ -57,12 +57,26 @@ class MeterData {
       `Coverage: ${this.level}`;
   }
 
+  /**
+   *
+   * @returns {Number} percentage [0…100]
+   */
   getPercent() {
     return this.percent;
   }
 
+  /**
+   * @returns {String} User visible title
+   */
   getTitle() {
     return this.title;
+  }
+
+  /**
+   * @returns {Boolean} True if data present, otherwise false
+   */
+  getPresent() {
+    return (!!this.description);
   }
 }
 

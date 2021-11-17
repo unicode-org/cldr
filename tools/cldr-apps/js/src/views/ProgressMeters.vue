@@ -1,6 +1,7 @@
 <template>
   <section id="ProgressMeters" v-if="!hide">
     <a-progress
+      v-if="sectionMeter.getPresent()"
       :percent="sectionMeter.getPercent()"
       :title="sectionMeter.getTitle()"
       strokeColor="blue"
@@ -9,6 +10,7 @@
     />
     &nbsp;
     <a-progress
+      v-if="voterMeter.getPresent()"
       :percent="voterMeter.getPercent()"
       :title="voterMeter.getTitle()"
       strokeColor="orange"
@@ -17,6 +19,7 @@
     />
     &nbsp;
     <a-progress
+      v-if="localeMeter.getPresent()"
       :percent="localeMeter.getPercent()"
       :title="localeMeter.getTitle()"
       strokeColor="green"

@@ -73,6 +73,9 @@ import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestCheckCLDR extends TestFmwk {
+
+    private static final boolean SHOW_LIMITED = System.getProperty("TestCheckCLDR:SHOW_LIMITED") != null;
+
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private final Set<String> eightPointLocales = new TreeSet<>(
         Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nl no pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
@@ -185,6 +188,7 @@ public class TestCheckCLDR extends TestFmwk {
     private static final boolean DEBUG = true;
 
     static final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+    static final Factory cldrFactoryWithSeed = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
 
     public void testPlaceholderSamples() {
         CLDRFile root = cldrFactory.make("root", true);
@@ -471,23 +475,23 @@ public class TestCheckCLDR extends TestFmwk {
             possibleErrors.size());
     }
 
-/**
- * Check that at least one path in a locale is outdated and one path is not. That may change each time.
- * This needs to be a <locale,path> that is currently outdated (birth older than English's)
+    /**
+     * Check that at least one path in a locale is outdated and one path is not. That may change each time.
+     * This needs to be a <locale,path> that is currently outdated (birth older than English's)
      * if the test fails with "no failure message"
      * run GenerateBirths (if you haven't done so)
      * look at readable results in the log file in https://github.com/unicode-org/cldr-staging/blob/main/births/41.0/fr.txt
-        * (for the current version, not nec. 41.0)
-        * for a reasonable locale ( may change locale to something other than fr)
+     * (for the current version, not nec. 41.0)
+     * for a reasonable locale ( may change locale to something other than fr)
      * find a path that is outdated.
-       * To work on both limited and full submissions, choose one with English = trunk
-       * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
+     * To work on both limited and full submissions, choose one with English = trunk
+     * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
      * check the data files to ensure that it is in fact outdated.
      * change the path to that value
      * the 3rd parameter is the message displayed to the user, or "" if not 'English Changed'
      * So the first group of tests are for items that should not be outdated
      * And the second group is ones that should be outdated.
- */
+     */
     public void TestCheckNew() {
         // Not outdated
         checkCheckNew("de", "//ldml/localeDisplayNames/languages/language[@type=\"en\"]",
@@ -921,16 +925,6 @@ public class TestCheckCLDR extends TestFmwk {
         }
     }
 
-    public void TestSubmissionLocales() {
-
-        for (String locale : SubmissionLocales.NEW_CLDR_LOCALES) {
-            checkLocaleOk(locale, true);
-        }
-        for (String locale : SubmissionLocales.HIGH_LEVEL_LOCALES) {
-            checkLocaleOk(locale, false);
-        }
-    }
-
     final Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
     final Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
     final Map<String, R2<List<String>, String>> langAliases = CLDRConfig.getInstance().getSupplementalDataInfo()
@@ -939,17 +933,30 @@ public class TestCheckCLDR extends TestFmwk {
     final LikelySubtags likely = new LikelySubtags();
 
     /**
-     * Check that the locale is valid, that it is either in or out of cldrLocales, and that the locale is not deprecated
-     * @param language
-     * @param inclusionDesired
+     * Simple check on locales and paths for limited submissions
      */
-    private void checkLocaleOk(String locale, boolean inclusionDesired) {
+
+    public void TestSubmissionLocales() {
+
+        for (String locale : SubmissionLocales.ALLOW_ALL_PATHS) {
+            checkLocaleOk(locale, false);
+        }
+        for (String locale : SubmissionLocales.LOCALES_FOR_LIMITED) {
+            checkLocaleOk(locale, true);
+        }
+    }
+
+    /**
+     * Check that the locale is valid, that it is either in or out of allowed locales, and that the locale is not deprecated
+     * @param language
+     * @param expectedInCLDRLocales
+     */
+    private void checkLocaleOk(final String locale, final boolean expectedInCLDRLocales) {
         final LanguageTagParser ltp = new LanguageTagParser().set(locale);
         String language = ltp.getLanguage();
-        String explicitScript = ltp.getScript();
 
         Status status = validity.get(language);
-        assertTrue(language + " valid?", status == Status.regular || status == Status.macroregion);
+        assertTrue(language + " valid?", status == Status.regular); //  || status == Status.macroregion
 
         final R2<List<String>, String> alias = langAliases.get(language);
         if (!assertNull(language + " language is not deprecated", alias)) {
@@ -960,28 +967,8 @@ public class TestCheckCLDR extends TestFmwk {
         if (!assertTrue(locale + " locale is in common or seed", existingLocales.contains(locale))) {
             return;
         }
-
-        assertTrue(language + " locale is " + (inclusionDesired ? "" : "not ") + "in cldrLocales", cldrLocales.contains(locale) == inclusionDesired);
-
-        // check for expected script
-        String max = likely.maximize(locale);
-        assertNotNull(language + " locale has script", max);
-        String maxScript = max == null ? null : ltp.set(max).getScript();
-
-        String desiredScript = "Latn";
-        switch(language) {
-        case "mai": case "kok": desiredScript = "Deva"; break;
-        case "sat": desiredScript = "Olck"; break;
-        case "mni": desiredScript = "Beng"; break;
-        case "chr": desiredScript = "Cher"; break;
-        default:
-            if (!explicitScript.isEmpty()) {
-                desiredScript = explicitScript;
-            }
-            break;
-        }
-        if (desiredScript != null) {
-            assertEquals(locale + " default script", desiredScript, maxScript);
+        if (expectedInCLDRLocales) {
+            assertTrue(locale + " is in cldrLocales", cldrLocales.contains(locale));
         }
     }
 
@@ -1006,6 +993,18 @@ public class TestCheckCLDR extends TestFmwk {
         );
 
     final String sampleDisallowedInLimitedSubmission = "//ldml/annotations/annotation[@cp=\"🎅\"]";
+
+    final String UNIT_PATH = "//ldml/units/unitLength[@type=\"long\"]";
+
+    enum LimitedStatus {
+        allowedUnitMissing, allowedUnitNotMissing, allowedOtherMissing, allowedOtherNotMissing, disallowed;
+        static LimitedStatus of(boolean unit, boolean missing) {
+            if (unit && missing) { return allowedUnitMissing; }
+            else if (unit && !missing) { return allowedUnitNotMissing; }
+            else if (!unit && missing) { return allowedOtherMissing; }
+            else { return allowedOtherNotMissing; }
+        }
+    }
 
     /**
      * Depends on correct values in the above constants.
@@ -1037,6 +1036,47 @@ public class TestCheckCLDR extends TestFmwk {
 
         // TODO enhance to check more conditions
         // like old:         assertFalse("vo, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathNotSameValue, false, false));
+
+        if (SHOW_LIMITED) {
+            System.out.println();
+            for (String locale : cldrFactoryWithSeed.getAvailable()) {
+                LanguageTagParser ltp = new LanguageTagParser();
+                if (!ltp.set(locale).getRegion().isEmpty()
+                    || !ltp.set(locale).getVariants().isEmpty()
+                    || locale.equals("root")) {
+                    continue;
+                }
+                CLDRFile cldrFile = cldrFactoryWithSeed.make(locale, false);
+                Level cldrLevel = StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
+                // patch until Rohingya is added
+                if (cldrLevel == Level.UNDETERMINED && locale.equals("rhg")) {
+                    cldrLevel = Level.BASIC;
+                }
+                Counter<LimitedStatus> counter = new Counter<>();
+                for (String path : cldrFile.fullIterable()) {
+                    Level coverage = SupplementalDataInfo.getInstance().getCoverageLevel(path, locale);
+                    if (coverage.compareTo(cldrLevel) > 0) {
+                        continue;
+                    }
+                    String value = cldrFile.getStringValue(path);
+                    boolean isMissing = value == null;
+                    boolean allowed = SubmissionLocales.allowEvenIfLimited(locale, path, false, isMissing);
+                    if (allowed) {
+                        boolean isUnit = path.startsWith(UNIT_PATH);
+                        counter.add(LimitedStatus.of(isUnit, isMissing), 1);
+                    } else {
+                        counter.add(LimitedStatus.disallowed, 1);
+                    }
+                }
+                System.out.print(locale + "\t" + english.getName(locale) + "\t" + cldrLevel);
+                for (LimitedStatus limitedStatus : LimitedStatus.values()) {
+                    System.out.print("\t" + limitedStatus + ":\t" + counter.get(limitedStatus));
+                }
+                System.out.println();
+            }
+        } else {
+            warnln("Set -DTestCheckCLDR:SHOW_LIMITED to see information about affected paths.");
+        }
     }
 
     public void TestInfohubLinks13979() {

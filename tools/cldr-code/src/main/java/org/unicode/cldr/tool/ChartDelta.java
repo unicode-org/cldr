@@ -1385,7 +1385,7 @@ public class ChartDelta extends Chart {
          * @return true or false
          */
         private static boolean localeIsHighLevel(String locale) {
-            return SubmissionLocales.CLDR_LOCALES.contains(locale)
+            return SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES.contains(locale)
                 || "supplementalData".equals(locale);
         }
 

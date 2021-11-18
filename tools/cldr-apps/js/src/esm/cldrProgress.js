@@ -7,6 +7,7 @@ import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
+import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 
 import ProgressMeters from "../views/ProgressMeters.vue";
@@ -76,7 +77,7 @@ class MeterData {
    * @returns {Boolean} True if data present, otherwise false
    */
   getPresent() {
-    return (!!this.description);
+    return !!this.description;
   }
 }
 
@@ -179,6 +180,11 @@ function refreshLocaleMeter() {
   }
 }
 
+/**
+ * Update the section completion meter
+ *
+ * @param {Object} rows - the object whose values are rows from json; or null if all read-only
+ */
 function updateSectionCompletion(rows) {
   sectionProgressRows = rows;
   sectionProgressStats = getSectionCompletionFromRows(rows);
@@ -203,9 +209,15 @@ function getSectionCompletionFromRows(rows) {
  * coverage level
  *
  * Count only rows for which row.coverageValue <= cov
- * A row has been voted on by this user if row.hasVoted is truthy
+ * AND statusAction.vote (as calculated below) is truthy.
+ * A row has been voted on by this user if row.hasVoted is truthy.
+ * A row can be voted on by this user if statusAction.vote is truthy.
  *
- * @param {Object} rows - the object whose values are rows from json
+ * Unfortunately there is duplication of logic here and in cldrTable.
+ * Legacy code in cldrTable relies on storing essential data only in the DOM and
+ * then reading the DOM to retrieve that data.
+ *
+ * @param {Object} rows - the object whose values are rows from json; or null if all read-only
  * @param {Number} levelNumber - the coverage level as an integer like 100
  * @param {String} level - the coverage level as a name like "comprehensive"
  *
@@ -214,13 +226,19 @@ function getSectionCompletionFromRows(rows) {
 function getSectionStats(rows, levelNumber, level) {
   let votes = 0;
   let total = 0;
-  for (let row of Object.values(rows)) {
-    if (parseInt(row.coverageValue) > levelNumber) {
-      continue;
-    }
-    ++total;
-    if (row.hasVoted) {
-      ++votes;
+  if (rows) {
+    for (let row of Object.values(rows)) {
+      if (parseInt(row.coverageValue) > levelNumber) {
+        continue;
+      }
+      const statusAction = cldrSurvey.parseStatusAction(row.statusAction);
+      if (!statusAction?.vote) {
+        continue;
+      }
+      ++total;
+      if (row.hasVoted) {
+        ++votes;
+      }
     }
   }
   return {

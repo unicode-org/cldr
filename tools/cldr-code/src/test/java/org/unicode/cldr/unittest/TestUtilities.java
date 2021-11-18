@@ -690,7 +690,7 @@ public class TestUtilities extends TestFmwkPlus {
         final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant"));
         final VoteResolver<String> resolver = new VoteResolver<>();
         final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
-        for (String locale : SubmissionLocales.CLDR_LOCALES) {
+        for (String locale : SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES) {
             if (locale.contains("_")) {
                 int expectedRequiredVotes = eightVoteSublocales.contains(locale) ? TWO_VETTER_BAR : ONE_VETTER_BAR;
                 verifyRequiredVotes(resolver, locale, path, Status.approved, expectedRequiredVotes);

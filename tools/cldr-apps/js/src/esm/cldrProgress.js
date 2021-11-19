@@ -17,6 +17,8 @@ import { createCldrApp } from "../cldrVueRouter";
 import { notification } from "ant-design-vue";
 
 const USE_NEW_PROGRESS_WIDGET = true;
+const CAN_GET_VOTER_PROGRESS = false;
+const CAN_GET_LOCALE_PROGRESS = false;
 
 let progressWrapper = null;
 
@@ -271,7 +273,11 @@ function updateStatsOneVote(stats, hasVoted) {
 }
 
 function fetchVoterData() {
-  if (!progressWrapper || !cldrStatus.getSurveyUser()) {
+  if (
+    !CAN_GET_VOTER_PROGRESS ||
+    !progressWrapper ||
+    !cldrStatus.getSurveyUser()
+  ) {
     return;
   }
   const locale = cldrStatus.getCurrentLocale();
@@ -317,7 +323,11 @@ function reallyFetchVoterData(locale, level) {
 }
 
 function fetchLocaleData() {
-  if (!progressWrapper || !cldrStatus.getSurveyUser()) {
+  if (
+    !CAN_GET_LOCALE_PROGRESS ||
+    !progressWrapper ||
+    !cldrStatus.getSurveyUser()
+  ) {
     return;
   }
   const locale = cldrStatus.getCurrentLocale();

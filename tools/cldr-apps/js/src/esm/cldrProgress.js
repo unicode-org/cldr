@@ -30,11 +30,12 @@ let sectionProgressRows = null;
 
 class MeterData {
   /**
+   * Construct a new MeterData object
    *
-   * @param {String?} description description of this meter
-   * @param {Number?} votes number of votes for this meter
-   * @param {Number?} total number of total votes for this meter
-   * @param {String?} level coverage level
+   * @param {String} description description of this meter
+   * @param {Number} votes number of votes for this meter
+   * @param {Number} total number of total votes for this meter
+   * @param {String} level coverage level
    * @returns
    */
   constructor(description, votes, total, level) {
@@ -61,7 +62,6 @@ class MeterData {
   }
 
   /**
-   *
    * @returns {Number} percentage [0…100]
    */
   getPercent() {
@@ -142,6 +142,9 @@ function refresh() {
   refreshSectionMeter();
   refreshVoterMeter();
   refreshLocaleMeter();
+  if (sectionProgressStats) {
+    progressWrapper?.setHidden(false);
+  }
 }
 
 function refreshSectionMeter() {
@@ -194,6 +197,9 @@ function updateSectionCompletion(rows) {
 }
 
 function getSectionCompletionFromRows(rows) {
+  if (!cldrStatus.getSurveyUser()) {
+    return null;
+  }
   const locale = cldrStatus.getCurrentLocale();
   if (!locale) {
     return null;

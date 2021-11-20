@@ -60,6 +60,14 @@ public interface BallotBox<T> {
     }
 
     /**
+     * As a special signal, when the "withVote" parameter of voteForValue is VOTE_IS_AUTO_IMPORTED,
+     * the ordinary vote count applies (as though the parameter were null), and some behavior is
+     * inhibited, such as auto-creation of forum posts in response to voting.
+     * It is negative to prevent confusion with valid positive numbers.
+     */
+    public static final Integer VOTE_IS_AUTO_IMPORTED = -1;
+
+    /**
      * Record a vote for an item. Will (eventually) throw a number of
      * exceptions.
      *

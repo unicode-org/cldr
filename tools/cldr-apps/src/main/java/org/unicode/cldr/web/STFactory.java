@@ -1153,8 +1153,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             int xpathId = sm.xpt.getByXpath(distinguishingXpath);
-
-            if (withVote != null) {
+            boolean voteIsAutoImported = false;
+            if (VOTE_IS_AUTO_IMPORTED == withVote) {
+                withVote = null;
+                voteIsAutoImported = true;
+            } else if (withVote != null) {
                 Level level = user.getLevel();
                 if (withVote == level.getVotes()) {
                     withVote = null; // not an override
@@ -1181,7 +1184,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             String oldVal = xmlsource.getValueAtDPath(distinguishingXpath);
 
             if (!readonly) {
-                saveVoteToDb(user, distinguishingXpath, value, withVote, xpathId);
+                saveVoteToDb(user, distinguishingXpath, value, withVote, xpathId, voteIsAutoImported);
             } else {
                 readonly();
             }
@@ -1210,7 +1213,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param xpathId
          */
         private void saveVoteToDb(final User user, final String distinguishingXpath, final String value,
-                final Integer withVote, final int xpathId) {
+                final Integer withVote, final int xpathId, boolean voteIsAutoImported) {
             boolean didClearFlag = false;
             makeSource(false);
             ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
@@ -1295,7 +1298,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             SurveyLog.debug(et);
 
-            if (sm.fora != null) {
+            if (sm.fora != null && !voteIsAutoImported) {
                 sm.fora.doForumAfterVote(locale, user, distinguishingXpath, xpathId, value, didClearFlag);
             }
         }

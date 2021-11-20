@@ -2070,7 +2070,7 @@ public class SurveyAjax extends HttpServlet {
                      * "for a later version".
                      */
                     if (box.getVoteValue(user, xpathString) == null) {
-                        box.voteForValue(user, xpathString, value);
+                        box.voteForValue(user, xpathString, value, BallotBox.VOTE_IS_AUTO_IMPORTED);
                         confirmations++;
                     }
                 }

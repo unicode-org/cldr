@@ -142,6 +142,9 @@ function refresh() {
   refreshSectionMeter();
   refreshVoterMeter();
   refreshLocaleMeter();
+  if (sectionProgressStats) {
+    progressWrapper?.setHidden(false);
+  }
 }
 
 function refreshSectionMeter() {

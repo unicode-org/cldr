@@ -576,7 +576,7 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestPluralSamples() {
         ExampleGenerator exampleGenerator = getExampleGenerator("sv");
         String path = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]";
-        checkValue("Number should be one", "〖❬1❭ cm〗", exampleGenerator, path);
+        checkValue("Number should be one", "〖❬1❭ cm〗〖❬Jag tror att 1❭ cm❬ är tillräckligt.❭〗", exampleGenerator, path);
     }
 
     public void TestLocaleDisplayPatterns() {

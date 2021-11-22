@@ -506,23 +506,34 @@ public class VettingViewer<T> {
         return sorted;
     }
 
-    /**
-     * A FileInfo contains parameters and results for gathering information about a locale
-     *
-     * As a special case, for Priority Items Summary, there is a FileInfo context.totals
-     * that combines information for multiple locales.
-     */
-    class FileInfo {
-        Counter<Choice> problemCounter = new Counter<>();
-        Counter<Subtype> errorSubtypeCounter = new Counter<>();
-        Counter<Subtype> warningSubtypeCounter = new Counter<>();
-        EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
+    class VettingCounters {
+        private Counter<Choice> problemCounter = new Counter<>();
+        private Counter<Subtype> errorSubtypeCounter = new Counter<>();
+        private Counter<Subtype> warningSubtypeCounter = new Counter<>();
 
         /**
-         * The locale ID for this FileInfo, or null if this is context.totals
+         * Combine some statistics into this VettingCounters from another VettingCounters
+         *
+         * This is used by Priority Items Summary to combine stats from multiple locales.
+         *
+         * @param other the other VettingCounters object (for a single locale)
          */
-        private String localeId;
+        private void addAll(VettingCounters other) {
+            problemCounter.addAll(other.problemCounter);
+            errorSubtypeCounter.addAll(other.errorSubtypeCounter);
+            warningSubtypeCounter.addAll(other.warningSubtypeCounter);
+        }
+    }
 
+    /**
+     * A FileInfo contains parameters, results, and methods for gathering information about a locale
+     */
+    class FileInfo {
+        VettingCounters vc = new VettingCounters();
+
+        EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
+
+        private String localeId;
         private Level usersLevel;
         private EnumSet<Choice> choices;
         private T organization;
@@ -567,21 +578,6 @@ public class VettingViewer<T> {
 
         private void setSinglePath(String path) {
             this.specificSinglePath = path;
-        }
-
-        /**
-         * Combine some statistics into this FileInfo from another FileInfo
-         *
-         * This is used by Priority Items Summary to combine stats from multiple locales.
-         * The multiple-locale FileInfo is named "context.totals" (where context is a WriteContext),
-         * and it might only contain meaningful data for the fields handled by this method.
-         *
-         * @param other the other FileInfo object (for a single locale)
-         */
-        private void addAll(FileInfo other) {
-            problemCounter.addAll(other.problemCounter);
-            errorSubtypeCounter.addAll(other.errorSubtypeCounter);
-            warningSubtypeCounter.addAll(other.warningSubtypeCounter);
         }
 
         /**
@@ -638,7 +634,7 @@ public class VettingViewer<T> {
             if (!onlyRecordErrors && choices.contains(Choice.changedOldValue)) {
                 if (oldValue != null && !oldValue.equals(value)) {
                     problems.add(Choice.changedOldValue);
-                    problemCounter.increment(Choice.changedOldValue);
+                    vc.problemCounter.increment(Choice.changedOldValue);
                 }
             }
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
@@ -678,11 +674,11 @@ public class VettingViewer<T> {
             }
             if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
                 problems.add(Choice.missingCoverage);
-                problemCounter.increment(Choice.missingCoverage);
+                vc.problemCounter.increment(Choice.missingCoverage);
             }
             if (SubmissionLocales.pathAllowedInLimitedSubmission(path)) {
                 problems.add(Choice.englishChanged);
-                problemCounter.increment(Choice.englishChanged);
+                vc.problemCounter.increment(Choice.englishChanged);
             }
             if (!CheckCLDR.LIMITED_SUBMISSION
                 && !itemsOkIfVoted && outdatedPaths.isOutdated(localeId, path)) {
@@ -692,7 +688,7 @@ public class VettingViewer<T> {
                     if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
                         // check to see if we voted
                         problems.add(Choice.englishChanged);
-                        problemCounter.increment(Choice.englishChanged);
+                        vc.problemCounter.increment(Choice.englishChanged);
                     }
                 }
             }
@@ -709,18 +705,18 @@ public class VettingViewer<T> {
                     || !OK_IF_VOTED.containsAll(subtypes))) {
                 problems.add(choice);
                 appendToMessage(statusMessage, htmlMessage);
-                problemCounter.increment(choice);
+                vc.problemCounter.increment(choice);
                 for (Subtype subtype : subtypes) {
-                    errorSubtypeCounter.increment(subtype);
+                    vc.errorSubtypeCounter.increment(subtype);
                 }
             } else if (!onlyRecordErrors && choice == Choice.warning && choices.contains(Choice.warning)
                 && (!itemsOkIfVoted
                     || !OK_IF_VOTED.containsAll(subtypes))) {
                 problems.add(choice);
                 appendToMessage(statusMessage, htmlMessage);
-                problemCounter.increment(choice);
+                vc.problemCounter.increment(choice);
                 for (Subtype subtype : subtypes) {
-                    warningSubtypeCounter.increment(subtype);
+                    vc.warningSubtypeCounter.increment(subtype);
                 }
             }
         }
@@ -730,7 +726,7 @@ public class VettingViewer<T> {
             case losing:
                 if (choices.contains(Choice.weLost)) {
                     problems.add(Choice.weLost);
-                    problemCounter.increment(Choice.weLost);
+                    vc.problemCounter.increment(Choice.weLost);
                 }
                 String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, organization);
                 if (usersValue != null) {
@@ -741,13 +737,13 @@ public class VettingViewer<T> {
             case disputed:
                 if (choices.contains(Choice.hasDispute)) {
                     problems.add(Choice.hasDispute);
-                    problemCounter.increment(Choice.hasDispute);
+                    vc.problemCounter.increment(Choice.hasDispute);
                 }
                 break;
             case provisionalOrWorse:
                 if (missingStatus == MissingStatus.PRESENT && choices.contains(Choice.notApproved)) {
                     problems.add(Choice.notApproved);
-                    problemCounter.increment(Choice.notApproved);
+                    vc.problemCounter.increment(Choice.notApproved);
                 }
                 break;
             default:
@@ -840,14 +836,14 @@ public class VettingViewer<T> {
         private EnumSet<Choice> thingsThatRequireOldFile;
         private EnumSet<Choice> ourChoicesThatRequireOldFile;
         private T organization;
-        private VettingViewer<T>.FileInfo totals;
+        private VettingViewer<T>.VettingCounters totals;
         private Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo;
         private String header;
         private int configParallel; // parallelism. 0 means "let Java decide"
         private int configChunkSize; // Number of locales to process at once, minimum 1
 
-        public WriteContext(Set<Entry<String, String>> entrySet, EnumSet<Choice> choices, T organization, FileInfo totals,
-            Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo, String header) {
+        public WriteContext(Set<Entry<String, String>> entrySet, EnumSet<Choice> choices, T organization, VettingCounters totals,
+            Map<String, FileInfo> localeNameToFileInfo, String header) {
             for (Entry<String, String> e : entrySet) {
                 localeNames.add(e.getKey());
                 localeIds.add(e.getValue());
@@ -1002,10 +998,10 @@ public class VettingViewer<T> {
             fileInfo.setFiles(sourceFile, baselineFile);
             fileInfo.getFileInfo();
             context.localeNameToFileInfo.put(name, fileInfo);
-            context.totals.addAll(fileInfo);
+            context.totals.addAll(fileInfo.vc);
             if (DEBUG_THREADS) System.err.println("writeAction.compute(" + n + ") - got fileinfo " + name + ": " + localeID);
             try {
-                writeSummaryRow(output, choices, fileInfo.problemCounter, name, localeID);
+                writeSummaryRow(output, choices, fileInfo.vc.problemCounter, name, localeID);
                 if (DEBUG_THREADS) System.err.println("writeAction.compute(" + n + ") - wrote " + name + ": " + localeID);
 
             } catch (IOException e) {
@@ -1057,7 +1053,7 @@ public class VettingViewer<T> {
         output.append("<table class='tvs-table'>\n");
         Map<String, FileInfo> localeNameToFileInfo = new TreeMap<>();
 
-        FileInfo totals = new FileInfo(null, desiredLevel, choices, organization);
+        VettingCounters totals = new VettingCounters();
 
         Set<Entry<String, String>> entrySet = sortedNames.entrySet();
 
@@ -1084,8 +1080,8 @@ public class VettingViewer<T> {
 
     private void showSubtypes(Appendable output, Map<String, String> sortedNames,
         Map<String, FileInfo> localeNameToFileInfo,
-        FileInfo totals,
-        boolean errors) throws IOException {
+        VettingCounters totals, boolean errors) throws IOException {
+
         output.append("<h3>Details: ").append(errors ? "Error Types" : "Warning Types").append("</h3>");
         output.append("<table class='tvs-table'>");
         Counter<Subtype> subtypeCounterTotals = errors ? totals.errorSubtypeCounter : totals.warningSubtypeCounter;
@@ -1096,7 +1092,7 @@ public class VettingViewer<T> {
 
         // items
         for (Entry<String, FileInfo> entry : localeNameToFileInfo.entrySet()) {
-            Counter<Subtype> counter = errors ? entry.getValue().errorSubtypeCounter : entry.getValue().warningSubtypeCounter;
+            Counter<Subtype> counter = errors ? entry.getValue().vc.errorSubtypeCounter : entry.getValue().vc.warningSubtypeCounter;
             if (counter.getTotal() == 0) {
                 continue;
             }
@@ -1482,7 +1478,7 @@ public class VettingViewer<T> {
             Choice checkedItem = null;
 
             for (Choice choice : choices) {
-                long count = outputFileInfo.problemCounter.get(choice);
+                long count = outputFileInfo.vc.problemCounter.get(choice);
                 output.append("<tr><td class='tvs-count'>")
                     .append(nf.format(count))
                     .append("</td>\n\t<td nowrap class='tvs-abb'>")

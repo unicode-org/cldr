@@ -1020,14 +1020,23 @@ public class TestExampleGenerator extends TestFmwk {
                     } else {
                         pattern = cldrFile.getStringValue(path);
                         String actualRaw = exampleGenerator.getExampleHtml(path, pattern);
-                        examples = ExampleGenerator.simplify(actualRaw, false)
+                        String actualSimplified = ExampleGenerator.simplify(actualRaw, false);
+                        examples = actualSimplified
                             .replace("〗〖", "\t")
                             .replace("〗", "")
                             .replace("〖", "")
                             ;
                         List<String> exampleList = com.google.common.base.Splitter.on('\t').trimResults().splitToList(examples);
-                        if (exampleList.size() != 2) {
-                            throw new IllegalArgumentException("Expecting exactly 2 examples: " + exampleList);
+                        final int exampleListSize = exampleList.size();
+                        switch(exampleListSize) {
+                        case 2: // ok
+                            break;
+                        case 1:
+                            warnln("Expecting exactly 2 examples: " + exampleList + ", but got " + exampleListSize);
+                            break;
+                        default:
+                            errln("Expecting exactly 2 examples: " + exampleList + ", but got " + exampleListSize);
+                            break;
                         }
                         StringBuilder exampleBuffer = new StringBuilder();
                         for (String exampleItem : exampleList) {

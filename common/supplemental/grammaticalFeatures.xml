@@ -165,7 +165,6 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="sv">
       <grammaticalCase values="nominative genitive"/>
-      <grammaticalCase scope="units"/>
       <grammaticalGender values="common neuter"/>
       <grammaticalDefiniteness values="definite indefinite"/>
     </grammaticalFeatures>
@@ -201,16 +200,9 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalCase scope="units" values="nominative genitive dative accusative instrumental locative"/>
       <grammaticalGender values="masculine feminine"/>
     </grammaticalFeatures>
-    <grammaticalFeatures targets="nominal" locales="cs">
+    <grammaticalFeatures targets="nominal" locales="cs sk">
       <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
       <grammaticalCase scope="units" values="nominative genitive dative accusative instrumental locative"/>
-      <grammaticalGender values="animate inanimate feminine neuter"/>
-      <grammaticalGender scope="units" values="inanimate feminine neuter"/>
-      <!-- Czech also inflects in polarity (negation is a prefix) -->
-    </grammaticalFeatures>
-    <grammaticalFeatures targets="nominal" locales="sk">
-      <grammaticalCase values="nominative genitive dative accusative instrumental vocative locative"/>
-      <grammaticalCase scope="units" values="nominative genitive accusative instrumental"/>
       <grammaticalGender values="animate inanimate feminine neuter"/>
       <grammaticalGender scope="units" values="inanimate feminine neuter"/>
       <!-- Czech also inflects in polarity (negation is a prefix) -->

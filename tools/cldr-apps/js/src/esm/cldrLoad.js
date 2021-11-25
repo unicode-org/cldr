@@ -863,13 +863,6 @@ function loadAllRowsFromJson(json, theDiv) {
       cldrCoverage.updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
       flipper.flipTo(pages.data); // TODO now? or later?
       showCurrentId(); // already calls scroll
-      /*
-       * TODO: refreshCounterVetting here may be partly redundant after updateSectionCompletion
-       * is called by cldrTable.insertRows -- however, refreshCounterVetting may also update
-       * forum data and other counters -- "load all rows" isn't necessarily the best time to
-       * update the forum data, though...
-       * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
-       */
       cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
     }

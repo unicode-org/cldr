@@ -48,9 +48,7 @@ const NO_WINNING_VALUE = "no-winning-value";
  *  		json.section.rows, with info for each row
  */
 function insertRows(theDiv, xpath, session, json) {
-  cldrProgress.updateSectionCompletion(
-    json.canModify ? json.section.rows : null
-  );
+  cldrProgress.updatePageCompletion(json.canModify ? json.section.rows : null);
 
   if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
     cldrDom.removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table
@@ -350,14 +348,6 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
       cldrGui.updateDashboardRow(json);
       cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
       cldrProgress.updateCompletionOneVote(theRow.hasVoted);
-      /*
-       * TODO: refreshCounterVetting here may be partly redundant after we
-       * have called cldrProgress.updateCompletionOneVote
-       * -- however,refreshCounterVetting may also update
-       * forum data and other counters -- "singleRowLoadHandler" isn't necessarily
-       * the best time to update the forum data, though...
-       * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
-       */
       cldrGui.refreshCounterVetting();
     } else {
       tr.className = "ferrbox";

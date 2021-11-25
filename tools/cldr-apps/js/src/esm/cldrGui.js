@@ -564,7 +564,7 @@ function setToptitleVisibility(visible) {
 }
 
 /**
- * Update the counter on top of the vetting page
+ * Update the Forum counter on top of the vetting page
  */
 function refreshCounterVetting() {
   if (cldrStatus.isVisitor()) {
@@ -573,7 +573,6 @@ function refreshCounterVetting() {
     return;
   }
   refreshForumSummary();
-  cldrProgress.refresh();
 }
 
 function refreshForumSummary() {

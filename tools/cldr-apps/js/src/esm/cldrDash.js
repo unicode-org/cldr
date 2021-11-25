@@ -2,6 +2,7 @@
  * cldrDash: encapsulate dashboard data.
  */
 import * as cldrAjax from "./cldrAjax.js";
+import * as cldrProgress from "./cldrProgress.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
@@ -19,7 +20,7 @@ let xpathIndex = {};
 /**
  * Set the data for the Dashboard, add totals, and index it.
  *
- * The data as received from the back end is ordered by category, then by section, page, header, code, ...
+ * The json data as received from the back end is ordered by category, then by section, page, header, code, ...
  * (but those are not ordered alphabetically). It is presented to the user in that same order.
  *
  * @param data  - an object with these elements:
@@ -40,14 +41,13 @@ let xpathIndex = {};
  *         comment - a string
  *         checked - a boolean, added by makeXpathIndex, not in json
  *
- * @return the modified data (with totals, etc., added)
+ *   Dashboard only uses data.notifications. There are additional fields
+ *   data.* used by cldrProgress for progress meters.
  *
- * TODO: if the user chose a different locale while waiting for data,
- * don't show the dashboard for the old locale! This may be complicated
- * if multiple dashboard requests are overlapping -- ideally should tell
- * the back end to stop working on out-dated requests
+ * @return the modified data (with totals, etc., added)
  */
 function setData(data) {
+  cldrProgress.updateVoterCompletion(data);
   addCounts(data);
   makeXpathIndex(data);
   return data;

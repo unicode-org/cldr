@@ -5,6 +5,7 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
+import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -17,16 +18,16 @@ import { createCldrApp } from "../cldrVueRouter";
 import { notification } from "ant-design-vue";
 
 const USE_NEW_PROGRESS_WIDGET = true;
-const CAN_GET_VOTER_PROGRESS = false;
+const CAN_GET_VOTER_PROGRESS = true;
 const CAN_GET_LOCALE_PROGRESS = false;
 
 let progressWrapper = null;
 
-let sectionProgressStats = null;
+let pageProgressStats = null;
 let voterProgressStats = null;
 let localeProgressStats = null;
 
-let sectionProgressRows = null;
+let pageProgressRows = null;
 
 class MeterData {
   /**
@@ -52,13 +53,9 @@ class MeterData {
     const locale = cldrStatus.getCurrentLocale();
     const localeName = cldrLoad.getLocaleName(locale);
     this.title =
-      `${this.description}:` +
-      "\n" +
-      `${this.votes} / ${this.total} ≈ ${this.percent}%` +
-      "\n" +
-      `Locale: ${localeName} (${locale})` +
-      "\n" +
-      `Coverage: ${this.level}`;
+      `${this.description}: ${this.votes} / ${this.total} ≈ ${this.percent}%` +
+      `\n•Locale: ${localeName} (${locale})` +
+      `\n•Coverage: ${this.level}`;
   }
 
   /**
@@ -116,13 +113,13 @@ function insertWidget(spanId) {
  */
 function updateWidgetsWithCoverage() {
   if (progressWrapper) {
-    if (sectionProgressRows) {
-      // For sectionBar, we have saved a pointer to the rows; we need to recalculate
+    if (pageProgressRows) {
+      // For page meter, we have saved a pointer to the rows; we need to recalculate
       // the votes and total based on the coverage level of each row
-      sectionProgressStats = getSectionCompletionFromRows(sectionProgressRows);
+      pageProgressStats = getPageCompletionFromRows(pageProgressRows);
     }
-    // For voterBar
-    fetchVoterData();
+    // For voter meter, the back end delivers data along with dashboard, and dashboard
+    // itself gets updated when coverage changes, and updateVoterCompletion is called
 
     // localeBar does NOT depend on the user's chosen coverage level
     // Nevertheless, temporarily this is when we update it
@@ -134,41 +131,46 @@ function updateWidgetsWithCoverage() {
 
 function refresh() {
   if (!USE_NEW_PROGRESS_WIDGET) {
-    if (sectionProgressStats) {
-      updateLegacyCompletionWidget(sectionProgressStats);
+    if (pageProgressStats) {
+      updateLegacyCompletionWidget(pageProgressStats);
     }
     return;
   }
-  refreshSectionMeter();
+  refreshPageMeter();
   refreshVoterMeter();
   refreshLocaleMeter();
-  if (sectionProgressStats) {
+  if (pageProgressStats) {
     progressWrapper?.setHidden(false);
   }
 }
 
-function refreshSectionMeter() {
-  if (sectionProgressStats) {
+function refreshPageMeter() {
+  if (pageProgressStats) {
     const md = new MeterData(
-      cldrText.get("progress_section"),
-      sectionProgressStats.votes,
-      sectionProgressStats.total,
-      sectionProgressStats.level
+      cldrText.get("progress_page"),
+      pageProgressStats.votes,
+      pageProgressStats.total,
+      pageProgressStats.level
     );
-    progressWrapper?.updateSectionMeter(md);
+    progressWrapper?.updatePageMeter(md);
   }
 }
 
 function refreshVoterMeter() {
   if (voterProgressStats) {
-    progressWrapper?.updateVoterMeter(
-      new MeterData(
-        cldrText.get("progress_locale"),
-        voterProgressStats.votes,
-        voterProgressStats.total,
-        voterProgressStats.level
-      )
-    );
+    if (!cldrGui.dashboardIsVisible()) {
+      voterProgressStats = null;
+      progressWrapper?.updateVoterMeter(new MeterData());
+    } else {
+      progressWrapper?.updateVoterMeter(
+        new MeterData(
+          cldrText.get("progress_voter"),
+          voterProgressStats.votes,
+          voterProgressStats.total,
+          voterProgressStats.level
+        )
+      );
+    }
   }
 }
 
@@ -176,7 +178,7 @@ function refreshLocaleMeter() {
   if (localeProgressStats) {
     progressWrapper?.updateLocaleMeter(
       new MeterData(
-        cldrText.get("progress_completion"),
+        cldrText.get("progress_all_vetters"),
         localeProgressStats.votes,
         localeProgressStats.total,
         localeProgressStats.level
@@ -186,17 +188,17 @@ function refreshLocaleMeter() {
 }
 
 /**
- * Update the section completion meter
+ * Update the page completion meter
  *
  * @param {Object} rows - the object whose values are rows from json; or null if all read-only
  */
-function updateSectionCompletion(rows) {
-  sectionProgressRows = rows;
-  sectionProgressStats = getSectionCompletionFromRows(rows);
+function updatePageCompletion(rows) {
+  pageProgressRows = rows;
+  pageProgressStats = getPageCompletionFromRows(rows);
   refresh();
 }
 
-function getSectionCompletionFromRows(rows) {
+function getPageCompletionFromRows(rows) {
   if (!cldrStatus.getSurveyUser()) {
     return null;
   }
@@ -209,7 +211,7 @@ function getSectionCompletionFromRows(rows) {
   if (!levelNumber || !level) {
     return null;
   }
-  return getSectionStats(rows, levelNumber, level);
+  return getPageStats(rows, levelNumber, level);
 }
 
 /**
@@ -231,7 +233,7 @@ function getSectionCompletionFromRows(rows) {
  *
  * @return an object with votes, total, and level
  */
-function getSectionStats(rows, levelNumber, level) {
+function getPageStats(rows, levelNumber, level) {
   let votes = 0;
   let total = 0;
   if (rows) {
@@ -257,8 +259,8 @@ function getSectionStats(rows, levelNumber, level) {
 }
 
 function updateCompletionOneVote(hasVoted) {
-  if (sectionProgressStats || voterProgressStats) {
-    updateStatsOneVote(sectionProgressStats, hasVoted);
+  if (pageProgressStats || voterProgressStats) {
+    updateStatsOneVote(pageProgressStats, hasVoted);
     updateStatsOneVote(voterProgressStats, hasVoted);
     refresh();
   }
@@ -278,7 +280,15 @@ function updateStatsOneVote(stats, hasVoted) {
   }
 }
 
-function fetchVoterData() {
+/**
+ * Update the voter completion meter
+ *
+ * @param {Object} json - json.voterProgress has two fields for voter completion:
+ *                      votedPathCount, votablePathCount
+ *
+ * The json is actually the dashboard data, with voter progress data as part of the same response
+ */
+function updateVoterCompletion(json) {
   if (
     !CAN_GET_VOTER_PROGRESS ||
     !progressWrapper ||
@@ -286,6 +296,20 @@ function fetchVoterData() {
   ) {
     return;
   }
+  if (
+    typeof json.voterProgress.votedPathCount === "undefined" ||
+    typeof json.voterProgress.votablePathCount === "undefined"
+  ) {
+    console.log("Warning: bad json in cldrProgress.updateVoterCompletion");
+    return;
+  }
+  updateVoterStats(
+    json.voterProgress.votedPathCount,
+    json.voterProgress.votablePathCount
+  );
+}
+
+function updateVoterStats(votes, total) {
   const locale = cldrStatus.getCurrentLocale();
   if (!locale) {
     return;
@@ -295,37 +319,15 @@ function fetchVoterData() {
     return;
   }
   progressWrapper.setHidden(false);
-  reallyFetchVoterData(locale, level);
-}
-
-function reallyFetchVoterData(locale, level) {
-  const url = `api/completion/voting/${locale}/${level}`;
-  cldrAjax
-    .doFetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        progressWrapper.setHidden(true);
-        throw Error(response.statusText);
-      }
-      return response;
-    })
-    .then((data) => data.json())
-    .then((json) => {
-      progressWrapper.setHidden(false);
-      voterProgressStats = {
-        votes: json.votes,
-        total: json.total,
-        /*
-         * Here level is NOT from json
-         */
-        level: level,
-      };
-      refreshVoterMeter();
-    })
-    .catch((err) => {
-      console.error("Error loading Voter Completion data: " + err);
-      progressWrapper.setHidden(true);
-    });
+  voterProgressStats = {
+    votes: votes,
+    total: total,
+    /*
+     * Here level is NOT from json
+     */
+    level: level,
+  };
+  refreshVoterMeter();
 }
 
 function fetchLocaleData() {
@@ -397,9 +399,9 @@ function hideLegacyCompletionWidget() {
   }
 }
 
-function updateLegacyCompletionWidget(sectionVotesTotal) {
-  const votes = sectionVotesTotal.votes;
-  const total = sectionVotesTotal.total;
+function updateLegacyCompletionWidget(pageVotesTotal) {
+  const votes = pageVotesTotal.votes;
+  const total = pageVotesTotal.total;
   const abstain = total - votes;
   document.getElementById("count-total").innerHTML = total;
   document.getElementById("count-abstain").innerHTML = abstain;
@@ -417,7 +419,8 @@ export {
   MeterData,
   insertWidget,
   refresh,
-  updateSectionCompletion,
   updateCompletionOneVote,
+  updatePageCompletion,
+  updateVoterCompletion,
   updateWidgetsWithCoverage,
 };

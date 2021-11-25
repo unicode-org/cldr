@@ -239,16 +239,24 @@ public class VettingViewer<T> {
          * Return the value that the user's organization (as a whole) voted for,
          * or null if none of the users in the organization voted for the path. <br>
          * NOTE: Would be easier if this were a method on CLDRFile.
-         * NOTE: if user = null, then it must return the absolute winning value.
+         * NOTE: if organization = null, then it must return the absolute winning value.
          */
-        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T user);
+        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T organization);
 
         /**
-         *
          * Return the vote status
-         * NOTE: if user = null, then it must disregard the user and never return losing. See VoteStatus.
+         * NOTE: if organization = null, then it must disregard the organization and never return losing. See VoteStatus.
          */
-        public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, T user);
+        public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, T organization);
+
+        /**
+         * Has the given user voted for the given path and locale?
+         * @param userId
+         * @param loc
+         * @param path
+         * @return true if that user has voted, else false
+         */
+        public boolean userDidVote(int userId, CLDRLocale loc, String path);
 
         public VoteResolver<String> getVoteResolver(CLDRLocale loc, String path);
     }
@@ -480,30 +488,37 @@ public class VettingViewer<T> {
 
         FileInfo fileInfo = new FileInfo(localeID, usersLevel, choices, organization);
         fileInfo.setFiles(sourceFile, baselineFile);
-        fileInfo.setRelation(sorted);
+        fileInfo.setSorted(sorted);
         fileInfo.getFileInfo();
 
         // now write the results out
         writeTables(output, sourceFile, baselineFile, sorted, choices, fileInfo);
     }
 
+    public class DashboardData {
+        public Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
+            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
+
+        public VoterProgress voterProgress = new VoterProgress();
+    }
+
     /**
      * Give the list of errors for the Dashboard
      * Not used for Priority Items Summary
      */
-    public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(EnumSet<Choice> choices, String localeID, T organization,
+    public DashboardData generateFileInfoReview(EnumSet<Choice> choices,
+        String localeID, int userId, T organization,
         Level usersLevel, CLDRFile sourceFile, CLDRFile baselineFile) {
 
-        // Gather the relevant paths
-        // each one will be marked with the choice that it triggered.
-        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
-            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
+        DashboardData dd = new DashboardData();
 
         FileInfo fileInfo = new FileInfo(localeID, usersLevel, choices, organization);
         fileInfo.setFiles(sourceFile, baselineFile);
-        fileInfo.setRelation(sorted);
+        fileInfo.setSorted(dd.sorted);
+        fileInfo.setVoterProgressAndId(dd.voterProgress, userId);
         fileInfo.getFileInfo();
-        return sorted;
+
+        return dd;
     }
 
     class VettingCounters {
@@ -529,17 +544,15 @@ public class VettingViewer<T> {
      * A FileInfo contains parameters, results, and methods for gathering information about a locale
      */
     class FileInfo {
-        VettingCounters vc = new VettingCounters();
-
-        EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
-
         private String localeId;
+        private CLDRLocale cldrLocale;
         private Level usersLevel;
         private EnumSet<Choice> choices;
         private T organization;
 
         private FileInfo(String localeId, Level level, EnumSet<Choice> choices, T organization) {
             this.localeId = localeId;
+            this.cldrLocale = CLDRLocale.getInstance(localeId);
             this.usersLevel = level;
             this.choices = choices;
             this.organization = organization;
@@ -560,16 +573,27 @@ public class VettingViewer<T> {
          */
         private Relation<R2<SectionId, PageId>, WritingInfo> sorted = null;
 
-        private void setRelation(Relation<R2<SectionId, PageId>, VettingViewer<T>.WritingInfo> sorted) {
+        private void setSorted(Relation<R2<SectionId, PageId>, VettingViewer<T>.WritingInfo> sorted) {
             this.sorted = sorted;
         }
 
+        /**
+         * If voterId > 0, calculate voterProgress for the indicated user.
+         */
+        private int voterId = 0;
+        private VoterProgress voterProgress = null;
+
+        private void setVoterProgressAndId(VoterProgress voterProgress, int userId) {
+            this.voterProgress = voterProgress;
+            this.voterId = userId;
+        }
+
+        private VettingCounters vc = new VettingCounters();
+        private EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
         private StringBuilder htmlMessage = new StringBuilder();
         private StringBuilder statusMessage = new StringBuilder();
         private EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
-        private Set<String> seenSoFar = new HashSet<>();
-
-        final DefaultErrorStatus errorChecker = new DefaultErrorStatus(cldrFactory);
+        private final DefaultErrorStatus errorChecker = new DefaultErrorStatus(cldrFactory);
 
         /**
          * If not null, getFileInfo will skip all paths except this one
@@ -583,21 +607,19 @@ public class VettingViewer<T> {
         /**
          * Loop through paths for the Dashboard or the Priority Items Summary
          *
-         * This should only be called with the single-locale type of FileInfo, not with context.totals
-         *
          * @return the FileInfo
          */
-        private FileInfo getFileInfo() {
+        private void getFileInfo() {
             if (progressCallback.isStopped()) {
                 throw new RuntimeException("Requested to stop");
             }
             errorChecker.initErrorStatus(sourceFile);
-            problems = EnumSet.noneOf(Choice.class);
-
+            if (specificSinglePath != null) {
+                handleOnePath(specificSinglePath);
+                return;
+            }
+            Set<String> seenSoFar = new HashSet<>();
             for (String path : sourceFile.fullIterable()) {
-                if (specificSinglePath != null && !specificSinglePath.equals(path)) {
-                    continue;
-                }
                 if (seenSoFar.contains(path)) {
                     continue;
                 }
@@ -605,7 +627,6 @@ public class VettingViewer<T> {
                 progressCallback.nudge(); // Let the user know we're moving along
                 handleOnePath(path);
             }
-            return this;
         }
 
         private void handleOnePath(String path) {
@@ -619,10 +640,11 @@ public class VettingViewer<T> {
                 return;
             }
             // note that the value might be missing!
-            Level level = supplementalDataInfo.getCoverageLevel(path, localeId);
+            Level pathLevel = supplementalDataInfo.getCoverageLevel(path, localeId);
 
             // skip all but errors above the requested level
-            boolean onlyRecordErrors = level.compareTo(usersLevel) > 0;
+            boolean pathLevelIsTooHigh = pathLevel.compareTo(usersLevel) > 0;
+            boolean onlyRecordErrors = pathLevelIsTooHigh;
 
             problems.clear();
             htmlMessage.setLength(0);
@@ -644,6 +666,12 @@ public class VettingViewer<T> {
             if (!onlyRecordErrors) {
                 recordLosingDisputedEtc(path, voteStatus, missingStatus);
             }
+            if (voterProgress != null && !(pathLevelIsTooHigh && problems.isEmpty())) {
+                voterProgress.incrementVotablePathCount();
+                if (userVoteStatus.userDidVote(voterId, cldrLocale, path)) {
+                    voterProgress.incrementVotedPathCount();
+                }
+            }
             if (specificSinglePath == null && !problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
@@ -664,8 +692,7 @@ public class VettingViewer<T> {
 
         private MissingStatus recordMissingChangedEtc(String path,
             boolean itemsOkIfVoted, String value, String oldValue) {
-            CLDRLocale loc = CLDRLocale.getInstance(localeId);
-            VoteResolver<String> resolver = userVoteStatus.getVoteResolver(loc, path);
+            VoteResolver<String> resolver = userVoteStatus.getVoteResolver(cldrLocale, path);
             MissingStatus missingStatus;
             if (resolver.getWinningStatus() == VoteResolver.Status.missing) {
                 missingStatus = getMissingStatus(sourceFile, path, latin);
@@ -1642,7 +1669,7 @@ public class VettingViewer<T> {
 
         FileInfo fileInfo = new FileInfo(localeID, usersLevel, choices, organization);
         fileInfo.setFiles(sourceFile, baselineFile);
-        fileInfo.setRelation(sorted);
+        fileInfo.setSorted(sorted);
         fileInfo.setSinglePath(path);
         fileInfo.getFileInfo();
 

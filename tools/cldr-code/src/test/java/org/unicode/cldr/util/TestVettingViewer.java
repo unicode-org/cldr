@@ -40,6 +40,11 @@ class TestVettingViewer {
             }
 
             @Override
+            public boolean userDidVote(int userId, CLDRLocale loc, String path) {
+                return false;
+            }
+
+            @Override
             public VoteResolver<String> getVoteResolver(final CLDRLocale loc, final String path) {
                 VoteResolver<String> r = new VoteResolver<>();
                 r.setLocale(locale, getPathHeader(path));
@@ -62,9 +67,9 @@ class TestVettingViewer {
         CLDRFile baselineFile = baselineFactory.make(loc, true);
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted;
         final Level usersLevel = Level.MODERN;
-        sorted = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, sourceFile, baselineFile);
+        VettingViewer<Organization>.DashboardData dd = vv.generateFileInfoReview(choiceSet, loc, 0, usersOrg, usersLevel, sourceFile, baselineFile);
         boolean foundAny = false;
-        for (Entry<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> e : sorted.entrySet()) {
+        for (Entry<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> e : dd.sorted.entrySet()) {
             for(Choice problem : e.getValue().problems) {
                 if (problem.name().equals("englishChanged")) {
                     foundAny = true;

@@ -36,6 +36,7 @@ import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoterProgress;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -592,9 +593,14 @@ public class VettingViewerQueue {
          */
         CLDRFile sourceFile = sourceFactory.make(loc);
         CLDRFile baselineFile = baselineFactory.make(loc, true);
-        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted;
-        sorted = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, sourceFile, baselineFile);
-        return reallyGetDashboardOutput(sourceFile, baselineFile, sorted, choiceSet, locale, user.id);
+
+        /*
+         * TODO: refactor generateFileInfoReview, reallyGetDashboardOutput -- too many parameters!
+         * Postponed refactoring temporarily to avoid obscuring essential changes in the same commit...
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
+         */
+        VettingViewer<Organization>.DashboardData dd = vv.generateFileInfoReview(choiceSet, loc, user.id, usersOrg, usersLevel, sourceFile, baselineFile);
+        return reallyGetDashboardOutput(sourceFile, baselineFile, dd, choiceSet, locale, user.id);
     }
 
     @Schema(description = "Heading for a portion of the notifications")
@@ -651,7 +657,7 @@ public class VettingViewerQueue {
     }
 
 
-    @Schema(description = "Output of Dashboard output")
+    @Schema(description = "Output of Dashboard")
     public static final class ReviewOutput {
         @Schema(description = "list of notifications")
         private List<ReviewNotification> notifications = new ArrayList<>();
@@ -684,6 +690,8 @@ public class VettingViewerQueue {
         }
 
         public HashMap<String, List<String>> hidden;
+
+        public VoterProgress voterProgress = null;
     }
 
     /**
@@ -692,22 +700,24 @@ public class VettingViewerQueue {
      *
      * @param sourceFile
      * @param baselineFile
-     * @param sorted
+     * @param dd
      * @param choices
      * @param locale
      * @param userId
      * @return the ReviewOutput
      */
     private ReviewOutput reallyGetDashboardOutput(CLDRFile sourceFile, CLDRFile baselineFile,
-        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
+        VettingViewer<Organization>.DashboardData dd,
         EnumSet<Choice> choices,
         CLDRLocale locale, int userId) {
 
         ReviewOutput reviewInfo = new ReviewOutput();
 
-        addNotificationEntries(sourceFile, baselineFile, sorted, reviewInfo);
+        addNotificationEntries(sourceFile, baselineFile, dd.sorted, reviewInfo);
 
         reviewInfo.hidden = new ReviewHide().getHiddenField(userId, locale.toString());
+
+        reviewInfo.voterProgress = dd.voterProgress;
 
         return reviewInfo;
     }
@@ -1013,6 +1023,12 @@ public class VettingViewerQueue {
         public VoteResolver<String> getVoteResolver(CLDRLocale loc, String path) {
             BallotBox<User> ballotBox = getBox(sm, loc);
             return ballotBox.getResolver(path);
+        }
+
+        @Override
+        public boolean userDidVote(int userId, CLDRLocale loc, String path) {
+            BallotBox<User> ballotBox = getBox(sm, loc);
+            return ballotBox.userDidVote(sm.reg.getInfo(userId), path);
         }
     }
 

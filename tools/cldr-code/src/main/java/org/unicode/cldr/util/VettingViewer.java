@@ -115,12 +115,14 @@ public class VettingViewer<T> {
 
         public final char abbreviation;
         public final String buttonLabel;
+        public final String jsonLabel;
         public final String description;
         public final int order;
 
-        Choice(char abbreviation, String buttonLabel, String description, int order) {
+        Choice(char abbreviation, String label, String description, int order) {
             this.abbreviation = abbreviation;
-            this.buttonLabel = TransliteratorUtilities.toHTML.transform(buttonLabel);
+            this.jsonLabel = label.replace(' ', '_');
+            this.buttonLabel = TransliteratorUtilities.toHTML.transform(label);
             this.description = TransliteratorUtilities.toHTML.transform(description);
             this.order = order;
         }
@@ -1691,7 +1693,7 @@ public class VettingViewer<T> {
 
         ArrayList<String> out = new ArrayList<>();
         for (Object error : errors.toArray()) {
-            out.add(((Choice) error).buttonLabel);
+            out.add(((Choice) error).jsonLabel);
         }
 
         return out;

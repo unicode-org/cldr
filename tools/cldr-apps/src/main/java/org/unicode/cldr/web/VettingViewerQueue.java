@@ -745,7 +745,7 @@ public class VettingViewerQueue {
 
     private ReviewNotification getNextNotification(ReviewOutput reviewInfo, ReviewNotification notification,
         Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
-        String notificationName = entry.getKey().get0().buttonLabel.replace(' ', '_');
+        String notificationName = entry.getKey().get0().jsonLabel;
 
         notification = reviewInfo.add(notificationName, notification);
         return notification;

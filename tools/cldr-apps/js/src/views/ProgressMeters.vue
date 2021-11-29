@@ -1,31 +1,31 @@
 <template>
   <section id="ProgressMeters" v-if="!hide">
-    <a-progress
-      v-if="sectionMeter.getPresent()"
-      :percent="sectionMeter.getPercent()"
-      :title="sectionMeter.getTitle()"
-      strokeColor="blue"
-      type="circle"
-      :width="32"
-    />
+    <a-tooltip v-if="pageMeter.getPresent()" :title="pageMeter.getTitle()">
+      <a-progress
+        :percent="pageMeter.getPercent()"
+        strokeColor="blue"
+        type="circle"
+        :width="32"
+      />
+    </a-tooltip>
     &nbsp;
-    <a-progress
-      v-if="voterMeter.getPresent()"
-      :percent="voterMeter.getPercent()"
-      :title="voterMeter.getTitle()"
-      strokeColor="orange"
-      type="circle"
-      :width="32"
-    />
+    <a-tooltip v-if="voterMeter.getPresent()" :title="voterMeter.getTitle()">
+      <a-progress
+        :percent="voterMeter.getPercent()"
+        strokeColor="orange"
+        type="circle"
+        :width="32"
+      />
+    </a-tooltip>
     &nbsp;
-    <a-progress
-      v-if="localeMeter.getPresent()"
-      :percent="localeMeter.getPercent()"
-      :title="localeMeter.getTitle()"
-      strokeColor="green"
-      type="circle"
-      :width="32"
-    />
+    <a-tooltip v-if="localeMeter.getPresent()" :title="localeMeter.getTitle()">
+      <a-progress
+        :percent="localeMeter.getPercent()"
+        strokeColor="green"
+        type="circle"
+        :width="32"
+      />
+    </a-tooltip>
   </section>
 </template>
 
@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       hide: true,
-      sectionMeter: new cldrProgress.MeterData(),
+      pageMeter: new cldrProgress.MeterData(),
       voterMeter: new cldrProgress.MeterData(),
       localeMeter: new cldrProgress.MeterData(),
     };
@@ -48,8 +48,8 @@ export default {
       this.hide = hidden;
     },
 
-    updateSectionMeter(meterData) {
-      this.sectionMeter = meterData;
+    updatePageMeter(meterData) {
+      this.pageMeter = meterData;
     },
 
     updateVoterMeter(meterData) {

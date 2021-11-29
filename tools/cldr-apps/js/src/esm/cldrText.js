@@ -480,9 +480,9 @@ const strings = {
   lock_account_success:
     "The account has been locked successfully. Thank you for using the Survey Tool. If you have difficulty still, contact the person who set up your account.",
 
-  progress_section: "Your voting in this section",
-  progress_locale: "Your voting in this locale",
-  progress_completion: "Completion for all vetters in this locale",
+  progress_page: "Your voting in this page",
+  progress_voter: "Your voting in this locale",
+  progress_all_vetters: "Completion for all vetters in this locale",
 };
 
 /**

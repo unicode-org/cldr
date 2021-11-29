@@ -18,6 +18,7 @@ import {
   Progress,
   Spin,
   Steps,
+  Tooltip,
   // functions
   notification,
 } from "ant-design-vue";
@@ -140,6 +141,7 @@ function setupComponents(app) {
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
   app.component("a-steps", Steps);
+  app.component("a-tooltip", Tooltip);
   app.component("cldr-loginbutton", LoginButton);
   app.component("cldr-value", CldrValue);
 }

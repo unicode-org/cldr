@@ -98,11 +98,11 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalCase scope="units"/>
       <grammaticalGender values="masculine feminine"/>
     </grammaticalFeatures>
-    <grammaticalFeatures targets="nominal" locales="ml">
+    <grammaticalFeatures targets="nominal" locales="ml"> <!-- Holding back on ml until we get more reliable information -->
       <grammaticalCase values="nominative genitive dative accusative instrumental locative comitative locativecopulative sociative"/>
-      <grammaticalCase scope="units" values="nominative genitive dative accusative instrumental locative sociative"/>
+      <grammaticalCase scope="units"/> 
       <grammaticalGender values="animate inanimate feminine neuter"/>
-      <grammaticalGender scope="units" values="neuter"/>
+      <grammaticalGender scope="units"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="mr">
       <grammaticalCase values="nominative accusative dative ergative locative ablative genitive"/>

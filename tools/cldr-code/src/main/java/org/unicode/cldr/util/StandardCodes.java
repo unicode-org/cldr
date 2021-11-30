@@ -507,6 +507,52 @@ public class StandardCodes {
         return result;
     }
 
+    /**
+     * "The target coverage level is set to:
+     * - The CLDR Org coverage level if it exists,
+     * - Otherise, the maximum of all the coverage levels for that locale across all Organizations
+     *  (max Modern) in Locales.txt, if there is at least one.
+     * - Otherwise Basic.
+     * - That makes the number the same for all Organizations, which makes communicating the values less prone
+     * to misinterpretation, and gives all the vetters and managers a common metric for that locale.
+     */
+    public Level getTargetCoverageLevel(String localeId) {
+        Level level;
+
+        // First, try CLDR locale
+        level = getLocaleCoverageLevel(Organization.cldr, localeId);
+        if (level != Level.UNDETERMINED) {
+            return level;
+        }
+
+        // Next, Find maximum coverage level
+        for (final Organization o : Organization.values()) {
+            if (o == Organization.cldr ||  // Already handled, above
+                o == Organization.guest ||
+                o == Organization.surveytool) {
+                continue; // Skip some 'special' orgs
+            }
+            final Output<StandardCodes.LocaleCoverageType> outputType = new Output<>();
+            final Level orgLevel = getLocaleCoverageLevel(o, localeId, outputType);
+            if (outputType.value == StandardCodes.LocaleCoverageType.undetermined ||
+                outputType.value == StandardCodes.LocaleCoverageType.star) {
+                // Skip undetermined or star
+                continue;
+            }
+            // Pin the level to MODERN
+            final Level pinnedOrgLevel = Level.min(Level.MODERN, orgLevel);
+            // Accumulate the maxiumum org level (up to MODERN)
+            level = Level.max(level, pinnedOrgLevel);
+        }
+        if (level != Level.UNDETERMINED) {
+            return level;
+        }
+
+        // Otherwise, BASIC
+        level = Level.BASIC;
+        return level;
+    }
+
     private void loadPlatformLocaleStatus() {
         LocaleIDParser parser = new LocaleIDParser();
         platform_locale_level = new EnumMap<>(Organization.class);

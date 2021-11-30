@@ -122,4 +122,26 @@ public enum Level {
     public static Level fromString(String source) {
         return Level.get(source);
     }
+
+    /**
+     * Return the minimum level between two
+     * For example, Level.min(COMPREHENSIVE, MODERN) = MODERN
+     * @param a
+     * @param b
+     * @return level with the minimal getLevel() value
+     */
+    public static Level min(Level a, Level b) {
+        return Level.fromLevel(Math.min(a.getLevel(), b.getLevel()));
+    }
+
+    /**
+     * Return the maximum level between two
+     * For example, Level.min(COMPREHENSIVE, MODERN) = MODERN
+     * @param a
+     * @param b
+     * @return level with the minimal getLevel() value
+     */
+    public static Level max(Level a, Level b) {
+        return Level.fromLevel(Math.max(a.getLevel(), b.getLevel()));
+    }
 }

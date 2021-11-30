@@ -70,47 +70,70 @@ public class VettingViewer<T> {
         /**
          * There is a console-check error
          */
-        error('E', "Error", "The Survey Tool detected an error in the winning value.", 1),
+        error('E',
+            "Error",
+            "The Survey Tool detected an error in the winning value.",
+            1),
+
+        /**
+         * Given the users' coverage, some items are missing
+         */
+        missingCoverage('M',
+            "Missing",
+            "Your current coverage level requires the item to be present. "
+                + "(During the vetting phase, this is informational: you can’t add new values.)",
+            2),
+
+        /**
+         * Provisional: there are not enough votes to be approved
+         */
+        notApproved('P',
+            "Provisional",
+            "There are not enough votes for this item to be approved (and used).",
+            3),
+
+        /**
+         * There is a dispute.
+         */
+        hasDispute('D',
+            "Disputed",
+            "Different organizations are choosing different values. Please review to approve or reach consensus.",
+            4),
+
         /**
          * My choice is not the winning item
          */
-        weLost(
-            'L',
+        weLost('L',
             "Losing",
             "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. "
                 + "This might be due to a dispute between members of your organization.",
-            2),
-        /**
-         * There is a dispute.
-         */
-        notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used).", 3),
-        /**
-         * There is a dispute.
-         */
-        hasDispute('D', "Disputed", "Different organizations are choosing different values. "
-            + "Please review to approve or reach consensus.", 4),
+            5),
+
         /**
          * There is a console-check warning
          */
-        warning('W', "Warning", "The Survey Tool detected a warning about the winning value.", 5),
+        warning('W',
+            "Warning",
+            "The Survey Tool detected a warning about the winning value.",
+            6),
+
         /**
          * The English value for the path changed AFTER the current value for
          * the locale.
          */
-        englishChanged('U', "English Changed",
-            "The English value has changed in CLDR, but the corresponding value for your language has not. Check if any changes are needed in your language.",
-            6),
+        englishChanged('U',
+            "English Changed",
+            "The English value has changed in CLDR, but the corresponding value for your language has not. "
+                + "Check if any changes are needed in your language.",
+            7),
+
         /**
          * The value changed from the baseline
          */
-        changedOldValue('C', "Changed", "The winning value was altered from the baseline value. (Informational)", 7),
-        /**
-         * Given the users' coverage, some items are missing.
-         */
-        missingCoverage(
-            'M',
-            "Missing",
-            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)", 8),
+        changedOldValue('C',
+            "Changed",
+            "The winning value was altered from the baseline value. (Informational)",
+            8),
             ;
 
         public final char abbreviation;

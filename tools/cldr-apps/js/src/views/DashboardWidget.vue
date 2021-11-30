@@ -119,7 +119,7 @@
                   </a>
                 </span>
                 <input
-                  v-if="n.notification !== 'Error'"
+                  v-if="canBeHidden(n.notification)"
                   type="checkbox"
                   class="right-control"
                   title="You can hide checked items with the hide checkbox above"
@@ -291,6 +291,13 @@ export default {
         category,
         this.locale
       );
+    },
+
+    canBeHidden(category) {
+      if (category === "Error" || category === "Missing") {
+        return false;
+      }
+      return true;
     },
   },
 

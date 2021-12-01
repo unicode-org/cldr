@@ -1,6 +1,6 @@
 <template>
   <nav id="DashboardSection" class="halfheight">
-    <p v-if="fetchErr" class="st-sad">Error loading data: {{ fetchErr }}</p>
+    <p v-if="fetchErr" class="st-sad">{{ fetchErr }}</p>
     <div class="while-loading" v-if="!data && !fetchErr">
       <a-spin>
         <i>{{ loadingMessage }}</i>
@@ -241,8 +241,9 @@ export default {
           this.resetScrolling();
         })
         .catch((err) => {
-          console.error("Error loading Dashboard data: " + err);
-          this.fetchErr = err;
+          const msg = "Error loading Dashboard data: " + err;
+          console.error(msg);
+          this.fetchErr = msg;
         });
     },
 

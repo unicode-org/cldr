@@ -19,7 +19,7 @@ import { notification } from "ant-design-vue";
 
 const USE_NEW_PROGRESS_WIDGET = true;
 const CAN_GET_VOTER_PROGRESS = true;
-const CAN_GET_LOCALE_PROGRESS = false;  // For now
+const CAN_GET_LOCALE_PROGRESS = false; // For now
 
 let progressWrapper = null;
 
@@ -262,7 +262,7 @@ function updateCompletionOneVote(hasVoted) {
     updateStatsOneVote(voterProgressStats, hasVoted);
     refresh();
   }
-  fetchLocaleData(false);  // refresh 3rd meter if there is a vote
+  fetchLocaleData(false); // refresh 3rd meter if there is a vote
 }
 
 function updateStatsOneVote(stats, hasVoted) {
@@ -344,11 +344,13 @@ function fetchLocaleData(unlessLoaded) {
   }
   const locale = cldrStatus.getCurrentLocale();
   if (!locale) {
-    return;  // no locale
+    return; // no locale
   }
-  if (unlessLoaded &&
+  if (
+    unlessLoaded &&
     localeProgressStats &&
-    localeProgressStats.locale === locale) {
+    localeProgressStats.locale === locale
+  ) {
     // LocaleMeter is already set
     // TODO: still refresh if it's been too long
     return;

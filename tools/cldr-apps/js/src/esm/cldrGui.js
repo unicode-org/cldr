@@ -416,7 +416,7 @@ function handleResize() {
 }
 
 function updateWithStatus() {
-  cldrProgress.fetchLocaleData(true);  // skip if already loaded
+  cldrProgress.fetchLocaleData(true); // skip if already loaded
   mainHeaderWrapper?.updateData();
 }
 

@@ -59,4 +59,7 @@
 		maxFileSize="50"
 		maxFiles="10"
 	/>
+
+	<!-- Needed to enable JSPs to be at source level 1.8 (at least) -->
+	<jspEngine jdkSourceLevel="18" />
 </server>

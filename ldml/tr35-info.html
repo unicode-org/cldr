@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css"><title>Unicode Locale Data Markup Language (LDML) Part 6: Supplemental</title></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+      <tr>
+          <td class="icon"><a href="http://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]" src="http://www.unicode.org/webscripts/logo60s2.gif" height="33" width="34"></a>&nbsp;&nbsp;<a class="bar" href="http://www.unicode.org/reports/">Technical Reports</a></td>
+      </tr>
+      <tr>
+          <td class="gray">&nbsp;</td>
+      </tr>
+  </tbody>
+  </table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldmlpart-6-supplemental">Unicode Locale Data Markup Language (LDML)<br>Part 6: Supplemental</h1><!-- HTML: no header --><table class="simple" width="90%"><tbody>
+<tr><td>Version</td><td>41</td></tr>
+<tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
+</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for supplemental data. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><blockquote>
+<p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
+</blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
+<li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
+<li>  Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+<li>  Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+<li>  Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+<li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+<li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
+<li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+</ul><h2 id="contents-of-part-6-supplemental"><a name="Contents" href="#Contents">Contents of Part 6, Supplemental</a></h2><ul>
+<li>  1 <a href="#Supplemental_Data">Introduction Supplemental Data</a></li>
+<li>2 <a href="#Territory_Data">Territory Data</a><ul>
+<li>  2.1 <a href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a></li>
+<li>  2.2 <a href="#Subdivision_Containment">Subdivision Containment</a></li>
+<li>  2.3 <a href="#Supplemental_Territory_Information">Supplemental Territory Information</a></li>
+<li>2.4 <a href="#Territory_Based_Preferences">Territory-Based Preferences</a><ul>
+<li>2.4.1 <a href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a><ul>
+<li>  Table: <a href="#Unit_Preferences">Unit Preference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>  2.5 <a href="#rgScope">&lt;rgScope&gt;: Scope of the “rg” Locale Key</a></li>
+</ul>
+</li>
+<li>3 <a href="#Supplemental_Language_Data">Supplemental Language Data</a><ul>
+<li>  3.1 <a href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a></li>
+</ul>
+</li>
+<li>  4 <a href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
+<li>  5 <a href="#Telephone_Code_Data">Telephone Code Data</a> (Deprecated)</li>
+<li>  6 <a href="#Postal_Code_Validation">Postal Code Validation (Deprecated)</a></li>
+<li>  7 <a href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
+<li>8 <a href="#Coverage_Levels">Coverage Levels</a><ul>
+<li>  8.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
+<li>  8.2 <a href="#Coverage_Level_Data_Requirements">Data Requirements</a></li>
+<li>  8.3 <a href="#Coverage_Level_Default_Values">Default Values</a></li>
+</ul>
+</li>
+<li>9 <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a><ul>
+<li>9.1 <a href="#Supplemental_Alias_Information">Supplemental Alias Information</a><ul>
+<li>  Table: <a href="#Alias_Attribute_Values">Alias Attribute Values</a></li>
+</ul>
+</li>
+<li>  9.2 <a href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information (Deprecated)</a></li>
+<li>  9.3 <a href="#Default_Content">Default Content</a></li>
+</ul>
+</li>
+<li>  10 <a href="#Metadata_Elements">Locale Metadata Elements</a></li>
+<li>  11 <a href="#Version_Information">Version Information</a></li>
+<li>  12 <a href="#Parent_Locales">Parent Locales</a></li>
+<li>  13 <a href="#Unit_Conversion">Unit Conversion</a></li>
+<li>  14 <a href="#Unit_Preferences">Unit Preferences</a></li>
+</ul><h2 id="1-introduction-supplemental-data">1 Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a></h2><p>The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/index.html">Supplemental Charts</a>.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">supplementalData</span> (<span class="hljs-meta-keyword">version</span>, <span class="hljs-meta-keyword">generation</span>?, <span class="hljs-meta-keyword">cldrVersion</span>?, <span class="hljs-meta-keyword">currencyData</span>?, <span class="hljs-meta-keyword">territoryContainment</span>?, <span class="hljs-meta-keyword">subdivisionContainment</span>?, <span class="hljs-meta-keyword">languageData</span>?, <span class="hljs-meta-keyword">territoryInfo</span>?, <span class="hljs-meta-keyword">postalCodeData</span>?, <span class="hljs-meta-keyword">calendarData</span>?, <span class="hljs-meta-keyword">calendarPreferenceData</span>?, <span class="hljs-meta-keyword">weekData</span>?, <span class="hljs-meta-keyword">timeData</span>?, <span class="hljs-meta-keyword">measurementData</span>?, <span class="hljs-meta-keyword">unitPreferenceData</span>?, <span class="hljs-meta-keyword">timezoneData</span>?, <span class="hljs-meta-keyword">characters</span>?, <span class="hljs-meta-keyword">transforms</span>?, <span class="hljs-meta-keyword">metadata</span>?, <span class="hljs-meta-keyword">codeMappings</span>?, <span class="hljs-meta-keyword">parentLocales</span>?, <span class="hljs-meta-keyword">likelySubtags</span>?, <span class="hljs-meta-keyword">metazoneInfo</span>?, <span class="hljs-meta-keyword">plurals</span>?, <span class="hljs-meta-keyword">telephoneCodeData</span>?, <span class="hljs-meta-keyword">numberingSystems</span>?, <span class="hljs-meta-keyword">bcp47KeywordMappings</span>?, <span class="hljs-meta-keyword">gender</span>?, <span class="hljs-meta-keyword">references</span>?, <span class="hljs-meta-keyword">languageMatching</span>?, <span class="hljs-meta-keyword">dayPeriodRuleSet</span>*, <span class="hljs-meta-keyword">metaZones</span>?, <span class="hljs-meta-keyword">primaryZones</span>?, <span class="hljs-meta-keyword">windowsZones</span>?, <span class="hljs-meta-keyword">coverageLevels</span>?, <span class="hljs-meta-keyword">idValidity</span>?, <span class="hljs-meta-keyword">rgScope</span>?) &gt;</span>
+</code></pre><p>The data in CLDR is presently split into multiple files: supplementalData.xml, supplementalMetadata.xml, characters.xml, likelySubtags.xml, ordinals.xml, plurals.xml, telephoneCodeData.xml, genderList.xml, plus transforms (see <em>Part 2 Section 10 <a href="tr35-general.html#Transforms">Transforms</a></em> and <em>Part 2 Section 10.3 <a href="tr35-general.html#Transform_Rules_Syntax">Transform Rule Syntax</a></em>). The split is just for convenience: logically, they are treated as though they were a single file. Future versions of CLDR may split the data in a different fashion. Do not depend on any specific XML filename or path for supplemental data.</p><p>Note that <a href="#Metadata_Elements">Chapter 10</a> presents information about metadata that is maintained on a per-locale basis. It is included in this section because it is not intended to be used as part of the locale itself.</p><h2 id="2-territory-data">2 <a name="Territory_Data" href="#Territory_Data">Territory Data</a></h2><h3 id="21-supplemental-territory-containment">2.1 <a name="Supplemental_Territory_Containment" href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">territoryContainment</span> ( <span class="hljs-meta-keyword">group</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">group</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">group</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">group</span> <span class="hljs-meta-keyword">contains</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">group</span> <span class="hljs-meta-keyword">grouping</span> ( <span class="hljs-meta-keyword">true</span> | <span class="hljs-meta-keyword">false</span> ) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">group</span> <span class="hljs-meta-keyword">status</span> ( <span class="hljs-meta-keyword">deprecated</span>, <span class="hljs-meta-keyword">grouping</span> ) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>The following data provides information that shows groupings of countries (regions). The data is based on the [<a href="tr35.html#UNM49">UNM49</a>]. There is one special code, <code>QO</code> , which is used for outlying areas of Oceania that are typically uninhabited. The territory containment forms a tree with the following levels:</p><ul>
+<li>World<ul>
+<li>Continent<ul>
+<li>Subcontinent<ul>
+<li>Country</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><p>Excluding groupings, in this tree:</p><ul>
+<li>  All non-overlapping regions form a strict tree rooted at World</li>
+<li>  All leaf-nodes (country) are always at depth 4. Some of these “country” regions are actually parts of other countries, such as Hong Kong (part of China). Such relationships are not part of the containment data.</li>
+</ul><p>For a chart showing the relationships (plus the included timezones), see the <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html">Territory Containment Chart</a>. The XML structure has the following form.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">territoryContainment</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"001"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"002 009 019 142 150"</span>/&gt;</span> <span class="hljs-comment">&lt;!--World --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"011"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"BF BJ CI CV GH GM GN GW LR ML MR NE NG SH SL SN TG"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Western Africa --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"013"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"BZ CR GT HN MX NI PA SV"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Central America --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"014"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"BI DJ ER ET KE KM MG MU MW MZ RE RW SC SO TZ UG YT ZM ZW"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Eastern Africa --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"142"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"030 035 062 145"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Asia --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"145"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"AE AM AZ BH CY GE IL IQ JO KW LB OM PS QA SA SY TR YE"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Western Asia --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"015"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"DZ EG EH LY MA SD TN"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Northern Africa --&gt;</span>
+...
+</code></pre><p>There are groupings that don't follow this regular structure, such as:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"003"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"013 021 029"</span> <span class="hljs-attr">grouping</span>=<span class="hljs-string">"true"</span>/&gt;</span> <span class="hljs-comment">&lt;!--North America --&gt;</span>
+</code></pre><p>These are marked with the attribute <code>grouping="true"</code>.</p><p>When groupings have been deprecated but kept around for backwards compatibility, they are marked with the attribute <code>status="deprecated"</code>, like this:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"029"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"AN"</span> <span class="hljs-attr">status</span>=<span class="hljs-string">"deprecated"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Caribbean --&gt;</span>
+</code></pre><p>When the containment relationship itself is a grouping, it is marked with the attribute <code>status="grouping"</code>, like this:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"150"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"EU"</span> <span class="hljs-attr">status</span>=<span class="hljs-string">"grouping"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Europe --&gt;</span>
+</code></pre><p>That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</p><h3 id="22-subdivision-containment">2.2 <a name="Subdivision_Containment" href="#Subdivision_Containment">Subdivision Containment</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">subdivisionContainment</span> ( <span class="hljs-meta-keyword">subgroup</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">subgroup</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">subgroup</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">subgroup</span> <span class="hljs-meta-keyword">contains</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>The subdivision containment data is similar to the territory containment. It is based on ISO 3166-2 data, but may diverge from it in the future.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">subgroup</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"BD"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"bda bdb bdc bdd bde bdf bdg bdh"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">subgroup</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"bda"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"bd02 bd06 bd07 bd25 bd50 bd51"</span> /&gt;</span>
+</code></pre><p>The <code>type</code> is a <a href="tr35.html#unicode_region_subtag"><code>unicode_region_subtag</code></a> (territory) identifier for the top level of containment, or a <a href="tr35.html#unicode_subdivision_id"><code>unicode_subdivision_id</code></a> for lower levels of containment when there are multiple levels. The <code>contains</code> value is a space-delimited list of one or more <a href="tr35.html#unicode_subdivision_id"><code>unicode_subdivision_id</code></a> values. In the example above, subdivision bda contains other subdivisions bd02, bd06, bd07, bd25, bd50, bd51.</p><p>Note: Formerly (in CLDR 28 through 30):</p><ul>
+<li>The <code>type</code> attribute could only contain a <code>unicode_region_subtag</code>;</li>
+<li>The <code>contains</code> attribute contained <code>unicode_subdivision_suffix</code> values; these are not unique across multiple territories, so...</li>
+<li>For lower containment levels, a now-deprecated subtype <code>attribute</code> was used to specify the parent <code>unicode_subdivision_suffix</code>.</li>
+</ul><p>* The type attribute contained only a <code>unicode_region_subtag</code> <code>unicode_subdivision_suffix</code> values were used in the <code>contains</code> attribute; these are not unique across multiple territories, so for lower levels a now-deprecated</p><h3 id="23-supplemental-territory-information">2.3 <a name="Supplemental_Territory_Information" href="#Supplemental_Territory_Information">Supplemental Territory Information</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">territory</span> ( <span class="hljs-meta-keyword">languagePopulation</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territory</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territory</span> <span class="hljs-meta-keyword">gdp</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territory</span> <span class="hljs-meta-keyword">literacyPercent</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territory</span> <span class="hljs-meta-keyword">population</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">languagePopulation</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languagePopulation</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languagePopulation</span> <span class="hljs-meta-keyword">literacyPercent</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languagePopulation</span> <span class="hljs-meta-keyword">writingPercent</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languagePopulation</span> <span class="hljs-meta-keyword">populationPercent</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languagePopulation</span> <span class="hljs-meta-keyword">officialStatus</span> (<span class="hljs-meta-keyword">de_facto_official</span> | <span class="hljs-meta-keyword">official</span> | <span class="hljs-meta-keyword">official_regional</span> | <span class="hljs-meta-keyword">official_minority</span>) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>This data provides testing information for language and territory populations. The main goal is to provide approximate figures for the literate, functional population for each language in each territory: that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. For a chart of this data, see <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_language_information.html">Territory-Language Information</a>.</p><p><em>Example</em></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">territory</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AO"</span> <span class="hljs-attr">gdp</span>=<span class="hljs-string">"175500000000"</span> <span class="hljs-attr">literacyPercent</span>=<span class="hljs-string">"70.4"</span> <span class="hljs-attr">population</span>=<span class="hljs-string">"19088100"</span>&gt;</span> <span class="hljs-comment">&lt;!--Angola--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">languagePopulation</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"pt"</span> <span class="hljs-attr">populationPercent</span>=<span class="hljs-string">"67"</span> <span class="hljs-attr">officialStatus</span>=<span class="hljs-string">"official"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Portuguese--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">languagePopulation</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"umb"</span> <span class="hljs-attr">populationPercent</span>=<span class="hljs-string">"29"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Umbundu--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">languagePopulation</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"kmb"</span> <span class="hljs-attr">writingPercent</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">populationPercent</span>=<span class="hljs-string">"25"</span> <span class="hljs-attr">references</span>=<span class="hljs-string">"R1034"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Kimbundu--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">languagePopulation</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ln"</span> <span class="hljs-attr">populationPercent</span>=<span class="hljs-string">"0.67"</span> <span class="hljs-attr">references</span>=<span class="hljs-string">"R1010"</span>/&gt;</span> <span class="hljs-comment">&lt;!--Lingala--&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">territory</span>&gt;</span>
+</code></pre><p>Note that reliable information is difficult to obtain; the information in CLDR is an estimate culled from different sources, including the World Bank, CIA Factbook, and others. The GDP and country literacy figures are taken from the World Bank where available, otherwise supplemented by FactBook data and other sources. The GDP figures are “PPP (constant 2000 international $)”. Much of the per-language data is taken from the Ethnologue, but is supplemented and processed using many other sources, including per-country census data. (The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-language users.) Some references are marked in the XML files, with attributes such as <code>references="R1010"</code> .</p><p>The percentages may add up to more than 100% due to multilingual populations, or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. Languages with smaller populations might not be included.</p><p>The following describes the meaning of some of these terms—as used in CLDR—in more detail.</p><p><a name="literacy_percent" href="#literacy_percent">literacy percent for the territory</a> — an estimate of the percentage of the country’s population that is functionally literate.</p><p><a name="language_population_percent" href="#language_population_percent">language population percent</a> — an estimate of the number of people who are functional in that language in that country, including both first and second language speakers. The level of fluency is that necessary to use a UI on a computer, smartphone, or similar devices, rather than complete fluency.</p><p><a name="literacy_percent_for_langPop" href="#literacy_percent_for_langPop">literacy percent for language population</a> — Within the set of people who are functional in the corresponding language (as specified by <a href="#language_population_percent">language population percent</a>), this is an estimate of the percentage of those people who are functionally literate in that language, that is, who are <em>capable</em> of reading or writing in that language, even if they do not regularly use it for reading or writing. If not specified, this defaults to the <a href="#literacy_percent">literacy percent for the territory</a>.</p><p><a name="writing_percent" href="#writing_percent">writing percent</a> — Within the set of people who are functional in the corresponding language (as specified by <a href="#language_population_percent">language population percent</a>), this is an estimate of the percentage of those people who regularly read or write a significant amount in that language. Ideally, the regularity would be measured as “7-day actives”. If it is known that the language is not widely or commonly written, but there are no solid figures, the value is typically given 1%-5%.</p><p>For a language such as Swiss German, which is typically not written, even though nearly the whole native Germanophone population <em>could</em> write in Swiss German, the <a href="#literacy_percent_for_langPop">literacy percent for language population</a> is high, but the <a href="#writing_percent">writing percent</a> is low.</p><p><a name="official_language" href="#official_language">official language</a> — as used in CLDR, a language that can generally be used in all communications with a central government. That is, people can expect that essentially all communication from the government is available in that language (ballots, information pamphlets, legal documents, …) and that they can use that language in any communication to the central government (petitions, forms, filing lawsuits,…).</p><p>Official languages for a country in this sense are not necessarily the same as those with official legal status in the country. For example, Irish is declared to be an official language in Ireland, but English has no such formal status in the United States. Languages such as the latter are called <em>de facto</em> official languages. As another example, German has legal status in Italy, but cannot be used in all communications with the central government, and is thus not an official language <em>of Italy</em> for CLDR purposes. It is, however, an <em>official regional language</em>. Other languages are declared to be official, but can’t actually be used for all communication with any major governmental entity in the country. There is no intention to mark such nominally official languages as “official” in the CLDR data.</p><p><a name="official_regional_language" href="#official_regional_language">official regional language</a> — a language that is official (<em>de jure</em> or <em>de facto</em>) in a major region within a country, but does not qualify as an official language of the country as a whole. For example, it can be used in an official petition to a provincial government, but not the central government. The term “major” is meant to distinguish from smaller-scale usage, such as for a town or village.</p><h3 id="24-territory-based-preferences">2.4 <a name="Territory_Based_Preferences" href="#Territory_Based_Preferences">Territory-Based Preferences</a></h3><p>The default preference for several locale items is based solely on a <a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>, which may either be specified as part of a <a href="tr35.html#unicode_language_id">unicode_language_id</a>, inferred from other locale ID elements using the <a href="tr35.html#Likely_Subtags">Likely Subtags</a> mechanism, or provided explicitly using an “rg” <a href="tr35.html#RegionOverride">Region Override</a> locale key. For more information on this process see <a href="tr35.html#Locale_Inheritance">Locale Inheritance and Matching</a>. The specific items that are handled in this way are:</p><ul>
+<li>Default calendar (see <a href="tr35-dates.html#Calendar_Preference_Data">Calendar Preference Data</a>)</li>
+<li>Default week conventions (first day of week and weekend days; see <a href="tr35-dates.html#Week_Data">Week Data</a>)</li>
+<li>Default hour cycle (see <a href="tr35-dates.html#Time_Data">Time Data</a>)</li>
+<li>Default currency (see <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>)</li>
+<li>Default measurement system and paper size (see <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>)</li>
+<li>Default units for specific usage (see <a href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>, below)</li>
+</ul><h4 id="241-preferred-units-for-specific-usages">2.4.1 <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a></h4><p><em>For information about preferred units and unit conversion, see Section 13 <a href="#Unit_Conversion">Unit Conversion</a> and Section 14 <a href="#Unit_Preferences">Unit Preferences</a>.</em></p><h3 id="25-rgscope-scope-of-the-rg-locale-key">2.5 <a name="rgScope" href="#rgScope"><code>&lt;rgScope&gt;</code>: Scope of the “rg” Locale Key</a></h3><p>The supplemental <code>&lt;rgScope&gt;</code> element specifies the data paths for which the region used for data lookup is determined by the value of any “rg” key present in the locale identifier (see <a href="tr35.html#RegionOverride">Region Override</a>). If no “rg” key is present, the region used for lookup is determined as usual: from the unicode_region_subtag if present, else inferred from the unicode_language_subtag. The DTD structure is as follows:</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">rgScope</span> ( <span class="hljs-meta-keyword">rgPath</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">rgPath</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">rgPath</span> <span class="hljs-meta-keyword">path</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><p>The <code>&lt;rgScope&gt;</code> element contains a list of <code>&lt;rgPath&gt;</code> elements, each of which specifies a datapath for which any “rg” key determines the region for lookup. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">rgScope</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashDigits='*'][@cashRounding='*']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashRounding='*']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/calendarPreferenceData/calendarPreference[@territories='#'][@ordering='*']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*'][@scope='*']/unitPreference[@regions='#'][@alt='*']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*'][@scope='*']/unitPreference[@regions='#']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#'][@alt='*']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">rgScope</span>&gt;</span>
+</code></pre><p>The exact format of the path is provisional in CLDR 29, but as currently shown:</p><ul>
+<li>  An attribute value of <code>'*'</code> indicates that the path applies regardless of the value of the attribute.</li>
+<li>  Each path must have exactly one attribute whose value is marked here as <code>'#'</code>; in actual data items with this path, the corresponding value is a list of region codes. It is the region codes in this list that are compared with the region specified by the “rg” key to determine which data item to use for this path.</li>
+</ul><h2 id="3-supplemental-language-data">3 <a name="Supplemental_Language_Data" href="#Supplemental_Language_Data">Supplemental Language Data</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">languageData</span> ( <span class="hljs-meta-keyword">language</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">language</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">language</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">language</span> <span class="hljs-meta-keyword">scripts</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">language</span> <span class="hljs-meta-keyword">territories</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">language</span> <span class="hljs-meta-keyword">variants</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">language</span> <span class="hljs-meta-keyword">alt</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts and in which countries. To a large extent, however, the territory list has been superseded by the data in <em>Section 2.2 <a href="#Supplemental_Territory_Information">Supplemental Territory Information</a></em> .</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">languageData</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">language</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"af"</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">"Latn"</span> <span class="hljs-attr">territories</span>=<span class="hljs-string">"ZA"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">language</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"am"</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">"Ethi"</span> <span class="hljs-attr">territories</span>=<span class="hljs-string">"ET"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">language</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ar"</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">"Arab"</span> <span class="hljs-attr">territories</span>=<span class="hljs-string">"AE BH DZ EG IN IQ JO KW LB LY MA OM PS QA SA SD SY TN YE"</span> /&gt;</span>
+    ...
+</code></pre><p>If the language is not a modern language, or the script is not a modern script, or the language not a major language of the territory, then the <code>alt</code> attribute is set to secondary.</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">language</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"fr"</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">"Latn"</span> <span class="hljs-attr">territories</span>=<span class="hljs-string">"IT US"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"secondary"</span> /&gt;</span>
+    ...
+</code></pre><h2 id="31-supplemental-language-grouping">3.1 <a name="Supplemental_Language_Grouping" href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">languageGroups</span> ( <span class="hljs-meta-keyword">languageGroup</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">languageGroup</span> ( <span class="hljs-meta-keyword">#PCDATA</span> ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languageGroup</span> <span class="hljs-meta-keyword">parent</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><p>The language groups supply language containment. For example, the following indicates that aav is the Unicode language code for a language group that contains caq, crv, etc.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">languageGroup</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"fiu"</span>&gt;</span>chm et fi fit fkv hu izh kca koi krl kv liv mdf mns mrj myv smi udm vep vot vro<span class="hljs-tag">&lt;/<span class="hljs-name">languageGroup</span>&gt;</span>
+</code></pre><p>The vast majority of the languageGroup data is extracted from wikidata, but may be overridden in some cases. The wikidata information is more fine-grained, but makes use of language groups that don't have ISO or Unicode language codes. Those language groups are omitted from the data. For example, wikidata has the following child-parent chain: only the first and last elements are present in the language groups.</p><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Wikidata Code</th>
+<th>Language Code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Finnish</td>
+<td><a href="https://www.wikidata.org/wiki/Q1412">Q1412</a></td>
+<td>fi</td>
+</tr>
+<tr>
+<td>Finnic languages</td>
+<td><a href="https://www.wikidata.org/wiki/Q33328">Q33328</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Finno-Samic languages</td>
+<td><a href="https://www.wikidata.org/wiki/Q163652">Q163652</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Finno-Volgaic languages</td>
+<td><a href="https://www.wikidata.org/wiki/Q161236">Q161236</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Finno-Permic languages</td>
+<td><a href="https://www.wikidata.org/wiki/Q161240">Q161240</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Finno-Ugric languages</td>
+<td><a href="https://www.wikidata.org/wiki/Q79890">Q79890</a></td>
+<td>fiu</td>
+</tr>
+</tbody></table><h2 id="4-supplemental-code-mapping">4 <a name="Supplemental_Code_Mapping" href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">codeMappings</span> (<span class="hljs-meta-keyword">languageCodes</span>*, <span class="hljs-meta-keyword">territoryCodes</span>*, <span class="hljs-meta-keyword">currencyCodes</span>*) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">languageCodes</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languageCodes</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languageCodes</span> <span class="hljs-meta-keyword">alpha3</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">territoryCodes</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territoryCodes</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territoryCodes</span> <span class="hljs-meta-keyword">numeric</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territoryCodes</span> <span class="hljs-meta-keyword">alpha3</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territoryCodes</span> <span class="hljs-meta-keyword">fips1</span>0 <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">territoryCodes</span> <span class="hljs-meta-keyword">internet</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span>&gt;</span> [deprecated]
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">currencyCodes</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">currencyCodes</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">currencyCodes</span> <span class="hljs-meta-keyword">numeric</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
+</code></pre><p>The code mapping information provides mappings between the subtags used in the CLDR locale IDs (from BCP 47) and other coding systems or related information. The language codes are only provided for those codes that have two letters in BCP 47 to their ISO three-letter equivalents. The territory codes provide mappings to numeric (UN M.49 [<a href="tr35.html#UNM49">UNM49</a>] codes, equivalent to ISO numeric codes), ISO three-letter codes, FIPS 10 codes, and the internet top-level domain codes.</p><p>The alphabetic codes are only provided where different from the type. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">territoryCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AA"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"958"</span> <span class="hljs-attr">alpha3</span>=<span class="hljs-string">"AAA"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">territoryCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AD"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"020"</span> <span class="hljs-attr">alpha3</span>=<span class="hljs-string">"AND"</span> <span class="hljs-attr">fips10</span>=<span class="hljs-string">"AN"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">territoryCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AE"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"784"</span> <span class="hljs-attr">alpha3</span>=<span class="hljs-string">"ARE"</span> /&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">territoryCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"GB"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"826"</span> <span class="hljs-attr">alpha3</span>=<span class="hljs-string">"GBR"</span> <span class="hljs-attr">fips10</span>=<span class="hljs-string">"UK"</span> /&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">territoryCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"QU"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"967"</span> <span class="hljs-attr">alpha3</span>=<span class="hljs-string">"QUU"</span> <span class="hljs-attr">internet</span>=<span class="hljs-string">"EU"</span> /&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">territoryCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"XK"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"983"</span> <span class="hljs-attr">alpha3</span>=<span class="hljs-string">"XKK"</span> /&gt;</span>
+...
+</code></pre><p>Where there is no corresponding code, sometimes private use codes are used, such as the numeric code for XK.</p><p>The currencyCodes are mappings from three letter currency codes to numeric values (ISO 4217 <a href="https://www.currency-iso.org/en/home/tables/table-a1.html">Current currency &amp; funds code list</a>.) The mapping currently covers only current codes and does not include historic currencies. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">currencyCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AED"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"784"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">currencyCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AFN"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"971"</span> /&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">currencyCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"EUR"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"978"</span> /&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">currencyCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ZAR"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"710"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">currencyCodes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ZMW"</span> <span class="hljs-attr">numeric</span>=<span class="hljs-string">"967"</span> /&gt;</span>
+</code></pre><h2 id="5-telephone-code-data-deprecated">5 <del><a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone Code Data</a></del> (Deprecated)</h2><p>Deprecated in CLDR v34, and data removed.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">telephoneCodeData</span> ( <span class="hljs-meta-keyword">codesByTerritory</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">codesByTerritory</span> ( <span class="hljs-meta-keyword">telephoneCountryCode</span>+ ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">codesByTerritory</span> <span class="hljs-meta-keyword">territory</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">telephoneCountryCode</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">telephoneCountryCode</span> <span class="hljs-meta-keyword">code</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">telephoneCountryCode</span> <span class="hljs-meta-keyword">from</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">telephoneCountryCode</span> <span class="hljs-meta-keyword">to</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>This data specifies the mapping between ITU telephone country codes [<a href="tr35.html#ITUE164">ITUE164</a>] and CLDR-style territory codes (ISO 3166 2-letter codes or non-corresponding UN M.49 [<a href="tr35.html#UNM49">UNM49</a>] 3-digit codes). There are several things to note:</p><ul>
+<li>A given telephone country code may map to multiple CLDR territory codes; +1 (North America Numbering Plan) covers the US and Canada, as well as many islands in the Caribbean and some in the Pacific</li>
+<li>Some telephone country codes are for global services (for example, some satellite services), and thus correspond to territory code 001.</li>
+<li>The mappings change over time (territories move from one telephone code to another). These changes are usually planned several years in advance, and there may be a period during which either telephone code can be used to reach the territory. While the CLDR telephone code data is not intended to include past changes, it is intended to incorporate known information on planned future changes, using <code>from</code> and <code>to</code> date attributes to indicate when mappings are valid.</li>
+</ul><p>A subset of the telephone code data might look like the following (showing a past mapping change to illustrate the from and to attributes):</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">codesByTerritory</span> <span class="hljs-attr">territory</span>=<span class="hljs-string">"001"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">telephoneCountryCode</span> <span class="hljs-attr">code</span>=<span class="hljs-string">"800"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- International Freephone Service --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">telephoneCountryCode</span> <span class="hljs-attr">code</span>=<span class="hljs-string">"808"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- International Shared Cost Services (ISCS) --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">telephoneCountryCode</span> <span class="hljs-attr">code</span>=<span class="hljs-string">"870"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- Inmarsat Single Number Access Service (SNAC) --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">codesByTerritory</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">codesByTerritory</span> <span class="hljs-attr">territory</span>=<span class="hljs-string">"AS"</span>&gt;</span> <span class="hljs-comment">&lt;!-- American Samoa --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">telephoneCountryCode</span> <span class="hljs-attr">code</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"2004-10-02"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- +1 684 in North America Numbering Plan --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">telephoneCountryCode</span> <span class="hljs-attr">code</span>=<span class="hljs-string">"684"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"2005-04-02"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- +684 now a spare code --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">codesByTerritory</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">codesByTerritory</span> <span class="hljs-attr">territory</span>=<span class="hljs-string">"CA"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">telephoneCountryCode</span> <span class="hljs-attr">code</span>=<span class="hljs-string">"1"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- North America Numbering Plan --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">codesByTerritory</span>&gt;</span>
+</code></pre><h2 id="6-postal-code-validation-deprecated">6 <del><a name="Postal_Code_Validation" href="#Postal_Code_Validation">Postal Code Validation (Deprecated)</a></del></h2><p>Deprecated in v27. Please see other services that are kept up to date, such as:</p><ul>
+<li><a href="https://i18napis.appspot.com/address/data/US">https://i18napis.appspot.com/address/data/US</a></li>
+<li><a href="https://i18napis.appspot.com/address/data/CH">https://i18napis.appspot.com/address/data/CH</a></li>
+<li>...</li>
+</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">postalCodeData</span> (<span class="hljs-meta-keyword">postCodeRegex</span>*) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">postCodeRegex</span> (<span class="hljs-meta-keyword">#PCDATA</span>) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">postCodeRegex</span> <span class="hljs-meta-keyword">territoryId</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><p>The Postal Code regex information can be used to validate postal codes used in different countries. In some cases, the regex is quite simple, such as for Germany:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">postCodeRegex</span> <span class="hljs-attr">territoryId</span>=<span class="hljs-string">"DE"</span> &gt;</span>\d{5}<span class="hljs-tag">&lt;/<span class="hljs-name">postCodeRegex</span>&gt;</span>
+</code></pre><p>The US code is slightly more complicated, since there is an optional portion:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">postCodeRegex</span> <span class="hljs-attr">territoryId</span>=<span class="hljs-string">"US"</span> &gt;</span>\d{5}([ \-]\d{4})?<span class="hljs-tag">&lt;/<span class="hljs-name">postCodeRegex</span>&gt;</span>
+</code></pre><p>The most complicated currently is the UK.</p><h2 id="7-supplemental-character-fallback-data">7 <a name="Supplemental_Character_Fallback_Data" href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">characters</span> ( <span class="hljs-meta-keyword">character-fallback</span>*) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">character-fallback</span> ( <span class="hljs-meta-keyword">character</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">character</span> (<span class="hljs-meta-keyword">substitute</span>*) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">character</span> <span class="hljs-meta-keyword">value</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">substitute</span> (<span class="hljs-meta-keyword">#PCDATA</span>) &gt;</span>
+</code></pre><p>The <code>characters</code> element provides a way for non-Unicode systems, or systems that only support a subset of Unicode characters, to transform CLDR data. It gives a list of characters with alternative values that can be used if the main value is not available. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">characters</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">character-fallback</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">character</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ß"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">substitute</span>&gt;</span>ss<span class="hljs-tag">&lt;/<span class="hljs-name">substitute</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">character</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">character</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Ø"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">substitute</span>&gt;</span>Ö<span class="hljs-tag">&lt;/<span class="hljs-name">substitute</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">substitute</span>&gt;</span>O<span class="hljs-tag">&lt;/<span class="hljs-name">substitute</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">character</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">character</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"₧"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">substitute</span>&gt;</span>Pts<span class="hljs-tag">&lt;/<span class="hljs-name">substitute</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">character</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">character</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"₣"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">substitute</span>&gt;</span>Fr.<span class="hljs-tag">&lt;/<span class="hljs-name">substitute</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">character</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">character-fallback</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">characters</span>&gt;</span>
+</code></pre><p>The ordering of the <code>substitute</code> elements indicates the preference among them.</p><p>That is, this data provides recommended fallbacks for use when a charset or supported repertoire does not contain a desired character. There is more than one possible fallback: the recommended usage is that when a character <em>value</em> is not in the desired repertoire the following process is used, whereby the first value that is wholly in the desired repertoire is used.</p><ul>
+<li><code>toNFC</code>(<em>value</em>)</li>
+<li>other canonically equivalent sequences, if there are any</li>
+<li>the explicit <em>substitutes</em> value (in order)</li>
+<li><code>toNFKC</code>(<em>value</em>)</li>
+</ul><h2 id="8-coverage-levels">8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a></h2><p>The following describes the coverage levels used for the current version of CLDR. This list will change between releases of CLDR. Each level adds to what is in the lower level.</p><table>
+<thead>
+<tr>
+<th align="right">Level</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td>undetermined</td>
+<td>Does not meet any of the following levels.</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>core</td>
+<td>The CLDR "core" data, which is defined as the basic information about the language and writing system that is required before other information can be added using the CLDR survey tool. See <a href="http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a></td>
+</tr>
+<tr>
+<td align="right">40</td>
+<td>basic</td>
+<td>The minimum amount of locale data deemed necessary to create a "viable" locale in CLDR. Contains names for the languages, scripts, and territories associated with the language, numbering systems used in those languages, date and number formats, plus a few key values such as the values in Section 3.1 <a href="tr35.html#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a>. Also contains data associated with the most prominent languages and countries.</td>
+</tr>
+<tr>
+<td align="right">60</td>
+<td>moderate</td>
+<td>Contains more types of data and more language and territory names than the basic level. If the language is associated with an EU country, then the moderate level attempts to complete the data as it pertains to all EU member countries.</td>
+</tr>
+<tr>
+<td align="right">80</td>
+<td>modern</td>
+<td>Contains all fields in normal modern use, including all country names, and currencies in use.</td>
+</tr>
+<tr>
+<td align="right">100</td>
+<td>comprehensive</td>
+<td>Contains complete localizations (or valid inheritance) for every possible field.</td>
+</tr>
+</tbody></table><p>Levels 40 through 80 are based on the definitions and specifications listed in <strong>8.1-8.4</strong>. However, these principles are continually being refined by the CLDR technical committee, and so do not completely reflect the data that is actually used for coverage determination, which is under the XPath <strong>//supplementalData/CoverageLevels</strong>. For a view of the trunk version of this datafile, see <a href="https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>. (As described in the <a href="tr35-info.html#Supplemental_Data">introduction to Supplemental Data</a>, the specific XML filename may change.)</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">coverageLevels</span> ( <span class="hljs-meta-keyword">approvalRequirements</span>, <span class="hljs-meta-keyword">coverageVariable</span>*, <span class="hljs-meta-keyword">coverageLevel</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">inLanguage</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">inScript</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">inTerritory</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">value</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">match</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><p>For example, here is an example coverageLevel line.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">coverageLevel</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"30"</span>
+    <span class="hljs-attr">inLanguage</span>=<span class="hljs-string">"(de|fi)"</span>
+    <span class="hljs-attr">match</span>=<span class="hljs-string">"localeDisplayNames/types/type[@type='phonebook'][@key='collation']"</span>/&gt;</span>
+</code></pre><p>The <code>coverageLevel</code> elements are read in order, and the first match results in a coverage level value. The element matches based on the <code>inLanguage</code>, <code>inScript</code>, <code>inTerritory</code>, and <code>match</code> attribute values, which are regular expressions. For example, in the above example, a match occurs if the language is de or fi, and if the path is a locale display name for <code>collation=phonebook</code>.</p><p>The <code>match</code> attribute value logically has <code>//ldml/</code> prefixed before it is applied. In addition, the <code>[@</code> is automatically quoted. Otherwise standard Perl/Java style regular expression syntax is used.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">coverageVariable</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageVariable</span> <span class="hljs-meta-keyword">key</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageVariable</span> <span class="hljs-meta-keyword">value</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><p>The <code>coverageVariable</code> element allows us to create variables for certain regular expressions that are used frequently in the coverageLevel definitions above. Each coverage varible must contain a <code>key</code> / <code>value</code> pair of attributes, which can then be used to be substituted into a coverageLevel definition above.</p><p>For example, here is an example coverageLevel line using coverageVariable substitution.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">coverageVariable</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"%dayTypes"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"(sun|mon|tue|wed|thu|fri|sat)"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">coverageVariable</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"%wideAbbr"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"(wide|abbreviated)"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">coverageLevel</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">match</span>=<span class="hljs-string">"dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']"</span>/&gt;</span>
+</code></pre><p>In this example, the coverge variables %dayTypes and %wideAbbr are used to substitute their respective values into the match expression. This allows us to reuse the same variable for other coverageLevel matches that use the same regular expression fragment.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">approvalRequirements</span> ( <span class="hljs-meta-keyword">approvalRequirement</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">approvalRequirement</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">approvalRequirement</span> <span class="hljs-meta-keyword">votes</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">approvalRequirement</span> <span class="hljs-meta-keyword">locales</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">approvalRequirement</span> <span class="hljs-meta-keyword">paths</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><p>The approvalRequirements allows to specify the number of survey tool votes required for approval, either based on locale, or path, or both. Certain locales require a higher voting threshhold (usually 8 votes instead of 4), in order to promote greater stability in the data. Furthermore, certain fields that are very high visibility fields, such as number formats, require a CLDR TC committee member's vote for approval.</p><p>Here is an example of the approvalRequirements section.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">approvalRequirements</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--  "high bar" items --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">approvalRequirement</span> <span class="hljs-attr">votes</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"*"</span> <span class="hljs-attr">paths</span>=<span class="hljs-string">"//ldml/numbers/symbols[^/]++/(decimal|group)"</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">approvalRequirement</span> <span class="hljs-attr">votes</span>=<span class="hljs-string">"8"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant"</span> <span class="hljs-attr">paths</span>=<span class="hljs-string">""</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--  all other items --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">approvalRequirement</span> <span class="hljs-attr">votes</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"*"</span> <span class="hljs-attr">paths</span>=<span class="hljs-string">""</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">approvalRequirements</span>&gt;</span>
+</code></pre><p>This section specifies that a TC vote (20 votes) is required for decimal and grouping separators. Furthermore it specifies that any field in the established locales list (i.e. ar, ca, cs, etc.) requires 8 votes, and that all other locales require 4 votes only.</p><p>For more information on the CLDR Voting process, See <a href="http://cldr.unicode.org/index/process">http://cldr.unicode.org/index/process</a></p><h3 id="81-definitions">8.1 <a name="Coverage_Level_Definitions" href="#Coverage_Level_Definitions">Definitions</a></h3><ul>
+<li><em>Target-Language</em> is the language under consideration.</li>
+<li><em>Target-Territories</em> is the list of territories found by looking up <em>Target-Language</em> in the <code>&lt;languageData&gt;</code> elements in <a href="tr35-info.html#Supplemental_Language_Data">Supplemental Language Data</a>.</li>
+<li><em>Language-List</em> is <em>Target-Language</em>, plus<ul>
+<li><strong>basic:</strong> Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish, Unknown (de, en, es, fr, it, ja, pt, ru, zh, und</li>
+<li><strong>moderate:</strong> basic + Arabic, Hindi, Korean, Indonesian, Dutch, Bengali, Turkish, Thai, Polish (ar, hi, ko, in, nl, bn, tr, th, pl). If an EU language, add the remaining official EU languages, currently: Danish, Greek, Finnish, Swedish, Czech, Estonian, Latvian, Lithuanian, Hungarian, Maltese, Slovak, Slovene (da, el, fi, sv, cs, et, lv, lt, hu, mt, sk, sl)</li>
+<li><strong>modern:</strong> all languages that are official or major commercial languages of modern territories</li>
+</ul>
+</li>
+<li><em>Target-Scripts</em> is the list of scripts in which <em>Target-Language</em> can be customarily written (found by looking up <em>Target-Language</em> in the <code>&lt;languageData&gt;</code> elements in <a href="tr35-info.html#Supplemental_Language_Data">Supplemental Language Data</a>.)<em>,</em> plus Unknown (Zzzz)<em>.</em></li>
+<li><em>Script-List</em> is the <em>Target-Scripts</em> plus the major scripts used for multiple languages<ul>
+<li>Latin, Simplified Chinese, Traditional Chinese, Cyrillic, Arabic (Latn, Hans, Hant, Cyrl, Arab)</li>
+</ul>
+</li>
+<li><em>Territory-List</em> is the list of territories formed by taking the <em>Target-Territories</em> and adding:<ul>
+<li><strong>basic:</strong> Brazil, China, France, Germany, India, Italy, Japan, Russia, United Kingdom, United States, Unknown (BR, CN, DE, GB, FR, IN, IT, JP, RU, US, ZZ)</li>
+<li><strong>moderate:</strong> basic + Spain, Canada, Korea, Mexico, Australia, Netherlands, Switzerland, Belgium, Sweden, Turkey, Austria, Indonesia, Saudi Arabia, Norway, Denmark, Poland, South Africa, Greece, Finland, Ireland, Portugal, Thailand, Hong Kong SAR China, Taiwan (ES, BE, SE, TR, AT, ID, SA, NO, DK, PL, ZA, GR, FI, IE, PT, TH, HK, TW). If an EU language, add the remaining member EU countries: Luxembourg, Czech Republic, Hungary, Estonia, Lithuania, Latvia, Slovenia, Slovakia, Malta (LU, CZ, HU, ES, LT, LV, SI, SK, MT).</li>
+<li><strong>modern:</strong> all current ISO 3166 territories, plus the UN M.49 [<a href="tr35.html#UNM49">UNM49</a>] regions in <a href="tr35-info.html#Supplemental_Territory_Containment">Supplemental Territory Containment</a>.</li>
+</ul>
+</li>
+<li><em>Currency-List</em> is the list of current official currencies used in any of the territories in <em>Territory-List</em>, found by looking at the <code>region</code> elements in <a href="tr35-info.html#Supplemental_Territory_Containment">Supplemental Territory Containment</a>, plus Unknown (XXX).</li>
+<li><em>Calendar-List</em> is the set of calendars in customary use in any of <em>Target-Territories</em>, plus Gregorian.</li>
+<li><em>Number-System-List</em> is the set of number systems in customary use in the language.</li>
+</ul><h3 id="82-data-requirements">8.2 <a name="Coverage_Level_Data_Requirements" href="#Coverage_Level_Data_Requirements">Data Requirements</a></h3><p>The required data to qualify for the level is then the following.</p><ol>
+<li><p>localeDisplayNames</p>
+<ol>
+<li><em>languages:</em> localized names for all languages in <em>Language-List.</em></li>
+<li><em>scripts:</em> localized names for all scripts in <em>Script-List</em>.</li>
+<li><em>territories:</em> localized names for all territories in <em>Territory-List</em>.</li>
+<li><em>variants, keys, types:</em> localized names for any in use in <em>Target-Territories</em>; for example, a translation for PHONEBOOK in a German locale.</li>
+</ol>
+</li>
+<li><p>dates: all of the following for each calendar in <em>Calendar-List</em>.</p>
+<ol>
+<li>calendars: localized names</li>
+<li>month names, day names, era names, and quarter names<ul>
+<li>context=format and width=narrow, wide, &amp; abbreviated</li>
+<li>plus context=standAlone and width=narrow, wide, &amp; abbreviated, <em>if the grammatical forms of these are different than for context=format.</em></li>
+</ul>
+</li>
+<li>week: minDays, firstDay, weekendStart, weekendEnd<ul>
+<li>if some of these vary in territories in <em>Territory-List</em>, include territory locales for those that do.</li>
+</ul>
+</li>
+<li>am, pm, eraNames, eraAbbr</li>
+<li>dateFormat, timeFormat: full, long, medium, short</li>
+<li>intervalFormatFallback</li>
+</ol>
+</li>
+<li><p>numbers: symbols, decimalFormats, scientificFormats, percentFormats, currencyFormats for each number system in <em>Number-System-List</em>.</p>
+</li>
+<li><p>currencies: displayNames and symbol for all currencies in <em>Currency-List</em>, for all plural forms</p>
+</li>
+<li><p>transforms: (moderate and above) transliteration between Latin and each other script in <em>Target-Scripts.</em></p>
+</li>
+</ol><h3 id="83-default-values">8.3 <a name="Coverage_Level_Default_Values" href="#Coverage_Level_Default_Values">Default Values</a></h3><p>Items should <em>only</em> be included if they are not the same as the default, which is:</p><ul>
+<li>what is in root, if there is something defined there.</li>
+<li>for timezone IDs: the name computed according to <em><a href="tr35.html#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a></em></li>
+<li>for collation sequence, the UCA DUCET (Default Unicode Collation Element Table), as modified by CLDR.<ul>
+<li>however, in that case the locale must be added to the validSubLocale list in <a href="https://github.com/unicode-org/cldr/blob/main/common/collation/root.xml">collation/root.xml</a>.</li>
+</ul>
+</li>
+<li>for currency symbol, language, territory, script names, variants, keys, types, the internal code identifiers, for example,<ul>
+<li>currencies: EUR, USD, JPY, ...</li>
+<li>languages: en, ja, ru, ...</li>
+<li>territories: GB, JP, FR, ...</li>
+<li>scripts: Latn, Thai, ...</li>
+<li>variants: PHONEBOOK,...</li>
+</ul>
+</li>
+</ul><h2 id="9-supplemental-metadata">9 <a name="Appendix_Supplemental_Metadata" href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a></h2><p>Note that this section discusses the <code>&lt;metadata&gt;</code> element within the <code>&lt;supplementalData&gt;</code> element. For the per-locale metadata used in tests and the Survey Tool, see <a href="#Metadata_Elements">10: Locale Metadata Element</a>.</p><p>The supplemental metadata contains information about the CLDR file itself, used to test validity and provide information for locale inheritance. A number of these elements are described in</p><ul>
+<li>Appendix I: <a href="tr35.html#Inheritance_and_Validity">Inheritance and Validity</a></li>
+<li>Appendix K: <a href="tr35.html#Valid_Attribute_Values">Valid Attribute Values</a></li>
+<li>Appendix L: <a href="tr35.html#Canonical_Form">Canonical Form</a></li>
+<li>Appendix M: <a href="#Coverage_Levels">Coverage Levels</a></li>
+</ul><h3 id="91-supplemental-alias-information">9.1 <a name="Supplemental_Alias_Information" href="#Supplemental_Alias_Information">Supplemental Alias Information</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">alias</span> (<span class="hljs-meta-keyword">languageAlias</span>*,<span class="hljs-meta-keyword">scriptAlias</span>*,<span class="hljs-meta-keyword">territoryAlias</span>*,<span class="hljs-meta-keyword">subdivisionAlias</span>*,<span class="hljs-meta-keyword">variantAlias</span>*,<span class="hljs-meta-keyword">zoneAlias</span>*) &gt;</span>
+</code></pre><p><em>The following are common attributes for subelements of <code>&lt;alias&gt;</code>:</em></p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT *Alias <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST *Alias <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST *Alias <span class="hljs-meta-keyword">replacement</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST *Alias <span class="hljs-meta-keyword">reason</span> ( <span class="hljs-meta-keyword">deprecated</span> | <span class="hljs-meta-keyword">overlong</span> ) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p><em>The <code>languageAlias</code> has additional reasons</em></p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">languageAlias</span> <span class="hljs-meta-keyword">reason</span> ( <span class="hljs-meta-keyword">deprecated</span> | <span class="hljs-meta-keyword">overlong</span> | <span class="hljs-meta-keyword">macrolanguage</span> | <span class="hljs-meta-keyword">legacy</span> | <span class="hljs-meta-keyword">bibliographic</span> ) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>This element provides information as to parts of locale IDs that should be substituted when accessing CLDR data. This logical substitution should be done to both the locale id, and to any lookup for display names of languages, territories, and so on. The replacement for the language and territory types is more complicated: see <em>Part 1: <a href="tr35.html#Contents">Core</a>, Section 3.3.1 <a href="tr35.html#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a></em> for details.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">alias</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">languageAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"in"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"id"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">languageAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"sh"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"sr"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">languageAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"sh_YU"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"sr_Latn_YU"</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;<span class="hljs-name">territoryAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"BU"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"MM"</span>&gt;</span>
+    ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">alias</span>&gt;</span>
+</code></pre><p>Attribute values for the *Alias values include the following:</p><h5 id="alias-attribute-values"><a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a></h5><table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>NMTOKEN</td>
+<td>The code to be replaced</td>
+</tr>
+<tr>
+<td>replacement</td>
+<td>NMTOKEN</td>
+<td>The code(s) to replace it, space-delimited.</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>deprecated</td>
+<td>The code in type is deprecated, such as 'iw' by 'he', or 'CS' by 'RS ME'.</td>
+</tr>
+<tr>
+<td></td>
+<td>overlong</td>
+<td>The code in type is too long, such as 'eng' by 'en' or 'USA' or '840' by 'US'</td>
+</tr>
+<tr>
+<td></td>
+<td>macrolanguage</td>
+<td>The code in type is an encompassed language that is replaced by a macrolanguage, such as '<a href="https://iso639-3.sil.org/code/arb">arb'</a> by 'ar'.</td>
+</tr>
+<tr>
+<td></td>
+<td>legacy</td>
+<td>The code in type is a legacy code that is replaced by another code for compatiblity with established legacy usage, such as 'sh' by 'sr_Latn'</td>
+</tr>
+<tr>
+<td></td>
+<td>bibliographic</td>
+<td>The code in type is a <a href="https://www.loc.gov/standards/iso639-2/langhome.html">bibliographic code</a>, which is replaced by a terminology code, such as 'alb' by 'sq'.</td>
+</tr>
+</tbody></table><h3 id="92-supplemental-deprecated-information-deprecated">9.2 <del><a name="Supplemental_Deprecated_Information" href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information (Deprecated)</a></del></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">deprecated</span> ( <span class="hljs-meta-keyword">deprecatedItems</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">deprecated</span> <span class="hljs-meta-keyword">draft</span> ( <span class="hljs-meta-keyword">approved</span> | <span class="hljs-meta-keyword">contributed</span> | <span class="hljs-meta-keyword">provisional</span> | <span class="hljs-meta-keyword">unconfirmed</span> | <span class="hljs-meta-keyword">true</span> | <span class="hljs-meta-keyword">false</span> ) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span> <span class="hljs-comment">&lt;!-- true and false are deprecated. --&gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">deprecatedItems</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">deprecatedItems</span> <span class="hljs-meta-keyword">type</span> ( <span class="hljs-meta-keyword">standard</span> | <span class="hljs-meta-keyword">supplemental</span> | <span class="hljs-meta-keyword">ldml</span> | <span class="hljs-meta-keyword">supplementalData</span> | <span class="hljs-meta-keyword">ldmlBCP47</span> ) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span> <span class="hljs-comment">&lt;!-- standard | supplemental are deprecated --&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">deprecatedItems</span> <span class="hljs-meta-keyword">elements</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">deprecatedItems</span> <span class="hljs-meta-keyword">attributes</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">deprecatedItems</span> <span class="hljs-meta-keyword">values</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>The <code>deprecatedItems</code> element was used to indicate elements, attributes, and attribute values that are deprecated. This means that the items are valid, but that their usage is strongly discouraged. This element and its subelements have been deprecated in favor of <a href="tr35.html#DTD_Annotations">DTD Annotations</a>.</p><p>Where particular values are deprecated (such as territory codes like SU for Soviet Union), the names for such codes may be removed from the common/main translated data after some period of time. However, typically supplemental information for deprecated codes is retained, such as containment, likely subtags, older currency codes usage, etc. The English name may also be retained, for debugging purposes.</p><h3 id="93-default-content">9.3 <a name="Default_Content" href="#Default_Content">Default Content</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">defaultContent</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">defaultContent</span> <span class="hljs-meta-keyword">locales</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>In CLDR, locales without territory information (or where needed, script information) provide data appropriate for what is called the <em>default content locale</em>. For example, the <em>en</em> locale contains data appropriate for <em>en-US</em>, while the <em>zh</em> locale contains content for <em>zh-Hans-CN</em>, and the <em>zh-Hant</em> locale contains content for <em>zh-Hant-TW</em>. The default content locales themselves thus inherit all of their contents, and are empty.</p><p>The choice of content is typically based on the largest literate population of the possible choices. Thus if an implementation only provides the base language (such as <em>en</em>), it will still get a complete and consistent set of data appropriate for a locale which is reasonably likely to be the one meant. Where other information is available, such as independent country information, that information can always be used to pick a different locale (such as <em>en-CA</em> for a website targeted at Canadian users).</p><p>If an implementation is to use a different default locale, then the data needs to be <em>pivoted</em>; all of the data from the CLDR for the current default locale pushed out to the locales that inherit from it, then the new default content locale's data moved into the base. There are tools in CLDR to perform this operation.</p><p>For the relationship between Inheritance, DefaultContent, LikelySubtags, and LocaleMatching, see <strong><em>Section 4.2.6 <a href="tr35.html#Inheritance_vs_Related">Inheritance vs Related Information</a></em></strong>.</p><h2 id="10-locale-metadata-elements">10 <a name="Metadata_Elements" href="#Metadata_Elements">Locale Metadata Elements</a></h2><p>Note: This section refers to the per-locale <code>&lt;metadata&gt;</code> element, containing metadata about a particular locale. This is in contrast to the <a href="#Appendix_Supplemental_Metadata"><em>Supplemental</em> Metadata</a>, which is in the supplemental tree and is not specific to a locale.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">metadata</span> ( <span class="hljs-meta-keyword">alias</span> | ( <span class="hljs-meta-keyword">casingData</span>?, <span class="hljs-meta-keyword">special</span>* ) ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">casingData</span> ( <span class="hljs-meta-keyword">alias</span> | ( <span class="hljs-meta-keyword">casingItem</span>*, <span class="hljs-meta-keyword">special</span>* ) ) &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">casingItem</span> ( <span class="hljs-meta-keyword">#PCDATA</span> ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">casingItem</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">casingItem</span> <span class="hljs-meta-keyword">override</span> (<span class="hljs-meta-keyword">true</span> | <span class="hljs-meta-keyword">false</span>) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">casingItem</span> <span class="hljs-meta-keyword">forceError</span> (<span class="hljs-meta-keyword">true</span> | <span class="hljs-meta-keyword">false</span>) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>The <code>&lt;metadata&gt;</code> element contains metadata about the locale for use by the Survey Tool or other tools in checking locale data; this data is not intended for export as part of the locale itself.</p><p>The <code>&lt;casingItem&gt;</code> element specifies the capitalization intended for the majority of the data in a given category with the locale. The purpose is so that warnings can be issued to translators that anything deviating from that capitalization should be carefully reviewed. Its <code>type</code> attribute has one of the values used for the <code>&lt;contextTransformUsage&gt;</code> element above, with the exception of the special value "all"; its value is one of the following:</p><ul>
+<li>lowercase</li>
+<li>titlecase</li>
+</ul><p>The <code>&lt;casingItem&gt;</code> data is generated by a tool based on the data available in CLDR. In cases where the generated casing information is incorrect and needs to be manually edited, the <code>override</code> attribute is set to <code>true</code> so that the tool will not override the manual edits. When the casing information is known to be both correct and something that should apply to all elements of the specified type in a given locale, the <code>forceErr</code> attribute may be set to <code>true</code> to force an error instead of a warning for items that do not match the casing information.</p><h2 id="11-version-information">11 <a name="Version_Information" href="#Version_Information">Version Information</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">version</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">version</span> <span class="hljs-meta-keyword">cldrVersion</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#FIXED</span> <span class="hljs-meta-string">"27"</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">version</span> <span class="hljs-meta-keyword">unicodeVersion</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#FIXED</span> <span class="hljs-meta-string">"7.0.0"</span> &gt;</span>
+</code></pre><p>The <code>cldrVersion</code> attribute defines the CLDR version for this data, as published on <a href="http://cldr.unicode.org/index/downloads">CLDR Releases/Downloads</a></p><p>The <code>unicodeVersion</code> attribute defines the version of the Unicode standard that is used to interpret data. Specifically, some data elements such as exemplar characters are expressed in terms of UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode properties, their meaning depend on the Unicode version from which property values are derived.</p><h2 id="12-parent-locales">12 <a name="Parent_Locales" href="#Parent_Locales">Parent Locales</a></h2><p>The parentLocales data is supplemental data, but is described in detail in the <a href="tr35.html#Parent_Locales">core specification section 4.1.3.</a></p><h2 id="13-unit-conversion">13 <a name="Unit_Conversion" href="#Unit_Conversion">Unit Conversion</a></h2><p>The unit conversion data (<a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml">units.xml</a>) provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.</p><p>Many of the elements allow for a common @description attribute, to disambiguate the main attribute value or to explain the choice of other values. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"glucose_molar_mass"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"180.1557"</span>
+  <span class="hljs-attr">description</span>=<span class="hljs-string">"derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"</span>/&gt;</span>
+</code></pre><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">unitConstants</span> ( <span class="hljs-meta-keyword">unitConstant</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">unitConstant</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitConstant</span> <span class="hljs-meta-keyword">constant</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitConstant</span> <span class="hljs-meta-keyword">value</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitConstant</span> <span class="hljs-meta-keyword">status</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitConstant</span> <span class="hljs-meta-keyword">description</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><h3 id="constants">Constants</h3><p>The data uses a small set of constants for readability, such as:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"ft_to_m"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.3048"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"ft2_to_m2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ft_to_m*ft_to_m"</span> /&gt;</span>
+</code></pre><p>The order of the elements in the file is significant.</p><p>Each constant can have a value based on simple expressions using numbers, previous constants, plus the operators * and /. Parentheses are not allowed. The operator * binds more tightly than /, which may be unexpected. Thus a * b / c * d is interpreted as (a * b) / (c * d). A consequent of that is that a * b / c * d = a * b / c / d. In the value, the numbers represent rational values. So 0.3048 is interpreted as exactly 3048 / 10000.</p><p>In the above case, ft2-to-m2 is a conversion constant for going from square feet to square meters. The expression evaluates to 0.09290304. Where the constants cannot be expressed as rationals, or where their interpretation is fluid, that is marked with a status value:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"PI"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"411557987 / 131002976"</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'approximate'</span> /&gt;</span>
+</code></pre><p>In such cases, software may decide to use different values for accuracy.</p><p>An implementation need not use rationals directly for conversion; it could use doubles, for example, if only double accuracy is needed.</p><h3 id="conversion-data">Conversion Data</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">convertUnits</span> ( <span class="hljs-meta-keyword">convertUnit</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">convertUnit</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">convertUnit</span> <span class="hljs-meta-keyword">source</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">convertUnit</span> <span class="hljs-meta-keyword">baseUnit</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">convertUnit</span> <span class="hljs-meta-keyword">factor</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">convertUnit</span> <span class="hljs-meta-keyword">offset</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">convertUnit</span> <span class="hljs-meta-keyword">description</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">convertUnit</span> <span class="hljs-meta-keyword">systems</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>The conversion data provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.</p><p>The data is expressed as conversions to the base unit. The information can also be used for the conversion back.</p><p>Examples:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'carat'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kilogram'</span> <span class="hljs-attr">factor</span>=<span class="hljs-string">'0.0002'</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'gram'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kilogram'</span> <span class="hljs-attr">factor</span>=<span class="hljs-string">'0.001'</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'ounce'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kilogram'</span> <span class="hljs-attr">factor</span>=<span class="hljs-string">'lb_to_kg/16'</span> <span class="hljs-attr">systems</span>=<span class="hljs-string">"ussystem uksystem"</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'fahrenheit'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kelvin'</span> <span class="hljs-attr">factor</span>=<span class="hljs-string">'5/9'</span> <span class="hljs-attr">offset</span>=<span class="hljs-string">'2298.35/9'</span> <span class="hljs-attr">systems</span>=<span class="hljs-string">"ussystem uksystem"</span>/&gt;</span>
+</code></pre><p>For example, to convert from 3 carats to kilograms, the factor 0.0002 is used, resulting in 0.0006. To convert between carats and ounces, first the carets are converted to kilograms, then the kilograms to ounces (by reversing the mapping).</p><p>The factor and offset use the same structure as in the value in unitConstant ; in particular, * binds more tightly than /.</p><p>The conversion may also require an offset, such as the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'fahrenheit'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kelvin'</span> <span class="hljs-attr">factor</span>=<span class="hljs-string">'5/9'</span> <span class="hljs-attr">offset</span>=<span class="hljs-string">'2298.35/9'</span> <span class="hljs-attr">systems</span>=<span class="hljs-string">"ussystem uksystem"</span>/&gt;</span>
+</code></pre><p>The factor and offset can be simple expressions, just like the values in the unitConstants.</p><p>Where a factor is not present, the value is 1; where an offset is not present, the value is 0.</p><p>The <code>systems</code> attribute indicates the measurement system(s). Multiple values may be given; for example, <em>minute</em> is marked as systems="metric ussystem uksystem"</p><table>
+<thead>
+<tr>
+<th>Attribute Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>si</em></td>
+<td>the <em>International System of Units (SI)</em></td>
+</tr>
+<tr>
+<td><em>metric</em></td>
+<td>a superset of the <em>si</em> units, with some non-SI units accepted for use with the SI or simple multiples of metric units, such as pound-metric (= ½ kilogram)</td>
+</tr>
+<tr>
+<td><em>ussystem</em></td>
+<td>the inch-pound system as used in the US, also called <em>US Customary Units</em></td>
+</tr>
+<tr>
+<td><em>uksystem</em></td>
+<td>the inch-pound system as used in the UK, also called <em>British Imperial Units</em>, differing mostly in units of volume</td>
+</tr>
+</tbody></table><p>CLDR follows conversion values where possible from:</p><ul>
+<li><a href="https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf">NIST Special Publication 1038</a></li>
+<li><a href="https://arxiv.org/pdf/1510.07674.pdf">International Astronomical Union General Assembly</a></li>
+</ul><p>See also <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes">NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes</a></p><p>For complex units, such as <em>pound-force-per-square-inch</em>, the conversions are computed by combining the conversions of each of the simple units: <em>pound-force</em> and <em>inch</em>. Because the conversions in convertUnit are reversible, the computation can go from complex source unit to complex base unit to complex target units.</p><p>Here is an example:</p><blockquote>
+<p><strong>50 foot-per-minute ⟹ X mile-per-hour</strong>
+⟹ source: 1 foot
+⟹ factor: 381 / 1250 = 0.3048 meter
+⟹ source: 1 minute
+⟹ factor: 60 second
+⟹ intermediate: 127 / 500 = 0.254 meter-per-second
+⟹ mile-per-hour
+⟹ source: 1 mile
+⟹ factor: 201168 / 125 = 1609.344 meter
+⟹ source: 1 hour
+⟹ factor: 3600 second
+⟹ target: 25 / 44 ≅ 0.5681818 mile-per-hour</p>
+</blockquote><p><strong>Reciprocals.</strong> When you convert a complex unit to another complex unit, you typically convert the source to a complex base unit (like <em>meter-per-cubic-meter</em>), then convert the latter backwards to the desired target. However, there may not be a matching conversion from that complex base unit to the desired target unit. That is the case for converting from <em>mile-per-gallon</em> (used in the US) to <em>liter-per-100-kilometer</em> (used in Europe and elsewhere). When that happens, the reciprocal of the complex base unit is used, as in the following example:</p><blockquote>
+<p><strong>50 mile-per-gallon ⟹ X liter-per-100-kilometer</strong>
+⟹ source: 1 mile
+⟹ factor: 201168 / 125 = 1609.344 meter
+⟹ source: 1 gallon
+⟹ factor: 473176473 / 125000000000 ≅ 0.003785412 cubic-meter
+⟹ intermediate: 2400000000000 / 112903 ≅ 2.125719E7 meter-per-cubic-meter
+⟹ liter-per-100-kilometer
+⟹ source: 1 liter
+⟹ factor: 1 / 1000 = 0.001 cubic-meter
+⟹ source: 1 100-kilometer
+⟹ factor: 100000 meter
+<strong>⟹ 1/intermediate: 112903 / 2400000000000 ≅ 4.704292E-8 cubic-meter-per-meter</strong>
+⟹ target: 112903 / 24000 ≅ 4.704292 liter-per-100-kilometer</p>
+</blockquote><p>This applies to more than just these cases: one can convert from any unit to related reciprocals as in the following example:</p><blockquote>
+<p><strong>50 foot-per-minute ⟹ X hour-per-mile</strong>
+⟹ source: 1 foot
+⟹ factor: 381 / 1250 = 0.3048 meter
+⟹ source: 1 minute
+⟹ factor: 60 second
+⟹ intermediate: 127 / 500 = 0.254 meter-per-second
+⟹ hour-per-mile
+⟹ source: 1 hour
+⟹ factor: 3600 second
+⟹ source: 1 mile
+⟹ factor: 201168 / 125 = 1609.344 meter
+<strong>⟹ 1/intermediate: 500 / 127 ≅ 3.937008 second-per-meter</strong>
+⟹ target: 44 / 25 = 1.76 hour-per-mile</p>
+</blockquote><h4 id="exceptional-cases">Exceptional Cases</h4><h5 id="identities">Identities</h5><p>For completeness, identity mappings are also provided for the base units themselves, such as:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'meter'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'meter'</span> /&gt;</span>
+</code></pre><h5 id="aliases">Aliases</h5><p>In a few instances the old identifiers are deprecated in favor of regular syntax. Implementations should handle both on input:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"meter-per-second-squared"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"meter-per-square-second"</span> <span class="hljs-attr">reason</span>=<span class="hljs-string">"deprecated"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">unitAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"liter-per-100kilometers"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"liter-per-100-kilometer"</span> <span class="hljs-attr">reason</span>=<span class="hljs-string">"deprecated"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">unitAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"pound-foot"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"pound-force-foot"</span> <span class="hljs-attr">reason</span>=<span class="hljs-string">"deprecated"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">unitAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"pound-per-square-inch"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"pound-force-per-square-inch"</span> <span class="hljs-attr">reason</span>=<span class="hljs-string">"deprecated"</span>/&gt;</span>
+</code></pre><p>These use the standard alias elements in XML, and are also included in the <a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml">units.xml</a> file.</p><h5 id="duplicate-units">“Duplicate” Units</h5><p>Some CLDR units are provided simply because they have different names in some languages. For example, year and year-person, or foodcalorie and kilocalorie. One CLDR unit is not convertible (temperature-generic) it is only used for the translation (where the exact unit would be understood by context).</p><h5 id="discarding-offsets">Discarding Offsets</h5><p>The temperature units are special. When they represent a scale, they have an offset. But where they represent an amount, such as in complex units, they do not. So celsius-per-second is the same as kelvin-per-second.</p><h4 id="unresolved-units">Unresolved Units</h4><p>Some SI units contain the same units in the numerator and denominator, so those cannot be resolved. For example, if cubic-meter-per-meter were always resolved, then <em>consumption</em> (like “liter-per-kilometer”) could not be distinguished from <em>area</em> (square-meter).</p><p>However, in conversion, it may be necessary to resolve them in order to find a match. For example, kilowatt-hour maps to the base unit kilogram-square-meter-second-per-cubic-second, but that needs to be resolved to kilogram-square-meter-per-square-second in order matched against an <em>energy.</em></p><h2 id="quantities-and-base-units">Quantities and Base Units</h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">unitQuantities</span> ( <span class="hljs-meta-keyword">unitQuantity</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">unitQuantity</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitQuantity</span> <span class="hljs-meta-keyword">baseUnit</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitQuantity</span> <span class="hljs-meta-keyword">quantity</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitQuantity</span> <span class="hljs-meta-keyword">status</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitQuantity</span> <span class="hljs-meta-keyword">description</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>Conversion is supported between comparable units. Those can be simple units, such as length, or more complex ‘derived’ units that are built up from <em>base units</em>. The <code>&lt;unitQuantities&gt;</code> element provides information on the base units used for conversion. It also supplies information about their <em>quantity</em>: mass, length, time, etc., and whether they are simple or not.</p><p>Examples:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kilogram'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'mass'</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'simple'</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'meter-per-second'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'speed'</span>/&gt;</span>
+</code></pre><p>The order of the elements in the file is significant, since it is used in <a href="#Unit_Identifier_Normalization">Unit_Identifier_Normalization</a>.</p><p>The quantity values themselves are informative. Therer mayreflecting that <em>force per area</em> can be referenced as either <em>pressure</em> or <em>stress</em>, for example). The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as <em>inverse-consumption.</em></p><p>The base units for the quantities and the quantities themselves are based on <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a> and the earlier <a href="https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf">NIST Special Publication 1038</a>. In some cases, a different unit is chosen for the base. For example, a <em>revolution</em> (360°) is chosen for the base unit for angles instead of the SI <em>radian</em>, and <em>item</em> instead of the SI <em>mole</em>. Additional base units are added where necessary, such as <em>bit</em> and <em>pixel</em>.</p><p>This data is not necessary for conversion, but is needed for <a href="#Unit_Identifier_Normalization">Unit_Identifier_Normalization</a>. Some of the <code>unitQuantity</code> elements are not needed to convert CLDR units, but are included for completeness. Example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'ampere-per-square-meter'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'current-density'</span>/&gt;</span>
+</code></pre><h3 id="unittype-vs-quantity">UnitType vs Quantity</h3><p>The unitType (as in “length-meter”) is not the same as the quantity. It is often broader: for example, the unitType <em>electric</em> corresponds to the quantities <em>electric-current, electric-resistance,</em> and <em>voltage</em>. The unitType itself is also informative, and can be dropped from a long unit identifier to get a still-unique short unit identifier.</p><h3 id="unit-identifier-normalization"><a name="Unit_Identifier_Normalization" href="#Unit_Identifier_Normalization">Unit Identifier Normalization</a></h3><p>There are many possible ways to construct complex units. For comparison of unit identifiers, an implementation can normalize in the following way:</p><ol>
+<li>Convert all but the first -per- to simple multiplication. The result then has the format of /numerator ( -per- denominator)?/<ul>
+<li>foot-per-second-per-second ⇒ foot-per-second-second</li>
+</ul>
+</li>
+<li>Within each of the numerator and denominator:</li>
+<li>Convert multiple instances of a unit into the appropriate power.<ul>
+<li>foot-per-second-second ⇒ foot-per-square-second</li>
+<li>kilogram-meter-kilogram ⇒ meter-square-kilogram</li>
+</ul>
+</li>
+<li>For each single unit, disregarding prefixes and powers, get the order of the <em>simple</em> unit among the <code>unitQuantity</code> elements in the <a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml">units.xml</a>. Sort the single units by that order, using a stable sort. If there are private-use single units, sort them after all the non-private use single units.<ul>
+<li>meter-square-kilogram =&gt; square-kilogram-meter</li>
+<li>meter-square-gram ⇒ square-gram-meter</li>
+</ul>
+</li>
+<li>As an edge case, there could be two adjacent single units with the same <em>simple</em> unit but different prefixes, such as <em>meter-kilometer</em>. In that case, sort the larger prefixes first, such as <em>kilometer-meter</em> or <em>kibibyte-kilobyte</em></li>
+<li>Within private-use single units, sort by the simple unit alphabetically.</li>
+</ol><p>The examples in #4 are due to the following ordering of the <code>unitQuantity</code> elements:</p><pre><code class="language-xml">1.  <span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'candela'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'luminous-intensity'</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'simple'</span>/&gt;</span>
+2.  <span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kilogram'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'mass'</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'simple'</span>/&gt;</span>
+3.  <span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'meter'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'length'</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'simple'</span>/&gt;</span>
+4.  …
+</code></pre><h2 id="mixed-units">Mixed Units</h2><p>Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. Common examples are feet and inches, meters and centimeters, and hours, minutes, and seconds. Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", and "hour-and-minute-and-second".</p><p>Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". For example, numbers for "foot-and-inch" are expressed in feet.</p><p>Mixed units are expected to be rendered in the order of the tokens in the identifier. For example, the value 1.25 with the identifier "foot-and-inch" should be rendered as "1 foot and 3 inches" and 1.25 inch-and-foot should be rendered as “3 inches and 1 foot". <strong>NOTE:</strong> the correct application of this may require adding locales to the regions attribute set.</p><h2 id="testing">Testing</h2><p>The <a href="https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitsTest.txt">unitsTest.txt</a> file supplies a list of all the CLDR units with conversions, for testing implementations. Instructions for use are supplied in the header of the file.</p><h2 id="14-unit-preferences">14 <a name="Unit_Preferences" href="#Unit_Preferences">Unit Preferences</a></h2><p>Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.</p><p>The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:</p><ul>
+<li>The list of possible usages large and open-ended. The intent here is to start with a small set for which there is an urgent need, and expand as necessary.</li>
+<li>Even for a given usage such a measuring a road distance, there are multiple ranges in use. For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).</li>
+<li>There are also differences between more formal usage (official signage, medical records) and more informal usage (conversation, texting).</li>
+<li>For some usages, the measurement may be expressed using a sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2 pounds”.</li>
+</ul><p>The DTD structure is as follows:</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">unitPreferenceData</span> ( <span class="hljs-meta-keyword">unitPreferences</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">unitPreferences</span> ( <span class="hljs-meta-keyword">unitPreference</span>* ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitPreferences</span> <span class="hljs-meta-keyword">category</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitPreferences</span> <span class="hljs-meta-keyword">usage</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">unitPreference</span> ( <span class="hljs-meta-keyword">#PCDATA</span> ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitPreference</span> <span class="hljs-meta-keyword">regions</span> <span class="hljs-meta-keyword">NMTOKENS</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitPreference</span> <span class="hljs-meta-keyword">geq</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">unitPreference</span> <span class="hljs-meta-keyword">skeleton</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><table><tbody>
+<tr><td>category</td><td>A unit quantity, such as “area” or “length”. See Section 13 Unit Conversion</td></tr>
+<tr><td>usage</td><td>A type of usage, such as person-height.</td></tr>
+<tr><td>regions</td><td>One or more region identifiers (macroregions or regions), subdivision identifiers, or language identifiers, such as 001, US, usca, and de-CH.</td></tr>
+<tr><td>geq</td><td>A threshold value, in a unit determined by the unitPreference element value. The unitPreference element is only used for values higher than this value (and lower than any higher value).<br>The value must be non-negative. For picking negative units (-3 meters), use the absolute value to pick the unit.</td></tr>
+<tr><td>skeleton</td><td>A skeleton in the ICU number format syntax, that can be used to format unit</td></tr>
+</tbody></table><p><strong>Note:</strong> As of CLDR 37, the <code>&lt;unitPreference&gt;</code> <code>geq</code> attribute replaces the now-deprecated <code>&lt;unitPreferences&gt;</code> <code>scope</code> attribute.</p><p>Example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitPreferences</span> <span class="hljs-attr">category</span>=<span class="hljs-string">"length"</span> <span class="hljs-attr">usage</span>=<span class="hljs-string">"default"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"001"</span>&gt;</span>kilometer<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"001"</span>&gt;</span>meter<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"001"</span>&gt;</span>centimeter<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"US GB"</span>&gt;</span>mile<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"US GB"</span>&gt;</span>foot<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"US GB"</span>&gt;</span>inch<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreferences</span>&gt;</span>
+</code></pre><p>The above information says that for default usage, in the US people use mile, foot, and inch, where people in the rest of the world (001) use kilometer, meter, and centimeter. Take another example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitPreferences</span> <span class="hljs-attr">category</span>=<span class="hljs-string">"length"</span> <span class="hljs-attr">usage</span>=<span class="hljs-string">"road"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"001"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"0.9"</span>&gt;</span>kilometer<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"001"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"300.0"</span> <span class="hljs-attr">skeleton</span>=<span class="hljs-string">"precision-increment/50"</span>&gt;</span>meter<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"001"</span> <span class="hljs-attr">skeleton</span>=<span class="hljs-string">"precision-increment/10"</span>&gt;</span>meter<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"001"</span>&gt;</span>meter<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"US"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"0.5"</span>&gt;</span>mile<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"US"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"100.0"</span> <span class="hljs-attr">skeleton</span>=<span class="hljs-string">"precision-increment/50"</span>&gt;</span>foot<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"US"</span> <span class="hljs-attr">skeleton</span>=<span class="hljs-string">"precision-increment/10"</span>&gt;</span>foot<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"GB"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"0.5"</span>&gt;</span>mile<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"GB"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"100.0"</span> <span class="hljs-attr">skeleton</span>=<span class="hljs-string">"precision-increment/50"</span>&gt;</span>yard<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"GB"</span>&gt;</span>yard<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"SE"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"0.1"</span>&gt;</span>mile-scandinavian<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreferences</span>&gt;</span>
+</code></pre><p>The intended usage is to take the measure to be formatted, and the desired category, usage, and region and find the best match as follows.</p><ul>
+<li><p>First, see if there is an exact match, producing a list of one or more <code>unitPreference</code> elements. For example, length/road/GB has a match above, giving</p>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"GB"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"0.5"</span>&gt;</span>mile<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"GB"</span> <span class="hljs-attr">geq</span>=<span class="hljs-string">"100.0"</span> <span class="hljs-attr">skeleton</span>=<span class="hljs-string">"precision-increment/50"</span>&gt;</span>yard<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">unitPreference</span> <span class="hljs-attr">regions</span>=<span class="hljs-string">"GB"</span>&gt;</span>yard<span class="hljs-tag">&lt;/<span class="hljs-name">unitPreference</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>If there is no match for the category, then the data is not available.</p>
+</li>
+<li><p>Otherwise, given the category:</p>
+<ul>
+<li>If there is an exact match for the usage, but not for the region, try region=”001”.</li>
+</ul>
+</li>
+<li><p>The specification allows for <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html">containment regions</a> , <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_subdivisions.html">region subdivisions</a>.</p>
+</li>
+<li><p>While in version 37 only 001 is used, in the future the data may contain others.</p>
+</li>
+<li><p>The fallback is: subdivision2 ⇒ subdivision1 ⇒ region/country ⇒ subcontinent ⇒ continent ⇒ world</p>
+</li>
+<li><p>Example:</p>
+<table>
+<thead>
+<tr>
+<th>Region/subdivision</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Blackpool</td>
+<td>gbbpl</td>
+</tr>
+<tr>
+<td>England</td>
+<td>gbeng</td>
+</tr>
+<tr>
+<td>United Kingdom</td>
+<td>GB</td>
+</tr>
+<tr>
+<td>Northern Europe</td>
+<td>154</td>
+</tr>
+<tr>
+<td>Europe</td>
+<td>150</td>
+</tr>
+<tr>
+<td>World</td>
+<td>001</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>If there is an exact match for the region, but not for the usage,</p>
+<ul>
+<li>If the usage has multiple parts (eg land-agriculture-grain) drop the last part (eg land-agriculture)</li>
+<li>Repeat dropping the last part and trying the result (eg land)</li>
+<li>If you eliminate all of them, try usage=”default”.</li>
+<li>If there is no exact match for either one, try usage=”default”, region=”001”. That will always match.</li>
+</ul>
+</li>
+</ul><p>Once you have a list of <code>unitPreference</code> elements, find the applicable unitPreference. For a given category, usage, and set of regions (eg “US GB”), the units are ordered from largest to smallest.</p><ul>
+<li>The geq item gives the value for the unit in the element value (or for the largest unit for mixed units). For example,<ul>
+<li><code>...geq="0.5"&gt;mile&lt;...</code> means 0.9 kilometers</li>
+<li><code>...geq="100.0"&gt;foot:inch&lt;...</code> means 100 feet</li>
+</ul>
+</li>
+<li>If there is no <code>geq</code> attribute, then the implicit value is 1.0.</li>
+<li>Implementations will probably convert the values into the base units, so that the comparison is fast. Thus the above would be converted internally to something like:<ul>
+<li>≥ 804.672 meters ⇒ mile</li>
+<li>≥ 30.48 meters ⇒ foot:inch</li>
+</ul>
+</li>
+<li>Search for the first matching unitPreference for the input measure. If there is no match (eg &lt; 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0"</li>
+</ul><p>For completeness, when comparing doubles to the geq values:</p><ul>
+<li>Negative numbers are treated as if they were positive.</li>
+<li><em>infinity</em> is treated as being the largest possible value.</li>
+<li>NaN is treated as the smallest possible value.</li>
+</ul><p>Once a matching <code>unitPreference</code> element is found:</p><ul>
+<li>The unit is the element value</li>
+<li>The skeleton (if there is one) supplies formatting information for the unit. API settings may allow that to be overridden.<ul>
+<li>The syntax and semantics for the skeleton value are defined by the <a href="https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html">ICU Number Skeletons</a> document.</li>
+</ul>
+</li>
+<li>If the unit is mixed (eg foot:inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.</li>
+<li>If the skeleton is missing, the default is skeleton="<strong>precision-integer/@@*</strong>". However, the client can also override or tune the number formatting.</li>
+</ul><h3 id="constraints">Constraints</h3><ul>
+<li>For a given category, there is always a “default” usage.</li>
+<li>For a given category, and usage:<ul>
+<li>There is always a 001 region.</li>
+<li>None of the sets of regions can overlap. That is, you can’t have “US” on one line and “US GB” on another. You <em>can</em> have two lines with “US”, for different sizes of units.</li>
+</ul>
+</li>
+<li>For a given category, usage, and region-set<ul>
+<li>The unitPreferences are in descending order.</li>
+</ul>
+</li>
+</ul><h3 id="caveats">Caveats</h3><p>The extended unit support is still being developed further. See the Known Issues on the release page for futher information.</p><hr><p>Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div></body></html>

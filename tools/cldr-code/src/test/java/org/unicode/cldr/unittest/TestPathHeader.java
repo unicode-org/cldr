@@ -32,6 +32,9 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.CaseValues;
+import org.unicode.cldr.util.GrammarInfo.GenderValues;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -41,6 +44,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.PathHeader.Width;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
@@ -49,6 +53,7 @@ import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
@@ -1097,69 +1102,78 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
         String[] germanExpected = {
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/gender",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/perUnitPattern",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]",
-            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/displayName",
-            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/perUnitPattern",
-            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]",
-            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"accusative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"dative\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"genitive\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"]",
-            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
-            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
-            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
-            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]",
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]",
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]",
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]",
-            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]",
-            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]",
-            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
-            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
-            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1"};
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/gender",  // Units    Volume  liter   long-gender
+
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName", // Units    Volume  liter   long-displayName
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/displayName",    // Units    Volume  liter   short-displayName
+
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/perUnitPattern",  // Units    Volume  liter   long-per
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/perUnitPattern", // Units    Volume  liter   short-per
+
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]", // Units    Volume  liter   long-one-nominative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]",   // Units    Volume  liter   long-one-accusative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]", // Units    Volume  liter   long-one-genitive
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"dative\"]",   // Units    Volume  liter   long-one-dative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]",   // Units    Volume  liter   long-other-nominative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"accusative\"]", // Units    Volume  liter   long-other-accusative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]",   // Units    Volume  liter   long-other-genitive
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"dative\"]", // Units    Volume  liter   long-other-dative
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]",    // Units    Volume  liter   short-one-nominative
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]",  // Units    Volume  liter   short-other-nominative
+
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"]",   // Units    Compound Units  power2  long-one-nominative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]",    // Units    Compound Units  power2  long-one-nominative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",  // Units    Compound Units  power2  long-one-nominative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"accusative\"]", // Units    Compound Units  power2  long-one-accusative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"]",  // Units    Compound Units  power2  long-one-accusative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"accusative\"]",    // Units    Compound Units  power2  long-one-accusative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"genitive\"]",   // Units    Compound Units  power2  long-one-genitive-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"genitive\"]",    // Units    Compound Units  power2  long-one-genitive-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"genitive\"]",  // Units    Compound Units  power2  long-one-genitive-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"dative\"]", // Units    Compound Units  power2  long-one-dative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"dative\"]",  // Units    Compound Units  power2  long-one-dative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"dative\"]",    // Units    Compound Units  power2  long-one-dative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"]", // Units    Compound Units  power2  long-other-nominative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]",  // Units    Compound Units  power2  long-other-nominative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",    // Units    Compound Units  power2  long-other-nominative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"accusative\"]",   // Units    Compound Units  power2  long-other-accusative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"accusative\"]",    // Units    Compound Units  power2  long-other-accusative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"accusative\"]",  // Units    Compound Units  power2  long-other-accusative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"genitive\"]", // Units    Compound Units  power2  long-other-genitive-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"genitive\"]",  // Units    Compound Units  power2  long-other-genitive-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"genitive\"]",    // Units    Compound Units  power2  long-other-genitive-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"dative\"]",   // Units    Compound Units  power2  long-other-dative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"dative\"]",    // Units    Compound Units  power2  long-other-dative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"dative\"]",  // Units    Compound Units  power2  long-other-dative-dgender
+            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", // Units    Compound Units  power2  short-one-nominative-dgender
+            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",   // Units    Compound Units  power2  short-other-nominative-dgender
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",    // Units    Compound Units  power2  narrow-one-nominative-dgender
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",  // Units    Compound Units  power2  narrow-other-nominative-dgender
+
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]",   // Miscellaneous    Minimal Pairs   Case    nominative
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]",   // Miscellaneous    Minimal Pairs   Case    accusative
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", // Miscellaneous    Minimal Pairs   Case    genitive
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]",   // Miscellaneous    Minimal Pairs   Case    dative
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]",    // Miscellaneous    Minimal Pairs   Gender  masculine
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", // Miscellaneous    Minimal Pairs   Gender  feminine
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]",   // Miscellaneous    Minimal Pairs   Gender  neuter
+
+            // we don't care about order here.
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",  // Special  Suppress    compound-UnitPattern1-power2    long
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",    // Special  Suppress    compound-UnitPattern1-power2    narrow
+            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", // Special  Suppress    compound-UnitPattern1-power2    short
+            };
 
         int germanExpectedIndex = 0;
         int errorCount = 0;
+        int item = 0;
         for (Entry<PathHeader, Collection<String>> entry : pathHeaderToPaths.asMap().entrySet()) {
             PathHeader ph = entry.getKey();
             Collection<String> epaths = entry.getValue();
             if (!assertEquals(entry.toString(), 1, epaths.size())) {
                 ++errorCount;
             }
-            if (!assertEquals("PathHeader order", germanExpected[germanExpectedIndex++], epaths.iterator().next())) {
+            if (!assertEquals(++item + ") PathHeader order", germanExpected[germanExpectedIndex++], epaths.iterator().next())) {
                 ++errorCount;
             }
         }
@@ -1434,6 +1448,78 @@ public class TestPathHeader extends TestFmwkPlus {
         for (String test : tests) {
             PathHeader trial = phf.fromPath(test);
             assertEquals("No quotes in pathheader", false, trial.toString().contains("\""));
+        }
+    }
+    /**
+     * Make sure that the PathHeader sort order is consistent with the grammatical feature orders
+     * "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName"
+     * //ldml/units/unitLength[@type=\long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]",
+     * //ldml/units/unitLength[@type=\long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"]",
+     */
+    public void TestUnitOrder() {
+        PathHeader.Factory phf = PathHeader.getFactory();
+        List<PathHeader> expectedOrder = new ArrayList<>();
+        List<Width> widths = Arrays.asList(Width.LONG, Width.SHORT, Width.NARROW);
+        List<CaseValues> cases = Arrays.asList(GrammarInfo.CaseValues.values()).subList(0, 3);
+        List<GenderValues> genders = Arrays.asList(GrammarInfo.GenderValues.values()).subList(0, 3);
+
+        for (Width width : widths) {
+            String path = "//ldml/units/unitLength[@type=\"" + width
+                + "\"]/unit[@type=\"length-meter\"]/displayName";
+            expectedOrder.add(phf.fromPath(path));
+        }
+
+        for (Width width : widths) {
+            for (Count count : Count.values()) {
+                for (GrammarInfo.CaseValues gCase : cases) {
+                    if (width != Width.LONG && gCase != CaseValues.nominative) {
+                        break;
+                    }
+                    String path = "//ldml/units/unitLength[@type=\"" + width
+                        + "\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"" + count
+                        + (gCase == CaseValues.nominative ? "" : "\"][@case=\"" + gCase)
+                        + "\"]";
+                    expectedOrder.add(phf.fromPath(path));
+                }
+            }
+        }
+        for (Width width : widths) {
+            for (Count count : Count.values()) {
+                for (GrammarInfo.CaseValues gCase : cases) {
+                    if (width != Width.LONG && gCase != CaseValues.nominative) {
+                        break;
+                    }
+                    for (GrammarInfo.GenderValues gGender : genders) {
+                        if (width != Width.LONG && gGender != GenderValues.neuter) {
+                            break;
+                        }
+                        String path = "//ldml/units/unitLength[@type=\"" + width
+                            + "\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"" + count
+                            + (gGender == GenderValues.neuter ? "" : "\"][@gender=\"" + gGender)
+                            + (gCase == CaseValues.nominative ? "" : "\"][@case=\"" + gCase)
+                            + "\"]";
+                        expectedOrder.add(phf.fromPath(path));
+                    }
+                }
+            }
+        }
+        PathHeader last = null;
+        int item = 0;
+        int errorCount = 0;
+        for (PathHeader pathHeader : expectedOrder) {
+            if (last != null) {
+                if (!assertTrue(++item + ")\t" + last + "\t<\t" + pathHeader, last.compareTo(pathHeader) < 0)) {
+                    errorCount++;
+                    last.compareTo(pathHeader);
+                }
+            }
+            last = pathHeader;
+
+        }
+        if (errorCount != 0 || isVerbose()) {
+            for (PathHeader pathHeader : expectedOrder) {
+                System.out.println("\"" + pathHeader.getOriginalPath().replace("\"", "\\\"") + "\",\t// " + pathHeader);
+            }
         }
     }
 }

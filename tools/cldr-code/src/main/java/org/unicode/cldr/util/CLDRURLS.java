@@ -133,6 +133,8 @@ public abstract class CLDRURLS {
      */
     public static final String UNITS_MISC_HELP = UNITS_HELP;
 
+    public static final String PRIORITY_SUMMARY_HELP_URL = "https://cldr.unicode.org/translation/getting-started/vetting-view#TOC-Priority-Items";
+
     /**
      * Get the relative base URL for the SurveyTool.
      * This may be "/cldr-apps", for example.

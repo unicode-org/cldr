@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.Semaphore;
+import java.util.logging.Logger;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONArray;
@@ -53,10 +54,12 @@ import com.ibm.icu.util.ULocale;
  */
 public class VettingViewerQueue {
 
+    private static final Logger logger = SurveyLog.forClass(VettingViewerQueue.class);
+
     @Schema(description = "single entry of the dashboard that needs review")
     public static final class ReviewEntry {
 
-        @Schema(description = "Code for this entry", example="narrow-other-nominative")
+        @Schema(description = "Code for this entry", example = "narrow-other-nominative")
         public String code;
 
         @Schema(example = "7bd36b15a66d02cf")
@@ -86,10 +89,9 @@ public class VettingViewerQueue {
             this.code = code;
             this.xpath = XPathTable.getStringIDString(xpath);
         }
-
     }
 
-    public static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
+    private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
 
     public static CLDRLocale SUMMARY_LOCALE = CLDRLocale.getInstance(ULocale.forLanguageTag("und-vetting"));
 
@@ -106,7 +108,7 @@ public class VettingViewerQueue {
         return VettingViewerQueueHelper.instance;
     }
 
-    static int gMax = -1;
+    private static int gMax = -1;
 
     /**
      * Count the # of paths in this CLDRFile
@@ -145,7 +147,6 @@ public class VettingViewerQueue {
      * Status of a Task
      *
      * @author srl
-     *
      */
     public enum Status {
         /** Waiting on other users/tasks */
@@ -161,8 +162,9 @@ public class VettingViewerQueue {
     /**
      * What policy should be used when querying the queue?
      *
-     * @author srl
+     * Public for access by SummaryRequest
      *
+     * @author srl
      */
     public enum LoadingPolicy {
         /** (Default) - start if not started */
@@ -191,8 +193,8 @@ public class VettingViewerQueue {
     }
 
     private static class QueueEntry {
-        public Task currentTask = null;
-        public Map<Pair<CLDRLocale, Organization>, VVOutput> output = new TreeMap<>();
+        private Task currentTask = null;
+        private Map<Pair<CLDRLocale, Organization>, VVOutput> output = new TreeMap<>();
     }
 
     /**
@@ -200,7 +202,7 @@ public class VettingViewerQueue {
      */
     private static final Semaphore OnlyOneVetter = new Semaphore(1);
 
-    public class Task implements Runnable {
+    private class Task implements Runnable {
 
         /**
          * A VettingViewer.ProgressCallback that updates a CLDRProgressTask
@@ -215,7 +217,7 @@ public class VettingViewerQueue {
                 this.thread = thread;
             }
 
-            public String setRemStr(long now) {
+            private String setRemStr(long now) {
                 double per = (double) (now - start) / (double) n;
                 rem = (long) ((maxn - n) * per);
                 String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + "remaining";
@@ -233,7 +235,6 @@ public class VettingViewerQueue {
                 }
                 long now = System.currentTimeMillis();
                 n++;
-                // System.err.println("Nudged: " + n);
                 if (n > (maxn - 5)) {
                     maxn = n + 10;
                     if (!isSummary && n > gMax) {
@@ -263,44 +264,36 @@ public class VettingViewerQueue {
             }
         }
 
-        Thread myThread = null;
-        public boolean stop = false;
+        private Thread myThread = null;
+        private boolean stop = false;
 
-        public CLDRLocale locale;
+        private CLDRLocale locale;
         private QueueEntry entry;
-        SurveyMain sm;
-        VettingViewer<Organization> vv;
-        public int maxn;
-        public int n = 0;
-        final public boolean isSummary;
-        public long start = -1;
-        public long last;
-        public long rem = -1;
+        private SurveyMain sm;
+        private int maxn;
+        private int n = 0;
+        private final boolean isSummary;
+        private long start = -1;
+        private long last;
+        private long rem = -1;
         private final String st_org;
-        final Level usersLevel;
-        final Organization usersOrg;
-        String status = "(Waiting my spot in line)";
-        public Status statusCode = Status.WAITING; // Need to start out as
+        private final Level usersLevel;
+        private final Organization usersOrg;
+        private String status = "(Waiting my spot in line)";
+        private Status statusCode = Status.WAITING; // Need to start out as waiting.
 
-        // waiting.
-
-        void setStatus(String status) {
+        private void setStatus(String status) {
             this.status = status;
         }
 
-        public float progress() {
-            if (maxn <= 0)
-                return (float) 0.0;
-            return ((float) n) / ((float) maxn);
-        }
+        private StringBuffer aBuffer = new StringBuffer();
 
-        StringBuffer aBuffer = new StringBuffer();
-
-        public Task(QueueEntry entry, CLDRLocale locale, SurveyMain sm, String baseUrl, Level usersLevel,
+        private Task(QueueEntry entry, CLDRLocale locale, SurveyMain sm, String baseUrl, Level usersLevel,
             Organization usersOrg, final String st_org) {
             isSummary = isSummary(locale);
-            if (DEBUG)
-                System.err.println("Creating task " + locale.toString());
+            if (DEBUG) {
+                System.out.println("Creating task " + locale.toString());
+            }
 
             int baseMax = getMax(sm.getTranslationHintsFile());
             if (isSummary) {
@@ -334,17 +327,18 @@ public class VettingViewerQueue {
          * @param locale
          * @return
          */
-        public boolean isSummary(CLDRLocale locale) {
+        private boolean isSummary(CLDRLocale locale) {
             return locale == SUMMARY_LOCALE;
         }
 
         @Override
-        public void run()  {
+        public void run() {
             statusCode = Status.WAITING;
             final CLDRProgressTask progress = CookieSession.sm.openProgress("vv:" + locale, maxn + 100);
 
-            if (DEBUG)
-                System.err.println("Starting up vv task:" + locale);
+            if (DEBUG) {
+                System.out.println("Starting up vv task:" + locale);
+            }
 
             try {
                 status = "Waiting...";
@@ -363,15 +357,15 @@ public class VettingViewerQueue {
                 status = "Finished.";
                 statusCode = Status.READY;
             } catch (RuntimeException | InterruptedException re) {
-                SurveyLog.logException(re, "While VettingViewer processing " + locale);
+                SurveyLog.logException(logger, re, "While VettingViewer processing " + locale);
                 status = "Exception! " + re.toString();
                 // We're done.
                 statusCode = Status.STOPPED;
             } finally {
                 // don't change the status
-                if (progress != null)
+                if (progress != null) {
                     progress.close();
-                vv = null; // release vv
+                }
             }
         }
 
@@ -388,20 +382,13 @@ public class VettingViewerQueue {
             n = 0;
             vv.setProgressCallback(new CLDRProgressCallback(progress, Thread.currentThread()));
 
-            EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-            if (usersOrg.equals(Organization.surveytool)) {
-                choiceSet = EnumSet.of(
-                    VettingViewer.Choice.error,
-                    VettingViewer.Choice.warning,
-                    VettingViewer.Choice.hasDispute,
-                    VettingViewer.Choice.notApproved);
-            }
+            EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
 
             if (!isSummary(locale)) {
                 vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel);
             } else {
                 if (DEBUG) {
-                    System.err.println("Starting summary gen..");
+                    System.out.println("Starting summary gen..");
                 }
                 /*
                  * TODO: remove call to getLocalesWithVotes here, unless it has necessary side-effects.
@@ -416,12 +403,12 @@ public class VettingViewerQueue {
             }
         }
 
-        public String status() {
+        private String status() {
             StringBuffer bar = SurveyProgressManager.appendProgressBar(new StringBuffer(), n, maxn);
             return status + bar;
         }
 
-        Predicate<String> fLocalesWithVotes = null;
+        private Predicate<String> fLocalesWithVotes = null;
 
         private synchronized Predicate<String> getLocalesWithVotes(String st_org) {
             if (fLocalesWithVotes == null) {
@@ -429,7 +416,6 @@ public class VettingViewerQueue {
             }
             return fLocalesWithVotes;
         }
-
     }
 
     /**
@@ -448,11 +434,7 @@ public class VettingViewerQueue {
          * organization c. Any locale with at least one vote by a user in that
          * organization
          */
-        final Organization vr_org = UserRegistry.computeVROrganization(st_org); /*
-                                                                                * VoteResolver
-                                                                                * organization
-                                                                                * name
-                                                                                */
+        final Organization vr_org = UserRegistry.computeVROrganization(st_org);
         final Set<Organization> covOrgs = StandardCodes.make().getLocaleCoverageOrganizations();
 
         final Set<String> aLocs = new HashSet<>();
@@ -462,9 +444,11 @@ public class VettingViewerQueue {
          */
         if (covOrgs.contains(vr_org.name())) {
             aLocs.addAll(StandardCodes.make().getLocaleCoverageLocales(vr_org.name()));
-            System.err.println("localesWithVotes st_org=" + st_org + ", vr_org=" + vr_org + ", aLocs=" + aLocs.size());
-        } else {
-            System.err.println("localesWithVotes st_org=" + st_org + ", vr_org=" + vr_org + ", aLocs= (not a cov org)");
+            if (DEBUG) {
+                System.out.println("localesWithVotes st_org=" + st_org + ", vr_org=" + vr_org + ", aLocs=" + aLocs.size());
+            }
+        } else if (DEBUG) {
+            System.out.println("localesWithVotes st_org=" + st_org + ", vr_org=" + vr_org + ", aLocs= (not a cov org)");
         }
 
         // b -
@@ -476,17 +460,20 @@ public class VettingViewerQueue {
         // c. any locale with at least 1 vote by a user in that org
         final Set<CLDRLocale> anyVotesFromOrg = UserRegistry.anyVotesForOrg(st_org);
 
-        System.err.println("CovGroupsFor " + st_org + "=" + covGroupsForOrg.size() + ", anyVotes=" + anyVotesFromOrg.size()
-            + "  - " + SurveyMain.freeMem());
-
+        if (DEBUG) {
+            System.out.println("CovGroupsFor " + st_org + "=" + covGroupsForOrg.size() +
+                ", anyVotes=" + anyVotesFromOrg.size()
+                + "  - " + SurveyMain.freeMem());
+        }
         Predicate<String> localesWithVotes = new Predicate<String>() {
             final boolean showAllLocales = (vr_org == Organization.surveytool)
                 || CldrUtility.getProperty("THRASH_ALL_LOCALES", false);
 
             @Override
             public boolean is(String item) {
-                if (showAllLocales)
+                if (showAllLocales) {
                     return true;
+                }
                 CLDRLocale loc = CLDRLocale.getInstance(item);
                 return (aLocs.contains(item) || // a
                     covGroupsForOrg.contains(loc.getBaseName()) || // b
@@ -502,8 +489,9 @@ public class VettingViewerQueue {
                 sb.append(l + " ");
             }
         }
-        System.err.println("CovGroupsFor " + st_org + "= union = " + lcount + " - " + sb);
-
+        if (DEBUG) {
+            System.out.println("CovGroupsFor " + st_org + "= union = " + lcount + " - " + sb);
+        }
         return localesWithVotes;
     }
 
@@ -540,14 +528,7 @@ public class VettingViewerQueue {
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
 
-        EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-        if (usersOrg.equals(Organization.surveytool)) {
-            choiceSet = EnumSet.of(
-                VettingViewer.Choice.error,
-                VettingViewer.Choice.warning,
-                VettingViewer.Choice.hasDispute,
-                VettingViewer.Choice.notApproved);
-        }
+        EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
         ArrayList<String> out = vv.getErrorOnPath(choiceSet, locale.getBaseName(), usersOrg, usersLevel, path);
         JSONArray result = new JSONArray();
         for (String issues : out) {
@@ -599,12 +580,13 @@ public class VettingViewerQueue {
          * Postponed refactoring temporarily to avoid obscuring essential changes in the same commit...
          * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
          */
-        VettingViewer<Organization>.DashboardData dd = vv.generateFileInfoReview(choiceSet, loc, user.id, usersOrg, usersLevel, sourceFile, baselineFile);
-        return reallyGetDashboardOutput(sourceFile, baselineFile, dd, choiceSet, locale, user.id);
+        VettingViewer<Organization>.DashboardData dd;
+        dd = vv.generateFileInfoReview(choiceSet, loc, user.id, usersOrg, usersLevel, sourceFile, baselineFile);
+        return reallyGetDashboardOutput(sourceFile, baselineFile, dd, locale, user.id);
     }
 
     @Schema(description = "Heading for a portion of the notifications")
-    public static final class ReviewNotification{
+    public static final class ReviewNotification {
 
         @Schema(description = "Notification type", example = "Error")
         public String notification;
@@ -625,7 +607,6 @@ public class VettingViewerQueue {
             return group;
         }
     }
-
 
     @Schema(description = "Group of notifications which share the same section/page/header")
     public static final class ReviewNotificationGroup {
@@ -656,7 +637,6 @@ public class VettingViewerQueue {
         }
     }
 
-
     @Schema(description = "Output of Dashboard")
     public static final class ReviewOutput {
         @Schema(description = "list of notifications")
@@ -677,7 +657,7 @@ public class VettingViewerQueue {
          * @return
          */
         public ReviewNotification add(String notificationName, ReviewNotification unlessMatches) {
-            if(unlessMatches != null && unlessMatches.notification.equals(notificationName)) {
+            if (unlessMatches != null && unlessMatches.notification.equals(notificationName)) {
                 return unlessMatches;
             } else {
                 return add(notificationName);
@@ -689,6 +669,9 @@ public class VettingViewerQueue {
             return notification;
         }
 
+        /**
+         * Notifications that the user has chosen to hide
+         */
         public HashMap<String, List<String>> hidden;
 
         public VoterProgress voterProgress = null;
@@ -701,14 +684,12 @@ public class VettingViewerQueue {
      * @param sourceFile
      * @param baselineFile
      * @param dd
-     * @param choices
      * @param locale
      * @param userId
      * @return the ReviewOutput
      */
     private ReviewOutput reallyGetDashboardOutput(CLDRFile sourceFile, CLDRFile baselineFile,
         VettingViewer<Organization>.DashboardData dd,
-        EnumSet<Choice> choices,
         CLDRLocale locale, int userId) {
 
         ReviewOutput reviewInfo = new ReviewOutput();
@@ -725,10 +706,10 @@ public class VettingViewerQueue {
     /**
      * Used only for Dashboard, not for Priority Items Summary
      */
-    private void addNotificationEntries(CLDRFile sourceFile, CLDRFile baselineFile, Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
+    private void addNotificationEntries(CLDRFile sourceFile, CLDRFile baselineFile,
+        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
         ReviewOutput reviewInfo) {
-        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
-            = getNotificationsList(sorted);
+        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = getNotificationsList(sorted);
 
         ReviewNotification notification = null;
 
@@ -780,11 +761,11 @@ public class VettingViewerQueue {
             final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
             reviewEntry.old = oldStringValue;
 
-            //winning value
+            // winning value
             String newWinningValue = sourceFile.getWinningValue(path);
             reviewEntry.winning = newWinningValue;
 
-            //comment
+            // comment
             if (!info.htmlMessage.isEmpty()) {
                 reviewEntry.comment = info.htmlMessage;
             }
@@ -793,11 +774,9 @@ public class VettingViewerQueue {
 
     private Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> getNotificationsList(
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted) {
-        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
-        = Relation.of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>,
-            Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
+        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = Relation
+            .of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
 
-        //TODO we can prob do it in only one loop, but with that we can sort
         for (Entry<R2<SectionId, PageId>, Set<VettingViewer<Organization>.WritingInfo>> entry0 : sorted.keyValuesSet()) {
             final Set<VettingViewer<Organization>.WritingInfo> rows = entry0.getValue();
             for (VettingViewer<Organization>.WritingInfo pathInfo : rows) {
@@ -805,14 +784,12 @@ public class VettingViewerQueue {
                 SectionId section = entry0.getKey().get0();
                 PageId subsection = entry0.getKey().get1();
                 for (Choice choice : choicesForPath) {
-                    //reviewInfo
                     notificationsList.put(Row.of(choice, section, subsection, pathInfo.codeOutput.getHeader()), pathInfo);
                 }
             }
         }
         return notificationsList;
     }
-
 
     private EnumSet<VettingViewer.Choice> getChoiceSetForOrg(Organization usersOrg) {
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
@@ -966,7 +943,7 @@ public class VettingViewerQueue {
     private void stop(WebContext ctx, CLDRLocale locale, QueueEntry entry) {
         Task t = entry.currentTask;
         if (t != null) {
-            if (t.myThread.isAlive() && t.stop  == false) {
+            if (t.myThread.isAlive() && t.stop == false) {
                 t.stop = true;
                 t.myThread.interrupt();
             }
@@ -983,9 +960,9 @@ public class VettingViewerQueue {
         return entry;
     }
 
-    LruMap<CLDRLocale, BallotBox<UserRegistry.User>> ballotBoxes = new LruMap<>(8);
+    private LruMap<CLDRLocale, BallotBox<UserRegistry.User>> ballotBoxes = new LruMap<>(8);
 
-    BallotBox<UserRegistry.User> getBox(SurveyMain sm, CLDRLocale loc) {
+    private BallotBox<UserRegistry.User> getBox(SurveyMain sm, CLDRLocale loc) {
         BallotBox<User> box = ballotBoxes.get(loc);
         if (box == null) {
             box = sm.getSTFactory().ballotBoxForLocale(loc);

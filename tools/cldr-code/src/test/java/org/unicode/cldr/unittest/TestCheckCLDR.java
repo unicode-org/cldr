@@ -291,7 +291,8 @@ public class TestCheckCLDR extends TestFmwk {
         for (String path : cldrFileToTest.fullIterable()) {
             sorted.add(pathHeaderFactory.fromPath(path));
         }
-        final String testPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-future\"]/unitPattern[@count=\"0\"]";
+        // test actual example with count=<digits>
+        final String testPath = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"1\"]";
         sorted.add(pathHeaderFactory.fromPath(testPath));
 
         for (PathHeader pathHeader : sorted) {

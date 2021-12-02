@@ -282,8 +282,8 @@
 
 //ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"%A\"]     ; Misc ; Minimal Pairs ; Ordinal ; $1 ; LTR_ALWAYS
 //ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"%A\"]        ; Misc ; Minimal Pairs ; Plural ; $1 ; LTR_ALWAYS
-//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"%A\"]        ; Misc ; Minimal Pairs ; Case ; $1 ; LTR_ALWAYS
-//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"%A\"]        ; Misc ; Minimal Pairs ; Gender ; $1 ; LTR_ALWAYS
+//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"%A\"]        ; Misc ; Minimal Pairs ; Case ; &caseNumber($1) ; LTR_ALWAYS
+//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"%A\"]        ; Misc ; Minimal Pairs ; Gender ; &genderNumber($1) ; LTR_ALWAYS
 
 #Emoji, etc.
 

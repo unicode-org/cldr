@@ -23,6 +23,7 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.RegexLookup.Finder;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With.SimpleIterator;
 
 import com.google.common.base.Splitter;
@@ -50,6 +51,23 @@ public class PathHeader implements Comparable<PathHeader> {
     static final boolean SKIP_ORIGINAL_PATH = true;
 
     private final static Logger logger = Logger.getLogger(PathHeader.class.getName());
+
+    static final Splitter HYPHEN_SPLITTER = Splitter.on('-');
+
+    public enum Width {FULL, LONG, WIDE, SHORT, NARROW;
+        public static Width getValue(String input) {
+            try {
+                return Width.valueOf(input.toUpperCase(Locale.ENGLISH));
+            } catch (RuntimeException e) {
+                e.printStackTrace();
+                throw e;
+            }
+        }
+        @Override
+        public String toString() {
+            return name().toLowerCase(Locale.ENGLISH);
+        }
+    }
 
     /**
      * What status the survey tool should use. Can be overridden in
@@ -1113,22 +1131,76 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            // &unitCount($1-$3-$4), where $1 is length, $2 is count, $3 is case (optional)
+            // but also
+            // &unitCount($1-$3-$5-$4), where $5 is case, $4 is gender — notice order change
             functionMap.put("unitCount", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {
-                    String[] unitLengths = { "long", "short", "narrow" };
-                    int pos = 9;
-                    for (int i = 0; i < unitLengths.length; i++) {
-                        if (source.startsWith(unitLengths[i])) {
-                            pos = i;
-                            continue;
-                        }
+                    List<String> parts = HYPHEN_SPLITTER.splitToList(source);
+                    if (parts.size() == 1) {
+                        return source;
                     }
-                    order = pos;
-                    suborder = new SubstringOrder(pos + "-" + source); //
+                    int lengthNumber = Width.getValue(parts.get(0)).ordinal();
+                    int type = 0;
+                    int rest = 0;
+                    switch(parts.get(1)) {
+                    case "gender":
+                        type = 0;
+                        break;
+                    case "displayName":
+                        type = 1;
+                        break;
+                    case "per":
+                        type = 2;
+                        break;
+                    default:
+                        type = 3;
+                        int countNumber = (parts.size() > 1 ? Count.valueOf(parts.get(1)) : Count.other).ordinal();
+                        int caseNumber = (parts.size() > 2 ? GrammarInfo.CaseValues.valueOf(parts.get(2)) : GrammarInfo.CaseValues.nominative).ordinal();
+                        int genderNumber = GrammarInfo.GenderValues.neuter.ordinal();
+                        if (parts.size() > 3) {
+                            String genderPart = parts.get(3);
+                            if (!genderPart.equals("dgender")) {
+                                genderNumber = GrammarInfo.GenderValues.valueOf(genderPart).ordinal();
+                            }
+                            type = 4;
+                        }
+                        rest = (countNumber << 16) | (caseNumber << 8) | genderNumber;
+                        break;
+                    }
+                    order = (type << 28) | (lengthNumber << 24) | rest;
+
+//                    String[] unitLengths = { "long", "short", "narrow" };
+//                    int pos = 9;
+//                    for (int i = 0; i < unitLengths.length; i++) {
+//                        if (source.startsWith(unitLengths[i])) {
+//                            pos = i;
+//                            continue;
+//                        }
+//                    }
+//                    order = pos;
+//                    suborder = new SubstringOrder(pos + "-" + source); //
                     return source;
                 }
             });
+
+            functionMap.put("caseNumber", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    order = GrammarInfo.CaseValues.valueOf(source).ordinal();
+                    return source;
+                }
+            });
+
+            functionMap.put("genderNumber", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    order = GrammarInfo.GenderValues.valueOf(source).ordinal();
+                    return source;
+                }
+            });
+
             functionMap.put("day", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {

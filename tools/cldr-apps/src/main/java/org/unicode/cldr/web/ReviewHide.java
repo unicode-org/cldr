@@ -41,7 +41,13 @@ public class ReviewHide {
         }
     }
 
-    //get all the field for an user and locale
+    /**
+     * Get a map of all the notifications this user has chosen to hide in the Dashboard
+     *
+     * @param userId
+     * @param locale
+     * @return the map
+     */
     public HashMap<String, List<String>> getHiddenField(int userId, String locale) {
         if (this.hiddenField.isEmpty()) {
             Connection conn = null;
@@ -57,8 +63,9 @@ public class ReviewHide {
                     while (rs.next()) {
                         String choice = rs.getString("choice");
                         List<String> paths = this.hiddenField.get(choice);
-                        if (paths == null)
+                        if (paths == null) {
                             paths = new ArrayList<>();
+                        }
                         paths.add(rs.getString("path"));
 
                         this.hiddenField.put(choice, paths);

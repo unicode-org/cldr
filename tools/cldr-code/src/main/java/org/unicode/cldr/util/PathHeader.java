@@ -1965,9 +1965,6 @@ public class PathHeader implements Comparable<PathHeader> {
          * @return
          */
         private static String fix(String input, int orderIn) {
-            if (input.contains("&plural")) {
-                int debug = 0;
-            }
             input = RegexLookup.replace(input, args.value);
             order = orderIn;
             suborder = null;

@@ -1185,6 +1185,14 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
 
+            functionMap.put("pluralNumber", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    order = GrammarInfo.PluralValues.valueOf(source).ordinal();
+                    return source;
+                }
+            });
+
             functionMap.put("caseNumber", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {

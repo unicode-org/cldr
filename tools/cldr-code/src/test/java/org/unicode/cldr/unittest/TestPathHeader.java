@@ -1503,6 +1503,27 @@ public class TestPathHeader extends TestFmwkPlus {
                 }
             }
         }
+        for (Count count : Count.values()) {
+            String path = "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"" + count
+                + "\"]";
+            expectedOrder.add(phf.fromPath(path));
+        }
+        for (Count count : Count.values()) {
+            String path = "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"" + count
+                + "\"]";
+            expectedOrder.add(phf.fromPath(path));
+        }
+        for (GrammarInfo.CaseValues gCase : cases) {
+            String path = "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + gCase
+                + "\"]";
+            expectedOrder.add(phf.fromPath(path));
+        }
+        for (GrammarInfo.GenderValues gGender : genders) {
+            String path = "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + gGender
+                + "\"]";
+            expectedOrder.add(phf.fromPath(path));
+        }
+
         PathHeader last = null;
         int item = 0;
         int errorCount = 0;

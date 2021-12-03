@@ -1185,6 +1185,14 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
 
+            functionMap.put("pluralNumber", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    order = GrammarInfo.PluralValues.valueOf(source).ordinal();
+                    return source;
+                }
+            });
+
             functionMap.put("caseNumber", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {
@@ -1957,6 +1965,9 @@ public class PathHeader implements Comparable<PathHeader> {
          * @return
          */
         private static String fix(String input, int orderIn) {
+            if (input.contains("&plural")) {
+                int debug = 0;
+            }
             input = RegexLookup.replace(input, args.value);
             order = orderIn;
             suborder = null;

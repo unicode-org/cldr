@@ -9,7 +9,7 @@ const ST_AJAX_DEBUG = true;
  * Call the standard js fetch function, possibly with additional handling suitable
  * for Survey Tool such as setting session headers and debugging
  *
- * Session headers are automatically added unless init.headers is already set
+ * Session headers are automatically added
  *
  * @param {String} resource the url or other resource, or Request object
  * @param {Object} init an object containing any custom settings for the request
@@ -19,12 +19,8 @@ function doFetch(resource, init) {
   if (ST_AJAX_DEBUG) {
     console.log("cldrAjax.doFetch: " + resource);
   }
-  if (!init) {
-    init = {};
-  }
-  if (!init.headers) {
-    init.headers = cldrStatus.sessionHeaders();
-  }
+  init = init || {};
+  init.headers = cldrStatus.sessionHeaders(init?.headers);
   return fetch(resource, init);
 }
 

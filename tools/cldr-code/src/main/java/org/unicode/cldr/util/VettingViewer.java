@@ -150,23 +150,6 @@ public class VettingViewer<T> {
             this.order = order;
         }
 
-        private static <T extends Appendable> T appendDisplay(Set<Choice> choices, String htmlMessage, T target) {
-            try {
-                boolean first = true;
-                for (Choice item : choices) {
-                    if (first) {
-                        first = false;
-                    } else {
-                        target.append(", ");
-                    }
-                    item.appendDisplay(htmlMessage, target);
-                }
-                return target;
-            } catch (IOException e) {
-                throw new ICUUncheckedIOException(e);
-            }
-        }
-
         private <T extends Appendable> void appendDisplay(String htmlMessage, T target) throws IOException {
             target.append("<span title='")
                 .append(description);
@@ -177,18 +160,6 @@ public class VettingViewer<T> {
             target.append("'>")
                 .append(buttonLabel)
                 .append("*</span>");
-        }
-
-        public static Appendable appendRowStyles(Set<Choice> choices, Appendable target) {
-            try {
-                target.append("hide");
-                for (Choice item : choices) {
-                    target.append(' ').append("vv").append(Character.toLowerCase(item.abbreviation));
-                }
-                return target;
-            } catch (IOException e) {
-                throw new ICUUncheckedIOException(e);
-            }
         }
     }
 
@@ -381,8 +352,6 @@ public class VettingViewer<T> {
     private final CLDRFile englishFile;
     private final UsersChoice<T> userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
-    private final String baselineTitle = "Baseline";
-    private final String currentWinningTitle;
     private final Set<String> defaultContentLocales;
 
     /**
@@ -391,10 +360,9 @@ public class VettingViewer<T> {
      * @param supplementalDataInfo
      * @param cldrFactory
      * @param userVoteStatus
-     * @param currentWinningTitle the title of the next version of CLDR to be released
      */
     public VettingViewer(SupplementalDataInfo supplementalDataInfo, Factory cldrFactory,
-        UsersChoice<T> userVoteStatus, String currentWinningTitle) {
+        UsersChoice<T> userVoteStatus) {
 
         super();
         this.cldrFactory = cldrFactory;
@@ -406,7 +374,6 @@ public class VettingViewer<T> {
         this.supplementalDataInfo = supplementalDataInfo;
         this.defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
 
-        this.currentWinningTitle = currentWinningTitle;
         reasonsToPaths = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
     }
 
@@ -426,50 +393,6 @@ public class VettingViewer<T> {
         public int compareTo(WritingInfo other) {
             return codeOutput.compareTo(other.codeOutput);
         }
-
-        private String getUrl(CLDRLocale locale) {
-            return urls.forPathHeader(locale, codeOutput);
-        }
-    }
-
-    /**
-     * Show a table of values, filtering according to the choices here and in
-     * the constructor.
-     *
-     * @param output
-     * @param choices
-     *            See the class description for more information.
-     * @param localeId
-     * @param organization
-     * @param usersLevel
-     *
-     * Called only by VettingViewerQueue.processCriticalWork, for Priority Items Summary; not used for Dashboard
-     */
-    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T organization,
-        Level usersLevel) {
-
-        // Gather the relevant paths
-        // each one will be marked with the choice that it triggered.
-        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
-            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
-
-        CLDRFile sourceFile = cldrFactory.make(localeID, true);
-
-        // Initialize
-        CLDRFile baselineFile = null;
-        try {
-            Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-            baselineFile = baselineFactory.make(localeID, true);
-        } catch (Exception e) {
-        }
-
-        FileInfo fileInfo = new FileInfo(localeID, usersLevel, choices, organization);
-        fileInfo.setFiles(sourceFile, baselineFile);
-        fileInfo.setSorted(sorted);
-        fileInfo.getFileInfo();
-
-        // now write the results out
-        writeTables(output, sourceFile, baselineFile, sorted, choices, fileInfo);
     }
 
     public class DashboardData {
@@ -1489,176 +1412,6 @@ public class VettingViewer<T> {
     }
 
     /**
-     * For Priority Items Summary
-     *
-     * @param output
-     * @param sourceFile
-     * @param baselineFile
-     * @param sorted
-     * @param choices
-     * @param outputFileInfo
-     */
-    private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile baselineFile,
-        Relation<R2<SectionId, PageId>, WritingInfo> sorted,
-        EnumSet<Choice> choices,
-        FileInfo outputFileInfo) {
-        try {
-
-            boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
-
-            output.append("<h2>Summary</h2>\n")
-                .append("<p><i>It is important that you read " +
-                    "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
-                    "Priority Items</a> before starting!</i></p>")
-                .append("<form name='checkboxes' action='#'>\n")
-                .append("<table class='tvs-table'>\n")
-                .append("<tr class='tvs-tr'>" +
-                    "<th class='tv-th'>Count</th>" +
-                    "<th class='tv-th'>Issue</th>" +
-                    "<th class='tv-th'>Description</th>" +
-                    "</tr>\n");
-
-            // find the choice to check
-            // OLD if !vetting and missing != 0, use missing. Otherwise pick first.
-            Choice checkedItem = null;
-
-            for (Choice choice : choices) {
-                long count = outputFileInfo.vc.problemCounter.get(choice);
-                output.append("<tr><td class='tvs-count'>")
-                    .append(nf.format(count))
-                    .append("</td>\n\t<td nowrap class='tvs-abb'>")
-                    .append("<input type='checkbox' name='")
-                    .append(Character.toLowerCase(choice.abbreviation))
-                    .append("' onclick='setStyles()'");
-                if (checkedItem == choice || checkedItem == null && count != 0) {
-                    output.append(" checked");
-                    checkedItem = choice;
-                }
-                output.append(">");
-                choice.appendDisplay("", output);
-                output.append("</td>\n\t<td class='tvs-desc'>")
-                    .append(choice.description)
-                    .append("</td></tr>\n");
-            }
-            output.append("</table>\n</form>\n"
-                + "<script>\n" +
-                "<!-- \n" +
-                "setStyles()\n" +
-                "-->\n"
-                + "</script>");
-
-            // gather information on choices on each page
-
-            Relation<Row.R3<SectionId, PageId, String>, Choice> choicesForHeader = Relation.of(
-                new HashMap<Row.R3<SectionId, PageId, String>, Set<Choice>>(), HashSet.class);
-
-            Relation<Row.R2<SectionId, PageId>, Choice> choicesForSection = Relation.of(
-                new HashMap<R2<SectionId, PageId>, Set<Choice>>(), HashSet.class);
-
-            for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
-                SectionId section = entry0.getKey().get0();
-                PageId subsection = entry0.getKey().get1();
-                final Set<WritingInfo> rows = entry0.getValue();
-                for (WritingInfo pathInfo : rows) {
-                    String header = pathInfo.codeOutput.getHeader();
-                    Set<Choice> choicesForPath = pathInfo.problems;
-                    choicesForSection.putAll(Row.of(section, subsection), choicesForPath);
-                    choicesForHeader.putAll(Row.of(section, subsection, header), choicesForPath);
-                }
-            }
-
-            final String localeId = sourceFile.getLocaleID();
-            final CLDRLocale locale = CLDRLocale.getInstance(localeId);
-            int count = 0;
-            for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
-                SectionId section = entry0.getKey().get0();
-                PageId subsection = entry0.getKey().get1();
-                final Set<WritingInfo> rows = entry0.getValue();
-
-                rows.iterator().next();
-
-                output.append("\n<h2 class='tv-s'>Section: ")
-                    .append(section.toString())
-                    .append(" — <i><a href='")
-                    .append(urls.forPage(locale, subsection))
-                    .append("'>Page: ")
-                    .append(subsection.toString())
-                    .append("</a></i> (" + rows.size() + ")</h2>\n");
-                startTable(choicesForSection.get(Row.of(section, subsection)), output);
-
-                String oldHeader = "";
-                for (WritingInfo pathInfo : rows) {
-                    String header = pathInfo.codeOutput.getHeader();
-                    String code = pathInfo.codeOutput.getCode();
-                    String path = pathInfo.codeOutput.getOriginalPath();
-                    Set<Choice> choicesForPath = pathInfo.problems;
-
-                    if (!header.equals(oldHeader)) {
-                        Set<Choice> headerChoices = choicesForHeader.get(Row.of(section, subsection, header));
-                        output.append("<tr class='");
-                        Choice.appendRowStyles(headerChoices, output);
-                        output.append("'>\n");
-                        output.append(" <th class='partsection' colSpan='6'>");
-                        output.append(header);
-                        output.append("</th>\n</tr>\n");
-                        oldHeader = header;
-                    }
-
-                    output.append("<tr class='");
-                    Choice.appendRowStyles(choicesForPath, output);
-                    output.append("'>\n");
-                    addCell(output, nf.format(++count), null, "tv-num", HTMLType.plain);
-                    // path
-                    addCell(output, code, null, "tv-code", HTMLType.plain);
-                    // English value
-                    if (choicesForPath.contains(Choice.englishChanged)) {
-                        String winning = englishFile.getWinningValue(path);
-                        String cellValue = winning == null ? "<i>missing</i>"
-                            : TransliteratorUtilities.toHTML
-                                .transform(winning);
-                        String previous = outdatedPaths.getPreviousEnglish(path);
-                        if (previous != null) {
-                            cellValue += "<br><span style='color:#900'><b>OLD: </b>"
-                                + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
-                        } else {
-                            cellValue += "<br><b><i>missing</i></b>";
-                        }
-                        addCell(output, cellValue, null, "tv-eng", HTMLType.markup);
-                    } else {
-                        addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
-                    }
-                    // baseline value
-                    // TODO: should this be baselineFile.getUnresolved()? Compare how getFileInfo calls getMissingStatus
-                    final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
-                    MissingStatus oldValueMissing = getMissingStatus(baselineFile, path, latin);
-
-                    addCell(output, oldStringValue, null, oldValueMissing != MissingStatus.PRESENT ? "tv-miss"
-                        : "tv-last", HTMLType.plain);
-                    // current winning value
-                    String newWinningValue = sourceFile.getWinningValue(path);
-                    if (Objects.equals(newWinningValue, oldStringValue)) {
-                        newWinningValue = "=";
-                    }
-                    addCell(output, newWinningValue, null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss"
-                        : "tv-win", HTMLType.plain);
-                    output.append(" <td class='tv-fix'><a target='_blank' href='")
-                        .append(pathInfo.getUrl(locale)) // .append(c)baseUrl + "?_=")
-                        .append("'>");
-                    Choice.appendDisplay(choicesForPath, "", output);
-                    output.append("</a></td>");
-                    if (!pathInfo.htmlMessage.isEmpty()) {
-                        addCell(output, pathInfo.htmlMessage, null, "tv-test", HTMLType.markup);
-                    }
-                    output.append("</tr>\n");
-                }
-                output.append("</table>\n");
-            }
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException(e);
-        }
-    }
-
-    /**
      *
      * @param choices
      * @param localeID
@@ -1699,42 +1452,6 @@ public class VettingViewer<T> {
         }
 
         return out;
-    }
-
-    private void startTable(Set<Choice> choices, Appendable output) throws IOException {
-        output.append("<table class='tv-table'>\n");
-        output.append("<tr class='");
-        Choice.appendRowStyles(choices, output);
-        output.append("'>" +
-            "<th class='tv-th'>No.</th>" +
-            "<th class='tv-th'>Code</th>" +
-            "<th class='tv-th'>English</th>" +
-            "<th class='tv-th'>" + baselineTitle + "</th>" +
-            "<th class='tv-th'>" + currentWinningTitle + "</th>" +
-            "<th class='tv-th'>Fix?</th>" +
-            "<th class='tv-th'>Comment</th>" +
-            "</tr>\n");
-    }
-
-    enum HTMLType {
-        plain, markup
-    }
-
-    private void addCell(Appendable output, String value, String title, String classValue, HTMLType htmlType)
-        throws IOException {
-        output.append(" <td class='")
-            .append(classValue);
-        if (value == null) {
-            output.append(" tv-null'><i>missing</i></td>");
-        } else {
-            if (title != null && !title.equals(value)) {
-                output.append("title='").append(TransliteratorUtilities.toHTML.transform(title)).append('\'');
-            }
-            output
-                .append("'>")
-                .append(htmlType == HTMLType.markup ? value : TransliteratorUtilities.toHTML.transform(value))
-                .append("</td>\n");
-        }
     }
 
     /**

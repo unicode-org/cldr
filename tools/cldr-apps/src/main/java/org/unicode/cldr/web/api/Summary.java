@@ -9,7 +9,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -47,8 +46,8 @@ public class Summary {
                     schema = @Schema(implementation = SummaryResponse.class)))
         })
     public Response doVettingSummary(
-        @QueryParam("ss") @Schema(required = true, description = "Session String") String sessionString,
-        SummaryRequest request
+        SummaryRequest request,
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString
     ) {
         try {
             CookieSession session = Auth.getSession(sessionString);
@@ -64,11 +63,8 @@ public class Summary {
             VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
             StringBuilder sb = new StringBuilder();
             JSONObject jStatus = new JSONObject();
-            String str = VettingViewerQueue.getInstance()
-                .getVettingViewerOutput(null, session,
-                    VettingViewerQueue.SUMMARY_LOCALE,
-                    status,
-                    request.loadingPolicy, sb, jStatus);
+            VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+            String str = vvq.getPriorityItemsSummaryOutput(session, status, request.loadingPolicy, sb, jStatus);
             SummaryResponse resp = new SummaryResponse();
             resp.jStatus = jStatus;
             resp.status = status[0];
@@ -79,7 +75,6 @@ public class Summary {
             return Response.status(500, "An exception occurred").entity(ioe).build();
         }
     }
-
 
     @GET
     @Path("/dashboard/{locale}/{level}")

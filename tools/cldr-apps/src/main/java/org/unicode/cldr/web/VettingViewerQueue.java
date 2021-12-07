@@ -26,7 +26,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.Predicate;
@@ -47,7 +46,6 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.DurationFormat;
-import com.ibm.icu.util.ULocale;
 
 /**
  * @author srl
@@ -92,8 +90,6 @@ public class VettingViewerQueue {
     }
 
     private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
-
-    public static CLDRLocale SUMMARY_LOCALE = CLDRLocale.getInstance(ULocale.forLanguageTag("und-vetting"));
 
     private static final class VettingViewerQueueHelper {
         static VettingViewerQueue instance = new VettingViewerQueue();
@@ -171,8 +167,6 @@ public class VettingViewerQueue {
         START,
         /** Don't start if not started. Just check. */
         NOSTART,
-        /** Force a restart, ignoring old contents */
-        FORCERESTART,
         /** Stop. */
         FORCESTOP
     }
@@ -194,7 +188,7 @@ public class VettingViewerQueue {
 
     private static class QueueEntry {
         private Task currentTask = null;
-        private Map<Pair<CLDRLocale, Organization>, VVOutput> output = new TreeMap<>();
+        private Map<Organization, VVOutput> output = new TreeMap<>();
     }
 
     /**
@@ -237,11 +231,7 @@ public class VettingViewerQueue {
                 n++;
                 if (n > (maxn - 5)) {
                     maxn = n + 10;
-                    if (!isSummary && n > gMax) {
-                        gMax = n;
-                    }
                 }
-
                 if ((now - last) > 1200) {
                     last = now;
                     if (n > 500) {
@@ -267,17 +257,14 @@ public class VettingViewerQueue {
         private Thread myThread = null;
         private boolean stop = false;
 
-        private CLDRLocale locale;
         private QueueEntry entry;
         private SurveyMain sm;
         private int maxn;
         private int n = 0;
-        private final boolean isSummary;
         private long start = -1;
         private long last;
         private long rem = -1;
         private final String st_org;
-        private final Level usersLevel;
         private final Organization usersOrg;
         private String status = "(Waiting my spot in line)";
         private Status statusCode = Status.WAITING; // Need to start out as waiting.
@@ -288,56 +275,49 @@ public class VettingViewerQueue {
 
         private StringBuffer aBuffer = new StringBuffer();
 
-        private Task(QueueEntry entry, CLDRLocale locale, SurveyMain sm, String baseUrl, Level usersLevel,
+        /**
+         * Construct a Runnable object specifically for Priority Items Summary
+         *
+         * @param entry the QueueEntry
+         * @param baseUrl
+         * @param usersLevel
+         * @param usersOrg
+         * @param st_org
+         */
+        private Task(QueueEntry entry, String baseUrl, Level usersLevel,
             Organization usersOrg, final String st_org) {
-            isSummary = isSummary(locale);
             if (DEBUG) {
-                System.out.println("Creating task " + locale.toString());
+                System.out.println("Creating task for Priority Items Summary");
             }
-
+            this.sm = CookieSession.sm;
             int baseMax = getMax(sm.getTranslationHintsFile());
-            if (isSummary) {
-                maxn = 0;
-                List<Level> levelsToCheck = new ArrayList<>();
-                if (usersOrg.equals(Organization.surveytool)) {
-                    levelsToCheck.add(Level.COMPREHENSIVE);
-                } else {
-                    levelsToCheck.addAll(Arrays.asList(Level.values()));
-                }
-                for (Level lv : levelsToCheck) {
-                    LocalesWithExplicitLevel lwe = new LocalesWithExplicitLevel(usersOrg, lv);
-                    for (CLDRLocale l : SurveyMain.getLocalesSet()) {
-                        if (lwe.is(l.toString())) {
-                            maxn += baseMax;
-                        }
+            maxn = 0;
+            List<Level> levelsToCheck = new ArrayList<>();
+            if (usersOrg.equals(Organization.surveytool)) {
+                levelsToCheck.add(Level.COMPREHENSIVE);
+            } else {
+                levelsToCheck.addAll(Arrays.asList(Level.values()));
+            }
+            for (Level lv : levelsToCheck) {
+                LocalesWithExplicitLevel lwe = new LocalesWithExplicitLevel(usersOrg, lv);
+                for (CLDRLocale l : SurveyMain.getLocalesSet()) {
+                    if (lwe.is(l.toString())) {
+                        maxn += baseMax;
                     }
                 }
-            } else {
-                maxn = baseMax;
             }
-            this.locale = locale;
             this.st_org = st_org;
             this.entry = entry;
-            this.sm = sm;
-            this.usersLevel = usersLevel;
             this.usersOrg = usersOrg;
-        }
-
-        /**
-         * @param locale
-         * @return
-         */
-        private boolean isSummary(CLDRLocale locale) {
-            return locale == SUMMARY_LOCALE;
         }
 
         @Override
         public void run() {
             statusCode = Status.WAITING;
-            final CLDRProgressTask progress = CookieSession.sm.openProgress("vv:" + locale, maxn + 100);
+            final CLDRProgressTask progress = CookieSession.sm.openProgress("vv: Priority Items Summary", maxn + 100);
 
             if (DEBUG) {
-                System.out.println("Starting up vv task:" + locale);
+                System.out.println("Starting up vv task: Priority Items Summary");
             }
 
             try {
@@ -357,7 +337,7 @@ public class VettingViewerQueue {
                 status = "Finished.";
                 statusCode = Status.READY;
             } catch (RuntimeException | InterruptedException re) {
-                SurveyLog.logException(logger, re, "While VettingViewer processing " + locale);
+                SurveyLog.logException(logger, re, "While VettingViewer processing Priority Items Summary");
                 status = "Exception! " + re.toString();
                 // We're done.
                 statusCode = Status.STOPPED;
@@ -374,7 +354,7 @@ public class VettingViewerQueue {
             status = "Beginning Process, Calculating";
 
             vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-                getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
+                getUsersChoice(sm));
             progress.update("Got VettingViewer");
             statusCode = Status.PROCESSING;
             start = System.currentTimeMillis();
@@ -384,22 +364,18 @@ public class VettingViewerQueue {
 
             EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
 
-            if (!isSummary(locale)) {
-                vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel);
-            } else {
-                if (DEBUG) {
-                    System.out.println("Starting summary gen..");
-                }
-                /*
-                 * TODO: remove call to getLocalesWithVotes here, unless it has necessary side-effects.
-                 * Its return value was formerly an unused argument to generateSummaryHtmlErrorTables
-                 */
-                getLocalesWithVotes(st_org);
-                vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
+            if (DEBUG) {
+                System.out.println("Starting summary gen..");
             }
+            /*
+             * TODO: remove call to getLocalesWithVotes here, unless it has necessary side-effects.
+             * Its return value was formerly an unused argument to generateSummaryHtmlErrorTables
+             */
+            getLocalesWithVotes(st_org);
+            vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
                 aBuffer.append("<hr/>" + PRE + "Processing time: " + ElapsedTimer.elapsedTime(start) + POST);
-                entry.output.put(new Pair<>(locale, usersOrg), new VVOutput(aBuffer));
+                entry.output.put(usersOrg, new VVOutput(aBuffer));
             }
         }
 
@@ -526,7 +502,7 @@ public class VettingViewerQueue {
 
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-            getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
+            getUsersChoice(sm));
 
         EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
         ArrayList<String> out = vv.getErrorOnPath(choiceSet, locale.getBaseName(), usersOrg, usersLevel, path);
@@ -556,15 +532,10 @@ public class VettingViewerQueue {
         STFactory sourceFactory = sm.getSTFactory();
         final Factory baselineFactory = CookieSession.sm.getDiskFactory();
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
-            getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
+            getUsersChoice(sm));
 
         EnumSet<VettingViewer.Choice> choiceSet = getChoiceSetForOrg(usersOrg);
 
-        // This is to prevent confusion, because parallel functions
-        // use the locale to identify a summary locale.
-        if (locale == SUMMARY_LOCALE) {
-            throw new IllegalArgumentException("SUMMARY_LOCALE not supported via getDashboardOutput()");
-        }
         /*
          * sourceFile provides the current winning values, taking into account recent votes.
          * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
@@ -804,35 +775,26 @@ public class VettingViewerQueue {
     }
 
     /**
-     * Return the status of the vetting viewer output request. If a different
-     * locale is requested, the previous request will be cancelled.
+     * Return the status of the vetting viewer output request
      *
-     * @param ctx
-     * @param locale
-     * @param output
-     *            if there is output, it will be written here. Or not, if it's
-     *            null
-     * @param jsonStatus TODO
-     * @return status message
+     * @param sess the CookieSession
+     * @param status the array of one new VettingViewerQueue.Status to be filled in
+     * @param forceRestart the LoadingPolicy
+     * @param output the empty Appendable (StringBuilder) to be filled in
+     * @param jStatus the new JSONObject to be filled in
+     * @return the status message, or null
      * @throws IOException
      * @throws JSONException
      */
-    public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status,
+    public synchronized String getPriorityItemsSummaryOutput(CookieSession sess, Status[] status,
         LoadingPolicy forceRestart, Appendable output, JSONObject jStatus) throws IOException, JSONException {
-        if (sess == null)
-            sess = ctx.session;
-        SurveyMain sm = CookieSession.sm; // TODO: ctx.sm if ctx never null
-        Pair<CLDRLocale, Organization> key = new Pair<>(locale, sess.user.vrOrg());
-        boolean isSummary = (locale == SUMMARY_LOCALE);
         QueueEntry entry = null;
         entry = getEntry(sess);
-        if (status == null)
+        if (status == null) {
             status = new Status[1];
-        jStatus.put("isSummary", isSummary);
-        jStatus.put("locale", locale);
-        if (forceRestart != LoadingPolicy.FORCERESTART &&
-            forceRestart != LoadingPolicy.FORCESTOP) {
-            VVOutput res = entry.output.get(key);
+        }
+        if (forceRestart != LoadingPolicy.FORCESTOP) {
+            VVOutput res = entry.output.get(sess.user.vrOrg());
             if (res != null) {
                 status[0] = Status.READY;
                 if (output != null) {
@@ -840,9 +802,9 @@ public class VettingViewerQueue {
                 }
                 return null;
             }
-        } else { /* force restart */
-            stop(ctx, locale, entry);
-            entry.output.remove(key);
+        } else { /* force stop */
+            stop(entry);
+            entry.output.remove(sess.user.vrOrg());
         }
 
         if (forceRestart == LoadingPolicy.FORCESTOP) {
@@ -853,35 +815,19 @@ public class VettingViewerQueue {
             return "Stopped on request";
         }
         Task t = entry.currentTask;
-        CLDRLocale didKill = null;
 
         if (t != null) {
             String waiting = waitingString(t.sm.startupThread);
             putTaskStatus(jStatus, t);
-            if (t.locale.equals(locale)) {
-                status[0] = Status.PROCESSING;
-                if (t.myThread.isAlive()) {
-                    // get progress from current thread
-                    status[0] = t.statusCode;
-                    if (status[0] != Status.WAITING)
-                        waiting = "";
-                    return PRE + "In Progress: " + waiting + t.status() + POST;
-                } else {
-                    return PRE + "Stopped (refresh if stuck) " + t.status() + POST;
-                }
-            } else if (forceRestart == LoadingPolicy.NOSTART) {
-                status[0] = Status.STOPPED;
-                jStatus.put("your_other_running", t.myThread.isAlive());
-                if (t.myThread.isAlive()) {
-                    return PRE + " You have another locale being loaded: " + t.locale + POST;
-                } else {
-                    return PRE + "Refresh if stuck." + POST;
-                }
+            status[0] = Status.PROCESSING;
+            if (t.myThread.isAlive()) {
+                // get progress from current thread
+                status[0] = t.statusCode;
+                if (status[0] != Status.WAITING)
+                    waiting = "";
+                return PRE + "In Progress: " + waiting + t.status() + POST;
             } else {
-                if (t.myThread.isAlive()) {
-                    didKill = t.locale;
-                }
-                stop(ctx, t.locale, entry);
+                return PRE + "Stopped (refresh if stuck) " + t.status() + POST;
             }
         }
 
@@ -893,29 +839,20 @@ public class VettingViewerQueue {
         String baseUrl = null;
         Level usersLevel;
         Organization usersOrg;
-        if (ctx != null) {
-            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
-        } else {
-            String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-
-            usersLevel = Level.get(levelString);
-        }
+        String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
+        usersLevel = Level.get(levelString);
         usersOrg = sess.user.vrOrg();
 
         // TODO: May be better to use SurveyThreadManager.getExecutorService().invoke() (rather than a raw thread) but would require
         // some restructuring
-        t = entry.currentTask = new Task(entry, locale, sm, baseUrl, usersLevel, usersOrg, sess.user.org);
+        t = entry.currentTask = new Task(entry, baseUrl, usersLevel, usersOrg, sess.user.org);
         t.myThread = SurveyThreadManager.getThreadFactory().newThread(t);
         t.myThread.start();
         SurveyThreadManager.getThreadFactory().newThread(t);
 
         status[0] = Status.PROCESSING;
-        String killMsg = "";
-        if (didKill != null) {
-            killMsg = " (Note: Stopped loading: " + didKill.toULocale().getDisplayName(SurveyMain.TRANS_HINT_LOCALE) + ")";
-        }
         putTaskStatus(jStatus, t);
-        return PRE + "Started new task: " + waitingString(t.sm.startupThread) + t.status() + "<hr/>" + killMsg + POST;
+        return PRE + "Started new task: " + waitingString(t.sm.startupThread) + t.status() + "<hr/>" + POST;
     }
 
     /**
@@ -925,7 +862,6 @@ public class VettingViewerQueue {
      */
     public void putTaskStatus(JSONObject jStatus, Task t) throws JSONException {
         jStatus.put("t_waiting", totalUsersWaiting(t.sm.startupThread));
-        jStatus.put("t_locale", t.locale);
         jStatus.put("t_running", t.myThread.isAlive());
         jStatus.put("t_id", t.myThread.getId());
         jStatus.put("t_statuscode", t.statusCode);
@@ -940,7 +876,7 @@ public class VettingViewerQueue {
         return waiting;
     }
 
-    private void stop(WebContext ctx, CLDRLocale locale, QueueEntry entry) {
+    private void stop(QueueEntry entry) {
         Task t = entry.currentTask;
         if (t != null) {
             if (t.myThread.isAlive() && t.stop == false) {

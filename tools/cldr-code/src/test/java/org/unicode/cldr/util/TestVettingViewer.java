@@ -55,7 +55,7 @@ class TestVettingViewer {
                 return phf.fromPath(xpath);
             }
 
-        }, "hello world");
+        });
 
         Organization usersOrg = Organization.surveytool;
 

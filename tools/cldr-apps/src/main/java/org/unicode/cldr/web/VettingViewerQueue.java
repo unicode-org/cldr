@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -28,8 +27,6 @@ import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.Predicate;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
@@ -264,7 +261,6 @@ public class VettingViewerQueue {
         private long start = -1;
         private long last;
         private long rem = -1;
-        private final String st_org;
         private final Organization usersOrg;
         private String status = "(Waiting my spot in line)";
         private Status statusCode = Status.WAITING; // Need to start out as waiting.
@@ -306,7 +302,6 @@ public class VettingViewerQueue {
                     }
                 }
             }
-            this.st_org = st_org;
             this.entry = entry;
             this.usersOrg = usersOrg;
         }
@@ -367,11 +362,6 @@ public class VettingViewerQueue {
             if (DEBUG) {
                 System.out.println("Starting summary gen..");
             }
-            /*
-             * TODO: remove call to getLocalesWithVotes here, unless it has necessary side-effects.
-             * Its return value was formerly an unused argument to generateSummaryHtmlErrorTables
-             */
-            getLocalesWithVotes(st_org);
             vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
                 aBuffer.append("<hr/>" + PRE + "Processing time: " + ElapsedTimer.elapsedTime(start) + POST);
@@ -383,92 +373,6 @@ public class VettingViewerQueue {
             StringBuffer bar = SurveyProgressManager.appendProgressBar(new StringBuffer(), n, maxn);
             return status + bar;
         }
-
-        private Predicate<String> fLocalesWithVotes = null;
-
-        private synchronized Predicate<String> getLocalesWithVotes(String st_org) {
-            if (fLocalesWithVotes == null) {
-                fLocalesWithVotes = createLocalesWithVotes(st_org);
-            }
-            return fLocalesWithVotes;
-        }
-    }
-
-    /**
-     *
-     * @param st_org
-     * @return
-     *
-     * Called by getLocalesWithVotes
-     */
-    private Predicate<String> createLocalesWithVotes(String st_org) {
-        final Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
-        /*
-         * a. Any locale in Locales.txt for organization (excluding *). Use
-         * StandardCodes.make().getLocaleCoverageLocales(String organization).
-         * b. All locales listed in the user-languages of any user in the
-         * organization c. Any locale with at least one vote by a user in that
-         * organization
-         */
-        final Organization vr_org = UserRegistry.computeVROrganization(st_org);
-        final Set<Organization> covOrgs = StandardCodes.make().getLocaleCoverageOrganizations();
-
-        final Set<String> aLocs = new HashSet<>();
-        /*
-         * TODO: a warning appears for the next line; should be vr_org instead of vr_org.name()?
-         * How to exercise this code and test that?
-         */
-        if (covOrgs.contains(vr_org.name())) {
-            aLocs.addAll(StandardCodes.make().getLocaleCoverageLocales(vr_org.name()));
-            if (DEBUG) {
-                System.out.println("localesWithVotes st_org=" + st_org + ", vr_org=" + vr_org + ", aLocs=" + aLocs.size());
-            }
-        } else if (DEBUG) {
-            System.out.println("localesWithVotes st_org=" + st_org + ", vr_org=" + vr_org + ", aLocs= (not a cov org)");
-        }
-
-        // b -
-        // select distinct cldr_interest.forum from cldr_interest where exists
-        // (select * from cldr_users where cldr_users.id=cldr_interest.uid and
-        // cldr_users.org='SurveyTool');
-        final Set<String> covGroupsForOrg = UserRegistry.getCovGroupsForOrg(st_org);
-
-        // c. any locale with at least 1 vote by a user in that org
-        final Set<CLDRLocale> anyVotesFromOrg = UserRegistry.anyVotesForOrg(st_org);
-
-        if (DEBUG) {
-            System.out.println("CovGroupsFor " + st_org + "=" + covGroupsForOrg.size() +
-                ", anyVotes=" + anyVotesFromOrg.size()
-                + "  - " + SurveyMain.freeMem());
-        }
-        Predicate<String> localesWithVotes = new Predicate<String>() {
-            final boolean showAllLocales = (vr_org == Organization.surveytool)
-                || CldrUtility.getProperty("THRASH_ALL_LOCALES", false);
-
-            @Override
-            public boolean is(String item) {
-                if (showAllLocales) {
-                    return true;
-                }
-                CLDRLocale loc = CLDRLocale.getInstance(item);
-                return (aLocs.contains(item) || // a
-                    covGroupsForOrg.contains(loc.getBaseName()) || // b
-                    anyVotesFromOrg.contains(loc)); // c
-            }
-        };
-
-        int lcount = 0;
-        StringBuilder sb = new StringBuilder();
-        for (CLDRLocale l : allLocs) {
-            if (localesWithVotes.is(l.getBaseName())) {
-                lcount++;
-                sb.append(l + " ");
-            }
-        }
-        if (DEBUG) {
-            System.out.println("CovGroupsFor " + st_org + "= union = " + lcount + " - " + sb);
-        }
-        return localesWithVotes;
     }
 
     private static final String PRE = "<DIV class='pager'>";

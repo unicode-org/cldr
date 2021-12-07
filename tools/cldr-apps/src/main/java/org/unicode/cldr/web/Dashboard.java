@@ -29,39 +29,44 @@ import com.ibm.icu.impl.Row.R4;
 
 public class Dashboard {
 
-    @Schema(description = "Single entry of the dashboard that needs review")
-    public static final class ReviewEntry {
+    @Schema(description = "Output of Dashboard")
+    public static final class ReviewOutput {
+        @Schema(description = "list of notifications")
+        private List<ReviewNotification> notifications = new ArrayList<>();
 
-        @Schema(description = "Code for this entry", example = "narrow-other-nominative")
-        public String code;
+        public ReviewNotification[] getNotifications() {
+            return notifications.toArray(new ReviewNotification[notifications.size()]);
+        }
 
-        @Schema(example = "7bd36b15a66d02cf")
-        public String xpath;
-
-        @Schema(description = "English text", example = "{0}dsp-Imp")
-        public String english;
-
-        @Schema(description = "Previous English value, for EnglishChanged", example = "{0} dstspn Imp")
-        public String previousEnglish;
-
-        @Schema(description = "Baseline value", example = "{0} dstspn Imp")
-        public String old; /* Not currently (2021-08-13) used by front end; should be renamed "baseline" */
-
-        @Schema(description = "Winning string in this locale", example = "{0} dstspn Imp")
-        public String winning;
-
-        @Schema(description = "html comment on the error", example = "&lt;value too wide&gt; Too wide by about 100% (with common fonts).")
-        public String comment;
+        public ReviewNotification add(String notification) {
+            return add(new ReviewNotification(notification));
+        }
 
         /**
-         * Create a new ReviewEntry
-         * @param code item code
-         * @param xpath xpath string
+         * Add this notification, unless the name is an exact match
+         * @param notificationName name of the next notification (e.g. Error)
+         * @param unlessMatches if this notification is already the same as notificationName, just return it.
+         * @return
          */
-        public ReviewEntry(String code, String xpath) {
-            this.code = code;
-            this.xpath = XPathTable.getStringIDString(xpath);
+        public ReviewNotification add(String notificationName, ReviewNotification unlessMatches) {
+            if (unlessMatches != null && unlessMatches.notification.equals(notificationName)) {
+                return unlessMatches;
+            } else {
+                return add(notificationName);
+            }
         }
+
+        public ReviewNotification add(ReviewNotification notification) {
+            this.notifications.add(notification);
+            return notification;
+        }
+
+        /**
+         * Notifications that the user has chosen to hide
+         */
+        public HashMap<String, List<String>> hidden;
+
+        public VoterProgress voterProgress = null;
     }
 
     @Schema(description = "Heading for a portion of the notifications")
@@ -116,44 +121,39 @@ public class Dashboard {
         }
     }
 
-    @Schema(description = "Output of Dashboard")
-    public static final class ReviewOutput {
-        @Schema(description = "list of notifications")
-        private List<ReviewNotification> notifications = new ArrayList<>();
+    @Schema(description = "Single entry of the dashboard that needs review")
+    public static final class ReviewEntry {
 
-        public ReviewNotification[] getNotifications() {
-            return notifications.toArray(new ReviewNotification[notifications.size()]);
-        }
+        @Schema(description = "Code for this entry", example = "narrow-other-nominative")
+        public String code;
 
-        public ReviewNotification add(String notification) {
-            return add(new ReviewNotification(notification));
-        }
+        @Schema(example = "7bd36b15a66d02cf")
+        public String xpath;
 
-        /**
-         * Add this notification, unless the name is an exact match
-         * @param notificationName name of the next notification (e.g. Error)
-         * @param unlessMatches if this notification is already the same as notificationName, just return it.
-         * @return
-         */
-        public ReviewNotification add(String notificationName, ReviewNotification unlessMatches) {
-            if (unlessMatches != null && unlessMatches.notification.equals(notificationName)) {
-                return unlessMatches;
-            } else {
-                return add(notificationName);
-            }
-        }
+        @Schema(description = "English text", example = "{0}dsp-Imp")
+        public String english;
 
-        public ReviewNotification add(ReviewNotification notification) {
-            this.notifications.add(notification);
-            return notification;
-        }
+        @Schema(description = "Previous English value, for EnglishChanged", example = "{0} dstspn Imp")
+        public String previousEnglish;
+
+        @Schema(description = "Baseline value", example = "{0} dstspn Imp")
+        public String old; /* Not currently (2021-08-13) used by front end; should be renamed "baseline" */
+
+        @Schema(description = "Winning string in this locale", example = "{0} dstspn Imp")
+        public String winning;
+
+        @Schema(description = "html comment on the error", example = "&lt;value too wide&gt; Too wide by about 100% (with common fonts).")
+        public String comment;
 
         /**
-         * Notifications that the user has chosen to hide
+         * Create a new ReviewEntry
+         * @param code item code
+         * @param xpath xpath string
          */
-        public HashMap<String, List<String>> hidden;
-
-        public VoterProgress voterProgress = null;
+        public ReviewEntry(String code, String xpath) {
+            this.code = code;
+            this.xpath = XPathTable.getStringIDString(xpath);
+        }
     }
 
     /**
@@ -197,7 +197,6 @@ public class Dashboard {
 
     /**
      * Get Dashboard output as an object
-     * This is used only for the Dashboard, not for Priority Items Summary
      *
      * @param locale
      * @param user
@@ -229,8 +228,7 @@ public class Dashboard {
         CLDRFile baselineFile = baselineFactory.make(loc, true);
 
         /*
-         * TODO: refactor generateFileInfoReview, reallyGetDashboardOutput -- too many parameters!
-         * Postponed refactoring temporarily to avoid obscuring essential changes in the same commit...
+         * TODO: refactor -- too many parameters! Some could be fields of Dashboard or other classes...
          * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
          */
         VettingViewer<Organization>.DashboardData dd;

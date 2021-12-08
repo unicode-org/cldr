@@ -109,28 +109,27 @@ LocaleMap.prototype.getLocaleName = function getLocaleName(locid) {
  * @param locid the id - will canonicalize
  * @return the display name - or else the id
  */
-LocaleMap.prototype.getRegionAndOrVariantName = function getRegionAndOrVariantName(
-  locid
-) {
-  locid = this.canonicalizeLocaleId(locid);
-  var bund = this.getLocaleInfo(locid);
-  if (bund) {
-    var ret = "";
-    if (bund.name_rgn) {
-      ret = ret + bund.name_rgn;
+LocaleMap.prototype.getRegionAndOrVariantName =
+  function getRegionAndOrVariantName(locid) {
+    locid = this.canonicalizeLocaleId(locid);
+    var bund = this.getLocaleInfo(locid);
+    if (bund) {
+      var ret = "";
+      if (bund.name_rgn) {
+        ret = ret + bund.name_rgn;
+      }
+      if (bund.name_var) {
+        ret = ret + " (" + bund.name_var + ")";
+      }
+      if (ret != "") {
+        return ret; // region OR variant OR both
+      }
+      if (bund.name) {
+        return bund.name; // fallback to name
+      }
     }
-    if (bund.name_var) {
-      ret = ret + " (" + bund.name_var + ")";
-    }
-    if (ret != "") {
-      return ret; // region OR variant OR both
-    }
-    if (bund.name) {
-      return bund.name; // fallback to name
-    }
-  }
-  return locid; // fallbcak to locid
-};
+    return locid; // fallbcak to locid
+  };
 
 /**
  * Return the locale language

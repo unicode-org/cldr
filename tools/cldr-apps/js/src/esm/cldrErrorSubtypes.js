@@ -158,9 +158,8 @@ function setOnClicks() {
   if (el) {
     el.onclick = () => recheckAll();
   }
-  const recheckOneUrlElements = document.getElementsByClassName(
-    "recheckOneUrl"
-  );
+  const recheckOneUrlElements =
+    document.getElementsByClassName("recheckOneUrl");
   for (let i = 0; i < recheckOneUrlElements.length; i++) {
     const el = recheckOneUrlElements[i];
     // el.title === stat.url

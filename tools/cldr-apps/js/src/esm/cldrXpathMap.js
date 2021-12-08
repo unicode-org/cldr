@@ -142,9 +142,10 @@ XpathMap.prototype.put = function put(info) {
       );
     }
   } else {
-    this.stridToInfo[info.hex] = this.xpidToInfo[info.id] = this.xpathToInfo[
-      info.path
-    ] = info;
+    this.stridToInfo[info.hex] =
+      this.xpidToInfo[info.id] =
+      this.xpathToInfo[info.path] =
+        info;
     if (CLDR_XPATH_DEBUG) {
       console.log("XpathMap: adding contribution " + JSON.stringify(info));
     }

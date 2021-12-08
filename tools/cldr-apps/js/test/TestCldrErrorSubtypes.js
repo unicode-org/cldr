@@ -28,8 +28,7 @@ describe("cldrErrorSubtypes.getHtml", function () {
         names: ["displayCollision"],
         strings: ["display collision"],
         // TODO: fix link for short-names-and-keywords per https://unicode-org.atlassian.net/browse/CLDR-15080
-        url:
-          "https://sites.google.com/site/cldr/translation/short-names-and-keywords",
+        url: "https://sites.google.com/site/cldr/translation/short-names-and-keywords",
         status: 200,
       },
     ],

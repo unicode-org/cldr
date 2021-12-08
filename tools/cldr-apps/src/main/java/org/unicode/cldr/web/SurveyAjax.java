@@ -2449,7 +2449,7 @@ public class SurveyAjax extends HttpServlet {
      *
      * TODO: in spite of being deprecated, this is used constantly in Survey Tool. Its intended
      * replacement in /api/vote is not actually used yet, and isn't ready to be used since it
-     * fails to implement the "dashboard=true" query parameter for calling VettingViewerQueue.getErrorOnPath.
+     * fails to implement the "dashboard=true" query parameter for calling Dashboard.getErrorOnPath.
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
      */
     @Deprecated
@@ -2626,7 +2626,7 @@ public class SurveyAjax extends HttpServlet {
                         .key("locale").value(locale)
                         .key("dataLoadTime").value(et.toString());
                     if (ctx.hasField("dashboard")) {
-                        JSONArray issues = VettingViewerQueue.getInstance().getErrorOnPath(ctx.getLocale(), ctx, ctx.session, baseXp);
+                        JSONArray issues = new Dashboard().getErrorOnPath(ctx.getLocale(), ctx, ctx.session, baseXp);
                         r.key("issues").value(issues);
                     }
                     r.endObject();

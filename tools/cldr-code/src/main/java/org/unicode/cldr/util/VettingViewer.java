@@ -1539,4 +1539,16 @@ public class VettingViewer<T> {
             }
         }
     }
+
+    public static EnumSet<VettingViewer.Choice> getChoiceSetForOrg(Organization usersOrg) {
+        EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
+        if (usersOrg.equals(Organization.surveytool)) {
+            choiceSet = EnumSet.of(
+                VettingViewer.Choice.error,
+                VettingViewer.Choice.warning,
+                VettingViewer.Choice.hasDispute,
+                VettingViewer.Choice.notApproved);
+        }
+        return choiceSet;
+    }
 }

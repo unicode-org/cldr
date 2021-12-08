@@ -35,8 +35,8 @@ public class Summary {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Get Vetting Summary",
-        description = "This is a port of the 'old' vsummary API, with server generated HTML.")
+        summary = "Get Priority Items Summary",
+        description = "Also known as Vetting Summary, this like a Dashboard for multiple locales.")
     @APIResponses(
         value = {
             @APIResponse(

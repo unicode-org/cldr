@@ -387,46 +387,14 @@ function scrollToItem() {
 
 function insertLocaleSpecialNote(theDiv) {
   const bund = locmap.getLocaleInfo(cldrStatus.getCurrentLocale());
-  let msg = null;
-
-  if (bund) {
-    if (bund.readonly || bund.special_comment_raw) {
-      if (bund.readonly) {
-        if (bund.special_comment_raw) {
-          msg = bund.special_comment_raw;
-        } else {
-          msg = cldrText.get("readonly_unknown");
-        }
-        msg = cldrText.sub("readonly_msg", {
-          info: bund,
-          locale: cldrStatus.getCurrentLocale(),
-          msg: msg,
-        });
-      } else {
-        // Not readonly, could be a scratch locale
-        msg = bund.special_comment_raw;
-      }
-      if (msg) {
-        msg = locmap.linkify(msg);
-        var theChunk = cldrDom.construct(msg);
-        var subDiv = document.createElement("div");
-        subDiv.appendChild(theChunk);
-        subDiv.className = "warnText";
-        theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
-      }
-    } else if (bund.dcChild) {
-      const html = cldrText.sub("defaultContentChild_msg", {
-        name: bund.name,
-        dcChild: bund.dcChild,
-        locale: cldrStatus.getCurrentLocale(),
-        dcChildName: locmap.getLocaleName(bund.dcChild),
-      });
-      var theChunk = cldrDom.construct(html);
-      var subDiv = document.createElement("div");
-      subDiv.appendChild(theChunk);
-      subDiv.className = "warnText";
-      theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
-    }
+  let msg = localeSpecialNote(bund, false);
+  if (msg) {
+    msg = locmap.linkify(msg);
+    const theChunk = cldrDom.construct(msg);
+    const subDiv = document.createElement("div");
+    subDiv.appendChild(theChunk);
+    subDiv.className = "warnText";
+    theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
   }
   if (cldrStatus.getIsPhaseBeta()) {
     const html = cldrText.sub("beta_msg", {
@@ -440,6 +408,75 @@ function insertLocaleSpecialNote(theDiv) {
     subDiv.className = "warnText";
     theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
   }
+}
+
+/**
+ *
+ * @param {Object} bund the LocaleInfo bundle
+ * @param {Boolean} brief if true, keep it short
+ * @param {Boolean} plain if true, strip to plain text
+ */
+ function localeSpecialNote(bund, brief) {
+  if (!bund) return null;
+  let msg = null;
+  if (bund.dcParent) {
+    if (brief) {
+      msg = cldrText.sub("defaultContent_brief_msg", {
+        name: bund.name,
+        dcParent: bund.dcParent,
+        locale: bund.bcp47,
+        dcParentName: locmap.getLocaleName(bund.dcParent),
+      });
+    } else {
+      msg = cldrText.sub("defaultContent_msg", {
+        name: bund.name,
+        dcParent: bund.dcParent,
+        locale: bund.bcp47,
+        dcParentName: locmap.getLocaleName(bund.dcParent),
+      });
+    }
+  } else if (bund.readonly || bund.special_comment_raw) {
+    if (bund.readonly) {
+      if (bund.special_comment_raw) {
+        msg = bund.special_comment_raw;
+      } else if (bund.readonly_in_limited) {
+        if (brief) {
+          msg = cldrText.sub("readonly_in_limited_brief", {
+            info: bund,
+            locale: bund.bcp47,
+          });
+        } else {
+          msg = cldrText.sub("readonly_in_limited", {
+            info: bund,
+            locale: bund.bcp47,
+          });
+        }
+      } else {
+        msg = cldrText.sub("readonly_unknown", {
+          info: bund,
+          locale: bund.bcp47,
+        });
+      }
+      if (!brief) {
+        msg = cldrText.sub("readonly_msg", {
+          info: bund,
+          locale: bund.bcp47,
+          msg: msg,
+        });
+      }
+    } else {
+      // Not readonly, could be a scratch locale
+      msg = bund.special_comment_raw;
+    }
+  } else if (!brief && bund.dcChild) {
+    msg = cldrText.sub("defaultContentChild_msg", {
+      name: bund.name,
+      dcChild: bund.dcChild,
+      locale: bund.bcp47,
+      dcChildName: locmap.getLocaleName(bund.dcChild),
+    });
+  }
+  return msg;
 }
 
 function reloadV() {
@@ -966,31 +1003,25 @@ function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
   if (subInfo.name_var) {
     cldrDom.addClass(clickyLink, "name_var");
   }
-  clickyLink.title = subLoc; // remove auto generated "locName.title"
+  clickyLink.title = localeSpecialNote(subInfo, true) || subLoc;
 
+  // We parse subInfo to add CSS classes
   if (subInfo.readonly) {
     cldrDom.addClass(clickyLink, "locked");
-    cldrDom.addClass(subLocDiv, "hide");
-
-    if (subInfo.special_comment) {
-      clickyLink.title = subInfo.special_comment;
-    } else if (subInfo.dcChild) {
-      clickyLink.title = cldrText.sub("defaultContentChild_msg", {
-        name: subInfo.name,
-        dcChild: subInfo.dcChild,
-        dcChildName: locmap.getLocaleName(subInfo.dcChild),
-      });
+    if (subInfo.readonly_in_limited) {
+      cldrDom.addClass(clickyLink, "readonly_in_limited");
+      if (cldrMenu.canModifyLoc(subLoc)) {
+        cldrDom.addClass(clickyLink, "shown_but_locked"); // Never hide these
+      }
     } else {
-      clickyLink.title = cldrText.get("readonlyGuidance");
+      // Don't hide locales due to limited submission
+      cldrDom.addClass(subLocDiv, "hide"); // This locale is hidden by default
+      cldrDom.addClass(clickyLink, "hidelocked"); // This locale can be hidden with 'hide locked'
     }
-  } else if (subInfo.special_comment) {
-    // could be the sandbox locale, or some other comment.
-    clickyLink.title = subInfo.special_comment;
-  }
-
-  if (cldrMenu.canModifyLoc(subLoc)) {
-    cldrDom.addClass(clickyLink, "canmodify");
+  } else if (cldrMenu.canModifyLoc(subLoc)) {
+    cldrDom.addClass(clickyLink, "canmodify"); //  Other locales in the user's allowable modify list
   } else {
+    // Some other reason
     cldrDom.addClass(subLocDiv, "hide"); // not modifiable
   }
   return clickyLink;

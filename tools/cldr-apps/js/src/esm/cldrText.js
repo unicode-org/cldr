@@ -336,11 +336,17 @@ const strings = {
     "This locale, ${name} is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled.",
   defaultContentChild_msg:
     "This locale, ${name}, supplies the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content</a></i> for <b><a class='notselected' href='#/${dcChild}'>${dcChildName}</a></b>. Please make sure that all the changes that you make here are appropriate for <b>${dcChildName}</b>. If there are multiple acceptable choices, please try to pick the one that would work for the most other sublocales.",
+  defaultContent_brief_msg:
+    "${name} is a default content locale and may not be edited",
   defaultContent_header_msg: "= ${dcChild}",
   defaultContent_titleLink: "content",
-  readonly_msg: "This locale may not be edited.<br/> ${msg}",
+  readonly_msg: "This locale (${locale}) may not be edited.<br/> ${msg}",
   readonly_unknown: "Reason: Administrative Policy.",
   scratch_locale: "Test Locale",
+  readonly_in_limited:
+    "It is not open for submission during this limited cycle.",
+  readonly_in_limited_brief:
+    "Not open for submission during this limited cycle.",
   beta_msg:
     "The SurveyTool is currently in Beta. Any data added here will NOT go into CLDR.",
   sidewaysArea_desc: "view of what the votes are in other, sister locales",

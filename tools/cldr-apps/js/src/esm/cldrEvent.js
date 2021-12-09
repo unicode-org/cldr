@@ -177,9 +177,11 @@ function toggleLockedRead(event) {
     }
   } else {
     if (type == "read") {
-      $(".locName:not(.canmodify):not(.locked)").parent().addClass("hide");
+      $(".locName:not(.canmodify):not(.locked):not(.shown_but_locked)")
+        .parent()
+        .addClass("hide");
     } else {
-      $(".locName.locked").parent().addClass("hide");
+      $(".locName.locked:not(.shown_but_locked)").parent().addClass("hide");
     }
   }
   filterAllLocale();
@@ -233,7 +235,8 @@ function checkLocaleShow(element, size) {
     (!element.hasClass("canmodify") &&
       $("#show-read").is(":checked") &&
       !element.hasClass("locked")) ||
-    element.hasClass("canmodify")
+    element.hasClass("canmodify") ||
+    element.hasClass("shown_but_locked") // Always show these
   ) {
     return true;
   }

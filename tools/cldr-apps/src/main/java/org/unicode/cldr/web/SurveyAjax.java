@@ -35,6 +35,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -1170,6 +1171,13 @@ public class SurveyAjax extends HttpServlet {
                 locale.put("readonly", true);
             } else if (dcParent != null) {
                 locale.put("readonly", true);
+            } else {
+                // Readonly if in limited
+                if (CheckCLDR.LIMITED_SUBMISSION && !SubmissionLocales.LOCALES_ALLOWED_IN_LIMITED.contains(loc.getBaseName())) {
+                    locale.put("readonly", true);
+                    // Readonly due to limited submission
+                    locale.put("readonly_in_limited", true);
+                }
             }
             final SpecialLocales.Type localeType = SpecialLocales.getType(loc);
             if(localeType != null) {

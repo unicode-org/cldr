@@ -787,6 +787,7 @@ function loadExclamationPoint() {
 }
 
 function loadAllRows(itemLoadInfo, theDiv) {
+  // TODO: curId (aka strid) appears to be ignored by the server; if so, remove it from the request
   const curId = cldrStatus.getCurrentId();
   const curPage = cldrStatus.getCurrentPage();
   const curLocale = cldrStatus.getCurrentLocale();
@@ -795,7 +796,19 @@ function loadAllRows(itemLoadInfo, theDiv) {
       locmap.getLocaleName(curLocale) + "/" + curPage + "/" + curId
     )
   );
-  const url =
+  const url = getPageUrl(curLocale, curPage, curId);
+  $("#nav-page").show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
+  myLoad(url, "section", function (json) {
+    loadAllRowsFromJson(json, theDiv);
+  });
+}
+
+function getPageUrl(curLocale, curPage, curId) {
+  if (cldrTable.TABLE_USES_NEW_API) {
+    const api = "voting/" + curLocale + "/page/" + curPage;
+    return cldrAjax.makeApiUrl(api, null);
+  }
+  return (
     cldrStatus.getContextPath() +
     "/SurveyAjax?what=getrow&_=" +
     curLocale +
@@ -805,11 +818,8 @@ function loadAllRows(itemLoadInfo, theDiv) {
     curId +
     "&s=" +
     cldrStatus.getSessionId() +
-    cldrSurvey.cacheKill();
-  $("#nav-page").show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
-  myLoad(url, "section", function (json) {
-    loadAllRowsFromJson(json, theDiv);
-  });
+    cldrSurvey.cacheKill()
+  );
 }
 
 function loadAllRowsFromJson(json, theDiv) {

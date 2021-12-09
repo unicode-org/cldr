@@ -3,7 +3,10 @@
 //
 //  Created by Steven R. Loomis on 18/11/2005.
 //  Copyright 2005-2014 IBM. All rights reserved.
-//
+
+// "Section" is now a misnomer, since this class now handles one "page" at a time, not one "section".
+// A section is like "Locale Display Names"; a page is like "Languages (A-D)". Generally one section
+// contains multiple pages.
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
 //  Probably, it should be concentrated in one side or another- perhaps SurveyMain should call this
@@ -1717,8 +1720,6 @@ public class DataSection implements JSONString {
      * @param matcher
      *
      * Called only by DataSection.make
-     *
-     * Old parameter ptype was always "comprehensive"
      */
     DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
         this.locale = loc;

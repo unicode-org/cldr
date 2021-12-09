@@ -3,7 +3,11 @@
  */
 import * as cldrStatus from "./cldrStatus.js";
 
-const ST_AJAX_DEBUG = true;
+const ST_AJAX_DEBUG = false;
+
+const SURVEY_TOOL_SESSION_HEADER = "X-SurveyTool-Session";
+
+const SLASH_API_SLASH = "/api/";
 
 /**
  * Call the standard js fetch function, possibly with additional handling suitable
@@ -19,13 +23,29 @@ function doFetch(resource, init) {
   if (ST_AJAX_DEBUG) {
     console.log("cldrAjax.doFetch: " + resource);
   }
-  init = init || {};
-  init.headers = cldrStatus.sessionHeaders(init?.headers);
+  init = addSessionHeader(init);
   return fetch(resource, init);
 }
 
 /**
- * Send a request
+ * If the current user has a session id, add it to the fetch headers, creating
+ * init and/or init.headers if not already defined
+ *
+ * @param {Object} init an object containing any custom settings for the request; or null
+ * @returns {Object} init, possibly newly created if the parameter was null and id exists
+ */
+function addSessionHeader(init) {
+  const id = cldrStatus.getSessionId();
+  if (id) {
+    init = init || {};
+    init.headers = init.headers || {};
+    init.headers[SURVEY_TOOL_SESSION_HEADER] = id;
+  }
+  return init;
+}
+
+/**
+ * Send a request the old-fashioned, low-level way
  *
  * It will be a GET *unless* either postData or content are set.
  *
@@ -42,23 +62,12 @@ function doFetch(resource, init) {
  * }
  */
 function sendXhr(xhrArgs) {
-  let options = {};
-  if (xhrArgs.handleAs) {
-    options.handleAs = xhrArgs.handleAs;
-  }
-  if (xhrArgs.postData || xhrArgs.content) {
-    options.method = "POST";
-    options.data = xhrArgs.postData ? xhrArgs.postData : xhrArgs.content;
-    if (typeof options.data === "object" && xhrArgs.url.includes("api/")) {
-      options.makeJsonPost = true;
-    }
-  } else {
-    options.method = "GET";
-  }
+  const options = newOptionsFromXhrArgs(xhrArgs);
   const request = new XMLHttpRequest();
   request.open(options.method, xhrArgs.url);
   request.responseType = options.handleAs ? options.handleAs : "text";
   request.timeout = xhrArgs.timeout ? xhrArgs.timeout : 0;
+  addSessionHeaderIfApi(request, xhrArgs.url);
   request.onreadystatechange = function () {
     onChange(request, xhrArgs);
   };
@@ -66,6 +75,23 @@ function sendXhr(xhrArgs) {
     setPostDataAndHeader(request, options);
   }
   request.send(options.data);
+}
+
+function newOptionsFromXhrArgs(xhrArgs) {
+  let options = {};
+  if (xhrArgs.handleAs) {
+    options.handleAs = xhrArgs.handleAs;
+  }
+  if (xhrArgs.postData || xhrArgs.content) {
+    options.method = "POST";
+    options.data = xhrArgs.postData ? xhrArgs.postData : xhrArgs.content;
+    if (typeof options.data === "object" && isApiUrl(xhrArgs.url)) {
+      options.makeJsonPost = true;
+    }
+  } else {
+    options.method = "GET";
+  }
+  return options;
 }
 
 function onChange(request, xhrArgs) {
@@ -180,7 +206,32 @@ function makeUrl(p) {
  */
 function makeApiUrl(api, p) {
   const queryString = p ? "?" + p.toString() : "";
-  return cldrStatus.getContextPath() + "/api/" + api + queryString;
+  return cldrStatus.getContextPath() + SLASH_API_SLASH + api + queryString;
+}
+
+/**
+ * If the current user has a session id, add it to the http request,
+ * but only if the url is for the modern api
+ *
+ * This enables calling modern api urls with old-fashioned sendXhr
+ * Avoid adding the session header for legacy (non-api) urls,
+ * since the back end may not recognize it or may be confused between
+ * it and legacy "s" or "ss" query parameters.
+ *
+ * @param {Object} request the http request, to be modified
+ * @param {String} url
+ */
+function addSessionHeaderIfApi(request, url) {
+  if (isApiUrl(url)) {
+    const id = cldrStatus.getSessionId();
+    if (id) {
+      request.setRequestHeader(SURVEY_TOOL_SESSION_HEADER, id);
+    }
+  }
+}
+
+function isApiUrl(url) {
+  return url.includes(SLASH_API_SLASH);
 }
 
 export { doFetch, makeApiUrl, makeUrl, mediumTimeout, sendXhr };

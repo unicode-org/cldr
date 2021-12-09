@@ -23,6 +23,9 @@ import * as cldrVote from "./cldrVote.js";
 import * as cldrXPathUtils from "./cldrXpathUtils.js";
 
 const CLDR_TABLE_DEBUG = false;
+
+const TABLE_USES_NEW_API = false;
+
 /*
  * ALWAYS_REMOVE_ALL_CHILD_NODES and NEVER_REUSE_TABLE should both be false for efficiency,
  * but if necessary they can be made true to revert to old less efficient behavior.
@@ -375,8 +378,18 @@ function singleRowErrHandler(err, tr, onFailure) {
 }
 
 function getSingleRowUrl(tr, theRow) {
+  if (TABLE_USES_NEW_API) {
+    const loc = cldrStatus.getCurrentLocale();
+    const xpath = tr.rowHash;
+    const api = "voting/" + loc + "/row/" + xpath;
+    let p = null;
+    if (cldrGui.dashboardIsVisible()) {
+      p = new URLSearchParams();
+      p.append("dashboard", "true");
+    }
+    return cldrAjax.makeApiUrl(api, p);
+  }
   const p = new URLSearchParams();
-  // TODO: switch to new API; WHAT_GETROW is deprecated
   p.append("what", "getrow"); // cf. WHAT_GETROW in SurveyAjax.java
   p.append("_", cldrStatus.getCurrentLocale());
   p.append("xpath", theRow.xpathId);
@@ -1291,6 +1304,7 @@ function getValidWinningValue(theRow) {
 
 export {
   NO_WINNING_VALUE,
+  TABLE_USES_NEW_API,
   appendExample,
   getRowApprovalStatusClass,
   insertRows,

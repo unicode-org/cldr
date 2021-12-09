@@ -825,6 +825,10 @@ tr.warnrow {
 	text-decoration: none;
 }
 
+.scratch_locale a::after {
+	content: " (TEST) ";
+}
+
 .subLocale a.locked.locName {
     color:  silver;
 }

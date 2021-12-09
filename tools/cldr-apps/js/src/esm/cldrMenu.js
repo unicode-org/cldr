@@ -87,12 +87,7 @@ function loadInitialMenusFromJson(json) {
   theDiv.className = "localeList";
 
   // TODO: avoid duplication of some of this code here and in cldrLocales.js
-  addTopLocale("root", theDiv);
-  for (let n in locmap.locmap.topLocales) {
-    const topLoc = locmap.locmap.topLocales[n];
-    addTopLocale(topLoc, theDiv);
-  }
-  $("#locale-list").html(theDiv.innerHTML);
+  addTopLocales(theDiv, locmap);
 
   if (cldrStatus.isVisitor()) {
     $("#show-read").prop("checked", true);
@@ -105,6 +100,30 @@ function loadInitialMenusFromJson(json) {
   setupCoverageLevels(json);
 
   cldrLoad.continueInitializing(json.canAutoImport || false);
+}
+
+function addTopLocales(theDiv, locmap) {
+  addTopLocale("root", theDiv);
+  for (let n in locmap.locmap.topLocales) {
+    const topLoc = locmap.locmap.topLocales[n];
+    const topLocInfo = locmap.getLocaleInfo(topLoc);
+    if (topLocInfo.special_type !== "scratch") {
+      // Skip Sandbox locales here
+      addTopLocale(topLoc, theDiv);
+    }
+  }
+  if (cldrStatus.getIsUnofficial()) {
+    $(theDiv).append($("<hr/><h4>Test Locales</h4>"));
+    for (let n in locmap.locmap.topLocales) {
+      const topLoc = locmap.locmap.topLocales[n];
+      const topLocInfo = locmap.getLocaleInfo(topLoc);
+      if (topLocInfo.special_type === "scratch") {
+        // Now only Sandbox locales here
+        addTopLocale(topLoc, theDiv);
+      }
+    }
+  }
+  $("#locale-list").html(theDiv.innerHTML);
 }
 
 function setupCoverageLevels(json) {
@@ -378,10 +397,14 @@ function updateMenuTitles(menuMap) {
 
 function updateLocaleMenu() {
   const curLocale = cldrStatus.getCurrentLocale();
+  let prefixMessage = "";
   if (curLocale != null && curLocale != "" && curLocale != "-") {
     const locmap = cldrLoad.getTheLocaleMap();
     cldrStatus.setCurrentLocaleName(locmap.getLocaleName(curLocale));
     var bund = locmap.getLocaleInfo(curLocale);
+    if (bund.special_type === "scratch") {
+      prefixMessage = cldrText.get("scratch_locale") + ": ";
+    }
     if (bund) {
       if (bund.readonly) {
         cldrDom.addClass(document.getElementById(menubuttons.locale), "locked");
@@ -416,7 +439,10 @@ function updateLocaleMenu() {
     cldrDom.removeClass(document.getElementById(menubuttons.locale), "locked");
     menubuttons.set(menubuttons.dcontent);
   }
-  menubuttons.set(menubuttons.locale, cldrStatus.getCurrentLocaleName());
+  menubuttons.set(
+    menubuttons.locale,
+    prefixMessage + cldrStatus.getCurrentLocaleName()
+  );
 }
 
 /**

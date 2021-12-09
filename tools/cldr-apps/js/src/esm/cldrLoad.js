@@ -953,6 +953,10 @@ function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
   if (fullTitle) {
     name = locmap.getLocaleName(subLoc);
   }
+  if (subInfo.special_type === "scratch") {
+    cldrDom.addClass(subLocDiv, "scratch_locale");
+    name = `${cldrText.get("scratch_locale")}: ${name}`;
+  }
   const clickyLink = cldrDom.createChunk(name, "a", "locName");
   clickyLink.href = linkToLocale(subLoc);
   subLocDiv.appendChild(clickyLink);

@@ -340,6 +340,7 @@ const strings = {
   defaultContent_titleLink: "content",
   readonly_msg: "This locale may not be edited.<br/> ${msg}",
   readonly_unknown: "Reason: Administrative Policy.",
+  scratch_locale: "Test Locale",
   beta_msg:
     "The SurveyTool is currently in Beta. Any data added here will NOT go into CLDR.",
   sidewaysArea_desc: "view of what the votes are in other, sister locales",

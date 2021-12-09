@@ -829,21 +829,24 @@ tr.warnrow {
 	content: " (TEST) ";
 }
 
-.subLocale a.locked.locName {
+.subLocale a.locked.locName, .topLocaleRow a.locked.locName {
     color:  silver;
 }
 
 .canmodify::before {
-	content:"\270f  ";
+	content:"\270f  "; /* pencil */
 	font-family: 'Glyphicons Halflings';
 }
 
+.locked::before {
+    font-family:"Glyphicons Halflings";
+    content:"\e014 ";  /* X */
+    margin-top:2px;
+}
 
 .name_var {
     font-style: oblique;
 }
-
-
 
 .inputbox {
 	width: 95%;
@@ -2994,12 +2997,6 @@ td.v-path {
 .dijitDialogUnderlay, .claro .dijitDialogUnderlay {
     opacity: 0.5 !important;
     background-color: #b1b56a !important;
-}
-
-.locked::before {
-    font-family:"Glyphicons Halflings";
-    content:"\e014 ";
-    margin-top:2px;
 }
 
 .mailListChunk, .mailContentChunk {

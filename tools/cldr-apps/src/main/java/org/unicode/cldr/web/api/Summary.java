@@ -23,9 +23,10 @@ import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.Dashboard;
+import org.unicode.cldr.web.Dashboard.ReviewOutput;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.VettingViewerQueue;
-import org.unicode.cldr.web.VettingViewerQueue.ReviewOutput;
 
 @Path("/summary")
 @Tag(name = "voting", description = "APIs for voting")
@@ -108,8 +109,7 @@ public class Summary {
 
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
-        ReviewOutput ret = VettingViewerQueue.getInstance()
-            .getDashboardOutput(loc, cs.user, coverageLevel);
+        ReviewOutput ret = new Dashboard().get(loc, cs.user, coverageLevel);
 
         return Response.ok().entity(ret).build();
     }

@@ -985,7 +985,10 @@ public class UserRegistry {
 
     static SurveyMain sm = null; // static for static checking of defaultContent
 
-    private UserRegistry() {
+    /**
+     * Public for tests
+     */
+    public UserRegistry() {
     }
 
     // ------- special things for "list" mode:

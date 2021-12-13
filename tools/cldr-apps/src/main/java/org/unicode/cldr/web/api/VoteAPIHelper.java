@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -28,6 +29,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.Dashboard;
 import org.unicode.cldr.web.DataSection;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
@@ -59,29 +61,53 @@ public class VoteAPIHelper {
             this.votes = votes;
             this.override = override;
         }
-
     }
 
     static final boolean DEBUG = false;
+    static final Logger logger = SurveyLog.forClass(VoteAPIHelper.class);
 
-    static Response handleGetRows(String loc, String session, String xpath, String sectionName) {
+    private static class ArgsForGet {
+        String localeId;
+        String sessionId;
+        String page = null;
+        String xpath = null;
+        Boolean getDashboard = false;
+
+        public ArgsForGet(String loc, String session) {
+            this.localeId = loc;
+            this.sessionId = session;
+        }
+    }
+
+    static Response handleGetOneRow(String loc, String session, String xpath, Boolean getDashboard) {
+        ArgsForGet args = new ArgsForGet(loc, session);
+        args.xpath = xpath;
+        args.getDashboard = getDashboard;
+        return handleGetRows(args);
+    }
+
+    static Response handleGetOnePage(String loc, String session, String page) {
+        ArgsForGet args = new ArgsForGet(loc, session);
+        args.page = page;
+        return handleGetRows(args);
+    }
+
+    private static Response handleGetRows(ArgsForGet args) {
         final SurveyMain sm = CookieSession.sm;
-        final CLDRLocale locale = CLDRLocale.getInstance(loc);
-        // Verify session
-        final CookieSession mySession = Auth.getSession(session);
+        final CLDRLocale locale = CLDRLocale.getInstance(args.localeId);
+        final CookieSession mySession = Auth.getSession(args.sessionId);
         if (mySession == null) {
             return Auth.noSessionResponse();
         }
-
         try {
             final RowResponse r = new RowResponse();
             XPathMatcher matcher = null;
             PageId pageId = null;
             String xp = null;
 
-            if (xpath == null && sectionName != null) {
+            if (args.xpath == null && args.page != null) {
                 try {
-                    pageId = PageId.valueOf(sectionName);
+                    pageId = PageId.valueOf(args.page);
                 } catch (IllegalArgumentException iae) {
                     return Response.status(404).entity(new STError(ErrorCode.E_BAD_SECTION)).build();
                 }
@@ -89,18 +115,18 @@ public class VoteAPIHelper {
                     return new STError(ErrorCode.E_SPECIAL_SECTION, "Items not visible - page " + pageId + " section " + pageId.getSectionId()).build();
                 }
                 r.pageId = pageId.name();
-            } else if (xpath != null && sectionName == null) {
-                xp = sm.xpt.getByStringID(xpath);
+            } else if (args.xpath != null && args.page == null) {
+                xp = sm.xpt.getByStringID(args.xpath);
                 if (xp == null) {
                     return Response.status(404).entity(new STError(ErrorCode.E_BAD_XPATH)).build();
                 }
                 matcher = XPathMatcher.getMatcherForString(xp); // single string
             } else {
                 // Should not get here.
-                return new STError(ErrorCode.E_INTERNAL, "handleGetRows: need xpath or sectionName, but not both").build();
+                return new STError(ErrorCode.E_INTERNAL, "handleGetRows: need xpath or page, but not both").build();
             }
-            final DataSection section = DataSection.make(pageId, null, mySession, locale, xp, matcher);
-            section.setUserForVotelist(mySession.user);
+            final DataSection pageData = DataSection.make(pageId, null, mySession, locale, xp, matcher);
+            pageData.setUserForVotelist(mySession.user);
 
             // don't return default content
             CLDRLocale dcParent = SupplementalDataInfo.getInstance().getBaseFromDefaultContent(locale);
@@ -109,21 +135,19 @@ public class VoteAPIHelper {
             } else {
                 r.isReadOnly = STFactory.isReadOnlyLocale(locale);
                 r.localeDisplayName = locale.getDisplayName();
-                r.rows = calculateRows(section.getAll());
+                r.rows = calculateRows(pageData.getAll());
+            }
+            if (args.getDashboard) {
+                r.issues = new Dashboard().getErrorOnPath(locale, null /* WebContext */, mySession, args.xpath);
             }
             return Response.ok(r).build();
         } catch (Throwable t) {
-            SurveyLog.logException(t, "Trying to load " + loc + " / " + xpath);
+            SurveyLog.logException(logger, t, "Trying to load " + args.localeId + " / " + args.xpath);
             return new STError(t).build(); // 500
         }
     }
 
     private static RowResponse.Row[] calculateRows(Collection<DataRow> all) {
-        // TODO: Dashboard issues data
-//      if (ctx.hasField("dashboard")) {
-//          JSONArray issues = VettingViewerQueue.getInstance().getErrorOnPath(ctx.getLocale(), ctx, ctx.session, baseXp);
-//          r.key("issues").value(issues);
-//      }
         List<RowResponse.Row> list = new LinkedList<>();
         for (final DataRow r : all) {
             list.add(calculateRow(r));
@@ -243,7 +267,7 @@ public class VoteAPIHelper {
                     if (!r.statusAction.isForbidden()) {
                         try {
                             final BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(locale);
-                            if(request.voteLevelChanged == 0) { // treat 0 as null
+                            if (request.voteLevelChanged == 0) { // treat 0 as null
                                 request.voteLevelChanged = null;
                             }
                             ballotBox.voteForValue(mySession.user, xp, val, request.voteLevelChanged);
@@ -259,7 +283,7 @@ public class VoteAPIHelper {
                     }
                 }
             } catch (Throwable t) {
-                SurveyLog.logException(t, "Processing submission " + locale + ":" + xp);
+                SurveyLog.logException(logger, t, "Processing submission " + locale + ":" + xp);
                 return (new STError(t).build());
             }
         }
@@ -354,13 +378,12 @@ public class VoteAPIHelper {
                     @Override
                     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
                         List<CheckStatus> result) {
-                        // TODO Auto-generated method stub
                         return null;
                     }
                 })
                 .setMessage("Input Processor Exception: {0}")
                 .setParameters(exceptionList));
-            SurveyLog.logException(exceptionList[0], "DAIP, Processing " + loc + ":" + xp + "='" + val
+            SurveyLog.logException(logger, exceptionList[0], "DAIP, Processing " + loc + ":" + xp + "='" + val
                 + "' (was '" + origValue + "')");
         }
     }

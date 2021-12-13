@@ -277,19 +277,6 @@ function getSessionId() {
   return sessionId;
 }
 
-/**
- * Return header needed for login.
- * @param {Object} h headers to append to
- * @returns {Object} header map for fetch
- */
-function sessionHeaders(h) {
-  h = h || {};
-  if (getSessionId()) {
-    h["X-SurveyTool-Session"] = getSessionId();
-  }
-  return h;
-}
-
 function setSessionId(i) {
   if (i !== sessionId) {
     sessionId = i;
@@ -457,7 +444,6 @@ export {
   logoIcon,
   on,
   runningStampChanged,
-  sessionHeaders,
   setAutoImportBusy,
   setContextPath,
   setCurrentId,

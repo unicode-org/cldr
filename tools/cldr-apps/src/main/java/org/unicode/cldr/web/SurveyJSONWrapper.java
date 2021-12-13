@@ -58,7 +58,6 @@ public final class SurveyJSONWrapper {
         return new JSONObject() {
             {
                 put("message", cs.getMessage());
-                put("htmlMessage", cs.getHTMLMessage());
                 put("type", cs.getType());
                 if (cs.getCause() != null) {
                     put("cause", wrap(cs.getCause()));

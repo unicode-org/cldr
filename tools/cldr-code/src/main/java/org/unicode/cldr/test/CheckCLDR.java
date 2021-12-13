@@ -772,7 +772,6 @@ abstract public class CheckCLDR {
         private Subtype subtype = Subtype.none;
         private String messageFormat;
         private Object[] parameters;
-        private String htmlMessage;
         private CheckCLDR cause;
         private boolean checkOnSubmit = true;
 
@@ -826,23 +825,6 @@ abstract public class CheckCLDR {
                 }
             }
             return message.replace('\t', ' ');
-        }
-
-        /**
-         * @deprecated
-         */
-        @Deprecated
-        public String getHTMLMessage() {
-            return htmlMessage;
-        }
-
-        /**
-         * @deprecated
-         */
-        @Deprecated
-        public CheckStatus setHTMLMessage(String message) {
-            htmlMessage = message;
-            return this;
         }
 
         public CheckStatus setMessage(String message) {
@@ -1153,7 +1135,7 @@ abstract public class CheckCLDR {
     /**
      * Returns any examples in the result parameter. Both examples and demos can
      * be returned. A demo will have getType() == CheckStatus.demoType. In that
-     * case, there will be no getMessage or getHTMLMessage available; instead,
+     * case, there will be no getMessage available; instead,
      * call getDemo() to get the demo, then call getHTML() to get the initial
      * HTML.
      */

@@ -2453,11 +2453,11 @@ public class SurveyAjax extends HttpServlet {
      * @throws IOException
      * @throws JSONException
      *
-     * @deprecated - use /api/vote instead
+     * @deprecated - use /api/voting instead
      *
      * TODO: in spite of being deprecated, this is used constantly in Survey Tool. Its intended
-     * replacement in /api/vote is not actually used yet, and isn't ready to be used since it
-     * fails to implement the "dashboard=true" query parameter for calling Dashboard.getErrorOnPath.
+     * replacement in /api/voting is not actually used yet, and isn't ready to be used since it
+     * does not produce json compatible with the front end
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
      */
     @Deprecated

@@ -11,6 +11,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -22,6 +23,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.json.JSONArray;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -50,7 +52,7 @@ public class VoteAPI {
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
         summary = "Get row info",
-        description = "Get info for a row")
+        description = "Get info for a single xpath")
     @APIResponses(
         value = {
             @APIResponse(
@@ -73,23 +75,25 @@ public class VoteAPI {
                 content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = STError.class))),
         })
-    public Response getRows(
+    public Response getRow(
         @Parameter(required = true, example = "br",
             schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
 
         @Parameter(example = "132345490064d839",
             schema = @Schema(type = SchemaType.STRING)) @PathParam("xpath") String xpath,
 
+        @QueryParam("dashboard") @Schema(required = false, description = "Whether to get dashboard info") Boolean getDashboard,
+
         @HeaderParam(Auth.SESSION_HEADER) String session) {
-        return VoteAPIHelper.handleGetRows(loc, session, xpath, null);
+        return VoteAPIHelper.handleGetOneRow(loc, session, xpath, getDashboard);
     }
 
     @GET
     @Path("/{locale}/page/{page}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Get section data",
-        description = "Get all xpaths in a page")
+        summary = "Get page info",
+        description = "Get all info for all xpaths in a page")
     @APIResponses(
         value = {
             @APIResponse(
@@ -120,7 +124,7 @@ public class VoteAPI {
             schema = @Schema(type = SchemaType.STRING)) @PathParam("page") String page,
 
         @HeaderParam(Auth.SESSION_HEADER) String session) {
-        return VoteAPIHelper.handleGetRows(loc, session, null, page);
+        return VoteAPIHelper.handleGetOnePage(loc, session, page);
     }
 
     public static final class RowResponse {
@@ -128,14 +132,12 @@ public class VoteAPI {
         public static final class Row {
 
             public static final class Candidate {
-
                 public String value;
                 public String displayValue;
                 public String pClass;
                 public String example;
                 public boolean isBaselineValue;
                 public VoteEntry[] votes;
-
             }
 
             public Candidate[] items;
@@ -155,7 +157,6 @@ public class VoteAPI {
             public String inheritedLocale;
             public String winningValue;
             public String inheritedXpath;
-
         }
 
         public String localeDisplayName;
@@ -164,6 +165,7 @@ public class VoteAPI {
         @Schema(description = "If set, row is not available because there is a Default Content parent. See the specified locale instead.")
         public String dcParent;
         public Row[] rows;
+        public JSONArray issues;
     }
 
     @POST
@@ -237,7 +239,6 @@ public class VoteAPI {
 
     final static public class CheckStatusSummary {
         public String message;
-        public String htmlMessage;
         public Type type;
         public Subtype subType;
         public String subTypeUrl;
@@ -248,7 +249,6 @@ public class VoteAPI {
 
         public CheckStatusSummary(CheckStatus checkStatus) {
             this.message = checkStatus.getMessage();
-            this.htmlMessage = checkStatus.getHTMLMessage();
             this.type = checkStatus.getType();
             // cause
             CheckCLDR cause = checkStatus.getCause();

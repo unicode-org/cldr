@@ -19,7 +19,7 @@ import { notification } from "ant-design-vue";
 
 const USE_NEW_PROGRESS_WIDGET = true;
 const CAN_GET_VOTER_PROGRESS = true;
-const CAN_GET_LOCALE_PROGRESS = false;
+const CAN_GET_LOCALE_PROGRESS = true;
 
 let progressWrapper = null;
 
@@ -44,6 +44,7 @@ class MeterData {
     this.votes = votes || 0;
     this.total = total || 0;
     this.level = level || cldrText.get("coverage_unknown");
+    this.exceptional = false;
     if (!description) {
       this.percent = 0;
       this.title = "No data";
@@ -73,10 +74,31 @@ class MeterData {
   }
 
   /**
-   * @returns {Boolean} True if data present, otherwise false
+   * @returns {Boolean} True if the meter should be displayed, otherwise false
    */
-  getPresent() {
+  isVisible() {
     return !!this.description;
+  }
+
+  /**
+   * @returns {Boolean} True if the meter state is exceptional, otherwise false
+   */
+  isExceptional() {
+    return this.exceptional;
+  }
+
+  /**
+   * Convert this into an exceptional meter
+   *
+   * Instead of percent completion, the meter will have a minimal/disabled appearance,
+   * and a special message will be shown for its title (hover)
+   *
+   * @param {String} message
+   */
+  makeExceptional(message) {
+    this.exceptional = true;
+    this.percent = 0;
+    this.title = `${this.description}: ${message}`;
   }
 }
 
@@ -169,6 +191,12 @@ function refreshVoterMeter() {
         )
       );
     }
+  } else if (pageProgressStats) {
+    // If we don't have the Voter stats yet, but the Page meter is visible,
+    // then display the Voter meter in an exceptional way
+    const voterMeter = new MeterData(cldrText.get("progress_voter"));
+    voterMeter.makeExceptional(cldrText.get("progress_voter_disabled"));
+    progressWrapper?.updateVoterMeter(voterMeter);
   }
 }
 

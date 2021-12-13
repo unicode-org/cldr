@@ -416,7 +416,7 @@ function insertLocaleSpecialNote(theDiv) {
  * @param {Boolean} brief if true, keep it short
  * @param {Boolean} plain if true, strip to plain text
  */
- function localeSpecialNote(bund, brief) {
+function localeSpecialNote(bund, brief) {
   if (!bund) return null;
   let msg = null;
   if (bund.dcParent) {

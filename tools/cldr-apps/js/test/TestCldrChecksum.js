@@ -137,16 +137,20 @@ describe("cldrTable.cldrChecksum", function () {
       const c = cldrTable.cldrChecksum(sLong);
       assert(c === cLong, "c should equal cLong");
     }
+    // This occasionally failed on github, which presumably is sometimes slow
+    // for reasons beyond our control. Therefore, don't assert, just send a
+    // warning message to the console.
     const duration = Date.now() - startTime; // typically 15 ms
-    assert(
-      duration < MAX_MILLISECS,
-      "Duration was " +
-        duration +
-        " ms; " +
-        ITERATIONS +
-        " iterations should take less than " +
-        MAX_MILLISECS +
-        " ms"
-    );
+    if (duration > MAX_MILLISECS) {
+      console.log(
+        "WARNING: cldrChecksum duration was " +
+          duration +
+          " ms; " +
+          ITERATIONS +
+          " iterations should take less than " +
+          MAX_MILLISECS +
+          " ms"
+      );
+    }
   });
 });

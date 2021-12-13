@@ -638,39 +638,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * Get the Status for the given CLDRFile, path, and value.
-         *
-         * @param cldrFile
-         * @param path
-         * @param value
-         * @return the Status
-         */
-        private Status getStatus(CLDRFile cldrFile, String path, final String value) {
-            String fullXPath = cldrFile.getFullXPath(path);
-            if (fullXPath == null) {
-                fullXPath = path;
-            }
-            XPathParts xpp = XPathParts.getFrozenInstance(fullXPath);
-            String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
-            Status status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
-
-            /*
-             * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
-             * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
-             * missing for explicit INHERITANCE_MARKER. Reference: https://unicode.org/cldr/trac/ticket/11857
-             */
-            final String srcid = cldrFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
-            if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
-                status = Status.missing;
-            } else if (srcid.equals("root")) {
-                if (!srcid.equals(diskFile.getLocaleID())) {
-                    status = Status.missing;
-                }
-            }
-            return status;
-        }
-
-        /**
          *
          * @param user
          *            - The user voting on the path
@@ -960,7 +927,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             // set current Trunk (baseline) value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
-            final Status currentStatus = getStatus(diskFile, path, currentValue);
+            final Status currentStatus = calculateStatus(diskFile, diskFile, path);
             if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {
                 r.setBaseline(currentValue, currentStatus);
                 r.add(currentValue);
@@ -2343,5 +2310,38 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public static final String getLastVoteTable() {
         final String dbName = DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false).toString();
         return dbName;
+    }
+
+    /**
+     * Utility function to calculate CLDRFile.Status
+     * @param cldrFile the CLDR File to use
+     * @param diskFile the 'baseline' file to use
+     * @param path xpath
+     * @param value current string value
+     * @return
+     */
+    public static final Status calculateStatus(CLDRFile cldrFile, CLDRFile diskFile, String path) {
+        String fullXPath = cldrFile.getFullXPath(path);
+        if (fullXPath == null) {
+            fullXPath = path;
+        }
+        XPathParts xpp = XPathParts.getFrozenInstance(fullXPath);
+        String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
+        Status status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
+
+        /*
+         * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
+         * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
+         * missing for explicit INHERITANCE_MARKER. Reference: https://unicode.org/cldr/trac/ticket/11857
+         */
+        final String srcid = cldrFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
+        if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
+            status = Status.missing;
+        } else if (srcid.equals("root")) {
+            if (!srcid.equals(diskFile.getLocaleID())) {
+                status = Status.missing;
+            }
+        }
+        return status;
     }
 }

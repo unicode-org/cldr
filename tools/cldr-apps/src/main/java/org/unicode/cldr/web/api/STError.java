@@ -66,4 +66,10 @@ public class STError {
     public Response build() {
         return Response.serverError().entity(this).build();
     }
+
+    public static Response surveyNotQuiteReady() {
+        return Response.status(503, "Try again later")
+            .entity("{\"error\": \"SurveyTool is not ready to handle API requests, try again later\"}")
+            .build();
+    }
 }

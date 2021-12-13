@@ -310,4 +310,12 @@ public class TestCache implements XMLSource.Listener {
             eg.updateCache(xpath);
         }
     }
+
+    /**
+     * For tests. Invalidate cache.
+     */
+    public void invalidateAllCached() {
+        testResultCache.invalidateAll();
+        exampleGeneratorCache.invalidateAll();
+    }
 }

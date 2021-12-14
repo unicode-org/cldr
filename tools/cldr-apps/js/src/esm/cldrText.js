@@ -506,6 +506,8 @@ const strings = {
     "(During the vetting phase, this is informational: you can’t add new values.)",
   notification_category_provisional:
     "There are not enough votes for this item to be approved (and used).",
+  notification_category_warning:
+    "The Survey Tool detected a warning about the winning value.",
 
   progress_page: "Your voting in this page",
   progress_voter: "Your voting in this locale",

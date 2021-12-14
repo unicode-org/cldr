@@ -35,9 +35,7 @@
               :notification="n.notification"
               class="scrollto cldr-nav-btn"
               v-on:click.prevent="scrollToCategory"
-              :title="
-                categoryComment[n.notification] || humanize(n.notification)
-              "
+              :title="describe(n.notification)"
             >
               {{ humanize(n.notification) }} ({{ n.total }})
             </button>
@@ -81,10 +79,7 @@
                   >
                     <span
                       class="notification"
-                      :title="
-                        categoryComment[n.notification] ||
-                        humanize(n.notification)
-                      "
+                      :title="describe(n.notification)"
                       >{{ abbreviate(n.notification) }}</span
                     >
                     <span class="section-page" title="section—page">{{
@@ -147,6 +142,7 @@ import * as cldrDash from "../esm/cldrDash.js";
 import * as cldrGui from "../esm/cldrGui.js";
 import * as cldrLoad from "../esm/cldrLoad.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrText from "../esm/cldrText.js";
 
 export default {
   props: [],
@@ -160,12 +156,6 @@ export default {
       locale: null,
       localeName: null,
       level: null,
-      categoryComment: {
-        Provisional:
-          "The item is provisional, and needs additional votes for confirmation",
-        English_Changed:
-          "The English version has changed, but the locale has not",
-      },
     };
   },
 
@@ -273,15 +263,33 @@ export default {
       cldrGui.hideDashboard();
     },
 
-    abbreviate(str) {
-      if (str === "English_Changed") {
+    abbreviate(category) {
+      // The category is like "English_Changed"; also allow "English Changed" with space not underscore
+      if (category.toLowerCase().replaceAll(" ", "_") === "english_changed") {
         return "EC";
       } else {
-        return str.substr(0, 1); // first letter, e.g., "E" for "Error"
+        return category.substr(0, 1); // first letter, e.g., "E" for "Error"
       }
     },
 
+    describe(category) {
+      // The category is like "English_Changed" or "English Changed"
+      // The corresponding key is like "notification_category_english_changed"
+      const key =
+        "notification_category_" + category.toLowerCase().replaceAll(" ", "_");
+      let description = cldrText.get(key);
+      if (description === key) {
+        console.error(
+          "Dashboard is missing a description for the category: " + category
+        );
+        description = humanize(category);
+      }
+      return description;
+    },
+
     humanize(str) {
+      // For notification categories like "English_Changed", page names like "Languages_K_N",
+      // and section names like "Locale_Display_Names"
       return str.replaceAll("_", " ");
     },
 

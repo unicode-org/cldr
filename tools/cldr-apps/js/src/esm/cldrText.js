@@ -487,6 +487,26 @@ const strings = {
   lock_account_success:
     "The account has been locked successfully. Thank you for using the Survey Tool. If you have difficulty still, contact the person who set up your account.",
 
+  notification_category_abstained:
+    "You have abstained, or not yet voted for any value.",
+  notification_category_changed:
+    "The winning value was altered from the baseline value. (Informational)",
+  notification_category_disputed:
+    "Different organizations are choosing different values. Please review to approve or reach consensus.",
+  notification_category_english_changed:
+    "The English value has changed in CLDR, but the corresponding value for your language has not. " +
+    "Check if any changes are needed in your language.",
+  notification_category_error:
+    "The Survey Tool detected an error in the winning value.",
+  notification_category_losing:
+    "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. " +
+    "This might be due to a dispute between members of your organization.",
+  notification_category_missing:
+    "Your current coverage level requires the item to be present. " +
+    "(During the vetting phase, this is informational: you can’t add new values.)",
+  notification_category_provisional:
+    "There are not enough votes for this item to be approved (and used).",
+
   progress_page: "Your voting in this page",
   progress_voter: "Your voting in this locale",
   progress_voter_disabled:

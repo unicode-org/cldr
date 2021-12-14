@@ -235,7 +235,7 @@ public class Dashboard {
          * Reference: https://unicode-org.atlassian.net/browse/CLDR-15056
          */
         VettingViewer<Organization>.DashboardData dd;
-        dd = vv.generateFileInfoReview(choiceSet, loc, user.id, usersOrg, usersLevel, sourceFile, baselineFile);
+        dd = vv.generateDashboard(choiceSet, loc, user.id, usersOrg, usersLevel, sourceFile, baselineFile);
         return reallyGet(sourceFile, baselineFile, dd, locale, user.id);
     }
 

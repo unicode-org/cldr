@@ -67,7 +67,7 @@ class TestVettingViewer {
         CLDRFile baselineFile = baselineFactory.make(loc, true);
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted;
         final Level usersLevel = Level.MODERN;
-        VettingViewer<Organization>.DashboardData dd = vv.generateFileInfoReview(choiceSet, loc, 0, usersOrg, usersLevel, sourceFile, baselineFile);
+        VettingViewer<Organization>.DashboardData dd = vv.generateDashboard(choiceSet, loc, 0, usersOrg, usersLevel, sourceFile, baselineFile);
         boolean foundAny = false;
         for (Entry<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> e : dd.sorted.entrySet()) {
             for(Choice problem : e.getValue().problems) {

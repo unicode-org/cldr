@@ -289,9 +289,8 @@ public class VettingViewerQueue {
         }
 
         private void processCriticalWork(final CLDRProgressTask progress) {
-            VettingViewer<Organization> vv;
             status = "Beginning Process, Calculating";
-
+            VettingViewer<Organization> vv;
             vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                 new STUsersChoice(sm));
             progress.update("Got VettingViewer");
@@ -302,11 +301,12 @@ public class VettingViewerQueue {
             vv.setProgressCallback(new CLDRProgressCallback(progress, Thread.currentThread()));
 
             EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getChoiceSetForOrg(usersOrg);
+            choiceSet.remove(VettingViewer.Choice.abstained);
 
             if (DEBUG) {
-                System.out.println("Starting summary gen..");
+                System.out.println("Starting generation of Priority Items Summary");
             }
-            vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
+            vv.generatePriorityItemsSummary(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
                 aBuffer.append("<hr/>" + PRE + "Processing time: " + ElapsedTimer.elapsedTime(start) + POST);
                 entry.output.put(usersOrg, new VVOutput(aBuffer));

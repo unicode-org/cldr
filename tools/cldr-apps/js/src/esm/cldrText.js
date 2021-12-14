@@ -489,6 +489,8 @@ const strings = {
 
   progress_page: "Your voting in this page",
   progress_voter: "Your voting in this locale",
+  progress_voter_disabled:
+    "This meter will be enabled if you open the Dashboard",
   progress_all_vetters: "Completion for all vetters in this locale",
 };
 

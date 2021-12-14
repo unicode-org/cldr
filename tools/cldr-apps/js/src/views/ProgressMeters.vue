@@ -1,26 +1,29 @@
 <template>
   <section id="ProgressMeters" v-if="!hide">
-    <a-tooltip v-if="pageMeter.getPresent()" :title="pageMeter.getTitle()">
+    <a-tooltip v-if="pageMeter.isVisible()" :title="pageMeter.getTitle()">
       <a-progress
         :percent="pageMeter.getPercent()"
+        :showInfo="!pageMeter.isExceptional()"
         strokeColor="blue"
         type="circle"
         :width="32"
       />
     </a-tooltip>
     &nbsp;
-    <a-tooltip v-if="voterMeter.getPresent()" :title="voterMeter.getTitle()">
+    <a-tooltip v-if="voterMeter.isVisible()" :title="voterMeter.getTitle()">
       <a-progress
         :percent="voterMeter.getPercent()"
+        :showInfo="!voterMeter.isExceptional()"
         strokeColor="orange"
         type="circle"
         :width="32"
       />
     </a-tooltip>
     &nbsp;
-    <a-tooltip v-if="localeMeter.getPresent()" :title="localeMeter.getTitle()">
+    <a-tooltip v-if="localeMeter.isVisible()" :title="localeMeter.getTitle()">
       <a-progress
         :percent="localeMeter.getPercent()"
+        :showInfo="!localeMeter.isExceptional()"
         strokeColor="green"
         type="circle"
         :width="32"

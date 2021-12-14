@@ -177,10 +177,15 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalDefiniteness values="definite indefinite"/>
       <!-- Gender is only used for expressing human activities/professions. -->
     </grammaticalFeatures>
-    <grammaticalFeatures targets="nominal" locales="nb nn no">
+    <grammaticalFeatures targets="nominal" locales="nb no">
       <grammaticalCase values="nominative genitive"/>
       <grammaticalGender values="masculine feminine neuter"/>
       <grammaticalGender scope="units" values="masculine neuter"/>
+      <grammaticalDefiniteness values="definite indefinite"/>
+    </grammaticalFeatures>
+    <grammaticalFeatures targets="nominal" locales="nn">
+      <grammaticalCase values="nominative genitive"/>
+      <grammaticalGender values="masculine feminine neuter"/>
       <grammaticalDefiniteness values="definite indefinite"/>
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="uk">

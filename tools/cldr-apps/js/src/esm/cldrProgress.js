@@ -19,7 +19,7 @@ import { notification } from "ant-design-vue";
 
 const USE_NEW_PROGRESS_WIDGET = true;
 const CAN_GET_VOTER_PROGRESS = true;
-const CAN_GET_LOCALE_PROGRESS = true;
+const CAN_GET_LOCALE_PROGRESS = false;
 
 let progressWrapper = null;
 

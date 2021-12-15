@@ -282,7 +282,7 @@ export default {
         console.error(
           "Dashboard is missing a description for the category: " + category
         );
-        description = humanize(category);
+        description = this.humanize(category);
       }
       return description;
     },

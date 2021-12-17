@@ -6602,8 +6602,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pluralMinimalPairs count="one">{0} dag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dagar</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Ta {0}. sving til høgre.</ordinalMinimalPairs>
-			<genderMinimalPairs gender="masculine">Min {0} han har tre kantar</genderMinimalPairs>
-			<genderMinimalPairs gender="neuter">Mitt {0} det har tre kantar</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine">Det tek ein heil {0} å …</genderMinimalPairs>
+			<genderMinimalPairs gender="feminine">Det tek ei heil {0} å …</genderMinimalPairs>
+			<genderMinimalPairs gender="neuter">Det tek eit heilt {0} å …</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

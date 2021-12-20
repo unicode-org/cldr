@@ -3,10 +3,25 @@
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Ethi" target="Latn" variant="Beta_Metsehaf" direction="both" draft="contributed" alias="Ethiopic-Latin/BetaMetsehaf ethi-t-latn-m0-beta-metsehaf" backwardAlias="Latin-Ethiopic/BetaMetsehaf latn-t-ethi-m0-beta-metsehaf">
+		<transform source="Ethi" target="Latn_Beta_Metsehaf" direction="both" draft="contributed" alias="Ethiopic-Latin/BetaMetsehaf ethi-t-latn-beta-metsehaf" backwardAlias="Latin-Ethiopic/BetaMetsehaf latn-t-ethi-beta-metsehaf">
 		<!-- The transform described in prose:
 		  This is a conversion from Ethiopic script (Unicode 3.0 level) to Latin script, and the reversal.
                   The conversion uses the convention (or "variant") in use by the "Beta Maṣāḥǝft" project.
+		-->
+		<!--
+		  Note that the attributes here have been adjusted to remove "Beta_Metsehaf" as a "variant" value to then work
+		  around a complication with filters in transformation rule syntax whereby the variant value cannot be expressed.
+		  If a resolution to this limiation is later found the attributes could then be reset as following:
+
+			source="Ethi"
+			target="Latn"
+			variant="Beta_Metsehaf"
+			direction="both"
+			draft="contributed"
+			alias="Ethiopic-Latin/BetaMetsehaf ethi-t-latn-m0-beta-metsehaf"
+			backwardAlias="Latin-Ethiopic/BetaMetsehaf latn-t-ethi-m0-beta-metsehaf
+
+		  If this update is later made, "beta_metsehaf" sould also be added to common/bcp47/transform.xml
 		-->
 			<tRule><![CDATA[
 ########################################################################

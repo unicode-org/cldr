@@ -3,10 +3,26 @@
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Ethi" target="Latn" variant="IES_JES_1964" direction="both" draft="contributed" alias="Ethiopic-Latin/IES-JES-1964 ethi-t-latn-m0-ies-jes-1964" backwardAlias="Latin-Ethiopic/IES-JES-1964 latn-t-ethi-m0-ies-jes-1964">
+		<transform source="Ethi" target="Latn_IESJES" direction="both" draft="contributed" alias="Ethiopic-Latin/IES-JES-1964 ethi-t-latn-iesjes" backwardAlias="Latin-Ethiopic/IES-JES-1964 latn-iesjes-t-ethi">
 		<!-- The transform described in prose:
 		  This is a conversion from Ethiopic script (Unicode 3.0 level) to Latin script, and the reversal.
                   The conversion uses the convention (or "variant") in use by the Journal of Ethiopian Studies.
+		-->
+		<!--
+		  Note that the attributes here have been adjusted to remove "IES_JES_1964" as a "variant" value to then work
+		  around a complication with filters in transformation rule syntax whereby the variant value cannot be expressed.
+		  The identifier further had to be changed to just "IESJES" to work within the target attribute.
+		  If a resolution to this limiation is later found the attributes could then be reset as following:
+
+			source="Ethi"
+			target="Latn"
+			variant="IES_JES_1964"
+			direction="both"
+			draft="contributed"
+			alias="Ethiopic-Latin/IES-JES-1964 ethi-t-latn-m0-ies-jes-1964"
+			backwardAlias="Latin-Ethiopic/IES-JES-1964 latn-t-ethi-m0-ies-jes-1964"
+
+		  If this update is later made, "ies_jes_1964" sould also be added to common/bcp47/transform.xml
 		-->
 			<tRule><![CDATA[
 ########################################################################

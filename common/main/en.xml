@@ -1356,6 +1356,7 @@ annotations.
 			<type key="d0" type="hex">To Hexadecimal Codes</type>
 			<type key="d0" type="hwidth">To Halfwidth</type>
 			<type key="d0" type="lower">To Lowercase</type>
+			<type key="d0" type="morse">To Morse Code</type>
 			<type key="d0" type="nfc">To Unicode NFC</type>
 			<type key="d0" type="nfd">To Unicode NFD</type>
 			<type key="d0" type="nfkc">To Unicode NFKC</type>
@@ -1431,11 +1432,15 @@ annotations.
 			<type key="m0" type="c11">Hex transform using C11 syntax</type>
 			<type key="m0" type="css">Hex transform using CSS syntax</type>
 			<type key="m0" type="din">German DIN Transliteration</type>
+			<type key="m0" type="es3842">Ethiopian Standards Agency ES 3842:2014 Ethiopic-Latin Transliteration</type>
 			<type key="m0" type="ewts">Extended Wylie Transliteration Scheme</type>
 			<type key="m0" type="gost">CIS GOST Transliteration</type>
+			<type key="m0" type="gurage_2013">Gurage Legacy to Modern Transliteration</type>
+			<type key="m0" type="gutgarts">Yaros Gutgarts Ethiopic-Cyrillic Transliteration</type>
 			<type key="m0" type="iast">International Alphabet of Sanskrit Transliteration</type>
 			<type key="m0" type="iso">ISO Transliteration</type>
 			<type key="m0" type="java">Hex transform using Java syntax</type>
+			<type key="m0" type="lambdin">Thomas Oden Lambdin Ethiopic-Latin Transliteration</type>
 			<type key="m0" type="mcst">Korean MCST Transliteration</type>
 			<type key="m0" type="mns">Mongolian National Standard Transliteration</type>
 			<type key="m0" type="percent">Hex transform using percent syntax</type>
@@ -1443,8 +1448,11 @@ annotations.
 			<type key="m0" type="plain">Hex transform with no surrounding syntax</type>
 			<type key="m0" type="prprname">Personal name transliteration variant</type>
 			<type key="m0" type="satts">Standard Arabic Technical Transliteration</type>
+			<type key="m0" type="sera">System for Ethiopic Representation in ASCII</type>
+			<type key="m0" type="tekie_alibekit">Tekie Alibekit Blin-Latin Transliteration</type>
 			<type key="m0" type="ungegn">UN GEGN Transliteration</type>
 			<type key="m0" type="unicode">Hex transform using Unicode syntax</type>
+			<type key="m0" type="xaleget">Eritrean Ministry of Education Blin-Latin Transliteration</type>
 			<type key="m0" type="xml">Hex transform using XML syntax</type>
 			<type key="m0" type="xml10">Hex transform using XML decimal syntax</type>
 			<type key="ms" type="metric">Metric System</type>
@@ -1543,6 +1551,7 @@ annotations.
 			<type key="s0" type="accents">From Accented Characters To ASCII Sequence</type>
 			<type key="s0" type="ascii">From ASCII</type>
 			<type key="s0" type="hex">From Hexadecimal Codes</type>
+			<type key="s0" type="morse">From Morse Code</type>
 			<type key="s0" type="npinyin">From Pinyin With Numeric Tones</type>
 			<type key="s0" type="publish">From Publishing Punctuation To ASCII</type>
 			<type key="s0" type="zawgyi">From Zawgyi Myanmar Encoding</type>

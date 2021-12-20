@@ -113,7 +113,6 @@ function addTopLocales(theDiv, locmap) {
     }
   }
   if (cldrStatus.getIsUnofficial()) {
-    $(theDiv).append($("<hr/><h4>Test Locales</h4>"));
     for (let n in locmap.locmap.topLocales) {
       const topLoc = locmap.locmap.topLocales[n];
       const topLocInfo = locmap.getLocaleInfo(topLoc);

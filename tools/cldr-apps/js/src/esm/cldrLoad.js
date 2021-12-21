@@ -615,14 +615,24 @@ function shower(itemLoadInfo) {
     isLoading = false;
     window.location = cldrStatus.getSurvUrl(); // redirect home
   } else {
-    const special = getSpecial(curSpecial);
-    if (special && special.load) {
-      cldrEvent.hideOverlayAndSidebar();
+    specialLoad(itemLoadInfo, curSpecial, theDiv);
+  }
+}
+
+function specialLoad(itemLoadInfo, curSpecial, theDiv) {
+  const special = getSpecial(curSpecial);
+  if (special && special.load) {
+    cldrEvent.hideOverlayAndSidebar();
+    if (curSpecial !== "general") {
       cldrGui.hideDashboard();
-      special.load(curSpecial); // pass the special name to the loader
-    } else {
-      unspecialLoad(itemLoadInfo, theDiv);
     }
+    special.load(curSpecial); // pass the special name to the loader
+  } else if (curSpecial !== "general") {
+    // Avoid recursion.
+    unspecialLoad(itemLoadInfo, theDiv);
+  } else {
+    // This will only be called if 'general' is a missing special.
+    handleMissingSpecial(curSpecial);
   }
 }
 
@@ -633,7 +643,7 @@ function unspecialLoad(itemLoadInfo, theDiv) {
     const curPage = cldrStatus.getCurrentPage();
     const curId = cldrStatus.getCurrentId();
     if (!curPage && !curId) {
-      loadGeneral(itemLoadInfo);
+      specialLoad(itemLoadInfo, "general", theDiv); //formerly: loadGeneral(itemLoadInfo);
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
       loadExclamationPoint();
@@ -702,7 +712,6 @@ function handleMissingSpecial(curSpecial) {
  *
  * Also these, which don't fit the fallback pattern:
  *  - loadExclamationPoint
- *  - loadGeneral
  *  - loadAllRows
  *  - localeParseHash
  *
@@ -753,59 +762,6 @@ function getSpecial(str) {
  */
 function isReport(str) {
   return str[0] == "r" && str[1] == "_";
-}
-
-// the 'General Info' page.
-function loadGeneral(itemLoadInfo) {
-  const curLocale = cldrStatus.getCurrentLocale();
-  const curLocaleName = locmap.getLocaleName(curLocale);
-  itemLoadInfo.appendChild(document.createTextNode(curLocaleName));
-  showPossibleProblems();
-  const message = cldrText.get("generalPageInitialGuidance");
-  cldrInfo.showMessage(message);
-  isLoading = false;
-}
-
-/**
- * Show the "possible problems" section which has errors for the locale
- */
-function showPossibleProblems() {
-  const currentLocale = cldrStatus.getCurrentLocale();
-  const userCov = cldrCoverage.getSurveyUserCov();
-  const url =
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=possibleProblems&_=" +
-    currentLocale +
-    "&s=" +
-    cldrStatus.getSessionId() +
-    "&userCov=" +
-    (userCov || "auto") +
-    cldrSurvey.cacheKill();
-  myLoad(url, "possibleProblems", loadPossibleProblemsFromJson);
-}
-
-function loadPossibleProblemsFromJson(json) {
-  if (verifyJson(json, "possibleProblems")) {
-    if (json.dataLoadTime) {
-      cldrDom.updateIf("dynload", json.dataLoadTime);
-    }
-    const theDiv = flipper.flipToEmpty(pages.other);
-    insertLocaleSpecialNote(theDiv);
-    if (json.possibleProblems.length > 0) {
-      const subDiv = cldrDom.createChunk("", "div");
-      subDiv.className = "possibleProblems";
-      const h3 = cldrDom.createChunk(cldrText.get("possibleProblems"), "h3");
-      subDiv.appendChild(h3);
-      const div3 = document.createElement("div");
-      div3.innerHTML = cldrSurvey.testsToHtml(json.possibleProblems);
-      subDiv.appendChild(div3);
-      theDiv.appendChild(subDiv);
-    }
-    const theInfo = cldrDom.createChunk("", "p", "special_general");
-    theDiv.appendChild(theInfo);
-    theInfo.innerHTML = cldrText.get("special_general");
-    cldrSurvey.hideLoader();
-  }
 }
 
 function loadExclamationPoint() {
@@ -1162,6 +1118,7 @@ export {
   handleCoverageChanged,
   insertLocaleSpecialNote,
   linkToLocale,
+  localeSpecialNote,
   myLoad,
   parseHashAndUpdate,
   reloadV,

@@ -142,25 +142,34 @@ public class LocaleCompletion {
 
         final List<CheckStatus> results = new ArrayList<>();
         for (final String xpath : file) {
+            lcr.allXpaths ++;
             final Level pathLevel = covLeveller.getLevel(xpath);
             final String fullPath = file.getFullXPath(xpath);
 
             final PathHeader ph = LocaleCompletionHelper.INSTANCE.phf.fromPath(xpath);
             SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
             if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
+                lcr.ignoredHidden ++;
                 continue; // not visible
             }
 
-            checkCldr.check(fullPath, results, file.getStringValue(xpath));
+            checkCldr.check(xpath, results, file.getStringValue(xpath));
 
-            boolean hasError = CheckStatus.hasError(results);
+            final boolean hasError = CheckStatus.hasError(results);
+
+            final boolean statusMissing = STFactory.calculateStatus(file, baselineFile, xpath) == VoteResolver.Status.missing;
+
+            if (statusMissing) {
+                lcr.statusMissing ++;
+            }
 
             // TODO: copy and paste from CheckCLDR.getShowRowAction - CLDR-15230
             if (CheckCLDR.LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(
                     localeId,
                     xpath,
                     hasError,
-                    STFactory.calculateStatus(file, baselineFile, xpath) == VoteResolver.Status.missing)) {
+                    statusMissing)) {
+                    lcr.ignoredLimited ++;
                     continue;  // not allowed through by SubmissionLocales.
             }
 
@@ -178,7 +187,10 @@ public class LocaleCompletion {
                     } else {
                         lcr.addOk();
                     }
-                } // else: out of coverage level, do not count the path.
+                } else {
+                    // out of coverage level, do not count the path.
+                    lcr.ignoredOutOfCov ++;
+                }
             }
         }
         logger.info(et.toString());
@@ -192,6 +204,13 @@ public class LocaleCompletion {
         public int missing = 0;
         public int provisional = 0;
         final public String level;
+
+        // The following are more or less debug items
+        public int ignoredLimited = 0;
+        public int ignoredHidden = 0;
+        public int allXpaths = 0;
+        public int statusMissing = 0;
+        public int ignoredOutOfCov = 0;
 
         LocaleCompletionResponse(Level l) {
             level = l.name();

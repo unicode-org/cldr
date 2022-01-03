@@ -1,6 +1,7 @@
 import AboutPanel from "./views/AboutPanel.vue";
 import AddUser from "./views/AddUser.vue";
 import AutoImport from "./views/AutoImport.vue";
+import GeneralInfo from "./views/GeneralInfo.vue";
 import LockAccount from "./views/LockAccount.vue";
 import LookUp from "./views/LookUp.vue";
 import MainMenu from "./views/MainMenu.vue";
@@ -18,6 +19,7 @@ const specialToComponentMap = {
   about: AboutPanel,
   add_user: AddUser,
   auto_import: AutoImport,
+  general: GeneralInfo,
   lock_account: LockAccount,
   lookup: LookUp,
   menu: MainMenu,

@@ -412,11 +412,12 @@ function unpackMenuSideBar(json) {
   $(".review-link").click(function () {
     $("#left-sidebar").removeClass("active");
     toggleOverlay();
-    $("#OtherSection").hide();
     const url = $(this).data("url");
     if (url === "dashboard") {
+      cldrStatus.setCurrentSpecial("general");
       cldrGui.insertDashboard();
     } else {
+      $("#OtherSection").hide(); // Don't hide the other section when showing the dashboard.
       cldrStatus.setCurrentSpecial(url);
       cldrStatus.setCurrentId("");
       cldrStatus.setCurrentPage("");

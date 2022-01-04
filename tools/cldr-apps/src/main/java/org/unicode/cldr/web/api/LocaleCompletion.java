@@ -1,7 +1,6 @@
 package org.unicode.cldr.web.api;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -21,32 +20,25 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.SubmissionLocales;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.InputMethod;
-import org.unicode.cldr.test.CheckCLDR.StatusAction;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
-import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
-import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
-import org.unicode.cldr.web.UserRegistry;
 
 /**
  * "A locale has complete coverage when there are no Missing values, no Provisional values, and no Errors
@@ -142,14 +134,14 @@ public class LocaleCompletion {
 
         final List<CheckStatus> results = new ArrayList<>();
         for (final String xpath : file) {
-            lcr.allXpaths ++;
+            lcr.allXpaths++;
             final Level pathLevel = covLeveller.getLevel(xpath);
             final String fullPath = file.getFullXPath(xpath);
 
             final PathHeader ph = LocaleCompletionHelper.INSTANCE.phf.fromPath(xpath);
             SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
             if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
-                lcr.ignoredHidden ++;
+                lcr.ignoredHidden++;
                 continue; // not visible
             }
 
@@ -160,17 +152,17 @@ public class LocaleCompletion {
             final boolean statusMissing = STFactory.calculateStatus(file, baselineFile, xpath) == VoteResolver.Status.missing;
 
             if (statusMissing) {
-                lcr.statusMissing ++;
+                lcr.statusMissing++;
             }
 
             // TODO: copy and paste from CheckCLDR.getShowRowAction - CLDR-15230
             if (CheckCLDR.LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(
-                    localeId,
-                    xpath,
-                    hasError,
-                    statusMissing)) {
-                    lcr.ignoredLimited ++;
-                    continue;  // not allowed through by SubmissionLocales.
+                localeId,
+                xpath,
+                hasError,
+                statusMissing)) {
+                lcr.ignoredLimited++;
+                continue; // not allowed through by SubmissionLocales.
             }
 
             if (hasError) {
@@ -189,7 +181,7 @@ public class LocaleCompletion {
                     }
                 } else {
                     // out of coverage level, do not count the path.
-                    lcr.ignoredOutOfCov ++;
+                    lcr.ignoredOutOfCov++;
                 }
             }
         }

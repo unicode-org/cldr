@@ -1,9 +1,3 @@
-<!--
-    This replaces cldrLoad.loadGeneral(itemLoadInfo);
-    Note that there isn't any provision for showPossibleProblems, which seems to be
-    entirely dead code.
--->
-
 <template>
   <div>
     <div class="warnText" v-if="localeSpecialNote" v-html="localeSpecialNote" />

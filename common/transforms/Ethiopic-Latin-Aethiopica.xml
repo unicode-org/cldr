@@ -3,7 +3,7 @@
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Ethi" target="Latn" variant="Aethiopi" direction="both" draft="contributed" alias="Ethiopic-Latin/Aethiopica ethi-t-latn-m0-aethiopi" backwardAlias="Latin-Ethiopic/Aethiopica latn-t-ethi-m0-aethiopi">
+		<transform source="Ethi" target="Latn" variant="Aethiopi" direction="both" draft="contributed" alias="Ethiopic-Latin/Aethiopica latn-t-ethi-m0-aethiopi" backwardAlias="Latin-Ethiopic/Aethiopica ethi-t-latn-m0-aethiopi">
 		<!-- The transform described in prose:
 		  This is a conversion from Ethiopic script (Unicode 3.0 level) to Latin script, and the reversal.
                   The conversion uses the convention (or "variant") in use by the journal Aethiopica.
@@ -114,7 +114,9 @@ $wordBoundary = [^[:L:][:M:][:N:]] ;
 #
 ########################################################################
 #
-
+# ሁለመና → | ሁለ፟መና ;
+# ሁለ → | ሁለ፟ ;  # this doesn't work becuase ሁለ is a substring of ሁለመና and would get reprocessed: ERROR: Incomplete non-incremental transliteration by %Pass1
+# መና → | መና፟ ;
 $ጥበቅ = \u135f ;
 #
 # Return later to ላላ processing for voiced ሳድስ vowels. The feature

@@ -55,7 +55,6 @@ class MeterData {
     const localeName = cldrLoad.getLocaleName(locale);
     this.title =
       `${this.description}: ${this.votes} / ${this.total} ≈ ${this.percent}%` +
-      `\n•Locale: ${localeName} (${locale})` +
       `\n•Coverage: ${this.level}`;
   }
 

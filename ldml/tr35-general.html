@@ -649,6 +649,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
@@ -2723,11 +2733,25 @@ m → r ;
   <span class="hljs-tag">&lt;<span class="hljs-name">listPatternPart</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"end"</span>&gt;</span>{0}, and {1}<span class="hljs-tag">&lt;/<span class="hljs-name">listPatternPart</span>&gt;</span>
  <span class="hljs-tag">&lt;/<span class="hljs-name">listPattern</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">listPatterns</span>&gt;</span>
-</code></pre><p>The data is used as follows: If there is a type type matches exactly the number of elements in the desired list (such as "2" in the above list), then use that pattern. Otherwise,</p><ol>
-<li> Format the last two elements with the "end" format.</li>
-<li> Then use middle format to add on subsequent elements working towards the front, all but the very first element. That is, {1} is what you've already done, and {0} is the previous element.</li>
-<li> Then use "start" to add the front element, again with {1} as what you've done so far, and {0} is the first element.</li>
-</ol><p>Thus a list (a,b,c,...m, n) is formatted as: <code>start(a,middle(b,middle(c,middle(...end(m, n))...)))</code></p><p>More sophisticated implementations can customize the process to improve the results for languages where context is important. For example:</p><!-- HTML: rowspan, block elements in cells --><table><tbody>
+</code></pre><p>Each pattern satisifies the following conditions:</p><ul>
+    <li>it contains the placeholders <code>{0}</code>, <code>{1}</code>, and <code>{2}</code> ("3"-pattern only) in order</li>
+    <li>"start" and "middle" patterns end with the <code>{1}</code> placeholder</li>
+    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li> 
+</ul><p>That is,</p><ul>
+    <li>all patterns can have text between the placeholders</li>
+    <li>only the "start", "2", and "3" patterns can have text before the first placeholder, and</li>
+    <li>only the "end", "2", and "3" patterns can have text after the last placeholder.</li>
+</ul><p>The data is used as follows: If there is a type that matches exactly the number of elements in the desired list (such as "2" in the above list), then use that pattern. Otherwise,</p><ol>
+<li> Format the last two elements with the "end" pattern.</li>
+<li> Then use the "middle" pattern to add on subsequent elements working towards the front, all but the very first element. That is, <code>{1}</code> is what you've already done, and <code>{0}</code> is the previous element.</li>
+<li> Then use "start" to add the front element, again with <code>{1}</code> as what you've done so far, and <code>{0}</code> is the first element.</li>
+</ol><p>Thus a list (a,b,c,...m, n) is formatted as: <code>start(a,middle(b,middle(c,middle(...end(m, n))...)))</code>. Alternatively, the list can also be processed front-to-back:</p><ol>
+<li>Format the first two elements with the "start" pattern.</li>
+<li>Then use the "middle" pattern to add on subsequent elements working towards the back, all but the very last element. That is, <code>{0}</code> is what you've already done, and <code>{1}</code> is the next element.</li>
+<li>Then use "end" to add the last element, again with <code>{0}</code> as what you've done so far, and <code>{1}</code> is the last element.</li>
+</ol><p>Here, the list (a,b,c,...m, n) is formatted as:  <code>end(middle(..., middle(start(a, b), c) ...) m) n) </code>. While this prefix-expression looks less suitable, it actually only requires appends,
+so this algorithm can be used to write into append-only sinks. Both the back-to-front and the front-to back algorithm produce this expression:</p><pre><code>start_before + a + start_between + b + middle_between + c + ... + middle_between + m + end_between + n + end_after
+</code></pre><p>where the patters are "start": <code>start_before{0}start_between{1}</code>, "middle": <code>{0}middle_between{1}</code>, and "end": <code>{0}end_between{1}end_after</code>.</p><p>More sophisticated implementations can customize the process to improve the results for languages where context is important. For example:</p><!-- HTML: rowspan, block elements in cells --><table><tbody>
 <tr><td rowspan="3">Spanish</td><td>AND</td>
     <td>Use ‘e’ instead of ‘y’ in the listPatternPart for "end" and "2" in either of the following cases:
         <ol><li>The value substituted for {1} starts with ‘i’

@@ -99,49 +99,20 @@ function loadForum(locale, userId, forumMessage, params) {
   setLocale(locale);
   const url = getLoadForumUrl();
   const errorHandler = function (err) {
-    params.special.showError(params, null, {
+    loadHandler({
       err: err,
-      what: "Loading forum data",
+      err_code: "Loading forum data",
     });
   };
   const loadHandler = function (json) {
-    if (json.err) {
-      if (params.special) {
-        params.special.showError(params, json, {
-          what: "Loading forum data",
-        });
-      }
-      return;
-    }
-    /*
-     * The server has already confirmed that the user is logged in and has permission to view the forum.
-     * Note: the criteria (here) for posting in the main forum window are less strict than in the info
-     * panel; see the other call to setUserCanPost. Here, we have no "json.canModify" set by the server.
-     */
-    setUserCanPost(true);
-
     // set up the 'right sidebar'
     const message = cldrText.get(params.name + "Guidance");
     cldrInfo.showMessage(message);
-
     const ourDiv = document.createElement("div");
-    ourDiv.appendChild(forumCreateChunk(forumMessage, "h4", ""));
-
-    const filterMenu = cldrForumFilter.createMenu(cldrLoad.reloadV);
-    const summaryDiv = document.createElement("div");
-    summaryDiv.innerHTML = "";
-    ourDiv.appendChild(summaryDiv);
-    ourDiv.appendChild(filterMenu);
-    ourDiv.appendChild(document.createElement("hr"));
-    const posts = json.ret;
-    if (posts.length == 0) {
-      ourDiv.appendChild(
-        forumCreateChunk(cldrText.get("forum_noposts"), "p", "helpContent")
-      );
+    if (json.err) {
+      loadBad(ourDiv, json);
     } else {
-      const content = parseContent(posts, "main");
-      ourDiv.appendChild(content);
-      summaryDiv.innerHTML = getForumSummaryHtml(forumLocale, userId, true); // after parseContent
+      loadOk(ourDiv, json, userId, forumMessage);
     }
     // No longer loading
     cldrSurvey.hideLoader();
@@ -155,6 +126,42 @@ function loadForum(locale, userId, forumMessage, params) {
     error: errorHandler,
   };
   cldrAjax.sendXhr(xhrArgs);
+}
+
+function loadBad(ourDiv, json) {
+  let html = "<p>" + json.err + "</p>";
+  if (json.err_code) {
+    html += "<p>" + cldrText.get(json.err_code) + "</p>";
+  }
+  ourDiv.innerHTML = html;
+}
+
+function loadOk(ourDiv, json, userId, forumMessage) {
+  /*
+   * The server has already confirmed that the user is logged in and has permission to view the forum.
+   * Note: the criteria (here) for posting in the main forum window are less strict than in the info
+   * panel; see the other call to setUserCanPost. Here, we have no "json.canModify" set by the server.
+   */
+  setUserCanPost(true);
+
+  ourDiv.appendChild(forumCreateChunk(forumMessage, "h4", ""));
+
+  const filterMenu = cldrForumFilter.createMenu(cldrLoad.reloadV);
+  const summaryDiv = document.createElement("div");
+  summaryDiv.innerHTML = "";
+  ourDiv.appendChild(summaryDiv);
+  ourDiv.appendChild(filterMenu);
+  ourDiv.appendChild(document.createElement("hr"));
+  const posts = json.ret;
+  if (posts.length == 0) {
+    ourDiv.appendChild(
+      forumCreateChunk(cldrText.get("forum_noposts"), "p", "helpContent")
+    );
+  } else {
+    const content = parseContent(posts, "main");
+    ourDiv.appendChild(content);
+    summaryDiv.innerHTML = getForumSummaryHtml(forumLocale, userId, true); // after parseContent
+  }
 }
 
 // called as special.handleIdChanged

@@ -194,11 +194,14 @@ public class VotingParticipation {
 
     public static class OrgParticipation {
         public String[] localesWithVetters;
+        final public String[] coverageLocales;
         public String defaultCoverage;
 
         public OrgParticipation(Organization o) {
             this.org = o;
-            this.defaultCoverage = StandardCodes.make().getDefaultLocaleCoverageLevel(o).toString();
+            StandardCodes codes = StandardCodes.make();
+            this.defaultCoverage = codes.getDefaultLocaleCoverageLevel(o).toString();
+            coverageLocales = codes.getLocaleCoverageLocales(o).toArray(new String[0]);
         }
 
         public Organization org;

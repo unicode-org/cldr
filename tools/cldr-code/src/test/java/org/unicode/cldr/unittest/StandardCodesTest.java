@@ -61,8 +61,11 @@ public class StandardCodesTest extends TestFmwk {
                 locs = sc.getLocaleCoverageLocales(org,
                     EnumSet.of(Level.MODERATE, Level.MODERN));
                 for (String loc : locs) {
-                    if (loc.equals("*"))
+                    if (loc.equals("*") || loc.equals("mul")) {
+                        // Skip * as wildcard
+                        // Skip sandbox locale 'mul'
                         continue;
+                    }
                     if (!availableLocales.contains(loc)) {
                         warnln("Locales.txt:\t" + loc + " ("
                             + CLDRLocale.getInstance(loc).getDisplayName()

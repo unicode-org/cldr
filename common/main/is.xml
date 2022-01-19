@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -1144,7 +1144,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="₹">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
 			<parseLenient sample=",">↑↑↑</parseLenient>
 			<parseLenient sample="+">[+⁺₊➕﬩﹢＋]</parseLenient>
 		</parseLenients>
@@ -8740,9 +8740,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" gender="feminine" case="dative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">fer{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="accusative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="dative">↑↑↑</compoundUnitPattern1>
@@ -8752,9 +8752,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" gender="feminine" case="dative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1 count="one">rúm{0}</compoundUnitPattern1>
@@ -8766,9 +8766,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" gender="feminine" case="dative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">rúm{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="accusative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="dative">↑↑↑</compoundUnitPattern1>
@@ -8778,9 +8778,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" gender="feminine" case="dative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -9632,7 +9632,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} kílógramm</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative">{0} kílógrammi</unitPattern>
-				<unitPattern count="one" case="genitive">{0} kílógramms</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} kílógrammi</unitPattern>
 				<unitPattern count="other">{0} kílógrömm</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="dative">{0} kílógrömmum</unitPattern>
@@ -9976,7 +9976,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} millilítrar</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<gender>feminine</gender>
+				<gender draft="provisional">feminine</gender>
 				<displayName>mpt</displayName>
 				<unitPattern count="one">{0} mpt</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
@@ -9995,9 +9995,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" case="dative">{0} áströlskum bolla</unitPattern>
 				<unitPattern count="one" case="genitive">{0} ástralsks bolla</unitPattern>
 				<unitPattern count="other">{0} ástralskir bollar</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ástralska bolla</unitPattern>
-				<unitPattern count="other" case="dative">{0} áströlskum bollum</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ástralskra bolla</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ekrufet</displayName>
@@ -11768,7 +11768,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} sml</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>↑↑↑</displayName>
+				<displayName>sænskar mílur</displayName>
 				<unitPattern count="one">{0} sæ. míl</unitPattern>
 				<unitPattern count="other">{0} sæ. míl</unitPattern>
 			</unit>

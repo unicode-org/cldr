@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -416,7 +416,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="raj">раджастхани</language>
 			<language type="rap">рапануйский</language>
 			<language type="rar">раротонга</language>
-			<language type="rhg">рохинджа</language>
+			<language type="rhg" draft="contributed">рохинджа</language>
 			<language type="rm">романшский</language>
 			<language type="rn">рунди</language>
 			<language type="ro">румынский</language>
@@ -1239,7 +1239,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрическая</measurementSystemName>
 			<measurementSystemName type="UK">Английская</measurementSystemName>
-			<measurementSystemName type="US">Американская</measurementSystemName>
+			<measurementSystemName type="US">Англо-американская</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Язык: {0}</codePattern>
@@ -2047,13 +2047,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">вс</day>
+							<day type="mon">пн</day>
+							<day type="tue">вт</day>
+							<day type="wed">ср</day>
+							<day type="thu">чт</day>
+							<day type="fri">пт</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">вс</day>
@@ -7421,11 +7421,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="LSL">
-				<displayName>лоти</displayName>
-				<displayName count="one">лоти</displayName>
-				<displayName count="few">лоти</displayName>
-				<displayName count="many">лоти</displayName>
-				<displayName count="other">лоти</displayName>
+				<displayName>Лоти</displayName>
+				<displayName count="one" draft="provisional">лесотский лоти</displayName>
+				<displayName count="few" draft="provisional">лесотских лоти</displayName>
+				<displayName count="many" draft="provisional">лесотский лоти</displayName>
+				<displayName count="other" draft="provisional">лесотского лоти</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
@@ -8324,7 +8324,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="few">из {0} книг за {0} дня</pluralMinimalPairs>
 			<pluralMinimalPairs count="many">из {0} книг за {0} дней</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">из {0} книги за {0} дня</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}-й перекресток — поворот направо.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Сверните направо на {0}-м перекрестке.</ordinalMinimalPairs>
 			<caseMinimalPairs case="accusative">Вижу {0}</caseMinimalPairs>
 			<caseMinimalPairs case="dative">Верю {0}</caseMinimalPairs>
 			<caseMinimalPairs case="genitive">Не хватает {0}</caseMinimalPairs>
@@ -8435,7 +8435,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" case="genitive">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="instrumental">квадратным {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="locative">квадратном {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="prepositional">квадратном {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="prepositional" draft="contributed">квадратном {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="vocative">квадратный {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">квадратная {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">квадратную {0}</compoundUnitPattern1>
@@ -8443,28 +8443,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="locative">квадратной {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="prepositional">квадратной {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="prepositional" draft="contributed">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="vocative">квадратная {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few">квадратных {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="accusative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="accusative">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" case="dative">квадратным {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="genitive">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" case="instrumental">квадратными {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="locative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="locative">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" case="prepositional">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="vocative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="vocative">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine">квадратные {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="accusative">квадратные {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="dative">квадратным {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="genitive">квадратных {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="genitive">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="instrumental">квадратными {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="locative">квадратных {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="locative">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="prepositional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="vocative">квадратные {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="masculine">↑↑↑</compoundUnitPattern1>
@@ -8479,7 +8479,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="many" case="genitive">квадратных {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="instrumental">квадратными {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="locative">квадратных {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="vocative">квадратных {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine">квадратных {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="accusative">квадратных {0}</compoundUnitPattern1>
@@ -8487,21 +8487,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="many" gender="feminine" case="genitive">квадратных {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="instrumental">квадратными {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="locative">квадратных {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="vocative">квадратных {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="accusative">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="dative">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="genitive">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="instrumental">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="locative">квадратного {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="vocative">квадратного {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="accusative">квадратной {0}</compoundUnitPattern1>
@@ -8509,14 +8509,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="locative">квадратной {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="prepositional">квадратной {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="prepositional" draft="contributed">квадратной {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="vocative">квадратной {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>куб. {0}</compoundUnitPattern1>
@@ -8526,7 +8526,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" case="genitive">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="instrumental">кубическим {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="locative">кубическом {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="prepositional">кубическом {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="prepositional" draft="contributed">кубическом {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="vocative">кубический {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">кубическая {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">кубическую {0}</compoundUnitPattern1>
@@ -8534,43 +8534,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="locative">кубической {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="prepositional">кубической {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="prepositional" draft="contributed">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="vocative">кубическая {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few">кубических {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="accusative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="accusative">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" case="dative">кубическим {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="genitive">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" case="instrumental">кубическими {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="locative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="prepositional">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="vocative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="locative">кубического {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="vocative">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine">кубические {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="accusative">кубические {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="dative">кубическим {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="genitive">кубических {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="genitive">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="instrumental">кубическими {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="locative">кубических {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="locative">кубической {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine" case="vocative">кубические {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="masculine" case="accusative">кубических {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="masculine" case="genitive">кубических {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="masculine" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="masculine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="masculine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="masculine" case="accusative" draft="contributed">кубических {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="masculine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="masculine" case="genitive" draft="contributed">кубических {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="masculine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="masculine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many">кубических {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="accusative">кубических {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="dative">кубическим {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="genitive">кубических {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="instrumental">кубическими {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="locative">кубических {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" case="vocative">кубических {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine">кубических {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="accusative">кубических {0}</compoundUnitPattern1>
@@ -8578,21 +8578,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="many" gender="feminine" case="genitive">кубических {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="instrumental">кубическими {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="locative">кубических {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="vocative">кубических {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="masculine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="masculine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="accusative">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="dative">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="genitive">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="instrumental">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="locative">кубического {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="vocative">кубического {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="accusative">кубической {0}</compoundUnitPattern1>
@@ -8600,14 +8600,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="locative">кубической {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="prepositional">кубической {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="prepositional" draft="contributed">кубической {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="vocative">кубической {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="dative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="prepositional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="prepositional" draft="contributed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -8723,13 +8723,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} радиана</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="few" case="dative">{0} радианам</unitPattern>
-				<unitPattern count="few" case="genitive">{0} радиан</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">{0} радиан</unitPattern>
 				<unitPattern count="few" case="instrumental">{0} радианами</unitPattern>
 				<unitPattern count="few" case="prepositional">{0} радианах</unitPattern>
 				<unitPattern count="many">{0} радиан</unitPattern>
-				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="accusative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="many" case="dative">{0} радианам</unitPattern>
-				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="many" case="instrumental">{0} радианами</unitPattern>
 				<unitPattern count="many" case="prepositional">{0} радианах</unitPattern>
 				<unitPattern count="other">{0} радиана</unitPattern>
@@ -9110,11 +9110,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} миллимоля на литр</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>объекты</displayName>
-				<unitPattern count="one">{0} объект</unitPattern>
-				<unitPattern count="few">{0} объекта</unitPattern>
-				<unitPattern count="many">{0} объектов</unitPattern>
-				<unitPattern count="other">{0} объекта</unitPattern>
+				<displayName draft="contributed">объекты</displayName>
+				<unitPattern count="one" draft="contributed">{0} объект</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} объекта</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} объектов</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} объекта</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<gender>feminine</gender>
@@ -9209,60 +9209,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>промириады</displayName>
 				<unitPattern count="one">{0} промириад</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">{0} промириаду</unitPattern>
-				<unitPattern count="one" case="genitive">{0} промириада</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} промириадом</unitPattern>
-				<unitPattern count="one" case="prepositional">{0} промириаде</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">{0} промириаду</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} промириада</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">{0} промириадом</unitPattern>
+				<unitPattern count="one" case="prepositional" draft="contributed">{0} промириаде</unitPattern>
 				<unitPattern count="few">{0} промириада</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="dative">{0} промириадам</unitPattern>
-				<unitPattern count="few" case="genitive">{0} промириад</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} промириадами</unitPattern>
-				<unitPattern count="few" case="prepositional">{0} промириадах</unitPattern>
+				<unitPattern count="few" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative" draft="contributed">{0} промириадам</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">{0} промириад</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="contributed">{0} промириадами</unitPattern>
+				<unitPattern count="few" case="prepositional" draft="contributed">{0} промириадах</unitPattern>
 				<unitPattern count="many">{0} промириадов</unitPattern>
-				<unitPattern count="many" case="accusative">{0} промириад</unitPattern>
-				<unitPattern count="many" case="dative">{0} промириадам</unitPattern>
-				<unitPattern count="many" case="genitive">{0} промириад</unitPattern>
-				<unitPattern count="many" case="instrumental">{0} промириадами</unitPattern>
-				<unitPattern count="many" case="prepositional">{0} промириадах</unitPattern>
+				<unitPattern count="many" case="accusative" draft="contributed">{0} промириад</unitPattern>
+				<unitPattern count="many" case="dative" draft="contributed">{0} промириадам</unitPattern>
+				<unitPattern count="many" case="genitive" draft="contributed">{0} промириад</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="contributed">{0} промириадами</unitPattern>
+				<unitPattern count="many" case="prepositional" draft="contributed">{0} промириадах</unitPattern>
 				<unitPattern count="other">{0} промириада</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="prepositional" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>моли</displayName>
 				<unitPattern count="one">{0} моль</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">{0} молю</unitPattern>
-				<unitPattern count="one" case="genitive">{0} моля</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} молем</unitPattern>
-				<unitPattern count="one" case="prepositional">{0} моле</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">{0} молю</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} моля</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">{0} молем</unitPattern>
+				<unitPattern count="one" case="prepositional" draft="contributed">{0} моле</unitPattern>
 				<unitPattern count="few">{0} моля</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="dative">{0} молям</unitPattern>
-				<unitPattern count="few" case="genitive">{0} молей</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} молями</unitPattern>
-				<unitPattern count="few" case="prepositional">{0} молях</unitPattern>
+				<unitPattern count="few" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative" draft="contributed">{0} молям</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">{0} молей</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="contributed">{0} молями</unitPattern>
+				<unitPattern count="few" case="prepositional" draft="contributed">{0} молях</unitPattern>
 				<unitPattern count="many">{0} молей</unitPattern>
-				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="many" case="dative">{0} молям</unitPattern>
-				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="many" case="instrumental">{0} молями</unitPattern>
-				<unitPattern count="many" case="prepositional">{0} молях</unitPattern>
+				<unitPattern count="many" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative" draft="contributed">{0} молям</unitPattern>
+				<unitPattern count="many" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="contributed">{0} молями</unitPattern>
+				<unitPattern count="many" case="prepositional" draft="contributed">{0} молях</unitPattern>
 				<unitPattern count="other">{0} моля</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="prepositional" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литры на километр</displayName>
@@ -9875,6 +9875,33 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="vocative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} в день</perUnitPattern>
 			</unit>
+			<unit type="duration-day-person">
+				<gender>masculine</gender>
+				<unitPattern count="one">{0} сутки</unitPattern>
+				<unitPattern count="one" case="accusative">{0} сутки</unitPattern>
+				<unitPattern count="one" case="dative">{0} суткам</unitPattern>
+				<unitPattern count="one" case="genitive">{0} суток</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} сутками</unitPattern>
+				<unitPattern count="one" case="prepositional">{0} сутках</unitPattern>
+				<unitPattern count="few">{0} суток</unitPattern>
+				<unitPattern count="few" case="accusative">{0} суток</unitPattern>
+				<unitPattern count="few" case="dative">{0} суткам</unitPattern>
+				<unitPattern count="few" case="genitive">{0} суток</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} сутками</unitPattern>
+				<unitPattern count="few" case="prepositional">{0} сутках</unitPattern>
+				<unitPattern count="many">{0} суток</unitPattern>
+				<unitPattern count="many" case="accusative">{0} суток</unitPattern>
+				<unitPattern count="many" case="dative">{0} суткам</unitPattern>
+				<unitPattern count="many" case="genitive">{0} суток</unitPattern>
+				<unitPattern count="many" case="instrumental">{0} сутками</unitPattern>
+				<unitPattern count="many" case="prepositional">{0} сутках</unitPattern>
+				<unitPattern count="other">{0} суток</unitPattern>
+				<unitPattern count="other" case="accusative">{0} суток</unitPattern>
+				<unitPattern count="other" case="dative">{0} суток</unitPattern>
+				<unitPattern count="other" case="genitive">{0} суток</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} суток</unitPattern>
+				<unitPattern count="other" case="prepositional">{0} суток</unitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<gender>masculine</gender>
 				<displayName>часы</displayName>
@@ -10054,13 +10081,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ома</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="few" case="dative">{0} омам</unitPattern>
-				<unitPattern count="few" case="genitive">{0} ом</unitPattern>
+				<unitPattern count="few" case="genitive" draft="provisional">{0} ом</unitPattern>
 				<unitPattern count="few" case="instrumental">{0} омами</unitPattern>
 				<unitPattern count="few" case="prepositional">{0} омах</unitPattern>
 				<unitPattern count="many">{0} ом</unitPattern>
 				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="many" case="dative">{0} омам</unitPattern>
-				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="many" case="instrumental">{0} омами</unitPattern>
 				<unitPattern count="many" case="prepositional">{0} омах</unitPattern>
 				<unitPattern count="other">{0} ома</unitPattern>
@@ -10137,7 +10164,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>feminine</gender>
 				<displayName>калории</displayName>
 				<unitPattern count="one">{0} калория</unitPattern>
-				<unitPattern count="one" case="accusative">{0} калорию</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative">{0} калории</unitPattern>
 				<unitPattern count="one" case="genitive">{0} калории</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} калорией</unitPattern>
@@ -10267,39 +10294,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} фунт-силы</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>ньютоны</displayName>
 				<unitPattern count="one">{0} ньютон</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">{0} ньютону</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ньютона</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ньютоном</unitPattern>
-				<unitPattern count="one" case="prepositional">{0} ньютоне</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">{0} ньютону</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} ньютона</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">{0} ньютоном</unitPattern>
+				<unitPattern count="one" case="prepositional" draft="contributed">{0} ньютоне</unitPattern>
 				<unitPattern count="few">{0} ньютона</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="dative">{0} ньютонам</unitPattern>
-				<unitPattern count="few" case="genitive">{0} ньютонов</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} ньютонами</unitPattern>
-				<unitPattern count="few" case="prepositional">{0} ньютонах</unitPattern>
+				<unitPattern count="few" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative" draft="contributed">{0} ньютонам</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">{0} ньютонов</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="contributed">{0} ньютонами</unitPattern>
+				<unitPattern count="few" case="prepositional" draft="contributed">{0} ньютонах</unitPattern>
 				<unitPattern count="many">{0} ньютонов</unitPattern>
-				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="many" case="dative">{0} ньютонам</unitPattern>
-				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="many" case="instrumental">{0} ньютонами</unitPattern>
-				<unitPattern count="many" case="prepositional">{0} ньютонах</unitPattern>
+				<unitPattern count="many" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative" draft="contributed">{0} ньютонам</unitPattern>
+				<unitPattern count="many" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="contributed">{0} ньютонами</unitPattern>
+				<unitPattern count="many" case="prepositional" draft="contributed">{0} ньютонах</unitPattern>
 				<unitPattern count="other">{0} ньютона</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="prepositional" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>кВт⋅ч/100 км</displayName>
-				<unitPattern count="one">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="few">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="many">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="other">{0} кВт⋅ч/100 км</unitPattern>
+				<displayName draft="contributed">кВт⋅ч/100 км</displayName>
+				<unitPattern count="one" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>гигагерцы</displayName>
@@ -10938,88 +10965,88 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="vocative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>люксы</displayName>
 				<unitPattern count="one">{0} люкс</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">{0} люксу</unitPattern>
-				<unitPattern count="one" case="genitive">{0} люкса</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} люксом</unitPattern>
-				<unitPattern count="one" case="prepositional">{0} люксе</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">{0} люксу</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} люкса</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">{0} люксом</unitPattern>
+				<unitPattern count="one" case="prepositional" draft="contributed">{0} люксе</unitPattern>
 				<unitPattern count="few">{0} люкса</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="dative">{0} люксам</unitPattern>
-				<unitPattern count="few" case="genitive">{0} люкс</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} люксами</unitPattern>
-				<unitPattern count="few" case="prepositional">{0} люксах</unitPattern>
+				<unitPattern count="few" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative" draft="contributed">{0} люксам</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">{0} люкс</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="contributed">{0} люксами</unitPattern>
+				<unitPattern count="few" case="prepositional" draft="contributed">{0} люксах</unitPattern>
 				<unitPattern count="many">{0} люксов</unitPattern>
-				<unitPattern count="many" case="accusative">{0} люкс</unitPattern>
-				<unitPattern count="many" case="dative">{0} люксам</unitPattern>
-				<unitPattern count="many" case="genitive">{0} люкс</unitPattern>
-				<unitPattern count="many" case="instrumental">{0} люксами</unitPattern>
-				<unitPattern count="many" case="prepositional">{0} люксах</unitPattern>
+				<unitPattern count="many" case="accusative" draft="contributed">{0} люкс</unitPattern>
+				<unitPattern count="many" case="dative" draft="contributed">{0} люксам</unitPattern>
+				<unitPattern count="many" case="genitive" draft="contributed">{0} люкс</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="contributed">{0} люксами</unitPattern>
+				<unitPattern count="many" case="prepositional" draft="contributed">{0} люксах</unitPattern>
 				<unitPattern count="other">{0} люкса</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="prepositional" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<gender>feminine</gender>
+				<gender draft="contributed">feminine</gender>
 				<displayName>канделы</displayName>
 				<unitPattern count="one">{0} кандела</unitPattern>
-				<unitPattern count="one" case="accusative">{0} канделу</unitPattern>
-				<unitPattern count="one" case="dative">{0} канделе</unitPattern>
-				<unitPattern count="one" case="genitive">{0} канделы</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} канделой</unitPattern>
-				<unitPattern count="one" case="prepositional">{0} канделе</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">{0} канделу</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">{0} канделе</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} канделы</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">{0} канделой</unitPattern>
+				<unitPattern count="one" case="prepositional" draft="contributed">{0} канделе</unitPattern>
 				<unitPattern count="few">{0} канделы</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="dative">{0} канделам</unitPattern>
-				<unitPattern count="few" case="genitive">{0} кандел</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} канделами</unitPattern>
-				<unitPattern count="few" case="prepositional">{0} канделах</unitPattern>
+				<unitPattern count="few" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative" draft="contributed">{0} канделам</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">{0} кандел</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="contributed">{0} канделами</unitPattern>
+				<unitPattern count="few" case="prepositional" draft="contributed">{0} канделах</unitPattern>
 				<unitPattern count="many">{0} кандел</unitPattern>
-				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="many" case="dative">{0} канделам</unitPattern>
-				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="many" case="instrumental">{0} канделами</unitPattern>
-				<unitPattern count="many" case="prepositional">{0} канделах</unitPattern>
+				<unitPattern count="many" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative" draft="contributed">{0} канделам</unitPattern>
+				<unitPattern count="many" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="contributed">{0} канделами</unitPattern>
+				<unitPattern count="many" case="prepositional" draft="contributed">{0} канделах</unitPattern>
 				<unitPattern count="other">{0} канделы</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="prepositional" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>люмен</displayName>
 				<unitPattern count="one">{0} люмен</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">{0} люмену</unitPattern>
-				<unitPattern count="one" case="genitive">{0} люмена</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} люменом</unitPattern>
-				<unitPattern count="one" case="prepositional">{0} люмене</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">{0} люмену</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} люмена</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">{0} люменом</unitPattern>
+				<unitPattern count="one" case="prepositional" draft="contributed">{0} люмене</unitPattern>
 				<unitPattern count="few">{0} люмена</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="dative">{0} люменам</unitPattern>
-				<unitPattern count="few" case="genitive">{0} люмен</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} люменами</unitPattern>
-				<unitPattern count="few" case="prepositional">{0} люменах</unitPattern>
+				<unitPattern count="few" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative" draft="contributed">{0} люменам</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">{0} люмен</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="contributed">{0} люменами</unitPattern>
+				<unitPattern count="few" case="prepositional" draft="contributed">{0} люменах</unitPattern>
 				<unitPattern count="many">{0} люменов</unitPattern>
-				<unitPattern count="many" case="accusative">{0} люмен</unitPattern>
-				<unitPattern count="many" case="dative">{0} люменам</unitPattern>
-				<unitPattern count="many" case="genitive">{0} люмен</unitPattern>
-				<unitPattern count="many" case="instrumental">{0} люменами</unitPattern>
-				<unitPattern count="many" case="prepositional">{0} люменах</unitPattern>
+				<unitPattern count="many" case="accusative" draft="contributed">{0} люмен</unitPattern>
+				<unitPattern count="many" case="dative" draft="contributed">{0} люменам</unitPattern>
+				<unitPattern count="many" case="genitive" draft="contributed">{0} люмен</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="contributed">{0} люменами</unitPattern>
+				<unitPattern count="many" case="prepositional" draft="contributed">{0} люменах</unitPattern>
 				<unitPattern count="other">{0} люмена</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="prepositional" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<gender>feminine</gender>
@@ -12833,7 +12860,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" case="locative">{0} щепотках</unitPattern>
 				<unitPattern count="few" case="prepositional">{0} щепотках</unitPattern>
 				<unitPattern count="few" case="vocative">{0} щепотки</unitPattern>
-				<unitPattern count="many">{0} щепоток</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="many" case="accusative">{0} щепоток</unitPattern>
 				<unitPattern count="many" case="dative">{0} щепоткам</unitPattern>
 				<unitPattern count="many" case="genitive">{0} щепоток</unitPattern>
@@ -12989,10 +13016,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">куб. {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few">куб. {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">куб. {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">куб. {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -13143,11 +13170,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ммоль/л</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>объекты</displayName>
-				<unitPattern count="one">{0} объект</unitPattern>
-				<unitPattern count="few">{0} объекта</unitPattern>
-				<unitPattern count="many">{0} объектов</unitPattern>
-				<unitPattern count="other">{0} объекта</unitPattern>
+				<displayName draft="contributed">объекты</displayName>
+				<unitPattern count="one" draft="contributed">{0} объект</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} объекта</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} объектов</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} объекта</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ppm</displayName>
@@ -13199,11 +13226,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} л/100 км</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>ми/ам. гал</displayName>
-				<unitPattern count="one">{0} ми/ам. гал</unitPattern>
-				<unitPattern count="few">{0} ми/ам. гал</unitPattern>
-				<unitPattern count="many">{0} ми/ам. гал</unitPattern>
-				<unitPattern count="other">{0} ми/ам. гал</unitPattern>
+				<displayName>миль/ам. гал</displayName>
+				<unitPattern count="one">{0} миля/ам. гал</unitPattern>
+				<unitPattern count="few">{0} мили/ам. гал</unitPattern>
+				<unitPattern count="many">{0} миль/ам. гал</unitPattern>
+				<unitPattern count="other">{0} мили/ам. гал</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>мили/имп. гал</displayName>
@@ -13486,11 +13513,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Н</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>кВт⋅ч/100 км</displayName>
-				<unitPattern count="one">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="few">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="many">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="other">{0} кВт⋅ч/100 км</unitPattern>
+				<displayName draft="contributed">кВт⋅ч/100 км</displayName>
+				<unitPattern count="one" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>ГГц</displayName>
@@ -13715,7 +13742,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} мор. ми</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>ск. ми</displayName>
+				<displayName>ск. мил.</displayName>
 				<unitPattern count="one">{0} ск. ми</unitPattern>
 				<unitPattern count="few">{0} ск. ми</unitPattern>
 				<unitPattern count="many">{0} ск. ми</unitPattern>
@@ -14078,11 +14105,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/см³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>ми³</displayName>
-				<unitPattern count="one">{0} ми³</unitPattern>
-				<unitPattern count="few">{0} ми³</unitPattern>
-				<unitPattern count="many">{0} ми³</unitPattern>
-				<unitPattern count="other">{0} ми³</unitPattern>
+				<displayName>миля³</displayName>
+				<unitPattern count="one">{0} миля³</unitPattern>
+				<unitPattern count="few">{0} мили³</unitPattern>
+				<unitPattern count="many">{0} миль³</unitPattern>
+				<unitPattern count="other">{0} мили³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>ярд³</displayName>
@@ -14556,11 +14583,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>объекты</displayName>
-				<unitPattern count="one">{0} объект</unitPattern>
-				<unitPattern count="few">{0} объекта</unitPattern>
-				<unitPattern count="many">{0} объектов</unitPattern>
-				<unitPattern count="other">{0} объекта</unitPattern>
+				<displayName draft="contributed">объекты</displayName>
+				<unitPattern count="one" draft="contributed">{0} объект</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} объекта</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} объектов</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} объекта</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>↑↑↑</displayName>
@@ -14584,25 +14611,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>л/100 км</displayName>
@@ -14612,18 +14639,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} л/100 км</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>ми/ам. гал</displayName>
-				<unitPattern count="one">{0} ми/ам. гал</unitPattern>
-				<unitPattern count="few">{0} ми/ам. гал</unitPattern>
-				<unitPattern count="many">{0} ми/ам. гал</unitPattern>
-				<unitPattern count="other">{0} ми/ам. гал</unitPattern>
+				<displayName draft="contributed">ми/ам. гал</displayName>
+				<unitPattern count="one" draft="contributed">{0} ми/ам. гал</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ми/ам. гал</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ми/ам. гал</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ми/ам. гал</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName>ми/имп. гал</displayName>
-				<unitPattern count="one">{0} ми/имп. гал</unitPattern>
-				<unitPattern count="few">{0} ми/имп. гал</unitPattern>
-				<unitPattern count="many">{0} ми/имп. гал</unitPattern>
-				<unitPattern count="other">{0} ми/имп. гал</unitPattern>
+				<displayName draft="contributed">ми/имп. гал</displayName>
+				<unitPattern count="one" draft="contributed">{0} ми/имп. гал</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ми/имп. гал</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ми/имп. гал</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ми/имп. гал</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>↑↑↑</displayName>
@@ -14885,25 +14912,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>кВт⋅ч/100 км</displayName>
-				<unitPattern count="one">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="few">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="many">{0} кВт⋅ч/100 км</unitPattern>
-				<unitPattern count="other">{0} кВт⋅ч/100 км</unitPattern>
+				<displayName draft="contributed">кВт⋅ч/100 км</displayName>
+				<unitPattern count="one" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} кВт⋅ч/100 км</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>↑↑↑</displayName>
@@ -15149,32 +15176,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>т</displayName>
@@ -15322,10 +15349,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} л.с.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} л.с.</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} л.с.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} л.с.</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName>мм рт. ст.</displayName>
@@ -15412,11 +15439,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} м/с</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">мили/час</displayName>
+				<unitPattern count="one">{0} миль/ч</unitPattern>
+				<unitPattern count="few">{0} миль/ч</unitPattern>
+				<unitPattern count="many">{0} миль/ч</unitPattern>
+				<unitPattern count="other">{0} миль/ч</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName>уз</displayName>
@@ -15454,18 +15481,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>↑↑↑</displayName>

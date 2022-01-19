@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -829,7 +829,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms" draft="unconfirmed">E, h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms" draft="unconfirmed">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E, d MMM y G</dateFormatItem>
@@ -2101,7 +2100,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
-					<standard draft="unconfirmed">uniwersalny koordynowany czas</standard>
+					<standard draft="unconfirmed">uniwersalny czas koordynowany</standard>
 				</long>
 			</zone>
 			<zone type="Etc/Unknown">
@@ -2872,9 +2871,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Malta">
 				<exemplarCity draft="unconfirmed">Malta</exemplarCity>
 			</zone>
-			<zone type="Indian/Mauritius">
-				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="unconfirmed">Malediwy</exemplarCity>
 			</zone>
@@ -3395,24 +3391,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
-					<standard draft="unconfirmed">postrzodkowoafrykański czas</standard>
+					<standard draft="unconfirmed">czas postrzodkowoafrykański</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
-					<standard draft="unconfirmed">wschodnioafrykański czas</standard>
+					<standard draft="unconfirmed">czas wschodnioafrykański</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard draft="unconfirmed">połedniowoafrykański czas</standard>
+					<standard draft="unconfirmed">czas połedniowoafrykański</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="unconfirmed">zachodnioafrykański czas</generic>
-					<standard draft="unconfirmed">zachodnioafrykański sztandardowy czas</standard>
-					<daylight draft="unconfirmed">zachodnioafrykański latowy czas</daylight>
+					<generic draft="unconfirmed">czas zachodnioafrykański</generic>
+					<standard draft="unconfirmed">czas zachodnioafrykański sztandardowy</standard>
+					<daylight draft="unconfirmed">czas zachodnioafrykański latowy</daylight>
 				</long>
 			</metazone>
 			<metazone type="Almaty">
@@ -3424,9 +3420,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic draft="unconfirmed">amazōński czas</generic>
-					<standard draft="unconfirmed">amazōński sztandardowy czas</standard>
-					<daylight draft="unconfirmed">amazōński latowy czas</daylight>
+					<generic draft="unconfirmed">czas amazōński</generic>
+					<standard draft="unconfirmed">czas amazōński sztandardowy</standard>
+					<daylight draft="unconfirmed">czas amazōński latowy</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -3515,30 +3511,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
-					<generic draft="unconfirmed">postrzodkowoaustralijski czas</generic>
-					<standard draft="unconfirmed">postrzodkowoaustralijski sztandardowy czas</standard>
-					<daylight draft="unconfirmed">postrzodkowoaustralijski latowy czas</daylight>
+					<generic draft="unconfirmed">czas postrzodkowoaustralijski</generic>
+					<standard draft="unconfirmed">czas postrzodkowoaustralijski sztandardowy</standard>
+					<daylight draft="unconfirmed">czas postrzodkowoaustralijski latowy</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
-					<generic draft="unconfirmed">postrzodkowo-zachodnioaustralijski czas</generic>
-					<standard draft="unconfirmed">postrzodkowo-zachodnioaustralijski sztandardowy czas</standard>
-					<daylight draft="unconfirmed">postrzodkowo-zachodnioaustralijski latowy czas</daylight>
+					<generic draft="unconfirmed">czas postrzodkowo-zachodnioaustralijski</generic>
+					<standard draft="unconfirmed">czas postrzodkowo-zachodnioaustralijski sztandardowy</standard>
+					<daylight draft="unconfirmed">czas postrzodkowo-zachodnioaustralijski latowy</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
-					<generic draft="unconfirmed">wschodnioaustralijski czas</generic>
-					<standard draft="unconfirmed">wschodnioaustralijski sztandardowy czas</standard>
-					<daylight draft="unconfirmed">wschodnioaustralijski latowy czas</daylight>
+					<generic draft="unconfirmed">czas wschodnioaustralijski</generic>
+					<standard draft="unconfirmed">czas wschodnioaustralijski sztandardowy</standard>
+					<daylight draft="unconfirmed">czas wschodnioaustralijski latowy</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
-					<generic draft="unconfirmed">zachodnioaustralijski czas</generic>
-					<standard draft="unconfirmed">zachodnioaustralijski sztandardowy czas</standard>
-					<daylight draft="unconfirmed">zachodnioaustralijski latowy czas</daylight>
+					<generic draft="unconfirmed">czas zachodnioaustralijski</generic>
+					<standard draft="unconfirmed">czas zachodnioaustralijski sztandardowy</standard>
+					<daylight draft="unconfirmed">czas zachodnioaustralijski latowy</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azerbaijan">
@@ -3655,9 +3651,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic draft="unconfirmed">postrzodkowoeuropejski czas</generic>
-					<standard draft="unconfirmed">postrzodkowoeuropejski sztandardowy czas</standard>
-					<daylight draft="unconfirmed">postrzodkowoeuropejski latowy czas</daylight>
+					<generic draft="unconfirmed">czas postrzodkowoeuropejski</generic>
+					<standard draft="unconfirmed">czas postrzodkowoeuropejski sztandardowy</standard>
+					<daylight draft="unconfirmed">czas postrzodkowoeuropejski latowy</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">CET</generic>
@@ -3667,9 +3663,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic draft="unconfirmed">wschodnioeuropejski czas</generic>
-					<standard draft="unconfirmed">wschodnioeuropejski sztandardowy czas</standard>
-					<daylight draft="unconfirmed">wschodnioeuropejski latowy czas</daylight>
+					<generic draft="unconfirmed">czas wschodnioeuropejski</generic>
+					<standard draft="unconfirmed">czas wschodnioeuropejski sztandardowy</standard>
+					<daylight draft="unconfirmed">czas wschodnioeuropejski latowy</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">EET</generic>
@@ -3679,14 +3675,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Further_Eastern">
 				<long>
-					<standard draft="unconfirmed">wschodnioeuropejski dalszy czas</standard>
+					<standard draft="unconfirmed">czas wschodnioeuropejski dalszy</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic draft="unconfirmed">zachodnioeuropejski czas</generic>
-					<standard draft="unconfirmed">zachodnioeuropejski sztandardowy czas</standard>
-					<daylight draft="unconfirmed">zachodnioeuropejski latowy czas</daylight>
+					<generic draft="unconfirmed">czas zachodnioeuropejski</generic>
+					<standard draft="unconfirmed">czas zachodnioeuropejski sztandardowy</standard>
+					<daylight draft="unconfirmed">czas zachodnioeuropejski latowy</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">WET</generic>
@@ -3737,7 +3733,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard draft="unconfirmed">uniwersalny czas</standard>
+					<standard draft="unconfirmed">czas uniwersalny</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -3787,7 +3783,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard draft="unconfirmed">indyjski sztandardowy czas</standard>
+					<standard draft="unconfirmed">czas indyjski sztandardowy</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -3797,7 +3793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Indochina">
 				<long>
-					<standard draft="unconfirmed">indochiński czas</standard>
+					<standard draft="unconfirmed">czas indochiński</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">

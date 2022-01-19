@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -332,7 +332,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="mic">↑↑↑</language>
 			<language type="min">↑↑↑</language>
 			<language type="mk">macedonio</language>
-			<language type="ml">malabar</language>
+			<language type="ml">malayalam</language>
 			<language type="mn">mongol</language>
 			<language type="mnc">manchú</language>
 			<language type="mni">manipuri</language>
@@ -594,7 +594,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Kore">coreano</script>
 			<script type="Laoo">lao</script>
 			<script type="Latn">latín</script>
-			<script type="Mlym">malabar</script>
+			<script type="Mlym">malayalam</script>
 			<script type="Mong">mongol</script>
 			<script type="Mymr">birmano</script>
 			<script type="Olck" draft="contributed">ol chiki</script>
@@ -1210,7 +1210,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>dd/MM/yy GGGGG</pattern>
 							<datetimeSkeleton>GGGGGyyMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -1306,21 +1306,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">y–y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="G">MM/y GGGGG – MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">MM/y – MM/y GGGGG</greatestDifference>
 							<greatestDifference id="y">MM/y – MM/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="G">dd/MM/y GGGGG – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">E dd/MM/y – E dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="G">E dd/MM/y GGGGG – E dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">E dd/MM/y – E dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">E dd/MM/y – E dd/MM/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">↑↑↑</greatestDifference>
@@ -1403,18 +1403,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">ene.</month>
+							<month type="2">feb.</month>
+							<month type="3">mar.</month>
+							<month type="4">abr.</month>
+							<month type="5">may.</month>
+							<month type="6">jun.</month>
+							<month type="7">jul.</month>
+							<month type="8">ago.</month>
+							<month type="9">sep.</month>
+							<month type="10">oct.</month>
+							<month type="11">nov.</month>
+							<month type="12">dic.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">E</month>
@@ -1447,18 +1447,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">ene.</month>
+							<month type="2">feb.</month>
+							<month type="3">mar.</month>
+							<month type="4">abr.</month>
+							<month type="5">may.</month>
+							<month type="6">jun.</month>
+							<month type="7">jul.</month>
+							<month type="8">ago.</month>
+							<month type="9">sep.</month>
+							<month type="10">oct.</month>
+							<month type="11">nov.</month>
+							<month type="12">dic.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">↑↑↑</month>
@@ -1531,13 +1531,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">dom.</day>
+							<day type="mon">lun.</day>
+							<day type="tue">mar.</day>
+							<day type="wed">mié.</day>
+							<day type="thu">jue.</day>
+							<day type="fri">vie.</day>
+							<day type="sat">sáb.</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">D</day>
@@ -3356,7 +3356,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Madrid</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
-				<exemplarCity>Adís Abeba</exemplarCity>
+				<exemplarCity>Addis Abeba</exemplarCity>
 			</zone>
 			<zone type="Europe/Helsinki">
 				<exemplarCity>Helsinki</exemplarCity>
@@ -3926,7 +3926,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Mahé</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Jartún</exemplarCity>
 			</zone>
 			<zone type="Europe/Stockholm">
 				<exemplarCity>Estocolmo</exemplarCity>
@@ -4025,7 +4025,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Taipéi</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
-				<exemplarCity>Dar es-Salam</exemplarCity>
+				<exemplarCity>Dar es Salaam</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Úzhgorod</exemplarCity>
@@ -5249,7 +5249,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="ALL">
 				<displayName>lek</displayName>
 				<displayName count="one">lek</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">lekes</displayName>
 				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
@@ -5295,7 +5295,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="AZN">
 				<displayName>manat azerbaiyano</displayName>
 				<displayName count="one">manat azerbaiyano</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">manat azerbaiyanos</displayName>
 				<symbol>AZN</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
@@ -5321,15 +5321,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">৳</symbol>
 			</currency>
 			<currency type="BGN">
-				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>lev búlgaro</displayName>
+				<displayName count="one">lev búlgaro</displayName>
+				<displayName count="other">leva búlgaros</displayName>
 				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
-				<displayName>↑↑↑</displayName>
-				<displayName count="one">dinar bareiní</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>dinar bahreiní</displayName>
+				<displayName count="one">dinar bahreiní</displayName>
+				<displayName count="other">dinares bahreiníes</displayName>
 				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
@@ -5753,9 +5753,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="KZT">
-				<displayName>tenge kazajo</displayName>
-				<displayName count="one">tenge kazajo</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>tenge kazako</displayName>
+				<displayName count="one">tenge kazako</displayName>
+				<displayName count="other">tenges kazakos</displayName>
 				<symbol>KZT</symbol>
 				<symbol alt="narrow">₸</symbol>
 			</currency>
@@ -5877,7 +5877,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MWK">
 				<displayName>kwacha malauí</displayName>
 				<displayName count="one">kwacha malauí</displayName>
-				<displayName count="other">kwachas malauíes</displayName>
+				<displayName count="other">kwachas malauís</displayName>
 				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
@@ -6138,7 +6138,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="TMT">
 				<displayName>manat turcomano</displayName>
 				<displayName count="one">manat turcomano</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">manat turcomanos</displayName>
 				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
@@ -8885,8 +8885,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-minute">
 				<displayName>min</displayName>
-				<unitPattern count="one">{0}m</unitPattern>
-				<unitPattern count="other">{0}m</unitPattern>
+				<unitPattern count="one">{0}min</unitPattern>
+				<unitPattern count="other">{0}min</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
@@ -9047,7 +9047,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>p</displayName>
-				<unitPattern count="one">{0}p</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
@@ -9147,7 +9147,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}nmi</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
@@ -9506,7 +9506,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cup">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} tza.</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
@@ -9531,8 +9531,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}bbl</unitPattern>
-				<unitPattern count="other">{0}bbl</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<displayName>↑↑↑</displayName>

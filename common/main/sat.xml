@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -796,18 +796,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<unitLength type="narrow">
 			<unit type="volume-dessert-spoon-imperial">
 				<unitPattern count="one">{0}dsp-Imp</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern>h:mm</durationUnitPattern>
+			<durationUnitPattern>ᱦᱺᱢᱢ</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			<durationUnitPattern>ᱦᱺᱢᱢᱺᱥᱥ</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern>
+			<durationUnitPattern>ᱢᱺᱥᱥ</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>

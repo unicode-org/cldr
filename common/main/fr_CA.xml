@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -1124,7 +1124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>
 		<exemplarCharacters type="index">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
@@ -5920,7 +5920,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>dollar canadien</displayName>
 				<displayName count="one">dollar canadien</displayName>
 				<displayName count="other">dollars canadiens</displayName>
-				<symbol>$</symbol>
+				<symbol>$ CA</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="CDF">
@@ -6829,7 +6829,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</miscPatterns>
 		<minimalPairs>
 			<pluralMinimalPairs count="one">↑↑↑</pluralMinimalPairs>
-			<pluralMinimalPairs count="many" draft="provisional">↑↑↑</pluralMinimalPairs>
+			<pluralMinimalPairs count="many" draft="provisional">{0} journées</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">↑↑↑</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">↑↑↑</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">↑↑↑</ordinalMinimalPairs>
@@ -8233,14 +8233,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>L/km</displayName>
+				<unitPattern count="one">{0} L/km</unitPattern>
+				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>L/100 km</displayName>
+				<unitPattern count="one">{0} L/100 km</unitPattern>
+				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mi/gal</displayName>
@@ -8896,35 +8896,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} po³</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ML</displayName>
+				<unitPattern count="one">{0} ML</unitPattern>
+				<unitPattern count="other">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>hL</displayName>
+				<unitPattern count="one">{0} hL</unitPattern>
+				<unitPattern count="other">{0} hL</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>L</displayName>
+				<unitPattern count="one">{0} L</unitPattern>
+				<unitPattern count="other">{0} L</unitPattern>
+				<perUnitPattern>{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>dL</displayName>
+				<unitPattern count="one">{0} dL</unitPattern>
+				<unitPattern count="other">{0} dL</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>cL</displayName>
+				<unitPattern count="one">{0} cL</unitPattern>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>mL</displayName>
+				<unitPattern count="one">{0} mL</unitPattern>
+				<unitPattern count="other">{0} mL</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>↑↑↑</displayName>
@@ -9238,14 +9238,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
 				<displayName>↑↑↑</displayName>
@@ -9279,13 +9279,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>L/100 km</displayName>
+				<unitPattern count="one">{0} L/100 km</unitPattern>
+				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>↑↑↑</displayName>
@@ -9294,8 +9294,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>↑↑↑</displayName>
@@ -9481,8 +9481,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="energy-therm-us">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}therm US</unitPattern>
-				<unitPattern count="other">{0}therm US</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>↑↑↑</displayName>
@@ -9941,35 +9941,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ML</displayName>
+				<unitPattern count="one">{0}ML</unitPattern>
+				<unitPattern count="other">{0}ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>hL</displayName>
+				<unitPattern count="one">{0}hL</unitPattern>
+				<unitPattern count="other">{0}hL</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>L</displayName>
+				<unitPattern count="one">{0}L</unitPattern>
+				<unitPattern count="other">{0}L</unitPattern>
+				<perUnitPattern>{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>dL</displayName>
+				<unitPattern count="one">{0}dL</unitPattern>
+				<unitPattern count="other">{0}dL</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>cL</displayName>
+				<unitPattern count="one">{0}cL</unitPattern>
+				<unitPattern count="other">{0}cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>mL</displayName>
+				<unitPattern count="one">{0}mL</unitPattern>
+				<unitPattern count="other">{0}mL</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>↑↑↑</displayName>
@@ -9998,10 +9998,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>gal imp</displayName>
-				<unitPattern count="one">{0}/gal imp</unitPattern>
-				<unitPattern count="other">{0}/gal imp</unitPattern>
-				<perUnitPattern>{0}/gal imp</perUnitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">{0} gal Imp</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} gal Imp</unitPattern>
+				<perUnitPattern draft="provisional">{0}/gal imp</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>pte</displayName>
@@ -10075,8 +10075,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}pte imp</unitPattern>
-				<unitPattern count="other">{0}pte imp</unitPattern>
+				<unitPattern count="one" draft="provisional">{0}pte imp</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}pte imp</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -10192,7 +10192,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="downwards_arrows">↑↑↑</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">↑↑↑</characterLabel>
 		<characterLabel type="east_asian_scripts">↑↑↑</characterLabel>
-		<characterLabel type="emoji">émoji</characterLabel>
+		<characterLabel type="emoji">emojis</characterLabel>
 		<characterLabel type="european_scripts">↑↑↑</characterLabel>
 		<characterLabel type="female">↑↑↑</characterLabel>
 		<characterLabel type="flag">↑↑↑</characterLabel>

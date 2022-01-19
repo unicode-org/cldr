@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -12580,15 +12580,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="other">{0} dní</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Na {0}. křižovatce odbočte vpravo.</ordinalMinimalPairs>
 			<caseMinimalPairs case="accusative">Naměřili jsme {0}.</caseMinimalPairs>
-			<caseMinimalPairs case="dative">Díky {0} navíc to mohl stihnout.</caseMinimalPairs>
 			<caseMinimalPairs case="genitive">Bez {0} se obejdeme.</caseMinimalPairs>
 			<caseMinimalPairs case="instrumental">Spokojíme se s {0}.</caseMinimalPairs>
-			<caseMinimalPairs case="locative">Po {0} se zastavil.</caseMinimalPairs>
 			<caseMinimalPairs case="nominative">Chybí ještě {0}.</caseMinimalPairs>
 			<genderMinimalPairs gender="feminine">Jedna {0} stála 135 Kč.</genderMinimalPairs>
 			<genderMinimalPairs gender="inanimate">Jeden {0} stál 135 Kč.</genderMinimalPairs>
 			<genderMinimalPairs gender="neuter">Jedno {0} stálo 135 Kč.</genderMinimalPairs>
-			
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -12683,8 +12680,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="power2">
 				<compoundUnitPattern1 count="one">{0} čtvereční</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="accusative">{0} čtvereční</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">{0} čtverečního</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="instrumental">{0} čtverečním</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive" draft="provisional">{0} čtver.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="instrumental" draft="provisional">{0} čtver.</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">{0} čtvereční</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">{0} čtvereční</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">{0} čtvereční</compoundUnitPattern1>
@@ -12705,10 +12702,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="few" gender="inanimate" case="accusative">{0} čtvereční</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="inanimate" case="genitive">{0} čtverečních</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="inanimate" case="instrumental">{0} čtverečními</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">{0} čtverečního</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="accusative">{0} čtverečního</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="genitive">{0} čtverečního</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="instrumental">{0} čtverečního</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">{0} čtver.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="accusative" draft="provisional">{0} čtver.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="genitive" draft="provisional">{0} čtver.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="instrumental" draft="provisional">{0} čtver.</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine">{0} čtvereční</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="accusative">{0} čtvereční</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="genitive">{0} čtvereční</compoundUnitPattern1>
@@ -12731,10 +12728,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" gender="inanimate" case="instrumental">{0} čtverečními</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1 count="one">{0} krychlové</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="accusative">{0} krychlové</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">{0} krychlového</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="instrumental">{0} krychlovým</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0} krychl.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="accusative" draft="provisional">{0} krychl.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive" draft="provisional">{0} krychl.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="instrumental" draft="provisional">{0} krychl.</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">{0} krychlová</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">{0} krychlovou</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">{0} krychlové</compoundUnitPattern1>
@@ -12743,8 +12740,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" gender="inanimate" case="accusative">{0} krychlový</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="inanimate" case="genitive">{0} krychlového</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="inanimate" case="instrumental">{0} krychlovým</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">{0} krychlová</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="accusative">{0} krychlová</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few">{0} krychl.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="accusative" draft="provisional">{0} krychlová</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" case="genitive">{0} krychlových</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" case="instrumental">{0} krychlovými</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="feminine">{0} krychlové</compoundUnitPattern1>
@@ -12755,10 +12752,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="few" gender="inanimate" case="accusative">{0} krychlové</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="inanimate" case="genitive">{0} krychlových</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few" gender="inanimate" case="instrumental">{0} krychlovými</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">{0} krychlového</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="accusative">{0} krychlového</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="genitive">{0} krychlového</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="instrumental">{0} krychlového</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">{0} krychl.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="accusative" draft="provisional">{0} krychl.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="genitive" draft="provisional">{0} krychl.</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="instrumental" draft="provisional">{0} krychl.</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine">{0} krychlové</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="accusative">{0} krychlové</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine" case="genitive">{0} krychlové</compoundUnitPattern1>

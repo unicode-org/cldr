@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -509,7 +509,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sdc">↑↑↑</language>
 			<language type="sdh">↑↑↑</language>
 			<language type="se">↑↑↑</language>
-			<language type="se" alt="menu">↑↑↑</language>
 			<language type="see">↑↑↑</language>
 			<language type="seh">↑↑↑</language>
 			<language type="sei">↑↑↑</language>
@@ -532,7 +531,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sma">↑↑↑</language>
 			<language type="smj">↑↑↑</language>
 			<language type="smn">↑↑↑</language>
-			<language type="smn" alt="menu">↑↑↑</language>
 			<language type="sms">↑↑↑</language>
 			<language type="sn">↑↑↑</language>
 			<language type="snk">↑↑↑</language>
@@ -1302,11 +1300,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="phonebook">↑↑↑</type>
 			<type key="collation" type="search">↑↑↑</type>
 			<type key="collation" type="standard">↑↑↑</type>
-			<type key="colReorder" type="currency">↑↑↑</type>
-			<type key="colReorder" type="digit">↑↑↑</type>
-			<type key="colReorder" type="punct">↑↑↑</type>
-			<type key="colReorder" type="space">↑↑↑</type>
-			<type key="colReorder" type="symbol">↑↑↑</type>
 			<type key="d0" type="ascii">↑↑↑</type>
 			<type key="d0" type="fwidth">↑↑↑</type>
 			<type key="d0" type="hwidth">↑↑↑</type>
@@ -1327,6 +1320,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="hc" type="h12">↑↑↑</type>
 			<type key="hc" type="h23">↑↑↑</type>
 			<type key="hc" type="h24">↑↑↑</type>
+			<type key="kr" type="currency">↑↑↑</type>
+			<type key="kr" type="digit">↑↑↑</type>
+			<type key="kr" type="punct">↑↑↑</type>
+			<type key="kr" type="space">↑↑↑</type>
+			<type key="kr" type="symbol">↑↑↑</type>
 			<type key="lb" type="loose">↑↑↑</type>
 			<type key="lb" type="normal">↑↑↑</type>
 			<type key="lb" type="strict">↑↑↑</type>
@@ -1615,7 +1613,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="provisional">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
@@ -2547,7 +2545,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="provisional">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
@@ -6070,7 +6068,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Icelandic króna</displayName>
 				<displayName count="other">Icelandic krónur</displayName>
 				<symbol>ISK</symbol>
-				<symbol alt="narrow">Kr</symbol>
+				<symbol alt="narrow" draft="contributed">Kr</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>↑↑↑</displayName>
@@ -6419,7 +6417,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Paraguayan guarani</displayName>
 				<displayName count="other">Paraguayan guaranis</displayName>
 				<symbol>PYG</symbol>
-				<symbol alt="narrow">Gs</symbol>
+				<symbol alt="narrow" draft="contributed">Gs</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatari Riyal</displayName>
@@ -6471,7 +6469,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol>Rs</symbol>
+				<symbol draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudanese Pound</displayName>
@@ -6484,7 +6482,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Swedish krona</displayName>
 				<displayName count="other">Swedish kronor</displayName>
 				<symbol>SEK</symbol>
-				<symbol alt="narrow">Kr</symbol>
+				<symbol alt="narrow" draft="contributed">Kr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapore Dollar</displayName>
@@ -9195,7 +9193,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>sec.</displayName>
 				<unitPattern count="one">{0}s.</unitPattern>
 				<unitPattern count="other">{0}s.</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="provisional">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>msec.</displayName>

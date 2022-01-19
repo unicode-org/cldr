@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -783,7 +783,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="155">서유럽</territory>
 			<territory type="202">사하라 사막 이남 아프리카</territory>
 			<territory type="419">라틴 아메리카</territory>
-			<territory type="AC">어센션섬</territory>
+			<territory type="AC">어센션 섬</territory>
 			<territory type="AD">안도라</territory>
 			<territory type="AE">아랍에미리트</territory>
 			<territory type="AF">아프가니스탄</territory>
@@ -2346,7 +2346,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y년</dateFormatItem>
-						<dateFormatItem id="GyMd">GGGGG y/M/d</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="provisional">GGGGG y/M/d</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y년 M월</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y년 M월 d일</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y년 M월 d일 (E)</dateFormatItem>
@@ -7229,7 +7229,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="LSL">
 				<displayName>레소토 로티</displayName>
 				<displayName count="other">레소토 로티</displayName>
-				<symbol>↑↑↑</symbol>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>리투아니아 리타</displayName>
@@ -7800,7 +7800,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>서아프리카 CFA 프랑</displayName>
 				<displayName count="other">서아프리카 CFA 프랑</displayName>
-				<symbol>F CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>팔라듐</displayName>
@@ -9708,93 +9708,93 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName>g-force</displayName>
-				<unitPattern count="other">{0}G</unitPattern>
+				<displayName draft="contributed">g-force</displayName>
+				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName>m/s²</displayName>
-				<unitPattern count="other">{0}m/s²</unitPattern>
+				<displayName draft="contributed">m/s²</displayName>
+				<unitPattern count="other" draft="contributed">{0}m/s²</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}′</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}″</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}km²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ha</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}m²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}m²</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}mi²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ac</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}ac</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ft²</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ppm</displayName>
@@ -9809,8 +9809,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
@@ -9825,111 +9825,106 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
 			</unit>
 			<unit type="digital-petabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>C</displayName>
 				<unitPattern count="other">{0}C</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>년</displayName>
 				<unitPattern count="other">{0}년</unitPattern>
-				<perUnitPattern>{0}/년</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/년</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>개월</displayName>
 				<unitPattern count="other">{0}개월</unitPattern>
-				<perUnitPattern>{0}/월</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/월</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>주</displayName>
 				<unitPattern count="other">{0}주</unitPattern>
-				<perUnitPattern>{0}/주</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/주</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>일</displayName>
 				<unitPattern count="other">{0}일</unitPattern>
-				<perUnitPattern>{0}/일</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/일</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>시간</displayName>
 				<unitPattern count="other">{0}시간</unitPattern>
-				<perUnitPattern>{0}/시간</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/시간</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>분</displayName>
 				<unitPattern count="other">{0}분</unitPattern>
-				<perUnitPattern>{0}/분</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/분</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>초</displayName>
 				<unitPattern count="other">{0}초</unitPattern>
-				<perUnitPattern>{0}/초</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/초</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ms</displayName>
 				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>μs</displayName>
-				<unitPattern count="other">{0}μs</unitPattern>
+				<displayName draft="contributed">μs</displayName>
+				<unitPattern count="other" draft="contributed">{0}μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>ns</displayName>
-				<unitPattern count="other">{0}ns</unitPattern>
+				<displayName draft="contributed">ns</displayName>
+				<unitPattern count="other" draft="contributed">{0}ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -9948,52 +9943,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100km</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -10012,454 +10007,438 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="other">{0}km</unitPattern>
-				<perUnitPattern>{0}/km</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="other">{0}m</unitPattern>
-				<perUnitPattern>{0}/m</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>dm</displayName>
-				<unitPattern count="other">{0}dm</unitPattern>
+				<displayName draft="contributed">dm</displayName>
+				<unitPattern count="other" draft="contributed">{0}dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>cm</displayName>
 				<unitPattern count="other">{0}cm</unitPattern>
-				<perUnitPattern>{0}/cm</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="other">{0}mm</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>μm</displayName>
-				<unitPattern count="other">{0}μm</unitPattern>
+				<displayName draft="contributed">μm</displayName>
+				<unitPattern count="other" draft="contributed">{0}μm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="other">{0}nm</unitPattern>
+				<displayName draft="contributed">nm</displayName>
+				<unitPattern count="other" draft="contributed">{0}nm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>pm</displayName>
-				<unitPattern count="other">{0}pm</unitPattern>
+				<displayName draft="contributed">pm</displayName>
+				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName>mi</displayName>
-				<unitPattern count="other">{0}mi</unitPattern>
+				<displayName draft="contributed">mi</displayName>
+				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName>yd</displayName>
-				<unitPattern count="other">{0}yd</unitPattern>
+				<displayName draft="contributed">yd</displayName>
+				<unitPattern count="other" draft="contributed">{0}yd</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName>ft</displayName>
-				<unitPattern count="other">{0}′</unitPattern>
-				<perUnitPattern>{0}/ft</perUnitPattern>
+				<displayName draft="contributed">ft</displayName>
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName>in</displayName>
-				<unitPattern count="other">{0}″</unitPattern>
-				<perUnitPattern>{0}/in</perUnitPattern>
+				<displayName draft="contributed">in</displayName>
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
-				<displayName>pc</displayName>
-				<unitPattern count="other">{0}pc</unitPattern>
+				<displayName draft="contributed">pc</displayName>
+				<unitPattern count="other" draft="contributed">{0}pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>ly</displayName>
-				<unitPattern count="other">{0}ly</unitPattern>
+				<displayName draft="contributed">ly</displayName>
+				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="other">{0}au</unitPattern>
+				<displayName draft="contributed">au</displayName>
+				<unitPattern count="other" draft="contributed">{0}au</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>fur</displayName>
-				<unitPattern count="other">{0}fur</unitPattern>
+				<displayName draft="contributed">fur</displayName>
+				<unitPattern count="other" draft="contributed">{0}fur</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="other">{0}fth</unitPattern>
+				<displayName draft="contributed">fm</displayName>
+				<unitPattern count="other" draft="contributed">{0}fth</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>nmi</displayName>
-				<unitPattern count="other">{0}nmi</unitPattern>
+				<displayName draft="contributed">nmi</displayName>
+				<unitPattern count="other" draft="contributed">{0}nmi</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="other">{0}smi</unitPattern>
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="other" draft="contributed">{0}smi</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>pt</displayName>
-				<unitPattern count="other">{0}pt</unitPattern>
+				<displayName draft="contributed">pt</displayName>
+				<unitPattern count="other" draft="contributed">{0}pt</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
-				<displayName>t</displayName>
-				<unitPattern count="other">{0}t</unitPattern>
+				<displayName draft="contributed">t</displayName>
+				<unitPattern count="other" draft="contributed">{0}t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="other">{0}kg</unitPattern>
-				<perUnitPattern>{0}/kg</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/kg</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>g</displayName>
 				<unitPattern count="other">{0}g</unitPattern>
-				<perUnitPattern>{0}/g</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/g</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="other">{0}mg</unitPattern>
+				<displayName draft="contributed">mg</displayName>
+				<unitPattern count="other" draft="contributed">{0}mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>μg</displayName>
-				<unitPattern count="other">{0}μg</unitPattern>
+				<displayName draft="contributed">μg</displayName>
+				<unitPattern count="other" draft="contributed">{0}μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">{0}tn</unitPattern>
+				<displayName draft="contributed">tn</displayName>
+				<unitPattern count="other" draft="contributed">{0}tn</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName>st</displayName>
-				<unitPattern count="other">{0}st</unitPattern>
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="other" draft="contributed">{0}st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName>lb</displayName>
-				<unitPattern count="other">{0}lb</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
+				<displayName draft="contributed">lb</displayName>
+				<unitPattern count="other" draft="contributed">{0}lb</unitPattern>
+				<perUnitPattern draft="contributed">{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName>oz</displayName>
-				<unitPattern count="other">{0}oz</unitPattern>
-				<perUnitPattern>{0}/oz</perUnitPattern>
+				<displayName draft="contributed">oz</displayName>
+				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
+				<perUnitPattern draft="contributed">{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
-				<displayName>oz t</displayName>
-				<unitPattern count="other">{0}oz t</unitPattern>
+				<displayName draft="contributed">oz t</displayName>
+				<unitPattern count="other" draft="contributed">{0}oz t</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName>CD</displayName>
-				<unitPattern count="other">{0}CD</unitPattern>
+				<displayName draft="contributed">CD</displayName>
+				<unitPattern count="other" draft="contributed">{0}CD</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}kW</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}W</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}HP</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}HP</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>mmHg</displayName>
-				<unitPattern count="other">{0}mmHg</unitPattern>
+				<displayName draft="contributed">mmHg</displayName>
+				<unitPattern count="other" draft="contributed">{0}mmHg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
-				<displayName>psi</displayName>
-				<unitPattern count="other">{0}psi</unitPattern>
+				<displayName draft="contributed">psi</displayName>
+				<unitPattern count="other" draft="contributed">{0}psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>inHg</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">inHg</displayName>
+				<unitPattern count="other" draft="contributed">{0}&quot;Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName>mbar</displayName>
-				<unitPattern count="other">{0}mb</unitPattern>
+				<displayName draft="contributed">mbar</displayName>
+				<unitPattern count="other" draft="contributed">{0}mb</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="other">{0}hPa</unitPattern>
+				<displayName draft="contributed">hPa</displayName>
+				<unitPattern count="other" draft="contributed">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0}km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName>m/s</displayName>
-				<unitPattern count="other">{0}m/s</unitPattern>
+				<displayName draft="contributed">m/s</displayName>
+				<unitPattern count="other" draft="contributed">{0}m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName>mi/h</displayName>
-				<unitPattern count="other">{0}mph</unitPattern>
+				<displayName draft="contributed">mi/h</displayName>
+				<unitPattern count="other" draft="contributed">{0}mph</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName>kn</displayName>
-				<unitPattern count="other">{0}kn</unitPattern>
+				<displayName draft="contributed">kn</displayName>
+				<unitPattern count="other" draft="contributed">{0}kn</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName>°F</displayName>
-				<unitPattern count="other">{0}°F</unitPattern>
+				<displayName draft="contributed">°F</displayName>
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName>K</displayName>
-				<unitPattern count="other">{0}K</unitPattern>
+				<displayName draft="contributed">K</displayName>
+				<unitPattern count="other" draft="contributed">{0}K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}km³</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}mi³</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}mi³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>ℓ</displayName>
 				<unitPattern count="other">{0}ℓ</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>dsp Imp</displayName>
 				<unitPattern count="other">{0}dsp-Imp</unitPattern>
 			</unit>
-			<unit type="volume-drop">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-dram">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="volume-jigger">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-pinch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>쪽</displayName>

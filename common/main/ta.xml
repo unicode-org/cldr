@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -408,7 +408,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="raj">ராஜஸ்தானி</language>
 			<language type="rap">ரபனுய்</language>
 			<language type="rar">ரரோடோங்கன்</language>
-			<language type="rhg">ரோகிஞ்சா</language>
+			<language type="rhg" draft="contributed">ரோகிஞ்சா</language>
 			<language type="rm">ரோமான்ஷ்</language>
 			<language type="rn">ருண்டி</language>
 			<language type="ro">ரோமேனியன்</language>
@@ -2094,12 +2094,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1} அன்று {0}</pattern>
+							<pattern>{1} ’அன்று’ {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1} அன்று {0}</pattern>
+							<pattern>{1} ’அன்று’ {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -3015,7 +3015,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} செவ்வாய்களில்</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">செவ். முன்பு</relativeTimePattern>
+					<relativeTimePattern count="one">{0} செவ்வாய்களுக்கு முன்</relativeTimePattern>
 					<relativeTimePattern count="other">{0} செவ். முன்பு</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -6309,7 +6309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="LSL">
 				<displayName>லெசோதோ லோட்டி</displayName>
 				<displayName count="one">லெசோதோ லோட்டி</displayName>
-				<displayName count="other">லெசோதோ லோட்டிகள்</displayName>
+				<displayName count="other" draft="provisional">லெசோதோ லோட்டிகள்</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
@@ -6841,8 +6841,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="other">{0} நாட்கள்</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}வது வலது திருப்பத்தை எடு.</ordinalMinimalPairs>
 			<caseMinimalPairs case="ablative">… என்பதிலிருந்து {0} …</caseMinimalPairs>
-			<caseMinimalPairs case="accusative">… என்பதை {0} … ஆல் பெருக்குதல்</caseMinimalPairs>
-			<caseMinimalPairs case="dative">… என்பதற்கு {0} …</caseMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="contributed">… என்பதை {0} … ஆல் பெருக்குதல்</caseMinimalPairs>
+			<caseMinimalPairs case="dative" draft="contributed">… என்பதற்கு {0} …</caseMinimalPairs>
 			<caseMinimalPairs case="nominative" draft="contributed">{0} ரூ. 50 மதிப்புடையது</caseMinimalPairs>
 		</minimalPairs>
 	</numbers>

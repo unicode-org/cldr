@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -6606,7 +6606,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="LSL">
 				<displayName>Лесотско лоти</displayName>
 				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">Лесотски лоти</displayName>
+				<displayName count="other" draft="provisional">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
@@ -8832,7 +8832,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="graphics-dot">
 				<displayName>тчк.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} тчк.</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -10200,18 +10200,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}°K</unitPattern>
+				<unitPattern count="other">{0}°K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>

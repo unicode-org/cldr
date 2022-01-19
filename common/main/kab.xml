@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -116,7 +116,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eu" draft="unconfirmed">Tabaskit</language>
 			<language type="ewo" draft="unconfirmed">Tawundut</language>
 			<language type="fa">Tafarisit</language>
-			<language type="fa_AF" draft="unconfirmed">↑↑↑</language>
 			<language type="ff" draft="unconfirmed">Tafulaht</language>
 			<language type="fi" draft="unconfirmed">Tafinit</language>
 			<language type="fil" draft="unconfirmed">Tafilipant</language>
@@ -722,6 +721,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SS" draft="unconfirmed">Sudan n unẓul</territory>
 			<territory type="ST">Saw Tumi d Pransip</territory>
 			<territory type="SV">Salvadur</territory>
+			<territory type="SX" draft="unconfirmed">San Maṛtan</territory>
 			<territory type="SY">Surya</territory>
 			<territory type="SZ">Swazilund</territory>
 			<territory type="SZ" alt="variant" draft="unconfirmed">Swaziland</territory>
@@ -1237,17 +1237,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<!-- These are longer than the wide forms (at least for Lǧem). Commenting out for now.
-							 <dayWidth type="abbreviated">
-							 <day type="sun" draft="unconfirmed">Lḥd</day>
-							 <day type="mon" draft="unconfirmed">Ltn</day>
-							 <day type="tue" draft="unconfirmed">Ttlat</day>
-							 <day type="wed" draft="unconfirmed">Lṛb</day>
-							 <day type="thu" draft="unconfirmed">Lxm</day>
-							 <day type="fri" draft="unconfirmed">Lǧem</day>
-							 <day type="sat" draft="unconfirmed">Ssbt</day>
-							 </dayWidth>
-						-->
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Lḥd</day>
+							<day type="mon" draft="unconfirmed">Ltn</day>
+							<day type="tue" draft="unconfirmed">Ttlat</day>
+							<day type="wed" draft="unconfirmed">Lṛb</day>
+							<day type="thu" draft="unconfirmed">Lxm</day>
+							<day type="fri" draft="unconfirmed">Lǧem</day>
+							<day type="sat" draft="unconfirmed">Ssbt</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Y</day>
 							<day type="mon">S</day>
@@ -1707,9 +1705,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter-short">
 				<displayName draft="unconfirmed">kyr.</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} kyr.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} kyrn.</relativeTimePattern>
@@ -1721,9 +1716,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter-narrow">
 				<displayName draft="unconfirmed">kyr.</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} kyr.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} kyrn.</relativeTimePattern>
@@ -2194,7 +2186,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour-short">
 				<displayName draft="unconfirmed">sr.</displayName>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} sr.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} sr.</relativeTimePattern>
@@ -2206,7 +2197,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour-narrow">
 				<displayName draft="unconfirmed">sr.</displayName>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} sr.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} sr.</relativeTimePattern>
@@ -2230,7 +2220,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute-short">
 				<displayName draft="unconfirmed">tsd.</displayName>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} tsd.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} tsd.</relativeTimePattern>
@@ -2242,7 +2231,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute-narrow">
 				<displayName draft="unconfirmed">tsd.</displayName>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} tsd.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} tsd.</relativeTimePattern>
@@ -2266,7 +2254,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="second-short">
 				<displayName draft="unconfirmed">tsn.</displayName>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} tsn.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} tsn.</relativeTimePattern>
@@ -2278,7 +2265,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="second-narrow">
 				<displayName draft="unconfirmed">tsn.</displayName>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="unconfirmed">deg {0} tsn.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="unconfirmed">deg {0} tsn.</relativeTimePattern>
@@ -6722,8 +6708,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="graphics-dot">
 				<displayName draft="unconfirmed">taneqqiḍt</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} n tneqqiṭ</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} n tneqqiṭ</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} n tneqqiḍt</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} n tneqqiḍt</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">ikilumitren</displayName>
@@ -7969,13 +7955,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern draft="unconfirmed">h:mm</durationUnitPattern>
+			<durationUnitPattern draft="unconfirmed">r:dd</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern draft="unconfirmed">h:mm:ss</durationUnitPattern>
+			<durationUnitPattern draft="unconfirmed">r:dd:nn</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern draft="unconfirmed">m:ss</durationUnitPattern>
+			<durationUnitPattern draft="unconfirmed">d:nn</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>
@@ -8050,10 +8036,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="miscellaneous" draft="unconfirmed">{0} — ayen-nniḍen</characterLabelPattern>
 		<characterLabelPattern type="other" draft="unconfirmed">{0} — wayeḍ</characterLabelPattern>
 		<characterLabelPattern type="scripts" draft="unconfirmed">iskripten — {0}</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="one" draft="unconfirmed">{0} n ujeṛṛid</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other" draft="unconfirmed">{0} n yijeṛṛiden</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one" draft="unconfirmed">{0} n ujerriḍ</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other" draft="unconfirmed">{0} n ijerriḍen</characterLabelPattern>
 		<characterLabelPattern type="subscript" draft="unconfirmed">amatar {0}</characterLabelPattern>
-		<characterLabelPattern type="superscript" draft="unconfirmed">askript afellay {0}</characterLabelPattern>
+		<characterLabelPattern type="superscript" draft="unconfirmed">asekript afellay</characterLabelPattern>
 		<characterLabel type="activities" draft="unconfirmed">armud</characterLabel>
 		<characterLabel type="african_scripts" draft="unconfirmed">Asekript afriqan</characterLabel>
 		<characterLabel type="american_scripts" draft="unconfirmed">Asekript amarikan</characterLabel>

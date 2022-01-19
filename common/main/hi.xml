@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -950,7 +950,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SV">अल सल्वाडोर</territory>
 			<territory type="SX">सिंट मार्टिन</territory>
 			<territory type="SY">सीरिया</territory>
-			<territory type="SZ">एस्वाटिनी</territory>
+			<territory type="SZ">स्वाज़ीलैंड</territory>
 			<territory type="SZ" alt="variant">स्वाज़ीलैंड</territory>
 			<territory type="TA">ट्रिस्टन दा कुना</territory>
 			<territory type="TC">तुर्क और कैकोज़ द्वीपसमूह</territory>
@@ -7624,17 +7624,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">{0}❬1 घंटा❭ लगेगा/लगेंगे</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">{0} घंटा</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} घंटे</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">{0} दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">{0}ठा दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">{0}ला दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}वां दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}रा दाहिना मोड़ लें.</ordinalMinimalPairs>
-			<caseMinimalPairs case="nominative">{0} लगेगा/लगेंगे</caseMinimalPairs>
-			<caseMinimalPairs case="oblique">{0} का समय लगेगा</caseMinimalPairs>
-			<genderMinimalPairs gender="feminine">{0} बड़ी है.</genderMinimalPairs>
-			<genderMinimalPairs gender="masculine">{0} बड़ा है.</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7784,7 +7780,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<gender draft="contributed">masculine</gender>
+				<gender draft="contributed">feminine</gender>
 				<displayName>अंश</displayName>
 				<unitPattern count="one">{0} अंश</unitPattern>
 				<unitPattern count="one" case="oblique" draft="contributed">↑↑↑</unitPattern>
@@ -7792,7 +7788,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique" draft="contributed">{0} अंशों</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>आर्क मिनट</displayName>
 				<unitPattern count="one">{0} आर्क मिनट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -7800,12 +7796,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>आर्क सेकंड</displayName>
 				<unitPattern count="one">{0} आर्क सेकंड</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} आर्क सेकंड</unitPattern>
-				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
+				<unitPattern count="other" case="oblique" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<gender>masculine</gender>
@@ -7881,7 +7877,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} डोनम</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>कैरट</displayName>
 				<unitPattern count="one">{0} कैरट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -7899,15 +7895,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मिलीमोल प्रति लीटर</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>items</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} items</unitPattern>
+				<displayName draft="contributed">items</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} items</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<gender>masculine</gender>
+				<gender draft="contributed">प्रति दस लाख</gender>
 				<displayName>हिस्सा प्रति दस लाख</displayName>
 				<unitPattern count="one">{0} हिस्सा प्रति दस लाख</unitPattern>
-				<unitPattern count="one" case="oblique" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} हिस्सा प्रति दस लाख</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
@@ -7920,15 +7916,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">{0} प्रतिशत</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<gender>masculine</gender>
+				<gender draft="contributed">प्रति हज़ार</gender>
 				<displayName>प्रति हज़ार</displayName>
 				<unitPattern count="one">{0} प्रति हज़ार</unitPattern>
-				<unitPattern count="one" case="oblique" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} प्रति हज़ार</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<gender>masculine</gender>
+				<gender draft="contributed">प्रति दस हज़ार</gender>
 				<displayName>प्रति दस हज़ार</displayName>
 				<unitPattern count="one">{0} प्रति दस हज़ार</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -7936,10 +7932,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<gender>masculine</gender>
+				<gender draft="contributed">मोल</gender>
 				<displayName>मोल</displayName>
 				<unitPattern count="one">{0} मोल</unitPattern>
-				<unitPattern count="one" case="oblique" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मोल</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
@@ -8018,7 +8014,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} किलोबिट</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<gender>masculine</gender>
+				<gender draft="contributed">बाइट</gender>
 				<displayName>बाइट</displayName>
 				<unitPattern count="one">{0} बाइट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8026,7 +8022,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<gender>masculine</gender>
+				<gender draft="contributed">बिट</gender>
 				<displayName>बिट</displayName>
 				<unitPattern count="one">{0} बिट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8060,12 +8056,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-month">
 				<gender>masculine</gender>
-				<displayName>महीना</displayName>
-				<unitPattern count="one">{0} महीना</unitPattern>
-				<unitPattern count="one" case="oblique">{0} महीना</unitPattern>
-				<unitPattern count="other">{0} महीना</unitPattern>
-				<unitPattern count="other" case="oblique">{0} महीना</unitPattern>
-				<perUnitPattern>{0} प्रति महीना</perUnitPattern>
+				<displayName>माह</displayName>
+				<unitPattern count="one">{0} माह</unitPattern>
+				<unitPattern count="one" case="oblique">{0} महीने</unitPattern>
+				<unitPattern count="other">{0} माह</unitPattern>
+				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
+				<perUnitPattern>{0} प्रति माह</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<gender>masculine</gender>
@@ -8080,10 +8076,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>दिन</displayName>
 				<unitPattern count="one">{0} दिन</unitPattern>
-				<unitPattern count="one" case="oblique">{0} दिनों</unitPattern>
+				<unitPattern count="one" case="oblique">{0} दिन</unitPattern>
 				<unitPattern count="other">{0} दिन</unitPattern>
-				<unitPattern count="other" case="oblique">{0} दिनों</unitPattern>
+				<unitPattern count="other" case="oblique">{0} दिन</unitPattern>
 				<perUnitPattern>{0} प्रति दिन</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<gender draft="contributed">masculine</gender>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="oblique" draft="contributed">{0} दिनों</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<gender>masculine</gender>
@@ -8107,9 +8110,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>सेकंड</displayName>
 				<unitPattern count="one">{0} सेकंड</unitPattern>
-				<unitPattern count="one" case="oblique">{0} सेकंड</unitPattern>
+				<unitPattern count="one" case="oblique">{0} सेकेंड</unitPattern>
 				<unitPattern count="other">{0} सेकंड</unitPattern>
-				<unitPattern count="other" case="oblique">{0} सेकंड</unitPattern>
+				<unitPattern count="other" case="oblique">{0} सेकेंड</unitPattern>
 				<perUnitPattern>{0} प्रति सेकंड</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -8128,7 +8131,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} नैनो सेकंड</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>एम्पीयर</displayName>
 				<unitPattern count="one">{0} एम्पीयर</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8141,7 +8144,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मिली एम्‍पीयर</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>ओम</displayName>
 				<unitPattern count="one">{0} ओम</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8149,7 +8152,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<gender>feminine</gender>
+				<gender draft="provisional">feminine</gender>
 				<displayName>वोल्ट</displayName>
 				<unitPattern count="one">{0} वोल्ट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8157,7 +8160,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<gender>feminine</gender>
+				<gender>masculine</gender>
 				<displayName>किलो कैलोरी</displayName>
 				<unitPattern count="one">{0} किलो कैलोरी</unitPattern>
 				<unitPattern count="one" case="oblique">{0} किलोकैलोरी</unitPattern>
@@ -8165,7 +8168,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">{0} किलोकैलोरी</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<gender>feminine</gender>
+				<gender draft="provisional">feminine</gender>
 				<displayName>कैलोरी</displayName>
 				<unitPattern count="one">{0} कैलोरी</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8186,7 +8189,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} किलो जूल</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>जूल</displayName>
 				<unitPattern count="one">{0} जूल</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8219,12 +8222,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} पाउंड-बल</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<gender>masculine</gender>
+				<gender draft="contributed">न्यूटन</gender>
 				<displayName>न्यूटन</displayName>
 				<unitPattern count="one">{0} न्यूटन</unitPattern>
-				<unitPattern count="one" case="oblique" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} न्यूटन</unitPattern>
-				<unitPattern count="other" case="oblique" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="oblique" draft="contributed">{0} न्यूटनों</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -8247,7 +8250,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} किलोहर्ट्ज़</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<gender>masculine</gender>
+				<gender draft="contributed">हर्ट्ज़</gender>
 				<displayName>हर्ट्ज़</displayName>
 				<unitPattern count="one">{0} हर्ट्ज़</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8260,7 +8263,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
+				<unitPattern count="other" case="oblique" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<gender draft="contributed">masculine</gender>
@@ -8452,7 +8455,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">{0} सौर अर्धव्यास</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<gender>masculine</gender>
+				<gender draft="contributed">लक्स</gender>
 				<displayName>लक्स</displayName>
 				<unitPattern count="one">{0} लक्स</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8460,7 +8463,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<gender>feminine</gender>
+				<gender draft="contributed">कैन्डेला</gender>
 				<displayName>कैन्डेला</displayName>
 				<unitPattern count="one">{0} कैन्डेला</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8468,7 +8471,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<gender>masculine</gender>
+				<gender draft="contributed">लुमेन</gender>
 				<displayName>लुमेन</displayName>
 				<unitPattern count="one">{0} लुमेन</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8484,7 +8487,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">{0} सौर ज्योति</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>मीट्रिक टन</displayName>
 				<unitPattern count="one">{0} मीट्रिक टन</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8556,7 +8559,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ट्राई औंस</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>कैरेट</displayName>
 				<unitPattern count="one">{0} कैरेट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8611,7 +8614,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} किलोवॉट</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>वॉट</displayName>
 				<unitPattern count="one">{0} वॉट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -8851,7 +8854,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">{0} मिलीलीटर</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<gender>masculine</gender>
+				<gender draft="provisional">masculine</gender>
 				<displayName>मीट्रिक पिंट</displayName>
 				<unitPattern count="one">{0} मीट्रिक पिंट</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
@@ -9093,16 +9096,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern draft="provisional">टे.बी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p5">
-				<unitPrefixPattern>पे.बी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">पे.बी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p6">
-				<unitPrefixPattern>एक्ज़.बी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">एक्ज़.बी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p7">
-				<unitPrefixPattern>ज़े.बी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">ज़े.बी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>यो.बी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">यो.बी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
@@ -9226,9 +9229,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मिलीमोल/ली॰</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ppm</displayName>
@@ -10132,22 +10135,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>मेबी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p3">
-				<unitPrefixPattern>जीबी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">जीबी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p4">
-				<unitPrefixPattern>टेबी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">टेबी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p5">
-				<unitPrefixPattern>पेबी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">पेबी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p6">
-				<unitPrefixPattern>एक्ज़बी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">एक्ज़बी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p7">
-				<unitPrefixPattern>ज़ेबी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">ज़ेबी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>योबी.{0}</unitPrefixPattern>
+				<unitPrefixPattern draft="contributed">योबी.{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
@@ -10266,11 +10269,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="concentr-item">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -11049,7 +11047,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName draft="contributed">Imp fl oz</displayName>
 				<unitPattern count="one" draft="contributed">{0} fl oz Im</unitPattern>
-				<unitPattern count="other">{0} fl oz Im</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} fl oz Im</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName draft="contributed">tbsp</displayName>

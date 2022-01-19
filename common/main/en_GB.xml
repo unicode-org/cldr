@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -495,7 +495,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sdc">↑↑↑</language>
 			<language type="sdh">↑↑↑</language>
 			<language type="se">Northern Sami</language>
-			<language type="se" alt="menu">↑↑↑</language>
 			<language type="see">↑↑↑</language>
 			<language type="seh">Sena</language>
 			<language type="sei">↑↑↑</language>
@@ -517,7 +516,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sma">Southern Sami</language>
 			<language type="smj">Lule Sami</language>
 			<language type="smn">Inari Sami</language>
-			<language type="smn" alt="menu">↑↑↑</language>
 			<language type="sms">Skolt Sami</language>
 			<language type="sn">Shona</language>
 			<language type="snk">Soninke</language>
@@ -1082,11 +1080,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colNormalization" type="yes">↑↑↑</type>
 			<type key="colNumeric" type="no">↑↑↑</type>
 			<type key="colNumeric" type="yes">↑↑↑</type>
-			<type key="colReorder" type="currency">↑↑↑</type>
-			<type key="colReorder" type="digit">↑↑↑</type>
-			<type key="colReorder" type="punct">↑↑↑</type>
-			<type key="colReorder" type="space">↑↑↑</type>
-			<type key="colReorder" type="symbol">↑↑↑</type>
 			<type key="colStrength" type="identical">↑↑↑</type>
 			<type key="colStrength" type="primary">↑↑↑</type>
 			<type key="colStrength" type="quaternary">↑↑↑</type>
@@ -1160,6 +1153,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="k0" type="var">↑↑↑</type>
 			<type key="k0" type="viqr">↑↑↑</type>
 			<type key="k0" type="windows">↑↑↑</type>
+			<type key="kr" type="currency">↑↑↑</type>
+			<type key="kr" type="digit">↑↑↑</type>
+			<type key="kr" type="punct">↑↑↑</type>
+			<type key="kr" type="space">↑↑↑</type>
+			<type key="kr" type="symbol">↑↑↑</type>
 			<type key="kv" type="currency">↑↑↑</type>
 			<type key="kv" type="punct">↑↑↑</type>
 			<type key="kv" type="space">↑↑↑</type>
@@ -7113,7 +7111,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>carats</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9203,9 +9201,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>carat</displayName>
-				<unitPattern count="one">{0}ct</unitPattern>
-				<unitPattern count="other">{0}ct</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>

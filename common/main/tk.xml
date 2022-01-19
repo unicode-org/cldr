@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -890,7 +890,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
 			<parseLenient sample=".">[.․。︒﹒．｡]</parseLenient>
-			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="’">↑↑↑</parseLenient>
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">[\$﹩＄$]</parseLenient>
@@ -1504,10 +1504,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
-						<dateFormatItem id="GyMd">GGGGG dd.MM.y</dateFormatItem>
-						<dateFormatItem id="GyMMM">G MMM y</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G d MMM y</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">G d MMM y E</dateFormatItem>
+						<dateFormatItem id="GyMd">G/a/'ý' GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G y MMM d, E</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -8293,7 +8293,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWs/100km</displayName>
 				<unitPattern count="one">{0}kWs/100km</unitPattern>
-				<unitPattern count="other">{0}kWh/100km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>↑↑↑</displayName>

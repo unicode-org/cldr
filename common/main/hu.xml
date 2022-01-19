@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -212,7 +212,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="he">héber</language>
 			<language type="hi">hindi</language>
 			<language type="hil">ilokano</language>
-			<language type="hit">hettita</language>
+			<language type="hit">hittite</language>
 			<language type="hmn">hmong</language>
 			<language type="ho">hiri motu</language>
 			<language type="hr">horvát</language>
@@ -1599,7 +1599,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h:mm:ss</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y.</dateFormatItem>
-						<dateFormatItem id="GyMd">GGGGG y/MM/dd</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">GGGGG y/MM/dd</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y. MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y. MMM d.</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y. MMM d., E</dateFormatItem>
@@ -2167,7 +2167,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y.</dateFormatItem>
-						<dateFormatItem id="GyMd">GGGGG y. MM. dd.</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">GGGGG y. MM. dd.</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y. MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y. MMM d.</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y. MMM d., E</dateFormatItem>
@@ -5644,7 +5644,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Yukon">
 				<long>
-					<standard>yukoni idő</standard>
+					<standard draft="contributed">yukoni idő</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -5865,7 +5865,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">örmény dram</displayName>
 				<displayName count="other">örmény dram</displayName>
 				<symbol>AMD</symbol>
-				<symbol alt="narrow">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>holland antilláki forint</displayName>
@@ -5940,7 +5940,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">azerbajdzsáni manat</displayName>
 				<displayName count="other">azerbajdzsáni manat</displayName>
 				<symbol>AZN</symbol>
-				<symbol alt="narrow">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosznia-hercegovinai dínár (1992–1994)</displayName>
@@ -6637,10 +6637,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="LSL">
-				<displayName>lesothoi loti</displayName>
-				<displayName count="one">lesothoi loti</displayName>
-				<displayName count="other">lesothoi loti</displayName>
-				<symbol>↑↑↑</symbol>
+				<displayName>Lesothoi loti</displayName>
+				<displayName count="one" draft="contributed">lesothoi loti</displayName>
+				<displayName count="other" draft="contributed">lesothoi loti</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>litvániai litas</displayName>
@@ -7470,11 +7470,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="other">A kosár tartalma: {0} X. Megveszi őket?</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Az {0}. lehetőségnél forduljon jobbra.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">A {0}. lehetőségnél forduljon jobbra.</ordinalMinimalPairs>
-			<caseMinimalPairs case="accusative">{0} évet</caseMinimalPairs>
-			<caseMinimalPairs case="instrumental">{0} évvel</caseMinimalPairs>
-			<caseMinimalPairs case="nominative">{0} év</caseMinimalPairs>
-			<caseMinimalPairs case="terminative">{0} évig</caseMinimalPairs>
-			<caseMinimalPairs case="translative">{0} évvé</caseMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="contributed">{0} évet</caseMinimalPairs>
+			<caseMinimalPairs case="instrumental" draft="contributed">{0} évvel</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="contributed">{0} év</caseMinimalPairs>
+			<caseMinimalPairs case="terminative" draft="contributed">{0} évig</caseMinimalPairs>
+			<caseMinimalPairs case="translative" draft="contributed">{0} évvé</caseMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7580,15 +7580,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="acceleration-g-force">
 				<displayName>g gyorsulás</displayName>
 				<unitPattern count="one">{0} g gyorsulás</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} g gyorsulás</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>méter per másodpercnégyzet</displayName>
@@ -7598,67 +7598,67 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="angle-revolution">
 				<displayName>fordulat</displayName>
 				<unitPattern count="one">{0} fordulat</unitPattern>
-				<unitPattern count="one" case="accusative">{0} fordulatot</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} fordulattal</unitPattern>
-				<unitPattern count="one" case="terminative">{0} fordulatig</unitPattern>
-				<unitPattern count="one" case="translative">{0} fordulattá</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} fordulat</unitPattern>
-				<unitPattern count="other" case="accusative">{0} fordulatot</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} fordulattal</unitPattern>
-				<unitPattern count="other" case="terminative">{0} fordulatig</unitPattern>
-				<unitPattern count="other" case="translative">{0} fordulattá</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>radián</displayName>
 				<unitPattern count="one">{0} radián</unitPattern>
-				<unitPattern count="one" case="accusative">{0} radiánt</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">{0} radiánig</unitPattern>
-				<unitPattern count="one" case="translative">{0} radiánná</unitPattern>
+				<unitPattern count="one" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} radián</unitPattern>
-				<unitPattern count="other" case="accusative">{0} radiánt</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} radiánnal</unitPattern>
-				<unitPattern count="other" case="terminative">{0} radiánig</unitPattern>
-				<unitPattern count="other" case="translative">{0} radiánná</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>fok</displayName>
 				<unitPattern count="one">{0} fok</unitPattern>
-				<unitPattern count="one" case="accusative">{0} fokot</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} fokkal</unitPattern>
-				<unitPattern count="one" case="terminative">{0} fokig</unitPattern>
-				<unitPattern count="one" case="translative">{0} fokká</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} fok</unitPattern>
-				<unitPattern count="other" case="accusative">{0} fokot</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} fokkal</unitPattern>
-				<unitPattern count="other" case="terminative">{0} fokig</unitPattern>
-				<unitPattern count="other" case="translative">{0} fokká</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>ívperc</displayName>
 				<unitPattern count="one">{0} ívperc</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ívperc</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>ívmásodperc</displayName>
 				<unitPattern count="one">{0} ívmásodperc</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ívmásodperc</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>négyzetkilométer</displayName>
@@ -7669,15 +7669,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-hectare">
 				<displayName>hektár</displayName>
 				<unitPattern count="one">{0} hektár</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} hektár</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>négyzetméter</displayName>
@@ -7726,15 +7726,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-karat">
 				<displayName>karát</displayName>
 				<unitPattern count="one">{0} karát</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} karát</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>milligramm/deciliter</displayName>
@@ -7747,74 +7747,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} millimól/liter</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>részecske/millió</displayName>
 				<unitPattern count="one">{0} részecske/millió</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} részecske/millió</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>százalék</displayName>
 				<unitPattern count="one">{0} százalék</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} százalék</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>ezrelék</displayName>
 				<unitPattern count="one">{0} ezrelék</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ezrelék</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>tízezrelék</displayName>
 				<unitPattern count="one">{0} tízezrelék</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} tízezrelék</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>mól</displayName>
 				<unitPattern count="one">{0} mól</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mól</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter per kilométer</displayName>
@@ -7884,163 +7884,163 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-byte">
 				<displayName>bájt</displayName>
 				<unitPattern count="one">{0} bájt</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} bájt</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName>bit</displayName>
 				<unitPattern count="one">{0} bit</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} bit</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>évszázad</displayName>
 				<unitPattern count="one">{0} évszázad</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} évszázad</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>évtized</displayName>
 				<unitPattern count="one">{0} évtized</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} évtized</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>év</displayName>
 				<unitPattern count="one">{0} év</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} év</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/év</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>hónap</displayName>
 				<unitPattern count="one">{0} hónap</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} hónap</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/hónap</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>hét</displayName>
 				<unitPattern count="one">{0} hét</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} hét</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/hét</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>nap</displayName>
 				<unitPattern count="one">{0} nap</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} nap</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/nap</perUnitPattern>
 			</unit>
 			<unit type="duration-day-person">
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>óra</displayName>
 				<unitPattern count="one">{0} óra</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} óra</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/óra</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>perc</displayName>
 				<unitPattern count="one">{0} perc</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} perc</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/perc</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>másodperc</displayName>
 				<unitPattern count="one">{0} másodperc</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} másodperc</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/másodperc</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -8061,15 +8061,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ampere">
 				<displayName>amper</displayName>
 				<unitPattern count="one">{0} amper</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} amper</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>milliamper</displayName>
@@ -8079,28 +8079,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ohm">
 				<displayName>ohm</displayName>
 				<unitPattern count="one">{0} ohm</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ohm</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName>volt</displayName>
 				<unitPattern count="one">{0} volt</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} volt</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>kilokalória</displayName>
@@ -8110,15 +8110,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-calorie">
 				<displayName>kalória</displayName>
 				<unitPattern count="one">{0} kalória</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kalória</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>kalória</displayName>
@@ -8133,15 +8133,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-joule">
 				<displayName>joule</displayName>
 				<unitPattern count="one">{0} joule</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} joule</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilowattóra</displayName>
@@ -8171,20 +8171,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="force-newton">
 				<displayName>newton</displayName>
 				<unitPattern count="one">{0} newton</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} newton</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>kWh/100 km</displayName>
-				<unitPattern count="one">{0} kWh/100 km</unitPattern>
-				<unitPattern count="other">{0} kWh/100 km</unitPattern>
+				<displayName draft="contributed">kWh/100 km</displayName>
+				<unitPattern count="one" draft="contributed">{0} kWh/100 km</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kWh/100 km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>gigahertz</displayName>
@@ -8204,41 +8204,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-hertz">
 				<displayName>hertz</displayName>
 				<unitPattern count="one">{0} hertz</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} hertz</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>nyomdai em</displayName>
 				<unitPattern count="one">{0} kvirt</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kvirt</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>képpont</displayName>
 				<unitPattern count="one">{0} képpont</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} képpont</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>millió képpont</displayName>
@@ -8284,15 +8284,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-meter">
 				<displayName>méter</displayName>
 				<unitPattern count="one">{0} méter</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} méter</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/méter</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
@@ -8381,15 +8381,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-mile-scandinavian">
 				<displayName>svéd mérföld</displayName>
 				<unitPattern count="one">{0} svéd mérföld</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} svéd mérföld</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName>pont</displayName>
@@ -8404,41 +8404,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="one">{0} lux</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} lux</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName>kandela</displayName>
 				<unitPattern count="one">{0} kandela</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kandela</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName>lumen</displayName>
 				<unitPattern count="one">{0} lumen</unitPattern>
-				<unitPattern count="one" case="accusative">{0} lument</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} lumennel</unitPattern>
-				<unitPattern count="one" case="terminative">{0} lumenig</unitPattern>
-				<unitPattern count="one" case="translative">{0} lumenné</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} lumen</unitPattern>
-				<unitPattern count="other" case="accusative">{0} lument</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} lumennel</unitPattern>
-				<unitPattern count="other" case="terminative">{0} lumenig</unitPattern>
-				<unitPattern count="other" case="translative">{0} lumenné</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>Nap-fényerő</displayName>
@@ -8448,42 +8448,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-metric-ton">
 				<displayName>metrikus tonna</displayName>
 				<unitPattern count="one">{0} metrikus tonna</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} metrikus tonna</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilogramm</displayName>
 				<unitPattern count="one">{0} kilogramm</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kilogramm</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/kilogramm</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>gramm</displayName>
 				<unitPattern count="one">{0} gramm</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} gramm</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/gramm</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
@@ -8526,15 +8526,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-carat">
 				<displayName>karát</displayName>
 				<unitPattern count="one">{0} karát</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} karát</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>dalton</displayName>
@@ -8574,15 +8574,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-watt">
 				<displayName>watt</displayName>
 				<unitPattern count="one">{0} watt</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} watt</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>milliwatt</displayName>
@@ -8612,15 +8612,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>millibar</displayName>
@@ -8630,28 +8630,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atmoszféra</displayName>
 				<unitPattern count="one">{0} atmoszféra</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} atmoszféra</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName>pascal</displayName>
 				<unitPattern count="one">{0} pascal</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} pascal</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hektopascal</displayName>
@@ -8691,28 +8691,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>Celsius-fok</displayName>
 				<unitPattern count="one">{0} Celsius-fok</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Celsius-fok</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>Fahrenheit-fok</displayName>
@@ -8722,15 +8722,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<displayName>kelvin</displayName>
 				<unitPattern count="one">{0} kelvin</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kelvin</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>fontláb</displayName>
@@ -8792,15 +8792,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-liter">
 				<displayName>liter</displayName>
 				<unitPattern count="one">{0} liter</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} liter</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/liter</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
@@ -8821,28 +8821,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-pint-metric">
 				<displayName>metrikus pint</displayName>
 				<unitPattern count="one">{0} metrikus pint</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} metrikus pint</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>bögre</displayName>
 				<unitPattern count="one">{0} bögre</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="translative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} bögre</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="other" case="terminative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="translative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>hold-láb</displayName>
@@ -9156,9 +9156,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>részecske/millió</displayName>
@@ -9295,7 +9295,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/nap</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName>ó</displayName>
+				<displayName>h</displayName>
 				<unitPattern count="one">{0} ó</unitPattern>
 				<unitPattern count="other">{0} ó</unitPattern>
 				<perUnitPattern>{0}/ó</perUnitPattern>
@@ -9307,10 +9307,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/p</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName>mp</displayName>
-				<unitPattern count="one">{0} mp</unitPattern>
-				<unitPattern count="other">{0} mp</unitPattern>
-				<perUnitPattern>{0}/mp</perUnitPattern>
+				<displayName>s</displayName>
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
+				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ms</displayName>
@@ -9403,9 +9403,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>kWh/100 km</displayName>
-				<unitPattern count="one">{0} kWh/100 km</unitPattern>
-				<unitPattern count="other">{0} kWh/100 km</unitPattern>
+				<displayName draft="contributed">kWh/100 km</displayName>
+				<unitPattern count="one" draft="contributed">{0} kWh/100 km</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kWh/100 km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
@@ -10096,119 +10096,113 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} G</unitPattern>
-				<unitPattern count="other">{0} G</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>mmol/l</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">mmol/l</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName>ppm</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">ppm</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
@@ -10221,16 +10215,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="concentr-mole">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -10240,63 +10224,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} l/100 km</unitPattern>
 				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
-			<unit type="consumption-mile-per-gallon">
+			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="digital-petabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} B</unitPattern>
 				<unitPattern count="other">{0} B</unitPattern>
 			</unit>
@@ -10311,9 +10290,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} sz.</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>év</displayName>
@@ -10342,7 +10321,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-hour">
 				<displayName>ó</displayName>
 				<unitPattern count="one">{0} ó</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} h</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
@@ -10352,9 +10331,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName>mp</displayName>
-				<unitPattern count="one">{0} mp</unitPattern>
-				<unitPattern count="other">{0} mp</unitPattern>
+				<displayName>s</displayName>
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
 				<perUnitPattern>{0}/mp</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -10373,14 +10352,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
 				<displayName>↑↑↑</displayName>
@@ -10393,19 +10372,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>↑↑↑</displayName>
@@ -10413,24 +10392,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -10438,39 +10417,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>kWh/100 km</displayName>
-				<unitPattern count="one">{0} kWh/100 km</unitPattern>
-				<unitPattern count="other">{0} kWh/100 km</unitPattern>
+				<displayName draft="contributed">kWh/100 km</displayName>
+				<unitPattern count="one" draft="contributed">{0} kWh/100 km</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kWh/100 km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>↑↑↑</displayName>
@@ -10478,12 +10457,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10508,11 +10487,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="length-earth-radius">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -10546,17 +10520,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} pm</unitPattern>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
@@ -10583,34 +10557,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} fényév</unitPattern>
 				<unitPattern count="other">{0} fényév</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName draft="contributed">mil</displayName>
@@ -10618,24 +10592,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} mil</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>pt</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">pt</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName>↑↑↑</displayName>
@@ -10665,19 +10639,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/g</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>st</displayName>
@@ -10707,52 +10681,47 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-grain">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} LE</unitPattern>
 				<unitPattern count="other">{0} LE</unitPattern>
 			</unit>
@@ -10797,14 +10766,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
@@ -10820,11 +10789,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">mph</displayName>
 				<unitPattern count="one">{0} mph</unitPattern>
 				<unitPattern count="other">{0} mph</unitPattern>
-			</unit>
-			<unit type="speed-knot">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
@@ -10857,176 +10821,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one">{0} mi³</unitPattern>
-				<unitPattern count="other">{0} mi³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-yard">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-megaliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-hectoliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>l</displayName>
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="volume-deciliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-milliliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="volume-gallon-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="volume-quart">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-pint">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cup">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-tablespoon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-teaspoon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-barrel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-dessert-spoon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-dessert-spoon-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-drop">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-dram">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-jigger">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-pinch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-quart-imperial">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>

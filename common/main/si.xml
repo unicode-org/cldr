@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -6172,7 +6172,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="acceleration-g-force">
 				<displayName>g-බලය</displayName>
 				<unitPattern count="one">g-බලය {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">g-බලය {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>තත්පර වර්ගයට මීටර</displayName>
@@ -6182,27 +6190,67 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="angle-revolution">
 				<displayName>පරිභ්‍රමණය</displayName>
 				<unitPattern count="one">පරිභ්‍රමණ {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">පරිභ්‍රමණය {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>රේඩියන්</displayName>
 				<unitPattern count="one">රේඩියන් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">රේඩියන් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>අංශක</displayName>
 				<unitPattern count="one">අංශක {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">අංශක {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>චාපමිනිත්තු</displayName>
-				<unitPattern count="one">චාපමිනිත්තු {0}</unitPattern>
-				<unitPattern count="other">චාපමිනිත්තු {0}</unitPattern>
+				<displayName>මිනිත්තු</displayName>
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
+				<unitPattern count="one" case="ablative">චාපමිනිත්තු {0}</unitPattern>
+				<unitPattern count="one" case="accusative">චාපමිනිත්තු {0}</unitPattern>
+				<unitPattern count="one" case="dative">චාපමිනිත්තු {0}</unitPattern>
+				<unitPattern count="one" case="genitive">චාපමිනිත්තු {0}</unitPattern>
+				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
+				<unitPattern count="other" case="ablative">චාපමිනිත්තු {0}</unitPattern>
+				<unitPattern count="other" case="accusative">චාපමිනිත්තු {0}</unitPattern>
+				<unitPattern count="other" case="dative">චාපමිනිත්තු {0}</unitPattern>
+				<unitPattern count="other" case="genitive">චාපමිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>චාපතත්පර</displayName>
-				<unitPattern count="one">චාපතත්පර {0}</unitPattern>
-				<unitPattern count="other">චාපතත්පර {0}</unitPattern>
+				<displayName>තත්පර</displayName>
+				<unitPattern count="one">තත්පර {0}</unitPattern>
+				<unitPattern count="one" case="ablative">චාපතත්පර {0}</unitPattern>
+				<unitPattern count="one" case="accusative">චාපතත්පර {0}</unitPattern>
+				<unitPattern count="one" case="dative">චාපතත්පර {0}</unitPattern>
+				<unitPattern count="one" case="genitive">චාපතත්පර {0}</unitPattern>
+				<unitPattern count="other">තත්පර {0}</unitPattern>
+				<unitPattern count="other" case="ablative">චාපතත්පර {0}</unitPattern>
+				<unitPattern count="other" case="accusative">චාපතත්පර {0}</unitPattern>
+				<unitPattern count="other" case="dative">චාපතත්පර {0}</unitPattern>
+				<unitPattern count="other" case="genitive">චාපතත්පර {0}</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>වර්ග කිලෝමීටර්</displayName>
@@ -6213,7 +6261,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-hectare">
 				<displayName>හෙක්ටයාර්</displayName>
 				<unitPattern count="one">හෙක්ටයාර් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">හෙක්ටයාර් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>වර්ග මීටර්</displayName>
@@ -6262,7 +6318,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-karat">
 				<displayName>ක්‍රාත්</displayName>
 				<unitPattern count="one">ක්‍රාත් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ක්‍රාත් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>ඩෙසිලීටරයකට මිලිග්‍රෑම්</displayName>
@@ -6282,27 +6346,67 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permillion">
 				<displayName>මිලියනයට කොටස්</displayName>
 				<unitPattern count="one">මිලියනයට කොටස් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">මිලියනයට කොටස් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>ප්‍රතිශතය</displayName>
 				<unitPattern count="one">ප්‍රතිශතය {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ප්‍රතිශතය {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>ප්‍රතිසහශ්‍රක</displayName>
 				<unitPattern count="one">ප්‍රතිසහශ්‍රක {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ප්‍රතිසහශ්‍රක {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>පර්මැරියඩ්</displayName>
 				<unitPattern count="one">{0} පර්මැරියඩ්</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} පර්මැරියඩ්</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>මවුල</displayName>
 				<unitPattern count="one">{0} මවුල</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} මවුල</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>කිලෝ මීටරයට ලීටරය</displayName>
@@ -6372,63 +6476,163 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-byte">
 				<displayName>බයිට්</displayName>
 				<unitPattern count="one">බයිට් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">බයිට් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName>බීට්</displayName>
 				<unitPattern count="one">බීට් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">බීට් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>සියවස</displayName>
 				<unitPattern count="one">සියවස් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">සියවස් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>දශක</displayName>
 				<unitPattern count="one">දශක {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">දශක {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>වසර</displayName>
 				<unitPattern count="one">වසර {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>වසරට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>මාස</displayName>
 				<unitPattern count="one">මාස {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>මාසයට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>සති</displayName>
 				<unitPattern count="one">සති {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>සතියට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>දින</displayName>
 				<unitPattern count="one">දින {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>දිනයට {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<unitPattern count="one">{0} දිනක්</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">{0} දිනක්</unitPattern>
+				<unitPattern count="one" case="dative">{0} දිනක්</unitPattern>
+				<unitPattern count="one" case="genitive">{0} දිනක්</unitPattern>
+				<unitPattern count="other">දින {0}ක්</unitPattern>
+				<unitPattern count="other" case="ablative">දින {0}ක්</unitPattern>
+				<unitPattern count="other" case="accusative">දින {0}ක්</unitPattern>
+				<unitPattern count="other" case="dative">දින {0}ක්</unitPattern>
+				<unitPattern count="other" case="genitive">දින {0}ක්</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>පැය</displayName>
 				<unitPattern count="one">පැය {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>පැයට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>මිනිත්තු</displayName>
 				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>මිනිත්තුවට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>තත්පර</displayName>
 				<unitPattern count="one">තත්පර {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>තත්පරයට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -6449,7 +6653,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ampere">
 				<displayName>ඇම්පියර</displayName>
 				<unitPattern count="one">ඇම්පියර {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ඇම්පියර {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>මිලි ඇම්පියර</displayName>
@@ -6459,12 +6671,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ohm">
 				<displayName>ඕම්</displayName>
 				<unitPattern count="one">ඕම් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ඕම් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName>වෝල්ට්</displayName>
 				<unitPattern count="one">වෝල්ට් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">වෝල්ට් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>කිලෝ කැලරි</displayName>
@@ -6474,7 +6702,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-calorie">
 				<displayName>කැලරි</displayName>
 				<unitPattern count="one">කැලරි {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">කැලරි {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>කැලරි</displayName>
@@ -6489,7 +6725,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-joule">
 				<displayName>ජුල්</displayName>
 				<unitPattern count="one">ජුල් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ජුල් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>කිලෝවොට්-පැය</displayName>
@@ -6519,7 +6763,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="force-newton">
 				<displayName>නිව්ටන්</displayName>
 				<unitPattern count="one">{0} නිව්ටන්</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} නිව්ටන්</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>කිලෝමීටර 100 කට කිලෝවොට් පැය</displayName>
@@ -6544,17 +6796,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-hertz">
 				<displayName>හට්ස්</displayName>
 				<unitPattern count="one">හට්ස් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">හට්ස් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>යතුරු ලියන එම්</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>පික්සල්</displayName>
 				<unitPattern count="one">පික්සල් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">පික්සල් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>මෙගාපික්සල්</displayName>
@@ -6600,7 +6876,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-meter">
 				<displayName>මීටර්</displayName>
 				<unitPattern count="one">මීටර් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">මීටර් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>මීටරයට {0}</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
@@ -6689,7 +6973,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-mile-scandinavian">
 				<displayName>ස්කැන්ඩිනේවියානු සැතපුම්</displayName>
 				<unitPattern count="one">ස්කැන්ඩිනේවියානු සැතපුම් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ස්කැන්ඩිනේවියානු සැතපුම් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName>පොයින්ට්</displayName>
@@ -6704,17 +6996,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lux">
 				<displayName>ලක්ස්</displayName>
 				<unitPattern count="one">ලක්ස් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ලක්ස් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName>කැන්ඩෙලා</displayName>
 				<unitPattern count="one">{0} කැන්ඩෙලා</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">කැන්ඩෙලා {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName>ලූමනය</displayName>
 				<unitPattern count="one">{0} ලූමනය</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ලූමන {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>සූර්ය දීප්ති</displayName>
@@ -6724,18 +7040,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-metric-ton">
 				<displayName>මෙට්ට්‍රික් ටොන්</displayName>
 				<unitPattern count="one">මෙට්ට්‍රික් ටොන් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">මෙට්ට්‍රික් ටොන් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>කිලෝග්‍රෑම්</displayName>
 				<unitPattern count="one">කිලෝග්‍රෑම් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">කිලෝග්‍රෑම් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>කිලෝග්‍රෑමයට {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>ග්‍රෑම්</displayName>
 				<unitPattern count="one">ග්‍රෑම් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ග්‍රෑම් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>ග්‍රෑමයට {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
@@ -6778,7 +7118,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-carat">
 				<displayName>කැරට්</displayName>
 				<unitPattern count="one">කැරට් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">කැරට් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>ඩෝල්ටන්</displayName>
@@ -6818,7 +7166,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-watt">
 				<displayName>වොට්</displayName>
 				<unitPattern count="one">වොට් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">වොට් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>මිලිවොට්</displayName>
@@ -6848,7 +7204,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-bar">
 				<displayName>බාර්</displayName>
 				<unitPattern count="one">බාර් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">බාර් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>මිලිබාර්</displayName>
@@ -6858,12 +7222,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>වායුගෝල</displayName>
 				<unitPattern count="one">වායුගෝල {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">වායුගෝල {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName>පැස්කල්</displayName>
 				<unitPattern count="one">පැස්කල් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">පැස්කල් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>හෙක්ටොපැස්කල්</displayName>
@@ -6903,12 +7283,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>සෙල්සියස් අංශක</displayName>
 				<unitPattern count="one">සෙල්සියස් අංශක {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">සෙල්සියස් අංශක {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>ෆැරන්හයිට් අංශක</displayName>
@@ -6918,7 +7314,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<displayName>කෙල්වින් අංශක</displayName>
 				<unitPattern count="one">කෙල්වින් අංශක {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">කෙල්වින් අංශක {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>රාත්තල්-පාදය</displayName>
@@ -6980,7 +7384,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-liter">
 				<displayName>ලීටර්</displayName>
 				<unitPattern count="one">ලීටර් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">ලීටර් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<perUnitPattern>ලීටරයට {0}</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
@@ -7001,12 +7413,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-pint-metric">
 				<displayName>මෙට්‍රික් පයින්ට්</displayName>
 				<unitPattern count="one">මෙට්‍රික් පයින්ට් {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">මෙට්‍රික් පයින්ට් {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>මෙට්‍රික් කෝප්ප</displayName>
 				<unitPattern count="one">මෙට්‍රික් කෝප්ප {0}</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other">මෙට්‍රික් කෝප්ප {0}</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>අක්කර-අඩි</displayName>
@@ -7240,14 +7668,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">අංශක {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>චාපමිනිත්තු</displayName>
-				<unitPattern count="one">චාපමිනිත්තු {0}</unitPattern>
-				<unitPattern count="other">චාපමිනිත්තු {0}</unitPattern>
+				<displayName>මිනිත්තු</displayName>
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
+				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>චාපතත්පර</displayName>
-				<unitPattern count="one">චාපතත්පර {0}</unitPattern>
-				<unitPattern count="other">චාපතත්පර {0}</unitPattern>
+				<displayName>තත්පර</displayName>
+				<unitPattern count="one">තත් {0}</unitPattern>
+				<unitPattern count="other">තත් {0}</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>ව.කී</displayName>
@@ -7290,8 +7718,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>වර්ග අඩි</displayName>
-				<unitPattern count="one">වර්ග අඩි {0}</unitPattern>
-				<unitPattern count="other">වර්ග අඩි {0}</unitPattern>
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>වර්ග අඟල්</displayName>
@@ -8335,14 +8763,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>වඅ²</displayName>
-				<unitPattern count="one">{0}වඅ²</unitPattern>
-				<unitPattern count="other">{0}වඅ²</unitPattern>
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>වඅඟ²</displayName>
-				<unitPattern count="one">{0}වඅඟ²</unitPattern>
-				<unitPattern count="other">{0}වඅඟ²</unitPattern>
-				<perUnitPattern>{0}/වඅඟ²</perUnitPattern>
+				<displayName draft="provisional">වඅ</displayName>
+				<unitPattern count="one" draft="provisional">{0}වඅ</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}වඅ</unitPattern>
+				<perUnitPattern draft="provisional">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<displayName>↑↑↑</displayName>

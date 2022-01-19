@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -7206,7 +7206,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="LSL">
-				<displayName>lesotski loti</displayName>
+				<displayName>lesoto loti</displayName>
 				<displayName count="one">lesotski loti</displayName>
 				<displayName count="few">lesotska lotija</displayName>
 				<displayName count="other">lesotskih lotija</displayName>
@@ -8333,9 +8333,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">{0} sat</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} sata</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} sati</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">{0} dan</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} dana</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} dan/a</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Skrenite {0}. desno.</ordinalMinimalPairs>
 			<caseMinimalPairs case="accusative">Izmjerio je {0}</caseMinimalPairs>
 			<caseMinimalPairs case="genitive">Mjerenje {0}</caseMinimalPairs>
@@ -8468,7 +8468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" gender="feminine">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="accusative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">četvornih {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="inanimate">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="inanimate" case="genitive">četvornih {0}</compoundUnitPattern1>
@@ -8779,17 +8779,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>inanimate</gender>
 				<displayName>permyriad</displayName>
 				<unitPattern count="one">{0} permyriad</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">{0} permyriada</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} permyriadom</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} permyriada</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="contributed">{0} permyriadom</unitPattern>
 				<unitPattern count="few">{0} permyriada</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} permyriada</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<gender>inanimate</gender>
@@ -9315,9 +9315,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" case="genitive">{0} piksela</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} pikselom</unitPattern>
 				<unitPattern count="few">{0} piksela</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="few" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} piksela</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
@@ -9700,7 +9700,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<displayName>grain</displayName>
-				<unitPattern count="one">{0} grain</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} graina</unitPattern>
 				<unitPattern count="other">{0} graina</unitPattern>
 			</unit>
@@ -10743,10 +10743,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} px</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>Mp</displayName>
-				<unitPattern count="one">{0} Mp</unitPattern>
-				<unitPattern count="few">{0} Mp</unitPattern>
-				<unitPattern count="other">{0} Mp</unitPattern>
+				<displayName>MP</displayName>
+				<unitPattern count="one">{0} MP</unitPattern>
+				<unitPattern count="few">{0} MP</unitPattern>
+				<unitPattern count="other">{0} MP</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName>ppcm</displayName>
@@ -10773,10 +10773,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>pikseli</displayName>
-				<unitPattern count="one">{0} p</unitPattern>
-				<unitPattern count="few">{0} p</unitPattern>
-				<unitPattern count="other">{0} p</unitPattern>
+				<displayName>točka</displayName>
+				<unitPattern count="one">{0} točka</unitPattern>
+				<unitPattern count="few">{0} točke</unitPattern>
+				<unitPattern count="other">{0} točaka</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>
@@ -11659,10 +11659,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
@@ -11972,10 +11972,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>Mp</displayName>
-				<unitPattern count="one">{0} Mp</unitPattern>
-				<unitPattern count="few">{0} Mp</unitPattern>
-				<unitPattern count="other">{0} Mp</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName>↑↑↑</displayName>
@@ -12004,7 +12004,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">

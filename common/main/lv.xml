@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -1986,25 +1986,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="d">d.–d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G">G y. – G y.</greatestDifference>
-							<greatestDifference id="y">G y.–y.</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">GGGGG MM-y. – GGGGG MM-y.</greatestDifference>
-							<greatestDifference id="M">GGGGG MM-y. – MM-y.</greatestDifference>
-							<greatestDifference id="y">GGGGG MM-y. – MM-y.</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
-							<greatestDifference id="G">GGGGG dd-MM-y. – GGGGG dd-MM-y.</greatestDifference>
-							<greatestDifference id="M">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
-							<greatestDifference id="y">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">GGGGG dd-MM-y., E – dd-MM-y., E</greatestDifference>
-							<greatestDifference id="G">GGGGG dd-MM-y., E – GGGGG dd-MM-y., E</greatestDifference>
-							<greatestDifference id="M">GGGGG dd-MM-y., E – dd-MM-y., E</greatestDifference>
-							<greatestDifference id="y">GGGGG dd-MM-y., E – dd-MM-y., E</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">G y. 'gada' MMM – G y. 'gada' MMM</greatestDifference>
@@ -6970,11 +6970,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} diennakts</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} diennaktis</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Dodieties {0}. pagriezienā pa labi.</ordinalMinimalPairs>
-			<caseMinimalPairs case="accusative">palikt {0}</caseMinimalPairs>
-			<caseMinimalPairs case="dative">pietiks {0}</caseMinimalPairs>
-			<caseMinimalPairs case="genitive">{0} brauciens</caseMinimalPairs>
-			<caseMinimalPairs case="locative">izdarīts {0}</caseMinimalPairs>
-			<caseMinimalPairs case="nominative">pagājis/pagājusi {0}</caseMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="provisional">{0} diennakti</caseMinimalPairs>
+			<caseMinimalPairs case="dative" draft="provisional">{0} diennakts</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="provisional">{0} brauciens</caseMinimalPairs>
+			<caseMinimalPairs case="locative" draft="provisional">{0} diennaktī</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="provisional">{0} diennakts</caseMinimalPairs>
 			<genderMinimalPairs gender="feminine">gara {0}</genderMinimalPairs>
 			<genderMinimalPairs gender="masculine">viens {0}</genderMinimalPairs>
 		</minimalPairs>
@@ -7698,6 +7698,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} dienu</unitPattern>
 				<unitPattern count="other" case="locative">{0} dienās</unitPattern>
 				<perUnitPattern>{0} dienā</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<gender>feminine</gender>
+				<unitPattern count="zero">{0} dienu</unitPattern>
+				<unitPattern count="zero" case="accusative">{0} dienas</unitPattern>
+				<unitPattern count="zero" case="dative">{0} dienām</unitPattern>
+				<unitPattern count="zero" case="genitive">{0} dienu</unitPattern>
+				<unitPattern count="zero" case="locative">{0} dienu</unitPattern>
+				<unitPattern count="one">{0} diena</unitPattern>
+				<unitPattern count="one" case="accusative">{0} dienu</unitPattern>
+				<unitPattern count="one" case="dative">{0} dienai</unitPattern>
+				<unitPattern count="one" case="genitive">{0} dienas</unitPattern>
+				<unitPattern count="one" case="locative">{0} dienā</unitPattern>
+				<unitPattern count="other">{0} dienas</unitPattern>
+				<unitPattern count="other" case="accusative">{0} dienas</unitPattern>
+				<unitPattern count="other" case="dative">{0} dienām</unitPattern>
+				<unitPattern count="other" case="genitive">{0} dienu</unitPattern>
+				<unitPattern count="other" case="locative">{0} dienās</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<gender>feminine</gender>

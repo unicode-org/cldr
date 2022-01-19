@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -40,7 +40,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ce">Chechen</language>
 			<language type="ceb">Cebụanọ</language>
 			<language type="chr">Cheroke</language>
-			<language type="ckb">Kurdish ọsote</language>
+			<language type="ckb" alt="menu">Kurdish ọsote</language>
 			<language type="ckb" alt="variant">Kurdish ọzọ</language>
 			<language type="co">Kọsịan</language>
 			<language type="cs">Cheekị</language>
@@ -4860,6 +4860,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="LSL">
 				<displayName>This is not a translation</displayName>
 				<displayName count="other">This is not a translation</displayName>
+				<symbol draft="contributed">This is not a translation</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Ego Dinar obodo Libya</displayName>

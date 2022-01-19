@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -8340,15 +8340,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="many">{0} dňa</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dní</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Na {0}. križovatke odbočte doprava.</ordinalMinimalPairs>
-			<caseMinimalPairs case="accusative">Namerali sme {0}</caseMinimalPairs>
-			<caseMinimalPairs case="genitive">Bez {0} sa obídeme.</caseMinimalPairs>
-			<caseMinimalPairs case="dative">Vďaka {0} naviac to bol rekord</caseMinimalPairs>
-			<caseMinimalPairs case="locative">Po {0} sa zastavil.</caseMinimalPairs>
-			<caseMinimalPairs case="instrumental">Uspokojíme sa s {0}.</caseMinimalPairs>
-			<caseMinimalPairs case="nominative">Chýba ešte {0}</caseMinimalPairs>
-			<genderMinimalPairs gender="feminine">Jedna {0} stála 5 eur.</genderMinimalPairs>
-			<genderMinimalPairs gender="inanimate">Jeden {0} stál 5 eur.</genderMinimalPairs>
-			<genderMinimalPairs gender="neuter">Jedno {0} stálo 5 eur.</genderMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="contributed">{0}=akuzatív</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="contributed">{0}=genitív</caseMinimalPairs>
+			<caseMinimalPairs case="instrumental" draft="contributed">{0}=inštrumentál</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="contributed">{0}=nominatív</caseMinimalPairs>
+			<genderMinimalPairs gender="feminine" draft="contributed">{0}=ženský rod</genderMinimalPairs>
+			<genderMinimalPairs gender="inanimate" draft="contributed">{0}=mužský rod, neživotné</genderMinimalPairs>
+			<genderMinimalPairs gender="neuter" draft="contributed">{0}=stredný rod</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -8443,104 +8441,104 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>štvorcové {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">štvorcový {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">štvorcového {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="instrumental">štvorcovým {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine">štvorcová {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">štvorcovú {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">štvorcovej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental">štvorcovou {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate" case="genitive">štvorcového {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate" case="instrumental">štvorcovým {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive" draft="contributed">štvorcového {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="instrumental" draft="contributed">štvorcovým {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" draft="contributed">štvorcová {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="accusative" draft="contributed">štvorcovú {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="genitive" draft="contributed">štvorcovej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental" draft="contributed">štvorcovou {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="genitive" draft="contributed">štvorcového {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="instrumental" draft="contributed">štvorcovým {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few">štvorcové {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="genitive">štvorcových {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="instrumental">štvorcovými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="genitive">štvorcových {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="instrumental">štvorcovými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate" case="genitive">štvorcových {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate" case="instrumental">štvorcovými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="genitive" draft="contributed">štvorcových {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="instrumental" draft="contributed">štvorcovými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="genitive" draft="contributed">štvorcových {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="instrumental" draft="contributed">štvorcovými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" case="genitive" draft="contributed">štvorcových {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" case="instrumental" draft="contributed">štvorcovými {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many">štvorcového {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine">štvorcovej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="accusative">štvorcovej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="genitive">štvorcovej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="instrumental">štvorcovej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate" case="instrumental">štvorcového {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" draft="contributed">štvorcovej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="accusative" draft="contributed">štvorcovej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="genitive" draft="contributed">štvorcovej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="instrumental" draft="contributed">štvorcovej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" case="instrumental" draft="contributed">štvorcového {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">štvorcových {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="instrumental">štvorcovými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental">štvorcovými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate" case="instrumental">štvorcovými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="instrumental" draft="contributed">štvorcovými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental" draft="contributed">štvorcovými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="instrumental" draft="contributed">štvorcovými {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>kubické {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">kubický {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">kubického {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="instrumental">kubickým {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine">kubická {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">kubickú {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">kubickej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental">kubickou {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate" case="genitive">kubického {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="inanimate" case="instrumental">kubickým {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive" draft="contributed">kubického {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="instrumental" draft="contributed">kubickým {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" draft="contributed">kubická {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="accusative" draft="contributed">kubickú {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="genitive" draft="contributed">kubickej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental" draft="contributed">kubickou {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="genitive" draft="contributed">kubického {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="instrumental" draft="contributed">kubickým {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few">kubické {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="genitive">kubických {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" case="instrumental">kubickými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="genitive">kubických {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine" case="instrumental">kubickými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate" case="genitive">kubických {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="inanimate" case="instrumental">kubickými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="genitive" draft="contributed">kubických {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" case="instrumental" draft="contributed">kubickými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="genitive" draft="contributed">kubických {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine" case="instrumental" draft="contributed">kubickými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" case="genitive" draft="contributed">kubických {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="inanimate" case="instrumental" draft="contributed">kubickými {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many">kubického {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" case="instrumental">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine">kubickej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="accusative">kubickej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="genitive">kubickej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="feminine" case="instrumental">kubickej {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many" gender="inanimate" case="instrumental">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" draft="contributed">kubickej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="accusative" draft="contributed">kubickej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="genitive" draft="contributed">kubickej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="feminine" case="instrumental" draft="contributed">kubickej {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" gender="inanimate" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">kubických {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="instrumental">kubickými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental">kubickými {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate" case="accusative">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate" case="genitive">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="inanimate" case="instrumental">kubickými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="instrumental" draft="contributed">kubickými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental" draft="contributed">kubickými {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="instrumental" draft="contributed">kubickými {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>{0}{1}</compoundUnitPattern>
@@ -8648,7 +8646,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" case="genitive">{0} arcminúty</unitPattern>
 				<unitPattern count="many" case="instrumental">{0} arcminúty</unitPattern>
 				<unitPattern count="other">{0} arcminút</unitPattern>
-				<unitPattern count="other" case="accusative">{0} arcminút</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} arcminút</unitPattern>
 				<unitPattern count="other" case="genitive">{0} arcminút</unitPattern>
 				<unitPattern count="other" case="instrumental">{0} arcminútami</unitPattern>
 			</unit>
@@ -8663,7 +8661,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" case="accusative">{0} arcsekundy</unitPattern>
 				<unitPattern count="few" case="genitive">{0} arcsekúnd</unitPattern>
 				<unitPattern count="few" case="instrumental">{0} arcsekundami</unitPattern>
-				<unitPattern count="many">{0} arcsekundy</unitPattern>
+				<unitPattern count="many">{0} sekundy</unitPattern>
 				<unitPattern count="many" case="accusative">{0} arcsekundy</unitPattern>
 				<unitPattern count="many" case="genitive">{0} arcsekundy</unitPattern>
 				<unitPattern count="many" case="instrumental">{0} arcsekundy</unitPattern>
@@ -8885,21 +8883,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>inanimate</gender>
 				<displayName>moly</displayName>
 				<unitPattern count="one">{0} mol</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">{0} molu</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} molom</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} móla</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">{0} molom</unitPattern>
 				<unitPattern count="few">{0} moly</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">{0} molov</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} molmi</unitPattern>
+				<unitPattern count="few" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="few" case="genitive" draft="provisional">{0} molov</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="provisional">{0} mólami</unitPattern>
 				<unitPattern count="many">{0} molu</unitPattern>
-				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} molov</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} molmi</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">{0} molmi</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre na kilometer</displayName>
@@ -9053,7 +9051,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">{0} storočiami</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<gender>neuter</gender>
+				<gender draft="provisional">feminine</gender>
 				<displayName>desaťročia</displayName>
 				<unitPattern count="one">{0} desaťročie</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
@@ -9188,8 +9186,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" case="instrumental">{0} hodinami</unitPattern>
 				<unitPattern count="many">{0} hodiny</unitPattern>
 				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} hodín</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
@@ -9201,8 +9199,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>minúty</displayName>
 				<unitPattern count="one">{0} minúta</unitPattern>
 				<unitPattern count="one" case="accusative">{0} minútu</unitPattern>
-				<unitPattern count="one" case="genitive">{0} minúty</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} minútou</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} minút</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">{0} minútami</unitPattern>
 				<unitPattern count="few">{0} minúty</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="few" case="genitive">{0} minút</unitPattern>
@@ -9337,12 +9335,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>feminine</gender>
 				<displayName>kalórie</displayName>
 				<unitPattern count="one">{0} kalória</unitPattern>
-				<unitPattern count="one" case="accusative">{0} kalóriu</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive">{0} kalórie</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} kalóriou</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">{0} kalóriami</unitPattern>
 				<unitPattern count="few">{0} kalórie</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">{0} kalórií</unitPattern>
+				<unitPattern count="few" case="genitive" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="few" case="instrumental">{0} kalóriami</unitPattern>
 				<unitPattern count="many">{0} kalórie</unitPattern>
 				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
@@ -9371,7 +9369,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>inanimate</gender>
 				<displayName>jouly</displayName>
 				<unitPattern count="one">joule</unitPattern>
-				<unitPattern count="one" case="accusative">{0} joule</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive">{0} joulu</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} joulom</unitPattern>
 				<unitPattern count="few">{0} jouly</unitPattern>
@@ -9443,11 +9441,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">{0} newtonmi</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>gigahertze</displayName>
@@ -9592,12 +9590,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>metre</displayName>
 				<unitPattern count="one">{0} meter</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">{0} metra</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} metrom</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} metre</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">{0} metrov</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} metrami</unitPattern>
+				<unitPattern count="few" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="many">{0} metra</unitPattern>
 				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
@@ -9605,7 +9603,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} metrov</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} metrami</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
 				<perUnitPattern>{0} na meter</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
@@ -9727,13 +9725,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>feminine</gender>
 				<displayName>škandinávske míle</displayName>
 				<unitPattern count="one">{0} škandinávska míľa</unitPattern>
-				<unitPattern count="one" case="accusative">{0} škandinávsku míľu</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive">{0} škandinávskej míle</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} škandinávskou míľou</unitPattern>
 				<unitPattern count="few">{0} škandinávske míle</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="few" case="genitive">{0} škandinávskych míľ</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} škandinávskymi míľami</unitPattern>
+				<unitPattern count="few" case="instrumental" draft="provisional">{0} škandinávskych míľ</unitPattern>
 				<unitPattern count="many">{0} škandinávskej míle</unitPattern>
 				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
@@ -10324,7 +10322,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} hektolitrov</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<gender>inanimate</gender>
+				<gender draft="contributed">inanimate</gender>
 				<displayName>litre</displayName>
 				<unitPattern count="one">{0} liter</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
@@ -10393,7 +10391,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" case="genitive">{0} metrického hrnčeka</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} metrickým hrnčekom</unitPattern>
 				<unitPattern count="few">{0} metrické hrnčeky</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="few" case="genitive">{0} metrických hrnčekov</unitPattern>
 				<unitPattern count="few" case="instrumental">{0} metrickými hrnčekmi</unitPattern>
 				<unitPattern count="many">{0} metrického hrnčeka</unitPattern>
@@ -11142,11 +11140,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} N</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
@@ -12081,21 +12079,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} rad</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} rad</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} rad</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} rad</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
@@ -12124,11 +12122,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>ha</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">ha</displayName>
+				<unitPattern count="one">{0}ha</unitPattern>
+				<unitPattern count="few">{0}ha</unitPattern>
+				<unitPattern count="many">{0}ha</unitPattern>
+				<unitPattern count="other">{0}ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>↑↑↑</displayName>
@@ -12148,18 +12146,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}mi²</unitPattern>
+				<unitPattern count="few">{0}mi²</unitPattern>
+				<unitPattern count="many">{0}mi²</unitPattern>
+				<unitPattern count="other">{0}mi²</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>ac</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one">{0}ac</unitPattern>
+				<unitPattern count="few">{0}ac</unitPattern>
+				<unitPattern count="many">{0}ac</unitPattern>
+				<unitPattern count="other">{0}ac</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>↑↑↑</displayName>
@@ -12170,10 +12168,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}ft²</unitPattern>
+				<unitPattern count="few">{0}ft²</unitPattern>
+				<unitPattern count="many">{0}ft²</unitPattern>
+				<unitPattern count="other">{0}ft²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -12191,7 +12189,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kt</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} kt</unitPattern>
@@ -12205,11 +12203,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
 				<displayName>pol.</displayName>
@@ -12219,11 +12217,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} pol.</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
@@ -12233,18 +12231,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} %</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
@@ -12254,7 +12252,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} l/km</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} l/km</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} l/km</unitPattern>
@@ -12268,81 +12266,81 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} mpg</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mpg</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} mpg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mpg</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName>B</displayName>
@@ -12352,7 +12350,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} B</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} b</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} b</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} b</unitPattern>
@@ -12450,90 +12448,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="electric-milliampere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="electric-ohm">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="electric-volt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-calorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-kilojoule">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-joule">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-kilowatt-hour">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-electronvolt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-british-thermal-unit">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="energy-therm-us">
+			<unit type="electric-milliampere">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-electronvolt">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
@@ -12541,53 +12525,53 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>↑↑↑</displayName>
@@ -12805,32 +12789,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} lx</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} lx</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} lx</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} lx</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName draft="contributed">t</displayName>
@@ -12935,13 +12919,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="power-gigawatt">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
@@ -12949,39 +12926,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} MW</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} MW</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} MW</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}kW</unitPattern>
+				<unitPattern count="few">{0}kW</unitPattern>
+				<unitPattern count="many">{0}kW</unitPattern>
+				<unitPattern count="other">{0}kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one">{0}W</unitPattern>
+				<unitPattern count="few">{0}W</unitPattern>
+				<unitPattern count="many">{0}W</unitPattern>
+				<unitPattern count="other">{0}W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} mW</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mW</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} mW</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mW</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one">{0}hp</unitPattern>
+				<unitPattern count="few">{0}hp</unitPattern>
+				<unitPattern count="many">{0}hp</unitPattern>
+				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName draft="contributed">mm Hg</displayName>
@@ -12999,17 +12974,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName draft="contributed">inHg</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}&quot; Hg</unitPattern>
+				<unitPattern count="few">{0}&quot; Hg</unitPattern>
+				<unitPattern count="many">{0}&quot; Hg</unitPattern>
+				<unitPattern count="other">{0}&quot; Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName draft="contributed">mbar</displayName>
@@ -13019,18 +12994,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="contributed">hPa</displayName>
@@ -13047,11 +13022,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
@@ -13110,79 +13085,79 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one">{0}km³</unitPattern>
+				<unitPattern count="few">{0}km³</unitPattern>
+				<unitPattern count="many">{0}km³</unitPattern>
+				<unitPattern count="other">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} m³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} m³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} m³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m³</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} cm³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} cm³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} cm³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} cm³</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one">{0}mi³</unitPattern>
+				<unitPattern count="few">{0}mi³</unitPattern>
+				<unitPattern count="many">{0}mi³</unitPattern>
+				<unitPattern count="other">{0}mi³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} yd³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} yd³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} yd³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} yd³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} ft³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ft³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ft³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ft³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} in³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} in³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} in³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} Ml</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} Ml</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} Ml</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Ml</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} hl</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} hl</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} hl</unitPattern>
@@ -13197,174 +13172,174 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} dl</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} dl</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} dl</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dl</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} cl</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} cl</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} cl</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} cl</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} ml</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ml</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ml</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ml</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} ac ft</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ac ft</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ac ft</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ac ft</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} gal</unitPattern>
-				<unitPattern count="few">{0} gal</unitPattern>
-				<unitPattern count="many">{0} gal</unitPattern>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">{0} gal</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} gal</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} gal</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} gal</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} qt</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} qt</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} qt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} qt</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} pt</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} pt</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} pt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} c</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} c</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} c</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} c</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} fl oz</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} fl oz</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} fl oz</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} tbsp</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} tbsp</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} tbsp</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} tbsp</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} tsp</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} tsp</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} tsp</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} tsp</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>svetová strana</displayName>

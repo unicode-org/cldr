@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -115,8 +115,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characters>
 		<exemplarCharacters draft="provisional">[a á b c d e é g h i j k l m n o ó p r s t u v w y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="provisional">[f ń q x]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="provisional">[A Á B {Ch} D {Dh} E É F G H I J K L M N O Ó P R {Rh} S {Sh} T {Th} U V W Y Z {Zh}]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="provisional">[, ; \: ? . ‘ ’ “ ”]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="provisional">[Á A B {Ch} D {Dh} É E F G H I J K L M N Ó O P R {Rh} S {Sh} T {Th} U V W Y Z {Zh}]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="provisional">[, . ? : ; ‘ ’ “ ”]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>↑↑↑</quotationStart>
@@ -226,17 +226,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE, d MMMM, y</pattern>
+							<pattern draft="provisional">EEEE, d MMMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">d MMMM, y</pattern>
+							<pattern draft="provisional">d MMMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">d MMM, y</pattern>
+							<pattern draft="provisional">d MMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -564,6 +564,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern draft="provisional">#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="provisional">0 hazár</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 hazár</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 hazár</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 hazár</pattern>
+					<pattern type="100000" count="one" draft="provisional">0 lakk</pattern>
+					<pattern type="100000" count="other" draft="provisional">0 lakk</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 milyun</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 milyun</pattern>
+					<pattern type="10000000" count="one" draft="provisional">0 korórh</pattern>
+					<pattern type="10000000" count="other" draft="provisional">0 korórh</pattern>
+					<pattern type="100000000" count="one" draft="provisional">00 korórh</pattern>
+					<pattern type="100000000" count="other" draft="provisional">00 korórh</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">000 korórh</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">000 korórh</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="provisional">0 h</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 h</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 h</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 h</pattern>
+					<pattern type="100000" count="one" draft="provisional">0 l</pattern>
+					<pattern type="100000" count="other" draft="provisional">0 l</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 m</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 m</pattern>
+					<pattern type="10000000" count="one" draft="provisional">0 ko</pattern>
+					<pattern type="10000000" count="other" draft="provisional">0 ko</pattern>
+					<pattern type="100000000" count="one" draft="provisional">00 ko</pattern>
+					<pattern type="100000000" count="other" draft="provisional">00 ko</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">000 ko</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">000 ko</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
@@ -582,7 +618,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="provisional">¤ #,##0.00</pattern>
+					<pattern draft="provisional">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -591,6 +627,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="provisional">Brázili riál</displayName>
 				<symbol draft="provisional">R$</symbol>
 				<symbol alt="narrow" draft="provisional">R$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="provisional">Chini yuan</displayName>
+				<symbol draft="provisional">¥</symbol>
+				<symbol alt="narrow" draft="provisional">¥</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="provisional">yuró</displayName>

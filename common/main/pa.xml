@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -6572,6 +6572,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>RUB</symbol>
 				<symbol alt="narrow">₽</symbol>
 			</currency>
+			<currency type="RUR">
+				<symbol alt="narrow" draft="contributed">р.</symbol>
+			</currency>
 			<currency type="RWF">
 				<displayName>ਰਵਾਂਡਨ ਫ੍ਰੈਂਕ</displayName>
 				<displayName count="one">ਰਵਾਂਡਨ ਫ੍ਰੈਂਕ</displayName>
@@ -6924,8 +6927,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} ਘੰਟਾ</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} ਘੰਟੇ</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">ਸਜੇ ਪਾਸੇ {0} ਮੋੜ ਲਵੋ</ordinalMinimalPairs>
-			<caseMinimalPairs case="nominative">ਅਧਿਆਪਕ ਨੇ {0} ਪੜ੍ਹਾਇਆ</caseMinimalPairs>
-			<caseMinimalPairs case="oblique">ਅਧਿਆਪਕ ਨੇ {0} ਤੱਕ ਪੜ੍ਹਾਇਆ</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="provisional">ਅਧਿਆਪਕ ਨੇ {0} ਪੜ੍ਹਾਇਆ</caseMinimalPairs>
+			<caseMinimalPairs case="oblique" draft="provisional">ਅਧਿਆਪਕ ਨੇ {0} ਤੱਕ ਪੜ੍ਹਾਇਆ</caseMinimalPairs>
 			<genderMinimalPairs gender="feminine">ਇਹ ਕਿੰਨੀ {0} ਦਾ ਹੈ</genderMinimalPairs>
 			<genderMinimalPairs gender="masculine">ਇਹ ਕਿੰਨੇ {0} ਦਾ ਹੈ</genderMinimalPairs>
 		</minimalPairs>
@@ -7350,6 +7353,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ਦਿਨ</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} ਪ੍ਰਤੀ ਦਿਨ</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<gender draft="contributed">masculine</gender>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="oblique" draft="contributed">{0} ਦਿਨਾਂ</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<gender draft="contributed">masculine</gender>
@@ -8288,8 +8298,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ਹੈਕਟੇਅਰ</displayName>
-				<unitPattern count="one">{0} ਹੈਕਟ.</unitPattern>
-				<unitPattern count="other">{0} ਹੈਕਟ.</unitPattern>
+				<unitPattern count="one">{0} ਹੈਕਟੇਅਰ</unitPattern>
+				<unitPattern count="other">{0} ਹੈਕਟੇਅਰ</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>ਮੀਟਰ²</displayName>

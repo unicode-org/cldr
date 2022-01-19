@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -14496,7 +14496,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>dpcm</displayName>
 				<unitPattern count="other">{0} dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
@@ -15361,8 +15361,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="other">{0} dpi</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>
@@ -16198,50 +16198,50 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}Hz</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}em</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}em</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}px</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}px</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}MP</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}MP</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ppcm</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ppi</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>dpcm</displayName>
 				<unitPattern count="other">{0}dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="other">{0}dpi</unitPattern>
+				<displayName draft="contributed">dpi</displayName>
+				<unitPattern count="other" draft="contributed">{0}dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other">{0}px</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}px</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}R⊕</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>公里</displayName>
 				<unitPattern count="other">{0}公里</unitPattern>
-				<perUnitPattern>{0}/公里</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/公里</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>公尺</displayName>
 				<unitPattern count="other">{0}公尺</unitPattern>
-				<perUnitPattern>{0}/公尺</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/公尺</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName draft="contributed">公寸</displayName>

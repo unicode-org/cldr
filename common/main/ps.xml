@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -880,9 +880,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index" draft="contributed">[آ ا ء ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ ه و ی]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\u200E \- ‑ , ٫ ٬ . % ٪ ‰ ؉ + − 0۰ 1۱ 2۲ 3۳ 4۴ 5۵ 6۶ 7۷ 8۸ 9۹]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[، ; \: ! ۔ ' ‘ ( ) \[ \] \{ \} /]</exemplarCharacters>
-		<ellipsis type="final">↑↑↑</ellipsis>
-		<ellipsis type="initial">↑↑↑</ellipsis>
-		<ellipsis type="medial">↑↑↑</ellipsis>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
 		<ellipsis type="word-final">↑↑↑</ellipsis>
 		<ellipsis type="word-initial">↑↑↑</ellipsis>
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
@@ -896,8 +896,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<parseLenient sample="’">↑↑↑</parseLenient>
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
-			<parseLenient sample="$">[\$﹩＄$]</parseLenient>
-			<parseLenient sample="£">[£₤]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
@@ -6844,7 +6844,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} د پارې ملي مترز</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>پاونډز في مربع انچ</displayName>
 				<unitPattern count="one">{0} پاونډ في مربع انچ</unitPattern>
 				<unitPattern count="other">{0} پاونډز في مربع انچ</unitPattern>
 			</unit>
@@ -7901,7 +7901,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-bar">
 				<displayName>bar</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} bar</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
@@ -8405,7 +8405,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0}kWh/100km</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
@@ -8455,73 +8454,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}g</unitPattern>
 				<unitPattern count="other">{0}g</unitPattern>
 			</unit>
-			<unit type="pressure-pound-force-per-square-inch">
-				<displayName>↑↑↑</displayName>
-			</unit>
-			<unit type="pressure-inch-ofhg">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-atmosphere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-pascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/hr</displayName>
 				<unitPattern count="one">{0}kph</unitPattern>
 				<unitPattern count="other">{0}kph</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
-			</unit>
-			<unit type="temperature-fahrenheit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="temperature-kelvin">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
@@ -8596,14 +8537,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}، {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="2">{0} او {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -78,8 +78,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="chr">Cherokee</language>
 			<language type="chy">Cheyenne</language>
 			<language type="ckb">Central Kurdish</language>
-			<language type="ckb" alt="menu">Kurdish, Central</language>
-			<language type="ckb" alt="variant">Kurdish, Sorani</language>
+			<language type="ckb" alt="menu" draft="contributed">↑↑↑</language>
+			<language type="ckb" alt="variant" draft="contributed">↑↑↑</language>
 			<language type="co">Corsican</language>
 			<language type="crs">Seselwa Creole French</language>
 			<language type="cs">Czech</language>
@@ -95,7 +95,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="de_CH">Swiss High German</language>
 			<language type="dgr">Dogrib</language>
 			<language type="dje">Zarma</language>
-			<language type="doi">Dogri</language>
+			<language type="doi" draft="contributed">Dogri</language>
 			<language type="dsb">Lower Sorbian</language>
 			<language type="dua">Duala</language>
 			<language type="dv">Divehi</language>
@@ -320,7 +320,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="quc">Kʼicheʼ</language>
 			<language type="rap">Rapanui</language>
 			<language type="rar">Rarotongan</language>
-			<language type="rhg">Rohingya</language>
+			<language type="rhg" draft="contributed">Rohingya</language>
 			<language type="rm">Romansh</language>
 			<language type="rn">Rundi</language>
 			<language type="ro">Romanian</language>
@@ -1836,7 +1836,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">M/d/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
@@ -4166,11 +4166,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Lin.</relative>
 				<relative type="1">susunod na Lin.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Lin.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Linggo</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Linggo</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Lin. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Linggo ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Linggo ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4179,11 +4179,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Lin.</relative>
 				<relative type="1">susunod na Lin.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Lin.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} linggo</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Linggo</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Lin. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Linggo ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Linggo ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4205,11 +4205,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Lun.</relative>
 				<relative type="1">susunod na Lun.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Lun.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Lunes</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Lunes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Lun. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Lunes ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Lunes ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4222,7 +4222,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">sa {0} Lunes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Lun. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Lunes ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Lunes ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4283,11 +4283,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Miy.</relative>
 				<relative type="1">susunod na Miy.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Miy.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Miyerkules</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Miyerkules</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Miy. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Miyerkules ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Miyerkules ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4296,11 +4296,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Miy.</relative>
 				<relative type="1">susunod na Miy.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Miy.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Miyerkules</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Miyerkules</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Miy. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Miyerkules ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Miyerkules ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4322,11 +4322,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Huw.</relative>
 				<relative type="1">susunod na Huw.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Huw.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Huwebes</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Huwebes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Huw. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Huwebes ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Huwebes ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4335,11 +4335,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Huw.</relative>
 				<relative type="1">susunod na Huw.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Huw.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Huwebes</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Huwebes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Huw. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Huwebes ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Huwebes ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4365,7 +4365,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">sa {0} (na) Biyernes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Biy. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Biyernes ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Biyernes ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4374,11 +4374,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Biy.</relative>
 				<relative type="1">susunod na Biy.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Biy.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Biyernes</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Biyernes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Biy. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Biyernes ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Biyernes ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4400,11 +4400,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Sab.</relative>
 				<relative type="1">susunod na Sab.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Sab.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Sabado</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Sabado</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Sab. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Sabado ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Sabado ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4413,11 +4413,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ngayong Sab.</relative>
 				<relative type="1">susunod na Sab.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">sa {0} Sab.</relativeTimePattern>
+					<relativeTimePattern count="one">sa {0} Sabado</relativeTimePattern>
 					<relativeTimePattern count="other">sa {0} (na) Sabado ang nakalipas</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Sab. ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Sabado ang nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) Sabado ang nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4460,7 +4460,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">sa {0} (na) oras</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} oras nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) oras nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -4528,7 +4528,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">sa {0} (na) seg.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} seg. nakalipas</relativeTimePattern>
 					<relativeTimePattern count="other">{0} (na) seg. nakalipas</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -6256,7 +6256,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>Standard na Oras sa India</standard>
+					<standard>Standard na Oras sa Bhutan</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -6749,7 +6749,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Yukon">
 				<long>
-					<standard>Yukon Time</standard>
+					<standard draft="contributed">Yukon Time</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -7464,9 +7464,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesotho Loti</displayName>
-				<displayName count="one">Lesotho loti</displayName>
-				<displayName count="other">Lesotho lotis</displayName>
-				<symbol>↑↑↑</symbol>
+				<displayName count="one" draft="contributed">Lesotho loti</displayName>
+				<displayName count="other" draft="contributed">Lesotho lotis</displayName>
 			</currency>
 			<currency type="LTL">
 				<displayName>Lithuanian Litas</displayName>
@@ -7958,7 +7957,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>CFA Franc ng Kanlurang Africa</displayName>
 				<displayName count="one">CFA franc ng Kanlurang Africa</displayName>
 				<displayName count="other">CFA francs ng Kanlurang Africa</displayName>
-				<symbol>F CFA</symbol>
+				<symbol draft="contributed">F CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
@@ -8004,7 +8003,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} mansanas</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} na mansanas</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Kunin ang ika-{0} (na) kanan.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="contributed">Kunin ang ika-{0} (na) kanan.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -8217,7 +8216,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-item">
 				<displayName>mga item</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} na item</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} (na) item</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>parts per million</displayName>
@@ -8801,7 +8800,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} atmospheres</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName>pascal</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} pascal</unitPattern>
 				<unitPattern count="other">{0} pascals</unitPattern>
 			</unit>
@@ -8954,9 +8953,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} acre-feet</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>mga bushel</displayName>
-				<unitPattern count="one">{0} bushel</unitPattern>
-				<unitPattern count="other">{0} mga bushel</unitPattern>
+				<displayName draft="contributed">mga bushel</displayName>
+				<unitPattern count="one" draft="contributed">{0} bushel</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mga bushel</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>galon</displayName>
@@ -9026,9 +9025,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} patak</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName>dram</displayName>
-				<unitPattern count="one">{0} dram</unitPattern>
-				<unitPattern count="other">{0} dram</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<displayName>↑↑↑</displayName>
@@ -9041,9 +9040,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} karampot</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>Imp. na kuwart</displayName>
-				<unitPattern count="one">{0} Imp. na kuwart</unitPattern>
-				<unitPattern count="other">{0} Imp. na kuwart</unitPattern>
+				<displayName draft="contributed">Imp. na kuwart</displayName>
+				<unitPattern count="one" draft="contributed">{0} Imp. na kuwart</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Imp. na kuwart</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>cardinal direction</displayName>
@@ -9172,7 +9171,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="angle-radian">
 				<displayName>radians</displayName>
 				<unitPattern count="one">{0} rad</unitPattern>
-				<unitPattern count="other">{0} rad</unitPattern>
+				<unitPattern count="other">{0} na rad</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>degrees</displayName>
@@ -9370,7 +9369,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} siglo</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>dec</displayName>
+				<displayName draft="contributed">dec</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} dec</unitPattern>
 			</unit>
@@ -9542,7 +9541,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>megapixel</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9557,14 +9556,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="one">{0} dpcm</unitPattern>
-				<unitPattern count="other">{0} dpcm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="one">{0} dpi</unitPattern>
-				<unitPattern count="other">{0} dpi</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>tuldok</displayName>
@@ -9999,7 +9998,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ac ft</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>mga bushel</displayName>
+				<displayName draft="contributed">mga bushel</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10209,8 +10208,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}m/s²</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<unitPattern count="one">{0}rad</unitPattern>
-				<unitPattern count="other">{0}rad</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}rad</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
@@ -10221,26 +10219,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}km²</unitPattern>
 				<unitPattern count="other">{0}km²</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}ha</unitPattern>
 				<unitPattern count="other">{0}ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} m²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m²</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="area-square-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<unitPattern count="one">{0}mi²</unitPattern>
@@ -10250,30 +10238,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}ac</unitPattern>
 				<unitPattern count="other">{0}ac</unitPattern>
 			</unit>
-			<unit type="area-square-yard">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0}ft²</unitPattern>
 				<unitPattern count="other">{0}ft²</unitPattern>
 			</unit>
-			<unit type="area-square-inch">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="area-dunam">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">↑↑↑</displayName>
-			</unit>
 			<unit type="concentr-item">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other">{0}item</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}(na) item</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName draft="contributed">ppm</displayName>
@@ -10313,40 +10285,33 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon">
 				<displayName draft="contributed">mpg</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other">{0}mpg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}mpg</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<unitPattern count="one" draft="contributed">{0}mpg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}mpg</unitPattern>
 			</unit>
-			<unit type="duration-decade">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<displayName>taon</displayName>
 				<unitPattern count="one">{0}taon</unitPattern>
 				<unitPattern count="other">{0}taon</unitPattern>
-				<perUnitPattern>{0}/taon</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/taon</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>buwan</displayName>
 				<unitPattern count="one">{0}buwan</unitPattern>
 				<unitPattern count="other">{0} buwan</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>linggo</displayName>
 				<unitPattern count="one">{0}linggo</unitPattern>
 				<unitPattern count="other">{0}linggo</unitPattern>
-				<perUnitPattern>{0}/linggo</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/linggo</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>araw</displayName>
 				<unitPattern count="one">{0} araw</unitPattern>
 				<unitPattern count="other">{0} na araw</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>oras</displayName>
@@ -10357,13 +10322,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>min.</displayName>
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
-				<perUnitPattern>{0}/min</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/min</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>seg.</displayName>
 				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
-				<perUnitPattern>{0}/s</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>mseg</displayName>
@@ -10372,13 +10337,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName draft="contributed">μseg</displayName>
-				<unitPattern count="one">{0} μs</unitPattern>
-				<unitPattern count="other">{0} μs</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} μs</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName draft="contributed">nanoseg</displayName>
-				<unitPattern count="one">{0} ns</unitPattern>
-				<unitPattern count="other">{0} ns</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ns</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ns</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName draft="contributed">lbf</displayName>
@@ -10394,65 +10359,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0}kWh/100km</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}kWh/100km</unitPattern>
 			</unit>
-			<unit type="graphics-em">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="graphics-pixel">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="graphics-megapixel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="graphics-pixel-per-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="graphics-pixel-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="length-earth-radius">
-				<displayName draft="contributed">↑↑↑</displayName>
-			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="one">{0}km</unitPattern>
 				<unitPattern count="other">{0}km</unitPattern>
-				<perUnitPattern>{0}/km</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>metro</displayName>
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
-				<perUnitPattern>{0}/m</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>dm</displayName>
-				<unitPattern count="one">{0} dm</unitPattern>
-				<unitPattern count="other">{0} dm</unitPattern>
+				<displayName draft="contributed">dm</displayName>
+				<unitPattern count="one" draft="contributed">{0} dm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>cm</displayName>
 				<unitPattern count="one">{0}cm</unitPattern>
 				<unitPattern count="other">{0}cm</unitPattern>
-				<perUnitPattern>{0}/cm</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
@@ -10461,16 +10389,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-micrometer">
 				<displayName draft="contributed">μmetro</displayName>
-				<unitPattern count="one">{0} μm</unitPattern>
-				<unitPattern count="other">{0} μm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} μm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="one">{0} nm</unitPattern>
-				<unitPattern count="other">{0} nm</unitPattern>
+				<displayName draft="contributed">nm</displayName>
+				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} nm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>pm</displayName>
+				<displayName draft="contributed">pm</displayName>
 				<unitPattern count="one">{0}pm</unitPattern>
 				<unitPattern count="other">{0}pm</unitPattern>
 			</unit>
@@ -10485,55 +10413,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-foot">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
-				<perUnitPattern>{0}/ft</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
-				<perUnitPattern>{0}/in</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName draft="contributed">parsecs</displayName>
 				<unitPattern count="one" draft="contributed">{0}pc</unitPattern>
-				<unitPattern count="other">{0}pc</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one">{0}ly</unitPattern>
 				<unitPattern count="other">{0}ly</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="one">{0}au</unitPattern>
-				<unitPattern count="other">{0}au</unitPattern>
+				<displayName draft="contributed">au</displayName>
+				<unitPattern count="one" draft="contributed">{0}au</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}au</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>furlong</displayName>
-				<unitPattern count="one">{0}fur</unitPattern>
+				<displayName draft="contributed">furlong</displayName>
+				<unitPattern count="one" draft="contributed">{0}fur</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}fur</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>fathom</displayName>
+				<displayName draft="contributed">fathom</displayName>
 				<unitPattern count="one" draft="contributed">{0}fth</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}fth</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>nmi</displayName>
-				<unitPattern count="one">{0}nmi</unitPattern>
-				<unitPattern count="other">{0}nmi</unitPattern>
+				<displayName draft="contributed">nmi</displayName>
+				<unitPattern count="one" draft="contributed">{0}nmi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}nmi</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="one">{0}smi</unitPattern>
-				<unitPattern count="other">{0}smi</unitPattern>
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="one" draft="contributed">{0}smi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}smi</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>pts</displayName>
-				<unitPattern count="one">{0}pt</unitPattern>
-				<unitPattern count="other">{0}pt</unitPattern>
-			</unit>
-			<unit type="length-solar-radius">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">pts</displayName>
+				<unitPattern count="one" draft="contributed">{0}pt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}pt</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName draft="contributed">t</displayName>
@@ -10668,88 +10592,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}K</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}km³</unitPattern>
 				<unitPattern count="other">{0}km³</unitPattern>
 			</unit>
-			<unit type="volume-cubic-meter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
-			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}mi³</unitPattern>
 				<unitPattern count="other">{0}mi³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-yard">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-megaliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-hectoliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>litro</displayName>
 				<unitPattern count="one">{0}L</unitPattern>
 				<unitPattern count="other">{0}L</unitPattern>
-			</unit>
-			<unit type="volume-deciliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-milliliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cup-metric">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-bushel">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName draft="contributed">Imp fl oz</displayName>
@@ -10769,7 +10622,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-jigger">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other">{0}jigger</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}jigger</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName draft="contributed">qt Imp</displayName>

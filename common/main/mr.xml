@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -5947,7 +5947,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">बेलारुशियन रुबल</displayName>
 				<displayName count="other">बेलारुशियन रुबल्स</displayName>
 				<symbol>BYN</symbol>
-				<symbol alt="narrow">↑↑↑</symbol>
+				<symbol alt="narrow">р.</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>बेलारुशियन रुबल (2000–2016)</displayName>
@@ -6883,16 +6883,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<ordinalMinimalPairs ordinal="one">{0}ले उजवे वळण घ्या.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}वे उजवे वळण घ्या.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}रे उजवे वळण घ्या.</ordinalMinimalPairs>
-			<caseMinimalPairs case="ablative">{0} त्याचे प्रयत्न चालू होते</caseMinimalPairs>
-			<caseMinimalPairs case="accusative">दर {0} येऊन तो विचारणा करत होता</caseMinimalPairs>
-			<caseMinimalPairs case="dative">{0} तो गावाला गेला आह</caseMinimalPairs>
-			<caseMinimalPairs case="ergative">{0} काय फरक पडणार?</caseMinimalPairs>
-			<caseMinimalPairs case="genitive">{0} कार्यक्रम होता</caseMinimalPairs>
-			<caseMinimalPairs case="locative">{0} काम पूर्ण होईल</caseMinimalPairs>
-			<caseMinimalPairs case="nominative">{0} मजेत गेले</caseMinimalPairs>
-			<genderMinimalPairs gender="feminine">ती {0} खूप महत्वाची होती</genderMinimalPairs>
-			<genderMinimalPairs gender="masculine">तो {0} खूप महत्वाचा होता</genderMinimalPairs>
-			<genderMinimalPairs gender="neuter">ते {0} खूप महत्वाचे होते</genderMinimalPairs>
+			<caseMinimalPairs case="ablative" draft="contributed">{0} दिवसापासून त्याचे प्रयत्न चालू होते</caseMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="contributed">दर {0} दिवसाला येऊन तो विचारणा करत होता</caseMinimalPairs>
+			<caseMinimalPairs case="dative" draft="contributed">{0} दिवसांसाठी तो गावाला गेला आहे</caseMinimalPairs>
+			<caseMinimalPairs case="ergative" draft="contributed">{0} दिवसाने काय फरक पडणार?</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="contributed">{0} दिवसांचा कार्यक्रम होता</caseMinimalPairs>
+			<caseMinimalPairs case="locative" draft="contributed">{0} व्या दिवशी तो हजर झाला</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="contributed">{0} दिवस खूप मजेत गेले</caseMinimalPairs>
+			<caseMinimalPairs case="oblique" draft="contributed">{0} दिवस</caseMinimalPairs>
+			<genderMinimalPairs gender="feminine" draft="contributed">कॅलरी {0} ने वाढली</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine" draft="contributed">तो {0} तास खूप महत्वाचा होता</genderMinimalPairs>
+			<genderMinimalPairs gender="neuter" draft="contributed">ते {0} वर्ष खूप महत्वाचे होते</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -6987,103 +6988,103 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>चौरस {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">चौरस {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="ablative">चौरस {0} पासून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="accusative">चौरस {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="dative">चौरस {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="ergative">चौरस {0} ने</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">चौरस {0} चा</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="locative">चौरस {0} शी</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="ablative">चौरस {0} आकृती पासून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">चौरस {0} आकृतीला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="dative">चौरस {0} आकृतीला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="ergative">चौरस {0} आकृतीने</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">चौरस {0} आकृतीचा</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="locative">चौरस {0} आकृतीशी</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="ablative">चौरस {0} पासून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="accusative">चौरस {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="dative">चौरस {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="ergative">चौरस {0} ने</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">चौरस {0} चा</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="locative">चौरस {0} शी</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">चौरस {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="ablative">चौरस {0} हून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="accusative">चौरस {0} ना</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="dative">चौरस {0} साठी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="ergative">चौरस {0} नी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="genitive">चौरस {0} चे</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="locative">चौरस {0} चा</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="ablative">चौरस {0} आकृतींहून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="accusative">चौरस {0} आकृतींना</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="dative">चौरस {0} आकृतींसाठी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="ergative">चौरस {0} आकृतींनी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">चौरस {0} आकृतींचे</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="locative">चौरस {0} आकृत्यांचा</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="ablative">चौरस {0} हून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="accusative">चौरस {0} ना</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="dative">चौरस {0} साठी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="ergative">चौरस {0} नी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">चौरस {0} चे</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="locative">चौरस {0} चा</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine" case="oblique">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>घन{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">घन{0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="ablative">घन {0} पासून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="accusative">घन {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="dative">घन {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="ergative">घन {0} ने</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">घन {0} चा</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="locative">घन {0} शी</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="ablative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="accusative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="dative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="ergative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="locative" draft="provisional">घन {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="oblique">घन {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="ablative">घन {0} आकृती पासून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="accusative">घन {0} आकृतीला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="dative">घन {0} आकृतीला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="ergative">घन {0} आकृतीने</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">घन {0} आकृतीचा</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="locative">घन {0} आकृतीशी</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="ablative">घन {0} पासून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="accusative">घन {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="dative">घन {0} ला</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="ergative">घन {0} ने</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">घन {0} चा</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="locative">घन {0} शी</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">घन{0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="ablative">घन {0} हून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="accusative">घन {0} ना</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="dative">घन {0} साठी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="ergative">घन {0} नी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="genitive">घन {0} चे</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="locative">घन {0} चा</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="ablative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="accusative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="dative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="ergative" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="genitive" draft="provisional">घन {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="locative" draft="provisional">घन {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="oblique">घन {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine">घन {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="ablative">घन {0} आकृतींहून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="accusative">घन {0} आकृतींना</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="dative">घन {0} आकृतींसाठी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="ergative">घन {0} आकृतींनी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">घन {0} आकृतींचे</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="feminine" case="locative">घन {0} आकृत्यांचा</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="oblique">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine">घन {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="ablative">घन {0} हून</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="accusative">घन {0} ना</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="dative">घन {0} साठी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="ergative">घन {0} नी</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">घन {0} चे</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="locative">घन {0} चा</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="ablative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="accusative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="dative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="ergative" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive" draft="provisional">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="locative" draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine" case="oblique">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
@@ -7093,20 +7094,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>जी-फोर्स</displayName>
 				<unitPattern count="one">{0} जी-फोर्स</unitPattern>
-				<unitPattern count="one" case="ablative">{0} जी-फोर्सपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} जी-फोर्सला</unitPattern>
-				<unitPattern count="one" case="dative">{0} जी-फोर्सला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} जी-फोर्सने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} जी-फोर्सचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} जी-फोर्सशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} जी-फोर्स</unitPattern>
-				<unitPattern count="other" case="ablative">{0} जी-फोर्सहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} जी-फोर्सना</unitPattern>
-				<unitPattern count="other" case="dative">{0} जी-फोर्ससाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} जी-फोर्सनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} जी-फोर्सचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} जी-फोर्सचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
@@ -7118,100 +7119,100 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>परिभ्रमण</displayName>
 				<unitPattern count="one">{0} परिभ्रमण</unitPattern>
-				<unitPattern count="one" case="ablative">{0} परिभ्रमणापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} परिभ्रमणाला</unitPattern>
-				<unitPattern count="one" case="dative">{0} परिभ्रमणाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} परिभ्रमणाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} परिभ्रमणाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} परिभ्रमणाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} परिभ्रमणे</unitPattern>
-				<unitPattern count="other" case="ablative">{0} परिभ्रमणांहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} परिभ्रमणांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} परिभ्रमणांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} परिभ्रमणांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} परिभ्रमणांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} परिभ्रमणांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<gender draft="contributed">feminine</gender>
 				<displayName>रेडियन</displayName>
 				<unitPattern count="one">{0} रेडियन</unitPattern>
-				<unitPattern count="one" case="ablative">{0} रेडियनपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} रेडियनला</unitPattern>
-				<unitPattern count="one" case="dative">{0} रेडियनला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} रेडियनने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} रेडियनचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} रेडियनशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} रेडियन</unitPattern>
-				<unitPattern count="other" case="ablative">{0} रेडियनहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} रेडियनना</unitPattern>
-				<unitPattern count="other" case="dative">{0} रेडियनसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} रेडियननी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} रेडियनचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} रेडियनचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<gender draft="contributed">masculine</gender>
 				<displayName>अंश</displayName>
 				<unitPattern count="one">{0} अंश</unitPattern>
-				<unitPattern count="one" case="ablative">{0} अंशापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} अंशाला</unitPattern>
-				<unitPattern count="one" case="dative">{0} अंशाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} अंशाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} अंशाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} अंशाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} अंश</unitPattern>
-				<unitPattern count="other" case="ablative">{0} अंशांहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} अंशांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} अंशांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} अंशांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} अंशांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} अंशांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<gender draft="contributed">masculine</gender>
 				<displayName>आर्कमिनिटे</displayName>
 				<unitPattern count="one">{0} आर्कमिनिट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} आर्कमिनिटापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} आर्कमिनिटाला</unitPattern>
-				<unitPattern count="one" case="dative">{0} आर्कमिनिटाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} आर्कमिनिटाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} आर्कमिनिटाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} आर्कमिनिटाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} आर्कमिनिटे</unitPattern>
-				<unitPattern count="other" case="ablative">{0} आर्कमिनिटांहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} आर्कमिनिटांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} आर्कमिनिटांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} आर्कमिनिटांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} आर्कमिनिटांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} आर्कमिनिटांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<gender draft="contributed">masculine</gender>
 				<displayName>आर्कसेकंद</displayName>
 				<unitPattern count="one">{0} आर्कसेकंद</unitPattern>
-				<unitPattern count="one" case="ablative">{0} आर्कसेकंदापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} आर्कसेकंदास</unitPattern>
-				<unitPattern count="one" case="dative">{0} आर्कसेकंदाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} आर्कसेकंदाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} आर्कसेकंदाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} आर्कसेकंदाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} आर्कसेकंद</unitPattern>
-				<unitPattern count="other" case="ablative">{0} आर्कसेकंदांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} आर्कसेकंदांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} आर्कसेकंदांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} आर्कसेकंदांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} आर्कसेकंदांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} आर्कसेकंदांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
@@ -7224,20 +7225,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>हेक्टर</displayName>
 				<unitPattern count="one">{0} हेक्टर</unitPattern>
-				<unitPattern count="one" case="ablative">{0} हेक्टरपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} हेक्टरला</unitPattern>
-				<unitPattern count="one" case="dative">{0} हेक्टरला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} हेक्टरने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} हेक्टरचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} हेक्टरशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} हेक्टर</unitPattern>
-				<unitPattern count="other" case="ablative">{0} हेक्टरहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} हेक्टरना</unitPattern>
-				<unitPattern count="other" case="dative">{0} हेक्टरसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} हेक्टरनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} हेक्टरचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} हेक्टरचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
@@ -7288,20 +7289,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>कॅरेट्स</displayName>
 				<unitPattern count="one">{0} कॅरेट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} कॅरेटपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} कॅरेटला</unitPattern>
-				<unitPattern count="one" case="dative">{0} कॅरेटला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} कॅरेटने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} कॅरेटचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} कॅरेटशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} कॅरेट्स</unitPattern>
-				<unitPattern count="other" case="ablative">{0} कॅरेट्सहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} कॅरेट्सना</unitPattern>
-				<unitPattern count="other" case="dative">{0} कॅरेट्ससाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} कॅरेट्सनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} कॅरेट्सचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} कॅरेट्सचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
@@ -7323,100 +7324,100 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>भाग प्रति दशलक्ष</displayName>
 				<unitPattern count="one">{0} भाग प्रति दशलक्ष</unitPattern>
-				<unitPattern count="one" case="ablative">{0} भाग प्रति दशलक्षापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} भाग प्रति दशलक्षास</unitPattern>
-				<unitPattern count="one" case="dative">{0} भाग प्रति दशलक्षाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} भाग प्रति दशलक्षाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} भाग प्रति दशलक्षाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} भाग प्रति दशलक्षाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} भाग प्रति दशलक्ष</unitPattern>
-				<unitPattern count="other" case="ablative">{0} भाग प्रति दशलक्षांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} भाग प्रति दशलक्षांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} भाग प्रति दशलक्षांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} भाग प्रति दशलक्षांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} भाग प्रति दशलक्षांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} भाग प्रति दशलक्षांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<gender draft="contributed">neuter</gender>
 				<displayName>टक्के</displayName>
 				<unitPattern count="one">{0} टक्के</unitPattern>
-				<unitPattern count="one" case="ablative">{0} टक्क्यापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} टक्क्यास</unitPattern>
-				<unitPattern count="one" case="dative">{0} टक्क्याला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} टक्क्याने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} टक्क्याचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} टक्क्याशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} टक्के</unitPattern>
-				<unitPattern count="other" case="ablative">{0} टक्क्यांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} टक्क्यांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} टक्क्यांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} टक्क्यांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} टक्क्यांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} टक्क्यांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>प्रतिमैल</displayName>
 				<unitPattern count="one">{0} प्रतिमैल</unitPattern>
-				<unitPattern count="one" case="ablative">{0} प्रतिमैलापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} प्रतिमैलास</unitPattern>
-				<unitPattern count="one" case="dative">{0} प्रतिमैलाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} प्रतिमैलाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} प्रतिमैलाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} प्रतिमैलाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} प्रतिमैल</unitPattern>
-				<unitPattern count="other" case="ablative">{0} प्रतिमैलांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} प्रतिमैलांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} प्रतिमैलांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} प्रतिमैलांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} प्रतिमैलांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} प्रतिमैलांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<gender draft="contributed">masculine</gender>
 				<displayName>पर्मिरेड</displayName>
 				<unitPattern count="one">{0} पर्मिरेड</unitPattern>
-				<unitPattern count="one" case="ablative">{0} पर्मिरेडपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} पर्मिरेडला</unitPattern>
-				<unitPattern count="one" case="dative">{0} पर्मिरेडला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} पर्मिरेडने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} पर्मिरेडचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} पर्मिरेडशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} पर्मिरेड</unitPattern>
-				<unitPattern count="other" case="ablative">{0} पर्मिरेडहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} पर्मिरेडना</unitPattern>
-				<unitPattern count="other" case="dative">{0} पर्मिरेडसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} पर्मिरेडनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} पर्मिरेडचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} पर्मिरेडचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<gender draft="contributed">masculine</gender>
 				<displayName>मोल</displayName>
 				<unitPattern count="one">{0} मोल</unitPattern>
-				<unitPattern count="one" case="ablative">{0} मोलपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} मोलला</unitPattern>
-				<unitPattern count="one" case="dative">{0} मोलला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} मोलने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} मोलचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} मोलशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मोल</unitPattern>
-				<unitPattern count="other" case="ablative">{0} मोलहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} मोलना</unitPattern>
-				<unitPattern count="other" case="dative">{0} मोलसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} मोलनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} मोलचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} मोलचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -7488,226 +7489,245 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>बाइट</displayName>
 				<unitPattern count="one">{0} बाइट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} बाइटपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} बाइटला</unitPattern>
-				<unitPattern count="one" case="dative">{0} बाइटला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} बाइटने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} बाइटचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} बाइटशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} बाइट</unitPattern>
-				<unitPattern count="other" case="ablative">{0} बाइटहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} बाइटना</unitPattern>
-				<unitPattern count="other" case="dative">{0} बाइटसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} बाइटनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} बाइटचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} बाइटचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<gender draft="contributed">masculine</gender>
 				<displayName>बिट</displayName>
 				<unitPattern count="one">{0} बिट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} बिटपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} बिटला</unitPattern>
-				<unitPattern count="one" case="dative">{0} बिटला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} बिटने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} बिटचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} बिटशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} बिट</unitPattern>
-				<unitPattern count="other" case="ablative">{0} बिटहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} बिटना</unitPattern>
-				<unitPattern count="other" case="dative">{0} बिटसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} बिटनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} बिटचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} बिटचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<gender>neuter</gender>
+				<gender draft="contributed">neuter</gender>
 				<displayName>शतके</displayName>
 				<unitPattern count="one">{0} शतक</unitPattern>
-				<unitPattern count="one" case="ablative">{0} शतकापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} शतकास</unitPattern>
-				<unitPattern count="one" case="dative">{0} शतकाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} शतकाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} शतकाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} शतकाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} शतके</unitPattern>
-				<unitPattern count="other" case="ablative">{0} शतकांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} शतकांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} शतकांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} शतकांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} शतकांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} शतकांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<gender>neuter</gender>
+				<gender draft="contributed">neuter</gender>
 				<displayName>दशके</displayName>
 				<unitPattern count="one">{0} दशक</unitPattern>
-				<unitPattern count="one" case="ablative">{0} दशकापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} दशकास</unitPattern>
-				<unitPattern count="one" case="dative">{0} दशकाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} दशकाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} दशकाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} दशकाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} दशके</unitPattern>
-				<unitPattern count="other" case="ablative">{0} दशकांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} दशकांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} दशकांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} दशकांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} दशकांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} दशकांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<gender>neuter</gender>
+				<gender draft="contributed">neuter</gender>
 				<displayName>वर्षे</displayName>
 				<unitPattern count="one">{0} वर्ष</unitPattern>
-				<unitPattern count="one" case="ablative">{0} वर्षापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} वर्षास</unitPattern>
-				<unitPattern count="one" case="dative">{0} वर्षाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} वर्षाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} वर्षाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} वर्षाशी</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} वर्षे</unitPattern>
-				<unitPattern count="other" case="ablative">{0} वर्षांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} वर्षांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} वर्षांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} वर्षांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} वर्षांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} वर्षांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर वर्षी</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>महिने</displayName>
 				<unitPattern count="one">{0} महिना</unitPattern>
-				<unitPattern count="one" case="ablative">{0} महिन्यापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} महिन्यास</unitPattern>
-				<unitPattern count="one" case="dative">{0} महिन्याला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} महिन्याने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} महिन्याचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} महिन्याशी</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} महिने</unitPattern>
-				<unitPattern count="other" case="ablative">{0} महिन्यांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} महिन्यांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} महिन्यांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} महिन्यांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} महिन्यांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} महिन्यांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर महिना</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>आठवडे</displayName>
 				<unitPattern count="one">{0} आठवडा</unitPattern>
-				<unitPattern count="one" case="ablative">{0} आठवड्यापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} आठवड्यास</unitPattern>
-				<unitPattern count="one" case="dative">{0} आठवड्याला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} आठवड्याने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} आठवड्याचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} आठवड्याशी</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} आठवडे</unitPattern>
-				<unitPattern count="other" case="ablative">{0} आठवड्यांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} आठवड्यांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} आठवड्यांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} आठवड्यांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} आठवड्यांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} आठवड्यांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर आठवडा</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>दिवस</displayName>
 				<unitPattern count="one">{0} दिवस</unitPattern>
-				<unitPattern count="one" case="ablative">{0} दिवसाहून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} दिवसास</unitPattern>
-				<unitPattern count="one" case="dative">{0} दिवसाने</unitPattern>
-				<unitPattern count="one" case="ergative">{0} दिवसाशी</unitPattern>
-				<unitPattern count="one" case="genitive">{0} दिवसाची</unitPattern>
-				<unitPattern count="one" case="locative">{0} दिवसा</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} दिवस</unitPattern>
-				<unitPattern count="other" case="ablative">{0} दिवसांहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} दिवसांनी</unitPattern>
-				<unitPattern count="other" case="dative">{0} दिवसांना</unitPattern>
-				<unitPattern count="other" case="ergative">{0} दिवसांशी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} दिवसांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} दिवसांच्या</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर दिवशी</perUnitPattern>
 			</unit>
+			<unit type="duration-day-person">
+				<gender draft="contributed">neuter</gender>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ablative">{0} दिवसापासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} दिवसाला</unitPattern>
+				<unitPattern count="one" case="dative">{0} दिवसासाठी</unitPattern>
+				<unitPattern count="one" case="ergative">{0} दिवसाने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} दिवसाचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} दिवशी</unitPattern>
+				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
+			</unit>
 			<unit type="duration-hour">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>तास</displayName>
 				<unitPattern count="one">{0} तास</unitPattern>
-				<unitPattern count="one" case="ablative">{0} तासापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} तासास</unitPattern>
-				<unitPattern count="one" case="dative">{0} तासाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} तासाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} तासाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} तासाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} तास</unitPattern>
-				<unitPattern count="other" case="ablative">{0} तासांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} तासांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} तासांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} तासांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} तासांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} तासांचा</unitPattern>
+				<unitPattern count="other" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} प्रति तास</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>मिनिटे</displayName>
 				<unitPattern count="one">{0} मिनिट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} मिनिटापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} मिनिटास</unitPattern>
-				<unitPattern count="one" case="dative">{0} मिनिटाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} मिनिटाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} मिनिटाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} मिनिटाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मिनिटे</unitPattern>
-				<unitPattern count="other" case="ablative">{0} मिनिटांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} मिनिटांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} मिनिटांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} मिनिटांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} मिनिटांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} मिनिटांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर मिनिट</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
-				<gender>masculine</gender>
+				<gender draft="contributed">masculine</gender>
 				<displayName>सेकंद</displayName>
 				<unitPattern count="one">{0} सेकंद</unitPattern>
-				<unitPattern count="one" case="ablative">{0} सेकंदापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} सेकंदास</unitPattern>
-				<unitPattern count="one" case="dative">{0} सेकंदाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} सेकंदाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} सेकंदाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} सेकंदाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} सेकंद</unitPattern>
-				<unitPattern count="other" case="ablative">{0} सेकंदांपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} सेकंदांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} सेकंदांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} सेकंदांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} सेकंदांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} सेकंदांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} प्रति सेकंद</perUnitPattern>
 			</unit>
@@ -7730,20 +7750,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>अँपियर</displayName>
 				<unitPattern count="one">{0} अँपियर</unitPattern>
-				<unitPattern count="one" case="ablative">{0} अँपियरपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} अँपियरला</unitPattern>
-				<unitPattern count="one" case="dative">{0} अँपियरला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} अँपियरने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} अँपियरचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} अँपियरशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} अँपियर</unitPattern>
-				<unitPattern count="other" case="ablative">{0} अँपियरहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} अँपियरना</unitPattern>
-				<unitPattern count="other" case="dative">{0} अँपियरसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} अँपियरनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} अँपियरचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} अँपियरचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
@@ -7755,40 +7775,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>ओहम</displayName>
 				<unitPattern count="one">{0} ओहम</unitPattern>
-				<unitPattern count="one" case="ablative">{0} ओहमपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ओहमला</unitPattern>
-				<unitPattern count="one" case="dative">{0} ओहमला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} ओहमने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ओहमचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} ओहमशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ओहम</unitPattern>
-				<unitPattern count="other" case="ablative">{0} ओहमहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ओहमना</unitPattern>
-				<unitPattern count="other" case="dative">{0} ओहमसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} ओहमनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ओहमचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} ओहमचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<gender draft="contributed">masculine</gender>
 				<displayName>व्होल्ट</displayName>
 				<unitPattern count="one">{0} व्होल्ट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} व्होल्टपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} व्होल्टला</unitPattern>
-				<unitPattern count="one" case="dative">{0} व्होल्टला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} व्होल्टने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} व्होल्टचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} व्होल्टशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} व्होल्ट</unitPattern>
-				<unitPattern count="other" case="ablative">{0} व्होल्टहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} व्होल्टना</unitPattern>
-				<unitPattern count="other" case="dative">{0} व्होल्टसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} व्होल्टनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} व्होल्टचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} व्होल्टचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
@@ -7800,20 +7820,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">feminine</gender>
 				<displayName>कॅलरीज</displayName>
 				<unitPattern count="one">{0} कॅलरी</unitPattern>
-				<unitPattern count="one" case="ablative">{0} कॅलरीपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} कॅलरीला</unitPattern>
-				<unitPattern count="one" case="dative">{0} कॅलरीला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} कॅलरीने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} कॅलरीचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} कॅलरीशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} कॅलरीज</unitPattern>
-				<unitPattern count="other" case="ablative">{0} कॅलरीजहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} कॅलरीजना</unitPattern>
-				<unitPattern count="other" case="dative">{0} कॅलरीजसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} कॅलरीजनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} कॅलरीजचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} कॅलरीजचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
@@ -7830,20 +7850,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>ज्यूल</displayName>
 				<unitPattern count="one">{0} ज्यूल</unitPattern>
-				<unitPattern count="one" case="ablative">{0} ज्यूलपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ज्यूलला</unitPattern>
-				<unitPattern count="one" case="dative">{0} ज्यूलला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} ज्यूलने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ज्यूलचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} ज्यूलशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ज्यूल</unitPattern>
-				<unitPattern count="other" case="ablative">{0} ज्यूलहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ज्यूलना</unitPattern>
-				<unitPattern count="other" case="dative">{0} ज्यूलसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} ज्यूलनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ज्यूलचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} ज्यूलचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
@@ -7875,20 +7895,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>न्यूटन्स</displayName>
 				<unitPattern count="one">{0} न्यूटन</unitPattern>
-				<unitPattern count="one" case="ablative">{0} न्यूटनपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} न्यूटनला</unitPattern>
-				<unitPattern count="one" case="dative">{0} न्यूटनला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} न्यूटनने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} न्यूटनचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} न्यूटनशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} न्यूटन्स</unitPattern>
-				<unitPattern count="other" case="ablative">{0} न्यूटनहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} न्यूटनना</unitPattern>
-				<unitPattern count="other" case="dative">{0} न्यूटनसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} न्यूटननी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} न्यूटनचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} न्यूटनचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">{0} न्यूटन</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} न्यूटन</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} न्यूटन</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">{0} न्यूटन</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} न्यूटन</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">{0} न्यूटन</unitPattern>
 				<unitPattern count="other" case="oblique">{0} न्यूटन</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
@@ -7915,60 +7935,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>हर्ट्झ</displayName>
 				<unitPattern count="one">{0} हर्ट्झ</unitPattern>
-				<unitPattern count="one" case="ablative">{0} हर्ट्झपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} हर्ट्झला</unitPattern>
-				<unitPattern count="one" case="dative">{0} हर्ट्झला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} हर्ट्झने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} हर्ट्झचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} हर्ट्झशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} हर्ट्झ</unitPattern>
-				<unitPattern count="other" case="ablative">{0} हर्ट्झहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} हर्ट्झना</unitPattern>
-				<unitPattern count="other" case="dative">{0} हर्ट्झसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} हर्ट्झनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} हर्ट्झचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} हर्ट्झचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<gender>masculine</gender>
 				<displayName>टायपोग्राफिक em</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="ablative">{0} em पासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} em ला</unitPattern>
-				<unitPattern count="one" case="dative">{0} em ला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} em ने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} em चा</unitPattern>
-				<unitPattern count="one" case="locative">{0} em शी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ems</unitPattern>
-				<unitPattern count="other" case="ablative">{0} em पासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} em ना</unitPattern>
-				<unitPattern count="other" case="dative">{0} em साठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} em नी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} em चे</unitPattern>
-				<unitPattern count="other" case="locative">{0} em चा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<gender draft="contributed">masculine</gender>
 				<displayName>पिक्सेल्स</displayName>
 				<unitPattern count="one">{0} पिक्सेल</unitPattern>
-				<unitPattern count="one" case="ablative">{0} पिक्सेलपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} पिक्सेलला</unitPattern>
-				<unitPattern count="one" case="dative">{0} पिक्सेलला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} पिक्सेलने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} पिक्सेलचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} पिक्सेलशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} पिक्सेल्स</unitPattern>
-				<unitPattern count="other" case="ablative">{0} पिक्सेल्सपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} पिक्सेल्सना</unitPattern>
-				<unitPattern count="other" case="dative">{0} पिक्सेल्ससाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} पिक्सेल्सनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} पिक्सेल्सचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} पिक्सेल्सचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
@@ -8016,20 +8036,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>मीटर</displayName>
 				<unitPattern count="one">{0} मीटर</unitPattern>
-				<unitPattern count="one" case="ablative">{0} मीटरपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} मीटरला</unitPattern>
-				<unitPattern count="one" case="dative">{0} मीटरला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} मीटरने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} मीटरचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} मीटरशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मीटर</unitPattern>
-				<unitPattern count="other" case="ablative">{0} मीटरपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} मीटरना</unitPattern>
-				<unitPattern count="other" case="dative">{0} मीटरसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} मीटरनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} मीटरचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} मीटरचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर मीटर</perUnitPattern>
 			</unit>
@@ -8120,20 +8140,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>मैल-स्कॅन्डीनेव्हियन</displayName>
 				<unitPattern count="one">{0} मैल-स्कॅन्डीनेव्हियन</unitPattern>
-				<unitPattern count="one" case="ablative">{0} मैल-स्कॅन्डीनेव्हियनपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} मैल-स्कॅन्डीनेव्हियनला</unitPattern>
-				<unitPattern count="one" case="dative">{0} मैल-स्कॅन्डीनेव्हियनला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} मैल-स्कॅन्डीनेव्हियनने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} मैल-स्कॅन्डीनेव्हियनचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} मैल-स्कॅन्डीनेव्हियनशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मैल-स्कॅन्डीनेव्हियन</unitPattern>
-				<unitPattern count="other" case="ablative">{0} मैल-स्कॅन्डीनेव्हियनपासून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} मैल-स्कॅन्डीनेव्हियनना</unitPattern>
-				<unitPattern count="other" case="dative">{0} मैल-स्कॅन्डीनेव्हियनसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} मैल-स्कॅन्डीनेव्हियननी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} मैल-स्कॅन्डीनेव्हियनचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} मैल-स्कॅन्डीनेव्हियनचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
@@ -8150,60 +8170,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">feminine</gender>
 				<displayName>लक्स</displayName>
 				<unitPattern count="one">{0} लक्स</unitPattern>
-				<unitPattern count="one" case="ablative">{0} लक्सपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} लक्सला</unitPattern>
-				<unitPattern count="one" case="dative">{0} लक्सला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} लक्सने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} लक्सचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} लक्सशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} लक्स</unitPattern>
-				<unitPattern count="other" case="ablative">{0} लक्सहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} लक्सना</unitPattern>
-				<unitPattern count="other" case="dative">{0} लक्ससाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} लक्सनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} लक्सचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} लक्सचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<gender draft="contributed">feminine</gender>
 				<displayName>कँडेला</displayName>
 				<unitPattern count="one">{0} कँडेला</unitPattern>
-				<unitPattern count="one" case="ablative">{0} कँडेलापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} कँडेलाला</unitPattern>
-				<unitPattern count="one" case="dative">{0} कँडेलास</unitPattern>
-				<unitPattern count="one" case="ergative">{0} कँडेलाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} कँडेलाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} कँडेलाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} कँडेला</unitPattern>
-				<unitPattern count="other" case="ablative">{0} कँडेलाहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} कँडेलाना</unitPattern>
-				<unitPattern count="other" case="dative">{0} कँडेलासाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} कँडेलानी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} कँडेलाचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} कँडेलाचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<gender draft="contributed">masculine</gender>
 				<displayName>लुमेन</displayName>
 				<unitPattern count="one">{0} लुमेन</unitPattern>
-				<unitPattern count="one" case="ablative">{0} लुमेनपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} लुमेनला</unitPattern>
-				<unitPattern count="one" case="dative">{0} लुमेनला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} लुमेनने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} लुमेनचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} लुमेनशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} लुमेन</unitPattern>
-				<unitPattern count="other" case="ablative">{0} लुमेनहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} लुमेनना</unitPattern>
-				<unitPattern count="other" case="dative">{0} लुमेनसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} लुमेननी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} लुमेनचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} लुमेनचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
@@ -8215,40 +8235,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>मेट्रिक टन</displayName>
 				<unitPattern count="one">{0} मेट्रिक टन</unitPattern>
-				<unitPattern count="one" case="ablative">{0} मेट्रिक टनपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} मेट्रिक टनला</unitPattern>
-				<unitPattern count="one" case="dative">{0} मेट्रिक टनला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} मेट्रिक टनने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} मेट्रिक टनचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} मेट्रिक टनशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मेट्रिक टन</unitPattern>
-				<unitPattern count="other" case="ablative">{0} मेट्रिक टनहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} मेट्रिक टनना</unitPattern>
-				<unitPattern count="other" case="dative">{0} मेट्रिक टनना</unitPattern>
-				<unitPattern count="other" case="ergative">{0} मेट्रिक टनसाठी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} मेट्रिक टननी</unitPattern>
-				<unitPattern count="other" case="locative">{0} मेट्रिक टनचे</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<gender draft="contributed">masculine</gender>
 				<displayName>किलोग्रॅम</displayName>
 				<unitPattern count="one">{0} किलोग्रॅम</unitPattern>
-				<unitPattern count="one" case="ablative">{0} किलोग्रॅमपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} किलोग्रॅमला</unitPattern>
-				<unitPattern count="one" case="dative">{0} किलोग्रॅमला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} किलोग्रॅमने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} किलोग्रॅमचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} किलोग्रॅमशी</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} किलोग्रॅम</unitPattern>
-				<unitPattern count="other" case="ablative">{0} किलोग्रॅमहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} किलोग्रॅमना</unitPattern>
-				<unitPattern count="other" case="dative">{0} किलोग्रॅमसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} किलोग्रॅमनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} किलोग्रॅमचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} किलोग्रॅमचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर किलोग्रॅम</perUnitPattern>
 			</unit>
@@ -8256,20 +8276,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>ग्रॅम</displayName>
 				<unitPattern count="one">{0} ग्रॅम</unitPattern>
-				<unitPattern count="one" case="ablative">{0} ग्रॅमपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ग्रॅमला</unitPattern>
-				<unitPattern count="one" case="dative">{0} ग्रॅमला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} ग्रॅमने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ग्रॅमचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} ग्रॅमशी</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ग्रॅम</unitPattern>
-				<unitPattern count="other" case="ablative">{0} ग्रॅमहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ग्रॅमना</unitPattern>
-				<unitPattern count="other" case="dative">{0} ग्रॅमसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} ग्रॅमनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ग्रॅमचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} ग्रॅमचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर ग्रॅम</perUnitPattern>
 			</unit>
@@ -8314,20 +8334,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>कॅरेट्स</displayName>
 				<unitPattern count="one">{0} कॅरेट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} कॅरेटपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} कॅरेटला</unitPattern>
-				<unitPattern count="one" case="dative">{0} कॅरेटला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} कॅरेटने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} कॅरेटचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} कॅरेटशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} कॅरेट्स</unitPattern>
-				<unitPattern count="other" case="ablative">{0} कॅरेट्सहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} कॅरेट्सना</unitPattern>
-				<unitPattern count="other" case="dative">{0} कॅरेट्ससाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} कॅरेट्सनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} कॅरेट्सचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} कॅरेट्सचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
@@ -8369,20 +8389,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>वॉट</displayName>
 				<unitPattern count="one">{0} वॉट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} वॉटपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} वॉटला</unitPattern>
-				<unitPattern count="one" case="dative">{0} वॉटला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} वॉटने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} वॉटचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} वॉटशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} वॉट</unitPattern>
-				<unitPattern count="other" case="ablative">{0} वॉटहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} वॉटना</unitPattern>
-				<unitPattern count="other" case="dative">{0} वॉटसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} वॉटनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} वॉटचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} वॉटचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
@@ -8414,20 +8434,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} बार</unitPattern>
-				<unitPattern count="one" case="ablative">{0} बारपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} बारला</unitPattern>
-				<unitPattern count="one" case="dative">{0} बारला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} बारने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} बारचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} बारशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} बार</unitPattern>
-				<unitPattern count="other" case="ablative">{0} बारहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} बारना</unitPattern>
-				<unitPattern count="other" case="dative">{0} बारसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} बारनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} बारचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} बारचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
@@ -8439,40 +8459,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>वातावरण</displayName>
 				<unitPattern count="one">{0} वातावरण</unitPattern>
-				<unitPattern count="one" case="ablative">{0} वातावरणापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} वातावरणाला</unitPattern>
-				<unitPattern count="one" case="dative">{0} वातावरणाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} वातावरणाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} वातावरणाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} वातावरणाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} वातावरण</unitPattern>
-				<unitPattern count="other" case="ablative">{0} वातावरणांहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} वातावरणांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} वातावरणांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} वातावरणांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} वातावरणांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} वातावरणांचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<gender draft="contributed">masculine</gender>
 				<displayName>पास्काल</displayName>
 				<unitPattern count="one">{0} पास्काल</unitPattern>
-				<unitPattern count="one" case="ablative">{0} पास्कालपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} पास्कालला</unitPattern>
-				<unitPattern count="one" case="dative">{0} पास्कालला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} पास्कालने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} पास्कालचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} पास्कालशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} पास्काल</unitPattern>
-				<unitPattern count="other" case="ablative">{0} पास्कालहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} पास्कालना</unitPattern>
-				<unitPattern count="other" case="dative">{0} पास्कालसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} पास्कालनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} पास्कालचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} पास्कालचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
@@ -8514,40 +8534,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">masculine</gender>
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="one" case="ablative">{0} अंशापासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} अंशाला</unitPattern>
-				<unitPattern count="one" case="dative">{0} अंशाला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} अंशाने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} अंशाचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} अंशाशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">{0} अंश</unitPattern>
 				<unitPattern count="one" case="oblique">{0} अंश</unitPattern>
-				<unitPattern count="other">{0} अंश</unitPattern>
-				<unitPattern count="other" case="ablative">{0} अंशांहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} अंशांना</unitPattern>
-				<unitPattern count="other" case="dative">{0} अंशांसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} अंशांनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} अंशांचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} अंशांचा</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} अंश</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">{0} अंश</unitPattern>
 				<unitPattern count="other" case="oblique">{0} अंश</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<gender draft="contributed">neuter</gender>
 				<displayName>अंश सेल्सिअस</displayName>
 				<unitPattern count="one">{0} अंश सेल्सिअस</unitPattern>
-				<unitPattern count="one" case="ablative">{0} अंश सेल्सिअसपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} अंश सेल्सिअसला</unitPattern>
-				<unitPattern count="one" case="dative">{0} अंश सेल्सिअसला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} अंश सेल्सिअसने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} अंश सेल्सिअसचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} अंश सेल्सिअसशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} अंश सेल्सिअस</unitPattern>
-				<unitPattern count="other" case="ablative">{0} अंश सेल्सिअसहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} अंश सेल्सिअसना</unitPattern>
-				<unitPattern count="other" case="dative">{0} अंश सेल्सिअससाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} अंश सेल्सिअसनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} अंश सेल्सिअसचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} अंश सेल्सिअसचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
@@ -8559,20 +8579,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>केल्व्हिन</displayName>
 				<unitPattern count="one">{0} केल्व्हिन</unitPattern>
-				<unitPattern count="one" case="ablative">{0} केल्व्हिनपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} केल्व्हिनला</unitPattern>
-				<unitPattern count="one" case="dative">{0} केल्व्हिनला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} केल्व्हिनने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} केल्व्हिनचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} केल्व्हिनशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} केल्व्हिन</unitPattern>
-				<unitPattern count="other" case="ablative">{0} केल्व्हिनहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} केल्व्हिनना</unitPattern>
-				<unitPattern count="other" case="dative">{0} केल्व्हिनसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} केल्व्हिननी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} केल्व्हिनचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} केल्व्हिनचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
@@ -8636,20 +8656,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>लीटर</displayName>
 				<unitPattern count="one">{0} लीटर</unitPattern>
-				<unitPattern count="one" case="ablative">{0} लीटरपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} लीटरला</unitPattern>
-				<unitPattern count="one" case="dative">{0} लीटरला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} लीटरने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} लीटरचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} लीटरशी</unitPattern>
+				<unitPattern count="one" case="ablative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} लीटर</unitPattern>
-				<unitPattern count="other" case="ablative">{0} लीटरहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} लीटरना</unitPattern>
-				<unitPattern count="other" case="dative">{0} लीटरसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} लीटरनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} लीटरचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} लीटरचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 				<perUnitPattern>{0} दर लीटर</perUnitPattern>
 			</unit>
@@ -8672,40 +8692,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>मेट्रिक पिंट</displayName>
 				<unitPattern count="one">{0} मेट्रिक पिंट</unitPattern>
-				<unitPattern count="one" case="ablative">{0} मेट्रिक पिंटपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} मेट्रिक पिंटला</unitPattern>
-				<unitPattern count="one" case="dative">{0} मेट्रिक पिंटला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} मेट्रिक पिंटने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} मेट्रिक पिंटचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} मेट्रिक पिंटशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मेट्रिक पिंट</unitPattern>
-				<unitPattern count="other" case="ablative">{0} मेट्रिक पिंटहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} मेट्रिक पिंटना</unitPattern>
-				<unitPattern count="other" case="dative">{0} मेट्रिक पिंटसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} मेट्रिक पिंटनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} मेट्रिक पिंटचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} मेट्रिक पिंटचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<gender draft="contributed">neuter</gender>
 				<displayName>मेट्रिक कप</displayName>
 				<unitPattern count="one">{0} मेट्रिक कप</unitPattern>
-				<unitPattern count="one" case="ablative">{0} मेट्रिक कपपासून</unitPattern>
-				<unitPattern count="one" case="accusative">{0} मेट्रिक कपला</unitPattern>
-				<unitPattern count="one" case="dative">{0} मेट्रिक कपला</unitPattern>
-				<unitPattern count="one" case="ergative">{0} मेट्रिक कपने</unitPattern>
-				<unitPattern count="one" case="genitive">{0} मेट्रिक कपचा</unitPattern>
-				<unitPattern count="one" case="locative">{0} मेट्रिक कपशी</unitPattern>
+				<unitPattern count="one" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मेट्रिक कप</unitPattern>
-				<unitPattern count="other" case="ablative">{0} मेट्रिक कपहून</unitPattern>
-				<unitPattern count="other" case="accusative">{0} मेट्रिक कपना</unitPattern>
-				<unitPattern count="other" case="dative">{0} मेट्रिक कपसाठी</unitPattern>
-				<unitPattern count="other" case="ergative">{0} मेट्रिक कपनी</unitPattern>
-				<unitPattern count="other" case="genitive">{0} मेट्रिक कपचे</unitPattern>
-				<unitPattern count="other" case="locative">{0} मेट्रिक कपचा</unitPattern>
+				<unitPattern count="other" case="ablative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="ergative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
@@ -9327,9 +9347,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} प्र इं बिं</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>टिंब</displayName>
+				<unitPattern count="one">{0} टिंब</unitPattern>
+				<unitPattern count="other">{0} टिंब</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>
@@ -10227,12 +10247,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मिलिसे</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>μs</displayName>
-				<unitPattern count="one">{0} μs</unitPattern>
-				<unitPattern count="other">{0} μs</unitPattern>
+				<displayName draft="contributed">μs</displayName>
+				<unitPattern count="one" draft="contributed">{0} μs</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>नॅसे</displayName>
+				<displayName draft="contributed">नॅनोसेक</displayName>
 				<unitPattern count="one">{0} नॅसे</unitPattern>
 				<unitPattern count="other">{0} नॅसे</unitPattern>
 			</unit>
@@ -10631,7 +10651,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>″ हेग्रॅ</displayName>
+				<displayName draft="contributed">″ Hg</displayName>
 				<unitPattern count="one">{0}&quot; हेग्रॅ</unitPattern>
 				<unitPattern count="other">{0}&quot; हेग्रॅ</unitPattern>
 			</unit>
@@ -10701,9 +10721,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}°से</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName>°फॅ</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
+				<displayName draft="contributed">अंश फॅरनहाईट</displayName>
+				<unitPattern count="one">{0}°फॅ</unitPattern>
+				<unitPattern count="other">{0}°फॅ</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>केल्व्हिन</displayName>

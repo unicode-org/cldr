@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -1187,9 +1187,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<characters>
 		<exemplarCharacters>[\u09BC ৺ অ আ ই ঈ উ ঊ ঋ ৠ ঌ ৡ এ ঐ ও ঔ ং ঃ \u0981 ক {ক\u09CDষ} খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড {ড\u09BC} ঢ {ঢ\u09BC} ণ ত ৎ থ দ ধ ন প ফ ব ভ ম য {য\u09BC} র ল শ ষ স হ ঽ া ি ী \u09C1 \u09C2 \u09C3 \u09C4 \u09E2 \u09E3 ে ৈ ো ৌ \u09CD ৗ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C\u200D ৲ ৳ ৴ ৵ ৶ ৷ ৸ ৹ ৰ ৱ]</exemplarCharacters>
-		<exemplarCharacters type="index">[অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ ক {ক\u09CDষ} খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল শ ষ স হ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ ক {ক\u09CDষ} খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল শ ষ স হ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0০ 1১ 2২ 3৩ 4৪ 5৫ 6৬ 7৭ 8৮ 9৯]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0} …</ellipsis>
 		<ellipsis type="initial">… {0}</ellipsis>
 		<ellipsis type="medial">{0} … {1}</ellipsis>
@@ -1529,7 +1529,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="provisional">d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>
@@ -1586,16 +1586,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">M/y – M/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">d/M/y – d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="G">d/M/y GGGGG – d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="M">d/M/y – d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="y">d/M/y – d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="d">M/d/y – M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="G">M/d/y GGGGG – M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="M">M/d/y – M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="y">M/d/y – M/d/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">E, d/M/y – E, d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="G">E, d/M/y GGGGG – E, d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, d/M/y – E, d/M/y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, d/M/y – E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="d">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="G">E, M/d/y GGGGG – E, M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="M">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="y">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">MMM y G – MMM y G</greatestDifference>
@@ -6923,9 +6923,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="LSL">
 				<displayName>লেসুটু লোটি</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
-				<symbol>↑↑↑</symbol>
+				<displayName count="one" draft="contributed">↑↑↑</displayName>
+				<displayName count="other" draft="contributed">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>লিথুইনিয়ান লিটা</displayName>
@@ -7631,17 +7631,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">সসে {0}টি আপেল খেল, সেটি ভাল</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">সসে {0}টি আপেল খেল, সেটা ভাল</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">সসে {0}টি আপেল খেল, সেগুলি ভাল</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">ডান দিকে {0}র্থ বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">ডান দিকে {0}ষ্ঠ বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">ডান দিকে {0}ম বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">ডান দিকে {0}তম বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">ডান দিকে {0}য় বাঁকটি নিন।</ordinalMinimalPairs>
-			<caseMinimalPairs case="accusative">রবিবারকে আসার দিন হিসেবে ধরা হয় {0}</caseMinimalPairs>
-			<caseMinimalPairs case="genitive">রবিবারের সন্ধ্যায় {0} আসবে</caseMinimalPairs>
-			<caseMinimalPairs case="locative">রবিবারে {0} টায় আসবে</caseMinimalPairs>
-			<caseMinimalPairs case="nominative">রবিবারে {0} আসবে</caseMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="provisional">{0} দিন ধরে বৃষ্টি পড়ছে</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="provisional">{0} মাস ধরে রামের ভাই অসুস্থ</caseMinimalPairs>
+			<caseMinimalPairs case="locative" draft="provisional">গতকাল {0} ঘণ্টা ধরে বৃষ্টি হয়েছিল</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="provisional">রবিবার {0} টায় আসবে</caseMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7749,7 +7749,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="acceleration-g-force">
 				<displayName>জি-বল</displayName>
 				<unitPattern count="one">{0} জি-বল</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} জি-বল</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>মিটার প্রতি বর্গ সেকেন্ডে</displayName>
@@ -7758,28 +7764,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>ঘূর্ণন</displayName>
-				<unitPattern count="one">{0} ঘুর্ণন</unitPattern>
-				<unitPattern count="other">{0} ঘুর্ণন</unitPattern>
+				<unitPattern count="one">{0} রিভোলিউশন</unitPattern>
+				<unitPattern count="one" case="accusative">{0} ঘুর্ণন</unitPattern>
+				<unitPattern count="one" case="genitive">{0} ঘুর্ণন</unitPattern>
+				<unitPattern count="one" case="locative">{0} ঘুর্ণন</unitPattern>
+				<unitPattern count="other">{0} ঘূর্ণন</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>রেডিয়্যান</displayName>
 				<unitPattern count="one">{0} রেডিয়্যান</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} রেডিয়্যান্স</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>ডিগ্রী</displayName>
 				<unitPattern count="one">{0} ডিগ্রী</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ডিগ্রী</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>আর্ক-মিনিট</displayName>
 				<unitPattern count="one">{0} আর্ক-মিনিট</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} আর্ক-মিনিট</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>আর্কসেকেন্ড</displayName>
 				<unitPattern count="one">{0} আর্কসেকেন্ড</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} আর্কসেকেন্ড</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>বর্গ কিলোমিটার</displayName>
@@ -7790,7 +7826,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-hectare">
 				<displayName>হেক্টর</displayName>
 				<unitPattern count="one">{0} হেক্টর</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} হেক্টর</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>বর্গ মিটার</displayName>
@@ -7839,7 +7881,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-karat">
 				<displayName>ক্যারেট</displayName>
 				<unitPattern count="one">{0} ক্যারেট</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যারেট</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>মিলিগ্রাম, প্রতি ডেসিলিটারে</displayName>
@@ -7859,27 +7907,57 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permillion">
 				<displayName>ভাগ, প্রতি মিলিয়নে</displayName>
 				<unitPattern count="one">{0} ভাগ, প্রতি মিলিয়নে</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ভাগ, প্রতি মিলিয়নে</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>শতাংশ</displayName>
 				<unitPattern count="one">{0}শতাংশ</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}শতাংশ</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>প্রতিমাইল</displayName>
 				<unitPattern count="one">{0} প্রতিমাইল</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}প্রতিমাইল</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} পারমিরিয়াড</unitPattern>
-				<unitPattern count="other">{0} পারমিরিয়াড</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>মোল্স</displayName>
-				<unitPattern count="one">{0} মোল</unitPattern>
-				<unitPattern count="other">{0} মোল্স</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>লিটার, প্রতি কিলোমিটারে</displayName>
@@ -7949,67 +8027,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-byte">
 				<displayName>বাইট</displayName>
 				<unitPattern count="one">{0} বাইট</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বাইট</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName>বিট</displayName>
 				<unitPattern count="one">{0} বিট</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বিট</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>শতাব্দী</displayName>
 				<unitPattern count="one">{0} শতাব্দী</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} শতাব্দী</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>দশক</displayName>
 				<unitPattern count="one">{0} দশক</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} দশক</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>বছর</displayName>
 				<unitPattern count="one">{0} বছর</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বছর</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি বছর</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>মাস</displayName>
 				<unitPattern count="one">{0} মাস</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মাস</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি মাস</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>সপ্তাহ</displayName>
 				<unitPattern count="one">{0} সপ্তাহ</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} সপ্তাহ</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি সপ্তাহ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>দিন</displayName>
 				<unitPattern count="one">{0} দিন</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি দিন</perUnitPattern>
 			</unit>
 			<unit type="duration-day-person">
-				<unitPattern count="one">{0} দিন</unitPattern>
-				<unitPattern count="other">{0} দিন</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} দিন</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">{0} দিন</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} দিন</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">{0} দিন</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} দিন</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">{0} দিন</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">{0} দিন</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">{0} দিন</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>ঘন্টা</displayName>
 				<unitPattern count="one">{0} ঘন্টা</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ঘন্টা</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি ঘন্টা</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>মিনিট</displayName>
 				<unitPattern count="one">{0} মিনিট</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মিনিট</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি মিনিট</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>সেকেন্ড</displayName>
 				<unitPattern count="one">{0} সেকেন্ড</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} সেকেন্ড</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি সেকেন্ড</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -8030,7 +8180,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ampere">
 				<displayName>অ্যাম্পিয়ার</displayName>
 				<unitPattern count="one">{0} অ্যাম্পিয়ার</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} অ্যাম্পিয়ার</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>মিলি-অ্যাম্পিয়ার</displayName>
@@ -8040,12 +8196,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ohm">
 				<displayName>ওহম</displayName>
 				<unitPattern count="one">{0} ওহম</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ওহম</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName>ভোল্ট</displayName>
 				<unitPattern count="one">{0} ভোল্ট</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ভোল্ট</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>কিলোক্যালরি</displayName>
@@ -8055,7 +8223,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-calorie">
 				<displayName>ক্যালোরি</displayName>
 				<unitPattern count="one">{0} ক্যালোরি</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যালোরি</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>ক্যালোরি</displayName>
@@ -8070,7 +8244,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-joule">
 				<displayName>জুল</displayName>
 				<unitPattern count="one">{0} জুল</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} জুল</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>কিলোওয়াট ঘন্টা</displayName>
@@ -8100,7 +8280,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="force-newton">
 				<displayName>নিউটন্স</displayName>
 				<unitPattern count="one">{0} নিউটন</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} নিউটন্স</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>কিলোওয়াট-ঘণ্টা প্রতি 100 কিলোমিটার</displayName>
@@ -8125,17 +8311,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-hertz">
 				<displayName>হার্জ</displayName>
 				<unitPattern count="one">{0} হার্জ</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} হার্জ</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>টাইপোগ্রাফিক em</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ems</unitPattern>
+				<unitPattern count="other" case="accusative">{0} ems</unitPattern>
+				<unitPattern count="other" case="genitive">{0} ems</unitPattern>
+				<unitPattern count="other" case="locative">{0} ems</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>পিক্সেল</displayName>
 				<unitPattern count="one">{0} পিক্সেল</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} পিক্সেল</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>মেগাপিক্সেল</displayName>
@@ -8181,7 +8385,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-meter">
 				<displayName>মিটার</displayName>
 				<unitPattern count="one">{0} মিটার</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মিটার</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি মিটার</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
@@ -8270,7 +8480,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-mile-scandinavian">
 				<displayName>মাইল-স্ক্যান্ডিনেভিয়ান</displayName>
 				<unitPattern count="one">{0} মাইল-স্ক্যান্ডিনেভিয়ান</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মাইল-স্ক্যান্ডিনেভিয়ান</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName>pt</displayName>
@@ -8285,38 +8501,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lux">
 				<displayName>লাক্স</displayName>
 				<unitPattern count="one">{0} লাক্স</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} লাক্স</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName>ক্যান্ডেলা</displayName>
 				<unitPattern count="one">{0} ক্যান্ডেলা</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যান্ডেলা</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName>লুমেন</displayName>
 				<unitPattern count="one">{0} লুমেন</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} লুমেন</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>সৌর ঔজ্জ্বল্য</displayName>
-				<unitPattern count="one">{0} সৌর ঔজ্জ্বল্য</unitPattern>
-				<unitPattern count="other">{0} সৌর ঔজ্জ্বল্যতাগুলি</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>মেট্রিক টন</displayName>
 				<unitPattern count="one">{0} মেট্রিক টন</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মেট্রিক টন</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>কিলোগ্রাম</displayName>
 				<unitPattern count="one">{0} কিলোগ্রাম</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} কিলোগ্রাম</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি কিলোগ্রাম</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>গ্রাম</displayName>
 				<unitPattern count="one">{0} গ্রাম</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} গ্রাম</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি গ্রাম</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
@@ -8359,7 +8611,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-carat">
 				<displayName>ক্যারেট</displayName>
 				<unitPattern count="one">{0} ক্যারেট</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ক্যারেট</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>ড্যালটন্স</displayName>
@@ -8367,14 +8625,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ড্যালটন্স</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>পৃথিবীর ভর</displayName>
-				<unitPattern count="one">{0} পৃথিবীর ভর</unitPattern>
-				<unitPattern count="other">{0} পৃথিবীর ভর</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>সৌর ভর</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} সৌর ভর</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
 				<displayName>↑↑↑</displayName>
@@ -8399,7 +8657,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-watt">
 				<displayName>ওয়াট</displayName>
 				<unitPattern count="one">{0} ওয়াট</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ওয়াট</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>মিলিওয়াট</displayName>
@@ -8429,7 +8693,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-bar">
 				<displayName>বার</displayName>
 				<unitPattern count="one">{0} বার</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} বার</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>মিলিবার</displayName>
@@ -8439,12 +8709,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName>প্যাসকেল</displayName>
 				<unitPattern count="one">{0} প্যাসকেল</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} প্যাসকেল</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>হেক্টোপাসকল</displayName>
@@ -8484,12 +8766,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>ডিগ্রী সেলসিয়াস</displayName>
 				<unitPattern count="one">{0} ডিগ্রী সেলসিয়াস</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ডিগ্রী সেলসিয়াস</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>ডিগ্রী ফারেনহাইট</displayName>
@@ -8499,11 +8793,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<displayName>কেলভিন</displayName>
 				<unitPattern count="one">{0} কেলভিন</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} কেলভিন</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>পাউন্ড-ফিট</displayName>
-				<unitPattern count="one">{0} পাউন্ড-ফোর্স-ফিট</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} পাউন্ড-ফিট</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
@@ -8561,7 +8861,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-liter">
 				<displayName>লিটার</displayName>
 				<unitPattern count="one">{0} লিটার</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} লিটার</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0} প্রতি লিটার</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
@@ -8582,12 +8888,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-pint-metric">
 				<displayName>মেট্রিক পিন্ট</displayName>
 				<unitPattern count="one">{0} মেট্রিক পিন্ট</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মেট্রিক পিন্ট</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>মেট্রিক কাপ</displayName>
 				<unitPattern count="one">{0} মেট্রিক কাপ</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} মেট্রিক কাপ</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>একর-ফুট</displayName>
@@ -8663,8 +8981,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-drop">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} ফোঁটা</unitPattern>
-				<unitPattern count="other">{0} ফোঁটা</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<displayName>ড্র্যাম</displayName>
@@ -8674,7 +8992,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-jigger">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} জিগার</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>চিমটে</displayName>
@@ -8921,14 +9239,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>পারমিরিয়াড</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>মোল</displayName>
-				<unitPattern count="one">{0} মোল</unitPattern>
-				<unitPattern count="other">{0} মোল</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>লিটার/কিমি</displayName>
@@ -9343,7 +9661,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>সৌর ঔজ্জ্বল্য</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9412,12 +9730,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>পৃথিবীর ভর</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>সৌর ভর</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9662,7 +9980,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>পিন্ট</displayName>
+				<displayName>pt</displayName>
 				<unitPattern count="one">{0} pt</unitPattern>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
@@ -9707,19 +10025,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName>ফোঁটা</displayName>
-				<unitPattern count="one">{0} ফোঁটা</unitPattern>
-				<unitPattern count="other">{0} ফোঁটা</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName>ড্র্যাম ফ্লুইড</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>জিগার</displayName>
-				<unitPattern count="one">{0} জিগার</unitPattern>
-				<unitPattern count="other">{0} জিগার</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>চিমটে</displayName>
@@ -9841,14 +10159,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName>জি-বল</displayName>
+				<displayName draft="contributed">জি-বল</displayName>
 				<unitPattern count="one">{0} জি-বল</unitPattern>
 				<unitPattern count="other">{0} জি-বল</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName>m/s²</displayName>
-				<unitPattern count="one">{0} m/s²</unitPattern>
-				<unitPattern count="other">{0} m/s²</unitPattern>
+				<displayName draft="contributed">m/s²</displayName>
+				<unitPattern count="one" draft="contributed">{0} m/s²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m/s²</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>ঘুর্ণন</displayName>
@@ -9876,59 +10194,59 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}সেকেন্ড</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} বর্গ কিমি</unitPattern>
 				<unitPattern count="other">{0} বর্গ কিমি</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} হেক্টর</unitPattern>
 				<unitPattern count="other">{0} হেক্টর</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} বর্গ মাইল</unitPattern>
 				<unitPattern count="other">{0} বর্গ মাইল</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} একর</unitPattern>
 				<unitPattern count="other">{0} একর</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} বর্গ ফুট</unitPattern>
 				<unitPattern count="other">{0} বর্গ ফুট</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>↑↑↑</displayName>
@@ -9951,9 +10269,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} আইটেম</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>শতাংশ</displayName>
@@ -9961,7 +10279,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<displayName>‰</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9971,12 +10289,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} মোল</unitPattern>
-				<unitPattern count="other">{0} মোল</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9986,7 +10304,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} লি/100কিমি</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9996,111 +10314,111 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}m/gUK</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<displayName>শতক</displayName>
-				<unitPattern count="one">{0} শতক</unitPattern>
-				<unitPattern count="other">{0} শতক</unitPattern>
+				<displayName draft="contributed">শতক</displayName>
+				<unitPattern count="one" draft="contributed">{0} শতক</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} শতক</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>বছর</displayName>
 				<unitPattern count="one">{0} বছর</unitPattern>
 				<unitPattern count="other">{0} বছর</unitPattern>
-				<perUnitPattern>{0}/বছর</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/বছর</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>মাস</displayName>
 				<unitPattern count="one">{0} মাস</unitPattern>
 				<unitPattern count="other">{0} মাস</unitPattern>
-				<perUnitPattern>{0}/মাস</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/মাস</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>সপ্তাহ</displayName>
 				<unitPattern count="one">{0} সপ্তাহ</unitPattern>
 				<unitPattern count="other">{0} সপ্তাহ</unitPattern>
-				<perUnitPattern>{0}/সপ্তাহ</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/সপ্তাহ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>দিন</displayName>
 				<unitPattern count="one">{0} দিন</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
-				<perUnitPattern>{0}/দিন</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/দিন</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>ঘন্টা</displayName>
 				<unitPattern count="one">{0} ঘঃ</unitPattern>
 				<unitPattern count="other">{0} ঘঃ</unitPattern>
-				<perUnitPattern>{0}/ঘ:</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/ঘ:</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>মিনিট</displayName>
 				<unitPattern count="one">{0} মিঃ</unitPattern>
 				<unitPattern count="other">{0} মিঃ</unitPattern>
-				<perUnitPattern>{0}/মি:</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/মি:</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>সেকেন্ড</displayName>
 				<unitPattern count="one">{0} সেঃ</unitPattern>
 				<unitPattern count="other">{0} সেঃ</unitPattern>
-				<perUnitPattern>{0}/সে:</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/সে:</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>মিলিসেকেন্ড</displayName>
@@ -10108,79 +10426,79 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>μsecs</displayName>
-				<unitPattern count="one">{0}μs</unitPattern>
-				<unitPattern count="other">{0}μs</unitPattern>
+				<displayName draft="contributed">μsecs</displayName>
+				<unitPattern count="one" draft="contributed">{0}μs</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>ন্যানোসেকেন্ড</displayName>
-				<unitPattern count="one">{0}ns</unitPattern>
-				<unitPattern count="other">{0}ns</unitPattern>
+				<displayName draft="contributed">ন্যানোসেকেন্ড</displayName>
+				<unitPattern count="one" draft="contributed">{0}ns</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>↑↑↑</displayName>
@@ -10188,7 +10506,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10198,49 +10516,49 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}kWh/100km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} পিক্সেল</unitPattern>
-				<unitPattern count="other">{0} পিক্সেল</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">{0} পিক্সেল</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} পিক্সেল</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>dpcm</displayName>
@@ -10258,32 +10576,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ডট</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>কিলোমিটার</displayName>
 				<unitPattern count="one">{0} কিমি</unitPattern>
 				<unitPattern count="other">{0} কিমি</unitPattern>
-				<perUnitPattern>{0}/কিমি</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/কিমি</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>মিটার</displayName>
 				<unitPattern count="one">{0} মি</unitPattern>
 				<unitPattern count="other">{0} মি</unitPattern>
-				<perUnitPattern>{0}/মি</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/মি</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>ডেমি</displayName>
-				<unitPattern count="one">{0} ডেমি</unitPattern>
-				<unitPattern count="other">{0} ডেমি</unitPattern>
+				<displayName draft="contributed">ডেমি</displayName>
+				<unitPattern count="one" draft="contributed">{0} ডেমি</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ডেমি</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>সেমি</displayName>
 				<unitPattern count="one">{0} সেমি</unitPattern>
 				<unitPattern count="other">{0} সেমি</unitPattern>
-				<perUnitPattern>{0}/সেমি</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/সেমি</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>মিমি</displayName>
@@ -10291,86 +10609,86 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} মিমি</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>μm</displayName>
-				<unitPattern count="one">{0} μm</unitPattern>
-				<unitPattern count="other">{0} μm</unitPattern>
+				<displayName draft="contributed">μm</displayName>
+				<unitPattern count="one" draft="contributed">{0} μm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="one">{0} nm</unitPattern>
-				<unitPattern count="other">{0} nm</unitPattern>
+				<displayName draft="contributed">nm</displayName>
+				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} nm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>পিমি</displayName>
+				<displayName draft="contributed">পিমি</displayName>
 				<unitPattern count="one">{0} পিমি</unitPattern>
 				<unitPattern count="other">{0} পিমি</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName>মাইল</displayName>
+				<displayName draft="contributed">মাইল</displayName>
 				<unitPattern count="one">{0} মাইল</unitPattern>
 				<unitPattern count="other">{0} মাইল</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName>গজ</displayName>
+				<displayName draft="contributed">গজ</displayName>
 				<unitPattern count="one">{0} গজ</unitPattern>
 				<unitPattern count="other">{0} গজ</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName>ফুট</displayName>
+				<displayName draft="contributed">ফুট</displayName>
 				<unitPattern count="one">{0} ফুট</unitPattern>
 				<unitPattern count="other">{0} ফুট</unitPattern>
-				<perUnitPattern>{0} প্রতি ফুট</perUnitPattern>
+				<perUnitPattern draft="contributed">{0} প্রতি ফুট</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName>ইঞ্চি</displayName>
+				<displayName draft="contributed">ইঞ্চি</displayName>
 				<unitPattern count="one">{0} ইঞ্চি</unitPattern>
 				<unitPattern count="other">{0} ইঞ্চি</unitPattern>
-				<perUnitPattern>{0}/ইঞ্চি</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/ইঞ্চি</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
-				<displayName>parsecs</displayName>
-				<unitPattern count="one">{0} pc</unitPattern>
-				<unitPattern count="other">{0} pc</unitPattern>
+				<displayName draft="contributed">parsecs</displayName>
+				<unitPattern count="one" draft="contributed">{0} pc</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>আলোকবর্ষ</displayName>
+				<displayName draft="contributed">আলোকবর্ষ</displayName>
 				<unitPattern count="one">{0} আলোকবর্ষ</unitPattern>
 				<unitPattern count="other">{0} আলোকবর্ষ</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="one">{0} au</unitPattern>
-				<unitPattern count="other">{0} au</unitPattern>
+				<displayName draft="contributed">au</displayName>
+				<unitPattern count="one" draft="contributed">{0} au</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} au</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>ফার্লং</displayName>
-				<unitPattern count="one">{0} ফার্লং</unitPattern>
-				<unitPattern count="other">{0} ফার্লং</unitPattern>
+				<displayName draft="contributed">ফার্লং</displayName>
+				<unitPattern count="one" draft="contributed">{0} ফার্লং</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ফার্লং</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="one">{0} fth</unitPattern>
-				<unitPattern count="other">{0} fth</unitPattern>
+				<displayName draft="contributed">fm</displayName>
+				<unitPattern count="one" draft="contributed">{0} fth</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} fth</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>nmi</displayName>
-				<unitPattern count="one">{0} nmi</unitPattern>
-				<unitPattern count="other">{0} nmi</unitPattern>
+				<displayName draft="contributed">nmi</displayName>
+				<unitPattern count="one" draft="contributed">{0} nmi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} nmi</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="one">{0} smi</unitPattern>
-				<unitPattern count="other">{0} smi</unitPattern>
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>pts</displayName>
-				<unitPattern count="one">{0} pt</unitPattern>
-				<unitPattern count="other">{0} pt</unitPattern>
+				<displayName draft="contributed">pts</displayName>
+				<unitPattern count="one" draft="contributed">{0} pt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>R☉</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">R☉</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>↑↑↑</displayName>
@@ -10393,163 +10711,163 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
-				<displayName>টন</displayName>
-				<unitPattern count="one">{0} টন</unitPattern>
-				<unitPattern count="other">{0} টন</unitPattern>
+				<displayName draft="contributed">টন</displayName>
+				<unitPattern count="one" draft="contributed">{0} টন</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} টন</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>কেজি</displayName>
 				<unitPattern count="one">{0} কেজি</unitPattern>
 				<unitPattern count="other">{0} কেজি</unitPattern>
-				<perUnitPattern>{0}/কেজি</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/কেজি</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>গ্রাম</displayName>
 				<unitPattern count="one">{0} গ্রাম</unitPattern>
 				<unitPattern count="other">{0} গ্রাম</unitPattern>
-				<perUnitPattern>{0}/গ্রা:</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/গ্রা:</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>মিগ্রা:</displayName>
-				<unitPattern count="one">{0}/মিগ্রা:</unitPattern>
-				<unitPattern count="other">{0}/মিগ্রা:</unitPattern>
+				<displayName draft="contributed">মিগ্রা:</displayName>
+				<unitPattern count="one" draft="contributed">{0}/মিগ্রা:</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}/মিগ্রা:</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>μg</displayName>
-				<unitPattern count="one">{0} μg</unitPattern>
-				<unitPattern count="other">{0} μg</unitPattern>
+				<displayName draft="contributed">μg</displayName>
+				<unitPattern count="one" draft="contributed">{0} μg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>টন</displayName>
-				<unitPattern count="one">{0} টন</unitPattern>
-				<unitPattern count="other">{0} টন</unitPattern>
+				<displayName draft="contributed">টন</displayName>
+				<unitPattern count="one" draft="contributed">{0} টন</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} টন</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName>st</displayName>
-				<unitPattern count="one">{0} st</unitPattern>
-				<unitPattern count="other">{0} st</unitPattern>
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName>পাউন্ড</displayName>
+				<displayName draft="contributed">পাউন্ড</displayName>
 				<unitPattern count="one">{0} পাউন্ড</unitPattern>
 				<unitPattern count="other">{0} পাউন্ড</unitPattern>
-				<perUnitPattern>{0}/পাউন্ড</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/পাউন্ড</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName>আউন্স</displayName>
+				<displayName draft="contributed">আউন্স</displayName>
 				<unitPattern count="one">{0} আউন্স</unitPattern>
 				<unitPattern count="other">{0} আউন্স</unitPattern>
-				<perUnitPattern>{0}/আউন্স</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/আউন্স</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
-				<displayName>oz t</displayName>
-				<unitPattern count="one">{0} oz t</unitPattern>
-				<unitPattern count="other">{0} oz t</unitPattern>
+				<displayName draft="contributed">oz t</displayName>
+				<unitPattern count="one" draft="contributed">{0} oz t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz t</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName>ক্যারেট</displayName>
-				<unitPattern count="one">{0} CD</unitPattern>
-				<unitPattern count="other">{0} CD</unitPattern>
+				<displayName draft="contributed">ক্যারেট</displayName>
+				<unitPattern count="one" draft="contributed">{0} CD</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} CD</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} ওয়াট</unitPattern>
 				<unitPattern count="other">{0} ওয়াট</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>mm Hg</displayName>
-				<unitPattern count="one">{0} mm Hg</unitPattern>
-				<unitPattern count="other">{0} mm Hg</unitPattern>
+				<displayName draft="contributed">mm Hg</displayName>
+				<unitPattern count="one" draft="contributed">{0} mm Hg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mm Hg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
-				<displayName>psi</displayName>
-				<unitPattern count="one">{0} psi</unitPattern>
-				<unitPattern count="other">{0} psi</unitPattern>
+				<displayName draft="contributed">psi</displayName>
+				<unitPattern count="one" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>inHg</displayName>
+				<displayName draft="contributed">inHg</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName>mbar</displayName>
+				<displayName draft="contributed">mbar</displayName>
 				<unitPattern count="one">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
+				<displayName draft="contributed">hPa</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/hr</displayName>
@@ -10557,24 +10875,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}kph</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName>মি/সেক</displayName>
+				<displayName draft="contributed">মি/সেক</displayName>
 				<unitPattern count="one">{0}m/s</unitPattern>
 				<unitPattern count="other">{0}m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName>মাইল/ঘ:</displayName>
+				<displayName draft="contributed">মাইল/ঘ:</displayName>
 				<unitPattern count="one">{0}mph</unitPattern>
 				<unitPattern count="other">{0}mph</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName>kn</displayName>
-				<unitPattern count="one">{0} kn</unitPattern>
-				<unitPattern count="other">{0} kn</unitPattern>
+				<displayName draft="contributed">kn</displayName>
+				<unitPattern count="one" draft="contributed">{0} kn</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kn</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
@@ -10582,14 +10900,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName>°F</displayName>
+				<displayName draft="contributed">°F</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName>K</displayName>
-				<unitPattern count="one">{0} K</unitPattern>
-				<unitPattern count="other">{0} K</unitPattern>
+				<displayName draft="contributed">K</displayName>
+				<unitPattern count="one" draft="contributed">{0} K</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
@@ -10607,139 +10925,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}mi³</unitPattern>
 				<unitPattern count="other">{0}mi³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>লিটার</displayName>
 				<unitPattern count="one">{0} লিটার</unitPattern>
 				<unitPattern count="other">{0} লিটার</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName>pt</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>acre ft</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}galIm</unitPattern>
 				<unitPattern count="other">{0}galIm</unitPattern>
-				<perUnitPattern>{0}/galIm</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/galIm</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0}fl oz Im</unitPattern>
 				<unitPattern count="other">{0}fl oz Im</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName>bbl</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">bbl</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<displayName>dsp</displayName>
@@ -10752,9 +11070,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}dsp-Imp</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName>dr</displayName>
-				<unitPattern count="one">{0}dr</unitPattern>
-				<unitPattern count="other">{0}dr</unitPattern>
+				<displayName draft="contributed">dr</displayName>
+				<unitPattern count="one" draft="contributed">{0}dr</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}dr</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<displayName>fl.dr.</displayName>
@@ -10762,9 +11080,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}fl.dr.</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>জিগার</displayName>
-				<unitPattern count="one">{0} জিগার</unitPattern>
-				<unitPattern count="other">{0} জিগার</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>↑↑↑</displayName>
@@ -10772,9 +11090,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>দিকনির্দেশ</displayName>

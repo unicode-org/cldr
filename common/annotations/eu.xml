@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -291,7 +291,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇑" type="tts">gorako gezi bikoitza</annotation>
 		<annotation cp="⇒">eskuinerako gezi bikoitza</annotation>
 		<annotation cp="⇒" type="tts">eskuinerako gezi bikoitza</annotation>
-		<annotation cp="⇏">eskuinerako gezi bikoitz marratua | eskuinerako gezi bkoitz marratua</annotation>
+		<annotation cp="⇏">eskuinerako gezi bikoitz marratua</annotation>
 		<annotation cp="⇏" type="tts">eskuinerako gezi bkoitz marratua</annotation>
 		<annotation cp="⇓">beherako gezi bikoitza</annotation>
 		<annotation cp="⇓" type="tts">beherako gezi bikoitza</annotation>
@@ -299,7 +299,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇔" type="tts">ezker eta eskuinerako gezi bikoitza</annotation>
 		<annotation cp="⇎">ezker eta eskuinerako gezi bikoitz marratua</annotation>
 		<annotation cp="⇎" type="tts">ezker eta eskuinerako gezi bikoitz marratua</annotation>
-		<annotation cp="⇖">ipar-mendebalderako gezi bikoitz | ipar-mendebalderako gezi bikoitza</annotation>
+		<annotation cp="⇖">ipar-mendebalderako gezi bikoitz</annotation>
 		<annotation cp="⇖" type="tts">ipar-mendebalderako gezi bikoitza</annotation>
 		<annotation cp="⇗">ipar-ekialderako gezi bikoitza</annotation>
 		<annotation cp="⇗" type="tts">ipar-ekialderako gezi bikoitza</annotation>
@@ -363,7 +363,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∋" type="tts">kide gisa dauka</annotation>
 		<annotation cp="∎">frogaren amaiera | halmos | hilarri</annotation>
 		<annotation cp="∎" type="tts">frogaren amaiera</annotation>
-		<annotation cp="∏">logika | n-ario produktu | n-ario produktua | produktu</annotation>
+		<annotation cp="∏">logika | n-ario produktu | produktu</annotation>
 		<annotation cp="∏" type="tts">n-ario produktua</annotation>
 		<annotation cp="∑">batura | matematika | n-ario batura</annotation>
 		<annotation cp="∑" type="tts">n-ario batura</annotation>
@@ -405,7 +405,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁄" type="tts">zatikiaren barra</annotation>
 		<annotation cp="∗">izar | izartxo-eragilea</annotation>
 		<annotation cp="∗" type="tts">izartxo-eragilea</annotation>
-		<annotation cp="∘">eragile | eraztun-eragile | eraztun-eragilea | konposizioa</annotation>
+		<annotation cp="∘">eragile | eraztun-eragile | konposizioa</annotation>
 		<annotation cp="∘" type="tts">eraztun-eragilea</annotation>
 		<annotation cp="∙">bulet-eragile | eragile</annotation>
 		<annotation cp="∙" type="tts">bulet-eragile</annotation>
@@ -417,7 +417,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∞" type="tts">infinitu-ikurra</annotation>
 		<annotation cp="∟">eskuineko angelua | matematika</annotation>
 		<annotation cp="∟" type="tts">eskuineko angelua</annotation>
-		<annotation cp="∠">angelu | angelua | zorrotz</annotation>
+		<annotation cp="∠">angelu | zorrotz</annotation>
 		<annotation cp="∠" type="tts">angelua</annotation>
 		<annotation cp="∣">zatitzailea | zatitzen du</annotation>
 		<annotation cp="∣" type="tts">zatitzen du</annotation>
@@ -479,7 +479,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≫" type="tts">hau baino askoz gehiago</annotation>
 		<annotation cp="≬">artean</annotation>
 		<annotation cp="≬" type="tts">artean</annotation>
-		<annotation cp="≳">baliokidea baino gehiago | baliokidea baino handiagoa | desberdintza | matematika</annotation>
+		<annotation cp="≳">baliokidea baino gehiago | desberdintza | matematika</annotation>
 		<annotation cp="≳" type="tts">baliokidea baino handiagoa</annotation>
 		<annotation cp="≺">honen aurrekoa | matematika | multzo eragilea</annotation>
 		<annotation cp="≺" type="tts">honen aurrekoa</annotation>
@@ -539,7 +539,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⋅" type="tts">puntu-eragilea</annotation>
 		<annotation cp="⋆">eragilea | izar-eragilea</annotation>
 		<annotation cp="⋆" type="tts">izar-eragilea</annotation>
-		<annotation cp="⋈">begizta | eragile bitarra | lotura natural | lotura naturala</annotation>
+		<annotation cp="⋈">begizta | eragile bitarra | lotura naturala</annotation>
 		<annotation cp="⋈" type="tts">lotura natural</annotation>
 		<annotation cp="⋒">ebakidura | ebakidura bikoitza | matematika | multzo eragilea</annotation>
 		<annotation cp="⋒" type="tts">ebakidura bikoitza</annotation>
@@ -711,80 +711,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♭" type="tts">bemola</annotation>
 		<annotation cp="♯">diesea | musika | nota</annotation>
 		<annotation cp="♯" type="tts">diesea</annotation>
-		<annotation cp="🥹">aguantatzen | harro | haserre | malkoak dituen begiko aurpegia | negarrez | triste</annotation>
-		<annotation cp="🥹" type="tts">malkoak dituen begiko aurpegia</annotation>
-		<annotation cp="🧌">fantasia | istorioak | munstroa | trolla</annotation>
-		<annotation cp="🧌" type="tts">trolla</annotation>
-		<annotation cp="🩻">doktore | hezurdura | hezurrak | mediku | z izpiak</annotation>
-		<annotation cp="🩻" type="tts">z izpiak</annotation>
-		<annotation cp="🩼">bastoi | desgaitasun | makil | Makulua | min | mugitzeko laguntza</annotation>
-		<annotation cp="🩼" type="tts">Makulua</annotation>
-		<annotation cp="🪩">beirazko bola | dantza | diskoteka | distira | festa</annotation>
-		<annotation cp="🪩" type="tts">beirazko bola</annotation>
-		<annotation cp="🪪">ID | kredentzial | lizentzia | nortasun-agiria | segurtasun</annotation>
-		<annotation cp="🪪" type="tts">nortasun-agiria</annotation>
-		<annotation cp="🪫">bateria gutxi | elektronika | energia gutxi</annotation>
-		<annotation cp="🪫" type="tts">bateria gutxi</annotation>
-		<annotation cp="🪬">babes | esku | Fatima | hamsa | kutun | Maria | Miriam</annotation>
-		<annotation cp="🪬" type="tts">hamsa</annotation>
-		<annotation cp="🪷">budismoa | hinduismoa | India | lorea | lotusa | purutasuna | Vietnam</annotation>
-		<annotation cp="🪷" type="tts">lotusa</annotation>
-		<annotation cp="🪸">arrezifea | korala | ozeanoa</annotation>
-		<annotation cp="🪸" type="tts">korala</annotation>
-		<annotation cp="🪹">habi hutsa | habia</annotation>
-		<annotation cp="🪹" type="tts">habi hutsa</annotation>
-		<annotation cp="🪺">habia | habia arrautzekin</annotation>
-		<annotation cp="🪺" type="tts">habia arrautzekin</annotation>
-		<annotation cp="🫃">beteta | gizona haurdun | haurdun | puztuta | sabela</annotation>
-		<annotation cp="🫃" type="tts">gizona haurdun</annotation>
-		<annotation cp="🫄">beteta | haurdun | pertsona haurdun | puztuta | sabela</annotation>
-		<annotation cp="🫄" type="tts">pertsona haurdun</annotation>
-		<annotation cp="🫅" draft="provisional">koroadun pertsona</annotation>
-		<annotation cp="🫅" type="tts" draft="provisional">koroadun pertsona</annotation>
-		<annotation cp="🫗">edalontzi | edari | erori | hutsik | likidoa isurtzen</annotation>
-		<annotation cp="🫗" type="tts">likidoa isurtzen</annotation>
-		<annotation cp="🫘">babarrunak | giltzurrun | janari | lekale</annotation>
-		<annotation cp="🫘" type="tts">babarrunak</annotation>
-		<annotation cp="🫙">edukiontzi | gorde | hutsik | osagarri | pitxerra | saltsa</annotation>
-		<annotation cp="🫙" type="tts">pitxerra</annotation>
-		<annotation cp="🫠">desagertu | disolbatu | likidoa | urtu | urtzen ari den aurpegia</annotation>
-		<annotation cp="🫠" type="tts">urtzen ari den aurpegia</annotation>
-		<annotation cp="🫡">ados | agurtu | agurtzen ari den aurpegia | bai | eguzkitsu | tropak</annotation>
-		<annotation cp="🫡" type="tts">agurtzen ari den aurpegia</annotation>
-		<annotation cp="🫢">begiak irekita dauzkan eta ahoaren parean eskua duen aurpegia | ezin sinetsi | ezustekoa | harridura | ikaratuta | lotsatuta</annotation>
-		<annotation cp="🫢" type="tts">begiak irekita dauzkan eta ahoaren parean eskua duen aurpegia</annotation>
-		<annotation cp="🫣">begi batekin espiatzen ari den aurpegia | begira | espiatu | txundituta</annotation>
-		<annotation cp="🫣" type="tts">begi batekin espiatzen ari den aurpegia</annotation>
-		<annotation cp="🫤">ahoa diagonalean duen aurpegia | desengainatuta | eszeptikoa | ez nago ziur | meh</annotation>
-		<annotation cp="🫤" type="tts">ahoa diagonalean duen aurpegia</annotation>
-		<annotation cp="🫥">barnerakoia | deprimituta | desagertu | ezkutatu | ikusezina | lerro etenarekin egindako aurpegia</annotation>
-		<annotation cp="🫥" type="tts">lerro etenarekin egindako aurpegia</annotation>
-		<annotation cp="🫦">artega | beldurra | deseroso | ezpainei koska egiten | kezkatuta | ligatzen | urduri</annotation>
-		<annotation cp="🫦" type="tts">ezpainei koska egiten</annotation>
-		<annotation cp="🫧">burbuilak | garbi | haizea | urpean | xaboi</annotation>
-		<annotation cp="🫧" type="tts">burbuilak</annotation>
-		<annotation cp="🫰" draft="provisional">erakuslea eta erpurua gurutzatuta</annotation>
-		<annotation cp="🫰" type="tts" draft="provisional">erakuslea eta erpurua gurutzatuta</annotation>
-		<annotation cp="🫱">eskua | eskuina | eskuinera begira dagoen eskua | eskuinerantz</annotation>
-		<annotation cp="🫱" type="tts">eskuinera begira dagoen eskua</annotation>
-		<annotation cp="🫲">eskua | ezkerra | ezkerrera begira dagoen eskua | ezkerrerantz</annotation>
-		<annotation cp="🫲" type="tts">ezkerrera begira dagoen eskua</annotation>
-		<annotation cp="🫳">baztertu | erori | esku-ahurra beherantz duen eskua | ospa</annotation>
-		<annotation cp="🫳" type="tts">esku-ahurra beherantz duen eskua</annotation>
-		<annotation cp="🫴">eskaini | esku-ahura gora begira duen eskua | etorri | etorri keinua | harrapatu</annotation>
-		<annotation cp="🫴" type="tts">esku-ahura gora begira duen eskua</annotation>
-		<annotation cp="🫵">ikusleari seinalatzen dion erakuslea | seinalatu | zu</annotation>
-		<annotation cp="🫵" type="tts">ikusleari seinalatzen dion erakuslea</annotation>
-		<annotation cp="🫶">bihotz-forma egiten ari diren eskuak | maitasuna</annotation>
-		<annotation cp="🫶" type="tts">bihotz-forma egiten ari diren eskuak</annotation>
-		<annotation cp="🛝">jolas-parke | jolastu | txirrista</annotation>
-		<annotation cp="🛝" type="tts">txirrista</annotation>
-		<annotation cp="🛞">bira | gurpila | pneumatiko | zirkulu</annotation>
-		<annotation cp="🛞" type="tts">gurpila</annotation>
-		<annotation cp="🛟">erreskate | flotatu | salbamendu-jaka | segurtasun | sirena</annotation>
-		<annotation cp="🛟" type="tts">sirena</annotation>
-		<annotation cp="🟰">berdin-ikur lodia | berdintasuna | matematika</annotation>
-		<annotation cp="🟰" type="tts">berdin-ikur lodia</annotation>
 		<annotation cp="😀">aurpegi | barre egiten ari den aurpegia | irribarre</annotation>
 		<annotation cp="😀" type="tts">barre egiten ari den aurpegia</annotation>
 		<annotation cp="😃">aho | aurpegi | barre egiten ari den aurpegia, ahoa irekita | ireki | irribarre | irribarre egiten ari den aurpegia, ahoa irekita</annotation>
@@ -809,7 +735,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😉" type="tts">begiaz keinu egiten ari den aurpegia</annotation>
 		<annotation cp="😊">aurpegi | begi | begiez irribarre egiten ari den aurpegia | gorritu | irribarre</annotation>
 		<annotation cp="😊" type="tts">begiez irribarre egiten ari den aurpegia</annotation>
-		<annotation cp="😇">aingerua | argi-koroa | aurpegia | barreka ari den aurpegia argi-koroarekin | fantasia | inuzentea | irribarre egiten ari den aurpegia argi-koroarekin | irribarrea</annotation>
+		<annotation cp="😇">aingerua | argi-koroa | aurpegia | fantasia | inuzentea | irribarre egiten ari den aurpegia argi-koroarekin | irribarrea</annotation>
 		<annotation cp="😇" type="tts">barreka ari den aurpegia argi-koroarekin</annotation>
 		<annotation cp="🥰">irri egiten ari den aurpegia, 3 bihotzekin | irribarre egiten ari den aurpegia, 3 bihotzekin | maiteminduta | oso gustuko | txoratze</annotation>
 		<annotation cp="🥰" type="tts">irri egiten ari den aurpegia, 3 bihotzekin</annotation>
@@ -995,7 +921,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👻" type="tts">mamua</annotation>
 		<annotation cp="👽">aurpegia | espazioa | estralurtarra | fantasia | izakia | munstroa | ohe</annotation>
 		<annotation cp="👽" type="tts">estralurtarra</annotation>
-		<annotation cp="👾">aurpegia | estralurtarra | fantasia | ipuina | izakia | munstro estralurtarra | munstroa | ohe</annotation>
+		<annotation cp="👾">aurpegia | estralurtarra | fantasia | ipuina | izakia | munstroa | ohe</annotation>
 		<annotation cp="👾" type="tts">munstro estralurtarra</annotation>
 		<annotation cp="🤖">aurpegi | munstro | robot | robot-aurpegia</annotation>
 		<annotation cp="🤖" type="tts">robot-aurpegia</annotation>
@@ -1005,7 +931,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😸" type="tts">begiez barre egiten ari den katu-aurpegia</annotation>
 		<annotation cp="😹">aurpegi | katu | malko | poz | pozez negar ari den katu-aurpegia</annotation>
 		<annotation cp="😹" type="tts">pozez negar ari den katu-aurpegia</annotation>
-		<annotation cp="😻">aurpegia | begia | bihotz-itxurako begiak dituen eta irribarre egiten ari den katu-aurpegia | bihotza | irribarrea | katu irribarretsua, bihotz-itxurako begiekin | katua | maitasuna</annotation>
+		<annotation cp="😻">aurpegia | begia | bihotz-itxurako begiak dituen eta irribarre egiten ari den katu-aurpegia | bihotza | irribarrea | katua | maitasuna</annotation>
 		<annotation cp="😻" type="tts">katu irribarretsua, bihotz-itxurako begiekin</annotation>
 		<annotation cp="😼">aurpegi | ironiko | irribarre | irribarre maltzurra duen katu-aurpegia | katu | maltzur</annotation>
 		<annotation cp="😼" type="tts">irribarre maltzurra duen katu-aurpegia</annotation>
@@ -1105,7 +1031,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖐" type="tts">esku altxatua eta hatz hedatuak</annotation>
 		<annotation cp="✋">esku altxatua | eskua</annotation>
 		<annotation cp="✋" type="tts">esku altxatua</annotation>
-		<annotation cp="🖖">agur vulcandarra | eskua | hatza | spock | vulcandar agur | vulcandarra</annotation>
+		<annotation cp="🖖">agur vulcandarra | eskua | hatza | spock | vulcandarra</annotation>
 		<annotation cp="🖖" type="tts">vulcandar agur</annotation>
 		<annotation cp="👌">ados | adostasuna adierazten duen eskua | eskua | gorputza | ok</annotation>
 		<annotation cp="👌" type="tts">adostasuna adierazten duen eskua</annotation>
@@ -1173,31 +1099,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦿" type="tts">hanka mekanikoa</annotation>
 		<annotation cp="🦵">gorputz-adarra | hanka | ostikada</annotation>
 		<annotation cp="🦵" type="tts">hanka</annotation>
-		<annotation cp="🦶">oin | oina | ostikada | zanpatu</annotation>
+		<annotation cp="🦶">oina | ostikada | zanpatu</annotation>
 		<annotation cp="🦶" type="tts">oin</annotation>
-		<annotation cp="👂">belarri | belarria | gorputza</annotation>
+		<annotation cp="👂">belarria | gorputza</annotation>
 		<annotation cp="👂" type="tts">belarri</annotation>
 		<annotation cp="🦻">audifonoa duen belarria | gortasuna | irisgarritasuna</annotation>
 		<annotation cp="🦻" type="tts">audifonoa duen belarria</annotation>
-		<annotation cp="👃">gorputza | sudur | sudurra</annotation>
+		<annotation cp="👃">gorputza | sudurra</annotation>
 		<annotation cp="👃" type="tts">sudur</annotation>
-		<annotation cp="🧠">adimentsua | argia | azkarra | burmuin | burmuina</annotation>
+		<annotation cp="🧠">adimentsua | argia | azkarra | burmuina</annotation>
 		<annotation cp="🧠" type="tts">burmuin</annotation>
 		<annotation cp="🫀">bihotza organoa | erdigunea | kardiologia | organoa | pultsua | taupada</annotation>
 		<annotation cp="🫀" type="tts">bihotza organoa</annotation>
 		<annotation cp="🫁">arnas hartzea | arnasa | arnastu | birikak | hasperena | inhalazioa | organoa</annotation>
 		<annotation cp="🫁" type="tts">birikak</annotation>
-		<annotation cp="🦷">dentista | hagina | hortz | hortza</annotation>
+		<annotation cp="🦷">dentista | hagina | hortza</annotation>
 		<annotation cp="🦷" type="tts">hortz</annotation>
-		<annotation cp="🦴">eskeletoa | hezur | hezurra</annotation>
+		<annotation cp="🦴">eskeletoa | hezurra</annotation>
 		<annotation cp="🦴" type="tts">hezur</annotation>
 		<annotation cp="👀">aurpegia | begia | begiak | gorputza</annotation>
 		<annotation cp="👀" type="tts">begiak</annotation>
-		<annotation cp="👁">begi | begia | gorputza</annotation>
+		<annotation cp="👁">begia | gorputza</annotation>
 		<annotation cp="👁" type="tts">begi</annotation>
-		<annotation cp="👅">gorputza | mingain | mingaina</annotation>
+		<annotation cp="👅">gorputza | mingaina</annotation>
 		<annotation cp="👅" type="tts">mingain</annotation>
-		<annotation cp="👄">aho | ahoa | ezpainak | gorputza</annotation>
+		<annotation cp="👄">ahoa | ezpainak | gorputza</annotation>
 		<annotation cp="👄" type="tts">aho</annotation>
 		<annotation cp="👶">haurtxo | haurtxoa</annotation>
 		<annotation cp="👶" type="tts">haurtxoa</annotation>
@@ -1451,9 +1377,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🍼" type="tts">haurra elikatzen</annotation>
 		<annotation cp="👼">aingeru-itxura duen haurtxoa | aingerua | aurpegia | fantasia | haurtxoa | ipuina</annotation>
 		<annotation cp="👼" type="tts">aingeru-itxura duen haurtxoa</annotation>
-		<annotation cp="🎅">aita noel | Bizarzuri | fantasia | gabonak | ospakizuna</annotation>
+		<annotation cp="🎅">Bizarzuri | fantasia | gabonak | ospakizuna</annotation>
 		<annotation cp="🎅" type="tts">aita noel</annotation>
-		<annotation cp="🤶">Bizarzuriren emaztea | gabonak | gabonetako ama</annotation>
+		<annotation cp="🤶">Bizarzuriren emaztea | gabonak</annotation>
 		<annotation cp="🤶" type="tts">gabonetako ama</annotation>
 		<annotation cp="🧑‍🎄">bizar zuri | bizarzuri</annotation>
 		<annotation cp="🧑‍🎄" type="tts">bizarzuri</annotation>
@@ -1693,7 +1619,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👫" type="tts">gizon-emakumeak elkarri eskua ematen</annotation>
 		<annotation cp="👬">bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👬" type="tts">bi gizon elkarri eskua ematen</annotation>
-		<annotation cp="💏">bikotea | musu | musua</annotation>
+		<annotation cp="💏">bikotea | musua</annotation>
 		<annotation cp="💏" type="tts">musu</annotation>
 		<annotation cp="💑">bihotza | bihotza erdian duen bikotea | bikotea | maitasuna</annotation>
 		<annotation cp="💑" type="tts">bihotza erdian duen bikotea</annotation>
@@ -1945,7 +1871,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">eskorpioia</annotation>
 		<annotation cp="🦟">birus | eltxo | gaixotasun | intsektu | malaria | sukar</annotation>
 		<annotation cp="🦟" type="tts">eltxo</annotation>
-		<annotation cp="🪰">euli | eulia | gaixotasuna | harra | intsektua | usteldu</annotation>
+		<annotation cp="🪰">eulia | gaixotasuna | harra | intsektua | usteldu</annotation>
 		<annotation cp="🪰" type="tts">euli</annotation>
 		<annotation cp="🪱">anelidoa | bizioa | harra | parasitoa | zizare | zizarea</annotation>
 		<annotation cp="🪱" type="tts">zizare</annotation>
@@ -2157,7 +2083,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍤" type="tts">gabardina-ganba</annotation>
 		<annotation cp="🍥">arrain | arrain-pastela zurrunbiloarekin | gozogintza | pastel | zurrunbilo</annotation>
 		<annotation cp="🍥" type="tts">arrain-pastela zurrunbiloarekin</annotation>
-		<annotation cp="🥮">ilargi-pastel | ilargi-pastela | jaialdia | udazkena | yuèbǐng</annotation>
+		<annotation cp="🥮">ilargi-pastela | jaialdia | udazkena | yuèbǐng</annotation>
 		<annotation cp="🥮" type="tts">ilargi-pastel</annotation>
 		<annotation cp="🍡">dango | gozo | japonia | makila | postre</annotation>
 		<annotation cp="🍡" type="tts">dango</annotation>
@@ -2503,7 +2429,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✈" type="tts">hegazkina</annotation>
 		<annotation cp="🛩">hegazkin | hegazkin txikia | ibilgailu</annotation>
 		<annotation cp="🛩" type="tts">hegazkin txikia</annotation>
-		<annotation cp="🛫">aireratzen ari den hegazkina | check-in | fakturazioa | hegazkina | ibilgailua | irteera | irteerak</annotation>
+		<annotation cp="🛫">check-in | fakturazioa | hegazkina | ibilgailua | irteera | irteerak</annotation>
 		<annotation cp="🛫" type="tts">aireratzen ari den hegazkina</annotation>
 		<annotation cp="🛬">hegazkin | ibilgailu | iritsiera | iritsierak | lur hartu | lur hartzen ari den hegazkina | lurreratu</annotation>
 		<annotation cp="🛬" type="tts">lur hartzen ari den hegazkina</annotation>
@@ -3351,7 +3277,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">errautsak gordetzeko kutxa</annotation>
 		<annotation cp="🗿">aurpegi | estatua | moai | moaia | moyai</annotation>
 		<annotation cp="🗿" type="tts">moaia</annotation>
-		<annotation cp="🪧">afixa | idazkun | idazkuna | kartela | manifestazioa | seinalea | tantaia | zutoina</annotation>
+		<annotation cp="🪧">afixa | idazkuna | kartela | manifestazioa | seinalea | tantaia | zutoina</annotation>
 		<annotation cp="🪧" type="tts">idazkun</annotation>
 		<annotation cp="🏧">automatiko | banku | kutxazain | kutxazainaren seinalea</annotation>
 		<annotation cp="🏧" type="tts">kutxazainaren seinalea</annotation>
@@ -3805,7 +3731,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₩" type="tts">wona</annotation>
 		<annotation cp="€">diru | EUR | euro | euroa</annotation>
 		<annotation cp="€" type="tts">euroa</annotation>
-		<annotation cp="₰">moneta | penny aleman | penny alemana | pfennig</annotation>
+		<annotation cp="₰">moneta | penny aleman | pfennig</annotation>
 		<annotation cp="₰" type="tts">penny alemana</annotation>
 		<annotation cp="₱">pesoa</annotation>
 		<annotation cp="₱" type="tts">pesoa</annotation>
@@ -3813,7 +3739,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₳" type="tts">australa</annotation>
 		<annotation cp="₶">moneta | Tourseko libera</annotation>
 		<annotation cp="₶" type="tts">Tourseko libera</annotation>
-		<annotation cp="₷">moneta | spesmilo | spesmiloa</annotation>
+		<annotation cp="₷">moneta | spesmilo</annotation>
 		<annotation cp="₷" type="tts">spesmiloa</annotation>
 		<annotation cp="₹">diru | errupia | errupia indiar | errupia indiarra</annotation>
 		<annotation cp="₹" type="tts">errupia indiarra</annotation>
@@ -3833,5 +3759,79 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="³" type="tts">goi-indizeko hiru</annotation>
 		<annotation cp="µ">mikro-ikur | mikro-ikurra | neurketa</annotation>
 		<annotation cp="µ" type="tts">mikro-ikurra</annotation>
+		<annotation cp="🛝">jolas-parke | jolastu</annotation>
+		<annotation cp="🛝" type="tts">txirrista</annotation>
+		<annotation cp="🛞">bira | pneumatiko | zirkulu</annotation>
+		<annotation cp="🛞" type="tts">gurpila</annotation>
+		<annotation cp="🛟">erreskate | flotatu | salbamendu-jaka | segurtasun</annotation>
+		<annotation cp="🛟" type="tts">sirena</annotation>
+		<annotation cp="🟰">berdintasuna | matematika</annotation>
+		<annotation cp="🟰" type="tts">berdin-ikur lodia</annotation>
+		<annotation cp="🥹">aguantatzen | harro | haserre | negarrez | triste</annotation>
+		<annotation cp="🥹" type="tts">malkoak dituen begiko aurpegia</annotation>
+		<annotation cp="🧌">fantasia | istorioak | munstroa</annotation>
+		<annotation cp="🧌" type="tts">trolla</annotation>
+		<annotation cp="🩻">doktore | hezurdura | hezurrak | mediku</annotation>
+		<annotation cp="🩻" type="tts">z izpiak</annotation>
+		<annotation cp="🩼">bastoi | desgaitasun | makil | min | mugitzeko laguntza</annotation>
+		<annotation cp="🩼" type="tts">Makulua</annotation>
+		<annotation cp="🪩">dantza | diskoteka | distira | festa</annotation>
+		<annotation cp="🪩" type="tts">beirazko bola</annotation>
+		<annotation cp="🪪">ID | kredentzial | lizentzia | segurtasun</annotation>
+		<annotation cp="🪪" type="tts">nortasun-agiria</annotation>
+		<annotation cp="🪫">elektronika | energia gutxi</annotation>
+		<annotation cp="🪫" type="tts">bateria gutxi</annotation>
+		<annotation cp="🪬">babes | esku | Fatima | kutun | Maria | Miriam</annotation>
+		<annotation cp="🪬" type="tts">hamsa</annotation>
+		<annotation cp="🪷">budismoa | hinduismoa | India | lorea | purutasuna | Vietnam</annotation>
+		<annotation cp="🪷" type="tts">lotusa</annotation>
+		<annotation cp="🪸">arrezifea | ozeanoa</annotation>
+		<annotation cp="🪸" type="tts">korala</annotation>
+		<annotation cp="🪹">habia</annotation>
+		<annotation cp="🪹" type="tts">habi hutsa</annotation>
+		<annotation cp="🪺">habia</annotation>
+		<annotation cp="🪺" type="tts">habia arrautzekin</annotation>
+		<annotation cp="🫃">beteta | haurdun | puztuta | sabela</annotation>
+		<annotation cp="🫃" type="tts">gizona haurdun</annotation>
+		<annotation cp="🫄">beteta | haurdun | puztuta | sabela</annotation>
+		<annotation cp="🫄" type="tts">pertsona haurdun</annotation>
+		<annotation cp="🫅">erregea | erret-familia | noblea</annotation>
+		<annotation cp="🫅" type="tts" draft="provisional">koroadun pertsona</annotation>
+		<annotation cp="🫗">edalontzi | edari | erori | hutsik</annotation>
+		<annotation cp="🫗" type="tts">likidoa isurtzen</annotation>
+		<annotation cp="🫘">giltzurrun | janari | lekale</annotation>
+		<annotation cp="🫘" type="tts">babarrunak</annotation>
+		<annotation cp="🫙">edukiontzi | gorde | hutsik | osagarri | saltsa</annotation>
+		<annotation cp="🫙" type="tts">pitxerra</annotation>
+		<annotation cp="🫠">desagertu | disolbatu | likidoa | urtu</annotation>
+		<annotation cp="🫠" type="tts">urtzen ari den aurpegia</annotation>
+		<annotation cp="🫡">ados | agurtu | bai | eguzkitsu | tropak</annotation>
+		<annotation cp="🫡" type="tts">agurtzen ari den aurpegia</annotation>
+		<annotation cp="🫢">ezin sinetsi | ezustekoa | harridura | ikaratuta | lotsatuta</annotation>
+		<annotation cp="🫢" type="tts">begiak irekita dauzkan eta ahoaren parean eskua duen aurpegia</annotation>
+		<annotation cp="🫣">begira | espiatu | txundituta</annotation>
+		<annotation cp="🫣" type="tts">begi batekin espiatzen ari den aurpegia</annotation>
+		<annotation cp="🫤">desengainatuta | eszeptikoa | ez nago ziur | meh</annotation>
+		<annotation cp="🫤" type="tts">ahoa diagonalean duen aurpegia</annotation>
+		<annotation cp="🫥">barnerakoia | deprimituta | desagertu | ezkutatu | ikusezina</annotation>
+		<annotation cp="🫥" type="tts">lerro etenarekin egindako aurpegia</annotation>
+		<annotation cp="🫦">artega | beldurra | deseroso | kezkatuta | ligatzen | urduri</annotation>
+		<annotation cp="🫦" type="tts">ezpainei koska egiten</annotation>
+		<annotation cp="🫧">garbi | haizea | urpean | xaboi</annotation>
+		<annotation cp="🫧" type="tts">burbuilak</annotation>
+		<annotation cp="🫰">bihotza | dirua | garestia | kriskitina | maitasuna</annotation>
+		<annotation cp="🫰" type="tts" draft="provisional">erakuslea eta erpurua gurutzatuta</annotation>
+		<annotation cp="🫱">eskua | eskuina | eskuinerantz</annotation>
+		<annotation cp="🫱" type="tts">eskuinera begira dagoen eskua</annotation>
+		<annotation cp="🫲">eskua | ezkerra | ezkerrerantz</annotation>
+		<annotation cp="🫲" type="tts">ezkerrera begira dagoen eskua</annotation>
+		<annotation cp="🫳">baztertu | erori | ospa</annotation>
+		<annotation cp="🫳" type="tts">esku-ahurra beherantz duen eskua</annotation>
+		<annotation cp="🫴">eskaini | etorri | etorri keinua | harrapatu</annotation>
+		<annotation cp="🫴" type="tts">esku-ahura gora begira duen eskua</annotation>
+		<annotation cp="🫵">seinalatu | zu</annotation>
+		<annotation cp="🫵" type="tts">ikusleari seinalatzen dion erakuslea</annotation>
+		<annotation cp="🫶">maitasuna</annotation>
+		<annotation cp="🫶" type="tts">bihotz-forma egiten ari diren eskuak</annotation>
 	</annotations>
 </ldml>

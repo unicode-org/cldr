@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -519,7 +519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="tyv">טובינית</language>
 			<language type="tzm">תמאזיגת של מרכז מרוקו</language>
 			<language type="udm">אודמורט</language>
-			<language type="ug">אויגורית</language>
+			<language type="ug">אויגור</language>
 			<language type="uga">אוגריתית</language>
 			<language type="uk">אוקראינית</language>
 			<language type="umb">אומבונדו</language>
@@ -2643,7 +2643,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0" draft="contributed">לפני</era>
 						<era type="0" alt="variant" draft="provisional">↑↑↑</era>
 						<era type="1" draft="contributed">אחריי</era>
-						<era type="1" alt="variant">↑↑↑</era>
+						<era type="1" alt="variant" draft="provisional">↑↑↑</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -7317,20 +7317,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>דינר סרבי ישן</displayName>
 			</currency>
 			<currency type="CUC">
-				<displayName>פסו קובני להמרה</displayName>
-				<displayName count="one">פסו קובני להמרה</displayName>
-				<displayName count="two">פסו קובני להמרה</displayName>
-				<displayName count="many">פסו קובני להמרה</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>פזו קובני להמרה</displayName>
+				<displayName count="one">פזו קובני להמרה</displayName>
+				<displayName count="two">פזו קובני להמרה</displayName>
+				<displayName count="many">פזו קובני להמרה</displayName>
+				<displayName count="other">פזו קובני להמרה</displayName>
 				<symbol>CUC</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="CUP">
-				<displayName>פסו קובני</displayName>
-				<displayName count="one">פסו קובני</displayName>
-				<displayName count="two">פסו קובני</displayName>
-				<displayName count="many">פסו קובני</displayName>
-				<displayName count="other">פסו קובני</displayName>
+				<displayName>פזו קובני</displayName>
+				<displayName count="one">פזו קובני</displayName>
+				<displayName count="two">פזו קובני</displayName>
+				<displayName count="many">פזו קובני</displayName>
+				<displayName count="other">פזו קובני</displayName>
 				<symbol>CUP</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
@@ -7378,11 +7378,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">kr</symbol>
 			</currency>
 			<currency type="DOP">
-				<displayName>פסו דומיניקני</displayName>
-				<displayName count="one">פסו דומיניקני</displayName>
-				<displayName count="two">פסו דומיניקני</displayName>
-				<displayName count="many">פסו דומיניקני</displayName>
-				<displayName count="other">פסו דומיניקני</displayName>
+				<displayName>פזו דומיניקני</displayName>
+				<displayName count="one">פזו דומיניקני</displayName>
+				<displayName count="two">פזו דומיניקני</displayName>
+				<displayName count="many">פזו דומיניקני</displayName>
+				<displayName count="other">פזו דומיניקני</displayName>
 				<symbol>DOP</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
@@ -7932,11 +7932,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
-				<displayName>פסו מקסיקני</displayName>
-				<displayName count="one">פסו מקסיקני</displayName>
-				<displayName count="two">פסו מקסיקני</displayName>
-				<displayName count="many">פסו מקסיקני</displayName>
-				<displayName count="other">פסו מקסיקני</displayName>
+				<displayName>פזו מקסיקני</displayName>
+				<displayName count="one">פזו מקסיקני</displayName>
+				<displayName count="two">פזו מקסיקני</displayName>
+				<displayName count="many">פזו מקסיקני</displayName>
+				<displayName count="other">פזו מקסיקני</displayName>
 				<symbol>MX$</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
@@ -8636,13 +8636,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">השנה האחרונה הייתה קשה</pluralMinimalPairs>
-			<pluralMinimalPairs count="two">השנתיים האחרונות היו קשות</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">שנה</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">שנתיים</pluralMinimalPairs>
 			<pluralMinimalPairs count="many">{0} שנה</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} השנים האחרונות היו קשות</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} שנים</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">פנה ימינה בפנייה ה-{0}</ordinalMinimalPairs>
-			<genderMinimalPairs gender="feminine">ה{0} הראשונה היא הקובעת</genderMinimalPairs>
-			<genderMinimalPairs gender="masculine">ה{0} הראשון הוא הקובע</genderMinimalPairs>
+			<genderMinimalPairs gender="feminine">{0} נקבה</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine">{0} זכר</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -11841,10 +11841,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>מייל/גלון</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} מייל/גלון</unitPattern>
+				<unitPattern count="two">{0} מייל/גלון</unitPattern>
+				<unitPattern count="many">{0} מייל/גלון</unitPattern>
+				<unitPattern count="other">{0} מייל/גלון</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -11903,7 +11903,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>ק״ב</displayName>
+				<displayName draft="contributed">ק״ב</displayName>
 				<unitPattern count="one">ק״ב {0}</unitPattern>
 				<unitPattern count="two">{0} ק״ב</unitPattern>
 				<unitPattern count="many">{0} ק״ב</unitPattern>
@@ -12342,7 +12342,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -12457,18 +12457,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-pound">
 				<displayName>פאונד</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
 				<perUnitPattern>{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>oz</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
 				<perUnitPattern>{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">

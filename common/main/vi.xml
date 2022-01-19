@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -9796,7 +9796,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cup">
 				<displayName>tách</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} cup</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>aoxơ chất lỏng</displayName>
@@ -10067,8 +10067,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName>l/100km</displayName>
-				<unitPattern count="other">{0} l/100km</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mpg</displayName>
@@ -10928,8 +10928,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName>l/100km</displayName>
-				<unitPattern count="other">{0} l/100km</unitPattern>
+				<displayName>L/100km</displayName>
+				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -11530,11 +11530,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName draft="contributed">thìa cà phê</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>↑↑↑</displayName>
@@ -11546,7 +11546,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<displayName draft="contributed">↑↑↑</displayName>

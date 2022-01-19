@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -920,7 +920,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[က ခ ဂ ဃ င စ ဆ ဇ ဈ ဉ ည ဋ ဌ ဍ ဎ ဏ တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ ဠ အ ဣ ၏ ဤ ဥ ဦ ဧ ဩ ဪ ာ ါ \u102D \u102E \u102F \u1030 ေ \u1032 \u1036 ဿ ျ ြ \u103D \u103E \u1039 \u103A \u1037 း]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[၀႐ ၁႑ ၂႒ ၃႓ ၄႔ ၅႕ ၆႖ ၇႗ ၈႘ ၉႙ ၵ ၚ ၽ ၾ ၐ ၑ ၥ ဨ ဢ ၒ ၓ ၔ ၕ \u1033 ၖ ၗ \u1058 \u1059 \u1086 \u1034 ၢ ၤ ႈ ႊ ႏ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[၀႐ ၁႑ ၂႒ ၃႓ ၄႔ ၅႕ ၆႖ ၇႗ ၈႘ ၉႙ ၵ ၚ ၽ ၾ ၐ ၑ ၥ ဨ ဢ ၒ ၓ ၔ ၕ \u1033 ၖ ၗ \u1058 \u1059 \u1034 ၢ \u1086 ၤ ႈ ႊ ႏ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[က ခ ဂ ဃ င စ ဆ ဇ ဈ ဉ ည ဋ ဌ ဍ ဎ ဏ တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ ဠ အ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0၀ 1၁ 2၂ 3၃ 4၄ 5၅ 6၆ 7၇ 8၈ 9၉]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[၊ ။ ‘ ’ “ ”]</exemplarCharacters>
@@ -7492,16 +7492,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-square-second">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="angle-revolution">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
@@ -7513,45 +7503,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-kilometer">
 				<unitPattern count="other">{0} km²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="other">{0} m²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="area-square-centimeter">
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<unitPattern count="other">{0} mi²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
-			<unit type="area-square-yard">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
-			<unit type="area-square-inch">
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="area-dunam">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="concentr-karat">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>↑↑↑</displayName>
@@ -7560,178 +7526,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-item">
 				<displayName>↑↑↑</displayName>
 			</unit>
-			<unit type="concentr-permillion">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
 				<unitPattern count="other">{0}%</unitPattern>
-			</unit>
-			<unit type="concentr-mole">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>L/100km</displayName>
 				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
-			<unit type="consumption-mile-per-gallon">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<unitPattern count="other">{0}m/gUK</unitPattern>
-			</unit>
-			<unit type="digital-petabyte">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-terabyte">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="duration-century">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>နှစ်</displayName>
 				<unitPattern count="other">{0} နှစ်</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>လ</displayName>
 				<unitPattern count="other">{0} လ</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>ပတ်</displayName>
 				<unitPattern count="other">{0} ပတ်</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ရက်</displayName>
 				<unitPattern count="other">{0} ရက်</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>နာရီ</displayName>
 				<unitPattern count="other">{0} နာရီ</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>မိနစ်</displayName>
 				<unitPattern count="other">{0} မိနစ်</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>စက္ကန့်</displayName>
 				<unitPattern count="other">{0} s</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>မီလီစက္ကန့်</displayName>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
-			<unit type="duration-microsecond">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="electric-ampere">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="electric-milliampere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="electric-ohm">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="electric-volt">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-calorie">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-foodcalorie">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-kilojoule">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-joule">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-kilowatt-hour">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-electronvolt">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="energy-british-thermal-unit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="energy-therm-us">
 				<unitPattern count="other">{0}US therms</unitPattern>
 			</unit>
-			<unit type="force-pound-force">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="force-newton">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}kWh/100km</unitPattern>
-			</unit>
-			<unit type="frequency-gigahertz">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="frequency-megahertz">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="frequency-kilohertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="frequency-hertz">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>
@@ -7740,35 +7582,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="other">{0}km</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>cm</displayName>
 				<unitPattern count="other">{0} cm</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="length-picometer">
-				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-mile">
@@ -7783,36 +7610,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-inch">
 				<unitPattern count="other">{0} ″</unitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="other">{0} အလင်းနှစ်</unitPattern>
 			</unit>
-			<unit type="length-astronomical-unit">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="length-solar-radius">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="light-lux">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="light-candela">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="light-solar-luminosity">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-metric-ton">
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
@@ -7823,45 +7625,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ဂရမ်</displayName>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="mass-milligram">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-microgram">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="other">{0} lb</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<unitPattern count="other">{0} oz</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="mass-ounce-troy">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-carat">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-dalton">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-earth-mass">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="mass-solar-mass">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="power-gigawatt">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="power-megawatt">
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="other">{0} kW</unitPattern>
@@ -7869,15 +7637,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-watt">
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
-			<unit type="power-milliwatt">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="power-horsepower">
-				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} hp</unitPattern>
-			</unit>
-			<unit type="pressure-pound-force-per-square-inch">
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<unitPattern count="other">{0} inHg</unitPattern>
@@ -7885,25 +7646,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
-			<unit type="pressure-atmosphere">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-pascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>
@@ -7915,111 +7659,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="speed-mile-per-hour">
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
-			<unit type="speed-knot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="temperature-generic">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
-			</unit>
-			<unit type="temperature-kelvin">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="torque-pound-force-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="torque-newton-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
-			<unit type="volume-cubic-meter">
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
 			<unit type="volume-cubic-mile">
 				<unitPattern count="other">{0} mi³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-yard">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cubic-foot">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-megaliter">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-hectoliter">
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>လီတာ</displayName>
 				<unitPattern count="other">{0}L</unitPattern>
 			</unit>
-			<unit type="volume-deciliter">
-				<unitPattern count="other">↑↑↑</unitPattern>
+			<unit type="volume-bushel">
+				<unitPattern count="other">{0}bu</unitPattern>
 			</unit>
-			<unit type="volume-centiliter">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-milliliter">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-pint-metric">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cup-metric">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<perUnitPattern>↑↑↑</perUnitPattern>
-			</unit>
-			<unit type="volume-quart">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-pint">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-cup">
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="volume-fluid-ounce">
-				<unitPattern count="other">↑↑↑</unitPattern>
+			<unit type="volume-gallon-imperial">
+				<unitPattern count="other">{0}galIm</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<unitPattern count="other">{0}fl oz Im</unitPattern>
 			</unit>
-			<unit type="volume-tablespoon">
-				<unitPattern count="other">↑↑↑</unitPattern>
+			<unit type="volume-dessert-spoon">
+				<unitPattern count="other">{0}dsp</unitPattern>
 			</unit>
-			<unit type="volume-teaspoon">
-				<unitPattern count="other">↑↑↑</unitPattern>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other">{0}dsp-Imp</unitPattern>
 			</unit>
-			<unit type="volume-barrel">
-				<unitPattern count="other">↑↑↑</unitPattern>
+			<unit type="volume-quart-imperial">
+				<unitPattern count="other">{0}qt-Imp.</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>လမ်းကြောင်း</displayName>

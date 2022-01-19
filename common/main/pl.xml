@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -2076,7 +2076,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d.MM.y</pattern>
+							<pattern>dd.MM.y</pattern>
 							<datetimeSkeleton>yMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -2142,7 +2142,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd">d.MM.y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd">dd.MM.y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
@@ -4849,7 +4849,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<metazone type="Afghanistan">
 				<long>
-					<standard>czas Afganistan</standard>
+					<standard>Afganistan</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Central">
@@ -6939,11 +6939,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LSL">
-				<displayName>loti lesotyjskie</displayName>
-				<displayName count="one">loti lesotyjskie</displayName>
-				<displayName count="few">loti lesotyjskie</displayName>
-				<displayName count="many">loti lesotyjskich</displayName>
-				<displayName count="other">loti lesotyjskiego</displayName>
+				<displayName>loti Lesoto</displayName>
+				<displayName count="one" draft="provisional">loti lesotyjskie</displayName>
+				<displayName count="few" draft="provisional">loti lesotyjskie</displayName>
+				<displayName count="many" draft="provisional">loti lesotyjskich</displayName>
+				<displayName count="other" draft="provisional">loti lesotyjskiego</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
@@ -9283,7 +9283,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>inanimate</gender>
 				<displayName>dżule</displayName>
 				<unitPattern count="one">{0} dżul</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive">{0} dżula</unitPattern>
 				<unitPattern count="few">{0} dżule</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
@@ -10454,7 +10454,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>inanimate</gender>
 				<displayName>paskale</displayName>
 				<unitPattern count="one">{0} paskal</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive">{0} paskala</unitPattern>
 				<unitPattern count="few">{0} paskale</unitPattern>
 				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
@@ -13200,7 +13200,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>mi²</displayName>
+				<displayName draft="provisional">mi²</displayName>
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="few">{0} mi²</unitPattern>
 				<unitPattern count="many">{0} mi²</unitPattern>
@@ -13229,12 +13229,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>in²</displayName>
-				<unitPattern count="one">{0} in²</unitPattern>
-				<unitPattern count="few">{0} in²</unitPattern>
-				<unitPattern count="many">{0} in²</unitPattern>
-				<unitPattern count="other">{0} in²</unitPattern>
-				<perUnitPattern>{0}/in²</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<displayName>↑↑↑</displayName>
@@ -13439,15 +13439,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} m-ce</unitPattern>
 				<unitPattern count="many">{0} m-cy</unitPattern>
 				<unitPattern count="other">{0} m-ca</unitPattern>
-				<perUnitPattern>{0}/m-c</perUnitPattern>
+				<perUnitPattern draft="provisional">{0}/m-c</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>tydz.</displayName>
 				<unitPattern count="one">{0} tydz.</unitPattern>
-				<unitPattern count="few">{0} t.</unitPattern>
+				<unitPattern count="few">{0} tyg.</unitPattern>
 				<unitPattern count="many">{0} tyg.</unitPattern>
 				<unitPattern count="other">{0} tyg.</unitPattern>
-				<perUnitPattern>{0}/t.</perUnitPattern>
+				<perUnitPattern draft="provisional">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>doba</displayName>
@@ -13968,10 +13968,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} u</unitPattern>
-				<unitPattern count="few">{0} u</unitPattern>
-				<unitPattern count="many">{0} u</unitPattern>
-				<unitPattern count="other">{0} u</unitPattern>
+				<unitPattern count="one" draft="provisional">{0} u</unitPattern>
+				<unitPattern count="few" draft="provisional">{0} u</unitPattern>
+				<unitPattern count="many" draft="provisional">{0} u</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} u</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>↑↑↑</displayName>
@@ -14200,18 +14200,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>mi³</displayName>
-				<unitPattern count="one">{0} mi³</unitPattern>
-				<unitPattern count="few">{0} mi³</unitPattern>
-				<unitPattern count="many">{0} mi³</unitPattern>
-				<unitPattern count="other">{0} mi³</unitPattern>
+				<displayName draft="provisional">mi³</displayName>
+				<unitPattern count="one" draft="provisional">{0} mi³</unitPattern>
+				<unitPattern count="few" draft="provisional">{0} mi³</unitPattern>
+				<unitPattern count="many" draft="provisional">{0} mi³</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>yd³</displayName>
-				<unitPattern count="one">{0} yd³</unitPattern>
-				<unitPattern count="few">{0} yd³</unitPattern>
-				<unitPattern count="many">{0} yd³</unitPattern>
-				<unitPattern count="other">{0} yd³</unitPattern>
+				<displayName draft="provisional">yd³</displayName>
+				<unitPattern count="one" draft="provisional">{0} yd³</unitPattern>
+				<unitPattern count="few" draft="provisional">{0} yd³</unitPattern>
+				<unitPattern count="many" draft="provisional">{0} yd³</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} yd³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>ft³</displayName>

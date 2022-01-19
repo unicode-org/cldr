@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -7152,7 +7152,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</miscPatterns>
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} dia</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} de dias</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dias</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Pegue a {0}ª à direita.</ordinalMinimalPairs>
 			<genderMinimalPairs gender="feminine">A {0} é...</genderMinimalPairs>
@@ -9931,7 +9930,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName draft="contributed">mil</displayName>
+				<displayName>mil</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>

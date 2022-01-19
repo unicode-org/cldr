@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -937,47 +937,81 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="1694ACAD">frantses moderno goiztiarra</variant>
 			<variant type="1959ACAD">akademikoa</variant>
 			<variant type="ABL1943">1943ko ortografia-formulazioa</variant>
-			<variant type="AKUAPEM">AKUAPIMERA</variant>
+			<variant type="AKUAPEM" draft="provisional">AKUAPEM</variant>
 			<variant type="ALALC97">ALA-LC erromanizazioa, 1997ko edizioa</variant>
 			<variant type="ALUKU">Aluku dialektoa</variant>
 			<variant type="AO1990">1990eko portugesaren ortografia-hitzarmena</variant>
 			<variant type="ARANES">ARANERA</variant>
-			<variant type="ASANTE">ASANTEERA</variant>
+			<variant type="ARKAIKA">ARKAIKA</variant>
+			<variant type="ASANTE" draft="provisional">ASANTE</variant>
+			<variant type="AUVERN">AUVERN</variant>
 			<variant type="BAKU1926">Turkieraren latindar alfabeto bateratua</variant>
 			<variant type="BALANKA">Aniieraren balanka dialektoa</variant>
 			<variant type="BARLA">Caboverdeeraren barlavento dialekto taldea</variant>
+			<variant type="BASICENG">BASICENG</variant>
+			<variant type="BAUDDHA">BAUDDHA</variant>
 			<variant type="BISCAYAN">Mendebaldeko euskara</variant>
 			<variant type="BISKE">San Giorgio / Bila dialektoa</variant>
 			<variant type="BOHORIC">Bohoric alfabetoa</variant>
 			<variant type="BOONT">Boontling</variant>
+			<variant type="BORNHOLM">BORNHOLM</variant>
+			<variant type="CISAUP">CISAUP</variant>
 			<variant type="COLB1945">1945eko Portugal eta Barasilgo ortografia-hitzarmena</variant>
+			<variant type="CORNU">CORNU</variant>
+			<variant type="CREISS">CREISS</variant>
 			<variant type="DAJNKO">Dajnko alfabetoa</variant>
 			<variant type="EKAVSK">Serbiera ekavierako ahoskerarekin</variant>
 			<variant type="EMODENG">Ingeles moderno goiztiarra</variant>
 			<variant type="FONIPA">IPA ahoskera</variant>
+			<variant type="FONKIRSH">FONKIRSH</variant>
+			<variant type="FONNAPA">FONNAPA</variant>
 			<variant type="FONUPA">UPa ahoskera</variant>
+			<variant type="FONXSAMP">FONXSAMP</variant>
 			<variant type="GASCON">GASKOI</variant>
+			<variant type="GRCLASS">GRCLASS</variant>
+			<variant type="GRITAL">GRITAL</variant>
+			<variant type="GRMISTR">GRMISTR</variant>
 			<variant type="HEPBURN">Hepburn erromanizazioa</variant>
+			<variant type="HOGNORSK">HOGNORSK</variant>
+			<variant type="HSISTEMO">HSISTEMO</variant>
 			<variant type="IJEKAVSK">Serbiera ijekavieraren ahoskerarekin</variant>
+			<variant type="ITIHASA">ITIHASA</variant>
+			<variant type="IVANCHOV">IVANCHOV</variant>
+			<variant type="JAUER">JAUER</variant>
+			<variant type="JYUTPING">JYUTPING</variant>
 			<variant type="KKCOR">Ortografia arrunta</variant>
+			<variant type="KOCIEWIE">KOCIEWIE</variant>
 			<variant type="KSCOR">Ortografia estandarra</variant>
+			<variant type="LAUKIKA">LAUKIKA</variant>
+			<variant type="LEMOSIN">LEMOSIN</variant>
+			<variant type="LENGADOC">LENGADOC</variant>
 			<variant type="LIPAW">Resiako lipovaz dialektoa</variant>
+			<variant type="LUNA1918">LUNA1918</variant>
 			<variant type="METELKO">Metelko alfabetoa</variant>
 			<variant type="MONOTON">Tonu bakarra</variant>
 			<variant type="NDYUKA">Ndyuka dialektoa</variant>
 			<variant type="NEDIS">Natisoneko dialektoa</variant>
 			<variant type="NEWFOUND">TERNUA</variant>
+			<variant type="NICARD">NICARD</variant>
 			<variant type="NJIVA">Gniva/Njiva dialektoa</variant>
 			<variant type="NULIK">Volapuk modernoa</variant>
 			<variant type="OSOJS">Oseacco/Osojane dialektoa</variant>
 			<variant type="OXENDICT">Oxfordeko ingeles-hiztegiko ortografia</variant>
+			<variant type="PAHAWH2">PAHAWH2</variant>
+			<variant type="PAHAWH3">PAHAWH3</variant>
+			<variant type="PAHAWH4">PAHAWH4</variant>
 			<variant type="PAMAKA">Pamaka dialektoa</variant>
+			<variant type="PEANO">PEANO</variant>
+			<variant type="PETR1708">PETR1708</variant>
 			<variant type="PINYIN">Pinyin erromanizazioa</variant>
 			<variant type="POLYTON">Tonu anitza</variant>
 			<variant type="POSIX">Ordenagailua</variant>
+			<variant type="PROVENC">PROVENC</variant>
+			<variant type="PUTER">PUTER</variant>
 			<variant type="REVISED">Ortografia berrikusia</variant>
 			<variant type="RIGIK">Volapuk klasikoa</variant>
 			<variant type="ROZAJ">Resiera</variant>
+			<variant type="RUMGR">RUMGR</variant>
 			<variant type="SAAHO">Saho</variant>
 			<variant type="SCOTLAND">Eskoziar ingeles estandarra</variant>
 			<variant type="SCOUSE">Scouse</variant>
@@ -985,12 +1019,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="SOLBA">Stolvizza/Solbica dialektoa</variant>
 			<variant type="SOTAV">Caboverdeerako sotavento dialekto taldea</variant>
 			<variant type="SPANGLIS">SPANGLISH</variant>
+			<variant type="SURMIRAN">SURMIRAN</variant>
+			<variant type="SURSILV">SURSILV</variant>
+			<variant type="SUTSILV">SUTSILV</variant>
 			<variant type="TARASK">Taraskievica ortografia</variant>
+			<variant type="TONGYONG">TONGYONG</variant>
+			<variant type="TUNUMIIT">TUNUMIIT</variant>
 			<variant type="UCCOR">Ortografia bateratua</variant>
 			<variant type="UCRCOR">Ortografia berrikusi bateratua</variant>
+			<variant type="ULSTER">ULSTER</variant>
 			<variant type="UNIFON">Alfabeto fonetiko unifonoa</variant>
+			<variant type="VAIDIKA">VAIDIKA</variant>
 			<variant type="VALENCIA">Valentziera</variant>
+			<variant type="VALLADER">VALLADER</variant>
+			<variant type="VECDRUKA">VECDRUKA</variant>
+			<variant type="VIVARAUP">VIVARAUP</variant>
 			<variant type="WADEGILE">Wade-Giles erromanizazioa</variant>
+			<variant type="XSISTEMO">XSISTEMO</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Egutegia</key>
@@ -11446,7 +11491,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern draft="contributed">#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">

@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -773,7 +773,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Tibt">Tibet</script>
 			<script type="Tirh">Tirhuta</script>
 			<script type="Tnsa" draft="contributed">Tangsa</script>
-			<script type="Toto" draft="contributed">Toto (txo)</script>
+			<script type="Toto" draft="contributed">Toto</script>
 			<script type="Ugar">Ugaritik</script>
 			<script type="Vaii">Vai</script>
 			<script type="Visp">Ucapan Terlihat</script>
@@ -1116,30 +1116,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="1694ACAD">Prancis Modern Awal</variant>
 			<variant type="1959ACAD">Akademik</variant>
 			<variant type="ABL1943" draft="contributed">Formulasi ortografi 1943</variant>
-			<variant type="AKUAPEM" draft="contributed">AKUAPIM</variant>
+			<variant type="AKUAPEM" draft="contributed">AKUAPEM</variant>
 			<variant type="ALALC97">ALA-LC Latin, edisi 1997</variant>
 			<variant type="ALUKU">Dialek Aluku</variant>
 			<variant type="AO1990" draft="contributed">Perjanjian Ortografi Bahasa Portugis 1990</variant>
-			<variant type="ARANES" draft="contributed">ARAN</variant>
+			<variant type="ARANES" draft="contributed">ARANES</variant>
 			<variant type="AREVELA">Armenia Timur</variant>
 			<variant type="AREVMDA">Armenia Barat</variant>
-			<variant type="ARKAIKA" draft="contributed">Arkaika</variant>
-			<variant type="ASANTE" draft="contributed">Asante</variant>
-			<variant type="AUVERN" draft="contributed">Auvern</variant>
+			<variant type="ARKAIKA" draft="contributed">ARKAIKA</variant>
+			<variant type="ASANTE" draft="contributed">ASANTE</variant>
+			<variant type="AUVERN" draft="contributed">AUVERN</variant>
 			<variant type="BAKU1926">Alfabet Latin Turki Terpadu</variant>
 			<variant type="BALANKA" draft="contributed">Dialek Balanka Anii</variant>
 			<variant type="BARLA" draft="contributed">Kelompok dialek Barlavento Kabuverdianu</variant>
-			<variant type="BASICENG" draft="contributed">Basiceng</variant>
-			<variant type="BAUDDHA" draft="contributed">Bauddha</variant>
+			<variant type="BASICENG" draft="contributed">BASICENG</variant>
+			<variant type="BAUDDHA" draft="contributed">BAUDDHA</variant>
 			<variant type="BISCAYAN">BISKAY</variant>
 			<variant type="BISKE">Dialek San Giorgio/Bila</variant>
 			<variant type="BOHORIC" draft="contributed">Alfabet Bohorič</variant>
 			<variant type="BOONT">Boontling</variant>
-			<variant type="BORNHOLM" draft="contributed">Bornholm</variant>
-			<variant type="CISAUP" draft="contributed">Cisaup</variant>
+			<variant type="BORNHOLM" draft="contributed">BORNHOLM</variant>
+			<variant type="CISAUP" draft="contributed">CISAUP</variant>
 			<variant type="COLB1945" draft="contributed">Konvensi Ortografi Portugis-Brasil 1945</variant>
-			<variant type="CORNU" draft="contributed">Cornu</variant>
-			<variant type="CREISS" draft="contributed">Creiss</variant>
+			<variant type="CORNU" draft="contributed">CORNU</variant>
+			<variant type="CREISS" draft="contributed">CREISS</variant>
 			<variant type="DAJNKO" draft="contributed">Alfabet Dajnko</variant>
 			<variant type="FONIPA">Fonetik IPA</variant>
 			<variant type="FONUPA">Fonetik UPA</variant>
@@ -1366,7 +1366,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[å]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
@@ -2972,19 +2972,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="wide">
-							<day type="sun">Ahad</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">H</era>
@@ -3381,7 +3368,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>bulan</displayName>
 				<relative type="-1">bulan lalu</relative>
 				<relative type="0">bulan ini</relative>
-				<relative type="1">bulan depan</relative>
+				<relative type="1">bulan berikutnya</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">dalam {0} bulan</relativeTimePattern>
 				</relativeTime>
@@ -3476,7 +3463,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="day-short">
-				<displayName>hr</displayName>
+				<displayName>h</displayName>
 				<relative type="-2" draft="contributed">selumbari</relative>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
@@ -3771,7 +3758,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>AM/PM</displayName>
 			</field>
 			<field type="hour">
-				<displayName>jam</displayName>
+				<displayName>Jam</displayName>
 				<relative type="0">jam ini</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">dalam {0} jam</relativeTimePattern>
@@ -5496,9 +5483,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Waktu Musim Panas Kuba</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">CT (Kuba)</generic>
-					<standard draft="contributed">CST (Kuba)</standard>
-					<daylight draft="contributed">CDT (Kuba)</daylight>
+					<generic draft="contributed">CT</generic>
+					<standard draft="contributed">CST</standard>
+					<daylight draft="contributed">CDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Davis">
@@ -5613,8 +5600,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</long>
 				<short>
 					<generic draft="contributed">EGT</generic>
-					<standard draft="contributed">EGST</standard>
-					<daylight draft="contributed">EGDT</daylight>
+					<daylight draft="contributed">EGST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Greenland_Western">
@@ -5998,7 +5984,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Waktu Musim Panas Saint Pierre dan Miquelon</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">PMT</generic>
 					<standard draft="contributed">PMST</standard>
 					<daylight draft="contributed">PMDT</daylight>
 				</short>

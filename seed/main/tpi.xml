@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -32,8 +32,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es_ES">Spenis (Spein)</language>
 			<language type="es_MX">Meksikan Spenis</language>
 			<language type="fr">Frens</language>
-			<language type="fr_CA">Kenedien Frens</language>
-			<language type="fr_CH">Swis Frens</language>
+			<language type="fr_CA" draft="unconfirmed">Kenedien Spenis</language>
+			<language type="fr_CH" draft="unconfirmed">Swis Spenis</language>
 			<language type="it">Italien</language>
 			<language type="ja">Japanis</language>
 			<language type="pt">Potigis</language>
@@ -148,19 +148,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEE, dd MMMM y</pattern>
+							<pattern draft="unconfirmed">EEE, dd MMMM yyyy</pattern>
 							<datetimeSkeleton draft="unconfirmed">yyyyMMMMEEEdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd MMMM y</pattern>
+							<pattern draft="unconfirmed">dd MMMM yyyy</pattern>
 							<datetimeSkeleton draft="unconfirmed">yyyyMMMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd MMM y</pattern>
+							<pattern draft="unconfirmed">dd MMM yyyy</pattern>
 							<datetimeSkeleton draft="unconfirmed">yyyyMMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -210,6 +210,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern draft="unconfirmed">#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="unconfirmed">0 tausen</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 tausen</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000 tausen</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 milien</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00 milien</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000 milien</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 bilien</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="unconfirmed">0T</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00T</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000T</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0M</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00M</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0B</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

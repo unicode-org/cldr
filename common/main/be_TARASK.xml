@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -11,7 +11,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<identity>
 		<version number="$Revision$"/>
 		<language type="be"/>
-		<variant type="TARASK"/>
+		<variant type="tarask"/>
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
@@ -511,6 +511,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="017" draft="provisional">Сярэдняя Афрыка</territory>
 			<territory type="018" draft="provisional">Паўднёвая Афрыка</territory>
 			<territory type="019" draft="provisional">Паўночная і Паўднёвая Амэрыкі</territory>
+			<territory type="021" draft="provisional">Паўночная Амэрыка</territory>
 			<territory type="029" draft="provisional">Карыбы</territory>
 			<territory type="030" draft="provisional">Усходняя Азія</territory>
 			<territory type="034" draft="provisional">Паўднёвая Азія</territory>
@@ -518,6 +519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="039" draft="provisional">Паўднёвая Эўропа</territory>
 			<territory type="053" draft="provisional">Аўстралазія</territory>
 			<territory type="054" draft="provisional">Мэланэзія</territory>
+			<territory type="057" draft="provisional">Мікранэзія</territory>
 			<territory type="061" draft="provisional">Палінэзія</territory>
 			<territory type="142" draft="provisional">Азія</territory>
 			<territory type="143" draft="provisional">Сярэдняя Азія</territory>
@@ -893,7 +895,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters draft="provisional">[а б в г ґ д {дж} {дз} е ё ж з і й к л м н о п р с т у ў ф х ц ч ш ы ь э ю я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="provisional">[{а\u0301} {е\u0301} {ё\u0301} {і\u0301} {о\u0301} {у\u0301} {ы\u0301} {э\u0301} {ю\u0301} {я\u0301}]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="provisional">[А Б В Г Ґ Д Е Ё Ж З І Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Ы Ь Э Ю Я]</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="provisional">[\- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="provisional">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="provisional">[\- ‑ , ; \: ! ? . « » ( ) \[ \] \{ \}]</exemplarCharacters>
 		<ellipsis type="final" draft="provisional">{0}…</ellipsis>
 		<ellipsis type="initial" draft="provisional">…{0}</ellipsis>
@@ -3222,7 +3224,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity draft="provisional">Алматы</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
-				<exemplarCity draft="provisional">Віент’ян</exemplarCity>
+				<exemplarCity draft="provisional">Віент'ян</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
 				<exemplarCity draft="provisional">Бэйрут</exemplarCity>
@@ -4796,54 +4798,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="provisional">0 тыс'.'</pattern>
-					<pattern type="1000" count="few" draft="provisional">0 тыс'.'</pattern>
-					<pattern type="1000" count="many" draft="provisional">0 тыс'.'</pattern>
-					<pattern type="1000" count="other" draft="provisional">0 тыс'.'</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 тыс'.'</pattern>
-					<pattern type="10000" count="few" draft="provisional">00 тыс'.'</pattern>
-					<pattern type="10000" count="many" draft="provisional">00 тыс'.'</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 тыс'.'</pattern>
-					<pattern type="100000" count="one" draft="provisional">000 тыс'.'</pattern>
-					<pattern type="100000" count="few" draft="provisional">000 тыс'.'</pattern>
-					<pattern type="100000" count="many" draft="provisional">000 тыс'.'</pattern>
-					<pattern type="100000" count="other" draft="provisional">000 тыс'.'</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 млн</pattern>
-					<pattern type="1000000" count="few" draft="provisional">0 млн</pattern>
-					<pattern type="1000000" count="many" draft="provisional">0 млн</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 млн</pattern>
-					<pattern type="10000000" count="one" draft="provisional">00 млн</pattern>
-					<pattern type="10000000" count="few" draft="provisional">00 млн</pattern>
-					<pattern type="10000000" count="many" draft="provisional">00 млн</pattern>
-					<pattern type="10000000" count="other" draft="provisional">00 млн</pattern>
-					<pattern type="100000000" count="one" draft="provisional">000 млн</pattern>
-					<pattern type="100000000" count="few" draft="provisional">000 млн</pattern>
-					<pattern type="100000000" count="many" draft="provisional">000 млн</pattern>
-					<pattern type="100000000" count="other" draft="provisional">000 млн</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0 млрд</pattern>
-					<pattern type="1000000000" count="few" draft="provisional">0 млрд</pattern>
-					<pattern type="1000000000" count="many" draft="provisional">0 млрд</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0 млрд</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">00 млрд</pattern>
-					<pattern type="10000000000" count="few" draft="provisional">00 млрд</pattern>
-					<pattern type="10000000000" count="many" draft="provisional">00 млрд</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">00 млрд</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">000 млрд</pattern>
-					<pattern type="100000000000" count="few" draft="provisional">000 млрд</pattern>
-					<pattern type="100000000000" count="many" draft="provisional">000 млрд</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">000 млрд</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">0 трлн</pattern>
-					<pattern type="1000000000000" count="few" draft="provisional">0 трлн</pattern>
-					<pattern type="1000000000000" count="many" draft="provisional">0 трлн</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0 трлн</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">00 трлн</pattern>
-					<pattern type="10000000000000" count="few" draft="provisional">00 трлн</pattern>
-					<pattern type="10000000000000" count="many" draft="provisional">00 трлн</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 трлн</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">000 трлн</pattern>
-					<pattern type="100000000000000" count="few" draft="provisional">000 трлн</pattern>
-					<pattern type="100000000000000" count="many" draft="provisional">000 трлн</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 трлн</pattern>
+					<pattern type="1000" count="one" draft="provisional">0 тыс'.'</pattern>
+					<pattern type="1000" count="few" draft="provisional">0 тыс'.'</pattern>
+					<pattern type="1000" count="many" draft="provisional">0 тыс'.'</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 тыс'.'</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 тыс'.'</pattern>
+					<pattern type="10000" count="few" draft="provisional">00 тыс'.'</pattern>
+					<pattern type="10000" count="many" draft="provisional">00 тыс'.'</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 тыс'.'</pattern>
+					<pattern type="100000" count="one" draft="provisional">000 тыс'.'</pattern>
+					<pattern type="100000" count="few" draft="provisional">000 тыс'.'</pattern>
+					<pattern type="100000" count="many" draft="provisional">000 тыс'.'</pattern>
+					<pattern type="100000" count="other" draft="provisional">000 тыс'.'</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 млн</pattern>
+					<pattern type="1000000" count="few" draft="provisional">0 млн</pattern>
+					<pattern type="1000000" count="many" draft="provisional">0 млн</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 млн</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 млн</pattern>
+					<pattern type="10000000" count="few" draft="provisional">00 млн</pattern>
+					<pattern type="10000000" count="many" draft="provisional">00 млн</pattern>
+					<pattern type="10000000" count="other" draft="provisional">00 млн</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 млн</pattern>
+					<pattern type="100000000" count="few" draft="provisional">000 млн</pattern>
+					<pattern type="100000000" count="many" draft="provisional">000 млн</pattern>
+					<pattern type="100000000" count="other" draft="provisional">000 млн</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0 млрд</pattern>
+					<pattern type="1000000000" count="few" draft="provisional">0 млрд</pattern>
+					<pattern type="1000000000" count="many" draft="provisional">0 млрд</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">0 млрд</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 млрд</pattern>
+					<pattern type="10000000000" count="few" draft="provisional">00 млрд</pattern>
+					<pattern type="10000000000" count="many" draft="provisional">00 млрд</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">00 млрд</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 млрд</pattern>
+					<pattern type="100000000000" count="few" draft="provisional">000 млрд</pattern>
+					<pattern type="100000000000" count="many" draft="provisional">000 млрд</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">000 млрд</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0 трлн</pattern>
+					<pattern type="1000000000000" count="few" draft="provisional">0 трлн</pattern>
+					<pattern type="1000000000000" count="many" draft="provisional">0 трлн</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">0 трлн</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 трлн</pattern>
+					<pattern type="10000000000000" count="few" draft="provisional">00 трлн</pattern>
+					<pattern type="10000000000000" count="many" draft="provisional">00 трлн</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">00 трлн</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 трлн</pattern>
+					<pattern type="100000000000000" count="few" draft="provisional">000 трлн</pattern>
+					<pattern type="100000000000000" count="many" draft="provisional">000 трлн</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">000 трлн</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4857,69 +4859,69 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="provisional">#,##0 %</pattern>
+					<pattern draft="provisional">#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="provisional">#,##0.00 ¤</pattern>
+					<pattern draft="provisional">#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern draft="provisional">#,##0.00 ¤</pattern>
+					<pattern draft="provisional">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">0 тыс'.' ¤</pattern>
-					<pattern type="1000" count="few" draft="provisional">0 тыс'.' ¤</pattern>
-					<pattern type="1000" count="many" draft="provisional">0 тыс'.' ¤</pattern>
-					<pattern type="1000" count="other" draft="provisional">0 тыс'.' ¤</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 тыс'.' ¤</pattern>
-					<pattern type="10000" count="few" draft="provisional">00 тыс'.' ¤</pattern>
-					<pattern type="10000" count="many" draft="provisional">00 тыс'.' ¤</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 тыс'.' ¤</pattern>
-					<pattern type="100000" count="one" draft="provisional">000 тыс'.' ¤</pattern>
-					<pattern type="100000" count="few" draft="provisional">000 тыс'.' ¤</pattern>
-					<pattern type="100000" count="many" draft="provisional">000 тыс'.' ¤</pattern>
-					<pattern type="100000" count="other" draft="provisional">000 тыс'.' ¤</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 млн ¤</pattern>
-					<pattern type="1000000" count="few" draft="provisional">0 млн ¤</pattern>
-					<pattern type="1000000" count="many" draft="provisional">0 млн ¤</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 млн ¤</pattern>
-					<pattern type="10000000" count="one" draft="provisional">00 млн ¤</pattern>
-					<pattern type="10000000" count="few" draft="provisional">00 млн ¤</pattern>
-					<pattern type="10000000" count="many" draft="provisional">00 млн ¤</pattern>
-					<pattern type="10000000" count="other" draft="provisional">00 млн ¤</pattern>
-					<pattern type="100000000" count="one" draft="provisional">000 млн ¤</pattern>
-					<pattern type="100000000" count="few" draft="provisional">000 млн ¤</pattern>
-					<pattern type="100000000" count="many" draft="provisional">000 млн ¤</pattern>
-					<pattern type="100000000" count="other" draft="provisional">000 млн ¤</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0 млрд ¤</pattern>
-					<pattern type="1000000000" count="few" draft="provisional">0 млрд ¤</pattern>
-					<pattern type="1000000000" count="many" draft="provisional">0 млрд ¤</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0 млрд ¤</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">00 млрд ¤</pattern>
-					<pattern type="10000000000" count="few" draft="provisional">00 млрд ¤</pattern>
-					<pattern type="10000000000" count="many" draft="provisional">00 млрд ¤</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">00 млрд ¤</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">000 млрд ¤</pattern>
-					<pattern type="100000000000" count="few" draft="provisional">000 млрд ¤</pattern>
-					<pattern type="100000000000" count="many" draft="provisional">000 млрд ¤</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">000 млрд ¤</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">0 трлн ¤</pattern>
-					<pattern type="1000000000000" count="few" draft="provisional">0 трлн ¤</pattern>
-					<pattern type="1000000000000" count="many" draft="provisional">0 трлн ¤</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0 трлн ¤</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">00 трлн ¤</pattern>
-					<pattern type="10000000000000" count="few" draft="provisional">00 трлн ¤</pattern>
-					<pattern type="10000000000000" count="many" draft="provisional">00 трлн ¤</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 трлн ¤</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">000 трлн ¤</pattern>
-					<pattern type="100000000000000" count="few" draft="provisional">000 трлн ¤</pattern>
-					<pattern type="100000000000000" count="many" draft="provisional">000 трлн ¤</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 трлн ¤</pattern>
+					<pattern type="1000" count="one" draft="provisional">0 тыс'.' ¤</pattern>
+					<pattern type="1000" count="few" draft="provisional">0 тыс'.' ¤</pattern>
+					<pattern type="1000" count="many" draft="provisional">0 тыс'.' ¤</pattern>
+					<pattern type="1000" count="other" draft="provisional">0 тыс'.' ¤</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 тыс'.' ¤</pattern>
+					<pattern type="10000" count="few" draft="provisional">00 тыс'.' ¤</pattern>
+					<pattern type="10000" count="many" draft="provisional">00 тыс'.' ¤</pattern>
+					<pattern type="10000" count="other" draft="provisional">00 тыс'.' ¤</pattern>
+					<pattern type="100000" count="one" draft="provisional">000 тыс'.' ¤</pattern>
+					<pattern type="100000" count="few" draft="provisional">000 тыс'.' ¤</pattern>
+					<pattern type="100000" count="many" draft="provisional">000 тыс'.' ¤</pattern>
+					<pattern type="100000" count="other" draft="provisional">000 тыс'.' ¤</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0 млн ¤</pattern>
+					<pattern type="1000000" count="few" draft="provisional">0 млн ¤</pattern>
+					<pattern type="1000000" count="many" draft="provisional">0 млн ¤</pattern>
+					<pattern type="1000000" count="other" draft="provisional">0 млн ¤</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 млн ¤</pattern>
+					<pattern type="10000000" count="few" draft="provisional">00 млн ¤</pattern>
+					<pattern type="10000000" count="many" draft="provisional">00 млн ¤</pattern>
+					<pattern type="10000000" count="other" draft="provisional">00 млн ¤</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 млн ¤</pattern>
+					<pattern type="100000000" count="few" draft="provisional">000 млн ¤</pattern>
+					<pattern type="100000000" count="many" draft="provisional">000 млн ¤</pattern>
+					<pattern type="100000000" count="other" draft="provisional">000 млн ¤</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0 млрд ¤</pattern>
+					<pattern type="1000000000" count="few" draft="provisional">0 млрд ¤</pattern>
+					<pattern type="1000000000" count="many" draft="provisional">0 млрд ¤</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">0 млрд ¤</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 млрд ¤</pattern>
+					<pattern type="10000000000" count="few" draft="provisional">00 млрд ¤</pattern>
+					<pattern type="10000000000" count="many" draft="provisional">00 млрд ¤</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">00 млрд ¤</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 млрд ¤</pattern>
+					<pattern type="100000000000" count="few" draft="provisional">000 млрд ¤</pattern>
+					<pattern type="100000000000" count="many" draft="provisional">000 млрд ¤</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">000 млрд ¤</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0 трлн ¤</pattern>
+					<pattern type="1000000000000" count="few" draft="provisional">0 трлн ¤</pattern>
+					<pattern type="1000000000000" count="many" draft="provisional">0 трлн ¤</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">0 трлн ¤</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 трлн ¤</pattern>
+					<pattern type="10000000000000" count="few" draft="provisional">00 трлн ¤</pattern>
+					<pattern type="10000000000000" count="many" draft="provisional">00 трлн ¤</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">00 трлн ¤</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 трлн ¤</pattern>
+					<pattern type="100000000000000" count="few" draft="provisional">000 трлн ¤</pattern>
+					<pattern type="100000000000000" count="many" draft="provisional">000 трлн ¤</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">000 трлн ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one" draft="provisional">{0} {1}</unitPattern>
@@ -9530,7 +9532,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="87.5" draft="provisional">напаўшчыльны</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed" draft="provisional">напаўсьціснуты</styleName>
 		<styleName type="wdth" subtype="87.5" alt="narrow" draft="provisional">напаўвузкі</styleName>
-		<styleName type="wdth" subtype="100" draft="provisional">нармальны</styleName>
+		<styleName type="wdth" subtype="100" draft="provisional">звычайны</styleName>
 		<styleName type="wdth" subtype="112.5" draft="provisional">напаўразгорнуты</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended" draft="provisional">напаўпашыраны</styleName>
 		<styleName type="wdth" subtype="112.5" alt="wide" draft="provisional">напаўшырокі</styleName>

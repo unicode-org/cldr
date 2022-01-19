@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -2777,7 +2777,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>കാലഘട്ടം</displayName>
 			</field>
 			<field type="era-narrow">
-				<displayName>കാല.</displayName>
+				<displayName>കാലഘട്ടം</displayName>
 			</field>
 			<field type="year">
 				<displayName>വർഷം</displayName>
@@ -7609,6 +7609,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" case="instrumental">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="locative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="sociative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">വർഗ്ഗം {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="accusative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="dative">↑↑↑</compoundUnitPattern1>
@@ -7616,6 +7630,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" case="instrumental">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="locative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="sociative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1 count="one">ക്യുബിക് {0}</compoundUnitPattern1>
@@ -7625,6 +7653,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="one" case="instrumental">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="locative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" case="sociative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="inanimate" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">ക്യുബിക് {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="accusative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="dative">↑↑↑</compoundUnitPattern1>
@@ -7632,6 +7674,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" case="instrumental">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="locative">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" case="sociative">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="feminine" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="accusative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="dative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="genitive" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="instrumental" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="locative" draft="contributed">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="inanimate" case="sociative" draft="contributed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -7643,7 +7699,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" case="accusative">{0} ജി-ഫോഴ്‌സിനെ</unitPattern>
 				<unitPattern count="one" case="dative">{0} ജി-ഫോഴ്‌സിനെ</unitPattern>
 				<unitPattern count="one" case="genitive">{0} ജി-ഫോഴ്‌സിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ജി-ഫോഴ്‌സിനാൽ</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="locative">{0} ജി-ഫോഴ്‌സിൽ</unitPattern>
 				<unitPattern count="one" case="sociative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ജി-ഫോഴ്‌സ്</unitPattern>
@@ -7651,7 +7707,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="dative">{0} ജി-ഫോഴ്‌സിന്</unitPattern>
 				<unitPattern count="other" case="genitive">{0} ജി-ഫോഴ്‌സിന്റെ</unitPattern>
 				<unitPattern count="other" case="instrumental">{0} ജി-ഫോഴ്‌സിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ജി-ഫോഴ്‌സിൽ</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="sociative">{0} ജി-ഫോഴ്‌സിനോട്</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
@@ -7663,91 +7719,91 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>റെവല്യൂഷൻ</displayName>
 				<unitPattern count="one">{0} റെവല്യൂഷൻ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} റെവല്യൂഷനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} റെവല്യൂഷന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} റെവല്യൂഷന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} റെവല്യൂഷനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} റെവല്യൂഷനിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} റെവല്യൂഷനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} റെവല്യൂഷൻ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} റെവല്യൂഷനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} റെവല്യൂഷന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} റെവല്യൂഷന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} റെവല്യൂഷനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} റെവല്യൂഷനിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} റെവല്യൂഷനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<gender draft="contributed">neuter</gender>
 				<displayName>റേഡിയൻ</displayName>
 				<unitPattern count="one">{0} റേഡിയൻ</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">{0} റേഡിയന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} റേഡിയന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} റേഡിയനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} റേഡിയനിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} റേഡിയനോട്</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} റേഡിയൻ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} റേഡിയനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} റേഡിയന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} റേഡിയന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} റേഡിയനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} റേഡിയനിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} റേഡിയനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<gender draft="contributed">neuter</gender>
 				<displayName>ഡിഗ്രി</displayName>
 				<unitPattern count="one">{0} ഡിഗ്രി</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ഡിഗ്രിയെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ഡിഗ്രിക്ക്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ഡിഗ്രിയുടെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ഡിഗ്രിയാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ഡിഗ്രിയിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ഡിഗ്രിയോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ഡിഗ്രി</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ഡിഗ്രിയെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ഡിഗ്രിക്ക്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ഡിഗ്രിയുടെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ഡിഗ്രിയാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ഡിഗ്രിയിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ഡിഗ്രിയോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<gender draft="contributed">neuter</gender>
 				<displayName>ആർക്ക്മിനിറ്റ്</displayName>
 				<unitPattern count="one">{0} ആർക്ക്മിനിറ്റ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ആർക്ക്മിനിറ്റിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ആർക്ക്മിനിറ്റിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ആക്ക്മിനിറ്റിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ആർക്ക്മിറ്റിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ആർക്ക്മിനിറ്റിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ആർക്ക്മിനിറ്റിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} ആർക്ക്മിനിറ്റിനെ</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ആർക്ക്മിനിറ്റ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ആർക്ക്മിനിറ്റിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ആർക്ക്മിനിറ്റിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ആർക്ക്മിനിറ്റിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ആർക്ക്മിനിറ്റിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ആർക്ക്മിനിറ്റിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ആർക്ക്മിനിറ്റിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<gender draft="contributed">neuter</gender>
 				<displayName>ആർക്ക്സെക്കൻഡ്</displayName>
 				<unitPattern count="one">{0} ആർക്ക്സെക്കൻഡ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ആർക്ക്സെക്കൻഡിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ആർക്ക്സെക്കൻഡിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ആർക്ക്സെക്കൻഡിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ആർക്ക്സെക്കൻഡിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ആർക്ക്സെക്കൻഡിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ആർക്ക്സെക്കൻഡിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ആർക്ക്സെക്കൻഡ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ആർക്ക്സെക്കൻഡിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ആർക്ക്സെക്കൻഡിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ആർക്ക്സെക്കൻഡിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ആർക്ക്സെക്കൻഡിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ആർക്ക്സെക്കൻഡിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ആർക്ക്സെക്കൻഡിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>ചതുരശ്ര കിലോമീറ്റർ</displayName>
@@ -7759,19 +7815,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ഹെക്‌ടർ</displayName>
 				<unitPattern count="one">{0} ഹെക്‌ടർ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ഹെക്‌ടറിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ഹെക്‌ടറിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ഹെക്‌ടറിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ഹെക്‌ടറിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ഹെക്‌ടറിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ഹെക്‌ടറിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ഹെക്‌ടർ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ഹെക്‌ടറിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ഹെക്‌ടറിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ഹെക്‌ടറുകളുടെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ഹെക്‌ടറുകളാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ഹെക്‌ടറുകളിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ഹെക്‌ടറുകളോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>ചതുരശ്ര മീറ്റർ</displayName>
@@ -7821,19 +7877,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ക്യാരറ്റ്</displayName>
 				<unitPattern count="one">{0} ക്യാരറ്റ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ക്യാരറ്റിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ക്യാരറ്റിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ക്യാരറ്റിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ക്യാരറ്റിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ക്യാരറ്റിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ക്യാരറ്റിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ക്യാരറ്റ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ക്യാരറ്റിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ക്യാരറ്റിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ക്യാരറ്റിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ക്യാരറ്റിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ക്യാരറ്റിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ക്യാരറ്റിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>മില്ലിഗ്രാം / ഡെസിലിറ്റർ</displayName>
@@ -7854,91 +7910,91 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>പാർട്‌സ് / മില്ല്യൺ</displayName>
 				<unitPattern count="one">പാർട്ട് / മില്ല്യൺ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} പാർട്ട് / മില്ല്യണിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} പാർട്ട് / മില്ല്യണിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} പാർട്ട് / മില്ല്യണിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} പാർട്ട് / മില്ല്യണിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} പാർട്ട് / മില്ല്യണിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} പാർട്ട് / മില്ല്യണിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} പാർട്‌സ് / മില്ല്യൺ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} പാർട്ട് / മില്ല്യണിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} പാർട്ട് / മില്ല്യണിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} പാർട്ട് / മില്ല്യണിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} പാർട്ട് / മില്ല്യണിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} പാർട്ട് / മില്ല്യണിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} പാർട്ട് / മില്ല്യണിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<gender draft="contributed">neuter</gender>
 				<displayName>%</displayName>
 				<unitPattern count="one">{0}%</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ശതമാനത്തിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ശതമാനത്തിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ശതമാനത്തിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ശതമാനത്തിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ശതമാനത്തിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ശതമാനത്തിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}%</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ശതമാനത്തിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ശതമാനത്തിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ശതമാനത്തിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ശതമാനത്തിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ശതമാനത്തിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ശതമാനത്തിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<gender draft="contributed">neuter</gender>
 				<displayName>പ്രതിമില്ലി</displayName>
 				<unitPattern count="one">{0} പ്രതിമില്ലി</unitPattern>
-				<unitPattern count="one" case="accusative">{0} പ്രതിമില്ലിയെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} പ്രതിമില്ലിക്ക്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} പ്രതിമില്ലിയുടെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} പ്രതിമില്ലിയാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} പ്രതിമില്ലിയിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} പ്രതിമില്ലിയോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} പ്രതിമില്ലി</unitPattern>
-				<unitPattern count="other" case="accusative">{0} പ്രതിമില്ലിയെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} പ്രതിമില്ലിക്ക്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} പ്രതിമില്ലിയുടെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} പ്രതിമില്ലിയാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} പ്രതിമില്ലിയിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} പ്രതിമില്ലിയോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<gender draft="contributed">neuter</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} പിരമിഡ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} പിരമിഡിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} പിരമിഡിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} പിരമിഡിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} പിരമിഡിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} പിരമിഡിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} പിരമിഡിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} പിരമിഡ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} പിരമിഡിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} പിരമിഡിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} പിരമിഡിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} പിരമിഡിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} പിരമിഡിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} പിരമിഡിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<gender draft="contributed">neuter</gender>
 				<displayName>മോളുകൾ</displayName>
 				<unitPattern count="one">{0} മോൾ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} മോളിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} മോളിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} മോളിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} മോളിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} മോളിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} മോളിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} മോളുകൾ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} മോളുകളെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} മോളുകൾക്ക്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} മോളുകളുടെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} മോളുകളാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} മോളുകളിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} മോളുകളോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ലിറ്റർ/കിലോമീറ്റർ</displayName>
@@ -8009,52 +8065,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ബൈറ്റ്</displayName>
 				<unitPattern count="one">{0} ബൈറ്റ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ബൈറ്റിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ബൈറ്റിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ബൈറ്റിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ബൈറ്റിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ബൈറ്റിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ബൈറ്റിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ബൈറ്റ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ബൈറ്റിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ബൈറ്റിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ബൈറ്റിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ബൈറ്റിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ബൈറ്റിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ബൈറ്റിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<gender draft="contributed">neuter</gender>
 				<displayName>ബിറ്റ്</displayName>
 				<unitPattern count="one">{0} ബിറ്റ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ബിറ്റിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ബിറ്റിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ബിറ്റിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ബിറ്റിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ബിറ്റിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ബിറ്റിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ബിറ്റ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ബിറ്റിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ബിറ്റിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ബിറ്റിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ബിറ്റിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ബിറ്റിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ബിറ്റിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<gender draft="contributed">neuter</gender>
 				<displayName>നൂറ്റാണ്ടുകൾ</displayName>
 				<unitPattern count="one">{0} നൂറ്റാണ്ട്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} നൂറ്റാണ്ടിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} നൂറ്റാണ്ടിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} നൂറ്റാണ്ടിന്റെ</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
-				<unitPattern count="one" case="locative">{0} നൂറ്റാണ്ടിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} നൂറ്റാണ്ടിനോട്</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} നൂറ്റാണ്ടുകൾ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} നൂറ്റാണ്ടുകളുടെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} നൂറ്റാണ്ടിലെ</unitPattern>
-				<unitPattern count="other" case="genitive">{0} നൂറ്റാണ്ടിന്റെ</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="sociative">↑↑↑</unitPattern>
@@ -8063,27 +8119,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ദശാബ്‌ദം</displayName>
 				<unitPattern count="one">ദശാബ്‌ദം</unitPattern>
-				<unitPattern count="one" case="accusative">ദശാബ്‌ദത്തിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ദശാബ്‌ദത്തിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ദശാബ്‌ദത്തിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ദശാബ്‌ദം</unitPattern>
-				<unitPattern count="one" case="locative">{0} ദശാബ്‌ദത്തിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ദശാബ്‌ദത്തിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} ദശാബ്‌ദം</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} ദശാബ്‌ദം</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} ദശാബ്‌ദം</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">{0} ദശാബ്‌ദം</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">{0} ദശാബ്‌ദം</unitPattern>
 				<unitPattern count="other">{0} ദശാബ്‌ദം</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ദശാബ്‌ദങ്ങളിലെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ദശാബ്‌ദങ്ങളിലെ</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ദശാബ്‌ദത്തിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ദശാബ്‌ദത്തിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ദശാബ്‌ദങ്ങളിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ദശാബ്‌ദങ്ങളോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<gender draft="contributed">neuter</gender>
 				<displayName>വർഷം</displayName>
 				<unitPattern count="one">{0} വർഷം</unitPattern>
-				<unitPattern count="one" case="accusative">{0} വർഷത്തിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} വർഷത്തിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} വർഷത്തിന്റെ</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="sociative">↑↑↑</unitPattern>
@@ -8152,6 +8208,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="sociative">↑↑↑</unitPattern>
 				<perUnitPattern>{0} / ദിവസം</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<gender draft="contributed">neuter</gender>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<gender draft="contributed">neuter</gender>
@@ -8229,19 +8302,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ആമ്പിയർ</displayName>
 				<unitPattern count="one">{0} ആമ്പിയർ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ആമ്പിയറിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ആമ്പിയറിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ആമ്പിയറിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ആമ്പിയറിയാനിൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ആമ്പിയറിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ആമ്പിയറിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ആമ്പിയർ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ആമ്പിയറിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ആമ്പിയറിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ആമ്പിയറിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ആമ്പിയറിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ആമ്പിയറിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ആമ്പിയറിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>മില്ലിആമ്പിയർ</displayName>
@@ -8252,37 +8325,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ഓം</displayName>
 				<unitPattern count="one">{0} ഓം</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ഓമിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ഓമിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ഓമിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ഓമിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ഓമിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ഓമിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ഓം</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ഓമിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ഓമിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ഓമിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ഓമിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ഓമിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ഓമിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<gender draft="contributed">neuter</gender>
 				<displayName>വോൾട്ട്</displayName>
 				<unitPattern count="one">{0} വോൾട്ട്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} വോൾട്ടിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} വോൾട്ടിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} വോൾട്ടിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} വോൾട്ടിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} വോൾട്ടിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} വോൾട്ടിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} വോൾട്ട്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} വോൾട്ടിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} വോൾട്ടിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} വോൾട്ടിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} വോൾട്ടിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} വോൾട്ടിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} വോൾട്ടിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>കിലോകലോറി</displayName>
@@ -8293,19 +8366,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>കലോറി</displayName>
 				<unitPattern count="one">{0} കലോറി</unitPattern>
-				<unitPattern count="one" case="accusative">{0} കലോറിയെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} കലോറിക്ക്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} കലോറിയുടെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} കലോറിയാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} കലോറിയിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} കലോറിയോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} കലോറി</unitPattern>
-				<unitPattern count="other" case="accusative">{0} കലോറിയെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} കലോറിക്ക്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} കലോറിയുടെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} കലോറിയാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} കലോറിയിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} കലോറിയോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>കലോറി</displayName>
@@ -8321,19 +8394,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ജൂൾ</displayName>
 				<unitPattern count="one">{0} ജൂൾ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ജൂളിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ജൂളിൽ</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ജൂളിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ജൂളിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ജൂളിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ജൂളിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ജൂൾ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ജൂളിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ജൂളിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ജൂളിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ജൂളിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ജൂളിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ജൂളിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>കിലോവാട്ട്/മണിക്കൂർ</displayName>
@@ -8351,7 +8424,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ബ്രിട്ടീഷ് തെർമൽ യൂണിറ്റുകൾ</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>↑↑↑</displayName>
+				<displayName>US തേം</displayName>
 				<unitPattern count="one">{0} US തേം</unitPattern>
 				<unitPattern count="other">{0} US തേം</unitPattern>
 			</unit>
@@ -8364,19 +8437,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ന്യൂട്ടൻസ്</displayName>
 				<unitPattern count="one">{0} ന്യൂട്ടൻ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ന്യൂട്ടനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ന്യൂട്ടന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ന്യൂട്ടന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ന്യൂട്ടനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ന്യൂട്ടനിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ന്യൂട്ടനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ന്യൂട്ടൻസ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ന്യൂട്ടനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ന്യൂട്ടന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ന്യൂട്ടന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ന്യൂട്ടനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ന്യൂട്ടനിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ന്യൂട്ടനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -8402,19 +8475,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ഹെർട്സ്</displayName>
 				<unitPattern count="one">{0} ഹെർട്സ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ഹെർട്സിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ഹെർ‌ട്സിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ഹെർട്സിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ഹെർട്സിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ഹെർട്സിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ഹെർട്സിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ഹെർട്സ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ഹെർട്സിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ഹെർട്സിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ഹെർട്സിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ഹെർട്‌സിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ഹെർട്സിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ഹെർട്സിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<gender draft="contributed">neuter</gender>
@@ -8479,7 +8552,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>ഡോട്ട്</displayName>
-				<unitPattern count="one">{0} ഡോട്ട്</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
@@ -8627,55 +8700,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ലക്സ്</displayName>
 				<unitPattern count="one">{0} ലക്സ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ലക്സിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ലക്‌സിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ലക്‌സിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ലക്‌സിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ലക്‌സിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ലക്‌സിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ലക്സ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ലക്‌സിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ലക്‌സിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ലക്‌സിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ലക്‌സിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ലക്‌സിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ലക്‌സിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<gender draft="contributed">neuter</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">{0} കാൻഡെലയെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} കാൻഡെലയ്ക്ക്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} കാൻഡെലയുടെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} കാൻഡെലയാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} കാൻഡെലയിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} കാൻഡെലയോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="accusative">{0} കാൻഡെലയെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} കാൻഡെലയ്ക്ക്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} കാൻഡെലയുടെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} കാൻഡെലയാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} കാൻഡെലയിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} കാൻഡെലയോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<gender draft="contributed">neuter</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ലൂമെനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ലൂമെന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ലൂമെന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ലൂമെനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ലൂമെനിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ലൂമെനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ലൂമെനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ലൂമെന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ലൂമെന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ലൂമെനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ലൂമെനിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ലൂമെനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>സോളാർ ലുമിനോസൈട്സ്</displayName>
@@ -8686,56 +8759,56 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>മെട്രിക് ടൺ</displayName>
 				<unitPattern count="one">{0} മെട്രിക് ടൺ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} മെട്രിക് ടണ്ണിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} മെട്രിക് ടണ്ണിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} മെട്രിക് ടണ്ണിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} മെട്രിക് ടണ്ണിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} മെട്രിക് ടണ്ണിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} മെട്രിക് ടണ്ണിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} മെട്രിക് ടൺ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} മെട്രിക് ടണ്ണിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} മെട്രിക് ടണ്ണിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} മെട്രിക് ടണ്ണിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} മെട്രിക് ടണ്ണിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} മെട്രിക് ടണ്ണിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} മെട്രിക് ടണ്ണിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<gender draft="contributed">neuter</gender>
 				<displayName>കിലോഗ്രാം</displayName>
 				<unitPattern count="one">{0} കിലോഗ്രാം</unitPattern>
-				<unitPattern count="one" case="accusative">{0} കിലോഗ്രാമിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} കിലോഗ്രാമിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} കിലോഗ്രാമിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} കിലോഗ്രാമിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} കിലോഗ്രാമിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} കിലോഗ്രാമിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} കിലോഗ്രാം</unitPattern>
-				<unitPattern count="other" case="accusative">{0} കിലോഗ്രാമിനാൽ</unitPattern>
-				<unitPattern count="other" case="dative">{0} കിലോഗ്രാമിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} കിലോഗ്രാമിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} കിലോഗ്രാമിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} കിലോഗ്രാമിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} കിലോഗ്രാമിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/കിലോഗ്രാം</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<gender draft="contributed">neuter</gender>
 				<displayName>ഗ്രാം</displayName>
 				<unitPattern count="one">{0} ഗ്രാം</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ഗ്രാമിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ഗ്രാമിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ഗ്രാമിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ഗ്രാമിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ഗ്രാമിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ഗ്രാമിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ഗ്രാം</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ഗ്രാമിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ഗ്രാമിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ഗ്രാമിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ഗ്രാമിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ഗ്രാമിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ഗ്രാമിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<perUnitPattern>{0}/ഗ്രാം</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
@@ -8779,19 +8852,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ക്യാരറ്റ്</displayName>
 				<unitPattern count="one">{0} ക്യാരറ്റ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ക്യാരറ്റിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ക്യാരറ്റിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ക്യാരറ്റിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ക്യാരറ്റിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ക്യാരറ്റിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ക്യാരറ്റിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ക്യാരറ്റ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ക്യാരറ്റിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ക്യാരറ്റിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ക്യാരറ്റിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ക്യാരറ്റിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ക്യാരറ്റിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ക്യാരറ്റിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>ഡാൽട്ടണുകൾ</displayName>
@@ -8832,19 +8905,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>വാട്ട്</displayName>
 				<unitPattern count="one">{0} വാട്ട്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} വാട്ടിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} വാട്ടിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} വാട്ടിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} വാട്ടിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} വാട്ടിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} വാട്ടിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} വാട്ട്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} വാട്ടിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} വാട്ടിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} വാട്ടിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} വാട്ടിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} വാട്ടിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} വാട്ടിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>മില്ലിവാട്ട്</displayName>
@@ -8875,19 +8948,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>ബാറുകൾ</displayName>
 				<unitPattern count="one">{0} ബാർ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ബാറിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ബാറിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ബാറിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ബാറിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ബാറിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ബാറിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ബാറുകൾ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ബാറിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ബാറിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ബാറിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ബാറുകളാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ബാറുകളിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ബാറുകളോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>മില്ലിബാർ</displayName>
@@ -8898,37 +8971,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>അറ്റ്‌മോസ്‌ഫിയർ</displayName>
 				<unitPattern count="one">{0} അറ്റ്‌മോസ്‌ഫിയർ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} അറ്റ്‌മോസ്‌ഫിയറിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} അറ്റ്‌മോസ്‌ഫിയറിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} അറ്റ്‌മോസ്‌ഫിയറിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} അറ്റ്‌മോസ്‌ഫിയറിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} അറ്റ്‌മോസ്‌ഫിയറിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} അറ്റ്‌മോസ്‌ഫിയറിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} അറ്റ്‌മോസ്‌ഫിയർ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} അറ്റ്‌മോസ്‌ഫിയറിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} അറ്റ്‌മോസ്‌ഫിയറിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} അറ്റ്‌മോസ്‌ഫിയറിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} അറ്റ്‌മോസ്‌ഫിയറിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} അറ്റ്‌മോസ്‌ഫിയറിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} അറ്റ്‌മോസ്‌ഫിയറിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<gender draft="contributed">neuter</gender>
 				<displayName>പാസ്കൽസ്</displayName>
 				<unitPattern count="one">{0} പാസ്കൽ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} പാസ്‌കലിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} പാസ്‌കലിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} പാസ്‌കലിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} പാസ്‌കലിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} പാസ്‌കലിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} പാസ്‌കലിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} പാസ്കൽസ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} പാസ്‌കലിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} പാസ്‌കലിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} പാസ്‌കലിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} പാസ്‌കലിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} പാസ്‌കലിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} പാസ്‌കലിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>ഹെക്‌ടോപാസ്‌ക്കൽ</displayName>
@@ -8969,37 +9042,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ഡിഗ്രിയെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ഡിഗ്രിക്ക്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ഡിഗ്രിയുടെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ഡിഗ്രിയാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ഡിഗ്രിയിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ഡിഗ്രിയോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ഡിഗ്രിയെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ഡിഗ്രിക്ക്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ഡിഗ്രിയുടെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ഡിഗ്രിയാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ഡിഗ്രിയിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ഡിഗ്രിയോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<gender draft="contributed">neuter</gender>
 				<displayName>ഡിഗ്രി സെൽഷ്യസ്</displayName>
 				<unitPattern count="one">{0} ഡിഗ്രി സെൽഷ്യസ്</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ഡിഗ്രി സെൽഷ്യസിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} ഡിഗ്രി സെൽഷ്യസിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} ഡിഗ്രി സെൽഷ്യസിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} ഡിഗ്രി സെൽഷ്യസിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} ഡിഗ്രി സെൽഷ്യസിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} ഡിഗ്രി സെൽഷ്യസിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ഡിഗ്രി സെൽഷ്യസ്</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ഡിഗ്രി സെൽഷ്യസിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} ഡിഗ്രി സെൽഷ്യസിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} ഡിഗ്രി സെൽഷ്യസിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} ഡിഗ്രി സെൽഷ്യസിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} ഡിഗ്രി സെൽഷ്യസിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} ഡിഗ്രി സെൽഷ്യസിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>ഡിഗ്രി ഫാരൻഹീറ്റ്</displayName>
@@ -9010,19 +9083,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender draft="contributed">neuter</gender>
 				<displayName>കെൽവിൻ</displayName>
 				<unitPattern count="one">{0} കെൽവിൻ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} കെൽവിനെ</unitPattern>
-				<unitPattern count="one" case="dative">{0} കെൽവിന്</unitPattern>
-				<unitPattern count="one" case="genitive">{0} കെൽവിന്റെ</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} കെൽവിനാൽ</unitPattern>
-				<unitPattern count="one" case="locative">{0} കെൽവിനിൽ</unitPattern>
-				<unitPattern count="one" case="sociative">{0} കെൽവിനോട്</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one" case="sociative" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} കെൽവിൻ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} കെൽവിനെ</unitPattern>
-				<unitPattern count="other" case="dative">{0} കെൽ‌വിന്</unitPattern>
-				<unitPattern count="other" case="genitive">{0} കെൽവിന്റെ</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} കെൽവിനാൽ</unitPattern>
-				<unitPattern count="other" case="locative">{0} കെൽവിനിൽ</unitPattern>
-				<unitPattern count="other" case="sociative">{0} കെൽവിനോട്</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="locative" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" case="sociative" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>പൗണ്ട് ഫീറ്റ്</displayName>
@@ -9766,7 +9839,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot-per-inch">
 				<displayName>dpi</displayName>
-				<unitPattern count="one">{0} dpi</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
@@ -10618,7 +10691,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} നൂ.</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one">{0}ദശാ.</unitPattern>
 				<unitPattern count="other">{0}ദശാ.</unitPattern>
 			</unit>
@@ -11191,9 +11264,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>↑↑↑</displayName>
@@ -11247,8 +11320,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} പറ</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">

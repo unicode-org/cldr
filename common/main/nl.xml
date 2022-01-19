@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -42,7 +42,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ang">Oudengels</language>
 			<language type="anp">Angika</language>
 			<language type="ar">Arabisch</language>
-			<language type="ar_001">modern standaard Arabisch</language>
+			<language type="ar_001">↑↑↑</language>
 			<language type="arc">Aramees</language>
 			<language type="arn">Mapudungun</language>
 			<language type="aro">Araona</language>
@@ -417,7 +417,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="niu">Niueaans</language>
 			<language type="njo">Ao Naga</language>
 			<language type="nl">Nederlands</language>
-			<language type="nl_BE">Vlaams</language>
+			<language type="nl_BE">↑↑↑</language>
 			<language type="nmg">Ngumba</language>
 			<language type="nn">Noors - Nynorsk</language>
 			<language type="nnh">Ngiemboon</language>
@@ -16327,28 +16327,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>yotta{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
-				<unitPrefixPattern>kibi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p2">
-				<unitPrefixPattern>mebi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p3">
-				<unitPrefixPattern>gibi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p4">
-				<unitPrefixPattern>tebi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p5">
-				<unitPrefixPattern>pebi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p6">
-				<unitPrefixPattern>exbi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p7">
-				<unitPrefixPattern>zebi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>yobi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0} per {1}</compoundUnitPattern>
@@ -16490,9 +16490,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} millimol per liter</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>onderdelen</displayName>
-				<unitPattern count="one">{0} onderdeel</unitPattern>
-				<unitPattern count="other">{0} onderdelen</unitPattern>
+				<displayName draft="provisional">items</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} items</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<gender draft="contributed">common</gender>
@@ -16830,7 +16830,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} dots per inch</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>dot</displayName>
+				<displayName>punt</displayName>
 				<unitPattern count="one">dot</unitPattern>
 				<unitPattern count="other">{0} dot</unitPattern>
 			</unit>
@@ -16969,15 +16969,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-candela">
 				<gender draft="contributed">common</gender>
-				<displayName>candela</displayName>
-				<unitPattern count="one">{0} candela</unitPattern>
-				<unitPattern count="other">{0} candela</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<gender draft="contributed">neuter</gender>
-				<displayName>lumen</displayName>
-				<unitPattern count="one">{0} lumen</unitPattern>
-				<unitPattern count="other">{0} lumen</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<gender>common</gender>
@@ -17632,9 +17632,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>onderdeel</displayName>
-				<unitPattern count="one">{0} onderdeel</unitPattern>
-				<unitPattern count="other">{0} onderdelen</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} items</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ppm</displayName>
@@ -17940,7 +17940,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} dot</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
@@ -19412,8 +19412,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName draft="contributed">acre ft</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} l/m²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l/m²</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName draft="contributed">bu</displayName>

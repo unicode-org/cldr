@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -13962,11 +13962,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} dag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dager</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Ta {0}. sving til høyre.</ordinalMinimalPairs>
-			<caseMinimalPairs case="nominative">Intervall på {0}</caseMinimalPairs>
-			<caseMinimalPairs case="genitive">På {0} avstand</caseMinimalPairs>
-			<genderMinimalPairs gender="masculine">Det tar en hel {0} å …</genderMinimalPairs>
-			<genderMinimalPairs gender="feminine">Det tar ei hel {0} å …</genderMinimalPairs>
-			<genderMinimalPairs gender="neuter">Det tar et helt {0} å …</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine">Min {0} den har tre kanter</genderMinimalPairs>
+			<genderMinimalPairs gender="neuter">Mitt {0} det har tre kanter</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -14242,15 +14239,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<gender>masculine</gender>
-				<displayName>miles per gallon</displayName>
-				<unitPattern count="one">{0} mile per gallon</unitPattern>
-				<unitPattern count="other">{0} miles per gallon</unitPattern>
+				<displayName>engelske mil per gallon</displayName>
+				<unitPattern count="one">{0} engelsk mil per gallon</unitPattern>
+				<unitPattern count="other">{0} engelske mil per gallon</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<gender>masculine</gender>
-				<displayName>miles per britisk gallon</displayName>
-				<unitPattern count="one">{0} mile per britisk gallon</unitPattern>
-				<unitPattern count="other">{0} miles per britisk gallon</unitPattern>
+				<displayName>engelske mil per britiske gallon</displayName>
+				<unitPattern count="one">{0} engelsk mil per britisk gallon</unitPattern>
+				<unitPattern count="other">{0} engelske mil per britiske gallon</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>petabyte</displayName>
@@ -14348,6 +14345,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} døgn</unitPattern>
 				<unitPattern count="other">{0} døgn</unitPattern>
 				<perUnitPattern>{0} per døgn</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<gender draft="contributed">masculine</gender>
 			</unit>
 			<unit type="duration-hour">
 				<gender>masculine</gender>
@@ -14458,9 +14458,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} therm</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>pound-force</displayName>
-				<unitPattern count="one">{0} pound-force</unitPattern>
-				<unitPattern count="other">{0} pound-force</unitPattern>
+				<displayName>poundforce</displayName>
+				<unitPattern count="one">{0} poundforce</unitPattern>
+				<unitPattern count="other">{0} poundforce</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<gender>masculine</gender>
@@ -15577,7 +15577,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} therm</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>pound-force</displayName>
+				<displayName>poundforce</displayName>
 				<unitPattern count="one">{0} lbf</unitPattern>
 				<unitPattern count="other">{0} lbf</unitPattern>
 			</unit>
@@ -16286,18 +16286,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>m/s²</displayName>
-				<unitPattern count="one">{0}m/s²</unitPattern>
-				<unitPattern count="other">{0}m/s²</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}m/s²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}m/s²</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}omdr.</unitPattern>
-				<unitPattern count="other">{0}omdr.</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>rad</displayName>
-				<unitPattern count="one">{0}rad</unitPattern>
-				<unitPattern count="other">{0}rad</unitPattern>
+				<unitPattern count="one" draft="provisional">{0}rad</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}rad</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>grader</displayName>
@@ -16333,14 +16333,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>cm²</displayName>
-				<unitPattern count="one">{0}cm²</unitPattern>
-				<unitPattern count="other">{0}cm²</unitPattern>
+				<unitPattern count="one" draft="provisional">{0}cm²</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}cm²</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="one">{0}mi²</unitPattern>
-				<unitPattern count="other">{0}mi²</unitPattern>
+				<unitPattern count="one">{0} eng mil²</unitPattern>
+				<unitPattern count="other">{0} eng mil²</unitPattern>
 				<perUnitPattern draft="provisional">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
@@ -16350,8 +16350,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>fot²</displayName>
@@ -16359,15 +16359,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}fot²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>in²</displayName>
-				<unitPattern count="one">{0} in²</unitPattern>
-				<unitPattern count="other">{0} in²</unitPattern>
-				<perUnitPattern>{0}/in²</perUnitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} in²</unitPattern>
+				<perUnitPattern draft="provisional">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>↑↑↑</displayName>
@@ -16376,13 +16376,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}mg/dl</unitPattern>
-				<unitPattern count="other">{0}mg/dl</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>mmol/l</displayName>
-				<unitPattern count="one">{0}mmol/l</unitPattern>
-				<unitPattern count="other">{0}mmol/l</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
 				<displayName>↑↑↑</displayName>
@@ -16391,8 +16391,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ppm</displayName>
-				<unitPattern count="one">{0}ppm</unitPattern>
-				<unitPattern count="other">{0}ppm</unitPattern>
+				<unitPattern count="one" draft="provisional">{0} ppm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
@@ -16405,19 +16405,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>‱</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}mol</unitPattern>
-				<unitPattern count="other">{0}mol</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>l/km</displayName>
-				<unitPattern count="one">{0}l/km</unitPattern>
-				<unitPattern count="other">{0}l/km</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>l/100km</displayName>
@@ -16426,13 +16426,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}mpg</unitPattern>
-				<unitPattern count="other">{0}mpg</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}mpg brit.</unitPattern>
-				<unitPattern count="other">{0}mpg brit.</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>↑↑↑</displayName>
@@ -16623,18 +16623,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-pound-force">
 				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="one">{0}lbf</unitPattern>
-				<unitPattern count="other">{0}lbf</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>N</displayName>
-				<unitPattern count="one">{0}N</unitPattern>
-				<unitPattern count="other">{0}N</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100 km</displayName>
-				<unitPattern count="one">{0}kWh/100km</unitPattern>
-				<unitPattern count="other">{0}kWh/100km</unitPattern>
+				<unitPattern count="one" draft="provisional">{0} kWh/100 km</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} kWh/100 km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>↑↑↑</displayName>
@@ -16761,10 +16761,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName>in</displayName>
-				<unitPattern count="one">{0}in</unitPattern>
-				<unitPattern count="other">{0}in</unitPattern>
-				<perUnitPattern>{0}/in</perUnitPattern>
+				<displayName draft="contributed">to</displayName>
+				<unitPattern count="one" draft="contributed">{0} tomme</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} tommer</unitPattern>
+				<perUnitPattern draft="contributed">{0}to</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>↑↑↑</displayName>
@@ -16777,7 +16777,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ly</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one">{0}AU</unitPattern>
 				<unitPattern count="other">{0}AU</unitPattern>
 			</unit>
@@ -16808,13 +16808,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>R☉</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}lx</unitPattern>
-				<unitPattern count="other">{0}lx</unitPattern>
+				<unitPattern count="one" draft="provisional">{0}lx</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}lx</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName>↑↑↑</displayName>
@@ -16823,18 +16823,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-lumen">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}lm</unitPattern>
-				<unitPattern count="other">{0}lm</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}L☉</unitPattern>
-				<unitPattern count="other">{0}L☉</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="one">{0}t</unitPattern>
-				<unitPattern count="other">{0}t</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
@@ -16942,18 +16942,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}mmHg</unitPattern>
-				<unitPattern count="other">{0}mmHg</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}mmHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}mmHg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}psi</unitPattern>
-				<unitPattern count="other">{0}psi</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}psi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}inHg</unitPattern>
-				<unitPattern count="other">{0}inHg</unitPattern>
+				<unitPattern count="one">{0}ʹʹ Hg</unitPattern>
+				<unitPattern count="other">{0}ʹʹ Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>
@@ -17002,8 +17002,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName draft="contributed">mile/t</displayName>
-				<unitPattern count="one">{0}mi/t</unitPattern>
-				<unitPattern count="other">{0}mi/t</unitPattern>
+				<unitPattern count="one">{0} eng mil/t</unitPattern>
+				<unitPattern count="other">{0} eng mil/t</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName>↑↑↑</displayName>
@@ -17027,18 +17027,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}K</unitPattern>
-				<unitPattern count="other">{0}K</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}K</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}lbf⋅ft</unitPattern>
-				<unitPattern count="other">{0}lbf⋅ft</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}Nm</unitPattern>
-				<unitPattern count="other">{0}Nm</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -17047,14 +17047,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}m³</unitPattern>
-				<unitPattern count="other">{0}m³</unitPattern>
+				<unitPattern count="one" draft="provisional">{0}m³</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}m³</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}cm³</unitPattern>
-				<unitPattern count="other">{0}cm³</unitPattern>
+				<unitPattern count="one" draft="provisional">{0}cm³</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}cm³</unitPattern>
 				<perUnitPattern>{0}/cm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
@@ -17074,18 +17074,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="one">{0} in³</unitPattern>
-				<unitPattern count="other">{0} in³</unitPattern>
+				<unitPattern count="one" draft="provisional">{0} in³</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>l</displayName>
@@ -17114,7 +17114,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="provisional">{0} mc</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} mc</unitPattern>
 			</unit>
@@ -17151,7 +17151,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>cup</displayName>
+				<displayName draft="provisional">cup</displayName>
 				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>

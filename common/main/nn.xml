@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -6602,9 +6602,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pluralMinimalPairs count="one">{0} dag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dagar</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Ta {0}. sving til høgre.</ordinalMinimalPairs>
-			<genderMinimalPairs gender="masculine">Det tek ein heil {0} å …</genderMinimalPairs>
-			<genderMinimalPairs gender="feminine">Det tek ei heil {0} å …</genderMinimalPairs>
-			<genderMinimalPairs gender="neuter">Det tek eit heilt {0} å …</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine">Min {0} han har tre kantar</genderMinimalPairs>
+			<genderMinimalPairs gender="neuter">Mitt {0} det har tre kantar</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -6984,6 +6983,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} døgn</unitPattern>
 				<unitPattern count="other">{0} døgn</unitPattern>
 				<perUnitPattern>{0} per døgn</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<gender>↑↑↑</gender>
 			</unit>
 			<unit type="duration-hour">
 				<gender>↑↑↑</gender>

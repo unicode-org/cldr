@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2021 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -5775,7 +5775,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">lari georgiani</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">₾</symbol>
-				<symbol alt="variant">↑↑↑</symbol>
+				<symbol alt="variant">ლ</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>cedi del Ghana</displayName>
@@ -6789,7 +6789,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</miscPatterns>
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} giorno</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} di giorni</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} giorni</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">Prendi l’{0}° a destra.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Prendi la {0}° a destra.</ordinalMinimalPairs>
@@ -7772,7 +7771,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-mile">
 				<gender>feminine</gender>
-				<displayName>miglia cubiche</displayName>
+				<displayName>miglia cube</displayName>
 				<unitPattern count="one">{0} miglio cubo</unitPattern>
 				<unitPattern count="other">{0} miglia cubiche</unitPattern>
 			</unit>
@@ -9772,7 +9771,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0}mm Hg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}mm Hg</unitPattern>
 			</unit>
@@ -9842,9 +9841,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}kn</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
@@ -9967,8 +9966,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName draft="contributed">gal im</displayName>
-				<unitPattern count="one" draft="contributed">{0}gal im</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}gal im</unitPattern>
+				<unitPattern count="one" draft="provisional">{0} gal im</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} gal im</unitPattern>
 				<perUnitPattern draft="contributed">{0}/gal im</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
@@ -9992,9 +9991,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}fl oz</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>fl oz im</displayName>
-				<unitPattern count="one">{0}fl oz im</unitPattern>
-				<unitPattern count="other">{0}fl oz im</unitPattern>
+				<displayName draft="contributed">fl oz im</displayName>
+				<unitPattern count="one" draft="provisional">{0} fl oz im</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} fl oz im</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName draft="contributed">↑↑↑</displayName>

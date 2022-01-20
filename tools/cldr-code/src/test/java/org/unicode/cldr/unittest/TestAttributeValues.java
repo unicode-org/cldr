@@ -286,7 +286,7 @@ public class TestAttributeValues extends TestFmwk {
             // get the status & store
             ValueStatus valueStatus = dtdData.getValueStatus(element, attribute, attrValue);
             if (valueStatus != ValueStatus.valid) {
-                // Set breakpoint here for debugging (referenced from http://cldr.unicode.org/development/testattributevalues)
+                // Set breakpoint here for debugging (referenced from https://cldr.unicode.org/development/cldr-development-site/testattributevalues)
                 dtdData.getValueStatus(element, attribute, attrValue);
             }
             synchronized (valueStatusInfo) {
@@ -313,7 +313,7 @@ public class TestAttributeValues extends TestFmwk {
                 return;
             }
             StringBuilder out = new StringBuilder();
-            out.append("\nIf the test fails, look at http://cldr.unicode.org/development/testattributevalues\n");
+            out.append("\nIf the test fails, look at https://cldr.unicode.org/development/cldr-development-site/testattributevalues\n");
 
             out.append("file\tCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
             out.append("element\tCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");

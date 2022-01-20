@@ -1078,8 +1078,20 @@ public class TestExampleGenerator extends TestFmwk {
                         pattern = "🚫  Not used with formatted units";
                     } else {
                         pattern = cldrFile.getStringValue(path);
+                        if (pattern==null) {
+                            errln("Locale " + cldrFile.getLocaleID() + ", path " + path + ", pattern is null ");
+                            continue;
+                        }
                         String actualRaw = exampleGenerator.getExampleHtml(path, pattern);
+                        if (actualRaw==null) {
+                            errln("Locale " + cldrFile.getLocaleID() + ", path " + path + ", pattern " + pattern + ", getExampleHtml returns null");
+                            continue;
+                        }
                         String actualSimplified = ExampleGenerator.simplify(actualRaw, false);
+                        if (actualSimplified==null) {
+                            errln("Locale " + cldrFile.getLocaleID() + ", path " + path + ", actualRaw " + actualRaw + ", ExampleGenerator.simplify returns null");
+                            continue;
+                        }
                         examples = actualSimplified
                             .replace("〗〖", "\t")
                             .replace("〗", "")

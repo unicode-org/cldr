@@ -581,18 +581,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</units>
 	<listPatterns>
 		<listPattern type="unit">
-			<listPatternPart type="end">{1}، {0}</listPatternPart>
-			<listPatternPart type="2">{1}، {0}</listPatternPart>
+			<listPatternPart type="end">{0}، {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
-			<listPatternPart type="start">{1} {0}</listPatternPart>
-			<listPatternPart type="middle">{1} {0}</listPatternPart>
-			<listPatternPart type="end">{1} {0}</listPatternPart>
-			<listPatternPart type="2">{1} {0}</listPatternPart>
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="end">{1}، {0}</listPatternPart>
-			<listPatternPart type="2">{1}، {0}</listPatternPart>
+			<listPatternPart type="end">{0}، {1}</listPatternPart>
+			<listPatternPart type="2">{0}، {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3982,6 +3982,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>एंडरबरी</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kanton">
+				<exemplarCity>कँटन</exemplarCity>
+			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>किरितिमाती</exemplarCity>
 			</zone>
@@ -7090,7 +7093,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>जी-फोर्स</displayName>
 				<unitPattern count="one">{0} जी-फोर्स</unitPattern>
 				<unitPattern count="one" case="ablative">{0} जी-फोर्सपासून</unitPattern>
@@ -7110,12 +7113,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
+				<gender>neuter</gender>
 				<displayName>मीटर प्रति सेकंद चौरस</displayName>
 				<unitPattern count="one">{0} मीटर प्रति सेकंद चौरस</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मीटर प्रति सेकंद चौरसपासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मीटर प्रति सेकंद चौरसला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मीटर प्रति सेकंद चौरससाठी</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मीटर प्रति सेकंद चौरसने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मीटर प्रति सेकंद चौरसचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मीटर प्रति सेकंद चौरसमध्ये</unitPattern>
 				<unitPattern count="other">{0} मीटर प्रति सेकंद चौरस</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मीटर प्रति सेकंद चौरसपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मीटर प्रति सेकंद चौरसना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मीटर प्रति सेकंद चौरसना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मीटर प्रति सेकंद चौरसाने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मीटर प्रति सेकंद चौरसाचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मीटर प्रति सेकंद चौरसात</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>परिभ्रमण</displayName>
 				<unitPattern count="one">{0} परिभ्रमण</unitPattern>
 				<unitPattern count="one" case="ablative">{0} परिभ्रमणापासून</unitPattern>
@@ -7135,7 +7151,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<gender draft="contributed">feminine</gender>
+				<gender>feminine</gender>
 				<displayName>रेडियन</displayName>
 				<unitPattern count="one">{0} रेडियन</unitPattern>
 				<unitPattern count="one" case="ablative">{0} रेडियनपासून</unitPattern>
@@ -7155,7 +7171,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>अंश</displayName>
 				<unitPattern count="one">{0} अंश</unitPattern>
 				<unitPattern count="one" case="ablative">{0} अंशापासून</unitPattern>
@@ -7175,7 +7191,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>आर्कमिनिटे</displayName>
 				<unitPattern count="one">{0} आर्कमिनिट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} आर्कमिनिटापासून</unitPattern>
@@ -7195,7 +7211,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>आर्कसेकंद</displayName>
 				<unitPattern count="one">{0} आर्कसेकंद</unitPattern>
 				<unitPattern count="one" case="ablative">{0} आर्कसेकंदापासून</unitPattern>
@@ -7215,13 +7231,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<gender>neuter</gender>
 				<displayName>चौरस किलोमीटर</displayName>
 				<unitPattern count="one">{0} चौरस किलोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} चौरस किलोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} चौरस किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} चौरस किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} चौरस किलोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} चौरस किलोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} चौरस किलोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} चौरस किलोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} चौरस किलोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} चौरस किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} चौरस किलोमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} चौरस किलोमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} चौरस किलोमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} चौरस किलोमीटरमध्ये</unitPattern>
 				<perUnitPattern>{0} पर चौरस किलोमीटर</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>हेक्टर</displayName>
 				<unitPattern count="one">{0} हेक्टर</unitPattern>
 				<unitPattern count="one" case="ablative">{0} हेक्टरपासून</unitPattern>
@@ -7241,15 +7270,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<gender>neuter</gender>
 				<displayName>चौरस मीटर</displayName>
 				<unitPattern count="one">{0} चौरस मीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} चौरस मीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} चौरस मीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} चौरस मीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} चौरस मीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} चौरस मीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} चौरस मीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} चौरस मीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} चौरस मीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} चौरस मीटरनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} चौरस मीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} चौरस मीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} चौरस मीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} चौरस मीटरमध्ये</unitPattern>
 				<perUnitPattern>{0} दर चौरस मीटर</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
+				<gender>neuter</gender>
 				<displayName>चौरस सेंटीमीटर</displayName>
 				<unitPattern count="one">{0} चौरस सेंटीमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} चौरस सेंटीमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} चौरस सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} चौरस सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} चौरस सेंटीमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} चौरस सेंटीमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} चौरस सेंटीमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} चौरस सेंटीमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} चौरस सेंटीमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} चौरस सेंटीमीटरनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} चौरस सेंटीमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} चौरस सेंटीमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} चौरस सेंटीमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} चौरस सेंटीमीटरमध्ये</unitPattern>
 				<perUnitPattern>{0} दर चौरस सेंटीमीटर</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
@@ -7285,7 +7340,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} दुनाम</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>कॅरेट्स</displayName>
 				<unitPattern count="one">{0} कॅरेट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} कॅरेटपासून</unitPattern>
@@ -7310,17 +7365,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मिलीग्रामस् पर डेसीलिटर</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
+				<gender>neuter</gender>
 				<displayName>मिलीमोलस् पर लिटर</displayName>
 				<unitPattern count="one">{0} मिलीमोल पर लिटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलीमोल पर लिटरपासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलीमोल पर लिटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलीमोल पर लिटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलीमोल पर लिटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलीमोल पर लिटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलीमोल पर लिटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} मिलीमोलस् पर लिटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलीमोलस् पर लिटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलीमोलस् पर लिटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलीमोलस् पर लिटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलीमोलस् पर लिटरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलीमोलस् पर लिटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलीमोलस् पर लिटरमध्ये</unitPattern>
 			</unit>
 			<unit type="concentr-item">
+				<gender>masculine</gender>
 				<displayName>आयटम</displayName>
 				<unitPattern count="one">{0} आयटम</unitPattern>
+				<unitPattern count="one" case="ablative">{0} आयटमहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} आयटमला</unitPattern>
+				<unitPattern count="one" case="dative">{0} आयटमला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} आयटमने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} आयटमचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} आयटममध्ये</unitPattern>
 				<unitPattern count="other">{0} आयटम</unitPattern>
+				<unitPattern count="other" case="ablative">{0} आयटमपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} आयटमना</unitPattern>
+				<unitPattern count="other" case="dative">{0} आयटमना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} आयटमनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} आयटमचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} आयटममध्ये</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>भाग प्रति दशलक्ष</displayName>
 				<unitPattern count="one">{0} भाग प्रति दशलक्ष</unitPattern>
 				<unitPattern count="one" case="ablative">{0} भाग प्रति दशलक्षापासून</unitPattern>
@@ -7340,7 +7421,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>टक्के</displayName>
 				<unitPattern count="one">{0} टक्के</unitPattern>
 				<unitPattern count="one" case="ablative">{0} टक्क्यापासून</unitPattern>
@@ -7380,7 +7461,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>पर्मिरेड</displayName>
 				<unitPattern count="one">{0} पर्मिरेड</unitPattern>
 				<unitPattern count="one" case="ablative">{0} पर्मिरेडपासून</unitPattern>
@@ -7400,7 +7481,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>मोल</displayName>
 				<unitPattern count="one">{0} मोल</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मोलपासून</unitPattern>
@@ -7420,14 +7501,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
+				<gender>neuter</gender>
 				<displayName>लीटर प्रति किलोमीटर</displayName>
 				<unitPattern count="one">{0} लीटर प्रति किलोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} लीटर प्रति किलोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} लीटर प्रति किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} लीटर प्रति किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} लीटर प्रति किलोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} लीटर प्रति किलोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} लीटर प्रति किलोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} लीटर प्रति किलोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} लीटर प्रति किलोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} लीटर प्रति किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} लीटर प्रति किलोमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} लीटर प्रति किलोमीटरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} लीटर प्रति किलोमीटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} लीटर प्रति किलोमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
+				<gender>neuter</gender>
 				<displayName>लीटर प्रति 100 किलोमीटर</displayName>
 				<unitPattern count="one">{0} लीटर प्रति 100 किलोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} लीटर प्रति 100 किलोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} लीटर प्रति 100 किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} लीटर प्रति 100 किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} लीटर प्रति 100 किलोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} लीटर प्रति 100 किलोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} लीटर प्रति 100 किलोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} लीटर प्रति 100 किलोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} लीटर प्रति 100 किलोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} लीटर प्रति 100 किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} लीटर प्रति 100 किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} लीटर प्रति 100 किलोमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} लीटर प्रति 100 किलोमीटरची</unitPattern>
+				<unitPattern count="other" case="locative">{0} लीटर प्रति 100 किलोमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>मैल प्रति गॅलन</displayName>
@@ -7440,52 +7547,169 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मैल प्रति इम्पि गॅलन</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
+				<gender>masculine</gender>
 				<displayName>पेटाबाइट्स</displayName>
 				<unitPattern count="one">{0} पेटाबाइट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} पेटाबाइटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} पेटाबाइटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} पेटाबाइटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} पेटाबाइटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} पेटाबाइटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} पेटाबाइटमध्ये</unitPattern>
 				<unitPattern count="other">{0} पेटाबाइट्स</unitPattern>
+				<unitPattern count="other" case="ablative">{0} पेटाबाइट्सपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} पेटाबाइट्सना</unitPattern>
+				<unitPattern count="other" case="dative">{0} पेटाबाइट्ससाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} पेटाबाइट्सनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} पेटाबाइट्सचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} पेटाबाइट्समध्ये</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
+				<gender>masculine</gender>
 				<displayName>टेराबाइट्स</displayName>
 				<unitPattern count="one">{0} टेराबाइट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} टेराबाइटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} टेराबाइटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} टेराबाइटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} टेराबाइटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} टेराबाइटचा</unitPattern>
+				<unitPattern count="one" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} टेराबाइट्स</unitPattern>
+				<unitPattern count="other" case="ablative">{0} टेराबाइट्सपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} टेराबाइट्सना</unitPattern>
+				<unitPattern count="other" case="dative">{0} टेराबाइट्ससाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} टेराबाइट्सनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} टेराबाइट्सचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} टेराबाइट्समध्ये</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
+				<gender>masculine</gender>
 				<displayName>टेराबिट</displayName>
 				<unitPattern count="one">{0} टेराबिट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} टेराबिटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} टेराबिटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} टेराबिटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} टेराबिटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} टेराबिटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} टेराबिटमध्ये</unitPattern>
 				<unitPattern count="other">{0} टेराबिट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} टेराबिटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} टेराबिटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} टेराबिटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} टेराबिटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} टेराबिटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} टेराबिटमध्ये</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
+				<gender>masculine</gender>
 				<displayName>गिगाबाइट</displayName>
 				<unitPattern count="one">{0} गिगाबाइट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} गिगाबाइटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} गिगाबाइटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} गिगाबाइटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} गिगाबाइटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} गिगाबाइटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} गिगाबाइटमध्ये</unitPattern>
 				<unitPattern count="other">{0} गिगाबाइट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} गिगाबाइटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} गिगाबाइटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} गिगाबाइटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} गिगाबाइटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} गिगाबाइटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} गिगाबाइटमध्ये</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
+				<gender>masculine</gender>
 				<displayName>गिगाबिट</displayName>
 				<unitPattern count="one">{0} गिगाबिट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} गिगाबिटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} गिगाबिटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} गिगाबिटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} गिगाबिटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} गिगाबिटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} गिगाबिटमध्ये</unitPattern>
 				<unitPattern count="other">{0} गिगाबिट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} गिगाबिटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} गिगाबिटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} गिगाबिटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} गिगाबिटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} गिगाबिटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} गिगाबिटमध्ये</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
+				<gender>masculine</gender>
 				<displayName>मेगाबाइट</displayName>
 				<unitPattern count="one">{0} मेगाबाइट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मेगाबाइटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मेगाबाइटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मेगाबाइटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मेगाबाइटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मेगाबाइटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मेगाबाइटमध्ये</unitPattern>
 				<unitPattern count="other">{0} मेगाबाइट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मेगाबाइटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मेगाबाइटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मेगाबाइटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मेगाबाइटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मेगाबाइटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मेगाबाइटमध्ये</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
+				<gender>masculine</gender>
 				<displayName>मेगाबिट</displayName>
 				<unitPattern count="one">{0} मेगाबिट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मेगाबिटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मेगाबिटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मेगाबिटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मेगाबिटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मेगाबिटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मेगाबिटमध्ये</unitPattern>
 				<unitPattern count="other">{0} मेगाबिट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मेगाबिटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मेगाबिटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मेगाबिटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मेगाबिटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मेगाबिटचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मेगाबिटमध्ये</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
+				<gender>masculine</gender>
 				<displayName>किलोबाइट</displayName>
 				<unitPattern count="one">{0} किलोबाइट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोबाइटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोबाइटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोबाइटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोबाइटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोबाइटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोबाइटमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोबाइट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोबाइटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोबाइटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोबाइटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोबाइटने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोबाइटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोबाइटमध्ये</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
+				<gender>masculine</gender>
 				<displayName>किलोबिट</displayName>
 				<unitPattern count="one">{0} किलोबिट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोबिटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोबिटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोबिटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोबिटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोबिटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोबिटमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोबिट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोबिटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोबिटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोबिटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोबिटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोबिटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोबिटमध्ये</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>बाइट</displayName>
 				<unitPattern count="one">{0} बाइट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} बाइटपासून</unitPattern>
@@ -7505,7 +7729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>बिट</displayName>
 				<unitPattern count="one">{0} बिट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} बिटपासून</unitPattern>
@@ -7712,22 +7936,61 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} प्रति सेकंद</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<gender>masculine</gender>
 				<displayName>मिलिसेकंद</displayName>
 				<unitPattern count="one">{0} मिलिसेकंद</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलिसेकंदापासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलिसेकंदाला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलिसेकंदासाठी</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलिसेकंदाने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलिसेकंदाचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलिसेकंदात</unitPattern>
 				<unitPattern count="other">{0} मिलिसेकंद</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलिसेकंदांहून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलिसेकंदांनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलिसेकंदांसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलिसेकंदांत</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलिसेकंदांचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलिसेकंदांत</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
+				<gender>masculine</gender>
 				<displayName>मायक्रोसेकंद</displayName>
 				<unitPattern count="one">{0} मायक्रोसेकंद</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मायक्रोसेकंदापासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मायक्रोसेकंदाला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मायक्रोसेकंदासाठी</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मायक्रोसेकंदाने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मायक्रोसेकंदाचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मायक्रोसेकंदात</unitPattern>
 				<unitPattern count="other">{0} मायक्रोसेकंद</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मायक्रोसेकंदांपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मायक्रोसेकंदांना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मायक्रोसेकंदांसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मायक्रोसेकंदांनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मायक्रोसेकंदांचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मायक्रोसेकंदांत</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
+				<gender>masculine</gender>
 				<displayName>नॅनोसेकंद</displayName>
 				<unitPattern count="one">{0} नॅनोसेकंद</unitPattern>
+				<unitPattern count="one" case="ablative">{0} नॅनोसेकंदाहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} नॅनोसेकंदाला</unitPattern>
+				<unitPattern count="one" case="dative">{0} नॅनोसेकंदासाठी</unitPattern>
+				<unitPattern count="one" case="ergative">{0} नॅनोसेकंदाने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} नॅनोसेकंदाचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} नॅनोसेकंदात</unitPattern>
 				<unitPattern count="other">{0} नॅनोसेकंद</unitPattern>
+				<unitPattern count="other" case="ablative">{0} नॅनोसेकंदांहून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} नॅनोसेकंदांनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} नॅनोसेकंदांसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} नॅनोसेकंदांनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} नॅनोसेकंदांचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} नॅनोसेकंदांत</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>अँपियर</displayName>
 				<unitPattern count="one">{0} अँपियर</unitPattern>
 				<unitPattern count="one" case="ablative">{0} अँपियरपासून</unitPattern>
@@ -7747,12 +8010,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
+				<gender>neuter</gender>
 				<displayName>मिलिअँपियर</displayName>
 				<unitPattern count="one">{0} मिलिअँपियर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलिअँपियरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलिअँपियरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलिअँपियरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलिअँपियरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलिअँपियरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलिअँपियरमध्ये</unitPattern>
 				<unitPattern count="other">{0} मिलिअँपियर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलिअँपियरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलिअँपियरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलिअँपियरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलिअँपियरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलिअँपियरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलिअँपियरमध्ये</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>ओहम</displayName>
 				<unitPattern count="one">{0} ओहम</unitPattern>
 				<unitPattern count="one" case="ablative">{0} ओहमपासून</unitPattern>
@@ -7772,7 +8048,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>व्होल्ट</displayName>
 				<unitPattern count="one">{0} व्होल्ट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} व्होल्टपासून</unitPattern>
@@ -7797,7 +8073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} किलोकॅलोरी</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<gender draft="contributed">feminine</gender>
+				<gender>feminine</gender>
 				<displayName>कॅलरीज</displayName>
 				<unitPattern count="one">{0} कॅलरी</unitPattern>
 				<unitPattern count="one" case="ablative">{0} कॅलरीपासून</unitPattern>
@@ -7822,12 +8098,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} कॅलरीज</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
+				<gender>neuter</gender>
 				<displayName>किलोज्यूल</displayName>
 				<unitPattern count="one">{0} किलोज्यूल</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोज्यूलहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोज्यूलला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोज्यूलला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोज्यूलने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोज्यूलचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोज्यूलमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोज्यूल</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोज्यूलपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोज्यूलना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोज्यूलसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोज्यूलनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोज्यूलचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोज्यूलमध्ये</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>ज्यूल</displayName>
 				<unitPattern count="one">{0} ज्यूल</unitPattern>
 				<unitPattern count="one" case="ablative">{0} ज्यूलपासून</unitPattern>
@@ -7847,9 +8136,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
+				<gender>neuter</gender>
 				<displayName>किलोवॉट-तास</displayName>
 				<unitPattern count="one">{0} किलोवॉट तास</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोवॉट तासहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोवॉट तासाला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोवॉट तासाला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोवॉट तासाने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोवॉट तासाचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोवॉट तासात</unitPattern>
 				<unitPattern count="other">{0} किलोवॉट-तास</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोवॉट-तासांपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोवॉट-तासांनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोवॉट-तासांसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोवॉट-तासांनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोवॉट-तासांचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोवॉट-तासांमध्ये</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>इलेक्ट्रॉनव्होल्ट्स</displayName>
@@ -7872,7 +8174,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} पाउंड्स ऑफ फोर्स</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>न्यूटन्स</displayName>
 				<unitPattern count="one">{0} न्यूटन</unitPattern>
 				<unitPattern count="one" case="ablative">{0} न्यूटनपासून</unitPattern>
@@ -7892,27 +8194,79 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">{0} न्यूटन</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<gender>neuter</gender>
 				<displayName>किलोवॉट-तास प्रति 100 किलोमीटर</displayName>
 				<unitPattern count="one">{0} किलोवॉट-तास प्रति 100 किलोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोवॉट-तास प्रति 100 किलोमीटरपासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोवॉट-तास प्रति 100 किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोवॉट-तास प्रति 100 किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोवॉट-तास प्रति 100 किलोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोवॉट-तास प्रति 100 किलोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोवॉट-तास प्रति 100 किलोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोवॉट-तास प्रति 100 किलोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोवॉट-तास प्रति 100 किलोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोवॉट-तास प्रति 100 किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोवॉट-तास प्रति 100 किलोमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोवॉट-तास प्रति 100 किलोमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोवॉट-तास प्रति 100 किलोमीटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोवॉट-तास प्रति 100 किलोमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
+				<gender>neuter</gender>
 				<displayName>गिगाहर्ट्झ</displayName>
 				<unitPattern count="one">{0} गिगाहर्ट्झ</unitPattern>
+				<unitPattern count="one" case="ablative">{0} गिगाहर्ट्झहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} गिगाहर्ट्झला</unitPattern>
+				<unitPattern count="one" case="dative">{0} गिगाहर्ट्झला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} गिगाहर्ट्झने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} गिगाहर्ट्झचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} गिगाहर्ट्झमध्ये</unitPattern>
 				<unitPattern count="other">{0} गिगाहर्ट्झ</unitPattern>
+				<unitPattern count="other" case="ablative">{0} गिगाहर्ट्झपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} गिगाहर्ट्झना</unitPattern>
+				<unitPattern count="other" case="dative">{0} गिगाहर्ट्झसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} गिगाहर्ट्झनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} गिगाहर्ट्झचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} गिगाहर्ट्झमध्ये</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
+				<gender>neuter</gender>
 				<displayName>मेगाहर्ट्झ</displayName>
 				<unitPattern count="one">{0} मेगाहर्ट्झ</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मेगाहर्ट्झहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मेगाहर्ट्झला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मेगाहर्ट्झला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मेगाहर्ट्झने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मेगाहर्ट्झचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मेगाहर्ट्झमध्ये</unitPattern>
 				<unitPattern count="other">{0} मेगाहर्ट्झ</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मेगाहर्ट्झपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मेगाहर्ट्झना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मेगाहर्ट्झसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मेगाहर्ट्झने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मेगाहर्ट्झचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मेगाहर्ट्झमध्ये</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
+				<gender>neuter</gender>
 				<displayName>किलोहर्ट्झ</displayName>
 				<unitPattern count="one">{0} किलोहर्ट्झ</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोहर्ट्झहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोहर्ट्झला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोहर्ट्झला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोहर्ट्झने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोहर्ट्झचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोहर्ट्झमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोहर्ट्झ</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोहर्ट्झपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोहर्ट्झना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोहर्ट्झसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोहर्ट्झनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोहर्ट्झचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोहर्ट्झमध्ये</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>हर्ट्झ</displayName>
 				<unitPattern count="one">{0} हर्ट्झ</unitPattern>
 				<unitPattern count="one" case="ablative">{0} हर्ट्झपासून</unitPattern>
@@ -7952,7 +8306,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>पिक्सेल्स</displayName>
 				<unitPattern count="one">{0} पिक्सेल</unitPattern>
 				<unitPattern count="one" case="ablative">{0} पिक्सेलपासून</unitPattern>
@@ -7972,14 +8326,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
+				<gender>masculine</gender>
 				<displayName>मेगापिक्सेल्स</displayName>
 				<unitPattern count="one">{0} मेगापिक्सेल</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मेगापिक्सेलहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मेगापिक्सेलला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मेगापिक्सेलला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मेगापिक्सेलने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मेगापिक्सेलचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मेगापिक्सेलनी</unitPattern>
 				<unitPattern count="other">{0} मेगापिक्सेल्स</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मेगापिक्सेल्सहून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मेगापिक्सेल्सला</unitPattern>
+				<unitPattern count="other" case="dative">{0} मेगापिक्सेल्ससाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मेगापिक्सेल्सनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मेगापिक्सेल्सचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मेगापिक्सेल्समध्ये</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
+				<gender>masculine</gender>
 				<displayName>पिक्सेल्स प्रति सेंटीमीटर</displayName>
 				<unitPattern count="one">{0} पिक्सेल प्रति सेंटीमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} पिक्सेल प्रति सेंटीमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} पिक्सेल प्रति सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} पिक्सेल प्रति सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} पिक्सेल प्रति सेंटीमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} पिक्सेल प्रति सेंटीमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} पिक्सेल प्रति सेंटीमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} पिक्सेल्स प्रति सेंटीमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} पिक्सेल्स प्रति सेंटीमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} पिक्सेल्स प्रति सेंटीमीटरला</unitPattern>
+				<unitPattern count="other" case="dative">{0} पिक्सेल्स प्रति सेंटीमीटरला</unitPattern>
+				<unitPattern count="other" case="ergative">{0} पिक्सेल्स प्रति सेंटीमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} पिक्सेल्स प्रति सेंटीमीटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} पिक्सेल्स प्रति सेंटीमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName>पिक्सेल्स प्रति इंच</displayName>
@@ -8007,13 +8387,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} पृथ्वी त्रिज्या</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<gender>neuter</gender>
 				<displayName>किलोमीटर</displayName>
 				<unitPattern count="one">{0} किलोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोमीटरमध्ये</unitPattern>
 				<perUnitPattern>{0} दर किलोमीटर</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>मीटर</displayName>
 				<unitPattern count="one">{0} मीटर</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मीटरपासून</unitPattern>
@@ -8034,35 +8427,113 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} दर मीटर</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
+				<gender>neuter</gender>
 				<displayName>डेसीमीटर</displayName>
 				<unitPattern count="one">{0} डेसीमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} डेसीमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} डेसीमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} डेसीमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} डेसीमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} डेसीमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} डेसीमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} डेसीमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} डेसीमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} डेसीमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} डेसीमीटरना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} डेसीमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} डेसीमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} डेसीमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<gender>neuter</gender>
 				<displayName>सेंटीमीटर</displayName>
 				<unitPattern count="one">{0} सेंटीमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} सेंटीमीटरपासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} सेंटीमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} सेंटीमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} सेंटीमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} सेंटीमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} सेंटीमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} सेंटीमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} सेंटीमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} सेंटीमीटरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} सेंटीमीटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} सेंटीमीटरमध्ये</unitPattern>
 				<perUnitPattern>{0} दर सेंटीमीटर</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<gender>neuter</gender>
 				<displayName>मिलिमीटर</displayName>
 				<unitPattern count="one">{0} मिलिमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलिमीटरपासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलिमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलिमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलिमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलिमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलिमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} मिलिमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलिमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलिमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलिमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलिमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलिमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलिमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
+				<gender>neuter</gender>
 				<displayName>मायक्रोमीटर</displayName>
 				<unitPattern count="one">{0} मायक्रोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मायक्रोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मायक्रोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मायक्रोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मायक्रोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मायक्रोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मायक्रोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} मायक्रोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मायक्रोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मायक्रोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मायक्रोमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मायक्रोमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मायक्रोमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मायक्रोमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
+				<gender>neuter</gender>
 				<displayName>नॅनोमीटर</displayName>
 				<unitPattern count="one">{0} नॅनोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} नॅनोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} नॅनोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} नॅनोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} नॅनोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} नॅनोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} नॅनोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} नॅनोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} नॅनोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} नॅनोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} नॅनोमीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} नॅनोमीटरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} नॅनोमीटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} नॅनोमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<gender>neuter</gender>
 				<displayName>पिकोमीटर</displayName>
 				<unitPattern count="one">{0} पिकोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} पिकोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} पिकोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} पिकोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} पिकोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} पिकोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} पिकोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} पिकोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} पिकोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} पिकोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} पिकोमीटरना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} पिकोमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} पिकोमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} पिकोमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName>मैल</displayName>
@@ -8117,7 +8588,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} नॉटिकल मैल</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>मैल-स्कॅन्डीनेव्हियन</displayName>
 				<unitPattern count="one">{0} मैल-स्कॅन्डीनेव्हियन</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मैल-स्कॅन्डीनेव्हियनपासून</unitPattern>
@@ -8147,7 +8618,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} सौर त्रिज्या</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<gender draft="contributed">feminine</gender>
+				<gender>feminine</gender>
 				<displayName>लक्स</displayName>
 				<unitPattern count="one">{0} लक्स</unitPattern>
 				<unitPattern count="one" case="ablative">{0} लक्सपासून</unitPattern>
@@ -8167,7 +8638,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<gender draft="contributed">feminine</gender>
+				<gender>feminine</gender>
 				<displayName>कँडेला</displayName>
 				<unitPattern count="one">{0} कँडेला</unitPattern>
 				<unitPattern count="one" case="ablative">{0} कँडेलापासून</unitPattern>
@@ -8187,7 +8658,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>लुमेन</displayName>
 				<unitPattern count="one">{0} लुमेन</unitPattern>
 				<unitPattern count="one" case="ablative">{0} लुमेनपासून</unitPattern>
@@ -8212,7 +8683,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} सौर प्रकाश</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>मेट्रिक टन</displayName>
 				<unitPattern count="one">{0} मेट्रिक टन</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेट्रिक टनपासून</unitPattern>
@@ -8232,7 +8703,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>किलोग्रॅम</displayName>
 				<unitPattern count="one">{0} किलोग्रॅम</unitPattern>
 				<unitPattern count="one" case="ablative">{0} किलोग्रॅमपासून</unitPattern>
@@ -8253,7 +8724,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} दर किलोग्रॅम</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>ग्रॅम</displayName>
 				<unitPattern count="one">{0} ग्रॅम</unitPattern>
 				<unitPattern count="one" case="ablative">{0} ग्रॅमपासून</unitPattern>
@@ -8274,14 +8745,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} दर ग्रॅम</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
+				<gender>neuter</gender>
 				<displayName>मिलिग्रॅम</displayName>
 				<unitPattern count="one">{0} मिलिग्रॅम</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलिग्रॅमहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलिग्रॅमला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलिग्रॅमला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलिग्रॅमने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलिग्रॅमचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलिग्रॅममध्ये</unitPattern>
 				<unitPattern count="other">{0} मिलिग्रॅम</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलिग्रॅमपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलिग्रॅमना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलिग्रॅमसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलिग्रॅमनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलिग्रॅमचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलिग्रॅममध्ये</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
+				<gender>neuter</gender>
 				<displayName>मायक्रोग्रॅम</displayName>
 				<unitPattern count="one">{0} मायक्रोग्रॅम</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मायक्रोग्रॅमहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मायक्रोग्रॅमला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मायक्रोग्रॅमला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मायक्रोग्रॅमने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मायक्रोग्रॅमचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मायक्रोग्रॅममध्ये</unitPattern>
 				<unitPattern count="other">{0} मायक्रोग्रॅम</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मायक्रोग्रॅमपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मायक्रोग्रॅमना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मायक्रोग्रॅमसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मायक्रोग्रॅमनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मायक्रोग्रॅमचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मायक्रोग्रॅममध्ये</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>टन</displayName>
@@ -8311,7 +8808,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ट्रॉय औंस</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>कॅरेट्स</displayName>
 				<unitPattern count="one">{0} कॅरेट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} कॅरेटपासून</unitPattern>
@@ -8351,22 +8848,61 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} अल्पांश</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
+				<gender>neuter</gender>
 				<displayName>गिगावॉट</displayName>
 				<unitPattern count="one">{0} गिगावॉट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} गिगावॉटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} गिगावॉटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} गिगावॉटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} गिगावॉटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} गिगावॉटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} गिगावॉटमध्ये</unitPattern>
 				<unitPattern count="other">{0} गिगावॉट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} गिगावॉटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} गिगावॉटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} गिगावॉटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} गिगावॉटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} गिगावॉटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} गिगावॉटमध्ये</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
+				<gender>neuter</gender>
 				<displayName>मेगावॉट</displayName>
 				<unitPattern count="one">{0} मेगावॉट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मेगावॉटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मेगावॉटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मेगावॉटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मेगावॉटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मेगावॉटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मेगावॉटमध्ये</unitPattern>
 				<unitPattern count="other">{0} मेगावॉट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मेगावॉटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मेगावॉटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मेगावॉटना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मेगावॉटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मेगावॉटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मेगावॉटमध्ये</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<gender>neuter</gender>
 				<displayName>किलोवॉट</displayName>
 				<unitPattern count="one">{0} किलोवॉट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोवॉटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोवॉटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोवॉटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोवॉटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोवॉटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोवॉटमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोवॉट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोवॉटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोवॉटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोवॉटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोवॉटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोवॉटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोवॉटमध्ये</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>वॉट</displayName>
 				<unitPattern count="one">{0} वॉट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} वॉटपासून</unitPattern>
@@ -8386,9 +8922,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
+				<gender>neuter</gender>
 				<displayName>मिलिवॉट</displayName>
 				<unitPattern count="one">{0} मिलिवॉट</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलिवॉटहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलिवॉटला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलिवॉटला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलिवॉटने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलिवॉटचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलिवॉटमध्ये</unitPattern>
 				<unitPattern count="other">{0} मिलिवॉट</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलिवॉटपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलिवॉटना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलिवॉटसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलिवॉटनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलिवॉटचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलिवॉटमध्ये</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>हॉर्सपॉवर</displayName>
@@ -8431,12 +8980,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<gender>masculine</gender>
 				<displayName>मिलिबार</displayName>
 				<unitPattern count="one">{0} मिलिबार</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलिबारहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलिबारला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलिबारला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलिबारने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलिबारचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलिबारमध्ये</unitPattern>
 				<unitPattern count="other">{0} मिलिबार</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलिबारपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलिबारना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलिबारसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलिबारनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलिबारचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलिबारमध्ये</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>वातावरण</displayName>
 				<unitPattern count="one">{0} वातावरण</unitPattern>
 				<unitPattern count="one" case="ablative">{0} वातावरणापासून</unitPattern>
@@ -8456,7 +9018,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>पास्काल</displayName>
 				<unitPattern count="one">{0} पास्काल</unitPattern>
 				<unitPattern count="one" case="ablative">{0} पास्कालपासून</unitPattern>
@@ -8476,29 +9038,94 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<gender>masculine</gender>
 				<displayName>हेक्टोपास्कल</displayName>
 				<unitPattern count="one">{0} हेक्टोपास्कल</unitPattern>
+				<unitPattern count="one" case="ablative">{0} हेक्टोपास्कलहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} हेक्टोपास्कलला</unitPattern>
+				<unitPattern count="one" case="dative">{0} हेक्टोपास्कलला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} हेक्टोपास्कलने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} हेक्टोपास्कलचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} हेक्टोपास्कलमध्ये</unitPattern>
 				<unitPattern count="other">{0} हेक्टोपास्कल</unitPattern>
+				<unitPattern count="other" case="ablative">{0} हेक्टोपास्कलपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} हेक्टोपास्कलना</unitPattern>
+				<unitPattern count="other" case="dative">{0} हेक्टोपास्कलसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} हेक्टोपास्कलनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} हेक्टोपास्कलचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} हेक्टोपास्कलमध्ये</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
+				<gender>masculine</gender>
 				<displayName>किलोपास्कल</displayName>
 				<unitPattern count="one">{0} किलोपास्कल</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोपास्कलहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोपास्कलला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोपास्कलला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोपास्कलने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोपास्कलचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोपास्कलमध्ये</unitPattern>
 				<unitPattern count="other">{0} किलोपास्कल</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोपास्कलपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोपास्कलना</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोपास्कलसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोपास्कलनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोपास्कलचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोपास्कलमध्ये</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
+				<gender>masculine</gender>
 				<displayName>मेगापास्कल</displayName>
 				<unitPattern count="one">{0} मेगापास्कल</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मेगापास्कलहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मेगापास्कलला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मेगापास्कलला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मेगापास्कलने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मेगापास्कलचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मेगापास्कलमध्ये</unitPattern>
 				<unitPattern count="other">{0} मेगापास्कल्स</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मेगापास्कल्सपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मेगापास्कल्सना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मेगापास्कल्ससाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मेगापास्कल्सनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मेगापास्कल्सचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मेगापास्कल्समध्ये</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<gender>neuter</gender>
 				<displayName>किलोमीटर प्रति तास</displayName>
 				<unitPattern count="one">{0} किलोमीटर प्रति तास</unitPattern>
+				<unitPattern count="one" case="ablative">{0} किलोमीटर प्रति तासपासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} किलोमीटर प्रति तासाला</unitPattern>
+				<unitPattern count="one" case="dative">{0} किलोमीटर प्रति तासाला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} किलोमीटर प्रति तासाने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} किलोमीटर प्रति तासाचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} किलोमीटर प्रति तासात</unitPattern>
 				<unitPattern count="other">{0} किलोमीटर प्रति तास</unitPattern>
+				<unitPattern count="other" case="ablative">{0} किलोमीटर प्रति तासांपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} किलोमीटर प्रति तासांनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} किलोमीटर प्रति तासासाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} किलोमीटर प्रति तासांनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} किलोमीटर प्रति तासांचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} किलोमीटर प्रति तासात</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<gender>neuter</gender>
 				<displayName>मीटर प्रति सेकंद</displayName>
 				<unitPattern count="one">{0} मीटर प्रति सेकंद</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मीटर प्रति सेकंदापासून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मीटर प्रति सेकंदाला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मीटर प्रति सेकंदाला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मीटर प्रति सेकंदाने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मीटर प्रति सेकंदाचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मीटर प्रति सेकंदात</unitPattern>
 				<unitPattern count="other">{0} मीटर प्रति सेकंद</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मीटर प्रति सेकंदांपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मीटर प्रति सेकंदांनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} मीटर प्रति सेकंदांसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मीटर प्रति सेकंदांनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मीटर प्रति सेकंदांचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} मीटर प्रति सेकंदांत</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName>मैल प्रति तास</displayName>
@@ -8511,7 +9138,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} नॉट</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="one" case="ablative">{0} अंशापासून</unitPattern>
@@ -8531,7 +9158,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">{0} अंश</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>अंश सेल्सिअस</displayName>
 				<unitPattern count="one">{0} अंश सेल्सिअस</unitPattern>
 				<unitPattern count="one" case="ablative">{0} अंश सेल्सिअसपासून</unitPattern>
@@ -8556,7 +9183,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} अंश फॅरनहाईट</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>केल्व्हिन</displayName>
 				<unitPattern count="one">{0} केल्व्हिन</unitPattern>
 				<unitPattern count="one" case="ablative">{0} केल्व्हिनपासून</unitPattern>
@@ -8581,25 +9208,77 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} पाउंड-फूट</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
+				<gender>neuter</gender>
 				<displayName>न्यूटन-मीटर</displayName>
 				<unitPattern count="one">{0} न्यूटन-मीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} न्यूटन-मीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} न्यूटन-मीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} न्यूटन-मीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} न्यूटन-मीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} न्यूटन-मीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} न्यूटन-मीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} न्यूटन-मीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} न्यूटन-मीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} न्यूटन-मीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} न्यूटन-मीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} न्यूटन-मीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} न्यूटन-मीटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} न्यूटन-मीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<gender>neuter</gender>
 				<displayName>घन किलोमीटर</displayName>
 				<unitPattern count="one">{0} घन किलोमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} घन किलोमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} घन किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} घन किलोमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} घन किलोमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} घन किलोमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} घन किलोमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} घन किलोमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} घन किलोमीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} घन किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} घन किलोमीटरना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} घन किलोमीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} घन किलोमीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} घन किलोमीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
+				<gender>neuter</gender>
 				<displayName>घन मीटर</displayName>
 				<unitPattern count="one">{0} घन मीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} घन मीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} घन मीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} घन मीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} घन मीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} घन मीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} घन मीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} घन मीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} घन मीटरहून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} घन मीटरनी</unitPattern>
+				<unitPattern count="other" case="dative">{0} घन मीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} घन मीटरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} घन मीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} घन मीटरमध्ये</unitPattern>
 				<perUnitPattern>{0} दर घन मीटर</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
+				<gender>neuter</gender>
 				<displayName>घन सेंटीमीटर</displayName>
 				<unitPattern count="one">{0} घन सेंटीमीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} घन सेंटीमीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} घन सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} घन सेंटीमीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} घन सेंटीमीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} घन सेंटीमीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} घन सेंटीमीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} घन सेंटीमीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} घन सेंटीमीटरहून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} घन सेंटीमीटरहला</unitPattern>
+				<unitPattern count="other" case="dative">{0} घन सेंटीमीटरला</unitPattern>
+				<unitPattern count="other" case="ergative">{0} घन सेंटीमीटरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} घन सेंटीमीटरचा</unitPattern>
+				<unitPattern count="other" case="locative">{0} घन सेंटीमीटरमध्ये</unitPattern>
 				<perUnitPattern>{0} प्रति घन सेंटिमीटर</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
@@ -8623,17 +9302,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} घन इंच</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
+				<gender>neuter</gender>
 				<displayName>मेगालीटर</displayName>
 				<unitPattern count="one">{0} मेगालीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मेगालीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मेगालीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मेगालीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मेगालीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मेगालीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मेगालीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} मेगालीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मेगालीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मेगालीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मेगालीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मेगालीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मेगालीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मेगालीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
+				<gender>neuter</gender>
 				<displayName>हेक्टोलीटर</displayName>
 				<unitPattern count="one">{0} हेक्टोलीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} हेक्टोलीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} हेक्टोलीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} हेक्टोलीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} हेक्टोलीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} हेक्टोलीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} हेक्टोलीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} हेक्टोलीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} हेक्टोलीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} हेक्टोलीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} हेक्टोलीटरना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} हेक्टोलीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} हेक्टोलीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} हेक्टोलीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>लीटर</displayName>
 				<unitPattern count="one">{0} लीटर</unitPattern>
 				<unitPattern count="one" case="ablative">{0} लीटरपासून</unitPattern>
@@ -8654,22 +9359,61 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} दर लीटर</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
+				<gender>neuter</gender>
 				<displayName>डेसीलीटर</displayName>
 				<unitPattern count="one">{0} डेसीलीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} डेसीलीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} डेसीलीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} डेसीलीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} डेसीलीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} डेसीलीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} डेसीलीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} डेसीलीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} डेसीलीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} डेसीलीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} डेसीलीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} डेसीलीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} डेसीलीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} डेसीलीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
+				<gender>neuter</gender>
 				<displayName>सेंटीलीटर</displayName>
 				<unitPattern count="one">{0} सेंटीलीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} सेंटीलीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} सेंटीलीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} सेंटीलीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} सेंटीलीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} सेंटीलीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} सेंटीलीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} सेंटीलीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} सेंटीलीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} सेंटीलीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} सेंटीलीटरसाठी</unitPattern>
+				<unitPattern count="other" case="ergative">{0} सेंटीलीटरनी</unitPattern>
+				<unitPattern count="other" case="genitive">{0} सेंटीलीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} सेंटीलीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
+				<gender>neuter</gender>
 				<displayName>मिलीलीटर</displayName>
 				<unitPattern count="one">{0} मिलीलीटर</unitPattern>
+				<unitPattern count="one" case="ablative">{0} मिलीलीटरहून</unitPattern>
+				<unitPattern count="one" case="accusative">{0} मिलीलीटरला</unitPattern>
+				<unitPattern count="one" case="dative">{0} मिलीलीटरला</unitPattern>
+				<unitPattern count="one" case="ergative">{0} मिलीलीटरने</unitPattern>
+				<unitPattern count="one" case="genitive">{0} मिलीलीटरचा</unitPattern>
+				<unitPattern count="one" case="locative">{0} मिलीलीटरमध्ये</unitPattern>
 				<unitPattern count="other">{0} मिलीलीटर</unitPattern>
+				<unitPattern count="other" case="ablative">{0} मिलीलीटरपासून</unitPattern>
+				<unitPattern count="other" case="accusative">{0} मिलीलीटरना</unitPattern>
+				<unitPattern count="other" case="dative">{0} मिलीलीटरना</unitPattern>
+				<unitPattern count="other" case="ergative">{0} मिलीलीटरने</unitPattern>
+				<unitPattern count="other" case="genitive">{0} मिलीलीटरचे</unitPattern>
+				<unitPattern count="other" case="locative">{0} मिलीलीटरमध्ये</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>मेट्रिक पिंट</displayName>
 				<unitPattern count="one">{0} मेट्रिक पिंट</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेट्रिक पिंटपासून</unitPattern>
@@ -8689,7 +9433,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<gender draft="contributed">neuter</gender>
+				<gender>neuter</gender>
 				<displayName>मेट्रिक कप</displayName>
 				<unitPattern count="one">{0} मेट्रिक कप</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेट्रिक कपपासून</unitPattern>

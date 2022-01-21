@@ -115,20 +115,22 @@ public class Keyboard {
     public static Set<String> getPlatformIDs() {
         Set<String> results = new LinkedHashSet<>();
         File file = new File(BASE);
-        for (String f : file.list())
-            if (!f.equals("dtd") && !f.startsWith(".") && !f.startsWith("_")) {
+        for (String f : file.list()) {
+            if (!f.equals("dtd") && !f.startsWith(".") && !f.startsWith("_") && !f.equals("README.md")) {
                 results.add(f);
             }
+        }
         return results;
     }
 
     public static Set<String> getKeyboardIDs(String platformId) {
         Set<String> results = new LinkedHashSet<>();
         File base = new File(BASE + platformId + "/");
-        for (String f : base.list())
-            if (f.endsWith(".xml") && !f.startsWith(".") && !f.startsWith("_")) {
+        for (String f : base.list()) {
+            if (f.endsWith(".xml") && !f.startsWith(".") && !f.startsWith("_") && !f.equals("README.md")) {
                 results.add(f.substring(0, f.length() - 4));
             }
+        }
         return results;
     }
 

@@ -345,16 +345,23 @@ public class TestExampleGenerator extends TestFmwk {
             "{0} badmeter");
     }
 
+    /**
+     * Check that the expected exampleGenerator example is produced for the parameters, with the value coming from the file.
+     */
     private void checkValue(String message, String expected,
         ExampleGenerator exampleGenerator, String path) {
         checkValue(message, expected, exampleGenerator, path, null);
     }
 
+    /**
+     * Check that the expected exampleGenerator example is produced for the parameters
+     */
     private void checkValue(String message, String expected,
         ExampleGenerator exampleGenerator, String path, String value) {
-        value = value != null ? value : exampleGenerator.getCldrFile().getStringValue(path);
+        final CLDRFile cldrFile = exampleGenerator.getCldrFile();
+        value = value != null ? value : cldrFile.getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value);
-        assertEquals(message, expected,
+        assertEquals(cldrFile.getLocaleID() + ": " + message, expected,
             ExampleGenerator.simplify(actual, false));
     }
 
@@ -881,6 +888,7 @@ public class TestExampleGenerator extends TestFmwk {
             {"one", "dative", "〖❬1❭ Tag〗〖❬… mit 1❭ Tag❬ …❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗"},
             {"one", "genitive", "〖❬1❭ Tages〗〖❬Anstatt 1❭ Tages❬ …❭〗〖❌  ❬… für 1❭ Tages❬ …❭〗"},
             {"one", "nominative", "〖❬1❭ Tag〗〖❬1❭ Tag❬ kostet (kosten) € 3,50.❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗"},
+
             {"other", "accusative", "〖❬1,5❭ Tage〗〖❬… für 1,5❭ Tage❬ …❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗"},
             {"other", "dative", "〖❬1,5❭ Tagen〗〖❬… mit 1,5❭ Tagen❬ …❭〗〖❌  ❬… für 1,5❭ Tagen❬ …❭〗"},
             {"other", "genitive", "〖❬1,5❭ Tage〗〖❬Anstatt 1,5❭ Tage❬ …❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗"},
@@ -953,12 +961,14 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] elTests = {
             {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "〖❬1❭ ημέρα〗〖❌  ❬2❭ ημέρα〗"},
             {"//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "〖❬2❭ ημέρες〗〖❌  ❬1❭ ημέρες〗"},
+
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "〖… ανά ❬1 τόνο❭ …〗〖❌  … ανά ❬1 τόνου❭ …〗"},
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", "〖… αξίας ❬1 τόνου❭ …〗〖❌  … αξίας ❬1 τόνο❭ …〗"},
             {"//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", "〖Η απόσταση είναι ❬2 τόνοι❭ …〗〖❌  Η απόσταση είναι ❬1 τόνο❭ …〗"},
+
             {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "〖Η ❬ημέρα❭ είναι〗〖❌  Η ❬αιώνας❭ είναι〗"},
             {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", "〖Ο ❬αιώνας❭ θα είναι〗〖❌  Ο ❬ημέρα❭ θα είναι〗"},
-            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Το ❬μέτρο❭ ήταν〗〖❌  Το ❬ημέρα❭ ήταν〗"},
+            {"//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", "〖Το ❬εκατοστό❭ ήταν〗〖❌  Το ❬ημέρα❭ ήταν〗"},
         };
         checkMinimalPairExamples("el", elTests);
     }
@@ -1078,6 +1088,10 @@ public class TestExampleGenerator extends TestFmwk {
                         pattern = "🚫  Not used with formatted units";
                     } else {
                         pattern = cldrFile.getStringValue(path);
+                        if (pattern == null) {
+                            warnln("Missing ExampleGenerator html example for " + locale + "(" + localeName + "): " + path);
+                            continue;
+                        }
                         String actualRaw = exampleGenerator.getExampleHtml(path, pattern);
                         String actualSimplified = ExampleGenerator.simplify(actualRaw, false);
                         examples = actualSimplified

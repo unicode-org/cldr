@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3608,6 +3608,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>Enderbury</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kanton">
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>Kiritimati</exemplarCity>
@@ -7243,7 +7246,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>zebi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>yobe{0}</unitPrefixPattern>
+				<unitPrefixPattern>yobi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0} por {1}</compoundUnitPattern>
@@ -7261,7 +7264,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other" gender="feminine">{0} cúbicas</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}–{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<gender>feminine</gender>
@@ -7319,6 +7322,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} hectares</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<gender>masculine</gender>
 				<displayName>metros quadrados</displayName>
 				<unitPattern count="one">{0} metro quadrado</unitPattern>
 				<unitPattern count="other">{0} metros quadrados</unitPattern>
@@ -7378,13 +7382,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} miligramas por decilitro</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
+				<gender>masculine</gender>
 				<displayName>milimols por litro</displayName>
 				<unitPattern count="one">{0} milimol por litro</unitPattern>
 				<unitPattern count="other">{0} milimols por litro</unitPattern>
 			</unit>
 			<unit type="concentr-item">
+				<gender>masculine</gender>
 				<displayName>itens</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} item</unitPattern>
 				<unitPattern count="other">{0} itens</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
@@ -7442,46 +7448,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} milhas por galão imperial</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
+				<gender>masculine</gender>
 				<displayName>petabytes</displayName>
 				<unitPattern count="one">{0} petabyte</unitPattern>
 				<unitPattern count="other">{0} petabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
+				<gender>masculine</gender>
 				<displayName>terabytes</displayName>
 				<unitPattern count="one">{0} terabyte</unitPattern>
 				<unitPattern count="other">{0} terabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
+				<gender>masculine</gender>
 				<displayName>terabits</displayName>
 				<unitPattern count="one">{0} terabit</unitPattern>
 				<unitPattern count="other">{0} terabits</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
+				<gender>masculine</gender>
 				<displayName>gigabytes</displayName>
 				<unitPattern count="one">{0} gigabyte</unitPattern>
 				<unitPattern count="other">{0} gigabytes</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
+				<gender>masculine</gender>
 				<displayName>gigabits</displayName>
 				<unitPattern count="one">{0} gigabit</unitPattern>
 				<unitPattern count="other">{0} gigabits</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
+				<gender>masculine</gender>
 				<displayName>megabytes</displayName>
 				<unitPattern count="one">{0} megabyte</unitPattern>
 				<unitPattern count="other">{0} megabytes</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
+				<gender>masculine</gender>
 				<displayName>megabits</displayName>
 				<unitPattern count="one">{0} megabit</unitPattern>
 				<unitPattern count="other">{0} megabits</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
+				<gender>masculine</gender>
 				<displayName>kilobytes</displayName>
 				<unitPattern count="one">{0} kilobyte</unitPattern>
 				<unitPattern count="other">{0} kilobytes</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
+				<gender>masculine</gender>
 				<displayName>kilobits</displayName>
 				<unitPattern count="one">{0} kilobit</unitPattern>
 				<unitPattern count="other">{0} kilobits</unitPattern>
@@ -7489,13 +7504,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-byte">
 				<gender>masculine</gender>
 				<displayName>bytes</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} byte</unitPattern>
 				<unitPattern count="other">{0} bytes</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<gender>masculine</gender>
 				<displayName>bits</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} bit</unitPattern>
 				<unitPattern count="other">{0} bits</unitPattern>
 			</unit>
 			<unit type="duration-century">
@@ -7539,7 +7554,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} por dia</perUnitPattern>
 			</unit>
 			<unit type="duration-day-person">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 			</unit>
 			<unit type="duration-hour">
 				<gender>feminine</gender>
@@ -7563,16 +7578,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} por segundo</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<gender>masculine</gender>
 				<displayName>milissegundos</displayName>
 				<unitPattern count="one">{0} milissegundo</unitPattern>
 				<unitPattern count="other">{0} milissegundos</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
+				<gender>masculine</gender>
 				<displayName>microssegundos</displayName>
 				<unitPattern count="one">{0} microssegundo</unitPattern>
 				<unitPattern count="other">{0} microssegundos</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
+				<gender>masculine</gender>
 				<displayName>nanossegundos</displayName>
 				<unitPattern count="one">{0} nanossegundo</unitPattern>
 				<unitPattern count="other">{0} nanossegundos</unitPattern>
@@ -7584,6 +7602,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} amperes</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
+				<gender>masculine</gender>
 				<displayName>miliamperes</displayName>
 				<unitPattern count="one">{0} miliampere</unitPattern>
 				<unitPattern count="other">{0} miliamperes</unitPattern>
@@ -7619,6 +7638,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Calorias</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
+				<gender>masculine</gender>
 				<displayName>quilojoules</displayName>
 				<unitPattern count="one">{0} quilojoule</unitPattern>
 				<unitPattern count="other">{0} quilojoules</unitPattern>
@@ -7630,6 +7650,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} joules</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
+				<gender>masculine</gender>
 				<displayName>quilowatts-hora</displayName>
 				<unitPattern count="one">{0} quilowatt-hora</unitPattern>
 				<unitPattern count="other">{0} quilowatts-hora</unitPattern>
@@ -7661,21 +7682,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} newtons</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>quilowatt-hora por 100 quilômetros</displayName>
+				<gender>masculine</gender>
+				<displayName>quilowatts-hora por 100 quilômetros</displayName>
 				<unitPattern count="one">{0} quilowatt-hora por 100 quilômetros</unitPattern>
 				<unitPattern count="other">{0} quilowatts-hora por 100 quilômetros</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
+				<gender>masculine</gender>
 				<displayName>gigahertz</displayName>
 				<unitPattern count="one">{0} gigahertz</unitPattern>
 				<unitPattern count="other">{0} gigahertz</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
+				<gender>masculine</gender>
 				<displayName>megahertz</displayName>
 				<unitPattern count="one">{0} megahertz</unitPattern>
 				<unitPattern count="other">{0} megahertz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
+				<gender>masculine</gender>
 				<displayName>kilohertz</displayName>
 				<unitPattern count="one">{0} kilohertz</unitPattern>
 				<unitPattern count="other">{0} kilohertz</unitPattern>
@@ -7690,7 +7715,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>em tipográfico</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} ems</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<gender>masculine</gender>
@@ -7699,11 +7724,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} pixels</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
+				<gender>masculine</gender>
 				<displayName>megapixels</displayName>
 				<unitPattern count="one">{0} megapixel</unitPattern>
 				<unitPattern count="other">{0} megapixels</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
+				<gender>masculine</gender>
 				<displayName>pixels por centímetro</displayName>
 				<unitPattern count="one">{0} pixel por centímetro</unitPattern>
 				<unitPattern count="other">{0} pixels por centímetro</unitPattern>
@@ -7724,7 +7751,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} pontos por polegada</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>ponto</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} ponto</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7748,6 +7775,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} por metro</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
+				<gender>masculine</gender>
 				<displayName>decímetros</displayName>
 				<unitPattern count="one">{0} decímetro</unitPattern>
 				<unitPattern count="other">{0} decímetros</unitPattern>
@@ -7766,11 +7794,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} milímetros</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
+				<gender>masculine</gender>
 				<displayName>micrômetros</displayName>
 				<unitPattern count="one">{0} micrômetro</unitPattern>
 				<unitPattern count="other">{0} micrômetros</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
+				<gender>masculine</gender>
 				<displayName>nanômetros</displayName>
 				<unitPattern count="one">{0} nanômetro</unitPattern>
 				<unitPattern count="other">{0} nanômetros</unitPattern>
@@ -7906,6 +7936,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} miligramas</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
+				<gender>masculine</gender>
 				<displayName>microgramas</displayName>
 				<unitPattern count="one">{0} micrograma</unitPattern>
 				<unitPattern count="other">{0} microgramas</unitPattern>
@@ -7953,7 +7984,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-earth-mass">
 				<gender>feminine</gender>
-				<displayName>massa terrestre</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} massa terrestre</unitPattern>
 				<unitPattern count="other">{0} massas terrestres</unitPattern>
 			</unit>
@@ -7970,16 +8001,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} grãos</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
+				<gender>masculine</gender>
 				<displayName>gigawatts</displayName>
 				<unitPattern count="one">{0} gigawatt</unitPattern>
 				<unitPattern count="other">{0} gigawatts</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
+				<gender>masculine</gender>
 				<displayName>megawatts</displayName>
 				<unitPattern count="one">{0} megawatt</unitPattern>
 				<unitPattern count="other">{0} megawatts</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<gender>masculine</gender>
 				<displayName>quilowatts</displayName>
 				<unitPattern count="one">{0} quilowatt</unitPattern>
 				<unitPattern count="other">{0} quilowatts</unitPattern>
@@ -7991,6 +8025,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} watts</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
+				<gender>masculine</gender>
 				<displayName>miliwatts</displayName>
 				<unitPattern count="one">{0} miliwatt</unitPattern>
 				<unitPattern count="other">{0} miliwatts</unitPattern>
@@ -8022,6 +8057,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} bars</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<gender>masculine</gender>
 				<displayName>milibares</displayName>
 				<unitPattern count="one">{0} milibar</unitPattern>
 				<unitPattern count="other">{0} milibares</unitPattern>
@@ -8039,6 +8075,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} pascais</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<gender>masculine</gender>
 				<displayName>hectopascais</displayName>
 				<unitPattern count="one">{0} hectopascal</unitPattern>
 				<unitPattern count="other">{0} hectopascais</unitPattern>
@@ -8050,6 +8087,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} quilopascais</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
+				<gender>masculine</gender>
 				<displayName>megapascais</displayName>
 				<unitPattern count="one">{0} megapascal</unitPattern>
 				<unitPattern count="other">{0} megapascais</unitPattern>
@@ -8107,16 +8145,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} pés-libra</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
+				<gender>masculine</gender>
 				<displayName>newton-metros</displayName>
 				<unitPattern count="one">{0} newton-metro</unitPattern>
 				<unitPattern count="other">{0} newton-metros</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<gender>masculine</gender>
 				<displayName>quilômetros cúbicos</displayName>
 				<unitPattern count="one">{0} quilômetro cúbico</unitPattern>
 				<unitPattern count="other">{0} quilômetros cúbicos</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
+				<gender>masculine</gender>
 				<displayName>metros cúbicos</displayName>
 				<unitPattern count="one">{0} metro cúbico</unitPattern>
 				<unitPattern count="other">{0} metros cúbicos</unitPattern>
@@ -8152,11 +8193,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} polegadas cúbicas</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
+				<gender>masculine</gender>
 				<displayName>megalitros</displayName>
 				<unitPattern count="one">{0} megalitro</unitPattern>
 				<unitPattern count="other">{0} megalitros</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
+				<gender>masculine</gender>
 				<displayName>hectolitros</displayName>
 				<unitPattern count="one">{0} hectolitro</unitPattern>
 				<unitPattern count="other">{0} hectolitros</unitPattern>
@@ -8277,7 +8320,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender>feminine</gender>
-				<displayName>↑↑↑</displayName>
+				<displayName>colheres de sobremesa imperiais</displayName>
 				<unitPattern count="one">{0} colher de sobremesa imperial</unitPattern>
 				<unitPattern count="other">{0} colheres de sobremesa imperiais</unitPattern>
 			</unit>

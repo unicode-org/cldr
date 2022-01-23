@@ -3548,8 +3548,9 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="fr" populationPercent="3" officialStatus="official"/>	<!--French-->
 			<languagePopulation type="ta" populationPercent="2.5"/>	<!--Tamil-->
 		</territory>
-		<territory type="MV" gdp="6901000000" literacyPercent="98.4" population="391904">	<!--Maldives-->
-			<languagePopulation type="dv" populationPercent="94" officialStatus="official"/>	<!--Divehi-->
+		<territory type="MV" gdp="6901000000" literacyPercent="98.4" population="540542">	<!--Maldives-->
+			<languagePopulation type="dv" populationPercent="98" officialStatus="official" references="R1328"/>	<!--Divehi-->
+			<languagePopulation type="en" populationPercent="75" references="R1328"/>	<!--English-->
 		</territory>
 		<territory type="MW" gdp="22420000000" literacyPercent="74.8" population="21196600">	<!--Malawi-->
 			<languagePopulation type="en" populationPercent="63" officialStatus="official"/>	<!--English-->
@@ -5313,7 +5314,7 @@ XXX Code for transations where no currency is involved
 
 	<parentLocales>
 		<parentLocale parent="root" locales="az_Arab az_Cyrl bal_Latn blt_Latn bm_Nkoo bs_Cyrl byn_Latn cu_Glag dje_Arab dyo_Arab en_Dsrt en_Shaw ff_Adlm ff_Arab ha_Arab hi_Latn iu_Latn kk_Arab ks_Deva ku_Arab ky_Arab ky_Latn ml_Arab mn_Mong mni_Mtei ms_Arab pa_Arab sat_Deva sd_Deva sd_Khoj sd_Sind shi_Latn so_Arab sr_Latn sw_Arab tg_Arab ug_Cyrl uz_Arab uz_Cyrl vai_Latn wo_Arab yo_Arab yue_Hans zh_Hant"/>
-		<parentLocale parent="en_001" locales="en_150 en_AG en_AI en_AU en_BB en_BM en_BS en_BW en_BZ en_CC en_CK en_CM en_CX en_CY en_DG en_DM en_ER en_FJ en_FK en_FM en_GB en_GD en_GG en_GH en_GI en_GM en_GY en_HK en_IE en_IL en_IM en_IN en_IO en_JE en_JM en_KE en_KI en_KN en_KY en_LC en_LR en_LS en_MG en_MO en_MS en_MT en_MU en_MW en_MY en_NA en_NF en_NG en_NR en_NU en_NZ en_PG en_PK en_PN en_PW en_RW en_SB en_SC en_SD en_SG en_SH en_SL en_SS en_SX en_SZ en_TC en_TK en_TO en_TT en_TV en_TZ en_UG en_VC en_VG en_VU en_WS en_ZA en_ZM en_ZW"/>
+		<parentLocale parent="en_001" locales="en_150 en_AG en_AI en_AU en_BB en_BM en_BS en_BW en_BZ en_CC en_CK en_CM en_CX en_CY en_DG en_DM en_ER en_FJ en_FK en_FM en_GB en_GD en_GG en_GH en_GI en_GM en_GY en_HK en_IE en_IL en_IM en_IN en_IO en_JE en_JM en_KE en_KI en_KN en_KY en_LC en_LR en_LS en_MG en_MO en_MS en_MT en_MU en_MV en_MW en_MY en_NA en_NF en_NG en_NR en_NU en_NZ en_PG en_PK en_PN en_PW en_RW en_SB en_SC en_SD en_SG en_SH en_SL en_SS en_SX en_SZ en_TC en_TK en_TO en_TT en_TV en_TZ en_UG en_VC en_VG en_VU en_WS en_ZA en_ZM en_ZW"/>
 		<parentLocale parent="en_150" locales="en_AT en_BE en_CH en_DE en_DK en_FI en_NL en_SE en_SI"/>
 		<parentLocale parent="es_419" locales="es_AR es_BO es_BR es_BZ es_CL es_CO es_CR es_CU es_DO es_EC es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE"/>
 		<parentLocale parent="no" locales="nb nn"/>
@@ -5650,5 +5651,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1325" uri="http://www.portalkaingang.org/index_povo_1default.htm">[missing]</reference>
 		<reference type="R1326" uri="https://www.ethnologue.com/language/osa">[missing]</reference>
 		<reference type="R1327" uri="https://pt.wikipedia.org/wiki/Nheengatu">[missing]</reference>
+		<reference type="R1328" uri="https://statisticsmaldives.gov.mv/statistical-release-iii-education/">2014 Maldives: 98% literacy in Divehi, 75% in English</reference>
 	</references>
 </supplementalData>

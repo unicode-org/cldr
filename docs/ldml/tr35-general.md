@@ -2165,13 +2165,40 @@ List patterns can be used to format variable-length lists of things in a locale-
 </listPatterns>
 ```
 
-The data is used as follows: If there is a type type matches exactly the number of elements in the desired list (such as "2" in the above list), then use that pattern. Otherwise,
+Each pattern satisifies the following conditions:
+<ul>
+    <li>it contains the placeholders <code>{0}</code>, <code>{1}</code>, and <code>{2}</code> ("3"-pattern only) in order</li>
+    <li>"start" and "middle" patterns end with the <code>{1}</code> placeholder</li>
+    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li> 
+</ul>
 
-1.  Format the last two elements with the "end" format.
-2.  Then use middle format to add on subsequent elements working towards the front, all but the very first element. That is, {1} is what you've already done, and {0} is the previous element.
-3.  Then use "start" to add the front element, again with {1} as what you've done so far, and {0} is the first element.
+That is,
+<ul>
+    <li>all patterns can have text between the placeholders</li>
+    <li>only the "start", "2", and "3" patterns can have text before the first placeholder, and</li>
+    <li>only the "end", "2", and "3" patterns can have text after the last placeholder.</li>
+</ul>
 
-Thus a list (a,b,c,...m, n) is formatted as: `start(a,middle(b,middle(c,middle(...end(m, n))...)))`
+The data is used as follows: If there is a type that matches exactly the number of elements in the desired list (such as "2" in the above list), then use that pattern. Otherwise,
+
+1.  Format the last two elements with the "end" pattern.
+2.  Then use the "middle" pattern to add on subsequent elements working towards the front, all but the very first element. That is, `{1}` is what you've already done, and `{0}` is the previous element.
+3.  Then use "start" to add the front element, again with `{1}` as what you've done so far, and `{0}` is the first element.
+
+Thus a list (a,b,c,...m, n) is formatted as: `start(a,middle(b,middle(c,middle(...end(m, n))...)))`. Alternatively, the list can also be processed front-to-back:
+
+1. Format the first two elements with the "start" pattern.
+2. Then use the "middle" pattern to add on subsequent elements working towards the back, all but the very last element. That is, `{0}` is what you've already done, and `{1}` is the next element.
+3. Then use "end" to add the last element, again with `{0}` as what you've done so far, and `{1}` is the last element.
+
+Here, the list (a,b,c,...m, n) is formatted as:  `end(middle(..., middle(start(a, b), c) ...) m) n) `. While this prefix-expression looks less suitable, it actually only requires appends,
+so this algorithm can be used to write into append-only sinks. Both the back-to-front and the front-to back algorithm produce this expression:
+
+```
+start_before + a + start_between + b + middle_between + c + ... + middle_between + m + end_between + n + end_after
+```
+
+where the patters are "start": `start_before{0}start_between{1}`, "middle": `{0}middle_between{1}`, and "end": `{0}end_between{1}end_after`.
 
 More sophisticated implementations can customize the process to improve the results for languages where context is important. For example:
 

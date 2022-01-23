@@ -41,6 +41,11 @@ function generateLocalesTxt(data, outFunction) {
   // now, per org
   for (const org of Object.keys(allOrgs).sort()) {
     const localesWithUsers = new Set(allOrgs[org].localesWithVetters);
+    const coverageLocales = new Set(allOrgs[org].coverageLocales);
+    const localesOutOfBounds = setUtils.minus(
+      localesWithUsers,
+      coverageLocales
+    );
     const localesWithVotes = new Set();
     // now look for actual votes
     outFunction(`# ${org}`);
@@ -78,6 +83,19 @@ function generateLocalesTxt(data, outFunction) {
         `#  Participation but no vetters: ` +
           setUtils.asList(participationNoVetters).join(" ")
       );
+    }
+    if (localesOutOfBounds.size !== 0) {
+      if (coverageLocales.has("*")) {
+        outFunction(
+          `# Note: '*' covers these assigned locales: ` +
+            setUtils.asList(localesOutOfBounds).join(" ")
+        );
+      } else {
+        outFunction(
+          `# ERROR: ${org} Vetters out of coverage: ` +
+            setUtils.asList(localesOutOfBounds).join(" ")
+        );
+      }
     }
     const allLocales = setUtils.union(localesWithVotes, localesWithUsers);
     if (allLocales.size == 0) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -4384,6 +4384,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>اندربيرج</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kanton">
+				<exemplarCity draft="contributed">كانتون</exemplarCity>
+			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>كيريتي ماتي</exemplarCity>
 			</zone>
@@ -8733,6 +8736,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} قوة تسارع</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
+				<gender>masculine</gender>
 				<displayName>متر في الثانية المربعة</displayName>
 				<unitPattern count="zero">{0} متر في الثانية المربعة</unitPattern>
 				<unitPattern count="one">{0} متر في الثانية المربعة</unitPattern>
@@ -8792,6 +8796,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ثانية قوسية</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<gender>masculine</gender>
 				<displayName>كيلومتر مربع</displayName>
 				<unitPattern count="zero">{0} كيلومتر مربع</unitPattern>
 				<unitPattern count="one">{0} كيلومتر مربع</unitPattern>
@@ -8812,6 +8817,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} هكتار</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<gender>masculine</gender>
 				<displayName>متر مربع</displayName>
 				<unitPattern count="zero">{0} متر مربع</unitPattern>
 				<unitPattern count="one">{0} متر مربع</unitPattern>
@@ -8822,6 +8828,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} لكل متر مربع</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
+				<gender>masculine</gender>
 				<displayName>سنتيمتر مربع</displayName>
 				<unitPattern count="zero">{0} سنتيمتر مربع</unitPattern>
 				<unitPattern count="one">{0} سنتيمتر مربع</unitPattern>
@@ -8907,6 +8914,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} مغم/ديسيبل</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
+				<gender>masculine</gender>
 				<displayName>ملي مول/لتر</displayName>
 				<unitPattern count="zero">{0} ملي مول/لتر</unitPattern>
 				<unitPattern count="one">{0} ملي مول/لتر</unitPattern>
@@ -8916,6 +8924,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ملي مول/لتر</unitPattern>
 			</unit>
 			<unit type="concentr-item">
+				<gender>masculine</gender>
 				<displayName>عنصر</displayName>
 				<unitPattern count="zero">{0} عنصر</unitPattern>
 				<unitPattern count="one">عنصر واحد</unitPattern>
@@ -8975,6 +8984,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} مول</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
+				<gender>masculine</gender>
 				<displayName>لتر لكل كيلومتر</displayName>
 				<unitPattern count="zero">{0} لتر لكل كيلومتر</unitPattern>
 				<unitPattern count="one">{0} لتر لكل كيلومتر</unitPattern>
@@ -8984,6 +8994,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} لتر لكل كيلومتر</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
+				<gender>masculine</gender>
 				<displayName>لتر لكل ١٠٠ كيلومتر</displayName>
 				<unitPattern count="zero">{0} لتر لكل ١٠٠ كيلومتر</unitPattern>
 				<unitPattern count="one">{0} لتر لكل ١٠٠ كيلومتر</unitPattern>
@@ -9011,6 +9022,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميل لكل غالون إمبراطوري</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
+				<gender>masculine</gender>
 				<displayName>بيتابايت</displayName>
 				<unitPattern count="zero">{0} بيتابايت</unitPattern>
 				<unitPattern count="one">{0} بيتابايت</unitPattern>
@@ -9020,6 +9032,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بيتابايت</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
+				<gender>masculine</gender>
 				<displayName>تيرابايت</displayName>
 				<unitPattern count="zero">{0} تيرابايت</unitPattern>
 				<unitPattern count="one">{0} تيرابايت</unitPattern>
@@ -9029,6 +9042,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} تيرابايت</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
+				<gender>masculine</gender>
 				<displayName>تيرابت</displayName>
 				<unitPattern count="zero">{0} تيرابت</unitPattern>
 				<unitPattern count="one">{0} تيرابت</unitPattern>
@@ -9038,6 +9052,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} تيرابت</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
+				<gender>masculine</gender>
 				<displayName>غيغابايت</displayName>
 				<unitPattern count="zero">{0} غيغابايت</unitPattern>
 				<unitPattern count="one">{0} غيغابايت</unitPattern>
@@ -9047,6 +9062,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} غيغابايت</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
+				<gender>masculine</gender>
 				<displayName>غيغابت</displayName>
 				<unitPattern count="zero">{0} غيغابت</unitPattern>
 				<unitPattern count="one">{0} غيغابت</unitPattern>
@@ -9056,6 +9072,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} غيغابت</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
+				<gender>masculine</gender>
 				<displayName>ميغابايت</displayName>
 				<unitPattern count="zero">{0} ميغابايت</unitPattern>
 				<unitPattern count="one">{0} ميغابايت</unitPattern>
@@ -9065,6 +9082,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميغابايت</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
+				<gender>masculine</gender>
 				<displayName>ميغابت</displayName>
 				<unitPattern count="zero">{0} ميغابت</unitPattern>
 				<unitPattern count="one">{0} ميغابت</unitPattern>
@@ -9074,6 +9092,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميغابت</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
+				<gender>masculine</gender>
 				<displayName>كيلوبايت</displayName>
 				<unitPattern count="zero">{0} كيلوبايت</unitPattern>
 				<unitPattern count="one">{0} كيلوبايت</unitPattern>
@@ -9083,6 +9102,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كيلوبايت</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
+				<gender>masculine</gender>
 				<displayName>كيلوبت</displayName>
 				<unitPattern count="zero">{0} كيلوبت</unitPattern>
 				<unitPattern count="one">{0} كيلوبت</unitPattern>
@@ -9092,7 +9112,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كيلوبت</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<gender draft="provisional">feminine</gender>
+				<gender>masculine</gender>
 				<displayName>بايت</displayName>
 				<unitPattern count="zero">{0} بايت</unitPattern>
 				<unitPattern count="one">{0} بايت</unitPattern>
@@ -9102,7 +9122,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بايت</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<gender draft="provisional">feminine</gender>
+				<gender>masculine</gender>
 				<displayName>بت</displayName>
 				<unitPattern count="zero">{0} بت</unitPattern>
 				<unitPattern count="one">{0} بت</unitPattern>
@@ -9162,7 +9182,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} أسابيع</unitPattern>
 				<unitPattern count="many">{0} أسبوعًا</unitPattern>
 				<unitPattern count="other">{0} أسبوع</unitPattern>
-				<perUnitPattern>{0} كل أسبوع</perUnitPattern>
+				<perUnitPattern>{0} في الأسبوع</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<gender>masculine</gender>
@@ -9173,7 +9193,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} أيام</unitPattern>
 				<unitPattern count="many">{0} يومًا</unitPattern>
 				<unitPattern count="other">{0} يوم</unitPattern>
-				<perUnitPattern>{0} كل يوم</perUnitPattern>
+				<perUnitPattern>{0} في اليوم</perUnitPattern>
 			</unit>
 			<unit type="duration-day-person">
 				<gender>masculine</gender>
@@ -9187,7 +9207,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ساعات</unitPattern>
 				<unitPattern count="many">{0} ساعة</unitPattern>
 				<unitPattern count="other">{0} ساعة</unitPattern>
-				<perUnitPattern>{0} كل ساعة</perUnitPattern>
+				<perUnitPattern>{0} في الساعة</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<gender>feminine</gender>
@@ -9209,9 +9229,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ثوان</unitPattern>
 				<unitPattern count="many">{0} ثانية</unitPattern>
 				<unitPattern count="other">{0} ثانية</unitPattern>
-				<perUnitPattern>{0}/ثانية</perUnitPattern>
+				<perUnitPattern>{0} في الثانية</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<gender>feminine</gender>
 				<displayName>ملي ثانية</displayName>
 				<unitPattern count="zero">{0} ملي ثانية</unitPattern>
 				<unitPattern count="one">{0} ملي ثانية</unitPattern>
@@ -9221,6 +9242,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ملي ثانية</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
+				<gender>feminine</gender>
 				<displayName>ميكروثانية</displayName>
 				<unitPattern count="zero">{0} ميكروثانية</unitPattern>
 				<unitPattern count="one">{0} ميكروثانية</unitPattern>
@@ -9230,6 +9252,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميكروثانية</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
+				<gender>feminine</gender>
 				<displayName>نانو ثانية</displayName>
 				<unitPattern count="zero">{0} نانو ثانية</unitPattern>
 				<unitPattern count="one">{0} نانو ثانية</unitPattern>
@@ -9249,6 +9272,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} أمبير</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
+				<gender>masculine</gender>
 				<displayName>ملي أمبير</displayName>
 				<unitPattern count="zero">{0} ملي أمبير</unitPattern>
 				<unitPattern count="one">{0} ملي أمبير</unitPattern>
@@ -9306,6 +9330,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} سعرة</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
+				<gender>masculine</gender>
 				<displayName>كيلو جول</displayName>
 				<unitPattern count="zero">{0} كيلو جول</unitPattern>
 				<unitPattern count="one">{0} كيلو جول</unitPattern>
@@ -9325,6 +9350,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} جول</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
+				<gender>masculine</gender>
 				<displayName>كيلو واط/ساعة</displayName>
 				<unitPattern count="zero">{0} كيلو واط/ساعة</unitPattern>
 				<unitPattern count="one">{0} كيلو واط/ساعة</unitPattern>
@@ -9380,6 +9406,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} نيوتن</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<gender>masculine</gender>
 				<displayName>كيلوواط ساعة لكل 100 كيلومتر</displayName>
 				<unitPattern count="zero">{0} كيلوواط ساعة لكل 100 كيلومتر</unitPattern>
 				<unitPattern count="one">{0} كيلوواط ساعة لكل 100 كيلومتر</unitPattern>
@@ -9389,6 +9416,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كيلوواط ساعة لكل 100 كيلومتر</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
+				<gender>masculine</gender>
 				<displayName>غيغا هرتز</displayName>
 				<unitPattern count="zero">{0} غيغا هرتز</unitPattern>
 				<unitPattern count="one">{0} غيغا هرتز</unitPattern>
@@ -9398,6 +9426,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} غيغا هرتز</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
+				<gender>masculine</gender>
 				<displayName>ميغا هرتز</displayName>
 				<unitPattern count="zero">{0} ميغا هرتز</unitPattern>
 				<unitPattern count="one">{0} ميغا هرتز</unitPattern>
@@ -9407,6 +9436,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميغا هرتز</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
+				<gender>masculine</gender>
 				<displayName>كيلو هرتز</displayName>
 				<unitPattern count="zero">{0} كيلو هرتز</unitPattern>
 				<unitPattern count="one">{0} كيلو هرتز</unitPattern>
@@ -9446,6 +9476,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بكسل</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
+				<gender>masculine</gender>
 				<displayName>ميغابكسل</displayName>
 				<unitPattern count="zero">{0} ميغابكسل</unitPattern>
 				<unitPattern count="one">{0} ميغابكسل</unitPattern>
@@ -9455,6 +9486,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميغابكسل</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
+				<gender>masculine</gender>
 				<displayName>بكسل لكل سنتيمتر</displayName>
 				<unitPattern count="zero">{0} بكسل لكل سنتيمتر</unitPattern>
 				<unitPattern count="one">{0} بكسل لكل سنتيمتر</unitPattern>
@@ -9509,6 +9541,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} نصف قطر أرضي</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<gender>masculine</gender>
 				<displayName>كيلومتر</displayName>
 				<unitPattern count="zero">{0} كيلومتر</unitPattern>
 				<unitPattern count="one">{0} كيلومتر</unitPattern>
@@ -9530,6 +9563,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} لكل متر</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
+				<gender>masculine</gender>
 				<displayName>ديسيمتر</displayName>
 				<unitPattern count="zero">{0} ديسيمتر</unitPattern>
 				<unitPattern count="one">{0} ديسيمتر</unitPattern>
@@ -9539,6 +9573,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ديسيمتر</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<gender>masculine</gender>
 				<displayName>سنتيمتر</displayName>
 				<unitPattern count="zero">{0} سنتيمتر</unitPattern>
 				<unitPattern count="one">{0} سنتيمتر</unitPattern>
@@ -9549,6 +9584,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/سنتيمتر</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<gender>masculine</gender>
 				<displayName>مليمتر</displayName>
 				<unitPattern count="zero">{0} مليمتر</unitPattern>
 				<unitPattern count="one">{0} مليمتر</unitPattern>
@@ -9558,6 +9594,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} مليمتر</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
+				<gender>masculine</gender>
 				<displayName>ميكرومتر</displayName>
 				<unitPattern count="zero">{0} ميكرومتر</unitPattern>
 				<unitPattern count="one">{0} ميكرومتر</unitPattern>
@@ -9567,6 +9604,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميكرومتر</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
+				<gender>masculine</gender>
 				<displayName>نانو متر</displayName>
 				<unitPattern count="zero">{0} نانو متر</unitPattern>
 				<unitPattern count="one">{0} نانو متر</unitPattern>
@@ -9576,6 +9614,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} نانو متر</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<gender>masculine</gender>
 				<displayName>بيكومتر</displayName>
 				<unitPattern count="zero">{0} بيكومتر</unitPattern>
 				<unitPattern count="one">{0} بيكومتر</unitPattern>
@@ -9776,6 +9815,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/غرام</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
+				<gender>masculine</gender>
 				<displayName>مليغرام</displayName>
 				<unitPattern count="zero">{0} مليغرام</unitPattern>
 				<unitPattern count="one">{0} مليغرام</unitPattern>
@@ -9785,6 +9825,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} مليغرام</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
+				<gender>masculine</gender>
 				<displayName>ميكروغرام</displayName>
 				<unitPattern count="zero">{0} ميكروغرام</unitPattern>
 				<unitPattern count="one">{0} ميكروغرام</unitPattern>
@@ -9887,6 +9928,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} قمحة</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
+				<gender>masculine</gender>
 				<displayName>غيغا واط</displayName>
 				<unitPattern count="zero">{0} غيغا واط</unitPattern>
 				<unitPattern count="one">{0} غيغا واط</unitPattern>
@@ -9896,6 +9938,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} غيغا واط</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
+				<gender>masculine</gender>
 				<displayName>ميغا واط</displayName>
 				<unitPattern count="zero">{0} ميغا واط</unitPattern>
 				<unitPattern count="one">{0} ميغا واط</unitPattern>
@@ -9905,6 +9948,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميغا واط</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<gender>masculine</gender>
 				<displayName>كيلوواط</displayName>
 				<unitPattern count="zero">{0} كيلوواط</unitPattern>
 				<unitPattern count="one">{0} كيلوواط</unitPattern>
@@ -9924,6 +9968,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} واط</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
+				<gender>masculine</gender>
 				<displayName>ملي واط</displayName>
 				<unitPattern count="zero">{0} ملي واط</unitPattern>
 				<unitPattern count="one">{0} ملي واط</unitPattern>
@@ -9979,6 +10024,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بار</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<gender>masculine</gender>
 				<displayName>ملي بار</displayName>
 				<unitPattern count="zero">{0} ملي بار</unitPattern>
 				<unitPattern count="one">{0} ملي بار</unitPattern>
@@ -10008,6 +10054,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} باسكال</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<gender>masculine</gender>
 				<displayName>هكتوباسكال</displayName>
 				<unitPattern count="zero">{0} هكتوباسكال</unitPattern>
 				<unitPattern count="one">{0} هكتوباسكال</unitPattern>
@@ -10017,6 +10064,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
+				<gender>masculine</gender>
 				<displayName>كيلوباسكال</displayName>
 				<unitPattern count="zero">{0} كيلوباسكال</unitPattern>
 				<unitPattern count="one">{0} كيلوباسكال</unitPattern>
@@ -10026,6 +10074,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كيلوباسكال</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
+				<gender>masculine</gender>
 				<displayName>ميغاباسكال</displayName>
 				<unitPattern count="zero">{0} ميغاباسكال</unitPattern>
 				<unitPattern count="one">{0} ميغاباسكال</unitPattern>
@@ -10035,6 +10084,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميغاباسكال</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<gender>masculine</gender>
 				<displayName>كيلومتر في الساعة</displayName>
 				<unitPattern count="zero">{0} كيلومتر في الساعة</unitPattern>
 				<unitPattern count="one">{0} كيلومتر في الساعة</unitPattern>
@@ -10044,6 +10094,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كيلومتر في الساعة</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<gender>masculine</gender>
 				<displayName>متر في الثانية</displayName>
 				<unitPattern count="zero">{0} متر في الثانية</unitPattern>
 				<unitPattern count="one">{0} متر في الثانية</unitPattern>
@@ -10119,6 +10170,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} باوند قدم</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
+				<gender>masculine</gender>
 				<displayName>نيوتن متر</displayName>
 				<unitPattern count="zero">{0} نيوتن متر</unitPattern>
 				<unitPattern count="one">{0} نيوتن متر</unitPattern>
@@ -10128,6 +10180,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} نيوتن متر</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<gender>masculine</gender>
 				<displayName>كيلومتر مكعب</displayName>
 				<unitPattern count="zero">{0} كيلومتر مكعب</unitPattern>
 				<unitPattern count="one">{0} كيلومتر مكعب</unitPattern>
@@ -10137,6 +10190,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كيلومتر مكعب</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
+				<gender>masculine</gender>
 				<displayName>متر مكعب</displayName>
 				<unitPattern count="zero">{0} متر مكعب</unitPattern>
 				<unitPattern count="one">{0} متر مكعب</unitPattern>
@@ -10147,6 +10201,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/متر مكعب</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
+				<gender>masculine</gender>
 				<displayName>سنتيمتر مكعب</displayName>
 				<unitPattern count="zero">{0} سنتيمتر مكعب</unitPattern>
 				<unitPattern count="one">{0} سنتيمتر مكعب</unitPattern>
@@ -10193,6 +10248,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بوصة مكعبة</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
+				<gender>masculine</gender>
 				<displayName>ميغالتر</displayName>
 				<unitPattern count="zero">{0} ميغالتر</unitPattern>
 				<unitPattern count="one">{0} ميغالتر</unitPattern>
@@ -10202,6 +10258,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميغالتر</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
+				<gender>masculine</gender>
 				<displayName>هكتولتر</displayName>
 				<unitPattern count="zero">{0} هكتولتر</unitPattern>
 				<unitPattern count="one">{0} هكتولتر</unitPattern>
@@ -10222,6 +10279,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} لكل لتر</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
+				<gender>masculine</gender>
 				<displayName>ديسيلتر</displayName>
 				<unitPattern count="zero">{0} ديسيلتر</unitPattern>
 				<unitPattern count="one">{0} ديسيلتر</unitPattern>
@@ -10231,6 +10289,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ديسيلتر</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
+				<gender>masculine</gender>
 				<displayName>سنتيلتر</displayName>
 				<unitPattern count="zero">{0} سنتيلتر</unitPattern>
 				<unitPattern count="one">{0} سنتيلتر</unitPattern>
@@ -10240,6 +10299,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} سنتيلتر</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
+				<gender>masculine</gender>
 				<displayName>مليلتر</displayName>
 				<unitPattern count="zero">{0} مليلتر</unitPattern>
 				<unitPattern count="one">{0} مليلتر</unitPattern>

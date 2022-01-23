@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -4175,6 +4175,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>Enderbury</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kanton">
+				<exemplarCity draft="contributed">↑↑↑</exemplarCity>
+			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>Kiritimati</exemplarCity>
 			</zone>
@@ -8233,14 +8236,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Milligramm pro Deziliter</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Millimol pro Liter</displayName>
 				<unitPattern count="one">{0} Millimol pro Liter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Millimol pro Liter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Elemente</displayName>
 				<unitPattern count="one">{0} Element</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Elements</unitPattern>
 				<unitPattern count="other">{0} Elemente</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Elementen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<gender>neuter</gender>
@@ -8293,19 +8310,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-mole">
 				<gender>neuter</gender>
 				<displayName>Mole</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Mol</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Mol</unitPattern>
 				<unitPattern count="one" case="dative">{0} Mol</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Mols</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} Mol</unitPattern>
 				<unitPattern count="other" case="accusative">{0} Mol</unitPattern>
 				<unitPattern count="other" case="dative">{0} Mol</unitPattern>
 				<unitPattern count="other" case="genitive">{0} Mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Liter pro Kilometer</displayName>
 				<unitPattern count="one">{0} Liter pro Kilometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Liters pro Kilometer</unitPattern>
 				<unitPattern count="other">{0} Liter pro Kilometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Litern pro Kilometer</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<gender>masculine</gender>
@@ -8344,9 +8368,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Petabytes</displayName>
 				<unitPattern count="one">{0} Petabyte</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Petabyte</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<gender>neuter</gender>
@@ -8361,9 +8392,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} Terabyte</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Terabits</displayName>
 				<unitPattern count="one">{0} Terabit</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Terabit</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<gender>neuter</gender>
@@ -8588,19 +8626,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} pro Sekunde</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<gender draft="contributed">feminine</gender>
 				<displayName>Millisekunden</displayName>
 				<unitPattern count="one">{0} Millisekunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Millisekunden</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
+				<gender draft="contributed">feminine</gender>
 				<displayName>Mikrosekunden</displayName>
 				<unitPattern count="one">{0} Mikrosekunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Mikrosekunden</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
+				<gender draft="contributed">feminine</gender>
 				<displayName>Nanosekunden</displayName>
 				<unitPattern count="one">{0} Nanosekunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Nanosekunden</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<gender draft="contributed">neuter</gender>
@@ -8615,9 +8674,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Milliampere</displayName>
 				<unitPattern count="one">{0} Milliampere</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Milliampere</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
 				<gender draft="contributed">neuter</gender>
@@ -8680,9 +8746,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Kilojoule</displayName>
 				<unitPattern count="one">{0} Kilojoule</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Kilojoule</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<gender draft="contributed">neuter</gender>
@@ -8697,9 +8770,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
+				<gender draft="contributed">feminine</gender>
 				<displayName>Kilowattstunden</displayName>
 				<unitPattern count="one">{0} Kilowattstunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Kilowattstunden</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>Elektronenvolt</displayName>
@@ -8734,24 +8814,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} Newton</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<gender draft="contributed">feminine</gender>
 				<displayName>Kilowattstunde pro 100 Kilometer</displayName>
 				<unitPattern count="one">{0} Kilowattstunde pro 100 Kilometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Kilowattstunden pro 100 Kilometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Gigahertz</displayName>
 				<unitPattern count="one">{0} Gigahertz</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Gigahertz</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Megahertz</displayName>
 				<unitPattern count="one">{0} Megahertz</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Megahertz</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Kilohertz</displayName>
 				<unitPattern count="one">{0} Kilohertz</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Kilohertz</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
 				<gender draft="contributed">neuter</gender>
@@ -8790,14 +8898,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Megapixel</displayName>
 				<unitPattern count="one">{0} Megapixel</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Megapixels</unitPattern>
 				<unitPattern count="other">{0} Megapixel</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Megapixeln</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Pixel pro Zentimeter</displayName>
 				<unitPattern count="one">{0} Pixel pro Zentimeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Pixels pro Zentimeter</unitPattern>
 				<unitPattern count="other">{0} Pixel pro Zentimeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Pixeln pro Zentimeter</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName>Pixel pro Inch</displayName>
@@ -8851,9 +8973,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} pro Meter</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Dezimeter</displayName>
 				<unitPattern count="one">{0} Dezimeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Dezimeters</unitPattern>
 				<unitPattern count="other">{0} Dezimeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Dezimetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<gender>masculine</gender>
@@ -8881,14 +9010,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} Millimeter</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Mikrometer</displayName>
 				<unitPattern count="one">{0} Mikrometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Mikrometers</unitPattern>
 				<unitPattern count="other">{0} Mikrometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Mikrometern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Nanometer</displayName>
 				<unitPattern count="one">{0} Nanometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Nanometers</unitPattern>
 				<unitPattern count="other">{0} Nanometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Nanometern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<gender>masculine</gender>
@@ -9117,9 +9260,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} Milligramm</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Mikrogramm</displayName>
 				<unitPattern count="one">{0} Mikrogramm</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Mikrogramms</unitPattern>
 				<unitPattern count="other">{0} Mikrogramm</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>Short Tons</displayName>
@@ -9223,9 +9373,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} Gran</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Gigawatt</displayName>
 				<unitPattern count="one">{0} Gigawatt</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Gigawatts</unitPattern>
 				<unitPattern count="other">{0} Gigawatt</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<gender>neuter</gender>
@@ -9264,9 +9421,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} Watt</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Milliwatt</displayName>
 				<unitPattern count="one">{0} Milliwatt</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Milliwatts</unitPattern>
 				<unitPattern count="other">{0} Milliwatt</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>Pferdestärke</displayName>
@@ -9301,9 +9465,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Millibar</displayName>
 				<unitPattern count="one">{0} Millibar</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Millibars</unitPattern>
 				<unitPattern count="other">{0} Millibar</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
 				<gender draft="contributed">feminine</gender>
@@ -9330,9 +9501,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Hektopascal</displayName>
 				<unitPattern count="one">{0} Hektopascal</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Hektopascals</unitPattern>
 				<unitPattern count="other">{0} Hektopascal</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<gender>neuter</gender>
@@ -9347,9 +9525,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} Kilopascal</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
+				<gender draft="contributed">neuter</gender>
 				<displayName>Megapascal</displayName>
 				<unitPattern count="one">{0} Megapascal</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Megapascals</unitPattern>
 				<unitPattern count="other">{0} Megapascal</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<gender>masculine</gender>
@@ -9446,14 +9631,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Foot-pound</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Newtonmeter</displayName>
 				<unitPattern count="one">{0} Newtonmeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Newtonmeters</unitPattern>
 				<unitPattern count="other">{0} Newtonmeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Newtonmetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Kubikkilometer</displayName>
 				<unitPattern count="one">{0} Kubikkilometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Kubikkilometers</unitPattern>
 				<unitPattern count="other">{0} Kubikkilometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Kubikkilometern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<gender>masculine</gender>
@@ -9516,14 +9715,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kubikzoll</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Megaliter</displayName>
 				<unitPattern count="one">{0} Megaliter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Megaliters</unitPattern>
 				<unitPattern count="other">{0} Megaliter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Megalitern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
+				<gender draft="contributed">masculine</gender>
 				<displayName>Hektoliter</displayName>
 				<unitPattern count="one">{0} Hektoliter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" case="genitive" draft="contributed">{0} Hektoliters</unitPattern>
 				<unitPattern count="other">{0} Hektoliter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative" draft="contributed">{0} Hektolitern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<gender>masculine</gender>

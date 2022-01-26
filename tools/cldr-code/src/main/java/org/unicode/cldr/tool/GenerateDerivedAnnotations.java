@@ -114,6 +114,8 @@ public class GenerateDerivedAnnotations {
         Map<String, UnicodeSet> localeToFailures = new LinkedHashMap<>();
         Set<String> locales = ImmutableSortedSet.copyOf(Annotations.getAvailable());
         final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        final Map<String, Integer> failureMap = new TreeMap<>();
+        int processCount = 0;
 
         for (String locale : locales) {
             if ("root".equals(locale)) {
@@ -122,6 +124,7 @@ public class GenerateDerivedAnnotations {
             if (!localeMatcher.reset(locale).matches()) {
                 continue;
             }
+            processCount++;
             UnicodeSet failures = new UnicodeSet(Emoji.getAllRgiNoES());
             localeToFailures.put(locale, failures);
 
@@ -192,6 +195,7 @@ public class GenerateDerivedAnnotations {
                     + "\t" + english.getName(locale)
                     + "\t" + failures.size()
                     + "\t" + failures.toPattern(false));
+                failureMap.put(locale, failures.size());
             }
             if (missingOnly) {
                 continue;
@@ -246,6 +250,16 @@ public class GenerateDerivedAnnotations {
             }
         }
         System.out.println("Be sure to run CLDRModify passes afterwards, and generate transformed locales (like de-CH).");
+        if (!failureMap.isEmpty()) {
+            failureMap.entrySet().forEach(e -> System.err.printf("ERROR: %s: %d errors\n", e.getKey(), e.getValue()));
+            System.err.printf("ERROR: Errors in %d/%d locales.\n", failureMap.size(), processCount);
+            System.exit(1);
+        } else if(processCount == 0) {
+            System.err.println("ERROR: No locales matched. Check the -f option.\n");
+            System.exit(1);
+        } else {
+            System.out.printf("OK: %d locales processed without error\n", processCount);
+            System.exit(0);
+        }
     }
-
 }

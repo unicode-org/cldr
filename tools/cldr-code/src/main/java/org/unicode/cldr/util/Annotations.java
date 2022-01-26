@@ -282,7 +282,9 @@ public class Annotations {
             }
             String sourceLocale = cldrFile2.getSourceLocaleID(xpath, null);
             if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
-                return MISSING_MARKER + result;
+                if (!xpath.equals("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]")) {
+                    return MISSING_MARKER + result;
+                }
             }
             return result;
         }

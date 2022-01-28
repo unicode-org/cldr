@@ -414,7 +414,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "kj|anp|an|niu|mni|dv|swb|pau|gor|nqo|krc|crs|gwi|zza|mad|nog|lez|byn|sad|ssy|mag|iba|"
             + "tpi|kum|wal|mos|dzg|gez|io|tn|snk|mai|ady|chy|mwl|sco|av|efi|war|mic|loz|scn|smj|tem|"
             + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|rap|bug|ban|xal|oc|alt|nia|myv|ain|rar|krl|ay|"
-            + "syr|kv|umb|cu|prg|vo)");
+            + "syr|kv|umb|cu|prg|vo|"
+            + "atj|blt|clc|crg|crj|crk|crl|crm|crr|csw|cwd|hax|hdn|hnj|hur|ike|ikt|"
+            + "kwk|lil|moe|ojb|ojc|ojg|ojs|ojw|oka|pqm|slh|str|tce|tgx|tht|trw|ttm)");
 
         /**
          * Recommended scripts that are allowed for comprehensive coverage.

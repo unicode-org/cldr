@@ -5,13 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -34,7 +37,7 @@ public class TestCLDRFile {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"de","fr","root",})
+    @ValueSource(strings = { "de", "fr", "root", })
     public void TestExtraMetazonePaths(String locale) {
         CLDRFile f = factory.make(locale, true);
         assertNotNull(f, "CLDRFile for " + locale);
@@ -42,13 +45,13 @@ public class TestCLDRFile {
         assertNotNull(rawExtraPaths, "RawExtraPaths for " + locale);
         for (final String path : rawExtraPaths) {
             if (path.indexOf("/metazone") >= 0) {
-                assertFalse(CheckMetazones.isDSTPathForNonDSTMetazone(path), "DST path for non-DST zone: "+locale+":"+path);
+                assertFalse(CheckMetazones.isDSTPathForNonDSTMetazone(path), "DST path for non-DST zone: " + locale + ":" + path);
             }
         }
     }
 
     @ParameterizedTest
-    @EnumSource( value = DraftStatus.class )
+    @EnumSource(value = DraftStatus.class)
     public void TestDraftStatus(DraftStatus status) {
         final String asXpath = status.asXpath();
         if (status == DraftStatus.approved) {
@@ -59,8 +62,7 @@ public class TestCLDRFile {
         assertAll("misc tests for " + status,
             () -> assertEquals(status, DraftStatus.forXpath("//ldml/someLeaf" + asXpath)),
             () -> assertEquals(status, DraftStatus.forString(status.name())),
-            () -> assertEquals(status, DraftStatus.forString(status.name().toUpperCase()))
-        );
+            () -> assertEquals(status, DraftStatus.forString(status.name().toUpperCase())));
     }
 
     /**
@@ -131,6 +133,50 @@ public class TestCLDRFile {
         for (Iterator<String> it = file.iterator("", comparator); it.hasNext();) {
             final String xpath = it.next();
             assertNotNull(xpath, subdir + ":" + id + " xpath");
+        }
+    }
+
+    @Test
+    public void testSourceLocale() {
+        final File unittest_dir = new File(CLDRPaths.UNITTEST_DATA_DIR);
+        final File testcommonmain = new File(unittest_dir, "common/main");
+        final File testfile = new File(testcommonmain, "hy.xml");
+        final File rootfile = new File(testcommonmain, "root.xml");
+        final File[] dirs = { testcommonmain };
+        Factory myFactory = SimpleFactory.make(dirs, ".*");
+        final CLDRFile hyFile = myFactory.make("hy", true);
+
+        {
+            final String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"az\"]";
+            // no location - code-fallback
+            assertNull(hyFile.getSourceLocation(xpath), "expected null location for " + xpath);
+        }
+        {
+            // found in hy.xml
+            final String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]";
+            XMLSource.SourceLocation location = hyFile.getSourceLocation(xpath);
+            assertNotNull(location, "location for " + xpath);
+            assertEquals(testfile.toPath().toString(), location.getSystem(), "system for " + xpath);
+            assertEquals(17, location.getLine(), "line for " + xpath);
+            assertEquals(43, location.getColumn(), "col for " + xpath);
+        }
+        {
+            // found in hy.xml
+            final String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"ab\"]";
+            XMLSource.SourceLocation location = hyFile.getSourceLocation(xpath);
+            assertNotNull(location, "location for " + xpath);
+            assertEquals(testfile.toPath().toString(), location.getSystem(), "system for " + xpath);
+            assertEquals(18, location.getLine(), "line for " + xpath);
+            assertEquals(64, location.getColumn(), "col for " + xpath);
+        }
+        {
+            // found in root.xml
+            final String xpath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"pm\"]";
+            XMLSource.SourceLocation location = hyFile.getSourceLocation(xpath);
+            assertNotNull(location, "location for " + xpath);
+            assertEquals(rootfile.toPath().toString(), location.getSystem(), "system for " + xpath);
+            assertEquals(22, location.getLine(), "line for " + xpath);
+            assertEquals(43, location.getColumn(), "col for " + xpath);
         }
     }
 }

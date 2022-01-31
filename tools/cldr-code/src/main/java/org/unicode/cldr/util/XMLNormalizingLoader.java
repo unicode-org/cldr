@@ -202,6 +202,7 @@ public class XMLNormalizingLoader{
         private Matcher whitespaceWithLf = WHITESPACE_WITH_LF.matcher("");
         private static final UnicodeSet CONTROLS = new UnicodeSet("[:cc:]").freeze();
         private static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
+        private Locator documentLocator = null;
 
         XMLNormalizingHandler(XMLSource source, DraftStatus minimalDraftStatus) {
             this.source = source;
@@ -311,7 +312,8 @@ public class XMLNormalizingLoader{
                 }
             }
             value = trimWhitespaceSpecial(value);
-            source.add(fullXPath, value);
+            source.add(fullXPath, value)
+            .addSourceLocation(fullXPath, new XMLSource.SourceLocation(documentLocator));
         }
 
         private void pop(String qName) {
@@ -392,6 +394,8 @@ public class XMLNormalizingLoader{
                 "\twith\t<" + lastChars + ">" +
                 CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
                 CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPathSb.toString());
+            System.err.println(new XMLSource.SourceLocation(documentLocator) +
+                "Location of error");
             overrideCount += 1;
         }
 
@@ -606,6 +610,7 @@ public class XMLNormalizingLoader{
         @Override
         public void setDocumentLocator(Locator locator) {
             Log.logln(LOG_PROGRESS, "setDocumentLocator Locator " + locator);
+            documentLocator = locator;
         }
 
         @Override

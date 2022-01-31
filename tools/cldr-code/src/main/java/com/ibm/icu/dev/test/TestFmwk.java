@@ -2001,6 +2001,10 @@ public class TestFmwk extends AbstractTestLog {
         return sourceLocation(new Throwable());
     }
 
+    /**
+     * Tuple representing the location of an error or warning.
+     * @see org.unicode.cldr.util.XMLSource.SourceLocation
+     */
     public static final class SourceLocation {
         public final int lineNumber;
         public final String file;

@@ -56,7 +56,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     transient String[] fixedPath = new String[1];
 
     /**
-     * This class represents a source location of an XPath
+     * This class represents a source location of an XPath.
+     * @see com.ibm.icu.dev.test.TestFmwk.SourceLocation
      */
     public static class SourceLocation {
         final static String FILE_PREFIX = "file://";
@@ -101,16 +102,45 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * and has the format 'file:line:column: '
          */
         public String toString() {
-            return getSystem() + ":" + getLine() + ":" + getColumn() + ": ";
+            return toString(null);
+        }
+
+
+        /**
+         * The toString() format is suitable for printing to the command line
+         * and has the format 'file:line:column: '
+         * A good leading base path might be CLDRPaths.BASE_DIRECTORY
+         * @param basePath path to trim
+         */
+        public String toString(final String basePath) {
+            return getSystem(basePath) + ":" + getLine() + ":" + getColumn() + ": ";
         }
 
         /**
-         * as with toString(), but skips the leading base path if identical.
+         * Format location suitable for GitHub annotations, skips leading base bath
+         * A good leading base path might be CLDRPaths.BASE_DIRECTORY
+         * @param basePath path to trim
+         * @return
+         */
+        public String forGitHub(String basePath) {
+            return "file=" + getSystem(basePath) + ",line=" + getLine() + ",col=" + getColumn();
+        }
+
+
+        /**
+         * Format location suitable for GitHub annotations
+         */
+        public String forGitHub() {
+            return forGitHub(null);
+        }
+
+        /**
+         * as with getSystem(), but skips the leading base path if identical.
          * A good leading path might be CLDRPaths.BASE_DIRECTORY
          * @param basePath path to trim
          */
-        public String toString(String basePath) {
-            String path = toString();
+        public String getSystem(String basePath) {
+            String path = getSystem();
             if (basePath != null && !basePath.isEmpty() && path.startsWith(basePath)) {
                 path = path.substring(basePath.length());
                 // Handle case where the path did NOT start with a slash

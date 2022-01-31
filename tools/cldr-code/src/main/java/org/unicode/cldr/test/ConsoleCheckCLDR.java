@@ -60,6 +60,7 @@ import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
+import org.unicode.cldr.util.XMLSource.SourceLocation;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -1347,6 +1348,7 @@ public class ConsoleCheckCLDR {
         if (subType == null) {
             subType = Subtype.none;
         }
+        final SourceLocation location = fullPath == null ? null : cldrFile.getSourceLocation(fullPath);
 
         if (ErrorFile.errorFileWriter == null) {
             example = example == null ? "" : example;
@@ -1370,7 +1372,9 @@ public class ConsoleCheckCLDR {
             final String otherPath = path == null ? null
                 : (status.pathWhereFound.equals(path) ? ""
                     : "\t" + status.pathWhereFound);
-
+            if (location != null) {
+                System.err.println(location.toString() + shortStatus); // print full path here
+            }
             String idViewString = idView ? (path == null ? "\tNO_ID" : getIdString(path, value)) : "";
             System.out.println(
                 getLocaleAndName(localeID)
@@ -1410,11 +1414,17 @@ public class ConsoleCheckCLDR {
             ErrorFile.addDataToErrorFile(localeID, path, shortStatus, subType);
         }
         if (CLDR_GITHUB_ANNOTATIONS) {
-            final String filePath = localeXpathToFilePath.computeIfAbsent(Pair.of(localeID, path), locPath -> guessFilePath(locPath));
             // Annotate anything that needs annotation
             if (shortStatus == ErrorType.error || shortStatus == ErrorType.warning) {
-                String cleanPrettyPath = path == null ? "—" : prettyPath; // prettyPathMaker.getOutputForm(prettyPath);
-                System.out.println("::" + shortStatus + " file=" + filePath + ":: " + localeID + ": " + subType + " @ " + cleanPrettyPath);
+                String filePath = null;
+                if (location != null) {
+                    // Use accurate location
+                    filePath = location.forGitHub(CLDRPaths.BASE_DIRECTORY); // Trim to CLDR_DIR for GitHub
+                } else {
+                    // Fallback if SourceLocation fails
+                    filePath = "file="+localeXpathToFilePath.computeIfAbsent(Pair.of(localeID, path), locPath -> guessFilePath(locPath));
+                }
+                System.out.println("::" + shortStatus + " " + filePath.trim() + ",title=" + subType + ":: " + statusString);
             }
         }
         if (PATH_IN_COUNT && ErrorFile.generated_html_count != null) {

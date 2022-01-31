@@ -371,6 +371,7 @@ public class TestInheritance extends TestFmwk {
                         ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
                 if (!"root".equals(parentLocale)
+                    && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
                     && !lp.set(loc).getScript()
                         .equals(lp.set(parentLocale).getScript())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["

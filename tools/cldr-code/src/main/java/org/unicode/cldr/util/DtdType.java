@@ -20,6 +20,7 @@ public enum DtdType {
     ldmlICU("common/dtd/ldmlICU.dtd", ldml),
     supplementalData("common/dtd/ldmlSupplemental.dtd", null, null,
         "supplemental",
+        "supplemental-temp",
         "transforms",
         "validity"),
     ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null,

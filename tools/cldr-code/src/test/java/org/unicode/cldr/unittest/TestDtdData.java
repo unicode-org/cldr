@@ -158,8 +158,9 @@ public class TestDtdData extends TestFmwk {
                     if (!dtdTypeFromPath.directories.contains(dir.getName())) {
                         errln("Mismatch in " + file.toString()
                         + ": " + dtdTypeFromPath + ", " + dtdTypeFromPath.directories);
+                    } else {
+                        logln("\t" + file.getName() + "\t" + dtdTypeFromPath);
                     }
-                    logln("\t" + file.getName() + "\t" + dtdTypeFromPath);
                     break;
                 }
                 if (--maxFiles < 0) break;

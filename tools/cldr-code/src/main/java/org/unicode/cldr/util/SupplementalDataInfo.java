@@ -833,7 +833,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        static void fixEU(Collection<CoverageLevelInfo> targets, SupplementalDataInfo info) {
+        public static void fixEU(Collection<CoverageLevelInfo> targets, SupplementalDataInfo info) {
             Set<String> euCountries = info.getContained("EU");
             for (CoverageLevelInfo item : targets) {
                 if (item.inTerritorySet != null
@@ -2778,7 +2778,7 @@ public class SupplementalDataInfo {
         return parentLocales.values();
     }
 
-    private final static class ApprovalRequirementMatcher {
+    public final static class ApprovalRequirementMatcher {
         @Override
         public String toString() {
             return locales + " / " + xpathMatcher + " = " + requiredVotes;

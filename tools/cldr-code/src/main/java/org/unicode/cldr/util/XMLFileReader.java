@@ -8,6 +8,7 @@
  */
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -95,7 +96,13 @@ public class XMLFileReader {
             ) {
             return read(fileName, new InputSource(fis), handlers, validating);
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fileName).initCause(e);
+            File full = new File(fileName);
+            String fullName = fileName;
+            try {
+                fullName = full.getCanonicalPath();
+            } catch (Exception IOException) {
+            }
+            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullName).initCause(e);
         }
     }
 

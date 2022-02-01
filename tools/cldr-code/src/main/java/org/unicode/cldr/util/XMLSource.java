@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.xml.sax.Locator;
 
 import com.google.common.collect.Iterators;
 import com.ibm.icu.impl.Utility;
@@ -53,6 +54,103 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     private LinkedHashMap<String, List<String>> reverseAliasCache;
     protected boolean locked;
     transient String[] fixedPath = new String[1];
+
+    /**
+     * This class represents a source location of an XPath.
+     * @see com.ibm.icu.dev.test.TestFmwk.SourceLocation
+     */
+    public static class SourceLocation {
+        final static String FILE_PREFIX = "file://";
+        private String system;
+        private int line;
+        private int column;
+
+        /**
+         * Initialize from an XML Locator
+         * @param locator
+         */
+        public SourceLocation(Locator locator) {
+            this(locator.getSystemId(),
+                locator.getLineNumber(),
+                locator.getColumnNumber());
+        }
+
+        public SourceLocation(String system, int line, int column) {
+            // trim this prefix off
+            if (system.startsWith(FILE_PREFIX)) {
+                system = system.substring(FILE_PREFIX.length());
+            }
+            this.system = system;
+            this.line = line;
+            this.column = column;
+        }
+
+        public String getSystem() {
+            return system;
+        }
+
+        public int getLine() {
+            return line;
+        }
+
+        public int getColumn() {
+            return column;
+        }
+
+        /**
+         * The toString() format is suitable for printing to the command line
+         * and has the format 'file:line:column: '
+         */
+        public String toString() {
+            return toString(null);
+        }
+
+
+        /**
+         * The toString() format is suitable for printing to the command line
+         * and has the format 'file:line:column: '
+         * A good leading base path might be CLDRPaths.BASE_DIRECTORY
+         * @param basePath path to trim
+         */
+        public String toString(final String basePath) {
+            return getSystem(basePath) + ":" + getLine() + ":" + getColumn() + ": ";
+        }
+
+        /**
+         * Format location suitable for GitHub annotations, skips leading base bath
+         * A good leading base path might be CLDRPaths.BASE_DIRECTORY
+         * @param basePath path to trim
+         * @return
+         */
+        public String forGitHub(String basePath) {
+            return "file=" + getSystem(basePath) + ",line=" + getLine() + ",col=" + getColumn();
+        }
+
+
+        /**
+         * Format location suitable for GitHub annotations
+         */
+        public String forGitHub() {
+            return forGitHub(null);
+        }
+
+        /**
+         * as with getSystem(), but skips the leading base path if identical.
+         * A good leading path might be CLDRPaths.BASE_DIRECTORY
+         * @param basePath path to trim
+         */
+        public String getSystem(String basePath) {
+            String path = getSystem();
+            if (basePath != null && !basePath.isEmpty() && path.startsWith(basePath)) {
+                path = path.substring(basePath.length());
+                // Handle case where the path did NOT start with a slash
+                if (path.startsWith("/") && !basePath.endsWith("/")) {
+                    path = path.substring(1); // skip leading /
+                }
+            }
+            return path;
+        }
+    }
 
     /*
      * For testing, make it possible to disable multiple caches:
@@ -118,7 +216,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             if (newValue.equals(oldValue)) {
                 continue;
             }
-            putValueAtPath(otherSource.getFullPathAtDPath(path), newValue);
+            String fullPath = putValueAtPath(otherSource.getFullPathAtDPath(path), newValue);
+            addSourceLocation(fullPath, otherSource.getSourceLocation(fullPath));
         }
     }
 
@@ -729,6 +828,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 result = getSource(fullStatus).getValueAtDPath(fullStatus.pathWhereFound);
             }
             if (TRACE_VALUE) System.out.println("\t*value: " + result);
+            return result;
+        }
+
+        @Override
+        public SourceLocation getSourceLocation(String xpath) {
+            SourceLocation result = null;
+            final String dPath = CLDRFile.getDistinguishingXPath(xpath, null);
+            // getCachedFullStatus wants a dPath
+            AliasLocation fullStatus = getCachedFullStatus(dPath, true /* skipInheritanceMarker */);
+            if (fullStatus != null) {
+                result = getSource(fullStatus).getSourceLocation(xpath); // getSourceLocation wants fullpath
+            }
             return result;
         }
 
@@ -1764,5 +1875,26 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             }
         }
         return false;
+    }
+
+    /**
+     * Add a SourceLocation to this full XPath.
+     * Base implementation does nothing.
+     * @param currentFullXPath
+     * @param location
+     * @return
+     */
+    public XMLSource addSourceLocation(String currentFullXPath, SourceLocation location) {
+        return this;
+    }
+
+    /**
+     * Get the SourceLocation for a specific XPath.
+     * Base implementation always returns null.
+     * @param fullXPath
+     * @return
+     */
+    public SourceLocation getSourceLocation(String fullXPath) {
+        return null;
     }
 }

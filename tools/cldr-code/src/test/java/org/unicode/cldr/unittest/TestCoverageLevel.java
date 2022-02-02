@@ -41,6 +41,7 @@ import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -667,6 +668,73 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
 
             errln("Comprehensive & no exception for path =>\t" + path);
+        }
+    }
+
+    public static class TargetsAndSublocales  {
+        public final CoverageVariableInfo cvi;
+        public Set<String> scripts;
+        public Set<String> regions;
+
+        public TargetsAndSublocales(String localeLanguage) {
+            cvi = SDI.getCoverageVariableInfo(localeLanguage);
+            scripts = new TreeSet<>();
+            regions = new TreeSet<>();
+        }
+
+        public boolean addScript(String localeScript) {
+            return scripts.add(localeScript);
+        }
+        public boolean addRegion(String localeRegion) {
+            return regions.add(localeRegion);
+        }
+    }
+
+    public void TestCoverageVariableInfo() {
+        /**
+         * Compare the targetScripts and targetTerritories for a language to
+         * what we actually have in locales
+         */
+        Map<String, TargetsAndSublocales> langToTargetsAndSublocales = new TreeMap<>();
+        org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
+        for (CLDRLocale locale : factory.getAvailableCLDRLocales()) {
+            String language = locale.getLanguage();
+            if (language.length() == 0 || language.equals("root")) {
+                continue;
+            }
+            TargetsAndSublocales targetsAndSublocales = langToTargetsAndSublocales.get(language);
+            if (targetsAndSublocales == null) {
+                targetsAndSublocales = new TargetsAndSublocales(language);
+                langToTargetsAndSublocales.put(language, targetsAndSublocales);
+            }
+            String script = locale.getScript();
+            if (script.length() > 0) {
+                targetsAndSublocales.addScript(script);
+            }
+            String region = locale.getCountry();
+            if (region.length() > 0) {
+                targetsAndSublocales.addRegion(region);
+            }
+        }
+
+        System.out.println("");
+        for (String language : langToTargetsAndSublocales.keySet()) {
+            TargetsAndSublocales targetsAndSublocales = langToTargetsAndSublocales.get(language);
+            if (targetsAndSublocales == null) {
+                continue;
+            }
+            Set<String> targetScripts = new TreeSet<>(targetsAndSublocales.cvi.targetScripts);
+            Set<String> localeScripts = targetsAndSublocales.scripts;
+            localeScripts.removeAll(targetScripts);
+            if (localeScripts.size() > 0) {
+                System.out.println("language: " + language + ", target scripts: " + targetScripts + ", locales also have: " + localeScripts);
+            }
+            Set<String> targetRegions = new TreeSet<>(targetsAndSublocales.cvi.targetTerritories);
+            Set<String> localeRegions = targetsAndSublocales.regions;
+            localeRegions.removeAll(targetRegions);
+            if (localeRegions.size() > 0) {
+                System.out.println("language: " + language + ", target regions: " + targetRegions + ", locales also have: " + localeRegions);
+            }
         }
     }
 

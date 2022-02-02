@@ -3696,6 +3696,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="tr" populationPercent="1.2"/>	<!--Turkish-->
 		</territory>
 		<territory type="NO" gdp="381200000000" literacyPercent="100" population="5467440">	<!--Norway-->
+			<languagePopulation type="no" populationPercent="100" officialStatus="official"/>	<!--Norwegian -->
 			<languagePopulation type="nb" populationPercent="100" officialStatus="official"/>	<!--Norwegian Bokmål-->
 			<languagePopulation type="nn" populationPercent="25" officialStatus="official"/>	<!--Norwegian Nynorsk-->
 			<languagePopulation type="se" populationPercent="0.29" officialStatus="official_regional"/>	<!--Northern Sami-->
@@ -4809,7 +4810,7 @@ XXX Code for transations where no currency is involved
 
     <timeData>
 		<hours preferred="H" allowed="H" regions="AX BQ CP CZ DK FI ID IS ML NE RU SE SJ SK"/>
-		<hours preferred="H" allowed="H h" regions="001"/>
+		<hours preferred="H" allowed="H h" regions="001 BI BY FO GL HU MG MT MU MV NO PL RW TH TJ TM VN ZW"/>
 		<hours preferred="H" allowed="H h hb hB" regions="AC AI BW BZ CC CK CX DG FK GB GG GI IE IM IO JE LT MK MN MS NF NG NR NU PN SH SX TA ZA"/>
 		<hours preferred="H" allowed="H h hB" regions="CF CM LU NP PF SC SM SN TF VA ca_ES fr_CA gl_ES it_CH it_IT"/>
 		<hours preferred="H" allowed="H h hB hb" regions="AR CL CR CU EA GT HN IC KG KM LK MA MX NI PY SV UY af_ZA es_BO es_BR es_EC es_ES es_GQ es_PE"/>

@@ -2,28 +2,26 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UCharacterDirection;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 
 public class CoreCoverageInfo {
 
@@ -33,25 +31,25 @@ public class CoreCoverageInfo {
     private static final LikelySubtags ls = new LikelySubtags();
 
     public enum CoreItems {
-        // Drop the exemplars, since
-        // main_exemplar, auxiliary_exemplar, // numbers_exemplar, punctuation_exemplar, index_exemplar(Level.MODERN)
-        orientation,
-        plurals,
-        default_content, likely_subtags,
-        country_data,
-        casing,
-        collation,
-        romanization(Level.MODERATE),
-        ordinals(Level.MODERN),
+        default_content(Level.CORE),
+        likely_subtags(Level.CORE),
+        country_data(Level.CORE),
+        orientation(Level.CORE),
+        time_cycle(Level.CORE),
+
+        // time cycle
+
+        casing(Level.MODERATE),
+        plurals(Level.MODERATE),
+        ordinals(Level.MODERATE),
+        collation(Level.MODERATE),
+
+        grammar(Level.MODERN),
+        romanization(Level.MODERN),
         ;
 
         public static Set<CoreItems> ONLY_RECOMMENDED = ImmutableSet.copyOf(
             EnumSet.of(romanization, ordinals));
-
-//        private static final Set<CoreItems> EXEMPLARS = ImmutableSet.copyOf(EnumSet.of(
-//            main_exemplar, auxiliary_exemplar
-//            //, numbers_exemplar, punctuation_exemplar, index_exemplar
-//            ));
 
         public static final int COUNT = CoreItems.values().length;
         public final Level desiredLevel;
@@ -64,12 +62,17 @@ public class CoreCoverageInfo {
         }
         @Override
         public String toString() {
-            // TODO Auto-generated method stub
-            return name() + (desiredLevel == Level.CORE ? "" : "*");
+            return (desiredLevel == Level.CORE ? "ⓒ " :
+                    desiredLevel == Level.BASIC ? "ⓑ " :
+                        desiredLevel == Level.MODERATE ? "ⓜ " :
+                            "🄼️ ")
+                + name();
         }
     }
+    static UnicodeSet RTL = new UnicodeSet("[[:bc=R:][:bc=AL:]]").freeze();
 
     public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Multimap<CoreItems,String> detailedErrors) {
+        detailedErrors.clear();
         if (file.isResolved()) {
             file = file.getUnresolved();
         }
@@ -78,36 +81,14 @@ public class CoreCoverageInfo {
         locale = ltp.set(locale).getLanguageScript();
         String baseLanguage = ltp.getLanguage();
         String script = ltp.getScript();
+        String region = ltp.getRegion();
 
         Set<CoreItems> result = EnumSet.noneOf(CoreItems.class);
 
-        //      (04) Exemplar sets: main, auxiliary, index, punctuation. [main/xxx.xml]
-        //      These must reflect the Unicode model. For more information, see tr35-general.html#Character_Elements.
-        boolean isRtl = false;
-//        for (CoreItems exemplar : CoreItems.EXEMPLARS) {
-//            String type = exemplar.toString();
-//            type = type.substring(0, type.indexOf('_'));
-//
-//            String path = "//ldml/characters/exemplarCharacters";
-//            boolean isMain = type.equals("main");
-//            if (!isMain) {
-//                path += "[@type=\"" + type + "\"]";
-//            }
-//            String value = file.getStringValue(path);
-//            if (value != null) {
-//                String sourceLocale = file.getSourceLocaleID(path, null);
-//                if (locale.equals(sourceLocale)) {
-//                    result.add(exemplar);
-//                }
-//            } else {
-//                detailedErrors.put(exemplar, path);
-//            }
-//            if (isMain && result.contains(exemplar)) {
-//                UnicodeSet main = new UnicodeSet(value);
-//                isRtl = isRtl(main);
-//            }
-//        }
         //      (02) Orientation (bidi writing systems only) [main/xxx.xml]
+        UnicodeSet main = file.getExemplarSet(ExemplarType.main, null);
+        boolean isRtl = main.containsSome(RTL);
+
         String path = "//ldml/layout/orientation/characterOrder";
         String value = file.getStringValue(path);
         if ("right-to-left".equals(value) == isRtl) {
@@ -134,7 +115,7 @@ public class CoreCoverageInfo {
         //      (01) Default content script and region (normally: normally country with largest population using that language, and normal script for that).  [supplemental/supplementalMetadata.xml]
 
         String defaultContent = sdi.getDefaultContentLocale(locale);
-        if (defaultContent != null) {
+        if (defaultContent != null || locale.equals("no")) {
             result.add(CoreItems.default_content);
         } else {
             detailedErrors.put(CoreItems.default_content, "//supplementalData/supplementalMetadata/defaultContent");
@@ -146,14 +127,15 @@ public class CoreCoverageInfo {
             ltp.set(max);
             maxLangScript = ltp.getLanguageScript();
             script = ltp.getScript();
-            if (!script.isEmpty() && !ltp.getRegion().isEmpty()) {
+            region = ltp.getRegion();
+            if (!script.isEmpty() && !region.isEmpty()) {
                 result.add(CoreItems.likely_subtags);
             }
         }
         if (!result.contains(CoreItems.likely_subtags)) {
             detailedErrors.put(CoreItems.likely_subtags, "//supplementalData/likelySubtags");
         }
-        //      (N) Verify the country data ( i.e. which territories in which the language is spoken enough to create a locale ) [supplemental/supplementalData.xml]
+        // (N) Verify the country data ( i.e. which territories in which the language is spoken enough to create a locale ) [supplemental/supplementalData.xml]
         // we verify that there is at least one region
         // we try 3 cases: language, locale, maxLangScript
         Set<String> territories = sdi.getTerritoriesForPopulationData(locale);
@@ -223,7 +205,23 @@ public class CoreCoverageInfo {
         } else {
             detailedErrors.put(CoreItems.collation, "//ldml/collations/collation[@type=\"standard\"]");
         }
-        return Collections.unmodifiableSet(result);
+
+        Map<String, PreferredAndAllowedHour> timeData = sdi.getTimeData();
+        if (timeData.get(region) != null) {
+            result.add(CoreItems.time_cycle);
+        } else {
+            detailedErrors.put(CoreItems.time_cycle, "//supplementalData/timeData/hours");
+        }
+
+        GrammarInfo grammarInfo = sdi.getGrammarInfo(locale);
+        if (grammarInfo != null) {
+            result.add(CoreItems.grammar);
+        } else {
+            detailedErrors.put(CoreItems.grammar, "//supplementalData/grammaticalData/grammaticalFeatures");
+        }
+
+        // finalize
+        return ImmutableSet.copyOf(result);
     }
 
     private static final String[][] ROMANIZATION_PATHS = {
@@ -274,21 +272,4 @@ public class CoreCoverageInfo {
     private static boolean hasFile(SpecialDir type, String filename) {
         return SPECIAL_FILES.get(type).contains(filename);
     }
-
-    public static boolean isRtl(UnicodeSet main) {
-        for (UnicodeSetIterator it = new UnicodeSetIterator(main); it.nextRange();) {
-            for (int i = it.codepoint; i <= it.codepointEnd; ++i) {
-                int bidiClass = UCharacter.getDirection(i);
-                switch (bidiClass) {
-                case UCharacterDirection.RIGHT_TO_LEFT:
-                case UCharacterDirection.RIGHT_TO_LEFT_ARABIC:
-                    return true;
-                case UCharacterDirection.LEFT_TO_RIGHT:
-                    return false;
-                }
-            }
-        }
-        return false;
-    }
-
 }

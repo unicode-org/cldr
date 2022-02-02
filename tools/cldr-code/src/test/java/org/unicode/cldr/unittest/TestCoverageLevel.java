@@ -80,8 +80,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     public void testSpecificPathsPersCal() {
         String[][] rows = {
-            { "//ldml/dates/calendars/calendar[@type=\"persian\"]/eras/eraAbbr/era[@type=\"0\"]", "basic", "4" },
-            { "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]", "basic", "4" }
+            { "//ldml/dates/calendars/calendar[@type=\"persian\"]/eras/eraAbbr/era[@type=\"0\"]", "moderate", "4" },
+            { "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]", "moderate", "4" }
         };
         doSpecificPathTest("ckb_IR", rows);
     }
@@ -355,7 +355,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         SupplementalDataInfo sdi = SupplementalDataInfo
             .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         Level level = sdi.getCoverageLevel(path, "en");
-        assertEquals("Narrow $", Level.BASIC, level);
+        assertEquals("Narrow $", Level.MODERATE, level);
     }
 
     public void TestA() {
@@ -664,6 +664,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     ) {
                     continue;
                 }
+            } else if (xpp.contains("posix")) {
+                continue;
             }
 
             errln("Comprehensive & no exception for path =>\t" + path);

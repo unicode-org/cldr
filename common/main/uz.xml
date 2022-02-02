@@ -6168,9 +6168,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ta element</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName>qism/million</displayName>
-				<unitPattern count="one">{0} qism/million</unitPattern>
-				<unitPattern count="other">{0} qism/million</unitPattern>
+				<displayName>milliondan ulush</displayName>
+				<unitPattern count="one">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>foiz</displayName>
@@ -7213,7 +7213,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ta element</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName>qism/million</displayName>
+				<displayName>milliondan ulush</displayName>
+				<unitPattern count="one">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>foiz</displayName>
@@ -8186,8 +8188,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ppm</displayName>
+				<unitPattern count="one">{0}ppm</unitPattern>
+				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>

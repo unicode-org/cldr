@@ -69,7 +69,12 @@ public final class FileUtilities {
     }
 
     public static PrintWriter openWriter(File dir, String filename, Charset encoding) throws IOException {
-        File file = new File(dir, filename);
+        File file;
+        if (dir.equals("")) {
+            file = new File(filename);
+        } else {
+            file = new File(dir, filename);
+        }
         if (SHOW_FILES && log != null) {
             log.println("Creating File: " + getNormalizedPathString(file));
         }
@@ -271,7 +276,11 @@ public final class FileUtilities {
 
     public static BufferedReader openFile(String directory, String file, Charset charset) {
         try {
-            return new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
+            if (directory.equals("")) {
+                return new BufferedReader(new InputStreamReader(new FileInputStream(new File(file)), charset));
+            } else {
+                return new BufferedReader(new InputStreamReader(new FileInputStream(new File(file, directory)), charset));
+            }
         } catch (FileNotFoundException e) {
             throw new ICUUncheckedIOException(e); // handle dang'd checked exception
         }

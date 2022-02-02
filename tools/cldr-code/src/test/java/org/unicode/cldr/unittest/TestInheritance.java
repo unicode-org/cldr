@@ -37,6 +37,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.Sets;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
@@ -314,6 +315,10 @@ public class TestInheritance extends TestFmwk {
             .matcher("");
         for (String loc : availableLocales) {
             if (langScript.reset(loc).matches()) {
+                if (ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)) {
+                    // Skip any in that list
+                    continue;
+                }
                 String expectedParent = loc.split("_")[0];
                 if (!defaultContents.contains(loc)) {
                     expectedParent = "root";
@@ -325,7 +330,7 @@ public class TestInheritance extends TestFmwk {
                 if (!actualParent.equals(expectedParent)) {
                     errln("Unexpected parent locale for locale " + loc
                         + ". Expected: " + expectedParent + " Got: "
-                        + actualParent);
+                        + actualParent + " " + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
 
                 if (dataInfo.getExplicitParentLocale(loc) != null
@@ -338,29 +343,45 @@ public class TestInheritance extends TestFmwk {
         }
     }
 
+    final String ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE
+        = "See ALLOW_DIFFERENT_PARENT_LOCALE in TestInheritance.java";
+    final public Set<String> ALLOW_DIFFERENT_PARENT_LOCALE =
+        Collections.unmodifiableSet(Sets.newHashSet(
+        // Update this if additional locales have explicit parents in a different language code
+
+        // Per CLDR-2698/14493 we allow nb,nn to have an explicit parent no which is a different language code.
+        "nn", "nb",
+        // Per CLDR-15276 hi-Latn can have an explicit parent
+        "hi_Latn"
+    ));
+
     public void TestParentLocaleInvariants() {
         // Testing invariant relationships in parent locales - See
         // http://unicode.org/cldr/trac/ticket/7887
-        // Per CLDR-2698/14493 we allow nb,nn to have an explicit parent no which is a different language code.
         LocaleIDParser lp = new LocaleIDParser();
         for (String loc : availableLocales) {
             String parentLocale = dataInfo.getExplicitParentLocale(loc);
             if (parentLocale != null) {
-                if (!"root".equals(parentLocale) && !"nb".equals(loc) && !"nn".equals(loc)
+                if (!"root".equals(parentLocale) &&
+                    !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
                     && !lp.set(loc).getLanguage()
-                    .equals(lp.set(parentLocale).getLanguage())) {
+                        .equals(lp.set(parentLocale).getLanguage())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
-                        + loc + "] cannot be a different language code.");
+                        + loc + "] cannot be a different language code. " +
+                        ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
                 if (!"root".equals(parentLocale)
+                    && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
                     && !lp.set(loc).getScript()
-                    .equals(lp.set(parentLocale).getScript())) {
+                        .equals(lp.set(parentLocale).getScript())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
                         + loc + "] cannot be a different script code.");
                 }
                 lp.set(loc);
-                if (lp.getScript().length() == 0 && lp.getRegion().length() == 0 && !"nb".equals(loc) && !"nn".equals(loc)) {
-                    errln("Base language locale [" + loc + "] cannot have an explicit parent.");
+                if (lp.getScript().length() == 0 && lp.getRegion().length() == 0 &&
+                    !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)) {
+                    errln("Base language locale [" + loc + "] cannot have an explicit parent. " +
+                    ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
 
             }

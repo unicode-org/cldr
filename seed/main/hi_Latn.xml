@@ -512,7 +512,6 @@ annotations.
 			<language type="uz">Uzbek</language>
 			<language type="vai">Vai</language>
 			<language type="ve">Venda</language>
-			<language type="vec">Vietnamese</language>
 			<language type="vo">Volapük</language>
 			<language type="vot">Votic</language>
 			<language type="vun">Vunjo</language>
@@ -690,7 +689,7 @@ annotations.
 			<script type="Zyyy">Common</script>
 			<script type="Zzzz">Unknown Script</script>
 		</scripts>
-		<territories>	
+		<territories>
 			<territory type="001">world</territory>
 			<territory type="002">Africa</territory>
 			<territory type="003">North America</territory>
@@ -998,13 +997,13 @@ annotations.
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Unknown Region</territory>
-		</territories>	
-		<subdivisions>	
+		</territories>
+		<subdivisions>
 			<subdivision type="gbeng">England</subdivision>
 			<subdivision type="gbsct">Scotland</subdivision>
 			<subdivision type="gbwls">Wales</subdivision>
 		</subdivisions>
-		<keys>	
+		<keys>
 			<key type="calendar">Calendar</key>
 			<key type="cf">Currency Format</key>
 			<key type="colAlternate">Symbol sorting ignore karein</key>
@@ -1132,7 +1131,7 @@ annotations.
 			<type key="numbers" type="tibt">Tibetan Digits</type>
 			<type key="numbers" type="traditional">Traditional Numerals</type>
 			<type key="numbers" type="vaii">Vai Digits</type>
-		</types>	
+		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 			<measurementSystemName type="UK">U.K.</measurementSystemName>
@@ -2104,13 +2103,13 @@ annotations.
 				<displayName>time zone</displayName>
 			</field>
 		</fields>
-		<timeZoneNames>			
-			<hourFormat>+HH:mm;-HH:mm</hourFormat>		
-			<gmtFormat>GMT{0}</gmtFormat>		
-			<regionFormat>{0} Time</regionFormat>		
-			<regionFormat type="daylight">{0} Daylight Time</regionFormat>		
-			<regionFormat type="standard">{0} Standard Time</regionFormat>		
-			<fallbackFormat>{1} ({0})</fallbackFormat>	
+		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0} Time</regionFormat>
+			<regionFormat type="daylight">{0} Daylight Time</regionFormat>
+			<regionFormat type="standard">{0} Standard Time</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Coordinated Universal Time</standard>
@@ -2118,346 +2117,346 @@ annotations.
 				<short>
 					<standard draft="contributed">↑↑↑</standard>
 				</short>
-			</zone>		
-			<zone type="Etc/Unknown">		
-				<exemplarCity>Unknown City</exemplarCity>	
-			</zone>		
-			<zone type="Europe/Andorra">		
-				<exemplarCity>Andorra</exemplarCity>	
-			</zone>		
-			<zone type="Asia/Dubai">		
-				<exemplarCity>Dubai</exemplarCity>	
-			</zone>		
-			<zone type="Asia/Kabul">		
-				<exemplarCity>Kabul</exemplarCity>	
-			</zone>		
-			<zone type="America/Antigua">		
-				<exemplarCity>Antigua</exemplarCity>	
-			</zone>		
-			<zone type="America/Anguilla">		
-				<exemplarCity>Anguilla</exemplarCity>	
-			</zone>		
-			<zone type="Europe/Tirane">		
-				<exemplarCity>Tirane</exemplarCity>	
-			</zone>		
-			<zone type="Asia/Yerevan">		
-				<exemplarCity>Yerevan</exemplarCity>	
-			</zone>		
-			<zone type="Africa/Luanda">		
-				<exemplarCity>Luanda</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Rothera">		
-				<exemplarCity>Rothera</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Palmer">		
-				<exemplarCity>Palmer</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Troll">		
-				<exemplarCity>Troll</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Syowa">		
-				<exemplarCity>Syowa</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Mawson">		
-				<exemplarCity>Mawson</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Davis">		
-				<exemplarCity>Davis</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Vostok">		
-				<exemplarCity>Vostok</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Casey">		
-				<exemplarCity>Casey</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/DumontDUrville">		
-				<exemplarCity>DumontDUrville</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/McMurdo">		
-				<exemplarCity>McMurdo</exemplarCity>	
-			</zone>		
-			<zone type="America/Argentina/Rio_Gallegos">		
-				<exemplarCity>Rio Gallegos</exemplarCity>	
-			</zone>		
-			<zone type="America/Mendoza">		
-				<exemplarCity>Mendoza</exemplarCity>	
-			</zone>		
-			<zone type="America/Argentina/San_Juan">		
-				<exemplarCity>San Juan</exemplarCity>	
-			</zone>		
-			<zone type="America/Argentina/Ushuaia">		
-				<exemplarCity>Ushuaia</exemplarCity>	
-			</zone>		
-			<zone type="America/Argentina/La_Rioja">		
-				<exemplarCity>La Rioja</exemplarCity>	
-			</zone>		
-			<zone type="America/Argentina/San_Luis">		
-				<exemplarCity>San Luis</exemplarCity>	
-			</zone>		
-			<zone type="America/Catamarca">		
-				<exemplarCity>Catamarca</exemplarCity>	
-			</zone>		
-			<zone type="America/Argentina/Salta">		
-				<exemplarCity>Salta</exemplarCity>	
-			</zone>		
-			<zone type="America/Jujuy">		
-				<exemplarCity>Jujuy</exemplarCity>	
-			</zone>		
-			<zone type="America/Argentina/Tucuman">		
-				<exemplarCity>Tucuman</exemplarCity>	
-			</zone>		
-			<zone type="America/Cordoba">		
-				<exemplarCity>Cordoba</exemplarCity>	
-			</zone>		
-			<zone type="America/Buenos_Aires">		
-				<exemplarCity>Buenos Aires</exemplarCity>	
-			</zone>		
-			<zone type="Pacific/Pago_Pago">		
-				<exemplarCity>Pago Pago</exemplarCity>	
-			</zone>		
-			<zone type="Europe/Vienna">		
-				<exemplarCity>Vienna</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Perth">		
-				<exemplarCity>Perth</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Eucla">		
-				<exemplarCity>Eucla</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Darwin">		
-				<exemplarCity>Darwin</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Adelaide">		
-				<exemplarCity>Adelaide</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Broken_Hill">		
-				<exemplarCity>Broken Hill</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Melbourne">		
-				<exemplarCity>Melbourne</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Currie">		
-				<exemplarCity>Currie</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Hobart">		
-				<exemplarCity>Hobart</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Lindeman">		
-				<exemplarCity>Lindeman</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Sydney">		
-				<exemplarCity>Sydney</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Brisbane">		
-				<exemplarCity>Brisbane</exemplarCity>	
-			</zone>		
-			<zone type="Antarctica/Macquarie">		
-				<exemplarCity>Macquarie</exemplarCity>	
-			</zone>		
-			<zone type="Australia/Lord_Howe">		
-				<exemplarCity>Lord Howe</exemplarCity>	
-			</zone>		
-			<zone type="America/Aruba">		
-				<exemplarCity>Aruba</exemplarCity>	
-			</zone>		
-			<zone type="Europe/Mariehamn">		
-				<exemplarCity>Mariehamn</exemplarCity>	
-			</zone>		
-			<zone type="Asia/Baku">		
-				<exemplarCity>Baku</exemplarCity>	
-			</zone>		
-			<zone type="Europe/Sarajevo">		
-				<exemplarCity>Sarajevo</exemplarCity>	
-			</zone>		
-			<zone type="America/Barbados">		
-				<exemplarCity>Barbados</exemplarCity>	
-			</zone>		
-			<zone type="Asia/Dhaka">		
-				<exemplarCity>Dhaka</exemplarCity>	
-			</zone>		
-			<zone type="Europe/Brussels">		
-				<exemplarCity>Brussels</exemplarCity>	
-			</zone>		
-			<zone type="Africa/Ouagadougou">		
-				<exemplarCity>Ouagadougou</exemplarCity>	
-			</zone>		
-			<zone type="Europe/Sofia">		
-				<exemplarCity>Sofia</exemplarCity>	
-			</zone>		
-			<zone type="Asia/Bahrain">		
-				<exemplarCity>Bahrain</exemplarCity>	
-			</zone>		
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>Unknown City</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity>Andorra</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity>Dubai</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity>Kabul</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity>Antigua</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity>Anguilla</exemplarCity>
+			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity>Tirane</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity>Yerevan</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity>Luanda</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity>Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity>Palmer</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Troll">
+				<exemplarCity>Troll</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity>Syowa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity>Mawson</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity>Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity>Vostok</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity>Casey</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity>DumontDUrville</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity>McMurdo</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity>Rio Gallegos</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>Mendoza</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>San Juan</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity>Ushuaia</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity>La Rioja</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity>San Luis</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>Catamarca</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>Salta</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>Jujuy</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>Tucuman</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>Cordoba</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>Buenos Aires</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity>Pago Pago</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity>Vienna</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity>Perth</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity>Eucla</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>Darwin</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity>Adelaide</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>Broken Hill</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity>Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Currie</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity>Hobart</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity>Lindeman</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity>Sydney</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity>Brisbane</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>Macquarie</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity>Lord Howe</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity>Aruba</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>Mariehamn</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity>Baku</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity>Sarajevo</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity>Barbados</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity>Dhaka</exemplarCity>
+			</zone>
+			<zone type="Europe/Brussels">
+				<exemplarCity>Brussels</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity>Ouagadougou</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity>Sofia</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity>Bahrain</exemplarCity>
+			</zone>
 			<zone type="Africa/Bujumbura">
-				<exemplarCity>Bujumbura</exemplarCity>	
-			</zone>		
+				<exemplarCity>Bujumbura</exemplarCity>
+			</zone>
 			<zone type="Africa/Porto-Novo">
-				<exemplarCity>Porto Novo</exemplarCity>	
-			</zone>		
+				<exemplarCity>Porto Novo</exemplarCity>
+			</zone>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>St Barthelemy</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity>Bermuda</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Brunei">
 				<exemplarCity>Brunei</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/La_Paz">
 				<exemplarCity>La Paz</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Kralendijk">
-				<exemplarCity>Kralendijk</exemplarCity>	
-			</zone>		
+				<exemplarCity>Kralendijk</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>Eirunepe</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>Rio Branco</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Porto_Velho">
 				<exemplarCity>Porto Velho</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Boa_Vista">
 				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Manaus">
 				<exemplarCity>Manaus</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuiaba</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Santarem">
 				<exemplarCity>Santarem</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Belem</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity>Araguaina</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>Sao Paulo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Bahia">
 				<exemplarCity>Bahia</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Fortaleza">
 				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceio</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Recife">
 				<exemplarCity>Recife</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Noronha">
 				<exemplarCity>Noronha</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Nassau">
 				<exemplarCity>Nassau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Thimphu">
 				<exemplarCity>Thimphu</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Gaborone">
 				<exemplarCity>Gaborone</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Minsk">
 				<exemplarCity>Minsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Belize">
 				<exemplarCity>Belize</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Dawson">
 				<exemplarCity>Dawson</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Whitehorse">
 				<exemplarCity>Whitehorse</exemplarCity>
-			</zone>	
+			</zone>
 			<zone type="America/Inuvik">
 				<exemplarCity>Inuvik</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Vancouver">
-				<exemplarCity>Vancouver</exemplarCity>	
-			</zone>		
+				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
 			<zone type="America/Fort_Nelson">
 				<exemplarCity>Fort Nelson</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>Dawson Creek</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Creston">
 				<exemplarCity>Creston</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>Yellowknife</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>Edmonton</exemplarCity>
-			</zone>	
+			</zone>
 			<zone type="America/Swift_Current">
 				<exemplarCity>Swift Current</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Cambridge_Bay">
 				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Regina">
 				<exemplarCity>Regina</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Winnipeg">
 				<exemplarCity>Winnipeg</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Resolute">
 				<exemplarCity>Resolute</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Rainy_River">
 				<exemplarCity>Rainy River</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>Rankin Inlet</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>Coral Harbour</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Thunder_Bay">
 				<exemplarCity>Thunder Bay</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Nipigon">
 				<exemplarCity>Nipigon</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>Toronto</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>Iqaluit</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Pangnirtung">
 				<exemplarCity>Pangnirtung</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>Moncton</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Halifax">
 				<exemplarCity>Halifax</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>	
-			</zone>		
+				<exemplarCity>Goose Bay</exemplarCity>
+			</zone>
 			<zone type="America/Glace_Bay">
 				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Blanc-Sablon">
 				<exemplarCity>Blanc Sablon</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St Johns</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Cocos">
 				<exemplarCity>Cocos</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinshasa</exemplarCity>
 			</zone>
@@ -2466,292 +2465,292 @@ annotations.
 			</zone>
 			<zone type="Africa/Bangui">
 				<exemplarCity>Bangui</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Brazzaville">
 				<exemplarCity>Brazzaville</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zurich</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Abidjan">
 				<exemplarCity>Abidjan</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Rarotonga">
 				<exemplarCity>Rarotonga</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>Easter</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>Punta Arenas</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Santiago</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Douala">
 				<exemplarCity>Douala</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Urumqi">
 				<exemplarCity>Urumqi</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Shanghai</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity>Bogota</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity>Costa Rica</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Havana">
 				<exemplarCity>Havana</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>Cape Verde</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Curacao">
 				<exemplarCity>Curacao</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Christmas</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nicosia</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Famagusta">
 				<exemplarCity>Famagusta</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Prague</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Busingen">
 				<exemplarCity>Busingen</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>Berlin</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Djibouti">
 				<exemplarCity>Djibouti</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Copenhagen">
 				<exemplarCity>Copenhagen</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Dominica">
 				<exemplarCity>Dominica</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>Santo_Domingo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Algiers">
 				<exemplarCity>Algiers</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Galapagos">
 				<exemplarCity>Galapagos</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Guayaquil">
 				<exemplarCity>Guayaquil</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Tallinn">
 				<exemplarCity>Tallinn</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Cairo">
 				<exemplarCity>Cairo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/El_Aaiun">
 				<exemplarCity>El Aaiun</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Asmera">
 				<exemplarCity>Asmera</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Canary</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Ceuta">
 				<exemplarCity>Ceuta</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity>Madrid</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Addis Ababa</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Helsinki">
 				<exemplarCity>Helsinki</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Fiji">
 				<exemplarCity>Fiji</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Stanley">
 				<exemplarCity>Stanley</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Truk">
 				<exemplarCity>Truk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity>Ponape</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Kosrae">
 				<exemplarCity>Kosrae</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Faeroe</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Paris">
 				<exemplarCity>Paris</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Libreville">
 				<exemplarCity>Libreville</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/London">
-				<long>	
+				<long>
 					<daylight>British Summer Time</daylight>
-				</long>	
+				</long>
 				<exemplarCity>London</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>Grenada</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity>Tbilisi</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>Cayenne</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Guernsey">
 				<exemplarCity>Guernsey</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity>Accra</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Gibraltar">
 				<exemplarCity>Gibraltar</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Thule">
 				<exemplarCity>Thule</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>Godthab</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Scoresbysund">
 				<exemplarCity>Scoresbysund</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Danmarkshavn">
 				<exemplarCity>Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="Africa/Banjul">
 				<exemplarCity>Banjul</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Conakry">
 				<exemplarCity>Conakry</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity>Guadeloupe</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Malabo">
 				<exemplarCity>Malabo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Athens</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>South Georgia</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Guatemala">
 				<exemplarCity>Guatemala</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Guam">
 				<exemplarCity>Guam</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Bissau">
 				<exemplarCity>Bissau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Guyana">
 				<exemplarCity>Guyana</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hong Kong</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Tegucigalpa">
 				<exemplarCity>Tegucigalpa</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Zagreb">
 				<exemplarCity>Zagreb</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Port-au-Prince">
 				<exemplarCity>Port-au-Prince</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Budapest">
 				<exemplarCity>Budapest</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Jakarta</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Pontianak">
 				<exemplarCity>Pontianak</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Makassar</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Jayapura">
 				<exemplarCity>Jayapura</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Dublin">
-				<long>	
+				<long>
 					<daylight>Irish Standard Time</daylight>
-				</long>	
+				</long>
 				<exemplarCity>Dublin</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jerusalem</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Isle of Man</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Calcutta">
 				<exemplarCity>Kolkata</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>Chagos</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Baghdad</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Tehran">
 				<exemplarCity>Tehran</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Reykjavik">
 				<exemplarCity>Reykjavik</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Rome">
 				<exemplarCity>Rome</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Jersey">
 				<exemplarCity>Jersey</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity>Jamaica</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Amman">
 				<exemplarCity>Amman</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Tokyo">
 				<exemplarCity>Tokyo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Nairobi">
 				<exemplarCity>Nairobi</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity>Bishkek</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity>Phnom Penh</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>Enderbury</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>Kiritimati</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Tarawa">
 				<exemplarCity>Tarawa</exemplarCity>
 			</zone>
@@ -2763,25 +2762,25 @@ annotations.
 			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity>Pyongyang</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Seoul">
-				<exemplarCity>Seoul</exemplarCity>	
+				<exemplarCity>Seoul</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuwait">
 				<exemplarCity>Kuwait</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Cayman">
 				<exemplarCity>Cayman</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aqtau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Oral</exemplarCity>
 			</zone>
 			<zone type="Asia/Atyrau">
 				<exemplarCity>Atyrau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aqtobe</exemplarCity>
 			</zone>
@@ -2793,7 +2792,7 @@ annotations.
 			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity>Almaty</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Vientiane">
 				<exemplarCity>Vientiane</exemplarCity>
 			</zone>
@@ -2811,10 +2810,10 @@ annotations.
 			</zone>
 			<zone type="Africa/Monrovia">
 				<exemplarCity>Monrovia</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Maseru">
 				<exemplarCity>Maseru</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Vilnius">
 				<exemplarCity>Vilnius</exemplarCity>
 			</zone>
@@ -2823,142 +2822,142 @@ annotations.
 			</zone>
 			<zone type="Europe/Riga">
 				<exemplarCity>Riga</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Tripoli">
 				<exemplarCity>Tripoli</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<exemplarCity>Casablanca</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Monaco">
 				<exemplarCity>Monaco</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Chisinau">
 				<exemplarCity>Chisinau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Podgorica">
 				<exemplarCity>Podgorica</exemplarCity>
 			</zone>
 			<zone type="America/Marigot">
 				<exemplarCity>Marigot</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Antananarivo">
 				<exemplarCity>Antananarivo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Kwajalein">
 				<exemplarCity>Kwajalein</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Majuro">
 				<exemplarCity>Majuro</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Skopje">
 				<exemplarCity>Skopje</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Bamako">
 				<exemplarCity>Bamako</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>Rangoon</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Hovd">
 				<exemplarCity>Hovd</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulaanbaatar</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Choibalsan">
 				<exemplarCity>Choibalsan</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Saipan">
 				<exemplarCity>Saipan</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity>Martinique</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Nouakchott">
 				<exemplarCity>Nouakchott</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Montserrat">
 				<exemplarCity>Montserrat</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Malta">
 				<exemplarCity>Malta</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Mauritius">
 				<exemplarCity>Mauritius</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity>Maldives</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Blantyre">
 				<exemplarCity>Blantyre</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlan</exemplarCity>
 			</zone>
 			<zone type="America/Chihuahua">
 				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Bahia_Banderas">
 				<exemplarCity>Bahia Banderas</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Ojinaga">
 				<exemplarCity>Ojinaga</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>Monterrey</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mexico City</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Matamoros">
 				<exemplarCity>Matamoros</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Merida">
 				<exemplarCity>Merida</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Cancun</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Kuala_Lumpur">
 				<exemplarCity>Kuala Lumpur</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
 				<exemplarCity>Kuching</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Maputo">
 				<exemplarCity>Maputo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Windhoek">
 				<exemplarCity>Windhoek</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Noumea">
 				<exemplarCity>Noumea</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Niamey">
 				<exemplarCity>Niamey</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Norfolk">
 				<exemplarCity>Norfolk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Lagos">
 				<exemplarCity>Lagos</exemplarCity>
 			</zone>
 			<zone type="America/Managua">
 				<exemplarCity>Managua</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Amsterdam">
 				<exemplarCity>Amsterdam</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Oslo">
 				<exemplarCity>Oslo</exemplarCity>
 			</zone>
@@ -2967,253 +2966,253 @@ annotations.
 			</zone>
 			<zone type="Pacific/Nauru">
 				<exemplarCity>Nauru</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Niue">
 				<exemplarCity>Niue</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
 				<exemplarCity>Chatham</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Auckland">
 				<exemplarCity>Auckland</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>Muscat</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Panama">
 				<exemplarCity>Panama</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Lima">
 				<exemplarCity>Lima</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>Tahiti</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Marquesas</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Gambier">
 				<exemplarCity>Gambier</exemplarCity>
 			</zone>
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>Port Moresby</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Bougainville">
 				<exemplarCity>Bougainville</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity>Manila</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity>Karachi</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Warsaw</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Miquelon">
 				<exemplarCity>Miquelon</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity>Pitcairn</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Puerto_Rico">
 				<exemplarCity>Puerto Rico</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Gaza">
 				<exemplarCity>Gaza</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Hebron">
 				<exemplarCity>Hebron</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azores</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>Madeira</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisbon</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Palau">
 				<exemplarCity>Palau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Asuncion">
 				<exemplarCity>Asuncion</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>Qatar</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Reunion">
 				<exemplarCity>Reunion</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bucharest</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Belgrade">
 				<exemplarCity>Belgrade</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningrad</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moscow</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Saratov">
 				<exemplarCity>Saratov</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Astrakhan</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Ulyanovsk">
 				<exemplarCity>Ulyanovsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Kirov">
 				<exemplarCity>Kirov</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity>Samara</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Yekaterinburg</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Omsk">
 				<exemplarCity>Omsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Novosibirsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Barnaul">
 				<exemplarCity>Barnaul</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Tomsk">
 				<exemplarCity>Tomsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Novokuznetsk">
 				<exemplarCity>Novokuznetsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>Krasnoyarsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>Irkutsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Chita">
 				<exemplarCity>Chita</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Yakutsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>Vladivostok</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Khandyga">
 				<exemplarCity>Khandyga</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sakhalin</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Ust-Nera">
 				<exemplarCity>Ust-Nera</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>Magadan</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Srednekolymsk">
 				<exemplarCity>Srednekolymsk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamchatka</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Anadyr">
 				<exemplarCity>Anadyr</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Kigali">
 				<exemplarCity>Kigali</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>Riyadh</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Guadalcanal">
 				<exemplarCity>Guadalcanal</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Mahe">
 				<exemplarCity>Mahe</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Khartoum</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Stockholm">
 				<exemplarCity>Stockholm</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity>Singapore</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Atlantic/St_Helena">
 				<exemplarCity>St Helena</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Ljubljana">
 				<exemplarCity>Ljubljana</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Arctic/Longyearbyen">
 				<exemplarCity>Longyearbyen</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Bratislava">
 				<exemplarCity>Bratislava</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Freetown">
 				<exemplarCity>Freetown</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/San_Marino">
 				<exemplarCity>San Marino</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Dakar">
 				<exemplarCity>Dakar</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Mogadishu">
 				<exemplarCity>Mogadishu</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity>Paramaribo</exemplarCity>
 			</zone>
 			<zone type="Africa/Juba">
 				<exemplarCity>Juba</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>Sao Tome</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>El Salvador</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Lower_Princes">
 				<exemplarCity>Lower Princes</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Damascus">
 				<exemplarCity>Damascus</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Mbabane">
 				<exemplarCity>Mbabane</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Grand_Turk">
 				<exemplarCity>Grand Turk</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Ndjamena">
 				<exemplarCity>Ndjamena</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Kerguelen">
 				<exemplarCity>Kerguelen</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Lome">
 				<exemplarCity>Lome</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>Bangkok</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Dushanbe">
 				<exemplarCity>Dushanbe</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Fakaofo">
 				<exemplarCity>Fakaofo</exemplarCity>
 			</zone>
@@ -3222,171 +3221,171 @@ annotations.
 			</zone>
 			<zone type="Asia/Ashgabat">
 				<exemplarCity>Ashgabat</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Tunis">
 				<exemplarCity>Tunis</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Tongatapu">
 				<exemplarCity>Tongatapu</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Istanbul">
 				<exemplarCity>Istanbul</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Port_of_Spain">
 				<exemplarCity>Port of Spain</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Funafuti">
 				<exemplarCity>Funafuti</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Taipei">
 				<exemplarCity>Taipei</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Dar es Salaam</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Uzhgorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiev</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>Simferopol</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporozhye</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>Kampala</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Midway">
 				<exemplarCity>Midway</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>Wake</exemplarCity>
 			</zone>
 			<zone type="America/Adak">
 				<exemplarCity>Adak</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Nome</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Honolulu">
-				<short>	
+				<short>
 					<generic>HST</generic>
 					<standard>↑↑↑</standard>
 					<daylight draft="contributed">↑↑↑</daylight>
-				</short>	
+				</short>
 				<exemplarCity>Honolulu</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Johnston</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Anchorage</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Yakutat">
 				<exemplarCity>Yakutat</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Sitka">
 				<exemplarCity>Sitka</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>Juneau</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Metlakatla">
 				<exemplarCity>Metlakatla</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Boise">
 				<exemplarCity>Boise</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Phoenix">
 				<exemplarCity>Phoenix</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Denver">
 				<exemplarCity>Denver</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>North Dakota/Beulah</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>North Dakota/New Salem</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>North Dakota/Center</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Chicago">
 				<exemplarCity>Chicago</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Menominee">
 				<exemplarCity>Menominee</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indiana/Vincennes">
 				<exemplarCity>Indiana/Vincennes</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indiana/Petersburg">
 				<exemplarCity>Indiana/Petersburg</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indiana/Tell_City">
 				<exemplarCity>Indiana/Tell City</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>Indiana/Knox</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indiana/Winamac">
 				<exemplarCity>Indiana/Winamac</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indiana/Marengo">
 				<exemplarCity>Indiana/Marengo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indianapolis">
 				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Louisville">
 				<exemplarCity>Louisville</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Indiana/Vevay">
 				<exemplarCity>वेवे, इंडियाना</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Kentucky/Monticello">
 				<exemplarCity>Kentucky/Monticello</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Detroit">
 				<exemplarCity>Detroit</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/New_York">
 				<exemplarCity>New York</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Montevideo">
 				<exemplarCity>Montevideo</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Samarkand</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Tashkent</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Europe/Vatican">
 				<exemplarCity>Vatican</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity>St Vincent</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Caracas">
 				<exemplarCity>Caracas</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/Tortola">
 				<exemplarCity>Tortola</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="America/St_Thomas">
 				<exemplarCity>St Thomas</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Saigon</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Pacific/Efate">
 				<exemplarCity>Efate</exemplarCity>
 			</zone>
@@ -3395,930 +3394,930 @@ annotations.
 			</zone>
 			<zone type="Pacific/Apia">
 				<exemplarCity>Apia</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Asia/Aden">	<exemplarCity>Aden</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Indian/Mayotte">
 				<exemplarCity>Mayotte</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Johannesburg">
 				<exemplarCity>Johannesburg</exemplarCity>
-			</zone>		
+			</zone>
 			<zone type="Africa/Lusaka">
 				<exemplarCity>Lusaka</exemplarCity>
 			</zone>
 			<zone type="Africa/Harare">
 				<exemplarCity>Harare</exemplarCity>
-			</zone>		
+			</zone>
 			<metazone type="Afghanistan">
-				<long>	
+				<long>
 					<standard>Afghanistan Time</standard>
-				</long>	
-			</metazone>		
+				</long>
+			</metazone>
 			<metazone type="Africa_Central">
-				<long>	
+				<long>
 					<standard>Central Africa Time</standard>
-				</long>	
-			</metazone>		
+				</long>
+			</metazone>
 			<metazone type="Africa_Eastern">
-				<long>	
+				<long>
 					<standard>East Africa Time</standard>
-				</long>	
-			</metazone>		
+				</long>
+			</metazone>
 			<metazone type="Africa_Southern">
-				<long>	
+				<long>
 					<standard>South Africa Standard Time</standard>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Africa_Western">
-				<long>	
+				<long>
 					<generic>West Africa Time</generic>
 					<standard>West Africa Standard Time</standard>
 					<daylight>West Africa Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Alaska">
-				<long>	
+				<long>
 					<generic>Alaska Time</generic>
 					<standard>Alaska Standard Time</standard>
 					<daylight>Alaska Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Amazon">
-				<long>	
+				<long>
 					<generic>Amazon Time</generic>
 					<standard>Amazon Standard Time</standard>
 					<daylight>Amazon Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="America_Central">
-				<long>	
+				<long>
 					<generic>North America Central Time</generic>
 					<standard>North America Central Standard Time</standard>
 					<daylight>North America Central Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="America_Eastern">
-				<long>	
+				<long>
 					<generic>North America Eastern Time</generic>
 					<standard>North America Eastern Standard Time</standard>
 					<daylight>North America Eastern Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="America_Mountain">
-				<long>	
+				<long>
 					<generic>North America Mountain Time</generic>
 					<standard>North America Mountain Standard Time</standard>
 					<daylight>North America Mountain Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="America_Pacific">
-				<long>	
+				<long>
 					<generic>North America Pacific Time</generic>
 					<standard>North America Pacific Standard Time</standard>
 					<daylight>North America Pacific Daylight Time</daylight>
-				</long>	
-			</metazone>		
+				</long>
+			</metazone>
 			<metazone type="Anadyr">
-				<long>	
+				<long>
 					<generic>Anadyr Time</generic>
 					<standard>Anadyr Standard Time</standard>
 					<daylight>Anadyr Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Apia">
-				<long>	
+				<long>
 					<generic>Apia Time</generic>
 					<standard>Apia Standard Time</standard>
 					<daylight>Apia Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Arabian">
-				<long>	
+				<long>
 					<generic>Arabian Time</generic>
 					<standard>Arabian Standard Time</standard>
 					<daylight>Arabian Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Argentina">
-				<long>	
+				<long>
 					<generic>Argentina Time</generic>
 					<standard>Argentina Standard Time</standard>
 					<daylight>Argentina Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Argentina_Western">
-				<long>	
+				<long>
 					<generic>Western Argentina Time</generic>
 					<standard>Western Argentina Standard Time</standard>
 					<daylight>Western Argentina Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Armenia">
-				<long>	
+				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Atlantic">
-				<long>	
+				<long>
 					<generic>Atlantic Time</generic>
 					<standard>Atlantic Standard Time</standard>
 					<daylight>Atlantic Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Australia_Central">
-				<long>	
+				<long>
 					<generic>Central Australia Time</generic>
 					<standard>Australian Central Standard Time</standard>
 					<daylight>Australian Central Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Australia_CentralWestern">
-				<long>	
+				<long>
 					<generic>Australian Central Western Time</generic>
 					<standard>Australian Central Western Standard Time</standard>
 					<daylight>Australian Central Western Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Australia_Eastern">
-				<long>	
+				<long>
 					<generic>Eastern Australia Time</generic>
 					<standard>Australian Eastern Standard Time</standard>
 					<daylight>Australian Eastern Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Australia_Western">
-				<long>	
+				<long>
 					<generic>Western Australia Time</generic>
 					<standard>Australian Western Standard Time</standard>
 					<daylight>Australian Western Daylight Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Azerbaijan">
-				<long>	
+				<long>
 					<generic>Azerbaijan Time</generic>
 					<standard>Azerbaijan Standard Time</standard>
 					<daylight>Azerbaijan Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Azores">
-				<long>	
+				<long>
 					<generic>Azores Time</generic>
 					<standard>Azores Standard Time</standard>
 					<daylight>Azores Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Bangladesh">
-				<long>	
+				<long>
 					<generic>Bangladesh Time</generic>
 					<standard>Bangladesh Standard Time</standard>
 					<daylight>Bangladesh Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Bhutan">
-				<long>	
+				<long>
 					<standard>Bhutan Time</standard>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Bolivia">
-				<long>	
+				<long>
 					<standard>Bolivia Time</standard>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Brasilia">
-				<long>	
+				<long>
 					<generic>Brasilia Time</generic>
 					<standard>Brasilia Standard Time</standard>
 					<daylight>Brasilia Summer Time</daylight>
-				</long>	
-			</metazone>		
+				</long>
+			</metazone>
 			<metazone type="Brunei">
-				<long>	
+				<long>
 					<standard>Brunei Darussalam Time</standard>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Cape_Verde">
-				<long>	
+				<long>
 					<generic>Cape Verde Time</generic>
 					<standard>Cape Verde Standard Time</standard>
 					<daylight>Cape Verde Summer Time</daylight>
 				</long>
-			</metazone>		
+			</metazone>
 			<metazone type="Chamorro">
-				<long>	
+				<long>
 					<standard>Chamorro Standard Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Chatham">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
 					<generic>Chatham Time</generic>
 					<standard>Chatham Standard Time</standard>
 					<daylight>Chatham Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Chile">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
 					<generic>Chile Time</generic>
 					<standard>Chile Standard Time</standard>
 					<daylight>Chile Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="China">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
 					<generic>China Time</generic>
 					<standard>China Standard Time</standard>
 					<daylight>China Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Choibalsan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
 					<generic>Choibalsan Time</generic>
 					<standard>Choibalsan Standard Time</standard>
 					<daylight>Choibalsan Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Christmas">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
 					<standard>Christmas Island Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Cocos">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
 					<standard>Cocos Islands Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Colombia">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
 					<generic>Colombia Time</generic>
 					<standard>Colombia Standard Time</standard>
 					<daylight>Colombia Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Cook">	
+				</long>
+			</metazone>
+			<metazone type="Cook">
 				<long>	<generic>Cook Islands Time</generic>
 					<standard>Cook Islands Standard Time</standard>
 					<daylight>Cook Islands Half Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Cuba">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
 					<generic>Cuba Time</generic>
 					<standard>Cuba Standard Time</standard>
 					<daylight>Cuba Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Davis">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
 					<standard>Davis Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="DumontDUrville">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
 					<standard>Dumont-d’Urville Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="East_Timor">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
 					<standard>East Timor Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Easter">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
 					<generic>Easter Island Time</generic>
 					<standard>Easter Island Standard Time</standard>
 					<daylight>Easter Island Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Ecuador">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
 					<standard>Ecuador Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Europe_Central">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
 					<generic>Central European Time</generic>
 					<standard>Central European Standard Time</standard>
 					<daylight>Central European Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Europe_Eastern">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
 					<generic>Eastern European Time</generic>
 					<standard>Eastern European Standard Time</standard>
 					<daylight>Eastern European Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Europe_Further_Eastern">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
 					<standard>Further-eastern European Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Europe_Western">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
 					<generic>Western European Time</generic>
 					<standard>Western European Standard Time</standard>
 					<daylight>Western European Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Falkland">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
 					<generic>Falkland Islands Time</generic>
 					<standard>Falkland Islands Standard Time</standard>
 					<daylight>Falkland Islands Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Fiji">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
 					<generic>Fiji Time</generic>
 					<standard>Fiji Standard Time</standard>
 					<daylight>Fiji Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="French_Guiana">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
 					<standard>French Guiana Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="French_Southern">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
 					<standard>French Southern &amp; Antarctic Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Galapagos">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
 					<standard>Galapagos Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Gambier">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
 					<standard>Gambier Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Georgia">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
 					<generic>Georgia Time</generic>
 					<standard>Georgia Standard Time</standard>
 					<daylight>Georgia Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Gilbert_Islands">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
 					<standard>Gilbert Islands Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="GMT">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
 					<standard>Greenwich Mean Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Greenland_Eastern">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
 					<generic>East Greenland Time</generic>
 					<standard>East Greenland Standard Time</standard>
 					<daylight>East Greenland Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Greenland_Western">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
 					<generic>West Greenland Time</generic>
 					<standard>West Greenland Standard Time</standard>
 					<daylight>West Greenland Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Gulf">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
 					<standard>Gulf Standard Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Guyana">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
 					<standard>Guyana Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Hawaii_Aleutian">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
 					<generic>Hawaii-Aleutian Time</generic>
 					<standard>Hawaii-Aleutian Standard Time</standard>
 					<daylight>Hawaii-Aleutian Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Hong_Kong">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
 					<generic>Hong Kong Time</generic>
 					<standard>Hong Kong Standard Time</standard>
 					<daylight>Hong Kong Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Hovd">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
 					<generic>Hovd Time</generic>
 					<standard>Hovd Standard Time</standard>
 					<daylight>Hovd Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="India">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
 					<standard>India Standard Time</standard>
-				</long>	
-				<short>	
+				</long>
+				<short>
 					<standard>IST</standard>
-				</short>	
-			</metazone>		
-			<metazone type="Indian_Ocean">		
-				<long>	
+				</short>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
 					<standard>Indian Ocean Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Indochina">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
 					<standard>Indochina Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Indonesia_Central">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
 					<standard>Central Indonesia Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Indonesia_Eastern">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
 					<standard>Eastern Indonesia Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Indonesia_Western">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
 					<standard>Western Indonesia Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Iran">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
 					<generic>Iran Time</generic>
 					<standard>Iran Standard Time</standard>
 					<daylight>Iran Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Irkutsk">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
 					<generic>Irkutsk Time</generic>
 					<standard>Irkutsk Standard Time</standard>
 					<daylight>Irkutsk Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Israel">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
 					<generic>Israel Time</generic>
 					<standard>Israel Standard Time</standard>
 					<daylight>Israel Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Japan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
 					<generic>Japan Time</generic>
 					<standard>Japan Standard Time</standard>
 					<daylight>Japan Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Kamchatka">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
 					<generic>Petropavlovsk-Kamchatski Time</generic>
 					<standard>Petropavlovsk-Kamchatski Standard Time</standard>
 					<daylight>Petropavlovsk-Kamchatski Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Kazakhstan_Eastern">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
 					<standard>East Kazakhstan Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Kazakhstan_Western">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
 					<standard>West Kazakhstan Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Korea">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
 					<generic>Korean Time</generic>
 					<standard>Korean Standard Time</standard>
 					<daylight>Korean Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Kosrae">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Kosrae">
+				<long>
 					<standard>Kosrae Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Krasnoyarsk">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
 					<generic>Krasnoyarsk Time</generic>
 					<standard>Krasnoyarsk Standard Time</standard>
 					<daylight>Krasnoyarsk Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Kyrgystan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
 					<standard>Kyrgyzstan Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Line_Islands">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
 					<standard>Line Islands Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Lord_Howe">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Lord_Howe">
+				<long>
 					<generic>Lord Howe Time</generic>
 					<standard>Lord Howe Standard Time</standard>
 					<daylight>Lord Howe Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Macquarie">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Macquarie">
+				<long>
 					<standard>Macquarie Island Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Magadan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
 					<generic>Magadan Time</generic>
 					<standard>Magadan Standard Time</standard>
 					<daylight>Magadan Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Malaysia">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
 					<standard>Malaysia Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Maldives">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
 					<standard>Maldives Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Marquesas">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
 					<standard>Marquesas Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Marshall_Islands">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
 					<standard>Marshall Islands Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Mauritius">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
 					<generic>Mauritius Time</generic>
 					<standard>Mauritius Standard Time</standard>
 					<daylight>Mauritius Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Mawson">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
 					<standard>Mawson Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Mexico_Northwest">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
 					<generic>Northwest Mexico Time</generic>
 					<standard>Northwest Mexico Standard Time</standard>
 					<daylight>Northwest Mexico Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Mexico_Pacific">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
 					<generic>Mexican Pacific Time</generic>
 					<standard>Mexican Pacific Standard Time</standard>
 					<daylight>Mexican Pacific Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Mongolia">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
 					<generic>Ulaanbaatar Time</generic>
 					<standard>Ulaanbaatar Standard Time</standard>
 					<daylight>Ulaanbaatar Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Moscow">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
 					<generic>Moscow Time</generic>
 					<standard>Moscow Standard Time</standard>
 					<daylight>Moscow Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Myanmar">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Myanmar">
+				<long>
 					<standard>Myanmar Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Nauru">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Nauru">
+				<long>
 					<standard>Nauru Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Nepal">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
 					<standard>Nepal Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="New_Caledonia">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
 					<generic>New Caledonia Time</generic>
 					<standard>New Caledonia Standard Time</standard>
 					<daylight>New Caledonia Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="New_Zealand">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
 					<generic>New Zealand Time</generic>
 					<standard>New Zealand Standard Time</standard>
 					<daylight>New Zealand Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Newfoundland">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
 					<generic>Newfoundland Time</generic>
 					<standard>Newfoundland Standard Time</standard>
 					<daylight>Newfoundland Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Niue">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Niue">
+				<long>
 					<standard>Niue Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Norfolk">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
 					<generic>Norfolk Island Time</generic>
 					<standard>Norfolk Island Standard Time</standard>
 					<daylight>Norfolk Island Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Noronha">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
 					<generic>Fernando de Noronha Time</generic>
 					<standard>Fernando de Noronha Standard Time</standard>
 					<daylight>Fernando de Noronha Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Novosibirsk">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
 					<generic>Novosibirsk Time</generic>
 					<standard>Novosibirsk Standard Time</standard>
 					<daylight>Novosibirsk Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Omsk">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
 					<generic>Omsk Time</generic>
 					<standard>Omsk Standard Time</standard>
 					<daylight>Omsk Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Pakistan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
 					<generic>Pakistan Time</generic>
 					<standard>Pakistan Standard Time</standard>
 					<daylight>Pakistan Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Palau">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
 					<standard>Palau Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Papua_New_Guinea">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
 					<standard>Papua New Guinea Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Paraguay">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
 					<generic>Paraguay Time</generic>
 					<standard>Paraguay Standard Time</standard>
 					<daylight>Paraguay Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Peru">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
 					<generic>Peru Time</generic>
 					<standard>Peru Standard Time</standard>
 					<daylight>Peru Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Philippines">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
 					<generic>Philippine Time</generic>
 					<standard>Philippine Standard Time</standard>
 					<daylight>Philippine Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Phoenix_Islands">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
 					<standard>Phoenix Islands Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Pierre_Miquelon">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
 					<generic>St. Pierre &amp; Miquelon Time</generic>
 					<standard>St. Pierre &amp; Miquelon Standard Time</standard>
 					<daylight>St. Pierre &amp; Miquelon Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Pitcairn">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
 					<standard>Pitcairn Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Ponape">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
 					<standard>Ponape Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Pyongyang">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Pyongyang">
+				<long>
 					<standard>Pyongyang Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Reunion">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
 					<standard>Réunion Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Rothera">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
 					<standard>Rothera Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Sakhalin">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
 					<generic>Sakhalin Time</generic>
 					<standard>Sakhalin Standard Time</standard>
 					<daylight>Sakhalin Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Samara">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Samara">
+				<long>
 					<generic>Samara Time</generic>
 					<standard>Samara Standard Time</standard>
 					<daylight>Samara Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Samoa">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Samoa">
+				<long>
 					<generic>Samoa Time</generic>
 					<standard>Samoa Standard Time</standard>
 					<daylight>Samoa Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Seychelles">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
 					<standard>Seychelles Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Singapore">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
 					<standard>Singapore Standard Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Solomon">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
 					<standard>Solomon Islands Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="South_Georgia">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
 					<standard>South Georgia Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Suriname">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
 					<standard>Suriname Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Syowa">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
 					<standard>Syowa Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Tahiti">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
 					<standard>Tahiti Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Taipei">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
 					<generic>Taipei Time</generic>
 					<standard>Taipei Standard Time</standard>
 					<daylight>Taipei Daylight Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Tajikistan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
 					<standard>Tajikistan Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Tokelau">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
 					<standard>Tokelau Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Tonga">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
 					<generic>Tonga Time</generic>
 					<standard>Tonga Standard Time</standard>
 					<daylight>Tonga Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Truk">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
 					<standard>Chuuk Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Turkmenistan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
 					<generic>Turkmenistan Time</generic>
 					<standard>Turkmenistan Standard Time</standard>
 					<daylight>Turkmenistan Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Tuvalu">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
 					<standard>Tuvalu Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Uruguay">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
 					<generic>Uruguay Time</generic>
 					<standard>Uruguay Standard Time</standard>
 					<daylight>Uruguay Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Uzbekistan">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
 					<generic>Uzbekistan Time</generic>
 					<standard>Uzbekistan Standard Time</standard>
 					<daylight>Uzbekistan Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Vanuatu">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Vanuatu">
+				<long>
 					<generic>Vanuatu Time</generic>
 					<standard>Vanuatu Standard Time</standard>
 					<daylight>Vanuatu Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Venezuela">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
 					<standard>Venezuela Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Vladivostok">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
 					<generic>Vladivostok Time</generic>
 					<standard>Vladivostok Standard Time</standard>
 					<daylight>Vladivostok Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Volgograd">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
 					<generic>Volgograd Time</generic>
 					<standard>Volgograd Standard Time</standard>
 					<daylight>Volgograd Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Vostok">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Vostok">
+				<long>
 					<standard>Vostok Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Wake">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
 					<standard>Wake Island Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Wallis">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
 					<standard>Wallis &amp; Futuna Time</standard>
-				</long>	
-			</metazone>		
-			<metazone type="Yakutsk">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
 					<generic>Yakutsk Time</generic>
 					<standard>Yakutsk Standard Time</standard>
 					<daylight>Yakutsk Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Yekaterinburg">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
 					<generic>Yekaterinburg Time</generic>
 					<standard>Yekaterinburg Standard Time</standard>
 					<daylight>Yekaterinburg Summer Time</daylight>
-				</long>	
-			</metazone>		
-			<metazone type="Yukon">		
-				<long>	
+				</long>
+			</metazone>
+			<metazone type="Yukon">
+				<long>
 					<standard>Yukon Time</standard>
-				</long>	
-			</metazone>		
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -5278,11 +5277,6 @@ annotations.
 				<unitPattern count="one">{0} gal</unitPattern>
 				<unitPattern count="other">{0} gal</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
-			</unit>
-			<unit type="volume-quart">
-				<displayName>qts</displayName>
-				<unitPattern count="one">{0} qt</unitPattern>
-				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName>pints</displayName>

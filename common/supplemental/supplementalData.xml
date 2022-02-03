@@ -2980,22 +2980,27 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="puu" populationPercent="9"/>	<!--Punu-->
 		</territory>
 		<territory type="GB" gdp="2925000000000" literacyPercent="99" population="65761100">	<!--United Kingdom-->
-			<languagePopulation type="en" populationPercent="99" officialStatus="official"/>	<!--English-->
-			<languagePopulation type="fr" populationPercent="19"/>	<!--French-->
-			<languagePopulation type="de" populationPercent="6"/>	<!--German-->
-			<languagePopulation type="sco" writingPercent="5" populationPercent="2.7" references="R1016"/>	<!--Scots-->
-			<languagePopulation type="pa" populationPercent="0.79"/>	<!--Punjabi-->
-			<languagePopulation type="cy" populationPercent="0.77" officialStatus="official_regional"/>	<!--Welsh-->
-			<languagePopulation type="bn" populationPercent="0.67"/>	<!--Bangla-->
-			<languagePopulation type="zh_Hant" populationPercent="0.54"/>	<!--Chinese (Traditional)-->
-			<languagePopulation type="syl" populationPercent="0.51"/>	<!--Sylheti-->
-			<languagePopulation type="el" populationPercent="0.33"/>	<!--Greek-->
-			<languagePopulation type="it" populationPercent="0.33"/>	<!--Italian-->
-			<languagePopulation type="ks" populationPercent="0.19"/>	<!--Kashmiri-->
-			<languagePopulation type="gd" writingPercent="5" populationPercent="0.099" officialStatus="official_regional" references="R1017"/>	<!--Scottish Gaelic-->
-			<languagePopulation type="yi" populationPercent="0.049" references="R1249"/>	<!--Yiddish-->
-			<languagePopulation type="ml" populationPercent="0.035" references="R1113"/>	<!--Malayalam-->
-			<languagePopulation type="ga" populationPercent="0.026" officialStatus="official_regional" references="R1139"/>	<!--Irish-->
+			<languagePopulation type="en" populationPercent="98" officialStatus="official" references="R1330"/>	<!--English-->
+			<languagePopulation type="fr" populationPercent="23" references="R1330"/>	<!--French-->
+			<languagePopulation type="de" populationPercent="9" references="R1330"/>	<!--German-->
+			<languagePopulation type="es" populationPercent="8" references="R1330"/>	<!--Spanish-->
+			<languagePopulation type="pl" populationPercent="4" references="R1330"/>	<!--Polish-->
+			<languagePopulation type="pa" populationPercent="3.6" references="R1330"/>	<!--Punjabi-->
+			<languagePopulation type="ur" populationPercent="3.5" references="R1330"/>	<!--Urdu-->
+			<languagePopulation type="ta" populationPercent="3.2" references="R1330"/>	<!--Tamil-->
+			<languagePopulation type="gu" populationPercent="2.9" references="R1330"/>	<!--Gujarati-->
+			<languagePopulation type="sco" writingPercent="5" populationPercent="2.5" references="R1016"/>	<!--Scots-->
+			<languagePopulation type="cy" populationPercent="1.3" officialStatus="official_regional" references="R1330"/>	<!--Welsh-->
+			<languagePopulation type="bn" populationPercent="0.4" references="R1330"/>	<!--Bangla-->
+			<languagePopulation type="ar" populationPercent="0.3" references="R1330"/>	<!--Arabic-->
+			<languagePopulation type="zh_Hant" populationPercent="0.3" references="R1330"/>	<!--Chinese (Traditional)-->
+			<languagePopulation type="pt" populationPercent="0.2" references="R1330"/>	<!--Portuguese-->
+			<languagePopulation type="tr" populationPercent="0.2" references="R1330"/>	<!--Turkish-->
+			<languagePopulation type="it" populationPercent="0.2" references="R1330"/>	<!--Italian-->
+			<languagePopulation type="so" populationPercent="0.2" references="R1330"/>	<!--Somali-->
+			<languagePopulation type="lt" populationPercent="0.2" references="R1330"/>	<!--Lithuanian-->
+			<languagePopulation type="ga" populationPercent="0.15" officialStatus="official_regional" references="R1330"/>	<!--Irish-->
+			<languagePopulation type="gd" writingPercent="5" populationPercent="0.11" officialStatus="official_regional" references="R1330"/>	<!--Scottish Gaelic-->
 			<languagePopulation type="kw" populationPercent="0.003" references="R1140"/>	<!--Cornish-->
 		</territory>
 		<territory type="GD" gdp="1634000000" literacyPercent="96" population="113094">	<!--Grenada-->
@@ -5690,5 +5695,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1327" uri="https://pt.wikipedia.org/wiki/Nheengatu">[missing]</reference>
 		<reference type="R1328" uri="https://statisticsmaldives.gov.mv/statistical-release-iii-education/">2014 Maldives: 98% literacy in Divehi, 75% in English</reference>
 		<reference type="R1329" uri="https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&amp;Lang=E&amp;APATH=3&amp;DETAIL=0&amp;DIM=0&amp;FL=A&amp;FREE=0&amp;GC=0&amp;GID=1235625&amp;GK=0&amp;GRP=1&amp;PID=110212&amp;PRID=10&amp;PTYPE=109445&amp;S=0&amp;SHOWALL=0&amp;SUB=0&amp;Temporal=2016&amp;THEME=118&amp;VID=0&amp;VNAMEE=&amp;VNAMEF=&amp;D1=0&amp;D2=0&amp;D3=0&amp;D4=0&amp;D5=0&amp;D6=0">Canada 2016 census language data; official status from Wikipedia Languages_of_Canada</reference>
+		<reference type="R1330" uri="https://en.wikipedia.org/wiki/Languages_of_the_United_Kingdom">Analyzed from 2011 UK census and other sources</reference>
 	</references>
 </supplementalData>

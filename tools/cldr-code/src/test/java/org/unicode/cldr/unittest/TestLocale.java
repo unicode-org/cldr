@@ -277,6 +277,9 @@ public class TestLocale extends TestFmwkPlus {
         }
     }
 
+    // Locale exceptions to rule that parentIsRoot != isDefaultContent
+    static final Set<String> ROOT_PARENT_DEFAULT_CONTENT_EXCEPTIONS = ImmutableSet.of("hi_Latn");
+
     public void TestConsistency() {
         LanguageTagParser ltp = new LanguageTagParser();
         SupplementalDataInfo supplementalDataInfo = SUPPLEMENTAL_DATA_INFO;
@@ -301,11 +304,14 @@ public class TestLocale extends TestFmwkPlus {
             // locales, for scripts
             // that is, if zh-Hant has a parent of root, then it is not the
             // default content locale, and vice versa
+            // Locales that are known exceptions to this condition are in
+            // ROOT_PARENT_DEFAULT_CONTENT_EXCEPTIONS.
 
             if (hasScript && !hasRegion) {
                 boolean parentIsRoot = "root".equals(supplementalDataInfo
                     .getExplicitParentLocale(locale));
-                if (parentIsRoot == isDefaultContent) {
+                if (parentIsRoot == isDefaultContent &&
+                        !ROOT_PARENT_DEFAULT_CONTENT_EXCEPTIONS.contains(locale)) {
                     errln("Inconsistency between parentLocales and defaultContents: "
                         + locale
                         + (parentIsRoot ? " +" : " -")

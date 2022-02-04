@@ -170,6 +170,7 @@ public class GenerateMaximalLocales {
         "oka_Latn_CA",
         "pqm_Latn_CA",
 
+        "hi_Latn_IN",
         "no_Latn_NO",
         "und_Cpmn_CY",
     };

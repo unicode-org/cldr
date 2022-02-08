@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2913,6 +2913,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Lower_Princes">
 				<exemplarCity>Lower Prince’s Quarter</exemplarCity>
 			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>Kyiv</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, North Dakota</exemplarCity>
 			</zone>
@@ -2954,9 +2957,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Ho Chi Minh</exemplarCity>
-			</zone>
-			<zone type="Europe/Kiev">
-				<exemplarCity>Kyiv</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>

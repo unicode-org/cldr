@@ -22,7 +22,6 @@ import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.text.DurationFormat;
 
 /**
  * @author srl
@@ -92,7 +91,7 @@ public class VettingViewerQueue {
         PROCESSING,
         /** Contents are available */
         READY,
-        /** Stopped, due to some err */
+        /** Stopped, due to error or successful completion */
         STOPPED,
     }
 
@@ -118,13 +117,6 @@ public class VettingViewerQueue {
         }
 
         private StringBuffer output = new StringBuffer();
-        long start = System.currentTimeMillis();
-
-        public String getAge() {
-            long now = System.currentTimeMillis();
-            return "<span class='age'>Last generated "
-                + DurationFormat.getInstance(SurveyMain.TRANS_HINT_LOCALE).formatDurationFromNow(start - now) + "</span>";
-        }
     }
 
     private static class QueueEntry {
@@ -327,46 +319,51 @@ public class VettingViewerQueue {
      *
      * @param sess the CookieSession
      * @param status the array of one new VettingViewerQueue.Status to be filled in
-     * @param forceRestart the LoadingPolicy
+     * @param loadingPolicy the LoadingPolicy
      * @param output the empty Appendable (StringBuilder) to be filled in
-     * @param jStatus the new JSONObject to be filled in
      * @return the status message, or null
      * @throws IOException
      * @throws JSONException
      */
     public synchronized String getPriorityItemsSummaryOutput(CookieSession sess, Status[] status,
-        LoadingPolicy forceRestart, Appendable output, JSONObject jStatus) throws IOException, JSONException {
-        QueueEntry entry = null;
-        entry = getEntry(sess);
+        LoadingPolicy loadingPolicy, Appendable output) throws IOException, JSONException {
+        JSONObject debugStatus = DEBUG ? new JSONObject() : null;
+        QueueEntry entry = getEntry(sess);
         if (status == null) {
             status = new Status[1];
         }
-        if (forceRestart != LoadingPolicy.FORCESTOP) {
-            VVOutput res = entry.output.get(sess.user.vrOrg());
+        Organization usersOrg = sess.user.vrOrg();
+        if (loadingPolicy != LoadingPolicy.FORCESTOP) {
+            VVOutput res = entry.output.get(usersOrg);
             if (res != null) {
                 status[0] = Status.READY;
                 if (output != null) {
-                    output.append(res.getAge()).append("<br>").append(res.output);
+                    output.append(res.output);
                 }
-                return null;
+                stop(entry);
+                entry.output.remove(usersOrg);
+                return "Stopped on completion";
             }
         } else { /* force stop */
             stop(entry);
-            entry.output.remove(sess.user.vrOrg());
+            entry.output.remove(usersOrg);
         }
-
-        if (forceRestart == LoadingPolicy.FORCESTOP) {
+        if (loadingPolicy == LoadingPolicy.FORCESTOP) {
             status[0] = Status.STOPPED;
-            jStatus.put("t_running", false);
-            jStatus.put("t_statuscode", Status.STOPPED);
-            jStatus.put("t_status", "Stopped on request");
+            if (debugStatus != null) {
+                debugStatus.put("t_running", false);
+                debugStatus.put("t_statuscode", Status.STOPPED);
+                debugStatus.put("t_status", "Stopped on request");
+            }
             return "Stopped on request";
         }
         Task t = entry.currentTask;
 
         if (t != null) {
             String waiting = waitingString(t.sm.startupThread);
-            putTaskStatus(jStatus, t);
+            if (debugStatus != null) {
+                putTaskStatus(debugStatus, t);
+            }
             status[0] = Status.PROCESSING;
             if (t.myThread.isAlive()) {
                 // get progress from current thread
@@ -379,17 +376,15 @@ public class VettingViewerQueue {
             }
         }
 
-        if (forceRestart == LoadingPolicy.NOSTART) {
+        if (loadingPolicy == LoadingPolicy.NOSTART) {
             status[0] = Status.STOPPED;
             return PRE + "Not loading. Click the Refresh button to load." + POST;
         }
 
         String baseUrl = null;
         Level usersLevel;
-        Organization usersOrg;
         String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
         usersLevel = Level.get(levelString);
-        usersOrg = sess.user.vrOrg();
 
         // TODO: May be better to use SurveyThreadManager.getExecutorService().invoke() (rather than a raw thread) but would require
         // some restructuring
@@ -399,23 +394,27 @@ public class VettingViewerQueue {
         SurveyThreadManager.getThreadFactory().newThread(t);
 
         status[0] = Status.PROCESSING;
-        putTaskStatus(jStatus, t);
+        if (DEBUG) {
+            putTaskStatus(debugStatus, t);
+        }
         return PRE + "Started new task: " + waitingString(t.sm.startupThread) + t.status() + "<hr/>" + POST;
     }
 
     /**
-     * @param jStatus
-     * @param t
+     * Assemble debugging info
+     *
+     * @param debugStatus the JSONObject to be filled in with debugging info
+     * @param t the Task
      * @throws JSONException
      */
-    public void putTaskStatus(JSONObject jStatus, Task t) throws JSONException {
-        jStatus.put("t_waiting", totalUsersWaiting(t.sm.startupThread));
-        jStatus.put("t_running", t.myThread.isAlive());
-        jStatus.put("t_id", t.myThread.getId());
-        jStatus.put("t_statuscode", t.statusCode);
-        jStatus.put("t_status", t.status);
-        jStatus.put("t_progress", t.n);
-        jStatus.put("t_progressmax", t.maxn);
+    public void putTaskStatus(JSONObject debugStatus, Task t) throws JSONException {
+        debugStatus.put("t_waiting", totalUsersWaiting(t.sm.startupThread));
+        debugStatus.put("t_running", t.myThread.isAlive());
+        debugStatus.put("t_id", t.myThread.getId());
+        debugStatus.put("t_statuscode", t.statusCode);
+        debugStatus.put("t_status", t.status);
+        debugStatus.put("t_progress", t.n);
+        debugStatus.put("t_progressmax", t.maxn);
     }
 
     private String waitingString(SurveyThreadManager startupThread) {

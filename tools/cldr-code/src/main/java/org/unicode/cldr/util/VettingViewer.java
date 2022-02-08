@@ -1003,7 +1003,6 @@ public class VettingViewer<T> {
                 || !includeLocale.is(localeID)) {
                 continue;
             }
-
             sortedNames.put(getName(localeID), localeID);
         }
         if (sortedNames.isEmpty()) {
@@ -1129,9 +1128,11 @@ public class VettingViewer<T> {
     }
 
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {
+        // See https://unicode-org.atlassian.net/browse/CLDR-15279
+        String url = "v#/" + localeID + "//";
         String[] names = name.split(SPLIT_CHAR);
         output
-            .append("<a href='" + urls.forSpecial(CLDRURLS.Special.Vetting, CLDRLocale.getInstance(localeID)))
+            .append("<a href='" + url)
             .append("'>")
             .append(TransliteratorUtilities.toHTML.transform(names[0]))
             .append("</a>")
@@ -1340,7 +1341,6 @@ public class VettingViewer<T> {
 
     static final NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
     private Relation<String, String> reasonsToPaths;
-    private CLDRURLS urls = CLDRConfig.getInstance().urls();
 
     static {
         nf.setGroupingUsed(true);

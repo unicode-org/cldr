@@ -44,6 +44,13 @@ function addSessionHeader(init) {
   return init;
 }
 
+function handleFetchErrors(response) {
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+  return response;
+}
+
 /**
  * Send a request the old-fashioned, low-level way
  *
@@ -234,4 +241,11 @@ function isApiUrl(url) {
   return url.includes(SLASH_API_SLASH);
 }
 
-export { doFetch, makeApiUrl, makeUrl, mediumTimeout, sendXhr };
+export {
+  doFetch,
+  handleFetchErrors,
+  makeApiUrl,
+  makeUrl,
+  mediumTimeout,
+  sendXhr,
+};

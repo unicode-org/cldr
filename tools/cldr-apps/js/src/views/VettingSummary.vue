@@ -1,95 +1,136 @@
 <template>
-  <div id="home">
-    Current Status: {{ statusData.status }}
-    <button v-on:click="stop()">Stop</button>
-    <button v-on:click="start()">Refresh</button>
-    <br />
-    Message:
-    <span v-html="statusData.ret"></span>
-    <br />
-    <!-- results -->
+  <div>
+    <p>Current Status: {{ statusData.status }}</p>
+    <p>
+      <button @click="stop()">Stop</button>
+      <button @click="start()">Refresh</button>
+    </p>
+    <p v-if="statusData?.ret">
+      Message:
+      <span v-html="statusData.ret"></span>
+    </p>
+
+    <section v-if="canUseSnapshots" class="snapSection">
+      <h2 class="snapHeading">Snapshots</h2>
+      <p>
+        <button
+          title="Create a new snapshot of the Priority Items Summary now"
+          @click="createSnapshot"
+        >
+          Create New Snapshot
+        </button>
+        <span v-if="snapshotArray">
+          <span v-for="snapshotId of snapshotArray" :key="snapshotId">
+            <button
+              title="Show the indicated snapshot of the Priority Items Summary"
+              @click="showSnapshot(snapshotId)"
+            >
+              {{ snapshotId }}
+            </button>
+          </span>
+        </span>
+      </p>
+    </section>
+
+    <h1 v-if="heading">{{ heading }}</h1>
+    <p v-if="whenReceived">Received: {{ whenReceived }}</p>
     <span v-html="statusData.output"></span>
   </div>
 </template>
 
 <script>
-import * as cldrAjax from "../esm/cldrAjax.js";
-
-const SECONDS_IN_MS = 1000;
-
-// timeouts
-const RETRY_ON_FETCH_ERR = 15 * SECONDS_IN_MS; // When we couldn't talk to server
-const NORMAL_RETRY = 5 * SECONDS_IN_MS; // "Normal" retry: starting or about to start
-const BUSTED_RETRY = 60 * SECONDS_IN_MS; // ST is down
-
-const SUMMARY_URL = "api/summary";
+import * as cldrPriorityItems from "../esm/cldrPriorityItems.js";
 
 export default {
-  props: [],
   data() {
     return {
       statusData: {
-        wait: "Loading…",
+        status: "Loading…",
+        ret: null,
+        output: null,
       },
+      canUseSnapshots: false,
+      snapshotArray: null,
+      heading: null,
+      whenReceived: null,
     };
   },
   created() {
-    this.fetchStatus();
+    cldrPriorityItems.viewCreated(this.setData, this.setSnapshots);
+    this.canUseSnapshots = cldrPriorityItems.canUseSnapshots();
   },
   methods: {
-    fetchStatus() {
-      cldrAjax
-        .doFetch(SUMMARY_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            loadingPolicy: "NOSTART",
-          }),
-        })
-        .then((r) => r.json())
-        .then((data) => {
-          this.statusData = data;
-          window.setTimeout(this.fetchStatus.bind(this), NORMAL_RETRY);
-        });
+    start() {
+      cldrPriorityItems.start();
     },
 
     stop() {
-      cldrAjax
-        .doFetch(SUMMARY_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            loadingPolicy: "FORCESTOP",
-          }),
-        })
-        .then((r) => r.json())
-        .then((data) => {
-          this.statusData = data;
-        });
+      cldrPriorityItems.stop();
     },
 
-    start() {
-      cldrAjax
-        .doFetch(SUMMARY_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            loadingPolicy: "START",
-          }),
-        })
-        .then((r) => r.json())
-        .then((data) => {
-          this.statusData = data;
-        });
+    showSnapshot(snapshotId) {
+      cldrPriorityItems.showSnapshot(snapshotId);
+    },
+
+    createSnapshot() {
+      cldrPriorityItems.createSnapshot();
+    },
+
+    setData(data) {
+      // can't just set this.statusData = data; data.ret may be updated with a description
+      // of a task in progress, while data.output may be undefined until we get READY
+      this.statusData.ret = data.ret;
+      if (data.status) {
+        this.statusData.status = data.status;
+      }
+      if (data.output) {
+        this.statusData.output = data.output;
+        this.heading = this.makeHeading(data?.snapshotId);
+        this.whenReceived = new Date().toString();
+      }
+    },
+
+    makeHeading(snapshotId) {
+      if (!this.statusData?.output) {
+        return null;
+      }
+      if (
+        snapshotId &&
+        snapshotId !== cldrPriorityItems.SNAPID_NOT_APPLICABLE
+      ) {
+        return "Snapshot " + snapshotId;
+      } else if (this.canUseSnapshots) {
+        return "Latest (not a snapshot)";
+      } else {
+        return "Latest";
+      }
+    },
+
+    setSnapshots(snapshots) {
+      this.snapshotArray = snapshots.array.sort().reverse();
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h1,
+h2,
+h3 {
+  margin-top: 1em;
+}
+
+button {
+  margin: 1ex;
+}
+
+.snapHeading {
+  margin-top: 4px;
+}
+
+.snapSection {
+  border: 2px solid gray;
+  padding: 4px;
+  background-color: #ccdfff; /* light blue */
+}
+</style>

@@ -1,6 +1,7 @@
 <server description="cldr-apps Liberty server">
 	<!-- tag::featureManager[] -->
 	<featureManager>
+		<feature>jsonb-1.0</feature>
 		<feature>jaxrs-2.1</feature>
 		<feature>jsp-2.3</feature>
 		<feature>jdbc-4.3</feature>

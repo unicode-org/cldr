@@ -2,6 +2,8 @@ package org.unicode.cldr.web.api;
 
 import java.io.IOException;
 
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -11,6 +13,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -19,18 +22,31 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.Dashboard;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
+import org.unicode.cldr.web.SurveySnapshot;
+import org.unicode.cldr.web.SurveySnapshotMap;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.VettingViewerQueue;
+import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 
 @Path("/summary")
 @Tag(name = "voting", description = "APIs for voting")
 public class Summary {
+
+    /**
+     * jsonb enables converting an object to a json string,
+     * used for creating snapshots
+     */
+    private static final Jsonb jsonb = JsonbBuilder.create();
+
+    /**
+     * For saving and retrieving "snapshots" of Summary responses
+     */
+    private static SurveySnapshot snap = new SurveySnapshotMap();
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -48,32 +64,140 @@ public class Summary {
         })
     public Response doVettingSummary(
         SummaryRequest request,
-        @HeaderParam(Auth.SESSION_HEADER) String sessionString
-    ) {
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         try {
-            CookieSession session = Auth.getSession(sessionString);
-            if (session == null) {
+            CookieSession cs = Auth.getSession(sessionString);
+            if (cs == null) {
                 return Auth.noSessionResponse();
             }
-            if (!UserRegistry.userCanUseVettingSummary(session.user)) {
-                return Response.status(403, "Forbidden").build();
+            if (!UserRegistry.userCanUseVettingSummary(cs.user)) {
+                return Response.status(Status.FORBIDDEN).build();
             }
-            session.userDidAction();
-            // End boilerplate
-
-            VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
-            StringBuilder sb = new StringBuilder();
-            JSONObject jStatus = new JSONObject();
-            VettingViewerQueue vvq = VettingViewerQueue.getInstance();
-            String str = vvq.getPriorityItemsSummaryOutput(session, status, request.loadingPolicy, sb, jStatus);
-            SummaryResponse resp = new SummaryResponse();
-            resp.jStatus = jStatus;
-            resp.status = status[0];
-            resp.ret = str;
-            resp.output = sb.toString();
-            return Response.ok(resp, MediaType.APPLICATION_JSON).build();
+            if (!SurveySnapshot.SNAP_NONE.equals(request.snapshotPolicy)
+                && !UserRegistry.userIsAdmin(cs.user)) {
+                return Response.status(Status.FORBIDDEN).build();
+            }
+            return getPriorityItemsSummary(cs, request);
         } catch (JSONException | IOException ioe) {
             return Response.status(500, "An exception occurred").entity(ioe).build();
+        }
+    }
+
+    /**
+     * Get the response for Priority Items Summary (possibly a snapshot)
+     *
+     * Each request specifies a loading policy: START, NOSTART, or FORCESTOP.
+     * Typically the client makes a request with START, then makes repeated requests with NOSTART
+     * while the responses have status PROCESSING (or WAITING), until there is a response with status READY.
+     * The response with status READY contains the actual requested Priority Items Summary data.
+     *
+     * Each request specifies a snapshot policy: SNAP_NONE, SNAP_CREATE, or SNAP_SHOW.
+     *
+     * @param cs the CookieSession identifying the user
+     * @param request the SummaryRequest
+     * @return the Response
+     *
+     * @throws IOException
+     * @throws JSONException
+     */
+    private Response getPriorityItemsSummary(CookieSession cs, SummaryRequest request) throws IOException, JSONException {
+        cs.userDidAction();
+        if (SurveySnapshot.SNAP_SHOW.equals(request.snapshotPolicy)) {
+            return showSnapshot(request.snapshotId);
+        }
+        SummaryResponse sr = getSummaryResponse(cs, request.loadingPolicy);
+        if (SurveySnapshot.SNAP_CREATE.equals(request.snapshotPolicy)
+            && sr.status == VettingViewerQueue.Status.READY) {
+            saveSnapshot(sr);
+        }
+        return Response.ok(sr, MediaType.APPLICATION_JSON).build();
+    }
+
+    /**
+     * Get the response for Priority Items Summary (new, not an already existing snapshot)
+     *
+     * @param cs the CookieSession identifying the user
+     * @param loadingPolicy the LoadingPolicy
+     * @return the SummaryResponse
+     *
+     * @throws IOException
+     * @throws JSONException
+     */
+    private SummaryResponse getSummaryResponse(CookieSession cs, LoadingPolicy loadingPolicy) throws IOException, JSONException {
+        VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
+        StringBuilder sb = new StringBuilder();
+        VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+        String str = vvq.getPriorityItemsSummaryOutput(cs, status, loadingPolicy, sb);
+        SummaryResponse sr = new SummaryResponse();
+        sr.status = status[0];
+        sr.ret = str;
+        sr.output = sb.toString();
+        return sr;
+    }
+
+    /**
+     * Return a Response containing the snapshot with the given id
+     *
+     * @param snapshotId
+     * @return the Response
+     */
+    private Response showSnapshot(String snapshotId) {
+        final String json = snap.get(snapshotId);
+        if (json == null) {
+            return Response.status(Status.NOT_FOUND).build();
+        }
+        return Response.ok(json).build();
+    }
+
+    /**
+     * Assign a new snapshot id to sr, then save sr as a json snapshot
+     *
+     * @param sr the SummaryResponse
+     */
+    private void saveSnapshot(SummaryResponse sr) {
+        sr.snapshotId = SurveySnapshot.newId();
+        final String json = jsonb.toJson(sr);
+        if (json != null && !json.isEmpty()) {
+            snap.put(sr.snapshotId, json);
+        }
+    }
+
+    @GET
+    @Path("/snapshots")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(
+        summary = "List All Snapshots",
+        description = "Get a list of all available snapshots of the Priority Items Summary")
+    @APIResponses(
+        value = {
+            @APIResponse(
+                responseCode = "200",
+                description = "Snapshot List",
+                content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = SnapshotListResponse.class)))
+        })
+    public Response listSnapshots(
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+        CookieSession cs = Auth.getSession(sessionString);
+        if (cs == null) {
+            return Auth.noSessionResponse();
+        }
+        if (!UserRegistry.userIsAdmin(cs.user)) {
+            return Response.status(Status.FORBIDDEN).build();
+        }
+        cs.userDidAction();
+        SnapshotListResponse ret = new SnapshotListResponse(snap.list());
+        return Response.ok().entity(ret).build();
+    }
+
+    @Schema(description = "Response for List Snapshots request")
+    public final class SnapshotListResponse {
+
+        @Schema(description = "Array of available snapshots")
+        public String[] array;
+
+        public SnapshotListResponse(String[] array) {
+            this.array = array;
         }
     }
 
@@ -82,23 +206,21 @@ public class Summary {
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
         summary = "Fetch the Dashboard for a locale",
-        description = "Given a locale, get the summary information, aka Dashboard"
-    )
+        description = "Given a locale, get the summary information, aka Dashboard")
     @APIResponses(
         value = {
             @APIResponse(
                 responseCode = "200",
                 description = "Dashboard results",
-                content =  @Content(mediaType = "application/json",
-                schema = @Schema(implementation = ReviewOutput.class))) // TODO: SummaryResults.class
-        }
-    )
+                content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ReviewOutput.class))) // TODO: SummaryResults.class
+        })
     public Response getDashboard(
         @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
         @PathParam("level") @Schema(required = true, description = "Coverage Level") String level,
-        @HeaderParam(Auth.SESSION_HEADER) String session) {
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         CLDRLocale loc = CLDRLocale.getInstance(locale);
-        CookieSession cs = Auth.getSession(session);
+        CookieSession cs = Auth.getSession(sessionString);
         if (cs == null) {
             return Auth.noSessionResponse();
         }

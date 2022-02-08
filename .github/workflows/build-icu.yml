@@ -32,10 +32,10 @@ jobs:
           ref: ${{ github.event.inputs.cldr-ref }}
           lfs: false
           repository: ${{ github.event.inputs.cldr-repo }}
-      - name: Set up JDK 1.8
+      - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
       - name: Cache local Maven repository
         uses: actions/cache@v2
         with:
@@ -86,10 +86,10 @@ jobs:
         with:
           name: cldr-code
           path: cldr-code
-      - name: Set up JDK 1.8
+      - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
       - name: Setup Maven Settings
         uses: s4u/maven-settings-action@v2.4.1
         with:

@@ -279,7 +279,7 @@ public final class FileUtilities {
             if (directory.equals("")) {
                 return new BufferedReader(new InputStreamReader(new FileInputStream(new File(file)), charset));
             } else {
-                return new BufferedReader(new InputStreamReader(new FileInputStream(new File(file, directory)), charset));
+                return new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
             }
         } catch (FileNotFoundException e) {
             throw new ICUUncheckedIOException(e); // handle dang'd checked exception

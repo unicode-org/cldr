@@ -3,7 +3,7 @@ package org.unicode.cldr.util;
 import java.util.Locale;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 
 /**
  * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
@@ -12,14 +12,14 @@ import com.google.common.collect.ImmutableSet;
  *
  */
 public enum Level {
-    UNDETERMINED(0, "none", 0),
-    CORE(10, "G4", 100),
-    BASIC(40, "G3", 80),
-    MODERATE(60, "G2", 70),
-    MODERN(80, "G1", 50),
-    COMPREHENSIVE(100, "G0", 2);
+    UNDETERMINED(0, "none", 0, "�"),
+    CORE(10, "G4", 100, "ⓒ"),
+    BASIC(40, "G3", 80, "ⓑ"),
+    MODERATE(60, "G2", 70, "ⓜ"),
+    MODERN(80, "G1", 50, "🄼"),
+    COMPREHENSIVE(100, "G0", 2, "🄲");
 
-    public static final Set<Level> CORE_TO_MODERN = ImmutableSet.of(CORE, BASIC, MODERATE, MODERN);
+    public static final Set<Level> CORE_TO_MODERN = ImmutableSortedSet.of(CORE, BASIC, MODERATE, MODERN);
 
     @Deprecated
     public static final Level POSIX = BASIC;
@@ -31,6 +31,7 @@ public enum Level {
     private final byte level;
     private final String altName;
     private final int value;
+    private String abbreviation;
 
     private static final Level[] VALUES = values();
 
@@ -43,10 +44,11 @@ public enum Level {
         return value;
     }
 
-    private Level(int i, String altName, int value) {
+    private Level(int i, String altName, int value, String abbreviation) {
         this.level = ((byte) i);
         this.altName = altName;
         this.value = value;
+        this.abbreviation = abbreviation;
     }
 
     public static Level get(String name) {
@@ -71,6 +73,10 @@ public enum Level {
 
     public String getAltName() {
         return altName;
+    }
+
+    public String getAbbreviation() {
+        return abbreviation;
     }
 
     @Override

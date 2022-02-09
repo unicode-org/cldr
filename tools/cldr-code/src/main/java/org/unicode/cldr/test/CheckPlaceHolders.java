@@ -74,6 +74,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         .setSubtype(Subtype.invalidPlaceHolder)
                         .setMessage("Invalid list pattern «" + value + "»: the placeholder {0} must be before {1}."));
                 }
+                break;
             case "3":
                 int pos1 = value.indexOf("{0}");
                 int pos2 = value.indexOf("{1}");
@@ -84,6 +85,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         .setSubtype(Subtype.invalidPlaceHolder)
                         .setMessage("Invalid list pattern «" + value + "»: the placeholders {0}, {1}, {2} must appear in that order."));
                 }
+                break;
             }
         }
         return this;

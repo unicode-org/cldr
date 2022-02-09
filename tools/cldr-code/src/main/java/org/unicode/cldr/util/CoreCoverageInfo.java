@@ -62,11 +62,7 @@ public class CoreCoverageInfo {
         }
         @Override
         public String toString() {
-            return (desiredLevel == Level.CORE ? "ⓒ " :
-                    desiredLevel == Level.BASIC ? "ⓑ " :
-                        desiredLevel == Level.MODERATE ? "ⓜ " :
-                            "🄼️ ")
-                + name();
+            return desiredLevel.getAbbreviation() + " " + name();
         }
     }
     static UnicodeSet RTL = new UnicodeSet("[[:bc=R:][:bc=AL:]]").freeze();

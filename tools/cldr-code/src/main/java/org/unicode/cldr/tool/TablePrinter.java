@@ -252,10 +252,13 @@ public class TablePrinter {
         @Override
         @SuppressWarnings("unchecked")
         public int compare(T[] o1, T[] o2) {
-            int result;
+            int result = 0;
             for (int curr : sortPriorities) {
-                result = o1[curr] instanceof String ? englishCollator.compare((String) o1[curr], (String) o2[curr])
-                    : o1[curr].compareTo(o2[curr]);
+                final T c1 = o1[curr];
+                final T c2 = o2[curr];
+                result = c1 instanceof String
+                    ? englishCollator.compare((String) c1, (String) c2)
+                    : c1.compareTo(c2);
                 if (0 != result) {
                     if (ascending.get(curr)) {
                         return result;
@@ -293,6 +296,17 @@ public class TablePrinter {
     private boolean sort;
 
     public void toTsvInternal(@SuppressWarnings("rawtypes") Comparable[][] sortedFlat, PrintWriter tsvFile) {
+        String sep0 = "#";
+        for (Column column : columns) {
+            if (column.hidden) {
+                continue;
+            }
+            tsvFile.print(sep0);
+            tsvFile.print(column.header);
+            sep0 = "\t";
+        }
+        tsvFile.println();
+
         Object[] patternArgs = new Object[columns.size() + 1];
         if (sort) {
             Arrays.sort(sortedFlat, columnSorter);
@@ -306,25 +320,38 @@ public class TablePrinter {
                 if (columnsFlat[j].hidden) {
                     continue;
                 }
-                patternArgs[0] = sortedFlat[i][j];
+                final Comparable value = sortedFlat[i][j];
+                patternArgs[0] = value;
 
-                if (false && columnsFlat[j].cellPattern != null) {
-                    try {
-                        patternArgs[0] = sortedFlat[i][j];
-                        System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
-                        tsvFile.append(sep).append(format(columnsFlat[j].cellPattern.format(patternArgs)).replace("<br>", " "));
-                    } catch (RuntimeException e) {
-                        throw (RuntimeException) new IllegalArgumentException("cellPattern<" + i + ", " + j + "> = "
-                            + sortedFlat[i][j]).initCause(e);
-                    }
-                } else {
-                    tsvFile.append(sep).append(format(sortedFlat[i][j]).replace("<br>", " "));
+//                if (false && columnsFlat[j].cellPattern != null) {
+//                    try {
+//                        patternArgs[0] = value;
+//                        System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
+//                        tsvFile.append(sep).append(format(columnsFlat[j].cellPattern.format(patternArgs)).replace("<br>", " "));
+//                    } catch (RuntimeException e) {
+//                        throw (RuntimeException) new IllegalArgumentException("cellPattern<" + i + ", " + j + "> = "
+//                            + value).initCause(e);
+//                    }
+//                } else
+                {
+                    tsvFile.append(sep).append(tsvFormat(value));
                 }
                 sep = "\t";
             }
             tsvFile.println();
         }
 
+    }
+
+    private String tsvFormat(Comparable value) {
+        if (value == null) {
+            return "n/a";
+        }
+        if (value instanceof Number) {
+            int debug = 0;
+        }
+        String s = value.toString().replace("\n", " • ");
+        return BIDI.containsNone(s) ? s : RLE + s + PDF;
     }
 
     @SuppressWarnings("rawtypes")

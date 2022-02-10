@@ -116,12 +116,12 @@ public class VettingViewerQueue {
             output = s;
         }
 
-        private StringBuffer output = new StringBuffer();
+        private final StringBuffer output;
     }
 
     private static class QueueEntry {
         private Task currentTask = null;
-        private Map<Organization, VVOutput> output = new TreeMap<>();
+        private final Map<Organization, VVOutput> output = new TreeMap<>();
     }
 
     /**
@@ -137,7 +137,7 @@ public class VettingViewerQueue {
          */
         private final class CLDRProgressCallback extends VettingViewer.ProgressCallback {
             private final CLDRProgressTask progress;
-            private Thread thread;
+            private final Thread thread;
 
             private CLDRProgressCallback(CLDRProgressTask progress, Thread thread) {
                 this.progress = progress;
@@ -146,7 +146,7 @@ public class VettingViewerQueue {
 
             private String setRemStr(long now) {
                 double per = (double) (now - start) / (double) n;
-                rem = (long) ((maxn - n) * per);
+                long rem = (long) ((maxn - n) * per);
                 String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + "remaining";
                 if (rem <= 1500) {
                     remStr = "Finishing...";
@@ -190,13 +190,12 @@ public class VettingViewerQueue {
         private Thread myThread = null;
         private boolean stop = false;
 
-        private QueueEntry entry;
-        private SurveyMain sm;
+        private final QueueEntry entry;
+        private final SurveyMain sm;
         private int maxn;
         private int n = 0;
         private long start = -1;
         private long last;
-        private long rem = -1;
         private final Organization usersOrg;
         private String status = "(Waiting my spot in line)";
         private Status statusCode = Status.WAITING; // Need to start out as waiting.
@@ -205,19 +204,15 @@ public class VettingViewerQueue {
             this.status = status;
         }
 
-        private StringBuffer aBuffer = new StringBuffer();
+        private final StringBuffer aBuffer = new StringBuffer();
 
         /**
          * Construct a Runnable object specifically for Priority Items Summary
          *
          * @param entry the QueueEntry
-         * @param baseUrl
-         * @param usersLevel
          * @param usersOrg
-         * @param st_org
          */
-        private Task(QueueEntry entry, String baseUrl, Level usersLevel,
-            Organization usersOrg, final String st_org) {
+        private Task(QueueEntry entry, Organization usersOrg) {
             if (DEBUG) {
                 System.out.println("Creating task for Priority Items Summary");
             }
@@ -269,7 +264,7 @@ public class VettingViewerQueue {
                 statusCode = Status.READY;
             } catch (RuntimeException | InterruptedException re) {
                 SurveyLog.logException(logger, re, "While VettingViewer processing Priority Items Summary");
-                status = "Exception! " + re.toString();
+                status = "Exception! " + re;
                 // We're done.
                 statusCode = Status.STOPPED;
             } finally {
@@ -360,7 +355,7 @@ public class VettingViewerQueue {
         Task t = entry.currentTask;
 
         if (t != null) {
-            String waiting = waitingString(t.sm.startupThread);
+            String waiting = waitingString();
             if (debugStatus != null) {
                 putTaskStatus(debugStatus, t);
             }
@@ -381,14 +376,9 @@ public class VettingViewerQueue {
             return PRE + "Not loading. Click the Refresh button to load." + POST;
         }
 
-        String baseUrl = null;
-        Level usersLevel;
-        String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-        usersLevel = Level.get(levelString);
-
         // TODO: May be better to use SurveyThreadManager.getExecutorService().invoke() (rather than a raw thread) but would require
         // some restructuring
-        t = entry.currentTask = new Task(entry, baseUrl, usersLevel, usersOrg, sess.user.org);
+        t = entry.currentTask = new Task(entry, usersOrg);
         t.myThread = SurveyThreadManager.getThreadFactory().newThread(t);
         t.myThread.start();
         SurveyThreadManager.getThreadFactory().newThread(t);
@@ -397,7 +387,7 @@ public class VettingViewerQueue {
         if (DEBUG) {
             putTaskStatus(debugStatus, t);
         }
-        return PRE + "Started new task: " + waitingString(t.sm.startupThread) + t.status() + "<hr/>" + POST;
+        return PRE + "Started new task: " + waitingString() + t.status() + "<hr/>" + POST;
     }
 
     /**
@@ -408,7 +398,7 @@ public class VettingViewerQueue {
      * @throws JSONException
      */
     public void putTaskStatus(JSONObject debugStatus, Task t) throws JSONException {
-        debugStatus.put("t_waiting", totalUsersWaiting(t.sm.startupThread));
+        debugStatus.put("t_waiting", totalUsersWaiting());
         debugStatus.put("t_running", t.myThread.isAlive());
         debugStatus.put("t_id", t.myThread.getId());
         debugStatus.put("t_statuscode", t.statusCode);
@@ -417,16 +407,15 @@ public class VettingViewerQueue {
         debugStatus.put("t_progressmax", t.maxn);
     }
 
-    private String waitingString(SurveyThreadManager startupThread) {
-        int aheadOfMe = (totalUsersWaiting(startupThread));
-        String waiting = (aheadOfMe > 0) ? ("" + aheadOfMe + " users waiting - ") : "";
-        return waiting;
+    private String waitingString() {
+        int aheadOfMe = totalUsersWaiting();
+        return (aheadOfMe > 0) ? ("" + aheadOfMe + " users waiting - ") : "";
     }
 
     private void stop(QueueEntry entry) {
         Task t = entry.currentTask;
         if (t != null) {
-            if (t.myThread.isAlive() && t.stop == false) {
+            if (t.myThread.isAlive() && !t.stop) {
                 t.stop = true;
                 t.myThread.interrupt();
             }
@@ -443,7 +432,7 @@ public class VettingViewerQueue {
         return entry;
     }
 
-    private static int totalUsersWaiting(SurveyThreadManager st) {
+    private static int totalUsersWaiting() {
         return (OnlyOneVetter.getQueueLength());
     }
 }

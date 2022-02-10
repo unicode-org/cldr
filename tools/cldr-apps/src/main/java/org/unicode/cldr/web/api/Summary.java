@@ -46,7 +46,7 @@ public class Summary {
     /**
      * For saving and retrieving "snapshots" of Summary responses
      */
-    private static SurveySnapshot snap = new SurveySnapshotMap();
+    private static final SurveySnapshot snap = new SurveySnapshotMap();
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -87,7 +87,7 @@ public class Summary {
      * Get the response for Priority Items Summary (possibly a snapshot)
      *
      * Each request specifies a loading policy: START, NOSTART, or FORCESTOP.
-     * Typically the client makes a request with START, then makes repeated requests with NOSTART
+     * Typically, the client makes a request with START, then makes repeated requests with NOSTART
      * while the responses have status PROCESSING (or WAITING), until there is a response with status READY.
      * The response with status READY contains the actual requested Priority Items Summary data.
      *
@@ -124,7 +124,7 @@ public class Summary {
      * @throws JSONException
      */
     private SummaryResponse getSummaryResponse(CookieSession cs, LoadingPolicy loadingPolicy) throws IOException, JSONException {
-        VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
+        VettingViewerQueue.Status[] status = new VettingViewerQueue.Status[1];
         StringBuilder sb = new StringBuilder();
         VettingViewerQueue vvq = VettingViewerQueue.getInstance();
         String str = vvq.getPriorityItemsSummaryOutput(cs, status, loadingPolicy, sb);
@@ -191,7 +191,7 @@ public class Summary {
     }
 
     @Schema(description = "Response for List Snapshots request")
-    public final class SnapshotListResponse {
+    public static final class SnapshotListResponse {
 
         @Schema(description = "Array of available snapshots")
         public String[] array;

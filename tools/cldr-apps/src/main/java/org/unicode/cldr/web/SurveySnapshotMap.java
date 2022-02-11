@@ -18,8 +18,7 @@ public class SurveySnapshotMap implements SurveySnapshot {
 
     @Override
     public String[] list() {
-        Object[] a = snapMap.entrySet().toArray();
-        String keys[] = new String[a.length];
+        String[] keys = new String[snapMap.size()];
         return snapMap.keySet().toArray(keys);
     }
 }

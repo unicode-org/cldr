@@ -17,10 +17,6 @@ import { createCldrApp } from "../cldrVueRouter";
 
 import { notification } from "ant-design-vue";
 
-const USE_NEW_PROGRESS_WIDGET = true;
-const CAN_GET_VOTER_PROGRESS = true;
-const CAN_GET_LOCALE_PROGRESS = true;
-
 let progressWrapper = null;
 
 let pageProgressStats = null;
@@ -28,6 +24,10 @@ let voterProgressStats = null;
 let localeProgressStats = null;
 
 let pageProgressRows = null;
+
+let timeLastFetchedLocaleData = 0;
+
+const LOCALE_METER_REFRESH_MS = 60 * 1000;
 
 class MeterData {
   /**
@@ -107,10 +107,6 @@ class MeterData {
  * @param spanId the id of the element that will contain the new component
  */
 function insertWidget(spanId) {
-  if (!USE_NEW_PROGRESS_WIDGET) {
-    return;
-  }
-  hideLegacyCompletionWidget();
   try {
     const fragment = document.createDocumentFragment();
     progressWrapper = createCldrApp(ProgressMeters).mount(fragment);
@@ -149,12 +145,6 @@ function updateWidgetsWithCoverage() {
 }
 
 function refresh() {
-  if (!USE_NEW_PROGRESS_WIDGET) {
-    if (pageProgressStats) {
-      updateLegacyCompletionWidget(pageProgressStats);
-    }
-    return;
-  }
   refreshPageMeter();
   refreshVoterMeter();
   refreshLocaleMeter();
@@ -315,11 +305,7 @@ function updateStatsOneVote(stats, hasVoted) {
  * The json is actually the dashboard data, with voter progress data as part of the same response
  */
 function updateVoterCompletion(json) {
-  if (
-    !CAN_GET_VOTER_PROGRESS ||
-    !progressWrapper ||
-    !cldrStatus.getSurveyUser()
-  ) {
+  if (!progressWrapper || !cldrStatus.getSurveyUser()) {
     return;
   }
   if (
@@ -362,11 +348,7 @@ function updateVoterStats(votes, total) {
  * @returns
  */
 function fetchLocaleData(unlessLoaded) {
-  if (
-    !CAN_GET_LOCALE_PROGRESS ||
-    !progressWrapper ||
-    !cldrStatus.getSurveyUser()
-  ) {
+  if (!progressWrapper || !cldrStatus.getSurveyUser()) {
     return;
   }
   const locale = cldrStatus.getCurrentLocale();
@@ -379,8 +361,10 @@ function fetchLocaleData(unlessLoaded) {
     localeProgressStats.locale === locale
   ) {
     // LocaleMeter is already set
-    // TODO: still refresh if it's been too long
-    return;
+    // Still refresh if it's been too long
+    if (Date.now() < timeLastFetchedLocaleData + LOCALE_METER_REFRESH_MS) {
+      return;
+    }
   }
   progressWrapper.setHidden(false);
   reallyFetchLocaleData(locale);
@@ -406,6 +390,7 @@ function reallyFetchLocaleData(locale) {
         level: json.level,
         locale,
       };
+      timeLastFetchedLocaleData = Date.now();
       refreshLocaleMeter();
     })
     .catch((err) => {
@@ -431,29 +416,6 @@ function friendlyPercent(votes, total) {
     return 1;
   }
   return floor;
-}
-
-function hideLegacyCompletionWidget() {
-  const el = document.getElementById("legacyCompletionSpan");
-  if (el) {
-    el.style.display = "none";
-  }
-}
-
-function updateLegacyCompletionWidget(pageVotesTotal) {
-  const votes = pageVotesTotal.votes;
-  const total = pageVotesTotal.total;
-  const abstain = total - votes;
-  document.getElementById("count-total").innerHTML = total;
-  document.getElementById("count-abstain").innerHTML = abstain;
-  document.getElementById("count-voted").innerHTML = votes;
-  if (total === 0) {
-    total = 1; // avoid division by zero
-  }
-  document.getElementById("progress-voted").style.width =
-    (votes * 100) / total + "%";
-  document.getElementById("progress-abstain").style.width =
-    (abstain * 100) / total + "%";
 }
 
 export {

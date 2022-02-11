@@ -263,15 +263,6 @@ const topTitle =
       <span class="counter-infos">
         <a id="reloadForum">Forum:</a>
         <span id="vForum"><span id="forumSummary"> 0</span> </span>
-        <span id="legacyCompletionSpan"> ● Votes:
-          <span id="count-voted">0</span> - Abstain:
-          <span id="count-abstain">0</span> - Total:
-          <span id="count-total">0</span>
-          <span class="progress nav-progress">
-            <span id="progress-voted" class="progress-bar progress-bar-info tip-log" title="Votes" style="width: 0%"></span>
-            <span id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title="Abstain" style="width: 0%"></span>
-          </span>
-        </span>
       </span>
       <span id="CompletionSpan"></span>
       <span>
